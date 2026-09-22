@@ -1,0 +1,107 @@
+{
+  "specialRules": [
+    {
+      "name": "Additional Reaction Point",
+      "page": 4,
+      "text": "If an Army's Primary Detachment is from the Necrons Army List, the Controlling Player gains one additional Reaction Point if that Detachment contains any Models with the Nemesor or Phaeron Trait."
+    }
+  ],
+  "reactions": [
+    {
+      "name": "Snap Resurrection",
+      "page": 5,
+      "text": "Trigger: The Reactive Player may declare a Snap Resurrection reaction during Step 11 of the Shooting Attack sequence of a Shooting Attack made by the Active Player or during Step 10 of the combat sequence during the Active Player's turn if no more Initiative Steps remain to resolve as part of that combat.\n\nCost: The Reactive player may spend 1 point from their Reaction Allotment to declare a Snap Resurrection reaction – the cost is paid as soon as the declaration is made.\n\nTarget: The target unit is one friendly unit containing any models with the Reanimant trait that had models removed as casualties as part of the Shooting Attack or Combat during which the Reaction is declared. The Target Unit is the Reactive Unit for the purpose of this Reaction.\n\nProcess:\nI. Once a Snap Resurrection reaction has been declared, first remove all Casualties from play as normal. If there are no models with the Reanimant Trait remaining in the Unit after all casualties have been removed, the Reaction ends. Otherwise, proceed to step II.\nII. The controlling player makes a number of Resurrection (6+) tests for the Reacting Unit equal to the number of models with the Reanimant trait that have been removed as casualties from the Reacting Unit during the current Phase.\nIII. Once any models have been returned to the Unit, proceed to the Resolution Sub-Phase. Any models returned to the unit with a Resurrection Test made as part of this Reaction are no longer counted as having been removed as casualties and are not counted towards Combat Resolution or for determining if a Unit must make a Panic Test."
+    },
+    {
+      "name": "Ethereal Interception",
+      "page": 5,
+      "text": "Trigger: The Reactive Player may declare an Ethereal Interception Reaction whenever the Active Player brings a Unit into play from Reserves or Aerial Reserves. The Declaration is made as soon as the Unit is placed on the battlefield, before any Moves or Actions are declared.\n\nCost: The Reactive player may spend 1 point from their Reaction Allotment to declare an Ethereal Interception reaction – the cost is paid as soon as the declaration is made.\n\nTarget: The unit entering play from Reserves or Aerial Reserves is always the Target of the Reaction. After declaring this Reaction, the Reactive Player must select one Unit under their control that is both held in reserves and is comprised entirely of models with the Hyperspace Hunter Trait. The selected unit is the Reacting Unit.\n\nProcess:\nI. Once an Ethereal Interception Reaction has been declared, first place the Reacting Unit on the Battlefield from Reserves so that all models in the unit are in coherency and 12\" or more from Enemy Models.\nII. After the Reacting Unit has been placed on the battlefield, the Reacting Player may make a Shooting Attack with the Reactive Unit, targeting only the Target Unit. All attacks made as part of this Shooting Attack must be made as Snap Shots and Models with the Vehicle Type may only attack using Defensive Weapons."
+    },
+    {
+      "name": "Phase Shift",
+      "page": 6,
+      "text": "Trigger: The Reactive Player may declare a Phase Shift reaction during Step 2 of the Shooting Attack sequence of a Shooting Attack made by the Active Player.\n\nCost: The Reactive player may spend 1 point from their Reaction Allotment to declare a Phase Shift reaction – the cost is paid as soon as the declaration is made.\n\nTarget: The target unit is always one Unit that is Targeted by the Shooting Attack that includes at least one model with the Phase Shift Trait. The Target Unit is the Reactive Unit for the purpose of this Reaction.\n\nProcess:\nI. Once a Phase Shift Reaction has been declared, resolve the Shooting Attack as normal. All models with the Phase Shift Trait in the Reactive Unit gain a 3+ Invulnerable Save until Step 11 of the Shooting Attack Sequence."
+    },
+    {
+      "name": "Summoning",
+      "page": 6,
+      "text": "Trigger: The Reactive Player may declare a Summoning Reaction in Step 2 of the Move Sub-phase process, if an enemy Unit ends a move within 12\" and in Line of Sight of a Model with the Beacon Trait under the Reactive Player's Control. That Model is the Summoning Model.\n\nCost: The Reactive player may spend 1 point from their Reaction Allotment to declare a Summoning reaction – the cost is paid as soon as the declaration is made.\n\nTarget: The Target Unit is always the Unit whose move triggered the Reaction. Once the cost has been paid, the Reactive Player must select one Unit entirely composed of Models with the Reanimant Trait under their control that is on the Battlefield and Unengaged or in Reserve. That Unit is the Reacting Unit.\n\nProcess:\nI. Once a Summoning Reaction has been declared, the Active Player must completely resolve the Target Unit's movement.\nII. Once the Target Unit has finished its move, the Reactive Player first removes the Reacting Unit from the battlefield (unless it is in Reserves).\nIII. The Reactive Player then deploys the Reactive Unit on the Battlefield so that all Models in the Unit are wholly within 3\" of the Summoning Model and 3\" or more from Enemy Models.\nIV. Once the Reactive Unit has been deployed, the Movement Phase continues as normal."
+    }
+  ],
+  "gambits": [
+    {
+      "name": "Implacable Will",
+      "page": 4,
+      "text": "When selecting a Gambit, the controlling player of a model with the 'Necron' Trait can select Implacable Will instead of any others available to that model.\n\nIf this Gambit is selected, the Controlling Player of the Model for which this Gambit was selected gains +1 to their Focus Roll for each of the Challenge Opponent's Advanced Characteristic (Leadership, Cool, Willpower and Intelligence) which is lower than the Willpower Characteristic of the Model for which this Gambit was selected."
+    }
+  ],
+  "primeAdvantages": [
+    {
+      "name": "Dynastic Advisors",
+      "page": 4,
+      "text": "This Prime Advantage may only be selected for a Slot with the Command or High Command Slot. Add two Command Force Organization Slots to the Detachment that includes the Prime Slot. Only units with the [Crypto-Arkana] Trait may be selected to fill those Slots, and no model selected to fill one of those Slots may be of the same Army List Unit Entry as another model in the same Detachment. This Prime Benefit may only be selected once per Detachment and may not be selected if the Detachment already includes any Prime Benefits that add Slots to the Detachment."
+    },
+    {
+      "name": "Engrammatic Soldiers",
+      "page": 4,
+      "text": "This Prime Advantage may only be selected for a Unit that includes only Infantry and/or Cavalry Models. All Models in the Unit for which this Prime Advantage was selected gain +2 to their Cool Characteristic."
+    }
+  ],
+  "traits": [
+    {
+      "name": "Xenos",
+      "page": 4,
+      "text": "The 'Xenos' trait replaces the Allegiance Trait for Xenos factions. An army that includes models with the Xenos Trait may still include models with either the Loyalist or Traitor Trait, but not the other."
+    },
+    {
+      "name": "Necron",
+      "page": 4,
+      "text": "The 'Necron' Trait indicates Units that can be selected as part of a Necron army. Models with the Necron Trait can benefit from Aeonic Sequelae."
+    },
+    {
+      "name": "[Crypto-Arkana]",
+      "page": 4,
+      "text": "There exist six variants of this trait, representing the six Arkanas employed by Necron Cryptek. The full rules for Crypto-Arkanas are found within their own section of this file."
+    },
+    {
+      "name": "Beacon",
+      "page": 4,
+      "text": "The largest Automonuments can form a dimensional grid, recalling Necrons from vast distances."
+    },
+    {
+      "name": "Canoptek",
+      "page": 4,
+      "text": "Necrons employ many robotic servants collectively known as Canoptek. Unlike most Automatas, each Canoptek robot is fully autonomous, but lacks complex intelligence."
+    },
+    {
+      "name": "Destroyer",
+      "page": 4,
+      "text": "Destroyer Cultists have rejected the simulacra of civilization most Necron maintain, and embrace their existence as machines of war and destruction."
+    },
+    {
+      "name": "Hyperspace Hunter",
+      "page": 4,
+      "text": "Some Necrons use extradimensional travel to gain an advantage in battle, entering battlefields from impossible positions."
+    },
+    {
+      "name": "Nemesor",
+      "page": 4,
+      "text": "A Nemesor is a Necron noble tasked with overseeing an entire planet, its legions, and its voidfleet."
+    },
+    {
+      "name": "Phaeron",
+      "page": 4,
+      "text": "Phaerons and Phaerakhs are the ultimate ruler of each Necron Dynasty."
+    },
+    {
+      "name": "Phasing",
+      "page": 4,
+      "text": "Many Necrons and their constructs have some ability to oscillate in and out of reality or to move outside of linear time."
+    },
+    {
+      "name": "Triarch",
+      "page": 4,
+      "text": "Servants of the Triarch hold their allegiance not to one single Necron Dynasty, but directly to the Silent King."
+    }
+  ]
+}

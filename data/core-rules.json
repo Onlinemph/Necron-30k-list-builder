@@ -1,0 +1,73 @@
+{
+  "note": "Rules referenced by the Necron list but defined in the Horus Heresy 3rd edition rulebook, not the codex. The app labels them so players know where to look.",
+  "rules": [
+    "Assault Vehicle",
+    "Battlesmith (X)",
+    "Bulky (X)",
+    "Deep Strike",
+    "Eternal Warrior (X)",
+    "Expendable (X)",
+    "Explodes (X)",
+    "Fast (X)",
+    "Fear (X)",
+    "Firestorm",
+    "Firing Protocols (X)",
+    "Heedless",
+    "Impact (X)",
+    "Implacable Advance",
+    "Infiltrate (X)",
+    "Line (X)",
+    "Move Through Cover",
+    "Outflank",
+    "Split Fire",
+    "Stable",
+    "Support Unit (X)",
+    "Vanguard (X)",
+    "Shrouded (X)",
+    "Precision (X)",
+    "Breaching (X)",
+    "Armourbane",
+    "Blast (X)",
+    "Pinning (X)",
+    "Shock (X)",
+    "Suppressive (X)",
+    "Critical Hit (X)",
+    "Heavy (X)",
+    "Barrage",
+    "Template",
+    "Limited (X)",
+    "Panic (X)",
+    "Rending (X)",
+    "Stun (X)",
+    "Overload (X)",
+    "Rapid Fire",
+    "Pistol",
+    "Assault",
+    "Two-handed",
+    "Officer of the Line (X)",
+    "Sergeant",
+    "Champion",
+    "Command"
+  ],
+  "undefinedInCodex": [
+    {
+      "name": "Dynastic Protocols (X)",
+      "note": "Named on several Dramatis Personae pages but never printed in full in v1.4.2."
+    },
+    {
+      "name": "Interception Protocols",
+      "note": "Named on the Sentry Pylon and Gauss Pylon but never printed in full in v1.4.2."
+    },
+    {
+      "name": "Phase-Tunnel Cutters",
+      "note": "Listed as wargear on the Canoptek Tomb Stalker and Tomb Sentinel, but no profile is printed in v1.4.2."
+    },
+    {
+      "name": "Noctilith Beacons",
+      "note": "Szarekh's rule box prints it as 'Noctilith Beacon' (singular)."
+    }
+  ],
+  "weaponAliases": {
+    "Atomisation Beam": "Nanoscarab Atomisation Beam"
+  }
+}

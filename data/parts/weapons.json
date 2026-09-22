@@ -1,0 +1,159 @@
+{
+  "ranged": [
+    { "name": "Singularity Generator", "page": 105, "R": 36, "FP": 3, "RS": 8, "AP": 2, "D": 3,
+      "specialRules": ["Armourbane", "Blast (3)", "Heavy (S)", "Shock (Suppressed)", "Suppressive (1)"],
+      "traits": ["Graviton"], "modes": null },
+    { "name": "Death Sphere Payload", "page": 105, "R": 18, "FP": 1, "RS": 10, "AP": 2, "D": 2,
+      "specialRules": ["Armourbane", "Blast (5)", "Limited (5)", "Shock (Suppressed)", "Suppressive (1)"],
+      "traits": ["Bomb", "Graviton"], "modes": null },
+
+    { "name": "Death Ray", "page": 105, "R": 24, "FP": 1, "RS": 10, "AP": 2, "D": 2,
+      "specialRules": ["Armourbane", "Heavy (D)"], "traits": ["Las"], "modes": null },
+    { "name": "Heavy Death Ray", "page": 105, "R": 36, "FP": 1, "RS": 10, "AP": 2, "D": 3,
+      "specialRules": ["Armourbane", "Blast (3)", "Heavy (D)"], "traits": ["Las"], "modes": null },
+
+    { "name": "Exile Beamer", "page": 105, "R": 12, "FP": 1, "RS": 6, "AP": 2, "D": 3,
+      "specialRules": ["Exile"], "traits": ["Assault", "Dimensional"], "modes": null },
+    { "name": "Exile Cannon", "page": 105, "R": 18, "FP": 1, "RS": 6, "AP": 2, "D": 3,
+      "specialRules": ["Blast (3)", "Exile"], "traits": ["Dimensional"], "modes": null },
+    { "name": "Exile Projector", "page": 105, "R": 24, "FP": 1, "RS": 6, "AP": 2, "D": 3,
+      "specialRules": ["Blast (3)", "Exile"], "traits": ["Dimensional"], "modes": null },
+    { "name": "Portal of Exile", "page": 105, "R": "T", "FP": 1, "RS": 6, "AP": 2, "D": 3,
+      "specialRules": ["Exile", "Template"], "traits": ["Dimensional"], "modes": null },
+
+    { "name": "Doomsday Blaster", "page": 106, "R": null, "FP": null, "RS": null, "AP": null, "D": null,
+      "specialRules": [], "traits": ["Las"], "modes": [
+        { "name": "Low Power", "R": 24, "FP": 1, "RS": 8, "AP": 3, "D": 2, "specialRules": ["Blast (3)"], "traits": ["Las"] },
+        { "name": "High Power", "R": 48, "FP": 0, "RS": 10, "AP": 2, "D": 3, "specialRules": ["Blast (5)", "Heavy (FP)", "Ponderous"], "traits": ["Las"] }
+      ] },
+    { "name": "Doomsday Cannon", "page": 106, "R": null, "FP": null, "RS": null, "AP": null, "D": null,
+      "specialRules": [], "traits": ["Las"], "modes": [
+        { "name": "Low Power", "R": 36, "FP": 1, "RS": 8, "AP": 3, "D": 2, "specialRules": ["Blast (3)"], "traits": ["Las"] },
+        { "name": "High Power", "R": 72, "FP": 0, "RS": 10, "AP": 2, "D": 3, "specialRules": ["Blast (5)", "Heavy (FP)", "Ponderous"], "traits": ["Las"] }
+      ] },
+    { "name": "Doomsday Annihilator", "page": 106, "R": null, "FP": null, "RS": null, "AP": null, "D": null,
+      "specialRules": [], "traits": ["Las"], "modes": [
+        { "name": "Low Power", "R": 36, "FP": 1, "RS": 8, "AP": 3, "D": 3, "specialRules": ["Blast (7)"], "traits": ["Las"] },
+        { "name": "High Power", "R": 72, "FP": 0, "RS": 10, "AP": 2, "D": 4, "specialRules": ["Blast (10)", "Heavy (FP)", "Ponderous"], "traits": ["Las"] }
+      ] },
+
+    { "name": "Enmitic Disintegrator", "page": 106, "R": 18, "FP": 1, "RS": 6, "AP": 5, "D": 1,
+      "specialRules": ["Breaching (6+)", "Critical Hit (5+)", "Pistol"], "traits": ["Assault", "Enmitic"], "modes": null },
+    { "name": "Enmitic Annihilator", "page": 106, "R": 18, "FP": 1, "RS": 6, "AP": 5, "D": 1,
+      "specialRules": ["Blast (3)", "Breaching (6+)", "Critical Hit (5+)"], "traits": ["Enmitic"], "modes": null },
+    { "name": "Enmitic Exterminator", "page": 106, "R": 36, "FP": 1, "RS": 6, "AP": 4, "D": 1,
+      "specialRules": ["Blast (5)", "Breaching (6+)", "Critical Hit (5+)", "Heavy (RS)"], "traits": ["Enmitic"], "modes": null },
+
+    { "name": "Nanoscarab Scouring Beam", "page": 106, "R": 12, "FP": 2, "RS": 5, "AP": 4, "D": 1,
+      "specialRules": ["Entropic (5+)"], "traits": ["Assault", "Nano"], "modes": null },
+    { "name": "Nanoscarab Atomisation Beam", "page": 106, "R": 12, "FP": 3, "RS": 6, "AP": 4, "D": 1,
+      "specialRules": ["Entropic (5+)"], "traits": ["Nano"], "modes": null },
+
+    { "name": "Gauss Scalpel", "page": 107, "R": 12, "FP": 1, "RS": 4, "AP": 5, "D": 1, "specialRules": ["Entropic (6+)"], "traits": ["Assault", "Gauss"], "modes": null },
+    { "name": "Gauss Flayer", "page": 107, "R": 24, "FP": 2, "RS": 4, "AP": 5, "D": 1, "specialRules": ["Entropic (6+)"], "traits": ["Gauss"], "modes": null },
+    { "name": "Twin Gauss Flayer", "page": 107, "R": 24, "FP": 4, "RS": 4, "AP": 5, "D": 1, "specialRules": ["Entropic (6+)"], "traits": ["Gauss"], "modes": null },
+    { "name": "Gauss Flayer Array", "page": 107, "R": 24, "FP": 5, "RS": 4, "AP": 5, "D": 1, "specialRules": ["Entropic (6+)", "Ordnance (FP)"], "traits": ["Gauss"], "modes": null },
+    { "name": "Gauss Reaper", "page": 107, "R": 12, "FP": 2, "RS": 5, "AP": 4, "D": 1, "specialRules": ["Entropic (6+)"], "traits": ["Assault", "Gauss"], "modes": null },
+    { "name": "Twin Gauss Reaper", "page": 107, "R": 12, "FP": 4, "RS": 5, "AP": 4, "D": 1, "specialRules": ["Entropic (6+)"], "traits": ["Assault", "Gauss"], "modes": null },
+    { "name": "Gauss Blaster", "page": 107, "R": 24, "FP": 2, "RS": 5, "AP": 4, "D": 1, "specialRules": ["Entropic (6+)"], "traits": ["Gauss"], "modes": null },
+    { "name": "Twin Gauss Blaster", "page": 107, "R": 24, "FP": 4, "RS": 5, "AP": 4, "D": 1, "specialRules": ["Entropic (6+)"], "traits": ["Gauss"], "modes": null },
+    { "name": "Gauss Flux Arc", "page": 107, "R": 24, "FP": 6, "RS": 5, "AP": 4, "D": 1, "specialRules": ["Entropic (6+)"], "traits": ["Gauss"], "modes": null },
+    { "name": "Gauss Slicer", "page": 107, "R": 24, "FP": 4, "RS": 5, "AP": 4, "D": 1, "specialRules": ["Entropic (6+)"], "traits": ["Gauss"], "modes": null },
+    { "name": "Gauss Cannon", "page": 107, "R": 24, "FP": 3, "RS": 6, "AP": 3, "D": 1, "specialRules": ["Entropic (5+)"], "traits": ["Gauss"], "modes": null },
+    { "name": "Heavy Gauss Cannon", "page": 107, "R": 48, "FP": 1, "RS": 9, "AP": 2, "D": 1, "specialRules": ["Entropic (4+)", "Heavy (D)"], "traits": ["Gauss"], "modes": null },
+    { "name": "Twin Heavy Gauss Cannon", "page": 107, "R": 48, "FP": 2, "RS": 9, "AP": 2, "D": 1, "specialRules": ["Entropic (4+)", "Heavy (D)"], "traits": ["Gauss"], "modes": null },
+    { "name": "Gauss Destructor", "page": 107, "R": 36, "FP": 1, "RS": 10, "AP": 2, "D": 2, "specialRules": ["Entropic (4+)", "Ordnance (D)"], "traits": ["Gauss"], "modes": null },
+    { "name": "Twin Gauss Destructor", "page": 107, "R": 36, "FP": 2, "RS": 10, "AP": 2, "D": 2, "specialRules": ["Entropic (4+)", "Ordnance (D)"], "traits": ["Gauss"], "modes": null },
+    { "name": "Gauss Exterminator", "page": 107, "R": 72, "FP": 2, "RS": 10, "AP": 2, "D": 2, "specialRules": ["Entropic (4+)", "Ordnance (D)", "Skyfire"], "traits": ["Gauss"], "modes": null },
+    { "name": "Gauss Annihilator", "page": 107, "R": null, "FP": null, "RS": null, "AP": null, "D": null,
+      "specialRules": [], "traits": ["Gauss"], "modes": [
+        { "name": "Beam Cannon", "R": 120, "FP": 3, "RS": 12, "AP": 1, "D": 6, "specialRules": ["Entropic (4+)", "Skyfire"], "traits": ["Gauss"] },
+        { "name": "Flux Arc", "R": 24, "FP": 16, "RS": 6, "AP": 3, "D": 1, "specialRules": ["Entropic (6+)"], "traits": ["Gauss"] }
+      ] },
+
+    { "name": "Tesla Caster", "page": 107, "R": 12, "FP": 1, "RS": 5, "AP": "–", "D": 1, "specialRules": ["Tesla (6+)"], "traits": ["Arc", "Assault"], "modes": null },
+    { "name": "Tesla Carbine", "page": 107, "R": 24, "FP": 2, "RS": 5, "AP": "–", "D": 1, "specialRules": ["Tesla (6+)"], "traits": ["Arc", "Assault"], "modes": null },
+    { "name": "Twin Tesla Carbine", "page": 107, "R": 24, "FP": 4, "RS": 5, "AP": "–", "D": 1, "specialRules": ["Tesla (6+)"], "traits": ["Arc", "Assault"], "modes": null },
+    { "name": "Tesla Cannon", "page": 107, "R": 30, "FP": 4, "RS": 6, "AP": "–", "D": 1, "specialRules": ["Tesla (6+)"], "traits": ["Arc"], "modes": null },
+    { "name": "Tesla Destructor", "page": 107, "R": 36, "FP": 4, "RS": 7, "AP": "–", "D": 1, "specialRules": ["Tesla (6+)", "Ordnance (FP)"], "traits": ["Arc"], "modes": null },
+    { "name": "Twin Tesla Destructor", "page": 107, "R": 36, "FP": 4, "RS": 7, "AP": "–", "D": 1, "specialRules": ["Tesla (4+)", "Ordnance (FP)"], "traits": ["Arc"], "modes": null },
+    { "name": "Tesla Sphere", "page": 107, "R": 24, "FP": 5, "RS": 7, "AP": "–", "D": 1, "specialRules": ["Tesla (4+)"], "traits": ["Arc"], "modes": null },
+
+    { "name": "Heat Beamer", "page": 108, "R": null, "FP": null, "RS": null, "AP": null, "D": null,
+      "specialRules": [], "traits": [], "modes": [
+        { "name": "Dispersed Beam", "R": "T", "FP": 1, "RS": 4, "AP": 5, "D": 1, "specialRules": ["Panic (1)", "Template"], "traits": ["Assault", "Flame"] },
+        { "name": "Cutting Beam", "R": 12, "FP": 1, "RS": 7, "AP": 2, "D": 2, "specialRules": ["Melta (6)"], "traits": ["Melta"] }
+      ] },
+    { "name": "Heat Ray", "page": 108, "R": null, "FP": null, "RS": null, "AP": null, "D": null,
+      "specialRules": [], "traits": [], "modes": [
+        { "name": "Dispersed Beam", "R": "T", "FP": 1, "RS": 5, "AP": 4, "D": 1, "specialRules": ["Panic (2)", "Template"], "traits": ["Flame"] },
+        { "name": "Focussed Beam", "R": 24, "FP": 1, "RS": 9, "AP": 2, "D": 4, "specialRules": ["Heavy (RS)", "Melta (8)"], "traits": ["Melta"] }
+      ] },
+    { "name": "Heat Cannon", "page": 108, "R": null, "FP": null, "RS": null, "AP": null, "D": null,
+      "specialRules": [], "traits": [], "modes": [
+        { "name": "Scouring Ray", "R": "T", "FP": 1, "RS": 7, "AP": 4, "D": 2, "specialRules": ["Panic (2)", "Template"], "traits": ["Flame"] },
+        { "name": "Focussed Bombardment", "R": 36, "FP": 1, "RS": 10, "AP": 2, "D": 4, "specialRules": ["Barrage", "Blast (3)", "Melta (12)"], "traits": ["Melta"] }
+      ] },
+
+    { "name": "Particle Caster", "page": 108, "R": 12, "FP": 2, "RS": 6, "AP": 5, "D": 1, "specialRules": ["Breaching (6+)", "Pistol"], "traits": ["Assault", "Particle"], "modes": null },
+    { "name": "Particle Beamer", "page": 108, "R": 24, "FP": 1, "RS": 6, "AP": 4, "D": 1, "specialRules": ["Blast (3)", "Breaching (6+)"], "traits": ["Particle"], "modes": null },
+    { "name": "Twin Particle Beamer", "page": 108, "R": 24, "FP": 1, "RS": 6, "AP": 4, "D": 2, "specialRules": ["Blast (3)", "Breaching (5+)"], "traits": ["Particle"], "modes": null },
+    { "name": "Projected Particle Shredder", "page": 108, "R": 24, "FP": 1, "RS": 7, "AP": 4, "D": 2, "specialRules": ["Blast (5)", "Breaching (6+)", "Heavy (AP)"], "traits": ["Particle"], "modes": null },
+    { "name": "Particle Whip", "page": 108, "R": 36, "FP": 1, "RS": 9, "AP": 3, "D": 2, "specialRules": ["Armourbane", "Blast (5)", "Breaching (5+)", "Ordnance (D)"], "traits": ["Particle"], "modes": null },
+
+    { "name": "Synaptic Disintegrator", "page": 108, "R": 48, "FP": 1, "RS": 5, "AP": 4, "D": 1,
+      "specialRules": ["Heavy (FP)", "Poisoned (2+)", "Pinning (0)", "Precision (4+)"], "traits": ["Neuro"], "modes": null,
+      "note": "Source has a stray trailing comma after 'Precision (4+),'; treated as a typo and dropped." },
+    { "name": "Synaptic Obliterator", "page": 108, "R": 72, "FP": 2, "RS": 10, "AP": 2, "D": 2,
+      "specialRules": ["Ordnance (FP)", "Poisoned (2+)", "Pinning (3)", "Precision (4+)"], "traits": ["Neuro"], "modes": null },
+
+    { "name": "Tesseract Drive", "page": 109, "R": null, "FP": null, "RS": null, "AP": null, "D": null,
+      "specialRules": [], "traits": [], "modes": [
+        { "name": "Solar Fire", "R": 48, "FP": 2, "RS": 7, "AP": 2, "D": 2, "specialRules": ["Blast (3)", "Ordnance (D)", "Overload (2)", "Suppressive (2)"], "traits": ["Flame"] },
+        { "name": "Particle Hurricane", "R": "T", "FP": 1, "RS": 8, "AP": 3, "D": 2, "specialRules": ["Breaching (6+)", "Pinning (2)", "Overload (3)", "Template"], "traits": ["Particle"],
+          "note": "Source prints 'Overloard (3)'; corrected to 'Overload (3)' to match the special rule's spelling elsewhere on this page." },
+        { "name": "Seismic Lash", "R": 24, "FP": 5, "RS": 5, "AP": 4, "D": 2, "specialRules": ["Ordnance (FP)", "Overload (1)", "Suppressive (3)"], "traits": ["Quake"] }
+      ] },
+
+    { "name": "Gauntlet of Fire", "page": 109, "R": "T", "FP": 1, "RS": 4, "AP": 5, "D": 1, "specialRules": ["Panic (1)", "Template"], "traits": ["Assault", "Flame"], "modes": null },
+    { "name": "Rod of Covenant (Ranged)", "page": 109, "R": 12, "FP": 1, "RS": 5, "AP": 2, "D": 1, "specialRules": [], "traits": ["Assault", "Las"], "modes": null },
+    { "name": "Staff of Light (Ranged)", "page": 109, "R": 12, "FP": 3, "RS": 5, "AP": 3, "D": 1, "specialRules": [], "traits": ["Assault", "Las"], "modes": null },
+    { "name": "Tachyon Arbalest", "page": 109, "R": 120, "FP": 1, "RS": 10, "AP": 2, "D": 4, "specialRules": ["Critical Hit (3+)", "Heavy (D)", "Limited (1)", "Precision (4+)"], "traits": ["Arkana"], "modes": null },
+
+    { "name": "Aetheric Thunder", "page": 100, "R": 36, "FP": 2, "RS": 9, "AP": 2, "D": 2, "specialRules": ["Armourbane", "Tesla (4+)"], "traits": ["Arc"], "modes": null },
+    { "name": "Antimatter Meteor", "page": 100, "R": 36, "FP": 1, "RS": 8, "AP": 4, "D": 3, "specialRules": ["Barrage", "Blast (7)", "Breaching (6+)"], "traits": [], "modes": null },
+    { "name": "Cosmic Fire", "page": 100, "R": "H", "FP": 1, "RS": 7, "AP": 4, "D": 2, "specialRules": ["Hellstorm", "Panic (2)"], "traits": ["Flame"], "modes": null },
+    { "name": "Seismic Assault", "page": 100, "R": 36, "FP": 15, "RS": 6, "AP": 4, "D": 2, "specialRules": ["Pinning (2)", "Shock (Pinned)"], "traits": [], "modes": null },
+    { "name": "Sky of Falling Stars", "page": 100, "R": 36, "FP": 4, "RS": 7, "AP": 4, "D": 3, "specialRules": ["Barrage", "Blast (3)", "Pinning (2)"], "traits": ["Flame"], "modes": null },
+    { "name": "Time's Arrow", "page": 100, "R": 36, "FP": 1, "RS": 10, "AP": 2, "D": 10, "specialRules": ["Aeon Breach (4+)", "Precision (2+)"], "traits": ["Entropic"], "modes": null }
+  ],
+  "melee": [
+    { "name": "Voidblade", "page": 110, "IM": "I", "AM": "A", "SM": "S", "AP": 4, "D": 1, "specialRules": ["Critical Hit (6+)", "Entropic (4+)"], "traits": ["Power"], "modes": null },
+    { "name": "Hyperphase Sword", "page": 110, "IM": "I", "AM": "A", "SM": "S", "AP": 3, "D": 1, "specialRules": ["Breaching (6+)"], "traits": ["Power"], "modes": null },
+    { "name": "Hyperphase Thresher", "page": 110, "IM": "I", "AM": "A", "SM": "+1", "AP": 3, "D": 1, "specialRules": ["Breaching (6+)"], "traits": ["Power"], "modes": null },
+    { "name": "Pair of Hyperphase Threshers", "page": 110, "IM": "I", "AM": "+2", "SM": "+1", "AP": 3, "D": 1, "specialRules": ["Breaching (6+)"], "traits": ["Power"], "modes": null },
+    { "name": "Hyperphase Reapblade", "page": 110, "IM": "-1", "AM": "A", "SM": "+2", "AP": 3, "D": 1, "specialRules": ["Breaching (5+)", "Reaping Blow (2)"], "traits": ["Power"], "modes": null },
+    { "name": "Pair of Hyperphase Reapblades", "page": 110, "IM": "-1", "AM": "A", "SM": "+2", "AP": 3, "D": 2, "specialRules": ["Breaching (5+)", "Reaping Blow (2)"], "traits": ["Power"], "modes": null },
+    { "name": "Staff of Light (Melee)", "page": 110, "IM": "+2", "AM": "A", "SM": "S", "AP": 3, "D": 1, "specialRules": [], "traits": ["Power"], "modes": null },
+    { "name": "Rod of Covenant (Melee)", "page": 110, "IM": "I", "AM": "A", "SM": "S", "AP": 2, "D": 1, "specialRules": [], "traits": ["Power"], "modes": null },
+    { "name": "Warscythe", "page": 110, "IM": "I", "AM": "A", "SM": "+2", "AP": 2, "D": 2, "specialRules": ["Armourbane", "Reaping Blow (1)"], "traits": ["Power"], "modes": null },
+    { "name": "Voidscythe", "page": 110, "IM": "-2", "AM": "A", "SM": "+4", "AP": 2, "D": 2, "specialRules": ["Critical Hit (6+)", "Entropic (2+)"], "traits": ["Power"], "modes": null },
+
+    { "name": "Cryptotendrils", "page": 110, "IM": "+4", "AM": "3", "SM": "3", "AP": "–", "D": 1, "specialRules": ["Rending (6+)", "Breaching (4+)"], "traits": [], "modes": null,
+      "note": "Source prints numeric AM/SM values (3, 3) rather than 'A'/'S' as for other weapons; kept as printed." },
+    { "name": "Disruption Bayonet", "page": 110, "IM": "I", "AM": "A", "SM": "S", "AP": "–", "D": 1, "specialRules": ["Entropic (6+)"], "traits": ["Entropic"], "modes": null },
+    { "name": "Deconstructor Mandibles", "page": 110, "IM": "I", "AM": "A", "SM": "S", "AP": "–", "D": 1, "specialRules": ["Entropic (5+)"], "traits": ["Entropic"], "modes": null },
+    { "name": "Flensing Claw", "page": 110, "IM": "I", "AM": "A", "SM": "S", "AP": 5, "D": 1, "specialRules": ["Shred (6+)"], "traits": ["Flensing"], "modes": null },
+    { "name": "Pair of Flensing Claws", "page": 110, "IM": "I", "AM": "+2", "SM": "S", "AP": 5, "D": 1, "specialRules": ["Shred (6+)"], "traits": ["Flensing"], "modes": null },
+    { "name": "Wraith Scythes", "page": 110, "IM": "I", "AM": "A", "SM": "S", "AP": 5, "D": 1, "specialRules": ["Rending (6+)", "Breaching (5+)"], "traits": ["Flensing"], "modes": null },
+    { "name": "Photonic Assault Claw", "page": 110, "IM": "+3", "AM": "A", "SM": "S", "AP": 4, "D": 1, "specialRules": ["Breaching (4+)", "Shred (6+)"], "traits": ["Flensing"], "modes": null },
+    { "name": "Constructor Claw", "page": 110, "IM": "I", "AM": "A", "SM": "S", "AP": 4, "D": 2, "specialRules": [], "traits": [], "modes": null },
+    { "name": "Pair of Constructor Claws", "page": 110, "IM": "I", "AM": "+2", "SM": "S", "AP": 4, "D": 2, "specialRules": [], "traits": [], "modes": null },
+    { "name": "Stalker Heavy Claws", "page": 110, "IM": "I", "AM": "A", "SM": "S", "AP": 4, "D": 3, "specialRules": [], "traits": [], "modes": null },
+    { "name": "Seraptek Heavy Scythes", "page": 110, "IM": null, "AM": null, "SM": null, "AP": null, "D": null,
+      "specialRules": [], "traits": [], "modes": [
+        { "name": "Impaling Strike", "IM": "-1", "AM": "A", "SM": "+4", "AP": 2, "D": 6, "specialRules": ["Armourbane"], "traits": [] },
+        { "name": "Reaping Strike", "IM": "I", "AM": "A", "SM": "+2", "AP": 2, "D": 3, "specialRules": ["Reaping Blow (3)"], "traits": [] }
+      ] }
+  ]
+}

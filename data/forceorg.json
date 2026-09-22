@@ -1,0 +1,24 @@
+{
+  "note": "The Crusade Force Organisation Chart is printed in the Horus Heresy 3rd edition rulebook, not in Codex Xenologica. These defaults are a starting point; players set the real counts with 'Edit slots' in the app.",
+  "primary": {
+    "name": "Crusade Primary Detachment",
+    "slots": [
+      { "role": "High Command", "count": 1, "prime": 1 },
+      { "role": "Command", "count": 3, "prime": 0 },
+      { "role": "Retinue", "count": 2, "prime": 0 },
+      { "role": "Troops", "count": 4, "prime": 1 },
+      { "role": "Elites", "count": 2, "prime": 0 },
+      { "role": "Heavy Assault", "count": 1, "prime": 0 },
+      { "role": "Support", "count": 2, "prime": 0 },
+      { "role": "War Engine", "count": 1, "prime": 0 },
+      { "role": "Recon", "count": 2, "prime": 0 },
+      { "role": "Fast Attack", "count": 2, "prime": 0 },
+      { "role": "Armour", "count": 2, "prime": 0 },
+      { "role": "Transport", "count": 2, "prime": 0 },
+      { "role": "Heavy Transport", "count": 1, "prime": 0 },
+      { "role": "Warlord", "count": 1, "prime": 0 },
+      { "role": "Lord of War", "count": 1, "prime": 0 },
+      { "role": "Fortification", "count": 1, "prime": 0 }
+    ]
+  }
+}

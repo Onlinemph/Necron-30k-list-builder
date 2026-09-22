@@ -1,0 +1,896 @@
+/* Necron 30k list builder UI. Vanilla JS, no build step. */
+(function () {
+  'use strict';
+
+  const DATA = window.NECRON_DATA;
+  const E = window.NecronEngine.createEngine(DATA);
+  const STORE_CUR = 'necron30k.current';
+  const STORE_SAVED = 'necron30k.saved';
+  const STORE_FOC = 'necron30k.primarySlots';
+
+  const $ = (sel, el) => (el || document).querySelector(sel);
+  const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const h = (html) => { const t = document.createElement('template'); t.innerHTML = html.trim(); return t.content.firstElementChild; };
+
+  // ---------- storage (never trust it to exist) ----------
+  const store = {
+    get(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
+    set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* private mode */ } },
+  };
+
+  // ---------- lookups ----------
+  const { norm, wkey } = window.NecronEngine;
+  const ruleIndex = new Map();
+  function addRule(r, src) {
+    if (!r || !r.name || !r.text) return;
+    const k = norm(r.name);
+    if (!ruleIndex.has(k)) ruleIndex.set(k, { name: r.name, text: r.text, page: r.page, src });
+  }
+  const R = DATA.rules || {};
+  for (const key of ['specialRules', 'reactions', 'gambits', 'primeAdvantages', 'traits', 'unitTypes', 'powersOfTheCtan']) {
+    for (const r of R[key] || []) addRule(r, key);
+  }
+  for (const w of DATA.wargear || []) addRule(w, 'wargear');
+  for (const a of DATA.arkana || []) {
+    addRule(a.harbinger, 'arkana');
+    for (const w of a.wargear || []) addRule(w, 'arkana');
+  }
+  for (const u of DATA.units) for (const r of u.unitRules || []) addRule(Object.assign({ page: u.page }, r), 'unit');
+  function findRule(name) {
+    const k = norm(name);
+    if (ruleIndex.has(k)) return ruleIndex.get(k);
+    // "Implacable Advance" vs "Implacable Advance (Destroyers)" etc.
+    for (const [key, r] of ruleIndex) if (key.startsWith(k) || k.startsWith(key)) return r;
+    return null;
+  }
+
+  const weaponIndex = { ranged: new Map(), melee: new Map() };
+  const W = DATA.weapons || { ranged: [], melee: [] };
+  for (const kind of ['ranged', 'melee']) for (const w of W[kind] || []) weaponIndex[kind].set(wkey(w.name), w);
+  const CORE = DATA.coreRules || { rules: [], undefinedInCodex: [] };
+  const aliases = new Map(Object.entries(CORE.weaponAliases || {}).map(([k, v]) => [wkey(k), wkey(v)]));
+  const coreNames = new Set((CORE.rules || []).map(norm));
+  const undefinedNames = new Map((CORE.undefinedInCodex || []).map((x) => [norm(x.name), x.note]));
+  function findWeapons(name) {
+    const k = aliases.get(wkey(name)) || wkey(name);
+    return { ranged: weaponIndex.ranged.get(k), melee: weaponIndex.melee.get(k) };
+  }
+
+  // ---------- army state ----------
+  function defaultPrimarySlots() {
+    return store.get(STORE_FOC, null) || (DATA.forceorg && DATA.forceorg.primary.slots) || [];
+  }
+  function expandSlots(defs) {
+    const out = [];
+    for (const d of defs) {
+      const n = d.count ?? 1;
+      for (let i = 0; i < n; i++) out.push({ role: d.role, prime: i < (d.prime || 0) });
+    }
+    return out;
+  }
+  function newArmy() {
+    const primary = E.makeDetachment('primary', (DATA.forceorg && DATA.forceorg.primary.name) || 'Crusade Primary Detachment', expandSlots(defaultPrimarySlots()));
+    return { version: 1, name: '', pointsLimit: 3000, sequelae: [], detachments: [primary] };
+  }
+
+  let army = store.get(STORE_CUR, null) || fromHash() || newArmy();
+  let active = null; // slot uid
+
+  function fromHash() {
+    const m = location.hash.match(/#a=(.+)$/);
+    if (!m) return null;
+    try {
+      const a = JSON.parse(decodeURIComponent(escape(atob(m[1]))));
+      history.replaceState(null, '', location.pathname);
+      return sanitize(a);
+    } catch (e) { return null; }
+  }
+
+  function sanitize(a) {
+    if (!a || !Array.isArray(a.detachments)) throw new Error('Not a list file');
+    for (const d of a.detachments) {
+      d.uid = d.uid || E.uid('d');
+      for (const s of d.slots) {
+        s.uid = s.uid || E.uid('s');
+        if (s.unit && !E.unit(s.unit.unitId)) s.unit = null;
+        if (s.unit) { s.unit.uid = s.unit.uid || E.uid('u'); s.unit.options = s.unit.options || {}; s.unit.counts = s.unit.counts || {}; }
+      }
+    }
+    a.sequelae = a.sequelae || [];
+    return a;
+  }
+
+  function save() { store.set(STORE_CUR, army); }
+
+  function findSlot(uid) {
+    for (const d of army.detachments) for (const s of d.slots) if (s.uid === uid) return { det: d, slot: s };
+    return null;
+  }
+
+  // ---------- render: header ----------
+  function renderHeader() {
+    const total = E.armyPoints(army);
+    const limit = Number(army.pointsLimit) || 0;
+    $('#points-total').textContent = total;
+    $('#points-limit-label').textContent = limit || '∞';
+    $('#points-bar').style.width = limit ? Math.min(100, (total / limit) * 100) + '%' : '0';
+    $('#points-box').classList.toggle('over', !!limit && total > limit);
+    $('#army-name').value = army.name || '';
+    $('#points-limit').value = army.pointsLimit;
+    const meta = DATA.meta || {};
+    $('#data-version').textContent = `${meta.source || 'Codex Xenologica – Necrons'} · v${meta.version || '?'}`;
+  }
+
+  // ---------- render: sequelae ----------
+  function renderSequelae() {
+    const allow = E.sequelaAllowance(army);
+    $('#seq-allow').textContent = `${army.sequelae.length}/${allow}`;
+    const list = (DATA.sequelae && DATA.sequelae.sequelae) || [];
+    const wrap = h('<div class="seq-grid"></div>');
+    for (const s of list) {
+      const on = army.sequelae.includes(s.name);
+      const el = h(`<label><input type="checkbox" ${on ? 'checked' : ''}> ${esc(s.name)} <button type="button" class="link info small" title="Rules">?</button></label>`);
+      $('input', el).addEventListener('change', (e) => {
+        if (e.target.checked) army.sequelae.push(s.name); else army.sequelae = army.sequelae.filter((n) => n !== s.name);
+        refresh();
+      });
+      $('button', el).addEventListener('click', (e) => { e.preventDefault(); showText(s.name, s.text, s.page, s.restrictions); });
+      wrap.append(el);
+    }
+    const box = $('#sequelae');
+    box.replaceChildren(wrap);
+    if (DATA.sequelae && DATA.sequelae.intro) {
+      const more = h('<button type="button" class="link small">How Sequelae work</button>');
+      more.addEventListener('click', () => showText('Aeonic Sequelae', DATA.sequelae.intro, 93));
+      box.append(more);
+    }
+  }
+
+  // ---------- render: detachments ----------
+  function renderDetachments() {
+    const box = $('#detachments');
+    box.replaceChildren();
+    for (const d of army.detachments) {
+      const def = d.defId ? (DATA.detachments || []).find((x) => x.id === d.defId) : null;
+      const pts = d.slots.reduce((a, s) => a + (s.unit ? E.unitPoints(s.unit) : 0), 0);
+      const el = h(`<div class="det">
+        <div class="det-head"><span class="tag">${esc(d.kind)}</span><h3>${esc(d.name)}</h3><span class="pts muted">${pts} pts</span></div>
+      </div>`);
+      if (def && (def.unlock || (def.restrictions || []).length || (def.rules || []).length)) {
+        const notes = h('<div class="det-notes"></div>');
+        if (def.unlock) notes.append(h(`<div>${esc(def.unlock)}</div>`));
+        if ((def.restrictions || []).length || (def.rules || []).length) {
+          const ul = h('<ul></ul>');
+          for (const r of def.restrictions || []) ul.append(h(`<li>${esc(r)}</li>`));
+          for (const r of def.rules || []) ul.append(h(`<li><strong>${esc(r.name)}:</strong> ${esc(r.text)}</li>`));
+          notes.append(ul);
+        }
+        el.append(notes);
+      }
+      const ul = h('<ul class="slots"></ul>');
+      for (const s of d.slots) ul.append(slotRow(d, s));
+      el.append(ul);
+      const foot = h('<div class="det-foot"></div>');
+      if (d.kind === 'primary') {
+        const b = h('<button type="button" class="small">Edit slots</button>');
+        b.addEventListener('click', () => editPrimarySlots(d));
+        foot.append(b);
+      } else {
+        if (d.kind === 'custom') {
+          const b = h('<button type="button" class="small">Edit slots</button>');
+          b.addEventListener('click', () => editCustomSlots(d));
+          foot.append(b);
+        }
+        const rm = h('<button type="button" class="small danger">Remove detachment</button>');
+        rm.addEventListener('click', () => {
+          if (d.slots.some((s) => s.unit) && !confirm(`Remove ${d.name} and its units?`)) return;
+          army.detachments = army.detachments.filter((x) => x !== d);
+          refresh();
+        });
+        foot.append(rm);
+      }
+      el.append(foot);
+      box.append(el);
+    }
+  }
+
+  function slotRow(det, s) {
+    const u = s.unit ? E.unit(s.unit.unitId) : null;
+    const bad = s.unit && E.unitIssues(s.unit).some((i) => i.level === 'error');
+    const label = s.advisor ? 'Advisor' : s.flexible ? 'Flexible' : s.role;
+    const el = h(`<li class="slot ${active === s.uid ? 'active' : ''}">
+      <span class="role">${s.prime ? '<span class="prime" title="Prime slot">★</span>' : ''}${s.flexible ? '<span class="flex">◇</span>' : ''}${esc(label)}</span>
+      <span class="name ${u ? '' : 'empty'}">${u ? esc(u.name) + (bad ? ' <span class="bad" title="Has problems">⚠</span>' : '') + (s.unit.primeAdvantage ? ` <small>· ${esc(s.unit.primeAdvantage)}</small>` : '') : '+ add unit'}</span>
+      <span class="pts">${u ? E.unitPoints(s.unit) : ''}</span>
+    </li>`);
+    el.addEventListener('click', () => {
+      if (u) { active = s.uid; refresh(); } else pickUnit(det, s);
+    });
+    return el;
+  }
+
+  function addDetachmentMenu() {
+    const sel = $('#add-det');
+    sel.replaceChildren(h('<option value="">Choose…</option>'));
+    const groups = { Auxiliary: [], Apex: [] };
+    for (const d of DATA.detachments || []) (groups[d.type] || (groups[d.type] = [])).push(d);
+    for (const [g, list] of Object.entries(groups)) {
+      if (!list.length) continue;
+      const og = document.createElement('optgroup');
+      og.label = g + ' Detachments';
+      for (const d of list) og.append(new Option(d.name + (d.unlockedBy && d.unlockedBy.sequela ? ` (${d.unlockedBy.sequela})` : ''), d.id));
+      sel.append(og);
+    }
+    const og = document.createElement('optgroup');
+    og.label = 'Other';
+    og.append(new Option('Custom / core rulebook detachment…', '__custom'));
+    sel.append(og);
+  }
+
+  // ---------- pickers ----------
+  function pickUnit(det, slot) {
+    const units = E.unitsForSlot(slot).slice().sort((a, b) => (a.unique - b.unique) || a.name.localeCompare(b.name));
+    const body = h(`<div><h2>${esc(slot.flexible ? 'Flexible slot' : slot.role)} <small>${esc(det.name)}</small></h2><div class="picker"></div></div>`);
+    const list = $('.picker', body);
+    if (!units.length) list.append(h('<p class="muted">No units fill this slot.</p>'));
+    let lastRole = null;
+    for (const u of units) {
+      if (slot.flexible && u.role !== lastRole) { list.append(h(`<h4 class="muted">${esc(u.role)}</h4>`)); lastRole = u.role; }
+      const taken = u.unique && E.allSelections(army).some((x) => x.sel.unitId === u.id);
+      const b = h(`<button type="button" ${taken ? 'disabled' : ''}><span>${esc(u.name)}${u.unique ? ' <small class="muted">(character)</small>' : ''}${u.limit ? ` <small class="muted">${esc(u.limit)}</small>` : ''}</span><span class="muted">${u.basePoints} pts · p.${u.page}</span></button>`);
+      b.addEventListener('click', () => {
+        slot.unit = E.newSelection(u.id);
+        active = slot.uid;
+        closeDialog();
+        refresh();
+      });
+      list.append(b);
+    }
+    openDialog(body);
+  }
+
+  function editPrimarySlots(det) {
+    const current = {};
+    for (const s of det.slots) {
+      if (s.advisor) continue;
+      current[s.role] = current[s.role] || { count: 0, prime: 0 };
+      current[s.role].count++;
+      if (s.prime) current[s.role].prime++;
+    }
+    const body = h(`<div><h2>Primary Detachment slots</h2>
+      <p class="muted">The Crusade Force Organisation Chart is in the Horus Heresy 3rd edition rulebook, not the Necron codex. Set the slot counts to match your copy; they're remembered for new lists.</p>
+      <div class="table-wrap"><table class="stats"><thead><tr><th>Role</th><th>Slots</th><th>of which Prime</th></tr></thead><tbody></tbody></table></div></div>`);
+    const tb = $('tbody', body);
+    for (const role of E.ROLES) {
+      const c = current[role] || { count: 0, prime: 0 };
+      tb.append(h(`<tr><td>${esc(role)}</td><td><input type="number" min="0" max="12" data-role="${esc(role)}" data-k="count" value="${c.count}"></td><td><input type="number" min="0" max="12" data-role="${esc(role)}" data-k="prime" value="${c.prime}"></td></tr>`));
+    }
+    openDialog(body, [['Apply', () => {
+      const defs = [];
+      for (const role of E.ROLES) {
+        const count = +$(`input[data-role="${role}"][data-k=count]`, body).value || 0;
+        const prime = Math.min(count, +$(`input[data-role="${role}"][data-k=prime]`, body).value || 0);
+        if (count) defs.push({ role, count, prime });
+      }
+      store.set(STORE_FOC, defs);
+      rebuildSlots(det, expandSlots(defs));
+      refresh();
+    }]]);
+  }
+
+  /** Replace a detachment's slots, keeping units in slots of the same role where possible. */
+  function rebuildSlots(det, defs) {
+    const filled = det.slots.filter((s) => s.unit && !s.advisor);
+    const advisors = det.slots.filter((s) => s.advisor);
+    const fresh = E.makeDetachment(det.kind, det.name, defs).slots;
+    const orphans = [];
+    for (const s of filled) {
+      const target = fresh.find((f) => !f.unit && (f.role === s.role || f.flexible) && f.prime === s.prime) || fresh.find((f) => !f.unit && (f.role === s.role || f.flexible));
+      if (target) target.unit = s.unit; else orphans.push(s);
+    }
+    det.slots = fresh;
+    if (advisors.length) {
+      const idx = det.slots.map((s) => s.role).lastIndexOf('Command');
+      det.slots.splice(idx + 1, 0, ...advisors);
+    }
+    if (orphans.length) alert(`${orphans.length} unit(s) no longer had a slot and were removed: ${orphans.map((s) => E.unit(s.unit.unitId).name).join(', ')}`);
+  }
+
+  function editCustomSlots(det) {
+    const body = h(`<div><h2>${esc(det.name)}</h2>
+      <label>Name <input type="text" id="cd-name" value="${esc(det.name)}"></label>
+      <p class="muted">One role per line. Prefix with * for a Prime slot, or write "Flexible".</p>
+      <textarea id="cd-slots">${esc(det.slots.filter((s) => !s.advisor).map((s) => (s.prime ? '*' : '') + (s.flexible ? 'Flexible' : s.role)).join('\n'))}</textarea></div>`);
+    openDialog(body, [['Apply', () => {
+      det.name = $('#cd-name', body).value || 'Custom Detachment';
+      rebuildSlots(det, parseSlotLines($('#cd-slots', body).value));
+      refresh();
+    }]]);
+  }
+
+  function parseSlotLines(txt) {
+    const out = [];
+    for (let line of txt.split('\n')) {
+      line = line.trim();
+      if (!line) continue;
+      const prime = line.startsWith('*');
+      const name = line.replace(/^\*/, '').trim();
+      if (/^flex/i.test(name)) { out.push({ role: 'Flexible', flexible: true, prime, exclude: ['Command', 'High Command'] }); continue; }
+      const role = E.ROLES.find((r) => r.toLowerCase() === name.toLowerCase());
+      if (role) out.push({ role, prime });
+    }
+    return out;
+  }
+
+  // ---------- editor ----------
+  function renderEditor() {
+    const box = $('#editor');
+    const found = active && findSlot(active);
+    if (!found || !found.slot.unit) {
+      box.className = 'panel empty';
+      box.innerHTML = '<p>Pick a slot on the left to add a unit, or click a unit to edit it.</p>';
+      return;
+    }
+    const { det, slot } = found;
+    const sel = slot.unit;
+    const u = E.unit(sel.unitId);
+    box.className = 'panel';
+    box.replaceChildren();
+
+    box.append(h(`<div class="ed-head"><h2>${esc(u.name)}</h2><span class="pts">${E.unitPoints(sel)} pts</span></div>`));
+    box.append(h(`<p class="ed-sub">${esc(u.role)} · ${esc(det.name)} · ${esc(u.composition || '')} · base ${u.basePoints} pts · p.${u.page}${u.unique ? ' · Dramatis Personae' : ''}</p>`));
+
+    const issues = E.unitIssues(sel);
+    if (issues.length) {
+      const ul = h('<ul class="issues"></ul>');
+      for (const i of issues) ul.append(h(`<li class="${i.level}">${esc(i.msg)}</li>`));
+      box.append(ul);
+    }
+
+    // size
+    const sizable = E.sizableModels(u);
+    if (sizable.length) {
+      const sec = section('Unit size');
+      for (const m of sizable) {
+        const n = sel.counts[m.name] ?? m.min;
+        const row = h(`<div class="row"><span>${esc(m.name)}</span>${counter(n, m.min, m.max ?? m.min)}<small class="muted">${m.min}–${m.max} · +${m.costPerExtra} pts each</small></div>`);
+        bindCounter(row, (v) => { sel.counts[m.name] = v; clampOptions(sel); refresh(); });
+        sec.append(row);
+      }
+      box.append(sec);
+    }
+
+    // arkana
+    if (u.cryptoArkana && !u.fixedArkana) {
+      const sec = section('Crypto-Arkana');
+      const s = h(`<select><option value="">Choose…</option>${E.ARKANA.map((a) => `<option ${sel.arkana === a ? 'selected' : ''}>${a}</option>`).join('')}</select>`);
+      s.addEventListener('change', () => { sel.arkana = s.value || null; clampOptions(sel); refresh(); });
+      const row = h('<div class="row"></div>');
+      row.append(s);
+      const ark = (DATA.arkana || []).find((a) => a.name === sel.arkana);
+      if (ark && ark.harbinger) {
+        const b = h(`<button type="button" class="link small">${esc(ark.harbinger.name)}</button>`);
+        b.addEventListener('click', () => showText(ark.harbinger.name, ark.harbinger.text, ark.page));
+        row.append(b);
+      }
+      sec.append(row);
+      box.append(sec);
+    } else if (u.fixedArkana) {
+      box.append(h(`<p class="muted">Crypto-Arkana: ${esc(u.fixedArkana)}</p>`));
+    }
+
+    // options
+    if ((u.options || []).length) {
+      const sec = section('Options');
+      for (const o of u.options) sec.append(optionEl(u, sel, o));
+      box.append(sec);
+    }
+
+    // prime
+    if (slot.prime || sel.primeAdvantage) {
+      const sec = section('Prime Advantage');
+      const advs = primeAdvantages(u, det);
+      const s = h(`<select><option value="">None</option>${advs.map((a) => `<option ${sel.primeAdvantage === a.name ? 'selected' : ''}>${esc(a.name)}</option>`).join('')}</select>`);
+      s.addEventListener('change', () => { sel.primeAdvantage = s.value || null; E.syncAdvisorSlots(det); refresh(); });
+      const row = h('<div class="row"></div>');
+      row.append(s);
+      const cur = advs.find((a) => a.name === sel.primeAdvantage);
+      if (cur && cur.text) row.append(h(`<small class="muted">${esc(cur.text)}</small>`));
+      sec.append(row);
+      box.append(sec);
+    }
+
+    renderUnitReference(box, u, sel);
+
+    const acts = h('<div class="row ed-section"></div>');
+    const dup = h('<button type="button">Duplicate</button>');
+    dup.addEventListener('click', () => {
+      const target = det.slots.find((s) => !s.unit && (s.role === slot.role || s.flexible)) || army.detachments.flatMap((d) => d.slots).find((s) => !s.unit && s.role === slot.role);
+      if (!target) return alert('No empty ' + slot.role + ' slot left.');
+      target.unit = JSON.parse(JSON.stringify(sel));
+      target.unit.uid = E.uid('u');
+      target.unit.primeAdvantage = null;
+      active = target.uid;
+      refresh();
+    });
+    const rm = h('<button type="button" class="danger">Remove unit</button>');
+    rm.addEventListener('click', () => { slot.unit = null; active = null; E.syncAdvisorSlots(det); refresh(); });
+    acts.append(dup, rm);
+    box.append(acts);
+  }
+
+  function primeAdvantages(u, det) {
+    const all = (R.primeAdvantages || []).slice();
+    const out = [];
+    for (const a of all) out.push({ name: a.name, text: a.text });
+    // character-granted advantages are described in unitRules; surface any unit rule named as a prime advantage
+    for (const x of E.allSelections(army)) {
+      const cu = E.unit(x.sel.unitId);
+      for (const r of cu.unitRules || []) {
+        const name = `${r.name} (${cu.name})`;
+        if (/prime advantage/i.test(r.text || '') && !out.some((o) => o.name === name)) out.push({ name, text: r.text });
+      }
+    }
+    return out;
+  }
+
+  function section(title) {
+    const el = h(`<div class="ed-section"><h4>${esc(title)}</h4></div>`);
+    return el;
+  }
+
+  function counter(v, min, max) {
+    return `<span class="counter" data-min="${min}" data-max="${max}"><button type="button" data-d="-1" ${v <= min ? 'disabled' : ''}>−</button><output>${v}</output><button type="button" data-d="1" ${v >= max ? 'disabled' : ''}>+</button></span>`;
+  }
+  function bindCounter(root, cb) {
+    for (const c of root.querySelectorAll('.counter')) {
+      const min = +c.dataset.min, max = +c.dataset.max;
+      for (const b of c.querySelectorAll('button')) {
+        b.addEventListener('click', () => {
+          const v = Math.max(min, Math.min(max, +$('output', c).value + +b.dataset.d));
+          cb(v);
+        });
+      }
+    }
+  }
+
+  function optionEl(u, sel, o) {
+    const choices = E.choicesFor(o, sel);
+    const val = sel.options[o.id];
+    const el = h(`<div class="opt"><div class="txt">${esc(o.text)}</div><div class="choices"></div></div>`);
+    const list = $('.choices', el);
+    const cost = (p) => (p ? `+${p}` : 'free');
+    const name = `o-${sel.uid}-${o.id}`;
+    const locked = o.requires && !isTaken(sel.options[o.requires]);
+    if (locked) el.append(h('<div class="cap">Needs the option above first.</div>'));
+    if (!choices.length && (o.kind === 'one' || o.kind === 'any' || o.kind === 'perModel')) {
+      list.append(h(`<div class="cap">${u.cryptoArkana && !sel.arkana ? 'Choose a Crypto-Arkana first.' : 'No choices available.'}</div>`));
+    }
+    switch (o.kind) {
+      case 'one': {
+        const keep = o.replaces && o.replaces.length ? 'Keep ' + o.replaces.join(' & ') : 'None';
+        list.append(radio(name, '', !val, keep, ''));
+        for (const c of choices) list.append(radio(name, c.name, val === c.name, c.name, cost(c.points)));
+        list.addEventListener('change', (e) => { sel.options[o.id] = e.target.value || null; refresh(); });
+        break;
+      }
+      case 'any': {
+        const cur = Array.isArray(val) ? val : [];
+        for (const c of choices) {
+          const r = h(`<label class="choice"><input type="checkbox" ${cur.includes(c.name) ? 'checked' : ''} ${locked ? 'disabled' : ''}> ${esc(c.name)}<span class="cost">${cost(c.points)}</span></label>`);
+          $('input', r).addEventListener('change', (e) => {
+            const s = new Set(Array.isArray(sel.options[o.id]) ? sel.options[o.id] : []);
+            if (e.target.checked) s.add(c.name); else s.delete(c.name);
+            sel.options[o.id] = [...s];
+            refresh();
+          });
+          list.append(r);
+        }
+        break;
+      }
+      case 'upgrade': {
+        const c = choices[0] || { name: o.text, points: 0 };
+        const r = h(`<label class="choice"><input type="checkbox" ${val ? 'checked' : ''} ${locked ? 'disabled' : ''}> ${esc(c.name)}<span class="cost">${cost(c.points)}</span></label>`);
+        $('input', r).addEventListener('change', (e) => { sel.options[o.id] = e.target.checked; refresh(); });
+        list.append(r);
+        break;
+      }
+      case 'perModel': {
+        const cur = val && typeof val === 'object' ? val : {};
+        const max = E.optionMax(o, sel);
+        const used = E.perModelUsed(cur);
+        el.append(h(`<div class="cap">${used}/${max} model${max === 1 ? '' : 's'}</div>`));
+        if (used > max) el.classList.add('bad');
+        for (const c of choices) {
+          const n = cur[c.name] || 0;
+          const r = h(`<div class="choice">${counter(n, 0, locked ? n : n + Math.max(0, max - used))} ${esc(c.name)}<span class="cost">${cost(c.points)} each</span></div>`);
+          bindCounter(r, (v) => { sel.options[o.id] = Object.assign({}, sel.options[o.id], { [c.name]: v }); refresh(); });
+          list.append(r);
+        }
+        break;
+      }
+      case 'swapModel': {
+        const n = Number(val) || 0;
+        const max = E.optionMax(o, sel);
+        const c = choices[0] || { name: '?', points: 0 };
+        const r = h(`<div class="choice">${counter(n, 0, Math.max(n, max))} → ${esc(c.name)}<span class="cost">${cost(c.points)} each</span></div>`);
+        bindCounter(r, (v) => { sel.options[o.id] = v; clampOptions(sel); refresh(); });
+        list.append(r);
+        break;
+      }
+      default:
+        list.append(h(`<div class="cap">Unsupported option type “${esc(o.kind)}”.</div>`));
+    }
+    if (E.unitIssues(sel).some((i) => i.msg.includes(o.text.slice(0, 40)))) el.classList.add('bad');
+    return el;
+  }
+
+  function radio(name, value, checked, label, cost) {
+    return h(`<label class="choice"><input type="radio" name="${esc(name)}" value="${esc(value)}" ${checked ? 'checked' : ''}> ${esc(label)}<span class="cost">${esc(cost)}</span></label>`);
+  }
+
+  function isTaken(v) {
+    if (v == null || v === false || v === '' || v === 0) return false;
+    if (Array.isArray(v)) return v.length > 0;
+    if (typeof v === 'object') return Object.values(v).some((n) => n > 0);
+    return true;
+  }
+
+  /** After a size or arkana change, trim option picks that no longer fit. */
+  function clampOptions(sel) {
+    const u = E.unit(sel.unitId);
+    for (const o of u.options || []) {
+      const v = sel.options[o.id];
+      if (v == null) continue;
+      const names = new Set(E.choicesFor(o, sel).map((c) => c.name));
+      if (o.kind === 'one' && v && !names.has(v)) sel.options[o.id] = null;
+      if (o.kind === 'any' && Array.isArray(v)) sel.options[o.id] = v.filter((n) => names.has(n));
+      if (o.kind === 'swapModel') sel.options[o.id] = Math.min(Number(v) || 0, E.optionMax(o, sel));
+      if (o.kind === 'perModel' && typeof v === 'object') {
+        const max = E.optionMax(o, sel);
+        let left = max;
+        const out = {};
+        for (const [n, c] of Object.entries(v)) {
+          if (!names.has(n)) continue;
+          out[n] = Math.min(c, left);
+          left -= out[n];
+        }
+        sel.options[o.id] = out;
+      }
+    }
+  }
+
+  // ---------- unit reference (profiles, weapons, rules) ----------
+  function profileTable(u, sel, printMode) {
+    const counts = sel ? E.modelCounts(sel) : null;
+    const models = u.models.filter((m) => !counts || counts[m.name] > 0 || printMode === 'all');
+    if (!models.length) return '';
+    const groups = {};
+    for (const m of models) {
+      const keys = Object.keys(m.profile || {}).join(',');
+      (groups[keys] = groups[keys] || []).push(m);
+    }
+    let html = '';
+    for (const [keys, ms] of Object.entries(groups)) {
+      const cols = keys ? keys.split(',') : [];
+      html += `<div class="table-wrap"><table class="stats"><thead><tr><th>Model</th>${cols.map((c) => `<th>${esc(c)}</th>`).join('')}</tr></thead><tbody>`;
+      for (const m of ms) {
+        html += `<tr><td>${counts ? counts[m.name] + '× ' : ''}${esc(m.name)}</td>${cols.map((c) => `<td>${esc(m.profile[c])}</td>`).join('')}</tr>`;
+      }
+      html += '</tbody></table></div>';
+    }
+    return html;
+  }
+
+  function weaponNamesFor(u, sel) {
+    const names = [];
+    const add = (n) => { if (n && !names.includes(n)) names.push(n); };
+    const rows = sel ? E.loadout(sel) : u.models.map((m) => ({ base: m.wargear || [], changes: [] }));
+    for (const r of rows) {
+      const replaced = new Set(r.changes.filter((c) => c.replaces && c.count >= (r.count || 1)).flatMap((c) => c.replaces.split(' & ')));
+      for (const w of r.base) if (!replaced.has(w)) add(w);
+      for (const c of r.changes) add(c.name);
+    }
+    return names;
+  }
+
+  function weaponTable(names) {
+    const ranged = [], melee = [], other = [];
+    for (const n of names) {
+      const f = findWeapons(n);
+      if (f.ranged) ranged.push(f.ranged);
+      if (f.melee) melee.push(f.melee);
+      if (!f.ranged && !f.melee) other.push(n);
+    }
+    const sr = (w) => [...(w.specialRules || [])].join(', ');
+    const tr = (w) => [...(w.traits || [])].join(', ');
+    let html = '';
+    if (ranged.length) {
+      html += '<div class="table-wrap"><table class="stats"><thead><tr><th>Ranged</th><th>R</th><th>FP</th><th>RS</th><th>AP</th><th>D</th><th>Special rules</th><th>Traits</th></tr></thead><tbody>';
+      for (const w of ranged) {
+        if (w.modes && w.modes.length) {
+          html += `<tr><td colspan="6"><strong>${esc(w.name)}</strong></td><td>${esc(sr(w))}</td><td>${esc(tr(w))}</td></tr>`;
+          for (const m of w.modes) html += `<tr><td>– ${esc(m.name)}</td><td>${esc(m.R)}</td><td>${esc(m.FP)}</td><td>${esc(m.RS)}</td><td>${esc(m.AP)}</td><td>${esc(m.D)}</td><td>${esc(sr(m))}</td><td>${esc(tr(m))}</td></tr>`;
+        } else html += `<tr><td>${esc(w.name)}</td><td>${esc(w.R)}</td><td>${esc(w.FP)}</td><td>${esc(w.RS)}</td><td>${esc(w.AP)}</td><td>${esc(w.D)}</td><td>${esc(sr(w))}</td><td>${esc(tr(w))}</td></tr>`;
+      }
+      html += '</tbody></table></div>';
+    }
+    if (melee.length) {
+      html += '<div class="table-wrap"><table class="stats"><thead><tr><th>Melee</th><th>IM</th><th>AM</th><th>SM</th><th>AP</th><th>D</th><th>Special rules</th><th>Traits</th></tr></thead><tbody>';
+      for (const w of melee) {
+        const rows = w.modes && w.modes.length ? w.modes.map((m) => Object.assign({}, m, { name: w.name + ' – ' + m.name })) : [w];
+        for (const m of rows) html += `<tr><td>${esc(m.name)}</td><td>${esc(m.IM)}</td><td>${esc(m.AM)}</td><td>${esc(m.SM)}</td><td>${esc(m.AP)}</td><td>${esc(m.D)}</td><td>${esc(sr(m))}</td><td>${esc(tr(m))}</td></tr>`;
+      }
+      html += '</tbody></table></div>';
+    }
+    return { html, other };
+  }
+
+  function unitRuleNames(u, sel) {
+    const names = [];
+    const add = (n) => { if (n && !names.includes(n)) names.push(n); };
+    for (const r of u.specialRules || []) add(r);
+    const counts = sel ? E.modelCounts(sel) : null;
+    for (const m of u.models) if (!counts || counts[m.name] > 0) for (const r of m.specialRules || []) add(r);
+    for (const r of u.unitRules || []) add(r.name);
+    if (sel) {
+      const ark = E.arkanaOf(sel);
+      const a = ark && (DATA.arkana || []).find((x) => x.name === ark);
+      if (a && a.harbinger) add(a.harbinger.name);
+    }
+    return names;
+  }
+
+  function renderUnitReference(box, u, sel) {
+    const sec = section('Profile');
+    sec.insertAdjacentHTML('beforeend', profileTable(u, sel));
+    const types = [...new Set(u.models.filter((m) => E.modelCounts(sel)[m.name] > 0).map((m) => m.unitType).filter(Boolean))];
+    sec.insertAdjacentHTML('beforeend', `<p class="muted">Type: ${esc(types.join('; '))}${(u.traits || []).length ? ' · Traits: ' + esc(u.traits.concat(E.arkanaOf(sel) ? [E.arkanaOf(sel)] : []).join(', ')) : ''}</p>`);
+    box.append(sec);
+
+    const lo = section('Wargear');
+    const ul = h('<ul class="loadout"></ul>');
+    for (const r of E.loadout(sel)) {
+      const chg = r.changes.map((c) => `<span class="chg">${c.count > 1 ? c.count + '× ' : ''}${esc(c.name)}${c.replaces ? ` <small>(for ${esc(c.replaces)})</small>` : ''}</span>`);
+      ul.append(h(`<li><strong>${r.count}× ${esc(r.model)}</strong>: ${esc(r.base.join(', ') || '—')}${chg.length ? ' · ' + chg.join(', ') : ''}</li>`));
+    }
+    lo.append(ul);
+    const wt = weaponTable(weaponNamesFor(u, sel));
+    lo.insertAdjacentHTML('beforeend', wt.html);
+    if (wt.other.length) lo.append(chips(wt.other));
+    box.append(lo);
+
+    const rs = section('Special rules');
+    rs.append(chips(unitRuleNames(u, sel)));
+    if (u.note) rs.append(h(`<p class="muted">Note: ${esc(u.note)}</p>`));
+    box.append(rs);
+  }
+
+  function chips(names) {
+    const wrap = h('<div class="chips"></div>');
+    for (const n of names) {
+      const r = findRule(n);
+      const k = norm(n);
+      const tip = r ? 'Show rule' : coreNames.has(k) ? 'Core rule: see the Horus Heresy 3rd edition rulebook' : undefinedNames.has(k) ? 'Not printed in the codex: ' + undefinedNames.get(k) : 'No rules text found';
+      const c = h(`<span class="chip ${r ? 'rule' : coreNames.has(k) ? 'core' : 'missing'}" title="${esc(tip)}">${esc(n)}${coreNames.has(k) && !r ? ' <small>core</small>' : ''}</span>`);
+      if (r) c.addEventListener('click', () => showText(n, r.text, r.page));
+      wrap.append(c);
+    }
+    return wrap;
+  }
+
+  // ---------- issues ----------
+  function renderIssues() {
+    const issues = E.armyIssues(army);
+    const ul = $('#issues');
+    ul.replaceChildren();
+    const errs = issues.filter((i) => i.level === 'error').length;
+    $('#issue-count').textContent = issues.length ? `${errs} error${errs === 1 ? '' : 's'}, ${issues.length - errs} warning${issues.length - errs === 1 ? '' : 's'}` : '';
+    if (!issues.length) ul.append(h('<li class="ok">No problems found.</li>'));
+    const seen = new Set();
+    for (const i of issues) {
+      if (seen.has(i.msg)) continue;
+      seen.add(i.msg);
+      ul.append(h(`<li class="${i.level}">${esc(i.msg)}</li>`));
+    }
+  }
+
+  // ---------- dialogs ----------
+  function openDialog(bodyEl, actions) {
+    const dlg = $('#dlg');
+    $('#dlg-body').replaceChildren(bodyEl);
+    const acts = $('#dlg-actions');
+    acts.replaceChildren();
+    for (const [label, fn] of actions || []) {
+      const b = h(`<button type="button" class="primary">${esc(label)}</button>`);
+      b.addEventListener('click', () => { if (fn() !== false) closeDialog(); });
+      acts.append(b);
+    }
+    acts.append(h('<button value="close">Close</button>'));
+    if (!dlg.open) dlg.showModal();
+  }
+  function closeDialog() { const d = $('#dlg'); if (d.open) d.close(); }
+
+  function showText(title, text, page, extra) {
+    const body = h(`<div><h2>${esc(title)}${page ? ` <small>p.${esc(page)}</small>` : ''}</h2><div class="dlg-body-scroll"><p class="rule-text">${esc(text || 'No text.')}</p></div></div>`);
+    if (extra && extra.length) {
+      const ul = h('<ul></ul>');
+      for (const x of extra) ul.append(h(`<li>${esc(x)}</li>`));
+      $('.dlg-body-scroll', body).append(ul);
+    }
+    openDialog(body);
+  }
+
+  // ---------- export / import ----------
+  function textExport() {
+    const lines = [];
+    const total = E.armyPoints(army);
+    lines.push(`${army.name || 'Unnamed Dynasty'} — ${total}/${army.pointsLimit} pts`);
+    lines.push(`Necrons (${(DATA.meta && DATA.meta.source) || 'Codex Xenologica'} v${(DATA.meta && DATA.meta.version) || '?'})`);
+    if (army.sequelae.length) lines.push('Aeonic Sequelae: ' + army.sequelae.join(', '));
+    for (const d of army.detachments) {
+      const units = d.slots.filter((s) => s.unit);
+      if (!units.length) continue;
+      lines.push('', `== ${d.name} ==`);
+      for (const s of units) {
+        const u = E.unit(s.unit.unitId);
+        const extras = [];
+        if (s.prime) extras.push('Prime' + (s.unit.primeAdvantage ? ': ' + s.unit.primeAdvantage : ''));
+        const ark = E.arkanaOf(s.unit);
+        if (ark) extras.push(ark);
+        lines.push(`[${s.advisor ? 'Command (Advisor)' : s.flexible ? 'Flexible' : s.role}] ${u.name}${extras.length ? ' (' + extras.join(', ') + ')' : ''} — ${E.unitPoints(s.unit)} pts`);
+        for (const r of E.loadout(s.unit)) {
+          const chg = r.changes.map((c) => `${c.count > 1 ? c.count + 'x ' : ''}${c.name}${c.replaces ? ' (for ' + c.replaces + ')' : ''}`);
+          lines.push(`    ${r.count}x ${r.model}: ${r.base.join(', ')}${chg.length ? '; ' + chg.join(', ') : ''}`);
+        }
+      }
+    }
+    return lines.join('\n');
+  }
+
+  function shareLink() {
+    const json = JSON.stringify(army);
+    const b64 = btoa(unescape(encodeURIComponent(json)));
+    return location.origin + location.pathname + '#a=' + b64;
+  }
+
+  function doExport() {
+    const body = h(`<div><h2>Export</h2>
+      <div class="row"><button type="button" data-f="text" class="primary">Text</button><button type="button" data-f="json">JSON</button><button type="button" data-f="link">Share link</button></div>
+      <textarea readonly></textarea></div>`);
+    const ta = $('textarea', body);
+    const set = (f) => { ta.value = f === 'json' ? JSON.stringify(army, null, 2) : f === 'link' ? shareLink() : textExport(); };
+    body.querySelectorAll('[data-f]').forEach((b) => b.addEventListener('click', () => set(b.dataset.f)));
+    set('text');
+    openDialog(body, [
+      ['Copy', () => { ta.select(); try { navigator.clipboard.writeText(ta.value); } catch (e) { document.execCommand('copy'); } return false; }],
+      ['Download JSON', () => {
+        const blob = new Blob([JSON.stringify(army, null, 2)], { type: 'application/json' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = (army.name || 'necron-army').replace(/[^\w-]+/g, '_') + '.json';
+        a.click();
+        return false;
+      }],
+    ]);
+  }
+
+  function doImport() {
+    const body = h(`<div><h2>Import</h2><p class="muted">Paste list JSON or a share link, or choose a file.</p><input type="file" accept=".json,application/json"><textarea></textarea></div>`);
+    $('input', body).addEventListener('change', async (e) => { const f = e.target.files[0]; if (f) $('textarea', body).value = await f.text(); });
+    openDialog(body, [['Import', () => {
+      let txt = $('textarea', body).value.trim();
+      try {
+        const m = txt.match(/#a=(.+)$/);
+        if (m) txt = decodeURIComponent(escape(atob(m[1])));
+        army = sanitize(JSON.parse(txt));
+        active = null;
+        refresh();
+      } catch (e) { alert('Could not read that list: ' + e.message); return false; }
+    }]]);
+  }
+
+  function doSave() {
+    const name = prompt('Save list as:', army.name || 'My Dynasty');
+    if (!name) return;
+    const saved = store.get(STORE_SAVED, {});
+    saved[name] = Object.assign({}, army, { savedAt: new Date().toISOString() });
+    store.set(STORE_SAVED, saved);
+  }
+
+  function doLoad() {
+    const saved = store.get(STORE_SAVED, {});
+    const names = Object.keys(saved).sort();
+    const body = h('<div><h2>Saved lists</h2><div class="picker"></div></div>');
+    const list = $('.picker', body);
+    if (!names.length) list.append(h('<p class="muted">Nothing saved in this browser yet.</p>'));
+    for (const n of names) {
+      const a = saved[n];
+      const row = h(`<div class="row"><button type="button" style="flex:1"><span>${esc(n)}</span><span class="muted">${E.armyPoints(a)} pts · ${esc((a.savedAt || '').slice(0, 10))}</span></button><button type="button" class="small danger">Delete</button></div>`);
+      row.children[0].addEventListener('click', () => { army = sanitize(JSON.parse(JSON.stringify(a))); active = null; closeDialog(); refresh(); });
+      row.children[1].addEventListener('click', () => { if (!confirm('Delete ' + n + '?')) return; delete saved[n]; store.set(STORE_SAVED, saved); row.remove(); });
+      list.append(row);
+    }
+    openDialog(body);
+  }
+
+  // ---------- roster ----------
+  function renderRoster() {
+    const el = $('#roster');
+    const total = E.armyPoints(army);
+    const issues = E.armyIssues(army);
+    let html = `<div class="r-bar"><button type="button" id="r-print">Print</button><button type="button" id="r-close">Close</button></div>`;
+    html += `<h1>${esc(army.name || 'Unnamed Dynasty')} <span class="muted">— ${total}/${esc(army.pointsLimit)} pts</span></h1>`;
+    html += `<p class="muted">${esc((DATA.meta && DATA.meta.source) || '')} v${esc((DATA.meta && DATA.meta.version) || '')}${army.sequelae.length ? ' · Aeonic Sequelae: ' + esc(army.sequelae.join(', ')) : ''}</p>`;
+    if (issues.some((i) => i.level === 'error')) html += `<p style="color:#b00">This list has ${issues.filter((i) => i.level === 'error').length} rules problem(s).</p>`;
+    const glossary = new Map();
+    for (const d of army.detachments) {
+      const units = d.slots.filter((s) => s.unit);
+      if (!units.length) continue;
+      html += `<h2>${esc(d.name)}</h2>`;
+      for (const s of units) {
+        const u = E.unit(s.unit.unitId);
+        const ark = E.arkanaOf(s.unit);
+        html += `<div class="r-unit"><h3><span>${esc(u.name)} <small class="muted">${esc(s.flexible ? 'Flexible' : s.role)}${s.prime ? ' · Prime' + (s.unit.primeAdvantage ? ': ' + esc(s.unit.primeAdvantage) : '') : ''}${ark ? ' · ' + esc(ark) : ''}</small></span><span>${E.unitPoints(s.unit)} pts</span></h3>`;
+        html += profileTable(u, s.unit);
+        html += '<ul class="loadout">';
+        for (const r of E.loadout(s.unit)) {
+          const chg = r.changes.map((c) => `${c.count > 1 ? c.count + '× ' : ''}${esc(c.name)}${c.replaces ? ' (for ' + esc(c.replaces) + ')' : ''}`);
+          html += `<li><strong>${r.count}× ${esc(r.model)}</strong>: ${esc(r.base.join(', '))}${chg.length ? '; ' + chg.join(', ') : ''}</li>`;
+        }
+        html += '</ul>';
+        const wt = weaponTable(weaponNamesFor(u, s.unit));
+        html += wt.html;
+        const rules = unitRuleNames(u, s.unit).concat(wt.other);
+        html += `<div class="r-rules"><strong>Rules:</strong> ${esc(rules.join(', '))}</div>`;
+        for (const r of rules) { const f = findRule(r); if (f) glossary.set(f.name, f); }
+        html += '</div>';
+      }
+    }
+    if (glossary.size) {
+      html += '<h2>Rules reference</h2><dl class="r-glossary">';
+      for (const r of [...glossary.values()].sort((a, b) => a.name.localeCompare(b.name))) html += `<dt>${esc(r.name)}${r.page ? ` <span class="muted">p.${esc(r.page)}</span>` : ''}</dt><dd>${esc(r.text)}</dd>`;
+      html += '</dl>';
+    }
+    el.innerHTML = html;
+    el.hidden = false;
+    $('#r-close', el).addEventListener('click', () => { el.hidden = true; });
+    $('#r-print', el).addEventListener('click', () => window.print());
+  }
+
+  // ---------- wiring ----------
+  function refresh() {
+    save();
+    renderHeader();
+    renderSequelae();
+    renderDetachments();
+    renderIssues();
+    renderEditor();
+  }
+
+  $('#army-name').addEventListener('input', (e) => { army.name = e.target.value; save(); });
+  $('#points-limit').addEventListener('change', (e) => { army.pointsLimit = Math.max(0, +e.target.value || 0); refresh(); });
+  $('#btn-new').addEventListener('click', () => { if (confirm('Start a new list? Unsaved changes to this one are lost.')) { army = newArmy(); active = null; refresh(); } });
+  $('#btn-save').addEventListener('click', doSave);
+  $('#btn-load').addEventListener('click', doLoad);
+  $('#btn-export').addEventListener('click', doExport);
+  $('#btn-import').addEventListener('click', doImport);
+  $('#btn-roster').addEventListener('click', renderRoster);
+  $('#add-det').addEventListener('change', (e) => {
+    const v = e.target.value;
+    e.target.value = '';
+    if (!v) return;
+    if (v === '__custom') {
+      const d = E.makeDetachment('custom', 'Custom Detachment', []);
+      army.detachments.push(d);
+      refresh();
+      editCustomSlots(d);
+      return;
+    }
+    army.detachments.push(E.detachmentFromDef(v));
+    refresh();
+  });
+
+  addDetachmentMenu();
+  refresh();
+})();

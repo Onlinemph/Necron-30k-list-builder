@@ -1,0 +1,154 @@
+{
+  "lists": [
+    {
+      "id": "nobility-melee",
+      "name": "Nobility Melee Weapons List",
+      "page": 8,
+      "items": [
+        { "name": "Hyperphase Sword", "points": 0 },
+        { "name": "Staff of Light", "points": 10 },
+        { "name": "Voidblade", "points": 0 },
+        { "name": "Warscythe", "points": 15 }
+      ]
+    },
+    {
+      "id": "nobility-wargear",
+      "name": "Nobility Wargear List",
+      "page": 8,
+      "items": [
+        { "name": "Dispersion Shield", "points": 20 },
+        { "name": "Enmitic Disintegrator", "points": 5 },
+        { "name": "Flensing Claw", "points": 0 },
+        { "name": "Gauntlet of Fire", "points": 5 },
+        { "name": "Particle Caster", "points": 5 },
+        { "name": "Photonic Assault Claw", "points": 5 },
+        { "name": "Resurrection Orb", "points": 40 },
+        { "name": "Tachyon Arbalest", "points": 15 }
+      ]
+    },
+    {
+      "id": "necron-cannons",
+      "name": "Necron Cannons List",
+      "page": 8,
+      "items": [
+        { "name": "Gauss Cannon", "points": 0 },
+        { "name": "Tesla Cannon", "points": 0 },
+        { "name": "Enmitic Annihilator", "points": 5 }
+      ]
+    },
+    {
+      "id": "arkana-weapons:Chronomancy",
+      "name": "Chronomancy Weapons List",
+      "page": 19,
+      "items": [
+        { "name": "Aeonstave", "points": 10 },
+        { "name": "Entropic Lance", "points": 15 }
+      ]
+    },
+    {
+      "id": "arkana-weapons:Ethermancy",
+      "name": "Ethermancy Weapons List",
+      "page": 19,
+      "items": [
+        { "name": "Tempest Lance", "points": 10 },
+        { "name": "Voltaic Staff", "points": 15 }
+      ]
+    },
+    {
+      "id": "arkana-weapons:Geomancy",
+      "name": "Geomancy Weapons List",
+      "page": 19,
+      "items": [
+        { "name": "Harp of Dissonance", "points": 10 },
+        { "name": "Tremorglaive", "points": 20 }
+      ]
+    },
+    {
+      "id": "arkana-weapons:Plasmancy",
+      "name": "Plasmancy Weapons List",
+      "page": 19,
+      "items": [
+        { "name": "Plasmic Lance", "points": 10 },
+        { "name": "Eldritch Lance", "points": 20 }
+      ]
+    },
+    {
+      "id": "arkana-weapons:Psychomancy",
+      "name": "Psychomancy Weapons List",
+      "page": 19,
+      "items": [
+        { "name": "Abyssal Staff", "points": 10 },
+        { "name": "Doom Lance", "points": 15 }
+      ]
+    },
+    {
+      "id": "arkana-weapons:Technomancy",
+      "name": "Technomancy Weapons List",
+      "page": 19,
+      "items": [
+        { "name": "Solar Staff", "points": 10 },
+        { "name": "Meteor Staff", "points": 15 }
+      ]
+    },
+    {
+      "id": "techno-arkana:Chronomancy",
+      "name": "Chronomancy Techno-Arkana List",
+      "page": 19,
+      "items": [
+        { "name": "Chronometron", "points": 15 },
+        { "name": "Temporal Nanomines", "points": 10 },
+        { "name": "Timesplinter Mantle", "points": 30 }
+      ]
+    },
+    {
+      "id": "techno-arkana:Ethermancy",
+      "name": "Ethermancy Techno-Arkana List",
+      "page": 19,
+      "items": [
+        { "name": "Lightning Field", "points": 15 },
+        { "name": "Ether Crystal", "points": 15 },
+        { "name": "Storm Nodule", "points": 20 }
+      ]
+    },
+    {
+      "id": "techno-arkana:Geomancy",
+      "name": "Geomancy Techno-Arkana List",
+      "page": 19,
+      "items": [
+        { "name": "Geometric Adjuster", "points": 15 },
+        { "name": "Material Ablator", "points": 20 },
+        { "name": "Seismic Crucible", "points": 10 }
+      ]
+    },
+    {
+      "id": "techno-arkana:Plasmancy",
+      "name": "Plasmancy Techno-Arkana List",
+      "page": 19,
+      "items": [
+        { "name": "Gaze of Flame", "points": 10 },
+        { "name": "Quantum Orb", "points": 20 },
+        { "name": "Solar Pulse", "points": 10 }
+      ]
+    },
+    {
+      "id": "techno-arkana:Psychomancy",
+      "name": "Psychomancy Techno-Arkana List",
+      "page": 19,
+      "items": [
+        { "name": "Atavindicator", "points": 20 },
+        { "name": "Nightmare Shroud", "points": 15 },
+        { "name": "Veil of Darkness", "points": 25 }
+      ]
+    },
+    {
+      "id": "techno-arkana:Technomancy",
+      "name": "Technomancy Techno-Arkana List",
+      "page": 19,
+      "items": [
+        { "name": "Canoptek Cloak", "points": 15 },
+        { "name": "Canoptek Control Node", "points": 5 },
+        { "name": "Mindshackle Scarabs", "points": 20 }
+      ]
+    }
+  ]
+}

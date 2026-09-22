@@ -1,0 +1,180 @@
+{
+  "specialRules": [
+    {
+      "name": "Access Points",
+      "page": 73,
+      "text": "This model has one Access Point on the Front facing."
+    },
+    {
+      "name": "Access Points",
+      "page": 74,
+      "text": "This model has one Access Point on the Front facing."
+    },
+    {
+      "name": "Gravity Pulse",
+      "page": 75,
+      "text": "Once per Battle only, the Controlling Player of a Model with this Special Rule can activate its Gravity Pulse. The Gravity Pulse can be Activated when this Model is selected to make Shooting Attacks (excepting Volley Attacks), including as part of a Reaction, and is resolved before this Model's Shooting Attacks. The Targets of the Gravity Pulse are all Enemy Units that that are within 24\" of this Model. The Controlling Player rolls a D6 for each Target of the Gravity Pulse, with a Target Number of '4+' for Targets that include any Models with the Antigrav or Flyer Sub-Type and '6' for Targets that do not. Each Unit for which the Target Number is rolled gains the Pinned Tactical Status.\n\nUnits that include any Models with the Gargantuan, Knight, Super-Heavy or Titan Sub-Type cannot be Targets of the Gravity Pulse and are unaffected."
+    },
+    {
+      "name": "The World Recoils and Roils",
+      "page": 78,
+      "text": "Enemy Models treat all Terrain within 12\" of a model with this Special Rule as Dangerous Terrain."
+    },
+    {
+      "name": "Unmaking Touch",
+      "page": 78,
+      "text": "Weapon: Unmake. IM: I, AM: A, SM: S, AP: 2, D: 3, Special Rules: –, Traits: –."
+    },
+    {
+      "name": "Drain Life",
+      "page": 79,
+      "text": "Damage Mitigation rolls of any kind may not be taken for models, friend and foe, that are within 6\" of a Model with this Special Rule."
+    },
+    {
+      "name": "Gaze of Death",
+      "page": 79,
+      "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan:\n\nWeapon: Gaze of Death. R: H, FP: 1, RS: 10, AP: 2, D: 1, Special Rules: Scourge (Cool), Panic (2), Shock (Suppressed), Traits: Despair."
+    },
+    {
+      "name": "Scythe of Aza'gorod",
+      "page": 79,
+      "text": "Weapon: Scythe of Aza'gorod (Traits: Entropic).\n- Entropic Strike: IM: -2, AM: -1, SM: S, AP: 2, D: 6, Special Rules: Aeon Breach (5+).\n- Reaping Strike: IM: I, AM: A, SM: S, AP: 2, D: 2, Special Rules: Reaping Blow (2)."
+    },
+    {
+      "name": "Dread",
+      "page": 80,
+      "text": "The Fear (X) Special Rule of a Model with this Special Rule also reduces the Weapon Skill Characteristic of any affected Units by the Value of X..",
+      "note": "Source text prints a doubled period at the end of this sentence; kept verbatim."
+    },
+    {
+      "name": "Fists of Mephet'ran",
+      "page": 80,
+      "text": "Weapon: Fists of Mephet'ran. IM: I, AM: A, SM: S, AP: 2, D: 3, Special Rules: –, Traits: –."
+    },
+    {
+      "name": "Cosmic Insanity",
+      "page": 80,
+      "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan:\n\nWeapon: Cosmic Insanity. R: 120, FP: 1, RS: 3, AP: 2, D: 1, Special Rules: Barrage, Blast (10), Stun (3), Traits: Despair."
+    },
+    {
+      "name": "The Grand Illusion",
+      "page": 80,
+      "text": "At the end of the Deploy Armies Step of any Mission Sequence, if an army includes a Model with this Special Rule, that player can select up to one of their own Units and one opposing Units and re-deploy them, following any Deployment Restrictions that Unit has to follow. This can be used to re-deploy a Unit in Reserves on the Battlefield, or place a Unit on the Battlefield in Reserves. Units inside a transport may not be re-deployed, nor may this rule be used to Embark Units inside a Transport, but the Transport itself may be re-deployed in which case any units Embarked inside that Transport remain inside the Transport. Units that include any models with the Paragon Type and Transports that have any Paragon models Embarked upon them may not be re-deployed using this Special Rule."
+    },
+    {
+      "name": "Matter Absorption",
+      "page": 81,
+      "text": "Each time any model with the Walker or Automata Unit Type is reduced to 0 Wounds, or any model with the Vehicle Unit Type is reduced to 0 Hull Points, whilst within 12\" of this Model, and this model's Current Wounds characteristic is 7 or lower, this model's Current Wounds characteristic is increased by 1. This model may not gain more than 1 Wound per phase in this way."
+    },
+    {
+      "name": "Voltaic Storm",
+      "page": 81,
+      "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan:\n\nWeapon: Voltaic Storm. R: 18, FP: 5, RS: 8, AP: 2, D: 2, Special Rules: Armour-Breaker (3+), Shock (Suppressed), Suppress (2), Traits: Arc."
+    },
+    {
+      "name": "Spear of Mag'ladroth",
+      "page": 81,
+      "text": "Melee: IM: I, AM: A, SM: S, AP: 2, D: 3, Special Rules: Armour-breaker (3+), Traits: Arkana.\nRanged: R: 12, FP: 3, RS: 9, AP: 2, D: 2, Special Rules: Armourbane, Armour-breaker (4+)."
+    },
+    {
+      "name": "The Fallingstar God",
+      "page": 82,
+      "text": "When a Model with this Special Rule is deployed using the Deep Strike Special Rule, it immediately makes up to five Shooting Attacks as if it were the Shooting Phase using the weapon profile shown in the Soul Blaze Special Rule. Each Shooting Attack must target a different Unit. After resolving these Shooting Attacks, the Soul Blaze profile may not be used as a Power of the C'Tan for the remainder of the battle."
+    },
+    {
+      "name": "Wreathed in Flame",
+      "page": 82,
+      "text": "A Model with this special rule reduces the Strength of all Hits inflicted on it by Weapons with the Las, Plasma, Melta and Flame Trait by half, rounded up."
+    },
+    {
+      "name": "Soul Blaze",
+      "page": 82,
+      "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan:\n\nWeapon: Soul Blaze. R: 12, FP: 2D6, RS: 8, AP: 4, D: 2, Special Rules: Pinning (1), Traits: Arc."
+    },
+    {
+      "name": "Breath of Nyadra'zatha",
+      "page": 82,
+      "text": "Weapon: Breath of Nyadra'zatha. IM: I, AM: A, SM: S, AP: 2, D: 2, Special Rules: Aflame (2), Deflagrate (6), Traits: –."
+    },
+    {
+      "name": "Gestalt Entity",
+      "page": 83,
+      "text": "This Model's Weapon Skill, Strength and Attacks Characteristic are each equal to either 4 or its Current Wounds Characteristic, whichever is higher."
+    },
+    {
+      "name": "Canoptek Hegemon",
+      "page": 83,
+      "text": "Units from the same Army within 12\" of a Model with this Special Rule that include Automata Models can make Reactions, even though they include Automata models, so long as all Automata models in the Unit have the Canoptek Trait."
+    },
+    {
+      "name": "Tides of Hate",
+      "page": 83,
+      "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan:\n\nTides of Hate: When using the Tides of Hate Power of the C'Tan, this model's controlling player selects an enemy unit within 12\" of this Model. Remove all Condition Tokens from the selected Unit, if any. This Model's controlling player may make a Shooting Attacks this Shooting Phase using that unit, as if that Unit was part of that Player's Army. The Unit is counted as being disengaged for the purpose of making that Shooting Attack."
+    },
+    {
+      "name": "Swarm of Iash'uddra",
+      "page": 83,
+      "text": "Weapon: Swarm of Iash'uddra. IM: I, AM: +2, SM: +2, AP: 2, D: 2, Special Rules: Melee, Entropic (3+), Traits: Flensing."
+    },
+    {
+      "name": "Coalescent Powers",
+      "page": 84,
+      "text": "A model with this Special Rule is counted as having the C'Tan Unit Type for the purpose of using and making Attacks with Powers of the C'Tan. Any Attacks made by a model with this Special Rule with a Power of the C'Tan receive a +2 bonus to the Ranged Strength of the Attack."
+    },
+    {
+      "name": "Convergence of Dominion",
+      "page": 86,
+      "text": "Although included in an Army as a Unit that includes multiple Models, each Model with this Special Rule is considered to be a separate Unit for all other purposes, including Deployment and the scoring of Victory Points."
+    },
+    {
+      "name": "Translocation Protocols",
+      "page": 86,
+      "text": "If a model with this Special Rule is the Target Model for the Battlesmith (X) Special Rule, and the Acting Model has the Necron Trait, the following option may be selected instead of the other options listed in the Battlesmith (X) Special Rule:\n- Translocate: Remove the Target Model from the Battlefield, then place it anywhere on the Battlefield that is more than 9\" from Enemy Models and more than 1\" from other Models and Terrain. The Target Model may be targeted by the Interception Advanced Reaction and counts as having moved for the purpose of making Shooting Attacks in the following Shooting Phase."
+    },
+    {
+      "name": "Dominion Node",
+      "page": 86,
+      "text": "A model with a Dominion Node gains the Fear (1) special rule. In addition, Units from the controlling player's army that includes only models with the Reanimant Trait count their Leadership and Cool characteristics as 12 whilst within 6\" of a model with this a Dominion node.",
+      "note": "Source text reads '...within 6\" of a model with this a Dominion node' (grammatical typo); kept verbatim."
+    },
+    {
+      "name": "Resurrection Node",
+      "page": 86,
+      "text": "Each time a rule, special rule, or reaction calls for any number of Resurrection Tests to be made for a Unit, 1 additional model that was previously removed as a casualty is returned to the unit for each model equipped with a Resurrection Node that is within 6\" of the Unit. This is treated in all ways as a model being returned to the battlefield with a succesful Resurrection Test as part of the same rule or special rule that called for Resurrection Tests to be made for the unit.",
+      "note": "Source spells 'successful' as 'succesful'; kept verbatim."
+    },
+    {
+      "name": "Citadel Complex",
+      "page": 87,
+      "text": "The Tomb Citadel is comprised of a large surface with four Fortification emplacements on it. Two are for the Tomb Ziggurat and Power Crucible, and two are for the optional Gun emplacements. The surface of the Tomb Citadel is treated as being Light Area Terrain. When placing the Tomb Ziggurat on the battlefield, the controlling player can place it over other terrain -- when doing so, remove any terrain it covers. The Citadel is so large that it may not fit in the controlling player's Deployment Zone; if that is the case, deploy the Tomb Citadel so that as much of it as possible is within the controlling player's Deployment Zone. The Tomb Citadel may have to be deployed first, so other units may be deployed on top of it.\n\nIf any Fortification that is part of the Tomb Citadel is destroyed, that model remains on the battlefield as Impassible Terrain. The Gun Emplacement locations are also Impassible Terrain if no Gun Emplacement was purchased for it."
+    },
+    {
+      "name": "Phase Shift Field",
+      "page": 88,
+      "text": "While the Power crucible has not been destroyed, all models, both friendly and enemy, on the surface of the Tomb Citadel have a 4+ invulnerable save against shooting attacks."
+    },
+    {
+      "name": "Resurrection Amplifier",
+      "page": 88,
+      "text": "While the Power crucible has not been destroyed, the result of any Resurrection Tests made for Units in the Controlling Player's Army that are on the surface of the Tomb Citadel is modified by +1."
+    },
+    {
+      "name": "Canoptek Factory",
+      "page": 88,
+      "text": "While the Tomb Ziggurat has not been destroyed, the Controlling Player may select and apply one of the following during their Turn as the Active Player:\n- When a Unit of Canoptek Scarabs on the surface of the Tomb Citadel been selected, but before or after it has been moved, the controlling player may add up to three Scarab Swarm models to that Unit so that they are in coherency with that Unit and more than 1\" from enemy models.\n- At the end of the Movement Phase, the Controlling Player may create a Unit of Canoptek Scarabs consisting of three Scarab Swarms. That Unit enters the Battlefield as if from Reserves, using the Tomb Ziggurat's Eternity Gate as if it was the Edge of the Battlefield. The new Unit can be targeted with the Interception Reaction.",
+      "note": "Printed heading is 'Canoptek factory' (lowercase f) on page 88, while the Special Rules list on page 87 capitalizes it as 'Canoptek Factory'; the capitalized form is used as the rule name for consistency."
+    },
+    {
+      "name": "Ziggurat Deck",
+      "page": 88,
+      "text": "Models can move over and end a move on top of the Tomb Ziggurat, treating it as if it were an area of Light Area Terrain. However, unlike other Areas of Terrain, protrusions and other parts of the Model do block Line of Sight.\n\nDuring deployment, the Controlling Player of a Tomb Ziggurat can deploy a single Monolith or Gauss Pylon on top of the upper level of the Tomb Ziggurat. This model is referred to as the 'Docked Model'. The following rules apply to the Docked Model so long as it remains on top of the Tomb Ziggurat:\n- If the Docked Model is selected to make any kind of Move, it must first be removed from the top of the Tomb Ziggurat and placed anywhere within 1\" of the Tomb Ziggurat. The model is no longer Docked and acts normally for the remainder of the Battle.\n- All Weapons used by the Docked Model gain +1 Ranged Strength and lose the Limited (X) Special Rule.\n- The Docked Model uses the Eternity Gate modelled on the Tomb Ziggurat in place of its own as its Access Point and for the purpose of the Eternity Gate Special Rule.\n- If the Docked Model makes a Shooting Attack using the Portal of Exile, measure ranges from the Eternity Gate modelled on the Tomb Ziggurat instead of the Docked Model's.\n- If a Tomb Ziggurat is Destroyed, the Docked Model suffers D6 Damage. No Saves or Damage Mitigation Rolls may be made against that Damage. The model remains on top of the Tomb Ziggurat, but receives none of the benefits from the above Bullet Points, except it can still leave using the procedure listed in the first Bullet Point.\n\nA model may not become Docked after the start of battle."
+    }
+  ],
+  "unitTypes": [
+    {
+      "name": "C'Tan",
+      "page": 90,
+      "text": "The following rules apply to all models with the C'Tan type:\n- A Unit that includes only Models with C'Tan Type may ignore the effects of any and all Terrain it passes over during movement, including passing over Impassable Terrain without penalty or restriction, and automatically pass Dangerous Terrain Tests. However, such Units may not begin or end their movement in Impassable Terrain.\n- When targeting a Unit that includes any Models with the C'Tan Type, the effects of the Poisoned (X) Special Rule only trigger on a Wound Test with a result of a '6' before modifiers are applied, regardless of the value of X for that variant of the Special Rule.\n- A model with the C'tan Type may attack with all Weapons they have in each Shooting Attack they make, including as part of a Reaction. Note that this does not allow Weapons without the Assault Trait to be used to attack as part of a Volley Attack.\n- In Step 1 of the Resolution Sub-Phase, when deciding how many Models a Player controls in a Combat, a Model with the C'Tan Type counts as a number of Models equal to that Model's Base Wounds Value.\n- No model may join a C'tan unit."
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "ranged": [
+    {
+      "name": "Empyric Overcharger",
+      "page": 119,
+      "R": 12,
+      "FP": 1,
+      "RS": 5,
+      "AP": "–",
+      "D": 1,
+      "specialRules": ["Blast (3)", "Psy-Shock"],
+      "traits": ["Arkana", "Assault"],
+      "modes": null
+    },
+    {
+      "name": "Staff of the Destroyer",
+      "page": 125,
+      "R": 18,
+      "FP": 3,
+      "RS": 6,
+      "AP": 2,
+      "D": 1,
+      "specialRules": [],
+      "traits": ["Assault", "Las"],
+      "modes": null
+    },
+    {
+      "name": "The Storm Cometh",
+      "page": 126,
+      "R": 48,
+      "FP": 1,
+      "RS": 8,
+      "AP": "–",
+      "D": 1,
+      "specialRules": ["Blast (5)", "Suppressive (1)"],
+      "traits": ["Arc"],
+      "modes": null,
+      "note": "Imotekh's bonus Shooting Attack profile granted by The Lord of Storms while the Storm is called. Printed under a table header reading 'Melee' on page 126; this is a source typo, as the columns (R/FP/RS/AP/D) and the weapon's use ('Shooting Attack ... in addition to his other Ranged Weapons') are unambiguously Ranged."
+    },
+    {
+      "name": "Sceptre of Eternal Glory",
+      "page": 130,
+      "R": 24,
+      "FP": 1,
+      "RS": 8,
+      "AP": 4,
+      "D": 1,
+      "specialRules": ["Blast (3)", "Breaching (6+)", "Suppressive (1)"],
+      "traits": ["Las"],
+      "modes": null
+    },
+    {
+      "name": "Staff of Stars",
+      "page": 130,
+      "R": 24,
+      "FP": 6,
+      "RS": 6,
+      "AP": 3,
+      "D": 1,
+      "specialRules": [],
+      "traits": ["Las"],
+      "modes": null
+    },
+    {
+      "name": "Annihilator Beam",
+      "page": 130,
+      "R": 36,
+      "FP": 1,
+      "RS": 12,
+      "AP": 2,
+      "D": 6,
+      "specialRules": [],
+      "traits": ["Las"],
+      "modes": null
+    }
+  ],
+  "melee": [
+    {
+      "name": "Empathic Obliterator",
+      "page": 114,
+      "IM": "-1",
+      "AM": "A",
+      "SM": "+2",
+      "AP": 3,
+      "D": 1,
+      "specialRules": ["Breaching (6+)", "Psionic Shockwave"],
+      "traits": ["Power"],
+      "modes": null
+    },
+    {
+      "name": "Tesseract Labyrinths",
+      "page": 114,
+      "IM": "+3",
+      "AM": 1,
+      "SM": 6,
+      "AP": 2,
+      "D": 3,
+      "specialRules": ["Exile", "Limited (3)", "Precision (4+)"],
+      "traits": ["Dimensional"],
+      "modes": null
+    },
+    {
+      "name": "Staff of Tomorrow",
+      "page": 116,
+      "IM": 12,
+      "AM": "A",
+      "SM": "S",
+      "AP": 2,
+      "D": 1,
+      "specialRules": ["Aeon Breach (6+)", "Critical Hit (6+)"],
+      "traits": ["Arkana"],
+      "modes": null,
+      "note": "Source prints 'Critical Hit (6+)' in the singular here, unlike the usual 'Critical Hits (X)' phrasing used elsewhere; kept as printed."
+    },
+    {
+      "name": "The Obsidax",
+      "page": 122,
+      "IM": "I",
+      "AM": "A",
+      "SM": "S",
+      "AP": 3,
+      "D": 3,
+      "specialRules": ["Breaching (5+)"],
+      "traits": ["Power"],
+      "modes": null
+    },
+    {
+      "name": "Scythe of Oblation",
+      "page": 127,
+      "IM": "I",
+      "AM": "A",
+      "SM": "+2",
+      "AP": 2,
+      "D": 2,
+      "specialRules": ["Armourbane", "Critical Hits (6+)", "Reaping Blow (2)"],
+      "traits": ["Power"],
+      "modes": null
+    },
+    {
+      "name": "Staff of the Destroyer",
+      "page": 125,
+      "IM": "I",
+      "AM": "A",
+      "SM": "+1",
+      "AP": 2,
+      "D": 1,
+      "specialRules": ["Critical Hits (6+)"],
+      "traits": ["Power"],
+      "modes": null
+    },
+    {
+      "name": "Sceptre of Eternal Glory",
+      "page": 130,
+      "IM": "I",
+      "AM": "A",
+      "SM": 9,
+      "AP": 2,
+      "D": 2,
+      "specialRules": ["Armour-Breaker (3+)", "Armourbane", "Reaping Blow (1)"],
+      "traits": ["Power"],
+      "modes": null
+    },
+    {
+      "name": "Staff of Stars",
+      "page": 130,
+      "IM": "I",
+      "AM": 3,
+      "SM": 6,
+      "AP": 3,
+      "D": 1,
+      "specialRules": [],
+      "traits": ["Power"],
+      "modes": null
+    },
+    {
+      "name": "Scythe of Dust",
+      "page": 130,
+      "IM": "I",
+      "AM": 4,
+      "SM": 8,
+      "AP": 3,
+      "D": 1,
+      "specialRules": ["Breaching (5+)"],
+      "traits": ["Power"],
+      "modes": null
+    }
+  ]
+}

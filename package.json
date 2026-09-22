@@ -1,0 +1,12 @@
+{
+  "name": "necron-30k-list-builder",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Army list builder for Codex Xenologica – Necrons (Horus Heresy 3rd edition).",
+  "scripts": {
+    "build": "node scripts/build-data.mjs --strict",
+    "test": "node scripts/build-data.mjs --strict > /dev/null && node --test tests/*.test.cjs",
+    "start": "python3 -m http.server 8080"
+  },
+  "license": "MIT"
+}

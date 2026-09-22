@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Necron 30k List Builder</title>
+  <meta name="description" content="Army list builder for Codex Xenologica – Necrons (Horus Heresy 3rd edition).">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <svg class="glyph" viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><path d="M16 3 L28 26 H4 Z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="16" cy="17" r="3.5" fill="currentColor"/><path d="M16 21 V29 M11 29 H21" stroke="currentColor" stroke-width="2"/></svg>
+      <div>
+        <h1>Necron 30k List Builder</h1>
+        <p class="sub" id="data-version"></p>
+      </div>
+    </div>
+    <div class="army-meta">
+      <label>Army name <input id="army-name" type="text" placeholder="Unnamed Dynasty"></label>
+      <label>Points limit <input id="points-limit" type="number" min="0" step="250" value="3000"></label>
+      <div class="points" id="points-box">
+        <div class="points-num"><span id="points-total">0</span> / <span id="points-limit-label">3000</span></div>
+        <div class="bar"><div id="points-bar"></div></div>
+      </div>
+    </div>
+    <nav class="actions">
+      <button id="btn-new" type="button">New</button>
+      <button id="btn-save" type="button">Save</button>
+      <button id="btn-load" type="button">Load</button>
+      <button id="btn-export" type="button">Export</button>
+      <button id="btn-import" type="button">Import</button>
+      <button id="btn-roster" type="button" class="primary">Roster</button>
+    </nav>
+  </header>
+
+  <main class="layout">
+    <section class="col army" aria-label="Army">
+      <div class="panel">
+        <h2>Aeonic Sequelae <small id="seq-allow"></small></h2>
+        <div id="sequelae"></div>
+      </div>
+      <div id="detachments"></div>
+      <div class="panel add-det">
+        <label>Add detachment
+          <select id="add-det">
+            <option value="">Choose…</option>
+          </select>
+        </label>
+      </div>
+      <div class="panel">
+        <h2>Checks <small id="issue-count"></small></h2>
+        <ul id="issues" class="issues"></ul>
+      </div>
+    </section>
+
+    <section class="col editor" aria-label="Unit editor">
+      <div id="editor" class="panel empty">
+        <p>Pick a slot on the left to add a unit, or click a unit to edit it.</p>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="dlg">
+    <form method="dialog" class="dlg-inner">
+      <div id="dlg-body"></div>
+      <div class="dlg-actions" id="dlg-actions"><button value="close">Close</button></div>
+    </form>
+  </dialog>
+
+  <div id="roster" class="roster" hidden></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/engine.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,1682 @@
+{
+  "units": [
+    {
+      "id": "flayed-ones",
+      "name": "Flayed Ones",
+      "role": "Heavy Assault",
+      "page": 36,
+      "limit": null,
+      "unique": false,
+      "basePoints": 80,
+      "composition": "5 Flayed Ones",
+      "models": [
+        {
+          "name": "Flayed One",
+          "min": 5,
+          "max": 20,
+          "costPerExtra": 13,
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 1,
+            "S": 4,
+            "T": 4,
+            "W": 1,
+            "I": 2,
+            "A": 2,
+            "LD": 10,
+            "CL": 10,
+            "WP": 4,
+            "IN": 2,
+            "SAV": "4+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Paired Flensing Claws"
+          ],
+          "unitType": "Infantry (Skirmish)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Necron",
+        "Reanimant"
+      ],
+      "specialRules": [
+        "Reanimation Protocols (5+)",
+        "Deep Strike",
+        "Fear (1)",
+        "Heedless",
+        "Infiltrate (9)",
+        "Move Through Cover"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [],
+      "note": null
+    },
+    {
+      "id": "skorpekh-destroyers",
+      "name": "Skorpekh Destroyers",
+      "role": "Heavy Assault",
+      "page": 37,
+      "limit": null,
+      "unique": false,
+      "basePoints": 100,
+      "composition": "3 Skorpekh Destroyers",
+      "models": [
+        {
+          "name": "Skorpekh Destroyer",
+          "min": 3,
+          "max": 10,
+          "costPerExtra": 30,
+          "profile": {
+            "M": 8,
+            "WS": 4,
+            "BS": 4,
+            "S": 5,
+            "T": 5,
+            "W": 3,
+            "I": 2,
+            "A": 2,
+            "LD": 10,
+            "CL": 10,
+            "WP": 7,
+            "IN": 5,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Pair of Hyperphase Threshers"
+          ],
+          "unitType": "Infantry",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Necron",
+        "Reanimant",
+        "Destroyer"
+      ],
+      "specialRules": [
+        "Reanimation Protocols (5+)",
+        "Bulky (3)",
+        "Hardwired for Destruction",
+        "Vanguard (1)"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [
+        {
+          "id": "reapblade",
+          "text": "For every 3 models in the unit, 1 Skorpekh Destroyer may have its Pair of Hyperphase Threshers exchanged for a Hyperphase Reapblade for +10 points.",
+          "kind": "perModel",
+          "model": "Skorpekh Destroyer",
+          "replaces": [
+            "Pair of Hyperphase Threshers"
+          ],
+          "choices": [
+            {
+              "name": "Hyperphase Reapblade",
+              "points": 10
+            }
+          ],
+          "max": {
+            "per": 3,
+            "count": 1
+          },
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "canoptek-tomb-stalker",
+      "name": "Canoptek Tomb Stalker",
+      "role": "Heavy Assault",
+      "page": 38,
+      "limit": null,
+      "unique": false,
+      "basePoints": 125,
+      "composition": "1 Canoptek Tomb Stalker",
+      "models": [
+        {
+          "name": "Tomb Stalker",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 10,
+            "WS": 4,
+            "BS": 4,
+            "S": 7,
+            "T": 7,
+            "W": 5,
+            "I": 2,
+            "A": 5,
+            "LD": 8,
+            "CL": 12,
+            "WP": 4,
+            "IN": 4,
+            "SAV": "3+",
+            "INV": "5"
+          },
+          "wargear": [
+            "2 Gauss Slicers",
+            "Phase-Tunnel Cutters",
+            "Gloom Prism",
+            "Sense Cluster"
+          ],
+          "unitType": "Automata",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Necron",
+        "Canoptek"
+      ],
+      "specialRules": [
+        "Bulky (5)",
+        "Deep Strike",
+        "Explodes (6+)",
+        "Fast (2)",
+        "Firestorm",
+        "Firing Protocols (2)",
+        "Impact (A)",
+        "Implacable Advance",
+        "Outflank",
+        "Phase Motion",
+        "Vanguard (1)"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [],
+      "note": null
+    },
+    {
+      "id": "necron-warriors",
+      "name": "Necron Warriors",
+      "role": "Troops",
+      "page": 40,
+      "limit": null,
+      "unique": false,
+      "basePoints": 100,
+      "composition": "10 Necron Warriors",
+      "models": [
+        {
+          "name": "Necron Warrior",
+          "min": 10,
+          "max": 20,
+          "costPerExtra": 10,
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 4,
+            "S": 4,
+            "T": 4,
+            "W": 1,
+            "I": 2,
+            "A": 1,
+            "LD": 10,
+            "CL": 10,
+            "WP": 4,
+            "IN": 4,
+            "SAV": "4+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Gauss Flayer"
+          ],
+          "unitType": "Infantry",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Necron",
+        "Reanimant"
+      ],
+      "specialRules": [
+        "Reanimation Protocols (5+)",
+        "Endless Legions",
+        "Line (1)"
+      ],
+      "unitRules": [
+        {
+          "name": "Endless Legions",
+          "text": "Each time a Rule, Special Rule, or Reaction calls for any number of Resurrection Tests to be made for a Unit that has this Special Rule, the number of Resurrection Tests made as part of that Rule, Special Rule or Reaction is modified by +1."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [
+        {
+          "id": "gauss-reapers",
+          "text": "The entire unit may exchange their Gauss Flayers for Gauss Reapers for free.",
+          "kind": "upgrade",
+          "model": null,
+          "replaces": [
+            "Gauss Flayer"
+          ],
+          "choices": [
+            {
+              "name": "Gauss Reaper",
+              "points": 0
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "disruption-bayonets",
+          "text": "Every Model in the Unit may have Disruption Bayonets selected for it at +1 point per model.",
+          "kind": "perModel",
+          "model": "Necron Warrior",
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Disruption Bayonet",
+              "points": 1
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "immortals",
+      "name": "Immortals",
+      "role": "Troops",
+      "page": 41,
+      "limit": null,
+      "unique": false,
+      "basePoints": 80,
+      "composition": "5 Immortals",
+      "models": [
+        {
+          "name": "Immortal",
+          "min": 5,
+          "max": 15,
+          "costPerExtra": 15,
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 4,
+            "S": 4,
+            "T": 5,
+            "W": 1,
+            "I": 2,
+            "A": 1,
+            "LD": 10,
+            "CL": 10,
+            "WP": 5,
+            "IN": 5,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Gauss Blaster"
+          ],
+          "unitType": "Infantry",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Necron",
+        "Reanimant"
+      ],
+      "specialRules": [
+        "Reanimation Protocols (5+)",
+        "Line (1)"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [
+        {
+          "id": "tesla-carbines",
+          "text": "The entire unit may have its Gauss Flayers exchanged for Tesla Carbines for free.",
+          "kind": "upgrade",
+          "model": null,
+          "replaces": [
+            "Gauss Blaster"
+          ],
+          "choices": [
+            {
+              "name": "Tesla Carbine",
+              "points": 0
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "sense-clusters",
+          "text": "Every Model in the Unit may have Sense Clusters selected for it at +2 points per model.",
+          "kind": "perModel",
+          "model": "Immortal",
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Sense Cluster",
+              "points": 2
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "disruption-bayonets",
+          "text": "Every Model in the Unit may have Disruption Bayonets selected for it at +1 point per model.",
+          "kind": "perModel",
+          "model": "Immortal",
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Disruption Bayonet",
+              "points": 1
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "Options text says 'exchanged for Tesla Carbines' while referring to the base weapon as 'Gauss Flayers'; the unit's actual default wargear is printed as 'Gauss Blaster'. Kept as printed per SCHEMA guidance (source typo, not corrected)."
+    },
+    {
+      "id": "canoptek-reanimators",
+      "name": "Canoptek Reanimators",
+      "role": "Support",
+      "page": 43,
+      "limit": null,
+      "unique": false,
+      "basePoints": 50,
+      "composition": "1 Canoptek Reanimator",
+      "models": [
+        {
+          "name": "Canoptek Reanimator",
+          "min": 1,
+          "max": 5,
+          "costPerExtra": 50,
+          "profile": {
+            "M": 8,
+            "WS": 3,
+            "BS": 4,
+            "S": 7,
+            "T": 6,
+            "W": 6,
+            "I": 2,
+            "A": 4,
+            "LD": 8,
+            "CL": 12,
+            "WP": 4,
+            "IN": 8,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Atomisation Beam"
+          ],
+          "unitType": "Automata",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Necron",
+        "Canoptek"
+      ],
+      "specialRules": [
+        "Battlesmith (2)",
+        "Bulky (4)",
+        "Move Through Cover",
+        "Reanimation Beam (3)"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [],
+      "note": null
+    },
+    {
+      "id": "canoptek-spyders",
+      "name": "Canoptek Spyders",
+      "role": "Support",
+      "page": 44,
+      "limit": null,
+      "unique": false,
+      "basePoints": 50,
+      "composition": "1 Canoptek Spyder",
+      "models": [
+        {
+          "name": "Canoptek Spyder",
+          "min": 1,
+          "max": 5,
+          "costPerExtra": 50,
+          "profile": {
+            "M": 10,
+            "WS": 3,
+            "BS": 3,
+            "S": 6,
+            "T": 6,
+            "W": 4,
+            "I": 2,
+            "A": 2,
+            "LD": 8,
+            "CL": 12,
+            "WP": 4,
+            "IN": 8,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Pair of Constructor Claws"
+          ],
+          "unitType": "Automata (Antigrav)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Necron",
+        "Canoptek"
+      ],
+      "specialRules": [
+        "Battlesmith (1)",
+        "Bulky (4)",
+        "Canoptek Hive",
+        "Fabricator (2)"
+      ],
+      "unitRules": [
+        {
+          "name": "Fabricator Claw Array",
+          "text": "The values in brackets associated with any variants of the Battlesmith (X) and Fabricator (X) Special Rules of any model equipped with a Fabricator Claw Array are doubled."
+        },
+        {
+          "name": "Fabricator (X)",
+          "text": "In the Controlling Player's Movement Phase as the Active Player, when a model with the Fabricator (X) Special Rule has been selected, but before or after it has been moved, the Controlling Player can Activate this Special Rule. Once Activated, the controlling player of the Model with the Fabricator (X) special rule (referred to as the 'Acting Model') selects one friendly Unit with the Reanimant Trait within 6\" of the Acting Model. Once a Target Unit has been selected, the Controlling Player makes a number of Resurrection (4+) Tests for the Target Unit equal to the value in brackets associated with the variant of the Fabricator (X) Special Rule of the Acting Model. If a model with the Fabricator (X) Special Rule also has the Battlesmith (X) Special Rule, the model's Battlesmith (X) Special Rule may not be Activated in the same Phase as its Fabricator (X) Special Rule."
+        },
+        {
+          "name": "Canoptek Hive",
+          "text": "In the Controlling Player's Movement Phase as the Active Player, when a model with the Canoptek Hive has been selected, but before or after it has been moved, the controlling player may Target one friendly unit of Canoptek Scarabs within 6\" of the model with the Canoptek Hive Special Rule (referred to as the 'Acting Model'). Add one Scarab Swarm Model to the Target Unit so that it is in coherency with the Target Unit and wholly within 6\" of the Acting Model, then take an Intelligence Check for the Acting Model. If successful, nothing happens. If failed, 1 Damage is inflicted to the Acting Model. No Saving Throw or Damage Mitigation Roll may be taken against that Damage."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [
+        {
+          "id": "spyder-wargear",
+          "text": "Any model in the unit may have any of the following selected for it: -- Twin Particle Beamer.................... +15 points -- Fabricator Claw Array...................+10 points -- Gloom Prism...................................+10 points",
+          "kind": "perModel",
+          "model": "Canoptek Spyder",
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Twin Particle Beamer",
+              "points": 15
+            },
+            {
+              "name": "Fabricator Claw Array",
+              "points": 10
+            },
+            {
+              "name": "Gloom Prism",
+              "points": 10
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "claw-swap",
+          "text": "Any model in the unit that does not have a Twin Particle Beamer selected for it may have its Pair of Constructor Claws exchanged for a Constructor Claw and a Particle Beamer for +10 points",
+          "kind": "perModel",
+          "model": "Canoptek Spyder",
+          "replaces": [
+            "Pair of Constructor Claws"
+          ],
+          "choices": [
+            {
+              "name": "Constructor Claw and Particle Beamer",
+              "points": 10
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "canoptek-tomb-crawlers",
+      "name": "Canoptek Tomb Crawlers",
+      "role": "Support",
+      "page": 45,
+      "limit": null,
+      "unique": false,
+      "basePoints": 50,
+      "composition": "2 Tomb Crawlers",
+      "models": [
+        {
+          "name": "Tomb Crawler",
+          "min": 2,
+          "max": 10,
+          "costPerExtra": 25,
+          "profile": {
+            "M": 5,
+            "WS": 3,
+            "BS": 4,
+            "S": 4,
+            "T": 5,
+            "W": 2,
+            "I": 2,
+            "A": 2,
+            "LD": 8,
+            "CL": 12,
+            "WP": 4,
+            "IN": 5,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Twin Gauss Reaper"
+          ],
+          "unitType": "Automata (Heavy)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Necron",
+        "Canoptek"
+      ],
+      "specialRules": [
+        "Bulky (2)",
+        "Expendable (3)",
+        "Move Through Cover",
+        "Sentinel Protocols",
+        "Support Unit (3)"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [
+        {
+          "id": "transdimensional-beamer",
+          "text": "Any Model in the Unit may have its Twin Gauss Reaper exchanged for a Transdimensional Beamer for free.",
+          "kind": "perModel",
+          "model": "Tomb Crawler",
+          "replaces": [
+            "Twin Gauss Reaper"
+          ],
+          "choices": [
+            {
+              "name": "Transdimensional Beamer",
+              "points": 0
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "lokhust-destroyers",
+      "name": "Lokhust Destroyers",
+      "role": "Support",
+      "page": 46,
+      "limit": null,
+      "unique": false,
+      "basePoints": 120,
+      "composition": "3 Lokhust Destroyers",
+      "models": [
+        {
+          "name": "Lokhust Destroyer",
+          "min": 3,
+          "max": 10,
+          "costPerExtra": 35,
+          "profile": {
+            "M": 12,
+            "WS": 4,
+            "BS": 4,
+            "S": 4,
+            "T": 5,
+            "W": 2,
+            "I": 2,
+            "A": 2,
+            "LD": 10,
+            "CL": 10,
+            "WP": 7,
+            "IN": 5,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Gauss Cannon",
+            "Sense Cluster"
+          ],
+          "unitType": "Cavalry (Antigrav, Heavy)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Necron",
+        "Reanimant",
+        "Destroyer"
+      ],
+      "specialRules": [
+        "Reanimation Protocols (5+)",
+        "Bulky (3)",
+        "Firestorm",
+        "Hardwired for Destruction",
+        "Implacable Advance",
+        "Vanguard (1)"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [
+        {
+          "id": "cannon-swap",
+          "text": "Any model in the unit may have its Gauss Cannon exchanged for one of the following: -- Tesla Cannon.............................................free -- Enmitic Annihilator.......................+10 points",
+          "kind": "perModel",
+          "model": "Lokhust Destroyer",
+          "replaces": [
+            "Gauss Cannon"
+          ],
+          "choices": [
+            {
+              "name": "Tesla Cannon",
+              "points": 0
+            },
+            {
+              "name": "Enmitic Annihilator",
+              "points": 10
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "heavy-gauss-cannon",
+          "text": "One model in the unit may have its Gauss Cannon exchanged for a Heavy Gauss Cannon for +10 points.",
+          "kind": "perModel",
+          "model": "Lokhust Destroyer",
+          "replaces": [
+            "Gauss Cannon"
+          ],
+          "choices": [
+            {
+              "name": "Heavy Gauss Cannon",
+              "points": 10
+            }
+          ],
+          "max": {
+            "fixed": 1
+          },
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "lokhust-heavy-destroyers",
+      "name": "Lokhust Heavy Destroyers",
+      "role": "Support",
+      "page": 47,
+      "limit": null,
+      "unique": false,
+      "basePoints": 60,
+      "composition": "1 Lokhust Heavy Destroyer",
+      "models": [
+        {
+          "name": "Lokhust Heavy Destroyer",
+          "min": 1,
+          "max": 3,
+          "costPerExtra": 50,
+          "profile": {
+            "M": 12,
+            "WS": 4,
+            "BS": 4,
+            "S": 4,
+            "T": 5,
+            "W": 3,
+            "I": 2,
+            "A": 2,
+            "LD": 10,
+            "CL": 10,
+            "WP": 7,
+            "IN": 5,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Gauss Destructor",
+            "Sense Cluster"
+          ],
+          "unitType": "Cavalry (Antigrav, Heavy)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Necron",
+        "Reanimant",
+        "Destroyer"
+      ],
+      "specialRules": [
+        "Reanimation Protocols (5+)",
+        "Bulky (3)",
+        "Hardwired for Destruction",
+        "Vanguard (1)"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [
+        {
+          "id": "destructor-swap",
+          "text": "Any model in the unit may have its Gauss Destructor exchanged for one of the following: -- Tesla Destructor........................................free -- Enmitic Exterminator......................+5 points",
+          "kind": "perModel",
+          "model": "Lokhust Heavy Destroyer",
+          "replaces": [
+            "Gauss Destructor"
+          ],
+          "choices": [
+            {
+              "name": "Tesla Destructor",
+              "points": 0
+            },
+            {
+              "name": "Enmitic Exterminator",
+              "points": 5
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "disruption-bayonets",
+          "text": "Every Model in the Unit may have a Disruption Bayonet selected for it for +1 point per model.",
+          "kind": "perModel",
+          "model": "Lokhust Heavy Destroyer",
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Disruption Bayonet",
+              "points": 1
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "annihilation-barge",
+      "name": "Annihilation Barge",
+      "role": "Support",
+      "page": 48,
+      "limit": null,
+      "unique": false,
+      "basePoints": 100,
+      "composition": "1 Annihilation Barge",
+      "models": [
+        {
+          "name": "Annihilation Barge",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 12,
+            "WS": 4,
+            "BS": 4,
+            "S": 4,
+            "T": 6,
+            "W": 5,
+            "I": 2,
+            "A": 2,
+            "LD": 10,
+            "CL": 10,
+            "WP": 4,
+            "IN": 4,
+            "SAV": "3+",
+            "INV": "5+"
+          },
+          "wargear": [
+            "Gauss Cannon",
+            "Tesla Destructor"
+          ],
+          "unitType": "Cavalry (Antigrav, Heavy)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Necron",
+        "Canoptek"
+      ],
+      "specialRules": [
+        "Bulky (5)",
+        "Explodes (6+)",
+        "Firing Protocols (2)"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [
+        {
+          "id": "destructor-swap",
+          "text": "This model may have its Twin Tesla Destructor exchanged for one of the following: -- Twin Gauss Destructor................ +20 points -- Twin Enmitic Exterminator........ +30 points",
+          "kind": "one",
+          "model": "Annihilation Barge",
+          "replaces": [
+            "Tesla Destructor"
+          ],
+          "choices": [
+            {
+              "name": "Twin Gauss Destructor",
+              "points": 20
+            },
+            {
+              "name": "Twin Enmitic Exterminator",
+              "points": 30
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "cannon-swap",
+          "text": "This model may have its Gauss Cannon exchanged for one item from the Necron Cannons list.",
+          "kind": "one",
+          "model": "Annihilation Barge",
+          "replaces": [
+            "Gauss Cannon"
+          ],
+          "choices": [
+            {
+              "list": "necron-cannons"
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "The Wargear entry prints the model's weapon as 'Tesla Destructor' (singular) but the Options bullet calls it 'Twin Tesla Destructor'; kept both as printed."
+    },
+    {
+      "id": "triarch-stalker",
+      "name": "Triarch Stalker",
+      "role": "War Engine",
+      "page": 50,
+      "limit": null,
+      "unique": false,
+      "basePoints": 110,
+      "composition": "1 Triarch Stalker",
+      "models": [
+        {
+          "name": "Triarch Stalker",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 10,
+            "WS": 4,
+            "BS": 4,
+            "S": 7,
+            "T": 6,
+            "W": 7,
+            "I": 2,
+            "A": 4,
+            "LD": 12,
+            "CL": 12,
+            "WP": 6,
+            "IN": 6,
+            "SAV": "3+",
+            "INV": "5+"
+          },
+          "wargear": [
+            "Stalker Heavy Claws",
+            "Heat Ray",
+            "Targeting Relay"
+          ],
+          "unitType": "Walker",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Necron",
+        "Reanimant",
+        "Triarch"
+      ],
+      "specialRules": [
+        "Living Metal (1)",
+        "Explodes (5+)",
+        "Bulky (8)",
+        "Move Through Cover"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [
+        {
+          "id": "heat-ray-swap",
+          "text": "This model may have its Heat Ray exchanged for one of the following: -- Projected Particle Shredder....................free -- Twin Heavy Gauss Cannon.....................free",
+          "kind": "one",
+          "model": "Triarch Stalker",
+          "replaces": [
+            "Heat Ray"
+          ],
+          "choices": [
+            {
+              "name": "Projected Particle Shredder",
+              "points": 0
+            },
+            {
+              "name": "Twin Heavy Gauss Cannon",
+              "points": 0
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "wargear",
+          "text": "May have any of the following selected for it: -- Nebuloscope................................... +15 points -- Oracular Targeter.............................+5 points",
+          "kind": "any",
+          "model": "Triarch Stalker",
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Nebuloscope",
+              "points": 15
+            },
+            {
+              "name": "Oracular Targeter",
+              "points": 5
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "canoptek-doom-stalker",
+      "name": "Canoptek Doom-Stalker",
+      "role": "War Engine",
+      "page": 51,
+      "limit": null,
+      "unique": false,
+      "basePoints": 150,
+      "composition": "1 Doom-Stalker",
+      "models": [
+        {
+          "name": "Doom-Stalker",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 8,
+            "WS": 3,
+            "BS": 3,
+            "S": 6,
+            "T": 6,
+            "W": 6,
+            "I": 2,
+            "A": 3,
+            "LD": 8,
+            "CL": 12,
+            "WP": 4,
+            "IN": 5,
+            "SAV": "3+",
+            "INV": "5+"
+          },
+          "wargear": [
+            "Doomsday Blaster",
+            "Twin Gauss Flayer",
+            "Containment Field"
+          ],
+          "unitType": "Automata (Heavy)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Necron",
+        "Canoptek"
+      ],
+      "specialRules": [
+        "Bulky (7)",
+        "Explodes (2+)",
+        "Move Through Cover",
+        "Sentinel Protocols"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [
+        {
+          "id": "death-ray-swap",
+          "text": "This model may have its Doomsday Blaster exchanged for a Heavy Death Ray for free.",
+          "kind": "upgrade",
+          "model": "Doom-Stalker",
+          "replaces": [
+            "Doomsday Blaster"
+          ],
+          "choices": [
+            {
+              "name": "Heavy Death Ray",
+              "points": 0
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "sentry-pylon",
+      "name": "Sentry Pylon",
+      "role": "War Engine",
+      "page": 52,
+      "limit": null,
+      "unique": false,
+      "basePoints": 100,
+      "composition": "1 Sentry Pylon",
+      "models": [
+        {
+          "name": "Sentry Pylon",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 3,
+            "BS": 4,
+            "FRONT": 11,
+            "SIDE": 11,
+            "REAR": 11,
+            "HP": 5,
+            "CAPACITY": "–"
+          },
+          "wargear": [
+            "Gauss Exterminator"
+          ],
+          "unitType": "Vehicle",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Necron"
+      ],
+      "specialRules": [
+        "Living Metal (1)",
+        "Explodes (5+)",
+        "Gun Emplacement",
+        "Interception Protocols",
+        "Quantum Shielding (13)",
+        "Stable"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [
+        {
+          "id": "weapon-swap",
+          "text": "May have its Gauss Exterminator exchanged for one of the following: -- Heat Cannon.................................. +20 points -- Heavy Death Ray........................... +20 points",
+          "kind": "one",
+          "model": "Sentry Pylon",
+          "replaces": [
+            "Gauss Exterminator"
+          ],
+          "choices": [
+            {
+              "name": "Heat Cannon",
+              "points": 20
+            },
+            {
+              "name": "Heavy Death Ray",
+              "points": 20
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "ghost-ark",
+      "name": "Ghost Ark",
+      "role": "Transport",
+      "page": 54,
+      "limit": null,
+      "unique": false,
+      "basePoints": 60,
+      "composition": "1 Ghost Ark",
+      "models": [
+        {
+          "name": "Ghost Ark",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 12,
+            "BS": 4,
+            "FRONT": 11,
+            "SIDE": 11,
+            "REAR": 11,
+            "HP": 6,
+            "CAPACITY": 10
+          },
+          "wargear": [
+            "Hull (left) mounted Gauss Flayer Array",
+            "Hull (right) mounted Gauss Flayer Array"
+          ],
+          "unitType": "Vehicle (Skimmer, Transport)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Necron"
+      ],
+      "specialRules": [
+        "Living Metal (1)",
+        "Assault Vehicle",
+        "Quantum Shielding (13)",
+        "Repair Barge"
+      ],
+      "unitRules": [
+        {
+          "name": "Access Points",
+          "text": "The entire Left and Side Arcs of the Ghost Ark are counted as an Access Point."
+        },
+        {
+          "name": "Repair Barge",
+          "text": "Only Necron Warriors may Embark upon a Ghost Ark. No other model of any kind may Embark upon a Ghost Ark. In the controlling player's Movement Phase as the Active Player, when a Model with the Repair Barge Special Rule has been selected, but either before or after it has been moved, the controlling player of that model may activate this Special Rule. Once activated, the controlling player of the model must select one unit of Necron Warriors that is either within 6\" of the model or Embarked upon it and makes 3 Resurrection (4+) Tests for that unit."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [
+        {
+          "id": "wargear",
+          "text": "May have any of the following selected for it: -- Nebuloscope................................... +15 points -- Oracular Targeter.............................+5 points",
+          "kind": "any",
+          "model": "Ghost Ark",
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Nebuloscope",
+              "points": 15
+            },
+            {
+              "name": "Oracular Targeter",
+              "points": 5
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "night-scythe",
+      "name": "Night Scythe",
+      "role": "Heavy Transport",
+      "page": 56,
+      "limit": null,
+      "unique": false,
+      "basePoints": 130,
+      "composition": "1 Night Scythe",
+      "models": [
+        {
+          "name": "Night Scythe",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 20,
+            "BS": 4,
+            "FRONT": 11,
+            "SIDE": 11,
+            "REAR": 11,
+            "HP": 5,
+            "CAPACITY": "–"
+          },
+          "wargear": [
+            "Centreline Mounted Twin Tesla Destructor",
+            "Translocation Portal",
+            "Shadowloom"
+          ],
+          "unitType": "Vehicle (Flyer)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Necron"
+      ],
+      "specialRules": [
+        "Living Metal (1)"
+      ],
+      "unitRules": [
+        {
+          "name": "Translocation Portal",
+          "text": "A model equipped with a Translocation Portal can be assigned the following Combat Assignment: Invasion Mission. -- Once assigned an Invasion Mission in the Reserves Sub-Phase, a model must be immediately placed onto the Battlefield by the Controlling player. The Model may be placed anywhere along the Battlefield Edge that is within the Controlling Player's Deployment Zone. This deployment can trigger the Intercept Advanced Reaction, but any attacks made at the Model are made as Snap Shots. -- In the Movement Phase, a model with an Invasion Mission can be selected and must then move up to a number of inches equal to its Movement Characteristic straight forwards without turning. At this point a Combat Air Patrol can be declared by the Reactive Player. Once any Combat Air Patrol Reactions have been resolved, the Controlling Player may select a Unit entirely composed of models with the Infantry Type in reserves that has no more than 15 models (counting models with the Bulky (X) special rule as a number of models equal to the value of X attached to that special rule) that is in reserves or on the battlefield wholly within 12\" of the Model with the Invasion Mission and apply the following depending on that unit's location: --- In Reserves: Place the unit anywhere on the battlefield wholly within 12\" of the base of the Model with the Invasion Mission. A unit placed on the battlefield this way cannot triger Reactions and cannot move further in the current Movement Phase but is counted as having moved for the purpose of any rules and special rules. --- On the Battlefield: Remove the unit from the Battlefield and place it in Reserves. -- In the Shooting Phase, a model that has been assigned an Invasion Mission may make Shooting Attacks, but must make all attacks as Snap Shots. At the end of the Controlling Player's Shooting Phase, the Model assigned an Invasion Mission is removed from play and returned to Aerial Reserves."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [
+        {
+          "id": "destructor-swap",
+          "text": "May have its Twin Tesla Destructor exchanged for a Twin Gauss Destructor for +30 points",
+          "kind": "upgrade",
+          "model": "Night Scythe",
+          "replaces": [
+            "Centreline Mounted Twin Tesla Destructor"
+          ],
+          "choices": [
+            {
+              "name": "Twin Gauss Destructor",
+              "points": 30
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "wargear",
+          "text": "May have any of the following selected for it: -- Nebuloscope................................... +15 points -- Oracular Targeter.............................+5 points",
+          "kind": "any",
+          "model": "Night Scythe",
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Nebuloscope",
+              "points": 15
+            },
+            {
+              "name": "Oracular Targeter",
+              "points": 5
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "Translocation Portal text contains the source typo 'triger' (for 'trigger'), kept as printed per SCHEMA guidance."
+    },
+    {
+      "id": "deathmarks",
+      "name": "Deathmarks",
+      "role": "Recon",
+      "page": 58,
+      "limit": null,
+      "unique": false,
+      "basePoints": 125,
+      "composition": "5 Deathmarks",
+      "models": [
+        {
+          "name": "Deathmark",
+          "min": 5,
+          "max": 15,
+          "costPerExtra": 20,
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 5,
+            "S": 4,
+            "T": 4,
+            "W": 1,
+            "I": 2,
+            "A": 1,
+            "LD": 10,
+            "CL": 10,
+            "WP": 6,
+            "IN": 7,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Synaptic Disintegrator",
+            "Nebuloscope"
+          ],
+          "unitType": "Infantry (Skirmish)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Necron",
+        "Reanimant",
+        "Hyperspace Hunter"
+      ],
+      "specialRules": [
+        "Reanimation Protocols (5+)",
+        "Deep Strike",
+        "Support Unit (2)"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [
+        {
+          "id": "sense-clusters",
+          "text": "Every Model in the Unit may have a Sense Cluster selected for it at +2 points per Model.",
+          "kind": "perModel",
+          "model": "Deathmark",
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Sense Cluster",
+              "points": 2
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "hexmark-destroyers",
+      "name": "Hexmark Destroyers",
+      "role": "Recon",
+      "page": 59,
+      "limit": null,
+      "unique": false,
+      "basePoints": 80,
+      "composition": "1 Hexmark Destroyer",
+      "models": [
+        {
+          "name": "Hexmark Destroyer",
+          "min": 1,
+          "max": 3,
+          "costPerExtra": 70,
+          "profile": {
+            "M": 8,
+            "WS": 4,
+            "BS": 5,
+            "S": 5,
+            "T": 5,
+            "W": 2,
+            "I": 2,
+            "A": 2,
+            "LD": 10,
+            "CL": 10,
+            "WP": 7,
+            "IN": 6,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "6 Enmitic Disintegrators",
+            "Nebuloscope",
+            "Sense Cluster"
+          ],
+          "unitType": "Infantry (Skirmish)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Necron",
+        "Reanimant",
+        "Hyperspace Hunters",
+        "Destroyer"
+      ],
+      "specialRules": [
+        "Reanimation Protocols (5+)",
+        "Chain Destruction",
+        "Bulky (3)",
+        "Deep Strike",
+        "Firing Protocols (6)",
+        "Hardwired for Destruction",
+        "Support Unit (2)"
+      ],
+      "unitRules": [
+        {
+          "name": "Chain Destruction",
+          "text": "For each Unsaved Wound caused with a Ranged Weapon by a Model with this Special Rule, the Controlling Player may make another Attack for that model using the same Weapon as part of the same Fire Group, before moving on to the next Fire Group. Additional Attacks granted by the Chain Destruction Special Rule do not themselves generate more Attacks."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [],
+      "note": "Source has the typo 'additionnal' in the unit composition line, and the unit's Trait is printed 'Hyperspace Hunters' (plural) though the very similar Deathmarks unit prints 'Hyperspace Hunter' (singular); both kept as printed."
+    },
+    {
+      "id": "canoptek-scarabs",
+      "name": "Canoptek Scarabs",
+      "role": "Recon",
+      "page": 60,
+      "limit": null,
+      "unique": false,
+      "basePoints": 45,
+      "composition": "3 Scarab Swarms",
+      "models": [
+        {
+          "name": "Scarab Swarm",
+          "min": 3,
+          "max": 15,
+          "costPerExtra": 10,
+          "profile": {
+            "M": 10,
+            "WS": 2,
+            "BS": 0,
+            "S": 3,
+            "T": 3,
+            "W": 4,
+            "I": 2,
+            "A": 4,
+            "LD": 8,
+            "CL": 12,
+            "WP": 4,
+            "IN": 4,
+            "SAV": "6+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Deconstructor Mandibles"
+          ],
+          "unitType": "Automata",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Necron",
+        "Canoptek"
+      ],
+      "specialRules": [
+        "Bulky (4)",
+        "Expendable (3)",
+        "Heedless",
+        "Move Through Cover"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [],
+      "note": "Source has the typo 'Scarb Swarms' in the additional-models bullet (elsewhere printed 'Scarab Swarm'); kept as printed."
+    },
+    {
+      "id": "canoptek-wraiths",
+      "name": "Canoptek Wraiths",
+      "role": "Recon",
+      "page": 61,
+      "limit": null,
+      "unique": false,
+      "basePoints": 45,
+      "composition": "1 Canoptek Wraith",
+      "models": [
+        {
+          "name": "Canoptek Wraith",
+          "min": 1,
+          "max": 9,
+          "costPerExtra": 40,
+          "profile": {
+            "M": 10,
+            "WS": 4,
+            "BS": 4,
+            "S": 6,
+            "T": 5,
+            "W": 3,
+            "I": 2,
+            "A": 4,
+            "LD": 8,
+            "CL": 12,
+            "WP": 4,
+            "IN": 5,
+            "SAV": "4+",
+            "INV": "4+"
+          },
+          "wargear": [
+            "Wraith Scythes",
+            "Phase Shifter"
+          ],
+          "unitType": "Automata (Skirmish)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Necron",
+        "Canoptek",
+        "Phase Shift"
+      ],
+      "specialRules": [
+        "Deep Strike",
+        "Fast (2)",
+        "Infiltrate (9)",
+        "Phase Motion",
+        "Vanguard (1)"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [
+        {
+          "id": "ranged-weapon",
+          "text": "Any Canoptek Wraith in the unit may have one of the following selected for it: -- Particle Caster........................ +5 points each -- Exile Beamer..........................+15 points each",
+          "kind": "perModel",
+          "model": "Canoptek Wraith",
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Particle Caster",
+              "points": 5
+            },
+            {
+              "name": "Exile Beamer",
+              "points": 15
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "whip-coils",
+          "text": "Any Canoptek Wraith in the unit may have Whip Coils selected for it at +5 points each.",
+          "kind": "perModel",
+          "model": "Canoptek Wraith",
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Whip Coils",
+              "points": 5
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "canoptek-tomb-sentinel",
+      "name": "Canoptek Tomb Sentinel",
+      "role": "Recon",
+      "page": 62,
+      "limit": null,
+      "unique": false,
+      "basePoints": 100,
+      "composition": "1 Canoptek Tomb Sentinel",
+      "models": [
+        {
+          "name": "Tomb Sentinel",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 10,
+            "WS": 4,
+            "BS": 4,
+            "S": 6,
+            "T": 7,
+            "W": 5,
+            "I": 2,
+            "A": 4,
+            "LD": 8,
+            "CL": 12,
+            "WP": 4,
+            "IN": 5,
+            "SAV": "3+",
+            "INV": "5"
+          },
+          "wargear": [
+            "Exile Cannon",
+            "Phase-Tunnel Cutters",
+            "Gloom Prism",
+            "Sense Cluster"
+          ],
+          "unitType": "Automata",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Necron",
+        "Canoptek"
+      ],
+      "specialRules": [
+        "Bulky (5)",
+        "Deep Strike",
+        "Explodes (6+)",
+        "Fast (2)",
+        "Firestorm",
+        "Impact (A)",
+        "Implacable Advance",
+        "Outflank",
+        "Phase Motion",
+        "Vanguard (1)"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [],
+      "note": null
+    }
+  ]
+}

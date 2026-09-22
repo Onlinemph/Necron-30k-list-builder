@@ -1,0 +1,564 @@
+{
+  "units": [
+    {
+      "id": "trazyn-the-infinite",
+      "name": "Trazyn the Infinite",
+      "role": "Command",
+      "page": 114,
+      "limit": null,
+      "unique": true,
+      "basePoints": 170,
+      "composition": "1 Trazyn",
+      "models": [
+        {
+          "name": "Trazyn",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": { "M": 6, "WS": 4, "BS": 4, "S": 5, "T": 5, "W": 4, "I": 3, "A": 3, "LD": 10, "CL": 10, "WP": 9, "IN": 9, "SAV": "2+", "INV": "–" },
+          "wargear": ["Empathic Obliterator", "Tesseract Labyrinths"],
+          "unitType": "Infantry (Command, Unique)",
+          "specialRules": []
+        }
+      ],
+      "traits": ["Xenos", "Necron", "Reanimant"],
+      "specialRules": ["By Order of the Triarch", "Dynastic Protocols (Nihilakh)", "Eternal Warrior (1)", "Ever-Living (4+)", "Grand Archaeovist", "Surrogate Hosts"],
+      "unitRules": [
+        {
+          "name": "By Order of the Triarch",
+          "text": "If Trazyn is included in an Army, then Orikan the Diviner may also be included in that same Army, even though they have different versions of the Dynastic Protocols (X) Special Rule."
+        },
+        {
+          "name": "Grand Archaeovist",
+          "text": "The Controlling Player scores 1 Victory Point for each Model that is reduced to 0 Wounds and removed as a casualty by an Attack made with a Tesseract Labyrinth by the Model with this Special Rule. The amount of Victory Points scored is furthermore modified according to the following characteristics of the Model that was removed as a casualty (to a minimum of 0 and a maximum of 6):\n• Champion, Sergeant or Specialist Sub-Type: +1\n• Command Sub-Type: +2\n• Unique Sub-Type: +4\n• None of the above Sub-Types: -1\n• Expendable (X) Special Rule: -3"
+        },
+        {
+          "name": "Surrogate Hosts",
+          "text": "While a Model with this Special Rule is engaged in a Challenge, its Controlling Player can select the following Gambit for that Model:\n\nSurrogate Hosts: If this Gambit is selected, the Controlling Player selects a Model in the same Army that has the Infantry Type, the Command Sub-Type, the Reanimant Trait, does not have the Unique Sub-Type, and has a Starting Wounds Characteristic of 6 or less. That model is referred to as the 'Host'. Exchange the positions on the Battlefield of the Host and the Model for which this Gambit was selected, displacing other Models as little as possible where necessary. The Host and the Model for which this Gambit was selected join any Unit the other Model was part of, are now engaged in any Combat the other Model was part of, and are now fighting in any Challenge the other Model was part of. The Host takes part in the Challenge as normal, but the Controlling Player has a -6 penalty to Focus Rolls made for the Host this turn."
+        },
+        {
+          "name": "Psionic Shockwave",
+          "text": "During Step 10 of the Initiative Step in which a Model makes Attacks using this Weapon, take note of the number of Unsaved Wounds inflicted by Attacks made with this Weapon. For each Unit that suffered Unsaved Wounds, that Unit must immediately take a Willpower Check with a penalty equal to the number of Unsaved Wounds lost. If failed, that Unit immediately gains the Suppressed Tactical Status. This Special Rule has no effect when fighting in a Challenge.",
+          "note": "This is the Special Rule for Trazyn's Empathic Obliterator weapon (see weapons-d.json), printed in full on the character page."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [],
+      "note": null
+    },
+    {
+      "id": "orikan-the-diviner",
+      "name": "Orikan the Diviner",
+      "role": "Command",
+      "page": 116,
+      "limit": null,
+      "unique": true,
+      "basePoints": 150,
+      "composition": "1 Orikan",
+      "models": [
+        {
+          "name": "Orikan",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": { "M": 6, "WS": 4, "BS": 4, "S": 4, "T": 4, "W": 3, "I": 2, "A": 2, "LD": 10, "CL": 10, "WP": 7, "IN": 10, "SAV": "4+", "INV": "4+" },
+          "wargear": ["Staff of Tomorrow", "Timesplinter Mantle"],
+          "unitType": "Infantry (Command, Unique)",
+          "specialRules": []
+        }
+      ],
+      "traits": ["Xenos", "Necron", "Reanimant", "Chronomancy"],
+      "specialRules": ["Ascend", "Battlesmith (2)", "By Order of the Triarch", "Dynastic Protocols (Sautekh)", "Ever-Living (5+)", "Harbinger of Eternity", "Split Fire"],
+      "unitRules": [
+        {
+          "name": "Ascend",
+          "text": "At the start of each of the Controlling Player's Turns as the Active Player, starting with that Player's Second Turn, that Player rolls a D6. If the result of the D6 is less than the number of the Current Game Turn, then Orikan uses the Orikan Empowered Profile until the end of the battle (any lost Wounds are carried over to the new Profile).",
+          "note": "The Orikan Empowered profile (M10 WS5 BS5 S8 T8 W6 I4 A4 LD12 CL12 WP10 IN10 SAV– INV4+) is printed as a second row of Orikan's statline on the character page."
+        },
+        {
+          "name": "By Order of the Triarch",
+          "text": "If Orikan is included in an Army, then Trazyn the Infinite may also be included in that same Army, even though they have different versions of the Dynastic Protocols (X) Special Rule."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": "Chronomancy",
+      "options": [],
+      "note": "Orikan's second profile row ('Orikan Empowered') is used once the Ascend Special Rule triggers; it is recorded as a note on the Ascend unitRule rather than a second model entry, since it is the same model using an improved profile, not an additional model."
+    },
+    {
+      "id": "anrakyr-the-traveller",
+      "name": "Anrakyr the Traveller",
+      "role": "High Command",
+      "page": 117,
+      "limit": null,
+      "unique": true,
+      "basePoints": 150,
+      "composition": "1 Anrakyr",
+      "models": [
+        {
+          "name": "Anrakyr",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": { "M": 6, "WS": 6, "BS": 5, "S": 6, "T": 6, "W": 6, "I": 4, "A": 4, "LD": 10, "CL": 10, "WP": 9, "IN": 9, "SAV": "2+", "INV": "–" },
+          "wargear": ["Warscythe", "Tachyon Arbalest"],
+          "unitType": "Infantry (Command, Unique)",
+          "specialRules": []
+        }
+      ],
+      "traits": ["Xenos", "Necron", "Reanimant", "Nemesor"],
+      "specialRules": ["Ever-Living (5+)", "Eternal Warrior (1)", "Impact (S)", "Lord of the Pyrrhian Eternals", "Mind in the Machine", "My Will Be Done (3)"],
+      "unitRules": [
+        {
+          "name": "Mind in the Machine",
+          "text": "When Anrakyr's Unit is selected to make a Shooting Attack, but not when making a Volley Attack or firing Snap Shots, his Controlling Player can target one Enemy Model with the Automata, Vehicle or Walker Type within 12\" and that is visible to Anrakyr. Anrakyr's Controlling Player then takes an Intelligence Test for Anrakyr; if the Target Model has the Super-Heavy or Knight Sub-Type, that Intelligence Test must be taken by rolling 3D6, rather than 2D6, and if the Target Model has the Titan Sub-Type, that Intelligence Test must be taken by rolling 4D6, rather than 2D6. If the test is succesful, Anrakyr can make a Shooting Attack using one of the Target Model's Ranged Weapons as part of that Shooting Attack as if it was one of his own Ranged Weapons, measuring distances (and, if the Target Model is a Vehicle Model, Arcs) from the Target Model rather than Anrakyr."
+        },
+        {
+          "name": "Lord of the Pyrrhian Eternals",
+          "text": "If Anrakyr is part of an Army, the Royal Burial Site Aeonic Sequela must be selected for that Army (this means Anrakyr always receives the +1 bonus to his Weapon Skill associated with the Royal Burial Site Aeonic Sequela).\n\nIf Anrakyr is part of a Crusade Primary Detachment, the Controlling Player selects a Troops Slot in the same Detachment. That Troops Slot becomes a Prime Slot. Units of Necron Immortals that are selected to fill Prime Slots in the same Army as Anrakyr may have the following Prime Advantage selected for them:\n\nPyrrhian Eternals: Models in the Unit for which this Prime Advantage was selected gain +1 to their Attacks Characteristic. Whilst Anrakyr has joined the Unit, Models in the Unit also gain the Impact (S) Special Rule.",
+          "note": "Source text spells 'Anraky' (missing 'r') in the last sentence of the Pyrrhian Eternals Prime Advantage; corrected here to 'Anrakyr'."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [],
+      "note": "A footnote on the page clarifies the +1 to Weapon Skill from the Royal Burial Site Aeonic Sequela is already included in Anrakyr's printed profile (BS is marked with a '*')."
+    },
+    {
+      "id": "valgul-the-fallen-lord",
+      "name": "Valgûl, the Fallen Lord",
+      "role": "High Command",
+      "page": 118,
+      "limit": null,
+      "unique": true,
+      "basePoints": 130,
+      "composition": "1 Valgûl",
+      "models": [
+        {
+          "name": "Valgûl",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": { "M": 6, "WS": 5, "BS": 1, "S": 6, "T": 6, "W": 6, "I": 4, "A": 5, "LD": 10, "CL": 10, "WP": 9, "IN": 7, "SAV": "2+", "INV": "–" },
+          "wargear": ["Paired Flensing Claws"],
+          "unitType": "Infantry (Command, Unique)",
+          "specialRules": []
+        }
+      ],
+      "traits": ["Xenos", "Necron", "Reanimant", "Nemesor"],
+      "specialRules": ["Deep Strike", "Eternal Warrior", "Ever-Living (5+)", "Fear (1)", "Impact (A)", "Infectious Frenzy", "Infiltrate (9)", "Move Through Cover", "Time of Bounty"],
+      "unitRules": [
+        {
+          "name": "Time of Bounty",
+          "text": "If Valgûl is included in an Army, the Mark of the Flayer Aeonic Sequela must be selected for that Army.\n\nWhile Valgûl is on the Battlefield, if an Attack made by Valgûl, a Flayed One model in the same Army, or a model with Charnel Displays in the same Army, causes the last Model in an Enemy Unit to be removed as a casualty with a Melee Attack, the Controlling Player scores 1 additional Victory Points in addition to any Victory Points scored for destroying that Unit."
+        },
+        {
+          "name": "Infectious Frenzy",
+          "text": "Valgûl has the Hatred (Challenge Opponent) Special Rule, and all Models in any Unit he joins gains the Hatred (Valgûl's Challenge Opponent's Unit) Special Rule.\n\nWhile Valgûl is fighting in a Challenge, the Flurry of Blows Gambit must be selected for Models in that Challenge. No other Gambit may be selected, and neither player may opt not to select a Gambit."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [],
+      "note": "'Eternal Warrior' is printed without a value (X) in Valgûl's Special Rules list, unlike other characters where it is always followed by a number; kept as printed."
+    },
+    {
+      "id": "illuminor-szeras",
+      "name": "Illuminor Szeras",
+      "role": "Command",
+      "page": 119,
+      "limit": null,
+      "unique": true,
+      "basePoints": 155,
+      "composition": "1 Szeras",
+      "models": [
+        {
+          "name": "Szeras",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": { "M": 6, "WS": 4, "BS": 5, "S": 6, "T": 6, "W": 6, "I": 3, "A": 4, "LD": 10, "CL": 10, "WP": 8, "IN": 10, "SAV": "3+", "INV": "–" },
+          "wargear": ["Eldritch Lance", "Gaze of Flame", "Empyric Overcharger"],
+          "unitType": "Infantry (Command, Unique)",
+          "specialRules": []
+        }
+      ],
+      "traits": ["Xenos", "Necron", "Reanimant", "Plasmancy"],
+      "specialRules": ["Ever-Living (4+)", "Atomic Manipulation", "Battlesmith (2)", "Firing Protocols (2)", "Harbinger of Destruction", "Mechanical Augmentation", "Split Fire"],
+      "unitRules": [
+        {
+          "name": "Atomic Manipulation",
+          "text": "At the end of Step 8 of the Initiative Step in which Szeras Attacks or Step 4 of the Challenge Sub-Phase in which Szeras makes Strikes, his Controlling Player may select one Unit of Necron Warriors or Necron Immortals from their Army and within 12\" of Szeras and make a number of Resurrection (4+) rolls for that Unit equal to the total amount of Unsaved Damage inflicted by Szeras during the current Step."
+        },
+        {
+          "name": "Mechanical Augmentation",
+          "text": "All Troops Slots in the same Detachment as Szeras become Prime Slots. The following Prime Advantage must be selected for Units that are selected to fill those Prime Slots:\n\nMechanical Augmentation: At the Start of Battle, the Controlling Player of a Unit with this Prime Advantage rolls a D6 and applies the following Benefit to this Unit for the duration of the battle, depending on the result of the Dice Roll:\n• 1-2: Hardened Carapace: +1 Toughness.\n• 3-4: Improved Optics: +1 Ballistic Skill.\n• 5-6: Enhanced Servomotors: +1 Strength."
+        },
+        {
+          "name": "Psy-Shock",
+          "text": "If a Shooting Attack made for a Weapon or Model with this Special Rule inflicts one or more wounds on a Target Unit which contains any Models with the Psyker Trait or Malefic Sub-Type, regardless of whether any Damage is inflicted, that Target Unit suffers the Warp Rupture result on the Perils of the Warp Table at the end of Step 9 of that Shooting Attack.",
+          "note": "This is the Special Rule for Szeras's Empyric Overcharger weapon (see weapons-d.json), printed in full on the character page. Source text reads 'suffers the Warp Rupture resulton the Perils' (missing space); corrected here."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": "Plasmancy",
+      "options": [],
+      "note": "Eldritch Lance and Gaze of Flame are listed as Wargear but no profile is printed on this page; they are standard weapons defined elsewhere."
+    },
+    {
+      "id": "nemesor-zahndrekh",
+      "name": "Nemesor Zahndrekh",
+      "role": "High Command",
+      "page": 120,
+      "limit": null,
+      "unique": true,
+      "basePoints": 170,
+      "composition": "1 Zahndrekh",
+      "models": [
+        {
+          "name": "Zahndrekh",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": { "M": 6, "WS": 5, "BS": 5, "S": 6, "T": 6, "W": 6, "I": 2, "A": 4, "LD": 10, "CL": 8, "WP": 8, "IN": 10, "SAV": "2+", "INV": "4+" },
+          "wargear": ["Staff of Light", "Phase Shifter"],
+          "unitType": "Infantry (Command, Unique)",
+          "specialRules": []
+        }
+      ],
+      "traits": ["Xenos", "Necron", "Reanimant", "Nemesor", "Phase Shift"],
+      "specialRules": ["Adaptive Tactics", "Aeonic Madness", "Counter-Strategist", "Dynastic Protocols (Sautekh)", "Eternal Warrior (1)", "Ever-Living (5+)", "My Will Be Done (3)"],
+      "unitRules": [
+        {
+          "name": "Adaptive Tactics",
+          "text": "If Zahndrekh is selected to fill a High Command Slot, one Slot in the same Army may be upgraded to become a Prime Slot at no additional cost for every 1000 points of Game Size. Only Troops and Elites Slots may be upgraded in this way. If a Unit is selected to fill a Prime Slot upgraded in this way, the following Prime Advantage may be selected:\n\nSuperior Maneuvers: The Unit for which this Prime Advantage was selected gains the Infiltrate (9) Special Rule and the Ethereal Interception Trait."
+        },
+        {
+          "name": "Aeonic Madness",
+          "text": "Zahndrekh must always have a Challenge declared for him if possible and must always be selected to accept Challenges if possible, unless Vargard Obyron has joined the same Unit."
+        },
+        {
+          "name": "Counter-Strategist",
+          "text": "When resolving a Challenge in which Zahndrekh, or Vargard Obyron who has joined the same Unit as Zahndrekh, is taking part, the Opposing Player must always choose the first Gambit in the Face-Off of the Challenge Procedure, regardless of which Model is the Challenger and ignoring Challenge Advantage."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [],
+      "note": null
+    },
+    {
+      "id": "vargard-obyron",
+      "name": "Vargard Obyron",
+      "role": "Command",
+      "page": 121,
+      "limit": null,
+      "unique": true,
+      "basePoints": 130,
+      "composition": "1 Obyron",
+      "models": [
+        {
+          "name": "Obyron",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": { "M": 6, "WS": 6, "BS": 4, "S": 5, "T": 5, "W": 4, "I": 3, "A": 4, "LD": 10, "CL": 10, "WP": 8, "IN": 8, "SAV": "2+", "INV": "–" },
+          "wargear": ["Warscythe", "Ghostwalk Mantle"],
+          "unitType": "Infantry (Champion, Specialist, Unique)",
+          "specialRules": []
+        }
+      ],
+      "traits": ["Xenos", "Necron", "Reanimant"],
+      "specialRules": ["Cleaving Counterblow", "Dynastic Protocols (Sautekh)", "Eternal Warrior (1)", "Obyron's Duty"],
+      "unitRules": [
+        {
+          "name": "Cleaving Counterblow",
+          "text": "While a Model with this Special Rule is engaged in a Challenge, its Controlling Player can select the following Gambit for that Model:\n\nCleaving Counterblow: If this Gambit is selected, then the Model controlled by the Player who selected this Gambit has a -2 penalty to its Focus Roll and receives a +2 bonus to its Attacks Characteristic in the Strike Step."
+        },
+        {
+          "name": "Obyron's Duty",
+          "text": "Obyron gains the Ever-Living (5+) Special Rule so long as he has joined the same Unit as Nemesor Zahndrekh. While Obyron has joined the same Unit as Nemesor Zahndrekh, he must always have a Challenge declared for him if possible and must always be selected to accept Challenges if possible."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [],
+      "note": null
+    },
+    {
+      "id": "kutlakh-the-world-killer",
+      "name": "Kutlakh the World Killer",
+      "role": "High Command",
+      "page": 122,
+      "limit": null,
+      "unique": true,
+      "basePoints": 220,
+      "composition": "1 Kutlakh",
+      "models": [
+        {
+          "name": "Kutlakh",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": { "M": 6, "WS": 5, "BS": 5, "S": 6, "T": 6, "W": 6, "I": 4, "A": 4, "LD": 10, "CL": 10, "WP": 9, "IN": 9, "SAV": "2+", "INV": "–" },
+          "wargear": ["The Obsidax", "Staff of Light", "Charnel Phylactery"],
+          "unitType": "Infantry (Command, Unique)",
+          "specialRules": []
+        }
+      ],
+      "traits": ["Xenos", "Necron", "Reanimant", "Nemesor"],
+      "specialRules": ["Dynastic Protocols (Maynarkh)", "Fear (1)", "My Will Be Done (2)", "Adamantium Will (4+)", "Splinter of Madness", "The Godslayer's Ire"],
+      "unitRules": [
+        {
+          "name": "Splinter of Madness",
+          "text": "If a Unit that includes any Models with this Special Rule would gain the Routed Status, then that Unit suffers 3 Wounds against which only Invulnerable Saves may be taken and Damage Mitigation Rolls may not be taken, and it does not gain the Routed Status."
+        },
+        {
+          "name": "The Godslayer's Ire",
+          "text": "While a Model with this Special Rule is engaged in a Challenge, its Controlling Player can select the following Gambit for that Model:\n\nThe Godslayer's Ire: If this Gambit is selected, then the Current Willpower Characteristic of each Model involved in the Challenge is used in place of that Model's Combat Initiative when determining the bonus to the Focus Roll."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [],
+      "note": null
+    },
+    {
+      "id": "toholk-the-blinded",
+      "name": "Toholk the Blinded",
+      "role": "Command",
+      "page": 123,
+      "limit": null,
+      "unique": true,
+      "basePoints": 160,
+      "composition": "1 Toholk",
+      "models": [
+        {
+          "name": "Toholk",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": { "M": 6, "WS": 4, "BS": 4, "S": 4, "T": 4, "W": 3, "I": 2, "A": 2, "LD": 10, "CL": 10, "WP": 7, "IN": 10, "SAV": "3+", "INV": "4+" },
+          "wargear": ["Aeonstave", "Exile Beamer", "Phase Shifter"],
+          "unitType": "Infantry (Command, Unique)",
+          "specialRules": []
+        }
+      ],
+      "traits": ["Xenos", "Necron", "Reanimant", "Chronomancy"],
+      "specialRules": ["Battlesmith (2)", "Chronomantic Sight", "Dynastic Protocols (Maynarkh)", "Firing Protocols (2)", "Ever-Living (5+)", "Harbinger of Eternity", "Split Fire", "The Eternal Engines"],
+      "unitRules": [
+        {
+          "name": "Chronomantic Sight",
+          "text": "When Toholk makes a Shooting Attack, Shrouded Damage Mitigation Rolls may not be made against that Attack. Additionally, Toholk and all models in any Unit he has joined fire Snap Shoots using their full Ballistic Skill (all other penalties for firing Snap Shoots still apply).",
+          "note": "Source text uses 'Snap Shoots' (rather than 'Snap Shots') consistently; kept as printed."
+        },
+        {
+          "name": "The Eternal Engines",
+          "text": "Units with the Canoptek Trait that are selected to fill Prime Slots in an Army that includes Toholk may have the following Prime Advantage selected for them:\n\nEternal Engine: All Models in the Unit for which this Prime Advantage is selected gain the Ever-Living (5+) Special Rule. Toholk can join Units of Automata that have had this Prime Advantage selected for them, even though he has the Infantry Type."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": "Chronomancy",
+      "options": [],
+      "note": null
+    },
+    {
+      "id": "gorz-the-mighty",
+      "name": "Gorz the Mighty",
+      "role": "Command",
+      "page": 124,
+      "limit": null,
+      "unique": true,
+      "basePoints": 140,
+      "composition": "1 Gorz",
+      "models": [
+        {
+          "name": "Gorz",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": { "M": 6, "WS": 4, "BS": 4, "S": 4, "T": 4, "W": 3, "I": 2, "A": 2, "LD": 10, "CL": 10, "WP": 8, "IN": 10, "SAV": "4+", "INV": "5+" },
+          "wargear": ["Meteor Staff", "Canoptek Control Node", "Cloak of the Burning Mind"],
+          "unitType": "Infantry (Command, Unique)",
+          "specialRules": []
+        }
+      ],
+      "traits": ["Xenos", "Necron", "Reanimant", "Technomancy"],
+      "specialRules": ["Ever-Living (5+)", "Canoptek Minions", "Decoherent Mind", "Dynastic Protocols (Sautekh)", "Harbinger of the Swarm", "Split Fire"],
+      "unitRules": [
+        {
+          "name": "Canoptek Minions",
+          "text": "Whilst Gorz has joined a Unit, all Models with the Canoptek Trait in that Unit have their Ballistic Skill Characteristic modified by +1. If Gorz allows another Unit to make a Reaction using the Harbinger of the Swarm Special Rule, Models with the Canoptek Trait in that Unit have their Ballistic Skill Characteristic modified by +1 until that Reaction is fully resolved."
+        },
+        {
+          "name": "Decoherent Mind",
+          "text": "Any Unit joined by Gorz may not Rush and must make a Shooting Attack in the Shooting Phase if there is any available Target within the Maximum Range Gorz's Meteor Staff. When Gorz makes a Shooting Attack with his Meteor Staff, if a '1' is rolled when making the To Hit Test, the Opposing Player may move the Blast Template anywhere on the Battlefield before the Template is Scattered."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": "Technomancy",
+      "options": [],
+      "note": null
+    },
+    {
+      "id": "imotekh-the-stormlord",
+      "name": "Imotekh the Stormlord",
+      "role": "Warlord",
+      "page": 125,
+      "limit": null,
+      "unique": true,
+      "basePoints": 350,
+      "composition": "1 Imotekh",
+      "models": [
+        {
+          "name": "Imotekh",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": { "M": 6, "WS": 7, "BS": 6, "S": 6, "T": 6, "W": 6, "I": 4, "A": 4, "LD": 12, "CL": 12, "WP": 10, "IN": 10, "SAV": "2+", "INV": "4+" },
+          "wargear": ["Staff of the Destroyer", "Gauntlet of Fire", "Bloodswarm Nanoscarabs", "Phase Shifter"],
+          "unitType": "Paragon (Command, Unique)",
+          "specialRules": []
+        }
+      ],
+      "traits": ["Xenos", "Necron", "Reanimant", "Phase Shift", "Phaeron"],
+      "specialRules": ["Dynastic Protocols (Sautekh)", "Eternal Warrior (2)", "Ever-Living (5+)", "Hyperlogical Strategist", "My Will Be Done (3)", "Relentless Defiance", "The Lord of Storms"],
+      "unitRules": [
+        {
+          "name": "Bloodswarm Nanoscarabs",
+          "text": "While Imotekh remains on the Battlefield, all Units of Flayed Ones in the same Army gain the Impact (S) Special Rule. Any Unit of Flayed Ones in the same Army that begins the Assault Phase within 12\" of Imotekh may have a Charge declared for it, even during a turn in which the Unit entered play by Deep Strike, and that Charge can never count as Disordered for any reason."
+        },
+        {
+          "name": "The Lord of Storms",
+          "text": "If Imotekh is part of an Army, the Royal Burial Site Aeonic Sequela must be selected for that Army.\n\nOnce per battle, at the start of the Controlling Player's Movement Phase as the Active Player, that player can Call the Storm. The Storm remains until the end of the opposing player's next turn or until Imotekh is removed as a casualty, whichever comes first. While the Storm remains, the following benefits apply to Imotekh:\n• Only Enemy Units that include Models with the Paragon Type can make Reactions that Target Imotekh's Unit.\n• All Shooting Attacks targeting Imotekh's Unit are made with a -1 Penalty to the Ballistic Skill of the attacking Model.\n• Imotekh may make a Shooting Attack against using the following Profile in the Controlling Player's Shooting Phase, in addition to his other Ranged Weapons: The Storm Cometh (see weapons-d.json)."
+        },
+        {
+          "name": "Hyperlogical Strategist",
+          "text": "While Imotekh remains on the Battlefield, the Controlling Player gains one additional point of Reaction Allotment each Turn (in addition to the one already granted because Imotekh has the Phaeron Trait). However, if any Enemy Units from the Orks Army List are on the battlefield, then the Controlling Player does not gain this additional Reaction Point and does not gain a Reaction Point for controlling a model with the Nemesor or Phaeron Trait."
+        },
+        {
+          "name": "Relentless Defiance",
+          "text": "While a Model with this Special Rule is engaged in a Challenge, its Controlling Player can select the following Gambit for that Model:\n\nRelentless Defiance: If this Gambit is selected, this Models always Strikes last in the Strike Step, even if the Controlling Player wins the Focus Roll. When this Model Strikes in the Strike Step, it gains a number of additional Attacks equal to the number of Wounds inflicted on the model by the Enemy Model during this Strike Step (regardless of wether any Damage was inflicted).",
+          "note": "Source text has 'this Models' and 'wether' (for 'whether'); kept as printed."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [],
+      "note": "Gauntlet of Fire and Phase Shifter are listed as Wargear but no profile/rules text is printed on this page; they are standard items defined elsewhere. The Lord of Storms' 'The Storm Cometh' shooting profile is printed under a 'Melee' table header on page 126, which is a source typo — it is a Ranged weapon (columns R/FP/RS/AP/D, an Arc-Trait Shooting Attack); transcribed as a ranged weapon in weapons-d.json."
+    },
+    {
+      "id": "xunbakyr-mother-of-oblivion",
+      "name": "Xun'Bakyr, Mother of Oblivion",
+      "role": "Warlord",
+      "page": 127,
+      "limit": null,
+      "unique": true,
+      "basePoints": 325,
+      "composition": "1 Xun'Bakyr",
+      "models": [
+        {
+          "name": "Xun'Bakyr",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": { "M": 6, "WS": 6, "BS": 6, "S": 6, "T": 6, "W": 6, "I": 4, "A": 4, "LD": 12, "CL": 12, "WP": 10, "IN": 10, "SAV": "2+", "INV": "4+" },
+          "wargear": ["Scythe of Oblation", "Photonic Assault Claw", "The Pelt of Llandu'Gor", "Phylactery"],
+          "unitType": "Paragon (Command, Unique)",
+          "specialRules": []
+        }
+      ],
+      "traits": ["Xenos", "Necron", "Reanimant", "Phaeron"],
+      "specialRules": ["Dynastic Protocols (Maynarkh)", "Ever-Living (4+)", "Flense Alive", "My Will Be Done (3)", "Systematic Extermination", "The Phaerakh's Horde"],
+      "unitRules": [
+        {
+          "name": "Flense Alive",
+          "text": "While a Model with this Special Rule is engaged in a Challenge, its Controlling Player can select the following Gambit for that Model:\n\nFlense Alive: If this Gambit is selected, any Hits caused by the Model for which it was selected during the Strike Step have their Damage Characteristic set to '1' and cannot have their Damage Characteristic modified by any Special Rule. During the Glory Step, if the Enemy Model has suffered any Unsaved Wounds and has not been removed as a casualty, its Toughness Characteristic is modified by -1 (to a minimum of 1) until the end of the battle and the Model for which this Challenge was selected automatically gains Challenge Advantage."
+        },
+        {
+          "name": "Systematic Extermination",
+          "text": "At the start of battle, Xun'Bakyr's controlling player may select one Enemy Unit on the Battlefield. That Unit is the 'Extermination Target' for the purpose of this Special Rule. Each time a Model with the Reanimant Trait makes a Melee or Ranged Attack targeting the Extermination Target, add 1 to the Strength or Ranged Strength of the Attack, even if Xun'Bakyr has been removed as a casualty.\n\nIf the Extermination Target is entirely removed as a casualty, and Xun'Bakyr has not been removed as a casualty, the Controlling Player may immediately select a new Enemy Unit to be the Extermination Target."
+        },
+        {
+          "name": "The Phaerakh's Horde",
+          "text": "If Xun'Bakyr is part of an Army, the Dark Harvest Aeonic Sequela must be selected for that Army.\n\nWhile Xun'Bakyr remains on the Battlefield, all Units with the Reanimant Trait and Troops Battlefield Role in the same Army gain the Implacable Advance and Firestorm Special Rule."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [
+        {
+          "id": "resurrection-orb-swap",
+          "text": "Xun'Bakyr may have her Photonic Assault Claw exchanged for a Resurrection Orb for +25 points.",
+          "kind": "one",
+          "model": "Xun'Bakyr",
+          "replaces": ["Photonic Assault Claw"],
+          "choices": [
+            { "name": "Resurrection Orb", "points": 25 }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "The statline row on the printed page is mislabelled 'Imotekh' (a copy-paste error from the preceding character's page); the profile values themselves are Xun'Bakyr's and are transcribed correctly under her name here. Photonic Assault Claw and Phylactery are listed as Wargear but no profile/rules text is printed on this page; they are standard items defined elsewhere."
+    },
+    {
+      "id": "szarekh-the-silent-king",
+      "name": "Szarekh, the Silent King",
+      "role": "Warlord",
+      "page": 129,
+      "limit": null,
+      "unique": true,
+      "basePoints": 700,
+      "composition": "1 Dias of Dominion and 2 Triarchal Menhirs",
+      "models": [
+        {
+          "name": "Dias of Dominion",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": { "M": 8, "WS": 6, "BS": 6, "S": 6, "T": 7, "W": 8, "I": 4, "A": 4, "LD": 12, "CL": 12, "WP": 8, "IN": 10, "SAV": "2+", "INV": "4+" },
+          "wargear": ["Sceptre of Eternal Glory", "Staff of Stars", "Scythe of Dust", "Containment Field"],
+          "unitType": "Paragon (Command, Antigrav, Unique)",
+          "specialRules": ["Dynastic Protocols (Szarekhan)", "Dias of Dominion", "Ever-Living (5+)", "Explodes (2+)", "My Will Be Done (3)", "Obeisance Generators"]
+        },
+        {
+          "name": "Triarchal Menhir",
+          "min": 2,
+          "max": 2,
+          "costPerExtra": 0,
+          "profile": { "M": 8, "WS": 1, "BS": 4, "S": 1, "T": 7, "W": 3, "I": 1, "A": 1, "LD": 12, "CL": 12, "WP": 8, "IN": 2, "SAV": "3+", "INV": "5+" },
+          "wargear": ["Annihilator Beam"],
+          "unitType": "Automata (Antigrav)",
+          "specialRules": ["Living Metal (1)", "Automonument", "Noctilith Beacons"]
+        }
+      ],
+      "traits": ["Xenos", "Necron", "Reanimant", "Phaeron", "Triarch", "Beacon"],
+      "specialRules": [],
+      "unitRules": [
+        {
+          "name": "Dias of Dominion",
+          "text": "The Dias of Dominion is subject to the following provisions:\n\nAntigrav Throne: The Dias of Dominion forms a Unit with two Triarchal Menhirs. It may not join or be joined by other Units or leave the Triarchal Menhirs, even though it has the Paragon Type.\n\nHapthatra and Mesophet: Hapthatra and Mesophet are the minor members of Szarekh's Triarch. Hapthatra is equipped with the Staff of Stars and Mesophet is equipped with the Scythe of Dust; attacks may not be made with those weapons, except through the Phaeron of the Stars and Phaeron of the Blades provisions.\n\nPreservative Auto-Torpor: Whilst the Dias of Dominion has 5 or fewer remaining Wounds, it is not subject to the Phaeron of the Stars provision. Whilst the Dias of Dominion has 3 or fewer remaining Wounds, it is not subject to the Phaeron of the Blades provision.\n\nPhaeron of the Stars: Whilst the Dias of Dominion is subject to this provision, other Models with the Reanimant Trait in the Controlling Player's Army within 6\" of the Dias of Dominion add 6\" to the Range characteristics of their ranged weapons. Whilst the Dias of Dominion is subject to this provision, it can make ranged attacks using the Staff of Stars and can make a number of additional Attacks in the Fight Sub-Phase equal to the Attack Modifier Characteristic of the Staff of Stars. Those additional Attacks must be made using the Staff of Stars.\n\nPhaeron of the Blades: Whilst the Dias of Dominion is subject to this provision, other Models with the Reanimant Trait in the Controlling Player's Army within 6\" of the Dias of Dominion have their Weapon Skill counted as being 1 greater than it is when making To Hit tests for their Melee Attacks. Whilst the Dias of Dominion is subject to this provision, it can make a number of additional Attacks in the Fight Sub-Phase equal to the Attack Modifier Characteristic of the Scythe of Dust. Those additional Attacks must be made using the Scythe of Dust."
+        },
+        {
+          "name": "Obeisance Generators",
+          "text": "All Models with the Reanimant Sub-Type in the Controlling Player's Army gain +2 to their Leadership and Cool Characteristics whilst within 6\" of the Dias of Dominion.\n\nEnemy Models in Units that are engaged in close combat with Szarekh have a -2 penalty to their Combat Initiative, to a minimum of 1. Enemy Models with the Automata, Paragon or Vehicle Type are unaffected."
+        },
+        {
+          "name": "Automonument",
+          "text": "Whilst all Automata models in a unit have this special rule, that unit can be selected to make Reactions, even though it includes Automata models. However, Models with this special rule may not make Ranged Attacks as part of Reactions.\n\nWhile a Model with this Special Rule is part of a Unit with a Paragon Model, it has a Weapon Skill Characteristic of 6."
+        },
+        {
+          "name": "Noctilith Beacon",
+          "text": "Models with the Daemon Type, the Corrupted Sub-Type or the Psyker Sub-Type have a -1 penalty to their Willpower Characteristic for each Model with the Noctilith Beacon Special Rule within 12\".",
+          "note": "Printed as 'Noctilith Beacon' here, though the Special Rules bullet list and the unit's Traits both give the plural 'Noctilith Beacons'; kept as printed in each location."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [],
+      "note": "This unit has two model types with their own Wargear/Special Rules/Unit Type listed separately on the page (Dias of Dominion and Triarchal Menhir); those model-specific Special Rules are recorded on each model entry rather than in the unit-level specialRules array, which is left empty. Containment Field is listed as Wargear but no profile/rules text is printed on this page."
+    }
+  ]
+}

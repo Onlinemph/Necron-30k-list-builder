@@ -1,0 +1,35 @@
+{
+  "wargear": [
+    {
+      "name": "Ghostwalk Mantle",
+      "page": 121,
+      "text": "During the Aftermath Step of the Resolution Sub-Phase, the following Aftermath Option can be selected for a Unit that includes any Model with the Ghostwalk Mantle and does not includes any Models with the Routed Status:\n\nGhostwalk: All models in the Unit are removed from the Battlefield, then the Unit is re-deployed anywhere on the Battlefield anywhere as if they were deployed using the Infiltrate (9) Special Rule. If the Unit had lost the Combat, the Opposing Player may choose to have any Units under their control Consolidate or Hold."
+    },
+    {
+      "name": "Cloak of the Burning Mind",
+      "page": 124,
+      "text": "If an Enemy Unit fails a Morale Test while engaged with Gorz's Unit, that Unit suffers D3 automatic Wounds against which only Invulnerable Saves may be made (Damage Mitigation rolls may not be made against those Wounds). Wounds inflicted this way are allocated by the Opposing Player."
+    },
+    {
+      "name": "Charnel Phylactery",
+      "page": 122,
+      "text": "Kutlakh has the Ever-Living (2+) Special Rule. At the end of any Challenge Sub-Phase or Initiative Step in which Kutlakh's Current Wounds Characteristic is lower than his Starting Wounds Characteristic, if he currently has the Ever-Living (X) Special Rule, he loses the Ever-Living (X) Special Rule until the end of the Battle (and cannot regain that Special Rule for any reason, even if he gains Wounds later in the battle) and his Attacks Characteristic is increased by +2 until the end of the Battle."
+    },
+    {
+      "name": "Bloodswarm Nanoscarabs",
+      "page": 125,
+      "text": "While Imotekh remains on the Battlefield, all Units of Flayed Ones in the same Army gain the Impact (S) Special Rule. Any Unit of Flayed Ones in the same Army that begins the Assault Phase within 12\" of Imotekh may have a Charge declared for it, even during a turn in which the Unit entered play by Deep Strike, and that Charge can never count as Disordered for any reason."
+    },
+    {
+      "name": "The Pelt of Llandu'Gor",
+      "page": 127,
+      "text": "When a Model with the Pelt of Llandu'Gor is allocated an unsaved Wound, the Damage Characteristic of the Unsaved Wound is halved, rounded up."
+    },
+    {
+      "name": "Timesplinter Mantle",
+      "page": 116,
+      "text": "",
+      "note": "No rules text is printed for this item on the character page; it is listed only as a Wargear bullet for Orikan the Diviner, alongside the Staff of Tomorrow. Orikan's profile includes a 4+ Invulnerable Save, which this item most likely grants, but the source text does not state this explicitly."
+    }
+  ]
+}

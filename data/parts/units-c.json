@@ -1,0 +1,936 @@
+{
+  "units": [
+    {
+      "id": "tomb-blades",
+      "name": "Tomb Blades",
+      "role": "Fast Attack",
+      "page": 64,
+      "limit": null,
+      "unique": false,
+      "basePoints": 70,
+      "composition": "3 Tomb Blades",
+      "models": [
+        {
+          "name": "Tomb Blade",
+          "min": 3,
+          "max": 10,
+          "costPerExtra": 20,
+          "profile": { "M": 12, "WS": 3, "BS": 3, "S": 4, "T": 4, "W": 2, "I": 2, "A": 1, "LD": 10, "CL": 10, "WP": 4, "IN": 4, "SAV": "4+", "INV": "–" },
+          "wargear": ["Twin Gauss Blaster"],
+          "unitType": "Cavalry (Antigrav)",
+          "specialRules": []
+        }
+      ],
+      "traits": ["[Xenos] Necron", "Reanimant"],
+      "specialRules": ["Bulky (2)", "Deep Strike", "Reanimation Protocols (5+)"],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [
+        {
+          "id": "weapon-swap",
+          "text": "Any Tomb Blade in the unit may have its Twin Gauss Blaster exchanged for one of the following: Twin Tesla Carbine free; Particle Beamer +5 points each.",
+          "kind": "perModel",
+          "model": "Tomb Blade",
+          "replaces": ["Twin Gauss Blaster"],
+          "choices": [
+            { "name": "Twin Tesla Carbine", "points": 0 },
+            { "name": "Particle Beamer", "points": 5 }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "shield-vanes",
+          "text": "The entire unit may have any of the following selected for it: Shield Vanes +5 points per model.",
+          "kind": "perModel",
+          "model": "Tomb Blade",
+          "replaces": [],
+          "choices": [
+            { "name": "Shield Vanes", "points": 5 }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "unit-upgrades",
+          "text": "The entire unit may have any of the following selected for it: Shadowlooms +20 points per unit; Nebuloscopes +15 points per unit.",
+          "kind": "any",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            { "name": "Shadowlooms", "points": 20 },
+            { "name": "Nebuloscopes", "points": 15 }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "necron-ophydian-destroyers",
+      "name": "Necron Ophydian Destroyers",
+      "role": "Fast Attack",
+      "page": 65,
+      "limit": null,
+      "unique": false,
+      "basePoints": 90,
+      "composition": "3 Ophydian Destroyers",
+      "models": [
+        {
+          "name": "Ophydian Destroyer",
+          "min": 3,
+          "max": 9,
+          "costPerExtra": 25,
+          "profile": { "M": 10, "WS": 4, "BS": 4, "S": 4, "T": 4, "W": 2, "I": 2, "A": 3, "LD": 10, "CL": 10, "WP": 7, "IN": 5, "SAV": "3+", "INV": "–" },
+          "wargear": ["Paired Flensing Claws", "Whip Coils"],
+          "unitType": "Infantry (Reanimant, Skirmish)",
+          "specialRules": []
+        }
+      ],
+      "traits": ["[Xenos] Necron", "Reanimant", "Destroyer", "Phase Shift"],
+      "specialRules": ["Reanimation Protocols (5+)", "Bulky (3)", "Deep Strike", "Hardwired for Destruction", "Phase Motion", "Vanguard (1)"],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [
+        {
+          "id": "hyperphase-threshers",
+          "text": "Any Ophydian Destroyer in the unit may have a Pair of Hyperphase Threshers selected for it at +15 points per model.",
+          "kind": "perModel",
+          "model": "Ophydian Destroyer",
+          "replaces": [],
+          "choices": [ { "name": "Pair of Hyperphase Threshers", "points": 15 } ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "hyperphase-reapblades",
+          "text": "For every 3 models in the unit, one Ophydian Destroyers may have a Pair of Hyperphase Reapblades selected for it at +25 points per model.",
+          "kind": "perModel",
+          "model": "Ophydian Destroyer",
+          "replaces": [],
+          "choices": [ { "name": "Pair of Hyperphase Reapblades", "points": 25 } ],
+          "max": { "per": 3, "count": 1 },
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "canoptek-acanthrites",
+      "name": "Canoptek Acanthrites",
+      "role": "Fast Attack",
+      "page": 66,
+      "limit": null,
+      "unique": false,
+      "basePoints": 100,
+      "composition": "3 Canoptek Acanthrites",
+      "models": [
+        {
+          "name": "Canoptek Acanthrite",
+          "min": 3,
+          "max": 10,
+          "costPerExtra": 30,
+          "profile": { "M": 10, "WS": 3, "BS": 4, "S": 4, "T": 5, "W": 3, "I": 2, "A": 3, "LD": 8, "CL": 12, "WP": 4, "IN": 5, "SAV": "3+", "INV": "–" },
+          "wargear": ["Heat Beamer", "Voidblade"],
+          "unitType": "Automata (Antigrav)",
+          "specialRules": []
+        }
+      ],
+      "traits": ["Xenos", "Necron", "Canoptek"],
+      "specialRules": ["Bulky (2)", "Deep Strike", "Outflank", "Shrouded (4+)"],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [],
+      "note": null
+    },
+    {
+      "id": "doom-scythe",
+      "name": "Doom Scythe",
+      "role": "Fast Attack",
+      "page": 67,
+      "limit": null,
+      "unique": false,
+      "basePoints": 150,
+      "composition": "1 Doom Scythe",
+      "models": [
+        {
+          "name": "Doom Scythe",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": { "M": 20, "BS": 4, "FRONT": 11, "SIDE": 11, "REAR": 11, "HP": 5, "CAPACITY": "–" },
+          "wargear": ["Centreline Mounted Twin Tesla Destructor", "Centreline Mounted Heavy Death Ray", "Shadowloom"],
+          "unitType": "Vehicle (Flyer)",
+          "specialRules": []
+        }
+      ],
+      "traits": ["Xenos", "Necron"],
+      "specialRules": ["Living Metal (1)"],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [
+        {
+          "id": "gauss-destructor",
+          "text": "May have its Twin Tesla Destructor exchanged for a Twin Gauss Destructor for +30 points",
+          "kind": "upgrade",
+          "model": "Doom Scythe",
+          "replaces": ["Centreline Mounted Twin Tesla Destructor"],
+          "choices": [ { "name": "Twin Gauss Destructor", "points": 30 } ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "wargear-upgrades",
+          "text": "May have any of the following selected for it: Nebuloscope +15 points; Oracular Targeter +5 points",
+          "kind": "any",
+          "model": "Doom Scythe",
+          "replaces": [],
+          "choices": [
+            { "name": "Nebuloscope", "points": 15 },
+            { "name": "Oracular Targeter", "points": 5 }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "night-shroud",
+      "name": "Night Shroud",
+      "role": "Fast Attack",
+      "page": 68,
+      "limit": null,
+      "unique": false,
+      "basePoints": 200,
+      "composition": "1 Night Shroud",
+      "models": [
+        {
+          "name": "Night Shroud",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": { "M": 20, "BS": 4, "FRONT": 12, "SIDE": 12, "REAR": 12, "HP": 6, "CAPACITY": "–" },
+          "wargear": ["Centreline Mounted Twin Tesla Destructor", "Rear Mounted Death Sphere Payload", "Shadowloom", "Oracular Targeter"],
+          "unitType": "Vehicle (Flyer)",
+          "specialRules": []
+        }
+      ],
+      "traits": ["Xenos", "Necron"],
+      "specialRules": ["Living Metal (1)"],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [
+        {
+          "id": "gauss-destructor",
+          "text": "This model may have its Twin Tesla Destructor exchanged for a Twin Gauss Destructor for +30 points",
+          "kind": "upgrade",
+          "model": "Night Shroud",
+          "replaces": ["Centreline Mounted Twin Tesla Destructor"],
+          "choices": [ { "name": "Twin Gauss Destructor", "points": 30 } ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "nebuloscope",
+          "text": "This model may have a Nebuloscope selected for it for +15 points",
+          "kind": "upgrade",
+          "model": "Night Shroud",
+          "replaces": [],
+          "choices": [ { "name": "Nebuloscope", "points": 15 } ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "doomsday-ark",
+      "name": "Doomsday Ark",
+      "role": "Armour",
+      "page": 70,
+      "limit": null,
+      "unique": false,
+      "basePoints": 120,
+      "composition": "1 Doomsday Ark",
+      "models": [
+        {
+          "name": "Doomsday Ark",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": { "M": 12, "BS": 4, "FRONT": 11, "SIDE": 11, "REAR": 11, "HP": 6, "CAPACITY": "–" },
+          "wargear": ["Centreline Mounted Doomsday Cannon", "Hull (Left) Mounted Gauss Flayer Array", "Hull (Right) Mounted Gauss Flayer Array"],
+          "unitType": "Vehicle (Skimmer)",
+          "specialRules": []
+        }
+      ],
+      "traits": ["Xenos", "Necron"],
+      "specialRules": ["Living Metal (1)", "Quantum Shielding (13)"],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [
+        {
+          "id": "wargear-upgrades",
+          "text": "May have any of the following selected for it: Nebuloscope +15 points; Oracular Targeter +5 points",
+          "kind": "any",
+          "model": "Doomsday Ark",
+          "replaces": [],
+          "choices": [
+            { "name": "Nebuloscope", "points": 15 },
+            { "name": "Oracular Targeter", "points": 5 }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "tesseract-ark",
+      "name": "Tesseract Ark",
+      "role": "Armour",
+      "page": 71,
+      "limit": null,
+      "unique": false,
+      "basePoints": 160,
+      "composition": "1 Tesseract Ark",
+      "models": [
+        {
+          "name": "Tesseract Ark",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": { "M": 12, "BS": 4, "FRONT": 13, "SIDE": 12, "REAR": 12, "HP": 4, "CAPACITY": "–" },
+          "wargear": ["2 Hull (Front) Mounted Tesla Cannons", "1 Hull (Front) Mounted Tesseract Drive", "Containment Field"],
+          "unitType": "Vehicle (Skimmer)",
+          "specialRules": []
+        }
+      ],
+      "traits": ["Xenos", "Necron"],
+      "specialRules": ["Living Metal (1)", "Explodes (2+)"],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [
+        {
+          "id": "cannon-swap",
+          "text": "May have 2 Tesla Cannons exchanged for one of the following (in the same mount): 2 Enmitic Annihilators +10 points; 2 Gauss Cannons free; 2 Particle Beamers +10 points",
+          "kind": "one",
+          "model": "Tesseract Ark",
+          "replaces": ["2 Hull (Front) Mounted Tesla Cannons"],
+          "choices": [
+            { "name": "2 Enmitic Annihilators", "points": 10 },
+            { "name": "2 Gauss Cannons", "points": 0 },
+            { "name": "2 Particle Beamers", "points": 10 }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "wargear-upgrades",
+          "text": "May have any of the following selected for it: Nebuloscope +15 points; Oracular Targeter +5 points",
+          "kind": "any",
+          "model": "Tesseract Ark",
+          "replaces": [],
+          "choices": [
+            { "name": "Nebuloscope", "points": 15 },
+            { "name": "Oracular Targeter", "points": 5 }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "monolith",
+      "name": "Monolith",
+      "role": "Lord of War",
+      "page": 73,
+      "limit": null,
+      "unique": false,
+      "basePoints": 500,
+      "composition": "1 Monolith",
+      "models": [
+        {
+          "name": "Monolith",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": { "M": 8, "BS": 4, "FRONT": 14, "SIDE": 14, "REAR": 14, "HP": 18, "CAPACITY": 20 },
+          "wargear": ["Turret Mounted Particle Whip", "Hull (Front) Mounted Portal of Exile", "Hull (Front, Right) Mounted Gauss Flux Arc", "Hull (Front, Left) Mounted Gauss Flux Arc", "Hull (Rear, Right) Mounted Gauss Flux Arc", "Hull (Rear, Left) Mounted Gauss Flux Arc"],
+          "unitType": "Vehicle (Antigrav, Super-Heavy, Transport)",
+          "specialRules": []
+        }
+      ],
+      "traits": ["Xenos", "Necron", "Beacon"],
+      "specialRules": ["Living Metal (D3)", "Deep Strike", "Eternity Gate"],
+      "unitRules": [
+        { "name": "Access Points", "text": "This model has one Access Point on the Front facing." }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [
+        {
+          "id": "death-ray-swap",
+          "text": "The model may have any Gauss Flux Arc exchanged for one of the following (in the same facings as the replaced weapon): Hull Mounted Death Ray +15 points each",
+          "kind": "perModel",
+          "model": "Monolith",
+          "replaces": ["Gauss Flux Arc"],
+          "choices": [ { "name": "Hull Mounted Death Ray", "points": 15 } ],
+          "max": { "fixed": 4 },
+          "perWeapon": true,
+          "requires": null
+        }
+      ],
+      "note": "Eternity Gate is named as a Special Rule on this page but its full text is not printed on pages 63-90, so it is not included in unitRules/rules-c.json."
+    },
+    {
+      "id": "doomsday-monolith",
+      "name": "Doomsday Monolith",
+      "role": "Lord of War",
+      "page": 74,
+      "limit": null,
+      "unique": false,
+      "basePoints": 1000,
+      "composition": "1 Doomsday Monolith",
+      "models": [
+        {
+          "name": "Doomsday Monolith",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": { "M": 8, "BS": 4, "FRONT": 14, "SIDE": 14, "REAR": 14, "HP": 30, "CAPACITY": 30 },
+          "wargear": ["Turret Mounted Doomsday Annihilator", "Hull (Front) Mounted Portal of Exile", "Hull (Front, Right) Mounted Gauss Flux Arc", "Hull (Front, Left) Mounted Gauss Flux Arc", "Hull (Rear, Right) Mounted Gauss Flux Arc", "Hull (Rear, Left) Mounted Gauss Flux Arc", "Phase Shift Generator"],
+          "unitType": "Vehicle (Antigrav, Super-Heavy, Transport)",
+          "specialRules": []
+        }
+      ],
+      "traits": ["Xenos", "Necron", "Beacon"],
+      "specialRules": ["Living Metal (D3)", "Deep Strike", "Eternity Gate"],
+      "unitRules": [
+        { "name": "Access Points", "text": "This model has one Access Point on the Front facing." }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [
+        {
+          "id": "death-ray-swap",
+          "text": "The model may have any Gauss Flux Arc exchanged for one of the following (in the same facings as the replaced weapon): Hull Mounted Death Ray +20 points each",
+          "kind": "perModel",
+          "model": "Doomsday Monolith",
+          "replaces": ["Gauss Flux Arc"],
+          "choices": [ { "name": "Hull Mounted Death Ray", "points": 20 } ],
+          "max": { "fixed": 4 },
+          "requires": null
+        }
+      ],
+      "note": "Eternity Gate is named as a Special Rule on this page but its full text is not printed on pages 63-90, so it is not included in unitRules/rules-c.json."
+    },
+    {
+      "id": "obelisk",
+      "name": "Obelisk",
+      "role": "Lord of War",
+      "page": 75,
+      "limit": null,
+      "unique": false,
+      "basePoints": 500,
+      "composition": "1 Obelisk",
+      "models": [
+        {
+          "name": "Obelisk",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": { "M": 8, "BS": 4, "FRONT": 14, "SIDE": 14, "REAR": 14, "HP": 20, "CAPACITY": "–" },
+          "wargear": ["Hull (Front, Right) Mounted Tesla sphere", "Hull (Front, Left) Mounted Tesla sphere", "Hull (Rear, Right) Mounted Tesla sphere", "Hull (Rear, Left) Mounted Tesla sphere"],
+          "unitType": "Vehicle (Antigrav, Super-Heavy)",
+          "specialRules": []
+        }
+      ],
+      "traits": ["Xenos", "Necron", "Beacon"],
+      "specialRules": ["Living Metal (D3)", "Deep Strike", "Gravity Pulse", "Sleeping Sentry"],
+      "unitRules": [
+        { "name": "Gravity Pulse", "text": "Once per Battle only, the Controlling Player of a Model with this Special Rule can activate its Gravity Pulse. The Gravity Pulse can be Activated when this Model is selected to make Shooting Attacks (excepting Volley Attacks), including as part of a Reaction, and is resolved before this Model's Shooting Attacks. The Targets of the Gravity Pulse are all Enemy Units that that are within 24\" of this Model. The Controlling Player rolls a D6 for each Target of the Gravity Pulse, with a Target Number of '4+' for Targets that include any Models with the Antigrav or Flyer Sub-Type and '6' for Targets that do not. Each Unit for which the Target Number is rolled gains the Pinned Tactical Status.\n\nUnits that include any Models with the Gargantuan, Knight, Super-Heavy or Titan Sub-Type cannot be Targets of the Gravity Pulse and are unaffected." }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [],
+      "note": null
+    },
+    {
+      "id": "seraptek-heavy-construct",
+      "name": "Seraptek Heavy Construct",
+      "role": "Lord of War",
+      "page": 76,
+      "limit": null,
+      "unique": false,
+      "basePoints": 500,
+      "composition": "1 Seraptek",
+      "models": [
+        {
+          "name": "Seraptek",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": { "M": 14, "WS": 4, "BS": 4, "S": 8, "FRONT": 13, "REAR": 12, "I": 2, "A": 3, "HP": 12 },
+          "wargear": ["2 Hull (Front) Mounted Singularity Generators", "2 Seraptek Heavy Scythes", "Containment Field"],
+          "unitType": "Vehicle (Knight)",
+          "specialRules": []
+        }
+      ],
+      "traits": ["Xenos", "Necron", "Canoptek"],
+      "specialRules": ["Living Metal (1)", "Explodes (2+)", "Vanguard (1)"],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [
+        {
+          "id": "synaptic-obliterator",
+          "text": "The model may have any Singularity Generator exchanged for a Hull (Front) Mounted Synaptic Obliterator and 1 Co-Axial (Synaptic Obliterator) Exile Projector for free.",
+          "kind": "perModel",
+          "model": "Seraptek",
+          "replaces": ["Singularity Generator"],
+          "choices": [ { "name": "Hull (Front) Mounted Synaptic Obliterator and 1 Co-Axial (Synaptic Obliterator) Exile Projector", "points": 0 } ],
+          "max": { "fixed": 2 },
+          "requires": null
+        }
+      ],
+      "note": "Profile columns as printed omit T and W for this model (Front/Rear armour plus I, A, HP instead); recorded verbatim per the printed column headers."
+    },
+    {
+      "id": "gauss-pylon",
+      "name": "Gauss Pylon",
+      "role": "Lord of War",
+      "page": 77,
+      "limit": null,
+      "unique": false,
+      "basePoints": 350,
+      "composition": "1 Gauss Pylon",
+      "models": [
+        {
+          "name": "Gauss Pylon",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": { "M": "–", "BS": 4, "FRONT": 14, "SIDE": 14, "REAR": 14, "HP": 20, "CAPACITY": "–" },
+          "wargear": ["Turret Mounted Gauss Annihilator", "Phase Shift Generator"],
+          "unitType": "Vehicle (Super-Heavy)",
+          "specialRules": []
+        }
+      ],
+      "traits": ["Xenos", "Necron", "Beacon", "Phase Shift"],
+      "specialRules": ["Living Metal (D3)", "Deep Strike", "Gun Emplacement", "Interception Protocols"],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [],
+      "note": null
+    },
+    {
+      "id": "transcendant-ctan-shard",
+      "name": "Transcendant C'Tan Shard",
+      "role": "Lord of War",
+      "page": 78,
+      "limit": null,
+      "unique": false,
+      "basePoints": 300,
+      "composition": "1 C'Tan Shard",
+      "models": [
+        {
+          "name": "C'Tan Shard",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": { "M": 10, "WS": 5, "BS": 5, "S": 8, "T": 8, "W": 6, "I": 4, "A": 4, "LD": 12, "CL": 12, "WP": 10, "IN": 10, "SAV": "–", "INV": "4+" },
+          "wargear": ["Unmaking Touch"],
+          "unitType": "C'Tan",
+          "specialRules": []
+        }
+      ],
+      "traits": ["Xenos", "Necron", "Star-God"],
+      "specialRules": ["Explodes (2+)", "Fear (1)", "Heedless", "Necrodermis", "The World Recoils and Roils"],
+      "unitRules": [
+        { "name": "The World Recoils and Roils", "text": "Enemy Models treat all Terrain within 12\" of a model with this Special Rule as Dangerous Terrain." },
+        { "name": "Unmaking Touch", "text": "Weapon: Unmake. IM: I, AM: A, SM: S, AP: 2, D: 3, Special Rules: –, Traits: –." }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [],
+      "note": "This generic C'Tan Shard has no named unique Power of the C'Tan printed on its page (unlike the five named Shards), so it is assumed to roll randomly on the Powers of the C'Tan table (not printed within pages 63-90) with no list-building Option to record."
+    },
+    {
+      "id": "ctan-shard-of-the-nightbringer",
+      "name": "C'Tan Shard of the Nightbringer",
+      "role": "Lord of War",
+      "page": 79,
+      "limit": null,
+      "unique": true,
+      "basePoints": 400,
+      "composition": "1 Shard of the Nightbringer",
+      "models": [
+        {
+          "name": "Shard of the Nightbringer",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": { "M": 10, "WS": 6, "BS": 4, "S": 10, "T": 8, "W": 6, "I": 5, "A": 4, "LD": 12, "CL": 12, "WP": 10, "IN": 8, "SAV": "–", "INV": "4+" },
+          "wargear": ["Scythe of Aza'gorod"],
+          "unitType": "C'Tan",
+          "specialRules": []
+        }
+      ],
+      "traits": ["Xenos", "Necron", "Star-God"],
+      "specialRules": ["Drain Life", "Explodes (2+)", "Fear (1)", "Gaze of Death", "Heedless", "Necrodermis"],
+      "unitRules": [
+        { "name": "Drain Life", "text": "Damage Mitigation rolls of any kind may not be taken for models, friend and foe, that are within 6\" of a Model with this Special Rule." },
+        { "name": "Gaze of Death", "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan:\n\nWeapon: Gaze of Death. R: H, FP: 1, RS: 10, AP: 2, D: 1, Special Rules: Scourge (Cool), Panic (2), Shock (Suppressed), Traits: Despair." },
+        { "name": "Scythe of Aza'gorod", "text": "Weapon: Scythe of Aza'gorod (Traits: Entropic).\n- Entropic Strike: IM: -2, AM: -1, SM: S, AP: 2, D: 6, Special Rules: Aeon Breach (5+).\n- Reaping Strike: IM: I, AM: A, SM: S, AP: 2, D: 2, Special Rules: Reaping Blow (2)." }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [
+        {
+          "id": "power-of-the-ctan",
+          "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan: Gaze of Death.",
+          "kind": "upgrade",
+          "model": null,
+          "replaces": [],
+          "choices": [ { "name": "Gaze of Death", "points": 0 } ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "The Power of the C'Tan choice is an in-battle, once-per-game tactical option (no points cost or list-building effect); it is still recorded as an Option per instructions."
+    },
+    {
+      "id": "ctan-shard-of-the-deceiver",
+      "name": "C'Tan Shard of the Deceiver",
+      "role": "Lord of War",
+      "page": 80,
+      "limit": null,
+      "unique": true,
+      "basePoints": 400,
+      "composition": "1 Shard of the Deceiver",
+      "models": [
+        {
+          "name": "Shard of the Deceiver",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": { "M": 10, "WS": 5, "BS": 5, "S": 9, "T": 8, "W": 6, "I": 5, "A": 4, "LD": 12, "CL": 12, "WP": 10, "IN": 10, "SAV": "–", "INV": "4+" },
+          "wargear": ["Fists of Mephet'ran"],
+          "unitType": "C'Tan",
+          "specialRules": []
+        }
+      ],
+      "traits": ["Xenos", "Necron", "Star-God"],
+      "specialRules": ["Cosmic Insanity", "Dread", "Explodes (2+)", "Fear (1)", "Heedless", "Necrodermis", "The Grand Illusion"],
+      "unitRules": [
+        { "name": "Dread", "text": "The Fear (X) Special Rule of a Model with this Special Rule also reduces the Weapon Skill Characteristic of any affected Units by the Value of X..", "note": "Source text prints a doubled period at the end of this sentence; kept verbatim." },
+        { "name": "Fists of Mephet'ran", "text": "Weapon: Fists of Mephet'ran. IM: I, AM: A, SM: S, AP: 2, D: 3, Special Rules: –, Traits: –." },
+        { "name": "Cosmic Insanity", "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan:\n\nWeapon: Cosmic Insanity. R: 120, FP: 1, RS: 3, AP: 2, D: 1, Special Rules: Barrage, Blast (10), Stun (3), Traits: Despair." },
+        { "name": "The Grand Illusion", "text": "At the end of the Deploy Armies Step of any Mission Sequence, if an army includes a Model with this Special Rule, that player can select up to one of their own Units and one opposing Units and re-deploy them, following any Deployment Restrictions that Unit has to follow. This can be used to re-deploy a Unit in Reserves on the Battlefield, or place a Unit on the Battlefield in Reserves. Units inside a transport may not be re-deployed, nor may this rule be used to Embark Units inside a Transport, but the Transport itself may be re-deployed in which case any units Embarked inside that Transport remain inside the Transport. Units that include any models with the Paragon Type and Transports that have any Paragon models Embarked upon them may not be re-deployed using this Special Rule." }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [
+        {
+          "id": "power-of-the-ctan",
+          "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan: Cosmic Insanity.",
+          "kind": "upgrade",
+          "model": null,
+          "replaces": [],
+          "choices": [ { "name": "Cosmic Insanity", "points": 0 } ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "ctan-shard-of-the-void-dragon",
+      "name": "C'Tan Shard of the Void Dragon",
+      "role": "Lord of War",
+      "page": 81,
+      "limit": null,
+      "unique": true,
+      "basePoints": 400,
+      "composition": "1 Shard of the Void Dragon",
+      "models": [
+        {
+          "name": "Shard of the Void Dragon",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": { "M": 10, "WS": 5, "BS": 5, "S": 9, "T": 8, "W": 6, "I": 5, "A": 4, "LD": 12, "CL": 12, "WP": 10, "IN": 8, "SAV": "–", "INV": "4+" },
+          "wargear": ["Spear of Mag'ladroth"],
+          "unitType": "C'Tan",
+          "specialRules": []
+        }
+      ],
+      "traits": ["Xenos", "Necron", "Star-God"],
+      "specialRules": ["Explodes (2+)", "Fear (1)", "Heedless", "Matter Absorption", "Necrodermis", "Voltaic Storm"],
+      "unitRules": [
+        { "name": "Matter Absorption", "text": "Each time any model with the Walker or Automata Unit Type is reduced to 0 Wounds, or any model with the Vehicle Unit Type is reduced to 0 Hull Points, whilst within 12\" of this Model, and this model's Current Wounds characteristic is 7 or lower, this model's Current Wounds characteristic is increased by 1. This model may not gain more than 1 Wound per phase in this way." },
+        { "name": "Voltaic Storm", "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan:\n\nWeapon: Voltaic Storm. R: 18, FP: 5, RS: 8, AP: 2, D: 2, Special Rules: Armour-Breaker (3+), Shock (Suppressed), Suppress (2), Traits: Arc." },
+        { "name": "Spear of Mag'ladroth", "text": "Melee: IM: I, AM: A, SM: S, AP: 2, D: 3, Special Rules: Armour-breaker (3+), Traits: Arkana.\nRanged: R: 12, FP: 3, RS: 9, AP: 2, D: 2, Special Rules: Armourbane, Armour-breaker (4+)." }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [
+        {
+          "id": "power-of-the-ctan",
+          "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan: Voltaic Storm.",
+          "kind": "upgrade",
+          "model": null,
+          "replaces": [],
+          "choices": [ { "name": "Voltaic Storm", "points": 0 } ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "ctan-shard-of-the-burning-one",
+      "name": "C'Tan Shard of the Burning One",
+      "role": "Lord of War",
+      "page": 82,
+      "limit": null,
+      "unique": true,
+      "basePoints": 400,
+      "composition": "1 Shard of the Burning One",
+      "models": [
+        {
+          "name": "Shard of the Burning One",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": { "M": 10, "WS": 5, "BS": 5, "S": 8, "T": 8, "W": 6, "I": 7, "A": 4, "LD": 12, "CL": 12, "WP": 10, "IN": 8, "SAV": "–", "INV": "4+" },
+          "wargear": ["Breath of Nyadra'zatha"],
+          "unitType": "C'Tan",
+          "specialRules": []
+        }
+      ],
+      "traits": ["Xenos", "Necron", "Star-God"],
+      "specialRules": ["Deep Strike", "Explodes (2+)", "Fear (1)", "Heedless", "Necrodermis", "Soul Blaze", "Wreathed in Flame", "The Fallingstar God"],
+      "unitRules": [
+        { "name": "The Fallingstar God", "text": "When a Model with this Special Rule is deployed using the Deep Strike Special Rule, it immediately makes up to five Shooting Attacks as if it were the Shooting Phase using the weapon profile shown in the Soul Blaze Special Rule. Each Shooting Attack must target a different Unit. After resolving these Shooting Attacks, the Soul Blaze profile may not be used as a Power of the C'Tan for the remainder of the battle." },
+        { "name": "Wreathed in Flame", "text": "A Model with this special rule reduces the Strength of all Hits inflicted on it by Weapons with the Las, Plasma, Melta and Flame Trait by half, rounded up." },
+        { "name": "Soul Blaze", "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan:\n\nWeapon: Soul Blaze. R: 12, FP: 2D6, RS: 8, AP: 4, D: 2, Special Rules: Pinning (1), Traits: Arc." },
+        { "name": "Breath of Nyadra'zatha", "text": "Weapon: Breath of Nyadra'zatha. IM: I, AM: A, SM: S, AP: 2, D: 2, Special Rules: Aflame (2), Deflagrate (6), Traits: –." }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [
+        {
+          "id": "power-of-the-ctan",
+          "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan: Soul Blaze.",
+          "kind": "upgrade",
+          "model": null,
+          "replaces": [],
+          "choices": [ { "name": "Soul Blaze", "points": 0 } ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "ctan-shard-of-the-endless-swarm",
+      "name": "C'Tan Shard of the Endless Swarm",
+      "role": "Lord of War",
+      "page": 83,
+      "limit": null,
+      "unique": true,
+      "basePoints": 400,
+      "composition": "1 Shard of the Endless Swarm",
+      "models": [
+        {
+          "name": "Shard of the Endless Swarm",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": { "M": 10, "WS": "*", "BS": 5, "S": "*", "T": 8, "W": 6, "I": 7, "A": "*", "LD": 12, "CL": 12, "WP": 10, "IN": 8, "SAV": "3+", "INV": "4+" },
+          "wargear": ["Swarm of Iash'uddra"],
+          "unitType": "C'Tan",
+          "specialRules": []
+        }
+      ],
+      "traits": ["Xenos", "Necron", "Star-God"],
+      "specialRules": ["Canoptek Hegemon", "Deep Strike", "Explodes (2+)", "Fear (1)", "Gestalt Entity", "Heedless", "Necrodermis", "Tides of Hate"],
+      "unitRules": [
+        { "name": "Gestalt Entity", "text": "This Model's Weapon Skill, Strength and Attacks Characteristic are each equal to either 4 or its Current Wounds Characteristic, whichever is higher." },
+        { "name": "Canoptek Hegemon", "text": "Units from the same Army within 12\" of a Model with this Special Rule that include Automata Models can make Reactions, even though they include Automata models, so long as all Automata models in the Unit have the Canoptek Trait." },
+        { "name": "Tides of Hate", "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan:\n\nTides of Hate: When using the Tides of Hate Power of the C'Tan, this model's controlling player selects an enemy unit within 12\" of this Model. Remove all Condition Tokens from the selected Unit, if any. This Model's controlling player may make a Shooting Attacks this Shooting Phase using that unit, as if that Unit was part of that Player's Army. The Unit is counted as being disengaged for the purpose of making that Shooting Attack." },
+        { "name": "Swarm of Iash'uddra", "text": "Weapon: Swarm of Iash'uddra. IM: I, AM: +2, SM: +2, AP: 2, D: 2, Special Rules: Melee, Entropic (3+), Traits: Flensing." }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [
+        {
+          "id": "power-of-the-ctan",
+          "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan: Tides of Hate.",
+          "kind": "upgrade",
+          "model": null,
+          "replaces": [],
+          "choices": [ { "name": "Tides of Hate", "points": 0 } ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "Profile uses '*' for WS/S/A as printed, per the Gestalt Entity Special Rule."
+    },
+    {
+      "id": "tesseract-vault",
+      "name": "Tesseract Vault",
+      "role": "Lord of War",
+      "page": 84,
+      "limit": null,
+      "unique": false,
+      "basePoints": 500,
+      "composition": "1 Tesseract Vault",
+      "models": [
+        {
+          "name": "Tesseract Vault",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": { "M": 8, "BS": 4, "FRONT": 14, "SIDE": 14, "REAR": 14, "HP": 12, "CAPACITY": "–" },
+          "wargear": ["Hull (Front, Right) Mounted Tesla sphere", "Hull (Front, Left) Mounted Tesla sphere", "Hull (Rear, Right) Mounted Tesla sphere", "Hull (Rear, Left) Mounted Tesla sphere", "Containment Field"],
+          "unitType": "Vehicle (Antigrav, Super-Heavy)",
+          "specialRules": []
+        }
+      ],
+      "traits": ["Xenos", "Necron", "Star-God"],
+      "specialRules": ["Living Metal (2)", "Coalescent Powers", "Deep Strike", "Explodes (2+)"],
+      "unitRules": [
+        { "name": "Coalescent Powers", "text": "A model with this Special Rule is counted as having the C'Tan Unit Type for the purpose of using and making Attacks with Powers of the C'Tan. Any Attacks made by a model with this Special Rule with a Power of the C'Tan receive a +2 bonus to the Ranged Strength of the Attack." }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [],
+      "note": null
+    },
+    {
+      "id": "convergence-of-dominion",
+      "name": "Convergence of Dominion",
+      "role": "Fortification",
+      "page": 86,
+      "limit": null,
+      "unique": false,
+      "basePoints": 100,
+      "composition": "1 Starstele",
+      "models": [
+        {
+          "name": "Starstele",
+          "min": 1,
+          "max": 3,
+          "costPerExtra": 100,
+          "profile": { "ARMOUR": 14, "HP": 5, "BS": 3 },
+          "wargear": ["Hull (Front, Rear) Mounted Exile Cannon", "Resurrection Node"],
+          "unitType": "Fortification (Emplacement)",
+          "specialRules": []
+        }
+      ],
+      "traits": ["Xenos", "Necron"],
+      "specialRules": ["Living Metal (1)", "Convergence of Dominion", "Explodes (5+)", "Deep Strike", "Sleeping Sentry", "Translocation Protocols"],
+      "unitRules": [
+        { "name": "Convergence of Dominion", "text": "Although included in an Army as a Unit that includes multiple Models, each Model with this Special Rule is considered to be a separate Unit for all other purposes, including Deployment and the scoring of Victory Points." },
+        { "name": "Translocation Protocols", "text": "If a model with this Special Rule is the Target Model for the Battlesmith (X) Special Rule, and the Acting Model has the Necron Trait, the following option may be selected instead of the other options listed in the Battlesmith (X) Special Rule:\n- Translocate: Remove the Target Model from the Battlefield, then place it anywhere on the Battlefield that is more than 9\" from Enemy Models and more than 1\" from other Models and Terrain. The Target Model may be targeted by the Interception Advanced Reaction and counts as having moved for the purpose of making Shooting Attacks in the following Shooting Phase." },
+        { "name": "Dominion Node", "text": "A model with a Dominion Node gains the Fear (1) special rule. In addition, Units from the controlling player's army that includes only models with the Reanimant Trait count their Leadership and Cool characteristics as 12 whilst within 6\" of a model with this a Dominion node.", "note": "Source text reads '...within 6\" of a model with this a Dominion node' (grammatical typo); kept verbatim." },
+        { "name": "Resurrection Node", "text": "Each time a rule, special rule, or reaction calls for any number of Resurrection Tests to be made for a Unit, 1 additional model that was previously removed as a casualty is returned to the unit for each model equipped with a Resurrection Node that is within 6\" of the Unit. This is treated in all ways as a model being returned to the battlefield with a succesful Resurrection Test as part of the same rule or special rule that called for Resurrection Tests to be made for the unit.", "note": "Source spells 'successful' as 'succesful'; kept verbatim." }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [
+        {
+          "id": "dominion-node",
+          "text": "Any Starstele may have its Resurrection Node exchanged for a Dominion Node for free.",
+          "kind": "perModel",
+          "model": "Starstele",
+          "replaces": ["Resurrection Node"],
+          "choices": [ { "name": "Dominion Node", "points": 0 } ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "tomb-citadel",
+      "name": "Tomb Citadel",
+      "role": "Fortification",
+      "page": 87,
+      "limit": null,
+      "unique": false,
+      "basePoints": 300,
+      "composition": "1 Tomb Ziggurat and 1 Power Crucible",
+      "models": [
+        {
+          "name": "Tomb Ziggurat",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": { "ARMOUR": 15, "HP": 10, "BS": "–", "CAPACITY": "–" },
+          "wargear": ["Hull (front) mounted Portal of Exile"],
+          "unitType": "Fortification (Bunker)",
+          "specialRules": []
+        },
+        {
+          "name": "Power Crucible",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": { "ARMOUR": 14, "HP": 6, "BS": "–", "CAPACITY": "–" },
+          "wargear": [],
+          "unitType": "Fortification (Structure)",
+          "specialRules": []
+        },
+        {
+          "name": "Gun Emplacement",
+          "min": 0,
+          "max": 2,
+          "costPerExtra": 60,
+          "profile": { "ARMOUR": 14, "HP": 4, "BS": 4, "CAPACITY": "–" },
+          "wargear": ["Turret Mounted Tesla Destructor"],
+          "unitType": "Fortification (Emplacement)",
+          "specialRules": []
+        }
+      ],
+      "traits": ["Xenos", "Necron", "Beacon"],
+      "specialRules": ["Living Metal (2)", "Automated Fortification", "Citadel Complex", "Canoptek Factory", "Phase Shift Field", "Resurrection Amplifier", "Ziggurat Deck"],
+      "unitRules": [
+        { "name": "Citadel Complex", "text": "The Tomb Citadel is comprised of a large surface with four Fortification emplacements on it. Two are for the Tomb Ziggurat and Power Crucible, and two are for the optional Gun emplacements. The surface of the Tomb Citadel is treated as being Light Area Terrain. When placing the Tomb Ziggurat on the battlefield, the controlling player can place it over other terrain -- when doing so, remove any terrain it covers. The Citadel is so large that it may not fit in the controlling player's Deployment Zone; if that is the case, deploy the Tomb Citadel so that as much of it as possible is within the controlling player's Deployment Zone. The Tomb Citadel may have to be deployed first, so other units may be deployed on top of it.\n\nIf any Fortification that is part of the Tomb Citadel is destroyed, that model remains on the battlefield as Impassible Terrain. The Gun Emplacement locations are also Impassible Terrain if no Gun Emplacement was purchased for it." },
+        { "name": "Phase Shift Field", "text": "While the Power crucible has not been destroyed, all models, both friendly and enemy, on the surface of the Tomb Citadel have a 4+ invulnerable save against shooting attacks." },
+        { "name": "Resurrection Amplifier", "text": "While the Power crucible has not been destroyed, the result of any Resurrection Tests made for Units in the Controlling Player's Army that are on the surface of the Tomb Citadel is modified by +1." },
+        { "name": "Canoptek Factory", "text": "While the Tomb Ziggurat has not been destroyed, the Controlling Player may select and apply one of the following during their Turn as the Active Player:\n- When a Unit of Canoptek Scarabs on the surface of the Tomb Citadel been selected, but before or after it has been moved, the controlling player may add up to three Scarab Swarm models to that Unit so that they are in coherency with that Unit and more than 1\" from enemy models.\n- At the end of the Movement Phase, the Controlling Player may create a Unit of Canoptek Scarabs consisting of three Scarab Swarms. That Unit enters the Battlefield as if from Reserves, using the Tomb Ziggurat's Eternity Gate as if it was the Edge of the Battlefield. The new Unit can be targeted with the Interception Reaction.", "note": "Printed heading is 'Canoptek factory' (lowercase f) on page 88, while the unit's Special Rules list on page 87 capitalizes it as 'Canoptek Factory'; the capitalized form is used as the rule name for consistency." },
+        { "name": "Ziggurat Deck", "text": "Models can move over and end a move on top of the Tomb Ziggurat, treating it as if it were an area of Light Area Terrain. However, unlike other Areas of Terrain, protrusions and other parts of the Model do block Line of Sight.\n\nDuring deployment, the Controlling Player of a Tomb Ziggurat can deploy a single Monolith or Gauss Pylon on top of the upper level of the Tomb Ziggurat. This model is referred to as the 'Docked Model'. The following rules apply to the Docked Model so long as it remains on top of the Tomb Ziggurat:\n- If the Docked Model is selected to make any kind of Move, it must first be removed from the top of the Tomb Ziggurat and placed anywhere within 1\" of the Tomb Ziggurat. The model is no longer Docked and acts normally for the remainder of the Battle.\n- All Weapons used by the Docked Model gain +1 Ranged Strength and lose the Limited (X) Special Rule.\n- The Docked Model uses the Eternity Gate modelled on the Tomb Ziggurat in place of its own as its Access Point and for the purpose of the Eternity Gate Special Rule.\n- If the Docked Model makes a Shooting Attack using the Portal of Exile, measure ranges from the Eternity Gate modelled on the Tomb Ziggurat instead of the Docked Model's.\n- If a Tomb Ziggurat is Destroyed, the Docked Model suffers D6 Damage. No Saves or Damage Mitigation Rolls may be made against that Damage. The model remains on top of the Tomb Ziggurat, but receives none of the benefits from the above Bullet Points, except it can still leave using the procedure listed in the first Bullet Point.\n\nA model may not become Docked after the start of battle." }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [
+        {
+          "id": "gun-emplacement-weapon-swap",
+          "text": "Any Gun Emplacement may have its Tesla Destructor exchanged for a Gauss Exterminator at +20 points each.",
+          "kind": "perModel",
+          "model": "Gun Emplacement",
+          "replaces": ["Turret Mounted Tesla Destructor"],
+          "choices": [ { "name": "Gauss Exterminator", "points": 20 } ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "'Automated Fortification' is named in the Special Rules list (page 87) but its full text is not printed on pages 63-90, so it is not included in unitRules/rules-c.json."
+    }
+  ]
+}

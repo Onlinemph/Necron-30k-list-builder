@@ -1,0 +1,120 @@
+{
+  "arkana": [
+    {
+      "name": "Chronomancy",
+      "page": 20,
+      "harbinger": {
+        "name": "Harbinger of Eternity",
+        "text": "A model with the Chronomancy Trait gains the Phasing Trait.\n\nWhen a friendly Unit is selected as the Reacting Unit for a Reaction, the controlling player may Select one model in that Unit or within 6\" of that Unit that has the Chronomancy Trait. The Controlling Player makes an Intelligence Check for the selected model. If the Check is succesful the Controlling Player gains 1 point of Reaction Allotment immediately before the Cost for that Reaction is paid. If the Check is failed then the unit that includes the model that just failed the Test gains the Stunned Status. Each model may only be selected to make an Intelligence Check for this Special Rule once per turn."
+      },
+      "wargear": [
+        {
+          "name": "Chronometron",
+          "text": "When a combat is begun, the controlling player can Activate a single Chronometron equipped to a model in a unit engaged in that combat. Each Chronometron can only be Activated once per battle, and remains Activated until the Resolution Step of the current Combat or the model equipped with the Chronometron is removed as a casualty. As long as a Unit includes a Model with an Activated Chronometron, all Models in that unit have their WS and I characteristics modified by +1, and all enemy Models engaged with this Unit have their WS and I characteristics modified by -1."
+        },
+        {
+          "name": "Temporal Nanomines",
+          "text": "During Step 3 of the Charge Procedure, if any of the Target Units of the charge include any models with Temporal Nanomines, then the Set-up Move Distance of the Charging Unit is reduced by 2\", to a minimum of 0\"."
+        },
+        {
+          "name": "Timesplinter Mantle",
+          "text": "A model with a Timesplinter Mantle has a 4+ invulnerable save and gains the Phase Shift Trait, and all models with the Reanimant Sub-Type in the same Unit gain a 6+ Invulnerable Save and the Phase Shift Trait so long as a Model with a Timesplinter Mantle remains part of the Unit."
+        }
+      ]
+    },
+    {
+      "name": "Ethermancy",
+      "page": 21,
+      "harbinger": {
+        "name": "Harbinger of the Storm",
+        "text": "A model with the Ethermancy Trait gains the Shrouded (4+) Special Rule.\n\nWhen a friendly Unit is selected as a Target of a Shooting Attack (including a Shooting Attack made as part of a Reaction), during Step 2 of the Shooting Attack Process, the Controlling Player may select one friendly model in that Unit or within 6\" of that Unit that has the Ethermancy Trait. The Controlling Player makes an Intelligence Check for the Selected Model. If succesful, the Unit that was targeted for that Shooting Attack gains the Shrouded (4+) Special Rule until Step 11 of that Shooting Attack has been resolved. If the Check is failed then the unit that includes the model that just failed the Test gains the Stunned Status. Each model may only be selected to make an Intelligence Check for this Special Rule once per turn."
+      },
+      "wargear": [
+        {
+          "name": "Ether Crystal",
+          "text": "When a Model with an Ether Crystal is Selected during the Controlling Player's Movement Phase as the Active Player, but before or after it has been Moved, the Controlling Player may Select one Enemy Unit within 18\" of the Model with the Ether Crystal and roll 3D6, then compare the result of the Roll to the Selected Unit's Cool Characteristic (if it has one) or its Side Armour Value (if it has one). If the result of the Roll is greater than the Characteristic it is compared to, the Selected Unit gains the Stunned Status. Units that include no models with either a Cool Characteristic or a Side Armour Value cannot be Selected."
+        },
+        {
+          "name": "Storm Nodule",
+          "text": "All Weapons with the Tesla (X) Special Rule equipped to models in a Unit that includes at least one Model with a Storm Nodule have the value of X associated with the specific variant of the Tesla (X) Special Rule attached to that Weapon improved by 1. For instance, Tesla (6+) becomes Tesla (5+), etc."
+        }
+      ]
+    },
+    {
+      "name": "Geomancy",
+      "page": 22,
+      "harbinger": {
+        "name": "Harbinger of Transmogrification",
+        "text": "A model with the Geomancy Trait gains the Phasing Trait.\n\nWhen a friendly Unit is selected during the Controlling Player's Movement Phase as the Active Player, but before or after that Unit has been Moved, the Controlling Player may Select one model in that Unit or within 6\" of that Unit that has the Geomancy Trait. The Controlling Player makes an Intelligence Check for the selected model. If the Check is succesful that Unit gains +3 to its Movement Characteristic, the Phase Motion special rule and the Phasing Trait until the start of the Active Player's next Turn. If the Check is failed then the unit that includes the model that just failed the Test gains the Stunned Status. Each model may only be selected to make an Intelligence Check for this Special Rule once per turn."
+      },
+      "wargear": [
+        {
+          "name": "Geometric Adjuster",
+          "text": "A unit that includes any models with a Geometric Adjuster is always considered to be 3\" further away than it actually is when measuring range to and from it from any enemy Model for the purpose of resolving a Shooting Attack, Charge, or any Reaction declared by any enemy Model or Unit."
+        },
+        {
+          "name": "Material Ablator",
+          "text": "The Majority Toughness of a unit that includes at least one model with a Material Ablator is counted as being 1 greater than it is for the purpose of any To Wound tests made against the unit."
+        },
+        {
+          "name": "Seismic Crucible",
+          "text": "In the Effects Sub-Phase of the Start Phase of the Controlling Player's Turn as the Active Player, that Player can select a zone of Area Terrain within 24\" of the model with the Seismic Crucible. Until the start of the Active Player's next Turn, that Area Terrain does not provide a Cover Save and is counted as both Difficult Terrain and Dangerous Terrain."
+        }
+      ]
+    },
+    {
+      "name": "Plasmancy",
+      "page": 23,
+      "harbinger": {
+        "name": "Harbinger of Destruction",
+        "text": "A model with the Plasmancy Trait gains the Firing Protocols (2) and Firestorm Special Rules.\n\nAt the start of Step 4 of any Shooting Attack made by a friendly Unit, the Controlling Player may Select one model in that Unit or within 6\" of that Unit that has the Plasmancy Trait. The Controlling Player makes an Intelligence Check for the selected model. If the Check is succesful then until the end of the Shooting Attack being resolved all Ranged Weapons used by models in the attacking Unit gain +1 to their Ranged Strength Characteristic and the Breaching (6+) Special Rule. If the Check is failed then the unit that includes the model that just failed the Test gains the Stunned Status. Each model may only be selected to make an Intelligence Check for this Special Rule once per turn.",
+        "note": "The page heading and text refer to the 'Geomancy Trait' in the intro sentence ('accessible to models with the Geomancy Trait'), which is a source typo for 'Plasmancy Trait' given this is the Plasmancy page; the harbinger rule text itself correctly says 'Plasmancy Trait' throughout."
+      },
+      "wargear": []
+    },
+    {
+      "name": "Psychomancy",
+      "page": 24,
+      "harbinger": {
+        "name": "Harbinger of Despair",
+        "text": "A model with the Psychomancy Trait gains the Fear (1) Special Rule.\n\nWhen a Unit without the Vehicle Type controlled by the Opposing Player gains the Pinned, Stunned, or Suppressed Status, the Controlling Player of a Model with the Psychomancy Trait within 12\" of that Unit may select that model. The Controlling Player makes an Intelligence Check for the selected model. If the Check is succesful, the Controlling Player of the Model with the Psychomancy Trait may choose to have the Unit controlled by the Opposing Player gain one additional Status from among Pinned, Stunned, and Suppressed. If the Check is failed then the unit that includes the model that just failed the Test gains the Stunned Status. Each model may only be selected to make an Intelligence Check for this Special Rule once per turn."
+      },
+      "wargear": [
+        {
+          "name": "Atavindicator",
+          "text": "Once per turn, when a Leadership, Cool, Willpower or Intelligence Check is taken by a Unit controlled by the Opposing Player within 12\" of a model with an Atavindicator, the Controlling Player can Select that Unit and Activate that model's Atavindicator. The Atavindicator remains activated until the model is removed from the battlefield, or the Controlling Player of the model with the Atavindicator may choose to deactivate it at the end of any Turn. While the Atavindicator remains Activated, the Leadership, Cool, Willpower and Intelligence Characteristics of each model in the Selected Unit become equal to its lowest among those four Characteristics. An Atavindicator cannot be Activated again while it is already Activated."
+        },
+        {
+          "name": "Nightmare Shroud",
+          "text": "The Range of the Fear Special Rule of a model with a Nightmare Shroud is 24\", rather than 12\"."
+        },
+        {
+          "name": "Veil of Darkness",
+          "text": "When a Unit that includes any models with a Veil of Darkness is selected during the Controlling Player's Movement Phase as the Active Player, that Player can Activate the Veil of Darkness instead of Moving that Unit. Once the Veil of Darkness is Activated, remove all models in the Unit from the Battlefield, then place them on the Battlefield anywhere as if they were deployed using the Infiltrate (9) Special Rule. The Unit cannot move further in that Phase. It counts as having been moved for the purpose of all rules and special rules and cannot declare a Charge in the following Charge Sub-Phase."
+        }
+      ]
+    },
+    {
+      "name": "Technomancy",
+      "page": 25,
+      "harbinger": {
+        "name": "Harbinger of the Swarm",
+        "text": "The value in brackets of the Battlesmith (X) Special Rule of a model with the Harbinger of the Swarm Special Rule is modified by +1. If the model does not already have the Battlesmith (X) Special Rule, it gains the Battlesmith (1) Special Rule instead. Models with the Harbinger of the Swarm Special Rule that can join Units may join Units that include Models with the Automata Type.\n\nWhen a Friendly Unit that includes any models with the Canoptek Trait would be eligible to make a Reaction, but cannot because it includes models with the Automata Type, the Controlling Player may Select one model in that Unit or within 6\" of that Unit that has the Technomancy Trait. The controlling player makes an Intelligence Check for the selected model. If the Check is succesful, the Controlling Player of the Unit that would be eligible to React may make a Reaction with that Unit, and does not have to pay the Cost of that Reaction to do so. If the Check is failed then the unit that includes the model that just failed the Test gains the Stunned Status. Each model may only be selected to make an Intelligence Check for this Special Rule once per turn."
+      },
+      "wargear": [
+        {
+          "name": "Canoptek Cloak",
+          "text": "The value in brackets of the Battlesmith (X) Special Rule of a Model with a Canoptek Cloak is modified by +1. The model's Movement characteristic is changed to 16 and it gains the Antigrav Sub-Type."
+        },
+        {
+          "name": "Canoptek Control Node",
+          "text": "A model with a Canoptek Control Node is always considered to be within 6\" of friendly Units with the Canoptek Trait for the purpose of the Harbinger of the Swarm Special Rule. The model may additionally be selected to make an Intelligence Check for the Harbinger of the Swarm Special Rule up to twice per turn, rather than just once."
+        },
+        {
+          "name": "Mindshackle Scarabs",
+          "text": "A model with Mindshackle Scarabs can have the Neurodominance Gambit selected for it:\n\nNeurodominance: If the Model for which this Gambit was selected has a greater Willpower Characteristic than its Challenge Opponent, the Controlling Player gains a bonus to the result of the Focus Roll equal to the difference. If the Controlling Player of the Model for which this Gambit was selected wins the Focus Rolls, the model may make its Strikes in the Strike Step using the Strength and Attacks Characteristics of the Challenge Opponent instead of its own; if it does so, it must also select and use one of the Challenge Opponent's Melee Weapons to Attack with instead of one of its own."
+        }
+      ]
+    }
+  ]
+}
