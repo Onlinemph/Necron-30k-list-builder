@@ -66,6 +66,7 @@ small, .muted { color: var(--muted); }
 .col { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
 .panel { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px; }
 .panel.empty { color: var(--muted); text-align: center; padding: 40px 16px; }
+.layout > .editor { align-self: stretch; }
 .editor .panel { position: sticky; top: 90px; max-height: calc(100vh - 110px); overflow: auto; }
 @media (max-width: 900px) { .editor .panel { position: static; max-height: none; } }
 

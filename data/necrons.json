@@ -9732,10 +9732,1096 @@
    }
   ]
  },
- "detachments": [],
+ "detachments": [
+  {
+   "id": "canoptek-phalanx",
+   "name": "Canoptek Phalanx",
+   "type": "Auxiliary",
+   "page": 91,
+   "unlock": "When a model with the [Crypto-Arkana] Trait is selected to fill a Command Slot, then the Player may add a Canoptek Phalanx to the Army instead of the options available in the Crusade Force Organization Chart.",
+   "unlockedBy": {
+    "commandTrait": "[Crypto-Arkana]"
+   },
+   "slots": [
+    {
+     "role": "Recon",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Recon",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Fast Attack",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Fast Attack",
+     "prime": false,
+     "flexible": false
+    }
+   ],
+   "restrictions": [
+    "Only Units with the Canoptek Trait may be selected to fill any Slots in this Detachment."
+   ],
+   "rules": [],
+   "slotRules": [
+    {
+     "roles": null,
+     "trait": "Canoptek"
+    }
+   ]
+  },
+  {
+   "id": "canoptek-circle",
+   "name": "Canoptek Circle",
+   "type": "Auxiliary",
+   "page": 91,
+   "unlock": "When a model with the [Crypto-Arkana] Trait is selected to fill a Command Slot, then the Player may add a Canoptek Circle to the Army instead of the options available in the Crusade Force Organization Chart.",
+   "unlockedBy": {
+    "commandTrait": "[Crypto-Arkana]"
+   },
+   "slots": [
+    {
+     "role": "Retinue",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Retinue",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Support",
+     "prime": false,
+     "flexible": false
+    }
+   ],
+   "restrictions": [
+    "Only Macrocyte Warriors, Hierotek Circle or Cryptothrall Units may be selected to fill Retinue Slots in this Detachment.",
+    "Only Tomb Crawler Units may be selected to fill Support Slots in this Detachment."
+   ],
+   "rules": [],
+   "slotRules": [
+    {
+     "roles": [
+      "Retinue"
+     ],
+     "units": [
+      "macrocyte-warriors",
+      "hierotek-circle",
+      "cryptothralls"
+     ]
+    },
+    {
+     "roles": [
+      "Support"
+     ],
+     "units": [
+      "canoptek-tomb-crawlers"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "canoptek-swarm",
+   "name": "Canoptek Swarm",
+   "type": "Auxiliary",
+   "page": 91,
+   "unlock": "When a model with the [Crypto-Arkana] Trait is selected to fill a Command Slot, then the Player may add a Canoptek Swarm to the Army instead of the options available in the Crusade Force Organization Chart.",
+   "unlockedBy": {
+    "commandTrait": "[Crypto-Arkana]"
+   },
+   "slots": [
+    {
+     "role": "Support",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Support",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Recon",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Recon",
+     "prime": false,
+     "flexible": false
+    }
+   ],
+   "restrictions": [
+    "Only Units with the Canoptek Trait may be selected to fill Support Slots in this Detachment.",
+    "Only Units of Canoptek Scarabs may be selected to fill Recon Slots in this Detachment."
+   ],
+   "rules": [],
+   "slotRules": [
+    {
+     "roles": [
+      "Support"
+     ],
+     "trait": "Canoptek"
+    },
+    {
+     "roles": [
+      "Recon"
+     ],
+     "units": [
+      "canoptek-scarabs"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ghost-strider-phalanx",
+   "name": "Ghost Strider Phalanx",
+   "type": "Auxiliary",
+   "page": 91,
+   "unlock": null,
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Transport",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Transport",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Transport",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Fast Attack",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Fast Attack",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Fast Attack",
+     "prime": false,
+     "flexible": false
+    }
+   ],
+   "restrictions": [
+    "Only Units of Tomb Blades may be selected to fill Fast Attack Slots in this Detachment."
+   ],
+   "rules": [],
+   "note": "No unlock paragraph is printed in the box for this Detachment (unlike the other Auxiliary Detachments on this page, the entry goes straight from the title to its Slot icons). Its PDF text-layer extraction interleaves with the neighbouring Canoptek Swarm entry due to the two-column layout; that garbled text is not part of this entry.",
+   "slotRules": [
+    {
+     "roles": [
+      "Fast Attack"
+     ],
+     "units": [
+      "tomb-blades"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lokhust-phalanx",
+   "name": "Lokhust Phalanx",
+   "type": "Auxiliary",
+   "page": 92,
+   "unlock": null,
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": null,
+     "prime": false,
+     "flexible": true
+    },
+    {
+     "role": "Support",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Support",
+     "prime": false,
+     "flexible": false
+    }
+   ],
+   "restrictions": [
+    "Only Units with the Destroyer Trait may be selected to fill any Slots in this Detachment.",
+    "Flexible Slot: The first Slot in this Detachment may be of any Type except Command or High Command."
+   ],
+   "rules": [],
+   "note": "No unlock paragraph is printed for this Detachment. unlockedBy is inferred from the page 91 intro text (Auxiliary Detachments may restrict which unit fills the Command/High Command slot that allows their selection) together with this entry's Destroyer Trait restriction bullet.",
+   "slotRules": [
+    {
+     "roles": null,
+     "trait": "Destroyer"
+    }
+   ]
+  },
+  {
+   "id": "skorpekh-phalanx",
+   "name": "Skorpekh Phalanx",
+   "type": "Auxiliary",
+   "page": 92,
+   "unlock": null,
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": null,
+     "prime": false,
+     "flexible": true
+    },
+    {
+     "role": "Heavy Assault",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Heavy Assault",
+     "prime": false,
+     "flexible": false
+    }
+   ],
+   "restrictions": [
+    "Only Units with the Destroyer Trait may be selected to fill any Slots in this Detachment.",
+    "Flexible Slot: The first Slot in this Detachment may be of any Type except Command or High Command."
+   ],
+   "rules": [],
+   "note": "No unlock paragraph is printed for this Detachment; see note on Lokhust Phalanx.",
+   "slotRules": [
+    {
+     "roles": null,
+     "trait": "Destroyer"
+    }
+   ]
+  },
+  {
+   "id": "ophydian-phalanx",
+   "name": "Ophydian Phalanx",
+   "type": "Auxiliary",
+   "page": 92,
+   "unlock": null,
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": null,
+     "prime": false,
+     "flexible": true
+    },
+    {
+     "role": "Heavy Assault",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Heavy Assault",
+     "prime": false,
+     "flexible": false
+    }
+   ],
+   "restrictions": [
+    "Only Units with the Destroyer Trait may be selected to fill any Slots in this Detachment.",
+    "Flexible Slot: The first Slot in this Detachment may be of any Type except Command or High Command."
+   ],
+   "rules": [],
+   "note": "No unlock paragraph is printed for this Detachment; see note on Lokhust Phalanx.",
+   "slotRules": [
+    {
+     "roles": null,
+     "trait": "Destroyer"
+    }
+   ]
+  },
+  {
+   "id": "tomb-vigils",
+   "name": "Tomb Vigils",
+   "type": "Auxiliary",
+   "page": 92,
+   "unlock": null,
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "War Engine",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "War Engine",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Recon",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Recon",
+     "prime": false,
+     "flexible": false
+    }
+   ],
+   "restrictions": [
+    "Only Units of Canoptek Doom-Stalkers and Sentry Pylons may be selected to fill War Engine Slots in this Detachment."
+   ],
+   "rules": [],
+   "note": "No unlock paragraph or Command-Slot trait requirement is printed for this Detachment.",
+   "slotRules": [
+    {
+     "roles": [
+      "War Engine"
+     ],
+     "units": [
+      "canoptek-doom-stalker",
+      "sentry-pylon"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "reclamation-legion",
+   "name": "Reclamation Legion",
+   "type": "Auxiliary",
+   "page": 92,
+   "unlock": null,
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Elites",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Elites",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Support",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Support",
+     "prime": false,
+     "flexible": false
+    }
+   ],
+   "restrictions": [
+    "Only Units of Lychguard may be selected to fill Elites Slots in this Detachment."
+   ],
+   "rules": [],
+   "note": "No unlock paragraph or Command-Slot trait requirement is printed for this Detachment.",
+   "slotRules": [
+    {
+     "roles": [
+      "Elites"
+     ],
+     "units": [
+      "lychguard"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "obliteration-phalanx",
+   "name": "Obliteration Phalanx",
+   "type": "Apex",
+   "page": 94,
+   "unlock": "If an Army has the Awoken Vaults Aeonic Sequela, then the following Apex Detachment may be selected:",
+   "unlockedBy": {
+    "sequela": "Awoken Vaults"
+   },
+   "slots": [
+    {
+     "role": "Support",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Support",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Support",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Support",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Armour",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Armour",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Armour",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Armour",
+     "prime": false,
+     "flexible": false
+    }
+   ],
+   "restrictions": [
+    "Only Annihilation barges may be selected to fill Support Slots in this Detachment."
+   ],
+   "rules": [],
+   "slotRules": [
+    {
+     "roles": [
+      "Support"
+     ],
+     "units": [
+      "annihilation-barge"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "canoptek-masterworks",
+   "name": "Canoptek Masterworks",
+   "type": "Apex",
+   "page": 94,
+   "unlock": "If an Army has the Canoptek Forge Aeonic Sequela, then the following Apex Detachment may be selected:",
+   "unlockedBy": {
+    "sequela": "Canoptek Forge"
+   },
+   "slots": [
+    {
+     "role": null,
+     "prime": true,
+     "flexible": true
+    },
+    {
+     "role": null,
+     "prime": true,
+     "flexible": true
+    }
+   ],
+   "restrictions": [
+    "Only Units with the Canoptek Trait may be selected to fill Slots in this Detachment.",
+    "Flexible Slots: Prime Slots in this Detachment may be of any Type except Command or High Command."
+   ],
+   "rules": [],
+   "slotRules": [
+    {
+     "roles": null,
+     "trait": "Canoptek"
+    }
+   ]
+  },
+  {
+   "id": "infinite-phalanx",
+   "name": "Infinite Phalanx",
+   "type": "Apex",
+   "page": 95,
+   "unlock": "If an Army has the Dark Harvest Aeonic Sequela, then the following Apex Detachment may be selected:",
+   "unlockedBy": {
+    "sequela": "Dark Harvest"
+   },
+   "slots": [
+    {
+     "role": "Troops",
+     "prime": true,
+     "flexible": false
+    },
+    {
+     "role": "Troops",
+     "prime": true,
+     "flexible": false
+    },
+    {
+     "role": "Troops",
+     "prime": true,
+     "flexible": false
+    },
+    {
+     "role": "Troops",
+     "prime": true,
+     "flexible": false
+    },
+    {
+     "role": "Recon",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Recon",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Recon",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Recon",
+     "prime": false,
+     "flexible": false
+    }
+   ],
+   "restrictions": [
+    "Troops slots in this Detachment may only be used to select Necron Warriors Units.",
+    "Recon slots in this Detachment may only be used to select Canoptek Scarab Units."
+   ],
+   "rules": [],
+   "slotRules": [
+    {
+     "roles": [
+      "Troops"
+     ],
+     "units": [
+      "necron-warriors"
+     ]
+    },
+    {
+     "roles": [
+      "Recon"
+     ],
+     "units": [
+      "canoptek-scarabs"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "destroyer-cult",
+   "name": "Destroyer Cult",
+   "type": "Apex",
+   "page": 95,
+   "unlock": "If an Army has the Cult of Annihilation Aeonic Sequela, then the following Apex Detachment may be selected:",
+   "unlockedBy": {
+    "sequela": "Cult of Annihilation"
+   },
+   "slots": [
+    {
+     "role": null,
+     "prime": true,
+     "flexible": true
+    },
+    {
+     "role": "Heavy Assault",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Recon",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Support",
+     "prime": false,
+     "flexible": false
+    }
+   ],
+   "restrictions": [
+    "Only Units with the Destroyer Trait may be selected to fill Slots in this Detachment.",
+    "Flexible Slot: The Prime Slot in this Detachment may be of any Type except Command or High Command."
+   ],
+   "rules": [],
+   "slotRules": [
+    {
+     "roles": null,
+     "trait": "Destroyer"
+    }
+   ]
+  },
+  {
+   "id": "invasion-phalanx",
+   "name": "Invasion Phalanx",
+   "type": "Apex",
+   "page": 96,
+   "unlock": "If an Army has the Forsaken Voidfarers Aeonic Sequela, then the following Apex Detachment may be selected:",
+   "unlockedBy": {
+    "sequela": "Forsaken Voidfarers"
+   },
+   "slots": [
+    {
+     "role": "Elites",
+     "prime": true,
+     "flexible": false
+    },
+    {
+     "role": "Elites",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Elites",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Heavy Transport",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Heavy Transport",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Heavy Transport",
+     "prime": false,
+     "flexible": false
+    }
+   ],
+   "restrictions": [
+    "Heavy Transport slots in this Detachment may only be used to select Night Scythes Units."
+   ],
+   "rules": [],
+   "slotRules": [
+    {
+     "roles": [
+      "Heavy Transport"
+     ],
+     "units": [
+      "night-scythe"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "necron-raiders",
+   "name": "Necron Raiders",
+   "type": "Apex",
+   "page": 96,
+   "unlock": "If an Army has the Horrors of Old Aeonic Sequela, then the following Apex Detachment may be selected:",
+   "unlockedBy": {
+    "sequela": "Horrors of Old"
+   },
+   "slots": [
+    {
+     "role": "Armour",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Elites",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Heavy Assault",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Support",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Recon",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Fast Attack",
+     "prime": false,
+     "flexible": false
+    }
+   ],
+   "restrictions": [],
+   "rules": [],
+   "slotRules": []
+  },
+  {
+   "id": "translocator-flight",
+   "name": "Translocator Flight",
+   "type": "Apex",
+   "page": 97,
+   "unlock": "If an Army has the Hypercrypt Legion Aeonic Sequela, then the following Apex Detachment may be selected:",
+   "unlockedBy": {
+    "sequela": "Hypercrypt Legion"
+   },
+   "slots": [
+    {
+     "role": "Command",
+     "prime": true,
+     "flexible": false
+    },
+    {
+     "role": "Command",
+     "prime": true,
+     "flexible": false
+    },
+    {
+     "role": "Fast Attack",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Fast Attack",
+     "prime": false,
+     "flexible": false
+    }
+   ],
+   "restrictions": [
+    "Only Units with the Reanimant Trait may be selected to fill Slots in this Detachment."
+   ],
+   "rules": [],
+   "slotRules": [
+    {
+     "roles": null,
+     "trait": "Reanimant"
+    }
+   ]
+  },
+  {
+   "id": "royal-court-of-drazak",
+   "name": "Royal Court of Drazak",
+   "type": "Apex",
+   "page": 97,
+   "unlock": "If an Army has the Mark of the Flayer Aeonic Sequela, then the following Apex Detachment may be selected:",
+   "unlockedBy": {
+    "sequela": "Mark of the Flayer"
+   },
+   "slots": [
+    {
+     "role": "Heavy Assault",
+     "prime": true,
+     "flexible": false
+    },
+    {
+     "role": "Heavy Assault",
+     "prime": true,
+     "flexible": false
+    },
+    {
+     "role": "Heavy Assault",
+     "prime": true,
+     "flexible": false
+    }
+   ],
+   "restrictions": [
+    "Heavy Assault slots in this Detachment may only be used to select Flayed Ones Units."
+   ],
+   "rules": [],
+   "slotRules": [
+    {
+     "roles": [
+      "Heavy Assault"
+     ],
+     "units": [
+      "flayed-ones"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "dynastic-grand-court",
+   "name": "Dynastic Grand Court",
+   "type": "Apex",
+   "page": 98,
+   "unlock": "If an Army has the Royal Burial Site Aeonic Sequela, then the following Apex Detachment may be selected:",
+   "unlockedBy": {
+    "sequela": "Royal Burial Site"
+   },
+   "slots": [
+    {
+     "role": "Command",
+     "prime": true,
+     "flexible": false
+    },
+    {
+     "role": "Retinue",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Elites",
+     "prime": false,
+     "flexible": false
+    }
+   ],
+   "restrictions": [
+    "Command slots in this Detachment may only be used to select Royal Warden, Necron Lord or Necron Lord on Catacomb Command Barge Units."
+   ],
+   "rules": [],
+   "slotRules": [
+    {
+     "roles": [
+      "Command"
+     ],
+     "units": [
+      "royal-warden",
+      "necron-lord",
+      "necron-lord-on-barge"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "guardians-of-the-great-sleep",
+   "name": "Guardians of the Great Sleep",
+   "type": "Apex",
+   "page": 98,
+   "unlock": "If an Army has the Slumbering Tomb Aeonic Sequela, then the following Apex Detachment may be selected:",
+   "unlockedBy": {
+    "sequela": "Slumbering Tombs"
+   },
+   "slots": [
+    {
+     "role": "War Engine",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Recon",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Recon",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Support",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Support",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Support",
+     "prime": false,
+     "flexible": false
+    }
+   ],
+   "restrictions": [
+    "Only Units with the Canoptek Trait may be selected to fill Slots in this Detachment."
+   ],
+   "rules": [],
+   "note": "The header on p.98 reads \"Slumbering Tomb Aeonic Sequela\" (singular) although the Sequela is listed elsewhere as \"Slumbering Tombs\"; kept verbatim in unlock, unlockedBy normalized to the Sequela's listed name.",
+   "slotRules": [
+    {
+     "roles": null,
+     "trait": "Canoptek"
+    }
+   ]
+  },
+  {
+   "id": "lawbringer-phalanx",
+   "name": "Lawbringer Phalanx",
+   "type": "Apex",
+   "page": 99,
+   "unlock": "If an Army has the Servants of the Ankh Aeonic Sequela, then the following Apex Detachment may be selected:",
+   "unlockedBy": {
+    "sequela": "Servants of the Ankh"
+   },
+   "slots": [
+    {
+     "role": "Elites",
+     "prime": true,
+     "flexible": false
+    },
+    {
+     "role": "Elites",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Elites",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "War Engine",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "War Engine",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "War Engine",
+     "prime": false,
+     "flexible": false
+    }
+   ],
+   "restrictions": [
+    "Only Units with the Triarch Trait may be selected to fill Slots in this Detachment."
+   ],
+   "rules": [],
+   "slotRules": [
+    {
+     "roles": null,
+     "trait": "Triarch"
+    }
+   ]
+  },
+  {
+   "id": "bringers-of-silence",
+   "name": "Bringers of Silence",
+   "type": "Apex",
+   "page": 99,
+   "unlock": "If an Army has The Symbiosis Aeonic Sequela, then the following Apex Detachment may be selected:",
+   "unlockedBy": {
+    "sequela": "The Symbiosis"
+   },
+   "slots": [
+    {
+     "role": "Command",
+     "prime": true,
+     "flexible": false
+    },
+    {
+     "role": "Elites",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Elites",
+     "prime": false,
+     "flexible": false
+    }
+   ],
+   "restrictions": [
+    "The Command slot in this Detachment may only be used to select Units with the [Crypto-Arkana] Trait.",
+    "Elites Slots in this Detachment may only be used to select Pariah Units."
+   ],
+   "rules": [],
+   "slotRules": [
+    {
+     "roles": [
+      "Command"
+     ],
+     "trait": "[Crypto-Arkana]"
+    },
+    {
+     "roles": [
+      "Elites"
+     ],
+     "units": [
+      "pariahs"
+     ]
+    }
+   ]
+  }
+ ],
  "sequelae": {
-  "intro": "",
-  "sequelae": []
+  "intro": "Sequelae Benefits\nAn Army which makes use of the Necron Army List may have a number of Aeonic Sequelae from the following list selected for it which apply to every Detachment in that Army which includes Units selected from the Necron Army List, each providing additional access to additional Detachments, Special Rules to Models, and options for Army Selection:\n\n• Awoken Vaults\n• Canoptek Forge\n• Cult of Annihilation\n• Dark Harvest\n• Forsaken Voidfarers\n• Horrors of Old\n• Hypercrypt Legion\n• Mark of the Flayer\n• Royal Burial Site\n• Servants of the Ankh\n• Slumbering Tombs\n• The Symbiosis\n\nIf an Army contains at least one Unit selected from the Necrons Army List then a single Aeonic Sequela may be selected for that Army, with one additional Aeonic Sequela also available for selection if the Army includes one or more Models with the Nemesor or Phaeron Trait.",
+  "sequelae": [
+   {
+    "name": "Awoken Vaults",
+    "page": 94,
+    "text": "An Army with this Aeonic Sequela gains the following benefits:\n• A single Annhihilation Barge, Doomsday Ark, or Ghost Ark Model in this Army may be upgraded to have a Phase Shifter at +40 points.\n• Annhihilation Barge Models and Models with with the Vehicle Type in this Army gain the Vanguard (1) Special Rule.\n• When the My Will Be Done (X) Special Rule of a Model in this Army is Activated, the Controlling Player may select an Annhihilation barge or a Vehicle Model instead of a Reanimant Unit as the Target Unit. If that Player does so, the following effect is applied instead of the normal effects of the My Will Be Done (X) Special Rule if the Willpower Check is succesful:\n  -- Until the end of the Opposing Player's next Turn, the Target Unit gains the Stable Special Rule.",
+    "restrictions": [],
+    "note": "Source spells the unit name \"Annhihilation Barge\" (and once duplicates \"with with\") and \"succesful\"; kept verbatim per transcription rules."
+   },
+   {
+    "name": "Canoptek Forge",
+    "page": 94,
+    "text": "When building an Army using the Necrons Army List, one Command Model with the [Crypto-Arkana] Trait may be selected as a High Command choice instead. That model gains the Nemesor Trait. if a player does so, at least one Aeonic Sequela selected for that army must be the Canoptek Forge Aeonic Sequela.\n\nAn Army with this Aeonic Sequela gains the following benefits:\n• Macrocyte Warriors, Cryptothrall and Hierotek Circle Units in the Army gain the Line (1) Special Rule.\n• Models with any [Crypto-Arkana] Trait in the Army that can join Units can join Units that include Models with the Automata Type.\n• Units that include models with the Automata Type in the Army can make Reactions, even though they have the Automata Type, so long as they have been joined by a model with the [Crypto-Arkana] Trait and all Automata Models in that Unit have the Canoptek Sub-Type.\n• Models with the Canoptek Trait in the Detachment gain the Ever-Living (6+) Special Rule.",
+    "restrictions": [
+     "If a Command Model with the [Crypto-Arkana] Trait is selected as a High Command choice (gaining the Nemesor Trait) under this rule, at least one Aeonic Sequela selected for that army must be Canoptek Forge."
+    ]
+   },
+   {
+    "name": "Dark Harvest",
+    "page": 95,
+    "text": "An Army with this Aeonic Sequela gains the following benefits:\n• All models in Units that include models with the Nemesor Trait in this Army count their Initiative as 2 higher than it is when resolving the Consolidate or Pursue Aftermath Options.\n• All Necron Warriors Units in this Army may include up to 10 additional Necron Warriors at +10 points per model.\n• Every model in Units with the Reanimant trait in this Army may have Flensing Scarabs selected for them at +1 point per model.\n\nFlensing Scarabs\nAttacks made with a Basic Close Combat Weapon or a Disruption Bayonet by a Model with Flensing Scarabs gain the Shred (6+) Special Rule.",
+    "restrictions": []
+   },
+   {
+    "name": "Cult of Annihilation",
+    "page": 95,
+    "text": "When building an Army using the Necrons Army List, one Command Model with the Destroyer Trait may be selected as a High Command choice instead. That model gains the Nemesor Trait. if a player does so, at least one Aeonic Sequela selected for that army must be the Cult of Annihilation Aeonic Sequela.\n\nAn Army with this Aeonic Sequela gains the following benefits:\n• All Units with the Destroyer Trait and Vanguard (X) Special Rule in this Army have the value of their Vanguard (X) Special Rule modified by +1.\n• Any Unit with the Destroyer Trait (other than Command or High Command Units) in this Army may be upgraded to have a Plasmacyte at +10 points per Unit.\n\nPlasmacyte\nIf a Unit is upgraded to have a Plasmacyte, place a Plasmacyte Token next to that Unit. This token is ignored for all game purposes and is only used as a reminder. During Step 3 of the Shooting Attack Sequence for a Shooting Attack made by the Unit or Step 2 of the Fight Sub-Phase of a Combat involving this Unit, the Controlling Player may remove this Unit's Plasmacyte Token. If that player does so, then until that Shooting Attack Sequence or that Combat is resolved the Hardwired for Destruction Special Rule improves the Critical Hits (X) Special Rule of models in this Unit by a further +1.",
+    "restrictions": [
+     "If a Command Model with the Destroyer Trait is selected as a High Command choice (gaining the Nemesor Trait) under this rule, at least one Aeonic Sequela selected for that army must be Cult of Annihilation."
+    ],
+    "note": "Page heading is printed \"Cult of Annhihlation\" (typo for Annihilation); the Sequela is referred to correctly as \"Cult of Annihilation\" in the body text and elsewhere, which is used as the canonical name."
+   },
+   {
+    "name": "Forsaken Voidfarers",
+    "page": 96,
+    "text": "An Army with this Aeonic Sequela gains the following benefits:\n• For every Troops Slot that is filled in a Crusade Primary Detachment with the Necrons Faction with this Aeonic Sequela, one Transport Slot in that Detachment may be exchanged for a Heavy Transport Slot. That Slot may only be used to select Night Scythes Units.\n• All Units with the Flyer Sub-Type in an Army with this Aeonic Sequela gain the Interceptor Trait.\n• Each time an Aerial Reserves roll is made for a Night Scythes Unit in an army with this Aeonic Sequela, the Controlling Player may choose to add +1 to the roll. If that Player does so, only the Invasion Mission Combat Assignment may be selected for that Unit that Turn.",
+    "restrictions": []
+   },
+   {
+    "name": "Horrors of Old",
+    "page": 96,
+    "text": "An Army with this Aeonic Sequela gains the following benefits:\n• Only a limited selection of Necron Units may be selected for an army with this Aeonic Sequela. Check the FaQ section for the full list of Units that can be selected.\n• Necron Warriors Units in an army with this Aeonic Sequela have a 3+ Armour Save, but lose the Endless Legions Special Rule.\n• Necron Overlord and Necron Lord models in an army with this special rule may each have one item from any Crypto-Arkana Wargear List selected for them.\n• A single Monolith may be selected as an Armour choice instead of a Lord of War Choice in an Army with this Sequela.",
+    "restrictions": [
+     "Only a limited selection of Necron Units may be selected for an army with this Aeonic Sequela (see FAQ section for the full list)."
+    ]
+   },
+   {
+    "name": "Hypercrypt Legion",
+    "page": 97,
+    "text": "An Army with this Aeonic Sequela gains the following benefits:\n• Command and High Command Models in this Army gain the Hyperspace Hunter Trait. Any other Units with the Reanimant Trait in this Army may be upgraded to have the Hyperspace Hunter Trait for +30 points per Unit.\n• Up to two Units from this Army may attempt a Deep Strike each Turn, rather than just one, instead of the normal limitations of the Deep Strike Special Rule.\n• At the start of each of the Controlling Player's Turn as the Active Player, that Player can select one Unit from this Army that includes only Models the Hyperspace Hunter Trait or includes at least one Model equipped with a Translocation Shroud, remove that Unit from the Battlefield, and place it in Reserves. Any Enemy Units that become Unengaged as a result of the Unit being removed from the Battlefield may immediately Consolidate as described in the Aftermath Section of the Combat Resolution Sub-Phase.",
+    "restrictions": [],
+    "note": "Source reads \"...that includes only Models the Hyperspace Hunter Trait...\" (missing \"with\"); kept verbatim per transcription rules."
+   },
+   {
+    "name": "Mark of the Flayer",
+    "page": 97,
+    "text": "An Army with this Aeonic Sequela gains the following benefits:\n• All models in Flayed Ones Units in this Army lose the Heedless Special Rule.\n• Units of Necron Flayed Ones and Ophydian Destroyers in this Army that enter play using the Deep Strike Special Rule may have a Charge declared for the Unit in the same turn, but that Charge is automatically Disordered.\n• Every model in Units with the Reanimant Sub-Type in this Army that do not already have a Variant of the Fear (X) Special Rule may have Charnel Displays selected for them at +10 points for the entire Unit.\n\nCharnel Displays\nA model with Charnel Displays has the Fear (1) Special Rule, and receives a -1 modifier to its Ballistic Skill.",
+    "restrictions": []
+   },
+   {
+    "name": "Royal Burial Site",
+    "page": 98,
+    "text": "An Army with this Aeonic Sequela gains the following benefits:\n• All Models with the Nemesor Trait in an army with this Aeonic Sequela gain +1 to their Weapon Skill Characteristics.\n• All Royal Warden, Immortal and Lychguard Models in an army with this Aeonic Sequela gain +1 to their Weapon Skill Characteristic, so long as their Unit has been joined by at least one Model with the Nemesor or Phaeron Trait.\n• Any Necron Lord or Necron Lord on Catacomb Command Barge in an Army with this Aeonic Sequela may be upgraded to have the Nemesor Trait at +15 points per model.",
+    "restrictions": []
+   },
+   {
+    "name": "Slumbering Tombs",
+    "page": 98,
+    "text": "An Army with this Aeonic Sequela gains the following benefits:\n• All Canoptek Spyder and Canoptek Reanimator Models in this Army lose the Support Unit (2) Special Rule and gain the Line (1) Special Rule.\n• All Canoptek Scarab Models in this Army lose the Expendable (3) and Heedless Special Rules and gain the Line (3) Special Rule.\n• All Canoptek Wraith, Canoptek Tomb Sentinel and Canoptek Tomb Stalker Models in this Army gain the Vanguard (2) Special Rule.\n• All Necron Warrior and Immortals Units in this Army lose the Line (1) Special Rule and gain the Support Unit (3) Special Rule.",
+    "restrictions": []
+   },
+   {
+    "name": "Servants of the Ankh",
+    "page": 99,
+    "text": "An Army with this Aeonic Sequela gains the following benefits:\n• Units with the Triarch Trait in an Army with this Aeonic Sequela gain the Vanguard (2) Special Rule.\n• Each time a Unit with the Triarch Trait in an army with this Aeonic Sequela has a Charge declared for it, it gains +2 to its Set-Up Move Distance if at least one Charge Target was targeted with a Shooting Attack by a Triarch Stalker Unit in the same Army in the preceding Shooting Phase.\n• The following items are added to the Nobility Melee Weapons List:\n  -- Rod of Covenant............................+10 points",
+    "restrictions": []
+   },
+   {
+    "name": "The Symbiosis",
+    "page": 99,
+    "text": "An Army with this Aeonic Sequela gains the following benefits:\n• The 0-1 limit on Units of Pariahs is lifted from this Army.\n• All models with the Reanimant Sub-Type in this Army gain the Adamantium Will (5+) Special Rule whilst within 12\" of at least one Model with the Anathema Special Rule from the same Army.\n• Any model with the Command or High Command Sub-Type in this Army that is equipped with a Warscythe or Voidscythe may have a Gauss Blaster selected for it for +3 points.",
+    "restrictions": [
+     "The 0-1 limit on Units of Pariahs is lifted from this Army."
+    ]
+   }
+  ]
  },
  "faq": [
   {
@@ -10201,5 +11287,287 @@
   "weaponAliases": {
    "Atomisation Beam": "Nanoscarab Atomisation Beam"
   }
+ },
+ "sequelaEffects": {
+  "note": "List-building effects of the Aeonic Sequelae (pages 94–99), hand-transcribed from data/parts/sequelae.json. Only effects that change points, options, unit sizes, slots or which units are legal live here; battlefield effects are shown as rules text.",
+  "effects": [
+   {
+    "sequela": "Awoken Vaults",
+    "type": "option",
+    "units": [
+     "annihilation-barge",
+     "doomsday-ark",
+     "ghost-ark"
+    ],
+    "armyMax": 1,
+    "option": {
+     "id": "sq-awoken-phase-shifter",
+     "kind": "upgrade",
+     "text": "Awoken Vaults: a single Annihilation Barge, Doomsday Ark, or Ghost Ark Model in this Army may be upgraded to have a Phase Shifter at +40 points.",
+     "choices": [
+      {
+       "name": "Phase Shifter",
+       "points": 40
+      }
+     ]
+    }
+   },
+   {
+    "sequela": "Canoptek Forge",
+    "type": "altRole",
+    "filter": {
+     "cryptoArkana": true,
+     "role": "Command"
+    },
+    "role": "High Command",
+    "armyMax": 1,
+    "grantsTrait": "Nemesor",
+    "text": "One Command Model with the [Crypto-Arkana] Trait may be selected as a High Command choice instead. That model gains the Nemesor Trait."
+   },
+   {
+    "sequela": "Dark Harvest",
+    "type": "maxModels",
+    "units": [
+     "necron-warriors"
+    ],
+    "model": "Necron Warrior",
+    "add": 10,
+    "text": "All Necron Warriors Units in this Army may include up to 10 additional Necron Warriors at +10 points per model."
+   },
+   {
+    "sequela": "Dark Harvest",
+    "type": "option",
+    "filter": {
+     "trait": "Reanimant"
+    },
+    "option": {
+     "id": "sq-flensing-scarabs",
+     "kind": "perModel",
+     "text": "Dark Harvest: every model in Units with the Reanimant trait may have Flensing Scarabs selected for them at +1 point per model.",
+     "choices": [
+      {
+       "name": "Flensing Scarabs",
+       "points": 1
+      }
+     ]
+    }
+   },
+   {
+    "sequela": "Cult of Annihilation",
+    "type": "altRole",
+    "filter": {
+     "trait": "Destroyer",
+     "role": "Command"
+    },
+    "role": "High Command",
+    "armyMax": 1,
+    "grantsTrait": "Nemesor",
+    "text": "One Command Model with the Destroyer Trait may be selected as a High Command choice instead. That model gains the Nemesor Trait."
+   },
+   {
+    "sequela": "Cult of Annihilation",
+    "type": "option",
+    "filter": {
+     "trait": "Destroyer",
+     "excludeRoles": [
+      "Command",
+      "High Command"
+     ]
+    },
+    "option": {
+     "id": "sq-plasmacyte",
+     "kind": "upgrade",
+     "text": "Cult of Annihilation: any Unit with the Destroyer Trait (other than Command or High Command Units) may be upgraded to have a Plasmacyte at +10 points per Unit.",
+     "choices": [
+      {
+       "name": "Plasmacyte",
+       "points": 10
+      }
+     ]
+    }
+   },
+   {
+    "sequela": "Horrors of Old",
+    "type": "allowedUnits",
+    "units": [
+     "necron-overlord",
+     "necron-lord",
+     "destroyer-lord-lokhust-frame",
+     "pariahs",
+     "necron-warriors",
+     "immortals",
+     "canoptek-spyders",
+     "canoptek-tomb-sentinel",
+     "lokhust-destroyers",
+     "lokhust-heavy-destroyers",
+     "flayed-ones",
+     "canoptek-tomb-stalker",
+     "canoptek-scarabs",
+     "canoptek-wraiths",
+     "necron-ophydian-destroyers",
+     "monolith",
+     "gauss-pylon"
+    ],
+    "text": "Only a limited selection of Necron Units may be selected (FAQ, page 133)."
+   },
+   {
+    "sequela": "Horrors of Old",
+    "type": "option",
+    "units": [
+     "necron-overlord",
+     "necron-overlord-on-barge",
+     "necron-lord",
+     "necron-lord-on-barge"
+    ],
+    "option": {
+     "id": "sq-horrors-arkana",
+     "kind": "one",
+     "text": "Horrors of Old: Necron Overlord and Necron Lord models may each have one item from any Crypto-Arkana Wargear List selected for them.",
+     "replaces": [],
+     "choices": [
+      {
+       "list": "techno-arkana:Chronomancy"
+      },
+      {
+       "list": "techno-arkana:Ethermancy"
+      },
+      {
+       "list": "techno-arkana:Geomancy"
+      },
+      {
+       "list": "techno-arkana:Plasmancy"
+      },
+      {
+       "list": "techno-arkana:Psychomancy"
+      },
+      {
+       "list": "techno-arkana:Technomancy"
+      }
+     ]
+    }
+   },
+   {
+    "sequela": "Horrors of Old",
+    "type": "altRole",
+    "units": [
+     "monolith"
+    ],
+    "role": "Armour",
+    "armyMax": 1,
+    "text": "A single Monolith may be selected as an Armour choice instead of a Lord of War Choice."
+   },
+   {
+    "sequela": "Hypercrypt Legion",
+    "type": "option",
+    "filter": {
+     "trait": "Reanimant",
+     "excludeRoles": [
+      "Command",
+      "High Command"
+     ]
+    },
+    "option": {
+     "id": "sq-hyperspace-hunter",
+     "kind": "upgrade",
+     "text": "Hypercrypt Legion: units with the Reanimant Trait may be upgraded to have the Hyperspace Hunter Trait for +30 points per Unit.",
+     "choices": [
+      {
+       "name": "Hyperspace Hunter",
+       "points": 30
+      }
+     ]
+    }
+   },
+   {
+    "sequela": "Mark of the Flayer",
+    "type": "option",
+    "filter": {
+     "trait": "Reanimant",
+     "withoutRule": "Fear"
+    },
+    "option": {
+     "id": "sq-charnel-displays",
+     "kind": "upgrade",
+     "text": "Mark of the Flayer: models in Reanimant Units without a Fear (X) rule may have Charnel Displays selected for them at +10 points for the entire Unit.",
+     "choices": [
+      {
+       "name": "Charnel Displays",
+       "points": 10
+      }
+     ]
+    }
+   },
+   {
+    "sequela": "Royal Burial Site",
+    "type": "option",
+    "units": [
+     "necron-lord",
+     "necron-lord-on-barge"
+    ],
+    "grantsTrait": "Nemesor",
+    "option": {
+     "id": "sq-royal-nemesor",
+     "kind": "upgrade",
+     "text": "Royal Burial Site: any Necron Lord or Necron Lord on Catacomb Command Barge may be upgraded to have the Nemesor Trait at +15 points per model.",
+     "choices": [
+      {
+       "name": "Nemesor Trait",
+       "points": 15
+      }
+     ]
+    }
+   },
+   {
+    "sequela": "Servants of the Ankh",
+    "type": "listAdd",
+    "list": "nobility-melee",
+    "items": [
+     {
+      "name": "Rod of Covenant",
+      "points": 10
+     }
+    ],
+    "text": "Rod of Covenant (+10 points) is added to the Nobility Melee Weapons List."
+   },
+   {
+    "sequela": "The Symbiosis",
+    "type": "option",
+    "filter": {
+     "commandSubtype": true
+    },
+    "requiresWargear": [
+     "Warscythe",
+     "Voidscythe"
+    ],
+    "option": {
+     "id": "sq-symbiosis-gauss",
+     "kind": "upgrade",
+     "text": "The Symbiosis: a Command or High Command model equipped with a Warscythe or Voidscythe may have a Gauss Blaster selected for it for +3 points.",
+     "choices": [
+      {
+       "name": "Gauss Blaster",
+       "points": 3
+      }
+     ]
+    }
+   }
+  ],
+  "rules": [
+   {
+    "name": "Flensing Scarabs",
+    "page": 95,
+    "text": "Attacks made with a Basic Close Combat Weapon or a Disruption Bayonet by a Model with Flensing Scarabs gain the Shred (6+) Special Rule."
+   },
+   {
+    "name": "Plasmacyte",
+    "page": 95,
+    "text": "If a Unit is upgraded to have a Plasmacyte, place a Plasmacyte Token next to that Unit. This token is ignored for all game purposes and is only used as a reminder. During Step 3 of the Shooting Attack Sequence for a Shooting Attack made by the Unit or Step 2 of the Fight Sub-Phase of a Combat involving this Unit, the Controlling Player may remove this Unit's Plasmacyte Token. If that player does so, then until that Shooting Attack Sequence or that Combat is resolved the Hardwired for Destruction Special Rule improves the Critical Hits (X) Special Rule of models in this Unit by a further +1."
+   },
+   {
+    "name": "Charnel Displays",
+    "page": 97,
+    "text": "A model with Charnel Displays has the Fear (1) Special Rule, and receives a -1 modifier to its Ballistic Skill."
+   }
+  ]
  }
 }

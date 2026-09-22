@@ -33,6 +33,60 @@
 
     function unit(id) { return unitsById.get(id); }
 
+    // ---------- Aeonic Sequelae effects ----------
+    const effects = (data.sequelaEffects && data.sequelaEffects.effects) || [];
+    let activeSeq = new Set();
+    function setSequelae(list) { activeSeq = new Set(list || []); }
+    function activeEffects(type) { return effects.filter((e) => activeSeq.has(e.sequela) && (!type || e.type === type)); }
+
+    function unitHasTrait(u, t) {
+      const k = t.replace(/[[\]]/g, '').toLowerCase();
+      if (k === 'crypto-arkana') return !!(u.cryptoArkana || u.fixedArkana);
+      const pool = [...(u.traits || []), ...u.models.map((m) => m.unitType || ''), ...(u.specialRules || [])];
+      return pool.some((x) => x.toLowerCase().includes(k));
+    }
+    function unitHasRule(u, r) {
+      const k = r.toLowerCase();
+      return [...(u.specialRules || []), ...u.models.flatMap((m) => m.specialRules || [])].some((x) => x.toLowerCase().startsWith(k));
+    }
+    function effectMatches(e, u) {
+      if (e.units && !e.units.includes(u.id)) return false;
+      const f = e.filter;
+      if (!f) return true;
+      if (f.role && u.role !== f.role) return false;
+      if (f.excludeRoles && f.excludeRoles.includes(u.role)) return false;
+      if (f.cryptoArkana && !(u.cryptoArkana || u.fixedArkana)) return false;
+      if (f.trait && !unitHasTrait(u, f.trait)) return false;
+      if (f.withoutRule && unitHasRule(u, f.withoutRule)) return false;
+      if (f.commandSubtype && !u.models.some((m) => /\bCommand\b/.test(m.unitType || ''))) return false;
+      return true;
+    }
+    /** Unit options plus any granted by the chosen Aeonic Sequelae. */
+    function optionsOf(sel) {
+      const u = unit(sel.unitId);
+      const extra = activeEffects('option').filter((e) => effectMatches(e, u)).map((e) => Object.assign({ replaces: [] }, e.option, { effect: e }));
+      return (u.options || []).concat(extra);
+    }
+    function modelMax(u, m) {
+      let max = m.max ?? m.min;
+      for (const e of activeEffects('maxModels')) if (effectMatches(e, u) && e.model === m.name) max += e.add;
+      return max;
+    }
+    /** Battlefield roles a unit may fill: its own, plus any a Sequela allows. */
+    function rolesFor(u) {
+      const r = [u.role];
+      for (const e of activeEffects('altRole')) if (effectMatches(e, u) && !r.includes(e.role)) r.push(e.role);
+      return r;
+    }
+    /** Traits a selection gains from Sequela upgrades or from filling an alternative role. */
+    function grantedTraits(sel, slot) {
+      const u = unit(sel.unitId);
+      const out = [];
+      for (const o of optionsOf(sel)) if (o.effect && o.effect.grantsTrait && sel.options[o.id]) out.push(o.effect.grantsTrait);
+      if (slot && slot.role !== u.role) for (const e of activeEffects('altRole')) if (e.role === slot.role && e.grantsTrait && effectMatches(e, u)) out.push(e.grantsTrait);
+      return out;
+    }
+
     // ---------- arkana ----------
     function arkanaOf(sel) {
       const u = unit(sel.unitId);
@@ -49,7 +103,10 @@
         id = listId + ':' + ark;
       }
       const list = listsById.get(id);
-      return list ? list.items.map((it) => ({ name: it.name, points: Number(it.points) || 0, from: list.name })) : [];
+      if (!list) return [];
+      const items = list.items.slice();
+      for (const e of activeEffects('listAdd')) if (e.list === id) items.push(...e.items);
+      return items.map((it) => ({ name: it.name, points: Number(it.points) || 0, from: list.name }));
     }
 
     function choicesFor(opt, sel) {
@@ -171,7 +228,7 @@
         const n = sel.counts[m.name] ?? m.min;
         if (n > m.min) pts += (n - m.min) * (Number(m.costPerExtra) || 0);
       }
-      for (const o of u.options || []) pts += optionCost(o, sel);
+      for (const o of optionsOf(sel)) pts += optionCost(o, sel);
       return pts;
     }
 
@@ -187,7 +244,7 @@
         out.push({ model: m.name, count: n, base: m.wargear || [], changes: [] });
       }
       const byModel = (name) => out.find((r) => r.model === name) || out[0];
-      for (const o of u.options || []) {
+      for (const o of optionsOf(sel)) {
         const val = sel.options[o.id];
         if (val == null || val === false || val === '' || val === 0) continue;
         const row = byModel(o.model);
@@ -215,11 +272,15 @@
         const n = sel.counts[m.name];
         if (n == null) continue;
         if (n < m.min) issues.push({ level: 'error', msg: `${u.name}: at least ${m.min} ${m.name}.` });
-        if (m.max != null && n > m.max) issues.push({ level: 'error', msg: `${u.name}: at most ${m.max} ${m.name}.` });
+        if (n > modelMax(u, m)) issues.push({ level: 'error', msg: `${u.name}: at most ${modelMax(u, m)} ${m.name}.` });
       }
       const pools = {};
-      for (const o of u.options || []) {
+      for (const o of optionsOf(sel)) {
         const val = sel.options[o.id];
+        if (o.effect && o.effect.requiresWargear && isTaken(val)) {
+          const has = loadout(sel).some((r) => r.base.concat(r.changes.map((c) => c.name)).some((w) => o.effect.requiresWargear.includes(w)));
+          if (!has) issues.push({ level: 'error', msg: `${u.name}: ${o.choices[0].name} needs a ${o.effect.requiresWargear.join(' or ')}.` });
+        }
         if (o.requires && val && !isTaken(sel.options[o.requires])) {
           issues.push({ level: 'error', msg: `${u.name}: "${short(o.text)}" needs another option first.` });
         }
@@ -263,26 +324,26 @@
     }
 
     function armyPoints(army) {
+      setSequelae(army.sequelae);
       return allSelections(army).reduce((a, x) => a + unitPoints(x.sel), 0);
     }
 
-    function hasTrait(sel, trait) {
+    function hasTrait(sel, trait, slot) {
       const u = unit(sel.unitId);
       if (!u) return false;
-      const t = trait.replace(/[[\]]/g, '').toLowerCase();
-      if (t === 'crypto-arkana' && (u.cryptoArkana || u.fixedArkana)) return true;
-      const pool = [...(u.traits || []), ...u.models.map((m) => m.unitType || ''), ...(u.specialRules || [])];
-      return pool.some((x) => x.toLowerCase().split(/[\s,()]+/).join(' ').includes(t)) || (u.traits || []).some((x) => x.toLowerCase().includes(t));
+      if (unitHasTrait(u, trait)) return true;
+      return grantedTraits(sel, slot).some((t) => t.toLowerCase() === trait.toLowerCase());
     }
 
     function sequelaAllowance(army) {
       const sels = allSelections(army);
       if (!sels.length) return 1;
-      const noble = sels.some((x) => hasTrait(x.sel, 'Nemesor') || hasTrait(x.sel, 'Phaeron'));
+      const noble = sels.some((x) => hasTrait(x.sel, 'Nemesor', x.slot) || hasTrait(x.sel, 'Phaeron', x.slot));
       return noble ? 2 : 1;
     }
 
     function armyIssues(army) {
+      setSequelae(army.sequelae);
       const issues = [];
       const sels = allSelections(army);
       const total = armyPoints(army);
@@ -343,8 +404,11 @@
           if (!s.unit) continue;
           const u = unit(s.unit.unitId);
           if (!u) continue;
-          if (!s.flexible && s.role !== u.role && !(s.role === 'Command' && s.advisor && u.role === 'Command')) {
+          if (!s.flexible && !rolesFor(u).includes(s.role)) {
             issues.push({ level: 'error', msg: `${u.name} (${u.role}) is in a ${s.role} slot.` });
+          }
+          if (!slotAllows(d, s, u)) {
+            issues.push({ level: 'error', msg: `${u.name} doesn't meet ${d.name}'s restrictions for its ${s.flexible ? 'flexible' : s.role} slot.` });
           }
           if (s.flexible && s.exclude && s.exclude.includes(u.role)) {
             issues.push({ level: 'error', msg: `${u.name} can't fill the flexible slot in ${d.name}.` });
@@ -376,13 +440,29 @@
         }
       }
 
+      // Sequela limits: alternative roles, single-use upgrades, restricted unit lists
+      for (const e of activeEffects('altRole')) {
+        const n = sels.filter((x) => x.slot.role === e.role && unit(x.sel.unitId)?.role !== e.role && effectMatches(e, unit(x.sel.unitId))).length;
+        if (e.armyMax != null && n > e.armyMax) issues.push({ level: 'error', msg: `${e.sequela}: only ${e.armyMax} unit may be taken as ${e.role} this way (${n}).` });
+      }
+      for (const e of activeEffects('option')) {
+        if (e.armyMax == null) continue;
+        const n = sels.filter((x) => isTaken(x.sel.options[e.option.id]) && optionsOf(x.sel).some((o) => o.id === e.option.id)).length;
+        if (n > e.armyMax) issues.push({ level: 'error', msg: `${e.sequela}: only ${e.armyMax} unit may take ${e.option.choices[0].name} (${n}).` });
+      }
+      for (const e of activeEffects('allowedUnits')) {
+        for (const x of sels) {
+          const u = unit(x.sel.unitId);
+          if (u && !e.units.includes(u.id)) issues.push({ level: 'error', msg: `${u.name} can't be taken with ${e.sequela}.` });
+        }
+      }
       for (const x of sels) for (const i of unitIssues(x.sel)) issues.push(i);
       return issues;
     }
 
     function scionTaken(sel) {
       const u = unit(sel.unitId);
-      return (u.options || []).some((o) => o.kind === 'upgrade' && /Dynastic Scion/i.test(o.text) && sel.options[o.id]);
+      return optionsOf(sel).some((o) => o.kind === 'upgrade' && /Dynastic Scion/i.test(o.text) && sel.options[o.id]);
     }
 
     // ---------- detachments ----------
@@ -402,12 +482,26 @@
       return makeDetachment(kind, def.name, slots, Object.assign({ defId }, extra || {}));
     }
 
-    /** Which units can go in a slot. Restriction text is advisory; role matching is enforced. */
-    function unitsForSlot(slot) {
+    /** Detachment restrictions ("Only Units with the Canoptek Trait…") for one slot. */
+    function slotAllows(det, slot, u) {
+      const def = det && det.defId ? detById.get(det.defId) : null;
+      if (!def || !def.slotRules) return true;
+      const role = slot.flexible ? u.role : slot.role;
+      return def.slotRules.every((r) => {
+        if (r.roles && !r.roles.includes(role)) return true;
+        if (r.units && !r.units.includes(u.id)) return false;
+        if (r.trait && !unitHasTrait(u, r.trait)) return false;
+        return true;
+      });
+    }
+
+    /** Which units can go in a slot: role match plus the detachment's restrictions. */
+    function unitsForSlot(slot, det) {
       return data.units.filter((u) => {
+        if (!slotAllows(det, slot, u)) return false;
         if (slot.advisor) return u.cryptoArkana || !!u.fixedArkana;
         if (slot.flexible) return !(slot.exclude || []).includes(u.role);
-        return u.role === slot.role;
+        return rolesFor(u).includes(slot.role);
       });
     }
 
@@ -428,8 +522,8 @@
     return {
       data, ROLES, ARKANA, unit, choicesFor, sizableModels, swapTargets, newSelection, modelCounts, totalModels,
       eligible, optionMax, perModelUsed, optionCost, unitPoints, loadout, unitIssues, armyIssues, armyPoints,
-      allSelections, sequelaAllowance, makeDetachment, detachmentFromDef, unitsForSlot, syncAdvisorSlots,
-      hasTrait, arkanaOf, uid,
+      allSelections, sequelaAllowance, makeDetachment, detachmentFromDef, unitsForSlot, slotAllows, syncAdvisorSlots,
+      hasTrait, arkanaOf, uid, setSequelae, optionsOf, modelMax, rolesFor, activeEffects, grantedTraits,
     };
   }
 

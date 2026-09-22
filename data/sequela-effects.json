@@ -1,0 +1,70 @@
+{
+  "note": "List-building effects of the Aeonic Sequelae (pages 94–99), hand-transcribed from data/parts/sequelae.json. Only effects that change points, options, unit sizes, slots or which units are legal live here; battlefield effects are shown as rules text.",
+  "effects": [
+    {
+      "sequela": "Awoken Vaults", "type": "option", "units": ["annihilation-barge", "doomsday-ark", "ghost-ark"], "armyMax": 1,
+      "option": { "id": "sq-awoken-phase-shifter", "kind": "upgrade", "text": "Awoken Vaults: a single Annihilation Barge, Doomsday Ark, or Ghost Ark Model in this Army may be upgraded to have a Phase Shifter at +40 points.", "choices": [{ "name": "Phase Shifter", "points": 40 }] }
+    },
+    {
+      "sequela": "Canoptek Forge", "type": "altRole", "filter": { "cryptoArkana": true, "role": "Command" }, "role": "High Command", "armyMax": 1, "grantsTrait": "Nemesor",
+      "text": "One Command Model with the [Crypto-Arkana] Trait may be selected as a High Command choice instead. That model gains the Nemesor Trait."
+    },
+    {
+      "sequela": "Dark Harvest", "type": "maxModels", "units": ["necron-warriors"], "model": "Necron Warrior", "add": 10,
+      "text": "All Necron Warriors Units in this Army may include up to 10 additional Necron Warriors at +10 points per model."
+    },
+    {
+      "sequela": "Dark Harvest", "type": "option", "filter": { "trait": "Reanimant" },
+      "option": { "id": "sq-flensing-scarabs", "kind": "perModel", "text": "Dark Harvest: every model in Units with the Reanimant trait may have Flensing Scarabs selected for them at +1 point per model.", "choices": [{ "name": "Flensing Scarabs", "points": 1 }] }
+    },
+    {
+      "sequela": "Cult of Annihilation", "type": "altRole", "filter": { "trait": "Destroyer", "role": "Command" }, "role": "High Command", "armyMax": 1, "grantsTrait": "Nemesor",
+      "text": "One Command Model with the Destroyer Trait may be selected as a High Command choice instead. That model gains the Nemesor Trait."
+    },
+    {
+      "sequela": "Cult of Annihilation", "type": "option", "filter": { "trait": "Destroyer", "excludeRoles": ["Command", "High Command"] },
+      "option": { "id": "sq-plasmacyte", "kind": "upgrade", "text": "Cult of Annihilation: any Unit with the Destroyer Trait (other than Command or High Command Units) may be upgraded to have a Plasmacyte at +10 points per Unit.", "choices": [{ "name": "Plasmacyte", "points": 10 }] }
+    },
+    {
+      "sequela": "Horrors of Old", "type": "allowedUnits",
+      "units": ["necron-overlord", "necron-lord", "destroyer-lord-lokhust-frame", "pariahs", "necron-warriors", "immortals", "canoptek-spyders", "canoptek-tomb-sentinel", "lokhust-destroyers", "lokhust-heavy-destroyers", "flayed-ones", "canoptek-tomb-stalker", "canoptek-scarabs", "canoptek-wraiths", "necron-ophydian-destroyers", "monolith", "gauss-pylon"],
+      "text": "Only a limited selection of Necron Units may be selected (FAQ, page 133)."
+    },
+    {
+      "sequela": "Horrors of Old", "type": "option", "units": ["necron-overlord", "necron-overlord-on-barge", "necron-lord", "necron-lord-on-barge"],
+      "option": { "id": "sq-horrors-arkana", "kind": "one", "text": "Horrors of Old: Necron Overlord and Necron Lord models may each have one item from any Crypto-Arkana Wargear List selected for them.", "replaces": [], "choices": [
+        { "list": "techno-arkana:Chronomancy" }, { "list": "techno-arkana:Ethermancy" }, { "list": "techno-arkana:Geomancy" },
+        { "list": "techno-arkana:Plasmancy" }, { "list": "techno-arkana:Psychomancy" }, { "list": "techno-arkana:Technomancy" }
+      ] }
+    },
+    {
+      "sequela": "Horrors of Old", "type": "altRole", "units": ["monolith"], "role": "Armour", "armyMax": 1,
+      "text": "A single Monolith may be selected as an Armour choice instead of a Lord of War Choice."
+    },
+    {
+      "sequela": "Hypercrypt Legion", "type": "option", "filter": { "trait": "Reanimant", "excludeRoles": ["Command", "High Command"] },
+      "option": { "id": "sq-hyperspace-hunter", "kind": "upgrade", "text": "Hypercrypt Legion: units with the Reanimant Trait may be upgraded to have the Hyperspace Hunter Trait for +30 points per Unit.", "choices": [{ "name": "Hyperspace Hunter", "points": 30 }] }
+    },
+    {
+      "sequela": "Mark of the Flayer", "type": "option", "filter": { "trait": "Reanimant", "withoutRule": "Fear" },
+      "option": { "id": "sq-charnel-displays", "kind": "upgrade", "text": "Mark of the Flayer: models in Reanimant Units without a Fear (X) rule may have Charnel Displays selected for them at +10 points for the entire Unit.", "choices": [{ "name": "Charnel Displays", "points": 10 }] }
+    },
+    {
+      "sequela": "Royal Burial Site", "type": "option", "units": ["necron-lord", "necron-lord-on-barge"], "grantsTrait": "Nemesor",
+      "option": { "id": "sq-royal-nemesor", "kind": "upgrade", "text": "Royal Burial Site: any Necron Lord or Necron Lord on Catacomb Command Barge may be upgraded to have the Nemesor Trait at +15 points per model.", "choices": [{ "name": "Nemesor Trait", "points": 15 }] }
+    },
+    {
+      "sequela": "Servants of the Ankh", "type": "listAdd", "list": "nobility-melee", "items": [{ "name": "Rod of Covenant", "points": 10 }],
+      "text": "Rod of Covenant (+10 points) is added to the Nobility Melee Weapons List."
+    },
+    {
+      "sequela": "The Symbiosis", "type": "option", "filter": { "commandSubtype": true }, "requiresWargear": ["Warscythe", "Voidscythe"],
+      "option": { "id": "sq-symbiosis-gauss", "kind": "upgrade", "text": "The Symbiosis: a Command or High Command model equipped with a Warscythe or Voidscythe may have a Gauss Blaster selected for it for +3 points.", "choices": [{ "name": "Gauss Blaster", "points": 3 }] }
+    }
+  ],
+  "rules": [
+    { "name": "Flensing Scarabs", "page": 95, "text": "Attacks made with a Basic Close Combat Weapon or a Disruption Bayonet by a Model with Flensing Scarabs gain the Shred (6+) Special Rule." },
+    { "name": "Plasmacyte", "page": 95, "text": "If a Unit is upgraded to have a Plasmacyte, place a Plasmacyte Token next to that Unit. This token is ignored for all game purposes and is only used as a reminder. During Step 3 of the Shooting Attack Sequence for a Shooting Attack made by the Unit or Step 2 of the Fight Sub-Phase of a Combat involving this Unit, the Controlling Player may remove this Unit's Plasmacyte Token. If that player does so, then until that Shooting Attack Sequence or that Combat is resolved the Hardwired for Destruction Special Rule improves the Critical Hits (X) Special Rule of models in this Unit by a further +1." },
+    { "name": "Charnel Displays", "page": 97, "text": "A model with Charnel Displays has the Fear (1) Special Rule, and receives a -1 modifier to its Ballistic Skill." }
+  ]
+}

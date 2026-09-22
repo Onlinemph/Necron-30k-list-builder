@@ -128,3 +128,63 @@ test('weapon keys strip counts and mounts', () => {
   assert.equal(wkey('2 Gauss Slicers'), wkey('Gauss Slicer'));
   assert.equal(wkey('Hull (left) mounted Gauss Flayer Array'), wkey('Gauss Flayer Array'));
 });
+
+test('Dark Harvest lets Necron Warriors go to 30 models', () => {
+  const s = sel('necron-warriors');
+  s.counts['Necron Warrior'] = 25;
+  E.setSequelae([]);
+  assert.ok(E.unitIssues(s).some((i) => /at most/.test(i.msg)));
+  E.setSequelae(['Dark Harvest']);
+  assert.deepEqual(E.unitIssues(s), []);
+  assert.ok(E.optionsOf(s).some((o) => o.id === 'sq-flensing-scarabs'));
+  E.setSequelae([]);
+});
+
+test('Servants of the Ankh adds Rod of Covenant to Nobility Melee', () => {
+  const s = sel('necron-lord');
+  const o = E.unit('necron-lord').options.find((x) => x.choices.some((c) => c.list === 'nobility-melee'));
+  E.setSequelae([]);
+  const before = E.choicesFor(o, s).some((c) => c.name === 'Rod of Covenant');
+  E.setSequelae(['Servants of the Ankh']);
+  assert.ok(E.choicesFor(o, s).some((c) => c.name === 'Rod of Covenant' && c.points === 10));
+  assert.equal(before, false);
+  E.setSequelae([]);
+});
+
+test('Royal Burial Site Nemesor upgrade unlocks a second Sequela', () => {
+  const a = armyWith([['Command', 'necron-lord']]);
+  a.sequelae = ['Royal Burial Site'];
+  E.setSequelae(a.sequelae);
+  assert.equal(E.sequelaAllowance(a), 1);
+  a.detachments[0].slots[0].unit.options['sq-royal-nemesor'] = true;
+  assert.equal(E.sequelaAllowance(a), 2);
+  assert.equal(E.armyPoints(a), 85);
+});
+
+test('Cult of Annihilation lets one Destroyer Lord fill High Command', () => {
+  const a = armyWith([['High Command', 'destroyer-lord-lokhust-frame']]);
+  assert.ok(E.armyIssues(a).some((i) => /High Command slot/.test(i.msg)));
+  a.sequelae = ['Cult of Annihilation'];
+  assert.ok(!E.armyIssues(a).some((i) => /High Command slot/.test(i.msg)));
+  assert.equal(E.sequelaAllowance(a), 2); // gains the Nemesor Trait
+});
+
+test('Horrors of Old restricts the unit list', () => {
+  const a = armyWith([['High Command', 'necron-overlord'], ['Command', 'cryptek']]);
+  a.sequelae = ['Horrors of Old'];
+  const msgs = E.armyIssues(a).map((i) => i.msg);
+  assert.ok(msgs.some((m) => /Cryptek can't be taken with Horrors of Old/.test(m)));
+  assert.ok(!msgs.some((m) => /Overlord can't/.test(m)));
+  E.setSequelae([]);
+});
+
+test('detachment restrictions limit the unit picker and are checked', () => {
+  const det = E.detachmentFromDef('canoptek-phalanx');
+  const recon = det.slots.find((s) => s.role === 'Recon');
+  const names = E.unitsForSlot(recon, det).map((u) => u.id);
+  assert.ok(names.includes('canoptek-scarabs'));
+  assert.ok(!names.includes('deathmarks'));
+  recon.unit = sel('deathmarks');
+  const a = { pointsLimit: 3000, sequelae: [], detachments: [E.makeDetachment('primary', 'P', []), det] };
+  assert.ok(E.armyIssues(a).some((i) => /restrictions/.test(i.msg)));
+});

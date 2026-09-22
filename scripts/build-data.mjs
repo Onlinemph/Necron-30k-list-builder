@@ -23,6 +23,7 @@ const out = {
   detachments: [], sequelae: { intro: '', sequelae: [] }, faq: [], baseSizes: [],
   forceorg: read(join(root, 'data', 'forceorg.json')),
   coreRules: read(join(root, 'data', 'core-rules.json')),
+  sequelaEffects: read(join(root, 'data', 'sequela-effects.json')),
 };
 
 for (const f of files) {
@@ -83,6 +84,16 @@ for (const u of out.units) {
     if (o.requires && !(u.options || []).some((x) => x.id === o.requires)) problems.push(`${where}/${o.id}: requires unknown option ${o.requires}`);
   }
 }
+
+// sequela effects must point at real units, lists and sequelae
+const seqNames = new Set(out.sequelae.sequelae.map((x) => x.name));
+for (const e of out.sequelaEffects.effects) {
+  if (!seqNames.has(e.sequela)) problems.push(`sequela effect: unknown sequela "${e.sequela}"`);
+  for (const id of e.units || []) if (!ids.has(id)) problems.push(`sequela effect ${e.sequela}: unknown unit ${id}`);
+  if (e.list && !listIds.has(e.list)) problems.push(`sequela effect ${e.sequela}: unknown list ${e.list}`);
+  for (const c of (e.option && e.option.choices) || []) if (c.list && !listIds.has(c.list)) problems.push(`sequela effect ${e.sequela}: unknown list ${c.list}`);
+}
+for (const r of out.sequelaEffects.rules || []) ruleKeys.add(norm(r.name));
 
 // second pass: references to weapons / rules (warnings only)
 for (const u of out.units) {

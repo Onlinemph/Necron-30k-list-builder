@@ -1,0 +1,1005 @@
+{
+  "detachments": [
+    {
+      "id": "canoptek-phalanx",
+      "name": "Canoptek Phalanx",
+      "type": "Auxiliary",
+      "page": 91,
+      "unlock": "When a model with the [Crypto-Arkana] Trait is selected to fill a Command Slot, then the Player may add a Canoptek Phalanx to the Army instead of the options available in the Crusade Force Organization Chart.",
+      "unlockedBy": {
+        "commandTrait": "[Crypto-Arkana]"
+      },
+      "slots": [
+        {
+          "role": "Recon",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Recon",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Fast Attack",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Fast Attack",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "Only Units with the Canoptek Trait may be selected to fill any Slots in this Detachment."
+      ],
+      "rules": [],
+      "slotRules": [
+        {
+          "roles": null,
+          "trait": "Canoptek"
+        }
+      ]
+    },
+    {
+      "id": "canoptek-circle",
+      "name": "Canoptek Circle",
+      "type": "Auxiliary",
+      "page": 91,
+      "unlock": "When a model with the [Crypto-Arkana] Trait is selected to fill a Command Slot, then the Player may add a Canoptek Circle to the Army instead of the options available in the Crusade Force Organization Chart.",
+      "unlockedBy": {
+        "commandTrait": "[Crypto-Arkana]"
+      },
+      "slots": [
+        {
+          "role": "Retinue",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Retinue",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Support",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "Only Macrocyte Warriors, Hierotek Circle or Cryptothrall Units may be selected to fill Retinue Slots in this Detachment.",
+        "Only Tomb Crawler Units may be selected to fill Support Slots in this Detachment."
+      ],
+      "rules": [],
+      "slotRules": [
+        {
+          "roles": [
+            "Retinue"
+          ],
+          "units": [
+            "macrocyte-warriors",
+            "hierotek-circle",
+            "cryptothralls"
+          ]
+        },
+        {
+          "roles": [
+            "Support"
+          ],
+          "units": [
+            "canoptek-tomb-crawlers"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "canoptek-swarm",
+      "name": "Canoptek Swarm",
+      "type": "Auxiliary",
+      "page": 91,
+      "unlock": "When a model with the [Crypto-Arkana] Trait is selected to fill a Command Slot, then the Player may add a Canoptek Swarm to the Army instead of the options available in the Crusade Force Organization Chart.",
+      "unlockedBy": {
+        "commandTrait": "[Crypto-Arkana]"
+      },
+      "slots": [
+        {
+          "role": "Support",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Support",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Recon",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Recon",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "Only Units with the Canoptek Trait may be selected to fill Support Slots in this Detachment.",
+        "Only Units of Canoptek Scarabs may be selected to fill Recon Slots in this Detachment."
+      ],
+      "rules": [],
+      "slotRules": [
+        {
+          "roles": [
+            "Support"
+          ],
+          "trait": "Canoptek"
+        },
+        {
+          "roles": [
+            "Recon"
+          ],
+          "units": [
+            "canoptek-scarabs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ghost-strider-phalanx",
+      "name": "Ghost Strider Phalanx",
+      "type": "Auxiliary",
+      "page": 91,
+      "unlock": null,
+      "unlockedBy": null,
+      "slots": [
+        {
+          "role": "Transport",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Transport",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Transport",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Fast Attack",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Fast Attack",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Fast Attack",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "Only Units of Tomb Blades may be selected to fill Fast Attack Slots in this Detachment."
+      ],
+      "rules": [],
+      "note": "No unlock paragraph is printed in the box for this Detachment (unlike the other Auxiliary Detachments on this page, the entry goes straight from the title to its Slot icons). Its PDF text-layer extraction interleaves with the neighbouring Canoptek Swarm entry due to the two-column layout; that garbled text is not part of this entry.",
+      "slotRules": [
+        {
+          "roles": [
+            "Fast Attack"
+          ],
+          "units": [
+            "tomb-blades"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lokhust-phalanx",
+      "name": "Lokhust Phalanx",
+      "type": "Auxiliary",
+      "page": 92,
+      "unlock": null,
+      "unlockedBy": null,
+      "slots": [
+        {
+          "role": null,
+          "prime": false,
+          "flexible": true
+        },
+        {
+          "role": "Support",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Support",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "Only Units with the Destroyer Trait may be selected to fill any Slots in this Detachment.",
+        "Flexible Slot: The first Slot in this Detachment may be of any Type except Command or High Command."
+      ],
+      "rules": [],
+      "note": "No unlock paragraph is printed for this Detachment. unlockedBy is inferred from the page 91 intro text (Auxiliary Detachments may restrict which unit fills the Command/High Command slot that allows their selection) together with this entry's Destroyer Trait restriction bullet.",
+      "slotRules": [
+        {
+          "roles": null,
+          "trait": "Destroyer"
+        }
+      ]
+    },
+    {
+      "id": "skorpekh-phalanx",
+      "name": "Skorpekh Phalanx",
+      "type": "Auxiliary",
+      "page": 92,
+      "unlock": null,
+      "unlockedBy": null,
+      "slots": [
+        {
+          "role": null,
+          "prime": false,
+          "flexible": true
+        },
+        {
+          "role": "Heavy Assault",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Heavy Assault",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "Only Units with the Destroyer Trait may be selected to fill any Slots in this Detachment.",
+        "Flexible Slot: The first Slot in this Detachment may be of any Type except Command or High Command."
+      ],
+      "rules": [],
+      "note": "No unlock paragraph is printed for this Detachment; see note on Lokhust Phalanx.",
+      "slotRules": [
+        {
+          "roles": null,
+          "trait": "Destroyer"
+        }
+      ]
+    },
+    {
+      "id": "ophydian-phalanx",
+      "name": "Ophydian Phalanx",
+      "type": "Auxiliary",
+      "page": 92,
+      "unlock": null,
+      "unlockedBy": null,
+      "slots": [
+        {
+          "role": null,
+          "prime": false,
+          "flexible": true
+        },
+        {
+          "role": "Heavy Assault",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Heavy Assault",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "Only Units with the Destroyer Trait may be selected to fill any Slots in this Detachment.",
+        "Flexible Slot: The first Slot in this Detachment may be of any Type except Command or High Command."
+      ],
+      "rules": [],
+      "note": "No unlock paragraph is printed for this Detachment; see note on Lokhust Phalanx.",
+      "slotRules": [
+        {
+          "roles": null,
+          "trait": "Destroyer"
+        }
+      ]
+    },
+    {
+      "id": "tomb-vigils",
+      "name": "Tomb Vigils",
+      "type": "Auxiliary",
+      "page": 92,
+      "unlock": null,
+      "unlockedBy": null,
+      "slots": [
+        {
+          "role": "War Engine",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "War Engine",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Recon",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Recon",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "Only Units of Canoptek Doom-Stalkers and Sentry Pylons may be selected to fill War Engine Slots in this Detachment."
+      ],
+      "rules": [],
+      "note": "No unlock paragraph or Command-Slot trait requirement is printed for this Detachment.",
+      "slotRules": [
+        {
+          "roles": [
+            "War Engine"
+          ],
+          "units": [
+            "canoptek-doom-stalker",
+            "sentry-pylon"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reclamation-legion",
+      "name": "Reclamation Legion",
+      "type": "Auxiliary",
+      "page": 92,
+      "unlock": null,
+      "unlockedBy": null,
+      "slots": [
+        {
+          "role": "Elites",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Elites",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Support",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Support",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "Only Units of Lychguard may be selected to fill Elites Slots in this Detachment."
+      ],
+      "rules": [],
+      "note": "No unlock paragraph or Command-Slot trait requirement is printed for this Detachment.",
+      "slotRules": [
+        {
+          "roles": [
+            "Elites"
+          ],
+          "units": [
+            "lychguard"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "obliteration-phalanx",
+      "name": "Obliteration Phalanx",
+      "type": "Apex",
+      "page": 94,
+      "unlock": "If an Army has the Awoken Vaults Aeonic Sequela, then the following Apex Detachment may be selected:",
+      "unlockedBy": {
+        "sequela": "Awoken Vaults"
+      },
+      "slots": [
+        {
+          "role": "Support",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Support",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Support",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Support",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Armour",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Armour",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Armour",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Armour",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "Only Annihilation barges may be selected to fill Support Slots in this Detachment."
+      ],
+      "rules": [],
+      "slotRules": [
+        {
+          "roles": [
+            "Support"
+          ],
+          "units": [
+            "annihilation-barge"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "canoptek-masterworks",
+      "name": "Canoptek Masterworks",
+      "type": "Apex",
+      "page": 94,
+      "unlock": "If an Army has the Canoptek Forge Aeonic Sequela, then the following Apex Detachment may be selected:",
+      "unlockedBy": {
+        "sequela": "Canoptek Forge"
+      },
+      "slots": [
+        {
+          "role": null,
+          "prime": true,
+          "flexible": true
+        },
+        {
+          "role": null,
+          "prime": true,
+          "flexible": true
+        }
+      ],
+      "restrictions": [
+        "Only Units with the Canoptek Trait may be selected to fill Slots in this Detachment.",
+        "Flexible Slots: Prime Slots in this Detachment may be of any Type except Command or High Command."
+      ],
+      "rules": [],
+      "slotRules": [
+        {
+          "roles": null,
+          "trait": "Canoptek"
+        }
+      ]
+    },
+    {
+      "id": "infinite-phalanx",
+      "name": "Infinite Phalanx",
+      "type": "Apex",
+      "page": 95,
+      "unlock": "If an Army has the Dark Harvest Aeonic Sequela, then the following Apex Detachment may be selected:",
+      "unlockedBy": {
+        "sequela": "Dark Harvest"
+      },
+      "slots": [
+        {
+          "role": "Troops",
+          "prime": true,
+          "flexible": false
+        },
+        {
+          "role": "Troops",
+          "prime": true,
+          "flexible": false
+        },
+        {
+          "role": "Troops",
+          "prime": true,
+          "flexible": false
+        },
+        {
+          "role": "Troops",
+          "prime": true,
+          "flexible": false
+        },
+        {
+          "role": "Recon",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Recon",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Recon",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Recon",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "Troops slots in this Detachment may only be used to select Necron Warriors Units.",
+        "Recon slots in this Detachment may only be used to select Canoptek Scarab Units."
+      ],
+      "rules": [],
+      "slotRules": [
+        {
+          "roles": [
+            "Troops"
+          ],
+          "units": [
+            "necron-warriors"
+          ]
+        },
+        {
+          "roles": [
+            "Recon"
+          ],
+          "units": [
+            "canoptek-scarabs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "destroyer-cult",
+      "name": "Destroyer Cult",
+      "type": "Apex",
+      "page": 95,
+      "unlock": "If an Army has the Cult of Annihilation Aeonic Sequela, then the following Apex Detachment may be selected:",
+      "unlockedBy": {
+        "sequela": "Cult of Annihilation"
+      },
+      "slots": [
+        {
+          "role": null,
+          "prime": true,
+          "flexible": true
+        },
+        {
+          "role": "Heavy Assault",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Recon",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Support",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "Only Units with the Destroyer Trait may be selected to fill Slots in this Detachment.",
+        "Flexible Slot: The Prime Slot in this Detachment may be of any Type except Command or High Command."
+      ],
+      "rules": [],
+      "slotRules": [
+        {
+          "roles": null,
+          "trait": "Destroyer"
+        }
+      ]
+    },
+    {
+      "id": "invasion-phalanx",
+      "name": "Invasion Phalanx",
+      "type": "Apex",
+      "page": 96,
+      "unlock": "If an Army has the Forsaken Voidfarers Aeonic Sequela, then the following Apex Detachment may be selected:",
+      "unlockedBy": {
+        "sequela": "Forsaken Voidfarers"
+      },
+      "slots": [
+        {
+          "role": "Elites",
+          "prime": true,
+          "flexible": false
+        },
+        {
+          "role": "Elites",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Elites",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Heavy Transport",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Heavy Transport",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Heavy Transport",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "Heavy Transport slots in this Detachment may only be used to select Night Scythes Units."
+      ],
+      "rules": [],
+      "slotRules": [
+        {
+          "roles": [
+            "Heavy Transport"
+          ],
+          "units": [
+            "night-scythe"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "necron-raiders",
+      "name": "Necron Raiders",
+      "type": "Apex",
+      "page": 96,
+      "unlock": "If an Army has the Horrors of Old Aeonic Sequela, then the following Apex Detachment may be selected:",
+      "unlockedBy": {
+        "sequela": "Horrors of Old"
+      },
+      "slots": [
+        {
+          "role": "Armour",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Elites",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Heavy Assault",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Support",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Recon",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Fast Attack",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [],
+      "rules": [],
+      "slotRules": []
+    },
+    {
+      "id": "translocator-flight",
+      "name": "Translocator Flight",
+      "type": "Apex",
+      "page": 97,
+      "unlock": "If an Army has the Hypercrypt Legion Aeonic Sequela, then the following Apex Detachment may be selected:",
+      "unlockedBy": {
+        "sequela": "Hypercrypt Legion"
+      },
+      "slots": [
+        {
+          "role": "Command",
+          "prime": true,
+          "flexible": false
+        },
+        {
+          "role": "Command",
+          "prime": true,
+          "flexible": false
+        },
+        {
+          "role": "Fast Attack",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Fast Attack",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "Only Units with the Reanimant Trait may be selected to fill Slots in this Detachment."
+      ],
+      "rules": [],
+      "slotRules": [
+        {
+          "roles": null,
+          "trait": "Reanimant"
+        }
+      ]
+    },
+    {
+      "id": "royal-court-of-drazak",
+      "name": "Royal Court of Drazak",
+      "type": "Apex",
+      "page": 97,
+      "unlock": "If an Army has the Mark of the Flayer Aeonic Sequela, then the following Apex Detachment may be selected:",
+      "unlockedBy": {
+        "sequela": "Mark of the Flayer"
+      },
+      "slots": [
+        {
+          "role": "Heavy Assault",
+          "prime": true,
+          "flexible": false
+        },
+        {
+          "role": "Heavy Assault",
+          "prime": true,
+          "flexible": false
+        },
+        {
+          "role": "Heavy Assault",
+          "prime": true,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "Heavy Assault slots in this Detachment may only be used to select Flayed Ones Units."
+      ],
+      "rules": [],
+      "slotRules": [
+        {
+          "roles": [
+            "Heavy Assault"
+          ],
+          "units": [
+            "flayed-ones"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dynastic-grand-court",
+      "name": "Dynastic Grand Court",
+      "type": "Apex",
+      "page": 98,
+      "unlock": "If an Army has the Royal Burial Site Aeonic Sequela, then the following Apex Detachment may be selected:",
+      "unlockedBy": {
+        "sequela": "Royal Burial Site"
+      },
+      "slots": [
+        {
+          "role": "Command",
+          "prime": true,
+          "flexible": false
+        },
+        {
+          "role": "Retinue",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Elites",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "Command slots in this Detachment may only be used to select Royal Warden, Necron Lord or Necron Lord on Catacomb Command Barge Units."
+      ],
+      "rules": [],
+      "slotRules": [
+        {
+          "roles": [
+            "Command"
+          ],
+          "units": [
+            "royal-warden",
+            "necron-lord",
+            "necron-lord-on-barge"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guardians-of-the-great-sleep",
+      "name": "Guardians of the Great Sleep",
+      "type": "Apex",
+      "page": 98,
+      "unlock": "If an Army has the Slumbering Tomb Aeonic Sequela, then the following Apex Detachment may be selected:",
+      "unlockedBy": {
+        "sequela": "Slumbering Tombs"
+      },
+      "slots": [
+        {
+          "role": "War Engine",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Recon",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Recon",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Support",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Support",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Support",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "Only Units with the Canoptek Trait may be selected to fill Slots in this Detachment."
+      ],
+      "rules": [],
+      "note": "The header on p.98 reads \"Slumbering Tomb Aeonic Sequela\" (singular) although the Sequela is listed elsewhere as \"Slumbering Tombs\"; kept verbatim in unlock, unlockedBy normalized to the Sequela's listed name.",
+      "slotRules": [
+        {
+          "roles": null,
+          "trait": "Canoptek"
+        }
+      ]
+    },
+    {
+      "id": "lawbringer-phalanx",
+      "name": "Lawbringer Phalanx",
+      "type": "Apex",
+      "page": 99,
+      "unlock": "If an Army has the Servants of the Ankh Aeonic Sequela, then the following Apex Detachment may be selected:",
+      "unlockedBy": {
+        "sequela": "Servants of the Ankh"
+      },
+      "slots": [
+        {
+          "role": "Elites",
+          "prime": true,
+          "flexible": false
+        },
+        {
+          "role": "Elites",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Elites",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "War Engine",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "War Engine",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "War Engine",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "Only Units with the Triarch Trait may be selected to fill Slots in this Detachment."
+      ],
+      "rules": [],
+      "slotRules": [
+        {
+          "roles": null,
+          "trait": "Triarch"
+        }
+      ]
+    },
+    {
+      "id": "bringers-of-silence",
+      "name": "Bringers of Silence",
+      "type": "Apex",
+      "page": 99,
+      "unlock": "If an Army has The Symbiosis Aeonic Sequela, then the following Apex Detachment may be selected:",
+      "unlockedBy": {
+        "sequela": "The Symbiosis"
+      },
+      "slots": [
+        {
+          "role": "Command",
+          "prime": true,
+          "flexible": false
+        },
+        {
+          "role": "Elites",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Elites",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "The Command slot in this Detachment may only be used to select Units with the [Crypto-Arkana] Trait.",
+        "Elites Slots in this Detachment may only be used to select Pariah Units."
+      ],
+      "rules": [],
+      "slotRules": [
+        {
+          "roles": [
+            "Command"
+          ],
+          "trait": "[Crypto-Arkana]"
+        },
+        {
+          "roles": [
+            "Elites"
+          ],
+          "units": [
+            "pariahs"
+          ]
+        }
+      ]
+    }
+  ]
+}

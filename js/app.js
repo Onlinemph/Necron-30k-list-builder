@@ -31,6 +31,7 @@
     for (const r of R[key] || []) addRule(r, key);
   }
   for (const w of DATA.wargear || []) addRule(w, 'wargear');
+  for (const r of (DATA.sequelaEffects && DATA.sequelaEffects.rules) || []) addRule(r, 'sequela');
   for (const a of DATA.arkana || []) {
     addRule(a.harbinger, 'arkana');
     for (const w of a.wargear || []) addRule(w, 'arkana');
@@ -73,8 +74,12 @@
     return { version: 1, name: '', pointsLimit: 3000, sequelae: [], detachments: [primary] };
   }
 
-  let army = store.get(STORE_CUR, null) || fromHash() || newArmy();
+  let army = fromHash() || loadCurrent() || newArmy();
   let active = null; // slot uid
+
+  function loadCurrent() {
+    try { return sanitize(store.get(STORE_CUR, null)); } catch (e) { return null; }
+  }
 
   function fromHash() {
     const m = location.hash.match(/#a=(.+)$/);
@@ -168,9 +173,13 @@
         el.append(notes);
       }
       const ul = h('<ul class="slots"></ul>');
-      for (const s of d.slots) ul.append(slotRow(d, s));
+      for (const s of d.slots) if (!d.hideEmpty || s.unit || s.uid === active) ul.append(slotRow(d, s));
       el.append(ul);
       const foot = h('<div class="det-foot"></div>');
+      const empty = d.slots.filter((s) => !s.unit).length;
+      const tog = h(`<button type="button" class="small">${d.hideEmpty ? `Show ${empty} empty slot${empty === 1 ? '' : 's'}` : 'Hide empty slots'}</button>`);
+      tog.addEventListener('click', () => { d.hideEmpty = !d.hideEmpty; refresh(); });
+      if (empty) foot.append(tog);
       if (d.kind === 'primary') {
         const b = h('<button type="button" class="small">Edit slots</button>');
         b.addEventListener('click', () => editPrimarySlots(d));
@@ -234,7 +243,7 @@
 
   // ---------- pickers ----------
   function pickUnit(det, slot) {
-    const units = E.unitsForSlot(slot).slice().sort((a, b) => (a.unique - b.unique) || a.name.localeCompare(b.name));
+    const units = E.unitsForSlot(slot, det).slice().sort((a, b) => (a.unique - b.unique) || a.name.localeCompare(b.name));
     const body = h(`<div><h2>${esc(slot.flexible ? 'Flexible slot' : slot.role)} <small>${esc(det.name)}</small></h2><div class="picker"></div></div>`);
     const list = $('.picker', body);
     if (!units.length) list.append(h('<p class="muted">No units fill this slot.</p>'));
@@ -242,7 +251,8 @@
     for (const u of units) {
       if (slot.flexible && u.role !== lastRole) { list.append(h(`<h4 class="muted">${esc(u.role)}</h4>`)); lastRole = u.role; }
       const taken = u.unique && E.allSelections(army).some((x) => x.sel.unitId === u.id);
-      const b = h(`<button type="button" ${taken ? 'disabled' : ''}><span>${esc(u.name)}${u.unique ? ' <small class="muted">(character)</small>' : ''}${u.limit ? ` <small class="muted">${esc(u.limit)}</small>` : ''}</span><span class="muted">${u.basePoints} pts · p.${u.page}</span></button>`);
+      const alt = !slot.flexible && !slot.advisor && u.role !== slot.role ? ` <small class="muted">(${esc(u.role)}, via Sequela)</small>` : '';
+      const b = h(`<button type="button" ${taken ? 'disabled' : ''}><span>${esc(u.name)}${alt}${u.unique ? ' <small class="muted">(character)</small>' : ''}${u.limit ? ` <small class="muted">${esc(u.limit)}</small>` : ''}</span><span class="muted">${u.basePoints} pts · p.${u.page}</span></button>`);
       b.addEventListener('click', () => {
         slot.unit = E.newSelection(u.id);
         active = slot.uid;
@@ -359,7 +369,8 @@
       const sec = section('Unit size');
       for (const m of sizable) {
         const n = sel.counts[m.name] ?? m.min;
-        const row = h(`<div class="row"><span>${esc(m.name)}</span>${counter(n, m.min, m.max ?? m.min)}<small class="muted">${m.min}–${m.max} · +${m.costPerExtra} pts each</small></div>`);
+        const max = E.modelMax(u, m);
+        const row = h(`<div class="row"><span>${esc(m.name)}</span>${counter(n, m.min, Math.max(n, max))}<small class="muted">${m.min}–${max} · +${m.costPerExtra} pts each</small></div>`);
         bindCounter(row, (v) => { sel.counts[m.name] = v; clampOptions(sel); refresh(); });
         sec.append(row);
       }
@@ -386,9 +397,10 @@
     }
 
     // options
-    if ((u.options || []).length) {
+    const opts = E.optionsOf(sel);
+    if (opts.length) {
       const sec = section('Options');
-      for (const o of u.options) sec.append(optionEl(u, sel, o));
+      for (const o of opts) sec.append(optionEl(u, sel, o));
       box.append(sec);
     }
 
@@ -545,7 +557,7 @@
   /** After a size or arkana change, trim option picks that no longer fit. */
   function clampOptions(sel) {
     const u = E.unit(sel.unitId);
-    for (const o of u.options || []) {
+    for (const o of E.optionsOf(sel)) {
       const v = sel.options[o.id];
       if (v == null) continue;
       const names = new Set(E.choicesFor(o, sel).map((c) => c.name));
@@ -866,6 +878,7 @@
 
   // ---------- wiring ----------
   function refresh() {
+    E.setSequelae(army.sequelae);
     save();
     renderHeader();
     renderSequelae();

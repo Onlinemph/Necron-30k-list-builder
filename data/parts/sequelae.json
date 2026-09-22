@@ -1,0 +1,88 @@
+{
+  "intro": "Sequelae Benefits\nAn Army which makes use of the Necron Army List may have a number of Aeonic Sequelae from the following list selected for it which apply to every Detachment in that Army which includes Units selected from the Necron Army List, each providing additional access to additional Detachments, Special Rules to Models, and options for Army Selection:\n\n• Awoken Vaults\n• Canoptek Forge\n• Cult of Annihilation\n• Dark Harvest\n• Forsaken Voidfarers\n• Horrors of Old\n• Hypercrypt Legion\n• Mark of the Flayer\n• Royal Burial Site\n• Servants of the Ankh\n• Slumbering Tombs\n• The Symbiosis\n\nIf an Army contains at least one Unit selected from the Necrons Army List then a single Aeonic Sequela may be selected for that Army, with one additional Aeonic Sequela also available for selection if the Army includes one or more Models with the Nemesor or Phaeron Trait.",
+  "sequelae": [
+    {
+      "name": "Awoken Vaults",
+      "page": 94,
+      "text": "An Army with this Aeonic Sequela gains the following benefits:\n• A single Annhihilation Barge, Doomsday Ark, or Ghost Ark Model in this Army may be upgraded to have a Phase Shifter at +40 points.\n• Annhihilation Barge Models and Models with with the Vehicle Type in this Army gain the Vanguard (1) Special Rule.\n• When the My Will Be Done (X) Special Rule of a Model in this Army is Activated, the Controlling Player may select an Annhihilation barge or a Vehicle Model instead of a Reanimant Unit as the Target Unit. If that Player does so, the following effect is applied instead of the normal effects of the My Will Be Done (X) Special Rule if the Willpower Check is succesful:\n  -- Until the end of the Opposing Player's next Turn, the Target Unit gains the Stable Special Rule.",
+      "restrictions": [],
+      "note": "Source spells the unit name \"Annhihilation Barge\" (and once duplicates \"with with\") and \"succesful\"; kept verbatim per transcription rules."
+    },
+    {
+      "name": "Canoptek Forge",
+      "page": 94,
+      "text": "When building an Army using the Necrons Army List, one Command Model with the [Crypto-Arkana] Trait may be selected as a High Command choice instead. That model gains the Nemesor Trait. if a player does so, at least one Aeonic Sequela selected for that army must be the Canoptek Forge Aeonic Sequela.\n\nAn Army with this Aeonic Sequela gains the following benefits:\n• Macrocyte Warriors, Cryptothrall and Hierotek Circle Units in the Army gain the Line (1) Special Rule.\n• Models with any [Crypto-Arkana] Trait in the Army that can join Units can join Units that include Models with the Automata Type.\n• Units that include models with the Automata Type in the Army can make Reactions, even though they have the Automata Type, so long as they have been joined by a model with the [Crypto-Arkana] Trait and all Automata Models in that Unit have the Canoptek Sub-Type.\n• Models with the Canoptek Trait in the Detachment gain the Ever-Living (6+) Special Rule.",
+      "restrictions": [
+        "If a Command Model with the [Crypto-Arkana] Trait is selected as a High Command choice (gaining the Nemesor Trait) under this rule, at least one Aeonic Sequela selected for that army must be Canoptek Forge."
+      ]
+    },
+    {
+      "name": "Dark Harvest",
+      "page": 95,
+      "text": "An Army with this Aeonic Sequela gains the following benefits:\n• All models in Units that include models with the Nemesor Trait in this Army count their Initiative as 2 higher than it is when resolving the Consolidate or Pursue Aftermath Options.\n• All Necron Warriors Units in this Army may include up to 10 additional Necron Warriors at +10 points per model.\n• Every model in Units with the Reanimant trait in this Army may have Flensing Scarabs selected for them at +1 point per model.\n\nFlensing Scarabs\nAttacks made with a Basic Close Combat Weapon or a Disruption Bayonet by a Model with Flensing Scarabs gain the Shred (6+) Special Rule.",
+      "restrictions": []
+    },
+    {
+      "name": "Cult of Annihilation",
+      "page": 95,
+      "text": "When building an Army using the Necrons Army List, one Command Model with the Destroyer Trait may be selected as a High Command choice instead. That model gains the Nemesor Trait. if a player does so, at least one Aeonic Sequela selected for that army must be the Cult of Annihilation Aeonic Sequela.\n\nAn Army with this Aeonic Sequela gains the following benefits:\n• All Units with the Destroyer Trait and Vanguard (X) Special Rule in this Army have the value of their Vanguard (X) Special Rule modified by +1.\n• Any Unit with the Destroyer Trait (other than Command or High Command Units) in this Army may be upgraded to have a Plasmacyte at +10 points per Unit.\n\nPlasmacyte\nIf a Unit is upgraded to have a Plasmacyte, place a Plasmacyte Token next to that Unit. This token is ignored for all game purposes and is only used as a reminder. During Step 3 of the Shooting Attack Sequence for a Shooting Attack made by the Unit or Step 2 of the Fight Sub-Phase of a Combat involving this Unit, the Controlling Player may remove this Unit's Plasmacyte Token. If that player does so, then until that Shooting Attack Sequence or that Combat is resolved the Hardwired for Destruction Special Rule improves the Critical Hits (X) Special Rule of models in this Unit by a further +1.",
+      "restrictions": [
+        "If a Command Model with the Destroyer Trait is selected as a High Command choice (gaining the Nemesor Trait) under this rule, at least one Aeonic Sequela selected for that army must be Cult of Annihilation."
+      ],
+      "note": "Page heading is printed \"Cult of Annhihlation\" (typo for Annihilation); the Sequela is referred to correctly as \"Cult of Annihilation\" in the body text and elsewhere, which is used as the canonical name."
+    },
+    {
+      "name": "Forsaken Voidfarers",
+      "page": 96,
+      "text": "An Army with this Aeonic Sequela gains the following benefits:\n• For every Troops Slot that is filled in a Crusade Primary Detachment with the Necrons Faction with this Aeonic Sequela, one Transport Slot in that Detachment may be exchanged for a Heavy Transport Slot. That Slot may only be used to select Night Scythes Units.\n• All Units with the Flyer Sub-Type in an Army with this Aeonic Sequela gain the Interceptor Trait.\n• Each time an Aerial Reserves roll is made for a Night Scythes Unit in an army with this Aeonic Sequela, the Controlling Player may choose to add +1 to the roll. If that Player does so, only the Invasion Mission Combat Assignment may be selected for that Unit that Turn.",
+      "restrictions": []
+    },
+    {
+      "name": "Horrors of Old",
+      "page": 96,
+      "text": "An Army with this Aeonic Sequela gains the following benefits:\n• Only a limited selection of Necron Units may be selected for an army with this Aeonic Sequela. Check the FaQ section for the full list of Units that can be selected.\n• Necron Warriors Units in an army with this Aeonic Sequela have a 3+ Armour Save, but lose the Endless Legions Special Rule.\n• Necron Overlord and Necron Lord models in an army with this special rule may each have one item from any Crypto-Arkana Wargear List selected for them.\n• A single Monolith may be selected as an Armour choice instead of a Lord of War Choice in an Army with this Sequela.",
+      "restrictions": [
+        "Only a limited selection of Necron Units may be selected for an army with this Aeonic Sequela (see FAQ section for the full list)."
+      ]
+    },
+    {
+      "name": "Hypercrypt Legion",
+      "page": 97,
+      "text": "An Army with this Aeonic Sequela gains the following benefits:\n• Command and High Command Models in this Army gain the Hyperspace Hunter Trait. Any other Units with the Reanimant Trait in this Army may be upgraded to have the Hyperspace Hunter Trait for +30 points per Unit.\n• Up to two Units from this Army may attempt a Deep Strike each Turn, rather than just one, instead of the normal limitations of the Deep Strike Special Rule.\n• At the start of each of the Controlling Player's Turn as the Active Player, that Player can select one Unit from this Army that includes only Models the Hyperspace Hunter Trait or includes at least one Model equipped with a Translocation Shroud, remove that Unit from the Battlefield, and place it in Reserves. Any Enemy Units that become Unengaged as a result of the Unit being removed from the Battlefield may immediately Consolidate as described in the Aftermath Section of the Combat Resolution Sub-Phase.",
+      "restrictions": [],
+      "note": "Source reads \"...that includes only Models the Hyperspace Hunter Trait...\" (missing \"with\"); kept verbatim per transcription rules."
+    },
+    {
+      "name": "Mark of the Flayer",
+      "page": 97,
+      "text": "An Army with this Aeonic Sequela gains the following benefits:\n• All models in Flayed Ones Units in this Army lose the Heedless Special Rule.\n• Units of Necron Flayed Ones and Ophydian Destroyers in this Army that enter play using the Deep Strike Special Rule may have a Charge declared for the Unit in the same turn, but that Charge is automatically Disordered.\n• Every model in Units with the Reanimant Sub-Type in this Army that do not already have a Variant of the Fear (X) Special Rule may have Charnel Displays selected for them at +10 points for the entire Unit.\n\nCharnel Displays\nA model with Charnel Displays has the Fear (1) Special Rule, and receives a -1 modifier to its Ballistic Skill.",
+      "restrictions": []
+    },
+    {
+      "name": "Royal Burial Site",
+      "page": 98,
+      "text": "An Army with this Aeonic Sequela gains the following benefits:\n• All Models with the Nemesor Trait in an army with this Aeonic Sequela gain +1 to their Weapon Skill Characteristics.\n• All Royal Warden, Immortal and Lychguard Models in an army with this Aeonic Sequela gain +1 to their Weapon Skill Characteristic, so long as their Unit has been joined by at least one Model with the Nemesor or Phaeron Trait.\n• Any Necron Lord or Necron Lord on Catacomb Command Barge in an Army with this Aeonic Sequela may be upgraded to have the Nemesor Trait at +15 points per model.",
+      "restrictions": []
+    },
+    {
+      "name": "Slumbering Tombs",
+      "page": 98,
+      "text": "An Army with this Aeonic Sequela gains the following benefits:\n• All Canoptek Spyder and Canoptek Reanimator Models in this Army lose the Support Unit (2) Special Rule and gain the Line (1) Special Rule.\n• All Canoptek Scarab Models in this Army lose the Expendable (3) and Heedless Special Rules and gain the Line (3) Special Rule.\n• All Canoptek Wraith, Canoptek Tomb Sentinel and Canoptek Tomb Stalker Models in this Army gain the Vanguard (2) Special Rule.\n• All Necron Warrior and Immortals Units in this Army lose the Line (1) Special Rule and gain the Support Unit (3) Special Rule.",
+      "restrictions": []
+    },
+    {
+      "name": "Servants of the Ankh",
+      "page": 99,
+      "text": "An Army with this Aeonic Sequela gains the following benefits:\n• Units with the Triarch Trait in an Army with this Aeonic Sequela gain the Vanguard (2) Special Rule.\n• Each time a Unit with the Triarch Trait in an army with this Aeonic Sequela has a Charge declared for it, it gains +2 to its Set-Up Move Distance if at least one Charge Target was targeted with a Shooting Attack by a Triarch Stalker Unit in the same Army in the preceding Shooting Phase.\n• The following items are added to the Nobility Melee Weapons List:\n  -- Rod of Covenant............................+10 points",
+      "restrictions": []
+    },
+    {
+      "name": "The Symbiosis",
+      "page": 99,
+      "text": "An Army with this Aeonic Sequela gains the following benefits:\n• The 0-1 limit on Units of Pariahs is lifted from this Army.\n• All models with the Reanimant Sub-Type in this Army gain the Adamantium Will (5+) Special Rule whilst within 12\" of at least one Model with the Anathema Special Rule from the same Army.\n• Any model with the Command or High Command Sub-Type in this Army that is equipped with a Warscythe or Voidscythe may have a Gauss Blaster selected for it for +3 points.",
+      "restrictions": [
+        "The 0-1 limit on Units of Pariahs is lifted from this Army."
+      ]
+    }
+  ]
+}
