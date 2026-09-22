@@ -2,7 +2,17 @@
 
 An army list builder for **Codex Xenologica – Necrons (Horus Heresy 3rd edition)**, v1.4.2 (August 2026).
 
-Open `index.html` in a browser. There's no build step and no server needed, and it works offline from `file://`. You can also host the folder on GitHub Pages.
+**Live site:** https://onlinemph.github.io/Necron-30k-list-builder/
+
+You can also open `index.html` straight from a download. There's no build step and no server needed, and it works offline from `file://`.
+
+## Hosting on GitHub Pages
+
+One-time setup: in the repo go to **Settings → Pages**, and under **Build and deployment → Source** choose **GitHub Actions**. That's it.
+
+From then on, every push to the default branch runs the tests and publishes the app (`.github/workflows/pages.yml`). Pushes to other branches only run the tests. To redeploy by hand, open the **Actions** tab, pick **Deploy to GitHub Pages** and click **Run workflow**.
+
+On a phone, open the site and use **Add to Home Screen**; it launches like an app.
 
 ## What it does
 

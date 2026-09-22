@@ -1,0 +1,11 @@
+{
+  "name": "Necron 30k List Builder",
+  "short_name": "Necron 30k",
+  "description": "Army list builder for Codex Xenologica – Necrons (Horus Heresy 3rd edition).",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0d1110",
+  "theme_color": "#0d1110",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}
