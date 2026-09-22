@@ -1,0 +1,46 @@
+                                                                                                  Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+               Trazyn the Infinite
+                     Unit composition: 1 Trazyn                               170 points
+
+
+
+
+    COMMAND
+
+
+                         m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+        Trazyn                   6    4    4    5    5    4    3    3   10   10   9   9   2+  –
+
+     Wargear                                       Special Rules
+         •  Empathic Obliterator                                   • By Order of the Triarch
+         •  Tesseract Labyrinths                                   •  Dynastic Protocols (Nihilakh)
+                                                                       •  Eternal Warrior (1)
+      Traits                                                                       •  Ever-Living (4+)
+         •  Xenos                                                                       •  Grand Archaeovist
+         •  Necron                                                                       •  Surrogate Hosts
+         •  Reanimant
+                                                 Unit type
+                                                                       •  Infantry (Command, Unique)
+
+
+     Wargear
+       Empathic Obliterator
+114
+        Melee            IM  AM  SM  AP  D   Special Rules            Traits
+
+                                                             Breaching (6+),         Empathic Obliterator     -1   A    +2    3      1                        Power                                                                 Psionic Shockwave
+
+        Psionic Shockwave
+        During Step 10 of the Initiative Step in which a Model makes Attacks using this Weapon, take note
+         of the number of Unsaved Wounds inflicted by Attacks made with this Weapon. For each Unit that
+         suffered Unsaved Wounds, that Unit must immediately take a Willpower Check with a penalty
+        equal to the number of Unsaved Wounds lost. If failed, that Unit immediately gains the Suppressed
+         Tactical Status. This Special Rule has no effect when fighting in a Challenge.
+
+        Tesseract Labyrinths
+
+        Melee            IM  AM  SM  AP  D   Special Rules            Traits
+
+                                                                        Exile, Limited (3),          Tesseract Labyrinths    +3      1    6    2     3                           Dimensional                                                                  Precision (4+)

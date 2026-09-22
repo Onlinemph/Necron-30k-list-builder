@@ -1,0 +1,57 @@
+                                                                                                 Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+              C'Tan Shard of the Burning One
+                    Unit composition: 1 Shard of the Burning One           400 points
+
+
+
+
+       LORD
+      OF WAR
+
+                         m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+       Shard of the Burning One     10   5    5   8   8   6    7    4    12   12   10   8   –   4+
+
+     Wargear                                       Special Rules
+        •  Breath of Nyadra'zatha                                 • Deep Strike
+                                                                      •  Explodes (2+)
+      Traits                                                                      •  Fear (1)
+        •  Xenos                                                                      •  Heedless
+        •  Necron                                                                      •  Necrodermis
+        •  Star-God                                                                      •  Soul Blaze
+                                                                      •  Wreathed in Flame
+                                                                      • The Fallingstar God
+
+                                                Unit type
+                                                                      •  C'Tan
+
+
+82     The Fallingstar God
+      When a Model with this Special Rule is deployed using the Deep Strike Special Rule, it immediately
+       makes up to five Shooting Attacks as if it were the Shooting Phase using the weapon profile shown
+         in the Soul Blaze Special Rule. Each Shooting Attack must target a different Unit. After resolving
+        these Shooting Attacks, the Soul Blaze profile may not be used as a Power of the C'Tan for the
+        remainder of the battle.
+
+
+      Wreathed in Flame
+      A Model with this special rule reduces the Strength of all Hits inflicted on it by Weapons with the
+         Las, Plasma, Melta and Flame Trait by half, rounded up.
+
+
+       Soul Blaze
+      Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's
+        Controlling Player may choose to have this model use the following unique Power of the C'Tan:
+
+       Weapon          R   FP  RS  AP  D   Special Rules            Traits
+
+         Soul Blaze              12  2D6   8    4    2    Pinning (1)              Arc
+
+
+
+       Breath of Nyadra'zatha
+
+       Weapon            IM  AM  SM  AP  D   Special Rules            Traits
+
+         Breath of Nyadra'zatha        I   A    S    2    2   Aflame (2), Deflagrate (6)  –

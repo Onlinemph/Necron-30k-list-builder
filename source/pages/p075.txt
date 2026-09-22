@@ -1,0 +1,44 @@
+Version 1.4.2 august 2026
+
+            Obelisk
+               Unit composition: 1 Obelisk                          500 points
+
+
+
+
+   LORD
+  OF WAR
+                                                 Armour                    transport
+                                                                                           capacity
+                      m         bs      front      side      rear     hp
+
+ Obelisk                     8        4         14        14        14      20      –
+
+Wargear                                       Special Rules
+•  Hull (Front, Right) Mounted                           •  Living Metal (D3)
+   Tesla sphere                                             • Deep Strike
+•  Hull (Front, Left) Mounted                             •  Gravity Pulse
+   Tesla sphere                                             •  Sleeping Sentry
+•  Hull (Rear, Right) Mounted
+   Tesla sphere                               Unit type
+•  Hull (Rear, Left) Mounted                              •  Vehicle (Antigrav, Super-Heavy)
+   Tesla sphere
+
+Traits
+•  Xenos
+•  Necron
+•  Beacon                                                                                                    75
+
+
+ Gravity Pulse
+ Once per Battle only, the Controlling Player of a Model with this Special Rule can activate its
+  Gravity Pulse. The Gravity Pulse can be Activated when this Model is selected to make Shooting
+  Attacks (excepting Volley Attacks), including as part of a Reaction, and is resolved before this
+  Model's Shooting Attacks. The Targets of the Gravity Pulse are all Enemy Units that that are within
+  24" of this Model. The Controlling Player rolls a D6 for each Target of the Gravity Pulse, with a
+  Target Number of '4+' for Targets that include any Models with the Antigrav or Flyer Sub-Type and
+  '6' for Targets that do not. Each Unit for which the Target Number is rolled gains the Pinned Tactical
+  Status.
+
+  Units that include any Models with the Gargantuan, Knight, Super-Heavy or Titan Sub-Type cannot
+ be Targets of the Gravity Pulse and are unaffected.

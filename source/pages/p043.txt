@@ -1,0 +1,30 @@
+Version 1.4.2 august 2026
+
+           Canoptek Reanimators
+               Unit composition: 1 Canoptek Reanimator               50 points
+
+                       • May include up to 4 additional Canoptek Reanimators at +50 points per model.
+
+
+
+  SUPPORT
+
+
+                    m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+ Canoptek Reanimator       8    3    4    7    6   6    2    4   8    12   4   8   3+  –
+
+Wargear                                       Special Rules
+•  Atomisation Beam                                      •  Battlesmith (2)
+                                                               •  Bulky (4)
+Traits                                                               • Move Through Cover
+•  Xenos                                                               •  Reanimation Beam (3)
+•  Necron
+•  Canoptek                                 Unit type
+                                                               •  Automata
+
+
+
+
+
+                                                                                                  43

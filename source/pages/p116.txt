@@ -1,0 +1,50 @@
+                                                                                                  Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+               Orikan the Diviner
+                     Unit composition: 1 Orikan                              150 points
+
+
+
+
+    COMMAND
+
+
+                         m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+        Orikan                   6    4    4    4    4    3    2    2   10   10    7   10   4+   4+
+
+        Orikan Empowered          10   5    5   8   8   6    4    4    12   12   10   10  –   4+
+
+     Wargear                                       Special Rules
+         •  Staff of Tomorrow                                      •  Ascend
+         •  Timesplinter Mantle                                    •  Battlesmith (2)
+                                                                       • By Order of the Triarch
+      Traits                                                                       •  Dynastic Protocols (Sautekh)
+         •  Xenos                                                                       •  Ever-Living (5+)
+         •  Necron                                                                       •  Harbinger of Eternity
+         •  Reanimant                                                                       •  Split Fire
+         •  Chronomancy
+                                                 Unit type
+                                                                       •  Infantry (Command, Unique)
+
+
+116
+     Wargear
+        Staff of Tomorrow
+
+        Melee            IM  AM  SM  AP  D   Special Rules            Traits
+
+                                                   Aeon Breach (6+),            Staff of Tomorrow       12   A    S    2      1                          Arkana                                                                          Critical Hit (6+)
+
+
+
+       Special Rules
+       Ascend
+        At the start of each of the Controlling Player's Turns as the Active Player, starting with that Player's
+       Second Turn, that Player rolls a D6. If the result of the D6 is less than the number of the Current
+      Game Turn, then Orikan uses the Orikan Empowered Profile until the end of the battle (any lost
+       Wounds are carried over to the new Profile).
+
+       By Order of the Triarch
+            If Orikan is included in an Army, then Trazyn the Infinite may also be included in that same Army,
+        even though they have different versions of the Dynastic Protocols (X) Special Rule.

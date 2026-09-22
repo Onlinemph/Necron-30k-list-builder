@@ -1,0 +1,33 @@
+Version 1.4.2 august 2026
+
+
+ Special Rules
+ By Order of the Triarch
+  If Trazyn is included in an Army, then Orikan the Diviner may also be included in that same Army,
+  even though they have different versions of the Dynastic Protocols (X) Special Rule.
+
+ Grand Archaeovist
+ The Controlling Player scores 1 Victory Point for each Model that is reduced to 0 Wounds and
+ removed as a casualty by an Attack made with a Tesseract Labyrinth by the Model with this Special
+  Rule. The amount of Victory Points scored is furthermore modified according to the following
+  characteristics of the Model that was removed as a casualty (to a minimum of 0 and a maximum
+  of 6):
+  •  Champion, Sergeant or Specialist Sub-Type: +1
+  • Command Sub-Type: +2
+  •  Unique Sub-Type: +4
+  • None of the above Sub-Types: -1
+  •  Expendable (X) Special Rule: -3
+
+  Surrogate Hosts
+ While a Model with this Special Rule is engaged in a Challenge, its Controlling Player can select the
+  following Gambit for that Model:
+
+  Surrogate Hosts: If this Gambit is selected, the Controlling Player selects a Model in the same
+ Army that has the Infantry Type, the Command Sub-Type, the Reanimant Trait, does not have the
+  Unique Sub-Type, and has a Starting Wounds Characteristic of 6 or less. That model is referred to
+  as the 'Host'. Exchange the positions on the Battlefield of the Host and the Model for which this
+ Gambit was selected, displacing other Models as little as possible where necessary. The Host and
+  the Model for which this Gambit was selected join any Unit the other Model was part of, are now
+  engaged in any Combat the other Model was part of, and are now fighting in any Challenge the              115
+  other Model was part of. The Host takes part in the Challenge as normal, but the Controlling Player
+  has a -6 penalty to Focus Rolls made for the Host this turn.

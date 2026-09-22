@@ -1,0 +1,29 @@
+Version 1.4.2 august 2026
+
+           Cryptothralls
+               Unit composition: 2 Cryptothralls                       50 points
+
+                       • May include up to 8 additional Cryptothralls at +25 points per model.
+
+
+
+  RETINUE
+
+
+                    m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+ Cryptothrall               6    3    3    5    5    2    2    3   6    12   4    4   4+    -
+
+Wargear                                       Special Rules
+•  Nanoscarab Scouring Beam                            •  Reanimation Protocols (5+)
+                                                               •  Systematic Vigour
+Traits
+•  Xenos                                    Unit type
+•  Necron                                                   •  Infantry
+•  Reanimant                                               •  Expendable (1)
+
+
+
+
+
+                                                                                                       29

@@ -1,0 +1,48 @@
+                                                                                                 Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+
+       Phase Shift Field
+       While the Power crucible has not been destroyed, all models, both friendly and enemy, on the
+        surface of the Tomb Citadel have a 4+ invulnerable save against shooting attacks.
+
+
+       Resurrection Amplifier
+       While the Power crucible has not been destroyed, the result of any Resurrection Tests made for
+        Units in the Controlling Player's Army that are on the surface of the Tomb Citadel is modified by +1.
+
+
+       Canoptek factory
+       While the Tomb Ziggurat has not been destroyed, the Controlling Player may select and apply one
+        of the following during their Turn as the Active Player:
+          • When a Unit of Canoptek Scarabs on the surface of the Tomb Citadel been selected, but before
+          or after it has been moved, the controlling player may add up to three Scarab Swarm models to
+            that Unit so that they are in coherency with that Unit and more than 1" from enemy models.
+          •  At the end of the Movement Phase, the Controlling Player may create a Unit of Canoptek
+          Scarabs consisting of three Scarab Swarms. That Unit enters the Battlefield as if from Reserves,
+           using the Tomb Ziggurat's Eternity Gate as if it was the Edge of the Battlefield. The new Unit can
+         be targeted with the Interception Reaction.
+
+
+       Ziggurat Deck
+       Models can move over and end a move on top of the Tomb Ziggurat, treating it as if it were an area
+        of Light Area Terrain. However, unlike other Areas of Terrain, protrusions and other parts of the
+       Model do block Line of Sight.
+88
+       During deployment, the Controlling Player of a Tomb Ziggurat can deploy a single Monolith or
+       Gauss Pylon on top of the upper level of the Tomb Ziggurat. This model is referred to as the
+       'Docked Model'. The following rules apply to the Docked Model so long as it remains on top of the
+      Tomb Ziggurat:
+          •   If the Docked Model is selected to make any kind of Move, it must first be removed from the
+          top of the Tomb Ziggurat and placed anywhere within 1" of the Tomb Ziggurat. The model is no
+           longer Docked and acts normally for the remainder of the Battle.
+          •  All Weapons used by the Docked Model gain +1 Ranged Strength and lose the Limited (X) Special
+           Rule.
+          • The Docked Model uses the Eternity Gate modelled on the Tomb Ziggurat in place of its own as
+               its Access Point and for the purpose of the Eternity Gate Special Rule.
+          •   If the Docked Model makes a Shooting Attack using the Portal of Exile, measure ranges from the
+           Eternity Gate modelled on the Tomb Ziggurat instead of the Docked Model's.
+          •   If a Tomb Ziggurat is Destroyed, the Docked Model suffers D6 Damage. No Saves or Damage
+           Mitigation Rolls may be made against that Damage. The model remains on top of the Tomb
+            Ziggurat, but receives none of the benefits from the above Bullet Points, except it can still leave
+           using the procedure listed in the first Bullet Point.
+     A model may not become Docked after the start of battle.

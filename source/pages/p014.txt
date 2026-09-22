@@ -1,0 +1,38 @@
+                                                                                                 Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+              Necron Lord on Catacomb Command Barge
+                    Unit composition: 1 Lord on Barge                      100 points
+
+
+
+
+    COMMAND
+
+
+                         m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+       Lord on Barge                12   4    4    5   6    4    3    3   10   10   8   8   2+   5+
+
+     Wargear                                       Special Rules
+        •  Voidblade                                                •  Bulky (8)
+        •  Gauss Cannon                                           • Command Barge
+                                                                       •  Eternal Warrior (1)
+      Traits                                                                       •  Ever-Living (5+)
+        •  Xenos                                                                       •  Explodes (6+)
+        •  Necron                                                                       •  Firing Protocols (2)
+        •  Reanimant                                                                       •  Implacable Advance
+                                                                       • My Will Be Done (2)
+
+                                                Unit type
+                                                                       •  Cavalry (Antigrav, Command)
+      Options
+        •  This model may have its Voidblade                   •  This model may have its Gauss Cannon
+14        exchanged for one item from the Nobility           exchanged for one item from the Necron
+        Melee Weapons List.                          Cannons list.
+        •  This model may have one item from the             •  This model may be upgraded to have the
+        Necron Nobility Wargear List selected for it.         Dynastic Scion Special Rule............. +20 points
+        •  This model may have any of the following
+          selected for it:
+            -- Phase Shifter.................................. +20 points
+            --  Phylactery....................................... +30 points
+            -- Targeting Relay............................... +15 points

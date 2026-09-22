@@ -1,0 +1,34 @@
+                                                                                                 Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+                Necron Unit Types
+
+     C’Tan
+     The following rules apply to all models with the
+      C’Tan type:
+
+        • A Unit that includes only Models with
+        C'Tan Type may ignore the effects of
+        any and all Terrain it passes over during
+        movement, including passing over Impassable
+         Terrain without penalty or restriction, and
+          automatically pass Dangerous Terrain Tests.
+        However, such Units may not begin or end
+          their movement in Impassable Terrain.
+        • When targeting a Unit that includes any
+        Models with the C'Tan Type, the effects of
+         the Poisoned (X) Special Rule only trigger
+        on a Wound Test with a result of a '6' before
+          modifiers are applied, regardless of the value
+          of X for that variant of the Special Rule.
+        • A model with the C'tan Type may attack
+         with all Weapons they have in each Shooting
+         Attack they make, including as part of a
+         Reaction. Note that this does not allow
+        Weapons without the Assault Trait to be used
+          to attack as part of a Volley Attack.
+        •  In Step 1 of the Resolution Sub-Phase, when
+90       deciding how many Models a Player controls
+          in a Combat, a Model with the C'Tan Type
+         counts as a number of Models equal to that
+         Model's Base Wounds Value.
+        • No model may join a C’tan unit.

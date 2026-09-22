@@ -1,0 +1,56 @@
+Version 1.4.2 august 2026
+
+           Anrakyr the Traveller
+               Unit composition: 1 Anrakyr                             150 points
+
+
+
+
+   HIGH
+ COMMAND
+
+                    m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+ Anrakyr                  6   6*   5   6   6   6    4    4   10   10   9   9   2+  –
+
+Wargear                                       Special Rules
+•  Warscythe                                               •  Ever-Living (5+)
+•  Tachyon Arbalest                                       •  Eternal Warrior (1)
+                                                               •  Impact (S)
+Traits                                                               •  Lord of the Pyrrhian Eternals
+•  Xenos                                                               • Mind in the Machine
+•  Necron                                                               • My Will Be Done (3)
+•  Reanimant
+•  Nemesor                                 Unit type
+                                                               •  Infantry (Command, Unique)
+
+
+ Special Rules
+ Mind in the Machine
+                                                                                                                          117 When Anrakyr's Unit is selected to make a Shooting Attack, but not when making a Volley Attack or
+  firing Snap Shots, his Controlling Player can target one Enemy Model with the Automata, Vehicle
+  or Walker Type within 12" and that is visible to Anrakyr. Anrakyr's Controlling Player then takes an
+  Intelligence Test for Anrakyr; if the Target Model has the Super-Heavy or Knight Sub-Type, that
+  Intelligence Test must be taken by rolling 3D6, rather than 2D6, and if the Target Model has the
+  Titan Sub-Type, that Intelligence Test must be taken by rolling 4D6, rather than 2D6. If the test is
+  succesful, Anrakyr can make a Shooting Attack using one of the Target Model's Ranged Weapons as
+  part of that Shooting Attack as if it was one of his own Ranged Weapons, measuring distances (and,
+   if the Target Model is a Vehicle Model, Arcs) from the Target Model rather than Anrakyr.
+
+ Lord of the Pyrrhian Eternals
+  If Anrakyr is part of an Army, the Royal Burial Site Aeonic Sequela must be selected for that Army
+  (this means Anrakyr always receives the +1 bonus to his Weapon Skill associated with the Royal
+  Burial Site Aeonic Sequela).
+
+  If Anrakyr is part of a Crusade Primary Detachment, the Controlling Player selects a Troops Slot in
+  the same Detachment. That Troops Slot becomes a Prime Slot. Units of Necron Immortals that are
+  selected to fill Prime Slots in the same Army as Anrakyr may have the following Prime Advantage
+  selected for them:
+
+ Pyrrhian Eternals: Models in the Unit for which this Prime Advantage was selected gain +1 to their
+  Attacks Characteristic. Whilst Anraky has joined the Unit, Models in the Unit also gain the Impact
+  (S) Special Rule.
+
+
+*The +1 to Weapon Skill from the Royal Burial Site Aeonic Sequela is already included in Anrakyr’s
+profile.

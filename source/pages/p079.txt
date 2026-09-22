@@ -1,0 +1,53 @@
+Version 1.4.2 august 2026
+
+           C'Tan Shard of the Nightbringer
+               Unit composition: 1 Shard of the Nightbringer           400 points
+
+
+
+
+   LORD
+  OF WAR
+
+                    m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+ Shard of the Nightbringer     10   6    4   10   8   6    5    4    12   12   10   8   –   4+
+
+Wargear                                       Special Rules
+•  Scythe of Aza'gorod                                    •  Drain Life
+                                                               •  Explodes (2+)
+Traits                                                               •  Fear (1)
+•  Xenos                                                               •  Gaze of Death
+•  Necron                                                               •  Heedless
+•  Star-God                                                               •  Necrodermis
+
+                                           Unit type
+                                                               •  C'Tan
+
+
+ Drain Life
+ Damage Mitigation rolls of any kind may not be taken for models, friend and foe, that are within 6"
+  of a Model with this Special Rule.                                                                       79
+
+
+ Gaze of Death
+ Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's
+  Controlling Player may choose to have this model use the following unique Power of the C'Tan:
+
+  Weapon          R   FP  RS  AP  D   Special Rules            Traits
+
+                                                    Scourge (Cool),
+  Gaze of Death      H      1    10    2      1    Panic (2),                Despair
+                                                Shock (Suppressed)
+
+
+
+ Scythe of Aza'gorod
+
+  Weapon          IM  AM  SM  AP  D   Special Rules            Traits
+
+   Scythe of Aza'gorod                                                           Entropic
+
+     - Entropic Strike      -2     -1    S    2    6   Aeon Breach (5+)
+
+     - Reaping Strike          I   A    S    2    2   Reaping Blow (2)

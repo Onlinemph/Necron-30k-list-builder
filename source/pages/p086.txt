@@ -1,0 +1,62 @@
+                                                                                                 Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+               Convergence of Dominion
+                    Unit composition: 1 Starstele                           100 points
+
+                               • May include up to 2 additional Starsteles at +100 points per model.
+
+
+
+      FORTIFICATION
+
+
+                                    armour              hp                   bs
+
+         Starstele                            14                 5                 3
+
+     Wargear                                       Special Rules
+        •  Hull (Front, Rear) Mounted Exile                     •  Living Metal (1)
+        Cannon                                                  •  Convergence of Dominion
+        •  Resurrection Node                                     •  Explodes (5+)
+                                                                       • Deep Strike
+      Traits                                                                       •  Sleeping Sentry
+        •  Xenos                                                                       •  Translocation Protocols
+        •  Necron
+                                                Unit type
+                                                                       •  Fortification (Emplacement)
+
+
+      Options
+        • Any Starstele may have its Resurrection Node
+        exchanged for a Dominion Node for free.
+86
+
+       Convergence of Dominion
+       Although included in an Army as a Unit that includes multiple Models, each Model with this Special
+       Rule is considered to be a separate Unit for all other purposes, including Deployment and the
+        scoring of Victory Points.
+
+
+       Translocation Protocols
+           If a model with this Special Rule is the Target Model for the Battlesmith (X) Special Rule, and the
+        Acting Model has the Necron Trait, the following option may be selected instead of the other
+        options listed in the Battlesmith (X) Special Rule:
+          •  Translocate: Remove the Target Model from the Battlefield, then place it anywhere on the
+            Battlefield that is more than 9" from Enemy Models and more than 1" from other Models and
+            Terrain. The Target Model may be targeted by the Interception Advanced Reaction and counts as
+          having moved for the purpose of making Shooting Attacks in the following Shooting Phase.
+
+
+       Dominion Node
+     A model with a Dominion Node gains the Fear (1) special rule. In addition, Units from the controlling
+         player’s army that includes only models with the Reanimant Trait count their Leadership and Cool
+         characteristics as 12 whilst within 6” of a model with this a Dominion node.
+
+
+
+       Resurrection Node
+       Each time a rule, special rule, or reaction calls for any number of Resurrection Tests to be made for
+        a Unit, 1 additional model that was previously removed as a casualty is returned to the unit for each
+       model equipped with a Resurrection Node that is within 6" of the Unit. This is treated in all ways as
+        a model being returned to the battlefield with a succesful Resurrection Test as part of the same rule
+        or special rule that called for Resurrection Tests to be made for the unit.

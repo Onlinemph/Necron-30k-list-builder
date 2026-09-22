@@ -1,0 +1,55 @@
+Version 1.4.2 august 2026
+
+       Necron Force Organization Icons
+
+Necron Armies use the same Force Organization Chart and Icons as other armies. However, the icons
+used to represent Battlefield Roles in this file are different. Below is the list of icons used to represent
+Battlefield Roles within Necron armies:
+
+
+
+
+                Warlord                                   Lord of War
+    No army may spend more than 25% of its           No army may spend more than 25% of its
+   Points Limit on Units with either the Warlord            Points Limit on Units with either the Warlord
+         or Lord of War Battlefield Role.                       or Lord of War Battlefield Role.
+
+
+
+
+             High Command                                   Transport
+
+
+
+
+
+            Command                               Heavy Assault
+
+
+
+
+
+                 Retinue                               Heavy Transport                                                                                                           7
+
+
+
+
+                      Elites                                  Armour
+
+
+
+
+
+            War Engine                                  Recon
+
+
+
+
+
+                 Troops                                          Fast Attack
+
+
+
+
+
+                 Support                                           Fortification

@@ -1,0 +1,43 @@
+                                                                                                 Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+                 0-1 Pariahs
+                    Unit composition: 4 Pariahs                               135 points
+
+                               • May include up to 6 additionnal Pariahs at +30 points per model.
+
+
+
+       ELITES
+
+
+                         m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+        Pariah                    6    4    4    5    5    2    2    2    12   12   10   6   3+    -
+
+     Wargear                                       Special Rules
+        •  Gauss Blaster                                            •  Anathema
+        •  Warscythe                                               •  Implacable Advance
+                                                                       •  Psychic Abomination
+      Traits
+        •  Xenos                                    Unit type
+        •  Necron                                                   •  Infantry
+
+
+       Anathema
+     A Unit which includes any Models with this Special Rule may never be selected as the target of a
+        Psychic Blessing or Psychic Curse, and Models with this Special Rule ignore all Damage inflicted
+       by Psychic Weapons, Psychic Powers, Psychic Reactions or Perils of the Warp. If such a Model is
+        selected as the Target Model of any attack or wound inflicted by a Psychic Weapon, Psychic Power,
+        Psychic Reaction, or Perils of the Warp then all Damage caused has no effect and no Wound Tests,34
+       Armour Saves or Damage Mitigation Tests are made.
+
+         Additionally, Wound Tests made for Weapons with the Psychic or Immaterial Trait that target any
+        Unit that includes only Models with this Special Rule that have an unmodified result of 1, 2, 3 or 4
+        are never successful, regardless of the Strength Characteristic of a Hit or any Special Rules that set
+        the Target Number for Wound Tests. This Special Rule has no effect on Armour Penetration Tests.
+
+
+        Psychic Abomination
+     A Model with this Special Rule has the Fear (X) Special Rule with a value depending on the affected
+         Unit. The value of its Fear (X) Special Rule is Fear (3) for Enemy Units that include any Models with
+        the Psyker Trait and Fear (1) for all other Enemy Units.

@@ -1,0 +1,68 @@
+Version 1.4.2 august 2026
+
+            Necron Special Rules
+
+Æon Breach (X)                              Rule counts as being a High Command Choice
+                                                        for the purposes of any version of the Slay the
+When making Wound Tests or Armour
+                                               Warlord (X) Secondary Objective
+Penetration Tests for Hits that have the
+Aeon Breach (X) special rule, if the result of        Entropic (X)
+any Dice rolled is equal to or greater than the
+                                   When making Wound Tests or Armour
+value of X attached to the specific variant of this
+                                                   Penetration Tests for Hits that have the Entropic
+Special Rule then Invulnerable Saving Throws
+                                                       (X) special rule, if the result of any Dice rolled is
+may not be made against that Attack.
+                                                  equal to or greater than the value of X attached
+Automated Fortification                      to the specific variant of this Special Rule then
+                                                        that Wound Test or Armour Penetration Test
+A Fortification with this Special Rule may not be
+                                           becomes an Entropic Strike. An Entropic Strike
+Captured and always remains under the Control
+                                                                      is automatically succesful, regardless of the
+of the Player that selected it, even if its Sub-
+                                              Toughness Characteristic or Armour Value used
+Type would normally allow it to be Captured.
+                                                     to determine the Target Number, and causes a
+Command Barge                       Wound or a Penetrating Hit as appropriate.
+If a Reaction is declared for a Unit that includes      Entropic Strikes use the AP characteristic of the
+a majority of models with any variant of the        Weapon used to make the Attack, except against
+Necron Trait, then the Controlling Player of         models with the Automata or Walker Unit Type.
+the Reacting Unit may choose to make an            Against models with the Automata or Walker
+Intelligence Check for any one Friendly Model       Unit Type only, Entropic Strikes are counted as
+with this special rule that is on the Battlefield        having an AP characteristic of 2.
+(referred to as the 'Commanding Model').
+The following modifiers are applied to the         Eternity gate
+Commanding Model's Intelligence Check:            In the controlling player’s Movement Phase
+                                                                                                                    101                                                      as the Active Player, when a Model with the
+•   If the Reacting Unit is not in Line of Sight of
+                                                      Eternity Gate special rule has been selected,
+   the Commanding Model, modify the result of
+                                                  but either before or after it has been moved,
+   the Check by +1.
+                                                   the controlling player can choose one friendly
+•   If all models in the Reacting Unit are more                                                       unit entirely composed of models with the
+   than 12" from the Commanding Model,                                             Reanimant Sub-Type that is on the Battlefield,
+   modify the result of the Check by +2.                                                         in Reserves or Embarked on another Transport
+•   If the Reacting Unit has the Reanimant Sub-                                            and which does not exceed the Eternity
+   Type, modify the result of the Check by -1.                                              Gate Model's remaining Transport Capacity.
+                                         Embark the chosen Unit upon the ModelIf the Check is succesful then the Reaction
+                                                 with the Eternity Gate. Any Enemy Units thatDeclared has its Reaction Point Cost reduced by
+                                         become Unengaged as a result of the Unit being1 (to a minimum of 0). If the Check is failed then
+                                           removed from the Battlefield may immediatelythe Unit that includes the Commanding Model
+                                                  Consolidate as described in the Aftermathgains the Stunned Status.
+                                                  Section of the Combat Resolution Sub-Phase.
+Dynastic Scion                          The Chosen Unit may still be selected as normal
+                                                        for that Movement Phase (meaning for instanceIf a Model with this Special Rule is selected
+                                                        that it can Disembark in the same turn it wasto fill a Command Slot in any Detachment
+                                                      transported, if it had not yet be selected).in the Crusade Force Organisation Chart,
+then the Controlling Player may select one                                                                       If a model with the Eternity Gate special
+Apex Detachment instead of the Auxiliary                                                       rule is Removed from Play, any Units that are
+Detachment usually granted by filling a                                          Embarked upon it do not make an Emergency
+Command Slot. However, no more than one                                                Disembarkation and no rule can inflict Hits to
+Apex Detachment may be added to an army                                                        that Unit. The Unit is instead placed in Reserves.
+using the Dynastic Scion Special Rule. If an
+Apex Detachment is added to an Army using
+this Special Rule, the Model with this Special

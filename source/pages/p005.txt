@@ -1,0 +1,51 @@
+Version 1.4.2 august 2026
+
+         Necron Advanced Reactions
+
+The Controlling Player of any Units that include only models with the Necron Trait can spend Reaction
+Point to perform the following Reactions:
+
+Snap Resurrection                     Ethereal Interception
+Trigger: The Reactive Player may declare a          Trigger: The Reactive Player may declare
+Snap Resurrection reaction during Step 11 of the     an Ethereal Interception Reaction whenever
+Shooting Attack sequence of a Shooting Attack       the Active Player brings a Unit into play from
+made by the Active Player or during Step 10 of       Reserves or Aerial Reserves. The Declaration
+the combat sequence during the Active Player’s         is made as soon as the Unit is placed on the
+turn if no more Initiative Steps remain to resolve       battlefield, before any Moves or Actions are
+as part of that combat.                               declared.
+
+Cost: The Reactive player may spend 1 point         Cost: The Reactive player may spend 1 point
+from their Reaction Allotment to declare a Snap     from their Reaction Allotment to declare an
+Resurrection reaction – the cost is paid as soon      Ethereal Interception reaction – the cost is paid
+as the declaration is made.                           as soon as the declaration is made.
+
+Target: The target unit is one friendly unit           Target: The unit entering play from Reserves
+containing any models with the Reanimant trait      or Aerial Reserves is always the Target of the
+that had models removed as casualties as part        Reaction. After declaring this Reaction, the
+of the Shooting Attack or Combat during which      Reactive Player must select one Unit under
+the Reaction is declared. The Target Unit is the        their control that is both held in reserves
+Reactive Unit for the purpose of this Reaction.       and is comprised entirely of models with the
+                                             Hyperspace Hunter Trait. The selected unit is
+Process:                                                   the Reacting Unit.
+I. Once a Snap Resurrection reaction has been                                                                  5                                                 Process:
+declared, first remove all Casualties from play
+as normal. If there are no models with the                 I. Once an Ethereal Interception Reaction has
+Reanimant Trait remaining in the Unit after all       been declared, first place the Reacting Unit on
+casualties have been removed, the Reaction          the Battlefield from Reserves so that all models
+ends. Otherwise, proceed to step II.                   in the unit are in coherency and 12” or more
+                                             from Enemy Models.
+II. The controlling player makes a number
+of Resurrection (6+) tests for the Reacting                II. After the Reacting Unit has been placed on
+Unit equal to the number of models with the         the battlefield, the Reacting Player may make
+Reanimant trait that have been removed as          a Shooting Attack with the Reactive Unit,
+casualties from the Reacting Unit during the           targeting only the Target Unit. All attacks made
+current Phase.                                       as part of this Shooting Attack must be made as
+                                            Snap Shots and Models with the Vehicle Type
+III. Once any models have been returned to the                                       may only attack using Defensive Weapons.
+Unit, proceed to the Resolution Sub-Phase. Any
+models returned to the unit with a Resurrection
+Test made as part of this Reaction are no longer
+counted as having been removed as casualties
+and are not counted towards Combat Resolution
+or for determining if a Unit must make a Panic
+Test.

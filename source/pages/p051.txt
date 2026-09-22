@@ -1,0 +1,31 @@
+Version 1.4.2 august 2026
+
+           Canoptek Doom-Stalker
+               Unit composition: 1 Doom-Stalker                       150 points
+
+
+
+
+WAR ENGINE
+
+
+                    m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+ Doom-Stalker             8    3    3   6   6   6    2    3   8    12   4    5   3+   5+
+
+Wargear                                       Special Rules
+• Doomsday Blaster                                      •  Bulky (7)
+•  Twin Gauss Flayer                                      •  Explodes (2+)
+•  Containment Field                                      • Move Through Cover
+                                                               •  Sentinel Protocols
+Traits
+•  Xenos                                    Unit type
+•  Necron                                                   •  Automata (Heavy)
+•  Canoptek
+
+
+Options
+•  This model may have its Doomsday Blaster
+   exchanged for a Heavy Death Ray for free.
+
+                                                                                                                           51

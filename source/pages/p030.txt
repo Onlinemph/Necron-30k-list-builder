@@ -1,0 +1,37 @@
+                                                                                                 Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+              Vargard
+                    Unit composition: 1 Vargard                           60 points
+
+                               • May include up to 4 additional Vargard at +50 points per model.
+
+
+
+      RETINUE
+
+
+                         m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+        Vargard                   6    5    4    5    5    2    2    3   10   10    7    7   2+    -
+
+     Wargear                                       Special Rules
+        •  Hyperphase Sword                                     •  Reanimation Protocols (4+)
+        •  Particle Caster                                          • The Vargard’s Duty
+
+      Traits                                     Unit type
+        •  Xenos                                                    •  Infantry (Champion)
+        •  Necron
+        •  Reanimant
+
+
+      Options
+        • Any model in the unit may have its                    • Any model in the unit may have both its
+        Hyperphase Sword exchanged for a               Hyperphase Sword and Particle Caster
+         Voidblade for free.                              exchanged for one of the following:
+        • Any model in the unit may have its Particle               -- Rod of Covenant.......................................free
+30         Caster exchaged for a Dispersion Shield for              --  Warscythe...................................................free
+           free.
+
+     The Vargard's Duty
+      A Model with this Special Rule gains the Ever-Living (6+) Special Rule so long as its Unit has been
+        joined by a Model with the Reanimant Trait and Command Sub-Type.

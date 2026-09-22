@@ -1,0 +1,59 @@
+                                                                                                 Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+                       Crypto-Arkana – Geomancy
+
+      Below are listed the Special Rule, Wargear Items and Weapons accessible to models with the
+     Geomancy Trait.
+
+
+       Harbinger of Transmogrification
+      A model with the Geomancy Trait gains the Phasing Trait.
+
+      When a friendly Unit is selected during the Controlling Player's Movement Phase as the Active
+         Player, but before or after that Unit has been Moved, the Controlling Player may Select one model
+         in that Unit or within 6" of that Unit that has the Geomancy Trait. The Controlling Player makes
+       an Intelligence Check for the selected model. If the Check is succesful that Unit gains +3 to its
+      Movement Characteristic, the Phase Motion special rule and the Phasing Trait until the start of the
+        Active Player's next Turn. If the Check is failed then the unit that includes the model that just failed
+        the Test gains the Stunned Status. Each model may only be selected to make an Intelligence Check
+         for this Special Rule once per turn.
+
+
+       Geometric Adjuster                            Seismic Crucible
+      A unit that includes any models with a             In the Effects Sub-Phase of the Start Phase
+       Geometric Adjusted is always considered to        of the Controlling Player's Turn as the Active
+       be 3" further away than it actually is when          Player, that Player can select a zone of Area
+        measuring range to and from it from any enemy    Terrain within 24” of the model with the
+       Model for the purpose of resolving a Shooting     Seismic Crucible. Until the start of the Active
+         Attack, Charge, or any Reaction declared by any   Player's next Turn, that Area Terrain does not
+      enemy Model or Unit.                           provide a Cover Save and is counted as both
+                                                                   Difficult Terrain and Dangerous Terrain.
+22     Material Ablator
+      The Majority Toughness of a unit that includes
+         at least one model with a Material Ablator is
+       counted as being 1 greater than it is for the
+       purpose of any To Wound tests made against the
+          unit.
+
+
+      Harp of Dissonance
+
+        Melee            IM  AM  SM  AP  D   Special Rules            Traits
+
+        Harp of Dissonance        I   A    +2    3   D3   Entropic (3+)             Arkana, Power
+
+        Ranged           R   FP  RS  AP  D
+
+                                                              Entropic (3+),        Harp of Dissonance    ∞      1    6      -   D3                         Arkana                                                                 Precision (3+)
+
+
+
+       Tremorglaive
+
+        Melee            IM  AM  SM  AP  D   Special Rules            Traits
+
+         Tremorglaive             -1   A    +3    3    2  –                       Arkana, Power
+
+        Ranged           R   FP  RS  AP  D
+
+                                                              Pinning (1),         Tremorglaive          36    6    4      -      1                          Arkana                                                      Shock (Pinning)

@@ -1,0 +1,56 @@
+Version 1.4.2 august 2026
+
+           C'Tan Shard of the Endless Swarm
+               Unit composition: 1 Shard of the Endless Swarm         400 points
+
+
+
+
+   LORD
+  OF WAR
+
+                    m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+ Shard of the Endless Swarm   10    *    5    *    8   6    7    *    12   12   10   8   3+   4+
+
+Wargear                                       Special Rules
+• Swarm of Iash'uddra                                    •  Canoptek Hegemon
+                                                               • Deep Strike
+Traits                                                               •  Explodes (2+)
+•  Xenos                                                               •  Fear (1)
+•  Necron                                                               •  Gestalt Entity
+•  Star-God                                                               •  Heedless
+                                                               •  Necrodermis
+                                                               •  Tides of Hate
+
+                                           Unit type
+                                                               •  C'Tan
+
+
+  Gestalt Entity                                                                                        83
+  This Model's Weapon Skill, Strength and Attacks Characteristic are each equal to either 4 or its
+  Current Wounds Characteristic, whichever is higher.
+
+
+ Canoptek Hegemon
+  Units from the same Army within 12" of a Model with this Special Rule that include Automata
+ Models can make Reactions, even though they include Automata models, so long as all Automata
+  models in the Unit have the Canoptek Trait.
+
+
+  Tides of Hate
+ Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's
+  Controlling Player may choose to have this model use the following unique Power of the C'Tan:
+
+  Tides of Hate: When using the Tides of Hate Power of the C'Tan, this model’s controlling player
+  selects an enemy unit within 12” of this Model. Remove all Condition Tokens from the selected
+  Unit, if any. This Model’s controlling player may make a Shooting Attacks this Shooting Phase using
+  that unit, as if that Unit was part of that Player's Army. The Unit is counted as being disengaged for
+  the purpose of making that Shooting Attack.
+
+
+ Swarm of Iash'uddra
+
+  Weapon            IM  AM  SM  AP  D   Special Rules            Traits
+
+  Swarm of Iash'uddra           I    +2    +2    2    2   Melee, Entropic (3+)       Flensing

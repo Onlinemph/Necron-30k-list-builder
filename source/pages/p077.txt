@@ -1,0 +1,30 @@
+Version 1.4.2 august 2026
+
+           Gauss Pylon
+               Unit composition: 1 Gauss Pylon                       350 points
+
+
+
+
+   LORD
+  OF WAR
+                                                 Armour                    transport
+                                                                                           capacity
+                      m         bs      front      side      rear     hp
+
+ Gauss Pylon             –        4         14        14        14      20      –
+
+Wargear                                       Special Rules
+•  Turret Mounted                                         •  Living Metal (D3)
+   Gauss Annihilator                                       • Deep Strike
+•  Phase Shift Generator                                  • Gun Emplacement
+                                                               •  Interception Protocols
+Traits
+•  Xenos                                    Unit type
+•  Necron                                                   •  Vehicle (Super-Heavy)
+•  Beacon
+•  Phase Shift
+
+
+
+                                                                                                          77

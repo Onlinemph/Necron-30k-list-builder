@@ -1,0 +1,30 @@
+                                                                                                 Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+               Canoptek Tomb Sentinel
+                    Unit composition: 1 Canoptek Tomb Sentinel             100 points
+
+
+
+
+      RECON
+
+
+                         m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+      Tomb Sentinel              10   4    4   6    7    5    2    4   8    12   4    5   3+   5
+
+     Wargear                                       Special Rules
+        •  Exile Cannon                                            •  Bulky (5)
+        •  Phase-Tunnel Cutters                                  • Deep Strike
+        • Gloom Prism                                            •  Explodes (6+)
+        •  Sense Cluster                                            •  Fast (2)
+                                                                       •  Firestorm
+      Traits                                                                       •  Impact (A)
+        •  Xenos                                                                       •  Implacable Advance
+        •  Necron                                                                       •  Outflank
+        •  Canoptek                                                                       •  Phase Motion
+                                                                       •  Vanguard (1)
+
+                                                Unit type
+                                                                       •  Automata
+62

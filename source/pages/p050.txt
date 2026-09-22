@@ -1,0 +1,32 @@
+                                                                                                 Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+               Triarch Stalker
+                    Unit composition: 1 Triarch Stalker                        110 points
+
+
+
+
+    WAR ENGINE
+
+
+                         m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+        Triarch Stalker              10   4    4    7    6    7    2    4    12   12   6   6   3+   5+
+
+     Wargear                                       Special Rules
+        •  Stalker Heavy Claws                                    •  Living Metal (1)
+        •  Heat Ray                                                 •  Explodes (5+)
+        •  Targeting Relay                                         •  Bulky (8)
+                                                                       • Move Through Cover
+      Traits
+        •  Xenos                                    Unit type
+        •  Necron                                                   •  Walker
+        •  Reanimant
+        •  Triarch
+
+
+      Options
+        •  This model may have its Heat Ray exchanged       • May have any of the following selected for it:
+          for one of the following:                                      --  Nebuloscope................................... +15 points
+50             -- Projected Particle Shredder....................free           -- Oracular Targeter.............................+5 points
+             -- Twin Heavy Gauss Cannon.....................free

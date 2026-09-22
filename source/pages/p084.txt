@@ -1,0 +1,37 @@
+                                                                                                 Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+                Tesseract Vault
+                    Unit composition: 1 Tesseract Vault                    500 points
+
+
+
+
+       LORD
+      OF WAR
+                                                      Armour                    transport
+                                                                                                  capacity
+                           m         bs      front      side      rear     hp
+
+        Tesseract Vault               8        4         14        14        14       12      –
+
+     Wargear                                       Special Rules
+        •  Hull (Front, Right) Mounted                           •  Living Metal (2)
+          Tesla sphere                                             •  Coalescent Powers
+        •  Hull (Front, Left) Mounted                             • Deep Strike
+          Tesla sphere                                             •  Explodes (2+)
+        •  Hull (Rear, Right) Mounted
+          Tesla sphere                               Unit type
+        •  Hull (Rear, Left) Mounted                              •  Vehicle (Antigrav, Super-Heavy)
+          Tesla sphere
+        •  Containment Field
+
+      Traits
+        •  Xenos
+84      •  Necron
+        •  Star-God
+
+
+      Coalescent Powers
+    A model with this Special Rule is counted as having the C'Tan Unit Type for the purpose of using and
+      making Attacks with Powers of the C'Tan. Any Attacks made by a model with this Special Rule with a
+     Power of the C'Tan receive a +2 bonus to the Ranged Strength of the Attack.

@@ -1,0 +1,37 @@
+                                                                                                 Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+               Transcendant C'Tan Shard
+                    Unit composition: 1 C'Tan Shard                      300 points
+
+
+
+
+       LORD
+      OF WAR
+
+                         m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+       C'Tan Shard                10   5    5   8   8   6    4    4    12   12   10   10  –   4+
+
+     Wargear                                       Special Rules
+        •  Unmaking Touch                                        •  Explodes (2+)
+                                                                       •  Fear (1)
+      Traits                                                                       •  Heedless
+        •  Xenos                                                                       •  Necrodermis
+        •  Necron                                                                       • The World Recoils and Roils
+        •  Star-God
+                                                Unit type
+                                                                       •  C'Tan
+
+
+      The World Recoils and Roils
+      Enemy Models treat all Terrain within 12" of a model with this Special Rule as Dangerous Terrain.
+
+78
+
+
+       Unmaking Touch
+
+       Weapon          IM  AM  SM  AP  D   Special Rules            Traits
+
+       Unmake                       I   A    S    2     3  –                –

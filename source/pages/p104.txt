@@ -1,0 +1,60 @@
+                                                                                                  Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+         Initiative Step has not yet begun to be resolved.      Automata sub-Type (any other restrictions to
+          If the Initiative Step in which a Model would        making Reactions still apply).
+      be placed has already been resolved, it cannot
+                                               Sleeping Sentry       Fight in the current phase.
+                                        When deploying a Model with this Special Rule
+     Resurrection (X)                                                         before the start of the battle, the Controlling
+       Certain special rules, reactions and pieces            player may choose to deploy the Model
+       of wargear allow a player to make a number         anywhere on the Battlefield that is at least 12"
+       of “Resurrection” Tests for a unit. To make a         from any point within the Opposing Player's
+       Resurrection Test, the controlling player rolls a      Deployment Zone. A Model deployed this way is
+      D6. If the result of the Dice is equal to or greater     Dormant until the end of the Opposing Player's
+       than the value X indicated in brackets as part            first Turn. The following rules apply to the
+       of the specific variant of the Resurrection (X)       model while it is Dormant:
+        special rule, one previously destroyed model is         • The Model is not counted as an Enemy
+       returned to the unit with 1 Wound remaining.          Model, but instead as Impassible Terrain,
+      The model must be placed in coherency with its         for the purpose of deploying Units using
+        unit and more than 1” from enemy models.            any Special Rules that allow models to be
+                                                        deployed a certain distance away from
+      Only models with the Reanimant trait may be
+                                              Enemy Models. Enemy Units may still not be
+       returned to units with a succesful Resurrection
+                                                      Deployed within 1" of the Model.
+        Test. Models with the Command sub-type
+                                                                       • The Model may not Move nor make a     may never be returned to the battlefield with
+                                                          Shooting Attack.       a Resurrection Test, even if they also have the
+                                                                       • The Model Has a 3+ Invulnerable Save.      Reanimant trait.
+                                             Systematic Vigour      Models that are returned to the battlefield with
+       a succesful Resurrection Test are no longer         While a Model with the [Crypto-Arkana]
+      counted as having been removed as casualties.       Sub‑Type has joined a unit, all models with
+      Models returned to a Unit during a Fight             the Systematic Vigour Special Rule in that Unit104
+      Sub-Phase are returned to the Initiative Step         receive a +1 bonus to their Weapon Skill and
+       corresponding to their Combat Initiative, so          Attacks characteristic.
+       long as that Initiative Step has not yet begun to
+                                            Tesla (X)      be resolved (this is an exception to the rule that
+        states that models removed as casualties before     When making Hit Tests for Attacks that have
+        their Initiative Step is resolved cannot attack).        the Tesla (X) special rule, if the result of any
+                                                     Dice rolled, before any modifiers are applied, is
+     Scourge (X)                                                         equal to or greater than the value of X attached
+     When making a Wound Test for an attack with        to the specific variant of this special rule, then
+       the Scourge (X) Special Rule, the Characteristic       that attack causes 2 additional Hits in addition
+       indicated in brackets is used instead of the            to the initial Hit, for a total of 3 Hits. Separate
+        Target's Toughness Characteristic. If the          Wound Tests are made for each Hit caused this
+       Attack Target has "-" listed instead of that            way. Additional Hits use the AP and Damage
+        Characteristic, the Wound Test automatically          characteristics of the Weapon used to make the
+          fails.                                                 attack and retain any special rule that weapon
+                                                          had, but are not treated as a ‘6’ for the purpose
+     When making an Armour Penetration Test for                                                             of any Rules that would be triggered on a certain
+      an attack with the Scourge (X) Special Rule,                                                                   result of a Hit Test – only the initial Hit does.
+       the Armour Value of the Target is used as                                                                                 If an Attack with the Tesla (X) Special Rule is
+       normal, but any Penetrating Hits scored become                                             made as Snap Shot, the Tesla (X) Special Rule
+       Glancing Hits instead.                                                        only triggers on a To Hit roll of '6', regardless of
+      Sentinel Protocols                            the value of X associated with the variant of this
+                                                            Special Rule.
+          If all Automata Models in a unit have this
+        special rule, that unit can be selected to make     The Will of the Phaeron
+       the Return Fire reaction and Overwatch                                                   While a Model with this special rule has joined a
+      Core Reaction and the Interceptor Advanced                                                                Unit, all Models with the Reanimant Trait in that
+       Reaction, ignoring the restrictions of the                                                          Unit gain the Implacable Advance Special Rule.

@@ -1,0 +1,31 @@
+Version 1.4.2 august 2026
+
+Tesseract Drive
+
+
+ Weapon           R   FP  RS  AP  D   Special Rules               Traits
+
+ Tesseract Drive
+
+                                                              Blast (3), Ordnance (D),    - Solar Fire          48    2     7    2    2                            Flame                                                   Overload (2), Suppressive (2)
+
+                                                     Breaching (6+), Pinning (2),    - Particle Hurricane  T      1    8    3    2                                    Particle                                                     Overloard (3), Template
+
+                                                Ordnance (FP), Overload  (1),    - Seismic Lash       24    5    5    4    2                           Quake                                                       Suppressive (3)
+
+
+Miscelleanous Ranged Weapons
+
+
+ Weapon           R   FP  RS  AP  D   Special Rules               Traits
+
+ Gauntlet of Fire      T      1    4    5      1    Panic (1), Template            Assault, Flame
+
+ Rod of Covenant                          12     1     5    2      1  –                              Assault, Las (Ranged)
+
+  Staff of Light (Ranged)   12    3    5    3      1  –                              Assault, Las
+
+                                                                 Critical Hit (3+), Heavy (D), Tachyon Arbalest       120     1    10    2    4                             Arkana                                                      Limited (1), Precision (4+)
+
+
+                                                                                                            109

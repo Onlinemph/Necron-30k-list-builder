@@ -1,0 +1,32 @@
+Version 1.4.2 august 2026
+
+           Canoptek Wraiths
+               Unit composition: 1 Canoptek Wraith                     45 points
+
+                       • May include up to 8 additional Canoptek Wraiths at +40 points per model.
+
+
+
+  RECON
+
+
+                    m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+ Canoptek Wraith            10   4    4   6    5    3    2    4   8    12   4    5   4+   4+
+
+Wargear                                       Special Rules
+•  Wraith Scythes                                          • Deep Strike
+•  Phase Shifter                                            •  Fast (2)
+                                                               •  Infiltrate (9)
+Traits                                                               •  Phase Motion
+•  Xenos                                                               •  Vanguard (1)
+•  Necron
+•  Canoptek                                 Unit type
+•  Phase Shift                                              •  Automata (Skirmish)
+
+
+Options
+• Any Canoptek Wraith in the unit may have          • Any Canoptek Wraith in the unit may have
+  one of the following selected for it:              Whip Coils selected for it at +5 points each.
+    -- Particle Caster........................ +5 points each
+                                                                                                                  61    -- Exile Beamer..........................+15 points each

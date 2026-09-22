@@ -1,0 +1,33 @@
+                                                                                                 Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+              Night Shroud
+                    Unit composition: 1 Night Shroud                     200 points
+
+
+
+
+    FAST ATTACK
+
+                                                      Armour                    transport
+                                                                                                  capacity
+                           m         bs      front      side      rear     hp
+
+        Night Shroud               20       4         12         12         12       6          -
+
+     Wargear                                       Special Rules
+        •  Centreline Mounted Twin Tesla                       •  Living Metal (1)
+         Destructor
+                                                          type        •  Rear Mounted Death Sphere                  Unit
+         Payload                                                  •  Vehicle (Flyer)
+        •  Shadowloom
+        •  Oracular Targeter
+
+      Traits
+        •  Xenos
+        •  Necron
+
+
+      Options68
+        •  This model may have its Twin Tesla                  •  This model may have a Nebuloscope selected
+         Destructor exchanged for a Twin Gauss                for it for +15 points
+         Destructor for +30 points

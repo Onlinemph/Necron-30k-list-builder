@@ -1,0 +1,32 @@
+Version 1.4.2 august 2026
+
+           Destroyer Lord in Lokhust Frame
+               Unit composition: 1 Lokhust Lord                        120 points
+
+
+
+
+ COMMAND
+
+
+                    m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+ Lokhust Lord              6    5    4    5   6    4    3    3   10   10   8   6   2+  –
+
+Wargear                                       Special Rules
+•  Voidblade                                                •  Bulky (3)
+                                                               •  Eternal Warrior (1)
+Traits                                                               •  Ever-Living (5+)
+•  Xenos                                                               •  Firestorm
+•  Necron                                                               •  Hardwired for Destruction
+•  Reanimant                                                               •  Implacable Advance
+•  Destroyer
+                                           Unit type
+                                                               •  Cavalry
+                                                            (Antigrav, Command, Heavy)
+Options
+•  This model may have its Voidblade                   •  This model may have any of the following
+   exchanged for one item from the Nobility             selected for it:
+  Melee Weapons List.                                          -- Phase Shifter.................................. +20 points      15
+•  This model may have one item from the                  --  Phylactery....................................... +30 points
+  Necron Nobility Wargear List selected for it.             -- Translocation Shroud................... +60 points

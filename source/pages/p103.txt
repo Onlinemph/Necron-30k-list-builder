@@ -1,0 +1,59 @@
+Version 1.4.2 august 2026
+
+Opposing Player's next Turn, the Target Unit         cannot be used to make a Shooting Attack when
+gains that Special Rule, with a value of X equal       making a Shooting Attack as part of Volley Fire
+to the value listed as part of the specific variant       (even if the attacking Model has the Implacable
+of the My Will Be Done (X) Special Rule. As         Advance Special Rule), or in any situation in
+long as the Target Unit has gained the Line (X)       which the model would fire Snap Shots.
+or Vanguard (X) Special Rule using the My Will
+                                       Reanimation Beam (X)Be Done Special Rule, all other Special Rules
+that Unit has that affects how Victory Points are       In the Controlling Player's Movement Phase
+scored are ignored and have no effect (including      as the Active Player, when a model with the
+all other variants of the Line (X) or Vanguard (X)      Reanimation Beam (X) Special Rule has been
+Special Rule, the Support Unit (X) Special Rule,       selected, but before or after it has been moved,
+the Heedless Special Rule, and any other similar      the Controlling Player can Activate this Special
+Special Rule).                                       Rule. Once Activated, the controlling player
+                                                     of the Model with the Reanimation Beam (X)
+Necrodermis                                                       special rule (referred to as the 'Acting Model')
+When a model with the Necrodermis Special          selects one friendly Unit with the Reanimant
+Rule is allocated an unsaved Wound, the               Trait within 18" of the Acting Model. Once a
+Damage Characteristic of the Unsaved Wound is      Target Unit has been selected, the Controlling
+halved, rounded up.                                 Player makes a number of Resurrection (4+)
+                                                     Tests for the Target Unit equal to the value
+When a unit comprised entirely of models with                                                         in brackets associated with the variant of the
+the Necrodermis Special Rule would gain a                                               Reanimation Beam (X) Special Rule of the
+Tactical Status, the controlling player can roll a                                                   Acting Model.
+D6 with a target number of '4+'. If succesful, the
+Unit does not gain the Tactical Status.                      If a model with the Reanimation Beam (X)
+                                                     Special Rule also has the Battlesmith (X) Special
+Adamantium Will (X)                                                     Rule, the model's Battlesmith (X) Special Rule
+A Model with the Adamantium Will (X) Special     may not be Activated in the same Phase as its
+Rule gains an Adamantium Will Damage            Reanimation Beam (X) Special Rule and may        103
+Mitigation Test that may be used to discard            target units within 12" of the Acting Model
+Wounds allocated to the Model, with a Target         instead of 6".
+Number equal to the value of X listed in
+                                         Retaliatethe specific variant of this Special Rule. An
+Adamantium Will Damage Mitigation Test may       Shooting Attacks made with a Weapon that has
+only be taken against Damage caused by Psychic       this Special Rule are always resolved as Snap
+Weapons, Psychic Powers, Psychic Reactions,        Shots, unless the Attack was made as part of a
+Perils of the Warp, and Weapons with the            Reaction.
+Psychic or Immaterial Trait.
+                                       Reanimation Protocols (X)
+Phase Motion                                                      After removing Casualties from a Unit that
+A unit that contains only models with this            includes Models with this Special Rule during
+special rulesuffers no penalty for moving            Step 11 of the Shooting Attack Sequence or
+or charging through Difficult Terrain, and            Step 10 of the Fight Sub-Phase, if any models
+automatically passes any Dangerous Terrain          with the Reanimation Protocols (X) Special
+tests.                                           Rule remain in the Unit, the Controlling Player
+                                           makes a number of Resurrection (X) Tests this
+In addition, a unit that includes only models                                                   Unit equal to the number of models with the
+with this special rule may ignore the effects                                               Reanimation Protocols (X) that have just been
+of any and all terrain it passes over during                                           removed as casualties from the Unit. The value
+movement, including passing through vertical                                                         in brackets of the Resurrection Test is equal to
+terrain and Impassable Terrain without penalty                                                   the value in brackets associated with the Unit's
+or restriction. However, such units may not                                                         specific variant of the Reanimation Protocols (X)
+begin or end their movement in Impassable                                                     Special Rule. Models returned to a Unit during a
+Terrain.                                                     Fight Sub-Phase are returned the Initiative Step
+Ponderous                                     corresponding to their Combat Initiative and
+                                              can Fight in the current phase, so long as that
+A weapon that has the Ponderous special rule

@@ -1,0 +1,49 @@
+Version 1.4.2 august 2026
+
+        Necrontyr Crypto-Arkana Rules
+
+All Crypteks in the Necron Army List will have a Crypto-Arkana represented by a Trait on its Unit
+Entry. For Models which are not specific to a Crypto-Arkana, this will be represented by '[Crypto-
+Arkana]'. When such a Unit is added to an Army, one of the following Crypto-Arkanas must be selected
+to replace this with.
+
+•  Chronomancy
+•  Ethermancy
+• Geomancy
+•  Plasmancy
+•  Psychomany
+•  Technomancy
+
+Models which are specific to a certain Crypto-Arkana will already have the appropriate Trait.
+
+Each Crypto-Arkana Trait grants the Model that has it one additional Harbinger Special Rule, as well
+as one Crypto-Arkana Weapons List and one Techno-Arkana List corresponding to that Crypto-
+Arkana.
+Crypto-Arkana Weapons Lists
+Chronomancy Weapons List                   Plasmancy Weapons List
+•   Aeonstave.............................................+10 points     •  Plasmic Lance......................................+10 points
+•  Entropic Lance.................................... +15 points     •  Eldritch Lance.................................... +20 points
+
+Ethermancy Weapons List                    Psychomancy Weapons List
+•  Tempest Lance....................................+10 points     •  Abyssal Staff.........................................+10 points
+•  Voltaic Staff.......................................... +15 points     • Doom Lance......................................... +15 points
+                                                                                                                    19
+Geomancy Weapons List                     Technomancy Weapons List
+•  Harp of Dissonance............................+10 points     •  Solar Staff.............................................+10 points
+•   Tremorglaive....................................... +20 points     •  Meteor Staff......................................... +15 points
+
+Techno-Arkana Lists
+Chronomancy Techno-Arkana List             Plasmancy Techno-Arkana List
+•   Chronometron..................................... +15 points     •  Gaze of Flame......................................+10 points
+•  Temporal Nanomines.........................+10 points     • Quantum Orb...................................... +20 points
+•  Timesplinter Mantle.......................... +30 points     •  Solar Pulse............................................+10 points
+
+Ethermancy Techno-Arkana List              Psychomancy Techno-Arkana List
+•  Lightning Field..................................... +15 points     •   Atavindicator....................................... +20 points
+•  Ether Crystal........................................ +15 points     •  Nightmare Shroud............................... +15 points
+•  Storm Nodule...................................... +20 points     •  Veil of Darkness...................................+25 points
+
+Geomancy Techno-Arkana List               Technomancy Techno-Arkana List
+•  Geometric Adjuster............................. +15 points     •  Canoptek Cloak................................... +15 points
+•  Material Ablator.................................. +20 points     •  Canoptek Control Node......................+5 points
+•  Seismic Crucible..................................+10 points     •  Mindshackle Scarab........................... +20 points

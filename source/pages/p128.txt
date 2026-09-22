@@ -1,0 +1,32 @@
+                                                                                                  Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+
+       Special Rules
+        Flense Alive
+       While a Model with this Special Rule is engaged in a Challenge, its Controlling Player can select the
+         following Gambit for that Model:
+
+       Flense Alive: If this Gambit is selected, any Hits caused by the Model for which it was selected
+        during the Strike Step have their Damage Characteristic set to '1' and cannot have their Damage
+         Characteristic modified by any Special Rule. During the Glory Step, if the Enemy Model has
+         suffered any Unsaved Wounds and has not been removed as a casualty, its Toughness Characteristic
+           is modified by -1 (to a minimum of 1) until the end of the battle and the Model for which this
+        Challenge was selected automatically gains Challenge Advantage.
+
+        Systematic Extermination
+        At the start of battle, Xun'Bakyr's controlling player may select one Enemy Unit on the Battlefield.
+       That Unit is the 'Extermination Target' for the purpose of this Special Rule. Each time a Model with
+        the Reanimant Trait makes a Melee or Ranged Attack targeting the Extermination Target, add 1 to
+        the Strength or Ranged Strength of the Attack, even if Xun'Bakyr has been removed as a casualty.
+
+            If the Extermination Target is entirely removed as a casualty, and Xun'Bakyr has not been
+       removed as a casualty, the Controlling Player may immediately select a new Enemy Unit to be the
+        Extermination Target.
+
+      The Phaerakh's Horde
+            If Xun'Bakyr is part of an Army, the Dark Harvest Aeonic Sequela must be selected for that Army.
+
+       While Xun'Bakyr remains on the Battlefield, all Units with the Reanimant Trait and Troops
+          Battlefield Role in the same Army gain the Implacable Advance and Firestorm Special Rule.
+
+128

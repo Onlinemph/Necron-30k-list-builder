@@ -1,0 +1,53 @@
+Version 1.4.2 august 2026
+
+         Dark Harvest                 Cult of Annhihlation
+An Army with this Aeonic Sequela gains the      When building an Army using the Necrons Army
+following benefits:                                         List, one Command Model with the Destroyer
+                                                       Trait may be selected as a High Command choice
+•  All models in Units that include models with                                                       instead. That model gains the Nemesor Trait.
+   the Nemesor Trait in this Army count their                                                                             if a player does so, at least one Aeonic Sequela
+   Initiative as 2 higher than it is when resolving                                                   selected for that army must be the Cult of
+   the Consolidate or Pursue Aftermath Options.                                                   Annihilation Aeonic Sequela.
+•  All Necron Warriors Units in this Army may
+   include up to 10 additional Necron Warriors at   An Army with this Aeonic Sequela gains the
+   +10 points per model.                            following benefits:
+•  Every model in Units with the Reanimant                                                             •  All Units with the Destroyer Trait and
+    trait in this Army may have Flensing Scarabs                                                Vanguard (X) Special Rule in this Army have
+   selected for them at +1 point per model.                                                    the value of their Vanguard (X) Special Rule
+Flensing Scarabs                                  modified by +1.
+                                                             • Any Unit with the Destroyer Trait (other thanAttacks made with a Basic Close Combat Weapon
+                                     Command or High Command Units) in thisor a Disruption Bayonet by a Model with Flensing
+                                        Army may be upgraded to have a Plasmacyte atScarabs gain the Shred (6+) Special Rule.
+                                                   +10 points per Unit.
+                    Infinite Phalanx       Plasmacyte
+               [Apex Detachment]           If a Unit is upgraded to have a Plasmacyte, place
+                                                a Plasmacyte Token next to that Unit. This token
+  If an Army has the Dark Harvest Aeonic                                                                    is ignored for all game purposes and is only used
+ Sequela, then the following Apex                                                    as a reminder. During Step 3 of the Shooting
+ Detachment may be selected:                                                 Attack Sequence for a Shooting Attack made
+                                            by the Unit or Step 2 of the Fight Sub-Phase of
+                                                a Combat involving this Unit, the Controlling          95
+                                                   Player may remove this Unit's Plasmacyte Token.
+                                                                     If that player does so, then until that Shooting
+                                                 Attack Sequence or that Combat is resolved the
+                                            Hardwired for Destruction Special Rule improves
+                                                 the Critical Hits (X) Special Rule of models in this
+                                                  Unit by a further +1.
+  •  Troops slots in this Detachment may
+    only be used to select Necron Warriors                        Destroyer Cult
+     Units.                                              [Apex Detachment]
+  •  Recon slots in this Detachment may
+    only be used to select Canoptek Scarab              If an Army has the Cult of Annihilation
+     Units.                                     Aeonic Sequela, then the following Apex
+                                            Detachment may be selected:
+
+
+
+
+
+                                                               •  Only Units with the Destroyer Trait
+                                         may be selected to fill Slots in this
+                                                 Detachment.
+                                                               •  Flexible Slot: The Prime Slot in this
+                                              Detachment may be of any Type except
+                                      Command or High Command.

@@ -1,0 +1,49 @@
+                                                                                                  Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+     Heat Rays
+
+
+      Weapon           R   FP  RS  AP  D   Special Rules               Traits
+
+        Heat Beamer
+
+            - Dispersed Beam    T      1    4    5      1    Panic (1), Template            Assault, Flame
+
+            - Cutting Beam        12     1     7    2    2   Melta (6)                   Melta
+
+        Heat Ray
+
+            - Dispersed Beam    T      1     5    4      1    Panic (2), Template         Flame
+
+            - Focussed Beam     24     1    9    2    4   Heavy (RS), Melta (8)         Melta
+
+        Heat Cannon
+
+            - Scouring Ray      T      1     7    4    2   Panic (2), Template         Flame
+
+            - Focussed                             36     1    10    2    4    Barrage, Blast (3), Melta (12)   Melta          Bombardment
+
+
+      Particle Weapons
+
+
+      Weapon           R   FP  RS  AP  D   Special Rules               Traits
+
+         Particle Caster          12    2    6    5      1   Breaching (6+), Pistol          Assault, Particle
+
+         Particle Beamer        24     1    6    4      1    Blast (3), Breaching (6+)        Particle
+108     Twin Particle Beamer   24     1    6    4    2    Blast (3), Breaching (5+)         Particle
+
+        Projected Particle                                        Blast (5), Breaching (6+),                            24     1     7    4    2                                    Particle        Shredder                                     Heavy (AP)
+
+                                                      Armourbane, Blast (5),         Particle Whip          36     1    9    3    2                                    Particle                                                           Breaching (5+), Ordnance (D)
+
+
+      Synaptic Disruption Weapons
+
+
+      Weapon           R   FP  RS  AP  D   Special Rules               Traits
+
+                                                   Heavy (FP), Poisoned (2+),        Synaptic Disintegrator   48     1     5    4      1                           Neuro                                                            Pinning (0), Precision (4+),
+
+                                                      Ordnance (FP), Poisoned (2+),        Synaptic Obliterator     72    2    10    2    2                           Neuro                                                              Pinning (3), Precision (4+)

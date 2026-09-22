@@ -1,0 +1,63 @@
+                                                                                                 Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+                      Crypto-Arkana – Psychomancy
+
+      Below are listed the Special Rule, Wargear Items and Weapons accessible to models with the
+      Psychomancy Trait.
+
+
+       Harbinger of Despair
+     A model with the Psychomancy Trait gains the Fear (1) Special Rule.
+
+      When a Unit without the Vehicle Type controlled by the Opposing Player gains the Pinned,
+        Stunned, or Suppressed Status, the Controlling Player of a Model with the Psychomancy Trait
+        within 12" of that Unit may select that model. The Controlling Player makes an Intelligence Check
+         for the selected model. If the Check is succesful, the Controlling Player of the Model with the
+       Psychomancy Trait may choose to have the Unit controlled by the Opposing Player gain one
+         additional Status from among Pinned, Stunned, and Suppressed. If the Check is failed then the unit
+         that includes the model that just failed the Test gains the Stunned Status. Each model may only be
+        selected to make an Intelligence Check for this Special Rule once per turn.
+
+
+       Atavindicator                             Nightmare Shroud
+      Once per turn, when a Leadership, Cool,        The Range of the Fear Special Rule of a model
+       Willpower or Intelligence Check is taken         with a Nightmare Shroud is 24", rather than 12".
+       by a Unit controlled by the Opposing Player
+                                                      Veil of Darkness        within 12" of a model with an Atavindicator,
+                                       When a Unit that includes any models with        the Controlling Player can Select that Unit
+                                                      a Veil of Darkness is selected during the       and Activate that model's Atavindicator. The
+                                                          Controlling Player's Movement Phase as the        Atavindicator remains activated until the
+                                                         Active Player, that Player can Activate the Veil of       model is removed from the battlefield, or
+24                                                  Darkness instead of Moving that Unit. Once the        the Controlling Player of the model with the
+                                                                Veil of Darkness is Activated, remove all models        Atavindicator may choose to deactivate it at
+                                                              in the Unit from the Battlefield, then place them        the end of any Turn. While the Atavindicator
+                                              on the Battlefield anywhere as if they were        remains Activated, the Leadership, Cool,
+                                                    deployed using the Infiltrate (9) Special Rule.       Willpower and Intelligence Characteristics of
+                                            The Unit cannot move further in that Phase. It       each model in the Selected Unit become equal
+                                                      counts as having been moved for the purpose of        to its lowest among those four Characteristics.
+                                                                             all rules and special rules and cannot declare a      An Atavindicator cannot be Activated again
+                                                  Charge in the following Charge Sub-Phase.        while it is already Activated.
+
+
+
+       Abyssal Staff
+
+       Melee            IM  AM  SM  AP  D   Special Rules            Traits
+
+         Abyssal Staff                 I   A    +4    3      1    Scourge (Cool)          Arkana
+
+       Ranged           R   FP  RS  AP  D
+
+         Abyssal Staff        T      1    8    2      1    Scourge (Cool), Pinning (1)  Arkana
+
+
+
+      Doom Lance
+
+       Melee            IM  AM  SM  AP  D   Special Rules            Traits
+
+       Doom Lance                 I   A    +6    2   D3   Scourge (Cool)          Arkana
+
+       Ranged           R   FP  RS  AP  D
+
+                                                           Scourge (Cool),       Doom Lance          24      1    10    2   D3                         Arkana                                                                 Precision (4+)

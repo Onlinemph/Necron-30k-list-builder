@@ -1,0 +1,33 @@
+                                                                                                 Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+              Doomsday Ark
+                    Unit composition: 1 Doomsday Ark                      120 points
+
+
+
+
+     ARMOUR
+
+                                                      Armour                    transport
+                                                                                                  capacity
+                           m         bs      front      side      rear     hp
+
+      Doomsday Ark                  12        4           11           11           11       6          -
+
+     Wargear                                       Special Rules
+        •  Centreline Mounted                                    •  Living Metal (1)
+       Doomsday Cannon                                     • Quantum Shielding (13)
+        •  Hull (Left) Mounted
+        Gauss Flayer Array                          Unit type
+        •  Hull (Right) Mounted                                   •  Vehicle (Skimmer)
+        Gauss Flayer Array
+
+      Traits
+        •  Xenos
+        •  Necron
+
+
+      Options70
+        • May have any of the following selected for it:
+             --  Nebuloscope................................... +15 points
+             -- Oracular Targeter.............................+5 points

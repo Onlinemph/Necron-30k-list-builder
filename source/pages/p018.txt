@@ -1,0 +1,33 @@
+                                                                                                 Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+               Cryptek
+                    Unit composition: 1 Cryptek                               75 points
+
+
+
+
+    COMMAND
+
+
+                         m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+       Cryptek                  6    4    4    4    4    3    2    2   10   10    7   10   4+    -
+
+     Wargear                                       Special Rules
+        •  Staff of Light                                            •  Battlesmith (2)
+                                                                       •  Ever-Living (5+)
+      Traits                                                                       •  Split Fire
+        •  Xenos
+        •  Necron                                   Unit type
+        •  Reanimant                                               •  Infantry (Command)
+        •  [Crypto-Arkana]
+
+
+      Options
+        •  This model's Staff of Light may be exchanged       •  This model may have any of the following
+          for one item from the Crypto-Arkana                 selected for it:
+       Weapons List corresponding to its Crypto-               -- Canoptek Familiar.........................+10 points
+        Arkana Trait.                                                    --  Cryptotendrils................................+10 points
+18        •  This model may have one item from the                  -- Sense Cluster..................................+10 points
+        Techno-Arkana List corresponding to its                                                                                 -- Arkanic Destroyer Frame............. +15 points
+        Crypto-Arkana Trait selected for it.                                                                                 -- Translocation Shroud................... +60 points

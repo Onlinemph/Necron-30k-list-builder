@@ -1,0 +1,46 @@
+                                                                                                 Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+              Doomsday Monolith
+                    Unit composition: 1 Doomsday Monolith               1000 points
+
+
+
+
+       LORD
+      OF WAR
+                                                      Armour                    transport
+                                                                                                  capacity
+                           m         bs      front      side      rear     hp
+
+      Doomsday Monolith           8        4         14        14        14      30       30
+
+     Wargear                                       Special Rules
+        •  Turret Mounted                                         •  Living Metal (D3)
+       Doomsday Annihilator                                 • Deep Strike
+        •  Hull (Front) Mounted                                   •  Eternity Gate
+          Portal of Exile
+        •  Hull (Front, Right) Mounted                   Unit type
+        Gauss Flux Arc                                          •  Vehicle (Antigrav, Super-Heavy,
+        •  Hull (Front, Left) Mounted                          Transport)
+        Gauss Flux Arc
+        •  Hull (Rear, Right) Mounted
+        Gauss Flux Arc
+        •  Hull (Rear, Left) Mounted
+        Gauss Flux Arc
+74        •  Phase Shift Generator
+
+      Traits
+        •  Xenos
+        •  Necron
+        •  Beacon
+
+
+      Options
+        • The model may have any Gauss Flux Arc
+        exchanged for one of the following (in the
+        same facings as the replaced weapon):
+            -- Hull Mounted Death Ray....+20 points each
+
+
+      Access Points
+      This model has one Access Point on the Front facing.

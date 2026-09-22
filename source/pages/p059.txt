@@ -1,0 +1,34 @@
+Version 1.4.2 august 2026
+
+          Hexmark Destroyers
+               Unit composition: 1 Hexmark Destroyer                80 points
+
+                       • May include up to 2 additionnal Hexmark Destroyers at +70 points per model.
+
+
+
+  RECON
+
+
+                    m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+ Hexmark Destroyer         8   4    5    5    5    2    2    2   10   10    7    6   3+    -
+
+Wargear                                       Special Rules
+•  6 Enmitic Disintegrators                               •  Reanimation Protocols (5+)
+•  Nebuloscope                                            •  Chain Destruction
+•  Sense Cluster                                            •  Bulky (3)
+                                                               • Deep Strike
+Traits                                                               •  Firing Protocols (6)
+•  Xenos                                                               •  Hardwired for Destruction
+•  Necron                                                               •  Support Unit (2)
+•  Reanimant
+•  Hyperspace Hunters                        Unit type
+•  Destroyer                                                •  Infantry (Skirmish)
+
+
+ Chain destruction
+ For each Unsaved Wound caused with a Ranged Weapon by a Model with this Special Rule, the            59
+  Controlling Player may make another Attack for that model using the same Weapon as part of the
+ same Fire Group, before moving on to the next Fire Group. Additional Attacks granted by the Chain
+  Destruction Special Rule do not themselves generate more Attacks.

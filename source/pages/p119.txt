@@ -1,0 +1,58 @@
+Version 1.4.2 august 2026
+
+            Illuminor Szeras
+               Unit composition: 1 Szeras                                 155 points
+
+
+
+
+ COMMAND
+
+
+                    m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+ Szeras                    6    4    5   6   6   6    3    4   10   10   8   10   3+  –
+
+Wargear                                       Special Rules
+•  Eldritch Lance                                          •  Ever-Living (4+)
+•  Gaze of Flame                                           •  Atomic Manipulation
+•  Empyric Overcharger                                  •  Battlesmith (2)
+                                                               •  Firing Protocols (2)
+Traits                                                               •  Harbinger of Destruction
+•  Xenos                                                               •  Mechanical Augmentation
+•  Necron                                                               •  Split Fire
+•  Reanimant
+•  Plasmancy                                Unit type
+                                                               •  Infantry (Command, Unique)
+
+ Wargear
+  Empyric Overcharger                                                                                                                        119
+  Ranged           R   FP  RS  AP  D   Special Rules            Traits
+
+   Empyric Overcharger    12      1     5   –      1    Blast (3), Psy-Shock       Arkana, Assault
+
+ Psy-Shock
+  If a Shooting Attack made for a Weapon or Model with this Special Rule inflicts one or more
+ wounds on a Target Unit which contains any Models with the Psyker Trait or Malefic Sub-Type,
+  regardless of whether any Damage is inflicted, that Target Unit suffers the Warp Rupture resulton
+  the Perils of the Warp Table at the end of Step 9 of that Shooting Attack.
+
+
+ Special Rules
+ Atomic Manipulation
+  At the end of Step 8 of the Initiative Step in which Szeras Attacks or Step 4 of the Challenge
+  Sub-Phase in which Szeras makes Strikes, his Controlling Player may select one Unit of Necron
+  Warriors or Necron Immortals from their Army and within 12" of Szeras and make a number of
+  Resurrection (4+) rolls for that Unit equal to the total amount of Unsaved Damage inflicted by Szeras
+  during the current Step.
+
+ Mechanical Augmentation
+  All Troops Slots in the same Detachment as Szeras become Prime Slots. The following Prime
+  Advantage must be selected for Units that are selected to fill those Prime Slots:
+
+ Mechanical Augmentation: At the Start of Battle, the Controlling Player of a Unit with this Prime
+  Advantage rolls a D6 and applies the following Benefit to this Unit for the duration of the battle,
+  depending on the result of the Dice Roll:
+  •  1-2: Hardened Carapace: +1 Toughness.
+  •  3-4: Improved Optics: +1 Ballistic Skill.
+  •  5-6: Enhanced Servomotors: +1 Strength.

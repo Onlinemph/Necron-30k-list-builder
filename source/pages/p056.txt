@@ -1,0 +1,58 @@
+                                                                                                 Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+              Night Scythe
+                    Unit composition: 1 Night Scythe                        130 points
+
+
+
+
+      HEAVY
+     TRANSPORT
+                                                      Armour                    transport
+                                                                                                  capacity
+                           m         bs      front      side      rear     hp
+
+        Night Scythe                20       4           11           11           11       5      –
+
+     Wargear                                       Special Rules
+        •  Centreline Mounted                                    •  Living Metal (1)
+        Twin Tesla Destructor
+                                                          type        •  Translocation Portal                         Unit
+                                                                       •  Vehicle (Flyer)        •  Shadowloom
+
+      Traits
+        •  Xenos
+        •  Necron
+
+
+      Options
+        • May have its Twin Tesla Destructor                   • May have any of the following selected for it:
+        exchanged for a Twin Gauss Destructor for               --  Nebuloscope................................... +15 points56
+        +30 points                                                       -- Oracular Targeter.............................+5 points
+
+      Translocation Portal
+     A model equipped with a Translocation Portal can be assigned the following Combat Assignment:
+
+        Invasion Mission
+          • Once assigned an Invasion Mission in the Reserves Sub-Phase, a model must be immediately
+          placed onto the Battlefield by the Controlling player. The Model may be placed anywhere along
+          the Battlefield Edge that is within the Controlling Player's Deployment Zone. This deployment
+          can trigger the Intercept Advanced Reaction, but any attacks made at the Model are made as
+         Snap Shots.
+          •  In the Movement Phase, a model with an Invasion Mission can be selected and must then move
+         up to a number of inches equal to its Movement Characteristic straight forwards without turning.
+          At this point a Combat Air Patrol can be declared by the Reactive Player. Once any Combat Air
+           Patrol Reactions have been resolved, the Controlling Player may select a Unit entirely composed
+           of models with the Infantry Type in reserves that has no more than 15 models (counting models
+          with the Bulky (X) special rule as a number of models equal to the value of X attached to that
+           special rule) that is in reserves or on the battlefield wholly within 12" of the Model with the
+           Invasion Mission and apply the following depending on that unit's location:
+              -- In Reserves: Place the unit anywhere on the battlefield wholly within 12" of the base of the
+           Model with the Invasion Mission. A unit placed on the battlefield this way cannot triger
+             Reactions and cannot move further in the current Movement Phase but is counted as having
+          moved for the purpose of any rules and special rules.
+              -- On the Battlefield: Remove the unit from the Battlefield and place it in Reserves.
+          •  In the Shooting Phase, a model that has been assigned an Invasion Mission may make Shooting
+           Attacks, but must make all attacks as Snap Shots. At the end of the Controlling Player's Shooting
+          Phase, the Model assigned an Invasion Mission is removed from play and returned to Aerial
+           Reserves.

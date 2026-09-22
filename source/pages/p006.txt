@@ -1,0 +1,46 @@
+                                                                                                 Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+
+
+
+
+    Phase Shift                          Summoning
+      Trigger: The Reactive Player may declare           Trigger: The Reactive Player may declare a
+      a Phase Shift reaction during Step 2 of the         Summoning Reaction in Step 2 of the Move
+      Shooting Attack sequence of a Shooting Attack      Sub-phase process, if an enemy Unit ends a
+     made by the Active Player.                    move within 12" and in Line of Sight of a Model
+                                                      with the Beacon Trait under the Reactive
+      Cost: The Reactive player may spend 1 point                                                               Player’s Control. That Model is the Summoning
+     from their Reaction Allotment to declare a                                                    Model.
+      Phase Shift reaction – the cost is paid as soon as
+      the declaration is made.                           Cost: The Reactive player may spend 1 point
+                                                   from their Reaction Allotment to declare a
+      Target: The target unit is always one Unit that is                                              Summoning reaction – the cost is paid as soon
+      Targeted by the Shooting Attack that includes at                                                            as the declaration is made.
+       least one model with the Phase Shift Trait. The
+      Target Unit is the Reactive Unit for the purpose      Target: The Target Unit is always the Unit
+      of this Reaction.                             whose move triggered the Reaction. Once the
+                                                           cost has been paid, the Reactive Player must
+      Process:                                                               select one Unit entirely composed of Models
+                                                      with the Reanimant Trait under their control         I. Once a Phase Shift Reaction has been
+                                                              that is on the Battlefield and Unengaged or in      declared, resolve the Shooting Attack as normal.
+                                                         Reserve. That Unit is the Reacting Unit.       All models with the Phase Shift Trait in the
+      Reactive Unit gain a 3+ Invulnerable Save until                                                      Process:
+6     Step 11 of the Shooting Attack Sequence.
+                                                                                  I. Once a Summoning Reaction has been
+                                                            declared, the Active Player must completely
+                                                           resolve the Target Unit’s movement.
+
+                                                                            II. Once the Target Unit has finished its
+                                                  move, the Reactive Player first removes the
+                                                        Reacting Unit from the battlefield (unless it is in
+                                                            Reserves).
+
+                                                                          III. The Reactive Player then deploys the
+                                                        Reactive Unit on the Battlefield so that all
+                                                 Models in the Unit are wholly within 3" of the
+                                              Summoning Model and 3" or more from Enemy
+                                                      Models.
+
+                                                             IV. Once the Reactive Unit has been deployed,
+                                                        the Movement Phase continues as normal.

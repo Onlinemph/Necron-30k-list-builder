@@ -1,0 +1,64 @@
+Version 1.4.2 august 2026
+
+Gauss weapons
+
+
+ Weapon           R   FP  RS  AP  D   Special Rules               Traits
+
+ Gauss Scalpel           12     1    4    5      1    Entropic (6+)                   Assault, Gauss
+
+ Gauss Flayer          24    2    4    5      1    Entropic (6+)               Gauss
+
+ Twin Gauss Flayer      24    4    4    5      1    Entropic (6+)               Gauss
+
+ Gauss Flayer Array     24    5    4    5      1    Entropic (6+), Ordnance (FP)  Gauss
+
+ Gauss Reaper           12    2    5    4      1    Entropic (6+)                   Assault, Gauss
+
+ Twin Gauss Reaper      12    4    5    4      1    Entropic (6+)                   Assault, Gauss
+
+ Gauss Blaster          24    2    5    4      1    Entropic (6+)               Gauss
+
+ Twin Gauss Blaster     24    4    5    4      1    Entropic (6+)               Gauss
+
+ Gauss Flux Arc         24    6    5    4      1    Entropic (6+)               Gauss
+
+ Gauss Slicer           24    4    5    4      1    Entropic (6+)               Gauss
+
+ Gauss Cannon         24    3    6    3      1    Entropic (5+)               Gauss
+
+ Heavy Gauss Cannon   48     1    9    2      1    Entropic (4+), Heavy (D)      Gauss
+
+ Twin Heavy Gauss                      48    2    9    2      1    Entropic (4+), Heavy (D)      Gauss Cannon
+
+ Gauss Destructor       36     1    10    2    2   Entropic (4+), Ordnance (D)   Gauss
+
+ Twin Gauss Destructor   36    2    10    2    2   Entropic (4+), Ordnance (D)   Gauss
+                                                                                                             107
+                                                     Entropic (4+), Ordnance (D), Gauss Exterminator     72    2    10    2    2                             Gauss                                                         Skyfire
+
+ Gauss Annihilator                                                          Gauss
+
+    - Beam Cannon      120   3    12     1    6   Entropic (4+), Skyfire
+
+    - Flux Arc           24    16    6    3      1    Entropic (6+)
+
+
+Tesla weapons
+
+
+ Weapon           R   FP  RS  AP  D   Special Rules               Traits
+
+ Tesla Caster             12     1     5   –      1    Tesla (6+)                     Arc, Assault
+
+ Tesla Carbine          24    2    5   –      1    Tesla (6+)                     Arc, Assault
+
+ Twin Tesla Carbine     24    4    5   –      1    Tesla (6+)                     Arc, Assault
+
+ Tesla Cannon         30    4    6   –      1    Tesla (6+)                  Arc
+
+ Tesla Destructor       36    4     7   –      1    Tesla (6+), Ordnance (FP)     Arc
+
+ Twin Tesla Destructor   36    4     7   –      1    Tesla (4+), Ordnance (FP)     Arc
+
+ Tesla Sphere          24    5     7   –      1    Tesla (4+)                  Arc

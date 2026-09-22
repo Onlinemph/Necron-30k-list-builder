@@ -1,0 +1,33 @@
+                                                                                                 Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+               Sentry Pylon
+                    Unit composition: 1 Sentry Pylon                       100 points
+
+
+
+
+    WAR ENGINE
+
+                                                      Armour                    transport
+                                                                                                  capacity
+                           m         bs      front      side      rear     hp
+
+        Sentry Pylon                  3        4           11           11           11       5          -
+
+     Wargear                                       Special Rules
+        •  Gauss Exterminator                                    •  Living Metal (1)
+                                                                       •  Explodes (5+)
+      Traits                                                                       • Gun Emplacement
+        •  Xenos                                                                       •  Interception Protocols
+        •  Necron                                                                       • Quantum Shielding (13)
+                                                                       •  Stable
+
+                                                Unit type
+                                                                       •  Vehicle
+
+
+      Options
+52      • May have its Gauss Exterminator exchanged
+          for one of the following:
+            -- Heat Cannon.................................. +20 points
+            -- Heavy Death Ray........................... +20 points

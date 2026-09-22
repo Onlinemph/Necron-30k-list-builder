@@ -1,0 +1,59 @@
+                                                                                                 Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+                      Crypto-Arkana – Chronomancy
+
+      Below are listed the Special Rule, Wargear Items and Weapons accessible to models with the
+     Chronomancy Trait.
+
+
+       Harbinger of Eternity
+     A model with the Chronomancy Trait gains the Phasing Trait.
+
+      When a friendly Unit is selected as the Reacting Unit for a Reaction, the controlling player may
+        Select one model in that Unit or within 6" of that Unit that has the Chronomancy Trait. The
+        Controlling Player makes an Intelligence Check for the selected model. If the Check is succesful
+        the Controlling Player gains 1 point of Reaction Allotment immediately before the Cost for that
+        Reaction is paid. If the Check is failed then the unit that includes the model that just failed the Test
+         gains the Stunned Status. Each model may only be selected to make an Intelligence Check for this
+        Special Rule once per turn.
+
+
+       Chronometron                                Timesplinter Mantle
+      When a combat is begun, the controlling player   A model with a Timesplinter Mantle has a 4+
+       can Activate a single Chronometron equipped     invulnerable save and gains the Phase Shift
+        to a model in a unit engaged in that combat.         Trait, and all models with the Reanimant Sub-
+       Each Chronometron can only be Activated       Type in the same Unit gain a 6+ Invulnerable
+       once per battle, and remains Activated until       Save and the Phase Shift Trait so long as a
+        the Resolution Step of the current Combat or     Model with a Timesplinter Mantle remains part
+        the model equipped with the Chronometron is     of the Unit.
+       removed as a casualty. As long as a Unit includes
+                                               Temporal nanomines        a Model with an Activated Chronometron,
+20        all Models in that unit have their WS and I        During Step 3 of the Charge Procedure, if any
+                                                           of the Target Units of the charge include any         characteristics modified by +1, and all enemy
+                                                  models with Temporal Nanomines, then the       Models engaged with this Unit have their WS
+                                                     Set-up Move Distance of the Charging Unit is       and I characteristics modified by -1.
+                                                   reduced by 2”, to a minimum of 0”.
+
+
+
+       Aeonstave
+
+        Melee            IM  AM  SM  AP  D   Special Rules            Traits
+
+         Aeonstave              +5   A    S     3      1   Aeon Breach (5+)         Arkana, Power
+
+       Ranged           R   FP  RS  AP  D
+
+         Aeonstave              18    2     5    2      1   Aeon Breach (5+)        Arkana
+
+
+
+       Entropic Lance
+
+        Melee            IM  AM  SM  AP  D   Special Rules            Traits
+
+                                                        Armourbane,         Entropic Lance              I   A    +4    3    2                            Arkana, Power                                                              Entropic (4+)
+
+        Ranged           R   FP  RS  AP  D
+
+                                                        Armourbane,         Entropic Lance          18      1    8    2    2                          Arkana                                                              Entropic (4+)

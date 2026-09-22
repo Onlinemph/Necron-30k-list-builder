@@ -1,0 +1,66 @@
+Version 1.4.2 august 2026
+
+                   Crypto-Arkana – Plasmancy
+
+Below are listed the Special Rule, Wargear Items and Weapons accessible to models with the
+Geomancy Trait.
+
+
+ Harbinger of Destruction
+ A model with the Plasmancy Trait gains the Firing Protocols (2) and Firestorm Special Rules.
+
+  At the start of Step 4 of any Shooting Attack made by a friendly Unit, the Controlling Player may
+  Select one model in that Unit or within 6" of that Unit that has the Plasmancy Trait. The Controlling
+  Player makes an Intelligence Check for the selected model. If the Check is succesful then until the
+ end of the Shooting Attack being resolved all Ranged Weapons used by models in the attacking Unit
+  gain +1 to their Ranged Strength Characteristic and the Breaching (6+) Special Rule. If the Check is
+  failed then the unit that includes the model that just failed the Test gains the Stunned Status. Each
+ model may only be selected to make an Intelligence Check for this Special Rule once per turn.
+
+
+ Gaze of Flame                              Solar Pulse
+ A Gaze of Flame is a Weapon with the following  A Solar Pulse is a Weapon with the followng
+  profile:                                                 profile:
+
+  Weapon      R   FP  RS  AP  D     Weapon      R   FP  RS  AP  D
+
+  Gaze of Flame    8    6    4    5      1        Solar Pulse      48     1     3     -      1
+
+   Special Rules               Traits               Special Rules               Traits
+
+   Panic (0)                       Assault, Flame         Blast (5), Shock
+                                                        (Suppressed),              Arkana
+ Quantum Orb                                     Suppressive (2)                                      23
+ A Quantum Orb is a Weapon with the following
+  profile:
+
+  Weapon      R   FP  RS  AP  D
+
+  Quantum Orb   T      1    6    2    2
+
+   Special Rules               Traits
+
+                                   Assault, Arkana,   Exile, Limited (1), Template                             Dimensional
+
+
+
+  Eldritch Lance
+
+  Melee            IM  AM  SM  AP  D   Special Rules            Traits
+
+   Eldritch Lance           +1   A     +1    2      1   Armourbane             Arkana, Power
+
+  Ranged           R   FP  RS  AP  D
+
+   Eldritch Lance         36      1    8    2   D3  Armourbane            Arkana
+
+
+  Plasmic Lance
+
+  Melee            IM  AM  SM  AP  D   Special Rules            Traits
+
+   Plasmic Lance               I   A     +1    4      1    Breaching (4+)            Arkana, Power
+
+  Ranged           R   FP  RS  AP  D
+
+   Plasmic Lance          18    3    6    4      1    Breaching (4+)           Arkana

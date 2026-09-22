@@ -1,0 +1,56 @@
+Version 1.4.2 august 2026
+
+           C'Tan Shard of the Void Dragon
+               Unit composition: 1 Shard of the Void Dragon           400 points
+
+
+
+
+   LORD
+  OF WAR
+
+                    m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+ Shard of the Void Dragon     10   5    5   9   8   6    5    4    12   12   10   8   –   4+
+
+Wargear                                       Special Rules
+•  Spear of Mag'ladroth                                   •  Explodes (2+)
+                                                               •  Fear (1)
+Traits                                                               •  Heedless
+•  Xenos                                                               •  Matter Absorption
+•  Necron                                                               •  Necrodermis
+•  Star-God                                                               •  Voltaic Storm
+
+                                           Unit type
+                                                               •  C'Tan
+
+
+ Matter Absorption
+ Each time any model with the Walker or Automata Unit Type is reduced to 0 Wounds, or any model
+ with the Vehicle Unit Type is reduced to 0 Hull Points, whilst within 12" of this Model, and this             81
+ model's Current Wounds characteristic is 7 or lower, this model's Current Wounds characteristic is
+  increased by 1. This model may not gain more than 1 Wound per phase in this way.
+
+
+
+  Voltaic Storm
+ Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's
+  Controlling Player may choose to have this model use the following unique Power of the C'Tan:
+
+  Weapon          R   FP  RS  AP  D   Special Rules            Traits
+
+                                                   Armour-Breaker (3+),
+   Voltaic Storm           18    5    8    2    2   Shock (Suppressed),      Arc
+                                                      Suppress (2)
+
+
+
+  Spear of Mag'ladroth
+
+  Melee             IM  AM  SM  AP  D   Special Rules         Traits
+
+   Spear of Mag'ladroth           I   A    S    2     3   Armour-breaker (3+)    Arkana
+
+  Ranged             R   FP  RS  AP  D
+
+                                                        Armourbane,   Spear of Mag'ladroth       12    3    9    2    2                  –                                                         Armour-breaker (4+)

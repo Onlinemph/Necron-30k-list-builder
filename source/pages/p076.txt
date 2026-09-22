@@ -1,0 +1,34 @@
+                                                                                                 Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+                Seraptek Heavy Construct
+                    Unit composition: 1 Seraptek                         500 points
+
+
+
+
+       LORD
+      OF WAR
+                                                         Armour
+
+                         m   ws    bs     s       front         rear              i     a    hp
+
+        Seraptek                     14    4    4    8         13             12        2     3     12
+
+     Wargear                                       Special Rules
+        •  2 Hull (Front) Mounted                                •  Living Metal (1)
+          Singularity Generators                                 •  Explodes (2+)
+        •  2 Seraptek Heavy Scythes                             •  Vanguard (1)
+        •  Containment Field
+                                                Unit type
+      Traits                                                      •  Vehicle (Knight)
+        •  Xenos
+        •  Necron
+        •  Canoptek
+
+
+      Options
+76      • The model may have any Singularity
+         Generator exchanged for a Hull (Front)
+       Mounted Synaptic Obliterator and 1
+         Co‑Axial (Synaptic Obliterator) Exile
+         Projector for free.

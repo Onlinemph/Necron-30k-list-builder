@@ -1,0 +1,44 @@
+Version 1.4.2 august 2026
+
+          Monolith
+               Unit composition: 1 Monolith                         500 points
+
+
+
+
+   LORD
+  OF WAR
+                                                 Armour                    transport
+                                                                                           capacity
+                      m         bs      front      side      rear     hp
+
+ Monolith                    8        4         14        14        14       18       20
+
+Wargear                                       Special Rules
+•  Turret Mounted Particle Whip                        •  Living Metal (D3)
+•  Hull (Front) Mounted                                   • Deep Strike
+   Portal of Exile                                           •  Eternity Gate
+•  Hull (Front, Right) Mounted
+   Gauss Flux Arc                             Unit type
+•  Hull (Front, Left) Mounted                             •  Vehicle (Antigrav, Super-Heavy,
+   Gauss Flux Arc                                     Transport)
+•  Hull (Rear, Right) Mounted
+   Gauss Flux Arc
+•  Hull (Rear, Left) Mounted
+   Gauss Flux Arc
+
+Traits                                                                                                    73
+•  Xenos
+•  Necron
+•  Beacon
+
+
+Options
+• The model may have any Gauss Flux Arc
+   exchanged for one of the following (in the
+  same facings as the replaced weapon):
+    -- Hull Mounted Death Ray.....+15 points each
+
+
+Access Points
+This model has one Access Point on the Front facing.

@@ -1,0 +1,47 @@
+                                                                                                  Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+                Valgûl, the Fallen Lord
+                     Unit composition: 1 Valgûl                               130 points
+
+
+
+
+       HIGH
+    COMMAND
+
+                         m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+         Valgûl                    6    5     1    6   6   6    4    5   10   10   9    7   2+  –
+
+     Wargear                                       Special Rules
+        •  Paired Flensing Claws                                  • Deep Strike
+                                                                       •  Eternal Warrior
+      Traits                                                                       •  Ever-Living (5+)
+        •  Xenos                                                                       •  Fear (1)
+        •  Necron                                                                       •  Impact (A)
+        •  Reanimant                                                                       •  Infectious Frenzy
+        •  Nemesor                                                                       •  Infiltrate (9)
+                                                                       • Move Through Cover
+                                                                       •  Time of Bounty
+
+                                                 Unit type
+                                                                       •  Infantry (Command, Unique)
+
+118
+       Special Rules
+       Time of Bounty
+            If Valgûl is included in an Army, the Mark of the Flayer Aeonic Sequela must be selected for that
+       Army.
+
+       While Valgûl is on the Battlefield, if an Attack made by Valgûl, a Flayed One model in the same
+       Army, or a model with Charnel Displays in the same Army, causes the last Model in an Enemy Unit
+         to be removed as a casualty with a Melee Attack, the Controlling Player scores 1 additional Victory
+         Points in addition to any Victory Points scored for destroying that Unit.
+
+        Infectious Frenzy
+         Valgûl has the Hatred (Challenge Opponent) Special Rule, and all Models in any Unit he joins gains
+        the Hatred (Valgûl's Challenge Opponent's Unit) Special Rule.
+
+       While Valgûl is fighting in a Challenge, the Flurry of Blows Gambit must be selected for Models
+         in that Challenge. No other Gambit may be selected, and neither player may opt not to select a
+        Gambit.

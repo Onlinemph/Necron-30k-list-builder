@@ -1,0 +1,53 @@
+                                                                                                  Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+                   Base Size Guide
+
+        All sizes are given in millimeters. Unless otherwise specified, Sergeants and upgraded profiles use
+       the same base size as the rest of their unit. Base sizes are given using the sizes listed on the Games
+      Workshop website, when available. It’s fine to use what you have or approximations, just clear it out
+       with your opponent before playing.
+
+
+      High Command                       War Engines
+         •  Necron overlord: 40                                    •  Triarch Stalker: No base (fits on a 130mm)
+             -- on catacomb command barge: 60                  •  Canoptek Doom-Stalker: 90
+                                                                       •  Sentry Pylon: No base
+     Command
+         •  Necron lord: 32                              Transports
+             -- on catacomb command barge: 60                  •  Ghost Ark: 60
+         •  Lokhust lord: 60
+         •  Skorpekh lord: 60                          Heavy Transports
+         •  Cryptek: 32 or 40                                       •  Night Scythe: 120x92
+             -- with canoptek cloak: 50
+         •  Royal Warden                            Recon
+         •  Vargard: 32                                              •  Deathmarks: 32
+         •  Cryptothrall: 32                                         •  Hexmark Destroyer: 50
+                                                                       •  Canoptek scarab: 40
+      Retinue                                                     •  Canoptek wraith: 40 or 50
+         •  Macrocyte Warrior: 28                                 •  Canoptek acanthrite: 40
+         •  Vargard: 32                                              •  Canoptek Tomb Sentinel: 120x92
+134         •  Cryptothrall: 32
+                                                    Fast Attack
+       Elites                                                       • Tomb blade: 32
+         •  Lychguard: 32                                           •  Ophydian destroyer: 50
+         •  Triarch Praetorian: 32                                  •  Canoptek acanthrite: 40
+         •  Pariah: 25 or 32                                         •  Night scythe: 120x92
+                                                                       • Doom scythe: 120x92
+      Heavy Assault
+         •  Flayed One: 28                           Armour
+         •  Skorpekh Destroyer: 50                                • Doomsday ark: 60
+         •  Canoptek Tomb Stalker: 120x92                      •  Tesseract ark: 60
+
+      Troops                                    Lord of War:
+         •  Warrior: 32                                              •  Monolith: 160
+         •  Immortal: 32                                            • Doomsday Monolith: 160
+                                                                       •  Obelisk: 120x92
+      Support                                                     •  Seraptek: no base
+         •  Canoptek Reanimator: 60                              •  Gauss pylon: no base
+         •  Canoptek Spyder: 60                                   •  Transcendant C'Tan Shard: 60
+         •  Canoptek Tomb Crawler: 50                          •  C'tan Shard of the Nightbringer: 50
+         •  Lokhust destroyer: 60                                  •  C'tan Shard of the Deceiver: 50
+         •  Lokhust heavy destroyer: 60                           •  C'tan Shard of the Void Dragon: 80
+         •  Annihilation Barge: 60                                 •  C'tan Shard of the Burning One: 60+
+                                                                       •  C'tan Shard of the Endless Swarm: 60+
+                                                                       •  Tesseract vault: 120x92

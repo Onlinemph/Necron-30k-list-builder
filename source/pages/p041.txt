@@ -1,0 +1,32 @@
+Version 1.4.2 august 2026
+
+           Immortals
+               Unit composition: 5 Immortals                        80 points
+
+                       • May include up to 10 additional Immortals at +15 points per model.
+
+
+
+  TROOPS
+
+
+                    m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+ Immortal                  6    4    4    4    5     1    2     1    10   10   5    5   3+    -
+
+Wargear                                       Special Rules
+•  Gauss Blaster                                            •  Reanimation Protocols (5+)
+                                                               •  Line (1)
+Traits
+•  Xenos                                    Unit type
+•  Necron                                                   •  Infantry
+•  Reanimant
+
+
+Options
+• The entire unit may have its Gauss Flayers           •  Every Model in the Unit may have Disruption
+   exchanged for Tesla Carbines for free.              Bayonets selected for it at +1 point per model.
+•  Every Model in the Unit may have Sense
+   Clusters selected for it at +2 points per model.
+
+                                                                                                           41

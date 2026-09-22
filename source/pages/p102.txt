@@ -1,0 +1,71 @@
+                                                                                                  Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+      Ever-Living (X)                          The same Target Unit can be Goaded multiple
+                                                         times per turn. Each Target Unit can receive
+     A model with the Ever-Living (X) special rule
+                                                         the Push and Rouse benefit only once per turn,
+       gains an Ever-Living Damage Mitigation Test
+                                                         but the Restrain benefit may be selected for the
+        that can be used in Step 9 of the Shooting Attack
+                                                same Unit any number of times per turn.
+       process, Step 8 of the Initiative Step of the Fight
+      Sub-Phase or Step 4 of the Challenge process     Gun Emplacement
+       to discard Wounds allocated to the model. A
+                                             The hull of a Model with this Special Rule is
+      Damage Mitigation Test may be made after
+                                                        only considered to be the central turret. The
+      and in addition to a Saving Throw. The Target
+                                                              outriggers that form the gun carriage are ignored
+     Number for an Ever-Living Damage Mitigation
+                                                                for all purposes.
+       Test is the value of X attached to the specific
+        variant of the Special Rule.                  Hardwired for Destruction
+      Exile                                                   All Attacks, both melee and ranged, made by
+                                                        a model with the Hardwired for Destruction
+     When making a Wound Test for an attack with
+                                                            Special Rule gain the Critical Hit (6+) Special
+       the Exile Special Rule, the Target's Initiative
+                                                            Rule. If an attack made by a model with the
+       Characteristic is used instead of the its
+                                                    Hardwired for Destruction special rule already
+      Toughness Characteristic. If the Attack Target
+                                                       has a variant of the Critical Hit (X) special
+       has "-" listed instead of that Characteristic, the
+                                                                     rule, then this special rule instead improves
+     Wound Test automatically succeeds.
+                                                         the X value associated with that attack’s
+     When making an Armour Penetration Test             Critical Hit (X) special rule by 1 (for instance,
+        for an attack with the Exile Special Rule, add        from 6+ to 5+), to a maximum of Critical Hit (2+).
+      an additional D6 to the result of the Armour
+                                                Living metal (X)       Penetration Test.
+                                       A model with this special rule does not make
+     Goad (X)                                       Repair Tests. Instead, during the Statuses Sub-
+       In the Controlling Player's Movement Phase         Phase of the End Phase for a model with this
+102       as the Active Player, when a Model with the           special rule, the controlling player selects and
+      Goad (X) Special Rule has been selected,            apply one of the following to the model:
+       but either before or after it has been moved,            •  Reconstruction Protocols – The model
+       the Controlling Player of that Model may                gains a number of Wounds or Hull Points
+        activate this Special Rule. Once activated, the           equal to the value of X in the Living Metal (X)
+       Controlling Player of the Model with the Goad           special rule variant possessed by the model.
+        (X) Special Rule (referred to as the 'Acting              This cannot increase the model’s Wounds or
+       Model'), must select one friendly Unit within            Hull Points above its starting value.
+        6" of the Acting Model. The Unit selected               •  Restoration Protocols – Remove a number
+        (referred to as the 'Target Unit') must be entirely         of Statuses from the model equal to the
+      composed of Models with the Trait listed in             value of X in the Living Metal (X) special rule
+       Brackets as this Special Rule's variable. Once             variant possessed by the model.
+       a Target Unit has been selected, the Player
+                               My Will Be Done (X)        controlling the Acting Model must make an
+        Intelligence Check for the Acting Model. If the       At the start of the Controlling Player's Turn
+      Check is failed there is no further effect, but if        as the Active Player, that Player can Activate
+       the Check is passed then the Player controlling       the My Will Be Done (X) Special Rule of a
+       the Acting Model may select one of the            Model with this Special Rule (referred to as the
+       following options:                             'Commanding Model'). After this Special Rule
+         •  Push: All Models in the Target Unit gain +2 to     has been Activated, the Controllling Player
+           their Movement Characteristic until the end        selects one Friendly Unit with the Reanimant
+          of the Current Turn.                         Sub-Type within 6" of the Commanding Model
+                                                            to be the Target of this Special Rule. The         •  Rouse: All Models in the Target Unit gain the
+                                                            Controlling Player takes a Willpower Check         Impact (A) Special Rule until the end of the
+                                                                for the Commanding Model. If it is failed,         Current Turn.
+                                                        nothing happens. If the Check is Succesful, the         •  Restrain: Remove one Tactical Status from
+                                                           Player selects the Line (X) Special Rule or the          the Target Unit.
+                                                     Vanguard (X) Special Rule. Until the end of the

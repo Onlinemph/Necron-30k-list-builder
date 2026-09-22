@@ -1,0 +1,51 @@
+Version 1.4.2 august 2026
+
+           Vargard Obyron
+               Unit composition: 1 Obyron                             130 points
+
+
+
+
+ COMMAND
+
+
+                    m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+ Obyron                   6   6    4    5    5    4    3    4   10   10   8   8   2+    -
+
+Wargear                                       Special Rules
+•  Warscythe                                               •  Cleaving Counterblow
+•  Ghostwalk Mantle                                      •  Dynastic Protocols (Sautekh)
+                                                               •  Eternal Warrior (1)
+Traits                                                               •  Obyron's Duty
+•  Xenos
+•  Necron                                   Unit type
+•  Reanimant                                               •  Infantry (Champion, Specialist,
+                                                   Unique)
+
+
+ Wargear
+ Ghostwalk Mantle
+ During the Aftermath Step of the Resolution Sub-Phase, the following Aftermath Option can be
+  selected for a Unit that includes any Model with the Ghostwalk Mantle and does not includes any          121
+ Models with the Routed Status:
+
+ Ghostwalk: All models in the Unit are removed from the Battlefield, then the Unit is re-deployed
+ anywhere on the Battlefield anywhere as if they were deployed using the Infiltrate (9) Special Rule.
+  If the Unit had lost the Combat, the Opposing Player may choose to have any Units under their
+  control Consolidate or Hold.
+
+
+ Special Rules
+  Cleaving Counterblow
+ While a Model with this Special Rule is engaged in a Challenge, its Controlling Player can select the
+  following Gambit for that Model:
+
+ Cleaving Counterblow: If this Gambit is selected, then the Model controlled by the Player
+ who selected this Gambit has a -2 penalty to its Focus Roll and receives a +2 bonus to its Attacks
+  Characteristic in the Strike Step.
+
+  Obyron's Duty
+ Obyron gains the Ever-Living (5+) Special Rule so long as he has joined the same Unit as Nemesor
+  Zahndrekh. While Obyron has joined the same Unit as Nemesor Zahndrekh, he must always have a
+  Challenge declared for him if possible and must always be selected to accept Challenges if possible.

@@ -1,0 +1,56 @@
+                                                                                                 Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+            Awoken Vaults                  Canoptek Forge
+     An Army with this Aeonic Sequela gains the      When building an Army using the Necrons
+       following benefits:                         Army List, one Command Model with the
+                                                      [Crypto-Arkana] Trait may be selected as a High
+        • A single Annhihilation Barge, Doomsday                                        Command choice instead. That model gains the
+         Ark, or Ghost Ark Model in this Army may                                              Nemesor Trait. if a player does so, at least one
+        be upgraded to have a Phase Shifter at +40                                                  Aeonic Sequela selected for that army must be
+          points.                                                       the Canoptek Forge Aeonic Sequela.
+        •  Annhihilation Barge Models and Models with
+         with the Vehicle Type in this Army gain the    An Army with this Aeonic Sequela gains the
+         Vanguard (1) Special Rule.                       following benefits:
+        • When the My Will Be Done (X) Special Rule                                                                     •  Macrocyte Warriors, Cryptothrall and
+          of a Model in this Army is Activated, the                                                        Hierotek Circle Units in the Army gain the
+          Controlling Player may select an Annhihilation                                                       Line (1) Special Rule.
+         barge or a Vehicle Model instead of a
+                                                                     •  Models with any [Crypto-Arkana] Trait in the
+        Reanimant Unit as the Target Unit. If that
+                                             Army that can join Units can join Units that
+          Player does so, the following effect is applied
+                                                           include Models with the Automata Type.
+          instead of the normal effects of the My Will Be
+                                                                     •  Units that include models with the Automata       Done (X) Special Rule if the Willpower Check
+                                                Type in the Army can make Reactions, even             is succcesful:
+                                                     though they have the Automata Type, so long
+             -- Until the end of the Opposing Player's
+                                                             as they have been joined by a model with
+            next Turn, the Target Unit gains the Stable
+                                                          the [Crypto-Arkana] Trait and all Automata
+            Special Rule.
+                                                   Models in that Unit have the Canoptek Sub-
+                                                      Type.
+                    Obliteration Phalanx       •  Models with the Canoptek Trait in the
+                      [Apex Detachment]       Detachment gain the Ever-Living (6+) Special
+94           If an Army has the Awoken Vaults                  Rule.
+         Aeonic Sequela, then the following Apex
+         Detachment may be selected:                         Canoptek Masterworks
+                                                            [Apex Detachment]
+
+                                                                                  If an Army has the Canoptek Forge
+                                                      Aeonic Sequela, then the following Apex
+                                                   Detachment may be selected:
+
+
+
+
+             •  Only Annihilation barges may be
+              selected to fill Support Slots in this
+                                                                          •  Only Units with the Canoptek Trait
+            Detachment.
+                                                may be selected to fill Slots in this
+                                                         Detachment.
+                                                                          •  Flexible Slots: Prime Slots in this
+                                                      Detachment may be of any Type
+                                                            except Command or High Command.

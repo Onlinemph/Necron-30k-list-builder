@@ -1,0 +1,38 @@
+Version 1.4.2 august 2026
+
+       Necron Ranged Weapon Profiles
+
+Antimatter Generator weapons
+
+ Weapon          R   FP  RS  AP  D   Special Rules                  Traits
+
+                                                Armourbane, Blast (3),
+ Singularity Generator   36    3    8    2    3   Heavy (S), Shock (Suppressed),   Graviton
+                                                     Suppressive (1)
+
+                                                Armourbane,
+                                                           Blast (5), Limited (5),          Bomb, Death Sphere Payload   18     1    10    2    2                                              Shock (Suppressed),            Graviton
+                                                     Suppressive (1)
+
+
+Death Rays
+
+
+ Weapon          R   FP  RS  AP  D   Special Rules                  Traits
+
+ Death Ray            24     1    10    2    2   Armourbane, Heavy (D)         Las
+
+                                                Armourbane, Blast (3), Heavy Death Ray       36     1    10    2    3                                 Las                                             Heavy (D)
+
+
+Dimensional weapons
+
+ Weapon          R   FP  RS  AP  D   Special Rules                  Traits               105
+
+                                                                                               Assault, Exile Beamer            12     1    6    2    3    Exile                                                                                Dimensional
+
+ Exile Cannon           18     1    6    2    3    Blast (3), Exile                 Dimensional
+
+ Exile Projector        24     1    6    2    3    Blast (3), Exile                 Dimensional
+
+ Portal of Exile       T      1    6    2    3    Exile, Template                Dimensional

@@ -1,0 +1,48 @@
+                                                                                                  Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+      Necron Army List 3.0 –
+
+       V1.3 november 2025
+
+       Changelog:
+
+         •  Added the missing Access Point to the Ghost Ark.
+         •  Renamed the Nullify (X) Special Rule to Adamantium Will (X) to avoid confusion with the Nullify
+          Reaction from the core rules.
+         •  Removed the unused Gravity Pulse weapon from the ranged weapons section.
+
+       V1.4 january 2026
+
+       Changelog:
+
+         •  Added a second faction Prime Advantage that can slot in on more units, as most of the generic ones
+         cannot apply to a majority Necron units
+         •  Mass Resurrection reaction: Renamed to Snap Resurrection. Resurrection Tests caused by this reaction
+          are now (6+) rather than 5+.
+         •  Added missing Living Metal values where needed (usually 1)
+         •  Monolith: Removed Eternal Warrior (2); HP 16 → 18
+         •  Doomsday Monolith: Removed Eternal Warrior (2); HP 26 → 30
+         •  Obelisk: Removed Eternal Warrior (2); HP 18 → 20
+         •  Gauss Pylon: Removed Eternal Warrior (1); HP 18 → 20
+         •  Seraptek Heavy Construct: Living Metal (2) → Living Metal (1)
+         •  Voidblade: Entropic (6+) → Entropic (4+)
+         •  Voidscythe: Critical Hits (5+) → Critical Hits (6+); Entropic (4+) → Entropic (2+)
+132      •  Fixed an incompatible rules mistake in the Forsaken Voidfarers Aeonic Sequela
+         •  Reworked the Oracular Targeter
+         •  Reworked the Targeting Relay
+
+
+        V1.4.1 july 2026
+
+       Changelog:
+
+         •  Imotekh and Xun'Bakyr's My Will Be Done (X) special rules now correctly specify their value (it's 3)
+         •  Added missing Special Rule: Retaliate
+         •  Added missing Miscelleanous Melee Weapon: Cryptotendrils
+         •  Added missing Wargear Item: Canoptek Familiar
+         •  Restored the "Stunned" status everywhere it was accidentally mistyped as "Shocked"
+
+
+        V1.4.1 august 2026
+
+         •  Added missing ranged weapon options to the Lord in Skorpekh Frame.

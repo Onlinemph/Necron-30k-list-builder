@@ -1,0 +1,47 @@
+                                                                                                  Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+              Gorz the Mighty
+                     Unit composition: 1 Gorz                               140 points
+
+
+
+
+    COMMAND
+
+
+                         m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+       Gorz                     6    4    4    4    4    3    2    2   10   10   8   10   4+   5+
+
+     Wargear                                       Special Rules
+        •  Meteor Staff                                             •  Ever-Living (5+)
+        •  Canoptek Control Node                               •  Canoptek Minions
+        •  Cloak of the Burning Mind                            •  Decoherent Mind
+                                                                       •  Dynastic Protocols (Sautekh)
+      Traits                                                                       •  Harbinger of the Swarm
+        •  Xenos                                                                       •  Split Fire
+        •  Necron
+        •  Reanimant                                Unit type
+        •  Technomancy                                           •  Infantry (Command, Unique)
+
+
+      Wargear
+       Cloak of the Burning Mind
+124            If an Enemy Unit fails a Morale Test while engaged with Gorz's Unit, that Unit suffers D3 automatic
+       Wounds against which only Invulnerable Saves may be made (Damage Mitigation rolls may not be
+       made against those Wounds). Wounds inflicted this way are allocated by the Opposing Player.
+
+
+
+       Special Rules
+       Canoptek Minions
+        Whilst Gorz has joined a Unit, all Models with the Canoptek Trait in that Unit have their Ballistic
+          Skill Characteristic modified by +1. If Gorz allows another Unit to make a Reaction using the
+        Harbinger of the Swarm Special Rule, Models with the Canoptek Trait in that Unit have their
+          Ballistic Skill Characteristic modified by +1 until that Reaction is fully resolved.
+
+       Decoherent Mind
+       Any Unit joined by Gorz may not Rush and must make a Shooting Attack in the Shooting Phase if
+         there is any available Target within the Maximum Range Gorz's Meteor Staff. When Gorz makes a
+        Shooting Attack with his Meteor Staff, if a '1' is rolled when making the To Hit Test, the Opposing
+         Player may move the Blast Template anywhere on the Battlefield before the Template is Scattered.

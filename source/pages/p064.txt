@@ -1,0 +1,32 @@
+                                                                                                 Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+             Tomb Blades
+                    Unit composition: 3 Tomb Blades                        70 points
+
+                               • May include up to 7 additional Tomb Blades at +20 points per model.
+
+
+
+     FAST ATTACK
+
+
+                         m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+      Tomb Blade                  12   3    3    4    4    2    2     1    10   10   4    4   4+    -
+
+     Wargear                                       Special Rules
+        •  Twin Gauss Blaster                                     •  Bulky (2)
+                                                                       • Deep Strike
+      Traits                                                                       •  Reanimation Protocols (5+)
+        •  [Xenos] Necron
+        •  Reanimant                                Unit type
+                                                                       •  Cavalry (Antigrav)
+
+
+      Options
+        • Any Tomb Blade in the unit may have its             • The entire unit may have any of the following
+        Twin Gauss Blaster exchanged for one of the         selected for it:
+          following:                                                        -- Shield Vanes.................. +5 points per model
+             -- Twin Tesla Carbine...................................free           --  Shadowlooms................. +20 points per unit
+             -- Particle Beamer...................... +5 points each           --  Nebuloscopes.................. +15 points per unit
+64

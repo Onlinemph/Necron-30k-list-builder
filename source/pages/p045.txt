@@ -1,0 +1,32 @@
+Version 1.4.2 august 2026
+
+           Canoptek Tomb Crawlers
+               Unit composition: 2 Tomb Crawlers                     50 points
+
+                       • May include up to 8 additional Tomb Crawlers at +25 points per model.
+
+
+
+  SUPPORT
+
+
+                    m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+ Tomb Crawler              5    3    4    4    5    2    2    2   8    12   4    5   3+  –
+
+Wargear                                       Special Rules
+•  Twin Gauss Reaper                                     •  Bulky (2)
+                                                               •  Expendable (3)
+Traits                                                               • Move Through Cover
+•  Xenos                                                               •  Sentinel Protocols
+•  Necron                                                               •  Support Unit (3)
+•  Canoptek
+                                           Unit type
+                                                               •  Automata (Heavy)
+
+
+Options
+• Any Model in the Unit may have its
+  Twin Gauss Reaper exchanged for a
+   Transdimensional Beamer for free.
+                                                                                                     45

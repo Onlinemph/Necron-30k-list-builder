@@ -1,0 +1,33 @@
+                                                                                                 Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+               Lokhust Destroyers
+                    Unit composition: 3 Lokhust Destroyers                  120 points
+
+                               • May include up to 7 additional Lokhust Destroyers at +35 points per model.
+
+
+
+      SUPPORT
+
+
+                         m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+       Lokhust Destroyer           12   4    4    4    5    2    2    2   10   10    7    5   3+    -
+
+     Wargear                                       Special Rules
+        •  Gauss Cannon                                           •  Reanimation Protocols (5+)
+        •  Sense Cluster                                            •  Bulky (3)
+                                                                       •  Firestorm
+      Traits                                                                       •  Hardwired for Destruction
+        •  Xenos                                                                       •  Implacable Advance
+        •  Necron                                                                       •  Vanguard (1)
+        •  Reanimant
+        •  Destroyer                                 Unit type
+                                                                       •  Cavalry (Antigrav, Heavy)
+
+
+      Options
+        • Any model in the unit may have its Gauss            • One model in the unit may have its Gauss
+        Cannon exchanged for one of the following:        Cannon exchanged for a Heavy Gauss
+46             -- Tesla Cannon.............................................free      Cannon for +10 points.
+             -- Enmitic Annihilator.......................+10 points

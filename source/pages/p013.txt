@@ -1,0 +1,33 @@
+Version 1.4.2 august 2026
+
+          Necron Lord
+               Unit composition: 1 Lord                               70 points
+
+
+
+
+ COMMAND
+
+
+                    m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+ Lord                     6    4    4    5    5    4    3    3   10   10   8   8   2+  –
+
+Wargear                                       Special Rules
+•  Voidblade                                                •  Eternal Warrior (1)
+                                                               •  Ever-Living (5+)
+Traits                                                               • My Will Be Done (2)
+•  Xenos
+•  Necron                                   Unit type
+•  Reanimant                                               •  Infantry (Command)
+
+
+Options
+•  This model may have its Voidblade                   •  This model may have any of the following
+   exchanged for one item from the Nobility             selected for it:
+  Melee Weapons List.                                          -- Phase Shifter.................................. +20 points
+•  This model may have one item from the                  --  Phylactery....................................... +30 points
+  Necron Nobility Wargear List selected for it.             -- Translocation Shroud................... +60 points
+                                                                                                                      13
+                                                               •  This model may be upgraded to have the
+                                                    Dynastic Scion Special Rule............. +20 points

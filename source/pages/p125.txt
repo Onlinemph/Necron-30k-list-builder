@@ -1,0 +1,45 @@
+Version 1.4.2 august 2026
+
+           Imotekh the Stormlord
+               Unit composition: 1 Imotekh                           350 points
+
+
+
+
+ WARLORD
+
+
+                    m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+ Imotekh                  6    7    6   6   6   6    4    4    12   12   10   10   2+   4+
+
+Wargear                                       Special Rules
+•  Staff of the Destroyer                                   •  Dynastic Protocols (Sautekh)
+•  Gauntlet of Fire                                         •  Eternal Warrior (2)
+•  Bloodswarm Nanoscarabs                             •  Ever-Living (5+)
+•  Phase Shifter                                            •  Hyperlogical Strategist
+                                                               • My Will Be Done (3)
+Traits                                                               •  Relentless Defiance
+•  Xenos                                                               • The Lord of Storms
+•  Necron
+•  Reanimant                                Unit type
+•  Phase Shift                                              •  Paragon (Command, Unique)
+•  Phaeron
+
+
+ Wargear                                                                                                    125
+  Staff of the Destroyer
+
+  Melee            IM  AM  SM  AP  D   Special Rules            Traits
+
+   Staff of the Destroyer      I   A     +1    2      1    Critical Hits (6+)        Power
+
+  Ranged           R   FP  RS  AP  D
+
+   Staff of the Destroyer    18"    3    6    2      1   –                          Assault, Las
+
+ Bloodswarm Nanoscarabs
+ While Imotekh remains on the Battlefield, all Units of Flayed Ones in the same Army gain the
+  Impact (S) Special Rule. Any Unit of Flayed Ones in the same Army that begins the Assault Phase
+  within 12" of Imotekh may have a Charge declared for it, even during a turn in which the Unit
+  entered play by Deep Strike, and that Charge can never count as Disordered for any reason.

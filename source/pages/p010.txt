@@ -1,0 +1,32 @@
+                                                                                                 Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+              Necron Overlord
+                    Unit composition: 1 Overlord                           100 points
+
+
+
+
+       HIGH
+    COMMAND
+
+                         m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+        Overlord                  6    5    5   6   6   6    4    4   10   10   9   9   2+  –
+
+     Wargear                                       Special Rules
+        •  Voidblade                                                •  Eternal Warrior (1)
+                                                                       •  Ever-Living (5+)
+      Traits                                                                       • My Will Be Done (3)
+        •  Xenos
+        •  Necron                                   Unit type
+        •  Reanimant                                               •  Infantry (Command)
+        •  Nemesor
+
+
+      Options
+        •  This model may have its Voidblade                   •  This model may have any of the following
+        exchanged for one item from the Nobility             selected for it:
+        Melee Weapons List or for a Voidscythe at                -- Phase Shifter.................................. +20 points
+        +20 points.                                                       --  Phylactery....................................... +30 points
+10      •  This model may have one item from the                                                                                 -- Translocation Shroud................... +60 points
+          Nobility Wargear List selected for it.

@@ -1,0 +1,47 @@
+                                                                                                  Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+              Nemesor Zahndrekh
+                     Unit composition: 1 Zahndrekh                           170 points
+
+
+
+
+       HIGH
+    COMMAND
+
+                         m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+       Zahndrekh                6    5    5   6   6   6    2    4   10   8   8   10   2+   4+
+
+     Wargear                                       Special Rules
+         •  Staff of Light                                            •  Adaptive Tactics
+         •  Phase Shifter                                            •  Aeonic Madness
+                                                                       •  Counter-Strategist
+      Traits                                                                       •  Dynastic Protocols (Sautekh)
+         •  Xenos                                                                       •  Eternal Warrior (1)
+         •  Necron                                                                       •  Ever-Living (5+)
+         •  Reanimant                                                                       • My Will Be Done (3)
+         •  Nemesor
+         •  Phase Shift                                Unit type
+                                                                       •  Infantry (Command, Unique)
+
+
+       Special Rules
+120        Adaptive Tactics
+            If Zahndrekh is selected to fill a High Command Slot, one Slot in the same Army may be upgraded
+         to become a Prime Slot at no additional cost for every 1000 points of Game Size. Only Troops and
+          Elites Slots may be upgraded in this way. If a Unit is selected to fill a Prime Slot upgraded in this
+        way, the following Prime Advantage may be selected:
+
+       Superior Maneuvers: The Unit for which this Prime Advantage was selected gains the Infiltrate (9)
+         Special Rule and the Ethereal Interception Trait.
+
+        Aeonic Madness
+       Zahndrekh must always have a Challenge declared for him if possible and must always be selected
+         to accept Challenges if possible, unless Vargard Obyron has joined the same Unit.
+
+        Counter-Strategist
+      When resolving a Challenge in which Zahndrekh, or Vargard Obyron who has joined the same Unit
+         as Zahndrekh, is taking part, the Opposing Player must always choose the first Gambit in the Face-
+        Off of the Challenge Procedure, regardless of which Model is the Challenger and ignoring Challenge
+        Advantage.

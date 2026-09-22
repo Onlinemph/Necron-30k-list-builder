@@ -1,0 +1,55 @@
+Version 1.4.2 august 2026
+
+          Tomb Citadel
+               Unit composition: 1 Tomb Ziggurat and 1 Power Crucible  300 points
+
+                       • May include up to 2 Gun Emplacements at +60 points per model.
+
+
+
+FORTIFICATION
+
+
+                          armour             hp                  bs         transport capacity
+
+ Tomb Ziggurat                   15                10            –            –
+
+ Power Crucible                 14               6            –            –
+
+ Gun Emplacement              14               4                4            –
+
+Wargear                                       Special Rules
+Tomb Ziggurat                                                •  Living Metal (2)
+•  Hull (front) mounted                                   •  Automated Fortification
+   Portal of Exile                                           •  Citadel Complex
+Power Crucible                                               •  Canoptek Factory
+• None                                                               •  Phase Shift Field
+Gun Emplacement
+                                                               •  Resurrection Amplifier
+•  Turret Mounted Tesla Destructor                                                               •  Ziggurat Deck
+Traits                                           Unit type
+•  Xenos                                                               • Tomb Ziggurat:
+•  Necron                                                            Fortification (Bunker)                            87
+•  Beacon                                                               •  Power Crucible:
+                                                            Fortification (Structure)
+                                                               • Gun Emplacement:
+                                                            Fortification (Emplacement)
+
+Options
+• Any Gun Emplacement may have its
+   Tesla Destructor exchanged for a Gauss
+   Exterminator at +20 points each.
+
+  Citadel Complex
+ The Tomb Citadel is comprised of a large surface with four Fortification emplacements on it. Two
+  are for the Tomb Ziggurat and Power Crucible, and two are for the optional Gun emplacements.
+ The surface of the Tomb Citadel is treated as being Light Area Terrain. When placing the Tomb
+  Ziggurat on the battlefield, the controlling player can place it over other terrain -- when doing so,
+ remove any terrain it covers. The Citadel is so large that it may not fit in the controlling player’s
+ Deployment Zone; if that is the case, deploy the Tomb Citadel so that as much of it as possible is
+  within the controlling player’s Deployment Zone. The Tomb Citadel may have to be deployed first,
+  so other units may be deployed on top of it.
+
+  If any Fortification that is part of the Tomb Citadel is destroyed, that model remains on the
+  battlefield as Impassible Terrain. The Gun Emplacement locations are also Impassible Terrain if no
+ Gun Emplacement was purchased for it.

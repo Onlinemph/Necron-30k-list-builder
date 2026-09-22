@@ -1,0 +1,31 @@
+                                                                                                 Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+                Annihilation Barge
+                    Unit composition: 1 Annihilation Barge                  100 points
+
+
+
+
+      SUPPORT
+
+
+                         m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+        Annihilation Barge           12   4    4    4   6    5    2    2   10   10   4    4   3+   5+
+
+     Wargear                                       Special Rules
+        •  Gauss Cannon                                           •  Bulky (5)
+        •  Tesla Destructor                                        •  Explodes (6+)
+                                                                       •  Firing Protocols (2)
+      Traits
+        •  Xenos                                    Unit type
+        •  Necron                                                   •  Cavalry (Antigrav, Heavy)
+        •  Canoptek
+
+
+      Options
+        •  This model may have its Twin Tesla                  •  This model may have its Gauss Cannon
+         Destructor exchanged for one of the               exchanged for one item from the Necron
+          following:                                   Cannons list.
+             -- Twin Gauss Destructor................ +20 points
+48             -- Twin Enmitic Exterminator........ +30 points

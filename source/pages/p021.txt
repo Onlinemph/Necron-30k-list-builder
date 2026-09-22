@@ -1,0 +1,63 @@
+Version 1.4.2 august 2026
+
+                  Crypto-Arkana – Ethermancy
+
+Below are listed the Special Rule, Wargear Items and Weapons accessible to models with the
+Ethermancy Trait.
+
+
+ Harbinger of the Storm
+ A model with the Ethermancy Trait gains the Shrouded (4+) Special Rule.
+
+ When a friendly Unit is selected as a Target of a Shooting Attack (including a Shooting Attack made
+  as part of a Reaction), during Step 2 of the Shooting Attack Process, the Controlling Player may
+  select one friendly model in that Unit or within 6" of that Unit that has the Ethermancy Trait. The
+  Controlling Player makes an Intelligence Check for the Selected Model. If succesful, the Unit that
+ was targeted for that Shooting Attack gains the Shrouded (4+) Special Rule until Step 11 of that
+  Shooting Attack has been resolved. If the Check is failed then the unit that includes the model
+  that just failed the Test gains the Stunned Status. Each model may only be selected to make an
+  Intelligence Check for this Special Rule once per turn.
+
+
+  Lightning Field                                the result of the Roll to the Selected Unit's Cool
+                                                     Characteristic (if it has one) or its Side Armour A Lightning Field is a Weapon with the following
+                                                Value (if it has one). If the result of the Roll is  Profile:
+                                                     greater than the Characteristic it is compared
+  Weapon      R   FP  RS  AP  D       to, the Selected Unit gains the Stunned Status.
+                                                   Units that include no models with either a Cool   Lightning Field   10    6     7     -      1
+                                                     Characteristic or a Side Armour Value cannot be
+   Special Rules               Traits               Selected.
+
+   Retaliate, Suppressive (0)     Arc             Storm Nodule
+                                                                                                                   21
+                                                         All Weapons with the Tesla (X) Special Rule Ether Crystal
+                                             equipped to models in a Unit that includes at
+ When a Model with an Ether Crystal is Selected                                                          least one Model with a Storm Nodule have the
+  during the Controlling Player's Movement Phase                                                  value of X associated with the specific variant
+  as the Active Player, but before or after it has                                                    of the Tesla (X) Special Rule attached to that
+ been Moved, the Controlling Player may Select                                      Weapon improved by 1. For instance,.Tesla (6+)
+ one Enemy Unit within 18" of the Model with                                          becomes Tesla (5+), etc.
+  the Ether Crystal and roll 3D6, then compare
+
+
+ Tempest Lance
+
+  Melee            IM  AM  SM  AP  D   Special Rules            Traits
+
+   Tempest Lance               I   A    S     3      1    Tesla (4+)                Arkana, Arc
+
+  Ranged           R   FP  RS  AP  D
+
+   Tempest Lance          18    2     7      -      1    Tesla (4+)                Arkana, Arc
+
+
+
+  Voltaic Staff
+
+  Melee            IM  AM  SM  AP  D   Special Rules            Traits
+
+   Voltaic Staff              +1    +2    S    4      1   Shock (Suppressed)       Arkana, Arc
+
+  Ranged           R   FP  RS  AP  D
+
+                                                Shock (Suppressed),   Voltaic Staff             18    4    4    4      1                            Arkana, Arc                                                        Suppressive (1)

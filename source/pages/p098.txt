@@ -1,0 +1,37 @@
+                                                                                                 Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+            Royal Burial Site                  Slumbering Tombs
+     An Army with this Aeonic Sequela gains the       An Army with this Aeonic Sequela gains the
+       following benefits:                                 following benefits:
+
+        •  All Models with the Nemesor Trait in an            •  All Canoptek Spyder and Canoptek
+        army with this Aeonic Sequela gain +1 to their      Reanimator Models in this Army lose the
+       Weapon Skill Characteristics.                    Support Unit (2) Special Rule and gain the
+        •  All Royal Warden, Immortal and Lychguard         Line (1) Special Rule.
+        Models in an army with this Aeonic Sequela       •  All Canoptek Scarab Models in this Army lose
+          gain +1 to their Weapon Skill Characteristic, so      the Expendable (3) and Heedless Special Rules
+         long as their Unit has been joined by at least       and gain the Line (3) Special Rule.
+        one Model with the Nemesor or Phaeron Trait.    •  All Canoptek Wraith, Canoptek Tomb Sentinel
+        • Any Necron Lord or Necron Lord on             and Canoptek Tomb Stalker Models in this
+        Catacomb Command Barge in an Army with      Army gain the Vanguard (2) Special Rule.
+           this Aeonic Sequela may be upgraded to have      •  All Necron Warrior and Immortals Units in this
+         the Nemesor Trait at +15 points per model.        Army lose the Line (1) Special Rule and gain
+                                                          the Support Unit (3) Special Rule.
+                  Dynastic Grand Court
+                      [Apex Detachment]                                                 Guardians of the Great Sleep
+             If an Army has the Royal Burial Site                           [Apex Detachment]
+         Aeonic Sequela, then the following Apex                                                                                  If an Army has the Slumbering Tomb
+        Detachment may be selected:                                                     Aeonic Sequela, then the following Apex
+                                                   Detachment may be selected:
+
+
+
+98
+            • Command slots in this Detachment may
+            only be used to select Royal Warden,
+           Necron Lord or Necron Lord on
+          Catacomb Command Barge Units.
+
+                                                                         •  Only Units with the Canoptek Trait
+                                               may be selected to fill Slots in this
+                                                        Detachment.

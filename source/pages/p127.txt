@@ -1,0 +1,45 @@
+Version 1.4.2 august 2026
+
+            Xun'Bakyr, Mother of Oblivion
+               Unit composition: 1 Xun'Bakyr                          325 points
+
+
+
+
+ WARLORD
+
+
+                    m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+ Imotekh                  6   6   6   6   6   6    4    4    12   12   10   10   2+   4+
+
+Wargear                                       Special Rules
+•  Scythe of Oblation                                      •  Dynastic Protocols (Maynarkh)
+•  Photonic Assault Claw                                 •  Ever-Living (4+)
+• The Pelt of Llandu'gor                                 •  Flense Alive
+•  Phylactery                                               • My Will Be Done (3)
+                                                               •  Systematic Extermination
+Traits                                                               • The Phaerakh's Horde
+•  Xenos
+•  Necron                                   Unit type
+•  Reanimant                                               •  Paragon (Command, Unique)
+•  Phaeron
+
+
+Options
+•  Xun'Bakyr may have her Photonic Assault
+                                                                                                               127  Claw exchanged for a Resurrection Orb for
+   +25 points.
+
+ Wargear
+ Scythe of Oblation
+
+  Melee            IM  AM  SM  AP  D   Special Rules            Traits
+
+                                                  Armourbane,
+   Scythe of Oblation          I   A    +2    2    2    Critical Hits (6+),        Power
+                                                    Reaping Blow (2)
+
+ The Pelt of Llandu'Gor
+ When a Model with the Pelt of Llandu'Gor is allocated an unsaved Wound, the Damage
+  Characteristic of the Unsaved Wound is halved, rounded up.

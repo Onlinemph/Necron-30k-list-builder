@@ -1,0 +1,59 @@
+                                                                                                 Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+                 Necron Primer
+
+    The ‘Xenos’ Trait                    Necron Gambit
+     The ‘Xenos’ trait replaces the Allegiance Trait      When selecting a Gambit, the controlling player
+       for Xenos factions. An army that includes             of a model with the ‘Necron’ Trait can select
+     models with the Xenos Trait may still include        Implacable Will instead of any others available
+     models with either the Loyalist or Traitor Trait,       to that model.
+      but not the other.
+                                                          Implacable Will
+    The ‘Necron’ Trait                                        If this Gambit is selected, the Controlling
+     The 'Necron" Trait indicates Units that can           Player of the Model for which this Gambit
+     be selected as part of a Necron army. Models        was selected gains +1 to their Focus Roll for
+      with the Necron Trait can benefit from Aeonic       each of the Challenge Opponent's Advanced
+      Sequelae.                                             Characteristic (Leadership, Cool, Willpower and
+                                                                Intelligence) which is lower than the Willpower
+    The ‘[Crypto-Arkana]’ Trait                   Characteristic of the Model for which this
+     There exist six variants of this trait, representing     Gambit was selected.
+      the six Arkanas employed by Necron Cryptek.
+                                            Additional Reaction Point     The full rules for Crypto-Arkanas are found
+      within their own section of this file.                         If an Army’s Primary Detachment is from the
+                                                   Necrons Army List, the Controlling Player
+    Other New Traits Found in this List        gains one additional Reaction Point if that
+     The following traits are also found within the        Detachment contains any Models with the
+     Necron list. They have no direct effects on         Nemesor or Phaeron Trait.
+      gameplay, but may be called upon by other
+                                       Necron Prime Advantages       rules:
+                                                                               If a unit with the Necron Trait is selected to fill a
+4    Beacon: The largest Automonuments can form      Prime Force Organization Slot in a Detachment,
+      a dimensional grid, recalling Necrons from vast                                                one of the following Prime Advantages may be
+       distances.                                                              selected:
+     Canoptek: Necrons employ many robotic          Dynastic Advisors
+      servants collectively known as Canoptek. Unlike                                                       This Prime Advantage may only be selected for
+     most Automatas, each Canoptek robot is fully                                                       a Slot with the Command or High Command
+      autonomous, but lacks complex intelligence.                                                                    Slot. Add two Command Force Organization
+                                                               Slots to the Detachment that includes the Prime      Destroyer: Destroyer Cultists have rejected the
+                                                                    Slot. Only units with the [Crypto-Arkana] Trait      simulacra of civilization most Necron maintain,
+                                            may be selected to fill those Slots, and no model     and embrace their existence as machines of war
+                                                           selected to fill one of those Slots may be of the     and destruction.
+                                               same Army List Unit Entry as another model
+     Hyperspace Hunter: Some Necrons use             in the same Detachment. This Prime Benefit
+      extradimensional travel to gain an advantage       may only be selected once per Detachment and
+       in battle, entering battlefields from impossible      may not be selected if the Detachment already
+       positions.                                           includes any Prime Benefits that add Slots to the
+                                                    Detachment.
+     Nemesor: A Nemesor is a Necron noble tasked
+      with overseeing an entire planet, its legions, and     Engrammatic Soldiers
+         its voidfleet.                                                       This Prime Advantage may only be selected for
+                                                       a Unit that includes only Infantry and/or Cavalry     Phaeron: Phaerons and Phaerakhs are the
+                                                      Models. All Models in the Unit for which this      ultimate ruler of each Necron Dynasty.
+                                                   Prime Advantage was selected gain +2 to their
+      Phasing: Many Necrons and their constructs        Cool Characteristic.
+      have some ability to oscillate in and out of
+       reality or to move outside of linear time.
+
+      Triarch: Servants of the Triarch hold their
+       allegiance not to one single Necron Dynasty, but
+       directly to the Silent King.

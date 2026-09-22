@@ -1,0 +1,37 @@
+                                                                                                  Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+
+       Special Rules
+       The Lord of Storms
+            If Imotekh is part of an Army, the Royal Burial Site Aeonic Sequela must be selected for that Army.
+
+       Once per battle, at the start of the Controlling Player's Movement Phase as the Active Player, that
+         player can Call the Storm. The Storm remains until the end of the opposing player's next turn
+        or until Imotekh is removed as a casualty, whichever comes first. While the Storm remains, the
+         following benefits apply to Imotekh:
+          •  Only Enemy Units that include Models with the Paragon Type can make Reactions that Target
+           Imotekh's Unit.
+          •  All Shooting Attacks targeting Imotekh's Unit are made with a -1 Penalty to the Ballistic Skill of
+           the attacking Model.
+          •  Imotekh may make a Shooting Attack against using the following Profile in the Controlling
+             Player's Shooting Phase, in addition to his other Ranged Weapons.
+
+        Melee            R   FP  RS  AP  D   Special Rules            Traits
+
+        The Storm Cometh     48      1    8   –      1    Blast (5), Suppressive (1)   Arc
+
+        Hyperlogical Strategist
+       While Imotekh remains on the Battlefield, the Controlling Player gains one additional point of
+        Reaction Allotment each Turn (in addition to the one already granted because Imotekh has the
+        Phaeron Trait). However, if any Enemy Units from the Orks Army List are on the battlefield, then
+        the Controlling Player does not gain this additional Reaction Point and does not gain a Reaction
+         Point for controlling a model with the Nemesor or Phaeron Trait.
+
+        Relentless Defiance
+       While a Model with this Special Rule is engaged in a Challenge, its Controlling Player can select the
+126      following Gambit for that Model:
+
+        Relentless Defiance: If this Gambit is selected, this Models always Strikes last in the Strike Step,
+        even if the Controlling Player wins the Focus Roll. When this Model Strikes in the Strike Step, it
+         gains a number of additional Attacks equal to the number of Wounds inflicted on the model by the
+      Enemy Model during this Strike Step (regardless of wether any Damage was inflicted).

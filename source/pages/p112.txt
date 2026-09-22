@@ -1,0 +1,56 @@
+                                                                                                  Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+       course of the battle, excluding models that have
+       joined the unit before or after the battle or were
+       assigned to it.
+
+      Each Resurrection Orb can only be activated
+      once per battle.
+
+     Sempiternal weave
+     A model with a Sempiternal weave has a 2+
+      Armour Save.
+
+     Sense Cluster
+     A Model that is equipped with a Sense Cluster
+         fires Snap Shots at its full Ballistic Skill. All other
+       penalties relating to Snap Shots still apply.
+
+     Shadowloom
+          If a Unit that includes any Models with
+      Shadowlooms is the target of a Shooting Attack,
+           if the distance between the closest Model in
+       the Attacking Unit and the Target Unit is 12" or
+        greater, Models in that Unit gain the Shrouded
+        (5+) Special Rule or, if they already have or gain
+       a version of the Shrouded (X) Special Rule from
+       another source, modify the variable number by
+        +1 (5+ becomes 4+, etc), to a maximum of 4+.
+
+     Shield vanes
+112   A model with Shield vanes has its Armour Save
+        characteristic improved by 1 step (4+ becomes
+        3+, etc), to a maximum of 3+.
+
+     Targeting relay
+      At the start of the controlling player’s Shooting
+       Phase, a model with this special rule can select a
+        friendly unit with the Reanimant Unit sub-Type
+       within 12”, except its own unit. Until the end of
+       the current phase, add 1 to the result of all Hit
+       Tests made for Ranged Attacks made by the
+       selected Unit. This does not stack; a Unit can
+       only receive the benefits of one Targeting Relay
+       per phase.
+
+      Translocation shroud
+     A model with a Translocation shroud, and all
+      models with the Infantry Type in the Unit it
+        joins, gain the Deep Strike Special Rule.
+
+    Whip coils
+      During a turn in which a model with Whip Coils’
+       Unit either succesfully completed a Charge,
+       or itself had a Charge succesfully completed
+       against it, all of that model’s Melee Weapons
+       receive a +3 bonus to their Initiative Modifier.

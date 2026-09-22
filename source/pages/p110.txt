@@ -1,0 +1,61 @@
+                                                                                                  Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+           Necron Melee Weapon Profiles
+
+     Power weapons
+
+
+      Weapon          IM AM SM  AP  D   Special Rules               Traits
+
+        Voidblade                    I   A    S    4      1    Critical Hit (6+), Entropic (4+)  Power
+
+       Hyperphase Sword         I   A    S    3      1   Breaching (6+)             Power
+
+       Hyperphase Thresher     I   A     +1    3      1   Breaching (6+)             Power
+
+         Pair of Hyperphase                                            I    +2     +1    3      1   Breaching (6+)             Power        Threshers
+
+       Hyperphase                                       Breaching (5+),                                     -1   A    +2    3      1                           Power        Reapblade                                       Reaping Blow (2)
+
+         Pair of Hyperphase                                 Breaching (5+),                                     -1   A    +2    3    2                           Power        Reapblades                                      Reaping Blow (2)
+
+          Staff of Light (Melee)    +2   A    S    3      1  –                       Power
+
+       Rod of Covenant                                            I   A    S    2      1  –                       Power        (Melee)
+
+                                                      Armourbane,        Warscythe                    I   A    +2    2    2                           Power                                                        Reaping Blow (1)
+
+        Voidscythe             -2   A    +4    2    2    Critical Hit (6+), Entropic (2+)  Power
+
+
+110
+     Miscelleanous Melee Weapons
+
+
+      Weapon          IM AM SM  AP  D   Special Rules               Traits
+
+         Cryptotendrils         +4    3    3   –      1   Rending (6+), Breaching (4+)  –
+
+        Disruption Bayonet         I   A    S   –      1    Entropic (6+)                Entropic
+
+        Deconstructor                                            I   A    S   –      1    Entropic (5+)                Entropic        Mandibles
+
+         Flensing Claw               I   A    S    5      1   Shred (6+)                    Flensing
+
+         Pair of Flensing Claws     I    +2    S    5      1   Shred (6+)                    Flensing
+
+        Wraith Scythes              I   A    S    5      1   Rending (6+), Breaching (5+)   Flensing
+
+        Photonic Assault Claw   +3   A    S    4      1   Breaching (4+), Shred (6+)     Flensing
+
+        Constructor Claw           I   A    S    4    2  –                  –
+
+         Pair of Constructor                                            I    +2    S    4    2  –                  –       Claws
+
+         Stalker Heavy Claws       I   A    S    4    3  –                  –
+
+        Seraptek Heavy                                                            –        Scythes
+
+           - Impaling Strike       -1   A    +4    2    6   Armourbane           –
+
+           - Reaping Strike          I   A    +2    2    3   Reaping Blow (3)         –

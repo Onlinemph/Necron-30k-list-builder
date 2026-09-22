@@ -1,0 +1,57 @@
+Version 1.4.2 august 2026
+
+           Royal Warden
+               Unit composition: 1 Royal Warden                      40 points
+
+                       • May include up to 4 additionnal Royal Wardens at +40 points each.
+                       • Any Royal Warden may be exchanged for 1 Triarch Warden for +20 points.
+
+
+ COMMAND
+
+
+                    m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+ Royal Warden              6    4    4    5    5    2    2    2   10   10    7    7    3+  –
+
+ Triarch Warden              12   4    4    5    5    2    2    2    12   12    7    7    3+  –
+
+Wargear                                       Special Rules
+•  Gauss Blaster                                Royal Warden
+                                                               •  Ever-Living (5+)
+Traits                                                               • Among the Ranks
+•  Xenos                                                               •  Implacable Advance
+•  Necron                                                               • The Will of the Phaeron
+•  Reanimant                                                Triarch Warden
+•  Triarch (Triarch Warden only)                                                               •  Ever-Living (5+)
+                                                               • Among the Ranks
+                                                               •  Bulky (2)
+                                                               • Deep Strike
+
+                                           Unit type
+                                                                                                                      17
+                                                               •  Royal Warden:
+                                                         Infantry (Command)
+                                                               •  Triarch Warden:
+                                                         Infantry (Antigrav, Command)
+Options
+• Any model in the Unit may have its Gauss            • Any Model in this Unit may have one of the
+   Blaster exchanged for an item from the               following selected for it:
+   Nobility Melee Weapons List or one of the                                                                        --  Nebuloscope.....................................+5 points
+   following:                                                                        -- Sense Cluster....................................+5 points
+    -- Synaptic Disintegrator..............................free                                                               • Any Model in this Unit that is equipped with
+    -- Rod of Covenant............................+10 points                                                    a Gauss Blaster or Tesla Carbine may have
+    -- Tesla Carbine.............................................free        a Disruption Bayonet selected for it for +2
+•   If a Model in this Unit had an item from the           points.
+   Nobility Melee Weapons list selected for it,          • One Model in this Unit may have the Officer
+  may also have one of the following selected           of the Line (2) Special Rule Selected for it for
+   for it:                                             +10 points.
+    -- Particle Caster..................................+5 points
+    -- Enmitic Disintegrator......................+5 points
+    -- Dispersion Shield.......................... +20 points
+
+
+ Among the Ranks
+ Although included in an Army as a Unit that includes multiple Models, each Model with this Special
+ Rule is considered to be a separate Unit for all other purposes, including Deployment and the
+  scoring of Victory Points.

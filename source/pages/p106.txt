@@ -1,0 +1,45 @@
+                                                                                                  Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+     Doomsday Weapons
+
+
+      Weapon          R   FP  RS  AP  D   Special Rules                  Traits
+
+       Doomsday Blaster                                                               Las
+
+            - Low Power        24     1    8    3    2    Blast (3)
+
+                                                                   Blast (5), Heavy (FP),            - High Power        48   0    10    2    3                                                       Ponderous
+
+       Doomsday Cannon                                                              Las
+
+            - Low Power         36     1    8    3    2    Blast (3)
+
+                                                                   Blast (5), Heavy (FP),            - High Power         72   0    10    2    3                                                       Ponderous
+
+       Doomsday Annihilator                                                           Las
+
+            - Low Power         36     1    8    3    3    Blast (7)
+
+                                                                   Blast (10), Heavy (FP),            - High Power         72   0    10    2    4                                                       Ponderous
+
+
+     Enmitic Polarity Inversion Weapons
+
+
+      Weapon           R   FP  RS  AP  D   Special Rules               Traits
+
+                                                          Breaching (6+),        Enmitic Disintegrator    18     1    6    5      1                                    Assault, Enmitic                                                                       Critical Hit (5+), Pistol106
+                                                                   Blast (3), Breaching (6+),        Enmitic Annihilator      18     1    6    5      1                               Enmitic                                                                       Critical Hit (5+)
+
+                                                                   Blast (5), Breaching (6+),        Enmitic Exterminator   36     1    6    4      1                               Enmitic                                                                       Critical Hit (5+), Heavy (RS)
+
+
+     Nanoscarab Beamers
+
+
+      Weapon           R   FP  RS  AP  D   Special Rules               Traits
+
+        Nanoscarab Scouring                                 12    2    5    4      1    Entropic (5+)                   Assault, Nano      Beam
+
+        Nanoscarab                                 12    3    6    4      1    Entropic (5+)             Nano        Atomisation Beam

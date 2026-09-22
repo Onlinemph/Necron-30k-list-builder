@@ -1,0 +1,59 @@
+                                                                                                 Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+              C'Tan Shard of the Deceiver
+                    Unit composition: 1 Shard of the Deceiver              400 points
+
+
+
+
+       LORD
+      OF WAR
+
+                         m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+       Shard of the Deceiver        10   5    5   9   8   6    5    4    12   12   10   10  –   4+
+
+     Wargear                                       Special Rules
+        •  Fists of Mephet'ran                                     •  Cosmic Insanity
+                                                                       •  Dread
+      Traits                                                                       •  Explodes (2+)
+        •  Xenos                                                                       •  Fear (1)
+        •  Necron                                                                       •  Heedless
+        •  Star-God                                                                       •  Necrodermis
+                                                                       • The Grand Illusion
+
+                                                Unit type
+                                                                       •  C'Tan
+
+
+      Dread
+80     The Fear (X) Special Rule of a Model with this Special Rule also reduces the Weapon Skill
+         Characteristic of any affected Units by the Value of X..
+
+
+        Fists of Mephet'ran
+
+       Weapon          IM  AM  SM  AP  D   Special Rules            Traits
+
+           Fists of Mephet'ran         I   A    S    2     3  –                –
+
+
+       Cosmic Insanity
+      Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's
+        Controlling Player may choose to have this model use the following unique Power of the C'Tan:
+
+       Weapon          R   FP  RS  AP  D   Special Rules            Traits
+
+                                                                 Barrage, Blast (10),        Cosmic Insanity        120     1     3    2      1                            Despair                                                           Stun (3)
+
+
+      The Grand Illusion
+        At the end of the Deploy Armies Step of any Mission Sequence, if an army includes a Model with
+          this Special Rule, that player can select up to one of their own Units and one opposing Units and
+        re-deploy them, following any Deployment Restrictions that Unit has to follow. This can be used
+        to re-deploy a Unit in Reserves on the Battlefield, or place a Unit on the Battlefield in Reserves.
+        Units inside a transport may not be re-deployed, nor may this rule be used to Embark Units inside
+        a Transport, but the Transport itself may be re-deployed in which case any units Embarked inside
+         that Transport remain inside the Transport. Units that include any models with the Paragon Type
+       and Transports that have any Paragon models Embarked upon them may not be re-deployed using
+          this Special Rule.

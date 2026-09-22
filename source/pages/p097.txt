@@ -1,0 +1,45 @@
+Version 1.4.2 august 2026
+
+       Hypercrypt Legion             Mark of the Flayer
+An Army with this Aeonic Sequela gains the       An Army with this Aeonic Sequela gains the
+following benefits:                                 following benefits:
+
+• Command and High Command Models in          •  All models in Flayed Ones Units in this Army
+   this Army gain the Hyperspace Hunter Trait.         lose the Heedless Special Rule.
+  Any other Units with the Reanimant Trait          •  Units of Necron Flayed Ones and Ophydian
+   in this Army may be upgraded to have the           Destroyers in this Army that enter play using
+   Hyperspace Hunter Trait for +30 points per         the Deep Strike Special Rule may have a
+   Unit.                                        Charge declared for the Unit in the same turn,
+• Up to two Units from this Army may attempt        but that Charge is automatically Disordered.
+   a Deep Strike each Turn, rather than just one,     •  Every model in Units with the Reanimant Sub-
+   instead of the normal limitations of the Deep      Type in this Army that do not already have a
+   Strike Special Rule.                                 Variant of the Fear (X) Special Rule may have
+•  At the start of each of the Controlling Player's      Charnel Displays selected for them at +10
+  Turn as the Active Player, that Player can            points for the entire Unit.
+   select one Unit from this Army that includes
+                                          Charnel Displays   only Models the Hyperspace Hunter Trait or
+                                  A model with Charnel Displays has the Fear (1)   includes at least one Model equipped with
+                                                   Special Rule, and receives a -1 modifier to its   a Translocation Shroud, remove that Unit
+                                                             Ballistic Skill..   from the Battlefield, and place it in Reserves.
+  Any Enemy Units that become Unengaged as
+   a result of the Unit being removed from the                 Royal Court of Drazak
+   Battlefield may immediately Consolidate as                      [Apex Detachment]
+   described in the Aftermath Section of the
+                                                                          If an Army has the Mark of the Flayer  Combat Resolution Sub-Phase.
+                                                Aeonic Sequela, then the following Apex
+                                              Detachment may be selected:
+                                                                                                         97              Translocator Flight
+                 [Apex Detachment]
+
+     If an Army has the Hypercrypt Legion
+   Aeonic Sequela, then the following Apex
+   Detachment may be selected:
+                                                                 •  Heavy Assault slots in this Detachment
+                                           may only be used to select Flayed Ones
+                                                              Units.
+
+
+
+    •  Only Units with the Reanimant Trait
+     may be selected to fill Slots in this
+      Detachment.

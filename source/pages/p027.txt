@@ -1,0 +1,40 @@
+Version 1.4.2 august 2026
+
+          Macrocyte Warriors
+               Unit composition: 5 Macrocyte Warriors                40 points
+
+                       • May include up to 10 additional Macrocyte Warriors at +8 points per model.
+
+
+
+  RETINUE
+
+
+                    m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+ Macrocyte Warrior           12   3    3    4    4     1    2    2   8    12   4    5   4+  –
+
+ Macrocyte Accelerator       12   3    3    4    4     1    2    2   8    12   4    7   4+  –
+
+ Macrocyte Reanimator       12   3    3    4    4     1    2    2   8    12   4    7   4+  –
+
+Wargear                                       Special Rules
+Macrocyte Warrior                                          •  Battlesmith (1)
+•  Gauss Scalpel                                    (Macrocyte Reanimator only)
+Macrocyte Accelerator                                      •  Expendable (3)
+•  Deconstructor Mandibles                              • Goad (Reanimant)
+Macrocyte Reanimator                                (Macrocyte Accelerator only)
+•  Nanoscarab Scouring Beam                            •  Reanimation Beam (1)
+                                                  (Macrocyte Reanimator only)
+Traits                                                               •  Systematic Vigour
+•  Xenos
+•  Necron                                   Unit type
+•  Canoptek                                                •  Automata (Antigrav)                                                                                                        27
+
+Options
+•  For every 5 models in the Unit, one                   • Any Macrocyte Warrior in the Unit may have
+   Macrocyte Warrior may be exchanged for a               its Gauss Scalpel exchanged for a Tesla Caster
+   Macrocyte Accelerator for +10 points.                 for free.
+•  For every 5 models in the Unit, one
+   Macrocyte Warrior may be exchanged for a
+   Macrocyte Reanimator for +10 points.

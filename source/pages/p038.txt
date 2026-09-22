@@ -1,0 +1,30 @@
+                                                                                                 Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+               Canoptek Tomb Stalker
+                    Unit composition: 1 Canoptek Tomb Stalker               125 points
+
+
+
+
+       HEAVY
+      ASSAULT
+
+                         m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+      Tomb Stalker               10   4    4    7    7    5    2    5   8    12   4    4   3+   5
+
+     Wargear                                       Special Rules
+        •  2 Gauss Slicers                                          •  Bulky (5)
+        •  Phase-Tunnel Cutters                                  • Deep Strike
+        • Gloom Prism                                            •  Explodes (6+)
+        •  Sense Cluster                                            •  Fast (2)
+                                                                       •  Firestorm
+      Traits                                                                       •  Firing Protocols (2)
+        •  Xenos                                                                       •  Impact (A)
+        •  Necron                                                                       •  Implacable Advance
+        •  Canoptek                                                                       •  Outflank
+                                                                       •  Phase Motion
+                                                                       •  Vanguard (1)
+
+                                                Unit type
+38                                                                    •  Automata

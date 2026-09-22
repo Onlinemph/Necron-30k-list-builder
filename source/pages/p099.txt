@@ -1,0 +1,36 @@
+Version 1.4.2 august 2026
+
+       Servants of the Ankh               The Symbiosis
+An Army with this Aeonic Sequela gains the       An Army with this Aeonic Sequela gains the
+following benefits:                                 following benefits:
+
+•  Units with the Triarch Trait in an Army with       • The 0-1 limit on Units of Pariahs is lifted from
+   this Aeonic Sequela gain the Vanguard (2)             this Army.
+   Special Rule.                                           •  All models with the Reanimant Sub-Type
+•  Each time a Unit with the Triarch Trait in an         in this Army gain the Adamantium Will (5+)
+  army with this Aeonic Sequela has a Charge         Special Rule whilst within 12" of at least one
+   declared for it, it gains +2 to its Set-Up Move       Model with the Anathema Special Rule from
+   Distance if at least one Charge Target was          the same Army.
+   targeted with a Shooting Attack by a Triarch       • Any model with the Command or High
+   Stalker Unit in the same Army in the preceding    Command Sub-Type in this Army that is
+   Shooting Phase.                               equipped with a Warscythe or Voidscythe
+• The following items are added to the Nobility     may have a Gauss Blaster selected for it for +3
+  Melee Weapons List:                                 points.
+    -- Rod of Covenant............................+10 points
+                                                       Bringers of Silence
+               Lawbringer Phalanx                     [Apex Detachment]
+                 [Apex Detachment]            If an Army has The Symbiosis Aeonic
+     If an Army has the Servants of the Ankh             Sequela, then the following Apex
+   Aeonic Sequela, then the following Apex          Detachment may be selected:
+   Detachment may be selected:
+
+
+
+                                                                                                        99
+                                                                 • The Command slot in this Detachment
+                                           may only be used to select Units with
+                                                       the [Crypto-Arkana] Trait.
+                                                                 •  Elites Slots in this Detachment may only
+                                                be used to select Pariah Units.
+    •  Only Units with the Triarch Trait may be
+      selected to fill Slots in this Detachment.

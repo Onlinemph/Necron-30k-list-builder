@@ -1,0 +1,35 @@
+                                                                                                  Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+              Necron Warriors
+                    Unit composition: 10 Necron Warriors                   100 points
+
+                               • May include up to 10 additional Necron Warriors at +10 points per model.
+
+
+
+      TROOPS
+
+
+                         m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+       Necron Warrior            6    4    4    4    4     1    2     1    10   10   4    4   4+    -
+
+     Wargear                                       Special Rules
+        •  Gauss Flayer                                             •  Reanimation Protocols (5+)
+                                                                       •  Endless Legions
+      Traits                                                                       •  Line (1)
+        •  Xenos
+        •  Necron                                   Unit type
+        •  Reanimant                                               •  Infantry
+
+
+      Options
+        • The entire unit may exchange their Gauss           •  Every Model in the Unit may have Disruption
+          Flayers for Gauss Reapers for free.                 Bayonets selected for it at +1 point per model.
+
+
+      Endless Legions
+40
+       Each time a Rule, Special Rule, or Reaction calls for any number of Resurrection Tests to be made
+         for a Unit that has this Special Rule, the number of Resurrection Tests made as part of that Rule,
+         Special Rule or Reaction is modified by +1.

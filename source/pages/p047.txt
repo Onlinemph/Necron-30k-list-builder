@@ -1,0 +1,33 @@
+Version 1.4.2 august 2026
+
+           Lokhust Heavy Destroyers
+               Unit composition: 1 Lokhust Heavy Destroyer            60 points
+
+                       • May include up to 2 additional Lokhust Heavy Destroyers at +50 points per
+                    model.
+
+
+  SUPPORT
+
+
+                    m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+ Lokhust Heavy Destroyer     12   4    4    4    5    3    2    2   10   10    7    5   3+    -
+
+Wargear                                       Special Rules
+•  Gauss Destructor                                       •  Reanimation Protocols (5+)
+•  Sense Cluster                                            •  Bulky (3)
+                                                               •  Hardwired for Destruction
+Traits                                                               •  Vanguard (1)
+•  Xenos
+•  Necron                                   Unit type
+•  Reanimant                                               •  Cavalry (Antigrav, Heavy)
+•  Destroyer
+
+
+Options
+• Any model in the unit may have its Gauss            •  Every Model in the Unit may have a
+   Destructor exchanged for one of the                 Disruption Bayonet selected for it for +1 point
+   following:                                        per model.
+                                                                                                 47    -- Tesla Destructor........................................free
+    -- Enmitic Exterminator......................+5 points

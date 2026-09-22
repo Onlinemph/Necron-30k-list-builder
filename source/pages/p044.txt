@@ -1,0 +1,60 @@
+                                                                                                  Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+               Canoptek Spyders
+                    Unit composition: 1 Canoptek Spyder                    50 points
+
+                               • May include up to 4 additional Canoptek Spyders at +50 points per model.
+
+
+
+      SUPPORT
+
+
+                         m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+       Canoptek Spyder            10   3    3   6   6    4    2    2   8    12   4   8   3+    -
+
+     Wargear                                       Special Rules
+        •  Pair of Constructor Claws                              •  Battlesmith (1)
+                                                                       •  Bulky (4)
+      Traits                                                                       •  Canoptek Hive
+        •  Xenos                                                                       •  Fabricator (2)
+        •  Necron
+        •  Canoptek                                 Unit type
+                                                                       •  Automata (Antigrav)
+
+      Options
+        • Any model in the unit may have any of the           • Any model in the unit that does not have a
+          following selected for it:                       Twin Particle Beamer selected for it may
+             -- Twin Particle Beamer.................... +15 points       have its Pair of Constructor Claws exchanged
+             -- Fabricator Claw Array...................+10 points         for a Constructor Claw and a Particle Beamer
+             -- Gloom Prism...................................+10 points         for +10 points
+44
+
+      Fabricator Claw Array
+      The values in brackets associated with any variants of the Battlesmith (X) and Fabricator (X) Special
+        Rules of any model equipped with a Fabricator Claw Array are doubled.
+
+
+      Fabricator (X)
+        In the Controlling Player's Movement Phase as the Active Player, when a model with the
+        Fabricator (X) Special Rule has been selected, but before or after it has been moved, the Controlling
+        Player can Activate this Special Rule. Once Activated, the controlling player of the Model with
+        the Fabricator (X) special rule (referred to as the 'Acting Model') selects one friendly Unit with
+        the Reanimant Trait within 6" of the Acting Model. Once a Target Unit has been selected, the
+        Controlling Player makes a number of Resurrection (4+) Tests for the Target Unit equal to the value
+         in brackets associated with the variant of the Fabricator (X) Special Rule of the Acting Model.
+
+           If a model with the Fabricator (X) Special Rule also has the Battlesmith (X) Special Rule, the model's
+        Battlesmith (X) Special Rule may not be Activated in the same Phase as its Fabricator (X) Special
+        Rule.
+
+
+      Canoptek Hive
+        In the Controlling Player's Movement Phase as the Active Player, when a model with the Canoptek
+       Hive has been selected, but before or after it has been moved, the controlling player may Target
+       one friendly unit of Canoptek Scarabs within 6" of the model with the Canoptek Hive Special Rule
+         (referred to as the 'Acting Model'. Add one Scarab Swarm Model to the Target Unit so that it is in
+       coherency with the Target Unit and wholly within 6" of the Acting Model, then take an Intelligence
+       Check for the Acting Model. If successful, nothing happens. If failed, 1 Damage is inflicted to the
+        Acting Model. No Saving Throw or Damage Mitigation Roll may be taken against that Damage.

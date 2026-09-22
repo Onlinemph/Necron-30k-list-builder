@@ -1,0 +1,48 @@
+                                                                                                 Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+               Hierotek Circle
+                    Unit composition: 5 Hierotek Guardians                 100 points
+
+                               • May include up to 5 additional Hierotek Guardians at +18 points per model.
+                               • One Hierotek Guardian may be exchanged for an Apprentek for +20 points.
+                               • One Hierotek Guardian may be exchanged for a Despotek for +5 points.
+      RETINUE
+
+
+                         m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+        Hierotek Guardian          6    4    5    4    5     1    2     1    10   10   6    5   3+    -
+
+       Apprentek                6    4    5    4    4    2    2     1    10   10    7   8   3+    -
+
+       Despotek                 6    4    5    4    5    2    2    2   10   10    7    5   3+    -
+
+     Wargear                                       Special Rules
+       Hierotek Guardian                                            •  Reanimation Protocols (5+)
+        •  Gauss Blaster                                            •  Battlesmith (2) (Apprentek only)
+        •  Sense Cluster                                            •  Magnification Conduit
+       Apprentek                                           (Apprentek only)
+        •  Staff of Light
+       Despotek                                     Unit type
+        •  Gauss Blaster                                      Hierotek Guardian
+        •  Sense Cluster                                            •  Infantry
+                                                              Apprentek
+      Traits                                                      •  Infantry (Sergeant)
+        •  Xenos                                             Despotek
+28
+        •  Necron                                                   •  Infantry (Champion)
+        •  Reanimant
+
+
+      Options
+        • Any Immortal Guardian or Despotek in the          • Any Hierotek Guardian or Despotek in the
+         Unit may have its Gauss Blaster exchanged for        Unit may have a Disruption Bayonet selected
+        one of the following:                                   for it at +1 point each.
+             -- Tesla Carbine.............................................free
+             -- Synaptic Disruptor................. +5 points each
+
+      Magnification Conduit
+        Before the start of the battle, the Controlling Player of a model with this Special Rule may select
+       one model with the [Crypto-Arkana] Trait in the same Army. The selected Model is this Model's
+         "Master". Whilst this Model's Master is on the Battlefield, this Model gains the same Harbinger
+        Special Rule as its Master has.

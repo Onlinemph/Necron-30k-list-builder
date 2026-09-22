@@ -1,0 +1,38 @@
+Version 1.4.2 august 2026
+
+          Necron Overlord on Catacomb Command Barge
+               Unit composition: 1 Overlord on Barge                   130 points
+
+
+
+
+   HIGH
+ COMMAND
+
+                    m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+ Overlord on Barge            12   5    5   6    7    6    4    4   10   10   9   9   2+  –
+
+Wargear                                       Special Rules
+•  Voidblade                                                •  Bulky (8)
+•  Gauss Cannon                                           • Command Barge
+                                                               •  Eternal Warrior (1)
+Traits                                                               •  Ever-Living (5+)
+•  Xenos                                                               •  Explodes (6+)
+•  Necron                                                               •  Firing Protocols (2)
+•  Reanimant                                                               •  Implacable Advance
+•  Nemesor                                                               • My Will Be Done (3)
+
+                                           Unit type
+                                                               •  Cavalry (Antigrav, Command)
+
+
+Options                                                                                                                                    11
+•  This model may have its Voidblade                   •  This model may have any of the following
+   exchanged for one item from the Nobility             selected for it:
+  Melee Weapons List or for a Voidscythe at                -- Phase Shifter.................................. +20 points
+   +20 points.                                                       --  Phylactery....................................... +30 points
+•  This model may have one item from the                  -- Targeting Relay............................... +15 points
+  Necron Nobility Wargear List selected for it.                                                               •  This model may have its Gauss Cannon
+                                                exchanged for one item from the Necron
+                                             Cannons list.

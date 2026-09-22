@@ -1,0 +1,47 @@
+                                                                                                  Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+               Power of the C’Tan
+
+      Each model with the C'Tan Unit Type gains a Power of the C'Tan during the controlling player's
+       Shooting Phase as the Active Player. When a model that can use the Powers of the C'Tan is selected to
+      make a Shooting Attack during the Controlling Player's Shooting Phase, first roll a D6 and consult the
+       following list of Powers of the C’Tan. This model may make a Shooting Attack using the weapon profile
+       corresponding to the number rolled, in addition to any other Ranged Weapons it has. If a model using a
+      Power of the C’Tan is a Vehicle, the Attack is made as if the Power of the C'tan was a Turret-mounted
+      weapon.
+
+        1: Aetheric Thunder
+
+       Weapon           R   FP  RS  AP  D   Special Rules               Traits
+
+         Aetheric Thunder      36    2    9    2    2   Armourbane, Tesla (4+)       Arc
+
+       2: Antimatter Meteor
+
+       Weapon           R   FP  RS  AP  D   Special Rules               Traits
+
+                                                               Barrage, Blast (7),        Antimatter Meteor      36     1    8    4    3                      –                                                          Breaching (6+)
+
+       3: Cosmic Fire
+
+       Weapon           R   FP  RS  AP  D   Special Rules               Traits
+
+       Cosmic Fire        H      1     7    4    2    Hellstorm, Panic (2)         Flame
+
+       4: Seismic Assault100
+
+       Weapon           R   FP  RS  AP  D   Special Rules               Traits
+
+        Seismic Assault        36    15    6    4    2   Pinning (2), Shock (Pinned)  –
+
+       5: Sky of Falling Stars
+
+       Weapon           R   FP  RS  AP  D   Special Rules               Traits
+
+       Sky of Falling Stars     36    4     7    4    3    Barrage, Blast (3), Pinning (2)  Flame
+
+       6: Time’s Arrow
+
+       Weapon           R   FP  RS  AP  D   Special Rules               Traits
+
+                                                 Aeon Breach (4+),        Time's Arrow          36     1    10    2    10                               Entropic                                                               Precision (2+)

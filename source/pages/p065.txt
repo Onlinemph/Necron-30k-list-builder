@@ -1,0 +1,32 @@
+Version 1.4.2 august 2026
+
+          Necron Ophydian Destroyers
+               Unit composition: 3 Ophydian Destroyers               90 points
+
+                       • May include up to 6 additional Ophydian Destroyers at +25 points per model.
+
+
+
+FAST ATTACK
+
+
+                    m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+ Ophydian Destroyer         10   4    4    4    4    2    2    3   10   10    7    5   3+    -
+
+Wargear                                       Special Rules
+•  Paired Flensing Claws                                  •  Reanimation Protocols (5+)
+• Whip Coils                                              •  Bulky (3)
+                                                               • Deep Strike
+Traits                                                      •  Hardwired for Destruction
+•  [Xenos] Necron                                         •  Phase Motion
+•  Reanimant                                               •  Vanguard (1)
+•  Destroyer
+•  Phase Shift                                Unit type
+                                                               •  Infantry (Reanimant, Skirmish)
+
+Options
+• Any Ophydian Destroyer in the unit may have       •  For every 3 models in the unit, one Ophydian
+   a Pair of Hyperphase Threshers selected for          Destroyers may have a Pair of Hyperphase
+    it at +15 points per model.                         Reapblades selected for it at +25 points per
+                                                                                                            65                                                  model.

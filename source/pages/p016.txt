@@ -1,0 +1,38 @@
+                                                                                                 Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+               Destroyer Lord in Skorpekh Frame
+                    Unit composition: 1 Skorpekh Lord                      140 points
+
+
+
+
+    COMMAND
+
+
+                         m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+       Skorpekh Lord             8    5    4   6   6   6    3    4   10   10   8   6   2+  –
+
+     Wargear                                       Special Rules
+        •  Hyperphase Thresher                                  •  Bulky (4)
+        •  Flensing Claw                                           •  Eternal Warrior (1)
+        •  Gauss Cannon                                           •  Ever-Living (5+)
+                                                                       •  Firestorm
+      Traits                                                                       •  Hardwired for Destruction
+        •  Xenos                                                                       •  Implacable Advance
+        •  Necron
+        •  Reanimant                                Unit type
+        •  Destroyer                                                •  Infantry (Command)
+
+
+      Options
+        •  This model may have its Hyperphase                 •  This model may have its Gauss Cannon
+        Thresher exchanged for a Hyperphase              exchanged for an item from the Necron
+16        Reapblade for +10 points.                       Cannons list.
+        •  This model may have its Photonic Assault           •  This model may have any of the following
+        Claw exchanged one item from the Nobility          selected for it:
+        Wargear List.                                                    -- Phase Shifter.................................. +20 points
+        •  This model may have its Hyperphase                      --  Phylactery....................................... +30 points
+        Thresher and Photonic Assault Claw                       -- Translocation Shroud................... +60 points
+        exchanged for a Pair of Hyperphase
+         Threshers for +5 points.

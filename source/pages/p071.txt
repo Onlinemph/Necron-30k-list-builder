@@ -1,0 +1,34 @@
+Version 1.4.2 august 2026
+
+            Tesseract Ark
+               Unit composition: 1 Tesseract Ark                       160 points
+
+
+
+
+  ARMOUR
+
+                                                 Armour                    transport
+                                                                                           capacity
+                      m         bs      front      side      rear     hp
+
+ Tesseract Ark                   12        4         13         12         12       4          -
+
+Wargear                                       Special Rules
+•  2 Hull (Front) Mounted                                •  Living Metal (1)
+   Tesla Cannons                                          •  Explodes (2+)
+•  1 Hull (Front) Mounted
+   Tesseract Drive                            Unit type
+•  Containment Field                                      •  Vehicle (Skimmer)
+
+Traits
+•  Xenos
+•  Necron
+
+
+Options
+• May have 2 Tesla Cannons exchanged for one       • May have any of the following selected for it:                                                                                                                      71
+   of the following (in the same mount):                      --  Nebuloscope................................... +15 points
+    -- 2 Enmitic Annihilators..................+10 points           -- Oracular Targeter.............................+5 points
+    -- 2 Gauss Cannons.......................................free
+    -- 2 Particle Beamers.........................+10 points

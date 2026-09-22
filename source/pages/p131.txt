@@ -1,0 +1,51 @@
+Version 1.4.2 august 2026
+
+
+ Special Rules
+ Dias of Dominion
+ The Dias of Dominion is subject to the following provisions:
+
+ Antigrav Throne: The Dias of Dominion forms a Unit with two Triarchal Menhirs. It may not join
+ or be joined by other Units or leave the Triarchal Menhirs, even though it has the Paragon Type.
+
+ Hapthatra and Mesophet: Hapthatra and Mesophet are the minor members of Szarekh’s Triarch.
+ Hapthatra is equipped with the Staff of Stars and Mesophet is equipped with the Scythe of Dust;
+  attacks may not be made with those weapons, except through the Phaeron of the Stars and Phaeron
+  of the Blades provisions.
+
+ Preservative Auto-Torpor: Whilst the Dias of Dominion has 5 or fewer remaining Wounds, it
+  is not subject to the Phaeron of the Stars provision. Whilst the Dias of Dominion has 3 or fewer
+ remaining Wounds, it is not subject to the Phaeron of the Blades provision.
+
+ Phaeron of the Stars: Whilst the Dias of Dominion is subject to this provision, other Models with
+  the Reanimant Trait in the Controlling Player’s Army within 6” of the Dias of Dominion add 6” to
+  the Range characteristics of their ranged weapons. Whilst the Dias of Dominion is subject to this
+  provision, it can make ranged attacks using the Staff of Stars and can make a number of additional
+  Attacks in the Fight Sub-Phase equal to the Attack Modifier Characteristic of the Staff of Stars.
+ Those additional Attacks must be made using the Staff of Stars.
+
+ Phaeron of the Blades: Whilst the Dias of Dominion is subject to this provision, other Models with
+  the Reanimant Trait in the Controlling Player’s Army within 6” of the Dias of Dominion have their
+ Weapon Skill counted as being 1 greater than it is when making To Hit tests for their Melee Attacks.
+ Whilst the Dias of Dominion is subject to this provision, it can make a number of additional Attacks
+  in the Fight Sub-Phase equal to the Attack Modifier Characteristic of the Scythe of Dust. Those
+  additional Attacks must be made using the Scythe of Dust.                                                                                                                          131
+ Obeisance Generators
+  All Models with the Reanimant Sub-Type in the Controlling Player's Army gain +2 to their
+ Leadership and Cool Characteristics whilst within 6” of the Dias of Dominion.
+
+ Enemy Models in Units that are engaged in close combat with Szarekh have a -2 penalty to their
+ Combat Initiative, to a minimum of 1. Enemy Models with the Automata, Paragon or Vehicle Type
+  are unaffected.
+
+ Automonument
+ Whilst all Automata models in a unit have this special rule, that unit can be selected to make
+  Reactions, even though it includes Automata models. However, Models with this special rule may
+ not make Ranged Attacks as part of Reactions.
+
+ While a Model with this Special Rule is part of a Unit with a Paragon Model, it has a Weapon Skill
+  Characteristic of 6.
+
+ Noctilith Beacon
+ Models with the Daemon Type, the Corrupted Sub-Type or the Psyker Sub-Type have a -1 penalty
+  to their Willpower Characteristic for each Model with the Noctilith Beacon Special Rule within 12".

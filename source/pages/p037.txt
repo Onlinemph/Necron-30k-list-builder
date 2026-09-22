@@ -1,0 +1,31 @@
+Version 1.4.2 august 2026
+
+           Skorpekh Destroyers
+               Unit composition: 3 Skorpekh Destroyers                100 points
+
+                       • May include up to 7 additional Skorpekh Destroyers at +30 points per model.
+
+
+
+   HEAVY
+  ASSAULT
+
+                    m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+ Skorpekh Destroyer         8   4    4    5    5    3    2    2   10   10    7    5   3+    -
+
+Wargear                                       Special Rules
+•  Pair of Hyperphase Threshers                         •  Reanimation Protocols (5+)
+                                                               •  Bulky (3)
+Traits                                                               •  Hardwired for Destruction
+•  Xenos                                                               •  Vanguard (1)
+•  Necron
+•  Reanimant                                Unit type
+•  Destroyer                                                •  Infantry
+
+Options
+•  For every 3 models in the unit, 1 Skorpekh
+   Destroyer may have its Pair of Hyperphase
+   Threshers exchanged for a Hyperphase
+   Reapblade for +10 points.
+                                                                                                           37

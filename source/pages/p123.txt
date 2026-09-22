@@ -1,0 +1,42 @@
+Version 1.4.2 august 2026
+
+          Toholk the Blinded
+               Unit composition: 1 Toholk                             160 points
+
+
+
+
+ COMMAND
+
+
+                    m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+ Toholk                   6    4    4    4    4    3    2    2   10   10    7   10   3+   4+
+
+Wargear                                       Special Rules
+•  Aeonstave                                               •  Battlesmith (2)
+•  Exile Beamer                                            •  Chronomantic Sight
+•  Phase Shifter                                            •  Dynastic Protocols (Maynarkh)
+                                                               •  Firing Protocols (2)
+Traits                                                               •  Ever-Living (5+)
+•  Xenos                                                               •  Harbinger of Eternity
+•  Necron                                                               •  Split Fire
+•  Reanimant                                                               • The Eternal Engines
+•  Chronomancy
+                                           Unit type
+                                                               •  Infantry (Command, Unique)
+
+
+ Special Rules                                                                                            123
+ Chronomantic Sight
+ When Toholk makes a Shooting Attack, Shrouded Damage Mitigation Rolls may not be made
+  against that Attack. Additionally, Toholk and all models in any Unit he has joined fire Snap Shoots
+  using their full Ballistic Skill (all other penalties for firing Snap Shoots still apply).
+
+ The Eternal Engines
+  Units with the Canoptek Trait that are selected to fill Prime Slots in an Army that includes Toholk
+ may have the following Prime Advantage selected for them:
+
+ Eternal Engine: All Models in the Unit for which this Prime Advantage is selected gain the
+  Ever‑Living (5+) Special Rule. Toholk can join Units of Automata that have had this Prime Advantage
+  selected for them, even though he has the Infantry Type.

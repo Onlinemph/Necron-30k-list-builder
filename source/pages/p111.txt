@@ -1,0 +1,55 @@
+Version 1.4.2 august 2026
+
+              Necron Wargear
+
+Arkanic Destroyer Frame               Phase shifter
+A model that has an Arkanic Destroyer          A model with a Phase Shifter has a 4+
+Frame gains the Bulky (3) and Hardwired for          Invulnerable save and gains the Phase Shift
+Destruction Special Rules and the Destroyer           Trait.
+Trait. When selecting an Arkanic Destroyer
+                                     Oracular targeterFrame during army creation, the controlling
+player may additionally select one of the          Once per Shooting Phase, the controlling player
+following options to apply to the model by            of a model with an Oracular Targeter can apply
+paying additional point cost on top of the points     one of the following to the model:
+cost paid to select the Arkanic Destroyer Frame:       • Add 1 to the result of one Hit Test made for a
+•  Free: The model's Movement Characteristic        Ranged Attack made by the model's Unit;
+    is changed to 8.                                         •  Subtract 1 from the result of one Scatter roll
+•  +10 points: The Model's Unit Type is             made for the model's Unit.
+   changed to Cavalry. It gains the Antigrav           In either case, the controlling player decides to
+  and Heavy Sub-Types and its Movement          apply the modifier or not after the roll is made.
+   Characteristic is changed to 12.
+                                     Phase Shift Generator•  +15 points: The model gains the Deep
+   Strike and Phase Motion Special Rules          Any of the controlling player’s models from the
+  and the Phase Shift Trait. Its Movement          Necron army list that are within 12” of a model
+   Characteristic is changed to 10.                  with a Phase Shift Generator, including the
+                                           model itself, gain a 5+ invulnerable save and the
+Containment Field                                              Phase Shift Trait.
+When a model with a Containment Field is
+                                      Phylacteryallocated an unsaved Wound or Penetrating Hit,
+the Damage Characteristic of the Unsaved           At the start of each of the Controlling Player's                                                                                                                                   111
+Wound or Penetrating Hit is halved, rounded up.     Turn as the Active Player, if the Current Wounds
+                                                      Characteristic of the Model with a Phylactery is
+If the Explodes (X) Special Rule of a model                                                lower than its Starting Wounds Characteristic,
+with a Containment Field triggers, any Hits                                                   the Controlling Player rolls a D6. If the result
+inflicted by the Explodes Special Rule gain the                                                     of the roll is greater than the Model's Current
+Breaching (4+) Special Rule.                                        Wounds Characteristic, the Model gains 1
+Canoptek Familiar                        Wound.
+The Controlling Player of a Model with a        Quantum Shielding (X)
+Canoptek Familiar can modify the results of                                   A Vehicle model with the Quantum Shielding
+Intelligence Checks made forthat Model by -2.                                                     Special Rule has its Armour Value (on all
+Dispersion shield                                   facings) counted as the value associated with
+                                                   the specific variant of this special rule attached
+A model with a Dispersion Shield has a 4+                                                     to the model, so long as its Current Hull Points
+Invulnerable Save, gains the Heavy Sub-Type,                                                        characteristic is equal to its Starting Hull Points
+and gains the Shield Trait.                                                          characteristic.
+Gloom prism                                       Resurrection orb
+A model with a Gloom Prism, as well as all                                                    In the controlling player’s Movement Phase
+Models from the same Army within 12", gain the                                                      as the Active Player, when a Model equipped
+Adamantium Will (5+) Special Rule.                                                 with a Resurrection Orb has been selected,
+Nebuloscope                                   but either before or after it has been moved,
+                                                   the controlling player of that model may
+When a Shooting Attack made by a model with                                                        activate its Resurrection Orb. When activated,
+a Nebuloscope inflicts any Hits (including Hits                                                   the controlling player makes a number of
+from attacks made a Snap Shots), Shrouded                                                   Resurrection (5+) Tests for that model’s Unit
+Damage Mitigation Rolls cannot be made against                                                  equal to the number of models that have been
+those Hits.                                           removed as casualties from the Unit over the

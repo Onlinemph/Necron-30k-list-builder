@@ -1,0 +1,60 @@
+Version 1.4.2 august 2026
+
+        Necron Auxiliary Detachments
+
+An army can include a number of Auxiliary and Apex Detachments, depending on the number and type
+of Command Choices selected.
+
+In addition to the Auxiliary Detachments in the Age of Darkness Rulebook [3rd edition], armies
+which make use of the Necron Army List have access to a number of additional Auxiliary and Apex
+Detachments. These follow all the standard rules for Auxilliary Detachments, but may have certain
+restrictions upon which unit is used to fill the Command or High Command Force Organization Slot
+which allows their selection.
+
+
+        Flexible Slots: a blank Battlefield Role icon in a Detachment indicates a Flexible Slot. A
+         Flexible Slot may be filled using Units of more than one Battlefield Role. Each Detachment
+         that has Flexible Slots will describe which Units can be included as part of the Flexible Slot.
+
+
+                    Canoptek Phalanx                                Canoptek Circle
+                   [Auxiliary Detachment]                              [Auxiliary Detachment]
+
+ When a model with the [Crypto-Arkana]           When a model with the [Crypto-Arkana]
+  Trait is selected to fill a Command Slot,                  Trait is selected to fill a Command Slot,
+ then the Player may add a Canoptek                  then the Player may add a Canoptek Circle
+ Phalanx to the Army instead of the                      to the Army instead of the options available
+ options available in the Crusade Force                   in the Crusade Force Organization Chart.
+ Organization Chart.
+
+
+
+                                                                                                                    91
+                                                                    •  Only Macrocyte Warriors, Hierotek
+  •  Only Units with the Canoptek Trait
+                                                             Circle or Cryptothrall Units may be
+   may be selected to fill any Slots in this
+                                                            selected to fill Retinue Slots in this
+    Detachment.
+                                                     Detachment.
+                                                                    •  Only Tomb Crawler Units may be
+                                                            selected to fill Support Slots in this
+                                                     Detachment.                      Canoptek Swarm
+                   [Auxiliary Detachment]
+
+ When a model with the [Crypto-Arkana]
+                                                          Ghost Strider Phalanx Trait is selected to fill a Command Slot,
+                                                                        [Auxiliary Detachment] then the Player may add a Canoptek
+ Swarm to the Army instead of the
+ options available in the Crusade Force
+ Organization Chart.
+
+
+
+
+  •  Only Units with the Canoptek Trait may                 •  Only Units of Tomb Blades may be
+    be selected to fill Support Slots in this                   selected to fill Fast Attack Slots in this
+    Detachment.                                      Detachment.
+  •  Only Units of Canoptek Scarabs may
+    be selected to fill Recon Slots in this
+    Detachment.

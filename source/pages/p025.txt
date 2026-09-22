@@ -1,0 +1,64 @@
+Version 1.4.2 august 2026
+
+                  Crypto-Arkana – Technomancy
+
+Below are listed the Special Rule, Wargear Items and Weapons accessible to models with the
+Technomancy Trait.
+
+
+ Harbinger of the Swarm
+ The value in brackets of the Battlesmith (X) Special Rule of a model with the Harbinger of the
+ Swarm Special Rule is modified by +1. If the model does not already have the Battlesmith (X) Special
+  Rule, it gains the Battlesmith (1) Special Rule instead. Models with the Harbinger of the Swarm
+  Special Rule that can join Units may join Units that include Models with the Automata Type.
+
+ When a Friendly Unit with that includes any models with the Canoptek Trait would be eligible to
+ make a Reaction, but cannot because it includes models with the Automata Type, the Controlling
+  Player may Select one model in that Unit or within 6" of that Unit that has the Technomancy
+  Trait. The controlling player makes an Intelligence Check for the selected model. If the Check is
+  succesful, the Controlling Player of the Unit that would be eligible to React may make a Reaction
+  with that Unit, and does not have to pay the Cost of that Reaction to do so. If the Check is failed
+  then the unit that includes the model that just failed the Test gains the Stunned Status. Each model
+ may only be selected to make an Intelligence Check for this Special Rule once per turn.
+
+
+ Canoptek Cloak                            Mindshackle Scarabs
+ The value in brackets of the Battlesmith (X)     A model with Mindshackle Scarabs can have the
+  Special Rule of a Model with a Canoptek Cloak   Neurodominance Gambit selected for it:
+  is modified by +1. The model's Movement
+                                        Neurodominance: If the Model for which this  characteristic is changed to 16 and it gains the
+                                           Gambit was selected has a greater Willpower  Antigrav Sub-Type.
+                                                     Characteristic than its Challenge Opponent, the       25
+ Canoptek Control Node                         Controlling Player gains a bonus to the result
+ A model with a Canoptek Control Node is         of the Focus Roll equal to the difference. If the
+ always considered to be within 6" of friendly       Controlling Player of the Model for which this
+  Units with the Canoptek Trait for the purpose     Gambit was selected wins the Focus Rolls, the
+  of the Harbinger of the Swarm Special Rule.      model may make its Strikes in the Strike Step
+ The model may additionally be selected to make   using the Strength and Attacks Characteristics
+ an Intelligence Check for the Harbinger of the     of the Challenge Opponent instead of its own; if
+ Swarm Special Rule up to twice per turn, rather     it does so, it must also select and use one of the
+ than just once.                                 Challenge Opponent's Melee Weapons to Attack
+                                               with instead of one of its own.
+
+
+ Solar Staff
+
+  Melee            IM  AM  SM  AP  D   Special Rules            Traits
+
+   Solar Staff                    I   A     +1    3      1                          Arkana
+
+  Ranged           R   FP  RS  AP  D
+
+   Solar Staff            48    3    6     3      1    Suppressive (1)          Arkana
+
+
+
+ Meteor Staff
+
+  Melee            IM  AM  SM  AP  D   Special Rules            Traits
+
+  Meteor Staff              -1   A    +2    3    2   Shock (Stunned)          Arkana, Power
+
+  Ranged           R   FP  RS  AP  D
+
+  Meteor Staff           24      1    8     5      1    Barrage, Blast (3), Stun (1)  Arkana

@@ -1,0 +1,56 @@
+                                                                                                  Codex Xenologica – Necrons (Horus Heresy 3rd edition)
+
+               Kutlakh the World Killer
+                     Unit composition: 1 Kutlakh                          220 points
+
+
+
+
+       HIGH
+    COMMAND
+
+                         m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+        Kutlakh                   6    5    5   6   6   6    4    4   10   10   9   9   2+  –
+
+     Wargear                                       Special Rules
+         • The Obsidax                                            •  Dynastic Protocols (Maynarkh)
+         •  Staff of Light                                            •  Fear (1)
+         •  Charnel Phylactery                                     • My Will Be Done (2)
+                                                                       •  Adamantium Will (4+)
+      Traits                                                                       •  Splinter of Madness
+         •  Xenos                                                                       • The Godslayer's Ire
+         •  Necron
+         •  Reanimant                                Unit type
+         •  Nemesor                                                 •  Infantry (Command, Unique)
+
+
+     Wargear
+       The Obsidax
+122
+        Melee            IM  AM  SM  AP  D   Special Rules            Traits
+
+        The Obsidax                 I   A    S     3     3   Breaching (5+)          Power
+
+
+     Wargear
+        Splinter of Madness
+            If a Unit that includes any Models with this Special Rule would gain the Routed Status, then that
+        Unit suffers 3 Wounds against which only Invulnerable Saves may be taken and Damage Mitigation
+         Rolls may not be taken, and it does not gain the Routed Status.
+
+       Charnel Phylactery
+        Kutlakh has the Ever-Living (2+) Special Rule. At the end of any Challenge Sub-Phase or Initiative
+        Step in which Kutlakh's Current Wounds Characteristic is lower than his Starting Wounds
+         Characteristic, if he currently has the Ever-Living (X) Special Rule, he loses the Ever-Living (X)
+         Special Rule until the end of the Battle (and cannot regain that Special Rule for any reason, even if
+       he gains Wounds later in the battle) and his Attacks Characteristic is increased by +2 until the end of
+        the Battle.
+
+       The Godslayer's Ire
+       While a Model with this Special Rule is engaged in a Challenge, its Controlling Player can select the
+         following Gambit for that Model:
+
+      The Godslayer's Ire: If this Gambit is selected, then the Current Willpower Characteristic of
+        each Model involved in the Challenge is used in place of that Model's Combat Initiative when
+        determining the bonus to the Focus Roll.
