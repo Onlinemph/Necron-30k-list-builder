@@ -430,6 +430,7 @@
           "replaces": ["Gauss Flux Arc"],
           "choices": [ { "name": "Hull Mounted Death Ray", "points": 20 } ],
           "max": { "fixed": 4 },
+          "perWeapon": true,
           "requires": null
         }
       ],
@@ -501,6 +502,7 @@
           "replaces": ["Singularity Generator"],
           "choices": [ { "name": "Hull (Front) Mounted Synaptic Obliterator and 1 Co-Axial (Synaptic Obliterator) Exile Projector", "points": 0 } ],
           "max": { "fixed": 2 },
+          "perWeapon": true,
           "requires": null
         }
       ],
@@ -559,8 +561,7 @@
       "traits": ["Xenos", "Necron", "Star-God"],
       "specialRules": ["Explodes (2+)", "Fear (1)", "Heedless", "Necrodermis", "The World Recoils and Roils"],
       "unitRules": [
-        { "name": "The World Recoils and Roils", "text": "Enemy Models treat all Terrain within 12\" of a model with this Special Rule as Dangerous Terrain." },
-        { "name": "Unmaking Touch", "text": "Weapon: Unmake. IM: I, AM: A, SM: S, AP: 2, D: 3, Special Rules: –, Traits: –." }
+        { "name": "The World Recoils and Roils", "text": "Enemy Models treat all Terrain within 12\" of a model with this Special Rule as Dangerous Terrain." }
       ],
       "cryptoArkana": false,
       "fixedArkana": null,
@@ -592,8 +593,7 @@
       "specialRules": ["Drain Life", "Explodes (2+)", "Fear (1)", "Gaze of Death", "Heedless", "Necrodermis"],
       "unitRules": [
         { "name": "Drain Life", "text": "Damage Mitigation rolls of any kind may not be taken for models, friend and foe, that are within 6\" of a Model with this Special Rule." },
-        { "name": "Gaze of Death", "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan:\n\nWeapon: Gaze of Death. R: H, FP: 1, RS: 10, AP: 2, D: 1, Special Rules: Scourge (Cool), Panic (2), Shock (Suppressed), Traits: Despair." },
-        { "name": "Scythe of Aza'gorod", "text": "Weapon: Scythe of Aza'gorod (Traits: Entropic).\n- Entropic Strike: IM: -2, AM: -1, SM: S, AP: 2, D: 6, Special Rules: Aeon Breach (5+).\n- Reaping Strike: IM: I, AM: A, SM: S, AP: 2, D: 2, Special Rules: Reaping Blow (2)." }
+        { "name": "Gaze of Death", "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan: Gaze of Death (see weapons-c.json)." }
       ],
       "cryptoArkana": false,
       "fixedArkana": null,
@@ -636,8 +636,7 @@
       "specialRules": ["Cosmic Insanity", "Dread", "Explodes (2+)", "Fear (1)", "Heedless", "Necrodermis", "The Grand Illusion"],
       "unitRules": [
         { "name": "Dread", "text": "The Fear (X) Special Rule of a Model with this Special Rule also reduces the Weapon Skill Characteristic of any affected Units by the Value of X..", "note": "Source text prints a doubled period at the end of this sentence; kept verbatim." },
-        { "name": "Fists of Mephet'ran", "text": "Weapon: Fists of Mephet'ran. IM: I, AM: A, SM: S, AP: 2, D: 3, Special Rules: –, Traits: –." },
-        { "name": "Cosmic Insanity", "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan:\n\nWeapon: Cosmic Insanity. R: 120, FP: 1, RS: 3, AP: 2, D: 1, Special Rules: Barrage, Blast (10), Stun (3), Traits: Despair." },
+        { "name": "Cosmic Insanity", "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan: Cosmic Insanity (see weapons-c.json)." },
         { "name": "The Grand Illusion", "text": "At the end of the Deploy Armies Step of any Mission Sequence, if an army includes a Model with this Special Rule, that player can select up to one of their own Units and one opposing Units and re-deploy them, following any Deployment Restrictions that Unit has to follow. This can be used to re-deploy a Unit in Reserves on the Battlefield, or place a Unit on the Battlefield in Reserves. Units inside a transport may not be re-deployed, nor may this rule be used to Embark Units inside a Transport, but the Transport itself may be re-deployed in which case any units Embarked inside that Transport remain inside the Transport. Units that include any models with the Paragon Type and Transports that have any Paragon models Embarked upon them may not be re-deployed using this Special Rule." }
       ],
       "cryptoArkana": false,
@@ -681,8 +680,7 @@
       "specialRules": ["Explodes (2+)", "Fear (1)", "Heedless", "Matter Absorption", "Necrodermis", "Voltaic Storm"],
       "unitRules": [
         { "name": "Matter Absorption", "text": "Each time any model with the Walker or Automata Unit Type is reduced to 0 Wounds, or any model with the Vehicle Unit Type is reduced to 0 Hull Points, whilst within 12\" of this Model, and this model's Current Wounds characteristic is 7 or lower, this model's Current Wounds characteristic is increased by 1. This model may not gain more than 1 Wound per phase in this way." },
-        { "name": "Voltaic Storm", "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan:\n\nWeapon: Voltaic Storm. R: 18, FP: 5, RS: 8, AP: 2, D: 2, Special Rules: Armour-Breaker (3+), Shock (Suppressed), Suppress (2), Traits: Arc." },
-        { "name": "Spear of Mag'ladroth", "text": "Melee: IM: I, AM: A, SM: S, AP: 2, D: 3, Special Rules: Armour-breaker (3+), Traits: Arkana.\nRanged: R: 12, FP: 3, RS: 9, AP: 2, D: 2, Special Rules: Armourbane, Armour-breaker (4+)." }
+        { "name": "Voltaic Storm", "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan: Voltaic Storm (see weapons-c.json)." }
       ],
       "cryptoArkana": false,
       "fixedArkana": null,
@@ -726,8 +724,7 @@
       "unitRules": [
         { "name": "The Fallingstar God", "text": "When a Model with this Special Rule is deployed using the Deep Strike Special Rule, it immediately makes up to five Shooting Attacks as if it were the Shooting Phase using the weapon profile shown in the Soul Blaze Special Rule. Each Shooting Attack must target a different Unit. After resolving these Shooting Attacks, the Soul Blaze profile may not be used as a Power of the C'Tan for the remainder of the battle." },
         { "name": "Wreathed in Flame", "text": "A Model with this special rule reduces the Strength of all Hits inflicted on it by Weapons with the Las, Plasma, Melta and Flame Trait by half, rounded up." },
-        { "name": "Soul Blaze", "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan:\n\nWeapon: Soul Blaze. R: 12, FP: 2D6, RS: 8, AP: 4, D: 2, Special Rules: Pinning (1), Traits: Arc." },
-        { "name": "Breath of Nyadra'zatha", "text": "Weapon: Breath of Nyadra'zatha. IM: I, AM: A, SM: S, AP: 2, D: 2, Special Rules: Aflame (2), Deflagrate (6), Traits: –." }
+        { "name": "Soul Blaze", "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan: Soul Blaze (see weapons-c.json)." }
       ],
       "cryptoArkana": false,
       "fixedArkana": null,
@@ -771,8 +768,7 @@
       "unitRules": [
         { "name": "Gestalt Entity", "text": "This Model's Weapon Skill, Strength and Attacks Characteristic are each equal to either 4 or its Current Wounds Characteristic, whichever is higher." },
         { "name": "Canoptek Hegemon", "text": "Units from the same Army within 12\" of a Model with this Special Rule that include Automata Models can make Reactions, even though they include Automata models, so long as all Automata models in the Unit have the Canoptek Trait." },
-        { "name": "Tides of Hate", "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan:\n\nTides of Hate: When using the Tides of Hate Power of the C'Tan, this model's controlling player selects an enemy unit within 12\" of this Model. Remove all Condition Tokens from the selected Unit, if any. This Model's controlling player may make a Shooting Attacks this Shooting Phase using that unit, as if that Unit was part of that Player's Army. The Unit is counted as being disengaged for the purpose of making that Shooting Attack." },
-        { "name": "Swarm of Iash'uddra", "text": "Weapon: Swarm of Iash'uddra. IM: I, AM: +2, SM: +2, AP: 2, D: 2, Special Rules: Melee, Entropic (3+), Traits: Flensing." }
+        { "name": "Tides of Hate", "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan:\n\nTides of Hate: When using the Tides of Hate Power of the C'Tan, this model's controlling player selects an enemy unit within 12\" of this Model. Remove all Condition Tokens from the selected Unit, if any. This Model's controlling player may make a Shooting Attacks this Shooting Phase using that unit, as if that Unit was part of that Player's Army. The Unit is counted as being disengaged for the purpose of making that Shooting Attack." }
       ],
       "cryptoArkana": false,
       "fixedArkana": null,

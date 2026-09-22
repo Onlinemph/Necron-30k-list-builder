@@ -62,7 +62,7 @@ small, .muted { color: var(--muted); }
 
 /* layout */
 .layout { display: grid; grid-template-columns: minmax(320px, 440px) 1fr; gap: 16px; padding: 16px; align-items: start; }
-@media (max-width: 900px) { .layout { grid-template-columns: 1fr; } }
+@media (max-width: 900px) { .layout { grid-template-columns: 1fr; } .topbar { position: static; } }
 .col { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
 .panel { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px; }
 .panel.empty { color: var(--muted); text-align: center; padding: 40px 16px; }

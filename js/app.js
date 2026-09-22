@@ -204,7 +204,7 @@
       <span class="pts">${u ? E.unitPoints(s.unit) : ''}</span>
     </li>`);
     el.addEventListener('click', () => {
-      if (u) { active = s.uid; refresh(); } else pickUnit(det, s);
+      if (u) { active = s.uid; refresh(); revealEditor(); } else pickUnit(det, s);
     });
     return el;
   }
@@ -227,6 +227,11 @@
     sel.append(og);
   }
 
+  /** On narrow screens the editor sits below the army; bring it into view. */
+  function revealEditor() {
+    if (window.matchMedia('(max-width: 900px)').matches) $('#editor').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
   // ---------- pickers ----------
   function pickUnit(det, slot) {
     const units = E.unitsForSlot(slot).slice().sort((a, b) => (a.unique - b.unique) || a.name.localeCompare(b.name));
@@ -243,6 +248,7 @@
         active = slot.uid;
         closeDialog();
         refresh();
+        revealEditor();
       });
       list.append(b);
     }
