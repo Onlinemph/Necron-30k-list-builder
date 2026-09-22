@@ -407,8 +407,8 @@
     // prime
     if (slot.prime || sel.primeAdvantage) {
       const sec = section('Prime Advantage');
-      const advs = primeAdvantages(u, det);
-      const s = h(`<select><option value="">None</option>${advs.map((a) => `<option ${sel.primeAdvantage === a.name ? 'selected' : ''}>${esc(a.name)}</option>`).join('')}</select>`);
+      const advs = primeAdvantages(u, det, sel);
+      const s = h(`<select><option value="">None</option>${advs.map((a) => `<option value="${esc(a.name)}" ${sel.primeAdvantage === a.name ? 'selected' : ''}>${esc(a.label)}</option>`).join('')}</select>`);
       s.addEventListener('change', () => { sel.primeAdvantage = s.value || null; E.syncAdvisorSlots(det); refresh(); });
       const row = h('<div class="row"></div>');
       row.append(s);
@@ -437,19 +437,8 @@
     box.append(acts);
   }
 
-  function primeAdvantages(u, det) {
-    const all = (R.primeAdvantages || []).slice();
-    const out = [];
-    for (const a of all) out.push({ name: a.name, text: a.text });
-    // character-granted advantages are described in unitRules; surface any unit rule named as a prime advantage
-    for (const x of E.allSelections(army)) {
-      const cu = E.unit(x.sel.unitId);
-      for (const r of cu.unitRules || []) {
-        const name = `${r.name} (${cu.name})`;
-        if (/prime advantage/i.test(r.text || '') && !out.some((o) => o.name === name)) out.push({ name, text: r.text });
-      }
-    }
-    return out;
+  function primeAdvantages(u, det, sel) {
+    return E.primeAdvantagesFor(sel, army).map((a) => Object.assign({}, a, { name: a.name, label: a.grantedBy ? `${a.name} (${a.grantedBy})` : a.name }));
   }
 
   function section(title) {
@@ -479,8 +468,8 @@
     const list = $('.choices', el);
     const cost = (p) => (p ? `+${p}` : 'free');
     const name = `o-${sel.uid}-${o.id}`;
-    const locked = o.requires && !isTaken(sel.options[o.requires]);
-    if (locked) el.append(h('<div class="cap">Needs the option above first.</div>'));
+    const locked = o.requires && !E.requirementMet(o, sel);
+    if (locked) el.append(h(`<div class="cap">Needs ${esc(o.requiresChoice || 'the option above')} first.</div>`));
     if (!choices.length && (o.kind === 'one' || o.kind === 'any' || o.kind === 'perModel')) {
       list.append(h(`<div class="cap">${u.cryptoArkana && !sel.arkana ? 'Choose a Crypto-Arkana first.' : 'No choices available.'}</div>`));
     }
@@ -489,6 +478,7 @@
         const keep = o.replaces && o.replaces.length ? 'Keep ' + o.replaces.join(' & ') : 'None';
         list.append(radio(name, '', !val, keep, ''));
         for (const c of choices) list.append(radio(name, c.name, val === c.name, c.name, cost(c.points)));
+        if (locked) list.querySelectorAll('input').forEach((i) => { i.disabled = true; });
         list.addEventListener('change', (e) => { sel.options[o.id] = e.target.value || null; refresh(); });
         break;
       }
@@ -560,6 +550,7 @@
     for (const o of E.optionsOf(sel)) {
       const v = sel.options[o.id];
       if (v == null) continue;
+      if (o.requires && !E.requirementMet(o, sel)) { sel.options[o.id] = null; continue; }
       const names = new Set(E.choicesFor(o, sel).map((c) => c.name));
       if (o.kind === 'one' && v && !names.has(v)) sel.options[o.id] = null;
       if (o.kind === 'any' && Array.isArray(v)) sel.options[o.id] = v.filter((n) => names.has(n));
@@ -911,6 +902,7 @@
   // ---------- wiring ----------
   function refresh() {
     E.setSequelae(army.sequelae);
+    for (const x of E.allSelections(army)) clampOptions(x.sel);
     save();
     renderHeader();
     renderSequelae();

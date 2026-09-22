@@ -15,14 +15,40 @@
           "min": 1,
           "max": 1,
           "costPerExtra": 0,
-          "profile": { "M": 6, "WS": 5, "BS": 5, "S": 6, "T": 6, "W": 6, "I": 4, "A": 4, "LD": 10, "CL": 10, "WP": 9, "IN": 9, "SAV": "2+", "INV": "–" },
-          "wargear": ["Voidblade"],
+          "profile": {
+            "M": 6,
+            "WS": 5,
+            "BS": 5,
+            "S": 6,
+            "T": 6,
+            "W": 6,
+            "I": 4,
+            "A": 4,
+            "LD": 10,
+            "CL": 10,
+            "WP": 9,
+            "IN": 9,
+            "SAV": "2+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Voidblade"
+          ],
           "unitType": "Infantry (Command)",
           "specialRules": []
         }
       ],
-      "traits": ["Xenos", "Necron", "Reanimant", "Nemesor"],
-      "specialRules": ["Eternal Warrior (1)", "Ever-Living (5+)", "My Will Be Done (3)"],
+      "traits": [
+        "Xenos",
+        "Necron",
+        "Reanimant",
+        "Nemesor"
+      ],
+      "specialRules": [
+        "Eternal Warrior (1)",
+        "Ever-Living (5+)",
+        "My Will Be Done (3)"
+      ],
       "unitRules": [],
       "cryptoArkana": false,
       "fixedArkana": null,
@@ -32,10 +58,17 @@
           "text": "This model may have its Voidblade exchanged for one item from the Nobility Melee Weapons List or for a Voidscythe at +20 points.",
           "kind": "one",
           "model": "Overlord",
-          "replaces": ["Voidblade"],
+          "replaces": [
+            "Voidblade"
+          ],
           "choices": [
-            { "list": "nobility-melee" },
-            { "name": "Voidscythe", "points": 20 }
+            {
+              "list": "nobility-melee"
+            },
+            {
+              "name": "Voidscythe",
+              "points": 20
+            }
           ],
           "max": null,
           "requires": null
@@ -46,7 +79,11 @@
           "kind": "one",
           "model": "Overlord",
           "replaces": [],
-          "choices": [ { "list": "nobility-wargear" } ],
+          "choices": [
+            {
+              "list": "nobility-wargear"
+            }
+          ],
           "max": null,
           "requires": null
         },
@@ -57,9 +94,18 @@
           "model": "Overlord",
           "replaces": [],
           "choices": [
-            { "name": "Phase Shifter", "points": 20 },
-            { "name": "Phylactery", "points": 30 },
-            { "name": "Translocation Shroud", "points": 60 }
+            {
+              "name": "Phase Shifter",
+              "points": 20
+            },
+            {
+              "name": "Phylactery",
+              "points": 30
+            },
+            {
+              "name": "Translocation Shroud",
+              "points": 60
+            }
           ],
           "max": null,
           "requires": null
@@ -82,14 +128,46 @@
           "min": 1,
           "max": 1,
           "costPerExtra": 0,
-          "profile": { "M": 12, "WS": 5, "BS": 5, "S": 6, "T": 7, "W": 6, "I": 4, "A": 4, "LD": 10, "CL": 10, "WP": 9, "IN": 9, "SAV": "2+", "INV": "–" },
-          "wargear": ["Voidblade", "Gauss Cannon"],
+          "profile": {
+            "M": 12,
+            "WS": 5,
+            "BS": 5,
+            "S": 6,
+            "T": 7,
+            "W": 6,
+            "I": 4,
+            "A": 4,
+            "LD": 10,
+            "CL": 10,
+            "WP": 9,
+            "IN": 9,
+            "SAV": "2+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Voidblade",
+            "Gauss Cannon"
+          ],
           "unitType": "Cavalry (Antigrav, Command)",
           "specialRules": []
         }
       ],
-      "traits": ["Xenos", "Necron", "Reanimant", "Nemesor"],
-      "specialRules": ["Bulky (8)", "Command Barge", "Eternal Warrior (1)", "Ever-Living (5+)", "Explodes (6+)", "Firing Protocols (2)", "Implacable Advance", "My Will Be Done (3)"],
+      "traits": [
+        "Xenos",
+        "Necron",
+        "Reanimant",
+        "Nemesor"
+      ],
+      "specialRules": [
+        "Bulky (8)",
+        "Command Barge",
+        "Eternal Warrior (1)",
+        "Ever-Living (5+)",
+        "Explodes (6+)",
+        "Firing Protocols (2)",
+        "Implacable Advance",
+        "My Will Be Done (3)"
+      ],
       "unitRules": [],
       "cryptoArkana": false,
       "fixedArkana": null,
@@ -99,10 +177,17 @@
           "text": "This model may have its Voidblade exchanged for one item from the Nobility Melee Weapons List or for a Voidscythe at +20 points.",
           "kind": "one",
           "model": "Overlord on Barge",
-          "replaces": ["Voidblade"],
+          "replaces": [
+            "Voidblade"
+          ],
           "choices": [
-            { "list": "nobility-melee" },
-            { "name": "Voidscythe", "points": 20 }
+            {
+              "list": "nobility-melee"
+            },
+            {
+              "name": "Voidscythe",
+              "points": 20
+            }
           ],
           "max": null,
           "requires": null
@@ -113,7 +198,11 @@
           "kind": "one",
           "model": "Overlord on Barge",
           "replaces": [],
-          "choices": [ { "list": "nobility-wargear" } ],
+          "choices": [
+            {
+              "list": "nobility-wargear"
+            }
+          ],
           "max": null,
           "requires": null
         },
@@ -124,9 +213,18 @@
           "model": "Overlord on Barge",
           "replaces": [],
           "choices": [
-            { "name": "Phase Shifter", "points": 20 },
-            { "name": "Phylactery", "points": 30 },
-            { "name": "Targeting Relay", "points": 15 }
+            {
+              "name": "Phase Shifter",
+              "points": 20
+            },
+            {
+              "name": "Phylactery",
+              "points": 30
+            },
+            {
+              "name": "Targeting Relay",
+              "points": 15
+            }
           ],
           "max": null,
           "requires": null
@@ -136,8 +234,14 @@
           "text": "This model may have its Gauss Cannon exchanged for one item from the Necron Cannons list.",
           "kind": "one",
           "model": "Overlord on Barge",
-          "replaces": ["Gauss Cannon"],
-          "choices": [ { "list": "necron-cannons" } ],
+          "replaces": [
+            "Gauss Cannon"
+          ],
+          "choices": [
+            {
+              "list": "necron-cannons"
+            }
+          ],
           "max": null,
           "requires": null
         }
@@ -159,14 +263,39 @@
           "min": 1,
           "max": 1,
           "costPerExtra": 0,
-          "profile": { "M": 6, "WS": 4, "BS": 4, "S": 5, "T": 5, "W": 4, "I": 3, "A": 3, "LD": 10, "CL": 10, "WP": 8, "IN": 8, "SAV": "2+", "INV": "–" },
-          "wargear": ["Voidblade"],
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 4,
+            "S": 5,
+            "T": 5,
+            "W": 4,
+            "I": 3,
+            "A": 3,
+            "LD": 10,
+            "CL": 10,
+            "WP": 8,
+            "IN": 8,
+            "SAV": "2+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Voidblade"
+          ],
           "unitType": "Infantry (Command)",
           "specialRules": []
         }
       ],
-      "traits": ["Xenos", "Necron", "Reanimant"],
-      "specialRules": ["Eternal Warrior (1)", "Ever-Living (5+)", "My Will Be Done (2)"],
+      "traits": [
+        "Xenos",
+        "Necron",
+        "Reanimant"
+      ],
+      "specialRules": [
+        "Eternal Warrior (1)",
+        "Ever-Living (5+)",
+        "My Will Be Done (2)"
+      ],
       "unitRules": [],
       "cryptoArkana": false,
       "fixedArkana": null,
@@ -176,8 +305,14 @@
           "text": "This model may have its Voidblade exchanged for one item from the Nobility Melee Weapons List.",
           "kind": "one",
           "model": "Lord",
-          "replaces": ["Voidblade"],
-          "choices": [ { "list": "nobility-melee" } ],
+          "replaces": [
+            "Voidblade"
+          ],
+          "choices": [
+            {
+              "list": "nobility-melee"
+            }
+          ],
           "max": null,
           "requires": null
         },
@@ -187,7 +322,11 @@
           "kind": "one",
           "model": "Lord",
           "replaces": [],
-          "choices": [ { "list": "nobility-wargear" } ],
+          "choices": [
+            {
+              "list": "nobility-wargear"
+            }
+          ],
           "max": null,
           "requires": null
         },
@@ -198,9 +337,18 @@
           "model": "Lord",
           "replaces": [],
           "choices": [
-            { "name": "Phase Shifter", "points": 20 },
-            { "name": "Phylactery", "points": 30 },
-            { "name": "Translocation Shroud", "points": 60 }
+            {
+              "name": "Phase Shifter",
+              "points": 20
+            },
+            {
+              "name": "Phylactery",
+              "points": 30
+            },
+            {
+              "name": "Translocation Shroud",
+              "points": 60
+            }
           ],
           "max": null,
           "requires": null
@@ -211,7 +359,12 @@
           "kind": "upgrade",
           "model": "Lord",
           "replaces": [],
-          "choices": [ { "name": "Dynastic Scion", "points": 20 } ],
+          "choices": [
+            {
+              "name": "Dynastic Scion",
+              "points": 20
+            }
+          ],
           "max": null,
           "requires": null
         }
@@ -233,14 +386,45 @@
           "min": 1,
           "max": 1,
           "costPerExtra": 0,
-          "profile": { "M": 12, "WS": 4, "BS": 4, "S": 5, "T": 6, "W": 4, "I": 3, "A": 3, "LD": 10, "CL": 10, "WP": 8, "IN": 8, "SAV": "2+", "INV": "5+" },
-          "wargear": ["Voidblade", "Gauss Cannon"],
+          "profile": {
+            "M": 12,
+            "WS": 4,
+            "BS": 4,
+            "S": 5,
+            "T": 6,
+            "W": 4,
+            "I": 3,
+            "A": 3,
+            "LD": 10,
+            "CL": 10,
+            "WP": 8,
+            "IN": 8,
+            "SAV": "2+",
+            "INV": "5+"
+          },
+          "wargear": [
+            "Voidblade",
+            "Gauss Cannon"
+          ],
           "unitType": "Cavalry (Antigrav, Command)",
           "specialRules": []
         }
       ],
-      "traits": ["Xenos", "Necron", "Reanimant"],
-      "specialRules": ["Bulky (8)", "Command Barge", "Eternal Warrior (1)", "Ever-Living (5+)", "Explodes (6+)", "Firing Protocols (2)", "Implacable Advance", "My Will Be Done (2)"],
+      "traits": [
+        "Xenos",
+        "Necron",
+        "Reanimant"
+      ],
+      "specialRules": [
+        "Bulky (8)",
+        "Command Barge",
+        "Eternal Warrior (1)",
+        "Ever-Living (5+)",
+        "Explodes (6+)",
+        "Firing Protocols (2)",
+        "Implacable Advance",
+        "My Will Be Done (2)"
+      ],
       "unitRules": [],
       "cryptoArkana": false,
       "fixedArkana": null,
@@ -250,8 +434,14 @@
           "text": "This model may have its Voidblade exchanged for one item from the Nobility Melee Weapons List.",
           "kind": "one",
           "model": "Lord on Barge",
-          "replaces": ["Voidblade"],
-          "choices": [ { "list": "nobility-melee" } ],
+          "replaces": [
+            "Voidblade"
+          ],
+          "choices": [
+            {
+              "list": "nobility-melee"
+            }
+          ],
           "max": null,
           "requires": null
         },
@@ -261,7 +451,11 @@
           "kind": "one",
           "model": "Lord on Barge",
           "replaces": [],
-          "choices": [ { "list": "nobility-wargear" } ],
+          "choices": [
+            {
+              "list": "nobility-wargear"
+            }
+          ],
           "max": null,
           "requires": null
         },
@@ -270,8 +464,14 @@
           "text": "This model may have its Gauss Cannon exchanged for one item from the Necron Cannons list.",
           "kind": "one",
           "model": "Lord on Barge",
-          "replaces": ["Gauss Cannon"],
-          "choices": [ { "list": "necron-cannons" } ],
+          "replaces": [
+            "Gauss Cannon"
+          ],
+          "choices": [
+            {
+              "list": "necron-cannons"
+            }
+          ],
           "max": null,
           "requires": null
         },
@@ -281,7 +481,12 @@
           "kind": "upgrade",
           "model": "Lord on Barge",
           "replaces": [],
-          "choices": [ { "name": "Dynastic Scion", "points": 20 } ],
+          "choices": [
+            {
+              "name": "Dynastic Scion",
+              "points": 20
+            }
+          ],
           "max": null,
           "requires": null
         },
@@ -292,9 +497,18 @@
           "model": "Lord on Barge",
           "replaces": [],
           "choices": [
-            { "name": "Phase Shifter", "points": 20 },
-            { "name": "Phylactery", "points": 30 },
-            { "name": "Targeting Relay", "points": 15 }
+            {
+              "name": "Phase Shifter",
+              "points": 20
+            },
+            {
+              "name": "Phylactery",
+              "points": 30
+            },
+            {
+              "name": "Targeting Relay",
+              "points": 15
+            }
           ],
           "max": null,
           "requires": null
@@ -317,14 +531,43 @@
           "min": 1,
           "max": 1,
           "costPerExtra": 0,
-          "profile": { "M": 6, "WS": 5, "BS": 4, "S": 5, "T": 6, "W": 4, "I": 3, "A": 3, "LD": 10, "CL": 10, "WP": 8, "IN": 6, "SAV": "2+", "INV": "–" },
-          "wargear": ["Voidblade"],
+          "profile": {
+            "M": 6,
+            "WS": 5,
+            "BS": 4,
+            "S": 5,
+            "T": 6,
+            "W": 4,
+            "I": 3,
+            "A": 3,
+            "LD": 10,
+            "CL": 10,
+            "WP": 8,
+            "IN": 6,
+            "SAV": "2+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Voidblade"
+          ],
           "unitType": "Cavalry (Antigrav, Command, Heavy)",
           "specialRules": []
         }
       ],
-      "traits": ["Xenos", "Necron", "Reanimant", "Destroyer"],
-      "specialRules": ["Bulky (3)", "Eternal Warrior (1)", "Ever-Living (5+)", "Firestorm", "Hardwired for Destruction", "Implacable Advance"],
+      "traits": [
+        "Xenos",
+        "Necron",
+        "Reanimant",
+        "Destroyer"
+      ],
+      "specialRules": [
+        "Bulky (3)",
+        "Eternal Warrior (1)",
+        "Ever-Living (5+)",
+        "Firestorm",
+        "Hardwired for Destruction",
+        "Implacable Advance"
+      ],
       "unitRules": [],
       "cryptoArkana": false,
       "fixedArkana": null,
@@ -334,8 +577,14 @@
           "text": "This model may have its Voidblade exchanged for one item from the Nobility Melee Weapons List.",
           "kind": "one",
           "model": "Lokhust Lord",
-          "replaces": ["Voidblade"],
-          "choices": [ { "list": "nobility-melee" } ],
+          "replaces": [
+            "Voidblade"
+          ],
+          "choices": [
+            {
+              "list": "nobility-melee"
+            }
+          ],
           "max": null,
           "requires": null
         },
@@ -345,7 +594,11 @@
           "kind": "one",
           "model": "Lokhust Lord",
           "replaces": [],
-          "choices": [ { "list": "nobility-wargear" } ],
+          "choices": [
+            {
+              "list": "nobility-wargear"
+            }
+          ],
           "max": null,
           "requires": null
         },
@@ -356,9 +609,18 @@
           "model": "Lokhust Lord",
           "replaces": [],
           "choices": [
-            { "name": "Phase Shifter", "points": 20 },
-            { "name": "Phylactery", "points": 30 },
-            { "name": "Translocation Shroud", "points": 60 }
+            {
+              "name": "Phase Shifter",
+              "points": 20
+            },
+            {
+              "name": "Phylactery",
+              "points": 30
+            },
+            {
+              "name": "Translocation Shroud",
+              "points": 60
+            }
           ],
           "max": null,
           "requires": null
@@ -381,14 +643,45 @@
           "min": 1,
           "max": 1,
           "costPerExtra": 0,
-          "profile": { "M": 8, "WS": 5, "BS": 4, "S": 6, "T": 6, "W": 6, "I": 3, "A": 4, "LD": 10, "CL": 10, "WP": 8, "IN": 6, "SAV": "2+", "INV": "–" },
-          "wargear": ["Hyperphase Thresher", "Flensing Claw", "Gauss Cannon"],
+          "profile": {
+            "M": 8,
+            "WS": 5,
+            "BS": 4,
+            "S": 6,
+            "T": 6,
+            "W": 6,
+            "I": 3,
+            "A": 4,
+            "LD": 10,
+            "CL": 10,
+            "WP": 8,
+            "IN": 6,
+            "SAV": "2+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Hyperphase Thresher",
+            "Flensing Claw",
+            "Gauss Cannon"
+          ],
           "unitType": "Infantry (Command)",
           "specialRules": []
         }
       ],
-      "traits": ["Xenos", "Necron", "Reanimant", "Destroyer"],
-      "specialRules": ["Bulky (4)", "Eternal Warrior (1)", "Ever-Living (5+)", "Firestorm", "Hardwired for Destruction", "Implacable Advance"],
+      "traits": [
+        "Xenos",
+        "Necron",
+        "Reanimant",
+        "Destroyer"
+      ],
+      "specialRules": [
+        "Bulky (4)",
+        "Eternal Warrior (1)",
+        "Ever-Living (5+)",
+        "Firestorm",
+        "Hardwired for Destruction",
+        "Implacable Advance"
+      ],
       "unitRules": [],
       "cryptoArkana": false,
       "fixedArkana": null,
@@ -398,8 +691,15 @@
           "text": "This model may have its Hyperphase Thresher exchanged for a Hyperphase Reapblade for +10 points.",
           "kind": "one",
           "model": "Skorpekh Lord",
-          "replaces": ["Hyperphase Thresher"],
-          "choices": [ { "name": "Hyperphase Reapblade", "points": 10 } ],
+          "replaces": [
+            "Hyperphase Thresher"
+          ],
+          "choices": [
+            {
+              "name": "Hyperphase Reapblade",
+              "points": 10
+            }
+          ],
           "max": null,
           "requires": null
         },
@@ -408,8 +708,14 @@
           "text": "This model may have its Photonic Assault Claw exchanged one item from the Nobility Wargear List.",
           "kind": "one",
           "model": "Skorpekh Lord",
-          "replaces": ["Flensing Claw"],
-          "choices": [ { "list": "nobility-wargear" } ],
+          "replaces": [
+            "Flensing Claw"
+          ],
+          "choices": [
+            {
+              "list": "nobility-wargear"
+            }
+          ],
           "max": null,
           "requires": null,
           "note": "Source text says 'Photonic Assault Claw' but this model's printed default Wargear is 'Flensing Claw' — treated as the same slot."
@@ -419,8 +725,16 @@
           "text": "This model may have its Hyperphase Thresher and Photonic Assault Claw exchanged for a Pair of Hyperphase Threshers for +5 points.",
           "kind": "one",
           "model": "Skorpekh Lord",
-          "replaces": ["Hyperphase Thresher", "Flensing Claw"],
-          "choices": [ { "name": "Pair of Hyperphase Threshers", "points": 5 } ],
+          "replaces": [
+            "Hyperphase Thresher",
+            "Flensing Claw"
+          ],
+          "choices": [
+            {
+              "name": "Pair of Hyperphase Threshers",
+              "points": 5
+            }
+          ],
           "max": null,
           "requires": null
         },
@@ -429,8 +743,14 @@
           "text": "This model may have its Gauss Cannon exchanged for an item from the Necron Cannons list.",
           "kind": "one",
           "model": "Skorpekh Lord",
-          "replaces": ["Gauss Cannon"],
-          "choices": [ { "list": "necron-cannons" } ],
+          "replaces": [
+            "Gauss Cannon"
+          ],
+          "choices": [
+            {
+              "list": "necron-cannons"
+            }
+          ],
           "max": null,
           "requires": null
         },
@@ -441,9 +761,18 @@
           "model": "Skorpekh Lord",
           "replaces": [],
           "choices": [
-            { "name": "Phase Shifter", "points": 20 },
-            { "name": "Phylactery", "points": 30 },
-            { "name": "Translocation Shroud", "points": 60 }
+            {
+              "name": "Phase Shifter",
+              "points": 20
+            },
+            {
+              "name": "Phylactery",
+              "points": 30
+            },
+            {
+              "name": "Translocation Shroud",
+              "points": 60
+            }
           ],
           "max": null,
           "requires": null
@@ -466,26 +795,77 @@
           "min": 1,
           "max": 5,
           "costPerExtra": 40,
-          "profile": { "M": 6, "WS": 4, "BS": 4, "S": 5, "T": 5, "W": 2, "I": 2, "A": 2, "LD": 10, "CL": 10, "WP": 7, "IN": 7, "SAV": "3+", "INV": "–" },
-          "wargear": ["Gauss Blaster"],
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 4,
+            "S": 5,
+            "T": 5,
+            "W": 2,
+            "I": 2,
+            "A": 2,
+            "LD": 10,
+            "CL": 10,
+            "WP": 7,
+            "IN": 7,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Gauss Blaster"
+          ],
           "unitType": "Infantry (Command)",
-          "specialRules": ["Ever-Living (5+)", "Among the Ranks", "Implacable Advance", "The Will of the Phaeron"]
+          "specialRules": [
+            "Ever-Living (5+)",
+            "Among the Ranks",
+            "Implacable Advance",
+            "The Will of the Phaeron"
+          ]
         },
         {
           "name": "Triarch Warden",
           "min": 0,
           "max": 5,
           "costPerExtra": 20,
-          "profile": { "M": 12, "WS": 4, "BS": 4, "S": 5, "T": 5, "W": 2, "I": 2, "A": 2, "LD": 12, "CL": 12, "WP": 7, "IN": 7, "SAV": "3+", "INV": "–" },
-          "wargear": ["Gauss Blaster"],
+          "profile": {
+            "M": 12,
+            "WS": 4,
+            "BS": 4,
+            "S": 5,
+            "T": 5,
+            "W": 2,
+            "I": 2,
+            "A": 2,
+            "LD": 12,
+            "CL": 12,
+            "WP": 7,
+            "IN": 7,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Gauss Blaster"
+          ],
           "unitType": "Infantry (Antigrav, Command)",
-          "specialRules": ["Ever-Living (5+)", "Among the Ranks", "Bulky (2)", "Deep Strike"]
+          "specialRules": [
+            "Ever-Living (5+)",
+            "Among the Ranks",
+            "Bulky (2)",
+            "Deep Strike"
+          ]
         }
       ],
-      "traits": ["Xenos", "Necron", "Reanimant"],
+      "traits": [
+        "Xenos",
+        "Necron",
+        "Reanimant"
+      ],
       "specialRules": [],
       "unitRules": [
-        { "name": "Among the Ranks", "text": "Although included in an Army as a Unit that includes multiple Models, each Model with this Special Rule is considered to be a separate Unit for all other purposes, including Deployment and the scoring of Victory Points." }
+        {
+          "name": "Among the Ranks",
+          "text": "Although included in an Army as a Unit that includes multiple Models, each Model with this Special Rule is considered to be a separate Unit for all other purposes, including Deployment and the scoring of Victory Points."
+        }
       ],
       "cryptoArkana": false,
       "fixedArkana": null,
@@ -495,12 +875,25 @@
           "text": "Any model in the Unit may have its Gauss Blaster exchanged for an item from the Nobility Melee Weapons List or one of the following: Synaptic Disintegrator free, Rod of Covenant +10 points, Tesla Carbine free.",
           "kind": "perModel",
           "model": null,
-          "replaces": ["Gauss Blaster"],
+          "replaces": [
+            "Gauss Blaster"
+          ],
           "choices": [
-            { "list": "nobility-melee" },
-            { "name": "Synaptic Disintegrator", "points": 0 },
-            { "name": "Rod of Covenant", "points": 10 },
-            { "name": "Tesla Carbine", "points": 0 }
+            {
+              "list": "nobility-melee"
+            },
+            {
+              "name": "Synaptic Disintegrator",
+              "points": 0
+            },
+            {
+              "name": "Rod of Covenant",
+              "points": 10
+            },
+            {
+              "name": "Tesla Carbine",
+              "points": 0
+            }
           ],
           "max": null,
           "requires": null
@@ -512,9 +905,18 @@
           "model": null,
           "replaces": [],
           "choices": [
-            { "name": "Particle Caster", "points": 5 },
-            { "name": "Enmitic Disintegrator", "points": 5 },
-            { "name": "Dispersion Shield", "points": 20 }
+            {
+              "name": "Particle Caster",
+              "points": 5
+            },
+            {
+              "name": "Enmitic Disintegrator",
+              "points": 5
+            },
+            {
+              "name": "Dispersion Shield",
+              "points": 20
+            }
           ],
           "max": null,
           "requires": "melee-swap"
@@ -526,8 +928,14 @@
           "model": null,
           "replaces": [],
           "choices": [
-            { "name": "Nebuloscope", "points": 5 },
-            { "name": "Sense Cluster", "points": 5 }
+            {
+              "name": "Nebuloscope",
+              "points": 5
+            },
+            {
+              "name": "Sense Cluster",
+              "points": 5
+            }
           ],
           "max": null,
           "requires": null
@@ -538,7 +946,12 @@
           "kind": "perModel",
           "model": null,
           "replaces": [],
-          "choices": [ { "name": "Disruption Bayonet", "points": 2 } ],
+          "choices": [
+            {
+              "name": "Disruption Bayonet",
+              "points": 2
+            }
+          ],
           "max": null,
           "requires": null
         },
@@ -548,8 +961,15 @@
           "kind": "upgrade",
           "model": null,
           "replaces": [],
-          "choices": [ { "name": "Officer of the Line (2)", "points": 10 } ],
-          "max": { "fixed": 1 },
+          "choices": [
+            {
+              "name": "Officer of the Line (2)",
+              "points": 10
+            }
+          ],
+          "max": {
+            "fixed": 1
+          },
           "requires": null
         },
         {
@@ -558,7 +978,12 @@
           "kind": "swapModel",
           "model": "Royal Warden",
           "replaces": [],
-          "choices": [ { "name": "Triarch Warden", "points": 20 } ],
+          "choices": [
+            {
+              "name": "Triarch Warden",
+              "points": 20
+            }
+          ],
           "max": null,
           "requires": null
         }
@@ -580,14 +1005,40 @@
           "min": 1,
           "max": 1,
           "costPerExtra": 0,
-          "profile": { "M": 6, "WS": 4, "BS": 4, "S": 4, "T": 4, "W": 3, "I": 2, "A": 2, "LD": 10, "CL": 10, "WP": 7, "IN": 10, "SAV": "4+", "INV": "–" },
-          "wargear": ["Staff of Light"],
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 4,
+            "S": 4,
+            "T": 4,
+            "W": 3,
+            "I": 2,
+            "A": 2,
+            "LD": 10,
+            "CL": 10,
+            "WP": 7,
+            "IN": 10,
+            "SAV": "4+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Staff of Light"
+          ],
           "unitType": "Infantry (Command)",
           "specialRules": []
         }
       ],
-      "traits": ["Xenos", "Necron", "Reanimant", "[Crypto-Arkana]"],
-      "specialRules": ["Battlesmith (2)", "Ever-Living (5+)", "Split Fire"],
+      "traits": [
+        "Xenos",
+        "Necron",
+        "Reanimant",
+        "[Crypto-Arkana]"
+      ],
+      "specialRules": [
+        "Battlesmith (2)",
+        "Ever-Living (5+)",
+        "Split Fire"
+      ],
       "unitRules": [],
       "cryptoArkana": true,
       "fixedArkana": null,
@@ -597,8 +1048,14 @@
           "text": "This model's Staff of Light may be exchanged for one item from the Crypto-Arkana Weapons List corresponding to its Crypto-Arkana Trait.",
           "kind": "one",
           "model": "Cryptek",
-          "replaces": ["Staff of Light"],
-          "choices": [ { "list": "arkana-weapons" } ],
+          "replaces": [
+            "Staff of Light"
+          ],
+          "choices": [
+            {
+              "list": "arkana-weapons"
+            }
+          ],
           "max": null,
           "requires": null
         },
@@ -608,7 +1065,11 @@
           "kind": "one",
           "model": "Cryptek",
           "replaces": [],
-          "choices": [ { "list": "techno-arkana" } ],
+          "choices": [
+            {
+              "list": "techno-arkana"
+            }
+          ],
           "max": null,
           "requires": null
         },
@@ -619,14 +1080,54 @@
           "model": "Cryptek",
           "replaces": [],
           "choices": [
-            { "name": "Canoptek Familiar", "points": 10 },
-            { "name": "Cryptotendrils", "points": 10 },
-            { "name": "Sense Cluster", "points": 10 },
-            { "name": "Arkanic Destroyer Frame", "points": 15 },
-            { "name": "Translocation Shroud", "points": 60 }
+            {
+              "name": "Canoptek Familiar",
+              "points": 10
+            },
+            {
+              "name": "Cryptotendrils",
+              "points": 10
+            },
+            {
+              "name": "Sense Cluster",
+              "points": 10
+            },
+            {
+              "name": "Arkanic Destroyer Frame",
+              "points": 15
+            },
+            {
+              "name": "Translocation Shroud",
+              "points": 60
+            }
           ],
           "max": null,
           "requires": null
+        },
+        {
+          "id": "frame-config",
+          "text": "When selecting an Arkanic Destroyer Frame, the controlling player may additionally select one of the following options: Free: Movement 8. +10 points: Unit Type changed to Cavalry, gains Antigrav and Heavy, Movement 12. +15 points: gains Deep Strike, Phase Motion and the Phase Shift Trait, Movement 10.",
+          "kind": "one",
+          "model": "Cryptek",
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Frame: Striding (M8)",
+              "points": 0
+            },
+            {
+              "name": "Frame: Hovering (Cavalry, M12)",
+              "points": 10
+            },
+            {
+              "name": "Frame: Phasing (M10)",
+              "points": 15
+            }
+          ],
+          "max": null,
+          "requires": "any-of",
+          "requiresChoice": "Arkanic Destroyer Frame",
+          "note": "The codex lists these as unnamed sub-options (p.112); the labels here are descriptive."
         }
       ],
       "note": null
@@ -646,8 +1147,25 @@
           "min": 5,
           "max": 15,
           "costPerExtra": 8,
-          "profile": { "M": 12, "WS": 3, "BS": 3, "S": 4, "T": 4, "W": 1, "I": 2, "A": 2, "LD": 8, "CL": 12, "WP": 4, "IN": 5, "SAV": "4+", "INV": "–" },
-          "wargear": ["Gauss Scalpel"],
+          "profile": {
+            "M": 12,
+            "WS": 3,
+            "BS": 3,
+            "S": 4,
+            "T": 4,
+            "W": 1,
+            "I": 2,
+            "A": 2,
+            "LD": 8,
+            "CL": 12,
+            "WP": 4,
+            "IN": 5,
+            "SAV": "4+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Gauss Scalpel"
+          ],
           "unitType": "Automata (Antigrav)",
           "specialRules": []
         },
@@ -656,24 +1174,70 @@
           "min": 0,
           "max": null,
           "costPerExtra": 10,
-          "profile": { "M": 12, "WS": 3, "BS": 3, "S": 4, "T": 4, "W": 1, "I": 2, "A": 2, "LD": 8, "CL": 12, "WP": 4, "IN": 7, "SAV": "4+", "INV": "–" },
-          "wargear": ["Deconstructor Mandibles"],
+          "profile": {
+            "M": 12,
+            "WS": 3,
+            "BS": 3,
+            "S": 4,
+            "T": 4,
+            "W": 1,
+            "I": 2,
+            "A": 2,
+            "LD": 8,
+            "CL": 12,
+            "WP": 4,
+            "IN": 7,
+            "SAV": "4+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Deconstructor Mandibles"
+          ],
           "unitType": "Automata (Antigrav)",
-          "specialRules": ["Goad (Reanimant)"]
+          "specialRules": [
+            "Goad (Reanimant)"
+          ]
         },
         {
           "name": "Macrocyte Reanimator",
           "min": 0,
           "max": null,
           "costPerExtra": 10,
-          "profile": { "M": 12, "WS": 3, "BS": 3, "S": 4, "T": 4, "W": 1, "I": 2, "A": 2, "LD": 8, "CL": 12, "WP": 4, "IN": 7, "SAV": "4+", "INV": "–" },
-          "wargear": ["Nanoscarab Scouring Beam"],
+          "profile": {
+            "M": 12,
+            "WS": 3,
+            "BS": 3,
+            "S": 4,
+            "T": 4,
+            "W": 1,
+            "I": 2,
+            "A": 2,
+            "LD": 8,
+            "CL": 12,
+            "WP": 4,
+            "IN": 7,
+            "SAV": "4+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Nanoscarab Scouring Beam"
+          ],
           "unitType": "Automata (Antigrav)",
-          "specialRules": ["Battlesmith (1)", "Reanimation Beam (1)"]
+          "specialRules": [
+            "Battlesmith (1)",
+            "Reanimation Beam (1)"
+          ]
         }
       ],
-      "traits": ["Xenos", "Necron", "Canoptek"],
-      "specialRules": ["Expendable (3)", "Systematic Vigour"],
+      "traits": [
+        "Xenos",
+        "Necron",
+        "Canoptek"
+      ],
+      "specialRules": [
+        "Expendable (3)",
+        "Systematic Vigour"
+      ],
       "unitRules": [],
       "cryptoArkana": false,
       "fixedArkana": null,
@@ -684,8 +1248,16 @@
           "kind": "swapModel",
           "model": "Macrocyte Warrior",
           "replaces": [],
-          "choices": [ { "name": "Macrocyte Accelerator", "points": 10 } ],
-          "max": { "per": 5, "count": 1 },
+          "choices": [
+            {
+              "name": "Macrocyte Accelerator",
+              "points": 10
+            }
+          ],
+          "max": {
+            "per": 5,
+            "count": 1
+          },
           "requires": null
         },
         {
@@ -694,8 +1266,16 @@
           "kind": "swapModel",
           "model": "Macrocyte Warrior",
           "replaces": [],
-          "choices": [ { "name": "Macrocyte Reanimator", "points": 10 } ],
-          "max": { "per": 5, "count": 1 },
+          "choices": [
+            {
+              "name": "Macrocyte Reanimator",
+              "points": 10
+            }
+          ],
+          "max": {
+            "per": 5,
+            "count": 1
+          },
           "requires": null
         },
         {
@@ -703,8 +1283,15 @@
           "text": "Any Macrocyte Warrior in the Unit may have its Gauss Scalpel exchanged for a Tesla Caster for free.",
           "kind": "perModel",
           "model": "Macrocyte Warrior",
-          "replaces": ["Gauss Scalpel"],
-          "choices": [ { "name": "Tesla Caster", "points": 0 } ],
+          "replaces": [
+            "Gauss Scalpel"
+          ],
+          "choices": [
+            {
+              "name": "Tesla Caster",
+              "points": 0
+            }
+          ],
           "max": null,
           "requires": null
         }
@@ -726,8 +1313,26 @@
           "min": 5,
           "max": 10,
           "costPerExtra": 18,
-          "profile": { "M": 6, "WS": 4, "BS": 5, "S": 4, "T": 5, "W": 1, "I": 2, "A": 1, "LD": 10, "CL": 10, "WP": 6, "IN": 5, "SAV": "3+", "INV": "–" },
-          "wargear": ["Gauss Blaster", "Sense Cluster"],
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 5,
+            "S": 4,
+            "T": 5,
+            "W": 1,
+            "I": 2,
+            "A": 1,
+            "LD": 10,
+            "CL": 10,
+            "WP": 6,
+            "IN": 5,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Gauss Blaster",
+            "Sense Cluster"
+          ],
           "unitType": "Infantry",
           "specialRules": []
         },
@@ -736,26 +1341,73 @@
           "min": 0,
           "max": 1,
           "costPerExtra": 20,
-          "profile": { "M": 6, "WS": 4, "BS": 5, "S": 4, "T": 4, "W": 2, "I": 2, "A": 1, "LD": 10, "CL": 10, "WP": 7, "IN": 8, "SAV": "3+", "INV": "–" },
-          "wargear": ["Staff of Light"],
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 5,
+            "S": 4,
+            "T": 4,
+            "W": 2,
+            "I": 2,
+            "A": 1,
+            "LD": 10,
+            "CL": 10,
+            "WP": 7,
+            "IN": 8,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Staff of Light"
+          ],
           "unitType": "Infantry (Sergeant)",
-          "specialRules": ["Battlesmith (2)", "Magnification Conduit"]
+          "specialRules": [
+            "Battlesmith (2)",
+            "Magnification Conduit"
+          ]
         },
         {
           "name": "Despotek",
           "min": 0,
           "max": 1,
           "costPerExtra": 5,
-          "profile": { "M": 6, "WS": 4, "BS": 5, "S": 4, "T": 5, "W": 2, "I": 2, "A": 2, "LD": 10, "CL": 10, "WP": 7, "IN": 5, "SAV": "3+", "INV": "–" },
-          "wargear": ["Gauss Blaster", "Sense Cluster"],
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 5,
+            "S": 4,
+            "T": 5,
+            "W": 2,
+            "I": 2,
+            "A": 2,
+            "LD": 10,
+            "CL": 10,
+            "WP": 7,
+            "IN": 5,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Gauss Blaster",
+            "Sense Cluster"
+          ],
           "unitType": "Infantry (Champion)",
           "specialRules": []
         }
       ],
-      "traits": ["Xenos", "Necron", "Reanimant"],
-      "specialRules": ["Reanimation Protocols (5+)"],
+      "traits": [
+        "Xenos",
+        "Necron",
+        "Reanimant"
+      ],
+      "specialRules": [
+        "Reanimation Protocols (5+)"
+      ],
       "unitRules": [
-        { "name": "Magnification Conduit", "text": "Before the start of the battle, the Controlling Player of a model with this Special Rule may select one model with the [Crypto-Arkana] Trait in the same Army. The selected Model is this Model's \"Master\". Whilst this Model's Master is on the Battlefield, this Model gains the same Harbinger Special Rule as its Master has." }
+        {
+          "name": "Magnification Conduit",
+          "text": "Before the start of the battle, the Controlling Player of a model with this Special Rule may select one model with the [Crypto-Arkana] Trait in the same Army. The selected Model is this Model's \"Master\". Whilst this Model's Master is on the Battlefield, this Model gains the same Harbinger Special Rule as its Master has."
+        }
       ],
       "cryptoArkana": false,
       "fixedArkana": null,
@@ -766,8 +1418,15 @@
           "kind": "swapModel",
           "model": "Hierotek Guardian",
           "replaces": [],
-          "choices": [ { "name": "Apprentek", "points": 20 } ],
-          "max": { "fixed": 1 },
+          "choices": [
+            {
+              "name": "Apprentek",
+              "points": 20
+            }
+          ],
+          "max": {
+            "fixed": 1
+          },
           "requires": null
         },
         {
@@ -776,8 +1435,15 @@
           "kind": "swapModel",
           "model": "Hierotek Guardian",
           "replaces": [],
-          "choices": [ { "name": "Despotek", "points": 5 } ],
-          "max": { "fixed": 1 },
+          "choices": [
+            {
+              "name": "Despotek",
+              "points": 5
+            }
+          ],
+          "max": {
+            "fixed": 1
+          },
           "requires": null
         },
         {
@@ -785,10 +1451,18 @@
           "text": "Any Immortal Guardian or Despotek in the Unit may have its Gauss Blaster exchanged for one of the following: Tesla Carbine free, Synaptic Disruptor +5 points each.",
           "kind": "perModel",
           "model": null,
-          "replaces": ["Gauss Blaster"],
+          "replaces": [
+            "Gauss Blaster"
+          ],
           "choices": [
-            { "name": "Tesla Carbine", "points": 0 },
-            { "name": "Synaptic Disruptor", "points": 5 }
+            {
+              "name": "Tesla Carbine",
+              "points": 0
+            },
+            {
+              "name": "Synaptic Disruptor",
+              "points": 5
+            }
           ],
           "max": null,
           "requires": null,
@@ -800,7 +1474,12 @@
           "kind": "perModel",
           "model": null,
           "replaces": [],
-          "choices": [ { "name": "Disruption Bayonet", "points": 1 } ],
+          "choices": [
+            {
+              "name": "Disruption Bayonet",
+              "points": 1
+            }
+          ],
           "max": null,
           "requires": null
         }
@@ -822,14 +1501,39 @@
           "min": 2,
           "max": 10,
           "costPerExtra": 25,
-          "profile": { "M": 6, "WS": 3, "BS": 3, "S": 5, "T": 5, "W": 2, "I": 2, "A": 3, "LD": 6, "CL": 12, "WP": 4, "IN": 4, "SAV": "4+", "INV": "–" },
-          "wargear": ["Nanoscarab Scouring Beam"],
+          "profile": {
+            "M": 6,
+            "WS": 3,
+            "BS": 3,
+            "S": 5,
+            "T": 5,
+            "W": 2,
+            "I": 2,
+            "A": 3,
+            "LD": 6,
+            "CL": 12,
+            "WP": 4,
+            "IN": 4,
+            "SAV": "4+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Nanoscarab Scouring Beam"
+          ],
           "unitType": "Infantry",
           "specialRules": []
         }
       ],
-      "traits": ["Xenos", "Necron", "Reanimant"],
-      "specialRules": ["Reanimation Protocols (5+)", "Systematic Vigour", "Expendable (1)"],
+      "traits": [
+        "Xenos",
+        "Necron",
+        "Reanimant"
+      ],
+      "specialRules": [
+        "Reanimation Protocols (5+)",
+        "Systematic Vigour",
+        "Expendable (1)"
+      ],
       "unitRules": [],
       "cryptoArkana": false,
       "fixedArkana": null,
@@ -851,16 +1555,44 @@
           "min": 1,
           "max": 5,
           "costPerExtra": 50,
-          "profile": { "M": 6, "WS": 5, "BS": 4, "S": 5, "T": 5, "W": 2, "I": 2, "A": 3, "LD": 10, "CL": 10, "WP": 7, "IN": 7, "SAV": "2+", "INV": "–" },
-          "wargear": ["Hyperphase Sword", "Particle Caster"],
+          "profile": {
+            "M": 6,
+            "WS": 5,
+            "BS": 4,
+            "S": 5,
+            "T": 5,
+            "W": 2,
+            "I": 2,
+            "A": 3,
+            "LD": 10,
+            "CL": 10,
+            "WP": 7,
+            "IN": 7,
+            "SAV": "2+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Hyperphase Sword",
+            "Particle Caster"
+          ],
           "unitType": "Infantry (Champion)",
           "specialRules": []
         }
       ],
-      "traits": ["Xenos", "Necron", "Reanimant"],
-      "specialRules": ["Reanimation Protocols (4+)", "The Vargard's Duty"],
+      "traits": [
+        "Xenos",
+        "Necron",
+        "Reanimant"
+      ],
+      "specialRules": [
+        "Reanimation Protocols (4+)",
+        "The Vargard's Duty"
+      ],
       "unitRules": [
-        { "name": "The Vargard's Duty", "text": "A Model with this Special Rule gains the Ever-Living (6+) Special Rule so long as its Unit has been joined by a Model with the Reanimant Trait and Command Sub-Type." }
+        {
+          "name": "The Vargard's Duty",
+          "text": "A Model with this Special Rule gains the Ever-Living (6+) Special Rule so long as its Unit has been joined by a Model with the Reanimant Trait and Command Sub-Type."
+        }
       ],
       "cryptoArkana": false,
       "fixedArkana": null,
@@ -870,8 +1602,15 @@
           "text": "Any model in the unit may have its Hyperphase Sword exchanged for a Voidblade for free.",
           "kind": "perModel",
           "model": "Vargard",
-          "replaces": ["Hyperphase Sword"],
-          "choices": [ { "name": "Voidblade", "points": 0 } ],
+          "replaces": [
+            "Hyperphase Sword"
+          ],
+          "choices": [
+            {
+              "name": "Voidblade",
+              "points": 0
+            }
+          ],
           "max": null,
           "requires": null
         },
@@ -880,8 +1619,15 @@
           "text": "Any model in the unit may have its Particle Caster exchaged for a Dispersion Shield for free.",
           "kind": "perModel",
           "model": "Vargard",
-          "replaces": ["Particle Caster"],
-          "choices": [ { "name": "Dispersion Shield", "points": 0 } ],
+          "replaces": [
+            "Particle Caster"
+          ],
+          "choices": [
+            {
+              "name": "Dispersion Shield",
+              "points": 0
+            }
+          ],
           "max": null,
           "requires": null
         },
@@ -890,10 +1636,19 @@
           "text": "Any model in the unit may have both its Hyperphase Sword and Particle Caster exchanged for one of the following: Rod of Covenant free, Warscythe free.",
           "kind": "perModel",
           "model": "Vargard",
-          "replaces": ["Hyperphase Sword", "Particle Caster"],
+          "replaces": [
+            "Hyperphase Sword",
+            "Particle Caster"
+          ],
           "choices": [
-            { "name": "Rod of Covenant", "points": 0 },
-            { "name": "Warscythe", "points": 0 }
+            {
+              "name": "Rod of Covenant",
+              "points": 0
+            },
+            {
+              "name": "Warscythe",
+              "points": 0
+            }
           ],
           "max": null,
           "requires": null
@@ -916,14 +1671,37 @@
           "min": 5,
           "max": 10,
           "costPerExtra": 30,
-          "profile": { "M": 6, "WS": 4, "BS": 4, "S": 5, "T": 5, "W": 2, "I": 2, "A": 2, "LD": 10, "CL": 10, "WP": 6, "IN": 6, "SAV": "3+", "INV": "–" },
-          "wargear": ["Warscythe"],
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 4,
+            "S": 5,
+            "T": 5,
+            "W": 2,
+            "I": 2,
+            "A": 2,
+            "LD": 10,
+            "CL": 10,
+            "WP": 6,
+            "IN": 6,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Warscythe"
+          ],
           "unitType": "Infantry",
           "specialRules": []
         }
       ],
-      "traits": ["Xenos", "Necron", "Reanimant"],
-      "specialRules": ["Reanimation Protocols (4+)"],
+      "traits": [
+        "Xenos",
+        "Necron",
+        "Reanimant"
+      ],
+      "specialRules": [
+        "Reanimation Protocols (4+)"
+      ],
       "unitRules": [],
       "cryptoArkana": false,
       "fixedArkana": null,
@@ -933,8 +1711,15 @@
           "text": "Every Model in the Unit may have its Warscythes exchanged for Hyperphase Swords and Dispersion Shields for free.",
           "kind": "upgrade",
           "model": null,
-          "replaces": ["Warscythe"],
-          "choices": [ { "name": "Hyperphase Sword and Dispersion Shield", "points": 0 } ],
+          "replaces": [
+            "Warscythe"
+          ],
+          "choices": [
+            {
+              "name": "Hyperphase Sword and Dispersion Shield",
+              "points": 0
+            }
+          ],
           "max": null,
           "requires": null
         }
@@ -956,14 +1741,40 @@
           "min": 5,
           "max": 10,
           "costPerExtra": 30,
-          "profile": { "M": 12, "WS": 4, "BS": 4, "S": 5, "T": 5, "W": 2, "I": 2, "A": 2, "LD": 10, "CL": 12, "WP": 6, "IN": 6, "SAV": "3+", "INV": "–" },
-          "wargear": ["Voidblade", "Particle Caster"],
+          "profile": {
+            "M": 12,
+            "WS": 4,
+            "BS": 4,
+            "S": 5,
+            "T": 5,
+            "W": 2,
+            "I": 2,
+            "A": 2,
+            "LD": 10,
+            "CL": 12,
+            "WP": 6,
+            "IN": 6,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Voidblade",
+            "Particle Caster"
+          ],
           "unitType": "Infantry (Antigrav)",
           "specialRules": []
         }
       ],
-      "traits": ["Xenos", "Necron", "Reanimant", "Triarch"],
-      "specialRules": ["Deep Strike", "Reanimation Protocols (5+)"],
+      "traits": [
+        "Xenos",
+        "Necron",
+        "Reanimant",
+        "Triarch"
+      ],
+      "specialRules": [
+        "Deep Strike",
+        "Reanimation Protocols (5+)"
+      ],
       "unitRules": [],
       "cryptoArkana": false,
       "fixedArkana": null,
@@ -973,8 +1784,16 @@
           "text": "Every Model in the Unit may have its Voidblades and Particle Casters exchanged for Rods of Covenant for free.",
           "kind": "upgrade",
           "model": null,
-          "replaces": ["Voidblade", "Particle Caster"],
-          "choices": [ { "name": "Rod of Covenant", "points": 0 } ],
+          "replaces": [
+            "Voidblade",
+            "Particle Caster"
+          ],
+          "choices": [
+            {
+              "name": "Rod of Covenant",
+              "points": 0
+            }
+          ],
           "max": null,
           "requires": null
         }
@@ -996,17 +1815,48 @@
           "min": 4,
           "max": 10,
           "costPerExtra": 30,
-          "profile": { "M": 6, "WS": 4, "BS": 4, "S": 5, "T": 5, "W": 2, "I": 2, "A": 2, "LD": 12, "CL": 12, "WP": 10, "IN": 6, "SAV": "3+", "INV": "–" },
-          "wargear": ["Gauss Blaster", "Warscythe"],
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 4,
+            "S": 5,
+            "T": 5,
+            "W": 2,
+            "I": 2,
+            "A": 2,
+            "LD": 12,
+            "CL": 12,
+            "WP": 10,
+            "IN": 6,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Gauss Blaster",
+            "Warscythe"
+          ],
           "unitType": "Infantry",
           "specialRules": []
         }
       ],
-      "traits": ["Xenos", "Necron"],
-      "specialRules": ["Anathema", "Implacable Advance", "Psychic Abomination"],
+      "traits": [
+        "Xenos",
+        "Necron"
+      ],
+      "specialRules": [
+        "Anathema",
+        "Implacable Advance",
+        "Psychic Abomination"
+      ],
       "unitRules": [
-        { "name": "Anathema", "text": "A Unit which includes any Models with this Special Rule may never be selected as the target of a Psychic Blessing or Psychic Curse, and Models with this Special Rule ignore all Damage inflicted by Psychic Weapons, Psychic Powers, Psychic Reactions or Perils of the Warp. If such a Model is selected as the Target Model of any attack or wound inflicted by a Psychic Weapon, Psychic Power, Psychic Reaction, or Perils of the Warp then all Damage caused has no effect and no Wound Tests, Armour Saves or Damage Mitigation Tests are made.\n\nAdditionally, Wound Tests made for Weapons with the Psychic or Immaterial Trait that target any Unit that includes only Models with this Special Rule that have an unmodified result of 1, 2, 3 or 4 are never successful, regardless of the Strength Characteristic of a Hit or any Special Rules that set the Target Number for Wound Tests. This Special Rule has no effect on Armour Penetration Tests." },
-        { "name": "Psychic Abomination", "text": "A Model with this Special Rule has the Fear (X) Special Rule with a value depending on the affected Unit. The value of its Fear (X) Special Rule is Fear (3) for Enemy Units that include any Models with the Psyker Trait and Fear (1) for all other Enemy Units." }
+        {
+          "name": "Anathema",
+          "text": "A Unit which includes any Models with this Special Rule may never be selected as the target of a Psychic Blessing or Psychic Curse, and Models with this Special Rule ignore all Damage inflicted by Psychic Weapons, Psychic Powers, Psychic Reactions or Perils of the Warp. If such a Model is selected as the Target Model of any attack or wound inflicted by a Psychic Weapon, Psychic Power, Psychic Reaction, or Perils of the Warp then all Damage caused has no effect and no Wound Tests, Armour Saves or Damage Mitigation Tests are made.\n\nAdditionally, Wound Tests made for Weapons with the Psychic or Immaterial Trait that target any Unit that includes only Models with this Special Rule that have an unmodified result of 1, 2, 3 or 4 are never successful, regardless of the Strength Characteristic of a Hit or any Special Rules that set the Target Number for Wound Tests. This Special Rule has no effect on Armour Penetration Tests."
+        },
+        {
+          "name": "Psychic Abomination",
+          "text": "A Model with this Special Rule has the Fear (X) Special Rule with a value depending on the affected Unit. The value of its Fear (X) Special Rule is Fear (3) for Enemy Units that include any Models with the Psyker Trait and Fear (1) for all other Enemy Units."
+        }
       ],
       "cryptoArkana": false,
       "fixedArkana": null,

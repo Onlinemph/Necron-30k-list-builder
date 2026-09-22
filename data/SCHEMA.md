@@ -167,6 +167,7 @@ profile, rules and traits it shows, and highlights what changed.
       //       "arkana"         – the model has this Crypto-Arkana, e.g. "Chronomancy"
       //       "primeAdvantage" – the unit took this Prime Advantage
       //       "upgrade"        – an upgrade option by its choice name, e.g. "Charnel Displays", "Nemesor Trait"
+      //       "unitRule"       – a rule printed on the unit's own page, e.g. "The Vargard's Duty"
   "appliesTo": { "units": ["necron-warriors"] },
       // optional filters, all must match: "units" (ids), "models" (model names),
       // "trait" (unit trait, e.g. "Reanimant"), "unitType" (substring of model unitType, e.g. "Vehicle", "Command")

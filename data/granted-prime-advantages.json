@@ -1,0 +1,13 @@
+{
+  "note": "Prime Advantages granted by Dramatis Personae. Offered only when the character is in the army and the unit qualifies.",
+  "grantedPrimeAdvantages": [
+    { "name": "Pyrrhian Eternals", "grantedBy": "anrakyr-the-traveller", "page": 117, "eligible": { "units": ["immortals"] },
+      "text": "Models in the Unit for which this Prime Advantage was selected gain +1 to their Attacks Characteristic. Whilst Anrakyr has joined the Unit, Models in the Unit also gain the Impact (S) Special Rule." },
+    { "name": "Superior Maneuvers", "grantedBy": "nemesor-zahndrekh", "page": 120, "eligible": { "roles": ["Troops", "Elites"] },
+      "text": "The Unit for which this Prime Advantage was selected gains the Infiltrate (9) Special Rule and the Ethereal Interception Trait." },
+    { "name": "Eternal Engine", "grantedBy": "toholk-the-blinded", "page": 123, "eligible": { "trait": "Canoptek" },
+      "text": "All Models in the Unit for which this Prime Advantage is selected gain the Ever-Living (5+) Special Rule. Toholk can join Units of Automata that have had this Prime Advantage selected for them, even though he has the Infantry Type." },
+    { "name": "Mechanical Augmentation", "grantedBy": "illuminor-szeras", "page": 119, "eligible": { "roles": ["Troops"] },
+      "text": "At the Start of Battle, the Controlling Player of a Unit with this Prime Advantage rolls a D6 and applies the following Benefit to this Unit for the duration of the battle: 1-2 Hardened Carapace: +1 Toughness. 3-4 Improved Optics: +1 Ballistic Skill. 5-6 Enhanced Servomotors: +1 Strength." }
+  ]
+}

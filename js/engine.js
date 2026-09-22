@@ -262,6 +262,23 @@
       return out;
     }
 
+    // ---------- Prime Advantages ----------
+    /** Advantages this unit may take: the codex's own plus any granted by characters in the army. */
+    function primeAdvantagesFor(sel, army) {
+      const u = unit(sel.unitId);
+      const out = ((data.rules && data.rules.primeAdvantages) || []).map((a) => ({ name: a.name, text: a.text }));
+      const present = new Set(allSelections(army).map((x) => x.sel.unitId));
+      for (const g of data.grantedPrimeAdvantages || []) {
+        if (!present.has(g.grantedBy)) continue;
+        const e = g.eligible || {};
+        if (e.units && !e.units.includes(u.id)) continue;
+        if (e.roles && !e.roles.includes(u.role)) continue;
+        if (e.trait && !unitHasTrait(u, e.trait)) continue;
+        out.push({ name: g.name, text: g.text, grantedBy: unit(g.grantedBy).name });
+      }
+      return out;
+    }
+
     // ---------- battlefield modifiers ----------
     const modifiers = (data.modifiers && data.modifiers.modifiers) || [];
     const saveNum = (v) => { const m = String(v ?? '').match(/(\d+)\+/); return m ? +m[1] : 99; };
@@ -331,7 +348,9 @@
         switch (src.type) {
           case 'sequela': return activeSeq.has(src.name);
           case 'arkana': return ark === src.name;
+          // character-granted advantages are labelled "Name (Character)" in the picker
           case 'primeAdvantage': return sel.primeAdvantage === src.name;
+          case 'unitRule': return (u.unitRules || []).some((r) => norm(r.name) === norm(src.name)) || [...(u.specialRules || [])].some((r) => norm(r) === norm(src.name));
           case 'wargear': case 'upgrade': return items.has(src.name);
           default: return false;
         }
@@ -361,11 +380,14 @@
             if (rules.length < before) removed.push(r);
           }
           for (const r of m.addRules || []) {
-            if (rules.some((x) => ruleBase(x) === ruleBase(r))) continue;
-            rules.push(r);
+            const i = rules.findIndex((x) => ruleBase(x) === ruleBase(r));
+            if (m.ifMissing && i >= 0) continue;
+            if (i >= 0 && rules[i] === r) continue;
+            if (i >= 0) rules[i] = r; else rules.push(r); // a new value replaces the old one, e.g. Ever-Living (2+)
             added.push(r);
           }
           for (const mr of m.modifyRules || []) {
+            if (typeof mr.by !== 'number') { reminders.push({ text: m.text, condition: mr.note || 'see rule', source: m.source }); continue; }
             rules = rules.map((x) => {
               if (ruleBase(x) !== ruleBase(mr.rule)) return x;
               const nx = x.replace(/\((\d+)(\+?)\)/, (_, n, plus) => `(${plus ? Math.max(2, +n - mr.by) : +n + mr.by}${plus})`);
@@ -374,6 +396,10 @@
             });
           }
           for (const t of m.addTraits || []) if (!traits.includes(t)) { traits.push(t); addedTraits.push(t); }
+          if (m.setUnitType && !unitType.startsWith(m.setUnitType)) {
+            unitType = unitType.replace(/^[A-Za-z]+/, m.setUnitType);
+            changed.unitType = true;
+          }
           for (const t of m.addUnitTypes || []) {
             if (unitType.includes(t)) continue;
             unitType = /\)$/.test(unitType) ? unitType.replace(/\)$/, `, ${t})`) : `${unitType} (${t})`;
@@ -404,7 +430,7 @@
           const has = loadout(sel).some((r) => r.base.concat(r.changes.map((c) => c.name)).some((w) => o.effect.requiresWargear.includes(w)));
           if (!has) issues.push({ level: 'error', msg: `${u.name}: ${o.choices[0].name} needs a ${o.effect.requiresWargear.join(' or ')}.` });
         }
-        if (o.requires && val && !isTaken(sel.options[o.requires])) {
+        if (o.requires && isTaken(val) && !requirementMet(o, sel)) {
           issues.push({ level: 'error', msg: `${u.name}: "${short(o.text)}" needs another option first.` });
         }
         if (o.kind === 'perModel') {
@@ -428,6 +454,12 @@
         if (p.used > p.cap) issues.push({ level: 'error', msg: `${u.name}: more upgrades than models in "${k}" (${p.used}/${p.cap}).` });
       }
       return issues;
+    }
+
+    function requirementMet(o, sel) {
+      const v = sel.options[o.requires];
+      if (!o.requiresChoice) return isTaken(v);
+      return Array.isArray(v) ? v.includes(o.requiresChoice) : v === o.requiresChoice || (v && typeof v === 'object' && v[o.requiresChoice] > 0);
     }
 
     function isTaken(v) {
@@ -549,6 +581,10 @@
           if (s.unit.primeAdvantage === 'Dynastic Advisors' && !['Command', 'High Command'].includes(s.role)) {
             issues.push({ level: 'error', msg: 'Dynastic Advisors can only be chosen for a Command or High Command Prime slot.' });
           }
+          const granted = (data.grantedPrimeAdvantages || []).find((g) => g.name === s.unit.primeAdvantage);
+          if (granted && !sels.some((x) => x.sel.unitId === granted.grantedBy)) {
+            issues.push({ level: 'error', msg: `${u.name}: ${granted.name} needs ${unit(granted.grantedBy).name} in the army.` });
+          }
           if (s.unit.primeAdvantage && !hasTrait(s.unit, 'Necron')) {
             issues.push({ level: 'error', msg: `${u.name} lacks the Necron trait, so it can't take a Necron Prime Advantage.` });
           }
@@ -646,7 +682,7 @@
       data, ROLES, ARKANA, unit, choicesFor, sizableModels, swapTargets, newSelection, modelCounts, totalModels,
       eligible, optionMax, perModelUsed, optionCost, unitPoints, loadout, unitIssues, armyIssues, armyPoints,
       allSelections, sequelaAllowance, makeDetachment, detachmentFromDef, unitsForSlot, slotAllows, syncAdvisorSlots,
-      hasTrait, arkanaOf, uid, setSequelae, effectiveModels, optionsOf, modelMax, rolesFor, activeEffects, grantedTraits,
+      hasTrait, arkanaOf, uid, setSequelae, effectiveModels, primeAdvantagesFor, requirementMet, optionsOf, modelMax, rolesFor, activeEffects, grantedTraits,
     };
   }
 

@@ -1108,6 +1108,31 @@
      ],
      "max": null,
      "requires": null
+    },
+    {
+     "id": "frame-config",
+     "text": "When selecting an Arkanic Destroyer Frame, the controlling player may additionally select one of the following options: Free: Movement 8. +10 points: Unit Type changed to Cavalry, gains Antigrav and Heavy, Movement 12. +15 points: gains Deep Strike, Phase Motion and the Phase Shift Trait, Movement 10.",
+     "kind": "one",
+     "model": "Cryptek",
+     "replaces": [],
+     "choices": [
+      {
+       "name": "Frame: Striding (M8)",
+       "points": 0
+      },
+      {
+       "name": "Frame: Hovering (Cavalry, M12)",
+       "points": 10
+      },
+      {
+       "name": "Frame: Phasing (M10)",
+       "points": 15
+      }
+     ],
+     "max": null,
+     "requires": "any-of",
+     "requiresChoice": "Arkanic Destroyer Frame",
+     "note": "The codex lists these as unnamed sub-options (p.112); the labels here are descriptive."
     }
    ],
    "note": null
@@ -11570,7 +11595,1723 @@
    }
   ]
  },
+ "grantedPrimeAdvantages": [
+  {
+   "name": "Pyrrhian Eternals",
+   "grantedBy": "anrakyr-the-traveller",
+   "page": 117,
+   "eligible": {
+    "units": [
+     "immortals"
+    ]
+   },
+   "text": "Models in the Unit for which this Prime Advantage was selected gain +1 to their Attacks Characteristic. Whilst Anrakyr has joined the Unit, Models in the Unit also gain the Impact (S) Special Rule."
+  },
+  {
+   "name": "Superior Maneuvers",
+   "grantedBy": "nemesor-zahndrekh",
+   "page": 120,
+   "eligible": {
+    "roles": [
+     "Troops",
+     "Elites"
+    ]
+   },
+   "text": "The Unit for which this Prime Advantage was selected gains the Infiltrate (9) Special Rule and the Ethereal Interception Trait."
+  },
+  {
+   "name": "Eternal Engine",
+   "grantedBy": "toholk-the-blinded",
+   "page": 123,
+   "eligible": {
+    "trait": "Canoptek"
+   },
+   "text": "All Models in the Unit for which this Prime Advantage is selected gain the Ever-Living (5+) Special Rule. Toholk can join Units of Automata that have had this Prime Advantage selected for them, even though he has the Infantry Type."
+  },
+  {
+   "name": "Mechanical Augmentation",
+   "grantedBy": "illuminor-szeras",
+   "page": 119,
+   "eligible": {
+    "roles": [
+     "Troops"
+    ]
+   },
+   "text": "At the Start of Battle, the Controlling Player of a Unit with this Prime Advantage rolls a D6 and applies the following Benefit to this Unit for the duration of the battle: 1-2 Hardened Carapace: +1 Toughness. 3-4 Improved Optics: +1 Ballistic Skill. 5-6 Enhanced Servomotors: +1 Strength."
+  }
+ ],
  "modifiers": {
-  "modifiers": []
+  "modifiers": [
+   {
+    "id": "awoken-vaults-vanguard-barge",
+    "page": 94,
+    "text": "Annhihilation Barge Models and Models with with the Vehicle Type in this Army gain the Vanguard (1) Special Rule.",
+    "source": {
+     "type": "sequela",
+     "name": "Awoken Vaults"
+    },
+    "appliesTo": {
+     "units": [
+      "annihilation-barge"
+     ]
+    },
+    "scope": "unit",
+    "stats": {},
+    "addRules": [
+     "Vanguard (1)"
+    ],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "awoken-vaults-vanguard-vehicle",
+    "page": 94,
+    "text": "Annhihilation Barge Models and Models with with the Vehicle Type in this Army gain the Vanguard (1) Special Rule.",
+    "source": {
+     "type": "sequela",
+     "name": "Awoken Vaults"
+    },
+    "appliesTo": {
+     "unitType": "Vehicle"
+    },
+    "scope": "unit",
+    "stats": {},
+    "addRules": [
+     "Vanguard (1)"
+    ],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "awoken-vaults-stable",
+    "page": 94,
+    "text": "When the My Will Be Done (X) Special Rule of a Model in this Army is Activated, the Controlling Player may select an Annhihilation barge or a Vehicle Model instead of a Reanimant Unit as the Target Unit. If that Player does so, the following effect is applied instead of the normal effects of the My Will Be Done (X) Special Rule if the Willpower Check is succesful: -- Until the end of the Opposing Player's next Turn, the Target Unit gains the Stable Special Rule.",
+    "source": {
+     "type": "sequela",
+     "name": "Awoken Vaults"
+    },
+    "appliesTo": {},
+    "scope": "unit",
+    "stats": {},
+    "addRules": [
+     "Stable"
+    ],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": "until the end of the Opposing Player's next Turn, when a Model's My Will Be Done (X) is Activated and Willpower Check succeeds against an Annihilation Barge or Vehicle Model instead of a Reanimant Unit"
+   },
+   {
+    "id": "canoptek-forge-nemesor",
+    "page": 94,
+    "text": "One Command Model with the [Crypto-Arkana] Trait may be selected as a High Command choice instead. That model gains the Nemesor Trait.",
+    "source": {
+     "type": "sequela",
+     "name": "Canoptek Forge"
+    },
+    "appliesTo": {
+     "trait": "[Crypto-Arkana]"
+    },
+    "scope": "model",
+    "stats": {},
+    "addRules": [],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [
+     "Nemesor"
+    ],
+    "addUnitTypes": [],
+    "condition": "if selected as a High Command choice in place of a Command choice under the Canoptek Forge Aeonic Sequela"
+   },
+   {
+    "id": "canoptek-forge-line",
+    "page": 94,
+    "text": "Macrocyte Warriors, Cryptothrall and Hierotek Circle Units in the Army gain the Line (1) Special Rule.",
+    "source": {
+     "type": "sequela",
+     "name": "Canoptek Forge"
+    },
+    "appliesTo": {
+     "units": [
+      "macrocyte-warriors",
+      "cryptothralls",
+      "hierotek-circle"
+     ]
+    },
+    "scope": "unit",
+    "stats": {},
+    "addRules": [
+     "Line (1)"
+    ],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "canoptek-forge-ever-living",
+    "page": 94,
+    "text": "Models with the Canoptek Trait in the Detachment gain the Ever-Living (6+) Special Rule.",
+    "source": {
+     "type": "sequela",
+     "name": "Canoptek Forge"
+    },
+    "appliesTo": {
+     "trait": "Canoptek"
+    },
+    "scope": "unit",
+    "stats": {},
+    "addRules": [
+     "Ever-Living (6+)"
+    ],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "dark-harvest-initiative",
+    "page": 95,
+    "text": "All models in Units that include models with the Nemesor Trait in this Army count their Initiative as 2 higher than it is when resolving the Consolidate or Pursue Aftermath Options.",
+    "source": {
+     "type": "sequela",
+     "name": "Dark Harvest"
+    },
+    "appliesTo": {},
+    "scope": "unit",
+    "stats": {
+     "I": "+2"
+    },
+    "addRules": [],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": "only when resolving the Consolidate or Pursue Aftermath Options, for Units that include a Model with the Nemesor Trait"
+   },
+   {
+    "id": "dark-harvest-flensing-scarabs",
+    "page": 95,
+    "text": "Attacks made with a Basic Close Combat Weapon or a Disruption Bayonet by a Model with Flensing Scarabs gain the Shred (6+) Special Rule.",
+    "source": {
+     "type": "upgrade",
+     "name": "Flensing Scarabs"
+    },
+    "appliesTo": {
+     "trait": "Reanimant"
+    },
+    "scope": "model",
+    "stats": {},
+    "addRules": [
+     "Shred (6+)"
+    ],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": "when attacking with a Basic Close Combat Weapon or a Disruption Bayonet"
+   },
+   {
+    "id": "cult-of-annihilation-vanguard",
+    "page": 95,
+    "text": "All Units with the Destroyer Trait and Vanguard (X) Special Rule in this Army have the value of their Vanguard (X) Special Rule modified by +1.",
+    "source": {
+     "type": "sequela",
+     "name": "Cult of Annihilation"
+    },
+    "appliesTo": {
+     "trait": "Destroyer"
+    },
+    "scope": "unit",
+    "stats": {},
+    "addRules": [],
+    "removeRules": [],
+    "modifyRules": [
+     {
+      "rule": "Vanguard",
+      "by": 1
+     }
+    ],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "cult-of-annihilation-plasmacyte",
+    "page": 95,
+    "text": "If that player does so, then until that Shooting Attack Sequence or that Combat is resolved the Hardwired for Destruction Special Rule improves the Critical Hits (X) Special Rule of models in this Unit by a further +1.",
+    "source": {
+     "type": "upgrade",
+     "name": "Plasmacyte"
+    },
+    "appliesTo": {
+     "trait": "Destroyer"
+    },
+    "scope": "unit",
+    "stats": {},
+    "addRules": [],
+    "removeRules": [],
+    "modifyRules": [
+     {
+      "rule": "Critical Hits",
+      "by": 1
+     }
+    ],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": "when the Unit's Plasmacyte Token is removed during Step 3 of the Shooting Attack Sequence or Step 2 of the Fight Sub-Phase, until that Shooting Attack Sequence or Combat is resolved"
+   },
+   {
+    "id": "horrors-of-old-warriors-save",
+    "page": 96,
+    "text": "Necron Warriors Units in an army with this Aeonic Sequela have a 3+ Armour Save, but lose the Endless Legions Special Rule.",
+    "source": {
+     "type": "sequela",
+     "name": "Horrors of Old"
+    },
+    "appliesTo": {
+     "units": [
+      "necron-warriors"
+     ]
+    },
+    "scope": "unit",
+    "stats": {
+     "SAV": "=3+"
+    },
+    "addRules": [],
+    "removeRules": [
+     "Endless Legions"
+    ],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "forsaken-voidfarers-interceptor",
+    "page": 96,
+    "text": "All Units with the Flyer Sub-Type in an Army with this Aeonic Sequela gain the Interceptor Trait.",
+    "source": {
+     "type": "sequela",
+     "name": "Forsaken Voidfarers"
+    },
+    "appliesTo": {
+     "unitType": "Flyer"
+    },
+    "scope": "unit",
+    "stats": {},
+    "addRules": [],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [
+     "Interceptor"
+    ],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "hypercrypt-legion-hyperspace-hunter-command",
+    "page": 97,
+    "text": "Command and High Command Models in this Army gain the Hyperspace Hunter Trait.",
+    "source": {
+     "type": "sequela",
+     "name": "Hypercrypt Legion"
+    },
+    "appliesTo": {
+     "unitType": "Command"
+    },
+    "scope": "unit",
+    "stats": {},
+    "addRules": [],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [
+     "Hyperspace Hunter"
+    ],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "hypercrypt-legion-hyperspace-hunter-upgrade",
+    "page": 97,
+    "text": "Any other Units with the Reanimant Trait in this Army may be upgraded to have the Hyperspace Hunter Trait for +30 points per Unit.",
+    "source": {
+     "type": "upgrade",
+     "name": "Hyperspace Hunter"
+    },
+    "appliesTo": {
+     "trait": "Reanimant"
+    },
+    "scope": "unit",
+    "stats": {},
+    "addRules": [],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [
+     "Hyperspace Hunter"
+    ],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "mark-of-the-flayer-heedless",
+    "page": 97,
+    "text": "All models in Flayed Ones Units in this Army lose the Heedless Special Rule.",
+    "source": {
+     "type": "sequela",
+     "name": "Mark of the Flayer"
+    },
+    "appliesTo": {
+     "units": [
+      "flayed-ones"
+     ]
+    },
+    "scope": "unit",
+    "stats": {},
+    "addRules": [],
+    "removeRules": [
+     "Heedless"
+    ],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "mark-of-the-flayer-charnel-displays",
+    "page": 97,
+    "text": "A model with Charnel Displays has the Fear (1) Special Rule, and receives a -1 modifier to its Ballistic Skill.",
+    "source": {
+     "type": "upgrade",
+     "name": "Charnel Displays"
+    },
+    "appliesTo": {
+     "trait": "Reanimant"
+    },
+    "scope": "model",
+    "stats": {
+     "BS": "-1"
+    },
+    "addRules": [
+     "Fear (1)"
+    ],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "royal-burial-site-nemesor-ws",
+    "page": 98,
+    "text": "All Models with the Nemesor Trait in an army with this Aeonic Sequela gain +1 to their Weapon Skill Characteristics.",
+    "source": {
+     "type": "sequela",
+     "name": "Royal Burial Site"
+    },
+    "appliesTo": {
+     "trait": "Nemesor"
+    },
+    "scope": "model",
+    "stats": {
+     "WS": "+1"
+    },
+    "addRules": [],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "royal-burial-site-joined-ws",
+    "page": 98,
+    "text": "All Royal Warden, Immortal and Lychguard Models in an army with this Aeonic Sequela gain +1 to their Weapon Skill Characteristic, so long as their Unit has been joined by at least one Model with the Nemesor or Phaeron Trait.",
+    "source": {
+     "type": "sequela",
+     "name": "Royal Burial Site"
+    },
+    "appliesTo": {
+     "units": [
+      "royal-warden",
+      "immortals",
+      "lychguard"
+     ]
+    },
+    "scope": "unit",
+    "stats": {
+     "WS": "+1"
+    },
+    "addRules": [],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": "while joined by a Nemesor or Phaeron"
+   },
+   {
+    "id": "royal-burial-site-nemesor-upgrade",
+    "page": 98,
+    "text": "Any Necron Lord or Necron Lord on Catacomb Command Barge in an Army with this Aeonic Sequela may be upgraded to have the Nemesor Trait at +15 points per model.",
+    "source": {
+     "type": "upgrade",
+     "name": "Nemesor Trait"
+    },
+    "appliesTo": {
+     "units": [
+      "necron-lord",
+      "necron-lord-on-barge"
+     ]
+    },
+    "scope": "model",
+    "stats": {},
+    "addRules": [],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [
+     "Nemesor"
+    ],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "slumbering-tombs-spyder-reanimator",
+    "page": 98,
+    "text": "All Canoptek Spyder and Canoptek Reanimator Models in this Army lose the Support Unit (2) Special Rule and gain the Line (1) Special Rule.",
+    "source": {
+     "type": "sequela",
+     "name": "Slumbering Tombs"
+    },
+    "appliesTo": {
+     "units": [
+      "canoptek-spyders",
+      "canoptek-reanimators"
+     ]
+    },
+    "scope": "unit",
+    "stats": {},
+    "addRules": [
+     "Line (1)"
+    ],
+    "removeRules": [
+     "Support Unit"
+    ],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "slumbering-tombs-scarabs",
+    "page": 98,
+    "text": "All Canoptek Scarab Models in this Army lose the Expendable (3) and Heedless Special Rules and gain the Line (3) Special Rule.",
+    "source": {
+     "type": "sequela",
+     "name": "Slumbering Tombs"
+    },
+    "appliesTo": {
+     "units": [
+      "canoptek-scarabs"
+     ]
+    },
+    "scope": "unit",
+    "stats": {},
+    "addRules": [
+     "Line (3)"
+    ],
+    "removeRules": [
+     "Expendable",
+     "Heedless"
+    ],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "slumbering-tombs-vanguard",
+    "page": 98,
+    "text": "All Canoptek Wraith, Canoptek Tomb Sentinel and Canoptek Tomb Stalker Models in this Army gain the Vanguard (2) Special Rule.",
+    "source": {
+     "type": "sequela",
+     "name": "Slumbering Tombs"
+    },
+    "appliesTo": {
+     "units": [
+      "canoptek-wraiths",
+      "canoptek-tomb-sentinel",
+      "canoptek-tomb-stalker"
+     ]
+    },
+    "scope": "unit",
+    "stats": {},
+    "addRules": [
+     "Vanguard (2)"
+    ],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "slumbering-tombs-warriors-immortals",
+    "page": 98,
+    "text": "All Necron Warrior and Immortals Units in this Army lose the Line (1) Special Rule and gain the Support Unit (3) Special Rule.",
+    "source": {
+     "type": "sequela",
+     "name": "Slumbering Tombs"
+    },
+    "appliesTo": {
+     "units": [
+      "necron-warriors",
+      "immortals"
+     ]
+    },
+    "scope": "unit",
+    "stats": {},
+    "addRules": [
+     "Support Unit (3)"
+    ],
+    "removeRules": [
+     "Line"
+    ],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "servants-of-the-ankh-vanguard",
+    "page": 99,
+    "text": "Units with the Triarch Trait in an Army with this Aeonic Sequela gain the Vanguard (2) Special Rule.",
+    "source": {
+     "type": "sequela",
+     "name": "Servants of the Ankh"
+    },
+    "appliesTo": {
+     "trait": "Triarch"
+    },
+    "scope": "unit",
+    "stats": {},
+    "addRules": [
+     "Vanguard (2)"
+    ],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "symbiosis-adamantium-will",
+    "page": 99,
+    "text": "All models with the Reanimant Sub-Type in this Army gain the Adamantium Will (5+) Special Rule whilst within 12\" of at least one Model with the Anathema Special Rule from the same Army.",
+    "source": {
+     "type": "sequela",
+     "name": "The Symbiosis"
+    },
+    "appliesTo": {
+     "trait": "Reanimant"
+    },
+    "scope": "unit",
+    "stats": {},
+    "addRules": [
+     "Adamantium Will (5+)"
+    ],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": "while within 12\" of a Model with the Anathema Special Rule from the same Army"
+   },
+   {
+    "id": "chronomancy-phasing",
+    "page": 20,
+    "text": "A model with the Chronomancy Trait gains the Phasing Trait.",
+    "source": {
+     "type": "arkana",
+     "name": "Chronomancy"
+    },
+    "appliesTo": {
+     "trait": "Chronomancy"
+    },
+    "scope": "model",
+    "stats": {},
+    "addRules": [],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [
+     "Phasing"
+    ],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "ethermancy-shrouded",
+    "page": 21,
+    "text": "A model with the Ethermancy Trait gains the Shrouded (4+) Special Rule.",
+    "source": {
+     "type": "arkana",
+     "name": "Ethermancy"
+    },
+    "appliesTo": {
+     "trait": "Ethermancy"
+    },
+    "scope": "model",
+    "stats": {},
+    "addRules": [
+     "Shrouded (4+)"
+    ],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "geomancy-phasing",
+    "page": 22,
+    "text": "A model with the Geomancy Trait gains the Phasing Trait.",
+    "source": {
+     "type": "arkana",
+     "name": "Geomancy"
+    },
+    "appliesTo": {
+     "trait": "Geomancy"
+    },
+    "scope": "model",
+    "stats": {},
+    "addRules": [],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [
+     "Phasing"
+    ],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "plasmancy-firing-protocols",
+    "page": 23,
+    "text": "A model with the Plasmancy Trait gains the Firing Protocols (2) and Firestorm Special Rules.",
+    "source": {
+     "type": "arkana",
+     "name": "Plasmancy"
+    },
+    "appliesTo": {
+     "trait": "Plasmancy"
+    },
+    "scope": "model",
+    "stats": {},
+    "addRules": [
+     "Firing Protocols (2)",
+     "Firestorm"
+    ],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "psychomancy-fear",
+    "page": 24,
+    "text": "A model with the Psychomancy Trait gains the Fear (1) Special Rule.",
+    "source": {
+     "type": "arkana",
+     "name": "Psychomancy"
+    },
+    "appliesTo": {
+     "trait": "Psychomancy"
+    },
+    "scope": "model",
+    "stats": {},
+    "addRules": [
+     "Fear (1)"
+    ],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "technomancy-battlesmith-improve",
+    "page": 25,
+    "text": "The value in brackets of the Battlesmith (X) Special Rule of a model with the Harbinger of the Swarm Special Rule is modified by +1.",
+    "source": {
+     "type": "arkana",
+     "name": "Technomancy"
+    },
+    "appliesTo": {
+     "trait": "Technomancy"
+    },
+    "scope": "model",
+    "stats": {},
+    "addRules": [],
+    "removeRules": [],
+    "modifyRules": [
+     {
+      "rule": "Battlesmith",
+      "by": 1
+     }
+    ],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "technomancy-battlesmith-grant",
+    "page": 25,
+    "text": "If the model does not already have the Battlesmith (X) Special Rule, it gains the Battlesmith (1) Special Rule instead.",
+    "source": {
+     "type": "arkana",
+     "name": "Technomancy"
+    },
+    "appliesTo": {
+     "trait": "Technomancy"
+    },
+    "scope": "model",
+    "stats": {},
+    "addRules": [
+     "Battlesmith (1)"
+    ],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": null,
+    "ifMissing": true
+   },
+   {
+    "id": "timesplinter-mantle-bearer",
+    "page": 20,
+    "text": "A model with a Timesplinter Mantle has a 4+ invulnerable save and gains the Phase Shift Trait.",
+    "source": {
+     "type": "wargear",
+     "name": "Timesplinter Mantle"
+    },
+    "appliesTo": {},
+    "scope": "model",
+    "stats": {
+     "INV": "best:4+"
+    },
+    "addRules": [],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [
+     "Phase Shift"
+    ],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "timesplinter-mantle-unit-reanimant",
+    "page": 20,
+    "text": "all models with the Reanimant Sub-Type in the same Unit gain a 6+ Invulnerable Save and the Phase Shift Trait so long as a Model with a Timesplinter Mantle remains part of the Unit.",
+    "source": {
+     "type": "wargear",
+     "name": "Timesplinter Mantle"
+    },
+    "appliesTo": {
+     "trait": "Reanimant"
+    },
+    "scope": "unit",
+    "stats": {
+     "INV": "best:6+"
+    },
+    "addRules": [],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [
+     "Phase Shift"
+    ],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "chronometron-activated",
+    "page": 20,
+    "text": "As long as a Unit includes a Model with an Activated Chronometron, all Models in that unit have their WS and I characteristics modified by +1.",
+    "source": {
+     "type": "wargear",
+     "name": "Chronometron"
+    },
+    "appliesTo": {},
+    "scope": "unit",
+    "stats": {
+     "WS": "+1",
+     "I": "+1"
+    },
+    "addRules": [],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": "while the Unit includes a Model with an Activated Chronometron (Activate once per battle, lasts until the Resolution Step of the current Combat or the model is removed as a casualty)"
+   },
+   {
+    "id": "storm-nodule-tesla",
+    "page": 21,
+    "text": "All Weapons with the Tesla (X) Special Rule equipped to models in a Unit that includes at least one Model with a Storm Nodule have the value of X associated with the specific variant of the Tesla (X) Special Rule attached to that Weapon improved by 1. For instance, Tesla (6+) becomes Tesla (5+), etc.",
+    "source": {
+     "type": "wargear",
+     "name": "Storm Nodule"
+    },
+    "appliesTo": {},
+    "scope": "unit",
+    "stats": {},
+    "addRules": [],
+    "removeRules": [],
+    "modifyRules": [
+     {
+      "rule": "Tesla",
+      "by": 1
+     }
+    ],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "material-ablator-toughness",
+    "page": 22,
+    "text": "The Majority Toughness of a unit that includes at least one model with a Material Ablator is counted as being 1 greater than it is for the purpose of any To Wound tests made against the unit.",
+    "source": {
+     "type": "wargear",
+     "name": "Material Ablator"
+    },
+    "appliesTo": {},
+    "scope": "unit",
+    "stats": {
+     "T": "+1"
+    },
+    "addRules": [],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": "only for the purpose of To Wound tests made against the unit (Majority Toughness)"
+   },
+   {
+    "id": "nightmare-shroud-fear-range",
+    "page": 24,
+    "text": "The Range of the Fear Special Rule of a model with a Nightmare Shroud is 24\", rather than 12\".",
+    "source": {
+     "type": "wargear",
+     "name": "Nightmare Shroud"
+    },
+    "appliesTo": {},
+    "scope": "model",
+    "stats": {},
+    "addRules": [],
+    "removeRules": [],
+    "modifyRules": [
+     {
+      "rule": "Fear",
+      "note": "Range becomes 24\" instead of 12\""
+     }
+    ],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "canoptek-cloak",
+    "page": 25,
+    "text": "The value in brackets of the Battlesmith (X) Special Rule of a Model with a Canoptek Cloak is modified by +1. The model's Movement characteristic is changed to 16 and it gains the Antigrav Sub-Type.",
+    "source": {
+     "type": "wargear",
+     "name": "Canoptek Cloak"
+    },
+    "appliesTo": {},
+    "scope": "model",
+    "stats": {
+     "M": "=16"
+    },
+    "addRules": [],
+    "removeRules": [],
+    "modifyRules": [
+     {
+      "rule": "Battlesmith",
+      "by": 1
+     }
+    ],
+    "addTraits": [],
+    "addUnitTypes": [
+     "Antigrav"
+    ],
+    "condition": null
+   },
+   {
+    "id": "dispersion-shield",
+    "page": 111,
+    "text": "A model with a Dispersion Shield has a 4+ Invulnerable Save, gains the Heavy Sub-Type, and gains the Shield Trait.",
+    "source": {
+     "type": "wargear",
+     "name": "Dispersion Shield"
+    },
+    "appliesTo": {},
+    "scope": "model",
+    "stats": {
+     "INV": "best:4+"
+    },
+    "addRules": [],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [
+     "Shield"
+    ],
+    "addUnitTypes": [
+     "Heavy"
+    ],
+    "condition": null
+   },
+   {
+    "id": "phase-shifter",
+    "page": 111,
+    "text": "A model with a Phase Shifter has a 4+ Invulnerable save and gains the Phase Shift Trait.",
+    "source": {
+     "type": "wargear",
+     "name": "Phase Shifter"
+    },
+    "appliesTo": {},
+    "scope": "model",
+    "stats": {
+     "INV": "best:4+"
+    },
+    "addRules": [],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [
+     "Phase Shift"
+    ],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "phase-shift-generator-bearer",
+    "page": 111,
+    "text": "Any of the controlling player's models from the Necron army list that are within 12\" of a model with a Phase Shift Generator, including the model itself, gain a 5+ invulnerable save and the Phase Shift Trait.",
+    "source": {
+     "type": "wargear",
+     "name": "Phase Shift Generator"
+    },
+    "appliesTo": {},
+    "scope": "model",
+    "stats": {
+     "INV": "best:5+"
+    },
+    "addRules": [],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [
+     "Phase Shift"
+    ],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "phase-shift-generator-nearby",
+    "page": 111,
+    "text": "Any of the controlling player's models from the Necron army list that are within 12\" of a model with a Phase Shift Generator, including the model itself, gain a 5+ invulnerable save and the Phase Shift Trait.",
+    "source": {
+     "type": "wargear",
+     "name": "Phase Shift Generator"
+    },
+    "appliesTo": {},
+    "scope": "unit",
+    "stats": {
+     "INV": "best:5+"
+    },
+    "addRules": [],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [
+     "Phase Shift"
+    ],
+    "addUnitTypes": [],
+    "condition": "while within 12\" of a Model with a Phase Shift Generator from the same Army"
+   },
+   {
+    "id": "gloom-prism-bearer",
+    "page": 111,
+    "text": "A model with a Gloom Prism, as well as all Models from the same Army within 12\", gain the Adamantium Will (5+) Special Rule.",
+    "source": {
+     "type": "wargear",
+     "name": "Gloom Prism"
+    },
+    "appliesTo": {},
+    "scope": "model",
+    "stats": {},
+    "addRules": [
+     "Adamantium Will (5+)"
+    ],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "gloom-prism-nearby",
+    "page": 111,
+    "text": "A model with a Gloom Prism, as well as all Models from the same Army within 12\", gain the Adamantium Will (5+) Special Rule.",
+    "source": {
+     "type": "wargear",
+     "name": "Gloom Prism"
+    },
+    "appliesTo": {},
+    "scope": "unit",
+    "stats": {},
+    "addRules": [
+     "Adamantium Will (5+)"
+    ],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": "while within 12\" of a Model with a Gloom Prism from the same Army"
+   },
+   {
+    "id": "sempiternal-weave",
+    "page": 112,
+    "text": "A model with a Sempiternal weave has a 2+ Armour Save.",
+    "source": {
+     "type": "wargear",
+     "name": "Sempiternal Weave"
+    },
+    "appliesTo": {},
+    "scope": "model",
+    "stats": {
+     "SAV": "=2+"
+    },
+    "addRules": [],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "shield-vanes",
+    "page": 112,
+    "text": "A model with Shield vanes has its Armour Save characteristic improved by 1 step (4+ becomes 3+, etc), to a maximum of 3+.",
+    "source": {
+     "type": "wargear",
+     "name": "Shield Vanes"
+    },
+    "appliesTo": {},
+    "scope": "model",
+    "stats": {
+     "SAV": "+1"
+    },
+    "addRules": [],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "shadowloom-shrouded-grant",
+    "page": 112,
+    "text": "If a Unit that includes any Models with Shadowlooms is the target of a Shooting Attack, if the distance between the closest Model in the Attacking Unit and the Target Unit is 12\" or greater, Models in that Unit gain the Shrouded (5+) Special Rule.",
+    "source": {
+     "type": "wargear",
+     "name": "Shadowloom"
+    },
+    "appliesTo": {},
+    "scope": "unit",
+    "stats": {},
+    "addRules": [
+     "Shrouded (5+)"
+    ],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": "if targeted by a Shooting Attack from 12\" or more away and the Unit does not already have a Shrouded (X) Special Rule"
+   },
+   {
+    "id": "shadowloom-shrouded-improve",
+    "page": 112,
+    "text": "or, if they already have or gain a version of the Shrouded (X) Special Rule from another source, modify the variable number by +1 (5+ becomes 4+, etc), to a maximum of 4+.",
+    "source": {
+     "type": "wargear",
+     "name": "Shadowloom"
+    },
+    "appliesTo": {},
+    "scope": "unit",
+    "stats": {},
+    "addRules": [],
+    "removeRules": [],
+    "modifyRules": [
+     {
+      "rule": "Shrouded",
+      "by": 1,
+      "note": "maximum of 4+"
+     }
+    ],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": "if targeted by a Shooting Attack from 12\" or more away and the Unit already has a Shrouded (X) Special Rule"
+   },
+   {
+    "id": "translocation-shroud-bearer",
+    "page": 112,
+    "text": "A model with a Translocation shroud, and all models with the Infantry Type in the Unit it joins, gain the Deep Strike Special Rule.",
+    "source": {
+     "type": "wargear",
+     "name": "Translocation Shroud"
+    },
+    "appliesTo": {},
+    "scope": "model",
+    "stats": {},
+    "addRules": [
+     "Deep Strike"
+    ],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "translocation-shroud-unit",
+    "page": 112,
+    "text": "A model with a Translocation shroud, and all models with the Infantry Type in the Unit it joins, gain the Deep Strike Special Rule.",
+    "source": {
+     "type": "wargear",
+     "name": "Translocation Shroud"
+    },
+    "appliesTo": {
+     "unitType": "Infantry"
+    },
+    "scope": "unit",
+    "stats": {},
+    "addRules": [
+     "Deep Strike"
+    ],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": "for Infantry Type models in the Unit joined by the model with a Translocation Shroud"
+   },
+   {
+    "id": "arkanic-destroyer-frame-base",
+    "page": 111,
+    "text": "A model that has an Arkanic Destroyer Frame gains the Bulky (3) and Hardwired for Destruction Special Rules and the Destroyer Trait.",
+    "source": {
+     "type": "wargear",
+     "name": "Arkanic Destroyer Frame"
+    },
+    "appliesTo": {},
+    "scope": "model",
+    "stats": {},
+    "addRules": [
+     "Bulky (3)",
+     "Hardwired for Destruction"
+    ],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [
+     "Destroyer"
+    ],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "arkanic-destroyer-frame-free",
+    "page": 111,
+    "text": "Free: The model's Movement Characteristic is changed to 8.",
+    "source": {
+     "type": "upgrade",
+     "name": "Frame: Striding (M8)"
+    },
+    "appliesTo": {},
+    "scope": "model",
+    "stats": {
+     "M": "=8"
+    },
+    "addRules": [],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "arkanic-destroyer-frame-cavalry",
+    "page": 111,
+    "text": "+10 points: The Model's Unit Type is changed to Cavalry. It gains the Antigrav and Heavy Sub-Types and its Movement Characteristic is changed to 12.",
+    "source": {
+     "type": "upgrade",
+     "name": "Frame: Hovering (Cavalry, M12)"
+    },
+    "appliesTo": {},
+    "scope": "model",
+    "stats": {
+     "M": "=12"
+    },
+    "addRules": [],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [
+     "Antigrav",
+     "Heavy"
+    ],
+    "condition": null,
+    "setUnitType": "Cavalry"
+   },
+   {
+    "id": "arkanic-destroyer-frame-phase",
+    "page": 111,
+    "text": "+15 points: The model gains the Deep Strike and Phase Motion Special Rules and the Phase Shift Trait. Its Movement Characteristic is changed to 10.",
+    "source": {
+     "type": "upgrade",
+     "name": "Frame: Phasing (M10)"
+    },
+    "appliesTo": {},
+    "scope": "model",
+    "stats": {
+     "M": "=10"
+    },
+    "addRules": [
+     "Deep Strike",
+     "Phase Motion"
+    ],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [
+     "Phase Shift"
+    ],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "charnel-phylactery-ever-living",
+    "page": 122,
+    "text": "Kutlakh has the Ever-Living (2+) Special Rule.",
+    "source": {
+     "type": "wargear",
+     "name": "Charnel Phylactery"
+    },
+    "appliesTo": {
+     "units": [
+      "kutlakh-the-world-killer"
+     ]
+    },
+    "scope": "model",
+    "stats": {},
+    "addRules": [
+     "Ever-Living (2+)"
+    ],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "charnel-phylactery-loss",
+    "page": 122,
+    "text": "At the end of any Challenge Sub-Phase or Initiative Step in which Kutlakh's Current Wounds Characteristic is lower than his Starting Wounds Characteristic, if he currently has the Ever-Living (X) Special Rule, he loses the Ever-Living (X) Special Rule until the end of the Battle (and cannot regain that Special Rule for any reason, even if he gains Wounds later in the battle) and his Attacks Characteristic is increased by +2 until the end of the Battle.",
+    "source": {
+     "type": "wargear",
+     "name": "Charnel Phylactery"
+    },
+    "appliesTo": {
+     "units": [
+      "kutlakh-the-world-killer"
+     ]
+    },
+    "scope": "model",
+    "stats": {
+     "A": "+2"
+    },
+    "addRules": [],
+    "removeRules": [
+     "Ever-Living"
+    ],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": "once, for the rest of the battle, from the first end of a Challenge Sub-Phase or Initiative Step in which Kutlakh's Current Wounds is lower than his Starting Wounds while he still has Ever-Living (X)"
+   },
+   {
+    "id": "bloodswarm-nanoscarabs",
+    "page": 125,
+    "text": "While Imotekh remains on the Battlefield, all Units of Flayed Ones in the same Army gain the Impact (S) Special Rule.",
+    "source": {
+     "type": "wargear",
+     "name": "Bloodswarm Nanoscarabs"
+    },
+    "appliesTo": {
+     "units": [
+      "flayed-ones"
+     ]
+    },
+    "scope": "unit",
+    "stats": {},
+    "addRules": [
+     "Impact (S)"
+    ],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": "while Imotekh remains on the Battlefield"
+   },
+   {
+    "id": "engrammatic-soldiers-cl",
+    "page": 4,
+    "text": "All Models in the Unit for which this Prime Advantage was selected gain +2 to their Cool Characteristic.",
+    "source": {
+     "type": "primeAdvantage",
+     "name": "Engrammatic Soldiers"
+    },
+    "appliesTo": {},
+    "scope": "unit",
+    "stats": {
+     "CL": "+2"
+    },
+    "addRules": [],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "pyrrhian-eternals-attacks",
+    "page": 117,
+    "text": "Pyrrhian Eternals: Models in the Unit for which this Prime Advantage was selected gain +1 to their Attacks Characteristic.",
+    "source": {
+     "type": "primeAdvantage",
+     "name": "Pyrrhian Eternals"
+    },
+    "appliesTo": {
+     "units": [
+      "immortals"
+     ]
+    },
+    "scope": "unit",
+    "stats": {
+     "A": "+1"
+    },
+    "addRules": [],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "pyrrhian-eternals-impact",
+    "page": 117,
+    "text": "Whilst Anrakyr has joined the Unit, Models in the Unit also gain the Impact (S) Special Rule.",
+    "source": {
+     "type": "primeAdvantage",
+     "name": "Pyrrhian Eternals"
+    },
+    "appliesTo": {
+     "units": [
+      "immortals"
+     ]
+    },
+    "scope": "unit",
+    "stats": {},
+    "addRules": [
+     "Impact (S)"
+    ],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": "whilst Anrakyr the Traveller has joined the Unit"
+   },
+   {
+    "id": "eternal-engine",
+    "page": 123,
+    "text": "Eternal Engine: All Models in the Unit for which this Prime Advantage is selected gain the Ever-Living (5+) Special Rule.",
+    "source": {
+     "type": "primeAdvantage",
+     "name": "Eternal Engine"
+    },
+    "appliesTo": {
+     "trait": "Canoptek"
+    },
+    "scope": "unit",
+    "stats": {},
+    "addRules": [
+     "Ever-Living (5+)"
+    ],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "superior-maneuvers",
+    "page": 120,
+    "text": "Superior Maneuvers: The Unit for which this Prime Advantage was selected gains the Infiltrate (9) Special Rule and the Ethereal Interception Trait.",
+    "source": {
+     "type": "primeAdvantage",
+     "name": "Superior Maneuvers"
+    },
+    "appliesTo": {},
+    "scope": "unit",
+    "stats": {},
+    "addRules": [
+     "Infiltrate (9)"
+    ],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [
+     "Ethereal Interception"
+    ],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "the-vargards-duty",
+    "page": 30,
+    "text": "A Model with this Special Rule gains the Ever-Living (6+) Special Rule so long as its Unit has been joined by a Model with the Reanimant Trait and Command Sub-Type.",
+    "source": {
+     "type": "unitRule",
+     "name": "The Vargard's Duty"
+    },
+    "appliesTo": {
+     "units": [
+      "vargard"
+     ]
+    },
+    "scope": "model",
+    "stats": {},
+    "addRules": [
+     "Ever-Living (6+)"
+    ],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": "so long as the Vargard's Unit has been joined by a Model with the Reanimant Trait and Command Sub-Type"
+   },
+   {
+    "id": "obyrons-duty",
+    "page": 121,
+    "text": "Obyron gains the Ever-Living (5+) Special Rule so long as he has joined the same Unit as Nemesor Zahndrekh.",
+    "source": {
+     "type": "unitRule",
+     "name": "Obyron's Duty"
+    },
+    "appliesTo": {
+     "units": [
+      "vargard-obyron"
+     ]
+    },
+    "scope": "model",
+    "stats": {},
+    "addRules": [
+     "Ever-Living (5+)"
+    ],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": "so long as Obyron has joined the same Unit as Nemesor Zahndrekh"
+   },
+   {
+    "id": "canoptek-minions-bs",
+    "page": 124,
+    "text": "Whilst Gorz has joined a Unit, all Models with the Canoptek Trait in that Unit have their Ballistic Skill Characteristic modified by +1.",
+    "source": {
+     "type": "unitRule",
+     "name": "Canoptek Minions"
+    },
+    "appliesTo": {
+     "trait": "Canoptek"
+    },
+    "scope": "unit",
+    "stats": {
+     "BS": "+1"
+    },
+    "addRules": [],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": "whilst Gorz the Mighty has joined the Unit"
+   },
+   {
+    "id": "canoptek-minions-bs-reaction",
+    "page": 124,
+    "text": "If Gorz allows another Unit to make a Reaction using the Harbinger of the Swarm Special Rule, Models with the Canoptek Trait in that Unit have their Ballistic Skill Characteristic modified by +1 until that Reaction is fully resolved.",
+    "source": {
+     "type": "unitRule",
+     "name": "Canoptek Minions"
+    },
+    "appliesTo": {
+     "trait": "Canoptek"
+    },
+    "scope": "unit",
+    "stats": {
+     "BS": "+1"
+    },
+    "addRules": [],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": "in a Unit Gorz allows to make a Reaction using the Harbinger of the Swarm Special Rule, until that Reaction is fully resolved (stacks with Canoptek Minions' other bonus while Gorz has joined the Unit)"
+   },
+   {
+    "id": "dominion-node-fear",
+    "page": 86,
+    "text": "A model with a Dominion Node gains the Fear (1) special rule.",
+    "source": {
+     "type": "wargear",
+     "name": "Dominion Node"
+    },
+    "appliesTo": {
+     "units": [
+      "convergence-of-dominion"
+     ]
+    },
+    "scope": "model",
+    "stats": {},
+    "addRules": [
+     "Fear (1)"
+    ],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "dominion-node-leadership",
+    "page": 86,
+    "text": "Units from the controlling player's army that includes only models with the Reanimant Trait count their Leadership and Cool characteristics as 12 whilst within 6\" of a model with this a Dominion node.",
+    "source": {
+     "type": "wargear",
+     "name": "Dominion Node"
+    },
+    "appliesTo": {
+     "trait": "Reanimant"
+    },
+    "scope": "unit",
+    "stats": {
+     "LD": "=12",
+     "CL": "=12"
+    },
+    "addRules": [],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": "while within 6\" of a Model with a Dominion Node, for Units composed entirely of Models with the Reanimant Trait"
+   },
+   {
+    "id": "obeisance-generators-leadership",
+    "page": 129,
+    "text": "All Models with the Reanimant Sub-Type in the Controlling Player's Army gain +2 to their Leadership and Cool Characteristics whilst within 6\" of the Dias of Dominion.",
+    "source": {
+     "type": "unitRule",
+     "name": "Obeisance Generators"
+    },
+    "appliesTo": {
+     "trait": "Reanimant"
+    },
+    "scope": "unit",
+    "stats": {
+     "LD": "+2",
+     "CL": "+2"
+    },
+    "addRules": [],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": "while within 6\" of the Dias of Dominion"
+   },
+   {
+    "id": "phaeron-of-the-blades-ws",
+    "page": 129,
+    "text": "Whilst the Dias of Dominion is subject to this provision, other Models with the Reanimant Trait in the Controlling Player's Army within 6\" of the Dias of Dominion have their Weapon Skill counted as being 1 greater than it is when making To Hit tests for their Melee Attacks.",
+    "source": {
+     "type": "unitRule",
+     "name": "Dias of Dominion"
+    },
+    "appliesTo": {
+     "trait": "Reanimant"
+    },
+    "scope": "unit",
+    "stats": {
+     "WS": "+1"
+    },
+    "addRules": [],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": "only when making To Hit tests for Melee Attacks, while within 6\" of the Dias of Dominion when it is subject to the Phaeron of the Blades provision"
+   },
+   {
+    "id": "phaerakhs-horde",
+    "page": 127,
+    "text": "While Xun'Bakyr remains on the Battlefield, all Units with the Reanimant Trait and Troops Battlefield Role in the same Army gain the Implacable Advance and Firestorm Special Rule.",
+    "source": {
+     "type": "unitRule",
+     "name": "The Phaerakh's Horde"
+    },
+    "appliesTo": {
+     "trait": "Reanimant"
+    },
+    "scope": "unit",
+    "stats": {},
+    "addRules": [
+     "Implacable Advance",
+     "Firestorm"
+    ],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": "while Xun'Bakyr remains on the Battlefield, only for Units with the Troops Battlefield Role"
+   },
+   {
+    "id": "mechanical-augmentation",
+    "page": 119,
+    "text": "At the Start of Battle, roll a D6: 1-2 +1 Toughness; 3-4 +1 Ballistic Skill; 5-6 +1 Strength, for the duration of the battle.",
+    "source": {
+     "type": "primeAdvantage",
+     "name": "Mechanical Augmentation"
+    },
+    "appliesTo": {},
+    "scope": "unit",
+    "stats": {},
+    "addRules": [],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": "rolled at the start of the battle"
+   }
+  ]
  }
 }

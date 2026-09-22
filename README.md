@@ -22,6 +22,7 @@ On a phone, open the site and use **Add to Home Screen**; it launches like an ap
 - Aeonic Sequelae, limited to one, or two if the army has a Nemesor or Phaeron. Their list-building effects apply automatically: Dark Harvest's 30-strong Warrior units and Flensing Scarabs, Cult of Annihilation's Destroyer Lord as High Command, Horrors of Old's restricted unit list, the Plasmacyte, Charnel Displays, Hyperspace Hunter and Nemesor upgrades, and so on (`data/sequela-effects.json`).
 - Checks: points limit, the 25% Warlord/Lord of War cap, named characters and 0-1 units, slot roles, detachment restrictions ("Only Units with the Canoptek Trait…"), option limits, a missing Crypto-Arkana, detachment unlocks.
 - Full statlines, weapon profiles and special rules text for every unit. Click a rule chip to read it.
+- Battlefield effects change the datasheet: Sequelae, Crypto-Arkana harbingers, wargear such as the Timesplinter Mantle or Canoptek Cloak, and Prime Advantages (including the ones Anrakyr, Zahndrekh, Toholk and Szeras grant) update the statline, rules, traits and unit type. Changed values are highlighted and lost rules are struck through. Effects that depend on the situation ("while joined by a Nemesor") are listed as reminders instead of being applied (`data/modifiers.json`).
 - Roster view with a rules glossary, ready to print.
 - Save lists in the browser. Export as text, JSON or a share link, and import them back.
 

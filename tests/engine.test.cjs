@@ -188,3 +188,96 @@ test('detachment restrictions limit the unit picker and are checked', () => {
   const a = { pointsLimit: 3000, sequelae: [], detachments: [E.makeDetachment('primary', 'P', []), det] };
   assert.ok(E.armyIssues(a).some((i) => /restrictions/.test(i.msg)));
 });
+
+// ---------- battlefield modifiers ----------
+const row = (s, name) => E.effectiveModels(s).find((r) => !name || r.model === name);
+
+test('Horrors of Old: Warriors get a 3+ save and lose Endless Legions', () => {
+  const s = sel('necron-warriors');
+  E.setSequelae([]);
+  assert.equal(row(s).profile.SAV, '4+');
+  E.setSequelae(['Horrors of Old']);
+  const r = row(s);
+  assert.equal(r.profile.SAV, '3+');
+  assert.ok(r.changed.SAV);
+  assert.ok(!r.rules.some((x) => /Endless Legions/.test(x)));
+  assert.ok(r.removed.includes('Endless Legions'));
+  E.setSequelae([]);
+});
+
+test('Engrammatic Soldiers adds +2 Cool', () => {
+  const s = sel('necron-warriors');
+  const base = row(s).profile.CL;
+  s.primeAdvantage = 'Engrammatic Soldiers';
+  assert.equal(row(s).profile.CL, base + 2);
+});
+
+test('Charnel Displays: Fear (1) and -1 BS', () => {
+  const s = sel('immortals');
+  E.setSequelae(['Mark of the Flayer']);
+  const base = row(s).profile.BS;
+  s.options['sq-charnel-displays'] = true;
+  const r = row(s);
+  assert.equal(r.profile.BS, base - 1);
+  assert.ok(r.rules.includes('Fear (1)'));
+  E.setSequelae([]);
+});
+
+test('Cryptek: Chronomancy grants Phasing; Timesplinter Mantle gives a 4+ invulnerable save', () => {
+  const s = sel('cryptek');
+  s.arkana = 'Chronomancy';
+  assert.ok(row(s).traits.includes('Phasing'));
+  const o = E.unit('cryptek').options.find((x) => x.choices.some((c) => c.list === 'techno-arkana'));
+  s.options[o.id] = 'Timesplinter Mantle';
+  assert.equal(row(s).profile.INV, '4+');
+});
+
+test('Cryptek: Technomancy improves Battlesmith, Canoptek Cloak sets M16 and Antigrav', () => {
+  const s = sel('cryptek');
+  s.arkana = 'Technomancy';
+  assert.ok(row(s).rules.includes('Battlesmith (3)'));
+  const o = E.unit('cryptek').options.find((x) => x.choices.some((c) => c.list === 'techno-arkana'));
+  s.options[o.id] = 'Canoptek Cloak';
+  const r = row(s);
+  assert.equal(r.profile.M, 16);
+  assert.match(r.unitType, /Antigrav/);
+  assert.ok(r.rules.includes('Battlesmith (4)'));
+});
+
+test('Arkanic Destroyer Frame and its Hovering option', () => {
+  const s = sel('cryptek');
+  s.arkana = 'Plasmancy';
+  s.options['any-of'] = ['Arkanic Destroyer Frame'];
+  let r = row(s);
+  assert.ok(r.rules.includes('Bulky (3)'));
+  assert.ok(r.traits.includes('Destroyer'));
+  s.options['frame-config'] = 'Frame: Hovering (Cavalry, M12)';
+  r = row(s);
+  assert.equal(r.profile.M, 12);
+  assert.match(r.unitType, /^Cavalry/);
+  assert.equal(E.unitPoints(s), 75 + 15 + 10);
+  s.options['any-of'] = [];
+  assert.ok(E.unitIssues(s).some((i) => /needs another option/.test(i.msg)));
+});
+
+test('Pyrrhian Eternals needs Anrakyr and gives +1 A', () => {
+  const a = armyWith([['Troops', 'immortals']]);
+  const s = a.detachments[0].slots[0].unit;
+  assert.ok(!E.primeAdvantagesFor(s, a).some((x) => x.name === 'Pyrrhian Eternals'));
+  const b = armyWith([['Troops', 'immortals'], ['Command', 'anrakyr-the-traveller']], 3000);
+  const t = b.detachments[0].slots[0].unit;
+  assert.ok(E.primeAdvantagesFor(t, b).some((x) => x.name === 'Pyrrhian Eternals'));
+  const base = row(t).profile.A;
+  t.primeAdvantage = 'Pyrrhian Eternals';
+  assert.equal(row(t).profile.A, base + 1);
+  assert.ok(E.effectiveModels(t)[0].reminders.some((r) => /Anrakyr/.test(r.condition)));
+});
+
+test('conditional effects are reminders, not stat changes', () => {
+  const s = sel('royal-warden');
+  E.setSequelae(['Royal Burial Site']);
+  const r = row(s);
+  assert.equal(r.profile.WS, r.baseProfile.WS);
+  assert.ok(r.reminders.length > 0);
+  E.setSequelae([]);
+});
