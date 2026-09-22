@@ -28,7 +28,7 @@
     {
       "name": "Gaze of Death",
       "page": 79,
-      "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan: Gaze of Death (see weapons-c.json)."
+      "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan: Gaze of Death (see the weapon profile)."
     },
     {
       "name": "Dread",
@@ -39,7 +39,7 @@
     {
       "name": "Cosmic Insanity",
       "page": 80,
-      "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan: Cosmic Insanity (see weapons-c.json)."
+      "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan: Cosmic Insanity (see the weapon profile)."
     },
     {
       "name": "The Grand Illusion",
@@ -54,7 +54,7 @@
     {
       "name": "Voltaic Storm",
       "page": 81,
-      "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan: Voltaic Storm (see weapons-c.json)."
+      "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan: Voltaic Storm (see the weapon profile)."
     },
     {
       "name": "The Fallingstar God",
@@ -69,7 +69,7 @@
     {
       "name": "Soul Blaze",
       "page": 82,
-      "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan: Soul Blaze (see weapons-c.json)."
+      "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan: Soul Blaze (see the weapon profile)."
     },
     {
       "name": "Gestalt Entity",

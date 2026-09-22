@@ -4555,7 +4555,7 @@
     },
     {
      "name": "Gaze of Death",
-     "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan: Gaze of Death (see weapons-c.json)."
+     "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan: Gaze of Death (see the weapon profile)."
     }
    ],
    "cryptoArkana": false,
@@ -4639,7 +4639,7 @@
     },
     {
      "name": "Cosmic Insanity",
-     "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan: Cosmic Insanity (see weapons-c.json)."
+     "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan: Cosmic Insanity (see the weapon profile)."
     },
     {
      "name": "The Grand Illusion",
@@ -4725,7 +4725,7 @@
     },
     {
      "name": "Voltaic Storm",
-     "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan: Voltaic Storm (see weapons-c.json)."
+     "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan: Voltaic Storm (see the weapon profile)."
     }
    ],
    "cryptoArkana": false,
@@ -4813,7 +4813,7 @@
     },
     {
      "name": "Soul Blaze",
-     "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan: Soul Blaze (see weapons-c.json)."
+     "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan: Soul Blaze (see the weapon profile)."
     }
    ],
    "cryptoArkana": false,
@@ -6862,6 +6862,91 @@
     "modes": null
    },
    {
+    "name": "Gaze of Death",
+    "page": 79,
+    "R": "H",
+    "FP": 1,
+    "RS": 10,
+    "AP": 2,
+    "D": 1,
+    "specialRules": [
+     "Scourge (Cool)",
+     "Panic (2)",
+     "Shock (Suppressed)"
+    ],
+    "traits": [
+     "Despair"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Cosmic Insanity",
+    "page": 80,
+    "R": 120,
+    "FP": 1,
+    "RS": 3,
+    "AP": 2,
+    "D": 1,
+    "specialRules": [
+     "Barrage",
+     "Blast (10)",
+     "Stun (3)"
+    ],
+    "traits": [
+     "Despair"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Voltaic Storm",
+    "page": 81,
+    "R": 18,
+    "FP": 5,
+    "RS": 8,
+    "AP": 2,
+    "D": 2,
+    "specialRules": [
+     "Armour-Breaker (3+)",
+     "Shock (Suppressed)",
+     "Suppress (2)"
+    ],
+    "traits": [
+     "Arc"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Spear of Mag'ladroth (Ranged)",
+    "page": 81,
+    "R": 12,
+    "FP": 3,
+    "RS": 9,
+    "AP": 2,
+    "D": 2,
+    "specialRules": [
+     "Armourbane",
+     "Armour-breaker (4+)"
+    ],
+    "traits": [],
+    "modes": null
+   },
+   {
+    "name": "Soul Blaze",
+    "page": 82,
+    "R": 12,
+    "FP": "2D6",
+    "RS": 8,
+    "AP": 4,
+    "D": 2,
+    "specialRules": [
+     "Pinning (1)"
+    ],
+    "traits": [
+     "Arc"
+    ],
+    "modes": null
+   },
+   {
     "name": "Empyric Overcharger",
     "page": 119,
     "R": 12,
@@ -8443,6 +8528,117 @@
     "modes": null
    },
    {
+    "name": "Unmaking Touch",
+    "page": 78,
+    "IM": "I",
+    "AM": "A",
+    "SM": "S",
+    "AP": 2,
+    "D": 3,
+    "specialRules": [],
+    "traits": [],
+    "modes": null
+   },
+   {
+    "name": "Scythe of Aza'gorod",
+    "page": 79,
+    "IM": null,
+    "AM": null,
+    "SM": null,
+    "AP": null,
+    "D": null,
+    "specialRules": [],
+    "traits": [
+     "Entropic"
+    ],
+    "modes": [
+     {
+      "name": "Entropic Strike",
+      "IM": -2,
+      "AM": -1,
+      "SM": "S",
+      "AP": 2,
+      "D": 6,
+      "specialRules": [
+       "Aeon Breach (5+)"
+      ],
+      "traits": []
+     },
+     {
+      "name": "Reaping Strike",
+      "IM": "I",
+      "AM": "A",
+      "SM": "S",
+      "AP": 2,
+      "D": 2,
+      "specialRules": [
+       "Reaping Blow (2)"
+      ],
+      "traits": []
+     }
+    ]
+   },
+   {
+    "name": "Fists of Mephet'ran",
+    "page": 80,
+    "IM": "I",
+    "AM": "A",
+    "SM": "S",
+    "AP": 2,
+    "D": 3,
+    "specialRules": [],
+    "traits": [],
+    "modes": null
+   },
+   {
+    "name": "Spear of Mag'ladroth (Melee)",
+    "page": 81,
+    "IM": "I",
+    "AM": "A",
+    "SM": "S",
+    "AP": 2,
+    "D": 3,
+    "specialRules": [
+     "Armour-breaker (3+)"
+    ],
+    "traits": [
+     "Arkana"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Breath of Nyadra'zatha",
+    "page": 82,
+    "IM": "I",
+    "AM": "A",
+    "SM": "S",
+    "AP": 2,
+    "D": 2,
+    "specialRules": [
+     "Aflame (2)",
+     "Deflagrate (6)"
+    ],
+    "traits": [],
+    "modes": null
+   },
+   {
+    "name": "Swarm of Iash'uddra",
+    "page": 83,
+    "IM": "I",
+    "AM": "+2",
+    "SM": "+2",
+    "AP": 2,
+    "D": 2,
+    "specialRules": [
+     "Melee",
+     "Entropic (3+)"
+    ],
+    "traits": [
+     "Flensing"
+    ],
+    "modes": null
+   },
+   {
     "name": "Empathic Obliterator",
     "page": 114,
     "IM": "-1",
@@ -9146,7 +9342,7 @@
    {
     "name": "Gaze of Death",
     "page": 79,
-    "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan: Gaze of Death (see weapons-c.json)."
+    "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan: Gaze of Death (see the weapon profile)."
    },
    {
     "name": "Dread",
@@ -9157,7 +9353,7 @@
    {
     "name": "Cosmic Insanity",
     "page": 80,
-    "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan: Cosmic Insanity (see weapons-c.json)."
+    "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan: Cosmic Insanity (see the weapon profile)."
    },
    {
     "name": "The Grand Illusion",
@@ -9172,7 +9368,7 @@
    {
     "name": "Voltaic Storm",
     "page": 81,
-    "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan: Voltaic Storm (see weapons-c.json)."
+    "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan: Voltaic Storm (see the weapon profile)."
    },
    {
     "name": "The Fallingstar God",
@@ -9187,12 +9383,7 @@
    {
     "name": "Soul Blaze",
     "page": 82,
-    "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan:\n\nWeapon: Soul Blaze. R: 12, FP: 2D6, RS: 8, AP: 4, D: 2, Special Rules: Pinning (1), Traits: Arc."
-   },
-   {
-    "name": "Breath of Nyadra'zatha",
-    "page": 82,
-    "text": "Weapon: Breath of Nyadra'zatha. IM: I, AM: A, SM: S, AP: 2, D: 2, Special Rules: Aflame (2), Deflagrate (6), Traits: –."
+    "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan: Soul Blaze (see the weapon profile)."
    },
    {
     "name": "Gestalt Entity",
@@ -9208,11 +9399,6 @@
     "name": "Tides of Hate",
     "page": 83,
     "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan:\n\nTides of Hate: When using the Tides of Hate Power of the C'Tan, this model's controlling player selects an enemy unit within 12\" of this Model. Remove all Condition Tokens from the selected Unit, if any. This Model's controlling player may make a Shooting Attacks this Shooting Phase using that unit, as if that Unit was part of that Player's Army. The Unit is counted as being disengaged for the purpose of making that Shooting Attack."
-   },
-   {
-    "name": "Swarm of Iash'uddra",
-    "page": 83,
-    "text": "Weapon: Swarm of Iash'uddra. IM: I, AM: +2, SM: +2, AP: 2, D: 2, Special Rules: Melee, Entropic (3+), Traits: Flensing."
    },
    {
     "name": "Coalescent Powers",

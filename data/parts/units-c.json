@@ -593,7 +593,7 @@
       "specialRules": ["Drain Life", "Explodes (2+)", "Fear (1)", "Gaze of Death", "Heedless", "Necrodermis"],
       "unitRules": [
         { "name": "Drain Life", "text": "Damage Mitigation rolls of any kind may not be taken for models, friend and foe, that are within 6\" of a Model with this Special Rule." },
-        { "name": "Gaze of Death", "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan: Gaze of Death (see weapons-c.json)." }
+        { "name": "Gaze of Death", "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan: Gaze of Death (see the weapon profile)." }
       ],
       "cryptoArkana": false,
       "fixedArkana": null,
@@ -636,7 +636,7 @@
       "specialRules": ["Cosmic Insanity", "Dread", "Explodes (2+)", "Fear (1)", "Heedless", "Necrodermis", "The Grand Illusion"],
       "unitRules": [
         { "name": "Dread", "text": "The Fear (X) Special Rule of a Model with this Special Rule also reduces the Weapon Skill Characteristic of any affected Units by the Value of X..", "note": "Source text prints a doubled period at the end of this sentence; kept verbatim." },
-        { "name": "Cosmic Insanity", "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan: Cosmic Insanity (see weapons-c.json)." },
+        { "name": "Cosmic Insanity", "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan: Cosmic Insanity (see the weapon profile)." },
         { "name": "The Grand Illusion", "text": "At the end of the Deploy Armies Step of any Mission Sequence, if an army includes a Model with this Special Rule, that player can select up to one of their own Units and one opposing Units and re-deploy them, following any Deployment Restrictions that Unit has to follow. This can be used to re-deploy a Unit in Reserves on the Battlefield, or place a Unit on the Battlefield in Reserves. Units inside a transport may not be re-deployed, nor may this rule be used to Embark Units inside a Transport, but the Transport itself may be re-deployed in which case any units Embarked inside that Transport remain inside the Transport. Units that include any models with the Paragon Type and Transports that have any Paragon models Embarked upon them may not be re-deployed using this Special Rule." }
       ],
       "cryptoArkana": false,
@@ -680,7 +680,7 @@
       "specialRules": ["Explodes (2+)", "Fear (1)", "Heedless", "Matter Absorption", "Necrodermis", "Voltaic Storm"],
       "unitRules": [
         { "name": "Matter Absorption", "text": "Each time any model with the Walker or Automata Unit Type is reduced to 0 Wounds, or any model with the Vehicle Unit Type is reduced to 0 Hull Points, whilst within 12\" of this Model, and this model's Current Wounds characteristic is 7 or lower, this model's Current Wounds characteristic is increased by 1. This model may not gain more than 1 Wound per phase in this way." },
-        { "name": "Voltaic Storm", "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan: Voltaic Storm (see weapons-c.json)." }
+        { "name": "Voltaic Storm", "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan: Voltaic Storm (see the weapon profile)." }
       ],
       "cryptoArkana": false,
       "fixedArkana": null,
@@ -724,7 +724,7 @@
       "unitRules": [
         { "name": "The Fallingstar God", "text": "When a Model with this Special Rule is deployed using the Deep Strike Special Rule, it immediately makes up to five Shooting Attacks as if it were the Shooting Phase using the weapon profile shown in the Soul Blaze Special Rule. Each Shooting Attack must target a different Unit. After resolving these Shooting Attacks, the Soul Blaze profile may not be used as a Power of the C'Tan for the remainder of the battle." },
         { "name": "Wreathed in Flame", "text": "A Model with this special rule reduces the Strength of all Hits inflicted on it by Weapons with the Las, Plasma, Melta and Flame Trait by half, rounded up." },
-        { "name": "Soul Blaze", "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan: Soul Blaze (see weapons-c.json)." }
+        { "name": "Soul Blaze", "text": "Once per battle only, instead of rolling to randomly determine a Power of the C'Tan, this model's Controlling Player may choose to have this model use the following unique Power of the C'Tan: Soul Blaze (see the weapon profile)." }
       ],
       "cryptoArkana": false,
       "fixedArkana": null,
