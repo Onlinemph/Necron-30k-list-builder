@@ -133,6 +133,12 @@ table.stats td:first-child, table.stats th:first-child { text-align: left; }
 .chip.rule { cursor: pointer; }
 .chip.rule:hover { border-color: var(--accent); }
 .chip.missing { border-style: dashed; }
+.chip.gained { border-color: var(--accent); color: var(--accent); }
+td.mod { color: var(--accent); font-weight: 700; background: rgba(79, 227, 138, .08); }
+.gained { color: var(--accent); }
+.small-note { font-size: 12px; margin: 4px 0 0; }
+.reminders { margin: 0; padding-left: 18px; font-size: 13px; display: flex; flex-direction: column; gap: 4px; }
+.roster td.mod { color: #0a6b33; background: #e6f6ec; }
 .chip.core small { color: var(--muted); font-size: 10px; }
 .loadout { margin: 0; padding-left: 18px; font-size: 13px; }
 .loadout .chg { color: var(--accent); }

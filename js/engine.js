@@ -262,6 +262,129 @@
       return out;
     }
 
+    // ---------- battlefield modifiers ----------
+    const modifiers = (data.modifiers && data.modifiers.modifiers) || [];
+    const saveNum = (v) => { const m = String(v ?? '').match(/(\d+)\+/); return m ? +m[1] : 99; };
+    const ruleBase = (r) => norm(r);
+
+    function applyStat(profile, key, op) {
+      const cur = profile[key];
+      const str = String(op);
+      if (str.startsWith('best:')) {
+        const v = str.slice(5);
+        if (saveNum(v) < saveNum(cur)) { profile[key] = v; return true; }
+        return false;
+      }
+      if (str.startsWith('=')) {
+        const raw = str.slice(1);
+        const v = /^-?\d+$/.test(raw) ? +raw : raw;
+        if (cur === v) return false;
+        if (/\+$/.test(raw) && cur != null && saveNum(raw) >= saveNum(cur) && /SAV|INV/.test(key)) return false;
+        profile[key] = v;
+        return true;
+      }
+      const n = Number(str);
+      if (Number.isNaN(n) || cur == null) return false;
+      const num = Number(cur);
+      if (Number.isNaN(num)) return false;
+      profile[key] = Math.max(0, num + n);
+      return true;
+    }
+
+    function modMatches(m, u, model, traits) {
+      const a = m.appliesTo || {};
+      if (a.units && !a.units.includes(u.id)) return false;
+      if (a.models && !a.models.includes(model.name)) return false;
+      if (a.trait && !traits.some((t) => norm(t).includes(norm(a.trait)))) return false;
+      if (a.unitType && !String(model.unitType || '').toLowerCase().includes(a.unitType.toLowerCase())) return false;
+      return true;
+    }
+
+    /**
+     * The unit as it plays on the table: one entry per group of identical models, with
+     * characteristics, rules and traits after wargear, arkana, Prime Advantage and Sequelae.
+     * Conditional effects are returned as reminders rather than applied.
+     */
+    function effectiveModels(sel, slot) {
+      const u = unit(sel.unitId);
+      const ark = arkanaOf(sel);
+      const baseTraits = [...(u.traits || []), ...(ark ? [ark] : []), ...grantedTraits(sel, slot)];
+      // split each loadout row into groups of models that carry the same items
+      const groups = [];
+      for (const row of loadout(sel)) {
+        const model = u.models.find((m) => m.name === row.model);
+        const fullChanges = row.changes.filter((c) => c.count >= row.count);
+        const partial = row.changes.filter((c) => c.count < row.count);
+        const replaced = new Set(fullChanges.filter((c) => c.replaces).flatMap((c) => c.replaces.split(' & ')));
+        const items = row.base.filter((w) => !replaced.has(w)).concat(fullChanges.map((c) => c.name));
+        let left = row.count;
+        for (const p of partial) {
+          const pr = new Set(p.replaces ? p.replaces.split(' & ') : []);
+          groups.push({ model, count: p.count, label: `${row.model} with ${p.name}`, items: items.filter((w) => !pr.has(w)).concat(p.name) });
+          left -= p.count;
+        }
+        if (left > 0 || !partial.length) groups.push({ model, count: Math.max(left, 0), label: row.model, items });
+      }
+      const unitItems = new Set(groups.flatMap((g) => g.items));
+      const has = (m, items) => {
+        const src = m.source || {};
+        switch (src.type) {
+          case 'sequela': return activeSeq.has(src.name);
+          case 'arkana': return ark === src.name;
+          case 'primeAdvantage': return sel.primeAdvantage === src.name;
+          case 'wargear': case 'upgrade': return items.has(src.name);
+          default: return false;
+        }
+      };
+      const out = [];
+      for (const g of groups.filter((x) => x.count > 0)) {
+        const profile = Object.assign({}, g.model.profile);
+        const changed = {};
+        let rules = [...(u.specialRules || []), ...(g.model.specialRules || [])];
+        const added = [], removed = [];
+        const traits = baseTraits.slice();
+        const addedTraits = [];
+        let unitType = g.model.unitType || '';
+        const reminders = [];
+        const own = new Set(g.items);
+        for (const m of modifiers) {
+          const present = m.scope === 'unit' ? has(m, unitItems) : has(m, own);
+          if (!present || !modMatches(m, u, g.model, traits)) continue;
+          if (m.condition) { reminders.push({ text: m.text, condition: m.condition, source: m.source }); continue; }
+          for (const [k, op] of Object.entries(m.stats || {})) {
+            if (!(k in profile) && !String(op).startsWith('best:') && !String(op).startsWith('=')) continue;
+            if (applyStat(profile, k, op)) changed[k] = true;
+          }
+          for (const r of m.removeRules || []) {
+            const before = rules.length;
+            rules = rules.filter((x) => ruleBase(x) !== ruleBase(r));
+            if (rules.length < before) removed.push(r);
+          }
+          for (const r of m.addRules || []) {
+            if (rules.some((x) => ruleBase(x) === ruleBase(r))) continue;
+            rules.push(r);
+            added.push(r);
+          }
+          for (const mr of m.modifyRules || []) {
+            rules = rules.map((x) => {
+              if (ruleBase(x) !== ruleBase(mr.rule)) return x;
+              const nx = x.replace(/\((\d+)(\+?)\)/, (_, n, plus) => `(${plus ? Math.max(2, +n - mr.by) : +n + mr.by}${plus})`);
+              if (nx !== x) added.push(nx);
+              return nx;
+            });
+          }
+          for (const t of m.addTraits || []) if (!traits.includes(t)) { traits.push(t); addedTraits.push(t); }
+          for (const t of m.addUnitTypes || []) {
+            if (unitType.includes(t)) continue;
+            unitType = /\)$/.test(unitType) ? unitType.replace(/\)$/, `, ${t})`) : `${unitType} (${t})`;
+            changed.unitType = true;
+          }
+        }
+        out.push({ name: g.label, model: g.model.name, count: g.count, items: g.items, profile, baseProfile: g.model.profile, changed, rules, added, removed, traits, addedTraits, unitType, reminders });
+      }
+      return out;
+    }
+
     // ---------- validation of a single unit ----------
     function unitIssues(sel) {
       const u = unit(sel.unitId);
@@ -523,7 +646,7 @@
       data, ROLES, ARKANA, unit, choicesFor, sizableModels, swapTargets, newSelection, modelCounts, totalModels,
       eligible, optionMax, perModelUsed, optionCost, unitPoints, loadout, unitIssues, armyIssues, armyPoints,
       allSelections, sequelaAllowance, makeDetachment, detachmentFromDef, unitsForSlot, slotAllows, syncAdvisorSlots,
-      hasTrait, arkanaOf, uid, setSequelae, optionsOf, modelMax, rolesFor, activeEffects, grantedTraits,
+      hasTrait, arkanaOf, uid, setSequelae, effectiveModels, optionsOf, modelMax, rolesFor, activeEffects, grantedTraits,
     };
   }
 

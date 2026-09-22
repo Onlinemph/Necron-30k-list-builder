@@ -24,6 +24,7 @@ const out = {
   forceorg: read(join(root, 'data', 'forceorg.json')),
   coreRules: read(join(root, 'data', 'core-rules.json')),
   sequelaEffects: read(join(root, 'data', 'sequela-effects.json')),
+  modifiers: existsSync(join(root, 'data', 'modifiers.json')) ? read(join(root, 'data', 'modifiers.json')) : { modifiers: [] },
 };
 
 for (const f of files) {
@@ -94,6 +95,19 @@ for (const e of out.sequelaEffects.effects) {
   for (const c of (e.option && e.option.choices) || []) if (c.list && !listIds.has(c.list)) problems.push(`sequela effect ${e.sequela}: unknown list ${c.list}`);
 }
 for (const r of out.sequelaEffects.rules || []) ruleKeys.add(norm(r.name));
+
+// modifiers must point at real units and models
+const allModels = new Set(out.units.flatMap((u) => u.models.map((m) => m.name)));
+const STAT_KEYS = new Set(['M', 'WS', 'BS', 'S', 'T', 'W', 'I', 'A', 'LD', 'CL', 'WP', 'IN', 'SAV', 'INV', 'FRONT', 'SIDE', 'REAR', 'HP']);
+for (const m of out.modifiers.modifiers) {
+  const where = `modifier ${m.id}`;
+  if (!['sequela', 'wargear', 'arkana', 'primeAdvantage', 'upgrade'].includes(m.source?.type)) problems.push(`${where}: bad source type`);
+  if (m.source?.type === 'sequela' && !seqNames.has(m.source.name)) problems.push(`${where}: unknown sequela ${m.source.name}`);
+  for (const id of m.appliesTo?.units || []) if (!ids.has(id)) problems.push(`${where}: unknown unit ${id}`);
+  for (const n of m.appliesTo?.models || []) if (!allModels.has(n)) problems.push(`${where}: unknown model ${n}`);
+  for (const k of Object.keys(m.stats || {})) if (!STAT_KEYS.has(k)) problems.push(`${where}: unknown stat ${k}`);
+  if (!['model', 'unit'].includes(m.scope)) problems.push(`${where}: scope must be model or unit`);
+}
 
 // second pass: references to weapons / rules (warnings only)
 for (const u of out.units) {

@@ -418,7 +418,7 @@
       box.append(sec);
     }
 
-    renderUnitReference(box, u, sel);
+    renderUnitReference(box, u, sel, slot);
 
     const acts = h('<div class="row ed-section"></div>');
     const dup = h('<button type="button">Duplicate</button>');
@@ -579,21 +579,23 @@
   }
 
   // ---------- unit reference (profiles, weapons, rules) ----------
-  function profileTable(u, sel, printMode) {
-    const counts = sel ? E.modelCounts(sel) : null;
-    const models = u.models.filter((m) => !counts || counts[m.name] > 0 || printMode === 'all');
-    if (!models.length) return '';
+  /** Statlines after battlefield modifiers; changed values are highlighted, originals in the tooltip. */
+  function profileTable(u, sel, slot) {
+    const rows = E.effectiveModels(sel, slot);
+    if (!rows.length) return '';
     const groups = {};
-    for (const m of models) {
-      const keys = Object.keys(m.profile || {}).join(',');
-      (groups[keys] = groups[keys] || []).push(m);
+    for (const r of rows) {
+      const keys = Object.keys(r.profile || {}).join(',');
+      (groups[keys] = groups[keys] || []).push(r);
     }
     let html = '';
-    for (const [keys, ms] of Object.entries(groups)) {
+    for (const [keys, rs] of Object.entries(groups)) {
       const cols = keys ? keys.split(',') : [];
       html += `<div class="table-wrap"><table class="stats"><thead><tr><th>Model</th>${cols.map((c) => `<th>${esc(c)}</th>`).join('')}</tr></thead><tbody>`;
-      for (const m of ms) {
-        html += `<tr><td>${counts ? counts[m.name] + '× ' : ''}${esc(m.name)}</td>${cols.map((c) => `<td>${esc(m.profile[c])}</td>`).join('')}</tr>`;
+      for (const r of rs) {
+        html += `<tr><td>${r.count}× ${esc(r.name)}</td>${cols.map((c) => r.changed[c]
+          ? `<td class="mod" title="Base ${esc(r.baseProfile[c] ?? '–')}">${esc(r.profile[c])}</td>`
+          : `<td>${esc(r.profile[c])}</td>`).join('')}</tr>`;
       }
       html += '</tbody></table></div>';
     }
@@ -644,26 +646,41 @@
     return { html, other };
   }
 
-  function unitRuleNames(u, sel) {
+  /** Rule names for the unit after modifiers: {names, added:Set, removed:[]}. */
+  function unitRules(u, sel, slot) {
     const names = [];
+    const added = new Set();
+    const removed = [];
     const add = (n) => { if (n && !names.includes(n)) names.push(n); };
-    for (const r of u.specialRules || []) add(r);
-    const counts = sel ? E.modelCounts(sel) : null;
-    for (const m of u.models) if (!counts || counts[m.name] > 0) for (const r of m.specialRules || []) add(r);
-    for (const r of u.unitRules || []) add(r.name);
-    if (sel) {
-      const ark = E.arkanaOf(sel);
-      const a = ark && (DATA.arkana || []).find((x) => x.name === ark);
-      if (a && a.harbinger) add(a.harbinger.name);
+    for (const r of E.effectiveModels(sel, slot)) {
+      for (const n of r.rules) add(n);
+      for (const n of r.added) added.add(n);
+      for (const n of r.removed) if (!removed.includes(n)) removed.push(n);
     }
-    return names;
+    for (const r of u.unitRules || []) if (!removed.some((x) => norm(x) === norm(r.name))) add(r.name);
+    const ark = E.arkanaOf(sel);
+    const a = ark && (DATA.arkana || []).find((x) => x.name === ark);
+    if (a && a.harbinger) add(a.harbinger.name);
+    return { names, added, removed };
+  }
+  function unitRuleNames(u, sel, slot) { return unitRules(u, sel, slot).names; }
+
+  function reminders(sel, slot) {
+    const seen = new Set();
+    const out = [];
+    for (const r of E.effectiveModels(sel, slot)) for (const x of r.reminders) if (!seen.has(x.text)) { seen.add(x.text); out.push(x); }
+    return out;
   }
 
-  function renderUnitReference(box, u, sel) {
+  function renderUnitReference(box, u, sel, slot) {
     const sec = section('Profile');
-    sec.insertAdjacentHTML('beforeend', profileTable(u, sel));
-    const types = [...new Set(u.models.filter((m) => E.modelCounts(sel)[m.name] > 0).map((m) => m.unitType).filter(Boolean))];
-    sec.insertAdjacentHTML('beforeend', `<p class="muted">Type: ${esc(types.join('; '))}${(u.traits || []).length ? ' · Traits: ' + esc(u.traits.concat(E.arkanaOf(sel) ? [E.arkanaOf(sel)] : []).join(', ')) : ''}</p>`);
+    sec.insertAdjacentHTML('beforeend', profileTable(u, sel, slot));
+    const eff = E.effectiveModels(sel, slot);
+    const types = [...new Set(eff.map((m) => m.unitType).filter(Boolean))];
+    const traits = [...new Set(eff.flatMap((m) => m.traits))];
+    const addedTraits = new Set(eff.flatMap((m) => m.addedTraits));
+    sec.insertAdjacentHTML('beforeend', `<p class="muted">Type: ${esc(types.join('; '))}${traits.length ? ' · Traits: ' + traits.map((t) => addedTraits.has(t) ? `<span class="gained">${esc(t)}</span>` : esc(t)).join(', ') : ''}</p>`);
+    if (eff.some((m) => Object.keys(m.changed).length)) sec.insertAdjacentHTML('beforeend', '<p class="muted small-note">Highlighted values are modified by wargear, arkana or Sequelae; hover for the base value.</p>');
     box.append(sec);
 
     const lo = section('Wargear');
@@ -679,18 +696,31 @@
     box.append(lo);
 
     const rs = section('Special rules');
-    rs.append(chips(unitRuleNames(u, sel)));
+    const ur = unitRules(u, sel, slot);
+    rs.append(chips(ur.names, ur.added));
+    if (ur.removed.length) rs.append(h(`<p class="muted">Lost: ${ur.removed.map((r) => `<s>${esc(r)}</s>`).join(', ')}</p>`));
+    const rem = reminders(sel, slot);
+    if (rem.length) {
+      const ul = h('<ul class="reminders"></ul>');
+      for (const r of rem) ul.append(h(`<li><strong>${esc(r.source.name)}</strong> <small>(${esc(r.condition)})</small>: ${esc(r.text)}</li>`));
+      const box2 = section('Situational effects');
+      box2.append(ul);
+      box.append(rs);
+      box.append(box2);
+      if (u.note) box2.append(h(`<p class="muted">Note: ${esc(u.note)}</p>`));
+      return;
+    }
     if (u.note) rs.append(h(`<p class="muted">Note: ${esc(u.note)}</p>`));
     box.append(rs);
   }
 
-  function chips(names) {
+  function chips(names, gained) {
     const wrap = h('<div class="chips"></div>');
     for (const n of names) {
       const r = findRule(n);
       const k = norm(n);
       const tip = r ? 'Show rule' : coreNames.has(k) ? 'Core rule: see the Horus Heresy 3rd edition rulebook' : undefinedNames.has(k) ? 'Not printed in the codex: ' + undefinedNames.get(k) : 'No rules text found';
-      const c = h(`<span class="chip ${r ? 'rule' : coreNames.has(k) ? 'core' : 'missing'}" title="${esc(tip)}">${esc(n)}${coreNames.has(k) && !r ? ' <small>core</small>' : ''}</span>`);
+      const c = h(`<span class="chip ${gained && gained.has(n) ? 'gained ' : ''}${r ? 'rule' : coreNames.has(k) ? 'core' : 'missing'}" title="${esc(tip)}">${esc(n)}${coreNames.has(k) && !r ? ' <small>core</small>' : ''}</span>`);
       if (r) c.addEventListener('click', () => showText(n, r.text, r.page));
       wrap.append(c);
     }
@@ -850,7 +880,7 @@
         const u = E.unit(s.unit.unitId);
         const ark = E.arkanaOf(s.unit);
         html += `<div class="r-unit"><h3><span>${esc(u.name)} <small class="muted">${esc(s.flexible ? 'Flexible' : s.role)}${s.prime ? ' · Prime' + (s.unit.primeAdvantage ? ': ' + esc(s.unit.primeAdvantage) : '') : ''}${ark ? ' · ' + esc(ark) : ''}</small></span><span>${E.unitPoints(s.unit)} pts</span></h3>`;
-        html += profileTable(u, s.unit);
+        html += profileTable(u, s.unit, s);
         html += '<ul class="loadout">';
         for (const r of E.loadout(s.unit)) {
           const chg = r.changes.map((c) => `${c.count > 1 ? c.count + '× ' : ''}${esc(c.name)}${c.replaces ? ' (for ' + esc(c.replaces) + ')' : ''}`);
@@ -859,8 +889,10 @@
         html += '</ul>';
         const wt = weaponTable(weaponNamesFor(u, s.unit));
         html += wt.html;
-        const rules = unitRuleNames(u, s.unit).concat(wt.other);
+        const rules = unitRuleNames(u, s.unit, s).concat(wt.other);
+        const rem = reminders(s.unit, s);
         html += `<div class="r-rules"><strong>Rules:</strong> ${esc(rules.join(', '))}</div>`;
+        if (rem.length) html += `<div class="r-rules"><strong>Situational:</strong> ${rem.map((r) => `${esc(r.source.name)} (${esc(r.condition)})`).join('; ')}</div>`;
         for (const r of rules) { const f = findRule(r); if (f) glossary.set(f.name, f); }
         html += '</div>';
       }

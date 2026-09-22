@@ -150,3 +150,35 @@ Names of variable rules are generic: `"Ever-Living (X)"`, `"Firing Protocols (X)
 ```
 
 ## sequelae.json → `{ "intro": "...", "sequelae": [ { "name", "page", "text", "restrictions": [...] } ] }`
+
+## modifiers.json → `{ "modifiers": [Modifier, ...] }`
+
+Battlefield effects that change a unit's datasheet. The app applies them to the
+profile, rules and traits it shows, and highlights what changed.
+
+```jsonc
+{
+  "id": "horrors-of-old-warriors-save",
+  "page": 96,
+  "text": "Necron Warriors Units in an army with this Aeonic Sequela have a 3+ Armour Save, but lose the Endless Legions Special Rule.",  // source sentence, verbatim
+  "source": { "type": "sequela", "name": "Horrors of Old" },
+      // type: "sequela"        – the army has this Aeonic Sequela
+      //       "wargear"        – the model carries this item (default or chosen option), e.g. "Canoptek Cloak"
+      //       "arkana"         – the model has this Crypto-Arkana, e.g. "Chronomancy"
+      //       "primeAdvantage" – the unit took this Prime Advantage
+      //       "upgrade"        – an upgrade option by its choice name, e.g. "Charnel Displays", "Nemesor Trait"
+  "appliesTo": { "units": ["necron-warriors"] },
+      // optional filters, all must match: "units" (ids), "models" (model names),
+      // "trait" (unit trait, e.g. "Reanimant"), "unitType" (substring of model unitType, e.g. "Vehicle", "Command")
+  "scope": "model",               // "model": only models carrying the source; "unit": every matching model in the unit
+  "stats":      { "SAV": "=3+" }, // "+1" / "-1" add; "=X" set; "best:4+" set a save only if it improves it
+  "addRules":   [],               // e.g. ["Fear (1)"]
+  "removeRules": ["Endless Legions"],   // by name without (X)
+  "modifyRules": [],              // e.g. [{ "rule": "Vanguard", "by": 1 }] turns Vanguard (1) into Vanguard (2)
+  "addTraits":  [],               // e.g. ["Phasing", "Hyperspace Hunter", "Nemesor"]
+  "addUnitTypes": [],             // sub-types added to the model's unit type, e.g. ["Antigrav"]
+  "condition": null               // text when the effect only applies in some situations
+                                  // ("while joined by a Nemesor", "within 12\" of…"). Conditional
+                                  // effects are listed as reminders, not applied to the stat line.
+}
+```
