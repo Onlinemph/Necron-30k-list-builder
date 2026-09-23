@@ -1,0 +1,2663 @@
+{
+  "units": [
+    {
+      "id": "trukk",
+      "name": "Trukk",
+      "role": "Transport",
+      "page": 28,
+      "limit": null,
+      "unique": false,
+      "basePoints": 30,
+      "composition": "1 Trukk",
+      "models": [
+        {
+          "name": "Trukk",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 16,
+            "BS": 2,
+            "FRONT": 10,
+            "SIDE": 10,
+            "REAR": 10,
+            "HP": 4,
+            "CAPACITY": 12
+          },
+          "wargear": [],
+          "unitType": "Vehicle (Transport, Rapid)",
+          "specialRules": []
+        },
+        {
+          "name": "'Ard Case Trukk",
+          "min": 0,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 16,
+            "BS": 2,
+            "FRONT": 11,
+            "SIDE": 10,
+            "REAR": 10,
+            "HP": 4,
+            "CAPACITY": 12
+          },
+          "wargear": [],
+          "unitType": "Vehicle (Transport, Rapid)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos"
+      ],
+      "factionChoice": true,
+      "specialRules": [
+        "Auto-repair (5+)",
+        "Assault Vehicle (Trukk only)",
+        "Ramshackle"
+      ],
+      "unitRules": [
+        {
+          "name": "Access Points",
+          "text": "Trukk: This Model has Access Points on all of its Facings. 'Ard Case Trukk: This Model has one Access Point on its Rear Facing."
+        }
+      ],
+      "options": [
+        {
+          "id": "ard-case",
+          "text": "This Model may be replaced with 1 'Ard Case Trukk for +5 Points.",
+          "kind": "swapModel",
+          "model": "Trukk",
+          "replaces": [],
+          "choices": [
+            {
+              "name": "'Ard Case Trukk",
+              "points": 5
+            }
+          ],
+          "max": {
+            "fixed": 1
+          },
+          "requires": null
+        },
+        {
+          "id": "pintle",
+          "text": "This Model must have one item from the Ork Pintle Weapons list selected for it.",
+          "kind": "one",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "list": "ork-pintle-weapons"
+            }
+          ],
+          "max": null,
+          "requires": null,
+          "required": {}
+        },
+        {
+          "id": "vehicle-upgrades",
+          "text": "This Model may have any of the following options selected for it: -- Reinforced ram ........ +5 Points -- Assault gubbins ........ +5 Points -- Grot riggers ........ +5 Points",
+          "kind": "any",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Reinforced ram",
+              "points": 5
+            },
+            {
+              "name": "Assault gubbins",
+              "points": 5
+            },
+            {
+              "name": "Grot riggers",
+              "points": 5
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "battlewagon",
+      "name": "Battlewagon",
+      "role": "Heavy Transport",
+      "page": 29,
+      "limit": null,
+      "unique": false,
+      "basePoints": 110,
+      "composition": "1 Battlewagon",
+      "models": [
+        {
+          "name": "Battlewagon",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 12,
+            "BS": 2,
+            "FRONT": 14,
+            "SIDE": 13,
+            "REAR": 11,
+            "HP": 8,
+            "CAPACITY": 20
+          },
+          "wargear": [],
+          "unitType": "Vehicle (Transport)",
+          "specialRules": []
+        },
+        {
+          "name": "Gunwagon",
+          "min": 0,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 12,
+            "BS": 2,
+            "FRONT": 14,
+            "SIDE": 13,
+            "REAR": 11,
+            "HP": 8,
+            "CAPACITY": 12
+          },
+          "wargear": [
+            "Turret Mounted killkannon"
+          ],
+          "unitType": "Vehicle (Transport)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos"
+      ],
+      "factionChoice": true,
+      "specialRules": [
+        "Assault Vehicle (Battlewagon only)"
+      ],
+      "unitRules": [
+        {
+          "name": "Access Points",
+          "text": "Battlewagon: This Model has Access Points on all of its Facings. Gunwagon: This Model has Access Points on both Side Facings and the Rear Facing."
+        }
+      ],
+      "options": [
+        {
+          "id": "gunwagon",
+          "text": "This Model may be replaced with 1 Gunwagon for +40 Points.",
+          "kind": "swapModel",
+          "model": "Battlewagon",
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Gunwagon",
+              "points": 40
+            }
+          ],
+          "max": {
+            "fixed": 1
+          },
+          "requires": null
+        },
+        {
+          "id": "big-gunz",
+          "text": "This Model may have one item from the Ork Big Gunz list selected for it. Any item selected in this way becomes Turret Mounted.",
+          "kind": "one",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "list": "ork-big-gunz"
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "pintle",
+          "text": "This Model may have up to four items from the Ork Pintle Weapons list selected for it.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [],
+          "perWeapon": true,
+          "choices": [
+            {
+              "list": "ork-pintle-weapons"
+            }
+          ],
+          "max": {
+            "fixed": 4
+          },
+          "requires": null
+        },
+        {
+          "id": "ram-rolla",
+          "text": "This Model may have one of the following options selected for it: -- Reinforced ram ........ +5 Points -- Deff rolla ........ +10 Points",
+          "kind": "one",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Reinforced ram",
+              "points": 5
+            },
+            {
+              "name": "Deff rolla",
+              "points": 10
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "gubbins-riggers",
+          "text": "This Model may have any of the following options selected for it: -- Assault gubbins ........ +10 Points -- Grot riggers ........ +10 Points",
+          "kind": "any",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Assault gubbins",
+              "points": 10
+            },
+            {
+              "name": "Grot riggers",
+              "points": 10
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "big-trakk",
+      "name": "Big Trakk",
+      "role": "Heavy Transport",
+      "page": 30,
+      "limit": null,
+      "unique": false,
+      "basePoints": 60,
+      "composition": "1 Big Trakk",
+      "models": [
+        {
+          "name": "Big Trakk",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 12,
+            "BS": 2,
+            "FRONT": 13,
+            "SIDE": 12,
+            "REAR": 11,
+            "HP": 6,
+            "CAPACITY": 16
+          },
+          "wargear": [
+            "Two Centreline Mounted big shootas"
+          ],
+          "unitType": "Vehicle (Transport)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos"
+      ],
+      "factionChoice": true,
+      "specialRules": [
+        "Assault Vehicle"
+      ],
+      "unitRules": [
+        {
+          "name": "Access Points",
+          "text": "This Model has Access Points on all of its Facings."
+        }
+      ],
+      "options": [
+        {
+          "id": "pintle",
+          "text": "This Model may have up to two items from the Ork Pintle Weapons list selected for it.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [],
+          "perWeapon": true,
+          "choices": [
+            {
+              "list": "ork-pintle-weapons"
+            }
+          ],
+          "max": {
+            "fixed": 2
+          },
+          "requires": null
+        },
+        {
+          "id": "ram-rolla",
+          "text": "This Model may have one of the following options selected for it: -- Reinforced ram ........ +5 Points -- Deff rolla ........ +10 Points",
+          "kind": "one",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Reinforced ram",
+              "points": 5
+            },
+            {
+              "name": "Deff rolla",
+              "points": 10
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "gubbins-riggers",
+          "text": "This Model may have any of the following options selected for it: -- Assault gubbins ........ +10 Points -- Grot riggers ........ +10 Points",
+          "kind": "any",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Assault gubbins",
+              "points": 10
+            },
+            {
+              "name": "Grot riggers",
+              "points": 10
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "squiggoth",
+      "name": "Squiggoth",
+      "role": "Heavy Transport",
+      "page": 30,
+      "limit": null,
+      "unique": false,
+      "basePoints": 180,
+      "composition": "1 Squiggoth",
+      "models": [
+        {
+          "name": "Squiggoth",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 9,
+            "WS": 3,
+            "BS": 2,
+            "S": 6,
+            "T": 7,
+            "W": 6,
+            "I": 1,
+            "A": 4,
+            "LD": 10,
+            "CL": 9,
+            "WP": 7,
+            "IN": 3,
+            "SAV": "4+",
+            "INV": "–",
+            "CAPACITY": 10
+          },
+          "wargear": [
+            "Tusks and stomping feet"
+          ],
+          "unitType": "Cavalry (Transport)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos"
+      ],
+      "fixedChoice": "Snakebites",
+      "specialRules": [
+        "Bulky (8)",
+        "Feel No Pain (5+)",
+        "Implacable Advance"
+      ],
+      "unitRules": [
+        {
+          "name": "Access Points",
+          "text": "This Model has Access Points on its Rear Facing, determined as though it were a Model with the Vehicle type."
+        }
+      ],
+      "options": [
+        {
+          "id": "big-gunz",
+          "text": "This Model may have one item from the Ork Big Gunz list selected for it.",
+          "kind": "one",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "list": "ork-big-gunz"
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "kommandos-mob",
+      "name": "Kommandos Mob",
+      "role": "Recon",
+      "page": 31,
+      "limit": null,
+      "unique": false,
+      "basePoints": 60,
+      "composition": "5 Kommandos",
+      "models": [
+        {
+          "name": "Kommando",
+          "min": 5,
+          "max": 20,
+          "costPerExtra": 10,
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 2,
+            "S": 3,
+            "T": 4,
+            "W": 1,
+            "I": 2,
+            "A": 2,
+            "LD": 6,
+            "CL": 7,
+            "WP": 6,
+            "IN": 5,
+            "SAV": "6+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Slugga",
+            "Choppa",
+            "Stikkbombs"
+          ],
+          "unitType": "Infantry (Light, Skirmish)",
+          "specialRules": []
+        },
+        {
+          "name": "Kommando Nob",
+          "min": 0,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 6,
+            "WS": 5,
+            "BS": 2,
+            "S": 4,
+            "T": 4,
+            "W": 2,
+            "I": 3,
+            "A": 3,
+            "LD": 7,
+            "CL": 8,
+            "WP": 7,
+            "IN": 5,
+            "SAV": "6+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Slugga",
+            "Choppa",
+            "Stikkbombs"
+          ],
+          "unitType": "Infantry (Sergeant, Light, Skirmish)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Smokescreen"
+      ],
+      "factionChoice": true,
+      "specialRules": [
+        "Impact (S)",
+        "Infiltrate (9)",
+        "Mob Rule (CL)",
+        "Move Through Cover",
+        "Support Unit (2)"
+      ],
+      "unitRules": [
+        {
+          "name": "Commz",
+          "text": "Commz units are a typical example of Kommando cunning and forethought. They allow Kommandos to range ahead of the Ork army, scouting out enemy positions and reporting back any important information that they find out. Commz grant a bonus to Reserves Tests. While a Model with commz is on the Battlefield, before making a Reserves Test for a Unit in Reserves, the Controlling Player can select for that Model to activate the commz. If they do, they can modify the result of that Reserves Test by +1. Only one Model can activate commz for each Reserves Test."
+        },
+        {
+          "name": "Distraction Grot",
+          "text": "For Grots to last long in the brutal reality of Ork society, they have to learn to lie, cheat, steal, sneak, suck up and plan - traits all valuable to Kommando kill teams. A Distraction Grot allows a Unit to perform a free Reposition Reaction. Distraction Grots are treated as a special kind of Marker that is moved with the Model it belongs to but is ignored for all game purposes. Once per game, immediately after declaring a Reposition Reaction, a Unit with a Distraction Grot does not need to pay the usual Cost: no points need to be spent from the Reactive Player's Reaction Allotment. In addition, during Step 2 of the process for this Reposition Reaction, the Unit with the Distraction Grot increases the distance they move by +3 inches. The Distraction Grot is then removed from play."
+        }
+      ],
+      "options": [
+        {
+          "id": "nob-swap",
+          "text": "If this Unit includes 10 or more Models, one Kommando may be replaced with a Kommando Nob for +10 Points.",
+          "kind": "swapModel",
+          "model": "Kommando",
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Kommando Nob",
+              "points": 10
+            }
+          ],
+          "max": {
+            "fixed": 1
+          },
+          "requires": null
+        },
+        {
+          "id": "melee-swap",
+          "text": "Any Model in this Unit may have its slugga and choppa exchanged for one of the following: -- Paired choppas ........ Free -- Shoota ........ Free",
+          "kind": "perModel",
+          "model": "Kommando",
+          "replaces": [
+            "Slugga",
+            "Choppa"
+          ],
+          "choices": [
+            {
+              "name": "Paired choppas",
+              "points": 0
+            },
+            {
+              "name": "Shoota",
+              "points": 0
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "special-weapon",
+          "text": "For every five Models in this Unit, one Kommando in this Unit may have its slugga and choppa exchanged for one item from the Ork Special Weapons list or one of the following: -- Kombi-shoota ........ +2 Points per Model -- Breacha ram ........ +10 Points per Model -- Shokk pistol and commz ........ +20 Points per Model",
+          "kind": "perModel",
+          "model": "Kommando",
+          "replaces": [
+            "Slugga",
+            "Choppa"
+          ],
+          "choices": [
+            {
+              "list": "ork-special-weapons"
+            },
+            {
+              "name": "Kombi-shoota",
+              "points": 2
+            },
+            {
+              "name": "Breacha ram",
+              "points": 10
+            },
+            {
+              "name": "Shokk pistol and commz",
+              "points": 20
+            }
+          ],
+          "max": {
+            "per": 5,
+            "count": 1
+          },
+          "requires": null
+        },
+        {
+          "id": "melta-bombs",
+          "text": "For every five Models in this Unit, one Kommando may have melta bombs selected for it for +10 Points per Model.",
+          "kind": "perModel",
+          "model": "Kommando",
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Melta bombs",
+              "points": 10
+            }
+          ],
+          "max": {
+            "per": 5,
+            "count": 1
+          },
+          "requires": null
+        },
+        {
+          "id": "nob-melee-slugga",
+          "text": "If this Unit includes a Kommando Nob, the Kommando Nob in this Unit may have its slugga and/or choppa exchanged for one item each from the Ork Boss Weapons list. (slugga)",
+          "kind": "one",
+          "model": "Kommando Nob",
+          "replaces": [
+            "Slugga"
+          ],
+          "choices": [
+            {
+              "list": "ork-boss-weapons"
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "nob-melee-choppa",
+          "text": "If this Unit includes a Kommando Nob, the Kommando Nob in this Unit may have its slugga and/or choppa exchanged for one item each from the Ork Boss Weapons list. (choppa)",
+          "kind": "one",
+          "model": "Kommando Nob",
+          "replaces": [
+            "Choppa"
+          ],
+          "choices": [
+            {
+              "list": "ork-boss-weapons"
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "nob-upgrades",
+          "text": "If this Unit includes a Kommando Nob, the Kommando Nob in this Unit may have any of the following: -- Distraction grot ........ +10 Points -- Bomb squig ........ +10 Points",
+          "kind": "any",
+          "model": "Kommando Nob",
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Distraction grot",
+              "points": 10
+            },
+            {
+              "name": "Bomb squig",
+              "points": 10
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "deffkoptas",
+      "name": "Deffkoptas",
+      "role": "Recon",
+      "page": 32,
+      "limit": null,
+      "unique": false,
+      "basePoints": 30,
+      "composition": "1 Deffkopta",
+      "models": [
+        {
+          "name": "Deffkopta",
+          "min": 1,
+          "max": 9,
+          "costPerExtra": 28,
+          "profile": {
+            "M": 16,
+            "WS": 4,
+            "BS": 2,
+            "S": 3,
+            "T": 5,
+            "W": 3,
+            "I": 2,
+            "A": 2,
+            "LD": 6,
+            "CL": 7,
+            "WP": 6,
+            "IN": 6,
+            "SAV": "4+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Choppa",
+            "Twin rokkit launchas",
+            "Stikkbombs"
+          ],
+          "unitType": "Cavalry (Antigrav, Skirmish)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos"
+      ],
+      "factionChoice": true,
+      "specialRules": [
+        "Bulky (3)",
+        "Deep Strike",
+        "Impact (S)",
+        "Implacable Advance",
+        "Mob Rule (CL)"
+      ],
+      "unitRules": [],
+      "options": [
+        {
+          "id": "launcha-swap",
+          "text": "Any Model in this Unit may have its twin rokkit launcha exchanged for one of the following: -- Twin big shootas ........ Free -- Kustom mega-blasta ........ Free",
+          "kind": "perModel",
+          "model": "Deffkopta",
+          "replaces": [
+            "Twin rokkit launchas"
+          ],
+          "choices": [
+            {
+              "name": "Twin big shootas",
+              "points": 0
+            },
+            {
+              "name": "Kustom mega-blasta",
+              "points": 0
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "extras",
+          "text": "Any Model in this Unit may have any of the following: -- Big bomb ........ +10 Points -- Killsaw ........ +20 Points",
+          "kind": "perModel",
+          "model": "Deffkopta",
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Big bomb",
+              "points": 10
+            },
+            {
+              "name": "Killsaw",
+              "points": 20
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "warkopta",
+      "name": "Warkopta",
+      "role": "Recon",
+      "page": 32,
+      "limit": null,
+      "unique": false,
+      "basePoints": 65,
+      "composition": "1 Warkopta",
+      "models": [
+        {
+          "name": "Warkopta",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 16,
+            "BS": 2,
+            "FRONT": 10,
+            "SIDE": 10,
+            "REAR": 10,
+            "HP": 4,
+            "CAPACITY": 10
+          },
+          "wargear": [
+            "Centreline Mounted twin supa shoota",
+            "Pintle Mounted big shoota"
+          ],
+          "unitType": "Vehicle (Antigrav, Transport)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos"
+      ],
+      "factionChoice": true,
+      "specialRules": [
+        "Assault Vehicle",
+        "Deep Strike",
+        "Light Transport"
+      ],
+      "unitRules": [
+        {
+          "name": "Access Points",
+          "text": "This Model has Access Points on both Side Facings."
+        }
+      ],
+      "options": [
+        {
+          "id": "big-bombs",
+          "text": "This Model may have up to two Centreline (Front, Rear) Mounted big bombs selected for it for +10 Points each.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [],
+          "perWeapon": true,
+          "choices": [
+            {
+              "name": "Big bomb",
+              "points": 10
+            }
+          ],
+          "max": {
+            "fixed": 2
+          },
+          "requires": null
+        }
+      ],
+      "note": "The vehicle profile row on p32 is mistakenly labelled 'Trukk' (leftover template text) instead of 'Warkopta'; kept the printed stats but used the correct unit name."
+    },
+    {
+      "id": "warbiker-mob",
+      "name": "Warbiker Mob",
+      "role": "Fast Attack",
+      "page": 33,
+      "limit": null,
+      "unique": false,
+      "basePoints": 60,
+      "composition": "3 Warbikers",
+      "models": [
+        {
+          "name": "Warbiker",
+          "min": 3,
+          "max": 15,
+          "costPerExtra": 18,
+          "profile": {
+            "M": 14,
+            "WS": 4,
+            "BS": 2,
+            "S": 3,
+            "T": 4,
+            "W": 2,
+            "I": 2,
+            "A": 2,
+            "LD": 6,
+            "CL": 7,
+            "WP": 6,
+            "IN": 4,
+            "SAV": "4+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Twin dakkaguns",
+            "Choppa",
+            "Stikkbombs"
+          ],
+          "unitType": "Cavalry",
+          "specialRules": []
+        },
+        {
+          "name": "Warbiker Nob",
+          "min": 0,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 14,
+            "WS": 5,
+            "BS": 2,
+            "S": 4,
+            "T": 4,
+            "W": 3,
+            "I": 3,
+            "A": 3,
+            "LD": 7,
+            "CL": 8,
+            "WP": 7,
+            "IN": 4,
+            "SAV": "4+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Twin dakkaguns",
+            "Choppa",
+            "Stikkbombs"
+          ],
+          "unitType": "Cavalry (Sergeant)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Smokescreen"
+      ],
+      "factionChoice": true,
+      "specialRules": [
+        "Bulky (2)",
+        "Impact (S)",
+        "Implacable Advance",
+        "Mob Rule (CL)",
+        "Outflank",
+        "Vanguard (2)"
+      ],
+      "unitRules": [],
+      "options": [
+        {
+          "id": "nob-swap",
+          "text": "If this Unit includes 6 or more Models, one Warbiker may be replaced with a Warbiker Nob for +10 Points.",
+          "kind": "swapModel",
+          "model": "Warbiker",
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Warbiker Nob",
+              "points": 10
+            }
+          ],
+          "max": {
+            "fixed": 1
+          },
+          "requires": null
+        },
+        {
+          "id": "choppa-swap",
+          "text": "Any Model in this Unit may have its choppa exchanged for one slugga for Free.",
+          "kind": "perModel",
+          "model": "Warbiker",
+          "replaces": [
+            "Choppa"
+          ],
+          "choices": [
+            {
+              "name": "Slugga",
+              "points": 0
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "nob-boss-weapon",
+          "text": "If this Unit includes a Warbiker Nob, the Warbiker Nob in this Unit may have its choppa exchanged for one item from the Ork Boss Weapons list.",
+          "kind": "one",
+          "model": "Warbiker Nob",
+          "replaces": [
+            "Choppa"
+          ],
+          "choices": [
+            {
+              "list": "ork-boss-weapons"
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "Page 33 misspells 'Warbiker' as 'Watbiker' in the Nob boss-weapons option bullet; corrected in the transcribed text."
+    },
+    {
+      "id": "warbuggy-squadron",
+      "name": "Warbuggy Squadron",
+      "role": "Fast Attack",
+      "page": 33,
+      "limit": null,
+      "unique": false,
+      "basePoints": 30,
+      "composition": "1 Warbuggy",
+      "models": [
+        {
+          "name": "Warbuggy",
+          "min": 1,
+          "max": 6,
+          "costPerExtra": 30,
+          "profile": {
+            "M": 14,
+            "WS": 4,
+            "BS": 2,
+            "S": 3,
+            "T": 5,
+            "W": 3,
+            "I": 2,
+            "A": 2,
+            "LD": 6,
+            "CL": 7,
+            "WP": 6,
+            "IN": 4,
+            "SAV": "4+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Twin big shootas"
+          ],
+          "unitType": "Cavalry (Skirmish)",
+          "specialRules": []
+        },
+        {
+          "name": "Wartrakk",
+          "min": 0,
+          "max": 6,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 12,
+            "WS": 4,
+            "BS": 2,
+            "S": 3,
+            "T": 5,
+            "W": 4,
+            "I": 2,
+            "A": 2,
+            "LD": 6,
+            "CL": 7,
+            "WP": 6,
+            "IN": 4,
+            "SAV": "4+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Twin big shootas"
+          ],
+          "unitType": "Cavalry (Skirmish)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Smokescreen"
+      ],
+      "factionChoice": true,
+      "specialRules": [
+        "Bulky (3)",
+        "Fast (2) (Warbuggy only)",
+        "Implacable Advance",
+        "Outflank",
+        "Mob Rule (CL)"
+      ],
+      "unitRules": [],
+      "options": [
+        {
+          "id": "wartrakk-swap",
+          "text": "Any Warbuggy in this Unit may be replaced with 1 Wartrakk each for +5 Points per Model.",
+          "kind": "swapModel",
+          "model": "Warbuggy",
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Wartrakk",
+              "points": 5
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "rokkit-swap",
+          "text": "Any Model in this Unit may have its twin big shoota exchanged for one twin rokkit launcha for Free.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [
+            "Twin big shootas"
+          ],
+          "choices": [
+            {
+              "name": "Twin rokkit launcha",
+              "points": 0
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "skorcha-swap",
+          "text": "Any Wartrakk in this Unit may have its twin big shoota exchanged for one skorcha for +5 Points per Model.",
+          "kind": "perModel",
+          "model": "Wartrakk",
+          "replaces": [
+            "Twin big shootas"
+          ],
+          "choices": [
+            {
+              "name": "Skorcha",
+              "points": 5
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "dakkajet",
+      "name": "Dakkajet",
+      "role": "Fast Attack",
+      "page": 34,
+      "limit": null,
+      "unique": false,
+      "basePoints": 110,
+      "composition": "1 Dakkajet",
+      "models": [
+        {
+          "name": "Dakkajet",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 24,
+            "BS": 3,
+            "FRONT": 11,
+            "SIDE": 11,
+            "REAR": 11,
+            "HP": 5,
+            "CAPACITY": "–"
+          },
+          "wargear": [
+            "Two Centreline Mounted twin supa shootas"
+          ],
+          "unitType": "Vehicle (Flyer)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Interceptor"
+      ],
+      "factionChoice": true,
+      "specialRules": [],
+      "unitRules": [],
+      "options": [
+        {
+          "id": "extra-shoota",
+          "text": "This Model may have one additional Centreline Mounted twin supa shoota for +20 Points.",
+          "kind": "upgrade",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Centreline Mounted twin supa shoota",
+              "points": 20
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "bommer",
+      "name": "Bommer",
+      "role": "Fast Attack",
+      "page": 34,
+      "limit": null,
+      "unique": false,
+      "basePoints": 110,
+      "composition": "1 Burna-bommer",
+      "models": [
+        {
+          "name": "Burna-bommer",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 22,
+            "BS": 2,
+            "FRONT": 11,
+            "SIDE": 11,
+            "REAR": 11,
+            "HP": 5,
+            "CAPACITY": "–"
+          },
+          "wargear": [
+            "Centreline Mounted twin-linked supa shoota",
+            "Turret Mounted big shoota with grot gunner",
+            "Two Centreline (Front, Rear) Mounted burna bombs"
+          ],
+          "unitType": "Vehicle (Flyer)",
+          "specialRules": []
+        },
+        {
+          "name": "Blitza-bommer",
+          "min": 0,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 22,
+            "BS": 2,
+            "FRONT": 11,
+            "SIDE": 11,
+            "REAR": 11,
+            "HP": 5,
+            "CAPACITY": "–"
+          },
+          "wargear": [
+            "Centreline Mounted twin-linked supa shoota",
+            "Turret Mounted big shoota with grot gunner",
+            "Two Centreline (Front, Rear) Mounted boom bombs"
+          ],
+          "unitType": "Vehicle (Flyer)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos"
+      ],
+      "factionChoice": true,
+      "specialRules": [],
+      "unitRules": [],
+      "options": [
+        {
+          "id": "blitza-swap",
+          "text": "This model may be replaced with 1 Blitza-bommer for +20 Points",
+          "kind": "swapModel",
+          "model": "Burna-bommer",
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Blitza-bommer",
+              "points": 20
+            }
+          ],
+          "max": {
+            "fixed": 1
+          },
+          "requires": null
+        },
+        {
+          "id": "twin-grot-gunner",
+          "text": "This Model may have its big shoota with grot gunner exchanged for a twin big shoota with grot gunner for +5 Points.",
+          "kind": "upgrade",
+          "model": null,
+          "replaces": [
+            "Turret Mounted big shoota with grot gunner"
+          ],
+          "choices": [
+            {
+              "name": "Turret Mounted twin big shoota with grot gunner",
+              "points": 5
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "skorcha-missiles",
+          "text": "This Burna-bommer may have up to six Centreline (Front) Mounted skorcha missiles selected for it for +10 Points each.",
+          "kind": "perModel",
+          "model": "Burna-bommer",
+          "replaces": [],
+          "perWeapon": true,
+          "choices": [
+            {
+              "name": "Skorcha missile",
+              "points": 10
+            }
+          ],
+          "max": {
+            "fixed": 6
+          },
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "kustom-junka",
+      "name": "Kustom Junka",
+      "role": "Fast Attack",
+      "page": 35,
+      "limit": null,
+      "unique": false,
+      "basePoints": 40,
+      "composition": "1 Kustom Junka",
+      "models": [
+        {
+          "name": "Kustom Junka",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 16,
+            "BS": 2,
+            "FRONT": 11,
+            "SIDE": 11,
+            "REAR": 10,
+            "HP": 5,
+            "CAPACITY": "–"
+          },
+          "wargear": [],
+          "unitType": "Vehicle (Rapid)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Smokescreen"
+      ],
+      "factionChoice": true,
+      "specialRules": [
+        "Don't Press Dat!",
+        "Explodes (4+)"
+      ],
+      "unitRules": [],
+      "options": [
+        {
+          "id": "turret-big-gunz",
+          "text": "This Model may have one item from the Ork Big Gunz list selected for it, with any item selected in this way becoming Turret Mounted, or one of the following: -- Turret Mounted skorcha ........ +5 Points -- Turret Mounted kustom mega-blasta ........ +5 Points -- Turret Mounted deffgun and Co-axial Mounted (deffgun) big shoota ........ +15 Points",
+          "kind": "one",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "list": "ork-big-gunz"
+            },
+            {
+              "name": "Turret Mounted skorcha",
+              "points": 5
+            },
+            {
+              "name": "Turret Mounted kustom mega-blasta",
+              "points": 5
+            },
+            {
+              "name": "Turret Mounted deffgun and Co-axial Mounted (deffgun) big shoota",
+              "points": 15
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "centreline-big-gunz",
+          "text": "This Model may have one item from the Ork Big Gunz list selected for it, with any item selected in this way becoming Centreline Mounted.",
+          "kind": "one",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "list": "ork-big-gunz"
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "pintle",
+          "text": "This Model may have up to three items from the Ork Pintle Weapons list selected for it.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [],
+          "perWeapon": true,
+          "choices": [
+            {
+              "list": "ork-pintle-weapons"
+            }
+          ],
+          "max": {
+            "fixed": 3
+          },
+          "requires": null
+        },
+        {
+          "id": "pintle-to-hull",
+          "text": "This Model may have any of its Pintle Weapons exchanged for one item each from the Ork Hull Weapons list. Each Hull Mounted Weapon may be designated as either Hull (Front) Mounted or Hull (Rear) Mounted.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [],
+          "perWeapon": true,
+          "choices": [
+            {
+              "list": "ork-hull-weapons"
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "grot-gunner",
+          "text": "Any Hull or Pintle Mounted weapon this Model has may be upgraded with a grot gunner for +5 Points per weapon.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [],
+          "perWeapon": true,
+          "choices": [
+            {
+              "name": "Grot gunner",
+              "points": 5
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "bomb-squig",
+          "text": "This Model may have one Turret Mounted bomb squig for +10 Points.",
+          "kind": "upgrade",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Turret Mounted bomb squig",
+              "points": 10
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "ram-rolla-shokkjump",
+          "text": "This Model may have one of the following options selected for it: -- Reinforced ram ........ +5 Points -- Deff rolla ........ +10 Points -- Shokkjump engine ........ +15 Points",
+          "kind": "one",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Reinforced ram",
+              "points": 5
+            },
+            {
+              "name": "Deff rolla",
+              "points": 10
+            },
+            {
+              "name": "Shokkjump engine",
+              "points": 15
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "gubbins-riggers-kff",
+          "text": "This Model may have any of the following options selected for it: -- Assault gubbins ........ +5 Points -- Grot riggers ........ +5 Points -- Kustom force field ........ +30 Points",
+          "kind": "any",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Assault gubbins",
+              "points": 5
+            },
+            {
+              "name": "Grot riggers",
+              "points": 5
+            },
+            {
+              "name": "Kustom force field",
+              "points": 30
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "The 'Infamous Kustom Junkas' box (p35) lists six named loadouts (Boomdakka Snazzwagon, Megatrakk Scrapjet, Kustom Boosta-blasta, Rukkatrukk Squigbuggy, Shokkjump Dragsta) as fluff/build examples, not additional rules-bearing options; not transcribed as separate options."
+    },
+    {
+      "id": "gobsmasha-wagon",
+      "name": "Gobsmasha Wagon",
+      "role": "Armour",
+      "page": 36,
+      "limit": null,
+      "unique": false,
+      "basePoints": 160,
+      "composition": "1 Gobsmasha Wagon",
+      "models": [
+        {
+          "name": "Gobsmasha Wagon",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 12,
+            "BS": 2,
+            "FRONT": 14,
+            "SIDE": 13,
+            "REAR": 11,
+            "HP": 8,
+            "CAPACITY": "–"
+          },
+          "wargear": [
+            "Centreline Mounted supa-kannon"
+          ],
+          "unitType": "Vehicle",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos"
+      ],
+      "factionChoice": true,
+      "specialRules": [],
+      "unitRules": [],
+      "options": [
+        {
+          "id": "lifta-droppa",
+          "text": "This Model may have its Centreline Mounted supa-kannon exchanged for one Centreline Mounted lifta-droppa for +45 Points.",
+          "kind": "upgrade",
+          "model": null,
+          "replaces": [
+            "Centreline Mounted supa-kannon"
+          ],
+          "choices": [
+            {
+              "name": "Centreline Mounted lifta-droppa",
+              "points": 45
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "pintle",
+          "text": "This Model may have up to two items from the Ork Pintle Weapons list selected for it.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [],
+          "perWeapon": true,
+          "choices": [
+            {
+              "list": "ork-pintle-weapons"
+            }
+          ],
+          "max": {
+            "fixed": 2
+          },
+          "requires": null
+        },
+        {
+          "id": "ram-rolla",
+          "text": "This Model may have one of the following options selected for it: -- Reinforced ram ........ +5 Points -- Deff rolla ........ +10 Points",
+          "kind": "one",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Reinforced ram",
+              "points": 5
+            },
+            {
+              "name": "Deff rolla",
+              "points": 10
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "gubbins-riggers",
+          "text": "This Model may have any of the following options selected for it: -- Assault gubbins ........ +10 Points -- Grot riggers ........ +10 Points",
+          "kind": "any",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Assault gubbins",
+              "points": 10
+            },
+            {
+              "name": "Grot riggers",
+              "points": 10
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "guntrukk",
+      "name": "Guntrukk",
+      "role": "Armour",
+      "page": 36,
+      "limit": null,
+      "unique": false,
+      "basePoints": 30,
+      "composition": "1 Guntrukk",
+      "models": [
+        {
+          "name": "Guntrukk",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 16,
+            "BS": 2,
+            "FRONT": 10,
+            "SIDE": 10,
+            "REAR": 10,
+            "HP": 4,
+            "CAPACITY": "–"
+          },
+          "wargear": [],
+          "unitType": "Vehicle",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos"
+      ],
+      "factionChoice": true,
+      "specialRules": [
+        "Ramshackle"
+      ],
+      "unitRules": [],
+      "options": [
+        {
+          "id": "turret-big-gunz",
+          "text": "This Model may have one item from the Ork Big Gunz list selected for it, with any item selected in this way becoming Turret Mounted.",
+          "kind": "one",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "list": "ork-big-gunz"
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "pintle",
+          "text": "This Model may have one item from the Ork Pintle Weapons list selected for it.",
+          "kind": "one",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "list": "ork-pintle-weapons"
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "vehicle-upgrades",
+          "text": "This Model may have any of the following options selected for it: -- Reinforced ram ........ +5 Points -- Assault gubbins ........ +5 Points -- Grot riggers ........ +5 Points",
+          "kind": "any",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Reinforced ram",
+              "points": 5
+            },
+            {
+              "name": "Assault gubbins",
+              "points": 5
+            },
+            {
+              "name": "Grot riggers",
+              "points": 5
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "dakka-trakk",
+      "name": "Dakka-trakk",
+      "role": "Armour",
+      "page": 37,
+      "limit": null,
+      "unique": false,
+      "basePoints": 95,
+      "composition": "1 Dakka-trakk",
+      "models": [
+        {
+          "name": "Dakka-trakk",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 12,
+            "BS": 2,
+            "FRONT": 13,
+            "SIDE": 12,
+            "REAR": 11,
+            "HP": 6,
+            "CAPACITY": "–"
+          },
+          "wargear": [
+            "Two Centreline Mounted big shootas",
+            "Turret Mounted flakka gunz"
+          ],
+          "unitType": "Vehicle",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos"
+      ],
+      "factionChoice": true,
+      "specialRules": [],
+      "unitRules": [],
+      "options": [
+        {
+          "id": "supa-kannon",
+          "text": "This Model may have its Turret Mounted flakka gunz exchanged for one Centreline Mounted supa-kannon for +30 Points.",
+          "kind": "upgrade",
+          "model": null,
+          "replaces": [
+            "Turret Mounted flakka gunz"
+          ],
+          "choices": [
+            {
+              "name": "Centreline Mounted supa-kannon",
+              "points": 30
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "pintle",
+          "text": "This Model may have up to two items from the Ork Pintle Weapons list selected for it.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [],
+          "perWeapon": true,
+          "choices": [
+            {
+              "list": "ork-pintle-weapons"
+            }
+          ],
+          "max": {
+            "fixed": 2
+          },
+          "requires": null
+        },
+        {
+          "id": "ram-rolla",
+          "text": "This Model may have one of the following options selected for it: -- Reinforced ram ........ +5 Points -- Deff rolla ........ +10 Points",
+          "kind": "one",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Reinforced ram",
+              "points": 5
+            },
+            {
+              "name": "Deff rolla",
+              "points": 10
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "gubbins-riggers",
+          "text": "This Model may have any of the following options selected for it: -- Assault gubbins ........ +10 Points -- Grot riggers ........ +10 Points",
+          "kind": "any",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Assault gubbins",
+              "points": 10
+            },
+            {
+              "name": "Grot riggers",
+              "points": 10
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "gun-squiggoth",
+      "name": "Gun Squiggoth",
+      "role": "Armour",
+      "page": 37,
+      "limit": null,
+      "unique": false,
+      "basePoints": 170,
+      "composition": "1 Gun Squiggoth",
+      "models": [
+        {
+          "name": "Gun Squiggoth",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 9,
+            "WS": 3,
+            "BS": 2,
+            "S": 6,
+            "T": 7,
+            "W": 6,
+            "I": 1,
+            "A": 4,
+            "LD": 10,
+            "CL": 9,
+            "WP": 7,
+            "IN": 3,
+            "SAV": "4+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Tusks and stomping feet"
+          ],
+          "unitType": "Cavalry",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos"
+      ],
+      "fixedChoice": "Snakebites",
+      "specialRules": [
+        "Bulky (8)",
+        "Feel No Pain (5+)",
+        "Firing Protocols (2)",
+        "Implacable Advance"
+      ],
+      "unitRules": [],
+      "options": [
+        {
+          "id": "big-gunz",
+          "text": "This Model must have two items from the Ork Big Gunz list selected for it.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [],
+          "perWeapon": true,
+          "choices": [
+            {
+              "list": "ork-big-gunz"
+            }
+          ],
+          "max": {
+            "fixed": 2
+          },
+          "requires": null,
+          "required": {
+            "count": 2
+          }
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "grot-mega-tank",
+      "name": "Grot Mega-tank",
+      "role": "Armour",
+      "page": 38,
+      "limit": null,
+      "unique": false,
+      "basePoints": 70,
+      "composition": "1 Grot Mega-tank",
+      "models": [
+        {
+          "name": "Grot Mega-tank",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 10,
+            "BS": 3,
+            "FRONT": 12,
+            "SIDE": 11,
+            "REAR": 10,
+            "HP": 5,
+            "CAPACITY": "–"
+          },
+          "wargear": [
+            "Reinforced ram",
+            "Grot riggers"
+          ],
+          "unitType": "Vehicle",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Smokescreen"
+      ],
+      "factionChoice": true,
+      "specialRules": [
+        "Downtrodden",
+        "Explodes (5+)"
+      ],
+      "unitRules": [],
+      "options": [
+        {
+          "id": "turret-weapons",
+          "text": "This Model may have up to two of the following options selected for it: -- Turret Mounted twin big shoota ........ +10 Points each -- Turret Mounted twin rokkit launcha ........ +10 Points each -- Turret Mounted twin skorcha ........ +10 Points each -- Turret Mounted twin grotzooka ........ +20 Points each -- Turret Mounted twin kustom mega-blasta ........ +20 Points each",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [],
+          "perWeapon": true,
+          "choices": [
+            {
+              "name": "Turret Mounted twin big shoota",
+              "points": 10
+            },
+            {
+              "name": "Turret Mounted twin rokkit launcha",
+              "points": 10
+            },
+            {
+              "name": "Turret Mounted twin skorcha",
+              "points": 10
+            },
+            {
+              "name": "Turret Mounted twin grotzooka",
+              "points": 20
+            },
+            {
+              "name": "Turret Mounted twin kustom mega-blasta",
+              "points": 20
+            }
+          ],
+          "max": {
+            "fixed": 2
+          },
+          "requires": null
+        },
+        {
+          "id": "turret-kan-weapon",
+          "text": "This Model may have one item from the Ork Kan Ranged Weapons list, with any item selected in this way becoming Turret Mounted.",
+          "kind": "one",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "list": "ork-kan-ranged-weapons"
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "sponson-left",
+          "text": "This Model may have up to two items from the Ork Kan Ranged Weapons list, with any item selected in this way becoming Sponson (Left) Mounted.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [],
+          "perWeapon": true,
+          "choices": [
+            {
+              "list": "ork-kan-ranged-weapons"
+            }
+          ],
+          "max": {
+            "fixed": 2
+          },
+          "requires": null
+        },
+        {
+          "id": "sponson-right",
+          "text": "This Model may have up to two items from the Ork Kan Ranged Weapons list, with any item selected in this way becoming Sponson (Right) Mounted.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [],
+          "perWeapon": true,
+          "choices": [
+            {
+              "list": "ork-kan-ranged-weapons"
+            }
+          ],
+          "max": {
+            "fixed": 2
+          },
+          "requires": null
+        },
+        {
+          "id": "pintle-shoota",
+          "text": "This Model may have a Pintle Mounted shoota selected for it for +3 Points.",
+          "kind": "upgrade",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Pintle Mounted shoota",
+              "points": 3
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "grot-tank-battle-mob",
+      "name": "Grot Tank Battle Mob",
+      "role": "Armour",
+      "page": 38,
+      "limit": null,
+      "unique": false,
+      "basePoints": 75,
+      "composition": "3 Grot Tanks",
+      "models": [
+        {
+          "name": "Grot Tank",
+          "min": 3,
+          "max": 8,
+          "costPerExtra": 25,
+          "profile": {
+            "M": 10,
+            "WS": 2,
+            "BS": 3,
+            "S": 3,
+            "T": 5,
+            "W": 2,
+            "I": 2,
+            "A": 1,
+            "LD": 5,
+            "CL": 6,
+            "WP": 4,
+            "IN": 5,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [],
+          "unitType": "Cavalry (Skirmish)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos"
+      ],
+      "factionChoice": true,
+      "specialRules": [
+        "Bulky (2)",
+        "Downtrodden",
+        "Expendable (2)",
+        "Implacable Advance",
+        "Firing Protocols (2)",
+        "Support Unit (1)"
+      ],
+      "unitRules": [],
+      "options": [
+        {
+          "id": "kan-weapon",
+          "text": "Every Model in this Unit must have one item from the Ork Kan Ranged Weapons list selected for it.",
+          "kind": "perModel",
+          "model": "Grot Tank",
+          "replaces": [],
+          "perWeapon": true,
+          "choices": [
+            {
+              "list": "ork-kan-ranged-weapons"
+            }
+          ],
+          "max": null,
+          "requires": null,
+          "required": {
+            "count": "all"
+          }
+        },
+        {
+          "id": "second-kan-weapon",
+          "text": "For every four Models in this Unit, one Grot Tank may have a second item from the Ork Kan Ranged Weapons list selected for it.",
+          "kind": "perModel",
+          "model": "Grot Tank",
+          "replaces": [],
+          "perWeapon": true,
+          "choices": [
+            {
+              "list": "ork-kan-ranged-weapons"
+            }
+          ],
+          "max": {
+            "per": 4,
+            "count": 1
+          },
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "gorkanaut",
+      "name": "Gorkanaut",
+      "role": "Lord of War",
+      "page": 39,
+      "limit": null,
+      "unique": false,
+      "basePoints": 380,
+      "composition": "1 Gorkanaut",
+      "models": [
+        {
+          "name": "Gorkanaut",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 8,
+            "WS": 4,
+            "BS": 2,
+            "S": 8,
+            "FRONT": 13,
+            "REAR": 11,
+            "I": 2,
+            "A": 3,
+            "HP": 8,
+            "CAPACITY": 6
+          },
+          "wargear": [
+            "Hull (Front) Mounted deffstorm mega-shoota",
+            "Hull (Front) Mounted skorcha",
+            "Two Pintle Mounted rokkit launchas",
+            "Two Pintle Mounted twin big shootas",
+            "Klaw of Gork (or possibly Mork)"
+          ],
+          "unitType": "Vehicle (Knight, Transport)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos"
+      ],
+      "factionChoice": true,
+      "specialRules": [
+        "Effigy (6)",
+        "Explodes (4+)",
+        "Vanguard (2)"
+      ],
+      "unitRules": [
+        {
+          "name": "Access Points",
+          "text": "This Model has Access Points on its Front Facing."
+        }
+      ],
+      "options": [
+        {
+          "id": "grot-riggers",
+          "text": "This Model may have grot riggers for selected for it for 20 Points.",
+          "kind": "upgrade",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Grot riggers",
+              "points": 20
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "Profile row prints M/WS/BS/S, Front/Rear armour, I/A, HP and Transport Capacity (no Side value) -- transcribed using the printed headers rather than the standard vehicle FRONT/SIDE/REAR keys. The Knight Sub-Type rules are referenced as being in 'Liber Questoris', not reprinted here."
+    },
+    {
+      "id": "morkanaut",
+      "name": "Morkanaut",
+      "role": "Lord of War",
+      "page": 39,
+      "limit": null,
+      "unique": false,
+      "basePoints": 365,
+      "composition": "1 Morkanaut",
+      "models": [
+        {
+          "name": "Morkanaut",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 8,
+            "WS": 4,
+            "BS": 2,
+            "S": 8,
+            "FRONT": 13,
+            "REAR": 11,
+            "I": 2,
+            "A": 3,
+            "HP": 8,
+            "CAPACITY": 6
+          },
+          "wargear": [
+            "Hull (Front) Mounted kustom mega-kannon",
+            "Hull (Front) Mounted kustom mega-blasta",
+            "Two Pintle Mounted rokkit launchas",
+            "Two Pintle Mounted twin big shootas",
+            "Klaw of Gork (or possibly Mork)"
+          ],
+          "unitType": "Vehicle (Knight, Transport)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos"
+      ],
+      "factionChoice": true,
+      "specialRules": [
+        "Effigy (6)",
+        "Explodes (4+)",
+        "Vanguard (2)"
+      ],
+      "unitRules": [
+        {
+          "name": "Access Points",
+          "text": "This Model has Access Points on its Front Facing."
+        }
+      ],
+      "options": [
+        {
+          "id": "upgrades",
+          "text": "This Model may have any of the following options selected for it: -- Grot riggers ........ +20 Points -- Kustom force-field ........ +50 Points",
+          "kind": "any",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Grot riggers",
+              "points": 20
+            },
+            {
+              "name": "Kustom force-field",
+              "points": 50
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "Profile row prints M/WS/BS/S, Front/Rear armour, I/A, HP and Transport Capacity (no Side value) -- transcribed using the printed headers rather than the standard vehicle FRONT/SIDE/REAR keys. The Knight Sub-Type rules are referenced as being in 'Liber Questoris', not reprinted here."
+    },
+    {
+      "id": "stompa",
+      "name": "Stompa",
+      "role": "Lord of War",
+      "page": 40,
+      "limit": null,
+      "unique": false,
+      "basePoints": 770,
+      "composition": "1 Stompa",
+      "models": [
+        {
+          "name": "Stompa",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "HEAD": {
+              "M": "–",
+              "S": "–",
+              "PRIMARY": 13,
+              "EXPOSED": 11,
+              "HP": 8,
+              "CAPACITY": "–"
+            },
+            "CARAPACE": {
+              "M": "–",
+              "S": 2,
+              "PRIMARY": 14,
+              "EXPOSED": 12,
+              "HP": 12,
+              "CAPACITY": 20
+            },
+            "ARMS": {
+              "M": "–",
+              "S": 2,
+              "PRIMARY": 12,
+              "EXPOSED": 10,
+              "HP": 8,
+              "CAPACITY": "–"
+            },
+            "LEGS": {
+              "M": 15,
+              "S": "–",
+              "PRIMARY": 14,
+              "EXPOSED": 13,
+              "HP": 10,
+              "CAPACITY": "–"
+            }
+          },
+          "wargear": [
+            "Two Front Mounted defensor big shootas (Carapace)",
+            "Front Mounted defensor skorcha (Carapace)",
+            "Rear Mounted defensor big shoota (Carapace)",
+            "Three Arm Mounted supa-rokkits"
+          ],
+          "unitType": "Vehicle (Titan, Transport)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Light Battle"
+      ],
+      "factionChoice": true,
+      "specialRules": [
+        "Effigy (12)",
+        "Repair Crew (D3)"
+      ],
+      "unitRules": [
+        {
+          "name": "Access Points",
+          "text": "This Model has Access Points on its Rear Facing."
+        }
+      ],
+      "options": [
+        {
+          "id": "arm-weapons",
+          "text": "This Model must have two Arm Mounted Weapons selected for it from the following options: -- Arm Mounted mega-choppa and Co-axial (mega-choppa) Mounted defensor twin big shoota -- Arm Mounted deffkannon and Co-axial (deffkanon) Mounted supa-gatler -- Arm Mounted Stompa lifta-droppa",
+          "kind": "perModel",
+          "model": "Stompa",
+          "replaces": [],
+          "perWeapon": true,
+          "choices": [
+            {
+              "name": "Arm Mounted mega-choppa and Co-axial (mega-choppa) Mounted defensor twin big shoota",
+              "points": 0
+            },
+            {
+              "name": "Arm Mounted deffkannon and Co-axial (deffkanon) Mounted supa-gatler",
+              "points": 0
+            },
+            {
+              "name": "Arm Mounted Stompa lifta-droppa",
+              "points": 0
+            }
+          ],
+          "max": {
+            "fixed": 2
+          },
+          "requires": null,
+          "required": {
+            "count": 2
+          }
+        },
+        {
+          "id": "extra-rokkits",
+          "text": "This Model may have up to two additional Arm Mounted supa-rokkits ........ +20 Points each",
+          "kind": "perModel",
+          "model": "Stompa",
+          "replaces": [],
+          "perWeapon": true,
+          "choices": [
+            {
+              "name": "Arm Mounted supa-rokkit",
+              "points": 20
+            }
+          ],
+          "max": {
+            "fixed": 2
+          },
+          "requires": null
+        },
+        {
+          "id": "gargant-deflektor",
+          "text": "This Model may have one of the following options selected for it: -- The Gargant Deflektor (1) Special Rule ........ +50 Points -- The Gargant Deflektor (2) Special Rule ........ +100 Points",
+          "kind": "one",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "name": "The Gargant Deflektor (1)",
+              "points": 50
+            },
+            {
+              "name": "The Gargant Deflektor (2)",
+              "points": 100
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "The profile table has four rows (Head, Carapace, Arms, Legs) with columns M, S, Primary Armour, Exposed Armour, HP, Transport Capacity, instead of a single vehicle-style line; transcribed as a nested profile keyed by facing. 'Light Battle' is printed under TRAITS though it reads like a Special Rule name; kept as printed. The Repair Crew (X) Special Rule and Titan Sub-Type text are referenced as being in 'Liber Questoris', not reprinted here."
+    },
+    {
+      "id": "kill-tank",
+      "name": "Kill Tank",
+      "role": "Lord of War",
+      "page": 41,
+      "limit": null,
+      "unique": false,
+      "basePoints": 275,
+      "composition": "1 Kill Krusha",
+      "models": [
+        {
+          "name": "Kill Krusha",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 12,
+            "BS": 2,
+            "FRONT": 14,
+            "SIDE": 13,
+            "REAR": 10,
+            "HP": 9,
+            "CAPACITY": "–"
+          },
+          "wargear": [
+            "Hull (Front) Mounted krusha kannon",
+            "Grot riggers",
+            "Reinforced ram"
+          ],
+          "unitType": "Vehicle (Super-heavy, Rapid)",
+          "specialRules": []
+        },
+        {
+          "name": "Kill Blasta",
+          "min": 0,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 10,
+            "BS": 2,
+            "FRONT": 14,
+            "SIDE": 13,
+            "REAR": 11,
+            "HP": 10,
+            "CAPACITY": "–"
+          },
+          "wargear": [
+            "Centreline Mounted gigashoota",
+            "Two Sponson Mounted twin big shootas",
+            "Grot riggers",
+            "Reinforced ram"
+          ],
+          "unitType": "Vehicle (Super-heavy)",
+          "specialRules": []
+        },
+        {
+          "name": "Kill Bursta",
+          "min": 0,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 10,
+            "BS": 2,
+            "FRONT": 14,
+            "SIDE": 13,
+            "REAR": 11,
+            "HP": 10,
+            "CAPACITY": "–"
+          },
+          "wargear": [
+            "Centreline Mounted bursta kannon",
+            "Two Sponson Mounted twin big shootas",
+            "Grot riggers",
+            "Reinforced ram"
+          ],
+          "unitType": "Vehicle (Super-heavy)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos"
+      ],
+      "factionChoice": true,
+      "specialRules": [
+        "Explodes (5+)"
+      ],
+      "unitRules": [],
+      "options": [
+        {
+          "id": "blasta-swap",
+          "text": "This model may be replaced with 1 Kill Blasta for +55 Points or 1 Kill Bursta for +100 Points",
+          "kind": "swapModel",
+          "model": "Kill Krusha",
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Kill Blasta",
+              "points": 55
+            },
+            {
+              "name": "Kill Bursta",
+              "points": 100
+            }
+          ],
+          "max": {
+            "fixed": 1
+          },
+          "requires": null
+        },
+        {
+          "id": "krusha-pintle",
+          "text": "This Kill Krusha may have up to five items from the Ork Pintle Weapons list.",
+          "kind": "perModel",
+          "model": "Kill Krusha",
+          "replaces": [],
+          "perWeapon": true,
+          "choices": [
+            {
+              "list": "ork-pintle-weapons"
+            }
+          ],
+          "max": {
+            "fixed": 5
+          },
+          "requires": null
+        },
+        {
+          "id": "sponson-swap",
+          "text": "This Kill Blasta or Kill Bursta may have both Sponson Mounted twin big shootas exchanged for one item from the Ork Sponson Weapons list.",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Two Sponson Mounted twin big shootas"
+          ],
+          "choices": [
+            {
+              "list": "ork-sponson-weapons"
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "ram-rolla",
+          "text": "This Model may have its reinforced ram exchanged for one deff rolla for +10 Points.",
+          "kind": "upgrade",
+          "model": null,
+          "replaces": [
+            "Reinforced ram"
+          ],
+          "choices": [
+            {
+              "name": "Deff rolla",
+              "points": 10
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "gubbins-grot-gunners",
+          "text": "This Model may have any of the following options selected for it: -- Assault gubbins ........ +15 Points -- Grot gunners for all its Defensive Weapons ........ +10 Points",
+          "kind": "any",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Assault gubbins",
+              "points": 15
+            },
+            {
+              "name": "Grot gunners for all its Defensive Weapons",
+              "points": 10
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "gargantuan-squiggoth",
+      "name": "Gargantuan Squiggoth",
+      "role": "Lord of War",
+      "page": 42,
+      "limit": null,
+      "unique": false,
+      "basePoints": 550,
+      "composition": "1 Gargantuan Squiggoth",
+      "models": [
+        {
+          "name": "Gargantuan Squiggoth",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 12,
+            "WS": 2,
+            "BS": 2,
+            "S": 10,
+            "T": 8,
+            "W": 10,
+            "I": 1,
+            "A": 6,
+            "LD": 12,
+            "CL": 10,
+            "WP": 7,
+            "IN": 3,
+            "SAV": "3+",
+            "INV": "–",
+            "CAPACITY": 20
+          },
+          "wargear": [
+            "Tusks and stomping feet",
+            "Supa-kannon",
+            "Supa-lobba"
+          ],
+          "unitType": "Cavalry (Heavy, Transport)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos"
+      ],
+      "fixedChoice": "Snakebites",
+      "specialRules": [
+        "Bulky (16)",
+        "Eternal Warrior (1)",
+        "Feel No Pain (5+)",
+        "Firing Protocols (6)",
+        "Impact (WS)",
+        "Implacable Advance"
+      ],
+      "unitRules": [
+        {
+          "name": "Access Points",
+          "text": "This Model has Access Points on its Rear Facing, determined as though it were a Model with the Vehicle type."
+        }
+      ],
+      "options": [
+        {
+          "id": "pintle",
+          "text": "This Model may have up to four items from the Ork Pintle Weapons list selected for it.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [],
+          "perWeapon": true,
+          "choices": [
+            {
+              "list": "ork-pintle-weapons"
+            }
+          ],
+          "max": {
+            "fixed": 4
+          },
+          "requires": null
+        }
+      ],
+      "note": null
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "grantedPrimeAdvantages": [
+    {
+      "name": "Imperium Entanglements",
+      "page": 45,
+      "eligible": {
+        "choice": [
+          "Blood Axes"
+        ],
+        "roles": [
+          "Command"
+        ]
+      },
+      "extraSlot": true,
+      "text": "If a Unit which only includes Models with the Blood Axes Trait that have the Command Battlefield Role is selected to fill a Prime Force Organisation Slot, the following Prime Advantage can be selected: Imperium Entanglements. Add one additional Force Organisation Slot to the Detachment that includes the Prime Slot, this Slot may be of any Battlefield Role other than High Command, Command, Warlord or Lord of War and can only be filled by a Unit selected from the Imperialis Militia Army List or the Blackshields Army List. The Imperium Entanglements Prime Advantage can only be selected once per Detachment and cannot be selected if the Logistical Benefit Prime Advantage is also selected for that Detachment."
+    },
+    {
+      "name": "Plunderer Without Equal",
+      "page": 47,
+      "eligible": {
+        "choice": [
+          "Deathskulls",
+          "Freebooters"
+        ],
+        "roles": [
+          "Command"
+        ]
+      },
+      "extraSlot": false,
+      "text": "If a Unit which only includes Models that have the Command Battlefield Role and either the Deathskulls Trait or the Freebooters Trait is selected to fill a Prime Force Organisation Slot, the following Prime Advantage can be selected: Plunderer Without Equal. When a Unit is selected to fill a Prime Organisation Slot with this Prime Advantage, a single Transport, Heavy Transport, Armour or Lord of War Force Organisation Slot in the same Army may be filled by a Unit selected from either the Legiones Astartes or Solar Auxilia Army Lists instead of the Orks Army List. This Prime Advantage may be taken more than once in the same Army. Any Unit selected in this way must be of the Vehicle Type, but must not have the Flyer Sub-Type or the Orbital Assault Vehicle Special Rule. The selected Unit gains the Looted Wagon Special Rule."
+    },
+    {
+      "name": "Feral Orks",
+      "page": 49,
+      "eligible": {
+        "choice": [
+          "Snakebites",
+          "Freebooters"
+        ],
+        "units": [
+          "nobz-mob",
+          "slugga-boyz-mob"
+        ]
+      },
+      "extraSlot": false,
+      "text": "If a Nobz Mob or Slugga Boyz Mob that has the Snakebites Trait or the Freebooters Trait is selected to fill a Prime Force Organisation Slot, the following Prime Advantage can be selected: Feral Orks. All Models in the Unit selected to fill a Prime Force Organisation Slot with this Prime Advantage gain the Feel No Pain (5+) Special Rule against any Wounds inflicted by Weapons with the Phage (X) or Poisoned (X) Special Rules. In addition, any Weapons with the Choppa Trait wielded by Models in the Unit selected to fill a Prime Force Organisation Slot with this Prime Advantage gain the Poisoned (5+) Special Rule. Any Model in a Unit selected to fill a Prime Force Organisation Slot with this Prime Advantage may have their slugga and choppa exchanged for paired choppas for Free, but no Model in the Unit may have any items from the Ork Kombi-weapons List or the Ork Special Weapons list selected for them."
+    }
+  ]
+}

@@ -1,0 +1,2125 @@
+{
+  "units": [
+    {
+      "id": "weirdboy",
+      "name": "Weirdboy",
+      "role": "Elites",
+      "page": 17,
+      "limit": null,
+      "unique": false,
+      "basePoints": 50,
+      "composition": "1 Weirdboy",
+      "models": [
+        {
+          "name": "Weirdboy",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 6,
+            "WS": 5,
+            "BS": 2,
+            "S": 4,
+            "T": 4,
+            "W": 3,
+            "I": 3,
+            "A": 4,
+            "LD": 7,
+            "CL": 8,
+            "WP": 8,
+            "IN": 4,
+            "SAV": "6+",
+            "INV": "5+"
+          },
+          "wargear": [
+            "Force staff"
+          ],
+          "unitType": "Infantry (Champion, Specialist)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Psyker",
+        "Warphead"
+      ],
+      "specialRules": [
+        "Impact (S)",
+        "Mob Rule (WP)",
+        "Power of the Waaagh! Discipline"
+      ],
+      "unitRules": [
+        {
+          "name": "Power of the Waaagh! Discipline",
+          "text": "A Weirdboy in a battle trance is a terrifying sight. His eyes pop and his limbs flail as he storms toward the enemy. When the surge reaches its excruciating peak, the Weirdboy will direct the resultant discharge in a display of pyrotechnics that either blasts his enemies to pieces or energises his comrades with crackling green energy. A Model with the Power of the Waaagh! Discipline gains the following benefits: The Explodes (5+) and Heedless special rules. The 'Eadbanger Psychic Weapon. The Warpath Psychic Power. The 'Warphead' Trait.\n\n'EADBANGER (Psychic Weapon)\nThe Weirdboy sends out arcs of crackling energy that ground themselves upon the enemy, causing heads to explode.\nR 18, FP 1, RS 5, AP 2, D 1, Special Rules: Force (Damage), Precision (4+), Targeted (+3), Overload (1). Traits: Ranged, Psychic.\nFocus: The Focus of the Power must be a Model with the Warphead Trait under the Active Player's control, and must be either part of the Unit making a Charge or within 12\" and with Line of Sight to one or more Models in that Unit.\nTarget: The Target Unit must be the Unit currently selected and in the process of making a Charge.\nDuration: If successfully Manifested, the effects of this Psychic Power last until the end of the current Assault Phase.\nProcess: 1. Once the Focus and Target Unit have been decided, make a Manifestation Check. 2. If the Manifestation Check is successful, then no Volley Attack may be made for the Target Unit, but all Models in the Target Unit gain a bonus of +2 to their Attacks Characteristic. 3. If the Manifestation Check fails then there is no further effect.\n\nWARPATH (Psychic Power, Blessing)\nThe Weirdboy disperses the energy coursing through his frame into the Orks around him with dramatic effect. This Power is used in the Charge Sub-Phase to add a bonus to a Unit's Attacks.\nTrigger: The Active Player may choose to Manifest the Warpath Psychic Power in the Charge Sub-Phase, at Step 4 of the Charge process before any Unit makes a Volley Attack."
+        }
+      ],
+      "factionChoice": true,
+      "fixedChoice": null,
+      "options": [],
+      "note": null
+    },
+    {
+      "id": "nobz-mob",
+      "name": "Nobz Mob",
+      "role": "Elites",
+      "page": 18,
+      "limit": null,
+      "unique": false,
+      "basePoints": 55,
+      "composition": "3 Nobs",
+      "models": [
+        {
+          "name": "Nob",
+          "min": 3,
+          "max": 15,
+          "costPerExtra": 15,
+          "profile": {
+            "M": 6,
+            "WS": 5,
+            "BS": 2,
+            "S": 4,
+            "T": 4,
+            "W": 2,
+            "I": 3,
+            "A": 3,
+            "LD": 7,
+            "CL": 8,
+            "WP": 7,
+            "IN": 5,
+            "SAV": "4+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Slugga",
+            "Choppa",
+            "Stikkbombs"
+          ],
+          "unitType": "Infantry",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos"
+      ],
+      "specialRules": [
+        "Impact (S)",
+        "Line (1)",
+        "Mob Rule (CL)"
+      ],
+      "unitRules": [],
+      "factionChoice": true,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "nob-slugga-boss-weapon",
+          "text": "Any Model in this Unit may have its slugga and/or choppa exchanged for one item each from the Ork Boss Weapons list.",
+          "kind": "perModel",
+          "model": "Nob",
+          "replaces": [
+            "Slugga"
+          ],
+          "choices": [
+            {
+              "list": "ork-boss-weapons"
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "nob-choppa-boss-weapon",
+          "text": "Any Model in this Unit may have its slugga and/or choppa exchanged for one item each from the Ork Boss Weapons list.",
+          "kind": "perModel",
+          "model": "Nob",
+          "replaces": [
+            "Choppa"
+          ],
+          "choices": [
+            {
+              "list": "ork-boss-weapons"
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "nob-slugga-kombi",
+          "text": "Any Model in this Unit may have its slugga exchanged for one item from the Ork Kombi-weapons list.",
+          "kind": "perModel",
+          "model": "Nob",
+          "replaces": [
+            "Slugga"
+          ],
+          "choices": [
+            {
+              "list": "ork-kombi-weapons"
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "nob-bosspole",
+          "text": "Any Model in this Unit may have a bosspole for +5 Points per Model.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Bosspole",
+              "points": 5
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "warbiker-nobz-mob",
+      "name": "Warbiker Nobz Mob",
+      "role": "Elites",
+      "page": 18,
+      "limit": null,
+      "unique": false,
+      "basePoints": 120,
+      "composition": "3 Warbiker Nobz",
+      "models": [
+        {
+          "name": "Warbiker Nob",
+          "min": 3,
+          "max": 9,
+          "costPerExtra": 35,
+          "profile": {
+            "M": 14,
+            "WS": 5,
+            "BS": 2,
+            "S": 4,
+            "T": 4,
+            "W": 3,
+            "I": 3,
+            "A": 3,
+            "LD": 7,
+            "CL": 8,
+            "WP": 7,
+            "IN": 4,
+            "SAV": "4+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Slugga",
+            "Twin dakkaguns",
+            "Stikkbombs"
+          ],
+          "unitType": "Cavalry",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos"
+      ],
+      "specialRules": [
+        "Bulky (2)",
+        "Impact (S)",
+        "Implacable Advance",
+        "Mob Rule (CL)",
+        "Outflank"
+      ],
+      "unitRules": [],
+      "factionChoice": true,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "warbiker-nob-slugga-boss-weapon",
+          "text": "Any Model in this Unit may have its slugga exchanged for one item from the Ork Boss Weapons list.",
+          "kind": "perModel",
+          "model": "Warbiker Nob",
+          "replaces": [
+            "Slugga"
+          ],
+          "choices": [
+            {
+              "list": "ork-boss-weapons"
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "warbiker-nob-bosspole",
+          "text": "Any Model in this Unit may have a bosspole for +5 Points per Model.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Bosspole",
+              "points": 5
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "flash-gitz-mob",
+      "name": "Flash Gitz Mob",
+      "role": "Elites",
+      "page": 19,
+      "limit": null,
+      "unique": false,
+      "basePoints": 80,
+      "composition": "3 Flash Gitz",
+      "models": [
+        {
+          "name": "Flash Git",
+          "min": 3,
+          "max": 10,
+          "costPerExtra": 24,
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 3,
+            "S": 4,
+            "T": 4,
+            "W": 2,
+            "I": 3,
+            "A": 3,
+            "LD": 7,
+            "CL": 8,
+            "WP": 7,
+            "IN": 5,
+            "SAV": "4+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Snazzgun",
+            "Stikkbombs"
+          ],
+          "unitType": "Infantry (Heavy)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos"
+      ],
+      "specialRules": [
+        "Bulky (2)",
+        "Mob Rule (CL)"
+      ],
+      "unitRules": [],
+      "factionChoice": true,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "flash-git-boss-weapon",
+          "text": "Any Model in this Unit may have one item from the Ork Boss Weapons list.",
+          "kind": "perModel",
+          "model": "Flash Git",
+          "replaces": [],
+          "choices": [
+            {
+              "list": "ork-boss-weapons"
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "flash-git-bosspole",
+          "text": "Any Model in this Unit may have a bosspole for +5 Points per Model.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Bosspole",
+              "points": 5
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "meganobz-mob",
+      "name": "Meganobz Mob",
+      "role": "Heavy Assault",
+      "page": 20,
+      "limit": null,
+      "unique": false,
+      "basePoints": 150,
+      "composition": "3 Meganobz",
+      "models": [
+        {
+          "name": "Meganob",
+          "min": 3,
+          "max": 9,
+          "costPerExtra": 45,
+          "profile": {
+            "M": 5,
+            "WS": 5,
+            "BS": 2,
+            "S": 5,
+            "T": 5,
+            "W": 3,
+            "I": 2,
+            "A": 3,
+            "LD": 7,
+            "CL": 8,
+            "WP": 7,
+            "IN": 5,
+            "SAV": "2+",
+            "INV": "5+"
+          },
+          "wargear": [
+            "Kombi-shoota",
+            "Power klaw"
+          ],
+          "unitType": "Infantry (Heavy)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos"
+      ],
+      "specialRules": [
+        "Bulky (2)",
+        "Impact (A)",
+        "Implacable Advance",
+        "Mob Rule (CL)",
+        "Slow and Purposeful",
+        "Vanguard (3)"
+      ],
+      "unitRules": [],
+      "factionChoice": true,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "meganob-kombi-swap",
+          "text": "Any Model in this Unit may have its kombi-shoota exchanged for one item from the Ork Kombi-weapons list.",
+          "kind": "perModel",
+          "model": "Meganob",
+          "replaces": [
+            "Kombi-shoota"
+          ],
+          "choices": [
+            {
+              "list": "ork-kombi-weapons"
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "meganob-killsaws",
+          "text": "Any Model in this Unit may have its kombi-shoota and power klaw exchanged for one pair of killsaws for +10 Points.",
+          "kind": "perModel",
+          "model": "Meganob",
+          "replaces": [
+            "Kombi-shoota",
+            "Power klaw"
+          ],
+          "choices": [
+            {
+              "name": "Pair of Killsaws",
+              "points": 10
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "meganob-bosspole",
+          "text": "Any Model in this Unit may have a bosspole for +5 Points per Model.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Bosspole",
+              "points": 5
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "stormboyz-mob",
+      "name": "Stormboyz Mob",
+      "role": "Heavy Assault",
+      "page": 21,
+      "limit": null,
+      "unique": false,
+      "basePoints": 50,
+      "composition": "5 Stormboyz",
+      "models": [
+        {
+          "name": "Stormboy",
+          "min": 5,
+          "max": 30,
+          "costPerExtra": 8,
+          "profile": {
+            "M": 12,
+            "WS": 4,
+            "BS": 2,
+            "S": 3,
+            "T": 4,
+            "W": 1,
+            "I": 2,
+            "A": 2,
+            "LD": 7,
+            "CL": 7,
+            "WP": 6,
+            "IN": 5,
+            "SAV": "6+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Slugga",
+            "Choppa",
+            "Stikkbombs",
+            "Rokkit Pack"
+          ],
+          "unitType": "Infantry (Antigrav)",
+          "specialRules": []
+        },
+        {
+          "name": "Drillboss",
+          "min": 0,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 12,
+            "WS": 5,
+            "BS": 2,
+            "S": 4,
+            "T": 4,
+            "W": 2,
+            "I": 3,
+            "A": 3,
+            "LD": 8,
+            "CL": 8,
+            "WP": 7,
+            "IN": 5,
+            "SAV": "6+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Slugga",
+            "Choppa",
+            "Stikkbombs",
+            "Rokkit Pack"
+          ],
+          "unitType": "Infantry (Sergeant, Antigrav)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos"
+      ],
+      "specialRules": [
+        "Bulky (2)",
+        "Deep Strike",
+        "Impact (S)",
+        "Mob Rule (CL)",
+        "Vanguard (2)"
+      ],
+      "unitRules": [
+        {
+          "name": "Rokkit Pack",
+          "text": "Stormboyz use crude rokkit packs to propel themselves across the battlefield in huge, bounding leaps. Whether they smash into enemy lines or a solid ferrocrete wall is a different matter entirely, however. Rokkit packs allow a boosted jump but risk causing Wounds. In the Effects Sub-Phase of the Start Phase, the Controlling Player of a Unit in which every Model is equipped with a rokkit pack can choose to boost their jumps. Until the end of this Turn, Models in that Unit equipped with rokkit packs gain the Fast (3) Special Rule but must make Dangerous Terrain Tests when making a Rush or Charge Move."
+        }
+      ],
+      "factionChoice": true,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "stormboy-swapmodel-drillboss",
+          "text": "One Stormboy may be replaced with a Drillboss for +10 Points.",
+          "kind": "swapModel",
+          "model": "Stormboy",
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Drillboss",
+              "points": 10
+            }
+          ],
+          "max": {
+            "fixed": 1
+          },
+          "requires": null
+        },
+        {
+          "id": "stormboy-chainsword",
+          "text": "For every five models in this Unit, one Stormboy in this Unit may have its choppa exchanged for one chainsword for Free.",
+          "kind": "perModel",
+          "model": "Stormboy",
+          "replaces": [
+            "Choppa"
+          ],
+          "choices": [
+            {
+              "name": "Chainsword",
+              "points": 0
+            }
+          ],
+          "max": {
+            "per": 5,
+            "count": 1
+          },
+          "requires": null
+        },
+        {
+          "id": "drillboss-slugga-boss-weapon",
+          "text": "If this Unit includes a Drillboss, the Drillboss in this Unit may have its slugga and/or choppa exchanged for one item each from the Ork Boss Weapons list.",
+          "kind": "perModel",
+          "model": "Drillboss",
+          "replaces": [
+            "Slugga"
+          ],
+          "choices": [
+            {
+              "list": "ork-boss-weapons"
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "drillboss-choppa-boss-weapon",
+          "text": "If this Unit includes a Drillboss, the Drillboss in this Unit may have its slugga and/or choppa exchanged for one item each from the Ork Boss Weapons list.",
+          "kind": "perModel",
+          "model": "Drillboss",
+          "replaces": [
+            "Choppa"
+          ],
+          "choices": [
+            {
+              "list": "ork-boss-weapons"
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "slugga-boyz-mob",
+      "name": "Slugga Boyz Mob",
+      "role": "Troops",
+      "page": 22,
+      "limit": null,
+      "unique": false,
+      "basePoints": 60,
+      "composition": "10 Slugga Boyz",
+      "models": [
+        {
+          "name": "Slugga Boy",
+          "min": 10,
+          "max": 30,
+          "costPerExtra": 5,
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 2,
+            "S": 3,
+            "T": 4,
+            "W": 1,
+            "I": 2,
+            "A": 2,
+            "LD": 6,
+            "CL": 7,
+            "WP": 6,
+            "IN": 5,
+            "SAV": "6+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Slugga",
+            "Choppa",
+            "Stikkbombs"
+          ],
+          "unitType": "Infantry (Light)",
+          "specialRules": []
+        },
+        {
+          "name": "Slugga Nob",
+          "min": 0,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 6,
+            "WS": 5,
+            "BS": 2,
+            "S": 4,
+            "T": 4,
+            "W": 2,
+            "I": 3,
+            "A": 3,
+            "LD": 7,
+            "CL": 8,
+            "WP": 7,
+            "IN": 5,
+            "SAV": "6+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Slugga",
+            "Choppa",
+            "Stikkbombs"
+          ],
+          "unitType": "Infantry (Sergeant, Light)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos"
+      ],
+      "specialRules": [
+        "Impact (S)",
+        "Line (2)",
+        "Mob Rule (CL)"
+      ],
+      "unitRules": [],
+      "factionChoice": true,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "slugga-boyz-swapmodel-nob",
+          "text": "One Slugga Boy may be replaced with a Slugga Nob for +10 Points.",
+          "kind": "swapModel",
+          "model": "Slugga Boy",
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Slugga Nob",
+              "points": 10
+            }
+          ],
+          "max": {
+            "fixed": 1
+          },
+          "requires": null
+        },
+        {
+          "id": "slugga-boyz-chainsword",
+          "text": "For every five models in this Unit, one Slugga Boy in this Unit may have its choppa exchanged for one chainsword for Free.",
+          "kind": "perModel",
+          "model": "Slugga Boy",
+          "replaces": [
+            "Choppa"
+          ],
+          "choices": [
+            {
+              "name": "Chainsword",
+              "points": 0
+            }
+          ],
+          "max": {
+            "per": 5,
+            "count": 1
+          },
+          "requires": null
+        },
+        {
+          "id": "slugga-boyz-special-weapon",
+          "text": "Up to three Slugga Boyz in this Unit may each have their slugga and choppa exchanged for one item from the Ork Special Weapons list.",
+          "kind": "perModel",
+          "model": "Slugga Boy",
+          "replaces": [
+            "Slugga",
+            "Choppa"
+          ],
+          "choices": [
+            {
+              "list": "ork-special-weapons"
+            }
+          ],
+          "max": {
+            "fixed": 3
+          },
+          "requires": null
+        },
+        {
+          "id": "slugga-nob-boss-weapon",
+          "text": "If this Unit includes a Slugga Nob, the Slugga Nob in this Unit may have its slugga and/or choppa exchanged for one item each from the Ork Boss Weapons list.",
+          "kind": "perModel",
+          "model": "Slugga Nob",
+          "replaces": [
+            "Slugga"
+          ],
+          "choices": [
+            {
+              "list": "ork-boss-weapons"
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "slugga-nob-choppa-boss-weapon",
+          "text": "If this Unit includes a Slugga Nob, the Slugga Nob in this Unit may have its slugga and/or choppa exchanged for one item each from the Ork Boss Weapons list.",
+          "kind": "perModel",
+          "model": "Slugga Nob",
+          "replaces": [
+            "Choppa"
+          ],
+          "choices": [
+            {
+              "list": "ork-boss-weapons"
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "shoota-boyz-mob",
+      "name": "Shoota Boyz Mob",
+      "role": "Troops",
+      "page": 22,
+      "limit": null,
+      "unique": false,
+      "basePoints": 60,
+      "composition": "10 Shoota Boyz",
+      "models": [
+        {
+          "name": "Shoota Boy",
+          "min": 10,
+          "max": 30,
+          "costPerExtra": 5,
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 2,
+            "S": 3,
+            "T": 4,
+            "W": 1,
+            "I": 2,
+            "A": 2,
+            "LD": 6,
+            "CL": 7,
+            "WP": 6,
+            "IN": 5,
+            "SAV": "6+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Shoota",
+            "Stikkbombs"
+          ],
+          "unitType": "Infantry (Light)",
+          "specialRules": []
+        },
+        {
+          "name": "Shoota Nob",
+          "min": 0,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 6,
+            "WS": 5,
+            "BS": 2,
+            "S": 4,
+            "T": 4,
+            "W": 2,
+            "I": 3,
+            "A": 3,
+            "LD": 7,
+            "CL": 8,
+            "WP": 7,
+            "IN": 5,
+            "SAV": "6+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Shoota",
+            "Stikkbombs"
+          ],
+          "unitType": "Infantry (Sergeant, Light)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos"
+      ],
+      "specialRules": [
+        "Impact (S)",
+        "Line (2)",
+        "Mob Rule (CL)"
+      ],
+      "unitRules": [],
+      "factionChoice": true,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "shoota-boyz-swapmodel-nob",
+          "text": "One Shoota Boy may be replaced with a Shoota Nob for +10 Points.",
+          "kind": "swapModel",
+          "model": "Shoota Boy",
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Shoota Nob",
+              "points": 10
+            }
+          ],
+          "max": {
+            "fixed": 1
+          },
+          "requires": null
+        },
+        {
+          "id": "shoota-boyz-special-weapon",
+          "text": "Up to three Shoota Boyz in this Unit may each have their shoota exchanged for one item from the Ork Special Weapons list.",
+          "kind": "perModel",
+          "model": "Shoota Boy",
+          "replaces": [
+            "Shoota"
+          ],
+          "choices": [
+            {
+              "list": "ork-special-weapons"
+            }
+          ],
+          "max": {
+            "fixed": 3
+          },
+          "requires": null
+        },
+        {
+          "id": "shoota-nob-kombi",
+          "text": "If this Unit includes a Shoota Nob, the Shoota Nob in this Unit may have its shoota exchanged for one item from the Ork Kombi-weapons list.",
+          "kind": "perModel",
+          "model": "Shoota Nob",
+          "replaces": [
+            "Shoota"
+          ],
+          "choices": [
+            {
+              "list": "ork-kombi-weapons"
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "This unit's flavour text on p.22 is a verbatim copy of Slugga Boyz Mob's ('...razor-edged choppas and the big-bore Ork pistols known as sluggas'), an apparent source copy-paste error; not represented in this schema (no flavour-text field) so no action needed beyond this note."
+    },
+    {
+      "id": "ard-boyz-mob",
+      "name": "'Ard Boyz Mob",
+      "role": "Troops",
+      "page": 23,
+      "limit": null,
+      "unique": false,
+      "basePoints": 80,
+      "composition": "10 'Ard Boyz",
+      "models": [
+        {
+          "name": "'Ard Boy",
+          "min": 10,
+          "max": 20,
+          "costPerExtra": 6,
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 2,
+            "S": 3,
+            "T": 4,
+            "W": 1,
+            "I": 2,
+            "A": 2,
+            "LD": 6,
+            "CL": 7,
+            "WP": 6,
+            "IN": 5,
+            "SAV": "4+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Slugga",
+            "Choppa",
+            "Stikkbombs"
+          ],
+          "unitType": "Infantry",
+          "specialRules": []
+        },
+        {
+          "name": "'Ard Nob",
+          "min": 0,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 6,
+            "WS": 5,
+            "BS": 2,
+            "S": 4,
+            "T": 4,
+            "W": 2,
+            "I": 3,
+            "A": 3,
+            "LD": 7,
+            "CL": 8,
+            "WP": 7,
+            "IN": 5,
+            "SAV": "4+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Slugga",
+            "Choppa",
+            "Stikkbombs"
+          ],
+          "unitType": "Infantry (Sergeant)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos"
+      ],
+      "specialRules": [
+        "Impact (S)",
+        "Line (1)",
+        "Mob Rule (CL)"
+      ],
+      "unitRules": [],
+      "factionChoice": true,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "ard-boyz-swapmodel-nob",
+          "text": "One 'Ard Boy may be replaced with an 'Ard Nob for +10 Points.",
+          "kind": "swapModel",
+          "model": "'Ard Boy",
+          "replaces": [],
+          "choices": [
+            {
+              "name": "'Ard Nob",
+              "points": 10
+            }
+          ],
+          "max": {
+            "fixed": 1
+          },
+          "requires": null
+        },
+        {
+          "id": "ard-boyz-shoota",
+          "text": "Any Model in this Unit may have its slugga and choppa exchanged for one shoota for Free.",
+          "kind": "perModel",
+          "model": "'Ard Boy",
+          "replaces": [
+            "Slugga",
+            "Choppa"
+          ],
+          "choices": [
+            {
+              "name": "Shoota",
+              "points": 0
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "ard-boyz-chainsword",
+          "text": "For every five models in this Unit, one 'Ard Boy in this Unit may have its choppa exchanged for one chainsword for Free.",
+          "kind": "perModel",
+          "model": "'Ard Boy",
+          "replaces": [
+            "Choppa"
+          ],
+          "choices": [
+            {
+              "name": "Chainsword",
+              "points": 0
+            }
+          ],
+          "max": {
+            "per": 5,
+            "count": 1
+          },
+          "requires": null
+        },
+        {
+          "id": "ard-boyz-special-weapon",
+          "text": "Up to two 'Ard Boyz in this Unit may each have their slugga and choppa exchanged for one item from the Ork Special Weapons list.",
+          "kind": "perModel",
+          "model": "'Ard Boy",
+          "replaces": [
+            "Slugga",
+            "Choppa"
+          ],
+          "choices": [
+            {
+              "list": "ork-special-weapons"
+            }
+          ],
+          "max": {
+            "fixed": 2
+          },
+          "requires": null
+        },
+        {
+          "id": "ard-nob-boss-weapon",
+          "text": "If this Unit includes an 'Ard Nob, the 'Ard Nob in this Unit may have its slugga and/or choppa exchanged for one item each from the Ork Boss Weapons list.",
+          "kind": "perModel",
+          "model": "'Ard Nob",
+          "replaces": [
+            "Slugga"
+          ],
+          "choices": [
+            {
+              "list": "ork-boss-weapons"
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "ard-nob-choppa-boss-weapon",
+          "text": "If this Unit includes an 'Ard Nob, the 'Ard Nob in this Unit may have its slugga and/or choppa exchanged for one item each from the Ork Boss Weapons list.",
+          "kind": "perModel",
+          "model": "'Ard Nob",
+          "replaces": [
+            "Choppa"
+          ],
+          "choices": [
+            {
+              "list": "ork-boss-weapons"
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "gretchin-mob",
+      "name": "Gretchin Mob",
+      "role": "Troops",
+      "page": 23,
+      "limit": null,
+      "unique": false,
+      "basePoints": 35,
+      "composition": "1 Runtherd, 10 Gretchin",
+      "models": [
+        {
+          "name": "Gretchin",
+          "min": 10,
+          "max": 50,
+          "costPerExtra": 3,
+          "profile": {
+            "M": 6,
+            "WS": 2,
+            "BS": 3,
+            "S": 2,
+            "T": 2,
+            "W": 1,
+            "I": 2,
+            "A": 1,
+            "LD": 5,
+            "CL": 4,
+            "WP": 4,
+            "IN": 5,
+            "SAV": "–",
+            "INV": "–"
+          },
+          "wargear": [
+            "Grot blasta"
+          ],
+          "unitType": "Infantry (Light)",
+          "specialRules": []
+        },
+        {
+          "name": "Runtherd",
+          "min": 1,
+          "max": 5,
+          "costPerExtra": 6,
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 2,
+            "S": 3,
+            "T": 4,
+            "W": 1,
+            "I": 2,
+            "A": 2,
+            "LD": 6,
+            "CL": 7,
+            "WP": 6,
+            "IN": 5,
+            "SAV": "6+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Slugga",
+            "Herding stikk"
+          ],
+          "unitType": "Infantry (Sergeant, Light)",
+          "specialRules": [
+            "Impact (S)"
+          ]
+        }
+      ],
+      "traits": [
+        "Xenos"
+      ],
+      "specialRules": [
+        "Downtrodden",
+        "Expendable (3)",
+        "Support Unit (1)"
+      ],
+      "unitRules": [],
+      "factionChoice": true,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "runtherd-squighound",
+          "text": "Any Runtherd in this Unit may have a squighound for +5 Points.",
+          "kind": "perModel",
+          "model": "Runtherd",
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Squighound",
+              "points": 5
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "'For every 10 Gretchin in this Unit, this Unit may include one Runtherd for +6 Points' is modelled as the Runtherd model's max (1 base + up to 4 more, matching the max of 50 Gretchin / 10) and costPerExtra, per SCHEMA.md guidance for model-count additions."
+    },
+    {
+      "id": "burna-mob",
+      "name": "Burna Mob",
+      "role": "Support",
+      "page": 24,
+      "limit": null,
+      "unique": false,
+      "basePoints": 70,
+      "composition": "5 Burna Boyz",
+      "models": [
+        {
+          "name": "Burna Boy",
+          "min": 5,
+          "max": 15,
+          "costPerExtra": 12,
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 2,
+            "S": 3,
+            "T": 4,
+            "W": 1,
+            "I": 2,
+            "A": 2,
+            "LD": 6,
+            "CL": 7,
+            "WP": 6,
+            "IN": 5,
+            "SAV": "4+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Burna",
+            "Stikkbombs"
+          ],
+          "unitType": "Infantry",
+          "specialRules": []
+        },
+        {
+          "name": "Mek",
+          "min": 0,
+          "max": 3,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 3,
+            "S": 3,
+            "T": 4,
+            "W": 1,
+            "I": 2,
+            "A": 2,
+            "LD": 6,
+            "CL": 7,
+            "WP": 6,
+            "IN": 8,
+            "SAV": "4+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Slugga",
+            "Choppa",
+            "Stikkbombs"
+          ],
+          "unitType": "Infantry",
+          "specialRules": [
+            "Battlesmith (1)"
+          ]
+        }
+      ],
+      "traits": [
+        "Xenos"
+      ],
+      "specialRules": [
+        "Impact (S)",
+        "Mob Rule (CL)",
+        "Support Unit (2)"
+      ],
+      "unitRules": [],
+      "factionChoice": true,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "burna-mek-swapmodel",
+          "text": "Up to three Burna Boyz may be replaced with one Mek each for Free.",
+          "kind": "swapModel",
+          "model": "Burna Boy",
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Mek",
+              "points": 0
+            }
+          ],
+          "max": {
+            "fixed": 3
+          },
+          "requires": null
+        },
+        {
+          "id": "burna-mek-wargear",
+          "text": "Any Mek in this Unit may have its slugga and choppa exchanged for one item from the Ork Mek Wargear list.",
+          "kind": "perModel",
+          "model": "Mek",
+          "replaces": [
+            "Slugga",
+            "Choppa"
+          ],
+          "choices": [
+            {
+              "list": "ork-mek-wargear"
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "loota-mob",
+      "name": "Loota Mob",
+      "role": "Support",
+      "page": 24,
+      "limit": null,
+      "unique": false,
+      "basePoints": 80,
+      "composition": "5 Lootas",
+      "models": [
+        {
+          "name": "Loota",
+          "min": 5,
+          "max": 15,
+          "costPerExtra": 14,
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 2,
+            "S": 3,
+            "T": 4,
+            "W": 1,
+            "I": 2,
+            "A": 2,
+            "LD": 6,
+            "CL": 7,
+            "WP": 6,
+            "IN": 5,
+            "SAV": "4+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Deffgun",
+            "Stikkbombs"
+          ],
+          "unitType": "Infantry (Heavy)",
+          "specialRules": []
+        },
+        {
+          "name": "Mek",
+          "min": 0,
+          "max": 3,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 3,
+            "S": 3,
+            "T": 4,
+            "W": 1,
+            "I": 2,
+            "A": 2,
+            "LD": 6,
+            "CL": 7,
+            "WP": 6,
+            "IN": 8,
+            "SAV": "4+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Slugga",
+            "Choppa",
+            "Stikkbombs"
+          ],
+          "unitType": "Infantry (Heavy)",
+          "specialRules": [
+            "Battlesmith (1)"
+          ]
+        }
+      ],
+      "traits": [
+        "Xenos"
+      ],
+      "specialRules": [
+        "Impact (S)",
+        "Mob Rule (CL)",
+        "Support Unit (2)"
+      ],
+      "unitRules": [],
+      "factionChoice": true,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "loota-mek-swapmodel",
+          "text": "Up to three Lootas may be replaced with one Mek each for Free.",
+          "kind": "swapModel",
+          "model": "Loota",
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Mek",
+              "points": 0
+            }
+          ],
+          "max": {
+            "fixed": 3
+          },
+          "requires": null
+        },
+        {
+          "id": "loota-mek-wargear",
+          "text": "Any Mek in this Unit may have its slugga and choppa exchanged for one item from the Ork Mek Wargear list.",
+          "kind": "perModel",
+          "model": "Mek",
+          "replaces": [
+            "Slugga",
+            "Choppa"
+          ],
+          "choices": [
+            {
+              "list": "ork-mek-wargear"
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "Unit type printed as 'Infantry (Heavy)' under the shared TYPE heading on p.24; applied to both Loota and Mek model entries as printed (the Type block is not split per-model on this page, unlike Burna Mob's plain 'Infantry')."
+    },
+    {
+      "id": "tankbusta-mob",
+      "name": "Tankbusta Mob",
+      "role": "Support",
+      "page": 25,
+      "limit": null,
+      "unique": false,
+      "basePoints": 70,
+      "composition": "5 Tankbustas",
+      "models": [
+        {
+          "name": "Tankbusta",
+          "min": 5,
+          "max": 15,
+          "costPerExtra": 12,
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 2,
+            "S": 3,
+            "T": 4,
+            "W": 1,
+            "I": 2,
+            "A": 2,
+            "LD": 6,
+            "CL": 7,
+            "WP": 6,
+            "IN": 5,
+            "SAV": "4+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Rokkit launcha",
+            "Stikkbombs",
+            "Tankbusta bombs"
+          ],
+          "unitType": "Infantry",
+          "specialRules": []
+        },
+        {
+          "name": "Wrecka Nob",
+          "min": 0,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 6,
+            "WS": 5,
+            "BS": 2,
+            "S": 4,
+            "T": 4,
+            "W": 2,
+            "I": 3,
+            "A": 3,
+            "LD": 7,
+            "CL": 8,
+            "WP": 7,
+            "IN": 5,
+            "SAV": "4+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Two rokkit pistols",
+            "Stikkbombs",
+            "Tankbusta bombs"
+          ],
+          "unitType": "Infantry (Sergeant)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos"
+      ],
+      "specialRules": [
+        "Impact (S)",
+        "Mob Rule (CL)"
+      ],
+      "unitRules": [],
+      "factionChoice": true,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "tankbusta-swapmodel-wrecka",
+          "text": "One Tankbusta may be replaced with a Wrecka Nob for +10 Points.",
+          "kind": "swapModel",
+          "model": "Tankbusta",
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Wrecka Nob",
+              "points": 10
+            }
+          ],
+          "max": {
+            "fixed": 1
+          },
+          "requires": null
+        },
+        {
+          "id": "tankbusta-rokkit-pistols",
+          "text": "For every five models in this Unit, one Tankbusta in this Unit may have their rokkit launcha exchanged for one of the following: Two rokkit pistols (Free), Tankhammer (+5 Points per Model), Knucklebustas (+5 Points per Model).",
+          "kind": "perModel",
+          "model": "Tankbusta",
+          "replaces": [
+            "Rokkit launcha"
+          ],
+          "choices": [
+            {
+              "name": "Two rokkit pistols",
+              "points": 0
+            },
+            {
+              "name": "Tankhammer",
+              "points": 5
+            },
+            {
+              "name": "Knucklebustas",
+              "points": 5
+            }
+          ],
+          "max": {
+            "per": 5,
+            "count": 1
+          },
+          "requires": null
+        },
+        {
+          "id": "tankbusta-pulsa-rokkit",
+          "text": "One Tankbusta in this Unit may have a pulsa rokkit for +30 Points.",
+          "kind": "perModel",
+          "model": "Tankbusta",
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Pulsa Rokkit",
+              "points": 30
+            }
+          ],
+          "max": {
+            "fixed": 1
+          },
+          "requires": null
+        },
+        {
+          "id": "tankbusta-bomb-squig",
+          "text": "Up to three Models in the Unit may each have a bomb squig for +10 Points per Model.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Bomb Squig",
+              "points": 10
+            }
+          ],
+          "max": {
+            "fixed": 3
+          },
+          "requires": null
+        },
+        {
+          "id": "wrecka-nob-pistol-swap",
+          "text": "If this Unit includes a Wrecka Nob, the Wrecka Nob in this Unit may have each rokkit pistol exchanged for one item each from the Ork Boss Weapons list or one of the following: Rokkit launcha (+5 Points), Tankhammer (+10 Points).",
+          "kind": "perModel",
+          "model": "Wrecka Nob",
+          "replaces": [
+            "Two rokkit pistols"
+          ],
+          "choices": [
+            {
+              "list": "ork-boss-weapons"
+            },
+            {
+              "name": "Rokkit launcha",
+              "points": 5
+            },
+            {
+              "name": "Tankhammer",
+              "points": 10
+            }
+          ],
+          "max": {
+            "fixed": 2
+          },
+          "requires": null
+        }
+      ],
+      "note": "The Wrecka Nob's wargear ('Two rokkit pistols') is printed on p.25 as '(Wrecka Boss only)' rather than '(Wrecka Nob only)' -- kept as source text is not embedded in the JSON keys, but flagged here as a source typo (the model/unit is named 'Wrecka Nob' everywhere else on the page). The rokkit-pistol exchange option (wrecka-nob-pistol-swap) covers both of the Wrecka Nob's two rokkit pistols (max fixed:2); its printed layout on p.25 is a garbled two-column interleave, disambiguated against the page image."
+    },
+    {
+      "id": "killa-kan-mob",
+      "name": "Killa Kan Mob",
+      "role": "Support",
+      "page": 25,
+      "limit": null,
+      "unique": false,
+      "basePoints": 30,
+      "composition": "1 Killa Kan",
+      "models": [
+        {
+          "name": "Killa Kan",
+          "min": 1,
+          "max": 9,
+          "costPerExtra": 30,
+          "profile": {
+            "M": 7,
+            "WS": 3,
+            "BS": 3,
+            "S": 5,
+            "T": 5,
+            "W": 3,
+            "I": 2,
+            "A": 2,
+            "LD": 8,
+            "CL": 8,
+            "WP": 6,
+            "IN": 5,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Kan klaw"
+          ],
+          "unitType": "Walker (Skirmish)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos"
+      ],
+      "specialRules": [
+        "Bulky (4)",
+        "Downtrodden",
+        "Implacable Advance",
+        "Expendable (2)",
+        "Explodes (6+)",
+        "Support Unit (1)"
+      ],
+      "unitRules": [],
+      "factionChoice": true,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "killa-kan-ranged-weapon",
+          "text": "Every Model in this Unit must have one item from the Ork Kan Ranged Weapons list selected for it.",
+          "kind": "perModel",
+          "model": "Killa Kan",
+          "replaces": [],
+          "choices": [
+            {
+              "list": "ork-kan-ranged-weapons"
+            }
+          ],
+          "max": null,
+          "requires": null,
+          "required": {
+            "count": "all"
+          }
+        }
+      ],
+      "note": "The Options bullet is mandatory ('must have') rather than optional; transcribed as kind \"one\" per SCHEMA.md, since the schema has no dedicated mandatory-choice kind. There is a stray, contentless bullet '•' printed after the Unit Composition line on p.25, which is PDF-extraction junk and is not represented here."
+    },
+    {
+      "id": "big-gunz-battery",
+      "name": "Big Gunz Battery",
+      "role": "Support",
+      "page": 26,
+      "limit": null,
+      "unique": false,
+      "basePoints": 15,
+      "composition": "1 Big Gun Crew* (* Each Big Gun Crew consists of 2 Gretchin Gunners and 1 Big Gun Carrier.)",
+      "models": [
+        {
+          "name": "Big Gun Carrier",
+          "min": 1,
+          "max": 5,
+          "costPerExtra": 15,
+          "profile": {
+            "M": 6,
+            "WS": 1,
+            "BS": 3,
+            "S": 4,
+            "T": 6,
+            "W": 2,
+            "I": 1,
+            "A": "–",
+            "LD": 1,
+            "CL": 1,
+            "WP": 1,
+            "IN": 1,
+            "SAV": "4+",
+            "INV": "–"
+          },
+          "wargear": [],
+          "unitType": "Infantry",
+          "specialRules": [
+            "Bulky (3)"
+          ]
+        },
+        {
+          "name": "Gretchin Gunner",
+          "min": 0,
+          "max": null,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 6,
+            "WS": 2,
+            "BS": 3,
+            "S": 2,
+            "T": 2,
+            "W": 1,
+            "I": 2,
+            "A": 1,
+            "LD": 5,
+            "CL": 4,
+            "WP": 4,
+            "IN": 5,
+            "SAV": "–",
+            "INV": "–"
+          },
+          "wargear": [],
+          "unitType": "Infantry",
+          "specialRules": [],
+          "scaleWith": {
+            "model": "Big Gun Carrier",
+            "count": 2
+          }
+        },
+        {
+          "name": "Runtherd",
+          "min": 0,
+          "max": 5,
+          "costPerExtra": 6,
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 2,
+            "S": 3,
+            "T": 4,
+            "W": 1,
+            "I": 2,
+            "A": 2,
+            "LD": 6,
+            "CL": 7,
+            "WP": 6,
+            "IN": 5,
+            "SAV": "6+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Slugga",
+            "Herding stikk"
+          ],
+          "unitType": "Infantry (Sergeant)",
+          "specialRules": [],
+          "maxPer": {
+            "model": "Big Gun Carrier",
+            "count": 1
+          }
+        }
+      ],
+      "traits": [
+        "Xenos"
+      ],
+      "specialRules": [
+        "Big Gun Crew",
+        "Downtrodden",
+        "Slow and Purposeful",
+        "Support Unit (1)"
+      ],
+      "unitRules": [
+        {
+          "name": "Big Gun Crew",
+          "text": "The Orks drag the Big Gunz into battle behind speeding wagons and Trukks before abandoning them in a heap and leaving the grots to sort them out. The Characteristics of different Models with this Special Rule are used in different situations. Each time Wound Tests are made for a Fire Group that targets a Unit that includes any Models with this Special Rule, if any Big Gun Carrier Models are in this Unit, the Toughness Characteristic of the Big Gun Carriers is treated as being the majority. If any wounds are generated by these Wound Tests, the Target Model selected must be a Big Gun Carrier Model if possible. Each time Wound Tests are made for a Strike Group targeting this Unit, the Toughness Characteristic of the Gretchin Gunner Models is treated as being the majority. If any wounds are generated by these Wound Tests, the Target Model selected must be a Gretchin Gunner Model (or Runtherd Model), if possible. If at any point there are no Gretchin Gunner Models remaining in this Unit, the remaining Models are immediately Removed as Casualties."
+        }
+      ],
+      "factionChoice": true,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "big-gun-carrier-weapon",
+          "text": "Each Big Gun Carrier must have one item from the Ork Big Gunz list or one of the following: Bubblechukka (+20 Points per Model), Kustom mega-kannon (+20 Points per Model), Smasha gun (+20 Points per Model), Traktor kannon (+20 Points per Model).",
+          "kind": "perModel",
+          "model": "Big Gun Carrier",
+          "replaces": [],
+          "choices": [
+            {
+              "list": "ork-big-gunz"
+            },
+            {
+              "name": "Bubblechukka",
+              "points": 20
+            },
+            {
+              "name": "Kustom mega-kannon",
+              "points": 20
+            },
+            {
+              "name": "Smasha gun",
+              "points": 20
+            },
+            {
+              "name": "Traktor kannon",
+              "points": 20
+            }
+          ],
+          "max": null,
+          "requires": null,
+          "required": {
+            "count": "all"
+          }
+        },
+        {
+          "id": "big-gun-extra-gunners",
+          "text": "Any Big Gun Crew in this Unit may include up to 3 additional Gretchin Gunners at +3 Points per Model.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Gretchin Gunner",
+              "points": 3
+            }
+          ],
+          "max": {
+            "perModelOf": "Big Gun Carrier",
+            "count": 3
+          },
+          "requires": null,
+          "addsModels": true
+        },
+        {
+          "id": "big-gunz-runtherd-squighound",
+          "text": "Any Runtherd in this Unit may have a squighound for +5 Points.",
+          "kind": "perModel",
+          "model": "Runtherd",
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Squighound",
+              "points": 5
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "Each Big Gun Crew is one Big Gun Carrier and two Gretchin Gunners; each crew may add up to 3 Gretchin Gunners and 1 Runtherd."
+    },
+    {
+      "id": "deff-dread",
+      "name": "Deff Dread",
+      "role": "War Engine",
+      "page": 27,
+      "limit": null,
+      "unique": false,
+      "basePoints": 110,
+      "composition": "1 Deff Dread",
+      "models": [
+        {
+          "name": "Deff Dread",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 2,
+            "S": 7,
+            "T": 6,
+            "W": 6,
+            "I": 2,
+            "A": 4,
+            "LD": 12,
+            "CL": 10,
+            "WP": 7,
+            "IN": 5,
+            "SAV": "2+",
+            "INV": "6+"
+          },
+          "wargear": [],
+          "unitType": "Walker",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos"
+      ],
+      "specialRules": [
+        "Bulky (6)",
+        "Explodes (4+)",
+        "Firing Protocols (2)",
+        "Implacable Advance"
+      ],
+      "unitRules": [],
+      "factionChoice": true,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "deff-dread-klaws",
+          "text": "This Model must have one of the following options selected for it: Paired dread klaws for Free and two options from the Ork Kan Ranged Weapons list, Triple dread klaws for +10 Points and one option from the Ork Kan Ranged Weapons list, or Lots o' dread klaws for +20 Points.",
+          "kind": "one",
+          "model": "Deff Dread",
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Paired dread klaws",
+              "points": 0
+            },
+            {
+              "name": "Triple dread klaws",
+              "points": 10
+            },
+            {
+              "name": "Lots o' dread klaws",
+              "points": 20
+            }
+          ],
+          "max": null,
+          "requires": null,
+          "required": {}
+        },
+        {
+          "id": "deff-dread-ranged-weapons-paired",
+          "text": "Paired dread klaws for Free and two options from the Ork Kan Ranged Weapons list.",
+          "kind": "perModel",
+          "model": "Deff Dread",
+          "replaces": [],
+          "choices": [
+            {
+              "list": "ork-kan-ranged-weapons"
+            }
+          ],
+          "max": {
+            "fixed": 2
+          },
+          "requires": "deff-dread-klaws",
+          "requiresChoice": "Paired dread klaws",
+          "perWeapon": true,
+          "required": {
+            "count": 2
+          }
+        },
+        {
+          "id": "deff-dread-ranged-weapons-triple",
+          "text": "Triple dread klaws for +10 Points and one option from the Ork Kan Ranged Weapons list.",
+          "kind": "perModel",
+          "model": "Deff Dread",
+          "replaces": [],
+          "choices": [
+            {
+              "list": "ork-kan-ranged-weapons"
+            }
+          ],
+          "max": {
+            "fixed": 1
+          },
+          "requires": "deff-dread-klaws",
+          "requiresChoice": "Triple dread klaws",
+          "perWeapon": true,
+          "required": {
+            "count": 1
+          }
+        }
+      ],
+      "note": "Which ranged-weapon option applies depends on the klaw choice: two picks with Paired dread klaws, one with Triple dread klaws, none with Lots o' dread klaws."
+    },
+    {
+      "id": "mega-dread",
+      "name": "Mega-dread",
+      "role": "War Engine",
+      "page": 27,
+      "limit": null,
+      "unique": false,
+      "basePoints": 190,
+      "composition": "1 Mega-dread",
+      "models": [
+        {
+          "name": "Mega-dread",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 7,
+            "WS": 4,
+            "BS": 2,
+            "S": 8,
+            "T": 7,
+            "W": 7,
+            "I": 2,
+            "A": 4,
+            "LD": 12,
+            "CL": 10,
+            "WP": 7,
+            "IN": 5,
+            "SAV": "2+",
+            "INV": "6+"
+          },
+          "wargear": [
+            "Two big shootas"
+          ],
+          "unitType": "Walker (Heavy)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos"
+      ],
+      "specialRules": [
+        "Bulky (7)",
+        "Explodes (4+)",
+        "Firing Protocols (2)",
+        "Implacable Advance"
+      ],
+      "unitRules": [],
+      "factionChoice": true,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "mega-dread-two-weapons",
+          "text": "This Model must have one of the following options selected for it: two options from the following list -- Dread rippa klaw (Free), Mega killsaw (+5 Points), Killkannon (+35 Points).",
+          "kind": "perModel",
+          "model": "Mega-dread",
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Dread rippa klaw",
+              "points": 0
+            },
+            {
+              "name": "Mega killsaw",
+              "points": 5
+            },
+            {
+              "name": "Killkannon",
+              "points": 35
+            }
+          ],
+          "max": {
+            "fixed": 2
+          },
+          "requires": null,
+          "perWeapon": true,
+          "required": {
+            "count": 2,
+            "or": "mega-dread-paired"
+          },
+          "excludes": [
+            "mega-dread-paired"
+          ]
+        },
+        {
+          "id": "mega-dread-paired",
+          "text": "This Model must have one of the following options selected for it: two options from the list above, Paired dread rippa klaws for +10 Points, or Paired mega killsaws for +10 Points.",
+          "kind": "one",
+          "model": "Mega-dread",
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Paired dread rippa klaws",
+              "points": 10
+            },
+            {
+              "name": "Paired mega killsaws",
+              "points": 10
+            }
+          ],
+          "max": null,
+          "requires": null,
+          "excludes": [
+            "mega-dread-two-weapons"
+          ]
+        }
+      ],
+      "note": "Arm either with two weapons from the list, or with one of the paired options."
+    }
+  ]
+}

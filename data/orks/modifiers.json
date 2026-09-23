@@ -1,0 +1,154 @@
+{
+  "modifiers": [
+    {
+      "id": "goffs-hatred-command-champion",
+      "page": 48,
+      "text": "All Models with the Goffs Trait gain the Hatred (Command & Champion) Special Rule.",
+      "source": {
+        "type": "arkana",
+        "name": "Goffs"
+      },
+      "appliesTo": {},
+      "scope": "model",
+      "stats": {},
+      "addRules": [
+        "Hatred (Command & Champion)"
+      ],
+      "removeRules": [],
+      "modifyRules": [],
+      "addTraits": [],
+      "addUnitTypes": [],
+      "condition": null
+    },
+    {
+      "id": "goffs-biggest-an-da-best",
+      "page": 48,
+      "text": "All Models with the Goffs Trait (excluding Models with the Vehicle Type) are subject to the following Special Rule: Biggest an' da Best. A Unit that includes Models with this Special Rule gains the Hatred (Command & Champion) Special Rule, but must always charge enemy Units with these Sub-types.",
+      "source": {
+        "type": "arkana",
+        "name": "Goffs"
+      },
+      "appliesTo": {},
+      "scope": "model",
+      "stats": {},
+      "addRules": [
+        "Biggest an' da Best"
+      ],
+      "removeRules": [],
+      "modifyRules": [],
+      "addTraits": [],
+      "addUnitTypes": [],
+      "condition": "Excludes Models with the Vehicle Type. All Units that include any Models with the Goffs Trait that begin the Assault Phase with any Model in that Unit within 12\" of an enemy Unit containing Models with the Command or Champion Sub-Types must declare a Charge targeting that Unit, even if they cannot reach it."
+    },
+    {
+      "id": "deathskulls-finders-keepers",
+      "page": 47,
+      "text": "All Models with the Deathskulls Trait (excluding Models with the Vehicle Type) are subject to the following Special Rule: Finders Keepers. A Unit that includes Models with this Special Rule can score Victory Points for looting the fallen, but loses the Line (X) Special Rule. All Models with the Deathskulls Trait lose any variants of the Line (X) Special Rule they may have, and may not thereafter gain any version of Line (X) from any source. Models that have lost the Line (X) Special Rule due to this Special Rule instead gain the Loot the Dead (X) Special Rule, X equal to the value of X on the Line (X) Special Rule that was removed.",
+      "source": {
+        "type": "arkana",
+        "name": "Deathskulls"
+      },
+      "appliesTo": {},
+      "scope": "model",
+      "stats": {},
+      "addRules": [
+        "Loot the Dead"
+      ],
+      "removeRules": [
+        "Line"
+      ],
+      "modifyRules": [],
+      "addTraits": [],
+      "addUnitTypes": [],
+      "condition": "Excludes Models with the Vehicle Type. The value of X on Loot the Dead (X) equals the value of X on the removed Line (X) Special Rule. A Unit that includes any Models with the Loot the Dead (X) Special Rule may not Control or Contest any Objective Marker."
+    },
+    {
+      "id": "deathskulls-loota-mob-loot-the-dead",
+      "page": 47,
+      "text": "In addition, any Loota Mob with this Special Rule also gains the Loot the Dead (3) Special Rule.",
+      "source": {
+        "type": "arkana",
+        "name": "Deathskulls"
+      },
+      "appliesTo": {
+        "units": [
+          "loota-mob"
+        ]
+      },
+      "scope": "unit",
+      "stats": {},
+      "addRules": [
+        "Loot the Dead (3)"
+      ],
+      "removeRules": [],
+      "modifyRules": [],
+      "addTraits": [],
+      "addUnitTypes": [],
+      "condition": null
+    },
+    {
+      "id": "red-paint-job-movement",
+      "page": 46,
+      "text": "A Model with a red paint job increases its Movement Characteristic by +1. If the Model also has the Rapid Sub-Type, it increases its Movement Characteristic by an additional +1 for a total of +2.",
+      "source": {
+        "type": "wargear",
+        "name": "Red Paint Job"
+      },
+      "appliesTo": {},
+      "scope": "model",
+      "stats": {
+        "M": "+1"
+      },
+      "addRules": [],
+      "removeRules": [],
+      "modifyRules": [],
+      "addTraits": [],
+      "addUnitTypes": [],
+      "condition": "If the Model also has the Rapid Sub-Type, the total increase to Movement is +2 instead of +1."
+    },
+    {
+      "id": "ammo-runt-firestorm",
+      "page": 44,
+      "text": "Once per Battle, in any of the Controlling Player's Effects Sub-Phases, an Ammo Runt may be expended. Until the Controlling Player's next Effects Sub-Phase, the Model to which the Ammo Runt belongs gains the Firestorm Special Rule and may double the Firepower Characteristic of any ranged Weapons they have that do not have the Blast (X) or Template Special Rules. The Ammo Runt Marker is then removed from play.",
+      "source": {
+        "type": "wargear",
+        "name": "Ammo Runt"
+      },
+      "appliesTo": {},
+      "scope": "model",
+      "stats": {},
+      "addRules": [
+        "Firestorm"
+      ],
+      "removeRules": [],
+      "modifyRules": [],
+      "addTraits": [],
+      "addUnitTypes": [],
+      "condition": "Once per Battle, when the Ammo Runt Marker is expended by the Controlling Player in an Effects Sub-Phase, until their next Effects Sub-Phase: gains Firestorm and may double the Firepower of ranged Weapons without the Blast (X) or Template Special Rules."
+    },
+    {
+      "id": "cyboar-replaces-warbike",
+      "page": 49,
+      "text": "A Model with a Cyboar exchanges its twin dakkaguns for tusks and stomping feet and loses the Smokescreen Trait, but gains the Eternal Warrior (1) and Feel No Pain (5+) Special Rules.",
+      "source": {
+        "type": "wargear",
+        "name": "Cyboar"
+      },
+      "appliesTo": {},
+      "scope": "model",
+      "stats": {},
+      "addRules": [
+        "Eternal Warrior (1)",
+        "Feel No Pain (5+)"
+      ],
+      "removeRules": [
+        "Smokescreen"
+      ],
+      "modifyRules": [],
+      "addTraits": [],
+      "addUnitTypes": [],
+      "condition": null,
+      "note": "Smokescreen is printed as a Trait in the source text, but the schema has no removeTraits field, so its removal is recorded in removeRules."
+    }
+  ]
+}

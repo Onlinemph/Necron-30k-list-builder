@@ -1,0 +1,115 @@
+{
+  "specialRules": [
+    {
+      "name": "Additional Reaction Point",
+      "page": 3,
+      "text": "If an Army's Primary Detachment is from the Orks Army List, the Controlling Player gains one additional Reaction Point if that Detachment contains any Models with the Prophet of the Waaagh! Trait."
+    },
+    {
+      "name": "Downtrodden",
+      "page": 50,
+      "text": "The sad reality is that Grot mobs rarely see any real action, as they are used by rest of the Ork army as a combination of cannon fodder, bullet shield, mine clearance device and living carpet.\n\nDowntrodden Units may not gain Prime Advantages.\n\nA Unit that contains any Models with this Special Rule may not be taken in a Prime Slot and may never gain a Prime Advantage. In addition, a Unit that contains any Models with this Special Rule may not perform an Advanced Reaction, though may still perform other Reactions. Furthermore, a Unit that contains Models with this Special Rule cannot be joined by Models with the Command Sub-Type, but may still be joined by Models with the Specialist Sub-Type."
+    },
+    {
+      "name": "Don't Press Dat!",
+      "page": 50,
+      "text": "Some Wagons come with various Orky kustomisations', leaving them temperamental as hell and likely a good deal less efficient than their previous incarnation.\n\nA Vehicle with this Special Rule risks becoming Suppressed.\n\nIn the Effects Sub-Phase of the Controlling Player's Turn, the Controlling Player must roll a Dice for each Unit with this Special Rule. On a result of '1', that Model gains the Suppressed Status."
+    },
+    {
+      "name": "Effigy (X)",
+      "page": 50,
+      "text": "Ork Gargants are effigies of war built by the Orks to ape their brutal gods.\n\nModels near an friendly Model with the Effigy (X) Special Rule benefit from the Mob Rule (X) Special Rule regardless of Unit size.\n\nWhen any Model from a Unit is within a number of inches that is the value of X from a friendly Model with the Effigy (X) Special Rule, then that Unit will be affected by the presence of the effigy. All Models in the affected Unit with a variant of the Mob Rule (X) Special Rule will gain the benefits and downsides of the Mob Rule (X) Special Rule even if the size of their Unit is less than 10 Models."
+    },
+    {
+      "name": "Gargant Deflektor (X)",
+      "page": 50,
+      "text": "Ork Gargants stomp to war clad in crackling fields of energy known as “deflektors”. The principals of force field technology are fairly easy to master, and Ork Meks have a natural empathy with them. These shields shimmer and spark with barely contained energy, turning aside enemy volleys in great gouts of fizzing light.\n\nA Model with this Special Rule gains an extra layer of defence against Shooting Attacks.\n\nA Model with this Special Rule has a number of deflektor shields equal to the value of X. While a Model with this Special Rule still has deflektor shields, each time that Model suffers a Hit from a Shooting Attack it must be allocated to the deflektor shields. Once all deflektor shields have collapsed, any remaining Hits from Shooting Attacks by the Titan Profile targeted by the attack must be allocated to the attack.\n\nA deflektor shield has an Armour Value of 13, and any Glancing Hit or Penetrating Hit inflicted on it will cause that deflektor shield to collapse. Regardless of the Damage value of a Hit it may not collapse more than one deflektor shield, and once a Hit has collapsed a deflektor shield or failed an Armour Penetration Test made against one it is discarded."
+    },
+    {
+      "name": "Mob Rule (X)",
+      "page": 50,
+      "text": "Ork psychology and morale is directly linked to the number of Boyz around them at any given time. An Ork with a trukkload of his mates backing him up is a good sight more confident than one with just his half-wit mate Zog at his heels!\n\nOrks in large numbers gain benefits to one of their Advanced Characteristics, but also has drawbacks to their Intelligence.\n\nIf the total number of Models in a Unit with a variant of this Special Rule is 10 or more, then all Models with a variant of this Special Rule gains a positive modifier of +1 to any Characteristics that is the value of X. However, whenever receiving a benefit from a variant of this Special Rule, a Model also suffer a negative modifier of -1 to their Intelligence Characteristic. If the number of Models drops below 10, these modifiers no longer apply."
+    },
+    {
+      "name": "Oddboyz",
+      "page": 50,
+      "text": "Highly technical demands, such as maintaining the Ork weaponry or patching up casualties, are met by a caste of Orks known as Oddboyz.\n\nOddboyz are only Specialists when taken in Units of a single Model.\n\nIf the number of Models in a Unit with this Special Rule is greater than one, all Models in the Unit with this Special Rule lose the Specialist sub-type."
+    },
+    {
+      "name": "Ramshackle",
+      "page": 51,
+      "text": "Warbosses and Nobz who want a new wagon will go directly to a Mek and commission him to build it there and then. The result is never quite what the customer wanted, but is usually dead good anyway.\n\nRamshackle Vehicles are easier to repair.\n\nWhenever a Model with this special rule is the Target Model of the Battlesmith (X) Special Rule, the Acting Model adds a modifier of +2 to the Intelligence Check to use the Battlesmith (X) Special Rule."
+    },
+    {
+      "name": "Shokk Attack",
+      "page": 51,
+      "text": "The shokk attack gun projects a narrow force field tunnel through the Warp, and herds of Snotlings are hurled down this hellish tunnel. The nightmarish journey through the Warp drives the Snotlings into a frenzy, and they emerge scrabbling, clawing, biting and defecating uncontrollably.\n\nA Shokk Attack Weapon may misfire and teleport the Model wielding the weapon.\n\nRoll the Dice to determine the Ranged Strength characteristic for a Weapon with this Special Rule before rolling to Hit. If the Result of the Roll is '2' (a double '1'), the Weapon does not fire. Instead, the Model wielding the Weapon is immediately moved as though it suffered a Hit from a Weapon with the Thrown (3) Special Rule, even if it does not have the Vehicle Sub-Type."
+    },
+    {
+      "name": "Targeted (X)",
+      "page": 51,
+      "text": "Many Orks get sick of missing their targets and use personalised methods of delivering destruction to the enemy.\n\nWeapons with this Special Rule gain a bonus to hit for ranged attacks.\n\nWhen making a Shooting Attack for a Weapon with this Special Rule, any Hit Tests made in Step 6 of the Shooting Attack process add the value of X attached to the specific variant of this Special Rule to the Result of the Dice roll. This Special Rule may not be used when making Snap Shots."
+    },
+    {
+      "name": "Thrown (X)",
+      "page": 51,
+      "text": "As well as being a useful tool for moving heavy parts about, demolishing buildings and clearing scrap, the lifta-droppa uses unknown tractor-beam technology to pick up and throw objects.\n\nWeapons with this Special Rule can force a Vehicle to move, potentially causing damage if it crashes into an obstacle.\n\nIf a Shooting Attack made for a Weapon or Model with this Special Rule inflicts one or more Hits on a Target Unit with the Vehicle Type, the Player making the attack must make a Scatter Roll using a number of standard Dice equal to the value of X attached to the specific variant of this Special Rule. The Target Unit is moved a number of inches equal to the result of the Scatter Roll. If the Target Unit would come into contact with Impassable Terrain, the Model stops and suffers a Strength 6 Hit with an AP of '-' against the Impassable Terrain. If the Target Unit would come into contact with another Unit with the Vehicle Type, friend or foe, then the Model stops and both Models suffer a Strength 6 Hit with an AP of '-' against the contacted Armour Facings.\n\nIf the Target Unit for an attack made with a Weapon that has this Special Rule includes any Models without the Vehicle Type, then this Special Rule has no effect."
+    },
+    {
+      "name": "Mercenaries",
+      "page": 43,
+      "text": "Models with the Freebooters Trait may be included in Detachments of a different variant of the Ork Faction Trait. This is an exception to the rule requiring all Models in that Detachment to have the same variant of the Ork Faction Trait. However, there must be fewer Freebooters Units in a Detachment than Units with another variant of the Ork Faction Trait unless the Primary Detachment includes a High Command or Command Unit with the Freebooters Trait.\n\nIn addition, an Allied Detachment that consists only of Models with the Freebooters Trait may be taken as part of another Army List. In this case, all Models in the Allied Detachment and any additional Auxiliary Detachments replace the Xenos Trait with the variant of the Allegiance Trait used by the rest of the Army."
+    },
+    {
+      "name": "Outcasts",
+      "page": 43,
+      "text": "Models with the Freebooters Trait may use the following specific benefits normally only available to Models with other variants of the Orks Faction Trait (details for these benefits are listed on the following pages):\n-- Advanced Reaction: 'Ere We Go!\n-- Gambits: Brutal but Kunnin' and Kunnin' but Brutal\n-- Prime Advantages: Plunderer Without Equal and Feral Orks\n-- Wargear: Ammo Runts"
+    },
+    {
+      "name": "Looted Wagon",
+      "page": 47,
+      "text": "A Model with this Special Rule:\n-- Must exchange all Traits it has for the Xenos, Orks and [Orks] Trait.\n-- Changes its base Ballistic Skill Characteristic to '2'.\n-- Gains the Explodes (5+) Special Rule (unless it already has a stronger variant of the Explodes (X) Special Rule) and the Don't Press Dat! Special Rule.\n\nIn addition:\n-- If the Model can have items selected for it from the Legion Pintle Weapons list or the Auxilia Pintle Weapons list, items must be chosen from the Ork Pintle Weapons list instead.\n-- If the Model can have items selected for it from the Legion Sponson Weapons list or the Auxilia Sponson Weapons list, items must be chosen from the Ork Sponson Weapons list instead.\n-- If the Model can have items selected for it from the Auxilia Hull Weapons list, items must be chosen from the Ork Hull Weapons list."
+    },
+    {
+      "name": "Finders Keepers",
+      "page": 47,
+      "text": "The Deathskulls see battle as a two-stage process, often hurrying the killing part in an effort to speed along the scavenging spree that follows.\n\nA Unit that includes Models with this Special Rule can score Victory Points for looting the fallen, but loses the Line (X) Special Rule.\n\nAll Models with the Deathskulls Trait lose any variants of the Line (X) Special Rule they may have, and may not thereafter gain any version of Line (X) from any source. Models that have lost the Line (X) Special Rule due to this Special Rule instead gain the Loot the Dead (X) Special Rule. The value of X on the variant of the Loot the Dead (X) Special Rule is equal to the value of X on the variant of Line (X) that was removed. In addition, any Loota Mob with this Special Rule also gains the Loot the Dead (3) Special Rule.\n\nA Unit that includes any Models with the Loot the Dead (X) Special Rule may not Control or Contest any Objective Marker. See Legiones Astartes: Blackshields for details of the Loot the Dead (X) Special Rule."
+    },
+    {
+      "name": "Biggest an' da Best",
+      "page": 48,
+      "text": "The Goffs pride themselves on being the Orkiest of Orks, and will gladly seize on any excuse to prove their claim with feet, fists, tusks and choppas.\n\nA Unit that includes Models with this Special Rule gains the Hatred (Command & Champion) Special Rule, but must always charge enemy Units with these Sub-types.\n\nAll Models with the Goffs Trait gain the Hatred (Command & Champion) Special Rule.\n\nHowever, all Units that include any Models with the Goffs Trait that begin the Assault Phase with any Model in that Unit within 12\" of an enemy Unit, and the enemy Unit contains any Models with the Command or Champion Sub-Types, must declare a Charge targeting that Unit – even if they cannot reach the Unit."
+    }
+  ],
+  "reactions": [
+    {
+      "name": "Waaagh!",
+      "page": 54,
+      "text": "Orks live for the moment when they charge into battle, screaming 'Waaagh!' at the top of their lungs.\n\nThis Reaction allows the Reactive Player to make a Charge Roll instead of making Volley Attacks.\n\nTrigger: Once per Battle, the Reactive Player may declare the Waaagh! Advanced Reaction during Step 4 of the Charge process of any Charge declared by the Active Player that targets a Unit which contains only Models with the Mob Rule (X) Special Rule and includes one or more Models with either the Prophet of the Waaagh! Trait or a Waaagh! banner.\n\nCost: The Reactive Player must spend 1 point of their Reaction Allotment to declare the Waaagh! Reaction - this cost paid as soon as the declaration is made.\n\nTarget: For the Waaagh! Reaction, the Target Unit is always the Unit whose Charge triggered the Reaction. The Reacting Unit is always the Unit that was declared as the target of the Charge that triggered this Reaction, which must contain only Models with the Mob Rule (X) Special Rule and includes one or more Models with either the Prophet of the Waaagh! Trait or a Waaagh! banner.\n\nProcess\n1. Once the Waaagh! Reaction has been declared, all Models in the Reacting Unit gains a modifier of +2 to their Initiative Characteristic and the Vanguard (2) Special Rule for the duration of the current Assault Phase.\n2. Immediately after the Active Player has resolved any Volley Attacks they choose to make, the Reactive Player must make a Charge Roll for the Reacting Unit.\n3. If the result of the Charge Roll would be enough to move any Model from the Reacting Unit into Base Contact with a Model from the Target Unit, then a Charge Move is made and the Units are Locked in Combat. No Model in the Target Unit may claim a bonus from any Special Rule that requires a successful Charge to have been made, while the Models in the Reacting Unit gain any bonuses from any Special Rules that would apply to that Unit as a result of a successful Charge.\n4. If the result of the Charge Roll would not bring any Model from the Reacting Unit into Base Contact with a Model from the Target Unit, then no Charge Move is made and the Players proceed to Step 5 of the Charge process."
+    },
+    {
+      "name": "'Ere We Go!",
+      "page": 46,
+      "text": "Speed fulfils some deep need in the Orkish temperament, just like the thunder of guns, the clank of tracks and the din of battle.\n\nThis Advanced Reaction allows the Reacting Unit to Move towards an Enemy Unit that Targets it with a Shooting Attack.\n\nTrigger: Once per Battle, the Reactive Player may declare the 'Ere We Go! Advanced Reaction in the Shooting Phase, during Step 4 of the Shooting Attack process made by the Active Player that targets a Unit under the Reactive Player's control that only includes Models with either the Vehicle or Cavalry Type and with either the Evil Sunz or Freebooters Traits.\n\nCost: The Reactive Player must spend 1 point of their Reaction Allotment to declare the 'Ere We Go! Advanced Reaction, this cost paid as soon as the declaration is made.\n\nTarget: The Target Unit is always the Unit whose Shooting Attack triggered the Reaction. The Reacting Unit is always the Unit that was the target of the Shooting Attack that triggered the Reaction.\n\nProcess\n1. Once the 'Ere We Go! Advanced Reaction has been declared, the Active Player must resolve all remaining Steps of the Shooting Attack process as normal, up to the start of Step 11.\n2. Immediately after Step 11 of the Shooting Attack that triggered this Reaction is resolved, each Model in the Reacting Unit must move up to 6\" directly towards the nearest Model in the Target Unit, moving the maximum distance possible while remaining at least 1\" away from any enemy Model.",
+      "note": "Also usable by Models with the Freebooters Trait, via the Outcasts Special Rule."
+    }
+  ],
+  "gambits": [
+    {
+      "name": "Ostentatious Showoff",
+      "page": 44,
+      "text": "Bad Moons like to display their wealth with expensive technical and highly decorated wargear. They also love to spend their teeth on food, which means that many Bad Moons are a bit stout around the belt.\n\nThis Gambit allows a Model to gain advantage from the Bulky (X) Special Rule.\n\nThis Gambit may only be selected for a Model with the Bulky (X) Special Rule. While this Gambit is selected, the Controlling Player does not add the Combat Initiative to the result of the Focus Roll, but instead adds the value of X attached to the variant of the Bulky (X) Special Rule possessed by the Model. In addition, when determining Outside Support for a Model which has selected this Gambit, friendly Models in the same combat that also have the Bulky (X) Special Rule count as a number of Models equal to the value of X (so Bulky (2) counts as two Models, and so on)."
+    },
+    {
+      "name": "Kunnin' but Brutal",
+      "page": 45,
+      "text": "Orks of the Blood Axe Clan display a compulsion to apply strategy and tactics to their battles.\n\nWhen this Gambit is selected, the Controlling Player may use their Model's Leadership Characteristic instead of the result of a Focus Roll.\n\nIf this Gambit is selected, then immediately after the Controlling Player has made their Focus Roll in the Focus Step, they may choose to replace the result of their Focus Roll (after modifiers) with this Model's Leadership Characteristic."
+    },
+    {
+      "name": "Brutal but Kunnin'",
+      "page": 48,
+      "text": "Ork leaders commonly display their prowess by hunting down and killing dangerous beasts. The creatures they fight against the most are those with big horns or tusks which can then be displayed on the Nob's helmet for all the Boyz to see. They also make for a very effective headbutt attack.\n\nThis Gambit may be selected once per Challenge. When selected, the Controlling Player of the Model for which this Gambit has been selected makes a single extra attack at the start of the Focus Step. The attack hits automatically using the unmodified Strength of the attacking Model, with an AP of '6' and a Damage of '1'. If the Wound Test made for this attack is successful (i.e., it meets the required Target Number), whether or not the Wound was saved, the enemy Model counts their Initiative Characteristic as '1' when calculating their Combat Initiative for the Focus Roll."
+    }
+  ],
+  "traits": []
+}

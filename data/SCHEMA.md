@@ -79,7 +79,10 @@ The `text` field always holds the printed bullet text verbatim.
     { "name": "Voidscythe", "points": 20 }
   ],
   "max": null,                        // see "max" below
-  "requires": null                    // option id that must have a selection first, if any
+  "requires": null,                   // option id that must have a selection first, if any
+  "excludes": null,                   // option ids that can't be taken together with this one
+  "required": null                    // {} = must take one; { "count": 2 } or { "count": "all" } for perModel;
+                                      // { "or": "<option id>" } is satisfied by taking that option instead
 }
 ```
 

@@ -1,0 +1,82 @@
+{
+  "wargear": [
+    {
+      "name": "Assault Gubbins",
+      "page": 52,
+      "text": "Many Ork vehicles are fitted with big metal boarding planks, pivoting crane arms with grabbin' klaws, spiked wreckin' balls, and stikkbomb chukkas.\n\nAssault gubbins allow models to make additional Volley Attacks.\n\nWhen it is the Target Unit for a Charge, a Model with assault gubbins may make Volley Attacks during Step 4 of the Charge Procedure using the following profile:\nR 6, FP 3, RS 6, AP 6, D 2, Special Rules -, Traits Assault\n\nIn addition, if a Model with assault gubbins has the Transport sub-type, whenever a Unit has Disembarked from the Model and has a Charge declared for it in the Charge Sub-Phase of the same Player Turn, the Model with assault gubbins may also make Volley Attacks during Step 4 of the Charge Procedure using the above profile in addition to any Volley Attacks made by the Charging Unit."
+    },
+    {
+      "name": "Attack Squig",
+      "page": 52,
+      "text": "An attack squig is a voracious predator with a huge snapping gob.\n\nAttack squigs grant a bonus when determining Outside Support in a Challenge.\n\nWhen calculating Outside Support during Step 3 of the Challenge Sub-Phase, a Model with an attack squig gains an additional +1 bonus."
+    },
+    {
+      "name": "Bosspole",
+      "page": 52,
+      "text": "Ork Nobz often sport a trophy pole that shows they are not to be messed with.\n\nA Model with a bosspole has improved Leadership.\n\nA Model equipped with a bosspole gains the Sergeant Sub-Type in addition to any other Sub-Types it already possesses, and increases the Base Value of its Leadership characteristic by +1."
+    },
+    {
+      "name": "Deff Rolla",
+      "page": 52,
+      "text": "Deff rolla is a great spiked roller that brings the colossal weight of the vehicle to bear on anything in its way.\n\nA Vehicle with a deff rolla inflicts more damage when it moves through enemy Units.\n\nWhen a Model with a deff rolla and the Vehicle Type moves through an enemy Unit, the Strength of Hits inflicted is increased from 6 to 10 and the AP increased from '-' to 5."
+    },
+    {
+      "name": "Gitfinda",
+      "page": 52,
+      "text": "Gitfindas can be elaborate ocular bionics, monocular head-sets, oversized telescopes, or Mork knows what else. The function of a gitfinda is to improve the accuracy of its user to near-average levels.\n\nGitfindas allow attacks to ignore Shrouded Damage Mitigation Tests and make Intercept Reactions for Free.\n\nWhen a Shooting Attack made by a Unit that contains any Models with a gitfinda inflicts any Hits (excluding Hits from attacks made as Snap Shots), Shrouded Damage Mitigation Rolls cannot be made against those Hits. In addition, the Controlling Player of a Unit that contains any Models with a gitfinda may use the Unit to make the Intercept Reaction without needing to spend a point of their Reaction Allotment."
+    },
+    {
+      "name": "Grot Gunner",
+      "page": 52,
+      "text": "Crewing the defensive gunz of many Ork vehicles is sometimes left to the long-suffering grots.\n\nGrot gunners shoot with an improved Ballistic Skill.\n\nA Weapon with a grot gunner is fired with a Ballistic Skill of '3'."
+    },
+    {
+      "name": "Grot Riggers",
+      "page": 52,
+      "text": "Whether hurriedly re-attaching gubbinz with rivet guns, or just getting out and pushing, a crew of grot riggers can help to keep an Ork vehicle in the fight long after it should have fallen apart.\n\nGrot riggers can help repair Vehicles.\n\nA Model with grot riggers gains the Auto-repair (4+) Special Rule."
+    },
+    {
+      "name": "Kustom Force Field",
+      "page": 52,
+      "text": "Mekboyz have an uncanny understanding of battlefield technology and will sometimes build or scavenge powerful force field projectors to protect the Boyz.\n\nA kustom force field provides a Unit with an Invulnerable Save.\n\nA Model with a kustom force field and any Unit it has joined benefit from a 5+ Invulnerable Save against all wounds inflicted as part of any Shooting Attack. While a Model with a kustom force field is Embarked on a Model with the Transport Sub-Type, the Model with the Transport Sub-Type gains a 5+ Invulnerable Save against all wounds inflicted as part of any Shooting Attack."
+    },
+    {
+      "name": "Reinforced Ram",
+      "page": 53,
+      "text": "A vehicle fitted with such a blunt but effective ram can plough through wreckage, walls and enemy vehicles with equal ease.\n\nReinforced rams allow Models to ignore the Movement penalties of Difficult Terrain.\n\nIf the Controlling Player chooses for a Model with a reinforced ram to enter any area of Difficult Terrain, the Unit does not apply a modifier to its movement during that Phase."
+    },
+    {
+      "name": "Shokkjump Engine",
+      "page": 53,
+      "text": "Combining shokk attack technology, great speed and a cheerful disregard for life and limb, the shokkjump engine enables a vehicle that can teleport itself through – occasionally into – feet-thick fortress walls.\n\nA Vehicle with a shokkjump engine can gain the Fast (X) Special Rule, but may be teleported in a random direction.\n\nIn the Effects Sub-Phase of the Start Phase during their Turn as Active Player, the Controlling Player of a Model with a shokkjump engine can choose to activate the engine by rolling a single Dice. If the Result of the Dice roll is a '6', the Model with the shokkjump engine is immediately moved as though it suffered a Hit from a Weapon with the Thrown (2) Special Rule. The Model with the shokkjump engine may still move normally in the subsequent Movement Phase. On any other Result of the Dice roll, the Model with the shokkjump engine gains the Fast (X) Special Rule until the end of the Player Turn, with the value of X equal to the Result of the Dice roll."
+    },
+    {
+      "name": "Squig Hound",
+      "page": 53,
+      "text": "These fierce squigs are trained to devour errant grots on command.\n\nA squig hound can inflict wounds on their Unit in order to remove a Tactical Status in the Start Phase.\n\nDuring the Start Phase of their Turn as Active Player, the Controlling Player of a Unit which contains a squig hound can select for that Unit to suffer D3 Wounds with a Damage Characteristic of 1 and an AP of '-', allocated as if they were inflicted by a Melee Attack. If they do so, a single Leadership Check or Cool Check is then made for that Unit, allowing the removal of one Tactical Status from all Models in that Unit (Pinned, Stunned or Suppressed if a Cool Check was made), if a Leadership Check was made) if it is successful."
+    },
+    {
+      "name": "Stikkbombs",
+      "page": 53,
+      "text": "A stikkbomb is a hand-held grenade that can be detonated by pulling out its pin and hurling it at the foe or, if that fails, by battering the enemy over the head with it until the blasted thing goes off.\n\nStikkbombs can be used to make attacks during the Volley Step.\n\nWhen making Volley Attacks during Step 4 of the Charge Procedure with a Unit that includes at least one Model with stikkbombs, the Controlling Player may choose to make a single attack with a stikkbomb instead of making a normal Shooting Attack using the following profile:\nR 6, FP 1, RS 3, AP 6, D 1, Special Rules Blast (3\"), Traits Assault"
+    },
+    {
+      "name": "Ammo Runt",
+      "page": 44,
+      "text": "An ammo runt is a heavily overburdened Gretchin who carries a massive amount of extra ammo for his master.\n\nAn Ammo Runt improves the Model's Firepower for one Turn.\n\nAmmo Runts are treated as a special kind of Marker that is moved with the Model it belongs to but is ignored for all game purposes. Once per Battle, in any of the Controlling Player's Effects Sub-Phases, an Ammo Runt may be expended. Until the Controlling Player's next Effects Sub-Phase, the Model to which the Ammo Runt belongs gains the Firestorm Special Rule and may double the Firepower Characteristic of any ranged Weapons they have that do not have the Blast (X) or Template Special Rules. The Ammo Runt Marker is then removed from play.",
+      "note": "Bad Moons clan wargear; also available to Models with the Freebooters Trait."
+    },
+    {
+      "name": "Red Paint Job",
+      "page": 46,
+      "text": "Evil Sunz often paint their machines red – firmly believing in the old proverbs that \"red wunz go faster\" and \"if it's red den no one's gonna catch up wiv' ya\".\n\nA Vehicle or Cavalry Model with a red paint job increases its Movement Characteristic.\n\nA Model with a red paint job increases its Movement Characteristic by +1. If the Model also has the Rapid Sub-Type, it increases its Movement Characteristic by an additional +1 for a total of +2.",
+      "note": "Evil Sunz clan wargear."
+    },
+    {
+      "name": "Cyboar",
+      "page": 49,
+      "text": "For as long as any Ork can remember the warboar has been a favoured mount of the warrior Ork. It is a fierce and stubborn beast, with sharp tusks, a thick skull, and the odour of a dungheap. The best boars are selected by the Meks and Painboyz and turned into a strange amalgam of animal and machine known as a cyboar.\n\nA Cyboar replaces a Model's warbike.\n\nA Model with a Cyboar exchanges its twin dakkaguns for tusks and stomping feet and loses the Smokescreen Trait, but gains the Eternal Warrior (1) and Feel No Pain (5+) Special Rules.",
+      "note": "Snakebites clan wargear."
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "effects": [
+    {
+      "choice": [
+        "Bad Moons",
+        "Freebooters"
+      ],
+      "type": "option",
+      "filter": {
+        "unitTypeAny": [
+          "Command",
+          "Champion",
+          "Specialist"
+        ]
+      },
+      "units": [
+        "flash-gitz-mob"
+      ],
+      "anyOf": true,
+      "option": {
+        "id": "clan-ammo-runt",
+        "kind": "perModel",
+        "text": "Any Model from the following list with the Bad Moons Trait or the Freebooters Trait may have an Ammo Runt selected for it for +5 Points per Model.\n-- Any Model with the Command, Champion, or Specialist Sub-Types.\n-- Any Model in a Flash Gitz Mob.",
+        "choices": [
+          {
+            "name": "Ammo Runt",
+            "points": 5
+          }
+        ]
+      }
+    },
+    {
+      "choice": [
+        "Evil Sunz"
+      ],
+      "type": "option",
+      "filter": {
+        "unitTypeAny": [
+          "Vehicle",
+          "Cavalry"
+        ]
+      },
+      "option": {
+        "id": "clan-red-paint-job",
+        "kind": "perModel",
+        "text": "Any Model with the Evil Sunz Trait and either the Vehicle Type or the Cavalry Type may have a red paint job for +5 Points per Model.",
+        "choices": [
+          {
+            "name": "Red Paint Job",
+            "points": 5
+          }
+        ]
+      }
+    },
+    {
+      "choice": [
+        "Snakebites"
+      ],
+      "type": "option",
+      "units": [
+        "ork-warboss",
+        "ork-bigboss",
+        "big-mek",
+        "warbiker-nobz-mob",
+        "warbiker-mob"
+      ],
+      "option": {
+        "id": "clan-cyboar",
+        "kind": "perModel",
+        "text": "Any Unit from the following list with the Snakebites Trait may have Cyboars selected for it for Free.\n-- Warboss on Warbike\n-- Bigboss on Warbike\n-- Big Mek on Warbike\n-- Warbiker Nobz Mob\n-- Warbiker Mob",
+        "choices": [
+          {
+            "name": "Cyboar",
+            "points": 0
+          }
+        ],
+        "models": [
+          "Warboss on Warbike",
+          "Bigboss on Warbike",
+          "Big Mek on Warbike",
+          "Warbiker Nob",
+          "Warbiker"
+        ]
+      }
+    }
+  ]
+}

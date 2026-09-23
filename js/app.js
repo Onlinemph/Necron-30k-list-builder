@@ -68,7 +68,9 @@
   const undefinedNames = new Map((CORE.undefinedInCodex || []).map((x) => [norm(x.name), x.note]));
   function findWeapons(name) {
     const k = aliases.get(wkey(name)) || wkey(name);
-    return { ranged: weaponIndex.ranged.get(k), melee: weaponIndex.melee.get(k) };
+    const r = { ranged: weaponIndex.ranged.get(k), melee: weaponIndex.melee.get(k) };
+    if (!r.ranged && !r.melee && /^twin(-linked)? /.test(k)) return findWeapons(k.replace(/^twin(-linked)? /, ''));
+    return r;
   }
 
   // ---------- army state ----------
@@ -522,8 +524,9 @@
     const list = $('.choices', el);
     const cost = (p) => (p ? `+${p}` : 'free');
     const name = `o-${sel.uid}-${o.id}`;
-    const locked = o.requires && !E.requirementMet(o, sel);
-    if (locked) el.append(h(`<div class="cap">Needs ${esc(o.requiresChoice || 'the option above')} first.</div>`));
+    const blocked = (o.excludes || []).some((id) => isTaken(sel.options[id]));
+    const locked = (o.requires && !E.requirementMet(o, sel)) || (blocked && !isTaken(sel.options[o.id]));
+    if (locked) el.append(h(`<div class="cap">${blocked ? 'Not available with another option you took.' : `Needs ${esc(o.requiresChoice || 'the option above')} first.`}</div>`));
     if (!choices.length && (o.kind === 'one' || o.kind === 'any' || o.kind === 'perModel')) {
       list.append(h(`<div class="cap">${u.cryptoArkana && !sel.arkana ? `Choose a ${esc(E.choiceLabel)} first.` : 'No choices available.'}</div>`));
     }
@@ -561,7 +564,8 @@
         const cur = val && typeof val === 'object' ? val : {};
         const max = E.optionMax(o, sel);
         const used = E.perModelUsed(cur);
-        el.append(h(`<div class="cap">${used}/${max} model${max === 1 ? '' : 's'}</div>`));
+        const noun = o.perWeapon ? 'weapon' : 'model';
+        el.append(h(`<div class="cap">${used}/${max} ${noun}${max === 1 ? '' : 's'}</div>`));
         if (used > max) el.classList.add('bad');
         for (const c of choices) {
           const n = cur[c.name] || 0;
@@ -629,11 +633,20 @@
     const rows = E.effectiveModels(sel, slot);
     if (!rows.length) return '';
     const groups = {};
+    let html = '';
     for (const r of rows) {
+      const vals = Object.values(r.profile || {});
+      // Super-heavy walkers (e.g. the Stompa) print one line per location: { HEAD: {...}, LEGS: {...} }
+      if (vals.length && vals.every((v) => v && typeof v === 'object')) {
+        const cols = Object.keys(vals[0]);
+        html += `<div class="table-wrap"><table class="stats"><thead><tr><th>${r.count}× ${esc(r.name)}</th>${cols.map((c) => `<th>${esc(c)}</th>`).join('')}</tr></thead><tbody>`;
+        for (const [loc, v] of Object.entries(r.profile)) html += `<tr><td>${esc(loc.charAt(0) + loc.slice(1).toLowerCase())}</td>${cols.map((c) => `<td>${esc(v[c])}</td>`).join('')}</tr>`;
+        html += '</tbody></table></div>';
+        continue;
+      }
       const keys = Object.keys(r.profile || {}).join(',');
       (groups[keys] = groups[keys] || []).push(r);
     }
-    let html = '';
     for (const [keys, rs] of Object.entries(groups)) {
       const cols = keys ? keys.split(',') : [];
       html += `<div class="table-wrap"><table class="stats"><thead><tr><th>Model</th>${cols.map((c) => `<th>${esc(c)}</th>`).join('')}</tr></thead><tbody>`;

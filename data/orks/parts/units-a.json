@@ -113,12 +113,27 @@
           "requires": null
         },
         {
-          "id": "boss-weapons",
-          "text": "This Model may have its slugga and/or choppa exchanged for one item each from the Ork Boss Weapons list.",
-          "kind": "any",
+          "id": "boss-weapons-slugga",
+          "text": "This Model may have its slugga and/or choppa exchanged for one item each from the Ork Boss Weapons list. (slugga)",
+          "kind": "one",
           "model": null,
           "replaces": [
-            "Slugga",
+            "Slugga"
+          ],
+          "choices": [
+            {
+              "list": "ork-boss-weapons"
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "boss-weapons-choppa",
+          "text": "This Model may have its slugga and/or choppa exchanged for one item each from the Ork Boss Weapons list. (choppa)",
+          "kind": "one",
+          "model": null,
+          "replaces": [
             "Choppa"
           ],
           "choices": [
@@ -326,7 +341,15 @@
           "max": {
             "fixed": 2
           },
-          "requires": null
+          "requires": null,
+          "perWeapon": true,
+          "required": {
+            "count": 2,
+            "or": "paired-arms"
+          },
+          "excludes": [
+            "paired-arms"
+          ]
         },
         {
           "id": "paired-arms",
@@ -347,7 +370,10 @@
             }
           ],
           "max": null,
-          "requires": null
+          "requires": null,
+          "excludes": [
+            "arm-weapons"
+          ]
         }
       ],
       "note": "Source text: 'This Model must have one of the following options selected for it' listing (a) two weapons chosen from Dread rippa klaw/Mega killsaw/Shunta/Killkannon, OR (b) Paired dread rippa klaws, OR (c) Paired mega killsaws — a single mandatory arms choice among three alternatives. Represented here as two separate options ('arm-weapons' perModel up to 2, and 'paired-arms' one-of); only one of the two options should be used per model, not both."
@@ -519,12 +545,27 @@
           "requires": null
         },
         {
-          "id": "boss-weapons",
-          "text": "This Model may have its slugga and/or choppa exchanged for one item each from the Ork Boss Weapons list.",
-          "kind": "any",
+          "id": "boss-weapons-slugga",
+          "text": "This Model may have its slugga and/or choppa exchanged for one item each from the Ork Boss Weapons list. (slugga)",
+          "kind": "one",
           "model": null,
           "replaces": [
-            "Slugga",
+            "Slugga"
+          ],
+          "choices": [
+            {
+              "list": "ork-boss-weapons"
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "boss-weapons-choppa",
+          "text": "This Model may have its slugga and/or choppa exchanged for one item each from the Ork Boss Weapons list. (choppa)",
+          "kind": "one",
+          "model": null,
+          "replaces": [
             "Choppa"
           ],
           "choices": [
@@ -726,12 +767,27 @@
       "fixedChoice": "Freebooters",
       "options": [
         {
-          "id": "boss-weapons",
-          "text": "This Model may have its slugga and/or choppa exchanged for one item each from the Ork Boss Weapons list.",
-          "kind": "any",
+          "id": "boss-weapons-slugga",
+          "text": "This Model may have its slugga and/or choppa exchanged for one item each from the Ork Boss Weapons list. (slugga)",
+          "kind": "one",
           "model": null,
           "replaces": [
-            "Slugga",
+            "Slugga"
+          ],
+          "choices": [
+            {
+              "list": "ork-boss-weapons"
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "boss-weapons-choppa",
+          "text": "This Model may have its slugga and/or choppa exchanged for one item each from the Ork Boss Weapons list. (choppa)",
+          "kind": "one",
+          "model": null,
+          "replaces": [
             "Choppa"
           ],
           "choices": [
@@ -873,12 +929,27 @@
           "requires": null
         },
         {
-          "id": "mek-wargear",
-          "text": "This Big Mek or Big Mek on Warbike may have its slugga and/or choppa exchanged for one item each from the Ork Mek Wargear list.",
-          "kind": "any",
+          "id": "mek-wargear-slugga",
+          "text": "This Big Mek or Big Mek on Warbike may have its slugga and/or choppa exchanged for one item each from the Ork Mek Wargear list. (slugga)",
+          "kind": "one",
           "model": null,
           "replaces": [
-            "Slugga",
+            "Slugga"
+          ],
+          "choices": [
+            {
+              "list": "ork-mek-wargear"
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "mek-wargear-choppa",
+          "text": "This Big Mek or Big Mek on Warbike may have its slugga and/or choppa exchanged for one item each from the Ork Mek Wargear list. (choppa)",
+          "kind": "one",
+          "model": null,
+          "replaces": [
             "Choppa"
           ],
           "choices": [
@@ -1251,12 +1322,27 @@
       "fixedChoice": null,
       "options": [
         {
-          "id": "mek-wargear",
-          "text": "Any Model may have its slugga and/or choppa exchanged for one item each from the Ork Mek Wargear list.",
+          "id": "mek-wargear-slugga",
+          "text": "Any Model may have its slugga and/or choppa exchanged for one item each from the Ork Mek Wargear list. (slugga)",
           "kind": "perModel",
           "model": "Mek",
           "replaces": [
-            "Slugga",
+            "Slugga"
+          ],
+          "choices": [
+            {
+              "list": "ork-mek-wargear"
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "mek-wargear-choppa",
+          "text": "Any Model may have its slugga and/or choppa exchanged for one item each from the Ork Mek Wargear list. (choppa)",
+          "kind": "perModel",
+          "model": "Mek",
+          "replaces": [
             "Choppa"
           ],
           "choices": [

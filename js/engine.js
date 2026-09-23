@@ -14,11 +14,18 @@
 
   const norm = (s) => String(s || '').toLowerCase().replace(/\(.*?\)/g, '').replace(/[’']/g, "'").replace(/\s+/g, ' ').trim();
   /** Key for matching a wargear line ("2 Gauss Slicers", "Hull (left) mounted Gauss Flayer Array") to a weapon profile. */
-  const wkey = (n) => norm(n)
-    .replace(/^\d+\s*x?\s+/, '')
-    .replace(/^(hull|centreline|centerline|sponson|pintle|turret|rear|front|side)\s*-?\s*mounted\s+/, '')
-    .replace(/^(a |an |two |three |pair of |paired )/, '')
-    .replace(/s$/, '');
+  const wkey = (n) => {
+    let k = norm(n).replace(/\s+with .*$/, '');
+    // strip counts and mount prefixes in any order: "Two Centreline Mounted big shootas", "3 Arm Mounted supa-rokkits"
+    for (let prev = null; prev !== k;) {
+      prev = k;
+      k = k.replace(/^\d+\s*x?\s+/, '')
+        .replace(/^(a|an|one|two|three|four|pair of|paired)\s+/, '')
+        .replace(/^(hull|centreline|centerline|sponson|pintle|turret|rear|front|side|arm|carapace|head)\s*-?\s*mounted\s+/, '')
+        .replace(/^twin-linked\s+/, 'twin ');
+    }
+    return k.replace(/s$/, '');
+  };
 
   let uidCounter = 0;
   function uid(prefix) {
@@ -162,7 +169,7 @@
     /** Model types whose count the player sets directly. */
     function sizableModels(u) {
       const targets = swapTargets(u);
-      return u.models.filter((m) => !targets.has(m.name) && (m.max || m.min) > m.min);
+      return u.models.filter((m) => !targets.has(m.name) && !m.scaleWith && (m.max || m.min) > m.min);
     }
 
     function newSelection(unitId) {
@@ -180,6 +187,8 @@
       const counts = {};
       const targets = swapTargets(u);
       for (const m of u.models) counts[m.name] = targets.has(m.name) ? 0 : (sel.counts[m.name] ?? m.min);
+      // models that come in fixed numbers per another model (e.g. 2 Gretchin Gunners per Big Gun)
+      for (const m of u.models) if (m.scaleWith) counts[m.name] = m.scaleWith.count * (counts[m.scaleWith.model] || 0);
       for (const o of u.options || []) {
         if (o.kind !== 'swapModel') continue;
         const n = Number(sel.options[o.id]) || 0;
@@ -204,6 +213,8 @@
       }
       // one model carrying several copies of a weapon (e.g. a Monolith's Gauss Flux Arcs)
       if (opt.perWeapon && opt.max && opt.max.fixed != null) return opt.max.fixed;
+      if (opt.max && opt.max.perModelOf && opt.addsModels) return Infinity;
+      if (opt.models) { const c = modelCounts(sel); return opt.models.reduce((a, n) => a + (c[n] || 0), 0); }
       if (!opt.model) return totalModels(sel);
       return modelCounts(sel)[opt.model] || 0;
     }
@@ -213,6 +224,7 @@
       const m = opt.max;
       if (m && m.fixed != null) cap = Math.min(cap, m.fixed);
       if (m && m.per) cap = Math.min(cap, Math.floor(totalModels(sel) / m.per) * (m.count || 1));
+      if (m && m.perModelOf) cap = Math.min(cap, (modelCounts(sel)[m.perModelOf] || 0) * (m.count || 1));
       if (opt.kind === 'swapModel') {
         // other swaps drawing from the same source reduce what's left
         const u = unit(sel.unitId);
@@ -274,7 +286,7 @@
       for (const o of optionsOf(sel)) {
         const val = sel.options[o.id];
         if (val == null || val === false || val === '' || val === 0) continue;
-        const row = byModel(o.model);
+        const row = o.models ? (out.find((r) => o.models.includes(r.model)) || byModel(o.model)) : byModel(o.model);
         if (!row) continue;
         const rep = o.replaces && o.replaces.length ? o.replaces.join(' & ') : null;
         const push = (name, n) => row.changes.push({ name, count: n, replaces: rep });
@@ -461,6 +473,7 @@
         const n = sel.counts[m.name];
         if (n == null) continue;
         if (n < m.min) issues.push({ level: 'error', msg: `${u.name}: at least ${m.min} ${m.name}.` });
+        if (m.maxPer && n > m.maxPer.count * (modelCounts(sel)[m.maxPer.model] || 0)) issues.push({ level: 'error', msg: `${u.name}: at most ${m.maxPer.count} ${m.name} per ${m.maxPer.model}.` });
         if (n > modelMax(u, m)) issues.push({ level: 'error', msg: `${u.name}: at most ${modelMax(u, m)} ${m.name}.` });
       }
       const pools = {};
@@ -469,6 +482,14 @@
         if (o.effect && o.effect.requiresWargear && isTaken(val)) {
           const has = loadout(sel).some((r) => r.base.concat(r.changes.map((c) => c.name)).some((w) => o.effect.requiresWargear.includes(w)));
           if (!has) issues.push({ level: 'error', msg: `${u.name}: ${o.choices[0].name} needs a ${o.effect.requiresWargear.join(' or ')}.` });
+        }
+        if (o.required && !(o.required.or && isTaken(sel.options[o.required.or])) && !(o.requires && !requirementMet(o, sel))) {
+          const need = o.kind === 'perModel' ? (o.required.count === 'all' ? eligible(o, sel) : (o.required.count || 1)) : 1;
+          const have = o.kind === 'perModel' ? perModelUsed(val) : (isTaken(val) ? 1 : 0);
+          if (have < need) issues.push({ level: 'error', msg: `${u.name}: must take ${o.kind === 'perModel' ? need + ' from ' : ''}"${short(o.text)}".` });
+        }
+        if (o.excludes && isTaken(val) && o.excludes.some((id) => isTaken(sel.options[id]))) {
+          issues.push({ level: 'error', msg: `${u.name}: "${short(o.text)}" can't be combined with another option already taken.` });
         }
         if (o.requires && isTaken(val) && !requirementMet(o, sel)) {
           issues.push({ level: 'error', msg: `${u.name}: "${short(o.text)}" needs another option first.` });
