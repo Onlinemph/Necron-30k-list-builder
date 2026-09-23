@@ -1,0 +1,50 @@
+                                                                                                  Codex Xenologica – Drukhari (Horus Heresy 3rd edition)
+
+              Duke Sliscus
+                     Unit composition: 1 Sliscus                              150 points
+
+
+
+
+    COMMAND
+
+
+                         m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+         Sliscus                       7    6   6    3    3    3   6    3   8   9   6    7   4+   6+
+
+     Wargear                                       Special Rules
+         • The Serpent's Bite                                      •  Fast (1)
+         •  Blast Pistol                                               •  Kabal Allegiance
+         •  Plasma Grenades                                  (Sky Serpents)
+         • Shadow Field                                            •  Power From Pain
+                                                                       •  Take Captives
+      Traits                                                      • The Serpent's Venom
+         •  Xenos
+         •  Drukhari                                 Unit type
+         •  Kabals                                                    •  Infantry (Command, Light, Unique)
+         •  [Combat Drugs]
+
+
+
+100    Wargear
+       The Serpent's Bite
+
+        Melee            IM  AM  SM  AP  D   Special Rules            Traits
+
+                                                             Breaching (5+),        The Serpent's Bite          I    +2    S     5      1                      Venom                                                           Poisoned (2+)
+
+
+       Special Rules
+       The Serpent's Venom
+            If Sliscus is selected as part of an army, the controlling player can select one Secondary or Apex
+       Detachment in that army. The following Prime Advantages can be selected for units in that are
+         selected to fill Prime Slots in that Detachment that have either the Infantry or Cavalry Unit Type:
+
+         Sliscus' Dole: If the Unit for which this Prime Advantage is selected does not have the Combat
+        Drugs Trait, it gains the [Combat Drugs] Trait. If that Unit already has the [Combat Drug] Trait, then
+      when selecting Combat Drugs a second Combat Drug Trait may be selected for that unit.
+
+         Sliscus' Reward: All Weapons with the Splinter Trait used by models in the Unit for which this
+       Prime Advantage is selected have their variant of the Poisoned (X) Special Rule replaced with
+        Poisoned (2+).

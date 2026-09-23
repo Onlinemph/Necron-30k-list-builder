@@ -1,0 +1,90 @@
+Version 1.13 march 2026 by Ana
+
+Unit which is in one of the Facings of the         Murderous Assault (X)
+Transport noted in the specific variant of the
+                                         Any Wound Test made for an Attack made
+Firing Deck (X) Special Rule. Models making
+                                             by a Model with the Murderous Assault (X)
+Attacks as part of that Shooting Attack count
+                                                 with a value equal to or higher than the value
+as having moved if the Transport moved in the
+                                                     of X associated with the specific variant of
+preceding Movement Phase and as Stationary if
+                                                   the Murderous Assault (X) Special Rule is
+it did not, but must make Attacks as Snap Shots
+                                                     automatically succesful, regardless of the target's
+if the Transport moved a number of inches
+                                              Toughness characteristic.
+higher than half its Movement Characteristic
+in the preceding Movement Phase. Ranges          At the end of Step 8 of the Initiative Step for
+are measured from the Hull of the Transport.        any Strike Group that includes attacks made by
+Reactions made against the Attack that would       Models with the Murderous Assault (X) Special
+Target the Unit Target the Transport it is              Rule, create a new Strike Group that must then
+Embarked on instead.                          be selected in Step 10 and resolved. This new
+                                                        Strike Group includes a number of Attacks equal
+Whenever the Transport that has the Firing
+                                                     to the number of Wound Tests with a value
+Deck (X) Special Rule is selected as the Reacting
+                                                  equal to or higher than the value of X associated
+Unit for a Reaction that allows the Reacting
+                                                 with the specific variant of the Murderous
+Unit to make a Shooting Attack, the Controlling
+                                                     Assault (X) Special Rule caused by the Strike
+Player may opt to have the Embarked Unit make
+                                          Group that triggered its creation. These Attacks
+that Shooting Attack instead, following the same
+                                                    are made by the model that made the Attack
+restrictions as listed above.
+                                                        that triggered the Murderous Strike (X) Special
+Fleshcraft (X)                               Rule and have a Strength, AP and Damage
+                                                       Characteristics equal to those of the Attack that
+In the Controlling Player’s Movement Phase
+                                                       triggered the Murderous Assault (X) Special
+as the Active Player, when a Model with the
+                                                     Rule, but have no Special Rules.
+Battlesmith (X) Special Rule has been selected,
+but either before or after it has been moved,        Flyby Attack
+the Controlling Player of that Model may                                                                 79                                                   Certain Wargear Items allow a Model to make
+activate this Special Rule. Once activated,
+                                                 a special kind of Attack called a Flyby Attack.
+the Controlling Player of the Model with the
+                                                      After a Unit that includes any Models with a
+Battlesmith (X) Special Rule (referred to as the
+                                                     Special Rule that allows it to make a Flyby
+‘Acting Model’) must select one friendly Model
+                                                  Attack has moved in the Controlling Player's
+within 6" of the Acting Model. The Model
+                                        Movement Phase as the Active Player, the
+selected must have the Infantry, Cavalry or
+                                                     Controlling Player can Target one Enemy Unit
+Paragon Type and is referred to as the Target
+                                                        that Unit moved through or over to make a
+Model’. Once a Target Model has been selected,
+                                                 Flyby Attack using all Models in the Unit that
+the Player controlling the Acting Model must
+                                               have a Wargear Item that allows the Model to
+make an Intelligence Check for the Acting
+                                         make a Flyby Attack. Resolve a Shooting Attack
+Model. If the Check is failed there is no further
+                                               Procedure against the Target of the Flyby
+effect, but if the Check is passed then the Player
+                                                      Attack, applying the following modifications:
+controlling the Acting Model may select one of
+the following options:                                     •  Skip Step 2. Hits inflicted on a Model with
+                                                     the Vehicle Type always target that model's
+•  Reknit: The Target Model gains a number
+                                                 Rear Armour.
+   of Wounds equal to the value of X in the
+                                                               •  During Step 3, instead of declaring Weapons,   Fleshcraft (X) Special Rule variant possessed
+                                                     the Controlling Player of the Unit making   by the Acting Model. This cannot increase
+                                                     the Flyby Attack declares one Wargear Item   the Target Model's Wounds above its Base
+                                              which allows the Model to make Flyby Attack   Value.
+                                                           for each Model in the Unit that is taking part
+•  Restore: A number of Statuses equal to the
+                                                           in the Flyby Attack.
+   value of X in the Fleshcraft (X) Special Rule
+                                                               •  During Step 4, each Fire Group is comprised   variant possessed by the Acting Model may
+                                                        of all Wargear Items with the same Name.  be removed from the Target Model.
+                                                               •  During Step 6, instead of rolling To Hit,
+                                                each attacking Model inflicts a number of
+                                                  Automatic Hits on the Target Unit. The

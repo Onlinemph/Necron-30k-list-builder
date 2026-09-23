@@ -548,6 +548,8 @@
       const u = unit(sel.unitId);
       if (!u) return false;
       if (unitHasTrait(u, trait)) return true;
+      const ch = arkanaOf(sel);
+      if (ch && ch.toLowerCase() === trait.replace(/[[\]]/g, '').toLowerCase()) return true;
       return grantedTraits(sel, slot).some((t) => t.toLowerCase() === trait.toLowerCase());
     }
 
@@ -656,7 +658,7 @@
           if (s.unit.primeAdvantage === 'Logistical Benefit' && !s.unit.logisticalRole) {
             issues.push({ level: 'error', msg: `${u.name}: choose the Battlefield Role for Logistical Benefit.` });
           }
-          if (!slotAllows(d, s, u)) {
+          if (!slotAllows(d, s, u, s.unit)) {
             issues.push({ level: 'error', msg: `${u.name} doesn't meet ${d.name}'s restrictions for its ${s.flexible ? 'flexible' : s.role} slot.` });
           }
           if (s.flexible && s.exclude && s.exclude.includes(u.role)) {
@@ -709,6 +711,14 @@
           if (u && !e.units.includes(u.id)) issues.push({ level: 'error', msg: `${u.name} can't be taken with ${e.sequela}.` });
         }
       }
+      // wargear list items limited to one per army (e.g. Haemonculus Arcana)
+      const once = new Set((data.lists || []).flatMap((l) => l.items.filter((it) => it.oncePerArmy).map((it) => it.name)));
+      if (once.size) {
+        const taken = {};
+        for (const x of sels) for (const r of loadout(x.sel)) for (const c of r.changes) if (once.has(c.name)) taken[c.name] = (taken[c.name] || 0) + c.count;
+        for (const [n, c] of Object.entries(taken)) if (c > 1) issues.push({ level: 'error', msg: `${n} may only be taken once per army (${c} taken).` });
+      }
+
       for (const x of sels) for (const i of unitIssues(x.sel)) issues.push(i);
       return issues;
     }
@@ -751,14 +761,21 @@
     }
 
     /** Detachment restrictions ("Only Units with the Canoptek Trait…") for one slot. */
-    function slotAllows(det, slot, u) {
+    function slotAllows(det, slot, u, sel) {
       const def = det && det.defId ? detById.get(det.defId) : null;
       if (!def || !def.slotRules) return true;
       const role = slot.flexible ? u.role : slot.role;
       return def.slotRules.every((r) => {
         if (r.roles && !r.roles.includes(role)) return true;
         if (r.units && !r.units.includes(u.id)) return false;
-        if (r.trait && !unitHasTrait(u, r.trait)) return false;
+        if (r.trait && !unitHasTrait(u, r.trait)) {
+          // a trait the unit picks (Partisan, Great Clan): allowed if it could pick it, checked once picked
+          const t = r.trait.replace(/[[\]]/g, '');
+          if (!CHOICE.options.includes(t)) return false;
+          if (u.fixedArkana) return u.fixedArkana === t;
+          if (!u.cryptoArkana) return false;
+          if (sel && sel.arkana && sel.arkana !== t) return false;
+        }
         return true;
       });
     }

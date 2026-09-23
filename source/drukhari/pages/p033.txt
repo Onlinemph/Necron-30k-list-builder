@@ -1,0 +1,58 @@
+Version 1.13 march 2026 by Ana
+
+           Cult Beast Pack
+               Unit composition: Varies
+
+                       • The unit must include between 4 and 12 of the following additional models in
+                   any combination:
+                             -- Beastmasters at +10 points per model (the Unit may only include up to 1
+                       Beastmaster for every 4 models in the Unit)   HEAVY
+                             -- Astartes at +5 points per model;  ASSAULT
+                             -- Clawed Fiends at +40 points per model;
+                             -- Ferric Beasts at +20 points per model;
+                             -- Helspiders at +15 points per model;
+                             -- Khymerae at +10 points per model;
+                             -- Razorwing Flocks at +15 points per model.
+
+
+
+                   m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+  Beastmaster               16   4    4    3    3    2   6    2   8    7    6    7    5+    -
+
+ Wargear                                      Special Rules
+  •  Agonizer                                                •  Fast (2)
+  •  Splinter Pod                                            •  Firestorm
+                                                               • Goad (Arena Beasts)
+ Traits                                                               •  Heedless
+  •  Xenos                                                               •  Power From Pain
+  •  Drukhari
+  •  Cults                                    Unit type
+                                                                                                           33  •  Arena Beasts                                           •  Infantry
+                                                            (Antigrav, Light, Skirmish)
+
+
+ Options
+  • May have its Agonizer exchanged for a Power
+   Weapon for free.
+
+
+
+
+
+                   m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+   Astartes                8   4    4    4    4     1    4    2    5    7    7    7   6+    -
+
+ Wargear                                      Special Rules
+  • None                                                    •  Fast (2)
+                                                               •  Heedless
+ Traits
+  •  Xenos                                   Unit type
+  •  Cults                                                    •  Infantry (Skirmish)
+  •  Arena Beasts
+
+
+ Options
+  • May have a Power Weapon selected for it for
+    +10 points.

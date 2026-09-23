@@ -1,0 +1,41 @@
+                                                                                                 Codex Xenologica – Drukhari (Horus Heresy 3rd edition)
+
+                Kabalite Trueborn
+                    Unit composition: 4 Trueborn and 1 Trueborn Champion    75 points
+
+                               • May include up to 10 additional Trueborn at +12 points per model.
+
+
+
+       ELITES
+
+
+                         m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+       Trueborn                     7    4    5    3    3    2    5    2   8    7    6    7   4+   6+
+
+       Trueborn Champion          7    4    5    3    3    2    5    2   8    7    6    7   4+   6+
+
+     Wargear                                       Special Rules
+        •  Splinter Rifle                                            •  Fast (1)
+                                                                       •  Power from Pain
+      Traits                                                                       •  Storm of Infamy
+        •  Xenos                                                                       •  Take Captives
+        •  Drukhari
+        •  Kabals                                   Unit type
+                                                                       •  Trueborn: Infantry (Light)
+                                                                       •  Trueborn Champion: Infantry
+                                                       (Champion, Light, Sergeant)
+
+
+      Options
+28      • One Model in this Unit may have a Gang             •  For every 5 Models in this Unit, up to
+        Banner selected for it for +10 points.               2 Models may have their Splinter Rifle
+        • One Model in this Unit may have a Phantasm        exchanged for an Item from the Drukhari
+        Grenade Launcher selected for it at +20            Heavy Weapons List.
+          points.                                                   • Any Model in this Unit may have its Splinter
+        •  For every 5 Models in this Unit, up to                  Rifle exchanged for an Item from the
+        4 Models may have their Splinter Rifle              Drukhari Pistols List.
+        exchanged for an Item from the Drukhari            • Any Model in this Unit may have an Item
+          Special Weapons List.                           from the Gang Leader Wargear List selected
+                                                                  for it.

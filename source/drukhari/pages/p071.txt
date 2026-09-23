@@ -1,0 +1,39 @@
+Version 1.13 march 2026 by Ana
+
+           Raven Lord
+               Unit composition: 1 Raven Lord                       500 points
+
+
+
+
+   LORD
+  OF WAR
+                                                 Armour                    transport
+                                                                                           capacity
+                      m         bs      front      side      rear     hp
+
+ Raven Lord                    18        4         12         12         12       18          -
+
+Wargear                                       Special Rules
+•  2 Centreline Mounted                                  •  Phantom Shields (2)
+   Pulse disintegrators                                     •  Predator's Sight
+•  2 Centreline Mounted
+  Phantom Lances                           Unit type
+•  1 Centreline Mounted Void Lance                     •  Vehicle
+                                                     (Superheavy, Flyer)
+Traits
+•  Xenos
+•  Drukhari
+•  Cults
+•  Jink
+
+                                                                                                                      71
+Options
+• May have its Void Land exchanged for a              • May have 2 Phantom Lances exchanged for
+   Centreline Mounted Dark Scythe for free.          one of the following:
+• May have both Pulse-Disintegrators                       -- 2 Centreline mounted
+  exchanged for one of the following:                 Phantom Scythes......................................free
+    -- 2 Centreline Mounted                                     -- 2 Centreline mounted
+    Phantom Lances............................ +50 points         Tormentor Heat Lances...........................free
+    -- 2 Centrline Mounted
+     Phantom Scythes......................... +50 points

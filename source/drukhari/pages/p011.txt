@@ -1,0 +1,44 @@
+Version 1.13 march 2026 by Ana
+
+           Cult Succubus on Reaver Jetbike
+               Unit composition: 1 Reaver Succubbus                    150 points
+
+
+
+
+   HIGH
+ COMMAND
+
+                    m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+ Reaver Syren                18   8   6    3    3    4   8   4   9   9    7   8   6+   4+
+
+Wargear                                       Special Rules
+•  Mono-Knife                                             •  Bulky (2)
+•  Splinter Pistol                                           •  Dodge (4+)
+•  Splinter Rifle                                            • Deep Strike
+•  Plasma Grenades                                       •  Fast (1)
+•  Bladevanes (2)                                           •  Firing Protocols (2)
+                                                               •  Implacable Advance
+Traits                                                               •  Outflank
+•  Xenos                                                               •  Power From Pain
+•  Drukhari                                                               •  Take Heads
+•  Jink                                                               •  Shrouded (5+)
+•  Rulers of the Dark City
+•  Cults                                     Unit type
+•  [Combat Drugs]                                         •  Cavalry
+                                                            (Antigrav, Command, Light)                            11
+
+
+Options
+• May have its Mono-Knife exchanged for one        • May have any of the following selected for it:
+   of the following options:                                                                        -- Haywire Grenades...........................+2 points
+    -- A Mono-Blade or a Mono-Flail for +2                                                                        -- Phantasm Grenade Launcher..... +20 points
+      points;                                                                        -- Vexator Mask....................................+5 points
+    -- A Melee Weapon selected from the Gang                                                                        -- Webay Portal.................................. +30 points
+     Leader Wargear List;
+                                                               • May have its Splinter Rifle exchanged for one
+    -- An Archite Glaive for +15 points.                                                        of the following:
+• May have its Splinter Pistol exchanged for an                                                                        --  Blaster.............................................. +15 points
+   Item from the Drukhari Pistols List.
+                                                                        -- Heat Lance...................................... +15 points

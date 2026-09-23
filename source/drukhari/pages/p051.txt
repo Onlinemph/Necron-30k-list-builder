@@ -1,0 +1,39 @@
+          Venom
+               Unit composition: 1 Venom                           60 points
+
+
+
+
+ TRANSPORT
+
+                                                 Armour                    transport
+                                                                                           capacity
+                      m         bs      front      side      rear     hp
+
+ Venom                    20       4        10        10        10       3        6
+
+Wargear                                       Special Rules
+•  Hull (front) mounted                                   •  Assault Vehicle
+  Twin Splinter Rifle                                     • Deep Strike
+•  Hull (front) mounted                                   •  Firing Deck (front, left, right, 5)
+   Splinter Cannon                                        •  Light Transport
+•  Bladevanes
+•  Flickerfield                                Unit type
+                                                               •  Vehicle
+Traits                                                 (Rapid, Skimmer, Transport)
+•  Xenos
+•  Drukhari
+•  [Partisan]
+•  Jink
+
+Access Points
+• The entire hull of the Venom is counted as an Access Point.
+
+
+Options
+• May have its Twin Splinter Rifle exchanged          • May have its Bladevanes exchanged for
+   for a Hull (front) mounted                                        Chain-Snares.........................................+5 points
+   Splinter Cannon....................................+5 points       • May have Grisly Trophies
+• May have one Splinter Cannon exchanged for        selected for it....................................... +15 points
+   a Hull (front) mounted
+  Haywire Cannon.................................+10 points

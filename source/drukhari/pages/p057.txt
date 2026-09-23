@@ -1,0 +1,45 @@
+Version 1.13 march 2026 by Ana
+
+           Cult Reavers
+               Unit composition: 2 Reavers and 1 Arena Champion        85 points
+
+                       • May include up to 7 additional Reavers at +20 points per model.
+
+
+
+  RECON
+
+
+                    m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+ Reaver                      18   4    4    3    3    2   6     1    7    7    6    7   4+  –
+
+ Arena Champion             18   4    4    3    3    2   6    2   8    7    6    7   4+  –
+
+Wargear                                       Special Rules
+•  Splinter Rifle                                            •  Bulky (2)
+•  Splinter Pistol                                           • Deep Strike
+•  Bladevanes (2)                                           •  Fast (2)
+                                                               •  Firing Protocols (2)
+Traits                                                               •  Implacable Advance
+•  Xenos                                                               •  Outflank
+•  Drukhari                                                               •  Power from Pain
+•  Cults                                                               •  Shrouded (5+)
+•  Jink                                                               •  Take Heads
+•  [Combat Drugs]
+                                           Unit type
+                                                               •  Cavalry (Antigrav, Light)
+                                                                                                               57
+
+Options
+• One Reaver in this Unit may have a Gang            • The Arena Champion may have its Splinter
+   Banner selected for it at +10 points.                     Pistol exchanged for an item from the
+•  For every 3 Models in this Unit, 1 Reaver may        Drukhari Pistols List.
+   have its Splinter Rifle exchanged one of the         • The Arena Champion may have one Item
+   following:                                     from the Gang Leader Wargear List selected
+    --  Blaster.....................................+15 points each         for it.
+    -- Heat Lance.............................+15 points each
+•  For every 3 Models in this Unit, 1 Reaver may
+   have one of the following selected for it:
+    -- Cluster Caltrops (3).............. +10 points each
+    -- Grav-Talon (3)....................... +10 points each

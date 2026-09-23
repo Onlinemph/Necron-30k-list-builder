@@ -1,0 +1,56 @@
+                                                                                                 Codex Xenologica – Drukhari (Horus Heresy 3rd edition)
+
+
+
+
+                        m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+         Tortured Prisoner        6     1     1    3    3     1    3     1     1     1     1     1     -     -
+
+      Wargear                                      Special Rules
+         • None                                                    •  Help me… Please…
+
+       Traits                                    Unit type
+         •  Xenos                                                   •  Infantry (Light)
+         •  Kabals
+
+
+       Options
+         • May be upgraded to have the Anathema
+           Special Rule for +20 points.
+
+      Anathema
+     A Unit which includes any Models with this Special Rule may never be selected as the target of a
+        Psychic Blessing or Psychic Curse, and Models with this Special Rule ignore all Damage inflicted
+       by Psychic Weapons, Psychic Powers, Psychic Reactions or Perils of the Warp. If such a Model is
+        selected as the Target Model of any attack or wound inflicted by a Psychic Weapon, Psychic Power,
+        Psychic Reaction, or Perils of the Warp then all Damage caused has no effect and no Wound Tests,
+      Armour Saves or Damage Mitigation Tests are made.
+
+        Additionally, Wound Tests made for Weapons with the Psychic or Immaterial Trait that target any
+        Unit that includes only Models with this Special Rule that have an unmodified result of 1, 2, 3 or 4 are
+       never successful, regardless of the Strength Characteristic of a Hit or any Special Rules that set the
+        Target Number for Wound Tests. This Special Rule has no effect on Armour Penetration Tests.24
+
+      Help me… Please…
+      Damage inflicted to models with this special rule is not counted when calculating Combat
+        Resolution.
+
+            If, at any point, a unit only includes models with this Special Rule, all models in that unit are
+       removed as casualties and that Unit is destroyed.
+
+
+
+
+
+                        m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+         Ur-ghul                    7    4    4    4    3     1    5    3    3   8   6    4     -     -
+
+      Wargear                                      Special Rules
+         • None                                                    •  Impact (S)
+                                                                       •  Fear (1)
+       Traits                                                                       •  Fast (1)
+         •  Xenos
+         •  Kabals                                  Unit type
+                                                                       •  Infantry (Light)

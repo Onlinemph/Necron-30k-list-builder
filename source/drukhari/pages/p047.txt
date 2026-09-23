@@ -1,0 +1,37 @@
+Version 1.13 march 2026 by Ana
+
+           Uranos Pain Engines
+               Unit composition: 1 Uranos                             140 points
+
+                       • May include up to 2 additional Uranos at +125 points per model.
+
+
+
+   WAR
+  ENGINES
+
+                    m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+ Uranos                   8    3    4    7    7    5    2    4   8    12   8   4   3+   5+
+
+Wargear                                       Special Rules
+•  2 Plasma-Disintegrator Cannons                      •  Bulky (7)
+•  Twin Splinter Cannon                                  •  Altered Physiology
+                                                               •  Fear (1)
+Traits                                                               •  Heedless
+•  Xenos                                                               •  Impact (WS)
+•  Drukhari                                                               •  Pain Engine
+•  Covens                                                               •  Power From Pain
+
+                                           Unit type
+                                                               •  Infantry (Antigrav)
+
+
+Options
+• Any model in this Unit may have any Plasma-
+                                                                                                 47
+   Disintegrator Cannon exchanged for one of
+   the following:
+    -- Dark Lance........................................+5 points
+    -- Void Lance....................................... +15 points
+    -- Dark Scythe..................................... +15 points

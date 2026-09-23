@@ -295,6 +295,10 @@
       const b = h(`<button type="button" ${taken ? 'disabled' : ''}><span>${esc(u.name)}${alt}${u.unique ? ' <small class="muted">(character)</small>' : ''}${u.limit ? ` <small class="muted">${esc(u.limit)}</small>` : ''}</span><span class="muted">${u.basePoints} pts · p.${u.page}</span></button>`);
       b.addEventListener('click', () => {
         slot.unit = E.newSelection(u.id);
+        // a detachment that only takes one Partisan / Clan presets the unit's choice
+        const def = det.defId && (DATA.detachments || []).find((x) => x.id === det.defId);
+        const forced = def && (def.slotRules || []).map((r) => r.trait && r.trait.replace(/[[\]]/g, '')).find((t) => t && E.ARKANA.includes(t));
+        if (forced && slot.unit.arkana === null) slot.unit.arkana = forced;
         active = slot.uid;
         closeDialog();
         refresh();

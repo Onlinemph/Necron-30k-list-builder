@@ -1,0 +1,41 @@
+                                                                                                 Codex Xenologica – Drukhari (Horus Heresy 3rd edition)
+
+              Cult Succubus on Hellion Skyboard
+                    Unit composition: 1 Skyboard Succubus                  140 points
+
+
+
+
+       HIGH
+    COMMAND
+
+                         m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+       Skyboard Succubus          16   8   6    3    3    4   8   4   9   9    7   8   6+   4+
+
+     Wargear                                       Special Rules
+        •  Mono-Knife                                             •  Bulky (2)
+        •  Splinter Pistol                                           • Deep Strike
+        •  Splinter Pod                                             •  Fast (1)
+        •  Plasma Grenades                                       •  Firing Protocols (2)
+                                                                       •  Firestorm
+      Traits                                                                       •  Outflank
+        •  Xenos                                                                       •  Power From Pain
+        •  Drukhari                                                                       •  Take Heads
+        •  Jink
+        •  Rulers of the Dark City                      Unit type
+        •  Cults                                                     •  Cavalry (Antigrav, Command,
+        •  [Combat Drugs]                                        Light, Skirmish)
+
+10
+      Options
+        • May have its Mono-Knife exchanged for one        • May have its Mono-Knife and Splinter Pistol
+          of the following options:                         exchanged for one of the following options:
+            -- A Mono-Blade or a Mono-Flail for +2                  -- An Item from the Gladiatorial Weapons
+             points;                                                       List;
+            -- A Melee Weapon selected from the Gang             -- A Hellglaive for free.
+           Leader Wargear List;                                                                       • May have any of the following selected for it:
+            -- An Archite Glaive for +15 points.                                                                                 -- Haywire Grenades...........................+2 points
+        • May have its Splinter Pistol exchanged for an                                                                                 -- Phantasm Grenade Launcher..... +20 points
+         Item from the Drukhari Pistols List.                                                                                 -- Vexator Mask....................................+5 points
+                                                                                 -- Webay Portal.................................. +30 points

@@ -1,0 +1,29 @@
+                  m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+ Khymerae              8   4     -    4    4    2   6    3    5    5    5    3   6+   4+
+
+Wargear                                      Special Rules
+• None                                                    •  Fast (2)
+                                                             •  Fear (1)
+Traits                                                             •  Heedless
+•  Xenos                                                             •  Impact (S)
+•  Cults
+•  Arena Beasts                              Unit type
+                                                             •  Infantry (Skirmish)
+
+
+
+
+
+                  m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+ Razorwing Flock          16   3     -    3    3    4    5    4    5    5    5    3     -     -
+
+Wargear                                      Special Rules
+• None                                                    •  Breaching (6+)
+                                                             •  Fast (2)
+Traits                                                             •  Heedless
+•  Xenos                                                             •  Rending (6+)
+•  Cults
+•  Arena Beasts                              Unit type
+                                                             •  Infantry (Antigrav, Skirmish)

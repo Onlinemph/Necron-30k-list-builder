@@ -1,0 +1,35 @@
+Version 1.13 march 2026 by Ana
+
+           Cronos Pain Engines
+               Unit composition: 1 Cronos                             100 points
+
+                       • May include up to 2 additional Cronos at +85 points per model.
+
+
+
+  SUPPORT
+
+
+                    m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+ Cronos                   8   4    3    7    7    5    2    4   8    12   8   4   3+    -
+
+Wargear                                       Special Rules
+•  Leecher Tentacles                                      •  Bulky (7)
+•  Spirit Syphon                                           •  Altered Physiology
+                                                               •  Fear (1)
+Traits                                                               •  Heedless
+•  Xenos                                                               •  Impact (WS)
+•  Drukhari                                                               •  Pain Engine
+•  Covens                                                               •  Power From Pain
+
+                                           Unit type
+                                                               •  Infantry (Antigrav)
+
+
+Options
+• Any model in this Unit may have any of the
+                                                                                                  43
+   following selected for it:
+    -- Spirit Probe.....................................+10 points
+    -- Spirit Vortex................................... +20 points

@@ -1,0 +1,69 @@
+Version 1.13 march 2026 by Ana
+
+Salvo (X)                            Take Captives
+If at least one model in a unit that is targeted      When a Unit that is composed entirely of
+by a Shooting Attack made by a Model using a       Models with this Special Rule is on the winning
+Weapon with this Special Rule is within a range       side of a Combat, the Take Captives aftermath
+equal to or less than the value specified by X,         option may be selected for that Unit as long as at
+the Firepower characteristic of that attack is           least one Enemy Model engaged in that Combat
+doubled.                                     had its last Wound removed during that turn of
+                                            Combat:
+Scourge (X)
+                                         Take Captives: A Unit that chooses to TakeWhen making a Wound Test for an attack with
+                                                  Captives cannot move or make any attacks asthe Scourge (X) Special Rule, the Characteristic
+                                                      part of this aftermath option, but instead has 1indicated in brackets is used instead of the
+                                                 Captive Token placed on it.Target's Toughness Characteristic. If the
+Attack Target has "-" listed instead of that            Captive Tokens
+Characteristic, the Wound Test automatically                                                 Captive Tokens are normally only used only
+fails.                                                     to keep track of the points scored through the
+When making an Armour Penetration Test for       Take Captives Special Rule, and have no other
+an attack with the Scourge (X) Special Rule,           effect on the game unless directly called out by
+the Armour Value of the Target is used as            another Special Rule. Captives Token can be
+normal, but any Penetrating Hits scored become      represented using tokens or by simply leaving
+Glancing Hits instead.                                   slain enemy models next to the Unit with the
+                                                 Captive Token. A Unit can have any number of
+Shadow Gate                                  Captive Tokens placed on it.
+If a Shooting Attack made for a Weapon or              •   If the Unit that has Captive Tokens is entirely
+Model with this Special Rule causes any Hits            destroyed, the Controlling Player scores 1
+against a Target Model with the Vehicle or              Victory Point for each Captive Token on the
+Walker Type, then until the end of the current            Unit.
+                                                                                                                    81Shooting Phase, each time an Invulnerable Save        •   If all Models in the Unit that has Captives
+or Shrouded Damage Mitigation Roll is made           Tokens, or, if the Unit is Embarked, the
+for the Target Model, subtract 1 from the roll            Transport Model that Unit is Embarked on,
+to a minimum of 1. The same Model can only            are within 6" of a Table Edge or in reserves,
+be affected by this effect of the Shadow Gate           unengaged, and do not have the Routed
+Special Rule once per Shooting Phase.                     status, at the end of the Controlling Player's
+                                           Movement Phase, that Player removes all
+If the Target Model has the Void Shield (X)                                                    Captive Tokens from the Unit and scores
+Special Rule, then do not apply the previous                                               2 Victory Point for each Captive Token
+effect of the Shadow Gate Special Rule. Instead,                                                 removed.
+roll a D6. On a 3+, reduce the value in brackets
+                                                               •   If a Unit that as Captives Tokens is on the
+associated with that Modl's Void Shield (X)
+                                                               battlefield at the end of the Battle and does
+Special Rule by 1, to a minimum of 0. The same
+                                                    not have the Routed status, the Controlling
+Model can be affected by this effect of the
+                                                       Player scores 2 Victory Points for each
+Shadow Gate Special Rule any number of times
+                                                    Captive Token on the Unit.
+per Shooting Phase.
+                                    Take HeadsSpirit Leech
+                                   When an Enemy Model that has the Champion,
+Each time an Attack is made using a weapon that
+                                    Command or Sergeant Sub-Type, or the
+has this Special Rule, its Strength (or Ranged
+                                               Paragon Type, loses its last Wound and is
+Strength) characteristic is doubled if the Target
+                                                  destroyed by an Attack made by a Model with
+Unit has any kind of Tactical Status.
+                                                            this Special Rule, the Controlling Player scores
+Storm of Infamy                              a number of Victory Points, depending on the
+                                            Types and Sub-Types that Model had. These are
+A Model with this Special Rule fires Snap Shots
+                                                 not cumulative; if a Model has multiple of the
+using its full Ballistic Skill. All other penalties
+                                                             listed Types and Sub-Types, only the option that
+relating to Snap Shots still apply.
+                                            would result in the most Victory Points being
+                                                 scored is used:

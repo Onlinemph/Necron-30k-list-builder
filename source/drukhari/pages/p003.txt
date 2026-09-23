@@ -1,0 +1,64 @@
+Version 1.13 march 2026 by Ana
+
+               Drukhari Primer
+
+The ‘Xenos’ Trait                              the first. A Model that somehow has three or
+                                         more Combat Drugs Traits at the same time is
+The ‘Xenos’ trait replaces the Allegiance Trait
+                                                immediately destroyed.
+for Xenos factions. An army that includes
+models with the Xenos Trait may still include      Other New Traits Found in this List
+models with either the Loyalist or Traitor Trait,
+                                        The following traits are also found within the
+but not the other.
+                                            Necron list. They have no direct effects on
+The ‘Drukhari’ Trait                          gameplay, but may be called upon by other
+                                                            rules:
+The 'Drukhari' Trait indicates Units that can be
+selected as part of a Drukhari army.                   Jink: Drukhari vehicles are exceptionally fast
+                                            and agile, and can weave through firestorms that
+The ‘[Partisan]’ Trait                                            would leave any other pilots flat-footed.
+Certain Drukhari Units have a '[Partisan] Trait
+which indicates which subset of Drukhari           Rulers of the Dark City: The most powerful
+society the Unit hails from. The [Partisan]             individuals in Commorragh maintain control
+Trait has no effect on its own, but is referred         over their eclectic organizations with an iron
+to by some Rules and Special Rules. The three         grip, lest they get upstaged by their rivals.
+[Partisan] Traits are as follows:                                     Drukhari Gambit
+•  Kabals                             When selecting a Gambit, the controlling player
+•  Cults                                             of a model with the ‘Drukhari’ Trait can select
+•  Covens                                   Macabre Interest instead of any others available
+                                                     to that model.
+If a Unit has the [Partisan] Trait listed instead of
+a specific option, one of the three Traits above       Macabre Interest
+must be selected for it during Army creation.             If this Gambit is selected, then the model             3
+                                                     controlled by the player that selected it gains
+The ‘[Combat Drugs]’ Trait                                                   the Take Heads Special Rule until the Challenge
+Some Units in the Drukhari Army List will have      ends (including in further rounds of combat, if
+a Combat Drug represented by a Trait on its Unit     the challenge continues beyond the round durin
+Entry, represented by the [Combat Drugs] Trait.      which this Gambit is selected). If the model
+When such a Unit is added to an Army, one           already had the Take Head Special Rule, then if
+Combat Drug Trait from the following list must       the Controlling Player would gain Victory Points
+be selected for that Unit. Each Combat Drug         because the model destroyed its Challenge
+Trait that a Unit has improves one Characteristic     Opponent, that player scores 1 additional
+of the Model that has it, as listed next to the          Victory Point.
+corresponding Combat Drug Trait.
+                                        Additional Reaction Point
+•  Adrenalight: +1 A
+                                                                       If an Army’s Primary Detachment is from the
+•  Grave Lotus: +1 S                                                Drukhari Army List, the Controlling Player
+•  Hypex: +1 I                                                      gains one additional Reaction Point if that
+•  Painbringer: +1 T                            Detachment contains any Models with the
+•  Serpentin: +1 WS                                Rulers of the Dark City Trait.
+•  Splintermind: +1 CL
+                                     Drukhari Prime Advantage
+Units do not benefit from the Combat Drugs                                                                       If a unit with the Drukhari Trait is selected
+Trait of Models that Join them, nor do Models                                                     to fill a Prime Force Organization Slot in
+that Join a Unit benefit from that Unit's Combat                                                 a Detachment, the Scion of Vileth Prime
+Drug Trait.                                               Advantage may be selected:
+Some Rules and Special Rules may allow a                                               Scion of Vileth
+Model to gain more than one Combat Drug
+                                                 This Prime Advantage may only be selected for
+Trait. If this is the case, the Model's Second
+                                                 a Slot that is filled with a Model with the Flyer
+Combat Drug Traits must be different from
+                                               Sub-Type. The Model for which this Prime

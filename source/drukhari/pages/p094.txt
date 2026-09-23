@@ -1,0 +1,58 @@
+                                                                                                 Codex Xenologica – Drukhari (Horus Heresy 3rd edition)
+
+                Lelith Hesperax
+                    Unit composition: 1 Lelith                            250 points
+
+
+
+
+       HIGH
+    COMMAND
+
+                         m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+         Lelith                    6   9   9    3    3    4   9    5   9   9   8   8   6+   4+
+
+     Wargear                                       Special Rules
+        •  Close Combat Weapon                                 • A League Apart
+                                                                       •  At Last, A Challenge!
+      Traits                                                      •  Cult Allegiance (Strife)
+        •  Xenos                                                    •  Eternal Warrior (1)
+        •  Drukhari                                                 •  Fast (1)
+        •  Cults                                                     • Move Through Cover
+        •  Rulers of the Dark City                                 •  Natural Perfection
+                                                                       •  Power From Pain
+                                                                       •  Quicksilver Dodge
+                                                                       •  Spectacular Displays
+                                                                       •  Take Heads
+
+                                                Unit type
+                                                                       •  Infantry (Command, Light, Unique)
+94
+       Special Rules
+     A League Apart
+        Whilst Lelith is in base contact with any Enemy Models that have a Weapon Skill characteristic,
+       and all of those Models have a lower Weapon Skill Characteristic than she does, her Attacks
+         Characteristic is increased by the difference between her Weapon Skill and the Lowest Weapon
+          Skill amongst Enemy Models in base contact with her. Whilst Lelith is engaged in a Challenge, she is
+        only considered to be in Base Contact with her Challenge Opponent, and no other Enemy models.
+      At Last, A Challenge!
+       While a Model with this Special Rule is engaged in a Challenge, its Controlling Player can select the
+        following Gambit for that Model:
+
+       At Last, A Challenge!: If this Gambit is selected, Lelith's Base Initiative Characteristic becomes
+        equal to that of her opponent during the Focus Step. When selecting The Penetrating Blades as the
+        provisions for an Attack during the Strike Step, that Attack gains the Critical Hits (4+) Special Rule,
+        instead of 6+.
+       Natural Perfection
+         Lelith is not affected by special rules that negatively modify her Characteristics (other than
+       Wounds).
+        Quicksilver Dodge
+         Lelith's Invulnerable Save characteristic is increased to 3+ against all Attacks made as part of a
+        Reaction and all Melee Attacks.
+       Spectacular Displays
+       For each Melee Attack made by Lelith, the Controlling Player must select one of the following
+        provisions to apply to that Attack:
+          • Barbed Mane: The Attack gains the Shred (4+) and Ensnare (1) Special Rules.
+          • The Penetrating Blades: The Attack gains the Critical Hits (6+) Special Rule and is resolved at
+          AP2.

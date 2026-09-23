@@ -1,0 +1,32 @@
+                                                                                                 Codex Xenologica – Drukhari (Horus Heresy 3rd edition)
+
+
+       Special Rules
+       Master of Blades
+       While a Model with this Special Rule is engaged in a Challenge, its Controlling Player can select one
+         of the following Gambits for that Model:
+
+        Darting Strike: If this Gambit is selected, the Model must use the Mantis Stance of the
+         Executioner's Demiklaives when making Attacks during the Strike Step of the Challenge. This
+       Gambit has no effect during the Focus or the Strike Step; however, if this Model wins the challenge,
+        or during the Glory Step if the Model for which this Gambit was selected has Challenge Advantage,
+        the Controlling Player can select another Enemy Model in the same Combat that would be eligible
+         to issue or accept a Challenge. The Model for which this Gambit was selected is not engaged in a
+        Challenge with that model, replacing the previous Challenge Opponent if that Model had not been
+         destroyed.
+
+        Strike Back: If this Gambit is selected, the Model must use the Scorpion Stance of the
+         Executioner's Demiklaives when making Attacks during the Strike Step of the Challenge. During the
+         Strike Step of the Challenge, for each succesful Armour and/or Invulnerable Save Roll made for the
+       Model for which this Gambit was selected, then at the end of Step 3 of the Strike Step, the Enemy
+       Model suffers one additional Hit that has a Strength equal to the result of the Saving Throw, an AP
+         of 2, a Damage of 1 and no Special Rules. Those Hits are counted as Hits inflicted by the Model for
+       which this Challenge was selected during the Strike Step in which they occured.
+       Father of Incubi
+            If a Model with this Special Rule is part of an Army, then the Controlling Player may apply the
+         following additional Special Rules to all Auxiliary, Apex and Primary Detachments that have
+        Drukhari Trait:
+          • The Controlling Player can select up to 1 Retinue Slot in a Detachment of the same Army
+            for every 1000 points of Game Size that is filled with an Incubi Chamber Unit. Each selected
+106       Detachment becomes a Prime Slot.
+          •  Units of Incubi Chambers cannot gain the Routed status unless Drazhar has been destroyed.

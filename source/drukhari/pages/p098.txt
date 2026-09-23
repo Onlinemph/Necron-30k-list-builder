@@ -1,0 +1,32 @@
+                                                                                                 Codex Xenologica – Drukhari (Horus Heresy 3rd edition)
+
+
+
+       Special Rules
+       Hunter of Heads
+       Keradruakh may only join units of Mandrakes.
+
+           If Keradruakh is selected as part of an army, the Controlling Player may select a Recon Slot in the
+       same Army. That Recon Slot becomes a Prime Slot. Units of Mandrakes that are selected to fill that
+         Slot may have the following Prime Advantage selected for them:
+       Court of Aelindrach (Prime Advantage)
+         All Mandrakes in a Unit that has had this Prime Advantage selected for it gain +1 to their WS
+         Characteristic. While Keradruakh has joined that Unit, all Mandrakes in that Unit gain the Shade
+         Stalker Special Rule.
+
+       Shade Stalker
+        Before the start of battle, the Controlling Player may select a Model with the Command or High
+      Command Battlefield Role in the opposing Army. That model is referred to as The Prized Skull. If a
+         friendly Unit enters the battlefield from reserves, and all Models in that Unit have the Shade Stalker
+        Special Rule, then instead of entering the battlefield from reserves normally the Controlling Player
+      may place all Models in that Unit anywhere on the battlefield that is within 12" of The Prized Skull
+       and more than 3" from other models and terrain. The Intercept Reaction may be used as normal.
+           If the Unit declares a charge in the same turn that it enters the battlefield in this way, that charge
+           is automatically disordered and only the unit that includes The Prized Skull may be selected as a
+        charge target.
+
+       While engaged in a Challenge with The Prized Skull, if the Finishing Blow Gambit is selected for
+        Keradruakh, the controlling player can discard the dice with the lowest result in the Focus Step,
+         rather than the highest. However, if Keradruakh fails to destroy The Prized Skull with his attacks
+98        during the Strike Step, he automatically gains the Disgraced status and the controlling player gains
+       no Combat Resolution points in the Glory step even if Keradruakh won the challenge.

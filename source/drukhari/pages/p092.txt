@@ -1,0 +1,59 @@
+                                                                                                 Codex Xenologica – Drukhari (Horus Heresy 3rd edition)
+
+     Shock Prow                                          Battlefield Edge that is within the Controlling
+                                                                Player's Deployment Zone for the purpose of all
+     When a Vehicle with a Shock Prow moves
+                                              game rules, special rules and mission objectives.
+      through an enemy Unit, the number of Hits
+        inflicted is increased from D6 to D6+3.
+
+     Soul-Trap
+     The following Gambit can be selected for a
+     Model with a Soul-Trap:
+      Capture the Soul : If the Challenge Opponent
+       of the model is reduced to 0 Wounds during
+       the Strike step of this round of the challenge,
+       the Model's Controlling Player gains 1 Victory
+       Point and the Model's Strength characteritic is
+       increased by +1 for the remainder of the battle.
+
+     Splinter Racks
+        All Models that are Embarked on a Transport
+      with Splinter Racks, or have Disembarked from
+      a Transport with Splinter Racks in the same
+       turn, gain a +1 modifier to the FP Characteristic
+       of any Weapon with the Splinter Trait that it
+       uses to make shooting attacks.
+
+     Tormentors
+         If a Unit that includes any Models equipped with
+      Tormentors becomes locked in combat because
+          it either charged or was charged in the current
+92    Charge Sub-Phase, that Unit's Controlling Player
+       selects Torment (Pinned), Torment (Stunned) or
+      Torment (Suppressed). All Melee weapons used
+      by Models in that Unit that are equipped with
+      Tormentors gain the selected rule, until the end
+       of the current turn.
+
+     Vexator Mask
+     The following Gambit can be selected for a
+     Model with a Soul-Trap:
+      False Visage: The Controlling Player of the
+      Challenge Opponent must take a Willpower
+        test for that Model. That test is made with a -2
+       penalty to the roll if this is the first round of the
+       Challenge. If the test is failed, the Challenge
+      Opponent suffers a Penalty to its Focus Roll
+      equal to the amount it failed by.
+
+    Webway Portal
+     Once per battle, when a Model with a Webway
+       Portal is selected during its Controlling Player's
+     Movement phase, but before or after it has
+      moved, the Controlling Player may activate
+       the Webway Portal. If doing so, place a 3"
+       Blast Marker anywhere within 3" of the Model
+      with the Webway Portal until the end of the
+       current turn. Until the end of the current turn,
+       the edge of the Blast Marker is counted as a

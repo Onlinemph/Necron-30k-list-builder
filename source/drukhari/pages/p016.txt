@@ -1,0 +1,41 @@
+                                                                                                 Codex Xenologica – Drukhari (Horus Heresy 3rd edition)
+
+              Cult Syren on Hellion Skyboard
+                    Unit composition: 1 Skyboard Syren                     70 points
+
+
+
+
+    COMMAND
+
+
+                         m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+       Skyboard Syren              16    7    5    3    3    3    7    3   8   8   6    7   6+    -
+
+     Wargear                                       Special Rules
+        •  Mono-Knife                                             •  Bulky (2)
+        •  Splinter Pistol                                           •  Dodge (4+)
+        •  Splinter Pod                                             • Deep Strike
+        •  Plasma Grenades                                       •  Fast (1)
+                                                                       •  Firing Protocols (2)
+      Traits                                                                       •  Firestorm
+        •  Xenos                                                                       •  Outflank
+        •  Drukhari                                                                       •  Power From Pain
+        •  Jink                                                                       •  Take Heads
+        •  Cults
+        •  [Combat Drugs]                            Unit type
+                                                                       •  Cavalry (Antigrav, Command,
+                                                                   Light, Skirmish)
+16
+
+      Options
+        • May have its Mono-Knife exchanged for one        • May have its Mono-Knife and Splinter Pistol
+          of the following options:                         exchanged for one of the following options:
+            -- A Mono-Blade or a Mono-Flail for +2                  -- An Item from the Gladiatorial Weapons
+             points;                                                       List;
+            -- A Melee Weapon selected from the Gang             -- A Hellglaive for free.
+           Leader Wargear List;                                                                       • May have any of the following selected for it:
+            -- An Archite Glaive for +15 points.                                                                                 -- Haywire Grenades...........................+2 points
+        • May have its Splinter Pistol exchanged for an                                                                                 -- Phantasm Grenade Launcher..... +20 points
+         Item from the Drukhari Pistols List.

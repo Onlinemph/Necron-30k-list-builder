@@ -1,0 +1,62 @@
+                                                                                                 Codex Xenologica – Drukhari (Horus Heresy 3rd edition)
+
+               Drukhari Special Rules
+
+     Acid Shock (X)                      Dodge (X)
+       Horrific concoctions, devised to kill slowly and      A Model with the Dodge (X) Special Rule has
+        painfully, seeped through the cracks of armour        an Invulnerable Save equal to the value in
+      and made light of enhanced flesh.                     brackets associated with the specific variant of
+      Each time an Armour Save or Feel No Pain roll         this Special Rule against Wounds inflicted by
+         is made against a Wound inflicted by a weapon       Attacks that were made in any of the following
+      with this special rule, the value in brackets is           situations:
+       subtracted from the roll (to a minimum of 1).            • The Attack was made during the Assault
+                                                           Phase,
+     Altered Physiology                                                                       • The Attack was made as part of a Reaction.
+      Models with this Special Rule always count their
+     own Unit as having a Status for the purpose of      Drain (X)
+       the purpose of the Power From Pain Special         During Step 9 of the Shooting Attack process,
+       Rule, even if the Unit does not have a Status.         Step 8 of the Initiative Step of the Fight Sub-
+      This only apply to the Model's own Unit; other       Phase or Step 4 of the Challenge process, if a
+       Units                                       model has caused Damage to an enemy model
+                                                           using a weapon that has the Drain (X) special
+    Anathema                                                              rule in the current phase, that model gains a
+    A Unit which includes any Models with this         number of Wounds equal to the greatest value
+       Special Rule may never be selected as the target      of X associated with a weapon that has the
+       of a Psychic Blessing or Psychic Curse, and          Drain (X) special rule that the model has caused
+      Models with this Special Rule ignore all Damage     Damage with in the current phase. This cannot
+        inflicted by Psychic Weapons, Psychic Powers,       cause a model's Wounds characteristic to be
+      Psychic Reactions or Perils of the Warp. If such       greater than its starting Wounds characteristic.
+      a Model is selected as the Target Model of any
+78       attack or wound inflicted by a Psychic Weapon,     Ensnare (X)
+      Psychic Power, Psychic Reaction, or Perils of            If a Melee Attack made for a Weapon or Model
+       the Warp then all Damage caused has no effect       with this Special Rule inflicts one or more
+      and no Wound Tests, Armour Saves or Damage      wounds on a Target Unit, regardless of whether
+       Mitigation Tests are made.                        any Damage is inflicted, then if in the Aftermath
+                                                       Step of the Resolution Sub-Phase of the curent
+       Additionally, Wound Tests made for Weapons
+                                              Combat Phase an Aftermath Option is selected
+      with the Psychic or Immaterial Trait that target
+                                                                for the Target Unit that allows that Unit to Move,
+      any Unit that includes only Models with this
+                                                         the distance moved is reduced by the value of
+       Special Rule that have an unmodified result of 1,
+                                     X associated with the specific variant of the
+        2, 3 or 4 are never successful, regardless of the
+                                                     Ensnare special rule, down to a minimum of 0".
+       Strength Characteristic of a Hit or any Special
+      Rules that set the Target Number for Wound          Multiple Wounds with the Ensnare Special Rule
+       Tests. This Special Rule has no effect on Armour      are not cumulative. If multiple Wounds with
+       Penetration Tests.                                  the Ensnare Special Rule are inflicted on the
+                                                same Target Unit, only the greatest value of X
+     Ancillary                                                           associated with the Ensnare Special Rule among
+    A model that is equipped with a Weapon that         those Wounds is used to determin the reduction.
+      has this special rule can make a number of
+       additional Attacks in the Fight Sub-Phase, or        Firing Deck (X)
+       the Strike Step of a Challenge, equal to the           In the Shooting Phase, a Unit that is Embarked
+      Attack Modifier Characteristic of that weapon.      on a Transport Model that has this Special Rule
+      Those additional Attacks must be made using        can be selected to make a Shooting Attack, even
+       that Weapon, even if a different Weapon was        though it is not on the Battlefield. A number of
+       selected for the Model to Fight with in that         Embarked Models up to the value noted in the
+      Phase.                                                  specific variant of the Firing Deck (X) Special
+                                                     Rule may attack as part of that Shooting Attack,
+                                                  and the Shooting Attack must target an Enemy

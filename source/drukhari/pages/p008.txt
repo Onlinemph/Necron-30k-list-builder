@@ -1,0 +1,52 @@
+                                                                                                Codex Xenologica – Drukhari (Horus Heresy 3rd edition)
+
+              Kabal Archon
+                    Unit composition: 1 Archon                           80 points
+
+
+
+
+       HIGH
+    COMMAND
+
+                         m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+      Archon                       7    7    7    3    3    4    7    4   9   9    7   8   4+   6+
+
+       Grafted Archon              14    7    7    3    3    4    7    4   9   9    7   8   4+   6+
+
+     Wargear                                       Special Rules
+        •  Splinter Pistol                                  Archon
+        •  Plasma Grenades                                       •  Fast (1)
+                                                                      •  Power From Pain
+      Traits                                                      •  Take Captives
+      Archon                                              Grafted Archon
+        •  Xenos                                                    •  Bulky (2)
+        •  Drukhari                                                 • Deep Strike
+        •  Rulers of the Dark City                                 •  Fast (2)
+        •  Kabals                                                    •  Power From Pain
+      Grafted Archon                                                                      •  Take Captives
+        •  Xenos
+        •  Drukhari                                 Unit type
+8        •  Rulers of the Dark City                          Archon
+        •  Kabals                                                    •  Infantry (Command, Light)
+        •  Jink                                              Grafted Archon
+                                                                      •  Infantry
+                                                                   (Antigrav, Command, Light)
+
+
+     Options
+        • May have an Item from the Gang Leader             • May have any of the following selected for it:
+        Wargear List or the Exotic Weapons List                                                                                --  Soul-Trap...........................................+5 points
+         selected for it.                                                                                -- Vexator Mask....................................+5 points
+        • May have its Splinter Pistol exchanged for                                                                                -- Webway Portal............................... +30 points
+        an Item from the Drukhari Pistols List or
+                                                                      • May have a Phantasm Grenade Launcher
+        Drukhari Special Weapons List.
+                                                              selected for it for +20 points. An Archon with
+        • May have one of the following selected for it:                                                         a Phantasm Grenade Launcher may not be
+            -- Clone Field..................................... +20 points                                                      upgraded to a Grafted Archon.
+            -- Shadow Field..................................+35 points                                                                      • May be upgraded to a Grafted Archon for +20
+        • May have one of the following selected for it:          points.
+            -- Razorwing Familiar........................+10 points       • May be upgraded to have the [Combat Drugs]
+            -- Terror Grenade...............................+10 points          trait for +15 points.

@@ -1,0 +1,33 @@
+Version 1.13 march 2026 by Ana
+
+Drukhari 3.0 – V1.1
+
+Changelog:
+
+-- Added missing Special Rules: Ensnare (X) and Shadow Gate.
+-- Added new Spcial Rule: Pain Engine.
+-- Added missing Wargear Item: Gang Banner.
+
+
+Drukhari 3.0 – V1.11
+
+Changelog:
+
+-- Added missing wargear option to Hellions: Stunclaw
+-- Added missing Special Rules: Pierce (X) and Salvo (X).
+
+
+Drukhari 3.0 – V1.12
+
+Changelog:
+
+-- Correctd the Pain Amp Special Rule
+-- Buffed, and increased thepoint cost of, the Spirit Syphon
+
+
+Drukhari 3.0 – V1.12
+
+Changelog:
+
+-- Corrected the characteristics profile on Flyer units.
+                                                                                                             107

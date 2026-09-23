@@ -1,0 +1,40 @@
+                                                                                                 Codex Xenologica – Drukhari (Horus Heresy 3rd edition)
+
+               Razorwing Jefighter
+                    Unit composition: 1 Razorwing                          120 points
+
+
+
+
+     FAST ATTACK
+
+                                                      Armour                    transport
+                                                                                                  capacity
+                           m         bs      front      side      rear     hp
+
+       Razorwing                  24        4           11           11           11       5      –
+
+     Wargear                                       Special Rules
+        •  1 Centreline Mounted                                  •  Predator's Sight
+        Twin Splinter Rifle
+                                                          type        •  2 Centreline Mounted                       Unit
+         Plasma-Disintegrator Cannons                        •  Vehicle (Flyer)
+        •  4 Hull (Front) Mounted
+        Monoscythe Missiles
+
+      Traits
+        •  Xenos
+        •  Drukhari
+        •  Interceptor
+        •  Cults
+60
+
+      Options
+        • May have 1 Twin Splinter Rifle exchanged for       • May have any Monoscythe Missile exchanged
+           1 Centreline Mounted Splinter Cannon for +5          for one of the following:
+          points.                                                            -- 1 Hull (Front) Mounted
+        • May have 2 Plasma-Disintegrator Cannons             Necrotoxin Missile....................................free
+        exchanged for 2 Centreline Mounted                      -- 1 Hull (Front) Mounted
+        Dark Lances for +10 points.                               Shatterfield Missile................ +5 points each
+        • May have a Night Shield selected for it for +10
+          points.

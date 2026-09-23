@@ -1,0 +1,52 @@
+                                                                                                 Codex Xenologica – Drukhari (Horus Heresy 3rd edition)
+
+     Haywire Weapons
+      Haywire weapons fired electromagnetic bursts able to disable a vehicle’s control systems in but a few
+        shots, and left occupants intact and ripe for the taking. Armour offered little protection against these
+      weapons, even the mightiest vehicles falling dead before their onset.
+
+
+      Weapon           R   FP  RS  AP  D   Special Rules                 Traits
+
+                                                            Suppressive (1),       Haywire Blaster        24    2    4    4      1                               Haywire                                                    Shock (Suppressed)
+
+                                                            Suppressive (1),       Twin Haywire Blaster   24    4    4    4      1                               Haywire                                                    Shock (Suppressed)
+
+                                                                   Blast (3), Heavy (RS),
+       Haywire Cannon       36     1    6    4      1    Suppressive (2),               Haywire
+                                                    Shock (Suppressed)
+
+       Storm Vortex                                                                                 Haywire        Projector
+
+                                                                         Critical Hit (6+), Ordnance (AP),
+           - Beam             36    6     7    3      1    Suppressive (2),
+                                                    Shock (Suppressed)
+
+                                                                     Blast (5), Ordnance (AP),
+           - Blast              24     1     5    4      1    Suppressive (2),
+                                                     Shock (Suppressed)
+
+
+    Heat Lances
+86    The drukhari had uniquely discovered a way to meld lance and melta technologies. Such weapons had
+       greater effective range than a regular melta weapon, and the same armour-piercing abilities as a lance,
+      though their high energy consumption limited their potential.
+
+
+      Weapon           R   FP  RS  AP  D   Special Rules               Traits
+
+       Heat Lance             18     1    6    2    3   Melta (6), Pierce (D3)         Melta
+
+       Heat Lance Pod         18    2    6    2    3   Melta (6), Pierce (D3)         Melta
+
+       Furnace Lance         36    3    6    2    4   Melta (8), Pierce (D3)         Melta
+
+
+     Monofilament Weapons
+      Drukhari monofilament weapons fired an expanding mesh of barbed monowire, covering its victims in an
+        invisible net that ripped them apart as they struggled.
+
+
+      Weapon           R   FP  RS  AP  D   Special Rules               Traits
+
+                                                                   Blast (3"), Pinning (1),          Assault,       Shredder               18     1    6     -      1                                                       Shred (4+)                  Monofilament

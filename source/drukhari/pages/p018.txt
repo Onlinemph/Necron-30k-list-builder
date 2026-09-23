@@ -1,0 +1,36 @@
+                                                                                                 Codex Xenologica – Drukhari (Horus Heresy 3rd edition)
+
+              Coven Haemonculus
+                    Unit composition: 1 Haemonculus                       50 points
+
+
+
+
+    COMMAND
+
+
+                         m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+       Haemonculus                 7    4    4    3    5    3    4    3   8   8    7    9   6+    -
+
+     Wargear                                       Special Rules
+        •  Haemonculus Tools                                    •  Altered Physiology
+        •  Splinter Pistol                                           •  Fleshcraft (2)
+                                                                       •  Power From Pain
+                                                                       •  Take Captives
+      Traits
+        •  Xenos                                    Unit type
+        •  Drukhari                                                 •  Infantry (Command)
+        •  Covens
+
+
+
+
+      Options
+        • May have up to one Item from either the
+18        Gang Leader Wargear or Weapons of Torture
+           List selected for it.
+        • May have its Splinter Pistol exchanged for a
+        an item from the Tools of Torment List.
+        • May have one Item from the Haemonculus
+        Arcana List selected for it.

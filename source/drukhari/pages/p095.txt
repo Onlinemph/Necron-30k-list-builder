@@ -1,0 +1,42 @@
+Version 1.13 march 2026 by Ana
+
+           Urien Rakarth
+               Unit composition: 1 Urien Rakarth                    200 points
+
+
+
+
+   HIGH
+ COMMAND
+
+                    m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+ Haemonculus Ancient         7    5    5    4    5    4    5    4   10   10    7   10   6+   4+
+
+Wargear                                       Special Rules
+•  Casket of Flensing                                      •  Altered Physiology
+•  Khaïdesi Haemovores                                  •  Contempt for Death
+•  Haemonculus Tool                                     •  Coven Allegiance
+•  Ichor Gauntlet                                     (Prophets of Flesh)
+•  Ichor Injector                                           •  Eternal Warrior (1)
+•  Clone Field                                              •  Father of Pain
+                                                               •  Fleshcraft (3)
+Traits                                                      •  Power From Pain
+•  Xenos                                                               •  Take Captives
+•  Drukhari
+•  Rulers of the Dark City                      Unit type
+•  Covens                                                   •  Infantry (Command, Unique)
+
+                                                                                                             95
+ Wargear
+ Ichor Gauntlet
+
+  Ranged           IM  AM  SM  AP  D   Special Rules            Traits
+
+   Ichor Gauntlet               I   A    S    4     3   Poisoned (2+)          Venom
+
+ Khaideshi Haemovores
+
+  Ranged           IM  AM  SM  AP  D   Special Rules            Traits
+
+   Khaideshi                         +2    3     5      -      1    Ancillary, Drain (1)         -  Haemovores

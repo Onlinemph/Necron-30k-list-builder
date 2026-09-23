@@ -1,0 +1,39 @@
+                                                                                                 Codex Xenologica – Drukhari (Horus Heresy 3rd edition)
+
+             Rukh
+                    Unit composition: 1 Rukh                             700 points
+
+
+
+
+       LORD
+      OF WAR
+                                                      Armour                    transport
+                                                                                                  capacity
+                           m         bs      front      side      rear     hp
+
+      Rukh                          18        4         12         12         12       18          -
+
+     Wargear                                       Special Rules
+        •  2 Centreline Mounted                                  •  Phantom Shields (2)
+         Pulse Disintegrators                                    •  Predator's Sight
+        •  1 Turret Mounted
+         Scythe Missile Launcher                     Unit type
+        •  1 Centreline Mounted Void Lance                     •  Vehicle
+                                                            (Superheavy, Flyer)        •  2 Hull (Front) Mounted
+         Shatterstorm Missiles
+
+      Traits
+        •  Xenos
+        •  Drukhari
+        •  Cults
+72        •  Jink
+
+
+      Options
+        • May have its Void Land exchanged for a              • May have both Pulse-Disintegrators
+         Centreline Mounted Dark Scythe for free.           exchanged for one of the following:
+                                                                                 -- 2 Centreline Mounted
+                                                    Phantom Lances............................ +50 points
+                                                                                 -- 2 Centreline Mounted
+                                                    Phantom Scythes......................... +50 points

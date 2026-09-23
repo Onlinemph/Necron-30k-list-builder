@@ -1,0 +1,55 @@
+Version 1.13 march 2026 by Ana
+
+              Drukhari Wargear
+
+Clone Field                         Enhanced Aethersails
+A Model with a Clone Field has a 4+             The Controlling Player of a Rapid Vehicle
+Invulnerable Save.                              equipped with Enhanced Aethersails may have
+                                                        that model move an additional 12" instead of 6"
+Drukhari Vehicle Implements                                       when making a Rush move.
+The following Vehicle Implements all allow a
+                                          Flickerfieldmodel to take part in a Flyby Attack. See the
+Flyby Attack Special Rule for details on how to     A Model with a Flickerfield gains a 5+
+peform a Flyby Attack.                              Invulnerable Save unless it has the Pinned
+                                                          Status.
+Bladevanes
+Bladevanes allow a Model to make 2 Flyby       Gang Banner
+Attacks at S4, AP4.                       When resolving a Combat in the Resolution
+                                              Sub-Phase of the Assault Phase, score 1 CombatChain Snares
+                                                  Resolution Point for each Unit in that Combat
+Chain Snares allow a Model to make 3 Flyby                                                        that has any Models that have a Gang Banner.
+Attacks at S4, AP–. If, after resolving the Flyby
+Attack, the Target Unit suffered any Wounds        Grisly Trophies
+caused by Chain Snares (regardless of wether                                   A Model with Grisly Trophies gains the Fear (1)
+any Damage was inflicted), the Target Unit must                                                     Special Rule.
+take a Cool test with a -1 modifier to its Cool
+Characteristic. If it is failed, the Target Unit       Night Shield
+gains the Pinned Status.                                   A Model with a Night Shield gains the
+Cluster Caltrops                             Shrouded (5+) Special Rule unless it has the
+                                              Pinned status.Cluster Caltrops allow a Model to make 4 Flyby                                                                                                                    91
+Attacks at S6, AP4. If, after resolving the Flyby     Plasma Grenades
+Attack, the Target Unit suffered any Wounds
+                                   When making Volley Attacks during Step 4 ofcaused by Cluster Caltrops (regardless of wether
+                                                   the Charge Procedure with a Unit that includesany Damage was inflicted), the Target Unit must
+                                                           at least one Model with Plasma Grenades, thetake a Cool test with a -1 modifier to its Cool
+                                                     Controlling Player may choose to make a singleCharacteristic. If it is failed, the Target Unit
+                                                      attack with a Plasma Grenade instead of makinggains the Suppressed Status.
+                                                 a normal Shooting Attack using the following
+Grav-Talon                                               profile:
+A Grav-Talon allows a Model to make 4 Flyby         R   FP  RS  AP  D   Special Rules   Traits
+Attacks at S4, AP4. If, after resolving the Flyby
+Attack, the Target Unit suffered any Wounds             6      1     4    4      1     Blast (3)          Assault
+caused by a Grav-Talon (regardless of wether
+                                    Razorwing Familiarany Damage was inflicted), the Target Unit must
+take a Cool test with a -1 modifier to its Cool           All Models in a Unit that includes a Model with
+Characteristic. If it is failed, the Target Unit          a Razorwing Familiar gain the Move Through
+gains the Stunned Status.                        Cover Special Rule.
+Sicklevanes                         Shadow Field
+Sicklevanes allow a Model to make 4 Flyby       A model with a Shadow Field has a 2+
+Attacks at S6, AP4.                                  Invulnerable Save so long as it has not suffered
+                                        Damage during the battle. Once the model has
+Scythevanes
+                                                      suffered Damage during the battle (even if it
+Scythevanes allow a Model to make 4 Flyby                                                            later regains Wounds), the Shadow Field no
+Attacks at S8, AP3 and with the Armourbane                                                    longer provides an Invulnerable Save for the
+Special Rule.                                               remainder of the battle.

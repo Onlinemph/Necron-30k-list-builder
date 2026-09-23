@@ -1,0 +1,42 @@
+Version 1.13 march 2026 by Ana
+
+           Cult Syren on Reaver Jetbike
+               Unit composition: 1 Reaver Syren                      80 points
+
+
+
+
+ COMMAND
+
+
+                    m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+ Reaver Syren                18    7    5    3    3    3    7    3   8   8   6    7   6+    -
+
+Wargear                                       Special Rules
+•  Mono-Knife                                             •  Bulky (2)
+•  Splinter Pistol                                           •  Dodge (4+)
+•  Splinter Rifle                                            • Deep Strike
+•  Plasma Grenades                                       •  Fast (1)
+•  Bladevanes (2)                                           •  Firing Protocols (2)
+                                                               •  Implacable Advance
+Traits                                                               •  Outflank
+•  Xenos                                                               •  Power From Pain
+•  Drukhari                                                               •  Take Heads
+•  Jink                                                               •  Shrouded (5+)
+•  Cults
+•  [Combat Drugs]                            Unit type
+                                                               •  Cavalry
+                                                            (Antigrav, Command, Light)                         17
+
+
+Options
+• May have its Mono-Knife exchanged for one        • May have any of the following selected for it:
+   of the following options:                                                                        -- Haywire Grenades...........................+2 points
+    -- A Mono-Blade or a Mono-Flail for +2                                                                        -- Phantasm Grenade Launcher..... +20 points
+      points;                                                               • May have its Splinter Rifle exchanged for one
+    -- A Melee Weapon selected from the Gang                                                        of the following:
+     Leader Wargear List;                                                                        --  Blaster.............................................. +15 points
+    -- An Archite Glaive for +15 points.                                                                        -- Heat Lance...................................... +15 points
+• May have its Splinter Pistol exchanged for an
+   Item from the Drukhari Pistols List.

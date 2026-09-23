@@ -1,0 +1,40 @@
+                                                                                                 Codex Xenologica – Drukhari (Horus Heresy 3rd edition)
+
+               Tantalos
+                    Unit composition: 1 Tantalos                            190 points
+
+
+
+
+       HEAVY
+     TRANSPORT
+                                                      Armour                    transport
+                                                                                                  capacity
+                           m         bs      front      side      rear     hp
+
+        Tantalos                       18        4         12         12        10       12        18
+
+     Wargear                                       Special Rules
+        •  2 Centreline mounted                                  •  Assault Vehicle
+         Pulse Disintegrator Cannons                          • Deep Strike
+        •  Enhanced Aethersails                                  •  Firing Deck (front, left, right, 16)
+        •  Flickerfield
+                                                          type        •  Scythevanes                               Unit
+                                                                       •  Vehicle
+      Traits                                                 (Rapid, Skimmer, Transport)
+        •  Xenos
+        •  Drukhari
+        •  Kabals
+        •  Jink
+
+54    Access Points
+        • The entire hull of the Tantalos is counted as an Access Point.
+
+
+      Options
+        • May have up to one each of the following
+          selected for it:
+            -- Grisly Trophies............................... +15 points
+            -- Hull (Left, Right) mounted
+            Terrorfex Grenade Launcher....... +15 points
+            -- Splinter Racks................................. +15 points

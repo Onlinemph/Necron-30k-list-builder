@@ -1,0 +1,30 @@
+                                                                                                 Codex Xenologica – Drukhari (Horus Heresy 3rd edition)
+
+        •  Sergeant: 1 Victory Point.
+        •  Champion: 2 Victory Points.
+        • Command: 3 Victory Point.
+        •  Paragon: 5 Victory Points.
+
+    Torment (X)
+     When making a Wound Test for a Weapon with
+        this Special Rule against a Target Unit that is not
+       entirely composed of Models with the Walker
+     Type or Gargantuan Sub-Type, the result of the
+     Wound Test before any modifiers are applied
+      must be checked.
+         If any Wound Test for a Weapon with the
+      Torment (X) Special Rule results in a ‘5' or
+         ‘6’ before any modifiers are applied, then all
+      Models, except Walker and Gargantuan Models,
+       in the Target Unit gain a Status at the end of
+      Step 11 of the Shooting Attack process, Step 10
+       of the Initiative Step process or Step 4 of the
+      Challenge Process, regardless of wether any
+     Damage was inflicted by the Attack. The Status
+      gained is indicated by the value of X attached to
+       that variant of the Torment (X) Special Rule.
+
+
+
+
+82

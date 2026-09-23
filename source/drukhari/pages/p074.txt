@@ -1,0 +1,42 @@
+                                                                                                 Codex Xenologica – Drukhari (Horus Heresy 3rd edition)
+
+
+      Bladed Legs
+           If a model with this Special Rule is Engaged by any enemy Models that are part of a Combat, it
+          inflicts D6+1 Hits on all Units (friendly and enemy) in that Combat that do not include any Models
+        with the Titan, Knight or Antigrav Sub-Type, rather than D3+1 (see the rules for Titans in the Assault
+        Phase, Liber Questoris page 75)
+
+
+     Tormentor Volley
+     A model with this Special Rule that remains stationary in the controlling player's Movement Phase
+      may fire two weapons with the Power Hungry Special Rule in the following Shooting Phase, rather
+        than one. However, if doing so, the model may not fire other weapons in the same Shooting Phase.
+
+
+     Titan Strike Weapons
+
+
+      Weapon           R   FP  RS  AP  D   Special Rules               Traits
+
+        Klaive of Khaine       8      1     12    2    8   Armourbane                  Strike
+
+
+     Titan Tactical Weapons
+
+
+      Weapon           R   FP  RS  AP  D   Special Rules               Traits
+
+                                                        Poisoned (3+),         Splinter-Hail Battery    48    6    3    4    2                                     Splinter, Tactical                                                            Suppressive (2)
+74
+
+     Titan Strategic Weapons
+
+
+      Weapon           R   FP  RS  AP  D   Special Rules               Traits
+
+       Phantom Lance         72    3    12    2    4   Armourbane                  Las, Strategic
+
+                                                      Armourbane, Blast (5),       Phantom Scythe       60     1     12    2    8                                   Las, Stragetic                                                    Macro-Auspex
+
+                                                                   Blast (10), Lance (14),       Tormentor                              72     1    10    2    6   Macro-Auspex, Melta (12),    Melta, Stragetic       Heat Lance                                                   Power Hungry

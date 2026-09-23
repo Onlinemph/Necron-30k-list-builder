@@ -1,0 +1,51 @@
+Version 1.13 march 2026 by Ana
+
+          Baron Sathonyx
+               Unit composition: 1 Sathonyx                         220 points
+
+
+
+
+ COMMAND
+
+
+                    m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav   inv
+
+ Sathonyx                    16   6   6    3    3    3   6    3   9   8   6    7   4+   6+
+
+
+
+Wargear                                       Special Rules
+•  Hellglaive                                      Dracon
+•  Splinter Pistol                                           •  Bulky (2)
+•  Splinter Pod                                             •  Bones of the Seer
+•  Phantasm Grenade Launcher                          •  Fast (1)
+•  Plasma Grenades                                       •  Firing Protocols (2)
+• Shadow Field                                            •  Firestorm
+                                                               •  Impact (S)
+Traits                                                      •  Lord Hellion
+Dracon                                                               •  Outflank
+•  Xenos                                                               •  Power From Pain
+•  Drukhari                                                               •  Shrouded (5+)
+•  Cults
+                                                               •  Take Captives                                   99
+
+                                           Unit type
+                                                               •  Cavalry (Antigrav, Command,
+                                                            Light, Skirmish, Unique)
+
+
+ Special Rules
+ Bones of the Seer
+ Once per turn, when Sathonyx’s unit is selected as the Reactive Unit for a Reaction, the controlling
+  player can choose to regain 1 point of Reaction Allotment after the Reaction has been resolved.
+
+ The Lord Hellion
+ Sathonyx may only join Hellion Gangs and may not join other units.
+
+ One Recon Slot in the same army as Baron Sathonyx may be upgraded to a Prime Slot at no
+  additional cost. That Prime Slot must be filled with a Hellion Gang, and the following Prime
+ Advantage must be selected for it:
+
+ Twilight Shrouded: Only Sathonyx may join a Unit with this Prime Advantage. All models in the
+  Unit with this Prime Advantage gain the Shrouded (5+) Special Rule.

@@ -1,0 +1,38 @@
+Version 1.13 march 2026 by Ana
+
+            Incubus Hierarch
+               Unit composition: 1 Hierarch                            70 points
+
+
+
+
+ COMMAND
+
+
+                    m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+ Hierarch                     7    6    4    4    3    3   6    4   10   8    7    7    3+    -
+
+Wargear                                       Special Rules
+•  Klaive                                                    •  Fast (1)
+•  Tormentors                                              •  Hatred (Challenge Opponent)
+                                                               •  Murderous Assault (5+)
+Traits                                                               •  Power From Pain
+•  Xenos                                                               •  Take Heads
+•  Drukhari                                                               •  Temple Master
+
+                                           Unit type
+                                                               •  Infantry (Command)
+
+
+Options
+• May have its Klaive exchanged for a Punisher
+   for free or Demiklaives for +10 points.
+                                                                                                                    19
+• May have a Bloodstone selected for it for +10
+   points.
+
+Temple Master
+For every Model with this Special Rule that is selected to fill a Command Slot in a Detachment, one
+Troops Slot in that Detachment may be replaced with a Retinue Slot. Only Units of Incubi Chambers
+may be selected to fill those Slots.

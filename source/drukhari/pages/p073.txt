@@ -1,0 +1,56 @@
+Version 1.13 march 2026 by Ana
+
+          Tormentor Titan
+               Unit composition: 1 Tormentor Titan                  1000 points
+
+
+
+
+   LORD
+  OF WAR
+
+                                                    primary        exposed             transport
+                                              armour       armour               capacity
+                      m         bs                                  hp
+
+ Head                             -        4            12             10         10          -
+
+ Carapace                         -        4            13              12          12          -
+
+ Arms                             -        4            12             10         10          -
+
+ Legs                      20         -            13              12          12          -
+
+Wargear                                       Special Rules
+• The Head profile has 1 Carapace Mounted           •  Bladed Legs
+   Splinterstorm Cannon                                  •  Idol of Torment (2)
+• The Carapace profile has 2 Carapace Mounted     •  Repair Crew (D3)
+  Weapons (see Options)                                 •  Phantom Fields (3)
+• The Arms profile has 2 Arm Mounted Weapons     •  Reinforced Structure (1)
+   (see Options)                                                               •  Tormentor Volley
+
+Traits                                           Unit type                                                                                                           73
+•  Xenos                                                               •  Vehicle (Titan)
+•  Drukhari
+•  Battle
+•  [Crew]
+
+
+Options
+• When this model is selected as part of an            •  This model must have 2 Arm Mounted
+   army, the controlling player must exchange         Weapons selected for it from the following
+   the [Crew] trait for one of the following               options:
+   options:                                                          -- Klaive of Khaine........................................free
+    -- Replace [Crew] with Majoris..................free           -- Phantom Lance.........................................free
+    -- Replace [Crew] with Senioris and increase            -- Phantom Scythe........................................free
+     the BS Characteristic of all of this Model's            -- Tormentor Heat Lance.............................free
+      profiles to 5..................................+200 points
+•  This model must have 2 Carapace Mounted
+  Weapons selected for it from the following
+   options:
+    -- Phantom Lance.........................................free
+    -- Phantom Scythe........................................free
+    -- Tormentor Heat Lance.............................free
+
+Note that a copy of Warhammer The Horus Heresy 3rd Edition: Liber Questoris will be required for the full
+rules on using Knights and Titans in game, including the Tormentor Titan.

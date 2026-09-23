@@ -1,0 +1,35 @@
+                                                                                                 Codex Xenologica – Drukhari (Horus Heresy 3rd edition)
+
+               Raptor
+                    Unit composition: 1 Raptor                          400 points
+
+
+
+
+       LORD
+      OF WAR
+                                                      Armour                    transport
+                                                                                                  capacity
+                           m         bs      front      side      rear     hp
+
+        Raptor                    20       4         12         12         12       14          -
+
+     Wargear                                       Special Rules
+        •  1 Hull (front) mounted                                  •  Phantom Shields (2)
+       Shadow Ray                                             •  Predator's Sight
+        •  2 Centreline mounted Pulse-
+          Disintegrators                              Unit type
+        •  1 Centreline mounted Void Lance                     •  Vehicle
+                                                            (Superheavy, Flyer)
+      Traits
+        •  Xenos
+        •  Drukhari
+        •  Cults
+        •  Jink
+
+70
+      Options
+        • May have its Void Land exchanged for a Dark       • May have both Pulse-Disintegrators
+         Scythe for free.                                 exchanged for one of the following:
+                                                                                 -- 2 Phantom Lances........................ +50 points
+                                                                                 -- 2 Phantom Scythes....................... +50 points

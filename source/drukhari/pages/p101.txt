@@ -1,0 +1,53 @@
+Version 1.13 march 2026 by Ana
+
+           Lady Malys
+               Unit composition: 1 Malys                              160 points
+
+
+
+
+   HIGH
+ COMMAND
+
+                    m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+ Malys                        7    7    7    3    3    4    7    4   9   9   9   8   4+   4+
+
+Wargear                                       Special Rules
+• The Lady's Blade                                       •  Anathema
+•  Steel Fan                                                 •  Fast (1)
+•  Plasma Grenades                                       •  Kabal Allegiance
+                                                    (Poisoned Tongue)
+Traits                                                      • Mind Like a Steel Trap
+•  Xenos                                                               •  Power From Pain
+•  Drukhari                                                               •  Precognisant
+•  Rulers of the Dark City                                                               •  Take Captives
+•  Kabals
+                                           Unit type
+                                                               •  Infantry (Command, Light, Unique)
+
+
+ Wargear                                                                                                      101
+ The Lady's Blade
+
+  Melee            IM  AM  SM  AP  D   Special Rules            Traits
+
+                                                                  Critical Hits (5+),  The Lady's Blade           I    +2    +2    2      1                                -                                                    Overload (2)
+
+
+  Melee            IM  AM  SM  AP  D   Special Rules            Traits
+
+                                                            Ancillary (1),   Steel Fan                      I      1    S      -      1                                -                                                      Breaching (6+)
+
+
+ Special Rules
+ Precognisant
+ During the first round of a Challenge involving Malys, the opposing player must always select the
+  first Gambit, even if she is not the Challenger, and she gains Challenge Advantage. So long as Malys
+  is involved in a Challenge, she always has Challenge Advantage and cannot lose it, and her opponent
+ cannot gain Challenge Advantage.
+
+ Mind Like a Steel Trap
+ Whenever Malys' Unit is selected as the Target Unit of a Reaction made by the Opposing Player,
+  Malys' Controlling Player may have the Reactive Unit, or one other Enemy Unit within 12" of that
+  Unit, gain the Stunned status.

@@ -1,0 +1,31 @@
+Version 1.13 march 2026 by Ana
+
+
+ Special Rules
+ Ten Moves Ahead
+  If Vect is part of an army, then at the start of each of the Opposing Player's Turns, Vect's Controlling
+  Player gains one additional Reaction Point so long as Vect has not been destroyed.
+
+ Ancient Nemesis
+  All Melee attacks made by Vect targeting a unit that includes any Models with the Asuryani,
+  Anhrathe, Drukhari, Exodite or Saedath Trait gain +1 to the To Hit roll.
+
+  Living Dark Muse
+  If a Model with this Special Rule is part of an Army, then the Controlling Player may apply the
+  following additional Special Rules to all Auxiliary, Apex and Primary Detachments that have the
+  Drukhari Trait:
+  •   If four or more Troops Battlefield Role Slots in the Primary Detachment of this Army are filled
+    with units with the Kabals trait, then all Force Organisation Slots with the Troops Battlefield Role
+     in the Primary Detachment are considered Prime Slots.
+  •  Friendly Models with the Drukhari Trait in any Detachment with the Drukhari Trait in the
+    same Army, except Vect himself, that are engaged in a challenge can have the following Gambit
+    selected for them:
+   The Eye of Vect: If this Gambit is selected, then during the Focus Step the controlling player
+   may choose a number between 1 and 3 and apply the penalty to their Focus roll. Then, during the
+     Strike Step, the controlling player selects a number of the following characteristics of the Model
+    to improve by +1 during that Step, up to the number of the penalty they inflicted to their Focus
+      roll: Weapon Skill, Strength, and/or Attacks. If the model does not win the Challenge, then during
+    the Glory Step the opposing model automatically gains Challenge Advantage regardless of the
+     result.
+
+                                                                                                             103

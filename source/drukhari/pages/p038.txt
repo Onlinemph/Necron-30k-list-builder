@@ -1,0 +1,40 @@
+                                                                                                 Codex Xenologica – Drukhari (Horus Heresy 3rd edition)
+
+                Kabalite Warriors
+                    Unit composition: 4 Kabalite Warriors and 1 Sybarite      50 points
+
+                               • May include up to 15 additional Kabalite Warriors at +7 points per model.
+
+
+
+      TROOPS
+
+
+                         m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+        Kabalite Warrior              7    4    4    3    3     1    5     1    7    7    6    7    5+    -
+
+        Sybarite                      7    4    4    3    3     1    5    2   8    7    6    7    5+    -
+
+     Wargear                                       Special Rules
+        •  Splinter Rifle                                            •  Fast (1)
+                                                                       •  Rain of Cruelty
+      Traits                                                                       •  Power from Pain
+        •  Xenos                                                                       •  Take Captives
+        •  Drukhari
+        •  Kabals                                   Unit type
+                                                                       •  Kabalite Warrior: Infantry (Light)
+                                                                       •  Sybarite: Infantry (Light, Sergeant)
+
+
+      Options
+        •  For every 5 Models in this Unit, 1 Kabalite           • The Sybarite may have its Splinter Rifle
+38       Warrior may have its Splinter Rifle exchanged       exchanged for an Item from the Drukhari
+          for an Item from the Drukhari Special                  Pistols List.
+       Weapons List.                                           • The Sybarite may have one Item from the
+        •  For every 10 Models in this Unit, 1 Kabalite         Gang Leader Wargear List selected for it.
+         Warrior may have its Splinter Rifle exchanged       • The Sybarite may have a Phantasm Grenade
+          for an Item from the Drukhari Heavy               Launcher selected for it for +20 points.
+       Weapons List.
+        • One Kabalite Warrior in this Unit may have a
+        Gang Banner selected for it for +10 points.

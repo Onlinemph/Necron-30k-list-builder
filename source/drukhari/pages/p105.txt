@@ -1,0 +1,38 @@
+Version 1.13 march 2026 by Ana
+
+           Drazhar
+               Unit composition: 1 Drazhar                           350 points
+
+
+
+
+ WARLORD
+
+
+                    m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+ Drazhar                  8   8    7    4    4    5    7    5   10   12   12   8   2+   4+
+
+Wargear                                       Special Rules
+• The Executioner's Demiklaives                       •  Eternal Warrior (2)
+•  Tormentors                                              •  Fast (1)
+                                                               •  Father of Incubi
+Traits                                                               •  Master of Blades
+•  Xenos                                                               •  Murderous Assault (4+)
+•  Drukhari                                                               •  Power From Pain
+•  Rulers of the Dark City                                                               •  Take Heads
+•  Kabals
+                                           Unit Type
+                                                               •  Paragon (Command, Unique)
+
+
+ Wargear
+                                                                                                                105 The Executioner's Demiklaives
+
+  Melee            IM  AM  SM  AP  D   Special Rules            Traits
+
+  The Executioner's                                                                     Power   Demiklaives
+
+                                                                  Critical Hits (4+),     - Mantis Stance          I   A    +2    2      1                                                                   Duellist's Edge (1)
+
+     - Scorpion Stance        I    +2     +1    2      1    Critical Hits (6+)

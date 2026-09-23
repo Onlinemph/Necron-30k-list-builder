@@ -1,0 +1,46 @@
+Version 1.13 march 2026 by Ana
+
+           Demilune
+               Unit composition: 1 Demilune                         350 points
+
+
+
+
+   LORD
+  OF WAR
+                                                 Armour                    transport
+                                                                                            capacity
+                      m         bs      front      side      rear     hp
+
+ Demilune                      18        4         13          11           11       16       22
+
+Wargear                                       Special Rules
+•  2 Hull (front) mounted                                 •  Assault Vehicle
+   Void Lances                                             • Deep Strike
+•  2 Hull (front) mounted                                 •  Firing Deck (front, left, right, 20)
+   Plasma-Disintegrator                                   •  Phantom Shields (2)
+•  3 Hull (front) mounted
+   Splinter Cannons                           Unit type
+                                                               •  Vehicle
+Traits                                               (Superheavy, Rapid, Skimmer,
+•  Xenos                                              Transport)
+•  Drukhari
+•  [Partisan]
+•  Jink
+                                                                                                      69
+
+Access Points
+• The entire hull of the Demilune is counted as an Access Point.
+
+Options
+• May have any Void Lance exchanged for a           • May have up to one each of the following
+   Hull (Front) Mounted Void Scythe for free.            selected for it:
+• May have any Plasma-Disintegrator Cannon             -- Grisly Trophies............................... +15 points
+   exchanged for one of the following:                        -- Hull (Left, Right) mounted
+    -- Hull (Front) Mounted                               Terrorfex Grenade Launcher....... +15 points
+     Dark Lance.............................. +5 points each           -- Shock Prow.......................................+5 points
+    -- Hull (Front) Mounted                                      -- Splinter Racks................................. +15 points
+     Haywire Cannon.................. +10 points each
+• May have one of the following selected for it:
+    --  Chain-Snares....................................+5 points
+    --  Sicklevanes......................................+10 points

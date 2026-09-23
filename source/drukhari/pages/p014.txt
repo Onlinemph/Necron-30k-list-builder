@@ -1,0 +1,49 @@
+                                                                                                 Codex Xenologica – Drukhari (Horus Heresy 3rd edition)
+
+               Kabal Dracon
+                    Unit composition: 1 Dracon                           40 points
+
+
+
+
+    COMMAND
+
+
+                         m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+       Dracon                       7    6   6    3    3    3   6    3   8   8   6    7   4+   6+
+
+        Grafted Dracon              14   6   6    3    3    3   6    3   8   8   6    7   4+   6+
+
+     Wargear                                       Special Rules
+        •  Splinter Pistol                                  Dracon
+        •  Plasma Grenades                                       •  Fast (1)
+                                                                       •  Power From Pain
+      Traits                                                      •  Take Captives
+      Dracon                                              Grafted Dracon
+        •  Xenos                                                    •  Bulky (2)
+        •  Drukhari                                                 • Deep Strike
+        •  Kabals                                                    •  Fast (2)
+       Grafted Dracon                                                                       •  Power From Pain
+        •  Xenos                                                                       •  Take Captives
+        •  Drukhari
+        •  Kabals                                   Unit type
+14        •  Jink                                           Dracon
+                                                                       •  Infantry (Command, Light)
+                                                           Grafted Dracon
+                                                                       •  Infantry
+                                                                   (Antigrav, Command, Light)
+
+
+      Options
+        • May have an Item from the Gang Leader             • May have a Phantasm Grenade Launcher
+        Wargear List or the Exotic Weapons List              selected for it for +20 points. A Dracon with
+          selected for it.                                    a Phantasm Grenade Launcher may not be
+        • May have its Splinter Pistol exchanged for           upgraded to a Grafted Dracon.
+        an Item from the Drukhari Pistols List or             • May be upgraded to a Grafted Dracon for +20
+         Drukhari Special Weapons List.                        points.
+        • May have a Clone Field selected for it for +20
+          points.
+        • May have one of the following selected for it:
+            -- Razorwing Familiar........................+10 points
+            -- Terror Grenade...............................+10 points

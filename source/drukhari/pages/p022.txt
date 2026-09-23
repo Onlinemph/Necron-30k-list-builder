@@ -1,0 +1,57 @@
+                                                                                                 Codex Xenologica – Drukhari (Horus Heresy 3rd edition)
+
+              Court of the Archon
+                    Unit composition: Varies
+
+                               • The unit must include between 1 and 12 of the following additional models in
+                         any combination:
+                                     -- Cosmethysts at +10 points per model;
+                                     -- Incubus Bodyguards at +20 points per model;      RETINUE
+                                     -- Lhamaeans at +25 points per model;
+                                     -- Medusae at +25 points per model;
+                                     -- Sslyth at +25 points per model;
+                                     -- Tortured Prisoners at +5 points per model;
+                                     -- Ur-ghuls at +15 points per model;
+                                     -- Hands of the Archon at +15 points per model.
+
+
+
+                        m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+        Cosmethyst                7    4    4    3    4     1    4    2   8    7    6    7   6+    -
+
+      Wargear                                      Special Rules
+         •  Wrack Tools                                            •  Altered Physiology
+                                                                       •  Fleshcraft (1)
+       Traits                                                                       •  Power from Pain
+         •  Xenos                                                                       •  Take Captives
+         •  Drukhari
+         •  Kabals                                  Unit type
+                                                                       •  Infantry (Light)
+22
+
+       Options
+         • May have 1 item from the Tools of Torment
+               list selected for it.
+
+
+
+
+
+                        m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+         Incubus Bodyguard         7    5    4    3    3    2    5    2   8   8   6    7    3+    -
+
+      Wargear                                      Special Rules
+         •  Klaive                                                   •  Fast (1)
+         •  Tormentors                                            •  Murderous Assault (6+)
+                                                                       •  Power From Pain
+       Traits                                                                       •  Take Captives
+         •  Xenos
+         •  Drukhari                                 Unit type
+         •  Kabals                                                  •  Infantry (Champion)
+
+
+       Options
+         • May have its Klaive exchanged for a Punisher
+           for free.

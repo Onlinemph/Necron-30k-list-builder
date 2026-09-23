@@ -1,0 +1,40 @@
+                                                                                                 Codex Xenologica – Drukhari (Horus Heresy 3rd edition)
+
+              Mandrakes
+                    Unit composition: 4 Mandrakes and 1 Nightfiend          60 points
+
+                               • May include up to 15 additional Mandrakes at +10 points per model.
+
+
+
+      RECON
+
+
+                         m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+       Mandrake                    7    4    4    4    3     1    5    2    7   8   8    7     -     -
+
+        Nightfiend                    7    4    4    4    3     1    5    3   8   8   8    7     -     -
+
+     Wargear                                       Special Rules
+        •  Glimmersteel Blade                                     •  Fast (2)
+        •  Baleblast                                                 •  Fear (1)
+                                                                       •  Infiltrate (9)
+      Traits                                                                       • Move Through Cover
+        •  Xenos                                                                       •  Power From Pain
+        •  Drukhari                                                                       •  Shrouded (4+)
+        •  Jink                                                                       •  Take Heads
+
+                                                Unit type
+                                                                       •  Mandrake: Infantry
+                                                                       (Light, Skirmish)
+                                                                       •  Nightfiend: Infantry
+56                                                                       (Light, Sergeant, Skirmish)
+
+
+      Options
+        • The Nightfiend may have its Glimmersteel
+         Blade exchanged for one of the following:
+            --  Huskblade........................................ +15 points
+            -- Power Sword...................................+10 points
+            -- .Venom Blade....................................+5 points

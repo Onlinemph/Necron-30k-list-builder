@@ -27,6 +27,17 @@ const ARMIES = [
         sameInDetachment: { exempt: 'Freebooters' } } },
     files: { choiceEffects: 'choice-effects.json', granted: 'granted-prime-advantages.json', modifiers: 'modifiers.json' },
   },
+  {
+    id: 'drukhari', dir: join(root, 'data', 'drukhari'), parts: join(root, 'data', 'drukhari', 'parts'),
+    meta: { name: 'Drukhari', ready: false, source: 'Codex Xenologica – Drukhari (Horus Heresy 3rd edition)', version: '1.13', date: 'March 2026',
+      choice: { label: 'Partisan', options: ['Kabals', 'Cults', 'Covens'] } },
+    files: { granted: 'granted-prime-advantages.json', modifiers: 'modifiers.json' },
+    // [Combat Drugs]: each unit picks one; every model in the unit gains the bonus (Codex primer, p.3)
+    combatDrugs: [
+      { name: 'Adrenalight', stat: 'A' }, { name: 'Grave Lotus', stat: 'S' }, { name: 'Hypex', stat: 'I' },
+      { name: 'Painbringer', stat: 'T' }, { name: 'Serpentin', stat: 'WS' }, { name: 'Splintermind', stat: 'CL' },
+    ],
+  },
 ];
 
 let failed = false;
@@ -66,6 +77,24 @@ for (const f of files) {
   if (d.sequelae) { out.sequelae.sequelae.push(...d.sequelae); if (d.intro) out.sequelae.intro = d.intro; }
   if (d.faq) out.faq.push(...d.faq);
   if (d.baseSizes) out.baseSizes.push(...d.baseSizes);
+}
+
+// Combat Drugs: a required pick on every unit with the trait, and a +1 modifier per drug
+if (army.combatDrugs) {
+  for (const u of out.units) {
+    if (!u.combatDrugs) continue;
+    if (u.fixedDrug) { for (const m of u.models) m.wargear = (m.wargear || []).concat(u.fixedDrug); continue; }
+    u.options = (u.options || []).concat({
+      id: 'combat-drugs', kind: 'one', model: null, replaces: [], required: {},
+      text: '[Combat Drugs]: one Combat Drug must be selected for this Unit. Every model in the Unit gains its bonus.',
+      choices: army.combatDrugs.map((d) => ({ name: d.name, points: 0 })),
+    });
+  }
+  for (const d of army.combatDrugs) {
+    out.modifiers.modifiers.push({ id: `combat-drug-${d.name.toLowerCase().replace(/\W+/g, '-')}`, page: 3, text: `${d.name}: +1 ${d.stat}.`,
+      source: { type: 'upgrade', name: d.name }, appliesTo: {}, scope: 'unit', stats: { [d.stat]: '+1' } });
+    out.rules.traits.push({ name: d.name, page: 3, text: `Combat Drug. Models in a Unit with this Trait gain +1 ${d.stat}.` });
+  }
 }
 
 // core detachments from the Horus Heresy rulebook sit alongside the codex ones

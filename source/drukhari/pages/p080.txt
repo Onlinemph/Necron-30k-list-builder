@@ -1,0 +1,69 @@
+                                                                                                 Codex Xenologica – Drukhari (Horus Heresy 3rd edition)
+
+        number of Hits inflicted as well as their          phantom shield still active, all collapsed
+          Strength, AP, and Special Rules are listed        phantom shields are restored. Once all of a
+          in the specific Wargear Item that allows the        model's phantom shields have collapsed, they
+        Model to make a Flyby Attack.                   never restore.
+        •  After resolving Step 11, proceed with the
+                                               Phantom shields are counted as void shields for
+       Movement Phase as normal.
+                                                         the purpose of the Shield-Breaker special rule.
+     Pain Amp                                              Pierce (X)
+     Whenever an Attack made with a Weapon that
+                                        When an Armour Penetration Test is made
+      has the Pain Amp Special Rule causes a Hit
+                                                                for an attack made with a weapon that has the
+       against an Enemy Unit that has one or more of
+                                                          Pierce (X) special rule, the value in brackets
+       the Pinned, Suppressed, Stunned or Routed
+                                                           associated with the specific variants of this
+       Tactical Status, that Hit receives a +1 Modifier to
+                                                              special rule is added to the result of the Armour
+       the Strength or Ranged Strength Characteristic
+                                                          Penetration Test.
+       of the Attack.
+                                      Power From Pain     Pain Engine
+                                       A Model that has this Special Rule gains a
+     A Unit that includes any models with the Pain
+                                               number of cumulative benefits, depending on
+      Engine Special Rule is subject to the following
+                                                         the number of Units (friend and enemy) within
+       provisions:
+                                                              6" of its Unit that have one or more of the
+        •  Models cannot join the Unit, with the                                                        Pinned, Suppressed, Stunned or Routed Tactical
+         exception of Models with the Covens Trait.                                                                 Status. Note that the Model's own Unit is also
+        • The Unit cannot be selected as the Reactive                                                    counted towards the total:
+         Unit for any Reaction.                                                                       •  1+ Units: The Model gains the
+        • A Unit that includes any Models with this                                                            Feel No Pain (5+) Special Rule.
+          Special Rule is unaffected by the effects of                                                                       •  2+ Units: The Model gains a +1 modifier to its
+          Tactical Status. Status Tokens can still be                                                             Strength and Attacks Characteristics.
+         placed on Models in the Unit, but they have80                                                                    •  3+ Units: The Model's base Leadership, Cool,
+        no effect.
+                                                       Willpower and Intelligence Characteristics
+        • The Unit begins the battle with the Stunned                                                become 12.
+          Tactical Status.
+                                              Predator's Sight
+    Phantom Shields (X)
+                                               Whenever a Model with this Special Rule makes
+     A Model with this Special Rule has a number of                                                       a Shooting Attack, targeting a Unit that has one
+      phantom shields equal to the value of X. While                                                        or more of the Pinned, Suppressed, Stunned
+      a Model with this Special Rule still has phantom                                                        or Routed Tactical Status, the Model gains a +1
+        shields, each time that Model suffers a Hit from                                                          modifier to its Ballistic Skill for that Shooting
+      a Shooting Attack it must be allocated to the                                                        Attack (including when firing Snap Shots).
+      phantom shields. Once all void shields have
+       collapsed, any remaining Hits from Shooting       Psy-Shock
+       Attacks must be allocated to the model (or Titan                                                                                If a Shooting Attack made for a Weapon or
+       Profile in the case of a Titan) targeted by the                                               Model with this Special Rule inflicts one or
+       attack.                                               more wounds on a Target Unit which contains
+                                                    any Models with the Psyker Trait or Malefic     A phantom shield has an Armour Value of 12,
+                                                     Sub-Type, regardless of whether any Damage      and any Glancing Hit or Penetrating Hit inflicted
+                                                                               is inflicted, that Target Unit suffers the Warp     on it will cause that void shield to collapse.
+                                                     Rupture resulton the Perils of the Warp Table at       Regardless of the Damage value of a Hit it may
+                                                         the end of Step 9 of that Shooting Attack.      not collapse more than one phantom shield, and
+      once a Hit has collapsed a phantom shield or                                           Rain of Cruelty
+        failed an Armour Penetration Test made against
+                                       A Model with this Special Rule gains the      one it is discarded.
+                                                        Implacable Advance and Firestorm Special
+           lf, in the Effects Sub-Phase of the Controlling        Rules so long as it either is Embarked on a
+       Player's End Phase, a model has any collapsed        Transport, or has Disembarked from a Transport
+      phantom shields, but still has at least one              in the same turn.

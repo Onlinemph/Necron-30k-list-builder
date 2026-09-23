@@ -1,0 +1,53 @@
+Version 1.13 march 2026 by Ana
+
+       Drukhari Ranged Weapon Profiles
+
+Las Weapons
+Having experimented with the arcane energies harvested from their captive stars, the drukhari
+supplemented their arsenal of las weaponry with darklight weapons; rather than the elegant beam of
+the bright lance, these would fire a barely-controlled eldritch burst capable of permanently scarring the
+retinas of those who beheld it unshielded.
+
+
+ Weapon          R   FP  RS  AP  D   Special Rules                  Traits
+
+ Blast Pistol            6      1    8    2      1    Pierce (D3), Suppressive (2)      Las
+
+ Blaster                 18     1    8    2      1    Pierce (D3), Suppressive (2)      Las
+
+                                                      Pierce (D3),
+ Dark Lance            36     1    8    2      1   Armour-Breaker (4+),           Las
+                                             Heavy (RS), Suppressive (2)
+
+                                                      Pierce (D3), Blast (3"), Dark Scythe           24     1    8    2      1                                 Las                                             Heavy (RS), Suppressive (2)
+
+                                                Armourbane,
+ Gatling Dark Lance     48    4    8    2      1   Armour-Breaker (4+),           Las
+                                             Heavy (RS), Suppressive (2)
+
+ Void Lance           48     1    10    2    2   Armourbane                  Las
+
+                                                Armourbane,
+ Void Mine              18     1    10    2    2   Armour-Breaker (4+), Blast (5),   Bomb, Las
+                                                    Limited (1), Suppressive (2)
+ Annihilation Lance                                                              Las                 83
+
+                                                Armourbane,
+                                                 Armour-Breaker (4+),    - Beam Cannon      48    3    10    2    2                                                     Suppressive (2),
+                                              Shock (Suppressed)
+
+    - Scything Beam     T      1     7    2    2   Suppressive (2), Template
+
+
+Plasma-Disintegrator Weapons
+Plasma-disintegrator weapons were some of the most advanced of their kind, able to fire continuously
+while remaining as cold to the touch as the void of space.
+
+
+ Weapon          R   FP  RS  AP  D   Special Rules                  Traits
+
+ Plasma-Disintegrator                      24    3    4    4      1   Breaching (4+), Heavy (FP)      Plasma Blaster
+
+ Plasma-Disintegrator                      36    3    5    4      1   Breaching (4+), Heavy (FP)      Plasma Cannon
+
+ Pulse-Disintegrator                      48    3    8    4    2   Breaching (4+), Ordnance (FP)   Plasma Cannon

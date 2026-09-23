@@ -1,0 +1,23 @@
+                                                                                                 Codex Xenologica – Drukhari (Horus Heresy 3rd edition)
+
+
+
+       Special Rules
+       Contempt for Death
+       At the start of each of the Controlling Player's turns, Urien gains 1 Wound. This cannot bring him
+       above his base Wounds value.
+       Father of Pain
+      When Urien's Fleshcraft (X) Special Rule is activated, an Enemy Model with the Infantry, Cavalry or
+       Paragon Type within 6" of Urien may be selected as the Target Model instead of a friendly Model. If
+        doing so, and the Intelligence Test is succesful, then the following option must be chosen instead of
+        Reknit or Restore:
+          •  Ravage: The Target Model's Controlling Player must make a Willpower check for that model
+          with a penalty equal to the value of X associated with the variant of Fleshcraft (X) associated
+          with the Acting Model. If failed, the Controlling Player of the Acting Model places a Pinned,
+          Suppressed, or Stunned Token (their choice) on the Acting Model.
+
+
+
+
+
+96

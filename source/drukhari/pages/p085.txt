@@ -1,0 +1,46 @@
+Version 1.13 march 2026 by Ana
+
+Splinter Weapons
+Splinter weapons were a type of electro-catapult, of the same kind as asuryani shuriken weapon; rather
+than monomolecular disks, however, the drukhari ammunition of choice was a clusted of crystallized
+toxins, gradually shaved and projected at high speed as the gun fired.
+
+
+ Weapon           R   FP  RS  AP  D   Special Rules               Traits
+
+ Splinter Pistol           12     1    3    5      1    Pistol, Poisoned (3+)           Assault, Splinter
+
+ Splinter Rifle          24    2    3    5      1   Poisoned (3+)                  Splinter
+
+ Splinter Pod            18    2    3    5      1   Poisoned (3+)                  Assault, Splinter
+
+ Shardcarbine           18    3    3    5      1   Poisoned (3+)                  Assault, Splinter
+
+ Splinter Cannon        36    3    3    4      1   Poisoned (3+), Salvo (18)       Splinter
+
+ Twin Splinter Cannon   36    5    3    4      1   Poisoned (3+), Salvo (24)       Splinter
+
+ Splinter Cannon                                  Poisoned (3+),                      36    10    3    4      1                                   Splinter Battery                                             Suppressive (2)
+
+                                                  Poisoned (3+), Splinterstorm Cannon   48   10    3    4      1                                   Splinter                                                     Suppressive (2)
+
+
+Arsenal of Torment
+The ranged weaponry employed by haemonculus covens was extremely eclectic, but had singularity of
+purpose: to cause intolerable pain.
+
+ Weapon           R   FP  RS  AP  D   Special Rules               Traits                  85
+
+                                                  Acid Shock (1), Pistol, Stinger Pistol            12     1      1   –      1                                    Assault, Venom                                                  Poisoned (2+)
+
+                                                            Assault, Breaching (5+), Hexrifle              24     1    3    4    3                         Venom                                                     Pinning (1), Poisoned (2+)
+
+                                                            Assault, Deflagrate (4), Ossefactor            24    2      1    2    2                                    Assault, Venom                                                  Poisoned (2+)
+
+                                                  Acid Shock (1), Panic (1), Liquifier Gun        T      1    4   –      1                         Venom                                                 Template
+
+                                                  Acid Shock (1), Panic (2), Twin Liquifier Gun    T      1    4   –      1                         Venom                                                 Template
+
+                                                  Acid Shock (2), Panic (2), Destructor Rifle      T      1     5   –      1                         Venom                                                 Template
+
+                                                           Blast (3"), Pain Amp, Stinger Pod           24    2    5    5    2                               Despair                                                     Pinning (1)

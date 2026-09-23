@@ -1,0 +1,53 @@
+           Drukhari Wargear Lists
+
+These Wargear lists are used with many of the Units in this Army List. Where a Wargear Option on a
+Unit references a Wargear list from those below, one of the options from that list can be selected for
+that Model and the Points cost listed added to the cost of that Unit.
+
+
+Drukhari Exotic Weapons List           Tools of Torment List
+•   Huskblade............................................. +15 points       •   Hexrifle................................................ +20 points
+•  Djinn Blade.......................................... +20 points       •  Liquifier Gun........................................+10 points
+                                                               •   Ossefactor............................................. +15 points
+Gang Leader Wargear List
+                                                               •  Stinger Pistol..........................................+5 points
+•   Agonizer................................................+10 points
+•  Blast Pistol............................................+10 points    Haemonculus Arcana
+•  Electrocorrosive Whip.........................+5 points     While not unique, the following items are rare
+•  Power Weapon.....................................+10 points     and often irreplaceable. Each of the following
+•   Razorflail.................................................+5 points     Items may be selected only once per army.
+•  Splinter Pistol........................................... +1 point                                                               •  Animus Vitae........................................ +15 points
+•  Stinger Pistol..........................................+5 points                                                               •  Casket of Flensing............................... +15 points
+• Venom Blade..........................................+5 points                                                               •  Crucible of Malediction.................... +20 points
+Drukhari Pistols List                               •  Dark Gate..............................................+25 points
+                                                               •  Orb of Despair.................................... +20 points
+•  Blast Pistol............................................+10 points
+                                                               •   Shattershard.........................................+25 points
+•  Splinter Pistol..................................................free
+•  Stinger Pistol..........................................+5 points
+
+Drukhari Special Weapons List
+•   Blaster.................................................... +15 points
+•   Shredder.................................................+5 points
+
+Drukhari Heavy Weapons List
+•  Dark Lance...........................................+25 points
+•  Haywire Blaster.....................................+5 points
+•  Heat Lance........................................... +15 points
+•  Plasma-Disintegrator Blaster............ +15 points
+•  Splinter Cannon..................................+10 points
+
+Gladiatorial Weapons List
+•  Hydra Gauntlets...................................+10 points
+•  Paired Razorflails................................+10 points
+•  Shardnet and Impaler.........................+10 points
+
+Weapons of Torture List
+•   Agonizer................................................+10 points
+•  Electrocorrosive Whip.........................+5 points
+•  Flesh Gauntlet...................................... +15 points
+•   Hexrifle................................................ +20 points
+•  Mindphase Gauntlet...........................+10 points
+•   Scissorhand..........................................+10 points
+•  Stinger Pistol..........................................+5 points
+• Venom Blade..........................................+5 points

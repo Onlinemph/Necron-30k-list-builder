@@ -1,0 +1,736 @@
+{
+ "meta": {
+  "id": "drukhari",
+  "name": "Drukhari",
+  "ready": false,
+  "source": "Codex Xenologica – Drukhari (Horus Heresy 3rd edition)",
+  "version": "1.13",
+  "date": "March 2026",
+  "choice": {
+   "label": "Partisan",
+   "options": [
+    "Kabals",
+    "Cults",
+    "Covens"
+   ]
+  }
+ },
+ "units": [],
+ "lists": [],
+ "arkana": [],
+ "weapons": {
+  "ranged": [],
+  "melee": []
+ },
+ "wargear": [],
+ "rules": {
+  "specialRules": [],
+  "reactions": [],
+  "gambits": [],
+  "primeAdvantages": [],
+  "traits": [
+   {
+    "name": "Adrenalight",
+    "page": 3,
+    "text": "Combat Drug. Models in a Unit with this Trait gain +1 A."
+   },
+   {
+    "name": "Grave Lotus",
+    "page": 3,
+    "text": "Combat Drug. Models in a Unit with this Trait gain +1 S."
+   },
+   {
+    "name": "Hypex",
+    "page": 3,
+    "text": "Combat Drug. Models in a Unit with this Trait gain +1 I."
+   },
+   {
+    "name": "Painbringer",
+    "page": 3,
+    "text": "Combat Drug. Models in a Unit with this Trait gain +1 T."
+   },
+   {
+    "name": "Serpentin",
+    "page": 3,
+    "text": "Combat Drug. Models in a Unit with this Trait gain +1 WS."
+   },
+   {
+    "name": "Splintermind",
+    "page": 3,
+    "text": "Combat Drug. Models in a Unit with this Trait gain +1 CL."
+   }
+  ],
+  "powersOfTheCtan": [],
+  "unitTypes": []
+ },
+ "detachments": [
+  {
+   "id": "core-armoured-fist",
+   "name": "Armoured Fist",
+   "type": "Auxiliary",
+   "source": "core",
+   "slots": [
+    {
+     "role": "Transport"
+    },
+    {
+     "role": "Transport"
+    },
+    {
+     "role": "Transport"
+    },
+    {
+     "role": "Transport"
+    },
+    {
+     "role": "Heavy Transport"
+    },
+    {
+     "role": "Heavy Transport"
+    },
+    {
+     "role": "Heavy Transport"
+    },
+    {
+     "role": "Heavy Transport"
+    }
+   ]
+  },
+  {
+   "id": "core-tactical-support",
+   "name": "Tactical Support",
+   "type": "Auxiliary",
+   "source": "core",
+   "slots": [
+    {
+     "role": "Troops"
+    },
+    {
+     "role": "Troops"
+    },
+    {
+     "role": "Support"
+    },
+    {
+     "role": "Support"
+    }
+   ]
+  },
+  {
+   "id": "core-armoured-support",
+   "name": "Armoured Support",
+   "type": "Auxiliary",
+   "source": "core",
+   "slots": [
+    {
+     "role": "Armour"
+    },
+    {
+     "role": "Armour"
+    },
+    {
+     "role": "Armour"
+    },
+    {
+     "role": "Armour"
+    }
+   ]
+  },
+  {
+   "id": "core-heavy-support",
+   "name": "Heavy Support",
+   "type": "Auxiliary",
+   "source": "core",
+   "slots": [
+    {
+     "role": "War Engine"
+    }
+   ]
+  },
+  {
+   "id": "core-combat-pioneer",
+   "name": "Combat Pioneer",
+   "type": "Auxiliary",
+   "source": "core",
+   "slots": [
+    {
+     "role": "Recon"
+    },
+    {
+     "role": "Recon"
+    }
+   ]
+  },
+  {
+   "id": "core-shock-assault",
+   "name": "Shock Assault",
+   "type": "Auxiliary",
+   "source": "core",
+   "slots": [
+    {
+     "role": "Heavy Assault"
+    },
+    {
+     "role": "Heavy Assault"
+    }
+   ]
+  },
+  {
+   "id": "core-first-strike",
+   "name": "First Strike",
+   "type": "Auxiliary",
+   "source": "core",
+   "slots": [
+    {
+     "role": "Fast Attack"
+    },
+    {
+     "role": "Fast Attack"
+    }
+   ]
+  },
+  {
+   "id": "core-combat-retinue",
+   "name": "Combat Retinue",
+   "type": "Apex",
+   "source": "core",
+   "slots": [
+    {
+     "role": "Retinue",
+     "prime": true
+    },
+    {
+     "role": "Retinue"
+    },
+    {
+     "role": "Retinue"
+    }
+   ]
+  },
+  {
+   "id": "core-officer-cadre",
+   "name": "Officer Cadre",
+   "type": "Apex",
+   "source": "core",
+   "slots": [
+    {
+     "role": "Command",
+     "prime": true
+    },
+    {
+     "role": "Command"
+    }
+   ]
+  },
+  {
+   "id": "core-army-vanguard",
+   "name": "Army Vanguard",
+   "type": "Apex",
+   "source": "core",
+   "slots": [
+    {
+     "role": "Elites",
+     "prime": true
+    },
+    {
+     "role": "Elites"
+    },
+    {
+     "role": "Elites"
+    }
+   ]
+  },
+  {
+   "id": "core-warlord",
+   "name": "Warlord Detachment",
+   "type": "Warlord",
+   "source": "core",
+   "restrictions": [
+    "Must be the same faction as the Primary Detachment.",
+    "May only be selected in a 3,000 point or larger army."
+   ],
+   "minPoints": 3000,
+   "slots": [
+    {
+     "role": "Warlord"
+    },
+    {
+     "role": "Retinue"
+    },
+    {
+     "role": "Heavy Transport"
+    }
+   ]
+  },
+  {
+   "id": "core-lord-of-war",
+   "name": "Lord of War Detachment",
+   "type": "Lord of War",
+   "source": "core",
+   "restrictions": [
+    "The total points value of this Detachment may not exceed 25% of the army total."
+   ],
+   "slots": [
+    {
+     "role": "Lord of War"
+    },
+    {
+     "role": "Lord of War"
+    }
+   ]
+  }
+ ],
+ "sequelae": {
+  "intro": "",
+  "sequelae": []
+ },
+ "faq": [],
+ "baseSizes": [],
+ "forceorg": {
+  "note": "Horus Heresy 3rd edition Crusade Force Organisation Chart and core detachments, from the Warhammer Community army-building summary.",
+  "primary": {
+   "name": "Crusade Primary Detachment",
+   "slots": [
+    {
+     "role": "High Command",
+     "count": 1,
+     "prime": 0
+    },
+    {
+     "role": "Command",
+     "count": 3,
+     "prime": 1
+    },
+    {
+     "role": "Troops",
+     "count": 4,
+     "prime": 1
+    },
+    {
+     "role": "Transport",
+     "count": 4,
+     "prime": 0
+    }
+   ]
+  },
+  "unlocks": {
+   "auxiliaryPerCommand": 1,
+   "apexFromHighCommand": 1,
+   "text": "For every Command slot filled in the Crusade Primary Detachment the army may include one Auxiliary Detachment. Filling its High Command slot allows one Apex Detachment."
+  },
+  "detachments": [
+   {
+    "id": "core-armoured-fist",
+    "name": "Armoured Fist",
+    "type": "Auxiliary",
+    "source": "core",
+    "slots": [
+     {
+      "role": "Transport"
+     },
+     {
+      "role": "Transport"
+     },
+     {
+      "role": "Transport"
+     },
+     {
+      "role": "Transport"
+     },
+     {
+      "role": "Heavy Transport"
+     },
+     {
+      "role": "Heavy Transport"
+     },
+     {
+      "role": "Heavy Transport"
+     },
+     {
+      "role": "Heavy Transport"
+     }
+    ]
+   },
+   {
+    "id": "core-tactical-support",
+    "name": "Tactical Support",
+    "type": "Auxiliary",
+    "source": "core",
+    "slots": [
+     {
+      "role": "Troops"
+     },
+     {
+      "role": "Troops"
+     },
+     {
+      "role": "Support"
+     },
+     {
+      "role": "Support"
+     }
+    ]
+   },
+   {
+    "id": "core-armoured-support",
+    "name": "Armoured Support",
+    "type": "Auxiliary",
+    "source": "core",
+    "slots": [
+     {
+      "role": "Armour"
+     },
+     {
+      "role": "Armour"
+     },
+     {
+      "role": "Armour"
+     },
+     {
+      "role": "Armour"
+     }
+    ]
+   },
+   {
+    "id": "core-heavy-support",
+    "name": "Heavy Support",
+    "type": "Auxiliary",
+    "source": "core",
+    "slots": [
+     {
+      "role": "War Engine"
+     }
+    ]
+   },
+   {
+    "id": "core-combat-pioneer",
+    "name": "Combat Pioneer",
+    "type": "Auxiliary",
+    "source": "core",
+    "slots": [
+     {
+      "role": "Recon"
+     },
+     {
+      "role": "Recon"
+     }
+    ]
+   },
+   {
+    "id": "core-shock-assault",
+    "name": "Shock Assault",
+    "type": "Auxiliary",
+    "source": "core",
+    "slots": [
+     {
+      "role": "Heavy Assault"
+     },
+     {
+      "role": "Heavy Assault"
+     }
+    ]
+   },
+   {
+    "id": "core-first-strike",
+    "name": "First Strike",
+    "type": "Auxiliary",
+    "source": "core",
+    "slots": [
+     {
+      "role": "Fast Attack"
+     },
+     {
+      "role": "Fast Attack"
+     }
+    ]
+   },
+   {
+    "id": "core-combat-retinue",
+    "name": "Combat Retinue",
+    "type": "Apex",
+    "source": "core",
+    "slots": [
+     {
+      "role": "Retinue",
+      "prime": true
+     },
+     {
+      "role": "Retinue"
+     },
+     {
+      "role": "Retinue"
+     }
+    ]
+   },
+   {
+    "id": "core-officer-cadre",
+    "name": "Officer Cadre",
+    "type": "Apex",
+    "source": "core",
+    "slots": [
+     {
+      "role": "Command",
+      "prime": true
+     },
+     {
+      "role": "Command"
+     }
+    ]
+   },
+   {
+    "id": "core-army-vanguard",
+    "name": "Army Vanguard",
+    "type": "Apex",
+    "source": "core",
+    "slots": [
+     {
+      "role": "Elites",
+      "prime": true
+     },
+     {
+      "role": "Elites"
+     },
+     {
+      "role": "Elites"
+     }
+    ]
+   },
+   {
+    "id": "core-warlord",
+    "name": "Warlord Detachment",
+    "type": "Warlord",
+    "source": "core",
+    "restrictions": [
+     "Must be the same faction as the Primary Detachment.",
+     "May only be selected in a 3,000 point or larger army."
+    ],
+    "minPoints": 3000,
+    "slots": [
+     {
+      "role": "Warlord"
+     },
+     {
+      "role": "Retinue"
+     },
+     {
+      "role": "Heavy Transport"
+     }
+    ]
+   },
+   {
+    "id": "core-lord-of-war",
+    "name": "Lord of War Detachment",
+    "type": "Lord of War",
+    "source": "core",
+    "restrictions": [
+     "The total points value of this Detachment may not exceed 25% of the army total."
+    ],
+    "slots": [
+     {
+      "role": "Lord of War"
+     },
+     {
+      "role": "Lord of War"
+     }
+    ]
+   }
+  ],
+  "primeAdvantages": [
+   {
+    "name": "Master Sergeant",
+    "text": "One model in the unit gains +1 Attacks, +1 Weapon Skill and +1 Leadership, and the Champion sub-type.",
+    "summary": true
+   },
+   {
+    "name": "Combat Veterans",
+    "text": "Models in the unit gain +1 Leadership, Intelligence, Cool and Willpower.",
+    "summary": true
+   },
+   {
+    "name": "Paragon of Battle",
+    "text": "The model gains +1 Attacks, +1 Weapon Skill and +1 Ballistic Skill.",
+    "summary": true
+   },
+   {
+    "name": "Special Assignment",
+    "text": "A Prime Command slot becomes a High Command slot.",
+    "summary": true,
+    "roles": [
+     "Command"
+    ]
+   },
+   {
+    "name": "Logistical Benefit",
+    "text": "Add one slot to the Detachment, of any Battlefield Role other than High Command, Command, Warlord or Lord of War.",
+    "summary": true
+   }
+  ]
+ },
+ "coreRules": {
+  "note": "Rules referenced by the Necron list but defined in the Horus Heresy 3rd edition rulebook, not the codex. The app labels them so players know where to look.",
+  "rules": [
+   "Assault Vehicle",
+   "Battlesmith (X)",
+   "Bulky (X)",
+   "Deep Strike",
+   "Eternal Warrior (X)",
+   "Expendable (X)",
+   "Explodes (X)",
+   "Fast (X)",
+   "Fear (X)",
+   "Firestorm",
+   "Firing Protocols (X)",
+   "Heedless",
+   "Impact (X)",
+   "Implacable Advance",
+   "Infiltrate (X)",
+   "Line (X)",
+   "Move Through Cover",
+   "Outflank",
+   "Split Fire",
+   "Stable",
+   "Support Unit (X)",
+   "Vanguard (X)",
+   "Shrouded (X)",
+   "Precision (X)",
+   "Breaching (X)",
+   "Armourbane",
+   "Blast (X)",
+   "Pinning (X)",
+   "Shock (X)",
+   "Suppressive (X)",
+   "Critical Hit (X)",
+   "Heavy (X)",
+   "Barrage",
+   "Template",
+   "Limited (X)",
+   "Panic (X)",
+   "Rending (X)",
+   "Stun (X)",
+   "Overload (X)",
+   "Rapid Fire",
+   "Pistol",
+   "Assault",
+   "Two-handed",
+   "Officer of the Line (X)",
+   "Sergeant",
+   "Champion",
+   "Command",
+   "Slow and Purposeful",
+   "Feel No Pain (X)",
+   "Medic (X)",
+   "Smokescreen",
+   "Auto-repair (X)",
+   "Light Transport",
+   "Repair Crew (X)",
+   "Hatred (X)",
+   "Rage (X)",
+   "Fearless",
+   "Furious Charge (X)",
+   "Relentless",
+   "Jink",
+   "Skyfire",
+   "Interceptor",
+   "Hover",
+   "Flyer"
+  ],
+  "undefinedInCodex": [],
+  "weaponAliases": {}
+ },
+ "sequelaEffects": {
+  "effects": [],
+  "rules": []
+ },
+ "choiceEffects": {
+  "effects": []
+ },
+ "grantedPrimeAdvantages": [],
+ "modifiers": {
+  "modifiers": [
+   {
+    "id": "combat-drug-adrenalight",
+    "page": 3,
+    "text": "Adrenalight: +1 A.",
+    "source": {
+     "type": "upgrade",
+     "name": "Adrenalight"
+    },
+    "appliesTo": {},
+    "scope": "unit",
+    "stats": {
+     "A": "+1"
+    }
+   },
+   {
+    "id": "combat-drug-grave-lotus",
+    "page": 3,
+    "text": "Grave Lotus: +1 S.",
+    "source": {
+     "type": "upgrade",
+     "name": "Grave Lotus"
+    },
+    "appliesTo": {},
+    "scope": "unit",
+    "stats": {
+     "S": "+1"
+    }
+   },
+   {
+    "id": "combat-drug-hypex",
+    "page": 3,
+    "text": "Hypex: +1 I.",
+    "source": {
+     "type": "upgrade",
+     "name": "Hypex"
+    },
+    "appliesTo": {},
+    "scope": "unit",
+    "stats": {
+     "I": "+1"
+    }
+   },
+   {
+    "id": "combat-drug-painbringer",
+    "page": 3,
+    "text": "Painbringer: +1 T.",
+    "source": {
+     "type": "upgrade",
+     "name": "Painbringer"
+    },
+    "appliesTo": {},
+    "scope": "unit",
+    "stats": {
+     "T": "+1"
+    }
+   },
+   {
+    "id": "combat-drug-serpentin",
+    "page": 3,
+    "text": "Serpentin: +1 WS.",
+    "source": {
+     "type": "upgrade",
+     "name": "Serpentin"
+    },
+    "appliesTo": {},
+    "scope": "unit",
+    "stats": {
+     "WS": "+1"
+    }
+   },
+   {
+    "id": "combat-drug-splintermind",
+    "page": 3,
+    "text": "Splintermind: +1 CL.",
+    "source": {
+     "type": "upgrade",
+     "name": "Splintermind"
+    },
+    "appliesTo": {},
+    "scope": "unit",
+    "stats": {
+     "CL": "+1"
+    }
+   }
+  ]
+ }
+}

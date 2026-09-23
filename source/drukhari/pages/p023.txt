@@ -1,0 +1,59 @@
+Version 1.13 march 2026 by Ana
+
+
+
+
+                   m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+  Lhamaean                 7    5    4    3    3     1    5    3   8   8   6    7    5+    -
+
+ Wargear                                      Special Rules
+  • Venom Blade                                           •  Fast (1)
+  •  Splinter Pistol                                          •  Power From Pain
+                                                               •  Take Captives
+ Traits                                                               • The Arts of Lilithu
+  •  Xenos
+  •  Drukhari                                 Unit type
+  •  Kabals                                                  •  Infantry (Light)
+
+
+ Options
+  • May have its Splinter Pistol exchanged for a
+    Stinger Pistol for +5 points.
+
+ The Arts of Lilithu
+ While a Unit includes any models with this special rule, all weapons with the Poisoned trait used by
+ models in that Unit also gain the Critical Hit (6+) Special Rule, or improve the value in brackets of an
+ existing Critical Hit (X) Special Rule by 1 instead if they already have that Special Rule.
+
+
+
+
+
+                   m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+                                                                                                        23
+  Medusae                  7    4    4    3    3     1    5     1    8   8   8    5   5+    -
+
+ Wargear                                      Special Rules
+  •  Eyeburst                                                •  Fast (1)
+                                                               •  Power From Pain
+ Traits                                                               •  Take Captives
+  •  Xenos
+  •  Drukhari                                 Unit type
+  •  Kabals                                                  •  Infantry (Light)
+
+
+
+
+
+                   m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+   Sslyth                  8   4    4    5    5    2    4    3    3   8    5   6   5+    -
+
+ Wargear                                      Special Rules
+  •  Shardcarbine                                           •  Impact (A)
+  •  Splinter Pistol                                          •  Fast (1)
+                                                               •  Feel No Pain (5+)
+ Traits
+  •  Xenos                                   Unit type
+  •  Kabals                                                  •  Infantry (Champion, Light)

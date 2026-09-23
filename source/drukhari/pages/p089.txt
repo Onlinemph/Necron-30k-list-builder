@@ -1,0 +1,49 @@
+Version 1.13 march 2026 by Ana
+
+Weapons of Torture
+
+
+ Weapon          IM AM SM  AP  D   Special Rules               Traits
+
+ Wrack Tools                 I   A    S   –      1   Poisoned (3+)             Venom
+
+ Haemonculus Tools        I   A    S   –      1   Poisoned (2+)            Venom
+
+ Glimmersteel Blade        I   A    S   –      1   Breaching (5+)          –
+
+                                                   Breaching (6+), Venom Blade                I   A    S    5      1                         Venom                                                  Poisoned (2+)
+
+ Haemovores                 I     3     5   –      1    Ancillary, Drain (1)        –
+
+ Electrocorrosive                                  Poisoned (4+),                                   I   A    S    5      1                             Arc Whip                                         Torment (Suppressed)
+
+ Mindphase Gauntlet       I   A    +2   –    2   Torment (Pinned)          Neuro
+
+ Flesh Gauntlet               I   A    S    4    3   Poisoned (3+)            Venom
+
+                                                   Breaching (6+), Scissorhand                  I    +2    S   –      1                         Venom                                                  Poisoned (3+), Rending (6+)
+
+                                                   Breaching (5+), Ichor Injector                I      1     3   –    5                         Venom                                                  Poisoned (2+), Precision (4+)
+
+ Macro-Scalpel              I   A    S    2    2   Rending (6+)            –
+
+ Flesh Macro-Gauntlet     I   A    S    2    3   Poisoned (3+)            Venom
+
+ Ichor Macro-Injector      I      1     3    2    5   Poisoned (2+), Precision (4+)  Venom
+                                                                                                        89                                                  Ensnare (2), Chain Macro-Flails       +1   A    S    2      1                      –                                                 Reaping Blow (2)
+
+ Leecher Tentacles          I   A    S    2      1   Drain (1)              –
+
+  Spirit Probe                  I   A    S    2      1    Spirit Leech            –
+
+
+Monomolecular Weapons
+
+
+ Weapon          IM AM SM  AP  D   Special Rules               Traits
+
+ Mono-Knife                 I   A    S   –      1    Breaching (6+)           Mono
+
+ Mono-Blade                 I   A    S   –      1   Breaching (5+)           Mono
+
+ Mono-Flail                   I   A     +1   –      1   Rending (6+), Breaching (6+)  Mono

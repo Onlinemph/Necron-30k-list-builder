@@ -1,0 +1,45 @@
+                                                                                                 Codex Xenologica – Drukhari (Horus Heresy 3rd edition)
+
+             Shadow
+                    Unit composition: 1 Shadow                         400 points
+
+
+
+
+       LORD
+      OF WAR
+                                                      Armour                    transport
+                                                                                                  capacity
+                           m         bs      front      side      rear     hp
+
+       Shadow                        18        4         13          11           11       16          -
+
+     Wargear                                       Special Rules
+        •  1 Centreline mounted                                  • Deep Strike
+         Annhihilation Lance                                    •  Phantom Shields (2)
+        •  2 Hull (front) mounted
+         Void Lances                               Unit type
+        •  2 Hull (front) mounted                                 •  Vehicle
+          Plasma-Disintegrators                              (Superheavy, Rapid, Skimmer)
+        •  3 Hull (front) mounted
+          Splinter Cannons
+
+      Traits
+        •  Xenos
+        •  Drukhari
+68      •  Kabals
+        •  Jink
+
+
+      Options
+        • May have any Void Lance exchanged for a           • May have up to one each of the following
+         Hull (Front) Mounted Void Scythe for free.            selected for it:
+        • May have any Plasma-Disintegrator Cannon             -- Grisly Trophies............................... +15 points
+        exchanged for one of the following:                        -- Hull (Left, Right) mounted
+             -- Hull (Front) Mounted                               Terrorfex Grenade Launcher....... +15 points
+          Dark Lance.............................. +5 points each           -- Shock Prow.......................................+5 points
+             -- Hull (Front) Mounted
+          Haywire Cannon.................. +10 points each
+        • May have one of the following selected for it:
+             --  Chain-Snares....................................+5 points
+             --  Sicklevanes......................................+10 points

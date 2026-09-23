@@ -1,0 +1,57 @@
+Version 1.13 march 2026 by Ana
+
+         Drukhari Advanced Reactions
+
+The Controlling Player of any Units that include only models with the Drukhari Trait can spend
+Reaction Point to perform the following Reactions:
+
+Lightning Reflexes                      Acrobatic Dodge
+Trigger: The Reactive Player may declare a          Trigger: The Reactive Player may declare an
+Lightning Reflexes reaction at the start of Step        Acrobatic Dodge reaction at the start of Step 3
+3 of the Shooting Attack sequence of a Shooting      of the Shooting Attack sequence of a Shooting
+Attack made by the Active Player.                   Attack made by the Active Player.
+
+Cost: The Reactive player may spend 1 point         Cost: The Reactive player may spend 1 point
+from their Reaction Allotment to declare a          from their Reaction Allotment to declare an
+Lightning Reflexes reaction – the cost is paid as      Ethereal Interception reaction – the cost is paid
+soon as the declaration is made.                      as soon as the declaration is made.
+
+Target: The Target unit is always the Unit           Target: The Target unit is always the Unit
+whose Shooting Attack triggered the Reaction.      whose Shooting Attack triggered the Reaction.
+The Reacting Unit is always the Unit that was       The Reacting Unit is always the Unit that was
+the target of the Shooting Attack that triggered       the target of the Shooting Attack that triggered
+the Reaction and must be entirely composed of       the Reaction and must be entirely composed of
+Models with the Light Sub-Type.                 Models with the Jink Trait.
+
+Process:                                         Process:
+
+I. Once a Lightning Reflexes reaction has been           I. Once an Acrobatic Dodge Reaction has been
+declared, each Model in the Reacting Unit may       declared, all Models in the Reacting Unit gain
+move a number of inches equal to the Base           the Shrouded (5+) Special Rule against Attacks
+Value of its Initiative Characteristic. If all Models    made by the Target Unit for the duration of this       5
+in the Reacting Unit end this move within 2"         Shooting Attack.
+of any point on a Facing of a Model with the
+                                                                    II. Any Models in the Reacting Unit that alreadyTransport Sub-Type upon which the Unit can
+                                               have a variant of the Shrouded (X) Special RuleEmbark, the Unit may Embark upon that Model
+                                                     instead receive a +1 modifier to the value ofat the end of that move.
+                                                         their Shrouded (X) Special Rule (Shrouded (5+)
+II. After all Models in the Reacting Units have       becomes Shrouded (4+), etc), to a maximum of
+moved, return to Step 2 of the Shooting Attack      Shrouded (3+).
+Sequence. If the Reacting Unit is still a valid
+target for the Shooting Attack, the Opposing
+Player may at this point select to either continue
+resolving the Shooting Attack Sequence against
+the Reacting Unit or return to Step 1 of the
+Shooting Attack Sequence and select a different
+Unit as the Target. If the Reacting Unit is no
+longer a valid Target for the Shooting Attack,
+the Opposing Player must return to step 1 of the
+Shooting Attack Sequence and select another
+Target.
+
+III. If the Opposing Player returns to Step 1
+of the Shooting Attack Sequence and selects
+another Target for the Shooting Attack, all
+Models in the Target Unit have a -1 modifier to
+their Ballistic Skill characteristic for the duration
+of that Shooting Attack Sequence.

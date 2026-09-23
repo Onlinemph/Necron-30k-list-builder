@@ -1,0 +1,44 @@
+Version 1.13 march 2026 by Ana
+
+           Cult Bloodbrides
+               Unit composition: 4 Bloodbrides and 1 Arena Queen        70 points
+
+                       • May include up to 10 additional Bloodbrides at +12 points per model.
+
+
+
+   ELITES
+
+
+                    m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+ Bloodbride                8    5    4    3    3    2   6    3   8    7    6    7   6+    -
+
+ Arena Queen              8    5    4    3    3    2   6    3   8    7    6    7   6+    -
+
+Wargear                                       Special Rules
+•  Splinter Pistol                                           •  Dodge (4+)
+•  Mono-Knife                                             •  Fast (1)
+•  Plasma Grenades                                       •  Power from Pain
+                                                               •  Take Heads
+Traits
+•  Xenos                                    Unit type
+•  Drukhari                                                 •  Bloodbride: Infantry (Light)
+•  Cults                                                     •  Arena Queen: Infantry
+•  [Combat Drugs]                                 (Champion, Light, Sergeant)
+
+
+Options                                                                                              29
+• One Model in this Unit may have a Gang             • Any Model in this Unit may have its Mono-
+   Banner selected for it for +10 points.                 Knife exchanged for one of the following
+• One Model in this Unit may have a Phantasm         options:
+  Grenade Launcher selected for it at +20                   -- A Mono-Blade or a Mono-Flail for +2
+   points.                                                    points;
+•  Every Model in this Unit may have Haywire              -- A Melee Weapon selected from the Gang
+   Grenades selected for it a +2 points per                Leader Wargear List.
+   model.                                                   • Any Model in this Unit may have its Splinter
+                                                             Pistol exchanged for one Item from the
+                                                   Drukhari Pistols List.
+                                                               • Any Model in this Unit may have its Mono-
+                                                    Knife and Splinter Pistol exchanged for one
+                                                  Item from the Gladiatorial Weapons List.

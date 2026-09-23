@@ -1,0 +1,50 @@
+                                                                                                  Codex Xenologica – Drukhari (Horus Heresy 3rd edition)
+
+              The Dais of Destruction
+                     Unit composition: 1 Dais of Destruction                300 points
+
+
+
+
+       HEAVY
+     TRANSPORT
+                                                       Armour                    transport
+                                                                                                   capacity
+                           m         bs      front      side      rear     hp
+
+        Dais of Destruction             18        4         12          11        10       5         14
+
+     Wargear                                       Special Rules
+         •  2 Hull (Front) Mounted                                •  Ablation Field
+          Plasma-Disintegrator Cannons                        •  Assault Vehicle
+         •  1 Hull (Front) Mounted                                 • Deep Strike
+        Dark Scythe                                             •  Firing Deck (front, left, right, 10)
+         •  Enhanded Aethersails                                  •  Throne of the Dark City
+         •  Grisly Trophies
+         •  Night Shield                               Unit type
+                                                                       •  Vehicle (Rapid, Skimmer,
+       Traits                                                Transport, Unique)
+         •  Xenos
+         •  Drukhari
+         •  Kabals
+104         •  Jink
+
+
+      Options
+         • May have any Plasma-Disintegrator Cannon         • May have one of the following selected for it:
+         exchanged for a Hull (Front) Mounted                     --  Chain-Snares.................................... +? points
+        Dark Lance................................... +5 points each           --  Sicklevanes........................................ +? points
+         • May have its Dark Scythe exchanged for a
+          Hull (Front) Mounted Void Lance...............free
+
+       Special Rules
+       Throne of the Dark City
+       The Dais of Destruction may only be selected in an Army that includes Asdrubael Vect. If the Days
+         of Destruction is selected, Vect must begin the battle Embarked upon it.
+
+       While Vect is Embarked upon the Dais of Destruction, the Dais of Destruction uses Vect's Ballistic
+          Skill Characteristic in place of its own.
+
+        Ablation Field
+         Attacks with the Armourbane Special Rule that target the Dais of Destruction have a -1 penalty to
+          their Strength Characteristic.

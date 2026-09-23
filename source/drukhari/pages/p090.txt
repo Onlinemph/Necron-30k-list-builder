@@ -1,0 +1,33 @@
+                                                                                                 Codex Xenologica – Drukhari (Horus Heresy 3rd edition)
+
+    The Arena's Get
+
+
+      Weapon          IM AM SM  AP  D   Special Rules               Traits
+
+         Razorflail                     I   A     +1    5      1    Breaching (6+), Shred (6+)    Mono
+
+        Paired Razorflails           I    +2     +1    5      1    Breaching (5+), Shred (5+)    Mono
+
+       Hydra Gauntlets             I    +3     +1    5      1   Rending (5+), Shred (5+)     –
+
+        Shardnet and Impaler    +1    +2     +1    5      1   Breaching (6+), Ensnare (1)   –
+
+         Hellglaive                +1     +1     +1    5      1    Critical Hits (6+)         –
+
+                                                                      Critical Hits (6+),        Stunclaw                      I   A     +1    5    2                      –                                                              Precision (4+),
+
+
+     Djinn Blade
+
+
+      Weapon          IM AM SM  AP  D   Special Rules               Traits
+
+                                                                      Critical Hits (6+),        Djinn Blade                  I    +2    +2    2      1                      –                                                        Overload (2)
+
+
+     Haywire Grenades
+
+
+      Weapon          IM AM SM  AP  D   Special Rules               Traits
+90       Haywire Grenade           I      1    2     -      1   Shock (Suppressed)         Haywire

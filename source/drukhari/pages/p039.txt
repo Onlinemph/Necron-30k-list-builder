@@ -1,0 +1,44 @@
+Version 1.13 march 2026 by Ana
+
+           Cult Wyches
+               Unit composition: 4 Wyches and 1 Hekatrix               50 points
+
+                       • May include up to 15 additional Wyches at +8 points per model.
+
+
+
+  TROOPS
+
+
+                    m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+ Wych                    8   4    4    3    3     1    6    2    7    7    6    7   6+    -
+
+ Hekatrix                  8   4    4    3    3     1    6    3   8    7    6    7   6+    -
+
+Wargear                                       Special Rules
+•  Splinter Pistol                                           •  Dodge (4+)
+•  Mono-Knife                                             •  Power from Pain
+•  Plasma Grenades                                       •  Take Captives
+
+Traits                                     Unit type
+•  Xenos                                                    •  Infantry (Light)
+•  Drukhari
+•  Cults
+•  [Combat Drugs]
+
+
+Options
+• Any Model in this Unit may have its Mono-          • The Hekatrix may have its Mono-Knife           39
+   Knife exchanged for one of the following:           exchanged for an Item from the Gang Leader
+    --  Mono-Sword.....................................+2 points       Wargear List.
+    --  Mono-Flail........................................+2 points       • The Hekatrix may have its Splinter Pistol and
+•  For every 5 models in this Unit, up to 3             Mono-Knife exchanged for an Item from the
+  Wyches may have their Splinter Pistol and             Gladiatorial Weapons List.
+  Mono-Knife exchanged for an Item from the        • The Hekatrix may have any of the following
+   Gladiatorial Weapons List.                           selected for it:
+• One Wych in this Unit may have a Gang                   -- Haywire Grenades...........................+2 points
+   Banner selected for it for +10 points.                       -- Phantasm Grenade Launcher..... +20 points
+• The Hekatrix may have its Splinter Pistol
+   exchanged for an Item from the Drukhari
+   Pistols List.

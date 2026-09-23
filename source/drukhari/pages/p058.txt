@@ -1,0 +1,42 @@
+                                                                                                 Codex Xenologica – Drukhari (Horus Heresy 3rd edition)
+
+              Cult Hellions
+                    Unit composition: 4 Hellions and 1 Helliarch               75 points
+
+                               • May include up to 15 additional Hellions at +10 points per model.
+
+
+
+      RECON
+
+
+                         m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+        Hellion                      16   4    4    3    3     1    6     1    7    7    6    7    5+  –
+
+       Arena Champion             16   4    4    3    3     1    6    2   8    7    6    7    5+  –
+
+     Wargear                                       Special Rules
+        •  Hellglaive                                                •  Bulky (2)
+        •  Splinter Pod                                             • Deep Strike
+                                                                       •  Dodge (5+)
+      Traits                                                                       •  Fast (2)
+        •  Xenos                                                                       •  Firing Protocols (2)
+        •  Drukhari                                                                       •  Firestorm
+        •  Cults                                                                       •  Outflank
+        •  Jink                                                                       •  Power from Pain
+        •  [Combat Drugs]                                                                       •  Take Captives
+
+                                                Unit type
+                                                                       •  Cavalry (Antigrav, Light, Skirmish)
+58
+
+      Options
+        • One Hellion in this Unit may have a Gang            • The Helliarch may have its Hellglaive
+        Banner selected for it at +10 points.                exchanged for a Stunclaw for +5 points or
+        •  For every 5 Models in this Unit, 1 Hellion may       an Item from the Gang Leader Wargear List.
+        have its Hellglaive exchanged for an Item                 If this option is selected, the Helliarch also
+        from the Special Weapons List.                       receives a Splinter Pistol for free.
+                                                                       • The Helliarch may have any Splinter Pistol
+                                                      exchanged for an Item from the Drukhari
+                                                                     Pistols list.

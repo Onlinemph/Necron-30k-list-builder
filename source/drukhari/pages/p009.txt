@@ -1,0 +1,38 @@
+Version 1.13 march 2026 by Ana
+
+           Cult Succubus
+               Unit composition: 1 Succubus                           120 points
+
+
+
+
+   HIGH
+ COMMAND
+
+                    m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+ Syren                    8   8   6    3    3    4   8   4   9   9    7   8   6+   4+
+
+Wargear                                       Special Rules
+•  Mono-Knife                                             •  Fast (1)
+•  Splinter Pistol                                           •  Power From Pain
+•  Plasma Grenades                                       •  Take Captives
+
+Traits                                     Unit type
+•  Xenos                                                    •  Infantry (Command, Light)
+•  Drukhari
+•  Rulers of the Dark City
+•  Cults
+•  [Combat Drugs]
+
+
+Options
+• May have its Mono-Knife exchanged for one        • May have its Mono-Knife and Splinter Pistol                                                                                                        9
+   of the following options:                         exchanged for one Item from the Gladiatorial
+    -- A Mono-Blade or a Mono-Flail for +2           Weapons List.
+      points;                                                • May have any of the following selected for it:
+    -- A Melee Weapon selected from the Gang             -- Haywire Grenades...........................+2 points
+     Leader Wargear List;                                                                        -- Phantasm Grenade Launcher..... +20 points
+    -- An Archite Glaive for +15 points.                                                                        -- Vexator Mask....................................+5 points
+• May have its Splinter Pistol exchanged for an                                                                        -- Webay Portal.................................. +30 points
+   Item from the Drukhari Pistols List.

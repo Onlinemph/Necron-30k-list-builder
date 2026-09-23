@@ -1,0 +1,45 @@
+                                                                                                 Codex Xenologica – Drukhari (Horus Heresy 3rd edition)
+
+     Missile Weapons
+       Missile launchers, too cumbersome to fire on the move, were disregarded by the Drukhari. Their mastery
+        of arcane artillery was reserved for their aircraft pilots, whose jets carried warheads designed as much
+        for artistic value as for efficiency in battle.
+
+
+      Weapon           R   FP  RS  AP  D   Special Rules               Traits
+
+                                                                   Blast (5), Limited (1),         Guided Missile,        Necrotoxin Missile     48     1      1   –      1                                                        Poisoned (2+), Pinning (2)    Venom
+
+                                                                   Blast (5), Breaching (6+),       Monoscythe Missile    48     1    6    4      1                            Guided Missile                                                          Limited (1)
+
+                                                      Armourbane,
+         Shatterfield Missile     48     1    9   –    2   Armour-Breaker (4+),        Guided Missile
+                                                                   Blast (5), Limited (1)
+
+                                                      Armourbane, Blast (3),        Implosion Missile      48     1    6    2    3                            Guided Missile                                                          Limited (1), Pierce (D3)
+
+        Scythe Missile                                   Armourbane, Blast (3),                          60    3    8    2    2                            Guided Missile       Launcher                                      Ordnance (FP)
+
+                                                      Armourbane,
+        Shatterstorm Missile    120     1    9   –    2   Armour-Breaker (4+),        Guided Missile
+                                                                   Blast (10), Limited (1)
+
+
+     Exotic Ranged Weapons
+      The vaults of Commorragh contained too many kinds of horrific weapons to exhaustively describe.
+84
+      Weapon           R   FP  RS  AP  D   Special Rules               Traits
+
+         Baleblast               18    2    4    4      1    Pain Amp, Panic (0)            Assault, Flame
+
+        Eyeburst           T      1    4    2      1    Panic (1), Template         Warp
+
+       Phantasm Grenade                                      Blast (3), Pinning (2),                                18     1      1   –    0                        Venom       Launcher                                        Poisoned (2+)
+
+        Bloodstone         T      1    3    3      1    Panic (1), Template          Flame
+
+          Spirit Syphon        T      1    4    3      1    Spirit Leech, Template      Warp
+
+                                                                   Blast (5), Breaching (6+),          Spirit Vortex            18     1     5    3      1                          Warp                                                           Pain Amp
+
+      Shadow Ray           36     1      1   –    0   Shadow Gate               Las

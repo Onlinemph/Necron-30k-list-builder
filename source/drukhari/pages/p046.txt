@@ -1,0 +1,36 @@
+                                                                                                 Codex Xenologica – Drukhari (Horus Heresy 3rd edition)
+
+               Talos Pain Engines
+                    Unit composition: 1 Talos                               120 points
+
+                               • May include up to 2 additional Talos at +105 points per model.
+
+
+
+      WAR
+      ENGINES
+
+                         m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+        Talos                    8   4    3    7    7    5    2    5   8    12   8   4   3+    -
+
+     Wargear                                       Special Rules
+        •  2 Macro-Scalpels                                       •  Bulky (7)
+        •  Twin Splinter Cannon                                  •  Altered Physiology
+                                                                       •  Fear (1)
+      Traits                                                                       •  Heedless
+        •  Xenos                                                                       •  Impact (WS)
+        •  Drukhari                                                                       •  Pain Engine
+        •  Covens                                                                       •  Power From Pain
+
+                                                Unit type
+                                                                       •  Infantry (Antigrav)
+
+
+      Options
+        • Any model in this Unit may have any Macro-        • Any model in this Unit may have its Twin46
+          Scalpel exchanged for one of the following:           Splinter Cannon exchange for one of the
+             -- Twin Liquifier Gun..........................+5 points         following:
+             -- Ichor Macro-Injector....................+10 points           -- Twin Heat Lance............................+10 points
+             -- Chain Macro-Flails..........................+5 points           -- Twin Haywire Blaster....................+10 points
+             -- Flesh Macro-Gauntlet.................. +20 points           -- Stinger Pod........................................+5 points

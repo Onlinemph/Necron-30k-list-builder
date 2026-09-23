@@ -1,0 +1,41 @@
+                                                                                                 Codex Xenologica – Drukhari (Horus Heresy 3rd edition)
+
+                Asdrubael Vect
+                     Unit composition: 1 Vect                             300 points
+
+
+
+
+     WARLORD
+
+
+                         m  ws   bs    s    t  w       i    a   ld   cl  wp   in   sav  inv
+
+        Vect                     8   8   8    3    3    5   8   4    12   10   10   10   4+   6+
+
+     Wargear                                       Special Rules
+         •  Sceptre of the Dark City                               •  Ancient Nemesis
+         •  Obsidian Orbs                                           •  Eternal Warrior (2)
+         • Shadow Field                                            •  Fast (1)
+         •  Plasma Grenades                                       •  Kabal Allegiance (Black Heart)
+         •  Haywire Grenades                                      • The Living Dark Muse
+                                                                       •  Power From Pain
+      Traits                                                                       •  Take Captives
+         •  Xenos
+         •  Drukhari                                 Unit Type
+         •  Rulers of the Dark City                                 •  Paragon (Command, Light, Unique)
+         •  Kabals
+
+
+102    Wargear
+        Sceptre of the Dark City
+
+        Melee            IM  AM  SM  AP  D   Special Rules            Traits
+
+          Sceptre                                               I   A    S    2      1   Poisoned (2+)            Power, Venom           of the Dark City
+
+        Obsidian Orbs
+
+        Ranged           R   FP  RS  AP  D   Special Rules            Traits
+
+                                                                       Blast (3), Drain (1),          Obsidian Orbs           9"      1    10    2      1                          Arcane                                                           Scourge (Willpower)
