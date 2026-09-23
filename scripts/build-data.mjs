@@ -22,7 +22,7 @@ const ARMIES = [
   },
   {
     id: 'orks', dir: join(root, 'data', 'orks'), parts: join(root, 'data', 'orks', 'parts'),
-    meta: { name: 'Orks', source: 'Xenos Forces of the Age of Darkness – Orks (3rd edition rules, Always Strikes First)', version: 'October 2025', date: 'October 2025',
+    meta: { name: 'Orks', ready: false, source: 'Xenos Forces of the Age of Darkness – Orks (3rd edition rules, Always Strikes First)', version: 'October 2025', date: 'October 2025',
       choice: { label: 'Great Clan', options: ['Bad Moons', 'Blood Axes', 'Deathskulls', 'Evil Sunz', 'Goffs', 'Snakebites', 'Freebooters'],
         sameInDetachment: { exempt: 'Freebooters' } } },
     files: { choiceEffects: 'choice-effects.json', granted: 'granted-prime-advantages.json', modifiers: 'modifiers.json' },

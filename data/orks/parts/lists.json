@@ -1,0 +1,116 @@
+{
+  "lists": [
+    {
+      "id": "ork-boss-weapons",
+      "name": "Ork Boss Weapons",
+      "page": 5,
+      "items": [
+        { "name": "Slugga", "points": 0 },
+        { "name": "Shoota", "points": 1 },
+        { "name": "Choppa", "points": 0 },
+        { "name": "Chainsword", "points": 0 },
+        { "name": "Big choppa", "points": 5 },
+        { "name": "Power sword", "points": 10 },
+        { "name": "Power axe", "points": 10 },
+        { "name": "Power klaw", "points": 20 }
+      ]
+    },
+    {
+      "id": "ork-kombi-weapons",
+      "name": "Ork Kombi-weapons",
+      "page": 5,
+      "items": [
+        { "name": "Kombi-shoota", "points": 2 },
+        { "name": "Kombi-rokkit", "points": 5 },
+        { "name": "Kombi-skorcha", "points": 10 }
+      ]
+    },
+    {
+      "id": "ork-mek-wargear",
+      "name": "Ork Mek Wargear",
+      "page": 5,
+      "items": [
+        { "name": "Kustom mega-slugga", "points": 5 },
+        { "name": "Kustom mega-blasta", "points": 10 },
+        { "name": "Burna", "points": 10 },
+        { "name": "Power klaw", "points": 20 },
+        { "name": "Killsaw", "points": 20 }
+      ]
+    },
+    {
+      "id": "ork-dok-wargear",
+      "name": "Ork Dok Wargear",
+      "page": 5,
+      "items": [
+        { "name": "Choppa", "points": 0 },
+        { "name": "Chainsword", "points": 0 },
+        { "name": "Big choppa", "points": 5 },
+        { "name": "'Urty syringe", "points": 15 }
+      ]
+    },
+    {
+      "id": "ork-special-weapons",
+      "name": "Ork Special Weapons",
+      "page": 5,
+      "items": [
+        { "name": "Big shoota", "points": 5 },
+        { "name": "Rokkit launcha", "points": 5 },
+        { "name": "Burna", "points": 10 }
+      ]
+    },
+    {
+      "id": "ork-kan-ranged-weapons",
+      "name": "Ork Kan Ranged Weapons",
+      "page": 5,
+      "items": [
+        { "name": "Big shoota", "points": 5 },
+        { "name": "Rokkit launcha", "points": 5 },
+        { "name": "Grotzooka", "points": 10, "note": "Killa Kan, Grot Tank or Grot Mega-tank only" },
+        { "name": "Kustom mega-blasta", "points": 10 },
+        { "name": "Skorcha", "points": 10 }
+      ]
+    },
+    {
+      "id": "ork-big-gunz",
+      "name": "Ork Big Gunz",
+      "page": 5,
+      "items": [
+        { "name": "Kannon", "points": 10 },
+        { "name": "Lobba", "points": 10 },
+        { "name": "Zzap gun", "points": 10 }
+      ]
+    },
+    {
+      "id": "ork-pintle-weapons",
+      "name": "Ork Pintle Weapons",
+      "page": 5,
+      "items": [
+        { "name": "Pintle Mounted big shoota", "points": 5 },
+        { "name": "Pintle Mounted rokkit launcha", "points": 5 }
+      ]
+    },
+    {
+      "id": "ork-sponson-weapons",
+      "name": "Ork Sponson Weapons",
+      "page": 5,
+      "items": [
+        { "name": "Two Sponson Mounted twin big shootas", "points": 0 },
+        { "name": "Two Sponson Mounted twin rokkit launchas", "points": 0 },
+        { "name": "Two Sponson Mounted twin skorchas", "points": 0 }
+      ]
+    },
+    {
+      "id": "ork-hull-weapons",
+      "name": "Ork Hull Weapons",
+      "page": 5,
+      "items": [
+        { "name": "Hull Mounted big shoota", "points": 0 },
+        { "name": "Hull Mounted rokkit launcha", "points": 0 },
+        { "name": "Hull Mounted skorcha", "points": 0 },
+        { "name": "Hull Mounted kustom mega-blasta", "points": 5 },
+        { "name": "Hull Mounted twin dakkagun", "points": 5 },
+        { "name": "Hull Mounted zzap gun", "points": 5 }
+      ]
+    }
+  ]
+}

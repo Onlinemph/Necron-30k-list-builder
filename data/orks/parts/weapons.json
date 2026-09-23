@@ -1,0 +1,1642 @@
+{
+  "ranged": [
+    {
+      "name": "Burna (Ranged)",
+      "page": 55,
+      "R": "T",
+      "FP": 1,
+      "RS": 4,
+      "AP": 5,
+      "D": 1,
+      "specialRules": [
+        "Template",
+        "Panic (1)"
+      ],
+      "traits": [
+        "Flame"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Skorcha",
+      "page": 55,
+      "R": "T",
+      "FP": 1,
+      "RS": 5,
+      "AP": 4,
+      "D": 1,
+      "specialRules": [
+        "Template",
+        "Panic (1)"
+      ],
+      "traits": [
+        "Flame"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Twin skorcha",
+      "page": 55,
+      "R": "T",
+      "FP": 1,
+      "RS": 5,
+      "AP": 4,
+      "D": 1,
+      "specialRules": [
+        "Template",
+        "Panic (2)"
+      ],
+      "traits": [
+        "Flame"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Grot blasta",
+      "page": 55,
+      "R": 12,
+      "FP": 1,
+      "RS": 3,
+      "AP": "–",
+      "D": 1,
+      "specialRules": [],
+      "traits": [
+        "Assault",
+        "Auto"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Grotzooka",
+      "page": 55,
+      "R": 18,
+      "FP": 2,
+      "RS": 6,
+      "AP": 5,
+      "D": 1,
+      "specialRules": [
+        "Blast (3)",
+        "Heavy (FP)"
+      ],
+      "traits": [
+        "Missile"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Twin grotzooka",
+      "page": 55,
+      "R": 18,
+      "FP": 3,
+      "RS": 6,
+      "AP": 5,
+      "D": 1,
+      "specialRules": [
+        "Blast (3)",
+        "Heavy (FP)",
+        "Suppressive (0)"
+      ],
+      "traits": [
+        "Missile"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Kannon",
+      "page": 55,
+      "R": null,
+      "FP": null,
+      "RS": null,
+      "AP": null,
+      "D": null,
+      "specialRules": [],
+      "traits": [
+        "Missile"
+      ],
+      "modes": [
+        {
+          "name": "Frag",
+          "R": 36,
+          "FP": 1,
+          "RS": 4,
+          "AP": 6,
+          "D": 1,
+          "specialRules": [
+            "Heavy (RS)",
+            "Blast (3)"
+          ],
+          "traits": [
+            "Missile"
+          ]
+        },
+        {
+          "name": "Shell",
+          "R": 36,
+          "FP": 1,
+          "RS": 8,
+          "AP": 3,
+          "D": 1,
+          "specialRules": [
+            "Heavy (D)"
+          ],
+          "traits": [
+            "Missile"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Killkannon",
+      "page": 55,
+      "R": 24,
+      "FP": 1,
+      "RS": 7,
+      "AP": 4,
+      "D": 2,
+      "specialRules": [
+        "Heavy (AP)",
+        "Blast (3)",
+        "Pinning (1)"
+      ],
+      "traits": [
+        "Auto"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Supa-kannon",
+      "page": 55,
+      "R": 60,
+      "FP": 1,
+      "RS": 5,
+      "AP": 4,
+      "D": 2,
+      "specialRules": [
+        "Ordnance (RS)",
+        "Blast (5)",
+        "Barrage (2)",
+        "Breaching (6+)",
+        "Pinning (1)"
+      ],
+      "traits": [],
+      "modes": null
+    },
+    {
+      "name": "Krusha kannon",
+      "page": 55,
+      "R": null,
+      "FP": null,
+      "RS": null,
+      "AP": null,
+      "D": null,
+      "specialRules": [],
+      "traits": [],
+      "modes": [
+        {
+          "name": "Boom Shell",
+          "R": 30,
+          "FP": 1,
+          "RS": 8,
+          "AP": 4,
+          "D": 2,
+          "specialRules": [
+            "Blast (5)",
+            "Heavy (AP)",
+            "Ordnance (R)",
+            "Pinning (1)"
+          ],
+          "traits": [
+            "Auto"
+          ]
+        },
+        {
+          "name": "Tankhamma Shell",
+          "R": 30,
+          "FP": 1,
+          "RS": 10,
+          "AP": 2,
+          "D": 3,
+          "specialRules": [
+            "Critical Hit (6+)",
+            "Heavy (D)",
+            "Ordnance (R)"
+          ],
+          "traits": [
+            "Auto"
+          ]
+        },
+        {
+          "name": "Scrap Kanister",
+          "R": "T",
+          "FP": 1,
+          "RS": 5,
+          "AP": 4,
+          "D": 2,
+          "specialRules": [
+            "Template (Hellstorm)",
+            "Breaching (6+)",
+            "Heavy (D)",
+            "Suppressive (1)"
+          ],
+          "traits": [
+            "Auto"
+          ]
+        },
+        {
+          "name": "Blast Burna",
+          "R": 24,
+          "FP": 1,
+          "RS": 4,
+          "AP": 5,
+          "D": 1,
+          "specialRules": [
+            "Blast (7)",
+            "Heavy (D)",
+            "Ordnance (R)",
+            "Panic (2)"
+          ],
+          "traits": [
+            "Flame"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Bursta kannon",
+      "page": 55,
+      "R": 18,
+      "FP": 1,
+      "RS": 12,
+      "AP": 3,
+      "D": 4,
+      "specialRules": [
+        "Blast (5)",
+        "Breaching (5+)",
+        "Ordnance (R)",
+        "Stun (1)"
+      ],
+      "traits": [],
+      "modes": null
+    },
+    {
+      "name": "Kombi-rokkit",
+      "page": 56,
+      "R": null,
+      "FP": null,
+      "RS": null,
+      "AP": null,
+      "D": null,
+      "specialRules": [],
+      "traits": [],
+      "modes": [
+        {
+          "name": "Shoota (Primary)",
+          "R": 18,
+          "FP": 2,
+          "RS": 4,
+          "AP": 6,
+          "D": 1,
+          "specialRules": [
+            "Combi"
+          ],
+          "traits": [
+            "Assault",
+            "Auto"
+          ]
+        },
+        {
+          "name": "Rokkit launcha (Secondary)",
+          "R": 24,
+          "FP": 1,
+          "RS": 8,
+          "AP": 3,
+          "D": 1,
+          "specialRules": [
+            "Limited (2)",
+            "Combi"
+          ],
+          "traits": [
+            "Missile"
+          ]
+        }
+      ],
+      "note": "Each Kombi-weapon has two components: a Shoota Primary component and a Secondary component. Kombi-rokkit combines the Shoota (Primary) with a Rokkit launcha (Secondary); Kombi-skorcha combines the Shoota (Primary) with a Skorcha (Secondary). Both components have the Combi special rule."
+    },
+    {
+      "name": "Kombi-skorcha",
+      "page": 56,
+      "R": null,
+      "FP": null,
+      "RS": null,
+      "AP": null,
+      "D": null,
+      "specialRules": [],
+      "traits": [],
+      "modes": [
+        {
+          "name": "Shoota (Primary)",
+          "R": 18,
+          "FP": 2,
+          "RS": 4,
+          "AP": 6,
+          "D": 1,
+          "specialRules": [
+            "Combi"
+          ],
+          "traits": [
+            "Assault",
+            "Auto"
+          ]
+        },
+        {
+          "name": "Skorcha (Secondary)",
+          "R": "T",
+          "FP": 1,
+          "RS": 5,
+          "AP": 4,
+          "D": 1,
+          "specialRules": [
+            "Template",
+            "Panic (1)",
+            "Limited (1)",
+            "Combi"
+          ],
+          "traits": [
+            "Flame"
+          ]
+        }
+      ],
+      "note": "Each Kombi-weapon has two components: a Shoota Primary component and a Secondary component. Kombi-rokkit combines the Shoota (Primary) with a Rokkit launcha (Secondary); Kombi-skorcha combines the Shoota (Primary) with a Skorcha (Secondary). Both components have the Combi special rule."
+    },
+    {
+      "name": "Kustom mega-slugga",
+      "page": 56,
+      "R": 12,
+      "FP": 1,
+      "RS": 8,
+      "AP": 4,
+      "D": 1,
+      "specialRules": [
+        "Pistol",
+        "Breaching (5+)",
+        "Overload (1)"
+      ],
+      "traits": [
+        "Assault",
+        "Plasma"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Kustom mega-blasta",
+      "page": 56,
+      "R": 24,
+      "FP": 1,
+      "RS": 8,
+      "AP": 4,
+      "D": 1,
+      "specialRules": [
+        "Breaching (5+)",
+        "Overload (1)"
+      ],
+      "traits": [
+        "Plasma"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Twin kustom mega-blasta",
+      "page": 56,
+      "R": 24,
+      "FP": 2,
+      "RS": 8,
+      "AP": 4,
+      "D": 1,
+      "specialRules": [
+        "Breaching (5+)",
+        "Overload (1)"
+      ],
+      "traits": [
+        "Plasma"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Kustom mega-kannon",
+      "page": 56,
+      "R": 36,
+      "FP": 1,
+      "RS": 7,
+      "AP": 4,
+      "D": 1,
+      "specialRules": [
+        "Heavy (RS)",
+        "Blast (3)",
+        "Breaching (5+)",
+        "Overload (2)"
+      ],
+      "traits": [
+        "Plasma"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Lifta-droppa",
+      "page": 56,
+      "R": 48,
+      "FP": 1,
+      "RS": 6,
+      "AP": 4,
+      "D": 2,
+      "specialRules": [
+        "Ordnance (RS",
+        "AP",
+        "D)",
+        "Overload (1)",
+        "Shock (Stunned",
+        "Suppressed)",
+        "Stun (2)",
+        "Thrown (2)"
+      ],
+      "traits": [
+        "Lifta-droppa"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Smasha gun",
+      "page": 56,
+      "R": 36,
+      "FP": 1,
+      "RS": 4,
+      "AP": 4,
+      "D": 2,
+      "specialRules": [
+        "Heavy (D)",
+        "Ordnance (RS & AP)",
+        "Shock (Stunned)",
+        "Stun (2)",
+        "Thrown (1)"
+      ],
+      "traits": [
+        "Lifta-droppa"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Shunta",
+      "page": 56,
+      "R": 24,
+      "FP": 1,
+      "RS": 4,
+      "AP": 4,
+      "D": 2,
+      "specialRules": [
+        "Ordnance (RS",
+        "AP)",
+        "Shock (Stunned)",
+        "Stun (2)"
+      ],
+      "traits": [
+        "Lifta-droppa"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Lobba",
+      "page": 56,
+      "R": 36,
+      "FP": 1,
+      "RS": 5,
+      "AP": 5,
+      "D": 1,
+      "specialRules": [
+        "Ordnance (R)",
+        "Blast (3)",
+        "Barrage (1)",
+        "Stun (0)"
+      ],
+      "traits": [],
+      "modes": null
+    },
+    {
+      "name": "Supa-lobba",
+      "page": 56,
+      "R": 48,
+      "FP": 1,
+      "RS": 4,
+      "AP": 4,
+      "D": 2,
+      "specialRules": [
+        "Ordnance (RS)",
+        "Blast (5)",
+        "Barrage (2)",
+        "Pinning (1)"
+      ],
+      "traits": [],
+      "modes": null
+    },
+    {
+      "name": "Big bomb",
+      "page": 57,
+      "R": 6,
+      "FP": 1,
+      "RS": 4,
+      "AP": 5,
+      "D": 1,
+      "specialRules": [
+        "Blast (3)",
+        "Limited (1)",
+        "Stun (1)"
+      ],
+      "traits": [],
+      "modes": null
+    },
+    {
+      "name": "Boom bomb",
+      "page": 57,
+      "R": null,
+      "FP": null,
+      "RS": null,
+      "AP": null,
+      "D": null,
+      "specialRules": [],
+      "traits": [],
+      "modes": [
+        {
+          "name": "<6\"",
+          "R": "<6",
+          "FP": 1,
+          "RS": 9,
+          "AP": 4,
+          "D": 4,
+          "specialRules": [
+            "Armourbane",
+            "Blast (3)",
+            "Critical Hit (6+)",
+            "Limited (1)*",
+            "Overload (2)"
+          ],
+          "traits": [
+            "Guided Missile"
+          ]
+        },
+        {
+          "name": "6\"-18\"",
+          "R": "6-18",
+          "FP": 1,
+          "RS": 7,
+          "AP": 4,
+          "D": 3,
+          "specialRules": [
+            "Armourbane",
+            "Blast (3)",
+            "Limited (1)*"
+          ],
+          "traits": []
+        }
+      ],
+      "note": "*Note printed on this entry: this weapon may be fired a total of once, not once with each profile."
+    },
+    {
+      "name": "Burna bomb",
+      "page": 57,
+      "R": 18,
+      "FP": 1,
+      "RS": 5,
+      "AP": 4,
+      "D": 1,
+      "specialRules": [
+        "Blast (5)",
+        "Limited (1)",
+        "Panic (2)"
+      ],
+      "traits": [
+        "Flame"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Rokkit pistol",
+      "page": 57,
+      "R": 24,
+      "FP": 1,
+      "RS": 6,
+      "AP": 4,
+      "D": 1,
+      "specialRules": [],
+      "traits": [
+        "Missile"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Rokkit launcha",
+      "page": 57,
+      "R": 24,
+      "FP": 1,
+      "RS": 8,
+      "AP": 3,
+      "D": 1,
+      "specialRules": [],
+      "traits": [
+        "Missile"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Twin rokkit launcha",
+      "page": 57,
+      "R": 24,
+      "FP": 2,
+      "RS": 8,
+      "AP": 3,
+      "D": 1,
+      "specialRules": [],
+      "traits": [
+        "Missile"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Pulsa rokkit",
+      "page": 57,
+      "R": 18,
+      "FP": 1,
+      "RS": 7,
+      "AP": 4,
+      "D": 2,
+      "specialRules": [
+        "Barrage",
+        "Blast (3)",
+        "Limited (1)",
+        "Shock (Pinned",
+        "Suppressed",
+        "Stunned)"
+      ],
+      "traits": [
+        "Missile"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Skorcha missile",
+      "page": 57,
+      "R": 24,
+      "FP": 1,
+      "RS": 5,
+      "AP": 4,
+      "D": 1,
+      "specialRules": [
+        "Blast (3)",
+        "Limited (1)",
+        "Panic (1)"
+      ],
+      "traits": [
+        "Flame",
+        "Guided Missile"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Slugga",
+      "page": 57,
+      "R": 12,
+      "FP": 1,
+      "RS": 4,
+      "AP": 6,
+      "D": 1,
+      "specialRules": [
+        "Pistol"
+      ],
+      "traits": [
+        "Assault",
+        "Auto"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Shoota",
+      "page": 57,
+      "R": 18,
+      "FP": 2,
+      "RS": 4,
+      "AP": 6,
+      "D": 1,
+      "specialRules": [],
+      "traits": [
+        "Assault",
+        "Auto"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Twin boomstikk",
+      "page": 57,
+      "R": 12,
+      "FP": 2,
+      "RS": 4,
+      "AP": 6,
+      "D": 1,
+      "specialRules": [
+        "Shred (6+)",
+        "Stun (0)"
+      ],
+      "traits": [
+        "Assault",
+        "Auto"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Kombi-shoota",
+      "page": 57,
+      "R": 18,
+      "FP": 4,
+      "RS": 4,
+      "AP": 6,
+      "D": 1,
+      "specialRules": [],
+      "traits": [
+        "Auto"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Kustom shoota",
+      "page": 57,
+      "R": 18,
+      "FP": 3,
+      "RS": 4,
+      "AP": 5,
+      "D": 1,
+      "specialRules": [
+        "Breaching (5+)",
+        "Heavy (FP & RS)",
+        "Suppressive (1)"
+      ],
+      "traits": [
+        "Auto"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Snazzgun",
+      "page": 57,
+      "R": 24,
+      "FP": 3,
+      "RS": 5,
+      "AP": 5,
+      "D": 1,
+      "specialRules": [
+        "Heavy (AP)",
+        "Rending (6+)",
+        "Breaching (6+)",
+        "Pinning (1)"
+      ],
+      "traits": [
+        "Auto"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Twin dakkaguns",
+      "page": 57,
+      "R": 18,
+      "FP": 6,
+      "RS": 5,
+      "AP": 5,
+      "D": 1,
+      "specialRules": [],
+      "traits": [
+        "Auto"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Big shoota",
+      "page": 57,
+      "R": 36,
+      "FP": 3,
+      "RS": 5,
+      "AP": 5,
+      "D": 1,
+      "specialRules": [],
+      "traits": [
+        "Auto"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Twin big shoota",
+      "page": 57,
+      "R": 36,
+      "FP": 6,
+      "RS": 5,
+      "AP": 5,
+      "D": 1,
+      "specialRules": [],
+      "traits": [
+        "Auto"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Deffgun",
+      "page": 57,
+      "R": 48,
+      "FP": 2,
+      "RS": 7,
+      "AP": 4,
+      "D": 1,
+      "specialRules": [
+        "Heavy (FP & D)",
+        "Breaching (6+)",
+        "Suppressive (1)"
+      ],
+      "traits": [
+        "Auto"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Twin supa shoota",
+      "page": 57,
+      "R": 36,
+      "FP": 6,
+      "RS": 6,
+      "AP": 4,
+      "D": 1,
+      "specialRules": [
+        "Suppressive (1)"
+      ],
+      "traits": [
+        "Auto"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Flakka gunz",
+      "page": 57,
+      "R": 48,
+      "FP": 6,
+      "RS": 7,
+      "AP": 4,
+      "D": 2,
+      "specialRules": [
+        "Breaching (6+)",
+        "Heavy (FP)",
+        "Skyfire"
+      ],
+      "traits": [
+        "Auto"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Deffstorm mega-shoota",
+      "page": 57,
+      "R": 36,
+      "FP": 12,
+      "RS": 6,
+      "AP": 4,
+      "D": 1,
+      "specialRules": [
+        "Pinning (1)",
+        "Shred (6+)"
+      ],
+      "traits": [
+        "Auto"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Gigashoota",
+      "page": 57,
+      "R": 48,
+      "FP": 15,
+      "RS": 6,
+      "AP": 4,
+      "D": 1,
+      "specialRules": [
+        "Ordnance (FP)",
+        "Pinning (2)",
+        "Shred (6+)"
+      ],
+      "traits": [
+        "Auto"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Traktor blasta",
+      "page": 58,
+      "R": 18,
+      "FP": 1,
+      "RS": 7,
+      "AP": 5,
+      "D": 2,
+      "specialRules": [
+        "Heavy (R & RS)",
+        "Skyfire"
+      ],
+      "traits": [],
+      "modes": null
+    },
+    {
+      "name": "Traktor kannon",
+      "page": 58,
+      "R": 36,
+      "FP": 1,
+      "RS": 7,
+      "AP": 5,
+      "D": 2,
+      "specialRules": [
+        "Heavy (RS)",
+        "Ordnance (D)",
+        "Shock (Pinned)",
+        "Skyfire"
+      ],
+      "traits": [],
+      "modes": null
+    },
+    {
+      "name": "Defensor big shoota",
+      "page": 58,
+      "R": 36,
+      "FP": 4,
+      "RS": 5,
+      "AP": 5,
+      "D": 1,
+      "specialRules": [],
+      "traits": [
+        "Auto",
+        "Tactical"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Twin defensor big shoota",
+      "page": 58,
+      "R": 36,
+      "FP": 8,
+      "RS": 5,
+      "AP": 5,
+      "D": 1,
+      "specialRules": [],
+      "traits": [
+        "Auto",
+        "Tactical"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Defensor skorcha",
+      "page": 58,
+      "R": 10,
+      "FP": 1,
+      "RS": 5,
+      "AP": 4,
+      "D": 1,
+      "specialRules": [
+        "Blast (5)",
+        "Panic (1)"
+      ],
+      "traits": [
+        "Flame",
+        "Tactical"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Deff kannon",
+      "page": 58,
+      "R": 72,
+      "FP": 1,
+      "RS": 10,
+      "AP": 2,
+      "D": 6,
+      "specialRules": [
+        "Blast (7)",
+        "Power Hungry"
+      ],
+      "traits": [
+        "Auto",
+        "Strategic"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Supa-gatler",
+      "page": 58,
+      "R": 48,
+      "FP": 12,
+      "RS": 6,
+      "AP": 4,
+      "D": 1,
+      "specialRules": [
+        "Pinning (2)",
+        "Shred (6+)"
+      ],
+      "traits": [
+        "Auto",
+        "Strategic"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Stompa lifta-droppa",
+      "page": 58,
+      "R": 48,
+      "FP": 1,
+      "RS": 12,
+      "AP": 2,
+      "D": 4,
+      "specialRules": [
+        "Overload (1)",
+        "Shock (Stunned",
+        "Suppressed)",
+        "Stun (2)",
+        "Thrown (2)"
+      ],
+      "traits": [
+        "Lifta-droppa",
+        "Strategic"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Supa-rokkit",
+      "page": 58,
+      "R": 48,
+      "FP": 1,
+      "RS": 8,
+      "AP": 4,
+      "D": 2,
+      "specialRules": [
+        "Blast (3)",
+        "Limited (1)"
+      ],
+      "traits": [
+        "Missile",
+        "Strategic"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Mega-choppa",
+      "page": 58,
+      "R": 8,
+      "FP": 4,
+      "RS": 10,
+      "AP": 2,
+      "D": 5,
+      "specialRules": [
+        "Targeted (+2)"
+      ],
+      "traits": [
+        "Strike"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Bomb squig",
+      "page": 58,
+      "R": 12,
+      "FP": 1,
+      "RS": 8,
+      "AP": 4,
+      "D": 3,
+      "specialRules": [
+        "Armourbane",
+        "Breaching (6+)",
+        "Critical Hit (6+)",
+        "Limited (1)",
+        "Targeted (+3)"
+      ],
+      "traits": [],
+      "modes": null
+    },
+    {
+      "name": "Bubblechukka",
+      "page": 58,
+      "R": 36,
+      "FP": 1,
+      "RS": 3,
+      "AP": 4,
+      "D": 1,
+      "specialRules": [
+        "Blast (5)",
+        "Heavy (AP)",
+        "Ordnance (RS)",
+        "Pinning (2)"
+      ],
+      "traits": [],
+      "modes": null
+    },
+    {
+      "name": "Shokk attack gun",
+      "page": 58,
+      "R": 30,
+      "FP": 1,
+      "RS": "2D6",
+      "AP": 4,
+      "D": "D6",
+      "specialRules": [
+        "Blast (5)",
+        "Ordnance (R & AP)",
+        "Pinning (3)",
+        "Shokk Attack"
+      ],
+      "traits": [],
+      "modes": null
+    },
+    {
+      "name": "Shokka pistol",
+      "page": 58,
+      "R": 8,
+      "FP": 1,
+      "RS": 6,
+      "AP": 4,
+      "D": 1,
+      "specialRules": [
+        "Blast (3)",
+        "Pistol",
+        "Shock (Stunned)"
+      ],
+      "traits": [
+        "Assault"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Tellyport blasta",
+      "page": 58,
+      "R": 12,
+      "FP": 1,
+      "RS": 7,
+      "AP": 4,
+      "D": 2,
+      "specialRules": [
+        "Armourbane",
+        "Blast (3)",
+        "Critical Hit (6+)",
+        "Breaching (6+)",
+        "Panic (1)",
+        "Overload (1)"
+      ],
+      "traits": [],
+      "modes": null
+    },
+    {
+      "name": "Zzap gun",
+      "page": 58,
+      "R": 36,
+      "FP": 1,
+      "RS": "2D6",
+      "AP": 2,
+      "D": 1,
+      "specialRules": [
+        "Armourbane",
+        "Heavy (D)",
+        "Overload (1)",
+        "Shock (Suppressed)",
+        "Shred (5+)"
+      ],
+      "traits": [
+        "Las"
+      ],
+      "modes": null
+    }
+  ],
+  "melee": [
+    {
+      "name": "Choppa",
+      "page": 59,
+      "IM": "I",
+      "AM": "A",
+      "SM": "S",
+      "AP": "–",
+      "D": 1,
+      "specialRules": [
+        "Impact (A)"
+      ],
+      "traits": [
+        "Choppa"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Paired choppas",
+      "page": 59,
+      "IM": "I",
+      "AM": "+1",
+      "SM": "S",
+      "AP": "–",
+      "D": 1,
+      "specialRules": [
+        "Impact (A)"
+      ],
+      "traits": [
+        "Choppa"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Chainsword",
+      "page": 59,
+      "IM": "I",
+      "AM": "A",
+      "SM": "S",
+      "AP": 5,
+      "D": 1,
+      "specialRules": [
+        "Shred (6+)"
+      ],
+      "traits": [
+        "Chain"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Big choppa",
+      "page": 59,
+      "IM": "-1",
+      "AM": "A",
+      "SM": "+2",
+      "AP": 5,
+      "D": 2,
+      "specialRules": [
+        "Shred (6+)"
+      ],
+      "traits": [
+        "Choppa"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Power axe",
+      "page": 59,
+      "IM": "-1",
+      "AM": "A",
+      "SM": "+1",
+      "AP": 3,
+      "D": 1,
+      "specialRules": [
+        "Breaching (5+)"
+      ],
+      "traits": [
+        "Power"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Power sword",
+      "page": 59,
+      "IM": "I",
+      "AM": "A",
+      "SM": "S",
+      "AP": 3,
+      "D": 1,
+      "specialRules": [
+        "Breaching (6+)"
+      ],
+      "traits": [
+        "Power"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Power klaw",
+      "page": 59,
+      "IM": "-3",
+      "AM": "A",
+      "SM": "+4",
+      "AP": 2,
+      "D": 2,
+      "specialRules": [
+        "Rending (6+)"
+      ],
+      "traits": [
+        "Power"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Kan klaw",
+      "page": 59,
+      "IM": "I",
+      "AM": "A",
+      "SM": "+1",
+      "AP": 2,
+      "D": 2,
+      "specialRules": [
+        "Rending (6+)"
+      ],
+      "traits": [
+        "Power"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Paired dread klaws",
+      "page": 59,
+      "IM": "I",
+      "AM": "A",
+      "SM": "+3",
+      "AP": 2,
+      "D": 3,
+      "specialRules": [
+        "Rending (6+)"
+      ],
+      "traits": [
+        "Power"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Triple dread klaws",
+      "page": 59,
+      "IM": "I",
+      "AM": "+1",
+      "SM": "+3",
+      "AP": 2,
+      "D": 3,
+      "specialRules": [
+        "Rending (6+)"
+      ],
+      "traits": [
+        "Power"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Lots o' dread klaws",
+      "page": 59,
+      "IM": "I",
+      "AM": "+2",
+      "SM": "+3",
+      "AP": 2,
+      "D": 3,
+      "specialRules": [
+        "Rending (6+)"
+      ],
+      "traits": [
+        "Power"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Dread rippa klaw",
+      "page": 59,
+      "IM": "I",
+      "AM": "A",
+      "SM": "+1",
+      "AP": 2,
+      "D": 3,
+      "specialRules": [
+        "Critical Hit (6+)"
+      ],
+      "traits": [
+        "Power"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Paired dread rippa klaws",
+      "page": 59,
+      "IM": "I",
+      "AM": "+1",
+      "SM": "+1",
+      "AP": 2,
+      "D": 3,
+      "specialRules": [
+        "Critical Hit (6+)"
+      ],
+      "traits": [
+        "Power"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Klaw of Gork (or possibly Mork)",
+      "page": 59,
+      "IM": "I",
+      "AM": "A",
+      "SM": "+3",
+      "AP": 2,
+      "D": 4,
+      "specialRules": [
+        "Critical Hit (6+)",
+        "Shock (Suppressed)"
+      ],
+      "traits": [
+        "Power"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Force staff",
+      "page": 59,
+      "IM": "+1",
+      "AM": "A",
+      "SM": "+2",
+      "AP": 4,
+      "D": 1,
+      "specialRules": [
+        "Force (D)"
+      ],
+      "traits": [
+        "Psychic"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Herding stikk",
+      "page": 59,
+      "IM": "+1",
+      "AM": "A",
+      "SM": "+1",
+      "AP": 5,
+      "D": 1,
+      "specialRules": [
+        "Critical Hit (6+)"
+      ],
+      "traits": [],
+      "modes": null
+    },
+    {
+      "name": "'Urty syringe",
+      "page": 59,
+      "IM": "I",
+      "AM": "A",
+      "SM": "S",
+      "AP": "–",
+      "D": 1,
+      "specialRules": [
+        "Poisoned (4+)"
+      ],
+      "traits": [],
+      "modes": null
+    },
+    {
+      "name": "Killsaw",
+      "page": 59,
+      "IM": "-3",
+      "AM": "A",
+      "SM": "+3",
+      "AP": 2,
+      "D": 2,
+      "specialRules": [
+        "Armourbane",
+        "Shred (5+)"
+      ],
+      "traits": [
+        "Saw"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Pair of killsaws",
+      "page": 59,
+      "IM": "-3",
+      "AM": "A",
+      "SM": "+3",
+      "AP": 2,
+      "D": 3,
+      "specialRules": [
+        "Armourbane",
+        "Shred (5+)"
+      ],
+      "traits": [
+        "Saw"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Mega killsaw",
+      "page": 59,
+      "IM": "-1",
+      "AM": "A",
+      "SM": "+2",
+      "AP": 2,
+      "D": 3,
+      "specialRules": [
+        "Armourbane",
+        "Shred (5+)"
+      ],
+      "traits": [
+        "Saw"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Paired mega killsaws",
+      "page": 59,
+      "IM": "-1",
+      "AM": "A",
+      "SM": "+2",
+      "AP": 2,
+      "D": 4,
+      "specialRules": [
+        "Armourbane",
+        "Shred (5+)"
+      ],
+      "traits": [
+        "Saw"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Knucklebustas",
+      "page": 60,
+      "IM": "-1",
+      "AM": "+1",
+      "SM": "+2",
+      "AP": 4,
+      "D": 2,
+      "specialRules": [
+        "Armour-breaker (6+)"
+      ],
+      "traits": [],
+      "modes": null
+    },
+    {
+      "name": "Tankbusta bombs",
+      "page": 60,
+      "IM": "-3",
+      "AM": "1",
+      "SM": "9",
+      "AP": 2,
+      "D": 4,
+      "specialRules": [
+        "Armourbane",
+        "Detonation"
+      ],
+      "traits": [],
+      "modes": null,
+      "note": "Source prints numeric AM/SM values (1, 9) rather than 'A'/'S' as for other weapons; kept as printed."
+    },
+    {
+      "name": "Tankhammer",
+      "page": 60,
+      "IM": "-2",
+      "AM": "A",
+      "SM": "8",
+      "AP": 3,
+      "D": 2,
+      "specialRules": [
+        "Armour-breaker (5+)",
+        "Breaching (6+)"
+      ],
+      "traits": [],
+      "modes": null,
+      "note": "Source prints a numeric SM value (8) rather than 'S'; kept as printed."
+    },
+    {
+      "name": "Breacha ram",
+      "page": 60,
+      "IM": "-3",
+      "AM": "A",
+      "SM": "+3",
+      "AP": 4,
+      "D": 2,
+      "specialRules": [
+        "Armour-breaker (6+)",
+        "Shock (Stunned)"
+      ],
+      "traits": [],
+      "modes": null
+    },
+    {
+      "name": "Burna (Melee)",
+      "page": 60,
+      "IM": "I",
+      "AM": "A",
+      "SM": "S",
+      "AP": 4,
+      "D": 1,
+      "specialRules": [
+        "Aflame (1)",
+        "Breaching (6+)"
+      ],
+      "traits": [],
+      "modes": null
+    },
+    {
+      "name": "Tusks and stomping feet",
+      "page": 60,
+      "IM": "I",
+      "AM": "A",
+      "SM": "S",
+      "AP": 4,
+      "D": 2,
+      "specialRules": [
+        "Impact (A)",
+        "Reaping Blow (2)"
+      ],
+      "traits": [],
+      "modes": null
+    }
+  ]
+}

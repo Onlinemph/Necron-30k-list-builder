@@ -1,0 +1,1445 @@
+{
+  "units": [
+    {
+      "id": "ork-warboss",
+      "name": "Warboss",
+      "role": "High Command",
+      "page": 7,
+      "limit": null,
+      "unique": false,
+      "basePoints": 90,
+      "composition": "1 Warboss",
+      "models": [
+        {
+          "name": "Warboss",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 7,
+            "WS": 6,
+            "BS": 2,
+            "S": 5,
+            "T": 5,
+            "W": 4,
+            "I": 4,
+            "A": 6,
+            "LD": 9,
+            "CL": 10,
+            "WP": 9,
+            "IN": 7,
+            "SAV": "4+",
+            "INV": "4+"
+          },
+          "wargear": [
+            "Slugga",
+            "Choppa",
+            "Stikkbombs"
+          ],
+          "unitType": "Infantry (Command)",
+          "specialRules": [
+            "Bulky (2)",
+            "Eternal Warrior (1)",
+            "Fear (1)",
+            "Impact (S)",
+            "Implacable Advance",
+            "Mob Rule (LD)"
+          ]
+        },
+        {
+          "name": "Warboss on Warbike",
+          "min": 0,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 14,
+            "WS": 6,
+            "BS": 2,
+            "S": 5,
+            "T": 5,
+            "W": 5,
+            "I": 4,
+            "A": 6,
+            "LD": 9,
+            "CL": 10,
+            "WP": 9,
+            "IN": 6,
+            "SAV": "4+",
+            "INV": "4+"
+          },
+          "wargear": [
+            "Slugga",
+            "Choppa",
+            "Stikkbombs",
+            "Twin dakkaguns"
+          ],
+          "unitType": "Cavalry (Command)",
+          "specialRules": [
+            "Bulky (3)",
+            "Eternal Warrior (1)",
+            "Fear (1)",
+            "Impact (S)",
+            "Implacable Advance",
+            "Mob Rule (LD)",
+            "Outflank",
+            "Smokescreen"
+          ]
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Prophet of the Waaagh!"
+      ],
+      "specialRules": [],
+      "unitRules": [],
+      "factionChoice": true,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "swap-warbike",
+          "text": "This model may be replaced with 1 Warboss on Warbike for +30 Points",
+          "kind": "swapModel",
+          "model": "Warboss",
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Warboss on Warbike",
+              "points": 30
+            }
+          ],
+          "max": {
+            "fixed": 1
+          },
+          "requires": null
+        },
+        {
+          "id": "boss-weapons",
+          "text": "This Model may have its slugga and/or choppa exchanged for one item each from the Ork Boss Weapons list.",
+          "kind": "any",
+          "model": null,
+          "replaces": [
+            "Slugga",
+            "Choppa"
+          ],
+          "choices": [
+            {
+              "list": "ork-boss-weapons"
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "kombi",
+          "text": "This Model may have its slugga exchanged for a kustom shoota for +10 Points or one item from the Ork Kombi-weapons list.",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Slugga"
+          ],
+          "choices": [
+            {
+              "name": "Kustom shoota",
+              "points": 10
+            },
+            {
+              "list": "ork-kombi-weapons"
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "attack-squig",
+          "text": "This Model may have an attack squig for +10 Points.",
+          "kind": "upgrade",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Attack squig",
+              "points": 10
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "Smokescreen is printed as applying only to Warboss on Warbike; placed in that model's specialRules rather than unit traits."
+    },
+    {
+      "id": "mega-warboss",
+      "name": "Mega Warboss",
+      "role": "High Command",
+      "page": 8,
+      "limit": null,
+      "unique": false,
+      "basePoints": 130,
+      "composition": "1 Mega Warboss",
+      "models": [
+        {
+          "name": "Mega Warboss",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 6,
+            "WS": 6,
+            "BS": 2,
+            "S": 6,
+            "T": 6,
+            "W": 5,
+            "I": 3,
+            "A": 5,
+            "LD": 9,
+            "CL": 10,
+            "WP": 9,
+            "IN": 7,
+            "SAV": "2+",
+            "INV": "4+"
+          },
+          "wargear": [
+            "Kombi-shoota",
+            "Power klaw"
+          ],
+          "unitType": "Infantry (Command, Heavy)",
+          "specialRules": [
+            "Bulky (3)",
+            "Eternal Warrior (1)",
+            "Fear (1)",
+            "Impact (A)",
+            "Implacable Advance",
+            "Mob Rule (LD)",
+            "Slow and Purposeful"
+          ]
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Prophet of the Waaagh!"
+      ],
+      "specialRules": [],
+      "unitRules": [],
+      "factionChoice": true,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "kombi",
+          "text": "This Model may have its kombi-shoota exchanged for a kustom shoota for +10 Points or one item from the Ork Kombi-weapons list.",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Kombi-shoota"
+          ],
+          "choices": [
+            {
+              "name": "Kustom shoota",
+              "points": 10
+            },
+            {
+              "list": "ork-kombi-weapons"
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "kustom-meka-dread",
+      "name": "Kustom Meka-dread",
+      "role": "High Command",
+      "page": 9,
+      "limit": null,
+      "unique": false,
+      "basePoints": 180,
+      "composition": "1 Kustom Meka-dread",
+      "models": [
+        {
+          "name": "Kustom Meka-dread",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 2,
+            "S": 8,
+            "T": 8,
+            "W": 7,
+            "I": 2,
+            "A": 4,
+            "LD": 12,
+            "CL": 10,
+            "WP": 7,
+            "IN": 6,
+            "SAV": "2+",
+            "INV": "5+"
+          },
+          "wargear": [
+            "Two big shootas"
+          ],
+          "unitType": "Walker (Heavy)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos"
+      ],
+      "specialRules": [
+        "Battlesmith (2)",
+        "Bulky (8)",
+        "Explodes (4+)",
+        "Implacable Advance"
+      ],
+      "unitRules": [],
+      "factionChoice": true,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "arm-weapons",
+          "text": "This Model must have one of the following options selected for it: Two options from the following list: - Dread rippa klaw ... Free - Mega killsaw ... +5 Points - Shunta ... +25 Points - Killkannon ... +35 Points",
+          "kind": "perModel",
+          "model": "Kustom Meka-dread",
+          "replaces": [
+            "Two big shootas"
+          ],
+          "choices": [
+            {
+              "name": "Dread rippa klaw",
+              "points": 0
+            },
+            {
+              "name": "Mega killsaw",
+              "points": 5
+            },
+            {
+              "name": "Shunta",
+              "points": 25
+            },
+            {
+              "name": "Killkannon",
+              "points": 35
+            }
+          ],
+          "max": {
+            "fixed": 2
+          },
+          "requires": null
+        },
+        {
+          "id": "paired-arms",
+          "text": "Paired dread rippa klaws ... +10 Points; Paired mega killsaws ... +10 Points",
+          "kind": "one",
+          "model": "Kustom Meka-dread",
+          "replaces": [
+            "Two big shootas"
+          ],
+          "choices": [
+            {
+              "name": "Paired dread rippa klaws",
+              "points": 10
+            },
+            {
+              "name": "Paired mega killsaws",
+              "points": 10
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "Source text: 'This Model must have one of the following options selected for it' listing (a) two weapons chosen from Dread rippa klaw/Mega killsaw/Shunta/Killkannon, OR (b) Paired dread rippa klaws, OR (c) Paired mega killsaws — a single mandatory arms choice among three alternatives. Represented here as two separate options ('arm-weapons' perModel up to 2, and 'paired-arms' one-of); only one of the two options should be used per model, not both."
+    },
+    {
+      "id": "ork-bigboss",
+      "name": "Bigboss",
+      "role": "Command",
+      "page": 10,
+      "limit": null,
+      "unique": false,
+      "basePoints": 50,
+      "composition": "1 Bigboss",
+      "models": [
+        {
+          "name": "Bigboss",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 6,
+            "WS": 5,
+            "BS": 2,
+            "S": 4,
+            "T": 4,
+            "W": 3,
+            "I": 3,
+            "A": 4,
+            "LD": 8,
+            "CL": 9,
+            "WP": 8,
+            "IN": 6,
+            "SAV": "4+",
+            "INV": "5+"
+          },
+          "wargear": [
+            "Slugga",
+            "Choppa",
+            "Stikkbombs"
+          ],
+          "unitType": "Infantry (Command)",
+          "specialRules": [
+            "Impact (S)",
+            "Implacable Advance",
+            "Mob Rule (LD)",
+            "Officer of the Line (2)"
+          ]
+        },
+        {
+          "name": "Bigboss on Warbike",
+          "min": 0,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 14,
+            "WS": 5,
+            "BS": 2,
+            "S": 4,
+            "T": 4,
+            "W": 4,
+            "I": 3,
+            "A": 4,
+            "LD": 8,
+            "CL": 9,
+            "WP": 8,
+            "IN": 5,
+            "SAV": "4+",
+            "INV": "5+"
+          },
+          "wargear": [
+            "Slugga",
+            "Choppa",
+            "Stikkbombs",
+            "Twin dakkaguns"
+          ],
+          "unitType": "Cavalry (Command)",
+          "specialRules": [
+            "Bulky (2)",
+            "Eternal Warrior (1)",
+            "Firing Protocols (2)",
+            "Impact (S)",
+            "Implacable Advance",
+            "Mob Rule (LD)",
+            "Officer of the Line (2)",
+            "Outflank",
+            "Smokescreen"
+          ]
+        },
+        {
+          "name": "Bigboss on Wartrike",
+          "min": 0,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 14,
+            "WS": 5,
+            "BS": 2,
+            "S": 4,
+            "T": 4,
+            "W": 6,
+            "I": 3,
+            "A": 5,
+            "LD": 8,
+            "CL": 9,
+            "WP": 8,
+            "IN": 5,
+            "SAV": "4+",
+            "INV": "5+"
+          },
+          "wargear": [
+            "Slugga",
+            "Choppa",
+            "Stikkbombs",
+            "Three twin boomstikks"
+          ],
+          "unitType": "Cavalry (Command)",
+          "specialRules": [
+            "Bulky (3)",
+            "Eternal Warrior (1)",
+            "Firing Protocols (3)",
+            "Impact (S)",
+            "Implacable Advance",
+            "Mob Rule (LD)",
+            "Officer of the Line (2)",
+            "Smokescreen"
+          ]
+        }
+      ],
+      "traits": [
+        "Xenos"
+      ],
+      "specialRules": [],
+      "unitRules": [],
+      "factionChoice": true,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "swap-warbike",
+          "text": "This model may be replaced with 1 Bigboss on Warbike for +30 Points",
+          "kind": "swapModel",
+          "model": "Bigboss",
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Bigboss on Warbike",
+              "points": 30
+            }
+          ],
+          "max": {
+            "shared": "bigboss-mount"
+          },
+          "requires": null
+        },
+        {
+          "id": "swap-wartrike",
+          "text": "This model may be replaced with 1 Bigboss on Wartrike for +50 Points",
+          "kind": "swapModel",
+          "model": "Bigboss",
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Bigboss on Wartrike",
+              "points": 50
+            }
+          ],
+          "max": {
+            "shared": "bigboss-mount"
+          },
+          "requires": null
+        },
+        {
+          "id": "boss-weapons",
+          "text": "This Model may have its slugga and/or choppa exchanged for one item each from the Ork Boss Weapons list.",
+          "kind": "any",
+          "model": null,
+          "replaces": [
+            "Slugga",
+            "Choppa"
+          ],
+          "choices": [
+            {
+              "list": "ork-boss-weapons"
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "kombi",
+          "text": "This Model may have its slugga exchanged for one item from the Ork Kombi-weapons list.",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Slugga"
+          ],
+          "choices": [
+            {
+              "list": "ork-kombi-weapons"
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "waaagh-banner",
+          "text": "This Model may have the Waaagh! Banner for +20 Points.",
+          "kind": "upgrade",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Waaagh! Banner",
+              "points": 20
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "attack-squig",
+          "text": "This Model may have an attack squig for +10 Points.",
+          "kind": "upgrade",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Attack squig",
+              "points": 10
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "Smokescreen is printed as applying only to Bigboss on Warbike and Bigboss on Wartrike; placed in those two models' specialRules rather than unit traits. The Warbike and Wartrike swaps are alternatives to each other (only one mount may be taken), modelled with a shared max key."
+    },
+    {
+      "id": "mega-bigboss",
+      "name": "Mega Bigboss",
+      "role": "Command",
+      "page": 11,
+      "limit": null,
+      "unique": false,
+      "basePoints": 90,
+      "composition": "1 Mega Bigboss",
+      "models": [
+        {
+          "name": "Mega Bigboss",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 5,
+            "WS": 5,
+            "BS": 2,
+            "S": 5,
+            "T": 5,
+            "W": 4,
+            "I": 2,
+            "A": 4,
+            "LD": 8,
+            "CL": 9,
+            "WP": 8,
+            "IN": 6,
+            "SAV": "2+",
+            "INV": "5+"
+          },
+          "wargear": [
+            "Kombi-shoota",
+            "Power klaw"
+          ],
+          "unitType": "Infantry (Command, Heavy)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos"
+      ],
+      "specialRules": [
+        "Bulky (2)",
+        "Impact (A)",
+        "Implacable Advance",
+        "Mob Rule (LD)",
+        "Officer of the Line (2)",
+        "Slow and Purposeful"
+      ],
+      "unitRules": [],
+      "factionChoice": true,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "kombi",
+          "text": "This Model may have its kombi-shoota exchanged for one item from the Ork Kombi-weapons list.",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Kombi-shoota"
+          ],
+          "choices": [
+            {
+              "list": "ork-kombi-weapons"
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "waaagh-banner",
+          "text": "This Model may have the Waaagh! Banner for +20 Points.",
+          "kind": "upgrade",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Waaagh! Banner",
+              "points": 20
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "freebooter-kaptin",
+      "name": "Freebooter Kaptin",
+      "role": "Command",
+      "page": 11,
+      "limit": null,
+      "unique": false,
+      "basePoints": 45,
+      "composition": "1 Freebooter Kaptin",
+      "models": [
+        {
+          "name": "Freebooter Kaptin",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 6,
+            "WS": 5,
+            "BS": 3,
+            "S": 4,
+            "T": 4,
+            "W": 3,
+            "I": 3,
+            "A": 3,
+            "LD": 9,
+            "CL": 8,
+            "WP": 8,
+            "IN": 6,
+            "SAV": "3+",
+            "INV": "5+"
+          },
+          "wargear": [
+            "Slugga",
+            "Choppa",
+            "Stikkbombs",
+            "Gitfinda"
+          ],
+          "unitType": "Infantry (Command, Heavy)",
+          "specialRules": [
+            "Impact (S)",
+            "Mob Rule (CL)"
+          ]
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Freebooterz"
+      ],
+      "specialRules": [],
+      "unitRules": [],
+      "factionChoice": false,
+      "fixedChoice": "Freebooters",
+      "options": [
+        {
+          "id": "boss-weapons",
+          "text": "This Model may have its slugga and/or choppa exchanged for one item each from the Ork Boss Weapons list.",
+          "kind": "any",
+          "model": null,
+          "replaces": [
+            "Slugga",
+            "Choppa"
+          ],
+          "choices": [
+            {
+              "list": "ork-boss-weapons"
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "snazzgun-kombi",
+          "text": "This Model may have its slugga exchanged for one snazzgun for +10 Points or one item from the Ork Kombi-weapons list.",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Slugga"
+          ],
+          "choices": [
+            {
+              "name": "Snazzgun",
+              "points": 10
+            },
+            {
+              "list": "ork-kombi-weapons"
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "Source prints the unit's trait as 'Freebooterz' (not 'Freebooters'); treated as this unit's fixed Freebooters clan choice (fixedChoice) per data/orks/NOTES.md, but the spelling difference was not cross-checked against the clan rules on pages 44-49, which are outside this transcription's page range (5-16)."
+    },
+    {
+      "id": "big-mek",
+      "name": "Big Mek",
+      "role": "Command",
+      "page": 12,
+      "limit": null,
+      "unique": false,
+      "basePoints": 45,
+      "composition": "1 Big Mek",
+      "models": [
+        {
+          "name": "Big Mek",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 6,
+            "WS": 5,
+            "BS": 3,
+            "S": 4,
+            "T": 4,
+            "W": 3,
+            "I": 3,
+            "A": 3,
+            "LD": 8,
+            "CL": 8,
+            "WP": 7,
+            "IN": 10,
+            "SAV": "4+",
+            "INV": "5+"
+          },
+          "wargear": [
+            "Slugga",
+            "Choppa",
+            "Stikkbombs"
+          ],
+          "unitType": "Infantry (Command)",
+          "specialRules": [
+            "Battlesmith (2)",
+            "Impact (S)",
+            "Mob Rule (CL)"
+          ]
+        },
+        {
+          "name": "Big Mek on Warbike",
+          "min": 0,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 14,
+            "WS": 5,
+            "BS": 3,
+            "S": 4,
+            "T": 4,
+            "W": 4,
+            "I": 3,
+            "A": 3,
+            "LD": 8,
+            "CL": 8,
+            "WP": 7,
+            "IN": 9,
+            "SAV": "4+",
+            "INV": "5+"
+          },
+          "wargear": [
+            "Slugga",
+            "Choppa",
+            "Stikkbombs",
+            "Twin dakkaguns"
+          ],
+          "unitType": "Cavalry (Command)",
+          "specialRules": [
+            "Battlesmith (2)",
+            "Bulky (2)",
+            "Impact (S)",
+            "Implacable Advance",
+            "Mob Rule (CL)",
+            "Outflank",
+            "Smokescreen"
+          ]
+        }
+      ],
+      "traits": [
+        "Xenos"
+      ],
+      "specialRules": [],
+      "unitRules": [],
+      "factionChoice": true,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "swap-warbike",
+          "text": "This model may be replaced with 1 Big Mek on Warbike for +30 Points",
+          "kind": "swapModel",
+          "model": "Big Mek",
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Big Mek on Warbike",
+              "points": 30
+            }
+          ],
+          "max": {
+            "fixed": 1
+          },
+          "requires": null
+        },
+        {
+          "id": "mek-wargear",
+          "text": "This Big Mek or Big Mek on Warbike may have its slugga and/or choppa exchanged for one item each from the Ork Mek Wargear list.",
+          "kind": "any",
+          "model": null,
+          "replaces": [
+            "Slugga",
+            "Choppa"
+          ],
+          "choices": [
+            {
+              "list": "ork-mek-wargear"
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "kustom-shoota-kombi",
+          "text": "This Big Mek or Big Mek on Warbike may have its slugga exchanged for a kustom shoota for +10 Points or one item from the Ork Kombi-weapons list.",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Slugga"
+          ],
+          "choices": [
+            {
+              "name": "Kustom shoota",
+              "points": 10
+            },
+            {
+              "list": "ork-kombi-weapons"
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "special-weapon",
+          "text": "This Big Mek may have its slugga exchanged for one of the following. If either of these options are taken, this Big Mek gains the Bulky (2) Special Rule and exchanges the Command Sub-Type for the Champion Sub-Type: - Shokk attack gun ... +60 Points - Traktor blasta ... +30 Points",
+          "kind": "one",
+          "model": "Big Mek",
+          "replaces": [
+            "Slugga"
+          ],
+          "choices": [
+            {
+              "name": "Shokk attack gun",
+              "points": 60
+            },
+            {
+              "name": "Traktor blasta",
+              "points": 30
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "kustom-force-field",
+          "text": "This Big Mek or Big Mek on Warbike may have a kustom force field for +30 Points.",
+          "kind": "upgrade",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Kustom force field",
+              "points": 30
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "grot-oilers",
+          "text": "This Big Mek or Big Mek on Warbike may have up to three grot oilers for +5 Points each.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Grot Oiler",
+              "points": 5
+            }
+          ],
+          "max": {
+            "fixed": 3
+          },
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "mega-big-mek",
+      "name": "Mega Big Mek",
+      "role": "Command",
+      "page": 13,
+      "limit": null,
+      "unique": false,
+      "basePoints": 85,
+      "composition": "1 Mega Big Mek",
+      "models": [
+        {
+          "name": "Mega Big Mek",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 5,
+            "WS": 5,
+            "BS": 3,
+            "S": 5,
+            "T": 5,
+            "W": 4,
+            "I": 2,
+            "A": 3,
+            "LD": 8,
+            "CL": 8,
+            "WP": 7,
+            "IN": 10,
+            "SAV": "2+",
+            "INV": "5+"
+          },
+          "wargear": [
+            "Kombi-shoota",
+            "Power klaw"
+          ],
+          "unitType": "Infantry (Command, Heavy)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos"
+      ],
+      "specialRules": [
+        "Battlesmith (2)",
+        "Bulky (2)",
+        "Impact (A)",
+        "Implacable Advance",
+        "Mob Rule (CL)",
+        "Slow and Purposeful",
+        "Tellyportas"
+      ],
+      "unitRules": [
+        {
+          "name": "Tellyportas",
+          "text": "What Ork teleportation technology lacks in safety measures, accuracy, reliability, blueprints or indeed the most basic comprehension of its functions by those who use it, it more than makes up for in its ability to catapult mobs of bellowing Orks through the warp and directly into the teeth of their horrified foes. If a Unit that includes only Models with the Infantry Type or Walker Type is selected to fill a Prime Force Organisation Slot in an Army that includes one or more Mega Big Meks, the following Prime Advantage can be selected: Tellyporta Boyz. All Models in the Unit selected to fill a Prime Force Organisation Slot with this Prime Advantage gain the Deep Strike Special Rule. When performing a Deep Strike with a Unit with this Prime Advantage, make a Scatter Roll for the first Model placed before placing the rest of the Unit."
+        }
+      ],
+      "factionChoice": true,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "killsaw",
+          "text": "This Model may have its power klaw exchanged for one killsaw for Free.",
+          "kind": "upgrade",
+          "model": null,
+          "replaces": [
+            "Power klaw"
+          ],
+          "choices": [
+            {
+              "name": "Killsaw",
+              "points": 0
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "kombi",
+          "text": "This Model may have its kombi-shoota exchanged for a kustom mega-blasta for +10 Points or one item from the Ork Kombi-weapons list.",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Kombi-shoota"
+          ],
+          "choices": [
+            {
+              "name": "Kustom mega-blasta",
+              "points": 10
+            },
+            {
+              "list": "ork-kombi-weapons"
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "special-item",
+          "text": "This Model may have one of the following: - Teleport blasta ... +25 Points - Kustom force field ... +30 Points",
+          "kind": "one",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Teleport blasta",
+              "points": 25
+            },
+            {
+              "name": "Kustom force field",
+              "points": 30
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "grot-oilers",
+          "text": "This Model may have up to three grot oilers for +5 Points each.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Grot Oiler",
+              "points": 5
+            }
+          ],
+          "max": {
+            "fixed": 3
+          },
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "painboss",
+      "name": "Painboss",
+      "role": "Command",
+      "page": 14,
+      "limit": null,
+      "unique": false,
+      "basePoints": 50,
+      "composition": "1 Painboss",
+      "models": [
+        {
+          "name": "Painboss",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 6,
+            "WS": 5,
+            "BS": 2,
+            "S": 4,
+            "T": 4,
+            "W": 3,
+            "I": 3,
+            "A": 3,
+            "LD": 7,
+            "CL": 8,
+            "WP": 8,
+            "IN": 8,
+            "SAV": "4+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Choppa"
+          ],
+          "unitType": "Infantry (Command)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos"
+      ],
+      "specialRules": [
+        "Cyborks",
+        "Feel No Pain (5+)",
+        "Impact (S)",
+        "Medic (4+)",
+        "Mob Rule (CL)"
+      ],
+      "unitRules": [
+        {
+          "name": "Cyborks",
+          "text": "Any Ork brave/stupid enough to venture into a Painboss's lab has to be careful otherwise it may wake up to find itself with a new set of mechanical lungs that allow it to breathe underwater even though it probably only went in to get a bad tooth removed! If a Unit that includes only Models with the Infantry Type is selected to fill a Prime Force Organisation Slot in an Army that includes one or more Painbosses, the following Prime Advantage can be selected: Cyborks. All Models in the Unit selected to fill a Prime Force Organisation Slot with this Prime Advantage gain the Eternal Warrior (1) and Feel No Pain (5+) Special Rules."
+        }
+      ],
+      "factionChoice": true,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "power-klaw-dok",
+          "text": "This Model may have its choppa exchanged for one power klaw for +20 Points or one item from the Ork Dok Wargear list.",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Choppa"
+          ],
+          "choices": [
+            {
+              "name": "Power klaw",
+              "points": 20
+            },
+            {
+              "list": "ork-dok-wargear"
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "grot-orderlies",
+          "text": "This Model may have up to three grot orderlies for +5 Points each.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Grot Orderly",
+              "points": 5
+            }
+          ],
+          "max": {
+            "fixed": 3
+          },
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "mekaniaks",
+      "name": "Mekaniaks",
+      "role": "Retinue",
+      "page": 15,
+      "limit": null,
+      "unique": false,
+      "basePoints": 10,
+      "composition": "1 Mekboy",
+      "models": [
+        {
+          "name": "Mek",
+          "min": 1,
+          "max": 5,
+          "costPerExtra": 10,
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 3,
+            "S": 3,
+            "T": 4,
+            "W": 1,
+            "I": 2,
+            "A": 2,
+            "LD": 6,
+            "CL": 7,
+            "WP": 6,
+            "IN": 8,
+            "SAV": "4+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Slugga",
+            "Choppa"
+          ],
+          "unitType": "Infantry (Specialist)",
+          "specialRules": [
+            "Battlesmith (1)",
+            "Impact (S)",
+            "Mob Rule (CL)",
+            "Oddboyz"
+          ]
+        }
+      ],
+      "traits": [
+        "Xenos"
+      ],
+      "specialRules": [],
+      "unitRules": [],
+      "factionChoice": true,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "mek-wargear",
+          "text": "Any Model may have its slugga and/or choppa exchanged for one item each from the Ork Mek Wargear list.",
+          "kind": "perModel",
+          "model": "Mek",
+          "replaces": [
+            "Slugga",
+            "Choppa"
+          ],
+          "choices": [
+            {
+              "list": "ork-mek-wargear"
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "Unit composition text says '1 Mekboy' and 'up to 4 additional Mekboys' but the profile table names the model 'Mek'; both refer to the same model, kept as printed ('Mek' for the model name, 'Mekboy' in composition text)."
+    },
+    {
+      "id": "mad-doks",
+      "name": "Mad Doks",
+      "role": "Retinue",
+      "page": 15,
+      "limit": null,
+      "unique": false,
+      "basePoints": 10,
+      "composition": "1 Painboy",
+      "models": [
+        {
+          "name": "Painboy",
+          "min": 1,
+          "max": 5,
+          "costPerExtra": 10,
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 2,
+            "S": 3,
+            "T": 4,
+            "W": 1,
+            "I": 2,
+            "A": 2,
+            "LD": 6,
+            "CL": 7,
+            "WP": 7,
+            "IN": 6,
+            "SAV": "6+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Choppa"
+          ],
+          "unitType": "Infantry (Specialist, Light)",
+          "specialRules": [
+            "Impact (S)",
+            "Feel No Pain (5+)",
+            "Medic (5+)",
+            "Mob Rule (CL)",
+            "Oddboyz"
+          ]
+        }
+      ],
+      "traits": [
+        "Xenos"
+      ],
+      "specialRules": [],
+      "unitRules": [],
+      "factionChoice": true,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "dok-wargear",
+          "text": "Any Model may have its choppa exchanged for one item from the Ork Dok Wargear list.",
+          "kind": "perModel",
+          "model": "Painboy",
+          "replaces": [
+            "Choppa"
+          ],
+          "choices": [
+            {
+              "list": "ork-dok-wargear"
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "Source typo: the profile table's model name is printed as 'Mekboy' (evidently copy-pasted from the Mekaniaks page above), but the Unit Composition line reads '1 Painboy' / 'additional Painboys', and the profile stats and wargear (Choppa, Feel No Pain, Medic) clearly match a Painboy, not a Mek. Recorded here with model name 'Painboy' per the composition text; the printed 'Mekboy' label is kept only in this note."
+    },
+    {
+      "id": "madboyz-mob",
+      "name": "Madboyz Mob",
+      "role": "Retinue",
+      "page": 16,
+      "limit": null,
+      "unique": false,
+      "basePoints": 40,
+      "composition": "5 Madboyz",
+      "models": [
+        {
+          "name": "Madboy",
+          "min": 5,
+          "max": 20,
+          "costPerExtra": 6,
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 2,
+            "S": 3,
+            "T": 4,
+            "W": 1,
+            "I": 2,
+            "A": 2,
+            "LD": 9,
+            "CL": 10,
+            "WP": 6,
+            "IN": 4,
+            "SAV": "6+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Slugga",
+            "Choppa",
+            "Stikkbombs"
+          ],
+          "unitType": "Infantry (Light)",
+          "specialRules": [
+            "Impact (S)",
+            "Expendable (1)",
+            "Heedless",
+            "Madmob",
+            "Mob Rule (CL)"
+          ]
+        }
+      ],
+      "traits": [
+        "Xenos"
+      ],
+      "specialRules": [],
+      "unitRules": [
+        {
+          "name": "Madmob",
+          "text": "Madboyz are extremely unpredictable. Their minds swirl with strange ideas or sudden momentary enthusiasms, and they tend to act as a single body. If one Madboy thinks he has lost his boot the whole mob is likely to become obsessed with the idea of finding it! Such is the way with Madboyz. A Unit that includes any Models with this Special Rule cannot be joined by other Models except for Weirdboys. In addition, whenever a Unit that includes any Models with this Special Rule would gain either the Routed or Pinned Status, they instead gain the Suppressed and Stunned Statuses and the Hatred (Everything) Special Rule."
+        }
+      ],
+      "factionChoice": true,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "shoota",
+          "text": "Any Model in this Unit may have its slugga and choppa exchanged for one shoota for Free.",
+          "kind": "perModel",
+          "model": "Madboy",
+          "replaces": [
+            "Slugga",
+            "Choppa"
+          ],
+          "choices": [
+            {
+              "name": "Shoota",
+              "points": 0
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "chainsword",
+          "text": "For every five models in this Unit, one Model in this Unit may have its choppa exchanged for one chainsword for Free.",
+          "kind": "perModel",
+          "model": "Madboy",
+          "replaces": [
+            "Choppa"
+          ],
+          "choices": [
+            {
+              "name": "Chainsword",
+              "points": 0
+            }
+          ],
+          "max": {
+            "per": 5,
+            "count": 1
+          },
+          "requires": null
+        }
+      ],
+      "note": null
+    }
+  ]
+}

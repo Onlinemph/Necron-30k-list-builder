@@ -1,0 +1,115 @@
+{
+  "detachments": [
+    {
+      "id": "deffwing",
+      "name": "Deffwing",
+      "type": "Apex",
+      "page": 4,
+      "unlock": "When a Mega Warboss Unit is selected to fill a High Command Force Organisation Slot, then the Player may choose to add one Deffwing Detachment to the Army instead of the options available in the Crusade Force Organisation Chart.",
+      "unlockedBy": {
+        "commandUnit": ["mega-warboss"],
+        "slotRole": "High Command"
+      },
+      "slots": [
+        { "role": "Heavy Assault", "prime": true, "flexible": false },
+        { "role": "Heavy Assault", "prime": false, "flexible": false },
+        { "role": "Heavy Assault", "prime": false, "flexible": false }
+      ],
+      "restrictions": [
+        "Heavy Assault Slots in this Detachment may only be used to select Meganobz Mob Units."
+      ],
+      "rules": [],
+      "slotRules": [
+        { "roles": ["Heavy Assault"], "units": ["meganobz-mob"] }
+      ]
+    },
+    {
+      "id": "bosss-bodyguard",
+      "name": "Boss's Bodyguard",
+      "type": "Auxiliary",
+      "page": 4,
+      "unlock": null,
+      "unlockedBy": null,
+      "slots": [
+        { "role": "Retinue", "prime": false, "flexible": false },
+        { "role": "Elites", "prime": false, "flexible": false },
+        { "role": "Heavy Transport", "prime": false, "flexible": false }
+      ],
+      "restrictions": [],
+      "rules": [],
+      "note": "No unlock paragraph or restriction bullet is printed in this Detachment's box on page 4; only the title and the three slot icons appear.",
+      "slotRules": []
+    },
+    {
+      "id": "green-tide",
+      "name": "Green Tide",
+      "type": "Auxiliary",
+      "page": 4,
+      "unlock": null,
+      "unlockedBy": null,
+      "slots": [
+        { "role": "Troops", "prime": true, "flexible": false },
+        { "role": "Troops", "prime": false, "flexible": false },
+        { "role": "Troops", "prime": false, "flexible": false },
+        { "role": "Support", "prime": true, "flexible": false },
+        { "role": "Support", "prime": false, "flexible": false },
+        { "role": "Support", "prime": false, "flexible": false }
+      ],
+      "restrictions": [],
+      "rules": [],
+      "note": "No unlock paragraph or restriction bullet is printed in this Detachment's box on page 4; only the title and the six slot icons (two Prime Slots, one per row) appear.",
+      "slotRules": []
+    },
+    {
+      "id": "dread-mob",
+      "name": "Dread Mob",
+      "type": "Apex",
+      "page": 4,
+      "unlock": "When a Kustom Meka-dread Unit is selected to fill a High Command Force Organisation Slot, then the Player may choose to add one Dread Mob Detachment to the Army instead of the options available in the Crusade Force Organisation Chart.",
+      "unlockedBy": {
+        "commandUnit": ["kustom-meka-dread"],
+        "slotRole": "High Command"
+      },
+      "slots": [
+        { "role": "War Engine", "prime": true, "flexible": false },
+        { "role": "War Engine", "prime": false, "flexible": false },
+        { "role": "Support", "prime": false, "flexible": false },
+        { "role": "War Engine", "prime": false, "flexible": false },
+        { "role": "War Engine", "prime": false, "flexible": false },
+        { "role": "Support", "prime": false, "flexible": false }
+      ],
+      "restrictions": [
+        "Support Slots in this Detachment may only be used to select Killa Kan Mob Units."
+      ],
+      "rules": [],
+      "slotRules": [
+        { "roles": ["Support"], "units": ["killa-kan-mob"] }
+      ]
+    },
+    {
+      "id": "kult-of-speed",
+      "name": "Kult of Speed",
+      "type": "Auxiliary",
+      "page": 4,
+      "unlock": "When a Big Mek Unit or Big Mek on Warbike Unit (but not a Mega Big Mek Unit) is selected to fill a Command Force Organization Slot, then the Player may choose to add one Kult of Speed Detachment to the Army instead of the options available in the Crusade Force Organisation Chart.",
+      "unlockedBy": {
+        "commandUnit": ["big-mek", "big-mek-on-warbike"],
+        "slotRole": "Command",
+        "excludes": ["mega-big-mek"]
+      },
+      "slots": [
+        { "role": "Fast Attack", "prime": true, "flexible": false },
+        { "role": "Fast Attack", "prime": false, "flexible": false },
+        { "role": "Heavy Transport", "prime": false, "flexible": false },
+        { "role": "Recon", "prime": false, "flexible": false }
+      ],
+      "restrictions": [
+        "Recon Slots in this Detachment may only be used to select Deffkoptas Units."
+      ],
+      "rules": [],
+      "slotRules": [
+        { "roles": ["Recon"], "units": ["deffkoptas"] }
+      ]
+    }
+  ]
+}

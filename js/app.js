@@ -6,12 +6,14 @@
   const STORE_LAST = 'necron30k.lastArmy';
   // A share link carries its army; otherwise ?army=, then the last army used.
   const FACTION = (() => {
+    const listed = (id) => ARMIES[id] && ARMIES[id].units.length && ARMIES[id].meta.ready !== false;
     const pick = (id) => (id && ARMIES[id] && ARMIES[id].units.length ? id : null);
     let fromLink = null;
     try { const m = location.hash.match(/#a=(.+)$/); if (m) fromLink = JSON.parse(decodeURIComponent(escape(atob(m[1])))).faction || 'necrons'; } catch (e) { /* bad link */ }
     let last = null;
     try { last = JSON.parse(localStorage.getItem(STORE_LAST)); } catch (e) { /* no storage */ }
-    return pick(fromLink) || pick(new URLSearchParams(location.search).get('army')) || pick(last) || 'necrons';
+    // ?army= reaches an unfinished army for testing; the picker and "last used" only offer finished ones
+    return pick(fromLink) || pick(new URLSearchParams(location.search).get('army')) || (listed(last) ? last : null) || 'necrons';
   })();
   const DATA = ARMIES[FACTION];
   const E = window.NecronEngine.createEngine(DATA);
@@ -1004,7 +1006,7 @@
   }
 
   const armySel = $('#army-select');
-  for (const [id, d] of Object.entries(ARMIES)) if (d.units.length || id === FACTION) armySel.append(new Option(d.meta.name, id, id === FACTION, id === FACTION));
+  for (const [id, d] of Object.entries(ARMIES)) if ((d.units.length && d.meta.ready !== false) || id === FACTION) armySel.append(new Option(d.meta.name, id, id === FACTION, id === FACTION));
   armySel.addEventListener('change', () => switchArmy(armySel.value));
   store.set(STORE_LAST, FACTION);
   document.title = `${DATA.meta.name} · 30k List Builder`;
