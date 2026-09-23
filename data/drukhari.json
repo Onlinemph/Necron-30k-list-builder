@@ -1911,6 +1911,2210 @@
    "note": null
   },
   {
+   "id": "court-of-the-archon",
+   "name": "Court of the Archon",
+   "role": "Retinue",
+   "page": 22,
+   "limit": null,
+   "unique": false,
+   "basePoints": 0,
+   "composition": "Varies",
+   "models": [
+    {
+     "name": "Cosmethyst",
+     "min": 0,
+     "max": null,
+     "costPerExtra": 10,
+     "profile": {
+      "M": 7,
+      "WS": 4,
+      "BS": 4,
+      "S": 3,
+      "T": 4,
+      "W": 1,
+      "I": 4,
+      "A": 2,
+      "LD": 8,
+      "CL": 7,
+      "WP": 6,
+      "IN": 7,
+      "SAV": "6+",
+      "INV": "–"
+     },
+     "wargear": [
+      "Wrack Tools"
+     ],
+     "unitType": "Infantry (Light)",
+     "specialRules": [
+      "Altered Physiology",
+      "Fleshcraft (1)",
+      "Power from Pain",
+      "Take Captives"
+     ]
+    },
+    {
+     "name": "Incubus Bodyguard",
+     "min": 0,
+     "max": null,
+     "costPerExtra": 20,
+     "profile": {
+      "M": 7,
+      "WS": 5,
+      "BS": 4,
+      "S": 3,
+      "T": 3,
+      "W": 2,
+      "I": 5,
+      "A": 2,
+      "LD": 8,
+      "CL": 8,
+      "WP": 6,
+      "IN": 7,
+      "SAV": "3+",
+      "INV": "–"
+     },
+     "wargear": [
+      "Klaive",
+      "Tormentors"
+     ],
+     "unitType": "Infantry (Champion)",
+     "specialRules": [
+      "Fast (1)",
+      "Murderous Assault (6+)",
+      "Power From Pain",
+      "Take Captives"
+     ]
+    },
+    {
+     "name": "Lhamaean",
+     "min": 0,
+     "max": null,
+     "costPerExtra": 25,
+     "profile": {
+      "M": 7,
+      "WS": 5,
+      "BS": 4,
+      "S": 3,
+      "T": 3,
+      "W": 1,
+      "I": 5,
+      "A": 3,
+      "LD": 8,
+      "CL": 8,
+      "WP": 6,
+      "IN": 7,
+      "SAV": "5+",
+      "INV": "–"
+     },
+     "wargear": [
+      "Venom Blade",
+      "Splinter Pistol"
+     ],
+     "unitType": "Infantry (Light)",
+     "specialRules": [
+      "Fast (1)",
+      "Power From Pain",
+      "Take Captives",
+      "The Arts of Lilithu"
+     ]
+    },
+    {
+     "name": "Medusae",
+     "min": 0,
+     "max": null,
+     "costPerExtra": 25,
+     "profile": {
+      "M": 7,
+      "WS": 4,
+      "BS": 4,
+      "S": 3,
+      "T": 3,
+      "W": 1,
+      "I": 5,
+      "A": 1,
+      "LD": 8,
+      "CL": 8,
+      "WP": 8,
+      "IN": 5,
+      "SAV": "5+",
+      "INV": "–"
+     },
+     "wargear": [
+      "Eyeburst"
+     ],
+     "unitType": "Infantry (Light)",
+     "specialRules": [
+      "Fast (1)",
+      "Power From Pain",
+      "Take Captives"
+     ]
+    },
+    {
+     "name": "Sslyth",
+     "min": 0,
+     "max": null,
+     "costPerExtra": 25,
+     "profile": {
+      "M": 8,
+      "WS": 4,
+      "BS": 4,
+      "S": 5,
+      "T": 5,
+      "W": 2,
+      "I": 4,
+      "A": 3,
+      "LD": 3,
+      "CL": 8,
+      "WP": 5,
+      "IN": 6,
+      "SAV": "5+",
+      "INV": "–"
+     },
+     "wargear": [
+      "Shardcarbine",
+      "Splinter Pistol"
+     ],
+     "unitType": "Infantry (Champion, Light)",
+     "specialRules": [
+      "Impact (A)",
+      "Fast (1)",
+      "Feel No Pain (5+)"
+     ]
+    },
+    {
+     "name": "Tortured Prisoner",
+     "min": 0,
+     "max": null,
+     "costPerExtra": 5,
+     "profile": {
+      "M": 6,
+      "WS": 1,
+      "BS": 1,
+      "S": 3,
+      "T": 3,
+      "W": 1,
+      "I": 3,
+      "A": 1,
+      "LD": 1,
+      "CL": 1,
+      "WP": 1,
+      "IN": 1,
+      "SAV": "–",
+      "INV": "–"
+     },
+     "wargear": [],
+     "unitType": "Infantry (Light)",
+     "specialRules": [
+      "Help me… Please…"
+     ]
+    },
+    {
+     "name": "Ur-ghul",
+     "min": 0,
+     "max": null,
+     "costPerExtra": 15,
+     "profile": {
+      "M": 7,
+      "WS": 4,
+      "BS": 4,
+      "S": 4,
+      "T": 3,
+      "W": 1,
+      "I": 5,
+      "A": 3,
+      "LD": 3,
+      "CL": 8,
+      "WP": 6,
+      "IN": 4,
+      "SAV": "–",
+      "INV": "–"
+     },
+     "wargear": [],
+     "unitType": "Infantry (Light)",
+     "specialRules": [
+      "Impact (S)",
+      "Fear (1)",
+      "Fast (1)"
+     ]
+    },
+    {
+     "name": "Hand of the Archon",
+     "min": 0,
+     "max": null,
+     "costPerExtra": 15,
+     "profile": {
+      "M": 7,
+      "WS": 4,
+      "BS": 5,
+      "S": 3,
+      "T": 3,
+      "W": 2,
+      "I": 5,
+      "A": 2,
+      "LD": 8,
+      "CL": 7,
+      "WP": 6,
+      "IN": 7,
+      "SAV": "4+",
+      "INV": "6+"
+     },
+     "wargear": [
+      "Splinter Rifle"
+     ],
+     "unitType": "Infantry (Light)",
+     "specialRules": [
+      "Fast (1)",
+      "Power from Pain",
+      "Storm of Infamy",
+      "Take Captives"
+     ]
+    }
+   ],
+   "traits": [
+    "Xenos",
+    "Drukhari"
+   ],
+   "specialRules": [],
+   "unitRules": [
+    {
+     "name": "The Arts of Lilithu",
+     "text": "While a Unit includes any models with this special rule, all weapons with the Poisoned trait used by models in that Unit also gain the Critical Hit (6+) Special Rule, or improve the value in brackets of an existing Critical Hit (X) Special Rule by 1 instead if they already have that Special Rule."
+    },
+    {
+     "name": "Anathema",
+     "text": "A Unit which includes any Models with this Special Rule may never be selected as the target of a Psychic Blessing or Psychic Curse, and Models with this Special Rule ignore all Damage inflicted by Psychic Weapons, Psychic Powers, Psychic Reactions or Perils of the Warp. If such a Model is selected as the Target Model of any attack or wound inflicted by a Psychic Weapon, Psychic Power, Psychic Reaction, or Perils of the Warp then all Damage caused has no effect and no Wound Tests, Armour Saves or Damage Mitigation Tests are made.\n\nAdditionally, Wound Tests made for Weapons with the Psychic or Immaterial Trait that target any Unit that includes only Models with this Special Rule that have an unmodified result of 1, 2, 3 or 4 are never successful, regardless of the Strength Characteristic of a Hit or any Special Rules that set the Target Number for Wound Tests. This Special Rule has no effect on Armour Penetration Tests."
+    },
+    {
+     "name": "Help me… Please…",
+     "text": "Damage inflicted to models with this special rule is not counted when calculating Combat Resolution.\n\nIf, at any point, a unit only includes models with this Special Rule, all models in that unit are removed as casualties and that Unit is destroyed."
+    }
+   ],
+   "cryptoArkana": false,
+   "fixedArkana": null,
+   "factionChoice": false,
+   "fixedChoice": "Kabals",
+   "options": [
+    {
+     "id": "cosmethyst-tools-of-torment",
+     "text": "May have 1 item from the Tools of Torment list selected for it.",
+     "kind": "perModel",
+     "model": "Cosmethyst",
+     "replaces": [],
+     "choices": [
+      {
+       "list": "tools-of-torment"
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "incubus-bodyguard-punisher",
+     "text": "May have its Klaive exchanged for a Punisher for free.",
+     "kind": "perModel",
+     "model": "Incubus Bodyguard",
+     "replaces": [
+      "Klaive"
+     ],
+     "choices": [
+      {
+       "name": "Punisher",
+       "points": 0
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "lhamaean-stinger",
+     "text": "May have its Splinter Pistol exchanged for a Stinger Pistol for +5 points.",
+     "kind": "perModel",
+     "model": "Lhamaean",
+     "replaces": [
+      "Splinter Pistol"
+     ],
+     "choices": [
+      {
+       "name": "Stinger Pistol",
+       "points": 5
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "tortured-prisoner-anathema",
+     "text": "May be upgraded to have the Anathema Special Rule for +20 points.",
+     "kind": "perModel",
+     "model": "Tortured Prisoner",
+     "replaces": [],
+     "choices": [
+      {
+       "name": "Anathema",
+       "points": 20
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "hoa-gang-banner",
+     "text": "1 Hand of the Archon may have a Gang Banner selected for it for +10 points.",
+     "kind": "upgrade",
+     "model": "Hand of the Archon",
+     "replaces": [],
+     "choices": [
+      {
+       "name": "Gang Banner",
+       "points": 10
+      }
+     ],
+     "max": {
+      "fixed": 1
+     },
+     "requires": null
+    },
+    {
+     "id": "hoa-phantasm",
+     "text": "1 Hand of the Archon may have a Phantasm Grenade Launcher selected for it for +20 points.",
+     "kind": "upgrade",
+     "model": "Hand of the Archon",
+     "replaces": [],
+     "choices": [
+      {
+       "name": "Phantasm Grenade Launcher",
+       "points": 20
+      }
+     ],
+     "max": {
+      "fixed": 1
+     },
+     "requires": null
+    },
+    {
+     "id": "hoa-terror-grenade",
+     "text": "1 Hand of the Archon may have a Terror Grenade selected for it for +10 points.",
+     "kind": "upgrade",
+     "model": "Hand of the Archon",
+     "replaces": [],
+     "choices": [
+      {
+       "name": "Terror Grenade",
+       "points": 10
+      }
+     ],
+     "max": {
+      "fixed": 1
+     },
+     "requires": null
+    },
+    {
+     "id": "hoa-razorwing-familiar",
+     "text": "1 Hand of the Archon may have a Razorwing Familiar selected for it for +10 points.",
+     "kind": "upgrade",
+     "model": "Hand of the Archon",
+     "replaces": [],
+     "choices": [
+      {
+       "name": "Razorwing Familiar",
+       "points": 10
+      }
+     ],
+     "max": {
+      "fixed": 1
+     },
+     "requires": null,
+     "note": "This bullet has no printed bullet marker in the source (it visually runs on from the Terror Grenade bullet) but is a grammatically complete, distinct option; treated as its own bullet per SCHEMA.md guidance on obvious extraction junk."
+    },
+    {
+     "id": "hoa-wrack-or-gladiatorial",
+     "text": "Up to 3 Hands of the Archon may have their Splinter Rifle exchanged for Wrack Tools or an Item from the Gladiatorial Weapons list.",
+     "kind": "perModel",
+     "model": "Hand of the Archon",
+     "replaces": [
+      "Splinter Rifle"
+     ],
+     "choices": [
+      {
+       "name": "Wrack Tools",
+       "points": 0
+      },
+      {
+       "list": "gladiatorial-weapons"
+      }
+     ],
+     "max": {
+      "fixed": 3
+     },
+     "requires": null
+    },
+    {
+     "id": "hoa-special-weapon",
+     "text": "Up to 2 Hands of the Archon may have their Splinter Rifle exchanged for an Item from the Drukhari Special Weapons list.",
+     "kind": "perModel",
+     "model": "Hand of the Archon",
+     "replaces": [
+      "Splinter Rifle"
+     ],
+     "choices": [
+      {
+       "list": "drukhari-special-weapons"
+      }
+     ],
+     "max": {
+      "fixed": 2
+     },
+     "requires": null
+    },
+    {
+     "id": "hoa-heavy-weapon",
+     "text": "1 Hand of the Archon may have its Splinter Rifle exchanged for an Item from the Drukhari Heavy Weapons list.",
+     "kind": "perModel",
+     "model": "Hand of the Archon",
+     "replaces": [
+      "Splinter Rifle"
+     ],
+     "choices": [
+      {
+       "list": "drukhari-heavy-weapons"
+      }
+     ],
+     "max": {
+      "fixed": 1
+     },
+     "requires": null
+    },
+    {
+     "id": "hoa-carbine-or-pistol",
+     "text": "Any Hand of the Archon may have its Splinter Rifle exchanged for a Splinter Carbine for +2 points or an Item from the Drukhari Pistols list.",
+     "kind": "perModel",
+     "model": "Hand of the Archon",
+     "replaces": [
+      "Splinter Rifle"
+     ],
+     "choices": [
+      {
+       "name": "Splinter Carbine",
+       "points": 2
+      },
+      {
+       "list": "drukhari-pistols"
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "hoa-gang-leader-wargear",
+     "text": "Any Hand of the Archon may have an Item from the Gang Leader Wargear List selected for it.",
+     "kind": "perModel",
+     "model": "Hand of the Archon",
+     "replaces": [],
+     "choices": [
+      {
+       "list": "gang-leader-wargear"
+      }
+     ],
+     "max": null,
+     "requires": null
+    }
+   ],
+   "note": "This unit has no fixed base model: the unit must include between 1 and 12 models total, in any combination of the 8 model types listed (each min 0, all drawn from the same pool of 1-12). Sslyth and Ur-ghul are printed with only 'Xenos'/'Kabals' Traits, omitting the 'Drukhari' Trait that the other model types have; kept as printed.",
+   "size": {
+    "min": 1,
+    "max": 12
+   }
+  },
+  {
+   "id": "incubi-chamber",
+   "name": "Incubi Chamber",
+   "role": "Retinue",
+   "page": 26,
+   "limit": null,
+   "unique": false,
+   "basePoints": 140,
+   "composition": "4 Incubi and 1 Klaivex",
+   "models": [
+    {
+     "name": "Incubus",
+     "min": 4,
+     "max": 9,
+     "costPerExtra": 20,
+     "profile": {
+      "M": 7,
+      "WS": 5,
+      "BS": 4,
+      "S": 3,
+      "T": 3,
+      "W": 2,
+      "I": 5,
+      "A": 2,
+      "LD": 8,
+      "CL": 8,
+      "WP": 6,
+      "IN": 7,
+      "SAV": "3+",
+      "INV": "–"
+     },
+     "wargear": [
+      "Klaive",
+      "Tormentors"
+     ],
+     "unitType": "Infantry",
+     "specialRules": [
+      "Fast (1)",
+      "Murderous Assault (6+)",
+      "Power From Pain",
+      "Take Heads"
+     ]
+    },
+    {
+     "name": "Klaivex",
+     "min": 1,
+     "max": 1,
+     "costPerExtra": 0,
+     "profile": {
+      "M": 7,
+      "WS": 6,
+      "BS": 4,
+      "S": 3,
+      "T": 3,
+      "W": 2,
+      "I": 6,
+      "A": 4,
+      "LD": 9,
+      "CL": 8,
+      "WP": 6,
+      "IN": 7,
+      "SAV": "3+",
+      "INV": "–"
+     },
+     "wargear": [
+      "Klaive",
+      "Tormentors"
+     ],
+     "unitType": "Infantry (Champion, Sergeant)",
+     "specialRules": [
+      "Fast (1)",
+      "Murderous Assault (6+)",
+      "Power From Pain",
+      "Take Heads"
+     ]
+    }
+   ],
+   "traits": [
+    "Xenos",
+    "Drukhari"
+   ],
+   "specialRules": [],
+   "unitRules": [],
+   "cryptoArkana": false,
+   "fixedArkana": null,
+   "factionChoice": false,
+   "fixedChoice": null,
+   "options": [
+    {
+     "id": "klaive-punisher",
+     "text": "Any model in this Unit may have its Klaive exchanged for a Punisher for free.",
+     "kind": "perModel",
+     "model": null,
+     "replaces": [
+      "Klaive"
+     ],
+     "choices": [
+      {
+       "name": "Punisher",
+       "points": 0
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "klaivex-demiklaives",
+     "text": "The Klaivex may have its Klaive exchanged for Demiklaives for +10 points.",
+     "kind": "one",
+     "model": "Klaivex",
+     "replaces": [
+      "Klaive"
+     ],
+     "choices": [
+      {
+       "name": "Demiklaives",
+       "points": 10
+      }
+     ],
+     "max": null,
+     "requires": null,
+     "excludes": [
+      "klaive-punisher"
+     ]
+    },
+    {
+     "id": "klaivex-bloodstone",
+     "text": "The Klaivex may have a Bloodstone selected for it for +10 points.",
+     "kind": "upgrade",
+     "model": "Klaivex",
+     "replaces": [],
+     "choices": [
+      {
+       "name": "Bloodstone",
+       "points": 10
+      }
+     ],
+     "max": null,
+     "requires": null
+    }
+   ],
+   "note": "Traits print only 'Xenos' and 'Drukhari' for this unit; no Kabals/Cults/Covens or [Partisan] Trait is printed, so no factionChoice/fixedChoice is set."
+  },
+  {
+   "id": "kabalite-trueborn",
+   "name": "Kabalite Trueborn",
+   "role": "Elites",
+   "page": 28,
+   "limit": null,
+   "unique": false,
+   "basePoints": 75,
+   "composition": "4 Trueborn and 1 Trueborn Champion",
+   "models": [
+    {
+     "name": "Trueborn",
+     "min": 4,
+     "max": 14,
+     "costPerExtra": 12,
+     "profile": {
+      "M": 7,
+      "WS": 4,
+      "BS": 5,
+      "S": 3,
+      "T": 3,
+      "W": 2,
+      "I": 5,
+      "A": 2,
+      "LD": 8,
+      "CL": 7,
+      "WP": 6,
+      "IN": 7,
+      "SAV": "4+",
+      "INV": "6+"
+     },
+     "wargear": [
+      "Splinter Rifle"
+     ],
+     "unitType": "Infantry (Light)",
+     "specialRules": [
+      "Fast (1)",
+      "Power from Pain",
+      "Storm of Infamy",
+      "Take Captives"
+     ]
+    },
+    {
+     "name": "Trueborn Champion",
+     "min": 1,
+     "max": 1,
+     "costPerExtra": 0,
+     "profile": {
+      "M": 7,
+      "WS": 4,
+      "BS": 5,
+      "S": 3,
+      "T": 3,
+      "W": 2,
+      "I": 5,
+      "A": 2,
+      "LD": 8,
+      "CL": 7,
+      "WP": 6,
+      "IN": 7,
+      "SAV": "4+",
+      "INV": "6+"
+     },
+     "wargear": [
+      "Splinter Rifle"
+     ],
+     "unitType": "Infantry (Champion, Light, Sergeant)",
+     "specialRules": [
+      "Fast (1)",
+      "Power from Pain",
+      "Storm of Infamy",
+      "Take Captives"
+     ]
+    }
+   ],
+   "traits": [
+    "Xenos",
+    "Drukhari"
+   ],
+   "specialRules": [],
+   "unitRules": [],
+   "cryptoArkana": false,
+   "fixedArkana": null,
+   "factionChoice": false,
+   "fixedChoice": "Kabals",
+   "options": [
+    {
+     "id": "gang-banner",
+     "text": "One Model in this Unit may have a Gang Banner selected for it for +10 points.",
+     "kind": "upgrade",
+     "model": null,
+     "replaces": [],
+     "choices": [
+      {
+       "name": "Gang Banner",
+       "points": 10
+      }
+     ],
+     "max": {
+      "fixed": 1
+     },
+     "requires": null
+    },
+    {
+     "id": "phantasm-grenade-launcher",
+     "text": "One Model in this Unit may have a Phantasm Grenade Launcher selected for it at +20 points.",
+     "kind": "upgrade",
+     "model": null,
+     "replaces": [],
+     "choices": [
+      {
+       "name": "Phantasm Grenade Launcher",
+       "points": 20
+      }
+     ],
+     "max": {
+      "fixed": 1
+     },
+     "requires": null
+    },
+    {
+     "id": "special-weapons",
+     "text": "For every 5 Models in this Unit, up to 4 Models may have their Splinter Rifle exchanged for an Item from the Drukhari Special Weapons List.",
+     "kind": "perModel",
+     "model": null,
+     "replaces": [
+      "Splinter Rifle"
+     ],
+     "choices": [
+      {
+       "list": "drukhari-special-weapons"
+      }
+     ],
+     "max": {
+      "per": 5,
+      "count": 4
+     },
+     "requires": null
+    },
+    {
+     "id": "heavy-weapons",
+     "text": "For every 5 Models in this Unit, up to 2 Models may have their Splinter Rifle exchanged for an Item from the Drukhari Heavy Weapons List.",
+     "kind": "perModel",
+     "model": null,
+     "replaces": [
+      "Splinter Rifle"
+     ],
+     "choices": [
+      {
+       "list": "drukhari-heavy-weapons"
+      }
+     ],
+     "max": {
+      "per": 5,
+      "count": 2
+     },
+     "requires": null
+    },
+    {
+     "id": "pistol-swap",
+     "text": "Any Model in this Unit may have its Splinter Rifle exchanged for an Item from the Drukhari Pistols List.",
+     "kind": "perModel",
+     "model": null,
+     "replaces": [
+      "Splinter Rifle"
+     ],
+     "choices": [
+      {
+       "list": "drukhari-pistols"
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "gang-leader-wargear",
+     "text": "Any Model in this Unit may have an Item from the Gang Leader Wargear List selected for it.",
+     "kind": "perModel",
+     "model": null,
+     "replaces": [],
+     "choices": [
+      {
+       "list": "gang-leader-wargear"
+      }
+     ],
+     "max": null,
+     "requires": null
+    }
+   ],
+   "note": null
+  },
+  {
+   "id": "cult-bloodbrides",
+   "name": "Cult Bloodbrides",
+   "role": "Elites",
+   "page": 29,
+   "limit": null,
+   "unique": false,
+   "basePoints": 70,
+   "composition": "4 Bloodbrides and 1 Arena Queen",
+   "models": [
+    {
+     "name": "Bloodbride",
+     "min": 4,
+     "max": 14,
+     "costPerExtra": 12,
+     "profile": {
+      "M": 8,
+      "WS": 5,
+      "BS": 4,
+      "S": 3,
+      "T": 3,
+      "W": 2,
+      "I": 6,
+      "A": 3,
+      "LD": 8,
+      "CL": 7,
+      "WP": 6,
+      "IN": 7,
+      "SAV": "6+",
+      "INV": "–"
+     },
+     "wargear": [
+      "Splinter Pistol",
+      "Mono-Knife",
+      "Plasma Grenades"
+     ],
+     "unitType": "Infantry (Light)",
+     "specialRules": [
+      "Dodge (4+)",
+      "Fast (1)",
+      "Power from Pain",
+      "Take Heads"
+     ]
+    },
+    {
+     "name": "Arena Queen",
+     "min": 1,
+     "max": 1,
+     "costPerExtra": 0,
+     "profile": {
+      "M": 8,
+      "WS": 5,
+      "BS": 4,
+      "S": 3,
+      "T": 3,
+      "W": 2,
+      "I": 6,
+      "A": 3,
+      "LD": 8,
+      "CL": 7,
+      "WP": 6,
+      "IN": 7,
+      "SAV": "6+",
+      "INV": "–"
+     },
+     "wargear": [
+      "Splinter Pistol",
+      "Mono-Knife",
+      "Plasma Grenades"
+     ],
+     "unitType": "Infantry (Champion, Light, Sergeant)",
+     "specialRules": [
+      "Dodge (4+)",
+      "Fast (1)",
+      "Power from Pain",
+      "Take Heads"
+     ]
+    }
+   ],
+   "traits": [
+    "Xenos",
+    "Drukhari"
+   ],
+   "specialRules": [],
+   "unitRules": [],
+   "cryptoArkana": false,
+   "fixedArkana": null,
+   "factionChoice": false,
+   "fixedChoice": "Cults",
+   "combatDrugs": true,
+   "options": [
+    {
+     "id": "gang-banner",
+     "text": "One Model in this Unit may have a Gang Banner selected for it for +10 points.",
+     "kind": "upgrade",
+     "model": null,
+     "replaces": [],
+     "choices": [
+      {
+       "name": "Gang Banner",
+       "points": 10
+      }
+     ],
+     "max": {
+      "fixed": 1
+     },
+     "requires": null
+    },
+    {
+     "id": "phantasm-grenade-launcher",
+     "text": "One Model in this Unit may have a Phantasm Grenade Launcher selected for it at +20 points.",
+     "kind": "upgrade",
+     "model": null,
+     "replaces": [],
+     "choices": [
+      {
+       "name": "Phantasm Grenade Launcher",
+       "points": 20
+      }
+     ],
+     "max": {
+      "fixed": 1
+     },
+     "requires": null
+    },
+    {
+     "id": "haywire-grenades",
+     "text": "Every Model in this Unit may have Haywire Grenades selected for it a +2 points per model.",
+     "kind": "perModel",
+     "model": null,
+     "replaces": [],
+     "choices": [
+      {
+       "name": "Haywire Grenades",
+       "points": 2
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "mono-knife-swap",
+     "text": "Any Model in this Unit may have its Mono-Knife exchanged for one of the following options: -- A Mono-Blade or a Mono-Flail for +2 points; -- A Melee Weapon selected from the Gang Leader Wargear List.",
+     "kind": "perModel",
+     "model": null,
+     "replaces": [
+      "Mono-Knife"
+     ],
+     "choices": [
+      {
+       "name": "Mono-Blade",
+       "points": 2
+      },
+      {
+       "name": "Mono-Flail",
+       "points": 2
+      },
+      {
+       "list": "gang-leader-wargear"
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "pistol-swap",
+     "text": "Any Model in this Unit may have its Splinter Pistol exchanged for one Item from the Drukhari Pistols List.",
+     "kind": "perModel",
+     "model": null,
+     "replaces": [
+      "Splinter Pistol"
+     ],
+     "choices": [
+      {
+       "list": "drukhari-pistols"
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "gladiatorial-swap",
+     "text": "Any Model in this Unit may have its Mono-Knife and Splinter Pistol exchanged for one Item from the Gladiatorial Weapons List.",
+     "kind": "perModel",
+     "model": null,
+     "replaces": [
+      "Mono-Knife",
+      "Splinter Pistol"
+     ],
+     "choices": [
+      {
+       "list": "gladiatorial-weapons"
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "combat-drugs",
+     "kind": "one",
+     "model": null,
+     "replaces": [],
+     "required": {},
+     "text": "[Combat Drugs]: one Combat Drug must be selected for this Unit. Every model in the Unit gains its bonus.",
+     "choices": [
+      {
+       "name": "Adrenalight",
+       "points": 0
+      },
+      {
+       "name": "Grave Lotus",
+       "points": 0
+      },
+      {
+       "name": "Hypex",
+       "points": 0
+      },
+      {
+       "name": "Painbringer",
+       "points": 0
+      },
+      {
+       "name": "Serpentin",
+       "points": 0
+      },
+      {
+       "name": "Splintermind",
+       "points": 0
+      }
+     ]
+    }
+   ],
+   "note": null
+  },
+  {
+   "id": "coven-haemoxytes",
+   "name": "Coven Haemoxytes",
+   "role": "Elites",
+   "page": 30,
+   "limit": null,
+   "unique": false,
+   "basePoints": 70,
+   "composition": "4 Haemoxytes and 1 Pain Artisan",
+   "models": [
+    {
+     "name": "Haemoxyte",
+     "min": 4,
+     "max": 14,
+     "costPerExtra": 12,
+     "profile": {
+      "M": 7,
+      "WS": 4,
+      "BS": 4,
+      "S": 3,
+      "T": 5,
+      "W": 2,
+      "I": 4,
+      "A": 3,
+      "LD": 8,
+      "CL": 7,
+      "WP": 6,
+      "IN": 8,
+      "SAV": "6+",
+      "INV": "–"
+     },
+     "wargear": [
+      "Wrack Tools"
+     ],
+     "unitType": "Infantry",
+     "specialRules": [
+      "Altered Physiology",
+      "Power from Pain",
+      "Take Captives"
+     ]
+    },
+    {
+     "name": "Pain Artisan",
+     "min": 1,
+     "max": 1,
+     "costPerExtra": 0,
+     "profile": {
+      "M": 7,
+      "WS": 4,
+      "BS": 4,
+      "S": 3,
+      "T": 5,
+      "W": 2,
+      "I": 4,
+      "A": 3,
+      "LD": 8,
+      "CL": 7,
+      "WP": 6,
+      "IN": 8,
+      "SAV": "6+",
+      "INV": "–"
+     },
+     "wargear": [
+      "Wrack Tools"
+     ],
+     "unitType": "Infantry",
+     "specialRules": [
+      "Altered Physiology",
+      "Fleshcraft (1)",
+      "Power from Pain",
+      "Take Captives"
+     ]
+    }
+   ],
+   "traits": [
+    "Xenos",
+    "Drukhari"
+   ],
+   "specialRules": [],
+   "unitRules": [],
+   "cryptoArkana": false,
+   "fixedArkana": null,
+   "factionChoice": false,
+   "fixedChoice": "Covens",
+   "options": [
+    {
+     "id": "gang-banner",
+     "text": "1 Model in this Unit may have a Gang Banner selected for it for +10 points.",
+     "kind": "upgrade",
+     "model": null,
+     "replaces": [],
+     "choices": [
+      {
+       "name": "Gang Banner",
+       "points": 10
+      }
+     ],
+     "max": {
+      "fixed": 1
+     },
+     "requires": null
+    },
+    {
+     "id": "weapons-of-torture",
+     "text": "Any Model in this Unit may have an Item from the Weapons of Torture list selected for it.",
+     "kind": "perModel",
+     "model": null,
+     "replaces": [],
+     "choices": [
+      {
+       "list": "weapons-of-torture"
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "tools-of-torment",
+     "text": "Any Model in this Unit may have an Item from the Tools of Torment list selected for it.",
+     "kind": "perModel",
+     "model": null,
+     "replaces": [],
+     "choices": [
+      {
+       "list": "tools-of-torment"
+      }
+     ],
+     "max": null,
+     "requires": null
+    }
+   ],
+   "note": "'Fleshcraft (1)' is printed once against the shared Special Rules block with the qualifier '(Pain Artisan Only)'; assigned here only to the Pain Artisan's specialRules."
+  },
+  {
+   "id": "coven-grotesques",
+   "name": "Coven Grotesques",
+   "role": "Heavy Assault",
+   "page": 32,
+   "limit": null,
+   "unique": false,
+   "basePoints": 95,
+   "composition": "2 Grotesques and 1 Aberration",
+   "models": [
+    {
+     "name": "Grotesque",
+     "min": 2,
+     "max": 9,
+     "costPerExtra": 30,
+     "profile": {
+      "M": 7,
+      "WS": 4,
+      "BS": 1,
+      "S": 5,
+      "T": 6,
+      "W": 3,
+      "I": 4,
+      "A": 4,
+      "LD": 4,
+      "CL": 6,
+      "WP": 6,
+      "IN": 4,
+      "SAV": "6+",
+      "INV": "–"
+     },
+     "wargear": [
+      "Wrack Tools"
+     ],
+     "unitType": "Infantry",
+     "specialRules": [
+      "Altered Physiology",
+      "Bulky (2)",
+      "Heedless",
+      "Impact (A)"
+     ]
+    },
+    {
+     "name": "Aberration",
+     "min": 1,
+     "max": 1,
+     "costPerExtra": 0,
+     "profile": {
+      "M": 7,
+      "WS": 4,
+      "BS": 1,
+      "S": 5,
+      "T": 6,
+      "W": 3,
+      "I": 4,
+      "A": 5,
+      "LD": 5,
+      "CL": 6,
+      "WP": 6,
+      "IN": 4,
+      "SAV": "6+",
+      "INV": "–"
+     },
+     "wargear": [
+      "Wrack Tools"
+     ],
+     "unitType": "Infantry (Sergeant)",
+     "specialRules": [
+      "Altered Physiology",
+      "Bulky (2)",
+      "Heedless",
+      "Impact (A)"
+     ]
+    }
+   ],
+   "traits": [
+    "Xenos",
+    "Drukhari"
+   ],
+   "specialRules": [],
+   "unitRules": [],
+   "cryptoArkana": false,
+   "fixedArkana": null,
+   "factionChoice": false,
+   "fixedChoice": "Covens",
+   "options": [
+    {
+     "id": "weapons-of-torture",
+     "text": "Any Model in this Unit may have a Melee Weapon selected from the Weapons of Torture List selected for it.",
+     "kind": "perModel",
+     "model": null,
+     "replaces": [],
+     "choices": [
+      {
+       "list": "weapons-of-torture"
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "liquifier-gun",
+     "text": "Any Model in this Unit may have a Liquifier Gun selected for it for +10 points.",
+     "kind": "perModel",
+     "model": null,
+     "replaces": [],
+     "choices": [
+      {
+       "name": "Liquifier Gun",
+       "points": 10
+      }
+     ],
+     "max": null,
+     "requires": null
+    }
+   ],
+   "note": null
+  },
+  {
+   "id": "cult-beast-pack",
+   "name": "Cult Beast Pack",
+   "role": "Heavy Assault",
+   "page": 33,
+   "limit": null,
+   "unique": false,
+   "basePoints": 0,
+   "composition": "Varies",
+   "models": [
+    {
+     "name": "Beastmaster",
+     "min": 0,
+     "max": null,
+     "costPerExtra": 10,
+     "profile": {
+      "M": 16,
+      "WS": 4,
+      "BS": 4,
+      "S": 3,
+      "T": 3,
+      "W": 2,
+      "I": 6,
+      "A": 2,
+      "LD": 8,
+      "CL": 7,
+      "WP": 6,
+      "IN": 7,
+      "SAV": "5+",
+      "INV": "–"
+     },
+     "wargear": [
+      "Agonizer",
+      "Splinter Pod"
+     ],
+     "unitType": "Infantry (Antigrav, Light, Skirmish)",
+     "specialRules": [
+      "Fast (2)",
+      "Firestorm",
+      "Goad (Arena Beasts)",
+      "Heedless",
+      "Power From Pain"
+     ],
+     "maxPer": {
+      "per": 4,
+      "count": 1
+     }
+    },
+    {
+     "name": "Astartes",
+     "min": 0,
+     "max": null,
+     "costPerExtra": 5,
+     "profile": {
+      "M": 8,
+      "WS": 4,
+      "BS": 4,
+      "S": 4,
+      "T": 4,
+      "W": 1,
+      "I": 4,
+      "A": 2,
+      "LD": 5,
+      "CL": 7,
+      "WP": 7,
+      "IN": 7,
+      "SAV": "6+",
+      "INV": "–"
+     },
+     "wargear": [],
+     "unitType": "Infantry (Skirmish)",
+     "specialRules": [
+      "Fast (2)",
+      "Heedless"
+     ]
+    },
+    {
+     "name": "Clawed Fiend",
+     "min": 0,
+     "max": null,
+     "costPerExtra": 40,
+     "profile": {
+      "M": 8,
+      "WS": 4,
+      "BS": "–",
+      "S": 5,
+      "T": 5,
+      "W": 3,
+      "I": 5,
+      "A": 5,
+      "LD": 5,
+      "CL": 5,
+      "WP": 5,
+      "IN": 3,
+      "SAV": "5+",
+      "INV": "–"
+     },
+     "wargear": [],
+     "unitType": "Infantry (Skirmish)",
+     "specialRules": [
+      "Fast (2)",
+      "Fear (1)",
+      "Heedless",
+      "Impact (A)"
+     ]
+    },
+    {
+     "name": "Ferric Beast",
+     "min": 0,
+     "max": null,
+     "costPerExtra": 20,
+     "profile": {
+      "M": 8,
+      "WS": 3,
+      "BS": "–",
+      "S": 4,
+      "T": 4,
+      "W": 2,
+      "I": 4,
+      "A": 2,
+      "LD": 5,
+      "CL": 5,
+      "WP": 5,
+      "IN": 3,
+      "SAV": "4+",
+      "INV": "–"
+     },
+     "wargear": [],
+     "unitType": "Infantry (Skirmish)",
+     "specialRules": [
+      "Fast (2)",
+      "Heedless",
+      "Shock (Suppressed)"
+     ]
+    },
+    {
+     "name": "Helspider",
+     "min": 0,
+     "max": null,
+     "costPerExtra": 15,
+     "profile": {
+      "M": 8,
+      "WS": 4,
+      "BS": "–",
+      "S": 3,
+      "T": 4,
+      "W": 2,
+      "I": 6,
+      "A": 4,
+      "LD": 5,
+      "CL": 5,
+      "WP": 5,
+      "IN": 3,
+      "SAV": "6+",
+      "INV": "–"
+     },
+     "wargear": [],
+     "unitType": "Infantry (Skirmish)",
+     "specialRules": [
+      "Fast (2)",
+      "Fear (1)",
+      "Heedless",
+      "Poisoned (3+)"
+     ]
+    },
+    {
+     "name": "Khymerae",
+     "min": 0,
+     "max": null,
+     "costPerExtra": 10,
+     "profile": {
+      "M": 8,
+      "WS": 4,
+      "BS": "–",
+      "S": 4,
+      "T": 4,
+      "W": 2,
+      "I": 6,
+      "A": 3,
+      "LD": 5,
+      "CL": 5,
+      "WP": 5,
+      "IN": 3,
+      "SAV": "6+",
+      "INV": "4+"
+     },
+     "wargear": [],
+     "unitType": "Infantry (Skirmish)",
+     "specialRules": [
+      "Fast (2)",
+      "Fear (1)",
+      "Heedless",
+      "Impact (S)"
+     ]
+    },
+    {
+     "name": "Razorwing Flock",
+     "min": 0,
+     "max": null,
+     "costPerExtra": 15,
+     "profile": {
+      "M": 16,
+      "WS": 3,
+      "BS": "–",
+      "S": 3,
+      "T": 3,
+      "W": 4,
+      "I": 5,
+      "A": 4,
+      "LD": 5,
+      "CL": 5,
+      "WP": 5,
+      "IN": 3,
+      "SAV": "–",
+      "INV": "–"
+     },
+     "wargear": [],
+     "unitType": "Infantry (Antigrav, Skirmish)",
+     "specialRules": [
+      "Breaching (6+)",
+      "Fast (2)",
+      "Heedless",
+      "Rending (6+)"
+     ]
+    }
+   ],
+   "traits": [
+    "Xenos",
+    "Arena Beasts"
+   ],
+   "specialRules": [],
+   "unitRules": [],
+   "cryptoArkana": false,
+   "fixedArkana": null,
+   "factionChoice": false,
+   "fixedChoice": "Cults",
+   "options": [
+    {
+     "id": "beastmaster-power-weapon",
+     "text": "May have its Agonizer exchanged for a Power Weapon for free.",
+     "kind": "perModel",
+     "model": "Beastmaster",
+     "replaces": [
+      "Agonizer"
+     ],
+     "choices": [
+      {
+       "name": "Power Weapon",
+       "points": 0
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "astartes-power-weapon",
+     "text": "May have a Power Weapon selected for it for +10 points.",
+     "kind": "perModel",
+     "model": "Astartes",
+     "replaces": [],
+     "choices": [
+      {
+       "name": "Power Weapon",
+       "points": 10
+      }
+     ],
+     "max": null,
+     "requires": null
+    }
+   ],
+   "note": "This unit has no fixed base model: it must include between 4 and 12 models total, in any combination of the 7 model types listed (each min 0). The Beastmaster is additionally capped at 1 for every 4 models in the Unit (not encoded numerically in 'max'). The Beastmaster alone is printed with the 'Drukhari' Trait in addition to Xenos/Cults/Arena Beasts; the other 6 model types have only Xenos/Cults/Arena Beasts (kept as printed).",
+   "size": {
+    "min": 4,
+    "max": 12
+   }
+  },
+  {
+   "id": "kabalite-warriors",
+   "name": "Kabalite Warriors",
+   "role": "Troops",
+   "page": 38,
+   "limit": null,
+   "unique": false,
+   "basePoints": 50,
+   "composition": "4 Kabalite Warriors and 1 Sybarite",
+   "models": [
+    {
+     "name": "Kabalite Warrior",
+     "min": 4,
+     "max": 19,
+     "costPerExtra": 7,
+     "profile": {
+      "M": 7,
+      "WS": 4,
+      "BS": 4,
+      "S": 3,
+      "T": 3,
+      "W": 1,
+      "I": 5,
+      "A": 1,
+      "LD": 7,
+      "CL": 7,
+      "WP": 6,
+      "IN": 7,
+      "SAV": "5+",
+      "INV": "–"
+     },
+     "wargear": [
+      "Splinter Rifle"
+     ],
+     "unitType": "Infantry (Light)",
+     "specialRules": [
+      "Fast (1)",
+      "Rain of Cruelty",
+      "Power from Pain",
+      "Take Captives"
+     ]
+    },
+    {
+     "name": "Sybarite",
+     "min": 1,
+     "max": 1,
+     "costPerExtra": 0,
+     "profile": {
+      "M": 7,
+      "WS": 4,
+      "BS": 4,
+      "S": 3,
+      "T": 3,
+      "W": 1,
+      "I": 5,
+      "A": 2,
+      "LD": 8,
+      "CL": 7,
+      "WP": 6,
+      "IN": 7,
+      "SAV": "5+",
+      "INV": "–"
+     },
+     "wargear": [
+      "Splinter Rifle"
+     ],
+     "unitType": "Infantry (Light, Sergeant)",
+     "specialRules": [
+      "Fast (1)",
+      "Rain of Cruelty",
+      "Power from Pain",
+      "Take Captives"
+     ]
+    }
+   ],
+   "traits": [
+    "Xenos",
+    "Drukhari"
+   ],
+   "specialRules": [],
+   "unitRules": [],
+   "cryptoArkana": false,
+   "fixedArkana": null,
+   "factionChoice": false,
+   "fixedChoice": "Kabals",
+   "options": [
+    {
+     "id": "special-weapons",
+     "text": "For every 5 Models in this Unit, 1 Kabalite Warrior may have its Splinter Rifle exchanged for an Item from the Drukhari Special Weapons List.",
+     "kind": "perModel",
+     "model": "Kabalite Warrior",
+     "replaces": [
+      "Splinter Rifle"
+     ],
+     "choices": [
+      {
+       "list": "drukhari-special-weapons"
+      }
+     ],
+     "max": {
+      "per": 5,
+      "count": 1
+     },
+     "requires": null
+    },
+    {
+     "id": "heavy-weapons",
+     "text": "For every 10 Models in this Unit, 1 Kabalite Warrior may have its Splinter Rifle exchanged for an Item from the Drukhari Heavy Weapons List.",
+     "kind": "perModel",
+     "model": "Kabalite Warrior",
+     "replaces": [
+      "Splinter Rifle"
+     ],
+     "choices": [
+      {
+       "list": "drukhari-heavy-weapons"
+      }
+     ],
+     "max": {
+      "per": 10,
+      "count": 1
+     },
+     "requires": null
+    },
+    {
+     "id": "gang-banner",
+     "text": "One Kabalite Warrior in this Unit may have a Gang Banner selected for it for +10 points.",
+     "kind": "upgrade",
+     "model": "Kabalite Warrior",
+     "replaces": [],
+     "choices": [
+      {
+       "name": "Gang Banner",
+       "points": 10
+      }
+     ],
+     "max": {
+      "fixed": 1
+     },
+     "requires": null
+    },
+    {
+     "id": "sybarite-pistol",
+     "text": "The Sybarite may have its Splinter Rifle exchanged for an Item from the Drukhari Pistols List.",
+     "kind": "one",
+     "model": "Sybarite",
+     "replaces": [
+      "Splinter Rifle"
+     ],
+     "choices": [
+      {
+       "list": "drukhari-pistols"
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "sybarite-gang-leader-wargear",
+     "text": "The Sybarite may have one Item from the Gang Leader Wargear List selected for it.",
+     "kind": "one",
+     "model": "Sybarite",
+     "replaces": [],
+     "choices": [
+      {
+       "list": "gang-leader-wargear"
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "sybarite-phantasm",
+     "text": "The Sybarite may have a Phantasm Grenade Launcher selected for it for +20 points.",
+     "kind": "upgrade",
+     "model": "Sybarite",
+     "replaces": [],
+     "choices": [
+      {
+       "name": "Phantasm Grenade Launcher",
+       "points": 20
+      }
+     ],
+     "max": null,
+     "requires": null
+    }
+   ],
+   "note": null
+  },
+  {
+   "id": "cult-wyches",
+   "name": "Cult Wyches",
+   "role": "Troops",
+   "page": 39,
+   "limit": null,
+   "unique": false,
+   "basePoints": 50,
+   "composition": "4 Wyches and 1 Hekatrix",
+   "models": [
+    {
+     "name": "Wych",
+     "min": 4,
+     "max": 19,
+     "costPerExtra": 8,
+     "profile": {
+      "M": 8,
+      "WS": 4,
+      "BS": 4,
+      "S": 3,
+      "T": 3,
+      "W": 1,
+      "I": 6,
+      "A": 2,
+      "LD": 7,
+      "CL": 7,
+      "WP": 6,
+      "IN": 7,
+      "SAV": "6+",
+      "INV": "–"
+     },
+     "wargear": [
+      "Splinter Pistol",
+      "Mono-Knife",
+      "Plasma Grenades"
+     ],
+     "unitType": "Infantry (Light)",
+     "specialRules": [
+      "Dodge (4+)",
+      "Power from Pain",
+      "Take Captives"
+     ]
+    },
+    {
+     "name": "Hekatrix",
+     "min": 1,
+     "max": 1,
+     "costPerExtra": 0,
+     "profile": {
+      "M": 8,
+      "WS": 4,
+      "BS": 4,
+      "S": 3,
+      "T": 3,
+      "W": 1,
+      "I": 6,
+      "A": 3,
+      "LD": 8,
+      "CL": 7,
+      "WP": 6,
+      "IN": 7,
+      "SAV": "6+",
+      "INV": "–"
+     },
+     "wargear": [
+      "Splinter Pistol",
+      "Mono-Knife",
+      "Plasma Grenades"
+     ],
+     "unitType": "Infantry (Light)",
+     "specialRules": [
+      "Dodge (4+)",
+      "Power from Pain",
+      "Take Captives"
+     ]
+    }
+   ],
+   "traits": [
+    "Xenos",
+    "Drukhari"
+   ],
+   "specialRules": [],
+   "unitRules": [],
+   "cryptoArkana": false,
+   "fixedArkana": null,
+   "factionChoice": false,
+   "fixedChoice": "Cults",
+   "combatDrugs": true,
+   "options": [
+    {
+     "id": "mono-knife-swap",
+     "text": "Any Model in this Unit may have its Mono-Knife exchanged for one of the following: -- Mono-Sword +2 points; -- Mono-Flail +2 points.",
+     "kind": "perModel",
+     "model": null,
+     "replaces": [
+      "Mono-Knife"
+     ],
+     "choices": [
+      {
+       "name": "Mono-Sword",
+       "points": 2
+      },
+      {
+       "name": "Mono-Flail",
+       "points": 2
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "gladiatorial-swap",
+     "text": "For every 5 models in this Unit, up to 3 Wyches may have their Splinter Pistol and Mono-Knife exchanged for an Item from the Gladiatorial Weapons List.",
+     "kind": "perModel",
+     "model": "Wych",
+     "replaces": [
+      "Splinter Pistol",
+      "Mono-Knife"
+     ],
+     "choices": [
+      {
+       "list": "gladiatorial-weapons"
+      }
+     ],
+     "max": {
+      "per": 5,
+      "count": 3
+     },
+     "requires": null
+    },
+    {
+     "id": "gang-banner",
+     "text": "One Wych in this Unit may have a Gang Banner selected for it for +10 points.",
+     "kind": "upgrade",
+     "model": "Wych",
+     "replaces": [],
+     "choices": [
+      {
+       "name": "Gang Banner",
+       "points": 10
+      }
+     ],
+     "max": {
+      "fixed": 1
+     },
+     "requires": null
+    },
+    {
+     "id": "hekatrix-pistol",
+     "text": "The Hekatrix may have its Splinter Pistol exchanged for an Item from the Drukhari Pistols List.",
+     "kind": "one",
+     "model": "Hekatrix",
+     "replaces": [
+      "Splinter Pistol"
+     ],
+     "choices": [
+      {
+       "list": "drukhari-pistols"
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "hekatrix-gang-leader-wargear",
+     "text": "The Hekatrix may have its Mono-Knife exchanged for an Item from the Gang Leader Wargear List.",
+     "kind": "one",
+     "model": "Hekatrix",
+     "replaces": [
+      "Mono-Knife"
+     ],
+     "choices": [
+      {
+       "list": "gang-leader-wargear"
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "hekatrix-gladiatorial",
+     "text": "The Hekatrix may have its Splinter Pistol and Mono-Knife exchanged for an Item from the Gladiatorial Weapons List.",
+     "kind": "one",
+     "model": "Hekatrix",
+     "replaces": [
+      "Splinter Pistol",
+      "Mono-Knife"
+     ],
+     "choices": [
+      {
+       "list": "gladiatorial-weapons"
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "hekatrix-any-of",
+     "text": "The Hekatrix may have any of the following selected for it: -- Haywire Grenades +2 points; -- Phantasm Grenade Launcher +20 points.",
+     "kind": "any",
+     "model": "Hekatrix",
+     "replaces": [],
+     "choices": [
+      {
+       "name": "Haywire Grenades",
+       "points": 2
+      },
+      {
+       "name": "Phantasm Grenade Launcher",
+       "points": 20
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "combat-drugs",
+     "kind": "one",
+     "model": null,
+     "replaces": [],
+     "required": {},
+     "text": "[Combat Drugs]: one Combat Drug must be selected for this Unit. Every model in the Unit gains its bonus.",
+     "choices": [
+      {
+       "name": "Adrenalight",
+       "points": 0
+      },
+      {
+       "name": "Grave Lotus",
+       "points": 0
+      },
+      {
+       "name": "Hypex",
+       "points": 0
+      },
+      {
+       "name": "Painbringer",
+       "points": 0
+      },
+      {
+       "name": "Serpentin",
+       "points": 0
+      },
+      {
+       "name": "Splintermind",
+       "points": 0
+      }
+     ]
+    }
+   ],
+   "note": "The printed Unit type block lists a single 'Infantry (Light)' entry shared by Wych and Hekatrix (unlike other 2-model-type units on nearby pages, the Hekatrix is not printed with Champion/Sergeant sub-types); kept as printed."
+  },
+  {
+   "id": "coven-wracks",
+   "name": "Coven Wracks",
+   "role": "Troops",
+   "page": 40,
+   "limit": null,
+   "unique": false,
+   "basePoints": 50,
+   "composition": "4 Wracks and 1 Acothyst",
+   "models": [
+    {
+     "name": "Wrack",
+     "min": 4,
+     "max": 19,
+     "costPerExtra": 8,
+     "profile": {
+      "M": 7,
+      "WS": 4,
+      "BS": 4,
+      "S": 3,
+      "T": 4,
+      "W": 1,
+      "I": 4,
+      "A": 2,
+      "LD": 7,
+      "CL": 7,
+      "WP": 6,
+      "IN": 7,
+      "SAV": "6+",
+      "INV": "–"
+     },
+     "wargear": [
+      "Wrack Tools"
+     ],
+     "unitType": "Infantry",
+     "specialRules": [
+      "Altered Physiology",
+      "Power from Pain",
+      "Take Captives"
+     ]
+    },
+    {
+     "name": "Acothyst",
+     "min": 1,
+     "max": 1,
+     "costPerExtra": 0,
+     "profile": {
+      "M": 7,
+      "WS": 4,
+      "BS": 4,
+      "S": 3,
+      "T": 4,
+      "W": 1,
+      "I": 4,
+      "A": 3,
+      "LD": 8,
+      "CL": 7,
+      "WP": 6,
+      "IN": 7,
+      "SAV": "6+",
+      "INV": "–"
+     },
+     "wargear": [
+      "Wrack Tools"
+     ],
+     "unitType": "Infantry",
+     "specialRules": [
+      "Altered Physiology",
+      "Power from Pain",
+      "Take Captives"
+     ]
+    }
+   ],
+   "traits": [
+    "Xenos",
+    "Drukhari"
+   ],
+   "specialRules": [],
+   "unitRules": [],
+   "cryptoArkana": false,
+   "fixedArkana": null,
+   "factionChoice": false,
+   "fixedChoice": "Covens",
+   "options": [
+    {
+     "id": "gang-banner",
+     "text": "1 Wrack in this Unit may have a Gang Banner selected for it.",
+     "kind": "upgrade",
+     "model": "Wrack",
+     "replaces": [],
+     "choices": [
+      {
+       "name": "Gang Banner",
+       "points": 0
+      }
+     ],
+     "max": {
+      "fixed": 1
+     },
+     "requires": null,
+     "note": "Printed without a points cost (unlike every other Gang Banner option in this codex, all +10 points); kept as printed."
+    },
+    {
+     "id": "torture-item",
+     "text": "For every 5 Models in this Unit, 1 Wrack may have an Item from the Weapons of Torture or Tools of Torment List selected for it.",
+     "kind": "perModel",
+     "model": "Wrack",
+     "replaces": [],
+     "choices": [
+      {
+       "list": "weapons-of-torture"
+      },
+      {
+       "list": "tools-of-torment"
+      }
+     ],
+     "max": {
+      "per": 5,
+      "count": 1
+     },
+     "requires": null
+    },
+    {
+     "id": "acothyst-weapons-of-torture",
+     "text": "The Acothyst may have an Item from the Weapons of Torture list selected for it.",
+     "kind": "one",
+     "model": "Acothyst",
+     "replaces": [],
+     "choices": [
+      {
+       "list": "weapons-of-torture"
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "acothyst-tools-of-torment",
+     "text": "The Acothyst may have an Item from the Tools of Torment list selected for it.",
+     "kind": "one",
+     "model": "Acothyst",
+     "replaces": [],
+     "choices": [
+      {
+       "list": "tools-of-torment"
+      }
+     ],
+     "max": null,
+     "requires": null
+    }
+   ],
+   "note": null
+  },
+  {
    "id": "lelith-hesperax",
    "name": "Lelith Hesperax",
    "role": "High Command",

@@ -102,7 +102,8 @@
     }
 
     function modelMax(u, m) {
-      let max = m.max ?? m.min;
+      // units built from a menu of models ("between 1 and 12 of the following") cap each type at the unit size
+      let max = m.max ?? (u.size ? u.size.max : m.min);
       for (const e of activeEffects('maxModels')) if (effectMatches(e, u) && e.model === m.name) max += e.add;
       return max;
     }
@@ -169,7 +170,7 @@
     /** Model types whose count the player sets directly. */
     function sizableModels(u) {
       const targets = swapTargets(u);
-      return u.models.filter((m) => !targets.has(m.name) && !m.scaleWith && (m.max || m.min) > m.min);
+      return u.models.filter((m) => !targets.has(m.name) && !m.scaleWith && (m.max ?? (u.size && u.size.max) ?? m.min) > m.min);
     }
 
     function newSelection(unitId) {
@@ -473,8 +474,13 @@
         const n = sel.counts[m.name];
         if (n == null) continue;
         if (n < m.min) issues.push({ level: 'error', msg: `${u.name}: at least ${m.min} ${m.name}.` });
-        if (m.maxPer && n > m.maxPer.count * (modelCounts(sel)[m.maxPer.model] || 0)) issues.push({ level: 'error', msg: `${u.name}: at most ${m.maxPer.count} ${m.name} per ${m.maxPer.model}.` });
+        if (m.maxPer && m.maxPer.model && n > m.maxPer.count * (modelCounts(sel)[m.maxPer.model] || 0)) issues.push({ level: 'error', msg: `${u.name}: at most ${m.maxPer.count} ${m.name} per ${m.maxPer.model}.` });
+        if (m.maxPer && m.maxPer.per && n > Math.floor(totalModels(sel) / m.maxPer.per) * m.maxPer.count) issues.push({ level: 'error', msg: `${u.name}: at most ${m.maxPer.count} ${m.name} for every ${m.maxPer.per} models.` });
         if (n > modelMax(u, m)) issues.push({ level: 'error', msg: `${u.name}: at most ${modelMax(u, m)} ${m.name}.` });
+      }
+      if (u.size) {
+        const t = totalModels(sel);
+        if (t < u.size.min || t > u.size.max) issues.push({ level: 'error', msg: `${u.name}: must have between ${u.size.min} and ${u.size.max} models (has ${t}).` });
       }
       const pools = {};
       for (const o of optionsOf(sel)) {

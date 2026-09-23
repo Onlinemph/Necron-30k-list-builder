@@ -42,7 +42,9 @@ Rules for transcription:
       // "profile": { "M": 12, "BS": 4, "FRONT": 12, "SIDE": 12, "REAR": 10, "HP": 5, "CAPACITY": 10 }
       "wargear": ["Voidblade"],       // default wargear of THIS model type
       "unitType": "Infantry (Command)",// the printed unit type for THIS model type
-      "specialRules": []              // special rules that apply ONLY to this model type
+      "specialRules": [],             // special rules that apply ONLY to this model type
+      "maxPer": null,                 // { "model": "Big Gun Carrier", "count": 1 } or { "per": 4, "count": 1 }
+      "scaleWith": null               // { "model": "Big Gun Carrier", "count": 2 }: count fixed per other model
     }
   ],
   "traits": ["Xenos", "Necron"],      // traits of the whole unit (per-model traits: put in note)
@@ -53,6 +55,8 @@ Rules for transcription:
   "cryptoArkana": false,              // true if the unit has the [Crypto-Arkana] placeholder trait
   "fixedArkana": null,                // e.g. "Chronomancy" for a named Cryptek with a fixed arkana
   "options": [Option, ...],
+  "size": null,                       // { "min": 1, "max": 12 } for units built from a menu of models
+                                      // ("between 1 and 12 of the following"); each model then has min 0
   "note": null
 }
 ```
