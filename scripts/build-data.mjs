@@ -29,7 +29,7 @@ const ARMIES = [
   },
   {
     id: 'drukhari', dir: join(root, 'data', 'drukhari'), parts: join(root, 'data', 'drukhari', 'parts'),
-    meta: { name: 'Drukhari', ready: false, source: 'Codex Xenologica – Drukhari (Horus Heresy 3rd edition)', version: '1.13', date: 'March 2026',
+    meta: { name: 'Drukhari', source: 'Codex Xenologica – Drukhari (Horus Heresy 3rd edition)', version: '1.13', date: 'March 2026',
       choice: { label: 'Partisan', options: ['Kabals', 'Cults', 'Covens'] } },
     files: { granted: 'granted-prime-advantages.json', modifiers: 'modifiers.json' },
     // [Combat Drugs]: each unit picks one; every model in the unit gains the bonus (Codex primer, p.3)

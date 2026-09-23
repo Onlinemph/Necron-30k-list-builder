@@ -4,6 +4,7 @@ An army list builder for Horus Heresy 3rd edition xenos armies. Pick the army at
 
 - **Necrons**: *Codex Xenologica – Necrons*, v1.4.2 (August 2026)
 - **Orks**: *Xenos Forces of the Age of Darkness – Orks, 3rd Edition Rules* by Always Strikes First (October 2025)
+- **Drukhari**: *Codex Xenologica – Drukhari*, v1.13 (March 2026)
 
 Each army remembers its own current list, and saved lists and share links switch to the right army automatically.
 
@@ -35,6 +36,10 @@ On a phone, open the site and use **Add to Home Screen**; it launches like an ap
 
 Every Ork unit picks its Great Clan (Bad Moons, Blood Axes, Deathskulls, Evil Sunz, Goffs, Snakebites or Freebooters), which unlocks clan wargear (Ammo Runts, Red Paint Job, Cyboars), clan Prime Advantages and clan rules. Auxiliary and Apex Detachments must share one clan, with Freebooters as the exception. The Ork detachments (Deffwing, Boss's Bodyguard, Green Tide, Dread Mob, Kult of Speed) sit in the Add detachment menu. "Must take" options such as a Deff Dread's weapons or a Gun Squiggoth's Big Gunz are checked, and Big Gunz Batteries scale their Gretchin crews per gun.
 
+## Drukhari
+
+Units pick their Partisan (Kabals, Cults or Covens) where the codex leaves it open, and units with [Combat Drugs] must pick a drug, whose +1 shows on the statline. The Kabal Archon can buy the drugs as an upgrade. The Court of the Archon and Cult Beast Pack are built from a menu of models with a total size limit (and one Beastmaster per four models), and Haemonculus Arcana items are once per army. The eleven Drukhari detachments are in the Add detachment menu; their slots were read from the icons, since the codex has no icon legend. Power From Pain's tiers show as situational reminders.
+
 ## Force organisation
 
 The Primary Detachment follows the Horus Heresy 3rd edition Crusade chart: 1 High Command, 3 Command (1 Prime), 4 Troops (1 Prime), 4 Transport. Each filled Command slot unlocks one Auxiliary Detachment, and filling High Command unlocks one Apex Detachment. The core Auxiliary, Apex, Warlord and Lord of War Detachments are in the **Add detachment** menu next to the Necron ones, and the core Prime Advantages (Master Sergeant, Combat Veterans, Paragon of Battle, Special Assignment, Logistical Benefit) sit alongside the Necron ones. **Edit slots** on the Primary Detachment is there for rules that change the chart.
@@ -43,7 +48,7 @@ Rules from the core rulebook (Bulky, Deep Strike, Eternal Warrior…) are labell
 
 ## Data
 
-Necrons: 70 units, 136 weapon profiles, 21 detachments and 12 Aeonic Sequelae in `data/parts/*.json`. Orks: 52 units, 87 weapon profiles, 5 detachments and 7 clans in `data/orks/`. The schema is in `data/SCHEMA.md` (Ork differences in `data/orks/NOTES.md`), and the per-page source text is in `source/`.
+Necrons: 70 units, 136 weapon profiles, 21 detachments and 12 Aeonic Sequelae in `data/parts/*.json`. Orks: 52 units, 87 weapon profiles, 5 detachments and 7 clans in `data/orks/`. Drukhari: 53 units, 103 weapon profiles and 11 detachments in `data/drukhari/`. The schema is in `data/SCHEMA.md` (army differences in `data/orks/NOTES.md` and `data/drukhari/NOTES.md`), and the per-page source text is in `source/`.
 
 To add another army, put its parts in `data/<army>/parts/`, add an entry to `ARMIES` in `scripts/build-data.mjs`, and load `js/data-<army>.js` in `index.html`.
 

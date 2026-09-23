@@ -1,7 +1,7 @@
 {
   "name": "30k List Builder",
   "short_name": "30k Lists",
-  "description": "Army list builder for Necrons and Orks in the Horus Heresy 3rd edition.",
+  "description": "Army list builder for Necrons, Orks and Drukhari in the Horus Heresy 3rd edition.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

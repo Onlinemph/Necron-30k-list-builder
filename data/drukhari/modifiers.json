@@ -1,0 +1,424 @@
+{
+  "modifiers": [
+    {
+      "id": "shadow-field-invulnerable",
+      "page": 91,
+      "text": "A model with a Shadow Field has a 2+ Invulnerable Save so long as it has not suffered Damage during the battle.",
+      "source": {
+        "type": "wargear",
+        "name": "Shadow Field"
+      },
+      "appliesTo": {
+        "units": [
+          "asdrubael-vect",
+          "kabal-archon",
+          "duke-sliscus",
+          "baron-sathonyx"
+        ]
+      },
+      "scope": "model",
+      "stats": {
+        "INV": "best:2+"
+      },
+      "addRules": [],
+      "removeRules": [],
+      "modifyRules": [],
+      "addTraits": [],
+      "addUnitTypes": [],
+      "condition": "so long as the model has not suffered Damage during the battle; once it has suffered Damage (even if it later regains Wounds), the Shadow Field no longer provides an Invulnerable Save for the remainder of the battle"
+    },
+    {
+      "id": "clone-field-invulnerable",
+      "page": 91,
+      "text": "A Model with a Clone Field has a 4+ Invulnerable Save.",
+      "source": {
+        "type": "wargear",
+        "name": "Clone Field"
+      },
+      "appliesTo": {
+        "units": [
+          "kabal-archon",
+          "kabal-dracon",
+          "urien-rakarth",
+          "coven-haemonculus-ancient"
+        ]
+      },
+      "scope": "model",
+      "stats": {
+        "INV": "best:4+"
+      },
+      "addRules": [],
+      "removeRules": [],
+      "modifyRules": [],
+      "addTraits": [],
+      "addUnitTypes": [],
+      "condition": null
+    },
+    {
+      "id": "flickerfield-invulnerable",
+      "page": 91,
+      "text": "A Model with a Flickerfield gains a 5+ Invulnerable Save unless it has the Pinned Status.",
+      "source": {
+        "type": "wargear",
+        "name": "Flickerfield"
+      },
+      "appliesTo": {
+        "units": [
+          "tantalos",
+          "venom"
+        ]
+      },
+      "scope": "model",
+      "stats": {
+        "INV": "best:5+"
+      },
+      "addRules": [],
+      "removeRules": [],
+      "modifyRules": [],
+      "addTraits": [],
+      "addUnitTypes": [],
+      "condition": "unless the model has the Pinned Status"
+    },
+    {
+      "id": "grisly-trophies-fear",
+      "page": 91,
+      "text": "A Model with Grisly Trophies gains the Fear (1) Special Rule.",
+      "source": {
+        "type": "wargear",
+        "name": "Grisly Trophies"
+      },
+      "appliesTo": {
+        "units": [
+          "the-dais-of-destruction",
+          "demilune",
+          "rampage",
+          "reaper",
+          "ravager",
+          "tantalos",
+          "shadow",
+          "venom",
+          "raider"
+        ]
+      },
+      "scope": "model",
+      "stats": {},
+      "addRules": [
+        "Fear (1)"
+      ],
+      "removeRules": [],
+      "modifyRules": [],
+      "addTraits": [],
+      "addUnitTypes": [],
+      "condition": null
+    },
+    {
+      "id": "night-shield-shrouded",
+      "page": 91,
+      "text": "A Model with a Night Shield gains the Shrouded (5+) Special Rule unless it has the Pinned status.",
+      "source": {
+        "type": "wargear",
+        "name": "Night Shield"
+      },
+      "appliesTo": {
+        "units": [
+          "rampage",
+          "reaper",
+          "raider",
+          "ravager",
+          "the-dais-of-destruction",
+          "razorwing-jetfighter",
+          "raven-fighter",
+          "voidraven-bomber"
+        ]
+      },
+      "scope": "model",
+      "stats": {},
+      "addRules": [
+        "Shrouded (5+)"
+      ],
+      "removeRules": [],
+      "modifyRules": [],
+      "addTraits": [],
+      "addUnitTypes": [],
+      "condition": "unless the model has the Pinned status"
+    },
+    {
+      "id": "razorwing-familiar-move-through-cover",
+      "page": 91,
+      "text": "All Models in a Unit that includes a Model with a Razorwing Familiar gain the Move Through Cover Special Rule.",
+      "source": {
+        "type": "wargear",
+        "name": "Razorwing Familiar"
+      },
+      "appliesTo": {
+        "units": [
+          "court-of-the-archon",
+          "kabal-archon",
+          "kabal-dracon"
+        ]
+      },
+      "scope": "unit",
+      "stats": {},
+      "addRules": [
+        "Move Through Cover"
+      ],
+      "removeRules": [],
+      "modifyRules": [],
+      "addTraits": [],
+      "addUnitTypes": [],
+      "condition": null
+    },
+    {
+      "id": "scion-of-vileth-bs",
+      "page": 4,
+      "text": "The Model for which this Prime Advantage was selected gains a +1 modifier to its Ballistic Skill and has a 4+ Invulnerable Save against all Shooting Attacks made as part of Reactions.",
+      "source": {
+        "type": "primeAdvantage",
+        "name": "Scion of Vileth"
+      },
+      "appliesTo": {
+        "unitType": "Flyer"
+      },
+      "scope": "unit",
+      "stats": {
+        "BS": "+1"
+      },
+      "addRules": [],
+      "removeRules": [],
+      "modifyRules": [],
+      "addTraits": [],
+      "addUnitTypes": [],
+      "condition": null
+    },
+    {
+      "id": "scion-of-vileth-invulnerable",
+      "page": 4,
+      "text": "The Model for which this Prime Advantage was selected gains a +1 modifier to its Ballistic Skill and has a 4+ Invulnerable Save against all Shooting Attacks made as part of Reactions.",
+      "source": {
+        "type": "primeAdvantage",
+        "name": "Scion of Vileth"
+      },
+      "appliesTo": {
+        "unitType": "Flyer"
+      },
+      "scope": "unit",
+      "stats": {
+        "INV": "best:4+"
+      },
+      "addRules": [],
+      "removeRules": [],
+      "modifyRules": [],
+      "addTraits": [],
+      "addUnitTypes": [],
+      "condition": "against all Shooting Attacks made as part of Reactions"
+    },
+    {
+      "id": "huntmaster-bs",
+      "page": 77,
+      "text": "Huntmaster: The Model for which this Prime Advantage was selected has its Base Ballistic Skill characteristic changed to 5 and gains a Shadow Ray at no additional cost.",
+      "source": {
+        "type": "primeAdvantage",
+        "name": "Huntmaster"
+      },
+      "appliesTo": {
+        "units": [
+          "ravager",
+          "reaper"
+        ]
+      },
+      "scope": "unit",
+      "stats": {
+        "BS": "=5"
+      },
+      "addRules": [],
+      "removeRules": [],
+      "modifyRules": [],
+      "addTraits": [],
+      "addUnitTypes": [],
+      "condition": null,
+      "note": "The same sentence also grants the Model a free Shadow Ray weapon; that part cannot be represented in this schema (no wargear-grant field) and is omitted from stats/rules."
+    },
+    {
+      "id": "court-of-aelindrach-ws",
+      "page": 97,
+      "text": "Court of Aelindrach (Prime Advantage): All Mandrakes in a Unit that has had this Prime Advantage selected for it gain +1 to their WS Characteristic.",
+      "source": {
+        "type": "primeAdvantage",
+        "name": "Court of Aelindrach"
+      },
+      "appliesTo": {
+        "units": [
+          "mandrakes"
+        ]
+      },
+      "scope": "unit",
+      "stats": {
+        "WS": "+1"
+      },
+      "addRules": [],
+      "removeRules": [],
+      "modifyRules": [],
+      "addTraits": [],
+      "addUnitTypes": [],
+      "condition": null
+    },
+    {
+      "id": "court-of-aelindrach-shade-stalker",
+      "page": 97,
+      "text": "While Keradruakh has joined that Unit, all Mandrakes in that Unit gain the Shade Stalker Special Rule.",
+      "source": {
+        "type": "primeAdvantage",
+        "name": "Court of Aelindrach"
+      },
+      "appliesTo": {
+        "units": [
+          "mandrakes"
+        ]
+      },
+      "scope": "unit",
+      "stats": {},
+      "addRules": [
+        "Shade Stalker"
+      ],
+      "removeRules": [],
+      "modifyRules": [],
+      "addTraits": [],
+      "addUnitTypes": [],
+      "condition": "while Keradruakh has joined that Unit"
+    },
+    {
+      "id": "twilight-shrouded",
+      "page": 99,
+      "text": "Twilight Shrouded: Only Sathonyx may join a Unit with this Prime Advantage. All models in the Unit with this Prime Advantage gain the Shrouded (5+) Special Rule.",
+      "source": {
+        "type": "primeAdvantage",
+        "name": "Twilight Shrouded"
+      },
+      "appliesTo": {
+        "units": [
+          "cult-hellions"
+        ]
+      },
+      "scope": "unit",
+      "stats": {},
+      "addRules": [
+        "Shrouded (5+)"
+      ],
+      "removeRules": [],
+      "modifyRules": [],
+      "addTraits": [],
+      "addUnitTypes": [],
+      "condition": "for a Hellion Gang Unit that has been given this Prime Advantage (only Baron Sathonyx may join that Unit)"
+    },
+    {
+      "id": "power-from-pain-fnp",
+      "page": 80,
+      "text": "A Model that has this Special Rule gains a number of cumulative benefits, depending on the number of Units (friend and enemy) within 6\" of its Unit that have one or more of the Pinned, Suppressed, Stunned or Routed Tactical Status. Note that the Model's own Unit is also counted towards the total: 1+ Units: The Model gains the Feel No Pain (5+) Special Rule.",
+      "source": {
+        "type": "unitRule",
+        "name": "Power From Pain"
+      },
+      "appliesTo": {},
+      "scope": "model",
+      "stats": {},
+      "addRules": [
+        "Feel No Pain (5+)"
+      ],
+      "removeRules": [],
+      "modifyRules": [],
+      "addTraits": [],
+      "addUnitTypes": [],
+      "condition": "while 1 or more Units (friend and enemy, including the Model's own Unit) within 6\" of its Unit have the Pinned, Suppressed, Stunned or Routed Tactical Status"
+    },
+    {
+      "id": "power-from-pain-str-attacks",
+      "page": 80,
+      "text": "2+ Units: The Model gains a +1 modifier to its Strength and Attacks Characteristics.",
+      "source": {
+        "type": "unitRule",
+        "name": "Power From Pain"
+      },
+      "appliesTo": {},
+      "scope": "model",
+      "stats": {
+        "S": "+1",
+        "A": "+1"
+      },
+      "addRules": [],
+      "removeRules": [],
+      "modifyRules": [],
+      "addTraits": [],
+      "addUnitTypes": [],
+      "condition": "while 2 or more Units (friend and enemy, including the Model's own Unit) within 6\" of its Unit have the Pinned, Suppressed, Stunned or Routed Tactical Status"
+    },
+    {
+      "id": "power-from-pain-mental-stats",
+      "page": 80,
+      "text": "3+ Units: The Model's base Leadership, Cool, Willpower and Intelligence Characteristics become 12.",
+      "source": {
+        "type": "unitRule",
+        "name": "Power From Pain"
+      },
+      "appliesTo": {},
+      "scope": "model",
+      "stats": {
+        "LD": "=12",
+        "CL": "=12",
+        "WP": "=12",
+        "IN": "=12"
+      },
+      "addRules": [],
+      "removeRules": [],
+      "modifyRules": [],
+      "addTraits": [],
+      "addUnitTypes": [],
+      "condition": "while 3 or more Units (friend and enemy, including the Model's own Unit) within 6\" of its Unit have the Pinned, Suppressed, Stunned or Routed Tactical Status"
+    },
+    {
+      "id": "lelith-a-league-apart",
+      "page": 94,
+      "text": "Whilst Lelith is in base contact with any Enemy Models that have a Weapon Skill characteristic, and all of those Models have a lower Weapon Skill Characteristic than she does, her Attacks Characteristic is increased by the difference between her Weapon Skill and the Lowest Weapon Skill amongst Enemy Models in base contact with her.",
+      "source": {
+        "type": "unitRule",
+        "name": "A League Apart"
+      },
+      "appliesTo": {
+        "units": [
+          "lelith-hesperax"
+        ]
+      },
+      "scope": "model",
+      "stats": {},
+      "addRules": [],
+      "removeRules": [],
+      "modifyRules": [],
+      "addTraits": [],
+      "addUnitTypes": [],
+      "condition": "whilst Lelith is in base contact with only Enemy Models that have a Weapon Skill characteristic lower than hers (her Attacks Characteristic increases by the difference between her Weapon Skill and the lowest Weapon Skill amongst those Enemy Models; while engaged in a Challenge she is only considered in base contact with her Challenge Opponent)"
+    },
+    {
+      "id": "lelith-quicksilver-dodge",
+      "page": 94,
+      "text": "Lelith's Invulnerable Save characteristic is increased to 3+ against all Attacks made as part of a Reaction and all Melee Attacks.",
+      "source": {
+        "type": "unitRule",
+        "name": "Quicksilver Dodge"
+      },
+      "appliesTo": {
+        "units": [
+          "lelith-hesperax"
+        ]
+      },
+      "scope": "model",
+      "stats": {
+        "INV": "best:3+"
+      },
+      "addRules": [],
+      "removeRules": [],
+      "modifyRules": [],
+      "addTraits": [],
+      "addUnitTypes": [],
+      "condition": "against Attacks made as part of a Reaction and against all Melee Attacks"
+    }
+  ]
+}
