@@ -1,0 +1,73 @@
+{
+  "note": "Names the Drukhari codex uses without printing a profile or rule, and spelling variants of printed ones.",
+  "weaponAliases": {
+    "Annhihilation Lance": "Annihilation Lance",
+    "Khaïdesi Haemovores": "Khaideshi Haemovores"
+  },
+  "undefinedInCodex": [
+    {
+      "name": "Plasma-Disintegrator",
+      "note": "Vehicle weapon on the Shadow and Demilune; the codex prints only the Plasma-Disintegrator Blaster and Cannon profiles."
+    },
+    {
+      "name": "Pulse-Disintegrator",
+      "note": "Vehicle weapon on the Raptor, Raven Lord and Rukh; the codex prints only the Pulse-Disintegrator Cannon profile."
+    },
+    {
+      "name": "Phantom Lance",
+      "note": "On the Raven Lord; no profile is printed in v1.13."
+    },
+    {
+      "name": "Power Weapon",
+      "note": "Choose a Power Axe, Power Maul, Power Sword or Power Lance (Melee Weapon Profiles, p.88)."
+    },
+    {
+      "name": "Close Combat Weapon",
+      "note": "Basic close combat weapon from the core rules."
+    },
+    {
+      "name": "Enhanded Aethersails",
+      "note": "Printed with this spelling on the Dais of Destruction; no rules text is given."
+    },
+    {
+      "name": "Kabal Allegiance (X)",
+      "note": "Named on Dramatis Personae pages; not printed in full in v1.13."
+    },
+    {
+      "name": "Cult Allegiance (X)",
+      "note": "Named on Dramatis Personae pages; not printed in full in v1.13."
+    },
+    {
+      "name": "Coven Allegiance (X)",
+      "note": "Named on Dramatis Personae pages; not printed in full in v1.13."
+    },
+    {
+      "name": "Tormentor Volley",
+      "note": "Tormentor Titan rule; not printed in full in v1.13."
+    },
+    {
+      "name": "Idol of Torment (X)",
+      "note": "Tormentor Titan rule; not printed in full in v1.13."
+    },
+    {
+      "name": "Phantom Fields (X)",
+      "note": "Tormentor Titan rule; not printed in full in v1.13."
+    },
+    {
+      "name": "Lord Hellion",
+      "note": "Baron Sathonyx rule; not printed in full in v1.13."
+    },
+    {
+      "name": "Bladed Legs",
+      "note": "Named but not printed in full in v1.13."
+    },
+    {
+      "name": "Shake Stalker",
+      "note": "Named but not printed in full in v1.13."
+    },
+    {
+      "name": "Goad (X)",
+      "note": "Used by the Cult Beast Pack; the rule is defined in Codex Xenologica – Necrons (p.102), not reprinted here."
+    }
+  ]
+}

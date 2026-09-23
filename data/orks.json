@@ -9324,7 +9324,18 @@
    "Skyfire",
    "Interceptor",
    "Hover",
-   "Flyer"
+   "Flyer",
+   "Poisoned (X)",
+   "Reinforced Structure (X)",
+   "Shred (X)",
+   "Instant Death",
+   "Sudden Strike (X)",
+   "Skirmish",
+   "Duellist's Edge (X)",
+   "Fleet (X)",
+   "Hit & Run",
+   "Stealth (X)",
+   "Scout"
   ],
   "undefinedInCodex": [],
   "weaponAliases": {}

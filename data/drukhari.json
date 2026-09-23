@@ -253,6 +253,41 @@
      ],
      "max": null,
      "requires": null
+    },
+    {
+     "id": "combat-drug-choice",
+     "kind": "one",
+     "model": null,
+     "replaces": [],
+     "required": {},
+     "requires": "combat-drugs",
+     "text": "Choose the Combat Drug for the [Combat Drugs] upgrade.",
+     "choices": [
+      {
+       "name": "Adrenalight",
+       "points": 0
+      },
+      {
+       "name": "Grave Lotus",
+       "points": 0
+      },
+      {
+       "name": "Hypex",
+       "points": 0
+      },
+      {
+       "name": "Painbringer",
+       "points": 0
+      },
+      {
+       "name": "Serpentin",
+       "points": 0
+      },
+      {
+       "name": "Splintermind",
+       "points": 0
+      }
+     ]
     }
    ],
    "note": "The Grafted Archon profile's own Traits list additionally includes 'Jink' (only printed for that profile, not the base Archon)."
@@ -6735,9 +6770,7 @@
       }
      },
      "wargear": [
-      "The Head profile has 1 Carapace Mounted Splinterstorm Cannon",
-      "The Carapace profile has 2 Carapace Mounted Weapons (see Options)",
-      "The Arms profile has 2 Arm Mounted Weapons (see Options)"
+      "The Head profile has 1 Carapace Mounted Splinterstorm Cannon"
      ],
      "unitType": "Vehicle (Titan)",
      "specialRules": []
@@ -9603,6 +9636,132 @@
      "Mono"
     ],
     "modes": null
+   },
+   {
+    "name": "Razorflail",
+    "page": 90,
+    "IM": "I",
+    "AM": "A",
+    "SM": "+1",
+    "AP": 5,
+    "D": 1,
+    "specialRules": [
+     "Breaching (6+)",
+     "Shred (6+)"
+    ],
+    "traits": [
+     "Mono"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Paired Razorflails",
+    "page": 90,
+    "IM": "I",
+    "AM": "+2",
+    "SM": "+1",
+    "AP": 5,
+    "D": 1,
+    "specialRules": [
+     "Breaching (5+)",
+     "Shred (5+)"
+    ],
+    "traits": [
+     "Mono"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Hydra Gauntlets",
+    "page": 90,
+    "IM": "I",
+    "AM": "+3",
+    "SM": "+1",
+    "AP": 5,
+    "D": 1,
+    "specialRules": [
+     "Rending (5+)",
+     "Shred (5+)"
+    ],
+    "traits": [],
+    "modes": null
+   },
+   {
+    "name": "Shardnet and Impaler",
+    "page": 90,
+    "IM": "+1",
+    "AM": "+2",
+    "SM": "+1",
+    "AP": 5,
+    "D": 1,
+    "specialRules": [
+     "Breaching (6+)",
+     "Ensnare (1)"
+    ],
+    "traits": [],
+    "modes": null
+   },
+   {
+    "name": "Hellglaive",
+    "page": 90,
+    "IM": "+1",
+    "AM": "+1",
+    "SM": "+1",
+    "AP": 5,
+    "D": 1,
+    "specialRules": [
+     "Critical Hits (6+)"
+    ],
+    "traits": [],
+    "modes": null
+   },
+   {
+    "name": "Stunclaw",
+    "page": 90,
+    "IM": "I",
+    "AM": "A",
+    "SM": "+1",
+    "AP": 5,
+    "D": 2,
+    "specialRules": [
+     "Critical Hits (6+)",
+     "Precision (4+)"
+    ],
+    "traits": [],
+    "modes": null,
+    "note": "Source has a stray trailing comma after 'Precision (4+),'; treated as a typo and dropped."
+   },
+   {
+    "name": "Djinn Blade",
+    "page": 90,
+    "IM": "I",
+    "AM": "+2",
+    "SM": "+2",
+    "AP": 2,
+    "D": 1,
+    "specialRules": [
+     "Critical Hits (6+)",
+     "Overload (2)"
+    ],
+    "traits": [],
+    "modes": null
+   },
+   {
+    "name": "Haywire Grenade",
+    "page": 90,
+    "IM": "I",
+    "AM": "1",
+    "SM": "2",
+    "AP": "–",
+    "D": 1,
+    "specialRules": [
+     "Shock (Suppressed)"
+    ],
+    "traits": [
+     "Haywire"
+    ],
+    "modes": null,
+    "note": "Source prints numeric AM/SM values (1, 2) rather than 'A'/'S' as for other weapons; kept as printed."
    }
   ]
  },
@@ -10999,10 +11158,89 @@
    "Skyfire",
    "Interceptor",
    "Hover",
-   "Flyer"
+   "Flyer",
+   "Poisoned (X)",
+   "Reinforced Structure (X)",
+   "Shred (X)",
+   "Instant Death",
+   "Sudden Strike (X)",
+   "Skirmish",
+   "Duellist's Edge (X)",
+   "Fleet (X)",
+   "Hit & Run",
+   "Stealth (X)",
+   "Scout"
   ],
-  "undefinedInCodex": [],
-  "weaponAliases": {}
+  "undefinedInCodex": [
+   {
+    "name": "Plasma-Disintegrator",
+    "note": "Vehicle weapon on the Shadow and Demilune; the codex prints only the Plasma-Disintegrator Blaster and Cannon profiles."
+   },
+   {
+    "name": "Pulse-Disintegrator",
+    "note": "Vehicle weapon on the Raptor, Raven Lord and Rukh; the codex prints only the Pulse-Disintegrator Cannon profile."
+   },
+   {
+    "name": "Phantom Lance",
+    "note": "On the Raven Lord; no profile is printed in v1.13."
+   },
+   {
+    "name": "Power Weapon",
+    "note": "Choose a Power Axe, Power Maul, Power Sword or Power Lance (Melee Weapon Profiles, p.88)."
+   },
+   {
+    "name": "Close Combat Weapon",
+    "note": "Basic close combat weapon from the core rules."
+   },
+   {
+    "name": "Enhanded Aethersails",
+    "note": "Printed with this spelling on the Dais of Destruction; no rules text is given."
+   },
+   {
+    "name": "Kabal Allegiance (X)",
+    "note": "Named on Dramatis Personae pages; not printed in full in v1.13."
+   },
+   {
+    "name": "Cult Allegiance (X)",
+    "note": "Named on Dramatis Personae pages; not printed in full in v1.13."
+   },
+   {
+    "name": "Coven Allegiance (X)",
+    "note": "Named on Dramatis Personae pages; not printed in full in v1.13."
+   },
+   {
+    "name": "Tormentor Volley",
+    "note": "Tormentor Titan rule; not printed in full in v1.13."
+   },
+   {
+    "name": "Idol of Torment (X)",
+    "note": "Tormentor Titan rule; not printed in full in v1.13."
+   },
+   {
+    "name": "Phantom Fields (X)",
+    "note": "Tormentor Titan rule; not printed in full in v1.13."
+   },
+   {
+    "name": "Lord Hellion",
+    "note": "Baron Sathonyx rule; not printed in full in v1.13."
+   },
+   {
+    "name": "Bladed Legs",
+    "note": "Named but not printed in full in v1.13."
+   },
+   {
+    "name": "Shake Stalker",
+    "note": "Named but not printed in full in v1.13."
+   },
+   {
+    "name": "Goad (X)",
+    "note": "Used by the Cult Beast Pack; the rule is defined in Codex Xenologica – Necrons (p.102), not reprinted here."
+   }
+  ],
+  "weaponAliases": {
+   "Annhihilation Lance": "Annihilation Lance",
+   "Khaïdesi Haemovores": "Khaideshi Haemovores"
+  }
  },
  "sequelaEffects": {
   "effects": [],

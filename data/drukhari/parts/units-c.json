@@ -15,8 +15,27 @@
           "min": 4,
           "max": 9,
           "costPerExtra": 12,
-          "profile": { "M": 14, "WS": 4, "BS": 4, "S": 3, "T": 3, "W": 1, "I": 5, "A": 1, "LD": 7, "CL": 7, "WP": 6, "IN": 7, "SAV": "4+", "INV": "6+" },
-          "wargear": ["Shardcarbine", "Close Combat Weapon", "Plasma Grenades"],
+          "profile": {
+            "M": 14,
+            "WS": 4,
+            "BS": 4,
+            "S": 3,
+            "T": 3,
+            "W": 1,
+            "I": 5,
+            "A": 1,
+            "LD": 7,
+            "CL": 7,
+            "WP": 6,
+            "IN": 7,
+            "SAV": "4+",
+            "INV": "6+"
+          },
+          "wargear": [
+            "Shardcarbine",
+            "Close Combat Weapon",
+            "Plasma Grenades"
+          ],
           "unitType": "Infantry (Antigrav, Light)",
           "specialRules": []
         },
@@ -25,14 +44,43 @@
           "min": 1,
           "max": 1,
           "costPerExtra": 0,
-          "profile": { "M": 14, "WS": 4, "BS": 4, "S": 3, "T": 3, "W": 1, "I": 5, "A": 1, "LD": 7, "CL": 7, "WP": 6, "IN": 7, "SAV": "4+", "INV": "6+" },
-          "wargear": ["Shardcarbine", "Close Combat Weapon", "Plasma Grenades"],
+          "profile": {
+            "M": 14,
+            "WS": 4,
+            "BS": 4,
+            "S": 3,
+            "T": 3,
+            "W": 1,
+            "I": 5,
+            "A": 1,
+            "LD": 7,
+            "CL": 7,
+            "WP": 6,
+            "IN": 7,
+            "SAV": "4+",
+            "INV": "6+"
+          },
+          "wargear": [
+            "Shardcarbine",
+            "Close Combat Weapon",
+            "Plasma Grenades"
+          ],
           "unitType": "Infantry (Antigrav, Light, Sergeant)",
           "specialRules": []
         }
       ],
-      "traits": ["Xenos", "Drukhari"],
-      "specialRules": ["Bulky (2)", "Deep Strike", "Power From Pain", "Predator's Sight", "Support Unit (1)", "Take Captives"],
+      "traits": [
+        "Xenos",
+        "Drukhari"
+      ],
+      "specialRules": [
+        "Bulky (2)",
+        "Deep Strike",
+        "Power From Pain",
+        "Predator's Sight",
+        "Support Unit (1)",
+        "Take Captives"
+      ],
       "unitRules": [],
       "cryptoArkana": false,
       "fixedArkana": null,
@@ -42,10 +90,16 @@
           "text": "Any Model in this Unit may have its Shardcarbine exchanged for an Item from the Drukhari Special Weapons or Drukhari Heavy Weapons List.",
           "kind": "perModel",
           "model": null,
-          "replaces": ["Shardcarbine"],
+          "replaces": [
+            "Shardcarbine"
+          ],
           "choices": [
-            { "list": "drukhari-special-weapons" },
-            { "list": "drukhari-heavy-weapons" }
+            {
+              "list": "drukhari-special-weapons"
+            },
+            {
+              "list": "drukhari-heavy-weapons"
+            }
           ],
           "max": null,
           "requires": null
@@ -56,8 +110,15 @@
           "kind": "perModel",
           "model": "Scourge",
           "replaces": [],
-          "choices": [ { "name": "Gang Banner", "points": 10 } ],
-          "max": { "fixed": 1 },
+          "choices": [
+            {
+              "name": "Gang Banner",
+              "points": 10
+            }
+          ],
+          "max": {
+            "fixed": 1
+          },
           "requires": null
         },
         {
@@ -65,8 +126,14 @@
           "text": "The Solarite may have its Shardcarbine exchanged for one Item from the Drukhari Pistols List.",
           "kind": "one",
           "model": "Solarite",
-          "replaces": ["Shardcarbine"],
-          "choices": [ { "list": "drukhari-pistols" } ],
+          "replaces": [
+            "Shardcarbine"
+          ],
+          "choices": [
+            {
+              "list": "drukhari-pistols"
+            }
+          ],
           "max": null,
           "requires": null
         },
@@ -75,8 +142,14 @@
           "text": "The Solarite may have its Close Combat Weapon exchanged for one Item from the Gang Leader Wargear List.",
           "kind": "one",
           "model": "Solarite",
-          "replaces": ["Close Combat Weapon"],
-          "choices": [ { "list": "gang-leader-wargear" } ],
+          "replaces": [
+            "Close Combat Weapon"
+          ],
+          "choices": [
+            {
+              "list": "gang-leader-wargear"
+            }
+          ],
           "max": null,
           "requires": null
         }
@@ -98,15 +171,44 @@
           "min": 1,
           "max": 3,
           "costPerExtra": 85,
-          "profile": { "M": 8, "WS": 4, "BS": 3, "S": 7, "T": 7, "W": 5, "I": 2, "A": 4, "LD": 8, "CL": 12, "WP": 8, "IN": 4, "SAV": "3+", "INV": "–" },
-          "wargear": ["Leecher Tentacles", "Spirit Syphon"],
+          "profile": {
+            "M": 8,
+            "WS": 4,
+            "BS": 3,
+            "S": 7,
+            "T": 7,
+            "W": 5,
+            "I": 2,
+            "A": 4,
+            "LD": 8,
+            "CL": 12,
+            "WP": 8,
+            "IN": 4,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Leecher Tentacles",
+            "Spirit Syphon"
+          ],
           "unitType": "Infantry (Antigrav)",
           "specialRules": []
         }
       ],
-      "traits": ["Xenos", "Drukhari"],
+      "traits": [
+        "Xenos",
+        "Drukhari"
+      ],
       "fixedChoice": "Covens",
-      "specialRules": ["Bulky (7)", "Altered Physiology", "Fear (1)", "Heedless", "Impact (WS)", "Pain Engine", "Power From Pain"],
+      "specialRules": [
+        "Bulky (7)",
+        "Altered Physiology",
+        "Fear (1)",
+        "Heedless",
+        "Impact (WS)",
+        "Pain Engine",
+        "Power From Pain"
+      ],
       "unitRules": [],
       "cryptoArkana": false,
       "fixedArkana": null,
@@ -118,8 +220,14 @@
           "model": "Cronos",
           "replaces": [],
           "choices": [
-            { "name": "Spirit Probe", "points": 10 },
-            { "name": "Spirit Vortex", "points": 20 }
+            {
+              "name": "Spirit Probe",
+              "points": 10
+            },
+            {
+              "name": "Spirit Vortex",
+              "points": 20
+            }
           ],
           "max": null,
           "requires": null
@@ -142,15 +250,44 @@
           "min": 1,
           "max": 3,
           "costPerExtra": 105,
-          "profile": { "M": 8, "WS": 4, "BS": 3, "S": 7, "T": 7, "W": 5, "I": 2, "A": 5, "LD": 8, "CL": 12, "WP": 8, "IN": 4, "SAV": "3+", "INV": "–" },
-          "wargear": ["2 Macro-Scalpels", "Twin Splinter Cannon"],
+          "profile": {
+            "M": 8,
+            "WS": 4,
+            "BS": 3,
+            "S": 7,
+            "T": 7,
+            "W": 5,
+            "I": 2,
+            "A": 5,
+            "LD": 8,
+            "CL": 12,
+            "WP": 8,
+            "IN": 4,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "2 Macro-Scalpels",
+            "Twin Splinter Cannon"
+          ],
           "unitType": "Infantry (Antigrav)",
           "specialRules": []
         }
       ],
-      "traits": ["Xenos", "Drukhari"],
+      "traits": [
+        "Xenos",
+        "Drukhari"
+      ],
       "fixedChoice": "Covens",
-      "specialRules": ["Bulky (7)", "Altered Physiology", "Fear (1)", "Heedless", "Impact (WS)", "Pain Engine", "Power From Pain"],
+      "specialRules": [
+        "Bulky (7)",
+        "Altered Physiology",
+        "Fear (1)",
+        "Heedless",
+        "Impact (WS)",
+        "Pain Engine",
+        "Power From Pain"
+      ],
       "unitRules": [],
       "cryptoArkana": false,
       "fixedArkana": null,
@@ -160,14 +297,30 @@
           "text": "Any model in this Unit may have any Macro-Scalpel exchanged for one of the following: -- Twin Liquifier Gun..........................+5 points -- Ichor Macro-Injector....................+10 points -- Chain Macro-Flails..........................+5 points -- Flesh Macro-Gauntlet.................. +20 points",
           "kind": "perModel",
           "model": "Talos",
-          "replaces": ["Macro-Scalpel"],
-          "choices": [
-            { "name": "Twin Liquifier Gun", "points": 5 },
-            { "name": "Ichor Macro-Injector", "points": 10 },
-            { "name": "Chain Macro-Flails", "points": 5 },
-            { "name": "Flesh Macro-Gauntlet", "points": 20 }
+          "replaces": [
+            "Macro-Scalpel"
           ],
-          "max": { "fixed": 2 },
+          "choices": [
+            {
+              "name": "Twin Liquifier Gun",
+              "points": 5
+            },
+            {
+              "name": "Ichor Macro-Injector",
+              "points": 10
+            },
+            {
+              "name": "Chain Macro-Flails",
+              "points": 5
+            },
+            {
+              "name": "Flesh Macro-Gauntlet",
+              "points": 20
+            }
+          ],
+          "max": {
+            "fixed": 2
+          },
           "perWeapon": true,
           "requires": null
         },
@@ -176,11 +329,22 @@
           "text": "Any model in this Unit may have its Twin Splinter Cannon exchange for one of the following: -- Twin Heat Lance............................+10 points -- Twin Haywire Blaster....................+10 points -- Stinger Pod........................................+5 points",
           "kind": "one",
           "model": "Talos",
-          "replaces": ["Twin Splinter Cannon"],
+          "replaces": [
+            "Twin Splinter Cannon"
+          ],
           "choices": [
-            { "name": "Twin Heat Lance", "points": 10 },
-            { "name": "Twin Haywire Blaster", "points": 10 },
-            { "name": "Stinger Pod", "points": 5 }
+            {
+              "name": "Twin Heat Lance",
+              "points": 10
+            },
+            {
+              "name": "Twin Haywire Blaster",
+              "points": 10
+            },
+            {
+              "name": "Stinger Pod",
+              "points": 5
+            }
           ],
           "max": null,
           "requires": null
@@ -203,15 +367,44 @@
           "min": 1,
           "max": 3,
           "costPerExtra": 125,
-          "profile": { "M": 8, "WS": 3, "BS": 4, "S": 7, "T": 7, "W": 5, "I": 2, "A": 4, "LD": 8, "CL": 12, "WP": 8, "IN": 4, "SAV": "3+", "INV": "5+" },
-          "wargear": ["2 Plasma-Disintegrator Cannons", "Twin Splinter Cannon"],
+          "profile": {
+            "M": 8,
+            "WS": 3,
+            "BS": 4,
+            "S": 7,
+            "T": 7,
+            "W": 5,
+            "I": 2,
+            "A": 4,
+            "LD": 8,
+            "CL": 12,
+            "WP": 8,
+            "IN": 4,
+            "SAV": "3+",
+            "INV": "5+"
+          },
+          "wargear": [
+            "2 Plasma-Disintegrator Cannons",
+            "Twin Splinter Cannon"
+          ],
           "unitType": "Infantry (Antigrav)",
           "specialRules": []
         }
       ],
-      "traits": ["Xenos", "Drukhari"],
+      "traits": [
+        "Xenos",
+        "Drukhari"
+      ],
       "fixedChoice": "Covens",
-      "specialRules": ["Bulky (7)", "Altered Physiology", "Fear (1)", "Heedless", "Impact (WS)", "Pain Engine", "Power From Pain"],
+      "specialRules": [
+        "Bulky (7)",
+        "Altered Physiology",
+        "Fear (1)",
+        "Heedless",
+        "Impact (WS)",
+        "Pain Engine",
+        "Power From Pain"
+      ],
       "unitRules": [],
       "cryptoArkana": false,
       "fixedArkana": null,
@@ -221,13 +414,26 @@
           "text": "Any model in this Unit may have any Plasma-Disintegrator Cannon exchanged for one of the following: -- Dark Lance........................................+5 points -- Void Lance....................................... +15 points -- Dark Scythe..................................... +15 points",
           "kind": "perModel",
           "model": "Uranos",
-          "replaces": ["Plasma-Disintegrator Cannon"],
-          "choices": [
-            { "name": "Dark Lance", "points": 5 },
-            { "name": "Void Lance", "points": 15 },
-            { "name": "Dark Scythe", "points": 15 }
+          "replaces": [
+            "Plasma-Disintegrator Cannon"
           ],
-          "max": { "fixed": 2 },
+          "choices": [
+            {
+              "name": "Dark Lance",
+              "points": 5
+            },
+            {
+              "name": "Void Lance",
+              "points": 15
+            },
+            {
+              "name": "Dark Scythe",
+              "points": 15
+            }
+          ],
+          "max": {
+            "fixed": 2
+          },
           "perWeapon": true,
           "requires": null
         }
@@ -249,15 +455,45 @@
           "min": 1,
           "max": 3,
           "costPerExtra": 105,
-          "profile": { "M": 8, "WS": 4, "BS": 3, "S": 7, "T": 7, "W": 5, "I": 2, "A": 5, "LD": 8, "CL": 12, "WP": 8, "IN": 4, "SAV": "3+", "INV": "–" },
-          "wargear": ["Leecher Tentacles", "Eyeburst", "Destructor Rifle"],
+          "profile": {
+            "M": 8,
+            "WS": 4,
+            "BS": 3,
+            "S": 7,
+            "T": 7,
+            "W": 5,
+            "I": 2,
+            "A": 5,
+            "LD": 8,
+            "CL": 12,
+            "WP": 8,
+            "IN": 4,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Leecher Tentacles",
+            "Eyeburst",
+            "Destructor Rifle"
+          ],
           "unitType": "Infantry (Antigrav)",
           "specialRules": []
         }
       ],
-      "traits": ["Xenos", "Drukhari"],
+      "traits": [
+        "Xenos",
+        "Drukhari"
+      ],
       "fixedChoice": "Covens",
-      "specialRules": ["Bulky (7)", "Altered Physiology", "Fear (1)", "Heedless", "Impact (WS)", "Pain Engine", "Power From Pain"],
+      "specialRules": [
+        "Bulky (7)",
+        "Altered Physiology",
+        "Fear (1)",
+        "Heedless",
+        "Impact (WS)",
+        "Pain Engine",
+        "Power From Pain"
+      ],
       "unitRules": [],
       "cryptoArkana": false,
       "fixedArkana": null,
@@ -279,17 +515,38 @@
           "min": 1,
           "max": 1,
           "costPerExtra": 0,
-          "profile": { "M": 18, "BS": 4, "FRONT": 11, "SIDE": 10, "REAR": 10, "HP": 5, "CAPACITY": 12 },
-          "wargear": ["Hull (front) mounted Plasma-Disintegrator Cannon"],
+          "profile": {
+            "M": 18,
+            "BS": 4,
+            "FRONT": 11,
+            "SIDE": 10,
+            "REAR": 10,
+            "HP": 5,
+            "CAPACITY": 12
+          },
+          "wargear": [
+            "Hull (front) mounted Plasma-Disintegrator Cannon"
+          ],
           "unitType": "Vehicle (Rapid, Skimmer, Transport)",
           "specialRules": []
         }
       ],
-      "traits": ["Xenos", "Drukhari", "Jink"],
+      "traits": [
+        "Xenos",
+        "Drukhari",
+        "Jink"
+      ],
       "factionChoice": true,
-      "specialRules": ["Assault Vehicle", "Deep Strike", "Firing Deck (front, left, right, 10)"],
+      "specialRules": [
+        "Assault Vehicle",
+        "Deep Strike",
+        "Firing Deck (front, left, right, 10)"
+      ],
       "unitRules": [
-        { "name": "Access Points", "text": "The entire hull of the Raider is counted as an Access Point." }
+        {
+          "name": "Access Points",
+          "text": "The entire hull of the Raider is counted as an Access Point."
+        }
       ],
       "cryptoArkana": false,
       "fixedArkana": null,
@@ -299,8 +556,15 @@
           "text": "May have its Plasma-Disintegrator Cannon exchanged for a Hull (front) mounted Dark Lance.............................................+5 points",
           "kind": "upgrade",
           "model": "Raider",
-          "replaces": ["Plasma-Disintegrator Cannon"],
-          "choices": [ { "name": "Dark Lance", "points": 5 } ],
+          "replaces": [
+            "Plasma-Disintegrator Cannon"
+          ],
+          "choices": [
+            {
+              "name": "Dark Lance",
+              "points": 5
+            }
+          ],
           "max": null,
           "requires": null
         },
@@ -311,8 +575,14 @@
           "model": "Raider",
           "replaces": [],
           "choices": [
-            { "name": "Chain-Snares", "points": 5 },
-            { "name": "Sicklevanes", "points": 10 }
+            {
+              "name": "Chain-Snares",
+              "points": 5
+            },
+            {
+              "name": "Sicklevanes",
+              "points": 10
+            }
           ],
           "max": null,
           "requires": null
@@ -324,12 +594,30 @@
           "model": "Raider",
           "replaces": [],
           "choices": [
-            { "name": "Enhanced Aethersails", "points": 10 },
-            { "name": "Grisly Trophies", "points": 15 },
-            { "name": "Hull (Left, Right) mounted Terrorfex Grenade Launcher", "points": 15 },
-            { "name": "Night Shield", "points": 10 },
-            { "name": "Shock Prow", "points": 5 },
-            { "name": "Splinter Racks", "points": 15 }
+            {
+              "name": "Enhanced Aethersails",
+              "points": 10
+            },
+            {
+              "name": "Grisly Trophies",
+              "points": 15
+            },
+            {
+              "name": "Hull (Left, Right) mounted Terrorfex Grenade Launcher",
+              "points": 15
+            },
+            {
+              "name": "Night Shield",
+              "points": 10
+            },
+            {
+              "name": "Shock Prow",
+              "points": 5
+            },
+            {
+              "name": "Splinter Racks",
+              "points": 15
+            }
           ],
           "max": null,
           "requires": null
@@ -352,17 +640,42 @@
           "min": 1,
           "max": 1,
           "costPerExtra": 0,
-          "profile": { "M": 20, "BS": 4, "FRONT": 10, "SIDE": 10, "REAR": 10, "HP": 3, "CAPACITY": 6 },
-          "wargear": ["Hull (front) mounted Twin Splinter Rifle", "Hull (front) mounted Splinter Cannon", "Bladevanes", "Flickerfield"],
+          "profile": {
+            "M": 20,
+            "BS": 4,
+            "FRONT": 10,
+            "SIDE": 10,
+            "REAR": 10,
+            "HP": 3,
+            "CAPACITY": 6
+          },
+          "wargear": [
+            "Hull (front) mounted Twin Splinter Rifle",
+            "Hull (front) mounted Splinter Cannon",
+            "Bladevanes",
+            "Flickerfield"
+          ],
           "unitType": "Vehicle (Rapid, Skimmer, Transport)",
           "specialRules": []
         }
       ],
-      "traits": ["Xenos", "Drukhari", "Jink"],
+      "traits": [
+        "Xenos",
+        "Drukhari",
+        "Jink"
+      ],
       "factionChoice": true,
-      "specialRules": ["Assault Vehicle", "Deep Strike", "Firing Deck (front, left, right, 5)", "Light Transport"],
+      "specialRules": [
+        "Assault Vehicle",
+        "Deep Strike",
+        "Firing Deck (front, left, right, 5)",
+        "Light Transport"
+      ],
       "unitRules": [
-        { "name": "Access Points", "text": "The entire hull of the Venom is counted as an Access Point." }
+        {
+          "name": "Access Points",
+          "text": "The entire hull of the Venom is counted as an Access Point."
+        }
       ],
       "cryptoArkana": false,
       "fixedArkana": null,
@@ -372,8 +685,15 @@
           "text": "May have its Twin Splinter Rifle exchanged for a Hull (front) mounted Splinter Cannon....................................+5 points",
           "kind": "upgrade",
           "model": "Venom",
-          "replaces": ["Twin Splinter Rifle"],
-          "choices": [ { "name": "Splinter Cannon", "points": 5 } ],
+          "replaces": [
+            "Twin Splinter Rifle"
+          ],
+          "choices": [
+            {
+              "name": "Splinter Cannon",
+              "points": 5
+            }
+          ],
           "max": null,
           "requires": null
         },
@@ -382,8 +702,15 @@
           "text": "May have one Splinter Cannon exchanged for a Hull (front) mounted Haywire Cannon.................................+10 points",
           "kind": "upgrade",
           "model": "Venom",
-          "replaces": ["Splinter Cannon"],
-          "choices": [ { "name": "Haywire Cannon", "points": 10 } ],
+          "replaces": [
+            "Splinter Cannon"
+          ],
+          "choices": [
+            {
+              "name": "Haywire Cannon",
+              "points": 10
+            }
+          ],
           "max": null,
           "requires": null
         },
@@ -392,8 +719,15 @@
           "text": "May have its Bladevanes exchanged for Chain-Snares.........................................+5 points",
           "kind": "upgrade",
           "model": "Venom",
-          "replaces": ["Bladevanes"],
-          "choices": [ { "name": "Chain-Snares", "points": 5 } ],
+          "replaces": [
+            "Bladevanes"
+          ],
+          "choices": [
+            {
+              "name": "Chain-Snares",
+              "points": 5
+            }
+          ],
           "max": null,
           "requires": null
         },
@@ -403,7 +737,12 @@
           "kind": "upgrade",
           "model": "Venom",
           "replaces": [],
-          "choices": [ { "name": "Grisly Trophies", "points": 15 } ],
+          "choices": [
+            {
+              "name": "Grisly Trophies",
+              "points": 15
+            }
+          ],
           "max": null,
           "requires": null
         }
@@ -425,17 +764,41 @@
           "min": 1,
           "max": 1,
           "costPerExtra": 0,
-          "profile": { "M": 18, "BS": 4, "FRONT": 12, "SIDE": 12, "REAR": 10, "HP": 12, "CAPACITY": 18 },
-          "wargear": ["2 Centreline mounted Pulse Disintegrator Cannons", "Enhanced Aethersails", "Flickerfield", "Scythevanes"],
+          "profile": {
+            "M": 18,
+            "BS": 4,
+            "FRONT": 12,
+            "SIDE": 12,
+            "REAR": 10,
+            "HP": 12,
+            "CAPACITY": 18
+          },
+          "wargear": [
+            "2 Centreline mounted Pulse Disintegrator Cannons",
+            "Enhanced Aethersails",
+            "Flickerfield",
+            "Scythevanes"
+          ],
           "unitType": "Vehicle (Rapid, Skimmer, Transport)",
           "specialRules": []
         }
       ],
-      "traits": ["Xenos", "Drukhari", "Jink"],
+      "traits": [
+        "Xenos",
+        "Drukhari",
+        "Jink"
+      ],
       "fixedChoice": "Kabals",
-      "specialRules": ["Assault Vehicle", "Deep Strike", "Firing Deck (front, left, right, 16)"],
+      "specialRules": [
+        "Assault Vehicle",
+        "Deep Strike",
+        "Firing Deck (front, left, right, 16)"
+      ],
       "unitRules": [
-        { "name": "Access Points", "text": "The entire hull of the Tantalos is counted as an Access Point." }
+        {
+          "name": "Access Points",
+          "text": "The entire hull of the Tantalos is counted as an Access Point."
+        }
       ],
       "cryptoArkana": false,
       "fixedArkana": null,
@@ -447,9 +810,18 @@
           "model": "Tantalos",
           "replaces": [],
           "choices": [
-            { "name": "Grisly Trophies", "points": 15 },
-            { "name": "Hull (Left, Right) mounted Terrorfex Grenade Launcher", "points": 15 },
-            { "name": "Splinter Racks", "points": 15 }
+            {
+              "name": "Grisly Trophies",
+              "points": 15
+            },
+            {
+              "name": "Hull (Left, Right) mounted Terrorfex Grenade Launcher",
+              "points": 15
+            },
+            {
+              "name": "Splinter Racks",
+              "points": 15
+            }
           ],
           "max": null,
           "requires": null
@@ -472,8 +844,26 @@
           "min": 4,
           "max": 19,
           "costPerExtra": 10,
-          "profile": { "M": 7, "WS": 4, "BS": 4, "S": 4, "T": 3, "W": 1, "I": 5, "A": 2, "LD": 7, "CL": 8, "WP": 8, "IN": 7, "SAV": "–", "INV": "–" },
-          "wargear": ["Glimmersteel Blade", "Baleblast"],
+          "profile": {
+            "M": 7,
+            "WS": 4,
+            "BS": 4,
+            "S": 4,
+            "T": 3,
+            "W": 1,
+            "I": 5,
+            "A": 2,
+            "LD": 7,
+            "CL": 8,
+            "WP": 8,
+            "IN": 7,
+            "SAV": "–",
+            "INV": "–"
+          },
+          "wargear": [
+            "Glimmersteel Blade",
+            "Baleblast"
+          ],
           "unitType": "Infantry (Light, Skirmish)",
           "specialRules": []
         },
@@ -482,14 +872,44 @@
           "min": 1,
           "max": 1,
           "costPerExtra": 0,
-          "profile": { "M": 7, "WS": 4, "BS": 4, "S": 4, "T": 3, "W": 1, "I": 5, "A": 3, "LD": 8, "CL": 8, "WP": 8, "IN": 7, "SAV": "–", "INV": "–" },
-          "wargear": ["Glimmersteel Blade", "Baleblast"],
+          "profile": {
+            "M": 7,
+            "WS": 4,
+            "BS": 4,
+            "S": 4,
+            "T": 3,
+            "W": 1,
+            "I": 5,
+            "A": 3,
+            "LD": 8,
+            "CL": 8,
+            "WP": 8,
+            "IN": 7,
+            "SAV": "–",
+            "INV": "–"
+          },
+          "wargear": [
+            "Glimmersteel Blade",
+            "Baleblast"
+          ],
           "unitType": "Infantry (Light, Sergeant, Skirmish)",
           "specialRules": []
         }
       ],
-      "traits": ["Xenos", "Drukhari", "Jink"],
-      "specialRules": ["Fast (2)", "Fear (1)", "Infiltrate (9)", "Move Through Cover", "Power From Pain", "Shrouded (4+)", "Take Heads"],
+      "traits": [
+        "Xenos",
+        "Drukhari",
+        "Jink"
+      ],
+      "specialRules": [
+        "Fast (2)",
+        "Fear (1)",
+        "Infiltrate (9)",
+        "Move Through Cover",
+        "Power From Pain",
+        "Shrouded (4+)",
+        "Take Heads"
+      ],
       "unitRules": [],
       "cryptoArkana": false,
       "fixedArkana": null,
@@ -499,11 +919,22 @@
           "text": "The Nightfiend may have its Glimmersteel Blade exchanged for one of the following: -- Huskblade........................................ +15 points -- Power Sword...................................+10 points -- Venom Blade....................................+5 points",
           "kind": "one",
           "model": "Nightfiend",
-          "replaces": ["Glimmersteel Blade"],
+          "replaces": [
+            "Glimmersteel Blade"
+          ],
           "choices": [
-            { "name": "Huskblade", "points": 15 },
-            { "name": "Power Sword", "points": 10 },
-            { "name": "Venom Blade", "points": 5 }
+            {
+              "name": "Huskblade",
+              "points": 15
+            },
+            {
+              "name": "Power Sword",
+              "points": 10
+            },
+            {
+              "name": "Venom Blade",
+              "points": 5
+            }
           ],
           "max": null,
           "requires": null
@@ -526,8 +957,27 @@
           "min": 2,
           "max": 9,
           "costPerExtra": 20,
-          "profile": { "M": 18, "WS": 4, "BS": 4, "S": 3, "T": 3, "W": 2, "I": 6, "A": 1, "LD": 7, "CL": 7, "WP": 6, "IN": 7, "SAV": "4+", "INV": "–" },
-          "wargear": ["Splinter Rifle", "Splinter Pistol", "Bladevanes (2)"],
+          "profile": {
+            "M": 18,
+            "WS": 4,
+            "BS": 4,
+            "S": 3,
+            "T": 3,
+            "W": 2,
+            "I": 6,
+            "A": 1,
+            "LD": 7,
+            "CL": 7,
+            "WP": 6,
+            "IN": 7,
+            "SAV": "4+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Splinter Rifle",
+            "Splinter Pistol",
+            "Bladevanes (2)"
+          ],
           "unitType": "Cavalry (Antigrav, Light)",
           "specialRules": []
         },
@@ -536,16 +986,49 @@
           "min": 1,
           "max": 1,
           "costPerExtra": 0,
-          "profile": { "M": 18, "WS": 4, "BS": 4, "S": 3, "T": 3, "W": 2, "I": 6, "A": 2, "LD": 8, "CL": 7, "WP": 6, "IN": 7, "SAV": "4+", "INV": "–" },
-          "wargear": ["Splinter Rifle", "Splinter Pistol", "Bladevanes (2)"],
+          "profile": {
+            "M": 18,
+            "WS": 4,
+            "BS": 4,
+            "S": 3,
+            "T": 3,
+            "W": 2,
+            "I": 6,
+            "A": 2,
+            "LD": 8,
+            "CL": 7,
+            "WP": 6,
+            "IN": 7,
+            "SAV": "4+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Splinter Rifle",
+            "Splinter Pistol",
+            "Bladevanes (2)"
+          ],
           "unitType": "Cavalry (Antigrav, Light)",
           "specialRules": []
         }
       ],
-      "traits": ["Xenos", "Drukhari", "Jink"],
+      "traits": [
+        "Xenos",
+        "Drukhari",
+        "Jink"
+      ],
       "fixedChoice": "Cults",
       "combatDrugs": true,
-      "specialRules": ["Bulky (2)", "Deep Strike", "Fast (2)", "Firing Protocols (2)", "Implacable Advance", "Outflank", "Power from Pain", "Shrouded (5+)", "Take Heads"],
+      "specialRules": [
+        "Bulky (2)",
+        "Deep Strike",
+        "Fast (2)",
+        "Firing Protocols (2)",
+        "Implacable Advance",
+        "Outflank",
+        "Power from Pain",
+        "Shrouded (5+)",
+        "Take Heads"
+      ],
       "unitRules": [],
       "cryptoArkana": false,
       "fixedArkana": null,
@@ -556,8 +1039,15 @@
           "kind": "perModel",
           "model": "Reaver",
           "replaces": [],
-          "choices": [ { "name": "Gang Banner", "points": 10 } ],
-          "max": { "fixed": 1 },
+          "choices": [
+            {
+              "name": "Gang Banner",
+              "points": 10
+            }
+          ],
+          "max": {
+            "fixed": 1
+          },
           "requires": null
         },
         {
@@ -565,12 +1055,23 @@
           "text": "For every 3 Models in this Unit, 1 Reaver may have its Splinter Rifle exchanged one of the following: -- Blaster.....................................+15 points each -- Heat Lance.............................+15 points each",
           "kind": "perModel",
           "model": "Reaver",
-          "replaces": ["Splinter Rifle"],
-          "choices": [
-            { "name": "Blaster", "points": 15 },
-            { "name": "Heat Lance", "points": 15 }
+          "replaces": [
+            "Splinter Rifle"
           ],
-          "max": { "per": 3, "count": 1 },
+          "choices": [
+            {
+              "name": "Blaster",
+              "points": 15
+            },
+            {
+              "name": "Heat Lance",
+              "points": 15
+            }
+          ],
+          "max": {
+            "per": 3,
+            "count": 1
+          },
           "requires": null
         },
         {
@@ -580,10 +1081,19 @@
           "model": "Reaver",
           "replaces": [],
           "choices": [
-            { "name": "Cluster Caltrops (3)", "points": 10 },
-            { "name": "Grav-Talon (3)", "points": 10 }
+            {
+              "name": "Cluster Caltrops (3)",
+              "points": 10
+            },
+            {
+              "name": "Grav-Talon (3)",
+              "points": 10
+            }
           ],
-          "max": { "per": 3, "count": 1 },
+          "max": {
+            "per": 3,
+            "count": 1
+          },
           "requires": null
         },
         {
@@ -591,8 +1101,14 @@
           "text": "The Arena Champion may have its Splinter Pistol exchanged for an item from the Drukhari Pistols List.",
           "kind": "one",
           "model": "Arena Champion",
-          "replaces": ["Splinter Pistol"],
-          "choices": [ { "list": "drukhari-pistols" } ],
+          "replaces": [
+            "Splinter Pistol"
+          ],
+          "choices": [
+            {
+              "list": "drukhari-pistols"
+            }
+          ],
           "max": null,
           "requires": null
         },
@@ -602,7 +1118,11 @@
           "kind": "one",
           "model": "Arena Champion",
           "replaces": [],
-          "choices": [ { "list": "gang-leader-wargear" } ],
+          "choices": [
+            {
+              "list": "gang-leader-wargear"
+            }
+          ],
           "max": null,
           "requires": null
         }
@@ -624,8 +1144,26 @@
           "min": 4,
           "max": 19,
           "costPerExtra": 10,
-          "profile": { "M": 16, "WS": 4, "BS": 4, "S": 3, "T": 3, "W": 1, "I": 6, "A": 1, "LD": 7, "CL": 7, "WP": 6, "IN": 7, "SAV": "5+", "INV": "–" },
-          "wargear": ["Hellglaive", "Splinter Pod"],
+          "profile": {
+            "M": 16,
+            "WS": 4,
+            "BS": 4,
+            "S": 3,
+            "T": 3,
+            "W": 1,
+            "I": 6,
+            "A": 1,
+            "LD": 7,
+            "CL": 7,
+            "WP": 6,
+            "IN": 7,
+            "SAV": "5+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Hellglaive",
+            "Splinter Pod"
+          ],
           "unitType": "Cavalry (Antigrav, Light, Skirmish)",
           "specialRules": []
         },
@@ -634,16 +1172,48 @@
           "min": 1,
           "max": 1,
           "costPerExtra": 0,
-          "profile": { "M": 16, "WS": 4, "BS": 4, "S": 3, "T": 3, "W": 1, "I": 6, "A": 2, "LD": 8, "CL": 7, "WP": 6, "IN": 7, "SAV": "5+", "INV": "–" },
-          "wargear": ["Hellglaive", "Splinter Pod"],
+          "profile": {
+            "M": 16,
+            "WS": 4,
+            "BS": 4,
+            "S": 3,
+            "T": 3,
+            "W": 1,
+            "I": 6,
+            "A": 2,
+            "LD": 8,
+            "CL": 7,
+            "WP": 6,
+            "IN": 7,
+            "SAV": "5+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Hellglaive",
+            "Splinter Pod"
+          ],
           "unitType": "Cavalry (Antigrav, Light, Skirmish)",
           "specialRules": []
         }
       ],
-      "traits": ["Xenos", "Drukhari", "Jink"],
+      "traits": [
+        "Xenos",
+        "Drukhari",
+        "Jink"
+      ],
       "fixedChoice": "Cults",
       "combatDrugs": true,
-      "specialRules": ["Bulky (2)", "Deep Strike", "Dodge (5+)", "Fast (2)", "Firing Protocols (2)", "Firestorm", "Outflank", "Power from Pain", "Take Captives"],
+      "specialRules": [
+        "Bulky (2)",
+        "Deep Strike",
+        "Dodge (5+)",
+        "Fast (2)",
+        "Firing Protocols (2)",
+        "Firestorm",
+        "Outflank",
+        "Power from Pain",
+        "Take Captives"
+      ],
       "unitRules": [],
       "cryptoArkana": false,
       "fixedArkana": null,
@@ -654,8 +1224,15 @@
           "kind": "perModel",
           "model": "Hellion",
           "replaces": [],
-          "choices": [ { "name": "Gang Banner", "points": 10 } ],
-          "max": { "fixed": 1 },
+          "choices": [
+            {
+              "name": "Gang Banner",
+              "points": 10
+            }
+          ],
+          "max": {
+            "fixed": 1
+          },
           "requires": null
         },
         {
@@ -663,9 +1240,18 @@
           "text": "For every 5 Models in this Unit, 1 Hellion may have its Hellglaive exchanged for an Item from the Special Weapons List.",
           "kind": "perModel",
           "model": "Hellion",
-          "replaces": ["Hellglaive"],
-          "choices": [ { "list": "drukhari-special-weapons" } ],
-          "max": { "per": 5, "count": 1 },
+          "replaces": [
+            "Hellglaive"
+          ],
+          "choices": [
+            {
+              "list": "drukhari-special-weapons"
+            }
+          ],
+          "max": {
+            "per": 5,
+            "count": 1
+          },
           "requires": null
         },
         {
@@ -673,10 +1259,17 @@
           "text": "The Helliarch may have its Hellglaive exchanged for a Stunclaw for +5 points or an Item from the Gang Leader Wargear List. If this option is selected, the Helliarch also receives a Splinter Pistol for free.",
           "kind": "one",
           "model": "Arena Champion",
-          "replaces": ["Hellglaive"],
+          "replaces": [
+            "Hellglaive"
+          ],
           "choices": [
-            { "name": "Stunclaw", "points": 5 },
-            { "list": "gang-leader-wargear" }
+            {
+              "name": "Stunclaw",
+              "points": 5
+            },
+            {
+              "list": "gang-leader-wargear"
+            }
           ],
           "max": null,
           "requires": null
@@ -686,8 +1279,14 @@
           "text": "The Helliarch may have any Splinter Pistol exchanged for an Item from the Drukhari Pistols list.",
           "kind": "one",
           "model": "Arena Champion",
-          "replaces": ["Splinter Pistol"],
-          "choices": [ { "list": "drukhari-pistols" } ],
+          "replaces": [
+            "Splinter Pistol"
+          ],
+          "choices": [
+            {
+              "list": "drukhari-pistols"
+            }
+          ],
           "max": null,
           "requires": "helliarch-melee"
         }
@@ -709,15 +1308,33 @@
           "min": 1,
           "max": 1,
           "costPerExtra": 0,
-          "profile": { "M": 24, "BS": 4, "FRONT": 11, "SIDE": 11, "REAR": 11, "HP": 5, "CAPACITY": "–" },
-          "wargear": ["1 Centreline Mounted Twin Splinter Rifle", "2 Centreline Mounted Plasma-Disintegrator Cannons", "4 Hull (Front) Mounted Monoscythe Missiles"],
+          "profile": {
+            "M": 24,
+            "BS": 4,
+            "FRONT": 11,
+            "SIDE": 11,
+            "REAR": 11,
+            "HP": 5,
+            "CAPACITY": "–"
+          },
+          "wargear": [
+            "1 Centreline Mounted Twin Splinter Rifle",
+            "2 Centreline Mounted Plasma-Disintegrator Cannons",
+            "4 Hull (Front) Mounted Monoscythe Missiles"
+          ],
           "unitType": "Vehicle (Flyer)",
           "specialRules": []
         }
       ],
-      "traits": ["Xenos", "Drukhari", "Interceptor"],
+      "traits": [
+        "Xenos",
+        "Drukhari",
+        "Interceptor"
+      ],
       "fixedChoice": "Cults",
-      "specialRules": ["Predator's Sight"],
+      "specialRules": [
+        "Predator's Sight"
+      ],
       "unitRules": [],
       "cryptoArkana": false,
       "fixedArkana": null,
@@ -727,8 +1344,15 @@
           "text": "May have 1 Twin Splinter Rifle exchanged for 1 Centreline Mounted Splinter Cannon for +5 points.",
           "kind": "upgrade",
           "model": "Razorwing",
-          "replaces": ["Twin Splinter Rifle"],
-          "choices": [ { "name": "Splinter Cannon", "points": 5 } ],
+          "replaces": [
+            "Twin Splinter Rifle"
+          ],
+          "choices": [
+            {
+              "name": "Splinter Cannon",
+              "points": 5
+            }
+          ],
           "max": null,
           "requires": null
         },
@@ -737,8 +1361,15 @@
           "text": "May have 2 Plasma-Disintegrator Cannons exchanged for 2 Centreline Mounted Dark Lances for +10 points.",
           "kind": "upgrade",
           "model": "Razorwing",
-          "replaces": ["Plasma-Disintegrator Cannon"],
-          "choices": [ { "name": "2 Dark Lances", "points": 10 } ],
+          "replaces": [
+            "Plasma-Disintegrator Cannon"
+          ],
+          "choices": [
+            {
+              "name": "2 Dark Lances",
+              "points": 10
+            }
+          ],
           "max": null,
           "requires": null
         },
@@ -748,7 +1379,12 @@
           "kind": "upgrade",
           "model": "Razorwing",
           "replaces": [],
-          "choices": [ { "name": "Night Shield", "points": 10 } ],
+          "choices": [
+            {
+              "name": "Night Shield",
+              "points": 10
+            }
+          ],
           "max": null,
           "requires": null
         },
@@ -757,12 +1393,22 @@
           "text": "May have any Monoscythe Missile exchanged for one of the following: -- 1 Hull (Front) Mounted Necrotoxin Missile....................................free -- 1 Hull (Front) Mounted Shatterfield Missile................ +5 points each",
           "kind": "perModel",
           "model": "Razorwing",
-          "replaces": ["Monoscythe Missile"],
-          "choices": [
-            { "name": "Necrotoxin Missile", "points": 0 },
-            { "name": "Shatterfield Missile", "points": 5 }
+          "replaces": [
+            "Monoscythe Missile"
           ],
-          "max": { "fixed": 4 },
+          "choices": [
+            {
+              "name": "Necrotoxin Missile",
+              "points": 0
+            },
+            {
+              "name": "Shatterfield Missile",
+              "points": 5
+            }
+          ],
+          "max": {
+            "fixed": 4
+          },
           "perWeapon": true,
           "requires": null
         }
@@ -784,15 +1430,31 @@
           "min": 1,
           "max": 1,
           "costPerExtra": 0,
-          "profile": { "M": 22, "BS": 4, "FRONT": 11, "SIDE": 11, "REAR": 11, "HP": 6, "CAPACITY": "–" },
-          "wargear": ["2 Centreline Mounted Void Lances", "1 Rear Centreline Mounted Void Mine"],
+          "profile": {
+            "M": 22,
+            "BS": 4,
+            "FRONT": 11,
+            "SIDE": 11,
+            "REAR": 11,
+            "HP": 6,
+            "CAPACITY": "–"
+          },
+          "wargear": [
+            "2 Centreline Mounted Void Lances",
+            "1 Rear Centreline Mounted Void Mine"
+          ],
           "unitType": "Vehicle (Flyer)",
           "specialRules": []
         }
       ],
-      "traits": ["Xenos", "Drukhari"],
+      "traits": [
+        "Xenos",
+        "Drukhari"
+      ],
       "fixedChoice": "Cults",
-      "specialRules": ["Predator's Sight"],
+      "specialRules": [
+        "Predator's Sight"
+      ],
       "unitRules": [],
       "cryptoArkana": false,
       "fixedArkana": null,
@@ -802,8 +1464,15 @@
           "text": "May have 2 Void Lances exchanged for 2 Centreline Mounted Dark Scythes for free.",
           "kind": "upgrade",
           "model": "Voidraven",
-          "replaces": ["Void Lance"],
-          "choices": [ { "name": "2 Dark Scythes", "points": 0 } ],
+          "replaces": [
+            "Void Lance"
+          ],
+          "choices": [
+            {
+              "name": "2 Dark Scythes",
+              "points": 0
+            }
+          ],
           "max": null,
           "requires": null
         },
@@ -812,8 +1481,15 @@
           "text": "May have 1 Void Mine exchanged for a Rear Centreline Mounted Horrorfex Bomb for +20 points.",
           "kind": "upgrade",
           "model": "Voidraven",
-          "replaces": ["Void Mine"],
-          "choices": [ { "name": "Horrorfex Bomb", "points": 20 } ],
+          "replaces": [
+            "Void Mine"
+          ],
+          "choices": [
+            {
+              "name": "Horrorfex Bomb",
+              "points": 20
+            }
+          ],
           "max": null,
           "requires": null
         },
@@ -823,7 +1499,12 @@
           "kind": "upgrade",
           "model": "Voidraven",
           "replaces": [],
-          "choices": [ { "name": "Night Shield", "points": 10 } ],
+          "choices": [
+            {
+              "name": "Night Shield",
+              "points": 10
+            }
+          ],
           "max": null,
           "requires": null
         },
@@ -834,9 +1515,18 @@
           "model": "Voidraven",
           "replaces": [],
           "choices": [
-            { "name": "4 Hull (Front) Mounted Shatterfield Missiles", "points": 30 },
-            { "name": "2 Hull (Front) Mounted Shatterfield Missiles and 2 Hull (Front) Mounted Implosion Missiles", "points": 40 },
-            { "name": "4 Hull (Front) Mounted Implosion Missiles", "points": 50 }
+            {
+              "name": "4 Hull (Front) Mounted Shatterfield Missiles",
+              "points": 30
+            },
+            {
+              "name": "2 Hull (Front) Mounted Shatterfield Missiles and 2 Hull (Front) Mounted Implosion Missiles",
+              "points": 40
+            },
+            {
+              "name": "4 Hull (Front) Mounted Implosion Missiles",
+              "points": 50
+            }
           ],
           "max": null,
           "requires": null
@@ -859,15 +1549,32 @@
           "min": 1,
           "max": 1,
           "costPerExtra": 0,
-          "profile": { "M": 20, "BS": 4, "FRONT": 11, "SIDE": 11, "REAR": 11, "HP": 5, "CAPACITY": "–" },
-          "wargear": ["1 Centreline Mounted Splinterstorm Cannon", "2 Centreline Mounted Dark Lances"],
+          "profile": {
+            "M": 20,
+            "BS": 4,
+            "FRONT": 11,
+            "SIDE": 11,
+            "REAR": 11,
+            "HP": 5,
+            "CAPACITY": "–"
+          },
+          "wargear": [
+            "1 Centreline Mounted Splinterstorm Cannon",
+            "2 Centreline Mounted Dark Lances"
+          ],
           "unitType": "Vehicle (Flyer)",
           "specialRules": []
         }
       ],
-      "traits": ["Xenos", "Drukhari", "Interceptor"],
+      "traits": [
+        "Xenos",
+        "Drukhari",
+        "Interceptor"
+      ],
       "fixedChoice": "Cults",
-      "specialRules": ["Predator's Sight"],
+      "specialRules": [
+        "Predator's Sight"
+      ],
       "unitRules": [],
       "cryptoArkana": false,
       "fixedArkana": null,
@@ -878,7 +1585,12 @@
           "kind": "upgrade",
           "model": "Raven",
           "replaces": [],
-          "choices": [ { "name": "Night Shield", "points": 10 } ],
+          "choices": [
+            {
+              "name": "Night Shield",
+              "points": 10
+            }
+          ],
           "max": null,
           "requires": null
         }
@@ -900,14 +1612,30 @@
           "min": 1,
           "max": 1,
           "costPerExtra": 0,
-          "profile": { "M": 18, "BS": 4, "FRONT": 12, "SIDE": 11, "REAR": 10, "HP": 5, "CAPACITY": "–" },
-          "wargear": ["3 Hull (front) mounted Plasma-Disintegrator Cannons"],
+          "profile": {
+            "M": 18,
+            "BS": 4,
+            "FRONT": 12,
+            "SIDE": 11,
+            "REAR": 10,
+            "HP": 5,
+            "CAPACITY": "–"
+          },
+          "wargear": [
+            "3 Hull (front) mounted Plasma-Disintegrator Cannons"
+          ],
           "unitType": "Vehicle (Rapid, Skimmer)",
           "specialRules": []
         }
       ],
-      "traits": ["Xenos", "Drukhari", "Jink"],
-      "specialRules": ["Deep Strike"],
+      "traits": [
+        "Xenos",
+        "Drukhari",
+        "Jink"
+      ],
+      "specialRules": [
+        "Deep Strike"
+      ],
       "unitRules": [],
       "cryptoArkana": false,
       "fixedArkana": null,
@@ -917,9 +1645,18 @@
           "text": "May have any Plasma-Disintegrator Cannon exchanged for a Hull (front) mounted Dark Lance................................... +5 points each",
           "kind": "perModel",
           "model": "Ravager",
-          "replaces": ["Plasma-Disintegrator Cannon"],
-          "choices": [ { "name": "Dark Lance", "points": 5 } ],
-          "max": { "fixed": 3 },
+          "replaces": [
+            "Plasma-Disintegrator Cannon"
+          ],
+          "choices": [
+            {
+              "name": "Dark Lance",
+              "points": 5
+            }
+          ],
+          "max": {
+            "fixed": 3
+          },
           "perWeapon": true,
           "requires": null
         },
@@ -930,8 +1667,14 @@
           "model": "Ravager",
           "replaces": [],
           "choices": [
-            { "name": "Chain-Snares", "points": 5 },
-            { "name": "Sicklevanes", "points": 10 }
+            {
+              "name": "Chain-Snares",
+              "points": 5
+            },
+            {
+              "name": "Sicklevanes",
+              "points": 10
+            }
           ],
           "max": null,
           "requires": null
@@ -943,11 +1686,26 @@
           "model": "Ravager",
           "replaces": [],
           "choices": [
-            { "name": "Enhanced Aethersails", "points": 10 },
-            { "name": "Grisly Trophies", "points": 15 },
-            { "name": "Hull (Left, Right) mounted Terrorfex Grenade Launcher", "points": 15 },
-            { "name": "Night Shield", "points": 10 },
-            { "name": "Shock Prow", "points": 5 }
+            {
+              "name": "Enhanced Aethersails",
+              "points": 10
+            },
+            {
+              "name": "Grisly Trophies",
+              "points": 15
+            },
+            {
+              "name": "Hull (Left, Right) mounted Terrorfex Grenade Launcher",
+              "points": 15
+            },
+            {
+              "name": "Night Shield",
+              "points": 10
+            },
+            {
+              "name": "Shock Prow",
+              "points": 5
+            }
           ],
           "max": null,
           "requires": null
@@ -970,14 +1728,31 @@
           "min": 1,
           "max": 1,
           "costPerExtra": 0,
-          "profile": { "M": 18, "BS": 4, "FRONT": 12, "SIDE": 11, "REAR": 11, "HP": 5, "CAPACITY": "–" },
-          "wargear": ["1 Centreline mounted Storm Vortex Projector", "Shock Prow"],
+          "profile": {
+            "M": 18,
+            "BS": 4,
+            "FRONT": 12,
+            "SIDE": 11,
+            "REAR": 11,
+            "HP": 5,
+            "CAPACITY": "–"
+          },
+          "wargear": [
+            "1 Centreline mounted Storm Vortex Projector",
+            "Shock Prow"
+          ],
           "unitType": "Vehicle (Rapid, Skimmer)",
           "specialRules": []
         }
       ],
-      "traits": ["Xenos", "Drukhari", "Jink"],
-      "specialRules": ["Deep Strike"],
+      "traits": [
+        "Xenos",
+        "Drukhari",
+        "Jink"
+      ],
+      "specialRules": [
+        "Deep Strike"
+      ],
       "unitRules": [],
       "cryptoArkana": false,
       "fixedArkana": null,
@@ -987,8 +1762,15 @@
           "text": "May have its Storm Vortex Projector exchanged for a Centreline mounted Horrorfex for free",
           "kind": "upgrade",
           "model": "Reaper",
-          "replaces": ["Storm Vortex Projector"],
-          "choices": [ { "name": "Horrorfex", "points": 0 } ],
+          "replaces": [
+            "Storm Vortex Projector"
+          ],
+          "choices": [
+            {
+              "name": "Horrorfex",
+              "points": 0
+            }
+          ],
           "max": null,
           "requires": null
         },
@@ -999,8 +1781,14 @@
           "model": "Reaper",
           "replaces": [],
           "choices": [
-            { "name": "Chain-Snares", "points": 5 },
-            { "name": "Sicklevanes", "points": 10 }
+            {
+              "name": "Chain-Snares",
+              "points": 5
+            },
+            {
+              "name": "Sicklevanes",
+              "points": 10
+            }
           ],
           "max": null,
           "requires": null
@@ -1012,10 +1800,22 @@
           "model": "Reaper",
           "replaces": [],
           "choices": [
-            { "name": "Enhanced Aethersails", "points": 10 },
-            { "name": "Grisly Trophies", "points": 15 },
-            { "name": "Hull (Left, Right) mounted Terrorfex Grenade Launcher", "points": 15 },
-            { "name": "Night Shield", "points": 10 }
+            {
+              "name": "Enhanced Aethersails",
+              "points": 10
+            },
+            {
+              "name": "Grisly Trophies",
+              "points": 15
+            },
+            {
+              "name": "Hull (Left, Right) mounted Terrorfex Grenade Launcher",
+              "points": 15
+            },
+            {
+              "name": "Night Shield",
+              "points": 10
+            }
           ],
           "max": null,
           "requires": null
@@ -1038,14 +1838,31 @@
           "min": 1,
           "max": 1,
           "costPerExtra": 0,
-          "profile": { "M": 16, "BS": 4, "FRONT": 13, "SIDE": 12, "REAR": 10, "HP": 6, "CAPACITY": "–" },
-          "wargear": ["1 Centreline mounted Gatling Dark Lance", "1 Centreline mounted Splinter Cannon Battery"],
+          "profile": {
+            "M": 16,
+            "BS": 4,
+            "FRONT": 13,
+            "SIDE": 12,
+            "REAR": 10,
+            "HP": 6,
+            "CAPACITY": "–"
+          },
+          "wargear": [
+            "1 Centreline mounted Gatling Dark Lance",
+            "1 Centreline mounted Splinter Cannon Battery"
+          ],
           "unitType": "Vehicle (Rapid, Skimmer)",
           "specialRules": []
         }
       ],
-      "traits": ["Xenos", "Drukhari", "Jink"],
-      "specialRules": ["Deep Strike"],
+      "traits": [
+        "Xenos",
+        "Drukhari",
+        "Jink"
+      ],
+      "specialRules": [
+        "Deep Strike"
+      ],
       "unitRules": [],
       "cryptoArkana": false,
       "fixedArkana": null,
@@ -1055,8 +1872,15 @@
           "text": "May have its Gatling Dark Lance exchanged for a Centreline mounted Furnace Lance.....................................+10 points",
           "kind": "upgrade",
           "model": "Rampage",
-          "replaces": ["Gatling Dark Lance"],
-          "choices": [ { "name": "Furnace Lance", "points": 10 } ],
+          "replaces": [
+            "Gatling Dark Lance"
+          ],
+          "choices": [
+            {
+              "name": "Furnace Lance",
+              "points": 10
+            }
+          ],
           "max": null,
           "requires": null
         },
@@ -1067,8 +1891,14 @@
           "model": "Rampage",
           "replaces": [],
           "choices": [
-            { "name": "Chain-Snares", "points": 5 },
-            { "name": "Sicklevanes", "points": 10 }
+            {
+              "name": "Chain-Snares",
+              "points": 5
+            },
+            {
+              "name": "Sicklevanes",
+              "points": 10
+            }
           ],
           "max": null,
           "requires": null
@@ -1080,10 +1910,22 @@
           "model": "Rampage",
           "replaces": [],
           "choices": [
-            { "name": "Enhanced Aethersails", "points": 10 },
-            { "name": "Grisly Trophies", "points": 15 },
-            { "name": "Hull (Left, Right) mounted Terrorfex Grenade Launcher", "points": 15 },
-            { "name": "Night Shield", "points": 10 }
+            {
+              "name": "Enhanced Aethersails",
+              "points": 10
+            },
+            {
+              "name": "Grisly Trophies",
+              "points": 15
+            },
+            {
+              "name": "Hull (Left, Right) mounted Terrorfex Grenade Launcher",
+              "points": 15
+            },
+            {
+              "name": "Night Shield",
+              "points": 10
+            }
           ],
           "max": null,
           "requires": null
@@ -1106,15 +1948,35 @@
           "min": 1,
           "max": 1,
           "costPerExtra": 0,
-          "profile": { "M": 18, "BS": 4, "FRONT": 13, "SIDE": 11, "REAR": 11, "HP": 16, "CAPACITY": "–" },
-          "wargear": ["1 Centreline mounted Annhihilation Lance", "2 Hull (front) mounted Void Lances", "2 Hull (front) mounted Plasma-Disintegrators", "3 Hull (front) mounted Splinter Cannons"],
+          "profile": {
+            "M": 18,
+            "BS": 4,
+            "FRONT": 13,
+            "SIDE": 11,
+            "REAR": 11,
+            "HP": 16,
+            "CAPACITY": "–"
+          },
+          "wargear": [
+            "1 Centreline mounted Annhihilation Lance",
+            "2 Hull (front) mounted Void Lances",
+            "2 Hull (front) mounted Plasma-Disintegrators",
+            "3 Hull (front) mounted Splinter Cannons"
+          ],
           "unitType": "Vehicle (Superheavy, Rapid, Skimmer)",
           "specialRules": []
         }
       ],
-      "traits": ["Xenos", "Drukhari", "Jink"],
+      "traits": [
+        "Xenos",
+        "Drukhari",
+        "Jink"
+      ],
       "fixedChoice": "Kabals",
-      "specialRules": ["Deep Strike", "Phantom Shields (2)"],
+      "specialRules": [
+        "Deep Strike",
+        "Phantom Shields (2)"
+      ],
       "unitRules": [],
       "cryptoArkana": false,
       "fixedArkana": null,
@@ -1124,9 +1986,18 @@
           "text": "May have any Void Lance exchanged for a Hull (Front) Mounted Void Scythe for free.",
           "kind": "perModel",
           "model": "Shadow",
-          "replaces": ["Void Lance"],
-          "choices": [ { "name": "Void Scythe", "points": 0 } ],
-          "max": { "fixed": 2 },
+          "replaces": [
+            "Void Lance"
+          ],
+          "choices": [
+            {
+              "name": "Void Scythe",
+              "points": 0
+            }
+          ],
+          "max": {
+            "fixed": 2
+          },
           "perWeapon": true,
           "requires": null
         },
@@ -1135,12 +2006,22 @@
           "text": "May have any Plasma-Disintegrator Cannon exchanged for one of the following: -- Hull (Front) Mounted Dark Lance.............................. +5 points each -- Hull (Front) Mounted Haywire Cannon.................. +10 points each",
           "kind": "perModel",
           "model": "Shadow",
-          "replaces": ["Plasma-Disintegrator Cannon"],
-          "choices": [
-            { "name": "Dark Lance", "points": 5 },
-            { "name": "Haywire Cannon", "points": 10 }
+          "replaces": [
+            "Plasma-Disintegrator Cannon"
           ],
-          "max": { "fixed": 2 },
+          "choices": [
+            {
+              "name": "Dark Lance",
+              "points": 5
+            },
+            {
+              "name": "Haywire Cannon",
+              "points": 10
+            }
+          ],
+          "max": {
+            "fixed": 2
+          },
           "perWeapon": true,
           "requires": null
         },
@@ -1151,8 +2032,14 @@
           "model": "Shadow",
           "replaces": [],
           "choices": [
-            { "name": "Chain-Snares", "points": 5 },
-            { "name": "Sicklevanes", "points": 10 }
+            {
+              "name": "Chain-Snares",
+              "points": 5
+            },
+            {
+              "name": "Sicklevanes",
+              "points": 10
+            }
           ],
           "max": null,
           "requires": null
@@ -1164,9 +2051,18 @@
           "model": "Shadow",
           "replaces": [],
           "choices": [
-            { "name": "Grisly Trophies", "points": 15 },
-            { "name": "Hull (Left, Right) mounted Terrorfex Grenade Launcher", "points": 15 },
-            { "name": "Shock Prow", "points": 5 }
+            {
+              "name": "Grisly Trophies",
+              "points": 15
+            },
+            {
+              "name": "Hull (Left, Right) mounted Terrorfex Grenade Launcher",
+              "points": 15
+            },
+            {
+              "name": "Shock Prow",
+              "points": 5
+            }
           ],
           "max": null,
           "requires": null
@@ -1189,17 +2085,41 @@
           "min": 1,
           "max": 1,
           "costPerExtra": 0,
-          "profile": { "M": 18, "BS": 4, "FRONT": 13, "SIDE": 11, "REAR": 11, "HP": 16, "CAPACITY": 22 },
-          "wargear": ["2 Hull (front) mounted Void Lances", "2 Hull (front) mounted Plasma-Disintegrators", "3 Hull (front) mounted Splinter Cannons"],
+          "profile": {
+            "M": 18,
+            "BS": 4,
+            "FRONT": 13,
+            "SIDE": 11,
+            "REAR": 11,
+            "HP": 16,
+            "CAPACITY": 22
+          },
+          "wargear": [
+            "2 Hull (front) mounted Void Lances",
+            "2 Hull (front) mounted Plasma-Disintegrators",
+            "3 Hull (front) mounted Splinter Cannons"
+          ],
           "unitType": "Vehicle (Superheavy, Rapid, Skimmer, Transport)",
           "specialRules": []
         }
       ],
-      "traits": ["Xenos", "Drukhari", "Jink"],
+      "traits": [
+        "Xenos",
+        "Drukhari",
+        "Jink"
+      ],
       "factionChoice": true,
-      "specialRules": ["Assault Vehicle", "Deep Strike", "Firing Deck (front, left, right, 20)", "Phantom Shields (2)"],
+      "specialRules": [
+        "Assault Vehicle",
+        "Deep Strike",
+        "Firing Deck (front, left, right, 20)",
+        "Phantom Shields (2)"
+      ],
       "unitRules": [
-        { "name": "Access Points", "text": "The entire hull of the Demilune is counted as an Access Point." }
+        {
+          "name": "Access Points",
+          "text": "The entire hull of the Demilune is counted as an Access Point."
+        }
       ],
       "cryptoArkana": false,
       "fixedArkana": null,
@@ -1209,9 +2129,18 @@
           "text": "May have any Void Lance exchanged for a Hull (Front) Mounted Void Scythe for free.",
           "kind": "perModel",
           "model": "Demilune",
-          "replaces": ["Void Lance"],
-          "choices": [ { "name": "Void Scythe", "points": 0 } ],
-          "max": { "fixed": 2 },
+          "replaces": [
+            "Void Lance"
+          ],
+          "choices": [
+            {
+              "name": "Void Scythe",
+              "points": 0
+            }
+          ],
+          "max": {
+            "fixed": 2
+          },
           "perWeapon": true,
           "requires": null
         },
@@ -1220,12 +2149,22 @@
           "text": "May have any Plasma-Disintegrator Cannon exchanged for one of the following: -- Hull (Front) Mounted Dark Lance.............................. +5 points each -- Hull (Front) Mounted Haywire Cannon.................. +10 points each",
           "kind": "perModel",
           "model": "Demilune",
-          "replaces": ["Plasma-Disintegrator Cannon"],
-          "choices": [
-            { "name": "Dark Lance", "points": 5 },
-            { "name": "Haywire Cannon", "points": 10 }
+          "replaces": [
+            "Plasma-Disintegrator Cannon"
           ],
-          "max": { "fixed": 2 },
+          "choices": [
+            {
+              "name": "Dark Lance",
+              "points": 5
+            },
+            {
+              "name": "Haywire Cannon",
+              "points": 10
+            }
+          ],
+          "max": {
+            "fixed": 2
+          },
           "perWeapon": true,
           "requires": null
         },
@@ -1236,8 +2175,14 @@
           "model": "Demilune",
           "replaces": [],
           "choices": [
-            { "name": "Chain-Snares", "points": 5 },
-            { "name": "Sicklevanes", "points": 10 }
+            {
+              "name": "Chain-Snares",
+              "points": 5
+            },
+            {
+              "name": "Sicklevanes",
+              "points": 10
+            }
           ],
           "max": null,
           "requires": null
@@ -1249,10 +2194,22 @@
           "model": "Demilune",
           "replaces": [],
           "choices": [
-            { "name": "Grisly Trophies", "points": 15 },
-            { "name": "Hull (Left, Right) mounted Terrorfex Grenade Launcher", "points": 15 },
-            { "name": "Shock Prow", "points": 5 },
-            { "name": "Splinter Racks", "points": 15 }
+            {
+              "name": "Grisly Trophies",
+              "points": 15
+            },
+            {
+              "name": "Hull (Left, Right) mounted Terrorfex Grenade Launcher",
+              "points": 15
+            },
+            {
+              "name": "Shock Prow",
+              "points": 5
+            },
+            {
+              "name": "Splinter Racks",
+              "points": 15
+            }
           ],
           "max": null,
           "requires": null
@@ -1275,15 +2232,34 @@
           "min": 1,
           "max": 1,
           "costPerExtra": 0,
-          "profile": { "M": 20, "BS": 4, "FRONT": 12, "SIDE": 12, "REAR": 12, "HP": 14, "CAPACITY": "–" },
-          "wargear": ["1 Hull (front) mounted Shadow Ray", "2 Centreline mounted Pulse-Disintegrators", "1 Centreline mounted Void Lance"],
+          "profile": {
+            "M": 20,
+            "BS": 4,
+            "FRONT": 12,
+            "SIDE": 12,
+            "REAR": 12,
+            "HP": 14,
+            "CAPACITY": "–"
+          },
+          "wargear": [
+            "1 Hull (front) mounted Shadow Ray",
+            "2 Centreline mounted Pulse-Disintegrators",
+            "1 Centreline mounted Void Lance"
+          ],
           "unitType": "Vehicle (Superheavy, Flyer)",
           "specialRules": []
         }
       ],
-      "traits": ["Xenos", "Drukhari", "Jink"],
+      "traits": [
+        "Xenos",
+        "Drukhari",
+        "Jink"
+      ],
       "fixedChoice": "Cults",
-      "specialRules": ["Phantom Shields (2)", "Predator's Sight"],
+      "specialRules": [
+        "Phantom Shields (2)",
+        "Predator's Sight"
+      ],
       "unitRules": [],
       "cryptoArkana": false,
       "fixedArkana": null,
@@ -1293,8 +2269,15 @@
           "text": "May have its Void Land exchanged for a Dark Scythe for free.",
           "kind": "upgrade",
           "model": "Raptor",
-          "replaces": ["Void Lance"],
-          "choices": [ { "name": "Dark Scythe", "points": 0 } ],
+          "replaces": [
+            "Void Lance"
+          ],
+          "choices": [
+            {
+              "name": "Dark Scythe",
+              "points": 0
+            }
+          ],
           "max": null,
           "requires": null
         },
@@ -1303,10 +2286,18 @@
           "text": "May have both Pulse-Disintegrators exchanged for one of the following: -- 2 Phantom Lances........................ +50 points -- 2 Phantom Scythes....................... +50 points",
           "kind": "one",
           "model": "Raptor",
-          "replaces": ["Pulse-Disintegrator"],
+          "replaces": [
+            "Pulse-Disintegrator"
+          ],
           "choices": [
-            { "name": "2 Phantom Lances", "points": 50 },
-            { "name": "2 Phantom Scythes", "points": 50 }
+            {
+              "name": "2 Phantom Lances",
+              "points": 50
+            },
+            {
+              "name": "2 Phantom Scythes",
+              "points": 50
+            }
           ],
           "max": null,
           "requires": null
@@ -1329,15 +2320,34 @@
           "min": 1,
           "max": 1,
           "costPerExtra": 0,
-          "profile": { "M": 18, "BS": 4, "FRONT": 12, "SIDE": 12, "REAR": 12, "HP": 18, "CAPACITY": "–" },
-          "wargear": ["2 Centreline Mounted Pulse disintegrators", "2 Centreline Mounted Phantom Lances", "1 Centreline Mounted Void Lance"],
+          "profile": {
+            "M": 18,
+            "BS": 4,
+            "FRONT": 12,
+            "SIDE": 12,
+            "REAR": 12,
+            "HP": 18,
+            "CAPACITY": "–"
+          },
+          "wargear": [
+            "2 Centreline Mounted Pulse disintegrators",
+            "2 Centreline Mounted Phantom Lances",
+            "1 Centreline Mounted Void Lance"
+          ],
           "unitType": "Vehicle (Superheavy, Flyer)",
           "specialRules": []
         }
       ],
-      "traits": ["Xenos", "Drukhari", "Jink"],
+      "traits": [
+        "Xenos",
+        "Drukhari",
+        "Jink"
+      ],
       "fixedChoice": "Cults",
-      "specialRules": ["Phantom Shields (2)", "Predator's Sight"],
+      "specialRules": [
+        "Phantom Shields (2)",
+        "Predator's Sight"
+      ],
       "unitRules": [],
       "cryptoArkana": false,
       "fixedArkana": null,
@@ -1347,8 +2357,15 @@
           "text": "May have its Void Land exchanged for a Centreline Mounted Dark Scythe for free.",
           "kind": "upgrade",
           "model": "Raven Lord",
-          "replaces": ["Void Lance"],
-          "choices": [ { "name": "Dark Scythe", "points": 0 } ],
+          "replaces": [
+            "Void Lance"
+          ],
+          "choices": [
+            {
+              "name": "Dark Scythe",
+              "points": 0
+            }
+          ],
           "max": null,
           "requires": null
         },
@@ -1357,10 +2374,18 @@
           "text": "May have both Pulse-Disintegrators exchanged for one of the following: -- 2 Centreline Mounted Phantom Lances............................ +50 points -- 2 Centrline Mounted Phantom Scythes......................... +50 points",
           "kind": "one",
           "model": "Raven Lord",
-          "replaces": ["Pulse-Disintegrator"],
+          "replaces": [
+            "Pulse-Disintegrator"
+          ],
           "choices": [
-            { "name": "2 Phantom Lances", "points": 50 },
-            { "name": "2 Phantom Scythes", "points": 50 }
+            {
+              "name": "2 Phantom Lances",
+              "points": 50
+            },
+            {
+              "name": "2 Phantom Scythes",
+              "points": 50
+            }
           ],
           "max": null,
           "requires": null
@@ -1370,10 +2395,18 @@
           "text": "May have 2 Phantom Lances exchanged for one of the following: -- 2 Centreline mounted Phantom Scythes......................................free -- 2 Centreline mounted Tormentor Heat Lances...........................free",
           "kind": "one",
           "model": "Raven Lord",
-          "replaces": ["Phantom Lance"],
+          "replaces": [
+            "Phantom Lance"
+          ],
           "choices": [
-            { "name": "2 Phantom Scythes", "points": 0 },
-            { "name": "2 Tormentor Heat Lances", "points": 0 }
+            {
+              "name": "2 Phantom Scythes",
+              "points": 0
+            },
+            {
+              "name": "2 Tormentor Heat Lances",
+              "points": 0
+            }
           ],
           "max": null,
           "requires": null
@@ -1396,15 +2429,35 @@
           "min": 1,
           "max": 1,
           "costPerExtra": 0,
-          "profile": { "M": 18, "BS": 4, "FRONT": 12, "SIDE": 12, "REAR": 12, "HP": 18, "CAPACITY": "–" },
-          "wargear": ["2 Centreline Mounted Pulse Disintegrators", "1 Turret Mounted Scythe Missile Launcher", "1 Centreline Mounted Void Lance", "2 Hull (Front) Mounted Shatterstorm Missiles"],
+          "profile": {
+            "M": 18,
+            "BS": 4,
+            "FRONT": 12,
+            "SIDE": 12,
+            "REAR": 12,
+            "HP": 18,
+            "CAPACITY": "–"
+          },
+          "wargear": [
+            "2 Centreline Mounted Pulse Disintegrators",
+            "1 Turret Mounted Scythe Missile Launcher",
+            "1 Centreline Mounted Void Lance",
+            "2 Hull (Front) Mounted Shatterstorm Missiles"
+          ],
           "unitType": "Vehicle (Superheavy, Flyer)",
           "specialRules": []
         }
       ],
-      "traits": ["Xenos", "Drukhari", "Jink"],
+      "traits": [
+        "Xenos",
+        "Drukhari",
+        "Jink"
+      ],
       "fixedChoice": "Cults",
-      "specialRules": ["Phantom Shields (2)", "Predator's Sight"],
+      "specialRules": [
+        "Phantom Shields (2)",
+        "Predator's Sight"
+      ],
       "unitRules": [],
       "cryptoArkana": false,
       "fixedArkana": null,
@@ -1414,8 +2467,15 @@
           "text": "May have its Void Land exchanged for a Centreline Mounted Dark Scythe for free.",
           "kind": "upgrade",
           "model": "Rukh",
-          "replaces": ["Void Lance"],
-          "choices": [ { "name": "Dark Scythe", "points": 0 } ],
+          "replaces": [
+            "Void Lance"
+          ],
+          "choices": [
+            {
+              "name": "Dark Scythe",
+              "points": 0
+            }
+          ],
           "max": null,
           "requires": null
         },
@@ -1424,10 +2484,18 @@
           "text": "May have both Pulse-Disintegrators exchanged for one of the following: -- 2 Centreline Mounted Phantom Lances............................ +50 points -- 2 Centreline Mounted Phantom Scythes......................... +50 points",
           "kind": "one",
           "model": "Rukh",
-          "replaces": ["Pulse-Disintegrator"],
+          "replaces": [
+            "Pulse-Disintegrator"
+          ],
           "choices": [
-            { "name": "2 Phantom Lances", "points": 50 },
-            { "name": "2 Phantom Scythes", "points": 50 }
+            {
+              "name": "2 Phantom Lances",
+              "points": 50
+            },
+            {
+              "name": "2 Phantom Scythes",
+              "points": 50
+            }
           ],
           "max": null,
           "requires": null
@@ -1451,22 +2519,60 @@
           "max": 1,
           "costPerExtra": 0,
           "profile": {
-            "Head": { "M": "–", "BS": 4, "PRIMARY_ARMOUR": 12, "EXPOSED_ARMOUR": 10, "HP": 10, "CAPACITY": "–" },
-            "Carapace": { "M": "–", "BS": 4, "PRIMARY_ARMOUR": 13, "EXPOSED_ARMOUR": 12, "HP": 12, "CAPACITY": "–" },
-            "Arms": { "M": "–", "BS": 4, "PRIMARY_ARMOUR": 12, "EXPOSED_ARMOUR": 10, "HP": 10, "CAPACITY": "–" },
-            "Legs": { "M": 20, "BS": "–", "PRIMARY_ARMOUR": 13, "EXPOSED_ARMOUR": 12, "HP": 12, "CAPACITY": "–" }
+            "Head": {
+              "M": "–",
+              "BS": 4,
+              "PRIMARY_ARMOUR": 12,
+              "EXPOSED_ARMOUR": 10,
+              "HP": 10,
+              "CAPACITY": "–"
+            },
+            "Carapace": {
+              "M": "–",
+              "BS": 4,
+              "PRIMARY_ARMOUR": 13,
+              "EXPOSED_ARMOUR": 12,
+              "HP": 12,
+              "CAPACITY": "–"
+            },
+            "Arms": {
+              "M": "–",
+              "BS": 4,
+              "PRIMARY_ARMOUR": 12,
+              "EXPOSED_ARMOUR": 10,
+              "HP": 10,
+              "CAPACITY": "–"
+            },
+            "Legs": {
+              "M": 20,
+              "BS": "–",
+              "PRIMARY_ARMOUR": 13,
+              "EXPOSED_ARMOUR": 12,
+              "HP": 12,
+              "CAPACITY": "–"
+            }
           },
           "wargear": [
-            "The Head profile has 1 Carapace Mounted Splinterstorm Cannon",
-            "The Carapace profile has 2 Carapace Mounted Weapons (see Options)",
-            "The Arms profile has 2 Arm Mounted Weapons (see Options)"
+            "The Head profile has 1 Carapace Mounted Splinterstorm Cannon"
           ],
           "unitType": "Vehicle (Titan)",
           "specialRules": []
         }
       ],
-      "traits": ["Xenos", "Drukhari", "Battle", "[Crew]"],
-      "specialRules": ["Bladed Legs", "Idol of Torment (2)", "Repair Crew (D3)", "Phantom Fields (3)", "Reinforced Structure (1)", "Tormentor Volley"],
+      "traits": [
+        "Xenos",
+        "Drukhari",
+        "Battle",
+        "[Crew]"
+      ],
+      "specialRules": [
+        "Bladed Legs",
+        "Idol of Torment (2)",
+        "Repair Crew (D3)",
+        "Phantom Fields (3)",
+        "Reinforced Structure (1)",
+        "Tormentor Volley"
+      ],
       "unitRules": [],
       "cryptoArkana": false,
       "fixedArkana": null,
@@ -1476,10 +2582,18 @@
           "text": "When this model is selected as part of an army, the controlling player must exchange the [Crew] trait for one of the following options: -- Replace [Crew] with Majoris..................free -- Replace [Crew] with Senioris and increase the BS Characteristic of all of this Model's profiles to 5..................................+200 points",
           "kind": "one",
           "model": null,
-          "replaces": ["[Crew]"],
+          "replaces": [
+            "[Crew]"
+          ],
           "choices": [
-            { "name": "Majoris", "points": 0 },
-            { "name": "Senioris", "points": 200 }
+            {
+              "name": "Majoris",
+              "points": 0
+            },
+            {
+              "name": "Senioris",
+              "points": 200
+            }
           ],
           "max": null,
           "required": {},
@@ -1492,13 +2606,26 @@
           "model": "Tormentor Titan",
           "replaces": [],
           "choices": [
-            { "name": "Phantom Lance", "points": 0 },
-            { "name": "Phantom Scythe", "points": 0 },
-            { "name": "Tormentor Heat Lance", "points": 0 }
+            {
+              "name": "Phantom Lance",
+              "points": 0
+            },
+            {
+              "name": "Phantom Scythe",
+              "points": 0
+            },
+            {
+              "name": "Tormentor Heat Lance",
+              "points": 0
+            }
           ],
-          "max": { "fixed": 2 },
+          "max": {
+            "fixed": 2
+          },
           "perWeapon": true,
-          "required": { "count": 2 },
+          "required": {
+            "count": 2
+          },
           "requires": null
         },
         {
@@ -1508,14 +2635,30 @@
           "model": "Tormentor Titan",
           "replaces": [],
           "choices": [
-            { "name": "Klaive of Khaine", "points": 0 },
-            { "name": "Phantom Lance", "points": 0 },
-            { "name": "Phantom Scythe", "points": 0 },
-            { "name": "Tormentor Heat Lance", "points": 0 }
+            {
+              "name": "Klaive of Khaine",
+              "points": 0
+            },
+            {
+              "name": "Phantom Lance",
+              "points": 0
+            },
+            {
+              "name": "Phantom Scythe",
+              "points": 0
+            },
+            {
+              "name": "Tormentor Heat Lance",
+              "points": 0
+            }
           ],
-          "max": { "fixed": 2 },
+          "max": {
+            "fixed": 2
+          },
           "perWeapon": true,
-          "required": { "count": 2 },
+          "required": {
+            "count": 2
+          },
           "requires": null
         }
       ],

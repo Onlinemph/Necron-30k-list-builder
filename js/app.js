@@ -65,7 +65,7 @@
   const CORE = DATA.coreRules || { rules: [], undefinedInCodex: [] };
   const aliases = new Map(Object.entries(CORE.weaponAliases || {}).map(([k, v]) => [wkey(k), wkey(v)]));
   const coreNames = new Set((CORE.rules || []).map(norm));
-  const undefinedNames = new Map((CORE.undefinedInCodex || []).map((x) => [norm(x.name), x.note]));
+  const undefinedNames = new Map((CORE.undefinedInCodex || []).flatMap((x) => [[norm(x.name), x.note], [wkey(x.name), x.note]]));
   function findWeapons(name) {
     const k = aliases.get(wkey(name)) || wkey(name);
     const r = { ranged: weaponIndex.ranged.get(k), melee: weaponIndex.melee.get(k) };
@@ -780,7 +780,7 @@
     const wrap = h('<div class="chips"></div>');
     for (const n of names) {
       const r = findRule(n);
-      const k = norm(n);
+      const k = undefinedNames.has(norm(n)) || coreNames.has(norm(n)) ? norm(n) : undefinedNames.has(wkey(n)) ? wkey(n) : norm(n);
       const tip = r ? 'Show rule' : coreNames.has(k) ? 'Core rule: see the Horus Heresy 3rd edition rulebook' : undefinedNames.has(k) ? 'Not printed in the codex: ' + undefinedNames.get(k) : 'No rules text found';
       const c = h(`<span class="chip ${gained && gained.has(n) ? 'gained ' : ''}${r ? 'rule' : coreNames.has(k) ? 'core' : 'missing'}" title="${esc(tip)}">${esc(n)}${coreNames.has(k) && !r ? ' <small>core</small>' : ''}</span>`);
       if (r) c.addEventListener('click', () => showText(n, r.text, r.page));

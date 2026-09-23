@@ -174,6 +174,17 @@
 
     { "name": "Mono-Knife", "page": 89, "IM": "I", "AM": "A", "SM": "S", "AP": "–", "D": 1, "specialRules": ["Breaching (6+)"], "traits": ["Mono"], "modes": null },
     { "name": "Mono-Blade", "page": 89, "IM": "I", "AM": "A", "SM": "S", "AP": "–", "D": 1, "specialRules": ["Breaching (5+)"], "traits": ["Mono"], "modes": null },
-    { "name": "Mono-Flail", "page": 89, "IM": "I", "AM": "A", "SM": "+1", "AP": "–", "D": 1, "specialRules": ["Rending (6+)", "Breaching (6+)"], "traits": ["Mono"], "modes": null }
+    { "name": "Mono-Flail", "page": 89, "IM": "I", "AM": "A", "SM": "+1", "AP": "–", "D": 1, "specialRules": ["Rending (6+)", "Breaching (6+)"], "traits": ["Mono"], "modes": null },
+
+    { "name": "Razorflail", "page": 90, "IM": "I", "AM": "A", "SM": "+1", "AP": 5, "D": 1, "specialRules": ["Breaching (6+)", "Shred (6+)"], "traits": ["Mono"], "modes": null },
+    { "name": "Paired Razorflails", "page": 90, "IM": "I", "AM": "+2", "SM": "+1", "AP": 5, "D": 1, "specialRules": ["Breaching (5+)", "Shred (5+)"], "traits": ["Mono"], "modes": null },
+    { "name": "Hydra Gauntlets", "page": 90, "IM": "I", "AM": "+3", "SM": "+1", "AP": 5, "D": 1, "specialRules": ["Rending (5+)", "Shred (5+)"], "traits": [], "modes": null },
+    { "name": "Shardnet and Impaler", "page": 90, "IM": "+1", "AM": "+2", "SM": "+1", "AP": 5, "D": 1, "specialRules": ["Breaching (6+)", "Ensnare (1)"], "traits": [], "modes": null },
+    { "name": "Hellglaive", "page": 90, "IM": "+1", "AM": "+1", "SM": "+1", "AP": 5, "D": 1, "specialRules": ["Critical Hits (6+)"], "traits": [], "modes": null },
+    { "name": "Stunclaw", "page": 90, "IM": "I", "AM": "A", "SM": "+1", "AP": 5, "D": 2, "specialRules": ["Critical Hits (6+)", "Precision (4+)"], "traits": [], "modes": null,
+      "note": "Source has a stray trailing comma after 'Precision (4+),'; treated as a typo and dropped." },
+    { "name": "Djinn Blade", "page": 90, "IM": "I", "AM": "+2", "SM": "+2", "AP": 2, "D": 1, "specialRules": ["Critical Hits (6+)", "Overload (2)"], "traits": [], "modes": null },
+    { "name": "Haywire Grenade", "page": 90, "IM": "I", "AM": "1", "SM": "2", "AP": "–", "D": 1, "specialRules": ["Shock (Suppressed)"], "traits": ["Haywire"], "modes": null,
+      "note": "Source prints numeric AM/SM values (1, 2) rather than 'A'/'S' as for other weapons; kept as printed." }
   ]
 }
