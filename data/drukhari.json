@@ -16,19 +16,1933 @@
   }
  },
  "units": [],
- "lists": [],
+ "lists": [
+  {
+   "id": "drukhari-exotic-weapons",
+   "name": "Drukhari Exotic Weapons List",
+   "page": 6,
+   "items": [
+    {
+     "name": "Huskblade",
+     "points": 15
+    },
+    {
+     "name": "Djinn Blade",
+     "points": 20
+    }
+   ]
+  },
+  {
+   "id": "gang-leader-wargear",
+   "name": "Gang Leader Wargear List",
+   "page": 6,
+   "items": [
+    {
+     "name": "Agonizer",
+     "points": 10
+    },
+    {
+     "name": "Blast Pistol",
+     "points": 10
+    },
+    {
+     "name": "Electrocorrosive Whip",
+     "points": 5
+    },
+    {
+     "name": "Power Weapon",
+     "points": 10
+    },
+    {
+     "name": "Razorflail",
+     "points": 5
+    },
+    {
+     "name": "Splinter Pistol",
+     "points": 1
+    },
+    {
+     "name": "Stinger Pistol",
+     "points": 5
+    },
+    {
+     "name": "Venom Blade",
+     "points": 5
+    }
+   ]
+  },
+  {
+   "id": "drukhari-pistols",
+   "name": "Drukhari Pistols List",
+   "page": 6,
+   "items": [
+    {
+     "name": "Blast Pistol",
+     "points": 10
+    },
+    {
+     "name": "Splinter Pistol",
+     "points": 0
+    },
+    {
+     "name": "Stinger Pistol",
+     "points": 5
+    }
+   ]
+  },
+  {
+   "id": "drukhari-special-weapons",
+   "name": "Drukhari Special Weapons List",
+   "page": 6,
+   "items": [
+    {
+     "name": "Blaster",
+     "points": 15
+    },
+    {
+     "name": "Shredder",
+     "points": 5
+    }
+   ]
+  },
+  {
+   "id": "drukhari-heavy-weapons",
+   "name": "Drukhari Heavy Weapons List",
+   "page": 6,
+   "items": [
+    {
+     "name": "Dark Lance",
+     "points": 25
+    },
+    {
+     "name": "Haywire Blaster",
+     "points": 5
+    },
+    {
+     "name": "Heat Lance",
+     "points": 15
+    },
+    {
+     "name": "Plasma-Disintegrator Blaster",
+     "points": 15
+    },
+    {
+     "name": "Splinter Cannon",
+     "points": 10
+    }
+   ]
+  },
+  {
+   "id": "gladiatorial-weapons",
+   "name": "Gladiatorial Weapons List",
+   "page": 6,
+   "items": [
+    {
+     "name": "Hydra Gauntlets",
+     "points": 10
+    },
+    {
+     "name": "Paired Razorflails",
+     "points": 10
+    },
+    {
+     "name": "Shardnet and Impaler",
+     "points": 10
+    }
+   ]
+  },
+  {
+   "id": "weapons-of-torture",
+   "name": "Weapons of Torture List",
+   "page": 6,
+   "items": [
+    {
+     "name": "Agonizer",
+     "points": 10
+    },
+    {
+     "name": "Electrocorrosive Whip",
+     "points": 5
+    },
+    {
+     "name": "Flesh Gauntlet",
+     "points": 15
+    },
+    {
+     "name": "Hexrifle",
+     "points": 20
+    },
+    {
+     "name": "Mindphase Gauntlet",
+     "points": 10
+    },
+    {
+     "name": "Scissorhand",
+     "points": 10
+    },
+    {
+     "name": "Stinger Pistol",
+     "points": 5
+    },
+    {
+     "name": "Venom Blade",
+     "points": 5
+    }
+   ]
+  },
+  {
+   "id": "tools-of-torment",
+   "name": "Tools of Torment List",
+   "page": 6,
+   "items": [
+    {
+     "name": "Hexrifle",
+     "points": 20
+    },
+    {
+     "name": "Liquifier Gun",
+     "points": 10
+    },
+    {
+     "name": "Ossefactor",
+     "points": 15
+    },
+    {
+     "name": "Stinger Pistol",
+     "points": 5
+    }
+   ]
+  },
+  {
+   "id": "haemonculus-arcana",
+   "name": "Haemonculus Arcana",
+   "page": 6,
+   "items": [
+    {
+     "name": "Animus Vitae",
+     "points": 15,
+     "oncePerArmy": true
+    },
+    {
+     "name": "Casket of Flensing",
+     "points": 15,
+     "oncePerArmy": true
+    },
+    {
+     "name": "Crucible of Malediction",
+     "points": 20,
+     "oncePerArmy": true
+    },
+    {
+     "name": "Dark Gate",
+     "points": 25,
+     "oncePerArmy": true
+    },
+    {
+     "name": "Orb of Despair",
+     "points": 20,
+     "oncePerArmy": true
+    },
+    {
+     "name": "Shattershard",
+     "points": 25,
+     "oncePerArmy": true
+    }
+   ]
+  }
+ ],
  "arkana": [],
  "weapons": {
-  "ranged": [],
-  "melee": []
+  "ranged": [
+   {
+    "name": "Blast Pistol",
+    "page": 83,
+    "R": 6,
+    "FP": 1,
+    "RS": 8,
+    "AP": 2,
+    "D": 1,
+    "specialRules": [
+     "Pierce (D3)",
+     "Suppressive (2)"
+    ],
+    "traits": [
+     "Las"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Blaster",
+    "page": 83,
+    "R": 18,
+    "FP": 1,
+    "RS": 8,
+    "AP": 2,
+    "D": 1,
+    "specialRules": [
+     "Pierce (D3)",
+     "Suppressive (2)"
+    ],
+    "traits": [
+     "Las"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Dark Lance",
+    "page": 83,
+    "R": 36,
+    "FP": 1,
+    "RS": 8,
+    "AP": 2,
+    "D": 1,
+    "specialRules": [
+     "Pierce (D3)",
+     "Armour-Breaker (4+)",
+     "Heavy (RS)",
+     "Suppressive (2)"
+    ],
+    "traits": [
+     "Las"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Dark Scythe",
+    "page": 83,
+    "R": 24,
+    "FP": 1,
+    "RS": 8,
+    "AP": 2,
+    "D": 1,
+    "specialRules": [
+     "Pierce (D3)",
+     "Blast (3)",
+     "Heavy (RS)",
+     "Suppressive (2)"
+    ],
+    "traits": [
+     "Las"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Gatling Dark Lance",
+    "page": 83,
+    "R": 48,
+    "FP": 4,
+    "RS": 8,
+    "AP": 2,
+    "D": 1,
+    "specialRules": [
+     "Armourbane",
+     "Armour-Breaker (4+)",
+     "Heavy (RS)",
+     "Suppressive (2)"
+    ],
+    "traits": [
+     "Las"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Void Lance",
+    "page": 83,
+    "R": 48,
+    "FP": 1,
+    "RS": 10,
+    "AP": 2,
+    "D": 2,
+    "specialRules": [
+     "Armourbane"
+    ],
+    "traits": [
+     "Las"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Void Mine",
+    "page": 83,
+    "R": 18,
+    "FP": 1,
+    "RS": 10,
+    "AP": 2,
+    "D": 2,
+    "specialRules": [
+     "Armourbane",
+     "Armour-Breaker (4+)",
+     "Blast (5)",
+     "Limited (1)",
+     "Suppressive (2)"
+    ],
+    "traits": [
+     "Bomb",
+     "Las"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Annihilation Lance",
+    "page": 83,
+    "R": null,
+    "FP": null,
+    "RS": null,
+    "AP": null,
+    "D": null,
+    "specialRules": [],
+    "traits": [
+     "Las"
+    ],
+    "modes": [
+     {
+      "name": "Beam Cannon",
+      "R": 48,
+      "FP": 3,
+      "RS": 10,
+      "AP": 2,
+      "D": 2,
+      "specialRules": [
+       "Armourbane",
+       "Armour-Breaker (4+)",
+       "Suppressive (2)",
+       "Shock (Suppressed)"
+      ],
+      "traits": [
+       "Las"
+      ]
+     },
+     {
+      "name": "Scything Beam",
+      "R": "T",
+      "FP": 1,
+      "RS": 7,
+      "AP": 2,
+      "D": 2,
+      "specialRules": [
+       "Suppressive (2)",
+       "Template"
+      ],
+      "traits": [
+       "Las"
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Plasma-Disintegrator Blaster",
+    "page": 83,
+    "R": 24,
+    "FP": 3,
+    "RS": 4,
+    "AP": 4,
+    "D": 1,
+    "specialRules": [
+     "Breaching (4+)",
+     "Heavy (FP)"
+    ],
+    "traits": [
+     "Plasma Blaster"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Plasma-Disintegrator Cannon",
+    "page": 83,
+    "R": 36,
+    "FP": 3,
+    "RS": 5,
+    "AP": 4,
+    "D": 1,
+    "specialRules": [
+     "Breaching (4+)",
+     "Heavy (FP)"
+    ],
+    "traits": [
+     "Plasma Cannon"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Pulse-Disintegrator Cannon",
+    "page": 83,
+    "R": 48,
+    "FP": 3,
+    "RS": 8,
+    "AP": 4,
+    "D": 2,
+    "specialRules": [
+     "Breaching (4+)",
+     "Ordnance (FP)"
+    ],
+    "traits": [
+     "Plasma Cannon"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Necrotoxin Missile",
+    "page": 84,
+    "R": 48,
+    "FP": 1,
+    "RS": 1,
+    "AP": "–",
+    "D": 1,
+    "specialRules": [
+     "Blast (5)",
+     "Limited (1)",
+     "Poisoned (2+)",
+     "Pinning (2)"
+    ],
+    "traits": [
+     "Guided Missile",
+     "Venom"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Monoscythe Missile",
+    "page": 84,
+    "R": 48,
+    "FP": 1,
+    "RS": 6,
+    "AP": 4,
+    "D": 1,
+    "specialRules": [
+     "Blast (5)",
+     "Breaching (6+)",
+     "Limited (1)"
+    ],
+    "traits": [
+     "Guided Missile"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Shatterfield Missile",
+    "page": 84,
+    "R": 48,
+    "FP": 1,
+    "RS": 9,
+    "AP": "–",
+    "D": 2,
+    "specialRules": [
+     "Armourbane",
+     "Armour-Breaker (4+)",
+     "Blast (5)",
+     "Limited (1)"
+    ],
+    "traits": [
+     "Guided Missile"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Implosion Missile",
+    "page": 84,
+    "R": 48,
+    "FP": 1,
+    "RS": 6,
+    "AP": 2,
+    "D": 3,
+    "specialRules": [
+     "Armourbane",
+     "Blast (3)",
+     "Limited (1)",
+     "Pierce (D3)"
+    ],
+    "traits": [
+     "Guided Missile"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Scythe Missile Launcher",
+    "page": 84,
+    "R": 60,
+    "FP": 3,
+    "RS": 8,
+    "AP": 2,
+    "D": 2,
+    "specialRules": [
+     "Armourbane",
+     "Blast (3)",
+     "Ordnance (FP)"
+    ],
+    "traits": [
+     "Guided Missile"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Shatterstorm Missile",
+    "page": 84,
+    "R": 120,
+    "FP": 1,
+    "RS": 9,
+    "AP": "–",
+    "D": 2,
+    "specialRules": [
+     "Armourbane",
+     "Armour-Breaker (4+)",
+     "Blast (10)",
+     "Limited (1)"
+    ],
+    "traits": [
+     "Guided Missile"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Baleblast",
+    "page": 84,
+    "R": 18,
+    "FP": 2,
+    "RS": 4,
+    "AP": 4,
+    "D": 1,
+    "specialRules": [
+     "Pain Amp",
+     "Panic (0)"
+    ],
+    "traits": [
+     "Assault",
+     "Flame"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Eyeburst",
+    "page": 84,
+    "R": "T",
+    "FP": 1,
+    "RS": 4,
+    "AP": 2,
+    "D": 1,
+    "specialRules": [
+     "Panic (1)",
+     "Template"
+    ],
+    "traits": [
+     "Warp"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Phantasm Grenade Launcher",
+    "page": 84,
+    "R": 18,
+    "FP": 1,
+    "RS": 1,
+    "AP": "–",
+    "D": 0,
+    "specialRules": [
+     "Blast (3)",
+     "Pinning (2)",
+     "Poisoned (2+)"
+    ],
+    "traits": [
+     "Venom"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Bloodstone",
+    "page": 84,
+    "R": "T",
+    "FP": 1,
+    "RS": 3,
+    "AP": 3,
+    "D": 1,
+    "specialRules": [
+     "Panic (1)",
+     "Template"
+    ],
+    "traits": [
+     "Flame"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Spirit Syphon",
+    "page": 84,
+    "R": "T",
+    "FP": 1,
+    "RS": 4,
+    "AP": 3,
+    "D": 1,
+    "specialRules": [
+     "Spirit Leech",
+     "Template"
+    ],
+    "traits": [
+     "Warp"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Spirit Vortex",
+    "page": 84,
+    "R": 18,
+    "FP": 1,
+    "RS": 5,
+    "AP": 3,
+    "D": 1,
+    "specialRules": [
+     "Blast (5)",
+     "Breaching (6+)",
+     "Pain Amp"
+    ],
+    "traits": [
+     "Warp"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Shadow Ray",
+    "page": 84,
+    "R": 36,
+    "FP": 1,
+    "RS": 1,
+    "AP": "–",
+    "D": 0,
+    "specialRules": [
+     "Shadow Gate"
+    ],
+    "traits": [
+     "Las"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Splinter Pistol",
+    "page": 85,
+    "R": 12,
+    "FP": 1,
+    "RS": 3,
+    "AP": 5,
+    "D": 1,
+    "specialRules": [
+     "Pistol",
+     "Poisoned (3+)"
+    ],
+    "traits": [
+     "Assault",
+     "Splinter"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Splinter Rifle",
+    "page": 85,
+    "R": 24,
+    "FP": 2,
+    "RS": 3,
+    "AP": 5,
+    "D": 1,
+    "specialRules": [
+     "Poisoned (3+)"
+    ],
+    "traits": [
+     "Splinter"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Splinter Pod",
+    "page": 85,
+    "R": 18,
+    "FP": 2,
+    "RS": 3,
+    "AP": 5,
+    "D": 1,
+    "specialRules": [
+     "Poisoned (3+)"
+    ],
+    "traits": [
+     "Assault",
+     "Splinter"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Shardcarbine",
+    "page": 85,
+    "R": 18,
+    "FP": 3,
+    "RS": 3,
+    "AP": 5,
+    "D": 1,
+    "specialRules": [
+     "Poisoned (3+)"
+    ],
+    "traits": [
+     "Assault",
+     "Splinter"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Splinter Cannon",
+    "page": 85,
+    "R": 36,
+    "FP": 3,
+    "RS": 3,
+    "AP": 4,
+    "D": 1,
+    "specialRules": [
+     "Poisoned (3+)",
+     "Salvo (18)"
+    ],
+    "traits": [
+     "Splinter"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Twin Splinter Cannon",
+    "page": 85,
+    "R": 36,
+    "FP": 5,
+    "RS": 3,
+    "AP": 4,
+    "D": 1,
+    "specialRules": [
+     "Poisoned (3+)",
+     "Salvo (24)"
+    ],
+    "traits": [
+     "Splinter"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Splinter Cannon Battery",
+    "page": 85,
+    "R": 36,
+    "FP": 10,
+    "RS": 3,
+    "AP": 4,
+    "D": 1,
+    "specialRules": [
+     "Poisoned (3+)",
+     "Suppressive (2)"
+    ],
+    "traits": [
+     "Splinter"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Splinterstorm Cannon",
+    "page": 85,
+    "R": 48,
+    "FP": 10,
+    "RS": 3,
+    "AP": 4,
+    "D": 1,
+    "specialRules": [
+     "Poisoned (3+)",
+     "Suppressive (2)"
+    ],
+    "traits": [
+     "Splinter"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Stinger Pistol",
+    "page": 85,
+    "R": 12,
+    "FP": 1,
+    "RS": 1,
+    "AP": "–",
+    "D": 1,
+    "specialRules": [
+     "Acid Shock (1)",
+     "Pistol",
+     "Poisoned (2+)"
+    ],
+    "traits": [
+     "Assault",
+     "Venom"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Hexrifle",
+    "page": 85,
+    "R": 24,
+    "FP": 1,
+    "RS": 3,
+    "AP": 4,
+    "D": 3,
+    "specialRules": [
+     "Assault",
+     "Breaching (5+)",
+     "Pinning (1)",
+     "Poisoned (2+)"
+    ],
+    "traits": [
+     "Venom"
+    ],
+    "modes": null,
+    "note": "Source lists 'Assault' as a Special Rule for this weapon, not a Trait, unlike other Assault weapons on this page; kept as printed."
+   },
+   {
+    "name": "Ossefactor",
+    "page": 85,
+    "R": 24,
+    "FP": 2,
+    "RS": 1,
+    "AP": 2,
+    "D": 2,
+    "specialRules": [
+     "Assault",
+     "Deflagrate (4)",
+     "Poisoned (2+)"
+    ],
+    "traits": [
+     "Assault",
+     "Venom"
+    ],
+    "modes": null,
+    "note": "Source lists 'Assault' in both the Special Rules and Traits columns; kept as printed."
+   },
+   {
+    "name": "Liquifier Gun",
+    "page": 85,
+    "R": "T",
+    "FP": 1,
+    "RS": 4,
+    "AP": "–",
+    "D": 1,
+    "specialRules": [
+     "Acid Shock (1)",
+     "Panic (1)",
+     "Template"
+    ],
+    "traits": [
+     "Venom"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Twin Liquifier Gun",
+    "page": 85,
+    "R": "T",
+    "FP": 1,
+    "RS": 4,
+    "AP": "–",
+    "D": 1,
+    "specialRules": [
+     "Acid Shock (1)",
+     "Panic (2)",
+     "Template"
+    ],
+    "traits": [
+     "Venom"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Destructor Rifle",
+    "page": 85,
+    "R": "T",
+    "FP": 1,
+    "RS": 5,
+    "AP": "–",
+    "D": 1,
+    "specialRules": [
+     "Acid Shock (2)",
+     "Panic (2)",
+     "Template"
+    ],
+    "traits": [
+     "Venom"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Stinger Pod",
+    "page": 85,
+    "R": 24,
+    "FP": 2,
+    "RS": 5,
+    "AP": 5,
+    "D": 2,
+    "specialRules": [
+     "Blast (3)",
+     "Pain Amp",
+     "Pinning (1)"
+    ],
+    "traits": [
+     "Despair"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Haywire Blaster",
+    "page": 86,
+    "R": 24,
+    "FP": 2,
+    "RS": 4,
+    "AP": 4,
+    "D": 1,
+    "specialRules": [
+     "Suppressive (1)",
+     "Shock (Suppressed)"
+    ],
+    "traits": [
+     "Haywire"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Twin Haywire Blaster",
+    "page": 86,
+    "R": 24,
+    "FP": 4,
+    "RS": 4,
+    "AP": 4,
+    "D": 1,
+    "specialRules": [
+     "Suppressive (1)",
+     "Shock (Suppressed)"
+    ],
+    "traits": [
+     "Haywire"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Haywire Cannon",
+    "page": 86,
+    "R": 36,
+    "FP": 1,
+    "RS": 6,
+    "AP": 4,
+    "D": 1,
+    "specialRules": [
+     "Blast (3)",
+     "Heavy (RS)",
+     "Suppressive (2)",
+     "Shock (Suppressed)"
+    ],
+    "traits": [
+     "Haywire"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Storm Vortex Projector",
+    "page": 86,
+    "R": null,
+    "FP": null,
+    "RS": null,
+    "AP": null,
+    "D": null,
+    "specialRules": [],
+    "traits": [
+     "Haywire"
+    ],
+    "modes": [
+     {
+      "name": "Beam",
+      "R": 36,
+      "FP": 6,
+      "RS": 7,
+      "AP": 3,
+      "D": 1,
+      "specialRules": [
+       "Critical Hit (6+)",
+       "Ordnance (AP)",
+       "Suppressive (2)",
+       "Shock (Suppressed)"
+      ],
+      "traits": [
+       "Haywire"
+      ]
+     },
+     {
+      "name": "Blast",
+      "R": 24,
+      "FP": 1,
+      "RS": 5,
+      "AP": 4,
+      "D": 1,
+      "specialRules": [
+       "Blast (5)",
+       "Ordnance (AP)",
+       "Suppressive (2)",
+       "Shock (Suppressed)"
+      ],
+      "traits": [
+       "Haywire"
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Heat Lance",
+    "page": 86,
+    "R": 18,
+    "FP": 1,
+    "RS": 6,
+    "AP": 2,
+    "D": 3,
+    "specialRules": [
+     "Melta (6)",
+     "Pierce (D3)"
+    ],
+    "traits": [
+     "Melta"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Heat Lance Pod",
+    "page": 86,
+    "R": 18,
+    "FP": 2,
+    "RS": 6,
+    "AP": 2,
+    "D": 3,
+    "specialRules": [
+     "Melta (6)",
+     "Pierce (D3)"
+    ],
+    "traits": [
+     "Melta"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Furnace Lance",
+    "page": 86,
+    "R": 36,
+    "FP": 3,
+    "RS": 6,
+    "AP": 2,
+    "D": 4,
+    "specialRules": [
+     "Melta (8)",
+     "Pierce (D3)"
+    ],
+    "traits": [
+     "Melta"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Shredder",
+    "page": 86,
+    "R": 18,
+    "FP": 1,
+    "RS": 6,
+    "AP": "–",
+    "D": 1,
+    "specialRules": [
+     "Blast (3)",
+     "Pinning (1)",
+     "Shred (4+)"
+    ],
+    "traits": [
+     "Assault",
+     "Monofilament"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Terror Grenade",
+    "page": 87,
+    "R": 6,
+    "FP": 1,
+    "RS": 8,
+    "AP": 2,
+    "D": 1,
+    "specialRules": [
+     "Blast (3)",
+     "Ignores Cover",
+     "Limited (1)",
+     "Scourge (Cool)",
+     "Stun (2)"
+    ],
+    "traits": [
+     "Assault",
+     "Despair"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Terrorfex Grenade Launcher",
+    "page": 87,
+    "R": 12,
+    "FP": 1,
+    "RS": 9,
+    "AP": 2,
+    "D": 1,
+    "specialRules": [
+     "Blast (3)",
+     "Ignores Cover",
+     "Scourge (Cool)",
+     "Stun (2)"
+    ],
+    "traits": [
+     "Assault",
+     "Despair"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Horrorfex",
+    "page": 87,
+    "R": "T",
+    "FP": 1,
+    "RS": 10,
+    "AP": 2,
+    "D": 2,
+    "specialRules": [
+     "Ignores Cover",
+     "Scourge (Cool)",
+     "Stun (2)",
+     "Template"
+    ],
+    "traits": [
+     "Despair"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Horrorfex Bomb",
+    "page": 87,
+    "R": 18,
+    "FP": 1,
+    "RS": 10,
+    "AP": 2,
+    "D": 2,
+    "specialRules": [
+     "Blast (5)",
+     "Ignores Cover",
+     "Limited (1)",
+     "Scourge (Cool)",
+     "Stun (2)"
+    ],
+    "traits": [
+     "Despair"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Animus Vitae",
+    "page": 87,
+    "R": 8,
+    "FP": 1,
+    "RS": 4,
+    "AP": 2,
+    "D": 3,
+    "specialRules": [
+     "Drain (3)",
+     "Limited (1)",
+     "Poison (2+)"
+    ],
+    "traits": [
+     "Arcane"
+    ],
+    "modes": null,
+    "note": "Source prints 'Poison (2+)' rather than 'Poisoned (2+)' as used for this rule elsewhere; kept as printed."
+   },
+   {
+    "name": "Casket of Flensing",
+    "page": 87,
+    "R": 12,
+    "FP": "2D6",
+    "RS": 4,
+    "AP": 4,
+    "D": 1,
+    "specialRules": [
+     "Breaching (6+)",
+     "Limited (1)",
+     "Precision (4+)",
+     "Shred (4+)"
+    ],
+    "traits": [
+     "Arcane"
+    ],
+    "modes": null,
+    "note": "Source has a stray trailing comma after 'Shred (4+),'; treated as a typo and dropped."
+   },
+   {
+    "name": "Crucible of Malediction",
+    "page": 87,
+    "R": "T",
+    "FP": 1,
+    "RS": 3,
+    "AP": 2,
+    "D": 2,
+    "specialRules": [
+     "Psy-Shock",
+     "Template",
+     "Limited (1)"
+    ],
+    "traits": [
+     "Arcane"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Dark Gate",
+    "page": 87,
+    "R": 12,
+    "FP": 1,
+    "RS": 10,
+    "AP": "–",
+    "D": 2,
+    "specialRules": [
+     "Armour-Breaker (4+)",
+     "Blast (5)",
+     "Limited (1)",
+     "Stun (2)"
+    ],
+    "traits": [
+     "Arcane"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Orb of Despair",
+    "page": 87,
+    "R": 8,
+    "FP": 1,
+    "RS": 1,
+    "AP": 2,
+    "D": 2,
+    "specialRules": [
+     "Blast (3)",
+     "Pinning (2)",
+     "Poisoned (2+)",
+     "Limited (1)"
+    ],
+    "traits": [
+     "Arcane"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Shattershard",
+    "page": 87,
+    "R": "T",
+    "FP": 1,
+    "RS": 1,
+    "AP": 2,
+    "D": 3,
+    "specialRules": [
+     "Limited (1)",
+     "Poisoned (2+)"
+    ],
+    "traits": [
+     "Arcane"
+    ],
+    "modes": null
+   }
+  ],
+  "melee": [
+   {
+    "name": "Power Axe",
+    "page": 88,
+    "IM": "-1",
+    "AM": "A",
+    "SM": "+1",
+    "AP": 3,
+    "D": 1,
+    "specialRules": [
+     "Breaching (5+)"
+    ],
+    "traits": [
+     "Power"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Power Lance",
+    "page": 88,
+    "IM": "+1",
+    "AM": "A",
+    "SM": "S",
+    "AP": 3,
+    "D": 1,
+    "specialRules": [
+     "Precision (6+)"
+    ],
+    "traits": [
+     "Power"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Power Maul",
+    "page": 88,
+    "IM": "-1",
+    "AM": "A",
+    "SM": "+2",
+    "AP": 3,
+    "D": 1,
+    "specialRules": [
+     "Breaching (6+)"
+    ],
+    "traits": [
+     "Power"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Power Sword",
+    "page": 88,
+    "IM": "I",
+    "AM": "A",
+    "SM": "S",
+    "AP": 3,
+    "D": 1,
+    "specialRules": [
+     "Breaching (6+)"
+    ],
+    "traits": [
+     "Power"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Agonizer",
+    "page": 88,
+    "IM": "I",
+    "AM": "A",
+    "SM": "S",
+    "AP": 3,
+    "D": 1,
+    "specialRules": [
+     "Poisoned (3+)",
+     "Torment (Stunned)"
+    ],
+    "traits": [
+     "Power",
+     "Venom"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Archite Glaive",
+    "page": 88,
+    "IM": "I",
+    "AM": "A",
+    "SM": "+1",
+    "AP": 2,
+    "D": 1,
+    "specialRules": [
+     "Duellist's Edge (2)"
+    ],
+    "traits": [
+     "Power"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Huskblade",
+    "page": 88,
+    "IM": "I",
+    "AM": "A",
+    "SM": "+1",
+    "AP": 3,
+    "D": 3,
+    "specialRules": [
+     "Breaching (6+)"
+    ],
+    "traits": [
+     "Power"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Klaive",
+    "page": 88,
+    "IM": "I",
+    "AM": "A",
+    "SM": "+2",
+    "AP": 2,
+    "D": 1,
+    "specialRules": [
+     "Critical Hits (6+)"
+    ],
+    "traits": [
+     "Power"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Punisher",
+    "page": 88,
+    "IM": "+1",
+    "AM": "A",
+    "SM": "+1",
+    "AP": 3,
+    "D": 1,
+    "specialRules": [
+     "Breaching (6+)",
+     "Reaping Blow (2)"
+    ],
+    "traits": [
+     "Power"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Demiklaives",
+    "page": 88,
+    "IM": null,
+    "AM": null,
+    "SM": null,
+    "AP": null,
+    "D": null,
+    "specialRules": [],
+    "traits": [
+     "Power"
+    ],
+    "modes": [
+     {
+      "name": "Single Blade",
+      "IM": "I",
+      "AM": "A",
+      "SM": "+2",
+      "AP": 2,
+      "D": 1,
+      "specialRules": [
+       "Critical Hits (6+)",
+       "Duellist's Edge (1)"
+      ],
+      "traits": [
+       "Power"
+      ]
+     },
+     {
+      "name": "Dual Blades",
+      "IM": "I",
+      "AM": "+2",
+      "SM": "+1",
+      "AP": 3,
+      "D": 1,
+      "specialRules": [
+       "Breaching (4+)"
+      ],
+      "traits": [
+       "Power"
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Wrack Tools",
+    "page": 89,
+    "IM": "I",
+    "AM": "A",
+    "SM": "S",
+    "AP": "–",
+    "D": 1,
+    "specialRules": [
+     "Poisoned (3+)"
+    ],
+    "traits": [
+     "Venom"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Haemonculus Tools",
+    "page": 89,
+    "IM": "I",
+    "AM": "A",
+    "SM": "S",
+    "AP": "–",
+    "D": 1,
+    "specialRules": [
+     "Poisoned (2+)"
+    ],
+    "traits": [
+     "Venom"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Glimmersteel Blade",
+    "page": 89,
+    "IM": "I",
+    "AM": "A",
+    "SM": "S",
+    "AP": "–",
+    "D": 1,
+    "specialRules": [
+     "Breaching (5+)"
+    ],
+    "traits": [],
+    "modes": null
+   },
+   {
+    "name": "Venom Blade",
+    "page": 89,
+    "IM": "I",
+    "AM": "A",
+    "SM": "S",
+    "AP": 5,
+    "D": 1,
+    "specialRules": [
+     "Breaching (6+)",
+     "Poisoned (2+)"
+    ],
+    "traits": [
+     "Venom"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Haemovores",
+    "page": 89,
+    "IM": "I",
+    "AM": "3",
+    "SM": "5",
+    "AP": "–",
+    "D": 1,
+    "specialRules": [
+     "Ancillary",
+     "Drain (1)"
+    ],
+    "traits": [],
+    "modes": null,
+    "note": "Source prints numeric AM/SM values (3, 5) rather than 'A'/'S' as for other weapons; kept as printed."
+   },
+   {
+    "name": "Electrocorrosive Whip",
+    "page": 89,
+    "IM": "I",
+    "AM": "A",
+    "SM": "S",
+    "AP": 5,
+    "D": 1,
+    "specialRules": [
+     "Poisoned (4+)",
+     "Torment (Suppressed)"
+    ],
+    "traits": [
+     "Arc"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Mindphase Gauntlet",
+    "page": 89,
+    "IM": "I",
+    "AM": "A",
+    "SM": "+2",
+    "AP": "–",
+    "D": 2,
+    "specialRules": [
+     "Torment (Pinned)"
+    ],
+    "traits": [
+     "Neuro"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Flesh Gauntlet",
+    "page": 89,
+    "IM": "I",
+    "AM": "A",
+    "SM": "S",
+    "AP": 4,
+    "D": 3,
+    "specialRules": [
+     "Poisoned (3+)"
+    ],
+    "traits": [
+     "Venom"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Scissorhand",
+    "page": 89,
+    "IM": "I",
+    "AM": "+2",
+    "SM": "S",
+    "AP": "–",
+    "D": 1,
+    "specialRules": [
+     "Breaching (6+)",
+     "Poisoned (3+)",
+     "Rending (6+)"
+    ],
+    "traits": [
+     "Venom"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Ichor Injector",
+    "page": 89,
+    "IM": "I",
+    "AM": "1",
+    "SM": "3",
+    "AP": "–",
+    "D": 5,
+    "specialRules": [
+     "Breaching (5+)",
+     "Poisoned (2+)",
+     "Precision (4+)"
+    ],
+    "traits": [
+     "Venom"
+    ],
+    "modes": null,
+    "note": "Source prints numeric AM/SM values (1, 3) rather than 'A'/'S' as for other weapons; kept as printed."
+   },
+   {
+    "name": "Macro-Scalpel",
+    "page": 89,
+    "IM": "I",
+    "AM": "A",
+    "SM": "S",
+    "AP": 2,
+    "D": 2,
+    "specialRules": [
+     "Rending (6+)"
+    ],
+    "traits": [],
+    "modes": null
+   },
+   {
+    "name": "Flesh Macro-Gauntlet",
+    "page": 89,
+    "IM": "I",
+    "AM": "A",
+    "SM": "S",
+    "AP": 2,
+    "D": 3,
+    "specialRules": [
+     "Poisoned (3+)"
+    ],
+    "traits": [
+     "Venom"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Ichor Macro-Injector",
+    "page": 89,
+    "IM": "I",
+    "AM": "1",
+    "SM": "3",
+    "AP": 2,
+    "D": 5,
+    "specialRules": [
+     "Poisoned (2+)",
+     "Precision (4+)"
+    ],
+    "traits": [
+     "Venom"
+    ],
+    "modes": null,
+    "note": "Source prints numeric AM/SM values (1, 3) rather than 'A'/'S' as for other weapons; kept as printed."
+   },
+   {
+    "name": "Chain Macro-Flails",
+    "page": 89,
+    "IM": "+1",
+    "AM": "A",
+    "SM": "S",
+    "AP": 2,
+    "D": 1,
+    "specialRules": [
+     "Ensnare (2)",
+     "Reaping Blow (2)"
+    ],
+    "traits": [],
+    "modes": null
+   },
+   {
+    "name": "Leecher Tentacles",
+    "page": 89,
+    "IM": "I",
+    "AM": "A",
+    "SM": "S",
+    "AP": 2,
+    "D": 1,
+    "specialRules": [
+     "Drain (1)"
+    ],
+    "traits": [],
+    "modes": null
+   },
+   {
+    "name": "Spirit Probe",
+    "page": 89,
+    "IM": "I",
+    "AM": "A",
+    "SM": "S",
+    "AP": 2,
+    "D": 1,
+    "specialRules": [
+     "Spirit Leech"
+    ],
+    "traits": [],
+    "modes": null
+   },
+   {
+    "name": "Mono-Knife",
+    "page": 89,
+    "IM": "I",
+    "AM": "A",
+    "SM": "S",
+    "AP": "–",
+    "D": 1,
+    "specialRules": [
+     "Breaching (6+)"
+    ],
+    "traits": [
+     "Mono"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Mono-Blade",
+    "page": 89,
+    "IM": "I",
+    "AM": "A",
+    "SM": "S",
+    "AP": "–",
+    "D": 1,
+    "specialRules": [
+     "Breaching (5+)"
+    ],
+    "traits": [
+     "Mono"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Mono-Flail",
+    "page": 89,
+    "IM": "I",
+    "AM": "A",
+    "SM": "+1",
+    "AP": "–",
+    "D": 1,
+    "specialRules": [
+     "Rending (6+)",
+     "Breaching (6+)"
+    ],
+    "traits": [
+     "Mono"
+    ],
+    "modes": null
+   }
+  ]
  },
  "wargear": [],
  "rules": {
-  "specialRules": [],
-  "reactions": [],
-  "gambits": [],
-  "primeAdvantages": [],
+  "specialRules": [
+   {
+    "name": "Additional Reaction Point",
+    "page": 4,
+    "text": "If an Army's Primary Detachment is from the Drukhari Army List, the Controlling Player gains one additional Reaction Point if that Detachment contains any Models with the Rulers of the Dark City Trait."
+   }
+  ],
+  "reactions": [
+   {
+    "name": "Lightning Reflexes",
+    "page": 5,
+    "text": "Trigger: The Reactive Player may declare a Lightning Reflexes reaction at the start of Step 3 of the Shooting Attack sequence of a Shooting Attack made by the Active Player.\n\nCost: The Reactive player may spend 1 point from their Reaction Allotment to declare a Lightning Reflexes reaction – the cost is paid as soon as the declaration is made.\n\nTarget: The Target unit is always the Unit whose Shooting Attack triggered the Reaction. The Reacting Unit is always the Unit that was the target of the Shooting Attack that triggered the Reaction and must be entirely composed of Models with the Light Sub-Type.\n\nProcess:\nI. Once a Lightning Reflexes reaction has been declared, each Model in the Reacting Unit may move a number of inches equal to the Base Value of its Initiative Characteristic. If all Models in the Reacting Unit end this move within 2\" of any point on a Facing of a Model with the Transport Sub-Type upon which the Unit can Embark, the Unit may Embark upon that Model at the end of that move.\nII. After all Models in the Reacting Units have moved, return to Step 2 of the Shooting Attack Sequence. If the Reacting Unit is still a valid target for the Shooting Attack, the Opposing Player may at this point select to either continue resolving the Shooting Attack Sequence against the Reacting Unit or return to Step 1 of the Shooting Attack Sequence and select a different Unit as the Target. If the Reacting Unit is no longer a valid Target for the Shooting Attack, the Opposing Player must return to step 1 of the Shooting Attack Sequence and select another Target.\nIII. If the Opposing Player returns to Step 1 of the Shooting Attack Sequence and selects another Target for the Shooting Attack, all Models in the Target Unit have a -1 modifier to their Ballistic Skill characteristic for the duration of that Shooting Attack Sequence."
+   },
+   {
+    "name": "Acrobatic Dodge",
+    "page": 5,
+    "text": "Trigger: The Reactive Player may declare an Acrobatic Dodge reaction at the start of Step 3 of the Shooting Attack sequence of a Shooting Attack made by the Active Player.\n\nCost: The Reactive player may spend 1 point from their Reaction Allotment to declare an Ethereal Interception reaction – the cost is paid as soon as the declaration is made.\n\nTarget: The Target unit is always the Unit whose Shooting Attack triggered the Reaction. The Reacting Unit is always the Unit that was the target of the Shooting Attack that triggered the Reaction and must be entirely composed of Models with the Jink Trait.\n\nProcess:\nI. Once an Acrobatic Dodge Reaction has been declared, all Models in the Reacting Unit gain the Shrouded (5+) Special Rule against Attacks made by the Target Unit for the duration of this Shooting Attack.\nII. Any Models in the Reacting Unit that already have a variant of the Shrouded (X) Special Rule instead receive a +1 modifier to the value of their Shrouded (X) Special Rule (Shrouded (5+) becomes Shrouded (4+), etc), to a maximum of Shrouded (3+).",
+    "note": "The printed 'Cost' paragraph names the 'Ethereal Interception' reaction instead of 'Acrobatic Dodge' (apparently copied from the Necron Ethereal Interception reaction of the same shape); kept verbatim as printed."
+   }
+  ],
+  "gambits": [
+   {
+    "name": "Macabre Interest",
+    "page": 3,
+    "text": "When selecting a Gambit, the controlling player of a model with the 'Drukhari' Trait can select Macabre Interest instead of any others available to that model.\n\nIf this Gambit is selected, then the model controlled by the player that selected it gains the Take Heads Special Rule until the Challenge ends (including in further rounds of combat, if the challenge continues beyond the round during which this Gambit is selected). If the model already had the Take Head Special Rule, then if the Controlling Player would gain Victory Points because the model destroyed its Challenge Opponent, that player scores 1 additional Victory Point."
+   }
+  ],
+  "primeAdvantages": [
+   {
+    "name": "Scion of Vileth",
+    "page": 3,
+    "text": "If a unit with the Drukhari Trait is selected to fill a Prime Force Organization Slot in a Detachment, the Scion of Vileth Prime Advantage may be selected:\n\nThis Prime Advantage may only be selected for a Slot that is filled with a Model with the Flyer Sub-Type. The Model for which this Prime Advantage was selected gains gains a +1 modifier to its Ballistic Skill and has a 4+ Invulnerable Save against all Shooting Attacks made as part of Reactions.",
+    "note": "Source text reads 'gains gains a +1 modifier' (duplicated word); kept as printed."
+   }
+  ],
   "traits": [
+   {
+    "name": "Xenos",
+    "page": 3,
+    "text": "The 'Xenos' trait replaces the Allegiance Trait for Xenos factions. An army that includes models with the Xenos Trait may still include models with either the Loyalist or Traitor Trait, but not the other."
+   },
+   {
+    "name": "Drukhari",
+    "page": 3,
+    "text": "The 'Drukhari' Trait indicates Units that can be selected as part of a Drukhari army."
+   },
+   {
+    "name": "[Partisan]",
+    "page": 3,
+    "text": "Certain Drukhari Units have a '[Partisan]' Trait which indicates which subset of Drukhari society the Unit hails from. The [Partisan] Trait has no effect on its own, but is referred to by some Rules and Special Rules. The three [Partisan] Traits are as follows: Kabals, Cults, Covens. If a Unit has the [Partisan] Trait listed instead of a specific option, one of the three Traits above must be selected for it during Army creation."
+   },
+   {
+    "name": "[Combat Drugs]",
+    "page": 3,
+    "text": "Some Units in the Drukhari Army List will have a Combat Drug represented by a Trait on its Unit Entry, represented by the [Combat Drugs] Trait. When such a Unit is added to an Army, one Combat Drug Trait from the following list must be selected for that Unit. Each Combat Drug Trait that a Unit has improves one Characteristic of the Model that has it, as listed next to the corresponding Combat Drug Trait: Adrenalight (+1 A), Grave Lotus (+1 S), Hypex (+1 I), Painbringer (+1 T), Serpentin (+1 WS), Splintermind (+1 CL). Units do not benefit from the Combat Drugs Trait of Models that Join them, nor do Models that Join a Unit benefit from that Unit's Combat Drug Trait. Some Rules and Special Rules may allow a Model to gain more than one Combat Drug Trait. If this is the case, the Model's Second Combat Drug Traits must be different from the first. A Model that somehow has three or more Combat Drugs Traits at the same time is immediately destroyed."
+   },
+   {
+    "name": "Jink",
+    "page": 3,
+    "text": "Drukhari vehicles are exceptionally fast and agile, and can weave through firestorms that would leave any other pilots flat-footed."
+   },
+   {
+    "name": "Rulers of the Dark City",
+    "page": 3,
+    "text": "The most powerful individuals in Commorragh maintain control over their eclectic organizations with an iron grip, lest they get upstaged by their rivals."
+   },
+   {
+    "name": "Adrenalight",
+    "page": 3,
+    "text": "A Combat Drug Trait. A Model with this Trait has a +1 modifier to its Attacks Characteristic."
+   },
+   {
+    "name": "Grave Lotus",
+    "page": 3,
+    "text": "A Combat Drug Trait. A Model with this Trait has a +1 modifier to its Strength Characteristic."
+   },
+   {
+    "name": "Hypex",
+    "page": 3,
+    "text": "A Combat Drug Trait. A Model with this Trait has a +1 modifier to its Initiative Characteristic."
+   },
+   {
+    "name": "Painbringer",
+    "page": 3,
+    "text": "A Combat Drug Trait. A Model with this Trait has a +1 modifier to its Toughness Characteristic."
+   },
+   {
+    "name": "Serpentin",
+    "page": 3,
+    "text": "A Combat Drug Trait. A Model with this Trait has a +1 modifier to its Weapon Skill Characteristic."
+   },
+   {
+    "name": "Splintermind",
+    "page": 3,
+    "text": "A Combat Drug Trait. A Model with this Trait has a +1 modifier to its Cool Characteristic."
+   },
    {
     "name": "Adrenalight",
     "page": 3,

@@ -1,0 +1,99 @@
+{
+  "specialRules": [
+    {
+      "name": "Additional Reaction Point",
+      "page": 4,
+      "text": "If an Army's Primary Detachment is from the Drukhari Army List, the Controlling Player gains one additional Reaction Point if that Detachment contains any Models with the Rulers of the Dark City Trait."
+    }
+  ],
+  "reactions": [
+    {
+      "name": "Lightning Reflexes",
+      "page": 5,
+      "text": "Trigger: The Reactive Player may declare a Lightning Reflexes reaction at the start of Step 3 of the Shooting Attack sequence of a Shooting Attack made by the Active Player.\n\nCost: The Reactive player may spend 1 point from their Reaction Allotment to declare a Lightning Reflexes reaction – the cost is paid as soon as the declaration is made.\n\nTarget: The Target unit is always the Unit whose Shooting Attack triggered the Reaction. The Reacting Unit is always the Unit that was the target of the Shooting Attack that triggered the Reaction and must be entirely composed of Models with the Light Sub-Type.\n\nProcess:\nI. Once a Lightning Reflexes reaction has been declared, each Model in the Reacting Unit may move a number of inches equal to the Base Value of its Initiative Characteristic. If all Models in the Reacting Unit end this move within 2\" of any point on a Facing of a Model with the Transport Sub-Type upon which the Unit can Embark, the Unit may Embark upon that Model at the end of that move.\nII. After all Models in the Reacting Units have moved, return to Step 2 of the Shooting Attack Sequence. If the Reacting Unit is still a valid target for the Shooting Attack, the Opposing Player may at this point select to either continue resolving the Shooting Attack Sequence against the Reacting Unit or return to Step 1 of the Shooting Attack Sequence and select a different Unit as the Target. If the Reacting Unit is no longer a valid Target for the Shooting Attack, the Opposing Player must return to step 1 of the Shooting Attack Sequence and select another Target.\nIII. If the Opposing Player returns to Step 1 of the Shooting Attack Sequence and selects another Target for the Shooting Attack, all Models in the Target Unit have a -1 modifier to their Ballistic Skill characteristic for the duration of that Shooting Attack Sequence."
+    },
+    {
+      "name": "Acrobatic Dodge",
+      "page": 5,
+      "text": "Trigger: The Reactive Player may declare an Acrobatic Dodge reaction at the start of Step 3 of the Shooting Attack sequence of a Shooting Attack made by the Active Player.\n\nCost: The Reactive player may spend 1 point from their Reaction Allotment to declare an Ethereal Interception reaction – the cost is paid as soon as the declaration is made.\n\nTarget: The Target unit is always the Unit whose Shooting Attack triggered the Reaction. The Reacting Unit is always the Unit that was the target of the Shooting Attack that triggered the Reaction and must be entirely composed of Models with the Jink Trait.\n\nProcess:\nI. Once an Acrobatic Dodge Reaction has been declared, all Models in the Reacting Unit gain the Shrouded (5+) Special Rule against Attacks made by the Target Unit for the duration of this Shooting Attack.\nII. Any Models in the Reacting Unit that already have a variant of the Shrouded (X) Special Rule instead receive a +1 modifier to the value of their Shrouded (X) Special Rule (Shrouded (5+) becomes Shrouded (4+), etc), to a maximum of Shrouded (3+).",
+      "note": "The printed 'Cost' paragraph names the 'Ethereal Interception' reaction instead of 'Acrobatic Dodge' (apparently copied from the Necron Ethereal Interception reaction of the same shape); kept verbatim as printed."
+    }
+  ],
+  "gambits": [
+    {
+      "name": "Macabre Interest",
+      "page": 3,
+      "text": "When selecting a Gambit, the controlling player of a model with the 'Drukhari' Trait can select Macabre Interest instead of any others available to that model.\n\nIf this Gambit is selected, then the model controlled by the player that selected it gains the Take Heads Special Rule until the Challenge ends (including in further rounds of combat, if the challenge continues beyond the round during which this Gambit is selected). If the model already had the Take Head Special Rule, then if the Controlling Player would gain Victory Points because the model destroyed its Challenge Opponent, that player scores 1 additional Victory Point."
+    }
+  ],
+  "primeAdvantages": [
+    {
+      "name": "Scion of Vileth",
+      "page": 3,
+      "text": "If a unit with the Drukhari Trait is selected to fill a Prime Force Organization Slot in a Detachment, the Scion of Vileth Prime Advantage may be selected:\n\nThis Prime Advantage may only be selected for a Slot that is filled with a Model with the Flyer Sub-Type. The Model for which this Prime Advantage was selected gains gains a +1 modifier to its Ballistic Skill and has a 4+ Invulnerable Save against all Shooting Attacks made as part of Reactions.",
+      "note": "Source text reads 'gains gains a +1 modifier' (duplicated word); kept as printed."
+    }
+  ],
+  "traits": [
+    {
+      "name": "Xenos",
+      "page": 3,
+      "text": "The 'Xenos' trait replaces the Allegiance Trait for Xenos factions. An army that includes models with the Xenos Trait may still include models with either the Loyalist or Traitor Trait, but not the other."
+    },
+    {
+      "name": "Drukhari",
+      "page": 3,
+      "text": "The 'Drukhari' Trait indicates Units that can be selected as part of a Drukhari army."
+    },
+    {
+      "name": "[Partisan]",
+      "page": 3,
+      "text": "Certain Drukhari Units have a '[Partisan]' Trait which indicates which subset of Drukhari society the Unit hails from. The [Partisan] Trait has no effect on its own, but is referred to by some Rules and Special Rules. The three [Partisan] Traits are as follows: Kabals, Cults, Covens. If a Unit has the [Partisan] Trait listed instead of a specific option, one of the three Traits above must be selected for it during Army creation."
+    },
+    {
+      "name": "[Combat Drugs]",
+      "page": 3,
+      "text": "Some Units in the Drukhari Army List will have a Combat Drug represented by a Trait on its Unit Entry, represented by the [Combat Drugs] Trait. When such a Unit is added to an Army, one Combat Drug Trait from the following list must be selected for that Unit. Each Combat Drug Trait that a Unit has improves one Characteristic of the Model that has it, as listed next to the corresponding Combat Drug Trait: Adrenalight (+1 A), Grave Lotus (+1 S), Hypex (+1 I), Painbringer (+1 T), Serpentin (+1 WS), Splintermind (+1 CL). Units do not benefit from the Combat Drugs Trait of Models that Join them, nor do Models that Join a Unit benefit from that Unit's Combat Drug Trait. Some Rules and Special Rules may allow a Model to gain more than one Combat Drug Trait. If this is the case, the Model's Second Combat Drug Traits must be different from the first. A Model that somehow has three or more Combat Drugs Traits at the same time is immediately destroyed."
+    },
+    {
+      "name": "Jink",
+      "page": 3,
+      "text": "Drukhari vehicles are exceptionally fast and agile, and can weave through firestorms that would leave any other pilots flat-footed."
+    },
+    {
+      "name": "Rulers of the Dark City",
+      "page": 3,
+      "text": "The most powerful individuals in Commorragh maintain control over their eclectic organizations with an iron grip, lest they get upstaged by their rivals."
+    },
+    {
+      "name": "Adrenalight",
+      "page": 3,
+      "text": "A Combat Drug Trait. A Model with this Trait has a +1 modifier to its Attacks Characteristic."
+    },
+    {
+      "name": "Grave Lotus",
+      "page": 3,
+      "text": "A Combat Drug Trait. A Model with this Trait has a +1 modifier to its Strength Characteristic."
+    },
+    {
+      "name": "Hypex",
+      "page": 3,
+      "text": "A Combat Drug Trait. A Model with this Trait has a +1 modifier to its Initiative Characteristic."
+    },
+    {
+      "name": "Painbringer",
+      "page": 3,
+      "text": "A Combat Drug Trait. A Model with this Trait has a +1 modifier to its Toughness Characteristic."
+    },
+    {
+      "name": "Serpentin",
+      "page": 3,
+      "text": "A Combat Drug Trait. A Model with this Trait has a +1 modifier to its Weapon Skill Characteristic."
+    },
+    {
+      "name": "Splintermind",
+      "page": 3,
+      "text": "A Combat Drug Trait. A Model with this Trait has a +1 modifier to its Cool Characteristic."
+    }
+  ]
+}
