@@ -1,0 +1,40 @@
+       KUSTOM MEKA-DREAD                                         HIGH COMMAND
+           UNIT COMPOSITION: 1 KUSTOM MEKA-DREAD                                180 Points
+
+
+
+Few Meks have the skill to create Mega-Dreads and the competition to pilot these monstrosities is fierce. Orks that do so often
+go quite insane with joy over the damage their machines can inflict, while some Big Meks, jealous of those who get to “av all da
+fun” build their own even more outlandish examples of these machines for personal use. These fearsome ‘kustomized Meka-
+Dreads’ are even more insane and dangerously unpredictable than the rest, often fitted with multiple tool-equipped servo-arms
+for “battlefield fixin’s" and experimental and energy hungry weapons.
+
+                M  WS   BS    S    T  W      I    A   LD   CL  WP   IN   SAV  INV
+Kustom Meka-dread         6    4    2    8    8    7    2    4    12   10    7    6   2+  5+
+
+
+ WARGEAR                                       SPECIAL RULES
+ • Two big shootas                               • Battlesmith (2)
+                                               • Bulky (8)
+ TRAITS                                        • Explodes (4+)
+ • Xenos                                       • Implacable Advance
+ • [Orks]
+                                              TYPE
+                                               • Walker (Heavy)
+
+ OPTIONS
+ This Model must have one of the following options
+  selected for it:
+ • Two options from the following list:
+     - Dread rippa klaw .............................................. Free
+     - Mega killsaw ............................................ +5 Points
+     - Shunta .................................................... +25 Points
+     -  Killkannon .............................................. +35 Points
+ • Paired dread rippa klaws  ........................... +10 Points
+ • Paired mega killsaws  ................................. +10 Points
+
+
+
+
+
+                                           9

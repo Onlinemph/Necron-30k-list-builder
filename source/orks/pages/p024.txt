@@ -1,0 +1,62 @@
+       BURNA MOB                                                            SUPPORT
+           UNIT COMPOSITION: 5 BURNA BOYZ                                        70 Points
+           • May include up to 10 additional Burna Boyz at +12 Points per Model.
+           • Up to three Burna Boyz may be replaced with one Mek each for Free.
+
+Burna Boyz are dedicated arsonists all. They love nothing more than burning other people's stuff, and the owners into the
+bargain. The dual spectacle of leaping flame and frantically flailing victim is a thing of beauty to a Burna Boy, and they will
+take any excuse to set someone on fire.
+
+                M  WS   BS    S    T  W      I    A   LD   CL  WP   IN   SAV  INV
+Burna Boy                 6    4    2    3    4    1    2    2    6    7    6    5   4+      -
+Mek                     6    4    3    3    4    1    2    2    6    7    6    8   4+      -
+
+
+ WARGEAR                                       SPECIAL RULES
+ • Burna (Burna Boy only)                          • Battlesmith (1) (Mek only)
+ • Slugga (Mek only)                             • Impact (S)
+ • Choppa (Mek only)                             • Mob Rule (CL)
+ • Stikkbombs                                   • Support Unit (2)
+
+ TRAITS                                       TYPE
+ • Xenos                                       •  Infantry
+ • [Orks]
+
+ OPTIONS
+ • Any Mek in this Unit may have its slugga and choppa
+    exchanged for one item from the Ork Mek Wargear list.
+
+
+       LOOTA MOB                                                             SUPPORT
+           UNIT COMPOSITION: 5 LOOTAS                                        80 Points
+           • May include up to 10 additional Lootas at +14 Points per Model.
+           • Up to three Lootas may be replaced with one Mek each for Free.
+
+Toting massive deffguns that fill the air with a rain of shots, rokkits and energy blasts, Loota mobs provide a warband with
+much needed and extremely heavy covering fire. When a mob of Lootas cuts loose, the overwhelming storm of dakka they
+create churns infantry to a blood-soaked pulp while tanks shudder and clang, their crews and systems perforated until the
+vehicles shudder to a halt leaking oil and gore.
+
+                M  WS   BS    S    T  W      I    A   LD   CL  WP   IN   SAV  INV
+Loota                    6    4    2    3    4    1    2    2    6    7    6    5   4+      -
+Mek                     6    4    3    3    4    1    2    2    6    7    6    8   4+      -
+
+
+ WARGEAR                                       SPECIAL RULES
+ • Deffgun (Loota only)                            • Battlesmith (1) (Mek only)
+ • Slugga (Mek only)                             • Impact (S)
+ • Choppa (Mek only)                             • Mob Rule (CL)
+ • Stikkbombs                                   • Support Unit (2)
+
+ TRAITS                                       TYPE
+ • Xenos                                       •  Infantry (Heavy)
+ • [Orks]
+
+ OPTIONS
+ • Any Mek in this Unit may have its slugga and choppa
+    exchanged for one item from the Ork Mek Wargear list.
+
+
+
+
+                                          24

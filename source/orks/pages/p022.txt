@@ -1,0 +1,62 @@
+        SLUGGA BOYZ MOB                                                   TROOPS
+           UNIT COMPOSITION: 10 SLUGGA BOYZ                                   60 Points
+           • May include up to 20 additional Slugga Boyz at +5 Points per Model.
+           • One Slugga Boy may be replaced with a Slugga Nob for +10 Points.
+
+Slugga Boyz are the heart and soul of most Ork warbands. They are normally formed into huge mobs and are armed for close
+combat with hefty, razor-edged choppas and the big-bore Ork pistols known as sluggas.
+
+                M  WS   BS    S    T  W      I    A   LD   CL  WP   IN   SAV  INV
+Slugga Boy                6    4    2    3    4    1    2    2    6    7    6    5   6+      -
+Slugga Nob                6    5    2    4    4    2    3    3    7    8    7    5   6+      -
+
+
+ WARGEAR                                       SPECIAL RULES
+ • Slugga                                      • Impact (S)
+ • Choppa                                      • Line (2)
+ • Stikkbombs                                   • Mob Rule (CL)
+
+ TRAITS                                       TYPE
+ • Xenos                                       • Slugga Boyz: Infantry (Light)
+ • [Orks]                                      • Slugga Nob: Infantry (Sergeant, Light)
+
+ OPTIONS
+ • For every five models in this Unit, one Slugga Boy in     •  If this Unit includes a Slugga Nob, the Slugga Nob in
+     this Unit may have its choppa exchanged for one              this Unit may have its slugga and/or choppa
+    chainsword for Free.                                  exchanged for one item each from the Ork Boss
+ • Up to three Slugga Boyz in this Unit may each have        Weapons list.
+     their slugga and choppa exchanged for one item from
+    the Ork Special Weapons list.
+
+
+       SHOOTA BOYZ MOB                                                   TROOPS
+           UNIT COMPOSITION: 10 SHOOTA BOYZ                                   60 Points
+           • May include up to 20 additional Shoota Boyz at +5 Points per Model.
+           • One Shoota Boy may be replaced with a Shoota Nob for +10 Points.
+
+Slugga Boyz are the heart and soul of most Ork warbands. They are normally formed into huge mobs and are armed for close
+combat with hefty, razor-edged choppas and the big-bore Ork pistols known as sluggas.
+
+                M  WS   BS    S    T  W      I    A   LD   CL  WP   IN   SAV  INV
+Shoota Boy                6    4    2    3    4    1    2    2    6    7    6    5   6+      -
+Shoota Nob                6    5    2    4    4    2    3    3    7    8    7    5   6+      -
+
+
+ WARGEAR                                       SPECIAL RULES
+ • Shoota                                      • Impact (S)
+ • Stikkbombs                                   • Line (2)
+                                               • Mob Rule (CL)
+ TRAITS
+ • Xenos                                      TYPE
+ • [Orks]                                      • Shoota Boyz: Infantry (Light)
+                                               • Shoota Nob: Infantry (Sergeant, Light)
+
+ OPTIONS
+ • Up to three Shoota Boyz in this Unit may each have     •  If this Unit includes a Shoota Nob, the Shoota Nob in
+     their shoota exchanged for one item from the Ork             this Unit may have its shoota exchanged for one item
+    Special Weapons list.                                  from the Ork Kombi-weapons list.
+
+
+
+
+                                          22

@@ -1,0 +1,41 @@
+       GARGANTUAN SQUIGGOTH                                      LORD OF WAR
+           UNIT COMPOSITION: 1 GARGANTUAN SQUIGGOTH                             550 Points
+
+
+
+Just like with other large Battle Fortresses and Stompas, Orks see ownership of a Gargantuan Squiggoth as a sign of a
+Warboss’s power and wealth. Gargantuan Squiggoths grow to the size of small Titans and once a howdah has been mounted
+upon its back, a Warboss and its Nobz retinue can ride high, shooting down upon the enemy and cheering wildly as the
+Squiggoth ploughs through the enemy ranks, goring and trampling on its rampage of destruction.
+
+                                                                                                  Transport
+                                                                                                   Capacity            M  WS  BS   S    T  W      I   A   LD   CL  WP   IN  SAV  INV
+Gargantuan         12   2    2   10   8   10   1    6    12   10   7    3   3+      -      20
+Squiggoth
+
+
+ WARGEAR                                       SPECIAL RULES
+ • Tusks and stomping feet                         • Bulky (16)
+ • Supa-kannon                                 • Eternal Warrior (1)
+ • Supa-lobba                                   •  Feel No Pain (5+)
+                                               •  Firing Protocols (6)
+ TRAITS                                        • Impact (WS)
+ • Xenos                                       • Implacable Advance
+ • Snakebites
+                                              TYPE
+                                               • Cavalry (Heavy, Transport)
+
+ OPTIONS
+ • This Model may have up to four items from the Ork
+     Pintle Weapons list selected for it.
+
+ ACCESS POINTS
+ This Model has Access Points on its Rear Facing,
+ determined as though it were a Model with the Vehicle
+  type.
+
+
+
+
+
+                                          42

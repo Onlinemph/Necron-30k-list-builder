@@ -1,0 +1,36 @@
+             ORK CLAN RULES
+
+Every Model in the Orks Army may be part of one of the Great Clans of the Orks as determined by their variant of the
+[Orks] Trait. Some Models may have the Freebooters Trait instead, having left their clans behind. Each variant of the Orks
+Faction Trait offers a number of new options and Rules for use with Models that have the Trait for that clan.
+
+FREEBOOTERS
+Freebooterz are Orks who have abandoned their tribes to form roving bands of outcasts. The composition of Freebooter bands
+varies greatly depending on their origin and history. Some are fugitives from Ork society, others eccentrics, while some will be
+the remnants of shattered armies.
+
+All Models with the Freebooters Trait are subject to the following Special Rules:
+
+Mercenaries                                     Outcasts
+Models with the Freebooters Trait may be included in         Models with the Freebooters Trait may use the following
+Detachments of a different variant of the Orks Faction           specific benefits normally only available to Models with
+Trait. This is an exception to the rule requiring all Models       other variants of the Orks Faction Trait (details for these
+in that Detachment to have the same variant of the Orks        benefits are listed on the following pages):
+Faction Trait. However, there must be fewer Freebooters
+                                                • Advanced Reaction: ‘Ere We Go!Units in a Detachment than Units with another variant of
+the Orks Faction Trait unless the Primary Detachment        • Gambits: Brutal but Kunnin’ and Kunnin’ but Brutal
+includes a High Command or Command Unit with the
+                                                • Prime Advantages: Plunderer Without Equal and FeralFreebooters Trait.
+                                                          Orks
+In addition, an Allied Detachment that consists only of
+                                                • Wargear: Ammo RuntsModels with the Freebooters Trait may be taken as part of
+another Army List. In this case, all Models in the Allied
+Detachment and any additional Auxiliary Detachments
+replace the Xenos Trait with the variant of the Allegiance
+Trait used by the rest of the Army.
+
+
+
+
+
+                                          43

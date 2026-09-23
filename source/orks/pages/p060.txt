@@ -1,0 +1,25 @@
+TANKBUSTA MELEE WEAPONS
+
+                      IM  AM  SM   AP   D   Special Rules                             Traits
+
+ Knucklebustas                -1   +1  +2    4     2   Armour-breaker (6+)                             -
+
+ Tankbusta bombs             -3    1     9     2     4   Armourbane, Detonation                        -
+
+ Tankhammer                 -2    A     8     3     2   Armour-breaker (5+), Breaching (6+)      -
+
+EXOTIC AND MISCELLANEOUS MELEE WEAPONS
+
+                      IM  AM  SM   AP   D   Special Rules                             Traits
+
+ Breacha ram                 -3    A   +3    4     2   Armour-breaker (6+), Shock (Stunned)    -
+
+ Burna (Melee)                      I    A     S     4     1   Aflame (1), Breaching (6+)                    -
+
+ Tusks and stomping feet         I    A     S     4     2   Impact (A), Reaping Blow (2)                  -
+
+
+
+
+
+                                          60

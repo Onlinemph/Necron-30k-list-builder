@@ -1,0 +1,68 @@
+DEATHSKULLS
+
+The Deathskulls are plunderers without equal. They are tremendously good at looting, borrowing, scrounging, scavenging, and
+stealing things from their fellow Orks, and notoriously bad at giving them back. Deathskulls would make capable scientists and
+excellent engineers if their fascination for now things lasted longer than the time it took to steal them.
+
+All Models with the Deathskulls Trait are subject to the following Special Rules:
+
+DEATHSKULLS PRIME ADVANTAGE            DEATHSKULLS TACTIKA
+If a Unit which only includes Models that have the               All Models with the Deathskulls Trait (excluding Models
+Command Battlefield Role and either the Deathskulls          with the Vehicle Type) are subject to the following Special
+Trait or the Freebooters Trait is selected to fill a Prime          Rule:
+Force Organisation Slot, the following Prime Advantage
+can be selected:                                    Finders Keepers
+                                                       The Deathskulls see battle as a two-stage process, often
+Plunderer Without Equal                               hurrying the killing part in an effort to speed along the
+Orks are experts at stealing and adapting enemy vehicles for      scavenging spree that follows.
+their own use and, once a battle is over, Ork salvage teams
+will get on with the real work of 'repairing' the wrecks of       A Unit that includes Models with this Special Rule can
+enemy tanks.                                              score Victory Points for looting the fallen, but loses
+                                                         the Line (X) Special Rule.
+When a Unit is selected to fill a Prime Organisation Slot
+                                                                      All Models with the Deathskulls Trait lose any variants ofwith this Prime Advantage, a single Transport, Heavy
+                                                             the Line (X) Special Rule they may have, and may notTransport, Armour or Lord of War Force Organisation Slot
+                                                                 thereafter gain any version of Line (X) from any source.in the same Army may be filled by a Unit selected from
+                                                      Models that have lost the Line (X) Special Rule due to thiseither the Legiones Astartes or Solar Auxilia Army Lists
+                                                               Special Rule instead gain the Loot the Dead (X) Specialinstead of the Orks Army List. This Prime Advantage may
+                                                               Rule. The value of X on the Loot the Dead (X) Specialbe taken more than once in the same Army.
+                                                          Rule is equal to the value of X on the variant of Line (X)
+Any Unit selected in this way must be of the Vehicle Type,       that was removed. In addition, any Loota Mob with this
+but must not have the Flyer Sub-Type or the Orbital             Special Rule also gains the Loot the Dead (3) Special
+Assault Vehicle Special Rule. The selected Unit gains the        Rule.
+Looted Wagon Special Rule.
+                                            A Unit that includes any Models with the Loot the Dead
+Looted Wagon                                           (X) Special Rule may not Control or Contest any Objective
+A Model with this Special Rule:                              Marker. See Legiones Astartes: Blackshields for details of
+                                                             the Loot the Dead (X) Special Rule.
+• Must exchange all Traits it has for the Xenos, Orks and
+   [Orks] Trait*.
+• Changes its base Ballistic Skill Characteristic to ‘2’.
+• Gains the Explodes (5+) Special Rule (unless it
+   already has a stronger variant of the Explodes (X)
+   Special Rule) and the Don’t Press Dat! Special Rule.
+
+In addition:
+
+•  If the Model can have items selected for it from the
+   Legion Pintle Weapons list or the Auxilia Pintle
+  Weapons list, items must be chosen from the Ork Pintle
+  Weapons list instead.
+•  If the Model can have items selected for it from the
+   Legion Sponson Weapons list or the Auxilia Sponson
+  Weapons list, items must be chosen from the Ork
+  Sponson Weapons list instead.
+•  If the Model can have items selected for it from the
+   Auxilia Hull Weapons list, items must be chosen from
+   the Ork Hull Weapons list instead.
+
+*Note: Looted Wagons are not limited to having the same
+variant of the Orks Trait as the Unit with the Plunderer
+Without Equal Prime Advantage, but follow the normal
+restrictions for variants of the Orks Trait within
+Detachments. For example, although the Model with the
+Plunderer Without Equal Prime Advantage must have the
+Deathskulls Trait or Freebooters Trait, the Looted Wagon
+may be taken in a Force Organisation Slot of a Blood Axes
+Detachment, and would therefore have the Blood Axes Trait.
+                                          47

@@ -1,0 +1,62 @@
+       WARBIKER MOB                                                      FAST ATTACK
+           UNIT COMPOSITION: 3 WARBIKERS                                      60 Points
+           • May include up to 12 additional Warbikers at +18 Points per Model.
+           •  If this Unit includes 6 or more Models, one Warbiker may be replaced with a Warbiker
+             Nob for +10 Points.
+
+Warbikers function as outriders and shock troops for the main horde. The pall of exhaust and oily smoke thrown up by their
+vehicles helps conceal their advance, giving them a measure of protection from enemy guns.
+
+                M  WS   BS    S    T  W      I    A   LD   CL  WP   IN   SAV  INV
+Warbiker                 14    4    2    3    4    2    2    2    6    7    6    4   4+      -
+Warbiker Nob             14    5    2    4    4    3    3    3    7    8    7    4   4+      -
+
+
+ WARGEAR                                       SPECIAL RULES
+ • Twin dakkaguns                               • Bulky (2)
+ • Choppa                                      • Impact (S)
+ • Stikkbombs                                   • Implacable Advance
+                                               • Mob Rule (CL)
+ TRAITS                                        • Outflank
+ • Xenos                                       • Vanguard (2)
+ • [Orks]
+ • Smokescreen                                 TYPE
+                                               • Warbiker: Cavalry
+                                               • Warbiker Nob: Cavalry (Sergeant)
+
+ OPTIONS
+ • Any Model in this Unit may have its choppa exchanged   •  If this Unit includes a Watbiker Nob, the Warbiker Nob
+     for one slugga for Free.                                       in this Unit may have its choppa exchanged for one
+                                                           item from the Ork Boss Weapons list.
+
+
+       WARBUGGY SQUADRON                                              FAST ATTACK
+           UNIT COMPOSITION: 1 WARBUGGY                                       30 Points
+           • May include up to 5 additional Warbuggies at +30 Points per Model.
+           • Any Warbuggy in this Unit may be replaced with 1 Wartrakk each for +5 Points per
+                Model.
+
+Warbuggies are two-man attack vehicles that combine the raw speed of a Warbike with a formidable weapon payload. Those
+Speed Freeks who own Warbuggies will group together in ramshackle bands that hurtle around the battlefield, blasting away
+at anything they can.
+
+                M  WS   BS    S    T  W      I    A   LD   CL  WP   IN   SAV  INV
+Warbuggy                14    4    2    3    5    3    2    2    6    7    6    4   4+      -
+Wartrakk                 12    4    2    3    5    4    2    2    6    7    6    4   4+      -
+
+
+ WARGEAR                                       SPECIAL RULES
+ • Twin big shootas                               • Bulky (3)
+                                               •  Fast (2) (Warbuggy only)
+ TRAITS                                        • Implacable Advance
+ • Xenos                                       • Outflank
+ • [Orks]                                      • Mob Rule (CL)
+ • Smokescreen
+                                              TYPE
+                                               • Cavalry (Skirmish)
+
+ OPTIONS
+ • Any Model in this Unit may have its twin big shoota     • Any Wartrakk in this Unit may have its twin big shoota
+    exchanged for one twin rokkit launcha for Free.           exchanged for one skorcha for +5 Points per Model.
+
+                                          33

@@ -1,0 +1,62 @@
+        TANKBUSTA MOB                                                       SUPPORT
+           UNIT COMPOSITION: 5 TANKBUSTAS                                        70 Points
+           • May include up to 10 additional Tankbustas at +12 Points per Model.
+           • One Tankbusta may be replaced with a Wrecka Nob for +10 Points.
+
+Tankbustas are Orks who have become completely addicted to the thrill of destroying the armoured fighting vehicles of their
+foes. Their whistling volleys of rokkits, and lethal tankbusta bomb assaults can spell annihilation for even the heaviest tanks.
+
+                M  WS   BS    S    T  W      I    A   LD   CL  WP   IN   SAV  INV
+Tankbusta                 6    4    2    3    4    1    2    2    6    7    6    5   4+      -
+Wrecka Nob               6    5    2    4    4    2    3    3    7    8    7    5   4+      -
+
+
+ WARGEAR                                       SPECIAL RULES
+ • Rokkit launcha (Tankbusta only)                   • Impact (S)
+ • Two rokkit pistols (Wrecka Boss only)               • Mob Rule (CL)
+ • Stikkbombs
+ • Tankbusta bombs                              TYPE
+                                               • Tankbusta: Infantry
+ TRAITS                                        • Wrecka Nob: Infantry (Sergeant)
+ • Xenos
+ • [Orks]
+
+ OPTIONS
+ • For every five models in this Unit, one Tankbusta in     • Up to three Models in the Unit may each have a bomb
+     this Unit may have their rokkit launcha exchanged for       squig for +10 Points per Model.
+    one of the following:                            •  If this Unit includes a Wrecka Nob, the Wrecka Nob in
+     - Two rokkit pistols .............................................. Free       this Unit may have each rokkit pistol exchanged for
+     - Tankhammer ........................... +5 Points per Model     one item each from the Ork Boss Weapons list or one
+     - Knucklebustas .......................... +5 Points per Model       of the following:
+                                                                           -  Rokkit launcha .......................................... +5 Points • One Tankbusta in this Unit may have a pulsa rokkit for
+   +30 Points.                                                         - Tankhammer .......................................... +10 Points
+
+
+        KILLA KAN MOB                                                        SUPPORT
+           UNIT COMPOSITION: 1 KILLA KAN                                        30 Points
+           • May include up to 8 additional Killa Kans at +30 Points per Model.
+•
+
+A Killa Kan is outwardly similar to its larger cousin, the Deff Dread. However, Killa Kans are piloted by Grots rather than Orks.
+Gretchin practically queue up for the chance to become a Killa Kan pilot. After a lifetime of menial tasks punctuated by casual
+violence, the idea of striding about in a hulking metal body and lording it over its Ork oppressors is irresistible to a Grot.
+
+                M  WS   BS    S    T  W      I    A   LD   CL  WP   IN   SAV  INV
+ Killa Kan                  7    3    3    5    5    3    2    2    8    8    6    5   3+      -
+
+
+ WARGEAR                                       SPECIAL RULES
+ • Kan klaw                                    • Bulky (4)
+                                               • Downtrodden
+ TRAITS                                        • Implacable Advance
+ • Xenos                                       • Expendable (2)
+ • [Orks]                                      • Explodes (6+)
+                                               • Support Unit (1)
+ OPTIONS
+ • Every Model in this Unit must have one item from the   TYPE
+    Ork Kan Ranged Weapons list selected for it.          • Walker (Skirmish)
+
+
+
+
+                                          25

@@ -1,0 +1,62 @@
+      MEGA BIGBOSS                                                COMMAND
+           UNIT COMPOSITION: 1 MEGA BIGBOSS                                   90 Points
+
+
+
+Mega-armour is the very pinnacle of the Ork armourers' craft, being large, noisy, very heavy and dead 'ard.
+
+                M  WS   BS    S    T  W      I    A   LD   CL  WP   IN   SAV  INV
+Mega Bigboss              5    5    2    5    5    4    2    4    8    9    8    6   2+  5+
+
+
+ WARGEAR                                       SPECIAL RULES
+ • Kombi-shoota                                 • Bulky (2)
+ • Power klaw                                   • Impact (A)
+                                               • Implacable Advance
+ TRAITS                                        • Mob Rule (LD)
+ • Xenos                                       •  Officer of the Line (2)
+ • [Orks]                                      • Slow and Purposeful
+
+                                              TYPE
+                                               •  Infantry (Command, Heavy)
+
+ OPTIONS
+ • This Model may have its kombi-shoota exchanged for
+    one item from the Ork Kombi-weapons list.
+ • This Model may have the Waaagh! Banner for +20
+     Points.
+
+
+        FREEBOOTER KAPTIN                                          COMMAND
+                                                                               45 Points           UNIT COMPOSITION: 1 FREEBOOTER KAPTIN
+
+
+
+Freebooter Kaptins are extremely tough and aggressive Orks with fiery tempers. They command tremendous loyalty from their
+Boyz, who not only don't object to their bullying and violent ways but actually expect their commanders to behave in this
+fashion. The Kaptin's occasionally murderous outbursts serve only to impress the Boyz and remind them what a fine leader
+they have. Kaptins dress in an even more flamboyant style than Freebooter Boyz, favouring large decorated hats and
+voluminous coats in which they conceal numerous weapons and flasks of Fungus Rum.
+
+                M  WS   BS    S    T  W      I    A   LD   CL  WP   IN   SAV  INV
+Freebooter Kaptin           6    5    3    4    4    3    3    3    9    8    8    6   3+  5+
+
+
+ WARGEAR                                       SPECIAL RULES
+ • Slugga                                      • Impact (S)
+ • Choppa                                      • Mob Rule (CL)
+ • Stikkbombs
+ •  Gitfinda                                     TYPE
+                                               •  Infantry (Command, Heavy)
+ TRAITS
+ • Xenos
+ • Freebooterz
+
+ OPTIONS
+ • This Model may have its slugga and/or choppa         • This Model may have its slugga exchanged for one
+    exchanged for one item each from the Ork Boss            snazzgun for +10 Points or one item from the Ork
+   Weapons list.                                       Kombi-weapons list.
+
+
+
+                                          11

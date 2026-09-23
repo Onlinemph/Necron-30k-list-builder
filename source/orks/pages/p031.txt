@@ -1,0 +1,63 @@
+       KOMMANDOS MOB                                                   RECON
+           UNIT COMPOSITION: 5 KOMMANDOS                                    60 Points
+           • May include up to 15 additional Kommandos at +10 Points per Model.
+           •  If this Unit includes 10 or more Models, one Kommando may be replaced with a
+             Kommando Nob for +10 Points.
+
+Ork Kommandos epitomise the Orky virtue of low cunning. Nothing makes a Kommando happier than creeping up on an
+unsuspecting enemy, its mates slithering through the undergrowth at its side. When the time is right, the Kommandos will
+burst from their concealment, slashing, stabbing and shooting their stunned prey before they have a chance to strike back.
+
+                M  WS   BS    S    T  W      I    A   LD   CL  WP   IN   SAV  INV
+Kommando                6    4    2    3    4    1    2    2    6    7    6    5   6+      -
+Kommando Nob            6    5    2    4    4    2    3    3    7    8    7    5   6+      -
+
+
+ WARGEAR                                       SPECIAL RULES
+ • Slugga                                      • Impact (S)
+ • Choppa                                     •  Infiltrate (9)
+ • Stikkbombs                                   • Mob Rule (CL)
+                                               • Move Through Cover
+ TRAITS                                       • Support Unit (2)
+ • Xenos
+ • [Orks]                                      TYPE
+ • Smokescreen                                 • Kommando: Infantry (Light, Skirmish)
+                                               • Kommando Nob: Infantry (Sergeant, Light, Skirmish)
+
+ OPTIONS
+ • Any Model in this Unit may have its slugga and choppa  • For every five Models in this Unit, one Kommando may
+    exchanged for one of the following:                      have melta bombs selected for it for +10 Points per
+     -  Paired choppas ................................................. Free      Model.
+     - Shoota .............................................................. Free   •  If this Unit includes a Kommando Nob, the Kommando
+ • For every five Models in this Unit, one Kommando in      Nob in this Unit may have its slugga and/or choppa
+     this Unit may have its slugga and choppa exchanged       exchanged for one item each from the Ork Boss
+     for one item from the Ork Special Weapons list or one      Weapons list.
+     of the following:                               •  If this Unit includes a Kommando Nob, the Kommando
+     - Kombi-shoota  ......................... +2 Points per Model     Nob in this Unit may have any of the following:
+     - Breacha ram  ......................... +10 Points per Model       -  Distraction grot  ..................................... +10 Points
+     - Shokk pistol and commz ....... +20 Points per Model       - Bomb squig ............................................. +10 Points
+
+ WARGEAR
+ Commz
+ Commz units are a typical example of Kommando cunning and forethought. They allow Kommandos to range ahead of the
+ Ork army, scouting out enemy positions and reporting back any important information that they find out.
+
+ Commz grant a bonus to Reserves Tests.
+
+  While a Model with commz is on the Battlefield, before making a Reserves Test for a Unit in Reserves, the Controlling
+  Player can select for that Model to activate the commz. If they do, they can modify the result of that Reserves Test by
+ +1. Only one Model can activate commz for each Reserves Test.
+ Distraction Grot
+  For Grots to last long in the brutal reality of Ork society, they have to learn to lie, cheat, steal, sneak, suck up and plan -
+  traits all valuable to Kommando kill teams.
+
+ A Distraction Grot allows a Unit to perform a free Reposition Reaction.
+
+  Distraction Grots are treated as a special kind of Marker that is moved with the Model it belongs to but is ignored for
+  all game purposes. Once per game, immediately after declaring a Reposition Reaction, a Unit with a Distraction Grot
+  does not need to pay the usual Cost: no points need to be spent from the Reactive Player’s Reaction Allotment. In
+  addition, during Step 2 of the process for this Reposition Reaction, the Unit with the Distraction Grot increases the
+  distance they move by +3 inches. The Distraction Grot is then removed from play.
+
+
+                                          31

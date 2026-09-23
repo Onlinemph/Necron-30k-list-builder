@@ -1,0 +1,53 @@
+                                                                              HIGH COMMAND       WARBOSS
+                                                                        90 Points           UNIT COMPOSITION: 1 WARBOSS
+           • This model may be replaced with 1 Warboss on Warbike for +30 Points
+
+
+An Ork Warboss is the largest and most powerful of all the Orks in its tribe. A bloodthirsty and battle- hardened warrior
+equipped with the best wargear the tribe can provide, he towers above even its personal retinue. Though some Warbosses are
+cunning enough to plan a battle before the bullets start flying, it is only on the front line that Warbosses truly excel. When the
+battle is raging, these monstrous and all-powerful Orks give full rein to their battlelust, charging into the ranks of the enemy
+and slaughtering everything in their path. The Warboss becomes a living embodiment of Orkdom, and commands respect and
+fear from friend and foe alike.
+
+                M  WS   BS    S    T  W      I    A   LD   CL  WP   IN   SAV  INV
+Warboss                  7    6    2    5    5    4    4    6    9    10    9    7   4+  4+
+Warboss on Warbike        14    6    2    5    5    5    4    6    9    10    9    6   4+  4+
+
+
+ WARGEAR                                       SPECIAL RULES
+ • Slugga                                         Warboss
+ • Choppa                                      • Bulky (2)
+ • Stikkbombs                                   • Eternal Warrior (1)
+ • Twin dakkaguns (Warboss on Warbike only)           • Fear (1)
+                                               • Impact (S)
+ TRAITS                                        • Implacable Advance
+ • Xenos                                       • Mob Rule (LD)
+ • [Orks]
+ • Prophet of the Waaagh!                           Warboss on Warbike
+ • Smokescreen (Warboss on Warbike only)             • Bulky (3)
+                                               • Eternal Warrior (1)
+                                               • Fear (1)
+                                               • Impact (S)
+                                               • Implacable Advance
+                                               • Mob Rule (LD)
+                                               • Outflank
+
+                                              TYPE
+                                               • Warboss: Infantry (Command)
+                                               • Warboss on Warbike: Cavalry (Command)
+
+ OPTIONS
+ • This Model may have its slugga and/or choppa
+    exchanged for one item each from the Ork Boss
+   Weapons list.
+ • This Model may have its slugga exchanged for a
+    kustom shoota for +10 Points or one item from the
+    Ork Kombi-weapons list.
+ • This Model may have an attack squig for +10 Points.
+
+
+
+
+
+                                           7

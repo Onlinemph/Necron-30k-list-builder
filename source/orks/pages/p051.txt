@@ -1,0 +1,53 @@
+RAMSHACKLE                     THROWN (X)
+Warbosses and Nobz who want a new wagon will go directly      As well as being a useful tool for moving heavy parts about,
+to a Mek and commission him to build it there and then.         demolishing buildings and clearing scrap, the lifta-droppa
+The result is never quite what the customer wanted, but is         uses unknown tractor-beam technology to pick up and
+usually dead good anyway.                                  throw objects.
+
+Ramshackle Vehicles are easier to repair.                Weapons with this Special Rule can force a Vehicle to
+                                                  move, potentially causing damage if it crashes into an
+Whenever a Model with this special rule is the Target                                                              obstacle.
+Model of the Battlesmith (X) Special Rule, the Acting
+Model adds a modifier of +2 to the Intelligence Check to          If a Shooting Attack made for a Weapon or Model with
+use the Battlesmith (X) Special Rule.                               this Special Rule inflicts one or more Hits on a Target Unit
+                                                          with the Vehicle Type, the Player making the attack must
+SHOKK ATTACK                               makeequal atoScatterthe valueRollofusingX attacheda numberto theof standardspecific variantDice  of
+The shokk attack gun projects a narrow force field tunnel          this Special Rule. The Target Unit is moved a number of
+through the Warp, and herds of Snotlings are hurled down        inches equal to the result of the Scatter Roll. If the Target
+this hellish tunnel. The nightmarish journey through the         Unit would come into contact with Impassable Terrain,
+Warp drives the Snotlings into a frenzy, and they emerge         the Model stops and suffers a Strength 6 Hit with an AP
+scrabbling, clawing, biting and defecating uncontrollably.         of ‘-’ against the Armour Facing that contacted the
+                                                          Impassable Terrain. If the Target Unit would come into
+A Shokk Attack Weapon may misfire and teleport the        contact with another Unit with the Vehicle Type, friend or
+Model wielding the weapon.                                     foe, then the Model stops and both Models suffer a
+                                                            Strength 6 Hit with an AP of ‘-’ against the contacted
+Roll the Dice to determine the Ranged Strength                                                  Armour Facings.
+characteristic for a Weapon with this Special Rule before
+rolling to Hit. If the Result of the Roll is ‘2’ (a double ‘1’),          If the Target Unit for an attack made with a Weapon that
+the Weapon does not fire. Instead, the Model wielding the      has this Special Rule includes any Models without the
+Weapon is immediately moved as though it suffered a Hit       Vehicle Type, then this Special Rule has no effect.
+from a Weapon with the Thrown (3) Special Rule, even if
+it does not have the Vehicle Sub-Type.
+                                     ADDITIONAL SPECIAL RULESTARGETED (X)
+                                                               Refer to the Legacies of the Age of Darkness: The
+Many Orks get sick of missing their targets and use                                                                  Imperialis Militia document for details of the
+personalised methods of delivering destruction to the enemy.                                                               following Special Rules:
+
+Weapons with this Special Rule gain a bonus to hit for      • Aflame (X)
+ranged attacks.
+                                                 • Armour-breaker (X)
+When making a Shooting Attack for a Weapon with this
+                                                 • Firestorm
+Special Rule, any Hit Tests made in Step 6 of the Shooting
+Attack process add the value of X attached to the specific        • Implacable Advance
+variant of this Special Rule to the Result of the Dice roll.
+                                                 • MedicThis Special Rule may not be used when making Snap
+Shots with the Weapon.                               • Overload (X)
+
+                                                 • Slow and Purposeful
+
+
+
+
+
+                                          51

@@ -1,0 +1,39 @@
+BAD MOONS
+
+The Bad Moons are the richest of all the Ork clans. This is because their teeth grow faster than anyone else's, meaning that
+even the lowliest Bad Moon has a steady supply of wealth. This is not regarded as an unfair advantage, as any Ork big and
+nasty enough can simply smash the teeth out of a Bad Moon's head.
+
+All Models with the Bad Moons Trait are subject to the following Special Rules:
+
+BAD MOONS GAMBIT                   BAD MOONS WARGEAR
+When selecting a Gambit, the Controlling Player of a         Any Model from the following list with the Bad Moons
+Model with the Bad Moons Trait can select the following         Trait or the Freebooters Trait may have an Ammo Runt
+instead of any others available to that Model:                   selected for it for +5 Points per Model.
+Ostentatious Showoff                            • Any Model with the Command, Champion, or
+Bad Moons like to display their wealth with expensive                Specialist Sub-Types.
+technical and highly decorated wargear. They also love to       • Any Model in a Flash Gitz Mob.
+spend their teeth on food, which means that many Bad
+Moons are a bit stout around the belt.             Ammo Runt
+                                                An ammo runt is a heavily overburdened Gretchin who
+This Gambit allows a Model to gain advantage from          carries a massive amount of extra ammo for his master.
+the Bulky (X) Special Rule.
+                                             An Ammo Runt improves the Model’s Firepower for
+This Gambit may only be selected for a Model with the                                                 one Turn.
+Bulky (X) Special Rule. While this Gambit is selected, the
+Controlling Player does not add their Combat Initiative to    Ammo Runts are treated as a special kind of Marker that
+the result of the Focus Roll, but instead adds the value of          is moved with the Model it belongs to but is ignored for
+X attached to the variant of the Bulky (X) Special Rule            all game purposes. Once per Battle, in any of the
+possessed by the Model. In addition, when determining         Controlling Player’s Effects Sub-Phases, an Ammo Runt
+Outside Support for a Model which has selected this         may be expended. Until the Controlling Player’s next
+Gambit, friendly Models in the same combat who also           Effects Sub-Phase, the Model to which the Ammo Runt
+have the Bulky (X) Special Rule count as a number of          belongs gains the Firestorm Special Rule and may double
+Models equal to the value of X (so Bulky (2) counts as          the Firepower Characteristic of any ranged Weapons they
+two Models, and so on).                                  have that do not have the Blast (X) or Template Special
+                                                                Rules. The Ammo Runt Marker is then removed from play.
+
+
+
+
+
+                                          44

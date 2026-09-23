@@ -1,8 +1,21 @@
 {
  "meta": {
+  "id": "necrons",
+  "name": "Necrons",
   "source": "Codex Xenologica – Necrons (Horus Heresy 3rd edition)",
   "version": "1.4.2",
-  "date": "August 2026"
+  "date": "August 2026",
+  "choice": {
+   "label": "Crypto-Arkana",
+   "options": [
+    "Chronomancy",
+    "Ethermancy",
+    "Geomancy",
+    "Plasmancy",
+    "Psychomancy",
+    "Technomancy"
+   ]
+  }
  },
  "units": [
   {
@@ -12001,6 +12014,9 @@
     "text": "A model with Charnel Displays has the Fear (1) Special Rule, and receives a -1 modifier to its Ballistic Skill."
    }
   ]
+ },
+ "choiceEffects": {
+  "effects": []
  },
  "grantedPrimeAdvantages": [
   {

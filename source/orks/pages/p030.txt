@@ -1,0 +1,61 @@
+        BIG TRAKK                                                    HEAVY TRANSPORT
+           UNIT COMPOSITION: 1 BIG TRAKK                                     60 Points
+
+
+
+‘Big Trakks’ are basically vehicles based on an up-armoured trukk chassis or rigs scavenged from battlefield wrecks and fitted
+out with bigger, (and importantly) louder engines and heavy gauge tank treads able to cope with the roughest terrain.
+
+                                                        Armour                        Transport
+                                                                                                   Capacity                     M       BS       Front      Side      Rear     HP
+Big Trakk                          12        2        13       12       11        6        16
+
+
+ WARGEAR                                       SPECIAL RULES
+ • Two Centreline Mounted big shootas                • Assault Vehicle
+
+ TRAITS                                       TYPE
+ • Xenos                                       •  Vehicle (Transport)
+ • [Orks]
+
+ OPTIONS
+ • This Model may have up to two items from the Ork     • This Model may have any of the following options
+     Pintle Weapons list selected for it.                            selected for it:
+ • This Model may have one of the following options             -  Assault gubbins ...................................... +10 Points
+    selected for it:                                                      - Grot riggers ............................................ +10 Points
+     -  Reinforced ram ........................................ +5 Points
+     -  Deff rolla ................................................ +10 Points
+
+ ACCESS POINTS
+ • This Model has Access Points on all of its Facings.
+
+
+        SQUIGGOTH                                                    HEAVY TRANSPORT
+           UNIT COMPOSITION: 1 SQUIGGOTH                                         180 Points
+
+
+
+Squigs, or to give them their full name, squiggly beasts, are common creatures amongst Ork communities. Squiggoths are
+super-squigs.Whilst they have the appearance of huge, monstrous lizard-like creatures, their physiology is actually closer to
+that of fungus - an enraged and very deadly fungus!
+
+                                                                                                  Transport
+                                                                                                   Capacity            M  WS  BS   S    T  W      I   A   LD   CL  WP   IN  SAV  INV
+Squiggoth           9    3    2    6    7    6    1    4    10   9    7    3   4+      -      10
+
+
+ WARGEAR                                       SPECIAL RULES
+ • Tusks and stomping feet                         • Bulky (8)
+                                               •  Feel No Pain (5+)
+ TRAITS                                        • Implacable Advance
+ • Xenos
+ • Snakebites                                   TYPE
+                                               • Cavalry (Transport)
+
+ OPTIONS                                     ACCESS POINTS
+ • This Model may have one item from the Ork Big Gunz   • This Model has Access Points on its Rear Facing,
+      list selected for it.                                      determined as though it were a Model with the Vehicle
+                                                                   type.
+
+
+                                          30

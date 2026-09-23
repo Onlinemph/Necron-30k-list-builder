@@ -1,0 +1,50 @@
+       STORMBOYZ MOB                                                HEAVY ASSAULT
+           UNIT COMPOSITION: 5 STORMBOYZ                                        50 Points
+           • May include up to 25 additional Stormboyz at +8 Points per Model.
+           • One Stormboy may be replaced with a Drillboss for +10 Points.
+
+Stormboyz, the shock troops of many successful warbands, are far too efficient and disciplined by the standards of right-
+thinking greenskins. Their contrary stance to the good old-fashioned values of anarchy and disorder manifests in a desire to be
+organised and obedient. Nevertheless, they are still Orks, and share the Orkish desire to get into battle as quickly as possible.
+To this end they go to war strapped to rokkit packs that, when activated, propel their wearers forward on great tongues of oily
+black flame.
+                M  WS   BS    S    T  W      I    A   LD   CL  WP   IN   SAV  INV
+Stormboy                 12    4    2    3    4    1    2    2    7    7    6    5   6+      -
+ Drillboss                 12    5    2    4    4    2    3    3    8    8    7    5   6+      -
+
+
+ WARGEAR                                       SPECIAL RULES
+ • Slugga                                      • Bulky (2)
+ • Choppa                                     • Deep Strike
+ • Stikkbombs                                   • Impact (S)
+ • Rokkit Packs                                  • Mob Rule (CL)
+                                               • Vanguard (2)
+ TRAITS
+ • Xenos                                      TYPE
+ • [Orks]                                      • Stormboyz: Infantry (Antigrav)
+                                               •  Drillboss: Infantry (Sergeant, Antigrav)
+
+ OPTIONS
+ • For every five models in this Unit, one Stormboy in this
+    Unit may have its choppa exchanged for one
+    chainsword for Free.
+ •  If this Unit includes a Drillboss, the Drillboss in this
+    Unit may have its slugga and/or choppa exchanged for
+    one item each from the Ork Boss Weapons list.
+
+ WARGEAR
+ Rokkit Pack
+  Stormboyz use crude rokkit packs to propel themselves across the battlefield in huge, bounding leaps. Whether they smash
+  into enemy lines or a solid ferrocrete wall is a different matter entirely, however.
+
+  Rokkit packs allow a boosted jump but risk causing Wounds.
+
+  In the Effects Sub-Phase of the Start Phase, the Controlling Player of a Unit in which every Model is equipped with a
+  rokkit pack can choose to boost their jumps. Until the end of this Turn, Models in that Unit equipped with rokkit packs
+  gain the Fast (3) Special Rule but must make Dangerous Terrain Tests when making a Rush or Charge Move.
+
+
+
+
+
+                                          21

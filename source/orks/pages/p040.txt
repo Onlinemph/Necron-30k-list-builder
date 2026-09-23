@@ -1,0 +1,53 @@
+       STOMPA                                                         LORD OF WAR
+           UNIT COMPOSITION: 1 STOMPA                                             770 Points
+
+
+
+A Stompa is an effigy of war built by the Orks to ape their brutal gods. Cobbled together in typical Ork fashion, the Stompa’s
+bulk is festooned with overlapping metal plates, bolted atop one another to present a formidable frame and allow the Stompa
+to shrug off incoming firepower. It has a large crew of Orks and grots to keep its vast engine going and its weapons blazing
+away. And Stompas are festooned with weapons – ranging from big shootas and skorchas poking out from between their
+protective plates to the deff kannon, an enormous piece of ordnance, and the bullet- spewing supa-gatler. A Stompa can also
+carry a full mob of Orks to war, ready to jump out and put the boot in at a moment’s notice. Once in combat, a Stompa wields
+its mega- choppa – a massive whirring blade that can cleave a bastion in two or hack a Titan down to size in a flurry of
+roaring violence.
+
+                                                     Primary      Exposed                 Transport
+                     M       S       Armour      Armour     HP        Capacity
+Head                                                    -              -         13          11         8                    -
+Carapace                                              -        2         14          12         12          20
+Arms                                                    -        2         12          10         8                    -
+Legs                              15             -         14          13         10                   -
+
+
+ WARGEAR                                       SPECIAL RULES
+ • The Carapace Profile has two Front Mounted defensor   •  Effigy (12)
+    big shootas, one Front Mounted defensor skorcha, and   • Repair Crew (D3)*
+    one Rear Mounted defensor big shoota.
+ • The Arms Profile has an two Arm Mounted Weapons    TYPE
+    (see Options) and three Arm Mounted supa-rokkits.     •  Vehicle (Titan*, Transport)
+
+ TRAITS                                               * The rules for the Repair Crew (X) Special Rule and the
+ • Xenos                                                   Titan Sub-Type can be found in Liber Questoris.
+ • [Orks]
+ •  Light Battle
+
+ OPTIONS
+ • This Model must have two Arm Mounted Weapons      • This Model may have up to two additional Arm
+    selected for it from the following options:               Mounted
+     - Arm Mounted mega-choppa and Co-axial (mega-          supa-rokkits ........................................ +20 Points each
+      choppa) Mounted defensor twin big shoota         • This Model may have one of the following options
+     - Arm Mounted deffkannon and Co-axial (deffkanon)       selected for it:
+      Mounted supa-gatler                                           - The Gargant Deflektor (1)
+     - Arm Mounted Stompa lifta-droppa                          Special Rule ............................................ +50 Points
+                                                                           - The Gargant Deflektor (2)
+                                                                   Special Rule .......................................... +100 Points
+
+ ACCESS POINTS
+ This Model has Access Points on its Rear Facing.
+
+
+
+
+
+                                          40

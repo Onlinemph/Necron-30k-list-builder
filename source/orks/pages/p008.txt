@@ -1,0 +1,37 @@
+      MEGA WARBOSS                                                HIGH COMMAND
+           UNIT COMPOSITION: 1 MEGA WARBOSS                                       130 Points
+
+
+
+Any good Ork Hunter knows the safest way to deal with a rampaging Warboss is to hit them with tank-busting artillery from
+as far away as possible. By donning a piston-driven suit of incredibly durable mega armour, this Warboss makes a mockery of
+such underhanded enemy tactics, much to the terror of its foes. The strongest and meanest among its already brutal kin, the
+Warboss supplements its fearsome bulk and staggering might with powered armour that makes him a force to be reckoned with
+on the battlefield.
+
+                M  WS   BS    S    T  W      I    A   LD   CL  WP   IN   SAV  INV
+Mega Warboss             6    6    2    6    6    5    3    5    9    10    9    7   2+  4+
+
+
+ WARGEAR                                       SPECIAL RULES
+ • Kombi-shoota                                 • Bulky (3)
+ • Power klaw                                   • Eternal Warrior (1)
+                                               • Fear (1)
+ TRAITS                                        • Impact (A)
+ • Xenos                                       • Implacable Advance
+ • [Orks]                                      • Mob Rule (LD)
+ • Prophet of the Waaagh!                          • Slow and Purposeful
+
+                                              TYPE
+                                               •  Infantry (Command, Heavy)
+
+ OPTIONS
+ • This Model may have its kombi-shoota exchanged for a
+    kustom shoota for +10 Points or one item from the
+    Ork Kombi-weapons list.
+
+
+
+
+
+                                           8

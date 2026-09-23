@@ -1,0 +1,59 @@
+       MEKANIAKS                                                                 RETINUE
+           UNIT COMPOSITION: 1 MEKBOY                                              10 Points
+           • May include up to 4 additional Mekboys at +10 Points per model.
+
+
+Mekboyz, also known as Mekaniaks or Meks, are Orks with a natural gift for engineering. Meks are responsible for inventing,
+building and maintaining the machinery and weaponry that the Orks use. They are obsessed with creating ever larger and
+more devastating war machines to unleash upon the foe.
+
+                M  WS   BS    S    T  W      I    A   LD   CL  WP   IN   SAV  INV
+Mek                     6    4    3    3    4    1    2    2    6    7    6    8   4+      -
+
+
+ WARGEAR                                       SPECIAL RULES
+ • Slugga                                      • Battlesmith (1)
+ • Choppa                                      • Impact (S)
+                                               • Mob Rule (CL)
+ TRAITS                                        • Oddboyz
+ • Xenos
+ • [Orks]                                      TYPE
+                                               •  Infantry (Specialist)
+
+ OPTIONS
+ • Any Model may have its slugga and/or choppa
+    exchanged for one item each from the Ork Mek
+    Wargear list.
+
+
+      MAD DOKS                                                                  RETINUE
+           UNIT COMPOSITION: 1 PAINBOY                                              10 Points
+           • May include up to 4 additional Painboys at +10 Points per model.
+
+
+The boundless surgical expertise of the Painboyz is such that they are undeterred by wounds no matter how severe they are. As
+long as the patient isn't (quite) dead, the Painboyz will do their utmost to save him.
+
+                M  WS   BS    S    T  W      I    A   LD   CL  WP   IN   SAV  INV
+Mekboy                   6    4    2    3    4    1    2    2    6    7    7    6   6+      -
+
+
+ WARGEAR                                       SPECIAL RULES
+ • Choppa                                      • Impact (S)
+                                               •  Feel No Pain (5+)
+ TRAITS                                        • Medic (5+)
+ • Xenos                                       • Mob Rule (CL)
+ • [Orks]                                      • Oddboyz
+
+                                              TYPE
+                                               •  Infantry (Specialist, Light)
+
+ OPTIONS
+ • Any Model may have its choppa exchanged for one
+    item from the Ork Dok Wargear list.
+
+
+
+
+
+                                          15

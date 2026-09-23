@@ -1,0 +1,62 @@
+        BIG MEK                                                      COMMAND
+           UNIT COMPOSITION: 1 BIG MEK                                            45 Points
+           • This model may be replaced with 1 Big Mek on Warbike for +30 Points
+
+
+Some Meks gain so much power that they slowly garner a following of acolytes, tread-heads and fellow Meks. These visionary
+Mekaniaks are known as Big Meks, and their mastery of Ork technology is second to none.
+
+                M  WS   BS    S    T  W      I    A   LD   CL  WP   IN   SAV  INV
+Big Mek                  6    5    3    4    4    3    3    3    8    8    7    10  4+  5+
+Big Mek on Warbike        14    5    3    4    4    4    3    3    8    8    7    9   4+  5+
+
+
+ WARGEAR                                       SPECIAL RULES
+ • Slugga                                              Big Mek
+ • Choppa                                      • Battlesmith (2)
+ • Stikkbombs                                   • Impact (S)
+ • Twin dakkaguns (Big Mek on Warbike only)           • Mob Rule (CL)
+
+ TRAITS                                               Big Mek on Warbike
+ • Xenos                                       • Battlesmith (2)
+ • [Orks]                                      • Bulky (2)
+ • Smokescreen (Big Mek on Warbike only)             • Impact (S)
+                                               • Implacable Advance
+                                               • Mob Rule (CL)
+                                               • Outflank
+
+                                              TYPE
+                                               • Big Mek: Infantry (Command)
+                                               • Big Mek on Warbike: Cavalry (Command)
+
+ OPTIONS
+ • This Big Mek or Big Mek on Warbike may have its      • This Big Mek may have its slugga exchanged for one of
+    slugga and/or choppa exchanged for one item each         the following. If either of these options are taken, this
+    from the Ork Mek Wargear list.                            Big Mek gains the Bulky (2) Special Rule and
+ • This Big Mek or Big Mek on Warbike may have its          exchanges the Command Sub-Type for the Champion
+    slugga exchanged for a kustom shoota for +10 Points       Sub-Type:
+    or one item from the Ork Kombi-weapons list.                  - Shokk attack gun ................................... +60 Points
+                                                                           -  Traktor blasta ......................................... +30 Points
+                                               • This Big Mek or Big Mek on Warbike may have a
+                                                      kustom force field for +30 Points.
+                                               • This Big Mek or Big Mek on Warbike may have up to
+                                                                three grot oilers for +5 Points each.
+
+ WARGEAR
+ Grot Oiler
+  Grot oilers are the assistants of Ork Meks, and are mostly employed putting out fires or crawling into functioning
+  machinery.
+
+ A grot oiler improves the value of X for the Model’s Battlesmith (X) Special Rule.
+
+  Grot oilers are treated as a special kind of Marker that is moved with the Model it belongs to but is ignored for all
+ game purposes. A grot oiler may be expended once per Battle during any activation of the owning Model’s Battlesmith
+  (X) Special Rule, before making an Intelligence Check for the Acting Model. During this activation of the Battlesmith
+  (X) Special Rule, the value of X is improved by +1. The grot oiler Marker is then removed from play. Only a single grot
+  oiler may be expended in this way per activation of the Battlesmith (X) Special Rule.
+
+
+
+
+
+                                          12

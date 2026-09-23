@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Merges data/parts/*.json into data/necrons.json and js/data.js, then cross-checks references.
+// Merges each army's parts into data/<army>.json and js/data-<army>.js, then cross-checks references.
 // Usage: node scripts/build-data.mjs [--strict]
 import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
@@ -8,25 +8,50 @@ import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url);
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const parts = join(root, 'data', 'parts');
 const read = (f) => JSON.parse(readFileSync(f, 'utf8'));
-const files = existsSync(parts) ? readdirSync(parts).filter((f) => f.endsWith('.json')).sort() : [];
 
-const out = {
-  meta: {
-    source: 'Codex Xenologica – Necrons (Horus Heresy 3rd edition)',
-    version: '1.4.2',
-    date: 'August 2026',
+const opt = (f, fallback) => (existsSync(f) ? read(f) : fallback);
+
+// One entry per army. Shared core-rules data (force org, core detachments, core rule names) is in data/.
+const ARMIES = [
+  {
+    id: 'necrons', dir: join(root, 'data'), parts: join(root, 'data', 'parts'),
+    meta: { name: 'Necrons', source: 'Codex Xenologica – Necrons (Horus Heresy 3rd edition)', version: '1.4.2', date: 'August 2026',
+      choice: { label: 'Crypto-Arkana', options: ['Chronomancy', 'Ethermancy', 'Geomancy', 'Plasmancy', 'Psychomancy', 'Technomancy'] } },
+    files: { sequelaEffects: 'sequela-effects.json', granted: 'granted-prime-advantages.json', modifiers: 'modifiers.json' },
   },
+  {
+    id: 'orks', dir: join(root, 'data', 'orks'), parts: join(root, 'data', 'orks', 'parts'),
+    meta: { name: 'Orks', source: 'Xenos Forces of the Age of Darkness – Orks (3rd edition rules, Always Strikes First)', version: 'October 2025', date: 'October 2025',
+      choice: { label: 'Great Clan', options: ['Bad Moons', 'Blood Axes', 'Deathskulls', 'Evil Sunz', 'Goffs', 'Snakebites', 'Freebooters'],
+        sameInDetachment: { exempt: 'Freebooters' } } },
+    files: { choiceEffects: 'choice-effects.json', granted: 'granted-prime-advantages.json', modifiers: 'modifiers.json' },
+  },
+];
+
+let failed = false;
+for (const army of ARMIES) {
+  if (!existsSync(army.parts)) continue;
+  build(army);
+}
+if (failed && process.argv.includes('--strict')) process.exit(1);
+
+function build(army) {
+const parts = army.parts;
+const files = readdirSync(parts).filter((f) => f.endsWith('.json')).sort();
+const out = {
+  meta: Object.assign({ id: army.id }, army.meta),
   units: [], lists: [], arkana: [], weapons: { ranged: [], melee: [] }, wargear: [],
   rules: { specialRules: [], reactions: [], gambits: [], primeAdvantages: [], traits: [], powersOfTheCtan: [], unitTypes: [] },
   detachments: [], sequelae: { intro: '', sequelae: [] }, faq: [], baseSizes: [],
   forceorg: read(join(root, 'data', 'forceorg.json')),
   coreRules: read(join(root, 'data', 'core-rules.json')),
-  sequelaEffects: read(join(root, 'data', 'sequela-effects.json')),
-  grantedPrimeAdvantages: read(join(root, 'data', 'granted-prime-advantages.json')).grantedPrimeAdvantages,
-  modifiers: existsSync(join(root, 'data', 'modifiers.json')) ? read(join(root, 'data', 'modifiers.json')) : { modifiers: [] },
+  sequelaEffects: army.files.sequelaEffects ? opt(join(army.dir, army.files.sequelaEffects), { effects: [], rules: [] }) : { effects: [], rules: [] },
+  choiceEffects: army.files.choiceEffects ? opt(join(army.dir, army.files.choiceEffects), { effects: [] }) : { effects: [] },
+  grantedPrimeAdvantages: opt(join(army.dir, army.files.granted), { grantedPrimeAdvantages: [] }).grantedPrimeAdvantages,
+  modifiers: opt(join(army.dir, army.files.modifiers), { modifiers: [] }),
 };
+out.coreRules = Object.assign({}, out.coreRules, army.id === 'necrons' ? {} : { undefinedInCodex: [], weaponAliases: {} });
 
 for (const f of files) {
   const d = read(join(parts, f));
@@ -52,7 +77,7 @@ const warn = [];
 const ids = new Set();
 const listIds = new Set(out.lists.map((l) => l.id));
 const { norm, wkey } = require(join(root, 'js', 'engine.js'));
-const coreFile = read(join(root, 'data', 'core-rules.json'));
+const coreFile = out.coreRules;
 const core = new Set([...coreFile.rules, ...coreFile.undefinedInCodex.map((x) => x.name)].map(norm));
 const aliases = new Map(Object.entries(coreFile.weaponAliases || {}).map(([k, v]) => [wkey(k), wkey(v)]));
 const weaponKeys = new Set([...out.weapons.ranged, ...out.weapons.melee].map((w) => wkey(w.name)));
@@ -60,6 +85,8 @@ const ruleKeys = new Set();
 for (const k of Object.keys(out.rules)) for (const r of out.rules[k]) ruleKeys.add(norm(r.name));
 for (const w of out.wargear) ruleKeys.add(norm(w.name));
 for (const a of out.arkana) { if (a.harbinger) ruleKeys.add(norm(a.harbinger.name)); for (const w of a.wargear || []) ruleKeys.add(norm(w.name)); }
+
+for (const e of out.choiceEffects.effects || []) for (const c of (e.option && e.option.choices) || []) if (c.name) ruleKeys.add(norm(c.name));
 
 const KINDS = new Set(['one', 'any', 'perModel', 'swapModel', 'upgrade']);
 const ROLES = new Set(['Warlord', 'High Command', 'Command', 'Retinue', 'Elites', 'War Engine', 'Troops', 'Support', 'Transport', 'Heavy Assault', 'Heavy Transport', 'Armour', 'Recon', 'Fast Attack', 'Lord of War', 'Fortification']);
@@ -122,12 +149,13 @@ for (const u of out.units) {
 }
 for (const l of out.lists) for (const it of l.items) if (!weaponKeys.has(wkey(it.name)) && !ruleKeys.has(norm(it.name))) warn.push(`list ${l.id}: "${it.name}" has no profile or text`);
 
-writeFileSync(join(root, 'data', 'necrons.json'), JSON.stringify(out, null, 1) + '\n');
-writeFileSync(join(root, 'js', 'data.js'), '/* Generated by scripts/build-data.mjs — edit data/parts/*.json instead. */\nwindow.NECRON_DATA = ' + JSON.stringify(out) + ';\n');
+writeFileSync(join(root, 'data', `${army.id}.json`), JSON.stringify(out, null, 1) + '\n');
+writeFileSync(join(root, 'js', `data-${army.id}.js`), `/* Generated by scripts/build-data.mjs from ${army.parts.slice(root.length + 1)} — edit those files instead. */\nwindow.ARMY_DATA = window.ARMY_DATA || {};\nwindow.ARMY_DATA[${JSON.stringify(army.id)}] = ` + JSON.stringify(out) + ';\n');
 
-console.log(`units ${out.units.length}, lists ${out.lists.length}, ranged ${out.weapons.ranged.length}, melee ${out.weapons.melee.length}, wargear ${out.wargear.length}, rules ${Object.values(out.rules).reduce((a, b) => a + b.length, 0)}, detachments ${out.detachments.length}, sequelae ${out.sequelae.sequelae.length}`);
+console.log(`[${army.id}] units ${out.units.length}, lists ${out.lists.length}, ranged ${out.weapons.ranged.length}, melee ${out.weapons.melee.length}, wargear ${out.wargear.length}, rules ${Object.values(out.rules).reduce((a, b) => a + b.length, 0)}, detachments ${out.detachments.length}, sequelae ${out.sequelae.sequelae.length}`);
 if (warn.length) console.log(`\n${warn.length} reference warnings:\n  ` + [...new Set(warn)].join('\n  '));
 if (problems.length) {
-  console.error(`\n${problems.length} problems:\n  ` + problems.join('\n  '));
-  if (process.argv.includes('--strict')) process.exit(1);
+  console.error(`\n[${army.id}] ${problems.length} problems:\n  ` + problems.join('\n  '));
+  failed = true;
+}
 }

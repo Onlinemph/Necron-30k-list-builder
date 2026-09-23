@@ -1,0 +1,62 @@
+        BIGBOSS                                                      COMMAND
+           UNIT COMPOSITION: 1 BIGBOSS                                           50 Points
+           • This model may be replaced with 1 Bigboss on Warbike for +30 Points
+           • This model may be replaced with 1 Bigboss on Wartrike for +50 Points
+
+
+An Ork Bigboss, as his name implies, is a particularly large and unpleasant Ork Nob who really enjoys bossing other, smaller,
+Orks around. The Bigboss's ability in combat ensures that he is respected, if not admired, by the Orks under his command.
+
+                M  WS   BS    S    T  W      I    A   LD   CL  WP   IN   SAV  INV
+Bigboss                   6    5    2    4    4    3    3    4    8    9    8    6   4+  5+
+Bigboss on Warbike         14    5    2    4    4    4    3    4    8    9    8    5   4+  5+
+Bigboss on Wartrike         14    5    2    4    4    6    3    5    8    9    8    5   4+  5+
+
+
+ WARGEAR                                       SPECIAL RULES
+ • Slugga                                             Bigboss
+ • Choppa                                     • Impact (S)
+ • Stikkbombs                                   • Implacable Advance
+ • Twin dakkaguns (Bigboss on Warbike only)           • Mob Rule (LD)
+ • Three twin boomstikks (Bigboss on Wartrike only)      •  Officer of the Line (2)
+
+ TRAITS                                              Bigboss on Warbike
+ • Xenos                                       • Bulky (2)
+ • [Orks]                                      • Eternal Warrior (1)
+ • Smokescreen                                 •  Firing Protocols (2)
+    (Bigboss on Warbike and Bigboss on Wartrike only)     • Impact (S)
+                                               • Implacable Advance
+ OPTIONS                                      • Mob Rule (LD)
+ • This Model may have its slugga and/or choppa        •  Officer of the Line (2)
+    exchanged for one item each from the Ork Boss        • Outflank
+    Weapons list.
+ • This Model may have its slugga exchanged for one       Bigboss on Wartrike
+    item from the Ork Kombi-weapons list.                                               • Bulky (3)
+ • This Model may have the Waaagh! Banner for +20                                               • Eternal Warrior (1)
+     Points.                                               •  Firing Protocols (3)
+ • This Model may have an attack squig for +10 Points.                                               • Impact (S)
+                                               • Implacable Advance
+                                               • Mob Rule (LD)
+                                               •  Officer of the Line (2)
+
+                                              TYPE
+                                               • Bigboss: Infantry (Command)
+                                               • Bigboss on Warbike: Cavalry (Command)
+                                               • Bigboss on Wartrike: Cavalry (Command)
+
+ WARGEAR
+ Waaagh! Banner
+
+ A warband's banner is decorated with glyphs, trophies and the blood of defeated enemies to show how dangerous the
+  owners are. The banner has a near-religious significance to the Orks and they will fight all the harder in its presence.
+
+ A Waaagh! banner grants benefits in Charges and Challenges.
+
+  All Models in a Unit with a Waaagh! banner gain the Fear (1) and Impact (WS) Special Rules. In addition, a Model
+  with a Waaagh! banner counts as an additional 6 Models for the purposes of Outside Support in a Challenge.
+
+
+
+
+
+                                          10

@@ -1,0 +1,62 @@
+        ‘ARD BOYZ MOB                                                       TROOPS
+           UNIT COMPOSITION: 10 ‘ARD BOYZ                                     80 Points
+           • May include up to 10 additional ‘Ard Boyz at +6 Points per Model.
+           • One ‘Ard Boy may be replaced with an ‘Ard Nob for +10 Points.
+
+‘Ard Boyz wear heavy armour pieced together from steel plates and equipment scavenged from defeated foes. Their thick
+armour combined with the natural toughness of Orhs means that 'Ard Boyz are able to wade through the fiercest fire fights
+with barely a scratch.
+
+                M  WS   BS    S    T  W      I    A   LD   CL  WP   IN   SAV  INV
+ ‘Ard Boy                  6    4    2    3    4    1    2    2    6    7    6    5   4+      -
+ ‘Ard Nob                  6    5    2    4    4    2    3    3    7    8    7    5   4+      -
+
+
+ WARGEAR                                       SPECIAL RULES
+ • Slugga                                      • Impact (S)
+ • Choppa                                      • Line (1)
+ • Stikkbombs                                   • Mob Rule (CL)
+
+ TRAITS                                       TYPE
+ • Xenos                                       • ‘Ard Boyz: Infantry
+ • [Orks]                                      • ‘Ard Nob: Infantry (Sergeant)
+
+ OPTIONS
+ • Any Model in this Unit may have its slugga and choppa  • Up to two ‘Ard Boyz in this Unit may each have their
+    exchanged for one shoota for Free.                         slugga and choppa exchanged for one item from the
+ • For every five models in this Unit, one ‘Ard Boy in this      Ork Special Weapons list.
+    Unit may have its choppa exchanged for one          •  If this Unit includes an ‘Ard Nob, the ‘Ard Nob in this
+    chainsword for Free.                                      Unit may have its slugga and/or choppa exchanged for
+                                                      one item each from the Ork Boss Weapons list.
+
+
+        GRETCHIN MOB                                                       TROOPS
+           UNIT COMPOSITION: 1 RUNTHERD, 10 GRETCHIN                                 35 Points
+           • May include up to 40 additional Gretchin at +3 Points per Model.
+           • For every 10 Gretchin in this Unit, this Unit may include one Runtherd for +6 Points.
+
+Gretchin mobs make up for their shocking lack of quality with sheer quantity. The natural cowardice and feeble-limbed
+incompetence of the Gretchin race does not predispose them to the arts of war. There do exist Gretchin with a little more
+backbone, though, and when emboldened by the possession of a gun of their own these diminutive greenskins can be convinced
+to take the field with promises of plunder and, when that fails, threats of a beating.
+
+                M  WS   BS    S    T  W      I    A   LD   CL  WP   IN   SAV  INV
+Gretchin                  6    2    3    2    2    1    2    1    5    4    4    5        -        -
+Runtherd                 6    4    2    3    4    1    2    2    6    7    6    5   6+      -
+
+
+ WARGEAR                                       SPECIAL RULES
+ • Grot blasta (Gretchin only)                       • Downtrodden
+ • Slugga (Runtherd only)                          • Expendable (3)
+ • Herding stikk (Runtherd only)                     • Impact (S) (Runtherd only)
+                                               • Support Unit (1)
+ TRAITS
+ • Xenos                                      TYPE
+ • [Orks]                                      • Gretchin: Infantry (Light)
+                                               • Runtherd: Infantry (Sergeant, Light)
+
+ OPTIONS
+ • Any Runtherd in this Unit may have a squighound for
+   +5 Points.
+
+                                          23

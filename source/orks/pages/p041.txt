@@ -1,0 +1,55 @@
+        KILL TANK                                                      LORD OF WAR
+           UNIT COMPOSITION: 1 KILL KRUSHA                                          275 Points
+           • This model may be replaced with 1 Kill Blasta for +55 Points or 1 Kill Bursta for +100
+                  Points
+
+
+The 'Kill Tanks' are a new and terrifying addition to the Orkish arsenal. Their use has spread to numerous Ork empires and
+warbands across the galaxy. Kill tanks are an Ork heavy tank design, based around the twin Ork loves of speed and extreme
+violence. These hulking, slab-sided machines are extremely durable and many have a heavily armoured, shovel- bladed prow
+suitable for ramming their way through any obstacles in their path, while much of their mass is made up of engines and drive
+mechanics which, while temperamental, can propel the tank far faster than an equivalent Imperial machine of its size.
+
+                                                        Armour                        Transport
+                                                                                                   Capacity                     M       BS       Front      Side      Rear     HP
+ Kill Krusha                         12        2        14       13       10        9               -
+ Kill Blasta                         10        2        14       13       11        10              -
+ Kill Bursta                         10        2        14       13       11        10              -
+
+
+ WARGEAR                                       SPECIAL RULES
+  Kill Krusha                                     • Explodes (5+)
+ • Hull (Front) Mounted krusha kannon
+ • Grot riggers                                  TYPE
+ • Reinforced ram                                                Kill Krusha
+                                               •  Vehicle (Super-heavy, Rapid)
+  Kill Blasta
+ • Centreline Mounted gigashoota                              Kill Blasta and Kill Bursta
+ • Two Sponson Mounted twin big shootas              •  Vehicle (Super-heavy)
+ • Grot riggers
+ • Reinforced ram
+
+  Kill Bursta
+ • Centreline Mounted bursta kannon
+ • Two Sponson Mounted twin big shootas
+ • Grot riggers
+ • Reinforced ram
+
+ TRAITS
+ • Xenos
+ • [Orks]
+
+ OPTIONS
+ • This Kill Krusha may have up to five items from the     • This Model may have its reinforced ram exchanged for
+    Ork Pintle Weapons list.                               one deff rolla for +10 Points.
+ • This Kill Blasta or Kill Bursta may have both Sponson    • This Model may have any of the following options
+   Mounted twin big shootas exchanged for one item           selected for it:
+    from the Ork Sponson Weapons list.                             -  Assault gubbins  ..................................... +15 Points
+                                                                           - Grot gunners for all its
+                                                                Defensive Weapons ................................. +10 Points
+
+
+
+
+
+                                          41

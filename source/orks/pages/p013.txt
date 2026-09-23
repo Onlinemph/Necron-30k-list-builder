@@ -1,0 +1,51 @@
+      MEGA BIG MEK                                               COMMAND
+           UNIT COMPOSITION: 1 MEGA BIG MEK                                         85 Points
+
+
+
+When Mega Big Meks go to war they do it in style; festooned in massive mechanised contraptions of their own design and
+brimming with kustom dakka.
+
+                M  WS   BS    S    T  W      I    A   LD   CL  WP   IN   SAV  INV
+Mega Big Mek              5    5    3    5    5    4    2    3    8    8    7    10  2+  5+
+
+
+ WARGEAR                                       SPECIAL RULES
+ • Kombi-shoota                                 • Battlesmith (2)
+ • Power klaw                                   • Bulky (2)
+                                               • Impact (A)
+ TRAITS                                        • Implacable Advance
+ • Xenos                                       • Mob Rule (CL)
+ • [Orks]                                      • Slow and Purposeful
+                                               •  Tellyportas
+
+                                              TYPE
+                                               •  Infantry (Command, Heavy)
+
+ OPTIONS
+ • This Model may have its power klaw exchanged for     • This Model may have one of the following:
+    one killsaw for Free.                                               -  Teleport blasta ....................................... +25 Points
+ • This Model may have its kombi-shoota exchanged for a       - Kustom force field .................................. +30 Points
+    kustom mega-blasta for +10 Points or one item from    • This Model may have up to three grot oilers for +5
+    the Ork Kombi-weapons list.                                 Points each.
+
+ SPECIAL RULES
+ Tellyportas
+ What Ork teleportation technology lacks in safety measures, accuracy, reliability, blueprints or indeed the most basic
+  comprehension of its functions by those who use it, it more than makes up for in its ability to catapult mobs of bellowing
+  Orks through the warp and directly into the teeth of their horrified foes.
+
+  If a Unit that includes only Models with the Infantry Type or Walker Type is selected to fill a Prime Force Organisation
+  Slot in an Army that includes one or more Mega Big Meks, the following Prime Advantage can be selected:
+
+  Tellyporta Boyz
+
+  All Models in the Unit selected to fill a Prime Force Organisation Slot with this Prime Advantage gain the Deep Strike
+  Special Rule. When performing a Deep Strike with a Unit with this Prime Advantage, make a Scatter Roll for the first
+ Model placed before placing the rest of the Unit.
+
+
+
+
+
+                                          13

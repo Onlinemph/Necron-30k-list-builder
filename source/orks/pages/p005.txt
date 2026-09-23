@@ -1,0 +1,43 @@
+             WARGEAR LISTS
+
+These Wargear lists are used with many of the Units in this Army List. Where a Wargear Option on a Unit references a
+Wargear list from those below, one of the options from that list can be selected for that Model and the Points cost listed
+added to the cost of that Unit.
+
+ORK BOSS WEAPONS                ORK KAN RANGED WEAPONS
+• Slugga ................................................................... Free     • Big shoota ..................................................... +5 Points
+• Shoota ............................................................ +1 point     • Rokkit launcha .............................................. +5 Points
+• Choppa .................................................................. Free     • Grotzooka (Killa Kan, Grot Tank or
+• Chainsword ........................................................... Free         Grot Mega-tank only) ................................. +10 Points
+• Big choppa .................................................... +5 Points     • Kustom mega-blasta ................................... +10 Points
+• Power sword ............................................... +10 Points     • Skorcha ....................................................... +10 Points
+• Power axe ................................................... +10 Points
+• Power klaw ................................................. +20 Points   ORK BIG GUNZ
+                                                • Kannon ....................................................... +10 Points
+ORK KOMBI-WEAPONS                        • Lobba .......................................................... +10 Points
+• Kombi-shoota ................................................ +2 Points     • Zzap gun ..................................................... +10 Points
+• Kombi-rokkit ................................................. +5 Points
+• Kombi-skorcha ............................................ +10 Points   ORK PINTLE WEAPONS
+                                                •  Pintle Mounted big shoota ............................ +5 Points
+ORK MEK WARGEAR                          •  Pintle Mounted rokkit launcha ..................... +5 Points
+• Kustom mega-slugga ..................................... +5 Points
+• Kustom mega-blasta ................................... +10 Points   ORK SPONSON WEAPONS• Burna .......................................................... +10 Points
+                                                • Two Sponson Mounted twin big shootas ............... Free• Power klaw ................................................. +20 Points
+                                                • Two Sponson Mounted twin rokkit launchas ......... Free• Killsaw ........................................................ +20 Points
+                                                • Two Sponson Mounted twin skorchas ................... Free
+ORK DOK WARGEAR                              ORK HULL WEAPONS• Choppa .................................................................. Free
+                                                • Hull Mounted big shoota ....................................... Free• Chainsword ........................................................... Free
+                                                • Hull Mounted rokkit launcha ................................ Free• Big choppa .................................................... +5 Points
+                                                • Hull Mounted skorcha .......................................... Free•  ‘Urty syringe ............................................... +15 Points
+                                                • Hull Mounted kustom mega-blasta ............... +5 Points
+                                                • Hull Mounted twin dakkagun ....................... +5 Points
+ORK SPECIAL WEAPONS                      • Hull Mounted kustom mega-blasta ............... +5 Points
+• Big shoota ..................................................... +5 Points     • Hull Mounted zzap gun  ............................... +5 Points
+• Rokkit launcha .............................................. +5 Points
+• Burna .......................................................... +10 Points
+
+
+
+
+
+                                           5

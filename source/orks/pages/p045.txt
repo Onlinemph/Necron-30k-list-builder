@@ -1,0 +1,37 @@
+BLOOD AXES
+
+The Blood Axes are held by the other clans to be a bunch of untrustworthy gits. They trade openly with the Imperium, parley
+with the foe and will even consider retreating from battle if faced with insurmountable odds. Perhaps once intended to make
+the Blood Axes natural leaders, these qualities have instead earned them a reputation as treacherous scumbags.
+
+All Models with the Blood Axes Trait are subject to the following Special Rules:
+
+BLOOD AXES PRIME ADVANTAGE            BLOOD AXES GAMBIT
+If a Unit which only includes Models with the Blood Axes     When selecting a Gambit, the Controlling Player of a
+Trait that have the Command Battlefield Role is selected       Model with the Blood Axes Trait or the Freebooters Trait
+to fill a Prime Force Organisation Slot, the following           can select the following instead of any others available to
+Prime Advantage can be selected:                               that Model:
+Imperium Entanglements                      Kunnin’ but Brutal
+It was the Blood Axes who first encountered the armies of        Orks of the Blood Axe Clan display a compulsion to apply
+the Imperium, and it is they who have had the most contact       strategy and tactics to their battles.
+with Imperial culture. Blood Axes will even trade and deal
+with humans, which is considered a sure sign of their lack of    When this Gambit is selected, the Controlling Player
+proper Orky spirit.                               may use their Model's Leadership Characteristic
+                                                          instead of the result of a Focus Roll.
+Add one additional Force Organisation Slot to the
+                                                                                       If this Gambit is selected, then immediately after theDetachment that includes the Prime Slot, this Slot may be
+                                                               Controlling Player has made their Focus Roll in the Focusof any Battlefield Role other than High Command,
+                                                                Step, they may choose to replace the result of their FocusCommand, Warlord or Lord of War and can only be filled
+                                                                  Roll (after modifiers) with this Model's Leadershipby a Unit selected from the Imperialis Militia Army List or
+                                                                   Characteristic.the Blackshields Army List.
+
+The Imperium Entanglements Prime Advantage can only
+be selected once per Detachment and cannot be selected
+if the Logistical Benefit Prime Advantage is also selected
+for that Detachment.
+
+
+
+
+
+                                          45

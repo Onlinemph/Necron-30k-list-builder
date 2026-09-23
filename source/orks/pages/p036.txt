@@ -1,0 +1,62 @@
+       GOBSMASHA WAGON                                            ARMOUR
+           UNIT COMPOSITION: 1 GOBSMASHA WAGON                                 160 Points
+
+
+
+There seems to be no such thing as a standard Battlewagon, although there are many named sub-types within the category.
+Titles such as Lungbursta, Gobsmasha, Krusha, Bonecruncha, Gorespeeda and Dakkawagon are used by the Orks to describe a
+Battlewagon's specific role. The Gobsmasha Wagon sacrifices all its other weaponry to mount a huge artillery piece.
+
+                                                        Armour                        Transport
+                                                                                                   Capacity                     M       BS       Front      Side      Rear     HP
+Gobsmasha Wagon                  12        2        14       13       11        8               -
+
+
+ WARGEAR                                       SPECIAL RULES
+ • Centreline Mounted supa-kannon                  • None
+
+ TRAITS                                       TYPE
+ • Xenos                                       •  Vehicle
+ • [Orks]
+
+ OPTIONS
+ • This Model may have its Centreline Mounted supa-      • This Model may have one of the following options
+    kannon exchanged for one Centreline Mounted lifta-         selected for it:
+    droppa for +45 Points.                                            -  Reinforced ram ........................................ +5 Points
+ • This Model may have up to two items from the Ork            -  Deff rolla ................................................ +10 Points
+     Pintle Weapons list selected for it.                  • This Model may have any of the following options
+                                                                  selected for it:
+                                                                           -  Assault gubbins ...................................... +10 Points
+                                                                           - Grot riggers ............................................ +10 Points
+
+
+       GUNTRUKK                                                      ARMOUR
+           UNIT COMPOSITION: 1 GUNTRUKK                                        30 Points
+
+
+
+Every Ork Warboss knows that big guns like Kannons and Zzap guns are dead good, but they also know that they must be in
+the right position to be fully effective. To get around this, the Orks have developed Guntrukks.
+
+                                                        Armour                        Transport
+                                                                                                   Capacity                     M       BS       Front      Side      Rear     HP
+Guntrukk                          16        2        10       10       10        4               -
+
+
+ WARGEAR                                       SPECIAL RULES
+ • None                                       • Ramshackle
+
+ TRAITS                                       TYPE
+ • Xenos                                       •  Vehicle
+ • [Orks]
+
+ OPTIONS
+ • This Model may have one item from the Ork Big Gunz   • This Model may have any of the following options
+      list selected for it, with any item selected in this way         selected for it:
+    becoming Turret Mounted.                                        -  Reinforced ram ........................................ +5 Points
+ • This Model may have one item from the Ork Pintle            -  Assault gubbins ........................................ +5 Points
+   Weapons list selected for it.                                       - Grot riggers .............................................. +5 Points
+
+
+
+                                          36

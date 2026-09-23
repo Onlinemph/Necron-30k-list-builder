@@ -1,0 +1,1078 @@
+{
+ "meta": {
+  "id": "orks",
+  "name": "Orks",
+  "source": "Xenos Forces of the Age of Darkness – Orks (3rd edition rules, Always Strikes First)",
+  "version": "October 2025",
+  "date": "October 2025",
+  "choice": {
+   "label": "Great Clan",
+   "options": [
+    "Bad Moons",
+    "Blood Axes",
+    "Deathskulls",
+    "Evil Sunz",
+    "Goffs",
+    "Snakebites",
+    "Freebooters"
+   ],
+   "sameInDetachment": {
+    "exempt": "Freebooters"
+   }
+  }
+ },
+ "units": [],
+ "lists": [
+  {
+   "id": "ork-boss-weapons",
+   "name": "Ork Boss Weapons",
+   "page": 5,
+   "items": [
+    {
+     "name": "Slugga",
+     "points": 0
+    },
+    {
+     "name": "Shoota",
+     "points": 1
+    },
+    {
+     "name": "Choppa",
+     "points": 0
+    },
+    {
+     "name": "Chainsword",
+     "points": 0
+    },
+    {
+     "name": "Big choppa",
+     "points": 5
+    },
+    {
+     "name": "Power sword",
+     "points": 10
+    },
+    {
+     "name": "Power axe",
+     "points": 10
+    },
+    {
+     "name": "Power klaw",
+     "points": 20
+    }
+   ]
+  },
+  {
+   "id": "ork-kombi-weapons",
+   "name": "Ork Kombi-weapons",
+   "page": 5,
+   "items": [
+    {
+     "name": "Kombi-shoota",
+     "points": 2
+    },
+    {
+     "name": "Kombi-rokkit",
+     "points": 5
+    },
+    {
+     "name": "Kombi-skorcha",
+     "points": 10
+    }
+   ]
+  },
+  {
+   "id": "ork-mek-wargear",
+   "name": "Ork Mek Wargear",
+   "page": 5,
+   "items": [
+    {
+     "name": "Kustom mega-slugga",
+     "points": 5
+    },
+    {
+     "name": "Kustom mega-blasta",
+     "points": 10
+    },
+    {
+     "name": "Burna",
+     "points": 10
+    },
+    {
+     "name": "Power klaw",
+     "points": 20
+    },
+    {
+     "name": "Killsaw",
+     "points": 20
+    }
+   ]
+  },
+  {
+   "id": "ork-dok-wargear",
+   "name": "Ork Dok Wargear",
+   "page": 5,
+   "items": [
+    {
+     "name": "Choppa",
+     "points": 0
+    },
+    {
+     "name": "Chainsword",
+     "points": 0
+    },
+    {
+     "name": "Big choppa",
+     "points": 5
+    },
+    {
+     "name": "'Urty syringe",
+     "points": 15
+    }
+   ]
+  },
+  {
+   "id": "ork-special-weapons",
+   "name": "Ork Special Weapons",
+   "page": 5,
+   "items": [
+    {
+     "name": "Big shoota",
+     "points": 5
+    },
+    {
+     "name": "Rokkit launcha",
+     "points": 5
+    },
+    {
+     "name": "Burna",
+     "points": 10
+    }
+   ]
+  },
+  {
+   "id": "ork-kan-ranged-weapons",
+   "name": "Ork Kan Ranged Weapons",
+   "page": 5,
+   "items": [
+    {
+     "name": "Big shoota",
+     "points": 5
+    },
+    {
+     "name": "Rokkit launcha",
+     "points": 5
+    },
+    {
+     "name": "Grotzooka",
+     "points": 10,
+     "note": "Killa Kan, Grot Tank or Grot Mega-tank only"
+    },
+    {
+     "name": "Kustom mega-blasta",
+     "points": 10
+    },
+    {
+     "name": "Skorcha",
+     "points": 10
+    }
+   ]
+  },
+  {
+   "id": "ork-big-gunz",
+   "name": "Ork Big Gunz",
+   "page": 5,
+   "items": [
+    {
+     "name": "Kannon",
+     "points": 10
+    },
+    {
+     "name": "Lobba",
+     "points": 10
+    },
+    {
+     "name": "Zzap gun",
+     "points": 10
+    }
+   ]
+  },
+  {
+   "id": "ork-pintle-weapons",
+   "name": "Ork Pintle Weapons",
+   "page": 5,
+   "items": [
+    {
+     "name": "Pintle Mounted big shoota",
+     "points": 5
+    },
+    {
+     "name": "Pintle Mounted rokkit launcha",
+     "points": 5
+    }
+   ]
+  },
+  {
+   "id": "ork-sponson-weapons",
+   "name": "Ork Sponson Weapons",
+   "page": 5,
+   "items": [
+    {
+     "name": "Two Sponson Mounted twin big shootas",
+     "points": 0
+    },
+    {
+     "name": "Two Sponson Mounted twin rokkit launchas",
+     "points": 0
+    },
+    {
+     "name": "Two Sponson Mounted twin skorchas",
+     "points": 0
+    }
+   ]
+  },
+  {
+   "id": "ork-hull-weapons",
+   "name": "Ork Hull Weapons",
+   "page": 5,
+   "items": [
+    {
+     "name": "Hull Mounted big shoota",
+     "points": 0
+    },
+    {
+     "name": "Hull Mounted rokkit launcha",
+     "points": 0
+    },
+    {
+     "name": "Hull Mounted skorcha",
+     "points": 0
+    },
+    {
+     "name": "Hull Mounted kustom mega-blasta",
+     "points": 5
+    },
+    {
+     "name": "Hull Mounted twin dakkagun",
+     "points": 5
+    },
+    {
+     "name": "Hull Mounted zzap gun",
+     "points": 5
+    }
+   ]
+  }
+ ],
+ "arkana": [],
+ "weapons": {
+  "ranged": [],
+  "melee": []
+ },
+ "wargear": [],
+ "rules": {
+  "specialRules": [],
+  "reactions": [],
+  "gambits": [],
+  "primeAdvantages": [],
+  "traits": [],
+  "powersOfTheCtan": [],
+  "unitTypes": []
+ },
+ "detachments": [
+  {
+   "id": "deffwing",
+   "name": "Deffwing",
+   "type": "Apex",
+   "page": 4,
+   "unlock": "When a Mega Warboss Unit is selected to fill a High Command Force Organisation Slot, then the Player may choose to add one Deffwing Detachment to the Army instead of the options available in the Crusade Force Organisation Chart.",
+   "unlockedBy": {
+    "commandUnit": [
+     "mega-warboss"
+    ],
+    "slotRole": "High Command"
+   },
+   "slots": [
+    {
+     "role": "Heavy Assault",
+     "prime": true,
+     "flexible": false
+    },
+    {
+     "role": "Heavy Assault",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Heavy Assault",
+     "prime": false,
+     "flexible": false
+    }
+   ],
+   "restrictions": [
+    "Heavy Assault Slots in this Detachment may only be used to select Meganobz Mob Units."
+   ],
+   "rules": [],
+   "slotRules": [
+    {
+     "roles": [
+      "Heavy Assault"
+     ],
+     "units": [
+      "meganobz-mob"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bosss-bodyguard",
+   "name": "Boss's Bodyguard",
+   "type": "Auxiliary",
+   "page": 4,
+   "unlock": null,
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Retinue",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Elites",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Heavy Transport",
+     "prime": false,
+     "flexible": false
+    }
+   ],
+   "restrictions": [],
+   "rules": [],
+   "note": "No unlock paragraph or restriction bullet is printed in this Detachment's box on page 4; only the title and the three slot icons appear.",
+   "slotRules": []
+  },
+  {
+   "id": "green-tide",
+   "name": "Green Tide",
+   "type": "Auxiliary",
+   "page": 4,
+   "unlock": null,
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Troops",
+     "prime": true,
+     "flexible": false
+    },
+    {
+     "role": "Troops",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Troops",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Support",
+     "prime": true,
+     "flexible": false
+    },
+    {
+     "role": "Support",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Support",
+     "prime": false,
+     "flexible": false
+    }
+   ],
+   "restrictions": [],
+   "rules": [],
+   "note": "No unlock paragraph or restriction bullet is printed in this Detachment's box on page 4; only the title and the six slot icons (two Prime Slots, one per row) appear.",
+   "slotRules": []
+  },
+  {
+   "id": "dread-mob",
+   "name": "Dread Mob",
+   "type": "Apex",
+   "page": 4,
+   "unlock": "When a Kustom Meka-dread Unit is selected to fill a High Command Force Organisation Slot, then the Player may choose to add one Dread Mob Detachment to the Army instead of the options available in the Crusade Force Organisation Chart.",
+   "unlockedBy": {
+    "commandUnit": [
+     "kustom-meka-dread"
+    ],
+    "slotRole": "High Command"
+   },
+   "slots": [
+    {
+     "role": "War Engine",
+     "prime": true,
+     "flexible": false
+    },
+    {
+     "role": "War Engine",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Support",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "War Engine",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "War Engine",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Support",
+     "prime": false,
+     "flexible": false
+    }
+   ],
+   "restrictions": [
+    "Support Slots in this Detachment may only be used to select Killa Kan Mob Units."
+   ],
+   "rules": [],
+   "slotRules": [
+    {
+     "roles": [
+      "Support"
+     ],
+     "units": [
+      "killa-kan-mob"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "kult-of-speed",
+   "name": "Kult of Speed",
+   "type": "Auxiliary",
+   "page": 4,
+   "unlock": "When a Big Mek Unit or Big Mek on Warbike Unit (but not a Mega Big Mek Unit) is selected to fill a Command Force Organization Slot, then the Player may choose to add one Kult of Speed Detachment to the Army instead of the options available in the Crusade Force Organisation Chart.",
+   "unlockedBy": {
+    "commandUnit": [
+     "big-mek",
+     "big-mek-on-warbike"
+    ],
+    "slotRole": "Command",
+    "excludes": [
+     "mega-big-mek"
+    ]
+   },
+   "slots": [
+    {
+     "role": "Fast Attack",
+     "prime": true,
+     "flexible": false
+    },
+    {
+     "role": "Fast Attack",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Heavy Transport",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Recon",
+     "prime": false,
+     "flexible": false
+    }
+   ],
+   "restrictions": [
+    "Recon Slots in this Detachment may only be used to select Deffkoptas Units."
+   ],
+   "rules": [],
+   "slotRules": [
+    {
+     "roles": [
+      "Recon"
+     ],
+     "units": [
+      "deffkoptas"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "core-armoured-fist",
+   "name": "Armoured Fist",
+   "type": "Auxiliary",
+   "source": "core",
+   "slots": [
+    {
+     "role": "Transport"
+    },
+    {
+     "role": "Transport"
+    },
+    {
+     "role": "Transport"
+    },
+    {
+     "role": "Transport"
+    },
+    {
+     "role": "Heavy Transport"
+    },
+    {
+     "role": "Heavy Transport"
+    },
+    {
+     "role": "Heavy Transport"
+    },
+    {
+     "role": "Heavy Transport"
+    }
+   ]
+  },
+  {
+   "id": "core-tactical-support",
+   "name": "Tactical Support",
+   "type": "Auxiliary",
+   "source": "core",
+   "slots": [
+    {
+     "role": "Troops"
+    },
+    {
+     "role": "Troops"
+    },
+    {
+     "role": "Support"
+    },
+    {
+     "role": "Support"
+    }
+   ]
+  },
+  {
+   "id": "core-armoured-support",
+   "name": "Armoured Support",
+   "type": "Auxiliary",
+   "source": "core",
+   "slots": [
+    {
+     "role": "Armour"
+    },
+    {
+     "role": "Armour"
+    },
+    {
+     "role": "Armour"
+    },
+    {
+     "role": "Armour"
+    }
+   ]
+  },
+  {
+   "id": "core-heavy-support",
+   "name": "Heavy Support",
+   "type": "Auxiliary",
+   "source": "core",
+   "slots": [
+    {
+     "role": "War Engine"
+    }
+   ]
+  },
+  {
+   "id": "core-combat-pioneer",
+   "name": "Combat Pioneer",
+   "type": "Auxiliary",
+   "source": "core",
+   "slots": [
+    {
+     "role": "Recon"
+    },
+    {
+     "role": "Recon"
+    }
+   ]
+  },
+  {
+   "id": "core-shock-assault",
+   "name": "Shock Assault",
+   "type": "Auxiliary",
+   "source": "core",
+   "slots": [
+    {
+     "role": "Heavy Assault"
+    },
+    {
+     "role": "Heavy Assault"
+    }
+   ]
+  },
+  {
+   "id": "core-first-strike",
+   "name": "First Strike",
+   "type": "Auxiliary",
+   "source": "core",
+   "slots": [
+    {
+     "role": "Fast Attack"
+    },
+    {
+     "role": "Fast Attack"
+    }
+   ]
+  },
+  {
+   "id": "core-combat-retinue",
+   "name": "Combat Retinue",
+   "type": "Apex",
+   "source": "core",
+   "slots": [
+    {
+     "role": "Retinue",
+     "prime": true
+    },
+    {
+     "role": "Retinue"
+    },
+    {
+     "role": "Retinue"
+    }
+   ]
+  },
+  {
+   "id": "core-officer-cadre",
+   "name": "Officer Cadre",
+   "type": "Apex",
+   "source": "core",
+   "slots": [
+    {
+     "role": "Command",
+     "prime": true
+    },
+    {
+     "role": "Command"
+    }
+   ]
+  },
+  {
+   "id": "core-army-vanguard",
+   "name": "Army Vanguard",
+   "type": "Apex",
+   "source": "core",
+   "slots": [
+    {
+     "role": "Elites",
+     "prime": true
+    },
+    {
+     "role": "Elites"
+    },
+    {
+     "role": "Elites"
+    }
+   ]
+  },
+  {
+   "id": "core-warlord",
+   "name": "Warlord Detachment",
+   "type": "Warlord",
+   "source": "core",
+   "restrictions": [
+    "Must be the same faction as the Primary Detachment.",
+    "May only be selected in a 3,000 point or larger army."
+   ],
+   "minPoints": 3000,
+   "slots": [
+    {
+     "role": "Warlord"
+    },
+    {
+     "role": "Retinue"
+    },
+    {
+     "role": "Heavy Transport"
+    }
+   ]
+  },
+  {
+   "id": "core-lord-of-war",
+   "name": "Lord of War Detachment",
+   "type": "Lord of War",
+   "source": "core",
+   "restrictions": [
+    "The total points value of this Detachment may not exceed 25% of the army total."
+   ],
+   "slots": [
+    {
+     "role": "Lord of War"
+    },
+    {
+     "role": "Lord of War"
+    }
+   ]
+  }
+ ],
+ "sequelae": {
+  "intro": "",
+  "sequelae": []
+ },
+ "faq": [],
+ "baseSizes": [],
+ "forceorg": {
+  "note": "Horus Heresy 3rd edition Crusade Force Organisation Chart and core detachments, from the Warhammer Community army-building summary.",
+  "primary": {
+   "name": "Crusade Primary Detachment",
+   "slots": [
+    {
+     "role": "High Command",
+     "count": 1,
+     "prime": 0
+    },
+    {
+     "role": "Command",
+     "count": 3,
+     "prime": 1
+    },
+    {
+     "role": "Troops",
+     "count": 4,
+     "prime": 1
+    },
+    {
+     "role": "Transport",
+     "count": 4,
+     "prime": 0
+    }
+   ]
+  },
+  "unlocks": {
+   "auxiliaryPerCommand": 1,
+   "apexFromHighCommand": 1,
+   "text": "For every Command slot filled in the Crusade Primary Detachment the army may include one Auxiliary Detachment. Filling its High Command slot allows one Apex Detachment."
+  },
+  "detachments": [
+   {
+    "id": "core-armoured-fist",
+    "name": "Armoured Fist",
+    "type": "Auxiliary",
+    "source": "core",
+    "slots": [
+     {
+      "role": "Transport"
+     },
+     {
+      "role": "Transport"
+     },
+     {
+      "role": "Transport"
+     },
+     {
+      "role": "Transport"
+     },
+     {
+      "role": "Heavy Transport"
+     },
+     {
+      "role": "Heavy Transport"
+     },
+     {
+      "role": "Heavy Transport"
+     },
+     {
+      "role": "Heavy Transport"
+     }
+    ]
+   },
+   {
+    "id": "core-tactical-support",
+    "name": "Tactical Support",
+    "type": "Auxiliary",
+    "source": "core",
+    "slots": [
+     {
+      "role": "Troops"
+     },
+     {
+      "role": "Troops"
+     },
+     {
+      "role": "Support"
+     },
+     {
+      "role": "Support"
+     }
+    ]
+   },
+   {
+    "id": "core-armoured-support",
+    "name": "Armoured Support",
+    "type": "Auxiliary",
+    "source": "core",
+    "slots": [
+     {
+      "role": "Armour"
+     },
+     {
+      "role": "Armour"
+     },
+     {
+      "role": "Armour"
+     },
+     {
+      "role": "Armour"
+     }
+    ]
+   },
+   {
+    "id": "core-heavy-support",
+    "name": "Heavy Support",
+    "type": "Auxiliary",
+    "source": "core",
+    "slots": [
+     {
+      "role": "War Engine"
+     }
+    ]
+   },
+   {
+    "id": "core-combat-pioneer",
+    "name": "Combat Pioneer",
+    "type": "Auxiliary",
+    "source": "core",
+    "slots": [
+     {
+      "role": "Recon"
+     },
+     {
+      "role": "Recon"
+     }
+    ]
+   },
+   {
+    "id": "core-shock-assault",
+    "name": "Shock Assault",
+    "type": "Auxiliary",
+    "source": "core",
+    "slots": [
+     {
+      "role": "Heavy Assault"
+     },
+     {
+      "role": "Heavy Assault"
+     }
+    ]
+   },
+   {
+    "id": "core-first-strike",
+    "name": "First Strike",
+    "type": "Auxiliary",
+    "source": "core",
+    "slots": [
+     {
+      "role": "Fast Attack"
+     },
+     {
+      "role": "Fast Attack"
+     }
+    ]
+   },
+   {
+    "id": "core-combat-retinue",
+    "name": "Combat Retinue",
+    "type": "Apex",
+    "source": "core",
+    "slots": [
+     {
+      "role": "Retinue",
+      "prime": true
+     },
+     {
+      "role": "Retinue"
+     },
+     {
+      "role": "Retinue"
+     }
+    ]
+   },
+   {
+    "id": "core-officer-cadre",
+    "name": "Officer Cadre",
+    "type": "Apex",
+    "source": "core",
+    "slots": [
+     {
+      "role": "Command",
+      "prime": true
+     },
+     {
+      "role": "Command"
+     }
+    ]
+   },
+   {
+    "id": "core-army-vanguard",
+    "name": "Army Vanguard",
+    "type": "Apex",
+    "source": "core",
+    "slots": [
+     {
+      "role": "Elites",
+      "prime": true
+     },
+     {
+      "role": "Elites"
+     },
+     {
+      "role": "Elites"
+     }
+    ]
+   },
+   {
+    "id": "core-warlord",
+    "name": "Warlord Detachment",
+    "type": "Warlord",
+    "source": "core",
+    "restrictions": [
+     "Must be the same faction as the Primary Detachment.",
+     "May only be selected in a 3,000 point or larger army."
+    ],
+    "minPoints": 3000,
+    "slots": [
+     {
+      "role": "Warlord"
+     },
+     {
+      "role": "Retinue"
+     },
+     {
+      "role": "Heavy Transport"
+     }
+    ]
+   },
+   {
+    "id": "core-lord-of-war",
+    "name": "Lord of War Detachment",
+    "type": "Lord of War",
+    "source": "core",
+    "restrictions": [
+     "The total points value of this Detachment may not exceed 25% of the army total."
+    ],
+    "slots": [
+     {
+      "role": "Lord of War"
+     },
+     {
+      "role": "Lord of War"
+     }
+    ]
+   }
+  ],
+  "primeAdvantages": [
+   {
+    "name": "Master Sergeant",
+    "text": "One model in the unit gains +1 Attacks, +1 Weapon Skill and +1 Leadership, and the Champion sub-type.",
+    "summary": true
+   },
+   {
+    "name": "Combat Veterans",
+    "text": "Models in the unit gain +1 Leadership, Intelligence, Cool and Willpower.",
+    "summary": true
+   },
+   {
+    "name": "Paragon of Battle",
+    "text": "The model gains +1 Attacks, +1 Weapon Skill and +1 Ballistic Skill.",
+    "summary": true
+   },
+   {
+    "name": "Special Assignment",
+    "text": "A Prime Command slot becomes a High Command slot.",
+    "summary": true,
+    "roles": [
+     "Command"
+    ]
+   },
+   {
+    "name": "Logistical Benefit",
+    "text": "Add one slot to the Detachment, of any Battlefield Role other than High Command, Command, Warlord or Lord of War.",
+    "summary": true
+   }
+  ]
+ },
+ "coreRules": {
+  "note": "Rules referenced by the Necron list but defined in the Horus Heresy 3rd edition rulebook, not the codex. The app labels them so players know where to look.",
+  "rules": [
+   "Assault Vehicle",
+   "Battlesmith (X)",
+   "Bulky (X)",
+   "Deep Strike",
+   "Eternal Warrior (X)",
+   "Expendable (X)",
+   "Explodes (X)",
+   "Fast (X)",
+   "Fear (X)",
+   "Firestorm",
+   "Firing Protocols (X)",
+   "Heedless",
+   "Impact (X)",
+   "Implacable Advance",
+   "Infiltrate (X)",
+   "Line (X)",
+   "Move Through Cover",
+   "Outflank",
+   "Split Fire",
+   "Stable",
+   "Support Unit (X)",
+   "Vanguard (X)",
+   "Shrouded (X)",
+   "Precision (X)",
+   "Breaching (X)",
+   "Armourbane",
+   "Blast (X)",
+   "Pinning (X)",
+   "Shock (X)",
+   "Suppressive (X)",
+   "Critical Hit (X)",
+   "Heavy (X)",
+   "Barrage",
+   "Template",
+   "Limited (X)",
+   "Panic (X)",
+   "Rending (X)",
+   "Stun (X)",
+   "Overload (X)",
+   "Rapid Fire",
+   "Pistol",
+   "Assault",
+   "Two-handed",
+   "Officer of the Line (X)",
+   "Sergeant",
+   "Champion",
+   "Command"
+  ],
+  "undefinedInCodex": [],
+  "weaponAliases": {}
+ },
+ "sequelaEffects": {
+  "effects": [],
+  "rules": []
+ },
+ "choiceEffects": {
+  "effects": []
+ },
+ "grantedPrimeAdvantages": [],
+ "modifiers": {
+  "modifiers": []
+ }
+}

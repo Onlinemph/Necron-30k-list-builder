@@ -1,0 +1,63 @@
+       DAKKA-TRAKK                                                  ARMOUR
+           UNIT COMPOSITION: 1 DAKKA-TRAKK                                        95 Points
+
+
+
+What they lack in speed over trukks, Big Trakks make up for in raw power, not to mention the fact they make excellent gun
+carriers as well; able to mount the larger 'Big Gunz'. Some Meks even go as far as to mount huge bore 'Supa-Kannon' on Big
+Trakks despite the tact these weapons are almost the size of the vehicle itself! This however is much to the Orks' amusement as
+a Supa-Kannon armed Big Trakk rears up like an enraged Tusker from the recoil every time it is fired.
+
+                                                        Armour                        Transport
+                                                                                                   Capacity                     M       BS       Front      Side      Rear     HP
+Dakka-trakk                        12        2        13       12       11        6               -
+
+
+ WARGEAR                                       SPECIAL RULES
+ • Two Centreline Mounted big shootas                • None
+ •  Turret Mounted flakka gunz
+                                              TYPE
+ TRAITS                                        •  Vehicle
+ • Xenos
+ • [Orks]
+
+ OPTIONS
+ • This Model may have its Turret Mounted flakka gunz    • This Model may have one of the following options
+    exchanged for one Centreline Mounted supa-kannon         selected for it:
+     for +30 Points.                                                     -  Reinforced ram ........................................ +5 Points
+ • This Model may have up to two items from the Ork            -  Deff rolla ................................................ +10 Points
+     Pintle Weapons list selected for it.                  • This Model may have any of the following options
+                                                                  selected for it:
+                                                                           -  Assault gubbins ...................................... +10 Points
+                                                                           - Grot riggers ............................................ +10 Points
+
+
+
+                                                                            ARMOUR       GUN SQUIGGOTH
+                                                                                     170 Points           UNIT COMPOSITION: 1 GUN SQUIGGOTH
+
+
+
+A squiggoth bred for battle will invariably have a howdah and a set of armour constructed (usually from spare scrap). Larger
+howdahs are favoured, so that big gunz can be mounted.
+
+
+             M  WS   BS    S    T  W       I    A   LD   CL  WP   IN   SAV  INV
+Gun Squiggoth          9    3    2    6    7    6    1    4    10    9    7    3   4+       -
+
+
+ WARGEAR                                       SPECIAL RULES
+ • Tusks and stomping feet                         • Bulky (8)
+                                               •  Feel No Pain (5+)
+ TRAITS                                        •  Firing Protocols (2)
+ • Xenos                                       • Implacable Advance
+ • Snakebites
+                                              TYPE
+                                               • Cavalry
+
+ OPTIONS
+ • This Model must have two items from the Ork Big
+   Gunz list selected for it.
+
+
+                                          37

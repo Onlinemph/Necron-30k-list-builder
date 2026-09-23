@@ -1,0 +1,47 @@
+       MADBOYZ MOB                                                            RETINUE
+           UNIT COMPOSITION: 5 MADBOYZ                                      40 Points
+           • May include up to 15 additional Madboyz at +6 Points per Model.
+
+
+The Ork techno-gene allows Orks to inherit the knowledge and experience of their forebears and enables them to maintain a
+high level of technology. Unfortunately it doesn't always work out. There are always a few individuals whose genetic influences
+fail to mesh properly. The Ork finds his mind full of distractions and contradictions. Wild ideas about the universe buzz round
+his brain. Curious bits of unconnected knowledge keep intruding upon his consciousness. These disturbed Orks are called
+Madboyz.
+
+                M  WS   BS    S    T  W      I    A   LD   CL  WP   IN   SAV  INV
+Madboy                  6    4    2    3    4    1    2    2    9    10    6    4   6+      -
+
+
+ WARGEAR                                       SPECIAL RULES
+ • Slugga                                      • Impact (S)
+ • Choppa                                     • Expendable (1)
+ • Stikkbombs                                   • Heedless
+                                               • Madmob
+ TRAITS                                       • Mob Rule (CL)
+ • Xenos
+ • [Orks]                                      TYPE
+                                               •  Infantry (Light)
+
+ OPTIONS
+ • Any Model in this Unit may have its slugga and choppa
+    exchanged for one shoota for Free.
+ • For every five models in this Unit, one Model in this
+    Unit may have its choppa exchanged for one
+    chainsword for Free.
+
+ SPECIAL RULES
+ Madmob
+ Madboyz are extremely unpredictable. Their minds swirl with strange ideas or sudden momentary enthusiasms, and they
+  tend to act as a single body. If one Madboy thinks he has lost his boot the whole mob is likely to become obsessed with the
+  idea of finding it! Such is the way with Madboyz.
+
+ A Unit that includes any Models with this Special Rule cannot be joined by other Models except for Weirdboys. In
+  addition, whenever a Unit that includes any Models with this Special Rule would gain either the Routed or Pinned
+  Status, they instead gain the Suppressed and Stunned Statuses and the Hatred (Everything) Special Rule.
+
+
+
+
+
+                                          16

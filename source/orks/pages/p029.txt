@@ -1,0 +1,46 @@
+       BATTLEWAGON                                                 HEAVY TRANSPORT
+           UNIT COMPOSITION: 1 BATTLEWAGON                                           110 Points
+           • This Model may be replaced with 1 Gunwagon for +40 Points.
+
+
+Battlewagons are massive metal gunbeasts that prowl through the ranks of the Orks on great clanking treads. Some are mobile
+fortresses, packed to the gunnels with Ork warriors. Others bristle with ordnance and heavy weaponry. The iron fists of the Ork
+warband, Battlewagons fulfil many battlefield roles, but first amongst them is grinding the enemy into the ground.
+
+                                                        Armour                        Transport
+                                                                                                   Capacity                     M       BS       Front      Side      Rear     HP
+Battlewagon                       12        2        14       13       11        8        20
+Gunwagon                         12        2        14       13       11        8        12
+
+
+ WARGEAR                                       SPECIAL RULES
+ Battlewagon                                    • Assault Vehicle (Battlewagon only)
+ • None
+ Gunwagon                                    TYPE
+ •  Turret Mounted killkannon                       •  Vehicle (Transport)
+
+ TRAITS
+ • Xenos
+ • [Orks]
+
+ OPTIONS
+ • This Model may have one item from the Ork Big Gunz   • This Model may have one of the following options
+      list selected for it. Any item selected in this way              selected for it:
+    becomes Turret Mounted.                                         -  Reinforced ram ........................................ +5 Points
+ • This Model may have up to four items from the Ork           -  Deff rolla ................................................ +10 Points
+     Pintle Weapons list selected for it.                  • This Model may have any of the following options
+                                                                  selected for it:
+                                                                           -  Assault gubbins ...................................... +10 Points
+                                                                           - Grot riggers ............................................ +10 Points
+
+ ACCESS POINTS
+ • Battlewagon: This Model has Access Points on all of
+      its Facings.
+ • Gunwagon: This Model has Access Points on both Side
+    Facings and the Rear Facing.
+
+
+
+
+
+                                          29

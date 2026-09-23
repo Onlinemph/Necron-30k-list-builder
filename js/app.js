@@ -1,10 +1,22 @@
-/* Necron 30k list builder UI. Vanilla JS, no build step. */
+/* 30k list builder UI. Vanilla JS, no build step. One army's data is active per page load. */
 (function () {
   'use strict';
 
-  const DATA = window.NECRON_DATA;
+  const ARMIES = window.ARMY_DATA || {};
+  const STORE_LAST = 'necron30k.lastArmy';
+  // A share link carries its army; otherwise ?army=, then the last army used.
+  const FACTION = (() => {
+    const pick = (id) => (id && ARMIES[id] && ARMIES[id].units.length ? id : null);
+    let fromLink = null;
+    try { const m = location.hash.match(/#a=(.+)$/); if (m) fromLink = JSON.parse(decodeURIComponent(escape(atob(m[1])))).faction || 'necrons'; } catch (e) { /* bad link */ }
+    let last = null;
+    try { last = JSON.parse(localStorage.getItem(STORE_LAST)); } catch (e) { /* no storage */ }
+    return pick(fromLink) || pick(new URLSearchParams(location.search).get('army')) || pick(last) || 'necrons';
+  })();
+  const DATA = ARMIES[FACTION];
   const E = window.NecronEngine.createEngine(DATA);
-  const STORE_CUR = 'necron30k.current';
+  // Necron lists keep their original storage key so nothing saved earlier is lost.
+  const STORE_CUR = FACTION === 'necrons' ? 'necron30k.current' : `necron30k.current.${FACTION}`;
   const STORE_SAVED = 'necron30k.saved';
   const STORE_FOC = 'necron30k.primarySlots.v2'; // v1 held the pre-rulebook guess
 
@@ -71,7 +83,7 @@
   }
   function newArmy() {
     const primary = E.makeDetachment('primary', (DATA.forceorg && DATA.forceorg.primary.name) || 'Crusade Primary Detachment', expandSlots(defaultPrimarySlots()));
-    return { version: 2, name: '', pointsLimit: 3000, sequelae: [], detachments: [primary] };
+    return { version: 2, faction: FACTION, name: '', pointsLimit: 3000, sequelae: [], detachments: [primary] };
   }
 
   let army = fromHash() || loadCurrent() || newArmy();
@@ -102,6 +114,8 @@
       }
     }
     a.sequelae = a.sequelae || [];
+    a.faction = a.faction || 'necrons';
+    if (a.faction !== FACTION) throw new Error(`That list is for ${ARMIES[a.faction] ? ARMIES[a.faction].meta.name : a.faction}.`);
     if ((a.version || 1) < 2) migrateV1(a);
     return a;
   }
@@ -138,11 +152,14 @@
     $('#army-name').value = army.name || '';
     $('#points-limit').value = army.pointsLimit;
     const meta = DATA.meta || {};
-    $('#data-version').textContent = `${meta.source || 'Codex Xenologica – Necrons'} · v${meta.version || '?'}`;
+    $('#data-version').textContent = `${meta.source || ''} · ${/^\d/.test(meta.version || '') ? 'v' : ''}${meta.version || '?'}`;
   }
 
   // ---------- render: sequelae ----------
   function renderSequelae() {
+    const hasSeq = ((DATA.sequelae && DATA.sequelae.sequelae) || []).length > 0;
+    $('#sequelae').closest('.panel').hidden = !hasSeq;
+    if (!hasSeq) return;
     const allow = E.sequelaAllowance(army);
     $('#seq-allow').textContent = `${army.sequelae.length}/${allow}`;
     const list = (DATA.sequelae && DATA.sequelae.sequelae) || [];
@@ -237,8 +254,8 @@
     const sel = $('#add-det');
     sel.replaceChildren(h('<option value="">Choose…</option>'));
     const order = [
-      ['Auxiliary', 'core', 'Auxiliary (core rules)'], ['Auxiliary', 'codex', 'Auxiliary (Necron)'],
-      ['Apex', 'core', 'Apex (core rules)'], ['Apex', 'codex', 'Apex (Necron, via Aeonic Sequelae)'],
+      ['Auxiliary', 'core', 'Auxiliary (core rules)'], ['Auxiliary', 'codex', `Auxiliary (${DATA.meta.name})`],
+      ['Apex', 'core', 'Apex (core rules)'], ['Apex', 'codex', `Apex (${DATA.meta.name}${(DATA.sequelae && DATA.sequelae.sequelae || []).length ? ', via Aeonic Sequelae' : ''})`],
       ['Warlord', 'core', 'Warlord'], ['Lord of War', 'core', 'Lord of War'],
     ];
     for (const [type, src, label] of order) {
@@ -408,7 +425,7 @@
 
     // arkana
     if (u.cryptoArkana && !u.fixedArkana) {
-      const sec = section('Crypto-Arkana');
+      const sec = section(E.choiceLabel);
       const s = h(`<select><option value="">Choose…</option>${E.ARKANA.map((a) => `<option ${sel.arkana === a ? 'selected' : ''}>${a}</option>`).join('')}</select>`);
       s.addEventListener('change', () => { sel.arkana = s.value || null; clampOptions(sel); refresh(); });
       const row = h('<div class="row"></div>');
@@ -422,7 +439,7 @@
       sec.append(row);
       box.append(sec);
     } else if (u.fixedArkana) {
-      box.append(h(`<p class="muted">Crypto-Arkana: ${esc(u.fixedArkana)}</p>`));
+      box.append(h(`<p class="muted">${esc(E.choiceLabel)}: ${esc(u.fixedArkana)}</p>`));
     }
 
     // options
@@ -506,7 +523,7 @@
     const locked = o.requires && !E.requirementMet(o, sel);
     if (locked) el.append(h(`<div class="cap">Needs ${esc(o.requiresChoice || 'the option above')} first.</div>`));
     if (!choices.length && (o.kind === 'one' || o.kind === 'any' || o.kind === 'perModel')) {
-      list.append(h(`<div class="cap">${u.cryptoArkana && !sel.arkana ? 'Choose a Crypto-Arkana first.' : 'No choices available.'}</div>`));
+      list.append(h(`<div class="cap">${u.cryptoArkana && !sel.arkana ? `Choose a ${esc(E.choiceLabel)} first.` : 'No choices available.'}</div>`));
     }
     switch (o.kind) {
       case 'one': {
@@ -799,8 +816,8 @@
   function textExport() {
     const lines = [];
     const total = E.armyPoints(army);
-    lines.push(`${army.name || 'Unnamed Dynasty'} — ${total}/${army.pointsLimit} pts`);
-    lines.push(`Necrons (${(DATA.meta && DATA.meta.source) || 'Codex Xenologica'} v${(DATA.meta && DATA.meta.version) || '?'})`);
+    lines.push(`${army.name || 'Unnamed army'} — ${total}/${army.pointsLimit} pts`);
+    lines.push(`${DATA.meta.name} (${DATA.meta.source} ${DATA.meta.version})`);
     if (army.sequelae.length) lines.push('Aeonic Sequelae: ' + army.sequelae.join(', '));
     for (const d of army.detachments) {
       const units = d.slots.filter((s) => s.unit);
@@ -857,7 +874,9 @@
       try {
         const m = txt.match(/#a=(.+)$/);
         if (m) txt = decodeURIComponent(escape(atob(m[1])));
-        army = sanitize(JSON.parse(txt));
+        const parsed = JSON.parse(txt);
+        if ((parsed.faction || 'necrons') !== FACTION) { switchArmy(parsed.faction || 'necrons', parsed); return; }
+        army = sanitize(parsed);
         active = null;
         refresh();
       } catch (e) { alert('Could not read that list: ' + e.message); return false; }
@@ -865,7 +884,7 @@
   }
 
   function doSave() {
-    const name = prompt('Save list as:', army.name || 'My Dynasty');
+    const name = prompt('Save list as:', army.name || `My ${DATA.meta.name}`);
     if (!name) return;
     const saved = store.get(STORE_SAVED, {});
     saved[name] = Object.assign({}, army, { savedAt: new Date().toISOString() });
@@ -880,8 +899,14 @@
     if (!names.length) list.append(h('<p class="muted">Nothing saved in this browser yet.</p>'));
     for (const n of names) {
       const a = saved[n];
-      const row = h(`<div class="row"><button type="button" style="flex:1"><span>${esc(n)}</span><span class="muted">${E.armyPoints(a)} pts · ${esc((a.savedAt || '').slice(0, 10))}</span></button><button type="button" class="small danger">Delete</button></div>`);
-      row.children[0].addEventListener('click', () => { army = sanitize(JSON.parse(JSON.stringify(a))); active = null; closeDialog(); refresh(); });
+      const fac = a.faction || 'necrons';
+      const other = fac !== FACTION;
+      const facName = ARMIES[fac] ? ARMIES[fac].meta.name : fac;
+      const row = h(`<div class="row"><button type="button" style="flex:1"><span>${esc(n)}</span><span class="muted">${esc(facName)} · ${other ? '' : E.armyPoints(a) + ' pts · '}${esc((a.savedAt || '').slice(0, 10))}</span></button><button type="button" class="small danger">Delete</button></div>`);
+      row.children[0].addEventListener('click', () => {
+        if (other) { switchArmy(fac, JSON.parse(JSON.stringify(a))); return; }
+        army = sanitize(JSON.parse(JSON.stringify(a))); active = null; closeDialog(); refresh();
+      });
       row.children[1].addEventListener('click', () => { if (!confirm('Delete ' + n + '?')) return; delete saved[n]; store.set(STORE_SAVED, saved); row.remove(); });
       list.append(row);
     }
@@ -894,7 +919,7 @@
     const total = E.armyPoints(army);
     const issues = E.armyIssues(army);
     let html = `<div class="r-bar"><button type="button" id="r-print">Print</button><button type="button" id="r-close">Close</button></div>`;
-    html += `<h1>${esc(army.name || 'Unnamed Dynasty')} <span class="muted">— ${total}/${esc(army.pointsLimit)} pts</span></h1>`;
+    html += `<h1>${esc(army.name || 'Unnamed army')} <span class="muted">— ${total}/${esc(army.pointsLimit)} pts</span></h1>`;
     html += `<p class="muted">${esc((DATA.meta && DATA.meta.source) || '')} v${esc((DATA.meta && DATA.meta.version) || '')}${army.sequelae.length ? ' · Aeonic Sequelae: ' + esc(army.sequelae.join(', ')) : ''}</p>`;
     if (issues.some((i) => i.level === 'error')) html += `<p style="color:#b00">This list has ${issues.filter((i) => i.level === 'error').length} rules problem(s).</p>`;
     const glossary = new Map();
@@ -968,6 +993,22 @@
     army.detachments.push(E.detachmentFromDef(v));
     refresh();
   });
+
+  /** Armies load one per page: stash the list for the other army, then reload with it. */
+  function switchArmy(id, list) {
+    if (!ARMIES[id]) { alert(`This builder doesn't have the ${id} army.`); return; }
+    save();
+    if (list) store.set(id === 'necrons' ? 'necron30k.current' : `necron30k.current.${id}`, list);
+    store.set(STORE_LAST, id);
+    location.href = location.pathname + '?army=' + encodeURIComponent(id);
+  }
+
+  const armySel = $('#army-select');
+  for (const [id, d] of Object.entries(ARMIES)) if (d.units.length || id === FACTION) armySel.append(new Option(d.meta.name, id, id === FACTION, id === FACTION));
+  armySel.addEventListener('change', () => switchArmy(armySel.value));
+  store.set(STORE_LAST, FACTION);
+  document.title = `${DATA.meta.name} · 30k List Builder`;
+  $('#army-title').textContent = `${DATA.meta.name} 30k List Builder`;
 
   addDetachmentMenu();
   refresh();

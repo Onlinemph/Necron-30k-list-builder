@@ -1,0 +1,68 @@
+ROKKIT AND MISSILE WEAPONS
+
+                    R    FP   RS   AP   D   Special Rules                           Traits
+
+ Big bomb                6     1     4     5     1    Blast (3"), Limited (1), Stun (1)            -
+
+ Boom bomb           <6    1     9     4     4   Armourbane, Blast (3"), Critical Hit    Guided Missile
+                                                         (6+), Limited (1)*, Overload (2)
+
+                          6-18   1     7     4     3   Armourbane, Blast (3"), Limited (1)*     -
+
+                                                              *Note: this weapon may be fired a total
+                                                                        of once, not once with each profile
+
+ Burna bomb              18    1     5     4     1    Blast (5"), Limited (1), Panic (2)       Flame
+
+ Rokkit pistol              24    1     6     4     1     -                                         Missile
+
+ Rokkit launcha            24    1     8     3     1     -                                         Missile
+
+ Twin rokkit launcha        24    2     8     3     1     -                                         Missile
+
+ Pulsa rokkit              18    1     7     4     2    Barrage, Blast (3"), Limited (1), Shock  Missile
+                                                             (Pinned, Suppressed, Stunned)
+
+ Skorcha missile           24    1     5     4     1    Blast (3"), Limited (1), Panic (1)       Flame, Guided
+                                                                                                            Missile
+
+SHOOTA WEAPONS
+
+                    R    FP   RS   AP   D   Special Rules                             Traits
+
+ Slugga                  12    1     4     6     1    Pistol                                      Assault, Auto
+
+ Shoota                  18    2     4     6     1     -                                           Assault, Auto
+
+ Twin boomstikk           12    2     4     6     1   Shred (6+), Stun (0)                      Assault, Auto
+
+ Kombi-shoota             18    4     4     6     1     -                                   Auto
+
+ Kustom shoota            18    3     4     5     1    Breaching (5+), Heavy (FP & RS),       Auto
+                                                             Suppressive (1)
+
+ Snazzgun                24    3     5     5     1   Heavy (AP), Rending (6+), Breaching    Auto
+                                                         (6+), Pinning (1)
+
+ Twin dakkaguns           18    6     5     5     1     -                                   Auto
+
+ Big shoota               36    3     5     5     1     -                                   Auto
+
+ Twin big shoota           36    6     5     5     1     -                                   Auto
+
+ Deffgun                 48    2     7     4     1   Heavy (FP & D), Breaching (6+),        Auto
+                                                             Suppressive (1)
+
+ Twin supa shoota          36    6     6     4     1    Suppressive (1)                       Auto
+
+ Flakka gunz              48    6     7     4     2    Breaching (6+), Heavy (FP), Skyfire     Auto
+
+ Deffstorm mega-shoota     36    12    6     4     1    Pinning (1), Shred (6+)               Auto
+
+ Gigashoota               48    15    6     4     1   Ordnance (FP), Pinning (2), Shred (6+)  Auto
+
+
+
+
+
+                                          57

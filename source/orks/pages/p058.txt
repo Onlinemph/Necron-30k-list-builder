@@ -1,0 +1,66 @@
+TRAKTOR WEAPONS
+
+                    R    FP   RS   AP   D   Special Rules                           Traits
+
+ Traktor blasta             18    1     7     5     2   Heavy (R & RS), Skyfire                       -
+
+ Traktor kannon           36    1     7     5     2   Heavy (RS), Ordnance (D), Shock         -
+                                                              (Pinned), Skyfire
+
+STOMPA TACTICAL WEAPONS
+
+                    R    FP   RS   AP   D   Special Rules                           Traits
+
+ Defensor big shoota        36    4     5     5     1     -                                     Auto, Tactical
+
+ Twin defensor big shoota    36    8     5     5     1     -                                     Auto, Tactical
+
+ Defensor skorcha          10    1     5     4     1    Blast (5"), Panic (1)                   Flame, Tactical
+
+STOMPA STRATEGIC WEAPONS
+
+                    R    FP   RS   AP   D   Special Rules                           Traits
+
+ Deff kannon              72    1    10    2     6    Blast (7"), Power Hungry              Auto, Strategic
+
+ Supa-gatler              48    12    6     4     1    Pinning (2), Shred (6+)               Auto, Strategic
+
+ Stompa lifta-droppa        48    1    12    2     4   Overload (1), Shock (Stunned,          Lifta-droppa,
+                                                            Suppressed), Stun (2), Thrown (2)      Strategic
+
+ Supa-rokkit              48    1     8     4     2    Blast (3"), Limited (1)                    Missile,
+                                                                                                            Strategic
+
+STOMPA STRIKE WEAPONS
+
+                    R    FP   RS   AP   D   Special Rules                           Traits
+
+ Mega-choppa             8     4    10    2     5    Targeted (+2)                           Strike
+
+EXOTIC AND MISCELLANEOUS WEAPONS
+
+                    R    FP   RS   AP   D   Special Rules                           Traits
+
+ Bomb squig              12    1     8     4     3   Armourbane, Breaching (6+), Critical    -
+                                                               Hit (6+), Limited (1), Targeted (+3)
+
+ Bubblechukka            36    1     3     4     1    Blast (5"), Heavy (AP), Ordnance          -
+                                                             (RS), Pinning (2)
+
+ Shokk attack gun          30    1   2D6   4    D6   Blast (5"), Ordnance (R & AP),              -
+                                                            Pinning (3), Shokk Attack
+
+ Shokka pistol             8     1     6     4     1    Blast (3"), Pistol, Shock (Stunned)      Assault
+
+ Tellyport blasta           12    1     7     4     2   Armourbane, Blast (3"), Critical Hit       -
+                                                         (6+), Breaching (6+), Panic (1),
+                                                         Overload (1)
+
+ Zzap gun                36    1   2D6   2     1   Armourbane, Heavy (D), Overload      Las
+                                                                    (1), Shock (Suppressed), Shred (5+)
+
+
+
+
+
+                                          58

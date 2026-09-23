@@ -1,0 +1,42 @@
+       TRUKK                                                                TRANSPORT
+           UNIT COMPOSITION: 1 TRUKK                                           30 Points
+           • This Model may be replaced with 1 ‘Ard Case Trukk for +5 Points.
+
+
+Trukks are built for speed and speed alone, and usually have little in the way of armour plating. A direct hit upon a Trukk can
+cause it to come apart in a clattering, cartwheeling pile of burning wreckage. Still, because Trukks are so light it is easy to bail
+out when they crash, and it is just as likely that a hit will smash apart some wotsit that the driver only hammered into place so
+he could keep an eye on it.
+
+                                                        Armour                        Transport
+                                                                                                   Capacity                     M       BS       Front      Side      Rear     HP
+Trukk                             16        2        10       10       10        4        12
+ ‘Ard Case Trukk                     16        2        11       10       10        4        12
+
+
+ WARGEAR                                       SPECIAL RULES
+ • None                                       • Auto-repair (5+)
+                                               • Assault Vehicle (Trukk only)
+ TRAITS                                        • Ramshackle
+ • Xenos
+ • [Orks]                                      TYPE
+                                               •  Vehicle (Transport, Rapid)
+
+ OPTIONS
+ • This Model must have one item from the Ork Pintle     • This Model may have any of the following options
+   Weapons list selected for it.                                  selected for it:
+                                                                           -  Reinforced ram ........................................ +5 Points
+                                                                           -  Assault gubbins ........................................ +5 Points
+                                                                           - Grot riggers .............................................. +5 Points
+
+ ACCESS POINTS
+ • Trukk: This Model has Access Points on all of its
+    Facings.
+ • ‘Ard Case Trukk: This Model has one Access Point on
+      its Rear Facing.
+
+
+
+
+
+                                          28

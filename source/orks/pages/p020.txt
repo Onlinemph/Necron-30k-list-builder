@@ -1,0 +1,37 @@
+       MEGANOBZ MOB                                                 HEAVY ASSAULT
+           UNIT COMPOSITION: 3 MEGANOBZ                                            150 Points
+           • May include up to 6 additional Meganobz at +45 Points per Model.
+
+
+Ork veterans who value the thrill of close combat above all else often become Meganobz. Only the richest of Ork Nobz can
+afford to join the ranks of this elite group. They are characterised by the bulky exoskeletons they wear into battle, which they
+call mega armour, and by a dogged belief in their own invulnerability.
+
+                M  WS   BS    S    T  W      I    A   LD   CL  WP   IN   SAV  INV
+Meganob                 5    5    2    5    5    3    2    3    7    8    7    5   2+  5+
+
+
+ WARGEAR                                       SPECIAL RULES
+ • Kombi-shoota                                 • Bulky (2)
+ • Power klaw                                   • Impact (A)
+                                               • Implacable Advance
+ TRAITS                                        • Mob Rule (CL)
+ • Xenos                                       • Slow and Purposeful
+ • [Orks]                                      • Vanguard (3)
+
+                                              TYPE
+                                               •  Infantry (Heavy)
+
+ OPTIONS
+ • Any Model in this Unit may have its kombi-shoota      • Any Model in this Unit may have a bosspole for +5
+    exchanged for one item from the Ork Kombi-weapons        Points per Model.
+      list.
+ • Any Model in this Unit may have its kombi-shoota and
+    power klaw exchanged for one pair of killsaws for +10
+     Points.
+
+
+
+
+
+                                          20

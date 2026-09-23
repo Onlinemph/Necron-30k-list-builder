@@ -1,0 +1,53 @@
+            THE ORKS ARMY LIST
+
+ Accounts differ on exactly when specific Ork cultures and technologies appeared on the battlefields of the galaxy. Where some
+   records claim to have been the first to encounter certain styles of Orkish warfare, in truth the Orks have been roaming the
+  galaxy for millennia before human contact and countless records of their conflicts have been lost. On top of that, Ork power
+   dynamics, technologies and weaponry constantly cycle in and out of use as different Warbosses rise and fall in power. Yet
+               overall the Ork way of war has not notably changed since the first days of contact with humanity.
+
+THE ORK WAAAGH!: BUILDING AN ORKS    GREAT CLANS OF THE ORKS
+ARMY                                                  Every Unit from the Orks Army List will also have a
+                                                               Faction represented by a Trait on its Unit Profile. For Units
+The Units in the Orks Army List do not have an optional                                                      which are not specific to a Great Clan or other
+Allegiance represented by the [Allegiance] Trait, but                                                            Organisation this will be represented by '[Orks]'. When
+instead have the Xenos Trait. As such, these Units can                                                     you add such a Unit to your army, you must select one of
+never be selected in an army with either the Loyalist or                                                             the following Faction Traits to replace this with (this
+Traitor Allegiance unless another rule specifically allows                                                               replaces all instances of the [Orks] Trait on that Unit
+it. In a campaign setting, any victories the Orks win serve                                                                     Profile while it is part of your Army):
+only to deny that victory to whichever force they were
+fighting: if their opponent wins then Campaign Points        • Bad Moons
+may be earned, but if the Orks win then no Campaign        • Blood Axes
+Points are earned for either Loyalists or Traitors.            • Death Skulls
+                                                •  Evil Suns
+                                                • Bad Moons
+ ADDITIONAL REACTION POINT               • Snakebites
+  If an Army’s Primary Detachment is from the Orks          • Freebooters
+ Army List, the Controlling Player gains one
+ additional Reaction Point if that Detachment
+ contains any Models with the Prophet of the           FACTION TRAITS AND ORKS
+ Waaagh! Trait.                         DETACHMENTS
+                                            When selecting Units as part of a Primary Detachment,
+                                                                  Allied Detachment or Lord of War Detachment using the
+                                                       Orks Army List, the selected Units must have a variant of
+                                                             the Ork Faction Trait, but are not required to have the
+                                                  same variant of that Faction Trait as other Units in the
+                                                  same Primary Detachment, Allied Detachment or Lord of
+                                                War Detachment.
+
+                                                       However, all Auxiliary Detachments or Apex Detachments
+                                                                selected using the Orks Army List may only include
+                                                      Models with one variant of the Orks Faction Trait, and all
+                                                      Models in that Detachment must have the same variant of
+                                                             the Orks Faction Trait. If an Apex Detachment or Auxiliary
+                                                     Detachment selected using the Orks Army List has the
+                                                                    Logistical Benefit Prime Advantage selected for it, then
+                                                             the Unit selected with that Prime Advantage may have a
+                                                                   different variant of the Orks Faction Trait than the other
+                                                              Units in that Detachment.
+
+
+
+
+
+                                           3

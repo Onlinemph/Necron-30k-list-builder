@@ -1,0 +1,62 @@
+        DAKKAJET                                                              FAST ATTACK
+           UNIT COMPOSITION: 1 DAKKAJET                                               110 Points
+
+
+
+Streaking into battle through war-scorched skies, a Dakkajet's massive thruster leaves an oily contrail of black smoke in its
+wake even as its guns spit streams of bullets at the foe. Though not as nimble as the aircraft of some other races, Dakkajets are
+capable of an incredible turn of speed that makes them a fearsome enemy to face in aerial combat.
+
+                                                        Armour                        Transport
+                                                                                                   Capacity                     M       BS       Front      Side      Rear     HP
+Dakkajet                          24        3        11       11       11        5               -
+
+
+ WARGEAR                                       SPECIAL RULES
+ • Two Centreline Mounted twin supa shootas           • None
+
+ TRAITS                                       TYPE
+ • Xenos                                       •  Vehicle (Flyer)
+ • [Orks]
+ •  Interceptor
+
+ OPTIONS
+ • This Model may have one additional Centreline
+   Mounted twin supa shoota for +20 Points.
+
+
+      BOMMER                                                               FAST ATTACK
+           UNIT COMPOSITION: 1 BURNA-BOMMER                                         110 Points
+           • This model may be replaced with 1 Blitza-bommer for +20 Points
+
+
+Even on their best day, the average Ork flyboy has little patience for trajectories, payload arcs, and all the other ‘boring bits’ of
+high- altitude bombing. Strapped with as many incendiary bombs and rockets as is physically feasible, Burna-bommers streak
+low over the battlefield, raining conflagrant death down on tightly-packed enemy infantry. Blitza-bommer pilots instead ensure
+their massively unsubtle boom bombs land more-or-less on target by simply dropping them from point-blank range.
+
+                                                        Armour                        Transport
+                                                                                                   Capacity                     M       BS       Front      Side      Rear     HP
+Burna-bommer                     22        2        11       11       11        5               -
+Blitza-bommer                      22        2        11       11       11        5               -
+
+
+ WARGEAR                                       SPECIAL RULES
+ • Centreline Mounted twin-linked supa shoota          • None
+ •  Turret Mounted big shoota with grot gunner
+ • Two Centreline (Front, Rear) Mounted burna bombs    TYPE
+    (Burna-bommer only)                           •  Vehicle (Flyer)
+ • Two Centreline (Front, Rear) Mounted boom bombs
+    (Blitza-bommer only)
+
+ TRAITS
+ • Xenos
+ • [Orks]
+
+ OPTIONS
+ • This Model may have its big shoota with grot gunner    • This Burna-bommer may have up to six Centreline
+    exchanged for a twin big shoota with grot gunner for        (Front) Mounted skorcha missiles selected for it for
+   +5 Points.                                  +10 Points each.
+
+
+                                          34

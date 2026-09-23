@@ -1,0 +1,62 @@
+       KUSTOM JUNKA                                                       FAST ATTACK
+           UNIT COMPOSITION: 1 KUSTOM JUNKA                                 40 Points
+
+
+
+Often Mekboy Junkas are a way for younger Mekboyz to showcase their skill and talent in building vehicles and weaponry,
+hopefully impressing Warbosses.
+
+                                                        Armour                        Transport
+                                                                                                   Capacity                     M       BS       Front      Side      Rear     HP
+Kustom Junka                      16        2        11       11       10        5               -
+
+
+ WARGEAR                                       SPECIAL RULES
+ • None                                       • Don’t Press Dat!
+                                               • Explodes (4+)
+ TRAITS
+ • Xenos                                      TYPE
+ • [Orks]                                      •  Vehicle (Rapid)
+ • Smokescreen
+
+ OPTIONS
+ • This Model may have one item from the Ork Big Gunz   • Any Hull or Pintle Mounted weapon this Model has
+      list selected for it, with any item selected in this way      may be upgraded with a grot gunner for +5 Points per
+    becoming Turret Mounted, or one of the following:        weapon.
+     -  Turret Mounted skorcha ........................... +5 Points   • This Model may have one Turret Mounted bomb squig
+     -  Turret Mounted kustom mega-blasta ....... +5 Points       for +10 Points.
+     -  Turret Mounted deffgun and Co-axial Mounted      • This Model may have one of the following options
+       (deffgun) big shoota ............................... +15 Points      selected for it:
+ • This Model may have one item from the Ork Big Gunz        -  Reinforced ram ........................................ +5 Points
+      list selected for it, with any item selected in this way          -  Deff rolla  ............................................... +10 Points
+    becoming Centreline Mounted.                                   - Shokkjump engine .................................. +15 Points
+ • This Model may have up to three items from the Ork    • This Model may have any of the following options
+     Pintle Weapons list selected for it.                           selected for it:
+ • This Model may have any of its Pintle Weapons                -  Assault gubbins ........................................ +5 Points
+    exchanged for one item each from the Ork Hull                - Grot riggers .............................................. +5 Points
+    Weapons list. Each Hull Mounted Weapon may be             - Kustom force field .................................. +30 Points
+    designated as either Hull (Front) Mounted or Hull
+    (Rear) Mounted.
+
+
+ INFAMOUS KUSTOM JUNKAS
+ Boomdakka Snazzwagon                   Kustom Boosta-blasta
+  •  Turret Mounted deffgun and Co-axial Mounted        •  Turret Mounted kannon
+     (deffgun) big shoota                            • Assault gubbins
+  •  Pintle Mounted big shoota
+  • Assault gubbins                            Rukkatrukk Squigbuggy
+  • Grot riggers                                  •  Turret Mounted lobba
+                                               • Centreline Mounted lobba
+  Megatrakk Scrapjet                           •  Turret Mounted bomb squig
+  • Centreline Mounted kannon                      • Reinforced ram
+  • Hull (Front) Mounted twin rokkit launcha            • Assault gubbins
+  • Hull (Front) Mounted twin dakkagun
+  • Hull (Rear) Mounted twin dakkagun with grot gunner   Shokkjump Dragsta
+  • Deff rolla                                    • Centreline Mounted zzap gun with grot gunner
+                                               •  Pintle Mounted rokkit launcha
+                                               • Shokkjump engine
+
+
+
+
+                                          35

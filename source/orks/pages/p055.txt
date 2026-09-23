@@ -1,0 +1,54 @@
+          ARMOURY OF THE ORKS
+RANGED WEAPONS
+
+FLAME WEAPONS
+
+                   R      FP   RS   AP   D   Special Rules                           Traits
+
+ Burna (Ranged)       Template   1     4     5     1    Template, Panic (1)                 Flame
+
+ Skorcha              Template   1     5     4     1    Template, Panic (1)                 Flame
+
+ Twin skorcha          Template   1     5     4     1    Template, Panic (2)                 Flame
+
+GROT WEAPONS
+
+                    R    FP   RS   AP   D   Special Rules                            Traits
+
+ Grot blasta               12    1     3        -     1     -                                          Assault, Auto
+
+ Grotzooka               18    2     6     5     1    Blast (3"), Heavy (FP)                    Missile
+
+ Twin grotzooka           18    3     6     5     1    Blast (3"), Heavy (FP), Suppressive (0)   Missile
+
+KANNON WEAPONS
+
+                   R      FP   RS   AP   D   Special Rules                           Traits
+
+ Kannon
+ - Frag                36      1     4     6     1   Heavy (RS), Blast (3")                   Missile
+ -  Shell                36      1     8     3     1   Heavy (D)                               Missile
+
+ Killkannon             24      1     7     4     2   Heavy (AP), Blast (3"), Pinning (1)     Auto
+
+ Supa-kannon           60      1     5     4     2   Ordnance (RS), Blast (5"), Barrage        -
+                                                                    (2), Breaching (6+), Pinning (1)
+
+ Krusha kannon
+ - Boom shell           30      1     8     4     2    Blast (5"), Heavy (AP), Ordnance (R),  Auto
+                                                            Pinning (1)
+ - Tankhamma shell      30      1    10    2     3    Critical Hit (6+), Heavy (D),          Auto
+                                                     Ordnance (R)
+ - Scrap kanister       Template   1     5     4     2   Template (Hellstorm), Breaching       Auto
+                                                         (6+), Heavy (D), Suppressive (1)
+ -  Blast burna           24      1     4     5     1    Blast (7"), Heavy (D), Ordnance (R),   Flame
+                                                              Panic (2)
+
+ Bursta kannon          18      1    12    3     4    Blast (5"), Breaching (5+), Ordnance    -
+                                                                 (R), Stun (1)
+
+
+
+
+
+                                          55

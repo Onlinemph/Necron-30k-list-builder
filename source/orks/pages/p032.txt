@@ -1,0 +1,62 @@
+        DEFFKOPTAS                                                          RECON
+           UNIT COMPOSITION: 1 DEFFKOPTA                                       30 Points
+           • May include up to 8 additional Deffkoptas at +28 Points per Model.
+
+
+Deffkoptas are the lunatic inventions of Meks obsessed with flight. Each Deffkopta is a one-man attack craft that has a set of
+whirring rotors mounted above the pilot’s head and a jet booster at the rear. The rotors hold the Deffkopta aloft as the booster
+sends it screaming across the battlefield in the general direction of the enemy, its underslung weapons spitting death.
+
+                M  WS   BS    S    T  W      I    A   LD   CL  WP   IN   SAV  INV
+Deffkopta                 16    4    2    3    5    3    2    2    6    7    6    6   4+      -
+
+
+ WARGEAR                                       SPECIAL RULES
+ • Choppa                                      • Bulky (3)
+ • Twin rokkit launchas                            • Deep Strike
+ • Stikkbombs                                   • Impact (S)
+                                               • Implacable Advance
+ TRAITS                                        • Mob Rule (CL)
+ • Xenos
+ • [Orks]                                      TYPE
+                                               • Cavalry (Antigrav, Skirmish)
+
+ OPTIONS
+ • Any Model in this Unit may have its twin rokkit        • Any Model in this Unit may have any of the following:
+    launcha exchanged for one of the following:                    -  Big bomb  ............................................... +10 Points
+     - Twin big shootas ............................................... Free        -  Killsaw .................................................... +20 Points
+     - Kustom mega-blasta ......................................... Free
+
+
+       WARKOPTA                                                            RECON
+           UNIT COMPOSITION: 1 WARKOPTA                                           65 Points
+
+
+
+The Warkopta is a combination gunship, aerial transport, heavy lift and long range reconnaissance vehicle, popular with
+Kommandos (who for unknown reasons refer to it as a Chinork) for getting them behind enemy lines.
+
+                                                        Armour                        Transport
+                                                                                                   Capacity                     M       BS       Front      Side      Rear     HP
+Trukk                             16        2        10       10       10        4        10
+
+
+ WARGEAR                                       SPECIAL RULES
+ • Centreline Mounted twin supa shoota               • Assault Vehicle
+ •  Pintle Mounted big shoota                        • Deep Strike
+                                               •  Light Transport
+ TRAITS
+ • Xenos                                      TYPE
+ • [Orks]                                      •  Vehicle (Antigrav, Transport)
+
+ OPTIONS
+ • This Model may have up to two Centreline (Front,
+    Rear) Mounted big bombs selected for it for +10
+    Points each.
+
+ ACCESS POINTS
+ • This Model has Access Points on both Side Facings.
+
+
+
+                                          32

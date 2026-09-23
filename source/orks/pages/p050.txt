@@ -1,0 +1,62 @@
+                SPECIAL RULES
+
+DOWNTRODDEN                     GARGANT DEFLEKTOR (X)
+The sad reality is that Grot mobs rarely see any real action,      Ork Gargants stomp to war clad in crackling fields of energy
+as they are used by rest of the Ork army as a combination of     known as “deflektors”. The principals of force field
+cannon fodder, bullet shield, mine clearance device and            technology are fairly easy to master, and Ork Meks have a
+living carpet.                                                  natural empathy with them. These shields shimmer and
+                                                             spark with barely contained power, turning aside enemy
+Downtrodden Units may not gain Prime Advantages.         volleys in great gouts of fizzing light.
+A Unit that contains any Models with this Special Rule                                           A Model with this Special Rule gains an extra layer of
+may not be taken in a Prime Slot and may never gain a                                                       defence against Shooting Attacks.
+Prime Advantage. In addition, a Unit that contains any
+Models with this Special Rule may not perform an          A Model with this Special Rule has a number of deflektor
+Advanced Reaction, though may still perform other              shields equal to the value of X. While a Model with this
+Reactions. Furthermore, a Unit that contains Models with       Special Rule still has deflektor shields, each time that
+this Special Rule cannot be joined by Models with the         Model suffers a Hit from a Shooting Attack it must be
+Command Sub-Type, but may still be joined by Models          allocated to the deflektor shields. Once all deflektor
+with the Specialist Sub-Type.                                    shields have collapsed, any remaining Hits from Shooting
+                                                              Attacks must be allocated to the Titan Profile targeted by
+DON’T PRESS DAT!                                   the attack.
+                                            A deflektor shield has an Armour Value of 13, and any
+Some Wagons come with various Orky kustomisations',                                                          Glancing Hit or Penetrating Hit inflicted on it will cause
+leaving them temperamental as hell and likely a good deal                                                                 that deflektor shield to collapse. Regardless of the
+less efficient than in their previous incarnation.                                               Damage value of a Hit it may not collapse more than one
+                                                                deflektor shield, and once a Hit has collapsed a deflektorA Vehicle with this Special Rule risks becoming
+                                                                 shield or failed an Armour Penetration Test made againstSuppressed.
+                                                     one it is discarded.
+In the Effects Sub-Phase of the Controlling Player’s Turn,
+the    Controlling               Player                  must                                 roll                            a Dice                                         for                                     each                                            Unit with
+this    Special Rule.            On a                         result                              of ‘1’,                                    that                                Model                                             gains                                                  the    MOB RULE (X)
+Suppressed Status.                                     Ork psychology and morale is directly linked to the number
+                                                                       of Boyz around them at any given time. An Ork with a
+EFFIGY (X)                                              trukkloadconfident thanof hisonemateswithbackingjust hishimhalf-witup ismatea goodZogsightat hismore
+Ork Gargants are effigies of war built by the Orks to ape           heels!
+their brutal gods.
+                                                    Orks in large numbers gain benefits to one of their
+Models near an friendly Model with the Effigy (X)         Advanced Characteristics, but also has drawbacks to
+Special Rule benefit from the Mob Rule (X) Special          their Intelligence.
+Rule regardless of Unit size.
+                                                                                       If the total number of Models in a Unit with a variant of
+When any Model from a Unit is within a number of inches       this Special Rule is 10 or more, then all Models with a
+that is the value of X from a friendly Model with the            variant of this Special Rule gains a positive modifier of
+Effigy (X) Special Rule, then that Unit is affected by the      +1 to any Characteristics that is the value of X. However,
+presence of the effigy. All Models in the affected Unit with     whenever receiving a benefit from this Special Rule, a
+a variant of the Mob Rule (X) Special Rule will gain the       Model also suffer a negative modifier of -1 to their
+benefits and downsides of the Mob Rule (X) Special Rule        Intelligence Characteristic. If the number of Models drops
+even if the size of their Unit is less than 10 Models.           below 10, these modifiers no longer apply.
+
+                                 ODDBOYZ
+                                                             Highly technical demands, such as maintaining the Ork
+                                                       weaponry or patching up casualties, are met by a caste of
+                                                         Orks known as Oddboyz.
+
+                                                Oddboyz are only Specialists when taken in Units of a
+                                                              single Model.
+
+                                                                                       If the number of Models in a Unit with this Special Rule is
+                                                               greater than one, all Models in the Unit with this Special
+                                                          Rule lose the Specialist sub-type.
+
+
+                                          50

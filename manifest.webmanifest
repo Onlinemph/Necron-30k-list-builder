@@ -1,7 +1,7 @@
 {
-  "name": "Necron 30k List Builder",
-  "short_name": "Necron 30k",
-  "description": "Army list builder for Codex Xenologica – Necrons (Horus Heresy 3rd edition).",
+  "name": "30k List Builder",
+  "short_name": "30k Lists",
+  "description": "Army list builder for Necrons and Orks in the Horus Heresy 3rd edition.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

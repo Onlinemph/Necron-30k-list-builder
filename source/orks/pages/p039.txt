@@ -1,0 +1,62 @@
+       GORKANAUT                                                    LORD OF WAR
+           UNIT COMPOSITION: 1 GORKANAUT                                     380 Points
+
+
+
+A Gorkanaut is everything an Ork aspires to be. Massive, tough, loud and destructive, its blocky silhouette looms menacingly
+over friend and foe alike. From its hulking, orkoid shape to the brutal weapons it wields, a Gorkanaut epitomises the unsubtle
+brutality of Gork and its no-nonsense way of war.
+
+                                                  Armour                             Transport
+                M   WS    BS     S     Front    Rear        I     A    HP     Capacity
+Gorkanaut                 8     4     2     8      13      11      2     3     8         6
+
+
+ WARGEAR                                       SPECIAL RULES
+ • Hull (Front) Mounted deffstorm mega-shoota          •  Effigy (6)
+ • Hull (Front) Mounted skorcha                     • Explodes (4+)
+ • Two Pintle Mounted rokkit launchas                • Vanguard (2)
+ • Two Pintle Mounted twin big shootas
+ • Klaw of Gork (or possibly Mork)                   TYPE
+                                               •  Vehicle (Knight*, Transport)
+ TRAITS                                               * The rules for the Knight Sub-Type can be found in Liber
+ • Xenos                                                      Questoris.
+ • [Orks]
+
+ OPTIONS                                     ACCESS POINTS
+ • This Model may have grot riggers for selected for it for    This Model has Access Points on its Front Facing.
+   20 Points.
+
+
+       MORKANAUT                                                    LORD OF WAR
+           UNIT COMPOSITION: 1 MORKANAUT                                         365 Points
+
+
+
+Where Gorkanauts epitomise the unsubtle brutality of almighty Gork, a Morkanaut displays all the lethal kunnin’ of equally
+almighty Mork. Every Morkanaut is personally built and piloted by a skilled Mekboy, and packs a wild array of energy
+weapons and glowy gubbinz from the Mek’s own workshop.
+
+                                                  Armour                             Transport
+                M   WS    BS     S     Front    Rear        I     A    HP     Capacity
+Morkanaut                8     4     2     8      13      11      2     3     8         6
+
+
+ WARGEAR                                       SPECIAL RULES
+ • Hull (Front) Mounted kustom mega-kannon           •  Effigy (6)
+ • Hull (Front) Mounted kustom mega-blasta            • Explodes (4+)
+ • Two Pintle Mounted rokkit launchas                • Vanguard (2)
+ • Two Pintle Mounted twin big shootas
+ • Klaw of Gork (or possibly Mork)                   TYPE
+                                               •  Vehicle (Knight*, Transport)
+ TRAITS                                               * The rules for the Knight Sub-Type can be found in Liber
+ • Xenos                                                      Questoris.
+ • [Orks]
+
+ OPTIONS                                     ACCESS POINTS
+ • This Model may have any of the following options        This Model has Access Points on its Front Facing.
+    selected for it:
+     - Grot riggers ............................................ +20 Points
+     - Kustom force-field .................................. +50 Points
+
+                                          39

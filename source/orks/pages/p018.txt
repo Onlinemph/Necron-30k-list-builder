@@ -1,0 +1,61 @@
+       NOBZ MOB                                                                        ELITES
+           UNIT COMPOSITION: 3 NOBS                                                  55 Points
+           • May include up to 12 additional Nobs at +15 Points per Model.
+
+
+The Orks call their ruling caste Nobz. Ork nobility is determined not by some accident of birth or sparkly heirloom but by the
+sheer size and belligerence of the Ork claimant. The only Ork bigger and scarier than a Nob is a Warboss, and the Nobz delight
+in reminding lesser Orks about their natural supremacy using their scarred fists and iron- shod boots.
+
+                M  WS   BS    S    T  W      I    A   LD   CL  WP   IN   SAV  INV
+Nob                     6    5    2    4    4    2    3    3    7    8    7    5   4+      -
+
+
+ WARGEAR                                       SPECIAL RULES
+ • Slugga                                      • Impact (S)
+ • Choppa                                      • Line (1)
+ • Stikkbombs                                   • Mob Rule (CL)
+
+ TRAITS                                       TYPE
+ • Xenos                                       •  Infantry
+ • [Orks]
+
+ OPTIONS
+ • Any Model in this Unit may have its slugga and/or      • Any Model in this Unit may have its slugga exchanged
+    choppa exchanged for one item each from the Ork Boss      for one item from the Ork Kombi-weapons list.
+   Weapons list.                                 • Any Model in this Unit may have a bosspole for +5
+                                                                 Points per Model.
+
+
+
+       WARBIKER NOBZ MOB                                                        ELITES
+                                                                                120 Points           UNIT COMPOSITION: 3 WARBIKER NOBZ
+           • May include up to 6 additional Nobz at +35 Points per Model.
+
+
+Some Nobz even take to the field astride monstrous Warbikes, roaring through the enemy ranks like blood-soaked battering
+rams covered in guns.
+                M  WS   BS    S    T  W      I    A   LD   CL  WP   IN   SAV  INV
+Warbiker Nob             14    5    2    4    4    3    3    3    7    8    7    4   4+      -
+
+
+ WARGEAR                                       SPECIAL RULES
+ • Slugga                                      • Bulky (2)
+ • Twin dakkaguns                               • Impact (S)
+ • Stikkbombs                                   • Implacable Advance
+                                               • Mob Rule (CL)
+ TRAITS                                        • Outflank
+ • Xenos
+ • [Orks]                                      TYPE
+                                               • Cavalry
+
+ OPTIONS
+ • Any Model in this Unit may have its slugga exchanged
+     for one item from the Ork Boss Weapons list.
+ • Any Model in this Unit may have a bosspole for +5
+    Points per Model.
+
+
+
+
+                                          18

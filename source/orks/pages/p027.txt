@@ -1,0 +1,62 @@
+        DEFF DREAD                                                       WAR-ENGINE
+           UNIT COMPOSITION: 1 DEFF DREAD                                            110 Points
+
+
+
+Though frequently varied in shape and size, Deff Dreads always epitomise three main ideals of Ork warfare: big, shooty and
+stompy. They thunder and clank towards the foe, limbs waving as heavy weapons spit death into the enemy ranks and powered
+shears snip excitedly in anticipation of the bloodletting to come.
+
+                M  WS   BS    S    T  W      I    A   LD   CL  WP   IN   SAV  INV
+Deff Dread                6    4    2    7    6    6    2    4    12   10    7    5   2+  6+
+
+
+ WARGEAR                                       SPECIAL RULES
+ • None                                       • Bulky (6)
+                                               • Explodes (4+)
+ TRAITS                                        •  Firing Protocols (2)
+ • Xenos                                       • Implacable Advance
+ • [Orks]
+                                              TYPE
+ OPTIONS                                      • Walker
+ This Model must have one of the following options
+  selected for it:
+ • Paired dread klaws for Free and two options from the
+    Ork Kan Ranged Weapons list
+ •  Triple dread klaws for +10 Points and one option from
+    the Ork Kan Ranged Weapons list
+ • Lots o’ dread klaws for +20 Points
+
+
+       MEGA-DREAD                                                     WAR-ENGINE
+           UNIT COMPOSITION: 1 MEGA-DREAD                                      190 Points
+
+
+
+The Mega-dread is a hulking, armour-plated monster, much larger and considerably more powerful than the more commonly
+encountered Deff Dreads and Killa Kans. They fit enormous hydraulic power into a relatively compact frame, which makes
+them far more manoeuvrable on the battlefield than the larger Stompa.
+
+                M  WS   BS    S    T  W      I    A   LD   CL  WP   IN   SAV  INV
+Mega-dread               7    4    2    8    7    7    2    4    12   10    7    5   2+  6+
+
+
+ WARGEAR                                       SPECIAL RULES
+ • Two big shootas                               • Bulky (7)
+                                               • Explodes (4+)
+ TRAITS                                        •  Firing Protocols (2)
+ • Xenos                                       • Implacable Advance
+ • [Orks]
+                                              TYPE
+ OPTIONS                                      • Walker (Heavy)
+ This Model must have one of the following options
+  selected for it:
+ • Two options from the following list:
+     - Dread rippa klaw .............................................. Free
+     - Mega killsaw ............................................ +5 Points
+     -  Killkannon .............................................. +35 Points
+ • Paired dread rippa klaws  ........................... +10 Points
+ • Paired mega killsaws  ................................. +10 Points
+
+
+                                          27

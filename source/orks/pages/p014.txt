@@ -1,0 +1,62 @@
+        PAINBOSS                                               COMMAND
+           UNIT COMPOSITION: 1 PAINBOSS                                          50 Points
+
+
+
+Veteran Painboyz become increasingly obsessed with perfecting their own methods of 'serjery" and eventually drift away from
+their Warboss. Left to their own devices, they will indulge in ever more extreme eksperiments. Any Ork brave/stupid enough to
+venture into a Painboss's lab has to be careful otherwise it may wake up to find itself with a new set of mechanical lungs that
+allow it to breathe underwater even though it probably only went in to get a bad tooth removed!.
+
+                M  WS   BS    S    T  W      I    A   LD   CL  WP   IN   SAV  INV
+Painboss                  6    5    2    4    4    3    3    3    7    8    8    8   4+      -
+
+
+ WARGEAR                                       SPECIAL RULES
+ • Choppa                                     • Cyborks
+                                               •  Feel No Pain (5+)
+ TRAITS                                       • Impact (S)
+ • Xenos                                       • Medic (4+)
+ • [Orks]                                      • Mob Rule (CL)
+
+                                              TYPE
+                                               •  Infantry (Command)
+
+ OPTIONS
+ • This Model may have its choppa exchanged for one
+    power klaw for +20 Points or one item from the Ork
+   Dok Wargear list.
+ • This Model may have up to three grot orderlies for +5
+     Points each.
+
+ WARGEAR
+ Grot Orderly
+  Painboyz are often accompanied by grot orderlies, whose job it is to carry tools and gather up discarded limbs and organs.
+
+ A grot orderly allows a single Recovery Test to be made.
+
+  Grot orderlies are treated as a special kind of Marker that is moved with the Model it belongs to but is ignored for all
+ game purposes. A grot orderly may be expended once per Battle whenever another Model in the same unit as the
+ Model with the grot orderly suffers an Unsaved Wound. The Model with the grot orderly may make a Recovery Test for
+  the wounded Model (as described in the Medic (X) Special Rule). The grot orderly Marker is then removed from play.
+ Only a single grot orderly may be expended in this way per Unsaved Wound.
+
+ SPECIAL RULES
+ Cyborks
+ Any Ork brave/stupid enough to venture into a Painboss's lab has to be careful otherwise it may wake up to find itself with
+ a new set of mechanical lungs that allow it to breathe underwater even though it probably only went in to get a bad tooth
+  removed!
+
+  If a Unit that includes only Models with the Infantry Type is selected to fill a Prime Force Organisation Slot in an Army
+  that includes one or more Painbosses, the following Prime Advantage can be selected:
+
+ Cyborks
+
+  All Models in the Unit selected to fill a Prime Force Organisation Slot with this Prime Advantage gain the Eternal
+  Warrior (1) and Feel No Pain (5+) Special Rules.
+
+
+
+
+
+                                          14

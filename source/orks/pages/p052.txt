@@ -1,0 +1,59 @@
+               WARGEAR
+
+ASSAULT GUBBINS                       GITFINDA
+Many Ork vehicles are fitted with big metal boarding              Gitfindas can be elaborate ocular bionics, monocular head-
+planks, pivoting crane arms with grabbin’ klaws, spiked             sets, oversized telescopes, or Mork knows what else. The
+wreckin’ balls, and stikkbomb chukkas.                           function of a gitfinda is to improve the accuracy of its user
+                                                                   to near-average levels.
+Assault gubbins allow models to make additional
+Volley Attacks.                                              Gitfindas allow attacks to ignore Shrouded Damage
+                                                           Mitigation Tests and make Intercept Reactions for
+When it is the Target Unit for a Charge, a Model with                                                              Free.
+assault gubbins may make Volley Attacks during Step 4 of
+the Charge Procedure using the following profile:          When a Shooting Attack made by a Unit that contains any
+                                                      Models with a gitfinda inflicts any Hits (excluding Hits
+ R  FP  RS  AP  D   Special Rules       Traits         from attacks made as Snap Shots), Shrouded Damage
+                                                              Mitigation Rolls cannot be made against those Hits. In
+  6   3   6   6   2    -                    Assault         addition, the Controlling Player of a Unit that contains
+                                                      any Models with a gitfinda may use the Unit to make the
+In addition, if a Model with assault gubbins has the             Intercept Reaction without needing to spend a point of
+Transport sub-type, whenever a Unit has Disembarked           their Reaction Allotment.
+from the Model and has a Charge declared for it in the
+Charge Sub-Phase of the same Player Turn, the Model
+with assault gubbins may also make Volley Attacks during   GROT GUNNER
+Step 4 of the Charge Procedure using the above profile in      Crewing the defensive gunz of many Ork vehicles is
+addition to any Volley Attacks made by the Charging Unit.      sometimes left to the long-suffering grots.
+
+ATTACK SQUIG                                     Grot gunners shoot with an improved Ballistic Skill.
+                                            A Weapon with a grot gunner is fired with a Ballistic SkillAn attack squig is a voracious predator with a huge
+                                                                 of ‘3’.snapping gob.
+Attack squigs grant a bonus when determining       GROT RIGGERSOutside Support in a Challenge.
+                                                       Whether hurriedly re-attaching gubbinz with rivet guns, or
+When calculating Outside Support during Step 3 of the           just getting out and pushing, a crew of grot riggers can help
+Challenge Sub-Phase, a Model with an attack squig gains        to keep an Ork vehicle in the fight long after it should have
+an additional +1 bonus.                                             fallen apart.
+
+BOSSPOLE                                          Grot riggers can help repair Vehicles.
+                                            A Model with grot riggers gains the Auto-repair (4+)Ork Nobz often sport a trophy pole that shows they are not
+                                                               Special Rule.to be messed with.
+A Model with a bosspole has improved Leadership.     KUSTOM FORCE FIELD
+A Model equipped with a bosspole gains the Sergeant         Mekboyz have an uncanny understanding of battlefield
+Sub-Type in addition to any other Sub-Types it already          technology and will sometimes build or scavenge powerful
+possesses, and increases the Base Value of its Leadership         force field projectors to protect the Boyz.
+characteristic by +1.
+                                           A kustom force field provides a Unit with an
+DEFF ROLLA                                         Invulnerable Save.
+                                            A Model with a kustom force field and any Unit it hasDeff rolla is a great spiked roller that brings the colossal
+                                                              joined gains a 5+ Invulnerable Save against all woundsweight of the vehicle to bear on anything in its way.
+                                                                       inflicted as part of any Shooting Attack. While a Model
+                                                          with a kustom force field is Embarked on a Model withA Vehicle with a deff rolla inflicts more damage when
+                                                             the Transport Sub-Type, the Model with the Transportit moves through enemy Units.
+                                                        Sub-Type gains a 5+ Invulnerable Save against all
+When a Model with a deff rolla and the Vehicle Type         wounds inflicted as part of any Shooting Attack.
+moves through an enemy Unit, the Strength of Hits
+inflicted is increased from 6 to 10 and the AP increased
+from ‘-’ to 5.
+
+
+
+                                          52

@@ -1,0 +1,40 @@
+REINFORCED RAM                      SQUIG HOUND
+A vehicle fitted with such a blunt but effective ram can           These fierce squigs are trained to devour errant grots on
+plough through wreckage, walls and enemy vehicles with        command.
+equal ease.
+                                           A squig hound can inflict wounds on their Unit in
+Reinforced rams allow Models to ignore the               order to remove a Tactical Status in the Start Phase.
+Movement penalties of Difficult Terrain.
+                                                        During the Start Phase of their Turn as Active Player, the
+If the Controlling Player chooses for a Model with a             Controlling Player of a Unit which contains a squig hound
+reinforced ram to enter any area of Difficult Terrain, the       can select for that Unit to suffer D3 Wounds with a
+Unit does not apply a modifier to its movement during       Damage Characteristic of 1 and an AP of ‘-’, allocated as if
+that Phase.                                                 they were inflicted by a Melee Attack. If they do so, a
+                                                                  single Leadership Check or Cool Check is then made for
+SHOKKJUMP ENGINE                                    thatfromUnit,all Modelsallowingin thatthe removalUnit (Pinned,of oneStunnedTactical orStatus
+Combining shokk attack technology, great speed and a           Suppressed if a Cool Check was made, or Routed if a
+cheerful disregard for life and limb, the shokkjump engine        Leadership Check was made) if it is successful.
+enables a vehicle that can teleport itself through –
+occasionally into – feet-thick fortress walls.            STIKKBOMBS
+A Vehicle with a shokkjump engine can gain the Fast      A stikkbomb is a hand-held grenade that can be detonated
+(X) Special Rule, but may be teleported in a random        by pulling out its pin and hurling it at the foe or, if that
+direction.                                                                      fails, by battering the enemy over the head with it until the
+                                                                   blasted thing goes off.In the Effects Sub-Phase of the Start Phase during their
+Turn as Active Player, the Controlling Player of a Model                                                    Stikkbombs can be used to make attacks during the
+with a shokkjump engine can choose to activate the                                                             Volley Step.
+engine by rolling a single Dice. If the Result of the Dice
+roll is a ‘6’, the Model with the shokkjump engine is         When making Volley Attacks during Step 4 of the Charge
+immediately moved as though it suffered a Hit from a         Procedure with a Unit that includes at least one Model
+Weapon with the Thrown (2) Special Rule. The Model         with stikkbombs, the Controlling Player may choose to
+with the shokkjump engine may still move normally in       make a single attack with a stikkbomb instead of making
+the subsequent Movement Phase. On any other Result of       a normal Shooting Attack using the following profile:
+the Dice roll, the Model with the shokkjump engine gains
+the Fast (X) Special Rule until the end of the Player Turn,      R  FP  RS  AP  D   Special Rules       Traits
+with the value of X equal to the Result of the Dice roll.
+                                                    6   1   3   6   1   Blast (3")           Assault
+
+
+
+
+
+                                          53

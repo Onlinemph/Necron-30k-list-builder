@@ -1,0 +1,37 @@
+GOFFS
+
+The Goffs are the biggest, meanest and most brutish of all their kind, and that's saying something. Of all the clans, the Goffs
+are the most inspired by the thrill and thunder of battle. Goffs will take any excuse to start a brawl, even amongst themselves.
+
+All Models with the Goffs Trait are subject to the following Special Rules:
+
+GOFFS GAMBIT                          GOFFS TAKTIKA
+When selecting a Gambit, the Controlling Player of a             All Models with the Goffs Trait (excluding Models with
+Model with the Goffs Trait or the Freebooters Trait can         the Vehicle Type) are subject to the following Special
+select the following instead of any others available to that      Rule:
+Model:
+                                                 Biggest an’ da Best
+Brutal but Kunnin’                                   The Goffs pride themselves on being the Orkiest of Orks, and
+Ork leaders commonly display their prowess by hunting            will gladly seize on any excuse to prove their claim with feet,
+down and killing dangerous beasts. The creatures they fight          fists, tusks and choppas.
+against the most are those with big horns or tusks which
+can then be displayed on the Nob's helmet for all the Boyz to    A Unit that includes Models with this Special Rule
+see. They also make for a very effective headbutt attack.          gains the Hatred (Command & Champion) Special
+                                                            Rule, but must always charge enemy Units with these
+This Gambit may be selected once per Challenge. When        Sub-types.
+selected, the Controlling Player of the Model for which
+                                                                      All Models with the Goffs Trait gain the Hatredthis Gambit has been selected makes a single extra attack
+                                              (Command & Champion) Special Rule.at the start of the Focus Step. The attack hits
+automatically using the unmodified Strength of the           However, all Units that include any Models with the Goffs
+attacking Model, with an AP of ‘6’ and a Damage of ‘1’. If        Trait that begin the Assault Phase with any Model in that
+the Wound Test made for this attack is successful (i.e., it        Unit within 12" of an enemy Unit, and the enemy Unit
+meets the required Target Number), whether or not the         contains any Models with the Command or Champion
+Wound was saved, the enemy Model counts their              Sub-Types, must declare a Charge targeting that Unit –
+Initiative Characteristic as ‘1’ when calculating their           even if they cannot reach the Unit.
+Combat Initiative for the Focus Roll.
+
+
+
+
+
+                                          48

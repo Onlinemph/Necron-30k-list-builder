@@ -27,6 +27,13 @@
   }
 
   function createEngine(data) {
+    // Per-unit faction choice: Crypto-Arkana for Necrons, Great Clan for Orks. Ork data marks it
+    // with factionChoice / fixedChoice; both map onto the same fields.
+    const CHOICE = (data.meta && data.meta.choice) || { label: 'Crypto-Arkana', options: ARKANA };
+    for (const u of data.units) {
+      if (u.factionChoice) u.cryptoArkana = true;
+      if (u.fixedChoice) u.fixedArkana = u.fixedChoice;
+    }
     const unitsById = new Map(data.units.map((u) => [u.id, u]));
     const listsById = new Map((data.lists || []).map((l) => [l.id, l]));
     const detById = new Map((data.detachments || []).map((d) => [d.id, d]));
@@ -65,8 +72,28 @@
     function optionsOf(sel) {
       const u = unit(sel.unitId);
       const extra = activeEffects('option').filter((e) => effectMatches(e, u)).map((e) => Object.assign({ replaces: [] }, e.option, { effect: e }));
-      return (u.options || []).concat(extra);
+      const choice = arkanaOf(sel);
+      const byChoice = choice ? choiceEffects.filter((e) => e.type === 'option' && (e.choice || []).includes(choice) && choiceEffectMatches(e, u))
+        .map((e) => Object.assign({ replaces: [] }, e.option, { effect: e })) : [];
+      return (u.options || []).concat(extra, byChoice);
     }
+    const choiceEffects = (data.choiceEffects && data.choiceEffects.effects) || [];
+    function choiceEffectMatches(e, u) {
+      const byUnit = e.units ? e.units.includes(u.id) : null;
+      const f = e.filter;
+      let byFilter = null;
+      if (f) {
+        byFilter = true;
+        if (f.unitTypeAny && !u.models.some((m) => f.unitTypeAny.some((t) => new RegExp(`\\b${t}\\b`).test(m.unitType || '')))) byFilter = false;
+        if (f.trait && !unitHasTrait(u, f.trait)) byFilter = false;
+        if (f.role && u.role !== f.role) byFilter = false;
+        if (f.roles && !f.roles.includes(u.role)) byFilter = false;
+      }
+      if (byUnit === null && byFilter === null) return true;
+      if (e.anyOf) return !!(byUnit || byFilter);
+      return byUnit !== false && byFilter !== false;
+    }
+
     function modelMax(u, m) {
       let max = m.max ?? m.min;
       for (const e of activeEffects('maxModels')) if (effectMatches(e, u) && e.model === m.name) max += e.add;
@@ -272,12 +299,13 @@
       const out = core.concat(((data.rules && data.rules.primeAdvantages) || []).map((a) => ({ name: a.name, text: a.text })));
       const present = new Set(allSelections(army).map((x) => x.sel.unitId));
       for (const g of data.grantedPrimeAdvantages || []) {
-        if (!present.has(g.grantedBy)) continue;
+        if (g.grantedBy && !present.has(g.grantedBy)) continue;
         const e = g.eligible || {};
+        if (e.choice && !e.choice.includes(arkanaOf(sel))) continue;
         if (e.units && !e.units.includes(u.id)) continue;
         if (e.roles && !e.roles.includes(u.role)) continue;
         if (e.trait && !unitHasTrait(u, e.trait)) continue;
-        out.push({ name: g.name, text: g.text, grantedBy: unit(g.grantedBy).name });
+        out.push({ name: g.name, text: g.text, grantedBy: g.grantedBy ? unit(g.grantedBy).name : (e.choice || []).join('/') });
       }
       return out;
     }
@@ -428,7 +456,7 @@
       const u = unit(sel.unitId);
       const issues = [];
       if (!u) return [{ level: 'error', msg: 'Unknown unit ' + sel.unitId }];
-      if (u.cryptoArkana && !u.fixedArkana && !sel.arkana) issues.push({ level: 'error', msg: u.name + ': choose a Crypto-Arkana.' });
+      if (u.cryptoArkana && !u.fixedArkana && !sel.arkana) issues.push({ level: 'error', msg: `${u.name}: choose a ${CHOICE.label}.` });
       for (const m of u.models) {
         const n = sel.counts[m.name];
         if (n == null) continue;
@@ -459,7 +487,7 @@
           if (n > optionMax(o, sel)) issues.push({ level: 'error', msg: `${u.name}: too many models swapped for ${o.choices[0].name}.` });
         }
         if (o.kind === 'one' && val && !choicesFor(o, sel).some((c) => c.name === val)) {
-          issues.push({ level: 'error', msg: `${u.name}: ${val} isn't available (check the Crypto-Arkana).` });
+          issues.push({ level: 'error', msg: `${u.name}: ${val} isn't available (check the ${CHOICE.label}).` });
         }
       }
       for (const [k, p] of Object.entries(pools)) {
@@ -553,6 +581,18 @@
       for (const d of army.detachments.filter((x) => x.kind === 'custom' && x.slots.some((s) => s.unit))) {
         issues.push({ level: 'warn', msg: `${d.name} is a custom detachment, so the builder can't check that it's unlocked or legal.` });
       }
+      if (CHOICE.sameInDetachment) {
+        const exempt = CHOICE.sameInDetachment.exempt;
+        for (const d of army.detachments.filter((x) => x.kind === 'auxiliary' || x.kind === 'apex')) {
+          const picks = d.slots.filter((s) => s.unit && !(s.unit.primeAdvantage === 'Logistical Benefit')).map((s) => arkanaOf(s.unit)).filter(Boolean);
+          const kinds = new Set(picks.filter((c) => c !== exempt));
+          if (kinds.size > 1) issues.push({ level: 'error', msg: `${d.name}: every unit must share one ${CHOICE.label} (found ${[...kinds].join(', ')}).` });
+          const nEx = picks.filter((c) => c === exempt).length;
+          if (exempt && nEx && kinds.size && nEx >= picks.length - nEx) {
+            issues.push({ level: 'warn', msg: `${d.name}: ${exempt} units must be fewer than the others unless the Primary Detachment has a ${exempt} High Command or Command unit.` });
+          }
+        }
+      }
       const warlordDets = army.detachments.filter((d) => d.kind === 'warlord');
       if (warlordDets.length > 1) issues.push({ level: 'error', msg: 'Only one Warlord Detachment may be taken.' });
       if (warlordDets.length && (Number(army.pointsLimit) || 0) < 3000) issues.push({ level: 'error', msg: 'The Warlord Detachment needs an army of 3,000 points or more.' });
@@ -564,6 +604,11 @@
           const ub = def.unlockedBy;
           if (ub.sequela && !(army.sequelae || []).includes(ub.sequela)) {
             issues.push({ level: 'error', msg: `${def.name} needs the ${ub.sequela} Aeonic Sequela.` });
+          }
+          if (ub.commandUnit) {
+            const role = ub.slotRole || 'Command';
+            const ok = army.detachments.some((od) => od !== d && od.slots.some((s) => s.unit && s.role === role && ub.commandUnit.includes(s.unit.unitId)));
+            if (!ok) issues.push({ level: 'error', msg: `${def.name} needs a ${ub.commandUnit.map((id) => unit(id)?.name || id).join(' or ')} in a ${role} slot.` });
           }
           if (ub.commandTrait) {
             const ok = army.detachments.some((od) => od !== d && od.slots.some((s) => s.unit && ['Command', 'High Command'].includes(s.role) && hasTrait(s.unit, ub.commandTrait)));
@@ -610,7 +655,7 @@
             issues.push({ level: 'error', msg: 'Dynastic Advisors can only be chosen for a Command or High Command Prime slot.' });
           }
           const granted = (data.grantedPrimeAdvantages || []).find((g) => g.name === s.unit.primeAdvantage);
-          if (granted && !sels.some((x) => x.sel.unitId === granted.grantedBy)) {
+          if (granted && granted.grantedBy && !sels.some((x) => x.sel.unitId === granted.grantedBy)) {
             issues.push({ level: 'error', msg: `${u.name}: ${granted.name} needs ${unit(granted.grantedBy).name} in the army.` });
           }
           if (s.unit.primeAdvantage && !hasTrait(s.unit, 'Necron')) {
@@ -731,7 +776,7 @@
     }
 
     return {
-      data, ROLES, ARKANA, unit, choicesFor, sizableModels, swapTargets, newSelection, modelCounts, totalModels,
+      data, ROLES, ARKANA: CHOICE.options, choiceLabel: CHOICE.label, unit, choicesFor, sizableModels, swapTargets, newSelection, modelCounts, totalModels,
       eligible, optionMax, perModelUsed, optionCost, unitPoints, loadout, unitIssues, armyIssues, armyPoints,
       allSelections, sequelaAllowance, makeDetachment, detachmentFromDef, unitsForSlot, slotAllows, syncAdvisorSlots,
       hasTrait, arkanaOf, uid, setSequelae, effectiveModels, primeAdvantagesFor, requirementMet, unlocks, optionsOf, modelMax, rolesFor, activeEffects, grantedTraits,

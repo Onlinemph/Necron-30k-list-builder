@@ -1,0 +1,62 @@
+       GROT MEGA-TANK                                              ARMOUR
+           UNIT COMPOSITION: 1 GROT MEGA-TANK                                   70 Points
+
+
+
+Grot Mega-tanks are heavy tanks used by Gretchin hordes within Ork armies. They represent the pinnacle of Gretchin tank
+technology, an overpowering war machine that drives all before it in a storm of scrap and destruction.
+
+                                                        Armour                        Transport
+                                                                                                   Capacity                     M       BS       Front      Side      Rear     HP
+Grot Mega-tank                     10        3        12       11       10        5               -
+
+
+ WARGEAR                                       SPECIAL RULES
+ • Reinforced ram                                • Downtrodden
+ • Grot riggers                                  • Explodes (5+)
+
+ TRAITS                                       TYPE
+ • Xenos                                       •  Vehicle
+ • [Orks]
+ • Smokescreen
+
+ OPTIONS
+ • This Model may have up to two of the following        • This Model may have one item from the Ork Kan
+    options selected for it:                               Ranged Weapons list, with any item selected in this
+     -  Turret Mounted twin big shoota .... +10 Points each     way becoming Turret Mounted.
+     -  Turret Mounted twin                          • This Model may have up to two items from the Ork
+       rokkit launcha  ............................... +10 Points each     Kan Ranged Weapons list, with any item selected in
+     -  Turret Mounted twin skorcha ........ +10 Points each       this way becoming Sponson (Left) Mounted.
+     -  Turret Mounted twin grotzooka  .... +20 Points each   • This Model may have up to two items from the Ork
+     -  Turret Mounted twin                             Kan Ranged Weapons list, with any item selected in
+                                                                         this way becoming Sponson (Right) Mounted.      kustom mega-blasta  ...................... +20 Points each
+                                               • This Model may have a Pintle Mounted shoota selected
+                                                                     for it for +3 Points.
+
+
+       GROT TANK BATTLE MOB                                       ARMOUR
+           UNIT COMPOSITION: 3 GROT TANKS                                             75 Points
+           • May include up to 5 additional Grot Tanks at +25 Points per Model.
+
+
+The lunatic product of the deranged imaginations of grot riggers and scavs that have spent far too long basking in the insane
+genius of the Big Meks, Grot Tanks are diminutive armoured vehicles made to imitate the far larger Ork Wagons and Tanks.
+
+                M  WS   BS    S    T  W      I    A   LD   CL  WP   IN   SAV  INV
+Grot Tank                10    2    3    3    5    2    2    1    5    6    4    5   3+      -
+
+
+ WARGEAR                                       SPECIAL RULES
+ • None                                       • Bulky (2)
+                                               • Downtrodden
+ TRAITS                                        • Expendable (2)
+ • Xenos                                       • Implacable Advance
+ • [Orks]                                      •  Firing Protocols (2)
+                                               • Support Unit (1)
+ OPTIONS
+ • Every Model in this Unit must have one item from the   TYPE
+    Ork Kan Ranged Weapons list selected for it.          • Cavalry (Skirmish)
+ • For every four Models in this Unit, one Grot Tank may
+    have a second item from the Ork Kan Ranged Weapons
+      list selected for it.
+                                          38

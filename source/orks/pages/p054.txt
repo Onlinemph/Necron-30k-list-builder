@@ -1,0 +1,61 @@
+         ORKS ADVANCED REACTIONS
+
+WAAAGH!                                     ADDITIONAL ADVANCED REACTIONSOrks live for the moment when they charge into battle,
+                                                               Refer to the Legacies of the Age of Darkness: Thescreaming ‘Waaagh!’ at the top of their lungs.
+                                                                  Imperialis Militia document for details of the
+This Reaction allows the Reactive Player to make a           following Advanced Reactions:
+Charge Roll instead of making Volley Attacks.                                                 • Medic!
+Trigger: Once per Battle, the Reactive Player may declare                                                 • Smokescreen
+the Waaagh! Advanced Reaction during Step 4 of the
+Charge process of any Charge declared by the Active
+Player that targets a Unit which contains only Models
+with the Mob Rule (X) Special Rule and includes one or
+more Models with either the Prophet of the Waaagh! Trait
+or a Waaagh! banner.
+
+Cost: The Reactive Player must spend 1 point of their
+Reaction Allotment to declare the Waaagh! Reaction - this
+cost paid as soon as the declaration is made.
+
+Target: For the Waaagh! Reaction, the Target Unit is
+always the Unit whose Charge triggered the Reaction. The
+Reacting Unit is always the Unit that was declared as the
+target of the Charge that triggered this Reaction, which
+must contain only Models with the Mob Rule (X) Special
+Rule and includes one or more Models with either the
+Prophet of the Waaagh! Trait or a Waaagh! banner.
+
+Process
+
+1. Once the Waaagh! Reaction has been declared, all
+   Models in the Reacting Unit gains a modifier of +2 to
+    their Initiative Characteristic and the Vanguard (2)
+    Special Rule for the duration of the current Assault
+    Phase.
+
+2.  Immediately after the Active Player has resolved any
+    Volley Attacks they choose to make, the Reactive
+    Player must make a Charge Roll for the Reacting Unit.
+
+3.  If the result of the Charge Roll would be enough to
+   move any Model from the Reacting Unit into Base
+   Contact with a Model from the Target Unit, then a
+   Charge Move is made and the Units are Locked in
+   Combat. No Model in the Target Unit may claim a
+   bonus from any Special Rule that requires a successful
+   Charge to have been made, while the Models in the
+   Reacting Unit gain any bonuses from any Special
+   Rules that would apply to that Unit as a result of a
+    successful Charge.
+
+4.  If the result of the Charge Roll would not bring any
+   Model from the Reacting Unit into Base Contact with
+   a Model from the Target Unit, then no Charge Move is
+   made and the Players proceed to Step 5 of the Charge
+    process.
+
+
+
+
+
+                                          54

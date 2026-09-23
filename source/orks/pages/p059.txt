@@ -1,0 +1,68 @@
+CLOSE COMBAT WEAPONS
+CHOPPA AND CHAIN WEAPONS
+
+                      IM  AM  SM   AP   D   Special Rules                             Traits
+
+ Choppa                               I    A     S        -     1   Impact (A)                         Choppa
+
+ Paired choppas                     I   +1    S        -     1   Impact (A)                         Choppa
+
+ Chainsword                         I    A     S     5     1   Shred (6+)                           Chain
+
+
+
+
+ Big choppa                   -1    A   +2    5     2   Shred (6+)                        Choppa
+
+POWER AND KLAW WEAPONS
+
+                      IM  AM  SM   AP   D   Special Rules                             Traits
+
+ Power axe                    -1    A   +1    3     1    Breaching (5+)                      Power
+
+ Power sword                        I    A     S     3     1    Breaching (6+)                      Power
+
+ Power klaw                  -3    A   +4    2     2   Rending (6+)                       Power
+
+ Kan klaw                             I    A   +1    2     2   Rending (6+)                       Power
+
+ Paired dread klaws                I    A   +3    2     3   Rending (6+)                       Power
+
+ Triple dread klaws                 I   +1  +3    2     3   Rending (6+)                       Power
+
+ Lots o’ dread klaws                I   +2  +3    2     3   Rending (6+)                       Power
+
+ Dread rippa klaw                  I    A   +1    2     3    Critical Hit (6+)                     Power
+
+ Paired dread rippa klaws        I   +1  +1    2     3    Critical Hit (6+)                     Power
+
+ Klaw of Gork (or possibly       I    A   +3    2     4    Critical Hit (6+), Shock (Suppressed)    Power
+ Mork)
+
+ODDBOY MELEE WEAPONS
+
+                      IM  AM  SM   AP   D   Special Rules                             Traits
+
+ Force staff            +1   A   +2    4     1    Force (D)                                Psychic
+
+ Herding stikk          +1   A   +1    5     1    Critical Hit (6+)                                    -
+
+ ‘Urty syringe                        I    A     S        -     1    Poisoned (4+)                                       -
+
+SAW WEAPONS
+
+                      IM  AM  SM   AP   D   Special Rules                             Traits
+
+ Killsaw                       -3    A   +3    2     2   Armourbane, Shred (5+)            Saw
+
+ Pair of killsaws               -3    A   +3    2     3   Armourbane, Shred (5+)            Saw
+
+ Mega killsaw                 -1    A   +2    2     3   Armourbane, Shred (5+)            Saw
+
+ Paired mega killsaws         -1    A   +2    2     4   Armourbane, Shred (5+)            Saw
+
+
+
+
+
+                                          59
