@@ -1,0 +1,441 @@
+{
+  "detachments": [
+    {
+      "id": "kabalite-strike-force",
+      "name": "Kabalite Strike Force",
+      "type": "Auxiliary",
+      "page": 76,
+      "unlock": "When a model with the Kabals Trait is selected to fill a Command Slot, then the Player may add a Kabalite Strike Force to the Army instead of the options available in the Crusade Force Organization Chart.",
+      "unlockedBy": {
+        "commandTrait": "Kabals"
+      },
+      "slots": [
+        {
+          "role": "Elites",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Transport",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Armour",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Armour",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "Only Units with the Kabals Trait may be selected to fill Slots in this Detachment."
+      ],
+      "rules": [],
+      "slotRules": [
+        {
+          "roles": null,
+          "trait": "Kabals"
+        }
+      ],
+      "note": "Slot roles read from the icons, matched against the role icon printed on each unit page (the book has no icon legend)."
+    },
+    {
+      "id": "grotesquerie",
+      "name": "Grotesquerie",
+      "type": "Auxiliary",
+      "page": 76,
+      "unlock": "When a model with the Covens Trait is selected to fill a Command Slot, then the Player may add a Grotesquerie to the Army instead of the options available in the Crusade Force Organization Chart.",
+      "unlockedBy": {
+        "commandTrait": "Covens"
+      },
+      "slots": [
+        {
+          "role": "Heavy Assault",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Heavy Assault",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Heavy Assault",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Heavy Assault",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "Only Units of Grotesques may be selected to fill Slots in this Detachment."
+      ],
+      "rules": [],
+      "slotRules": [
+        {
+          "roles": null,
+          "units": [
+            "coven-grotesques"
+          ]
+        }
+      ],
+      "note": "Slot roles read from the icons, matched against the role icon printed on each unit page (the book has no icon legend)."
+    },
+    {
+      "id": "shadowed-sky",
+      "name": "Shadowed Sky",
+      "type": "Auxiliary",
+      "page": 76,
+      "unlock": "When a model with the Cults Trait is selected to fill a Command Slot, then the Player may add a Shadowed Sky to the Army instead of the options available in the Crusade Force Organization Chart.",
+      "unlockedBy": {
+        "commandTrait": "Cults"
+      },
+      "slots": [
+        {
+          "role": "Support",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Recon",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Recon",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Recon",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "Only Units of Cult Reavers, Cult Hellions and Scourges may be selected to fill Slots in this Detachment."
+      ],
+      "rules": [],
+      "slotRules": [
+        {
+          "roles": [
+            "Recon"
+          ],
+          "units": [
+            "cult-reavers",
+            "cult-hellions"
+          ]
+        },
+        {
+          "roles": [
+            "Support"
+          ],
+          "units": [
+            "scourges"
+          ]
+        }
+      ],
+      "note": "Slot roles read from the icons, matched against the role icon printed on each unit page (the book has no icon legend)."
+    },
+    {
+      "id": "scions-of-the-dark-city",
+      "name": "Scions of the Dark City",
+      "type": "Auxiliary",
+      "page": 76,
+      "unlock": null,
+      "unlockedBy": null,
+      "slots": [
+        {
+          "role": "Elites",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Elites",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Transport",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Transport",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [],
+      "rules": [],
+      "note": "Slot roles read from the icons, matched against the role icon printed on each unit page (the book has no icon legend).",
+      "slotRules": []
+    },
+    {
+      "id": "killers-for-hire",
+      "name": "Killers for Hire",
+      "type": "Auxiliary",
+      "page": 76,
+      "unlock": null,
+      "unlockedBy": null,
+      "slots": [
+        {
+          "role": "Retinue",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Transport",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Heavy Transport",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [],
+      "rules": [],
+      "note": "Slot roles read from the icons, matched against the role icon printed on each unit page (the book has no icon legend).",
+      "slotRules": []
+    },
+    {
+      "id": "scion-of-vileth",
+      "name": "Scion of Vileth",
+      "type": "Auxiliary",
+      "page": 77,
+      "unlock": null,
+      "unlockedBy": null,
+      "slots": [
+        {
+          "role": "Fast Attack",
+          "prime": true,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "Only a Model with the Flyer Sub-Type may be selected to fill the Slot in this Detachment. The Scion of Vileth Prime Advantage must be selected for that Model."
+      ],
+      "rules": [],
+      "note": "Slot roles read from the icons, matched against the role icon printed on each unit page (the book has no icon legend).",
+      "slotRules": [
+        {
+          "roles": [
+            "Fast Attack"
+          ],
+          "trait": "Flyer"
+        }
+      ]
+    },
+    {
+      "id": "the-blade-of-commorragh",
+      "name": "The Blade of Commorragh",
+      "type": "Auxiliary",
+      "page": 77,
+      "unlock": null,
+      "unlockedBy": null,
+      "slots": [
+        {
+          "role": "Fast Attack",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Fast Attack",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Fast Attack",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Fast Attack",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [],
+      "rules": [],
+      "note": "Slot roles read from the icons, matched against the role icon printed on each unit page (the book has no icon legend).",
+      "slotRules": []
+    },
+    {
+      "id": "carnival-of-pain",
+      "name": "Carnival of Pain",
+      "type": "Apex",
+      "page": 77,
+      "unlock": null,
+      "unlockedBy": null,
+      "slots": [
+        {
+          "role": "Command",
+          "prime": true,
+          "flexible": false
+        },
+        {
+          "role": "Support",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "War Engine",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "War Engine",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "Only Units with the Covens Trait may be selected to fill Slots in this Detachment."
+      ],
+      "rules": [],
+      "note": "Slot roles read from the icons, matched against the role icon printed on each unit page (the book has no icon legend).",
+      "slotRules": [
+        {
+          "roles": null,
+          "trait": "Covens"
+        }
+      ]
+    },
+    {
+      "id": "trueborn-elite",
+      "name": "Trueborn Elite",
+      "type": "Apex",
+      "page": 77,
+      "unlock": null,
+      "unlockedBy": null,
+      "slots": [
+        {
+          "role": "Elites",
+          "prime": true,
+          "flexible": false
+        },
+        {
+          "role": "Elites",
+          "prime": true,
+          "flexible": false
+        },
+        {
+          "role": "Transport",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Transport",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "Only Units with the KabalsTrait may be selected to fill Slots in this Detachment."
+      ],
+      "rules": [],
+      "note": "Slot roles read from the icons, matched against the role icon printed on each unit page (the book has no icon legend).",
+      "slotRules": [
+        {
+          "roles": null,
+          "trait": "Kabals"
+        }
+      ]
+    },
+    {
+      "id": "titan-hunters",
+      "name": "Titan Hunters",
+      "type": "Apex",
+      "page": 77,
+      "unlock": null,
+      "unlockedBy": null,
+      "slots": [
+        {
+          "role": "Armour",
+          "prime": true,
+          "flexible": false
+        },
+        {
+          "role": "Armour",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Armour",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Armour",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "Only Ravagers and Reapers may be selected to fill Slots in this Detachment.",
+        "The following Prime Advantage must be selected for Models that are selected to fill the Prime Slot in this Detachment: Huntmaster: The Model for which this Prime Advantage was selected has its Base Ballistic Skill characteristic changed to 5 and gains a Shadow Ray at no additional cost."
+      ],
+      "rules": [],
+      "note": "Slot roles read from the icons, matched against the role icon printed on each unit page (the book has no icon legend).",
+      "slotRules": [
+        {
+          "roles": null,
+          "units": [
+            "ravager",
+            "reaper"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dark-olympiad",
+      "name": "Dark Olympiad",
+      "type": "Apex",
+      "page": 77,
+      "unlock": null,
+      "unlockedBy": null,
+      "slots": [
+        {
+          "role": "Elites",
+          "prime": true,
+          "flexible": false
+        },
+        {
+          "role": "Elites",
+          "prime": true,
+          "flexible": false
+        },
+        {
+          "role": "Recon",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Recon",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "Only Units with the Cults Trait may be selected to fill Slots in this Detachment."
+      ],
+      "rules": [],
+      "note": "Slot roles read from the icons, matched against the role icon printed on each unit page (the book has no icon legend).",
+      "slotRules": [
+        {
+          "roles": null,
+          "trait": "Cults"
+        }
+      ]
+    }
+  ]
+}

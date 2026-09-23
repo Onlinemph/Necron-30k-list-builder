@@ -1,0 +1,16 @@
+{
+  "grantedPrimeAdvantages": [
+    {
+      "name": "Huntmaster",
+      "page": 77,
+      "eligible": {
+        "units": [
+          "ravager",
+          "reaper"
+        ]
+      },
+      "text": "The Model for which this Prime Advantage was selected has its Base Ballistic Skill characteristic changed to 5 and gains a Shadow Ray at no additional cost.",
+      "note": "Must be selected for the Prime Slot of the Titan Hunters Apex Detachment."
+    }
+  ]
+}

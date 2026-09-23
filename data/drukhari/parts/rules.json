@@ -1,0 +1,142 @@
+{
+  "specialRules": [
+    {
+      "name": "Acid Shock (X)",
+      "page": 78,
+      "text": "Horrific concoctions, devised to kill slowly and painfully, seeped through the cracks of armour and made light of enhanced flesh.\n\nEach time an Armour Save or Feel No Pain roll is made against a Wound inflicted by a weapon with this special rule, the value in brackets is subtracted from the roll (to a minimum of 1)."
+    },
+    {
+      "name": "Altered Physiology",
+      "page": 78,
+      "text": "Models with this Special Rule always count their own Unit as having a Status for the purpose of the purpose of the Power From Pain Special Rule, even if the Unit does not have a Status. This only apply to the Model's own Unit; other Units"
+    },
+    {
+      "name": "Anathema",
+      "page": 78,
+      "text": "A Unit which includes any Models with this Special Rule may never be selected as the target of a Psychic Blessing or Psychic Curse, and Models with this Special Rule ignore all Damage inflicted by Psychic Weapons, Psychic Powers, Psychic Reactions or Perils of the Warp. If such a Model is selected as the Target Model of any attack or wound inflicted by a Psychic Weapon, Psychic Power, Psychic Reaction, or Perils of the Warp then all Damage caused has no effect and no Wound Tests, Armour Saves or Damage Mitigation Tests are made.\n\nAdditionally, Wound Tests made for Weapons with the Psychic or Immaterial Trait that target any Unit that includes only Models with this Special Rule that have an unmodified result of 1, 2, 3 or 4 are never successful, regardless of the Strength Characteristic of a Hit or any Special Rules that set the Target Number for Wound Tests. This Special Rule has no effect on Armour Penetration Tests."
+    },
+    {
+      "name": "Ancillary",
+      "page": 78,
+      "text": "A model that is equipped with a Weapon that has this special rule can make a number of additional Attacks in the Fight Sub-Phase, or the Strike Step of a Challenge, equal to the Attack Modifier Characteristic of that weapon. Those additional Attacks must be made using that Weapon, even if a different Weapon was selected for the Model to Fight with in that Phase."
+    },
+    {
+      "name": "Dodge (X)",
+      "page": 78,
+      "text": "A Model with the Dodge (X) Special Rule has an Invulnerable Save equal to the value in brackets associated with the specific variant of this Special Rule against Wounds inflicted by Attacks that were made in any of the following situations:\n• The Attack was made during the Assault Phase,\n• The Attack was made as part of a Reaction."
+    },
+    {
+      "name": "Drain (X)",
+      "page": 78,
+      "text": "During Step 9 of the Shooting Attack process, Step 8 of the Initiative Step of the Fight Sub-Phase or Step 4 of the Challenge process, if a model has caused Damage to an enemy model using a weapon that has the Drain (X) special rule in the current phase, that model gains a number of Wounds equal to the greatest value of X associated with a weapon that has the Drain (X) special rule that the model has caused Damage with in the current phase. This cannot cause a model's Wounds characteristic to be greater than its starting Wounds characteristic."
+    },
+    {
+      "name": "Ensnare (X)",
+      "page": 78,
+      "text": "If a Melee Attack made for a Weapon or Model with this Special Rule inflicts one or more wounds on a Target Unit, regardless of whether any Damage is inflicted, then if in the Aftermath Step of the Resolution Sub-Phase of the curent Combat Phase an Aftermath Option is selected for the Target Unit that allows that Unit to Move, the distance moved is reduced by the value of X associated with the specific variant of the Ensnare special rule, down to a minimum of 0\".\n\nMultiple Wounds with the Ensnare Special Rule are not cumulative. If multiple Wounds with the Ensnare Special Rule are inflicted on the same Target Unit, only the greatest value of X associated with the Ensnare Special Rule among those Wounds is used to determin the reduction."
+    },
+    {
+      "name": "Firing Deck (X)",
+      "page": 78,
+      "text": "In the Shooting Phase, a Unit that is Embarked on a Transport Model that has this Special Rule can be selected to make a Shooting Attack, even though it is not on the Battlefield. A number of Embarked Models up to the value noted in the specific variant of the Firing Deck (X) Special Rule may attack as part of that Shooting Attack, and the Shooting Attack must target an Enemy Unit which is in one of the Facings of the Transport noted in the specific variant of the Firing Deck (X) Special Rule. Models making Attacks as part of that Shooting Attack count as having moved if the Transport moved in the preceding Movement Phase and as Stationary if it did not, but must make Attacks as Snap Shots if the Transport moved a number of inches higher than half its Movement Characteristic in the preceding Movement Phase. Ranges are measured from the Hull of the Transport. Reactions made against the Attack that would Target the Unit Target the Transport it is Embarked on instead.\n\nWhenever the Transport that has the Firing Deck (X) Special Rule is selected as the Reacting Unit for a Reaction that allows the Reacting Unit to make a Shooting Attack, the Controlling Player may opt to have the Embarked Unit make that Shooting Attack instead, following the same restrictions as listed above."
+    },
+    {
+      "name": "Fleshcraft (X)",
+      "page": 79,
+      "text": "In the Controlling Player's Movement Phase as the Active Player, when a Model with the Battlesmith (X) Special Rule has been selected, but either before or after it has been moved, the Controlling Player of that Model may activate this Special Rule. Once activated, the Controlling Player of the Model with the Battlesmith (X) Special Rule (referred to as the 'Acting Model') must select one friendly Model within 6\" of the Acting Model. The Model selected must have the Infantry, Cavalry or Paragon Type and is referred to as the Target Model'. Once a Target Model has been selected, the Player controlling the Acting Model must make an Intelligence Check for the Acting Model. If the Check is failed there is no further effect, but if the Check is passed then the Player controlling the Acting Model may select one of the following options:\n• Reknit: The Target Model gains a number of Wounds equal to the value of X in the Fleshcraft (X) Special Rule variant possessed by the Acting Model. This cannot increase the Target Model's Wounds above its Base Value.\n• Restore: A number of Statuses equal to the value of X in the Fleshcraft (X) Special Rule variant possessed by the Acting Model may be removed from the Target Model.",
+      "note": "The source text names the trigger Model's Special Rule 'Battlesmith (X)' throughout this entry's body, although the entry itself is headed 'Fleshcraft (X)' and its options reference 'the Fleshcraft (X) Special Rule variant possessed by the Acting Model'. Kept verbatim; this looks like a leftover name from another codex's version of this rule that was not fully renamed."
+    },
+    {
+      "name": "Murderous Assault (X)",
+      "page": 79,
+      "text": "Any Wound Test made for an Attack made by a Model with the Murderous Assault (X) with a value equal to or higher than the value of X associated with the specific variant of the Murderous Assault (X) Special Rule is automatically succesful, regardless of the target's Toughness characteristic.\n\nAt the end of Step 8 of the Initiative Step for any Strike Group that includes attacks made by Models with the Murderous Assault (X) Special Rule, create a new Strike Group that must then be selected in Step 10 and resolved. This new Strike Group includes a number of Attacks equal to the number of Wound Tests with a value equal to or higher than the value of X associated with the specific variant of the Murderous Assault (X) Special Rule caused by the Strike Group that triggered its creation. These Attacks are made by the model that made the Attack that triggered the Murderous Strike (X) Special Rule and have a Strength, AP and Damage Characteristics equal to those of the Attack that triggered the Murderous Assault (X) Special Rule, but have no Special Rules."
+    },
+    {
+      "name": "Flyby Attack",
+      "page": 79,
+      "text": "Certain Wargear Items allow a Model to make a special kind of Attack called a Flyby Attack. After a Unit that includes any Models with a Special Rule that allows it to make a Flyby Attack has moved in the Controlling Player's Movement Phase as the Active Player, the Controlling Player can Target one Enemy Unit that Unit moved through or over to make a Flyby Attack using all Models in the Unit that have a Wargear Item that allows the Model to make a Flyby Attack. Resolve a Shooting Attack Procedure against the Target of the Flyby Attack, applying the following modifications:\n• Skip Step 2. Hits inflicted on a Model with the Vehicle Type always target that model's Rear Armour.\n• During Step 3, instead of declaring Weapons, the Controlling Player of the Unit making the Flyby Attack declares one Wargear Item which allows the Model to make Flyby Attack for each Model in the Unit that is taking part in the Flyby Attack.\n• During Step 4, each Fire Group is comprised of all Wargear Items with the same Name.\n• During Step 6, instead of rolling To Hit, each attacking Model inflicts a number of Automatic Hits on the Target Unit. The number of Hits inflicted as well as their Strength, AP, and Special Rules are listed in the specific Wargear Item that allows the Model to make a Flyby Attack.\n• After resolving Step 11, proceed with the Movement Phase as normal."
+    },
+    {
+      "name": "Pain Amp",
+      "page": 80,
+      "text": "Whenever an Attack made with a Weapon that has the Pain Amp Special Rule causes a Hit against an Enemy Unit that has one or more of the Pinned, Suppressed, Stunned or Routed Tactical Status, that Hit receives a +1 Modifier to the Strength or Ranged Strength Characteristic of the Attack."
+    },
+    {
+      "name": "Pain Engine",
+      "page": 80,
+      "text": "A Unit that includes any models with the Pain Engine Special Rule is subject to the following provisions:\n• Models cannot join the Unit, with the exception of Models with the Covens Trait.\n• The Unit cannot be selected as the Reactive Unit for any Reaction.\n• A Unit that includes any Models with this Special Rule is unaffected by the effects of Tactical Status. Status Tokens can still be placed on Models in the Unit, but they have no effect.\n• The Unit begins the battle with the Stunned Tactical Status."
+    },
+    {
+      "name": "Phantom Shields (X)",
+      "page": 80,
+      "text": "A Model with this Special Rule has a number of phantom shields equal to the value of X. While a Model with this Special Rule still has phantom shields, each time that Model suffers a Hit from a Shooting Attack it must be allocated to the phantom shields. Once all void shields have collapsed, any remaining Hits from Shooting Attacks must be allocated to the model (or Titan Profile in the case of a Titan) targeted by the attack.\n\nA phantom shield has an Armour Value of 12, and any Glancing Hit or Penetrating Hit inflicted on it will cause that void shield to collapse. Regardless of the Damage value of a Hit it may not collapse more than one phantom shield, and once a Hit has collapsed a phantom shield or failed an Armour Penetration Test made against one it is discarded.\n\nIf, in the Effects Sub-Phase of the Controlling Player's End Phase, a model has any collapsed phantom shields, but still has at least one phantom shield still active, all collapsed phantom shields are restored. Once all of a model's phantom shields have collapsed, they never restore.\n\nPhantom shields are counted as void shields for the purpose of the Shield-Breaker special rule."
+    },
+    {
+      "name": "Pierce (X)",
+      "page": 80,
+      "text": "When an Armour Penetration Test is made for an attack made with a weapon that has the Pierce (X) special rule, the value in brackets associated with the specific variants of this special rule is added to the result of the Armour Penetration Test."
+    },
+    {
+      "name": "Power From Pain",
+      "page": 80,
+      "text": "A Model that has this Special Rule gains a number of cumulative benefits, depending on the number of Units (friend and enemy) within 6\" of its Unit that have one or more of the Pinned, Suppressed, Stunned or Routed Tactical Status. Note that the Model's own Unit is also counted towards the total:\n• 1+ Units: The Model gains the Feel No Pain (5+) Special Rule.\n• 2+ Units: The Model gains a +1 modifier to its Strength and Attacks Characteristics.\n• 3+ Units: The Model's base Leadership, Cool, Willpower and Intelligence Characteristics become 12."
+    },
+    {
+      "name": "Predator's Sight",
+      "page": 80,
+      "text": "Whenever a Model with this Special Rule makes a Shooting Attack, targeting a Unit that has one or more of the Pinned, Suppressed, Stunned or Routed Tactical Status, the Model gains a +1 modifier to its Ballistic Skill for that Shooting Attack (including when firing Snap Shots)."
+    },
+    {
+      "name": "Psy-Shock",
+      "page": 80,
+      "text": "If a Shooting Attack made for a Weapon or Model with this Special Rule inflicts one or more wounds on a Target Unit which contains any Models with the Psyker Trait or Malefic Sub-Type, regardless of whether any Damage is inflicted, that Target Unit suffers the Warp Rupture resulton the Perils of the Warp Table at the end of Step 9 of that Shooting Attack."
+    },
+    {
+      "name": "Rain of Cruelty",
+      "page": 80,
+      "text": "A Model with this Special Rule gains the Implacable Advance and Firestorm Special Rules so long as it either is Embarked on a Transport, or has Disembarked from a Transport in the same turn."
+    },
+    {
+      "name": "Salvo (X)",
+      "page": 81,
+      "text": "If at least one model in a unit that is targeted by a Shooting Attack made by a Model using a Weapon with this Special Rule is within a range equal to or less than the value specified by X, the Firepower characteristic of that attack is doubled."
+    },
+    {
+      "name": "Scourge (X)",
+      "page": 81,
+      "text": "When making a Wound Test for an attack with the Scourge (X) Special Rule, the Characteristic indicated in brackets is used instead of the Target's Toughness Characteristic. If the Attack Target has \"-\" listed instead of that Characteristic, the Wound Test automatically fails.\n\nWhen making an Armour Penetration Test for an attack with the Scourge (X) Special Rule, the Armour Value of the Target is used as normal, but any Penetrating Hits scored become Glancing Hits instead."
+    },
+    {
+      "name": "Shadow Gate",
+      "page": 81,
+      "text": "If a Shooting Attack made for a Weapon or Model with this Special Rule causes any Hits against a Target Model with the Vehicle or Walker Type, then until the end of the current Shooting Phase, each time an Invulnerable Save or Shrouded Damage Mitigation Roll is made for the Target Model, subtract 1 from the roll to a minimum of 1. The same Model can only be affected by this effect of the Shadow Gate Special Rule once per Shooting Phase.\n\nIf the Target Model has the Void Shield (X) Special Rule, then do not apply the previous effect of the Shadow Gate Special Rule. Instead, roll a D6. On a 3+, reduce the value in brackets associated with that Modl's Void Shield (X) Special Rule by 1, to a minimum of 0. The same Model can be affected by this effect of the Shadow Gate Special Rule any number of times per Shooting Phase."
+    },
+    {
+      "name": "Spirit Leech",
+      "page": 81,
+      "text": "Each time an Attack is made using a weapon that has this Special Rule, its Strength (or Ranged Strength) characteristic is doubled if the Target Unit has any kind of Tactical Status."
+    },
+    {
+      "name": "Storm of Infamy",
+      "page": 81,
+      "text": "A Model with this Special Rule fires Snap Shots using its full Ballistic Skill. All other penalties relating to Snap Shots still apply."
+    },
+    {
+      "name": "Take Captives",
+      "page": 81,
+      "text": "When a Unit that is composed entirely of Models with this Special Rule is on the winning side of a Combat, the Take Captives aftermath option may be selected for that Unit as long as at least one Enemy Model engaged in that Combat had its last Wound removed during that turn of Combat:\n\nTake Captives: A Unit that chooses to Take Captives cannot move or make any attacks as part of this aftermath option, but instead has 1 Captive Token placed on it."
+    },
+    {
+      "name": "Captive Tokens",
+      "page": 81,
+      "text": "Captive Tokens are normally only used only to keep track of the points scored through the Take Captives Special Rule, and have no other effect on the game unless directly called out by another Special Rule. Captives Token can be represented using tokens or by simply leaving slain enemy models next to the Unit with the Captive Token. A Unit can have any number of Captive Tokens placed on it.\n• If the Unit that has Captive Tokens is entirely destroyed, the Controlling Player scores 1 Victory Point for each Captive Token on the Unit.\n• If all Models in the Unit that has Captives Tokens, or, if the Unit is Embarked, the Transport Model that Unit is Embarked on, are within 6\" of a Table Edge or in reserves, unengaged, and do not have the Routed status, at the end of the Controlling Player's Movement Phase, that Player removes all Captive Tokens from the Unit and scores 2 Victory Point for each Captive Token removed.\n• If a Unit that as Captives Tokens is on the battlefield at the end of the Battle and does not have the Routed status, the Controlling Player scores 2 Victory Points for each Captive Token on the Unit."
+    },
+    {
+      "name": "Take Heads",
+      "page": 81,
+      "text": "When an Enemy Model that has the Champion, Command or Sergeant Sub-Type, or the Paragon Type, loses its last Wound and is destroyed by an Attack made by a Model with this Special Rule, the Controlling Player scores a number of Victory Points, depending on the Types and Sub-Types that Model had. These are not cumulative; if a Model has multiple of the listed Types and Sub-Types, only the option that would result in the most Victory Points being scored is used:\n• Sergeant: 1 Victory Point.\n• Champion: 2 Victory Points.\n• Command: 3 Victory Point.\n• Paragon: 5 Victory Points.",
+      "note": "This entry's Victory Point bullet list is printed at the top of p.82 (out of this file's assigned page range), immediately following the paragraph on p.81; included here for a complete rule."
+    }
+  ],
+  "traits": []
+}

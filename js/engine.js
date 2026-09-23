@@ -15,14 +15,14 @@
   const norm = (s) => String(s || '').toLowerCase().replace(/\(.*?\)/g, '').replace(/[’']/g, "'").replace(/\s+/g, ' ').trim();
   /** Key for matching a wargear line ("2 Gauss Slicers", "Hull (left) mounted Gauss Flayer Array") to a weapon profile. */
   const wkey = (n) => {
-    let k = norm(n).replace(/\s+with .*$/, '');
+    let k = norm(n).replace(/\s+with .*$/, '').replace(/^the \w+ profile has /, '').replace(/-/g, ' ');
     // strip counts and mount prefixes in any order: "Two Centreline Mounted big shootas", "3 Arm Mounted supa-rokkits"
     for (let prev = null; prev !== k;) {
       prev = k;
       k = k.replace(/^\d+\s*x?\s+/, '')
         .replace(/^(a|an|one|two|three|four|pair of|paired)\s+/, '')
-        .replace(/^(hull|centreline|centerline|sponson|pintle|turret|rear|front|side|arm|carapace|head)\s*-?\s*mounted\s+/, '')
-        .replace(/^twin-linked\s+/, 'twin ');
+        .replace(/^((hull|centreline|centerline|sponson|pintle|turret|rear|front|side|arm|carapace|head)\s+)+mounted\s+/, '')
+        .replace(/^twin linked\s+/, 'twin ');
     }
     return k.replace(/s$/, '');
   };
