@@ -26,9 +26,9 @@ On a phone, open the site and use **Add to Home Screen**; it launches like an ap
 - Roster view with a rules glossary, ready to print.
 - Save lists in the browser. Export as text, JSON or a share link, and import them back.
 
-## The one thing you have to set
+## Force organisation
 
-The Crusade Force Organisation Chart is printed in the Horus Heresy 3rd edition rulebook, not in the Necron codex. The builder starts with a guessed slot layout (`data/forceorg.json`). Use **Edit slots** on the Primary Detachment to match your rulebook. The app remembers your layout for new lists. Core rulebook detachments you want to use can be added as a **Custom** detachment.
+The Primary Detachment follows the Horus Heresy 3rd edition Crusade chart: 1 High Command, 3 Command (1 Prime), 4 Troops (1 Prime), 4 Transport. Each filled Command slot unlocks one Auxiliary Detachment, and filling High Command unlocks one Apex Detachment. The core Auxiliary, Apex, Warlord and Lord of War Detachments are in the **Add detachment** menu next to the Necron ones, and the core Prime Advantages (Master Sergeant, Combat Veterans, Paragon of Battle, Special Assignment, Logistical Benefit) sit alongside the Necron ones. **Edit slots** on the Primary Detachment is there for rules that change the chart.
 
 Rules from the core rulebook (Bulky, Deep Strike, Eternal Warrior…) are labelled `core` because their text isn't in the codex.
 

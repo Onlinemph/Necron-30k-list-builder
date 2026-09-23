@@ -281,3 +281,85 @@ test('conditional effects are reminders, not stat changes', () => {
   assert.ok(r.reminders.length > 0);
   E.setSequelae([]);
 });
+
+// ---------- core force organisation ----------
+function crusade() {
+  const slots = [];
+  for (const d of data.forceorg.primary.slots) for (let i = 0; i < d.count; i++) slots.push({ role: d.role, prime: i < d.prime });
+  return { pointsLimit: 3000, sequelae: [], detachments: [E.makeDetachment('primary', 'Crusade', slots)] };
+}
+const fill = (det, role, id, nth = 0) => { const s = det.slots.filter((x) => x.role === role)[nth]; s.unit = sel(id); return s; };
+
+test('Crusade chart is 1 HC, 3 Command, 4 Troops, 4 Transport', () => {
+  const a = crusade();
+  const count = (r) => a.detachments[0].slots.filter((s) => s.role === r).length;
+  assert.deepEqual([count('High Command'), count('Command'), count('Troops'), count('Transport')], [1, 3, 4, 4]);
+  assert.equal(a.detachments[0].slots.filter((s) => s.prime).length, 2);
+});
+
+test('Auxiliary Detachments: one per filled Command slot', () => {
+  const a = crusade();
+  a.detachments.push(E.detachmentFromDef('core-first-strike'));
+  assert.ok(E.armyIssues(a).some((i) => /Auxiliary Detachment/.test(i.msg)));
+  fill(a.detachments[0], 'Command', 'necron-lord');
+  assert.ok(!E.armyIssues(a).some((i) => /Auxiliary Detachment/.test(i.msg)));
+  a.detachments.push(E.detachmentFromDef('core-shock-assault'));
+  assert.ok(E.armyIssues(a).some((i) => /2 Auxiliary Detachments, but only 1/.test(i.msg)));
+});
+
+test('Apex Detachment needs the High Command slot', () => {
+  const a = crusade();
+  a.detachments.push(E.detachmentFromDef('core-officer-cadre'));
+  assert.ok(E.armyIssues(a).some((i) => /Apex Detachment needs/.test(i.msg)));
+  fill(a.detachments[0], 'High Command', 'necron-overlord');
+  assert.ok(!E.armyIssues(a).some((i) => /Apex/.test(i.msg)));
+});
+
+test('Warlord Detachment needs 3,000 points', () => {
+  const a = crusade();
+  a.pointsLimit = 2000;
+  a.detachments.push(E.detachmentFromDef('core-warlord'));
+  assert.ok(E.armyIssues(a).some((i) => /3,000/.test(i.msg)));
+});
+
+test('Special Assignment puts a High Command unit in the Prime Command slot', () => {
+  const a = crusade();
+  const slot = a.detachments[0].slots.find((s) => s.role === 'Command' && s.prime);
+  assert.ok(E.unitsForSlot(slot, a.detachments[0]).some((u) => u.id === 'necron-overlord'));
+  slot.unit = sel('necron-overlord');
+  assert.ok(E.armyIssues(a).some((i) => /Special Assignment/.test(i.msg)));
+  assert.ok(E.primeAdvantagesFor(slot.unit, a, slot).some((p) => p.name === 'Special Assignment'));
+  slot.unit.primeAdvantage = 'Special Assignment';
+  assert.ok(!E.armyIssues(a).some((i) => /Special Assignment|Command slot/.test(i.msg)));
+});
+
+test('Logistical Benefit adds a slot of the chosen role', () => {
+  const a = crusade();
+  const det = a.detachments[0];
+  const s = fill(det, 'Troops', 'necron-warriors');
+  s.unit.primeAdvantage = 'Logistical Benefit';
+  s.unit.logisticalRole = 'Recon';
+  E.syncAdvisorSlots(det);
+  const extra = det.slots.filter((x) => x.logisticOf);
+  assert.equal(extra.length, 1);
+  assert.equal(extra[0].role, 'Recon');
+  s.unit.logisticalRole = 'Armour';
+  E.syncAdvisorSlots(det);
+  assert.deepEqual(det.slots.filter((x) => x.logisticOf).map((x) => x.role), ['Armour']);
+});
+
+test('Master Sergeant boosts one model; Combat Veterans the whole unit', () => {
+  const s = sel('necron-warriors');
+  s.primeAdvantage = 'Master Sergeant';
+  const rows = E.effectiveModels(s);
+  assert.equal(rows.length, 2);
+  assert.equal(rows[0].count, 1);
+  assert.equal(rows[0].profile.A, rows[0].baseProfile.A + 1);
+  assert.match(rows[0].unitType, /Champion/);
+  assert.equal(rows[1].count, 9);
+  assert.equal(rows[1].profile.A, rows[1].baseProfile.A);
+  s.primeAdvantage = 'Combat Veterans';
+  const r = E.effectiveModels(s);
+  assert.equal(r.length, 1);
+  assert.equal(r[0].profile.WP, r[0].baseProfile.WP + 1);
+});

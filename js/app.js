@@ -6,7 +6,7 @@
   const E = window.NecronEngine.createEngine(DATA);
   const STORE_CUR = 'necron30k.current';
   const STORE_SAVED = 'necron30k.saved';
-  const STORE_FOC = 'necron30k.primarySlots';
+  const STORE_FOC = 'necron30k.primarySlots.v2'; // v1 held the pre-rulebook guess
 
   const $ = (sel, el) => (el || document).querySelector(sel);
   const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -71,7 +71,7 @@
   }
   function newArmy() {
     const primary = E.makeDetachment('primary', (DATA.forceorg && DATA.forceorg.primary.name) || 'Crusade Primary Detachment', expandSlots(defaultPrimarySlots()));
-    return { version: 1, name: '', pointsLimit: 3000, sequelae: [], detachments: [primary] };
+    return { version: 2, name: '', pointsLimit: 3000, sequelae: [], detachments: [primary] };
   }
 
   let army = fromHash() || loadCurrent() || newArmy();
@@ -102,7 +102,22 @@
       }
     }
     a.sequelae = a.sequelae || [];
+    if ((a.version || 1) < 2) migrateV1(a);
     return a;
+  }
+
+  /** v1 lists used a guessed primary layout; move them onto the real Crusade chart. */
+  function migrateV1(a) {
+    a.version = 2;
+    const primary = a.detachments.find((d) => d.kind === 'primary');
+    if (!primary) return;
+    const orphans = rebuildSlots(primary, expandSlots(DATA.forceorg.primary.slots));
+    if (orphans.length) a.detachments.push(orphanDetachment(orphans));
+  }
+  function orphanDetachment(orphans) {
+    const d = E.makeDetachment('custom', 'Unplaced units', orphans.map((s) => ({ role: s.role, prime: s.prime })));
+    d.slots.forEach((slot, i) => { slot.unit = orphans[i].unit; });
+    return d;
   }
 
   function save() { store.set(STORE_CUR, army); }
@@ -206,7 +221,7 @@
   function slotRow(det, s) {
     const u = s.unit ? E.unit(s.unit.unitId) : null;
     const bad = s.unit && E.unitIssues(s.unit).some((i) => i.level === 'error');
-    const label = s.advisor ? 'Advisor' : s.flexible ? 'Flexible' : s.role;
+    const label = s.advisor ? 'Advisor' : s.flexible ? 'Flexible' : s.logisticOf ? `${s.role} (Logistical)` : s.role;
     const el = h(`<li class="slot ${active === s.uid ? 'active' : ''}">
       <span class="role">${s.prime ? '<span class="prime" title="Prime slot">★</span>' : ''}${s.flexible ? '<span class="flex">◇</span>' : ''}${esc(label)}</span>
       <span class="name ${u ? '' : 'empty'}">${u ? esc(u.name) + (bad ? ' <span class="bad" title="Has problems">⚠</span>' : '') + (s.unit.primeAdvantage ? ` <small>· ${esc(s.unit.primeAdvantage)}</small>` : '') : '+ add unit'}</span>
@@ -221,18 +236,22 @@
   function addDetachmentMenu() {
     const sel = $('#add-det');
     sel.replaceChildren(h('<option value="">Choose…</option>'));
-    const groups = { Auxiliary: [], Apex: [] };
-    for (const d of DATA.detachments || []) (groups[d.type] || (groups[d.type] = [])).push(d);
-    for (const [g, list] of Object.entries(groups)) {
+    const order = [
+      ['Auxiliary', 'core', 'Auxiliary (core rules)'], ['Auxiliary', 'codex', 'Auxiliary (Necron)'],
+      ['Apex', 'core', 'Apex (core rules)'], ['Apex', 'codex', 'Apex (Necron, via Aeonic Sequelae)'],
+      ['Warlord', 'core', 'Warlord'], ['Lord of War', 'core', 'Lord of War'],
+    ];
+    for (const [type, src, label] of order) {
+      const list = (DATA.detachments || []).filter((d) => d.type === type && (d.source === 'core') === (src === 'core'));
       if (!list.length) continue;
       const og = document.createElement('optgroup');
-      og.label = g + ' Detachments';
+      og.label = label;
       for (const d of list) og.append(new Option(d.name + (d.unlockedBy && d.unlockedBy.sequela ? ` (${d.unlockedBy.sequela})` : ''), d.id));
       sel.append(og);
     }
     const og = document.createElement('optgroup');
     og.label = 'Other';
-    og.append(new Option('Custom / core rulebook detachment…', '__custom'));
+    og.append(new Option('Custom detachment…', '__custom'));
     sel.append(og);
   }
 
@@ -268,48 +287,58 @@
   function editPrimarySlots(det) {
     const current = {};
     for (const s of det.slots) {
-      if (s.advisor) continue;
+      if (s.advisor || s.logisticOf) continue;
       current[s.role] = current[s.role] || { count: 0, prime: 0 };
       current[s.role].count++;
       if (s.prime) current[s.role].prime++;
     }
     const body = h(`<div><h2>Primary Detachment slots</h2>
-      <p class="muted">The Crusade Force Organisation Chart is in the Horus Heresy 3rd edition rulebook, not the Necron codex. Set the slot counts to match your copy; they're remembered for new lists.</p>
+      <p class="muted">The Crusade chart is 1 High Command, 3 Command (1 Prime), 4 Troops (1 Prime) and 4 Transport. Only change it if another rule adds or converts slots. Dynastic Advisors and Logistical Benefit slots are added automatically.</p>
       <div class="table-wrap"><table class="stats"><thead><tr><th>Role</th><th>Slots</th><th>of which Prime</th></tr></thead><tbody></tbody></table></div></div>`);
     const tb = $('tbody', body);
     for (const role of E.ROLES) {
       const c = current[role] || { count: 0, prime: 0 };
       tb.append(h(`<tr><td>${esc(role)}</td><td><input type="number" min="0" max="12" data-role="${esc(role)}" data-k="count" value="${c.count}"></td><td><input type="number" min="0" max="12" data-role="${esc(role)}" data-k="prime" value="${c.prime}"></td></tr>`));
     }
-    openDialog(body, [['Apply', () => {
-      const defs = [];
-      for (const role of E.ROLES) {
-        const count = +$(`input[data-role="${role}"][data-k=count]`, body).value || 0;
-        const prime = Math.min(count, +$(`input[data-role="${role}"][data-k=prime]`, body).value || 0);
-        if (count) defs.push({ role, count, prime });
-      }
+    const apply = (defs) => {
       store.set(STORE_FOC, defs);
-      rebuildSlots(det, expandSlots(defs));
+      placeOrphans(rebuildSlots(det, expandSlots(defs)));
       refresh();
-    }]]);
+    };
+    openDialog(body, [
+      ['Reset to Crusade chart', () => { try { localStorage.removeItem(STORE_FOC); } catch (e) { /* ignore */ } placeOrphans(rebuildSlots(det, expandSlots(DATA.forceorg.primary.slots))); refresh(); }],
+      ['Apply', () => {
+        const defs = [];
+        for (const role of E.ROLES) {
+          const count = +$(`input[data-role="${role}"][data-k=count]`, body).value || 0;
+          const prime = Math.min(count, +$(`input[data-role="${role}"][data-k=prime]`, body).value || 0);
+          if (count) defs.push({ role, count, prime });
+        }
+        apply(defs);
+      }],
+    ]);
   }
 
-  /** Replace a detachment's slots, keeping units in slots of the same role where possible. */
+  /** Replace a detachment's slots, keeping units in slots of the same role where possible. Returns units that no longer fit. */
   function rebuildSlots(det, defs) {
-    const filled = det.slots.filter((s) => s.unit && !s.advisor);
-    const advisors = det.slots.filter((s) => s.advisor);
+    const extra = det.slots.filter((s) => s.advisor || s.logisticOf);
+    const filled = det.slots.filter((s) => s.unit && !s.advisor && !s.logisticOf);
     const fresh = E.makeDetachment(det.kind, det.name, defs).slots;
     const orphans = [];
     for (const s of filled) {
       const target = fresh.find((f) => !f.unit && (f.role === s.role || f.flexible) && f.prime === s.prime) || fresh.find((f) => !f.unit && (f.role === s.role || f.flexible));
       if (target) target.unit = s.unit; else orphans.push(s);
     }
-    det.slots = fresh;
-    if (advisors.length) {
-      const idx = det.slots.map((s) => s.role).lastIndexOf('Command');
-      det.slots.splice(idx + 1, 0, ...advisors);
-    }
-    if (orphans.length) alert(`${orphans.length} unit(s) no longer had a slot and were removed: ${orphans.map((s) => E.unit(s.unit.unitId).name).join(', ')}`);
+    det.slots = fresh.concat(extra);
+    E.syncAdvisorSlots(det);
+    return orphans;
+  }
+
+  /** Units that lost their slot go to a custom detachment instead of being deleted. */
+  function placeOrphans(orphans) {
+    if (!orphans.length) return;
+    army.detachments.push(orphanDetachment(orphans));
+    alert(`${orphans.length} unit(s) didn't fit the new slots and were moved to "Unplaced units": ${orphans.map((s) => E.unit(s.unit.unitId).name).join(', ')}. Move them into a detachment with a free slot, or remove them.`);
   }
 
   function editCustomSlots(det) {
@@ -319,7 +348,7 @@
       <textarea id="cd-slots">${esc(det.slots.filter((s) => !s.advisor).map((s) => (s.prime ? '*' : '') + (s.flexible ? 'Flexible' : s.role)).join('\n'))}</textarea></div>`);
     openDialog(body, [['Apply', () => {
       det.name = $('#cd-name', body).value || 'Custom Detachment';
-      rebuildSlots(det, parseSlotLines($('#cd-slots', body).value));
+      placeOrphans(rebuildSlots(det, parseSlotLines($('#cd-slots', body).value)));
       refresh();
     }]]);
   }
@@ -407,7 +436,7 @@
     // prime
     if (slot.prime || sel.primeAdvantage) {
       const sec = section('Prime Advantage');
-      const advs = primeAdvantages(u, det, sel);
+      const advs = primeAdvantages(u, det, sel, slot);
       const s = h(`<select><option value="">None</option>${advs.map((a) => `<option value="${esc(a.name)}" ${sel.primeAdvantage === a.name ? 'selected' : ''}>${esc(a.label)}</option>`).join('')}</select>`);
       s.addEventListener('change', () => { sel.primeAdvantage = s.value || null; E.syncAdvisorSlots(det); refresh(); });
       const row = h('<div class="row"></div>');
@@ -415,6 +444,12 @@
       const cur = advs.find((a) => a.name === sel.primeAdvantage);
       if (cur && cur.text) row.append(h(`<small class="muted">${esc(cur.text)}</small>`));
       sec.append(row);
+      if (sel.primeAdvantage === 'Logistical Benefit') {
+        const roles = E.ROLES.filter((r) => !['High Command', 'Command', 'Warlord', 'Lord of War'].includes(r));
+        const rs = h(`<label class="row">Extra slot <select><option value="">Choose a role…</option>${roles.map((r) => `<option ${sel.logisticalRole === r ? 'selected' : ''}>${esc(r)}</option>`).join('')}</select></label>`);
+        $('select', rs).addEventListener('change', (e) => { sel.logisticalRole = e.target.value || null; E.syncAdvisorSlots(det); refresh(); });
+        sec.append(rs);
+      }
       box.append(sec);
     }
 
@@ -437,8 +472,8 @@
     box.append(acts);
   }
 
-  function primeAdvantages(u, det, sel) {
-    return E.primeAdvantagesFor(sel, army).map((a) => Object.assign({}, a, { name: a.name, label: a.grantedBy ? `${a.name} (${a.grantedBy})` : a.name }));
+  function primeAdvantages(u, det, sel, slot) {
+    return E.primeAdvantagesFor(sel, army, slot).map((a) => Object.assign({}, a, { name: a.name, label: a.grantedBy ? `${a.name} (${a.grantedBy})` : a.name }));
   }
 
   function section(title) {

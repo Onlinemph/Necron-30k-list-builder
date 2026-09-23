@@ -43,6 +43,9 @@ for (const f of files) {
   if (d.baseSizes) out.baseSizes.push(...d.baseSizes);
 }
 
+// core detachments from the Horus Heresy rulebook sit alongside the codex ones
+out.detachments.push(...(out.forceorg.detachments || []));
+
 // ---------- checks ----------
 const problems = [];
 const warn = [];

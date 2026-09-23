@@ -1,24 +1,53 @@
 {
-  "note": "The Crusade Force Organisation Chart is printed in the Horus Heresy 3rd edition rulebook, not in Codex Xenologica. These defaults are a starting point; players set the real counts with 'Edit slots' in the app.",
+  "note": "Horus Heresy 3rd edition Crusade Force Organisation Chart and core detachments, from the Warhammer Community army-building summary.",
   "primary": {
     "name": "Crusade Primary Detachment",
     "slots": [
-      { "role": "High Command", "count": 1, "prime": 1 },
-      { "role": "Command", "count": 3, "prime": 0 },
-      { "role": "Retinue", "count": 2, "prime": 0 },
+      { "role": "High Command", "count": 1, "prime": 0 },
+      { "role": "Command", "count": 3, "prime": 1 },
       { "role": "Troops", "count": 4, "prime": 1 },
-      { "role": "Elites", "count": 2, "prime": 0 },
-      { "role": "Heavy Assault", "count": 1, "prime": 0 },
-      { "role": "Support", "count": 2, "prime": 0 },
-      { "role": "War Engine", "count": 1, "prime": 0 },
-      { "role": "Recon", "count": 2, "prime": 0 },
-      { "role": "Fast Attack", "count": 2, "prime": 0 },
-      { "role": "Armour", "count": 2, "prime": 0 },
-      { "role": "Transport", "count": 2, "prime": 0 },
-      { "role": "Heavy Transport", "count": 1, "prime": 0 },
-      { "role": "Warlord", "count": 1, "prime": 0 },
-      { "role": "Lord of War", "count": 1, "prime": 0 },
-      { "role": "Fortification", "count": 1, "prime": 0 }
+      { "role": "Transport", "count": 4, "prime": 0 }
     ]
-  }
+  },
+  "unlocks": {
+    "auxiliaryPerCommand": 1,
+    "apexFromHighCommand": 1,
+    "text": "For every Command slot filled in the Crusade Primary Detachment the army may include one Auxiliary Detachment. Filling its High Command slot allows one Apex Detachment."
+  },
+  "detachments": [
+    { "id": "core-armoured-fist", "name": "Armoured Fist", "type": "Auxiliary", "source": "core",
+      "slots": [ {"role":"Transport"},{"role":"Transport"},{"role":"Transport"},{"role":"Transport"},{"role":"Heavy Transport"},{"role":"Heavy Transport"},{"role":"Heavy Transport"},{"role":"Heavy Transport"} ] },
+    { "id": "core-tactical-support", "name": "Tactical Support", "type": "Auxiliary", "source": "core",
+      "slots": [ {"role":"Troops"},{"role":"Troops"},{"role":"Support"},{"role":"Support"} ] },
+    { "id": "core-armoured-support", "name": "Armoured Support", "type": "Auxiliary", "source": "core",
+      "slots": [ {"role":"Armour"},{"role":"Armour"},{"role":"Armour"},{"role":"Armour"} ] },
+    { "id": "core-heavy-support", "name": "Heavy Support", "type": "Auxiliary", "source": "core",
+      "slots": [ {"role":"War Engine"} ] },
+    { "id": "core-combat-pioneer", "name": "Combat Pioneer", "type": "Auxiliary", "source": "core",
+      "slots": [ {"role":"Recon"},{"role":"Recon"} ] },
+    { "id": "core-shock-assault", "name": "Shock Assault", "type": "Auxiliary", "source": "core",
+      "slots": [ {"role":"Heavy Assault"},{"role":"Heavy Assault"} ] },
+    { "id": "core-first-strike", "name": "First Strike", "type": "Auxiliary", "source": "core",
+      "slots": [ {"role":"Fast Attack"},{"role":"Fast Attack"} ] },
+    { "id": "core-combat-retinue", "name": "Combat Retinue", "type": "Apex", "source": "core",
+      "slots": [ {"role":"Retinue","prime":true},{"role":"Retinue"},{"role":"Retinue"} ] },
+    { "id": "core-officer-cadre", "name": "Officer Cadre", "type": "Apex", "source": "core",
+      "slots": [ {"role":"Command","prime":true},{"role":"Command"} ] },
+    { "id": "core-army-vanguard", "name": "Army Vanguard", "type": "Apex", "source": "core",
+      "slots": [ {"role":"Elites","prime":true},{"role":"Elites"},{"role":"Elites"} ] },
+    { "id": "core-warlord", "name": "Warlord Detachment", "type": "Warlord", "source": "core",
+      "restrictions": ["Must be the same faction as the Primary Detachment.", "May only be selected in a 3,000 point or larger army."],
+      "minPoints": 3000,
+      "slots": [ {"role":"Warlord"},{"role":"Retinue"},{"role":"Heavy Transport"} ] },
+    { "id": "core-lord-of-war", "name": "Lord of War Detachment", "type": "Lord of War", "source": "core",
+      "restrictions": ["The total points value of this Detachment may not exceed 25% of the army total."],
+      "slots": [ {"role":"Lord of War"},{"role":"Lord of War"} ] }
+  ],
+  "primeAdvantages": [
+    { "name": "Master Sergeant", "text": "One model in the unit gains +1 Attacks, +1 Weapon Skill and +1 Leadership, and the Champion sub-type.", "summary": true },
+    { "name": "Combat Veterans", "text": "Models in the unit gain +1 Leadership, Intelligence, Cool and Willpower.", "summary": true },
+    { "name": "Paragon of Battle", "text": "The model gains +1 Attacks, +1 Weapon Skill and +1 Ballistic Skill.", "summary": true },
+    { "name": "Special Assignment", "text": "A Prime Command slot becomes a High Command slot.", "summary": true, "roles": ["Command"] },
+    { "name": "Logistical Benefit", "text": "Add one slot to the Detachment, of any Battlefield Role other than High Command, Command, Warlord or Lord of War.", "summary": true }
+  ]
 }

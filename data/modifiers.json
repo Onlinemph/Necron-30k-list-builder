@@ -1669,6 +1669,77 @@
       "addTraits": [],
       "addUnitTypes": [],
       "condition": "rolled at the start of the battle"
+    },
+    {
+      "appliesTo": {},
+      "addRules": [],
+      "removeRules": [],
+      "modifyRules": [],
+      "addTraits": [],
+      "addUnitTypes": [
+        "Champion"
+      ],
+      "condition": null,
+      "page": null,
+      "id": "core-master-sergeant",
+      "text": "Master Sergeant: +1 A, WS, Ld. Champion.",
+      "source": {
+        "type": "primeAdvantage",
+        "name": "Master Sergeant"
+      },
+      "scope": "unit",
+      "oneModel": true,
+      "stats": {
+        "A": "+1",
+        "WS": "+1",
+        "LD": "+1"
+      }
+    },
+    {
+      "appliesTo": {},
+      "addRules": [],
+      "removeRules": [],
+      "modifyRules": [],
+      "addTraits": [],
+      "addUnitTypes": [],
+      "condition": null,
+      "page": null,
+      "id": "core-combat-veterans",
+      "text": "Combat Veterans: +1 Ld, Int, Cl, Wp.",
+      "source": {
+        "type": "primeAdvantage",
+        "name": "Combat Veterans"
+      },
+      "scope": "unit",
+      "stats": {
+        "LD": "+1",
+        "IN": "+1",
+        "CL": "+1",
+        "WP": "+1"
+      }
+    },
+    {
+      "appliesTo": {},
+      "addRules": [],
+      "removeRules": [],
+      "modifyRules": [],
+      "addTraits": [],
+      "addUnitTypes": [],
+      "condition": null,
+      "page": null,
+      "id": "core-paragon-of-battle",
+      "text": "Paragon of Battle: +1 A, WS, BS.",
+      "source": {
+        "type": "primeAdvantage",
+        "name": "Paragon of Battle"
+      },
+      "scope": "unit",
+      "oneModel": true,
+      "stats": {
+        "A": "+1",
+        "WS": "+1",
+        "BS": "+1"
+      }
     }
   ]
 }
