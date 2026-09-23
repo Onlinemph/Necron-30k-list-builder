@@ -526,7 +526,7 @@
     const val = sel.options[o.id];
     const el = h(`<div class="opt"><div class="txt">${esc(o.text)}</div><div class="choices"></div></div>`);
     const list = $('.choices', el);
-    const cost = (p) => (p ? `+${p}` : 'free');
+    const cost = (p, c) => (c && c.pointsUnknown ? '+? (not printed)' : p ? `+${p}` : 'free');
     const name = `o-${sel.uid}-${o.id}`;
     const blocked = (o.excludes || []).some((id) => isTaken(sel.options[id]));
     const locked = (o.requires && !E.requirementMet(o, sel)) || (blocked && !isTaken(sel.options[o.id]));
@@ -538,7 +538,7 @@
       case 'one': {
         const keep = o.replaces && o.replaces.length ? 'Keep ' + o.replaces.join(' & ') : 'None';
         list.append(radio(name, '', !val, keep, ''));
-        for (const c of choices) list.append(radio(name, c.name, val === c.name, c.name, cost(c.points)));
+        for (const c of choices) list.append(radio(name, c.name, val === c.name, c.name, cost(c.points, c)));
         if (locked) list.querySelectorAll('input').forEach((i) => { i.disabled = true; });
         list.addEventListener('change', (e) => { sel.options[o.id] = e.target.value || null; refresh(); });
         break;

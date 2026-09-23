@@ -1,0 +1,9 @@
+{
+  "faq": [
+    {
+      "q": "Pain Engine Special Rule: If a Unit that includes models with the Pain Engine Special Rule has a Tactical Status, does it suffer the generic penalties for having a Tactical Status?",
+      "a": "No. The Unit is unaffected by all effects of Tactical Status, including both the generic penalties for having a Tactical Status and the effects of the specific Tactical Status. The reason the Unit can gain Tactical Status at all is only to support itself and other Units with the Power from Pain special rule."
+    }
+  ],
+  "note": "Page 107 (between Drazhar and the FAQ) is a version changelog (Drukhari 3.0 V1.1-V1.12), not FAQ content, and is not transcribed here."
+}

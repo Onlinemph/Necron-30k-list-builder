@@ -1,0 +1,139 @@
+{
+  "ranged": [
+    {
+      "name": "Obsidian Orbs",
+      "page": 102,
+      "R": 9,
+      "FP": 1,
+      "RS": 10,
+      "AP": 2,
+      "D": 1,
+      "specialRules": ["Blast (3)", "Drain (1)", "Scourge (Willpower)"],
+      "traits": ["Arcane"],
+      "modes": null
+    }
+  ],
+  "melee": [
+    {
+      "name": "Ichor Gauntlet",
+      "page": 95,
+      "IM": "I",
+      "AM": "A",
+      "SM": "S",
+      "AP": 4,
+      "D": 3,
+      "specialRules": ["Poisoned (2+)"],
+      "traits": ["Venom"],
+      "modes": null,
+      "note": "Printed under a table header reading 'Ranged' on page 95, but its columns (IM/AM/SM/AP/D) are the Melee profile columns; transcribed here as a Melee weapon, consistent with how the same source typo is handled in the Necron data (see weapons-d.json note on 'The Storm Cometh')."
+    },
+    {
+      "name": "Khaideshi Haemovores",
+      "page": 95,
+      "IM": "+2",
+      "AM": 3,
+      "SM": 5,
+      "AP": "–",
+      "D": 1,
+      "specialRules": ["Ancillary", "Drain (1)"],
+      "traits": [],
+      "modes": null,
+      "note": "Printed under a table header reading 'Ranged' on page 95, but its columns (IM/AM/SM/AP/D) are the Melee profile columns; transcribed here as a Melee weapon. Wargear bullet on page 95 spells this 'Khaïdesi Haemovores'; the weapon table heading spells it 'Khaideshi Haemovores' (used here as the weapon name, matching the table)."
+    },
+    {
+      "name": "Decapitator",
+      "page": 97,
+      "IM": "I",
+      "AM": "A",
+      "SM": "S",
+      "AP": 3,
+      "D": 1,
+      "specialRules": ["Breaching (5+)", "Critical Hits (5+)"],
+      "traits": [],
+      "modes": null,
+      "note": "Printed under a table header reading 'Ranged' on page 97, but its columns (IM/AM/SM/AP/D) are the Melee profile columns; transcribed here as a Melee weapon."
+    },
+    {
+      "name": "The Serpent's Bite",
+      "page": 100,
+      "IM": "I",
+      "AM": "+2",
+      "SM": "S",
+      "AP": 5,
+      "D": 1,
+      "specialRules": ["Breaching (5+)", "Poisoned (2+)"],
+      "traits": ["Venom"],
+      "modes": null
+    },
+    {
+      "name": "The Lady's Blade",
+      "page": 101,
+      "IM": "I",
+      "AM": "+2",
+      "SM": "+2",
+      "AP": 2,
+      "D": 1,
+      "specialRules": ["Critical Hits (5+)", "Overload (2)"],
+      "traits": [],
+      "modes": null
+    },
+    {
+      "name": "Steel Fan",
+      "page": 101,
+      "IM": "I",
+      "AM": 1,
+      "SM": "S",
+      "AP": "–",
+      "D": 1,
+      "specialRules": ["Ancillary (1)", "Breaching (6+)"],
+      "traits": [],
+      "modes": null
+    },
+    {
+      "name": "Sceptre of the Dark City",
+      "page": 102,
+      "IM": "I",
+      "AM": "A",
+      "SM": "S",
+      "AP": 2,
+      "D": 1,
+      "specialRules": ["Poisoned (2+)"],
+      "traits": ["Power", "Venom"],
+      "modes": null
+    },
+    {
+      "name": "The Executioner's Demiklaives",
+      "page": 105,
+      "IM": null,
+      "AM": null,
+      "SM": null,
+      "AP": null,
+      "D": null,
+      "specialRules": [],
+      "traits": ["Power"],
+      "modes": [
+        {
+          "name": "Mantis Stance",
+          "IM": "I",
+          "AM": "A",
+          "SM": "+2",
+          "AP": 2,
+          "D": 1,
+          "specialRules": ["Critical Hits (4+)", "Duellist's Edge (1)"],
+          "traits": []
+        },
+        {
+          "name": "Scorpion Stance",
+          "IM": "I",
+          "AM": "+2",
+          "SM": "+1",
+          "AP": 2,
+          "D": 1,
+          "specialRules": ["Critical Hits (6+)"],
+          "traits": []
+        }
+      ],
+      "note": "The weapon's base row on page 105 prints only the weapon name and its Power trait, with no IM/AM/SM/AP/D values of its own; Drazhar must always attack using one of the two named Stances, transcribed here as modes."
+    }
+  ]
+}

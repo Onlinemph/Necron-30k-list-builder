@@ -1,0 +1,958 @@
+{
+  "units": [
+    {
+      "id": "kabal-archon",
+      "name": "Kabal Archon",
+      "role": "High Command",
+      "page": 8,
+      "limit": null,
+      "unique": false,
+      "basePoints": 80,
+      "composition": "1 Archon",
+      "models": [
+        {
+          "name": "Archon",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": { "M": 7, "WS": 7, "BS": 7, "S": 3, "T": 3, "W": 4, "I": 7, "A": 4, "LD": 9, "CL": 9, "WP": 7, "IN": 8, "SAV": "4+", "INV": "6+" },
+          "wargear": ["Splinter Pistol", "Plasma Grenades"],
+          "unitType": "Infantry (Command, Light)",
+          "specialRules": ["Fast (1)", "Power From Pain", "Take Captives"]
+        },
+        {
+          "name": "Grafted Archon",
+          "min": 0,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": { "M": 14, "WS": 7, "BS": 7, "S": 3, "T": 3, "W": 4, "I": 7, "A": 4, "LD": 9, "CL": 9, "WP": 7, "IN": 8, "SAV": "4+", "INV": "6+" },
+          "wargear": ["Splinter Pistol", "Plasma Grenades"],
+          "unitType": "Infantry (Antigrav, Command, Light)",
+          "specialRules": ["Bulky (2)", "Deep Strike", "Fast (2)", "Power From Pain", "Take Captives"]
+        }
+      ],
+      "traits": ["Xenos", "Drukhari", "Rulers of the Dark City"],
+      "specialRules": [],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "fixedChoice": "Kabals",
+      "options": [
+        {
+          "id": "wargear-primary",
+          "text": "May have an Item from the Gang Leader Wargear List or the Exotic Weapons List selected for it.",
+          "kind": "one",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            { "list": "gang-leader-wargear" },
+            { "list": "drukhari-exotic-weapons" }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "pistol-swap",
+          "text": "May have its Splinter Pistol exchanged for an Item from the Drukhari Pistols List or Drukhari Special Weapons List.",
+          "kind": "one",
+          "model": null,
+          "replaces": ["Splinter Pistol"],
+          "choices": [
+            { "list": "drukhari-pistols" },
+            { "list": "drukhari-special-weapons" }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "field",
+          "text": "May have one of the following selected for it: Clone Field +20 points, Shadow Field +35 points.",
+          "kind": "one",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            { "name": "Clone Field", "points": 20 },
+            { "name": "Shadow Field", "points": 35 }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "familiar-grenade",
+          "text": "May have one of the following selected for it: Razorwing Familiar +10 points, Terror Grenade +10 points.",
+          "kind": "one",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            { "name": "Razorwing Familiar", "points": 10 },
+            { "name": "Terror Grenade", "points": 10 }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "any-of",
+          "text": "May have any of the following selected for it: Soul-Trap +5 points, Vexator Mask +5 points, Webway Portal +30 points.",
+          "kind": "any",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            { "name": "Soul-Trap", "points": 5 },
+            { "name": "Vexator Mask", "points": 5 },
+            { "name": "Webway Portal", "points": 30 }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "phantasm",
+          "text": "May have a Phantasm Grenade Launcher selected for it for +20 points. An Archon with a Phantasm Grenade Launcher may not be upgraded to a Grafted Archon.",
+          "kind": "upgrade",
+          "model": "Archon",
+          "replaces": [],
+          "choices": [{ "name": "Phantasm Grenade Launcher", "points": 20 }],
+          "max": null,
+          "requires": null,
+          "excludes": ["grafted-swap"]
+        },
+        {
+          "id": "grafted-swap",
+          "text": "May be upgraded to a Grafted Archon for +20 points.",
+          "kind": "swapModel",
+          "model": "Archon",
+          "replaces": [],
+          "choices": [{ "name": "Grafted Archon", "points": 20 }],
+          "max": { "fixed": 1 },
+          "requires": null,
+          "excludes": ["phantasm"]
+        },
+        {
+          "id": "combat-drugs",
+          "text": "May be upgraded to have the [Combat Drugs] trait for +15 points.",
+          "kind": "upgrade",
+          "model": null,
+          "replaces": [],
+          "choices": [{ "name": "[Combat Drugs]", "points": 15 }],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "The Grafted Archon profile's own Traits list additionally includes 'Jink' (only printed for that profile, not the base Archon)."
+    },
+    {
+      "id": "cult-succubus",
+      "name": "Cult Succubus",
+      "role": "High Command",
+      "page": 9,
+      "limit": null,
+      "unique": false,
+      "basePoints": 120,
+      "composition": "1 Succubus",
+      "models": [
+        {
+          "name": "Syren",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": { "M": 8, "WS": 8, "BS": 6, "S": 3, "T": 3, "W": 4, "I": 8, "A": 4, "LD": 9, "CL": 9, "WP": 7, "IN": 8, "SAV": "6+", "INV": "4+" },
+          "wargear": ["Mono-Knife", "Splinter Pistol", "Plasma Grenades"],
+          "unitType": "Infantry (Command, Light)",
+          "specialRules": ["Fast (1)", "Power From Pain", "Take Captives"]
+        }
+      ],
+      "traits": ["Xenos", "Drukhari", "Rulers of the Dark City"],
+      "specialRules": [],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "fixedChoice": "Cults",
+      "combatDrugs": true,
+      "options": [
+        {
+          "id": "melee-swap",
+          "text": "May have its Mono-Knife exchanged for one of the following options: A Mono-Blade or a Mono-Flail for +2 points; A Melee Weapon selected from the Gang Leader Wargear List; An Archite Glaive for +15 points.",
+          "kind": "one",
+          "model": null,
+          "replaces": ["Mono-Knife"],
+          "choices": [
+            { "name": "Mono-Blade", "points": 2 },
+            { "name": "Mono-Flail", "points": 2 },
+            { "list": "gang-leader-wargear" },
+            { "name": "Archite Glaive", "points": 15 }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "pistol-swap",
+          "text": "May have its Splinter Pistol exchanged for an Item from the Drukhari Pistols List.",
+          "kind": "one",
+          "model": null,
+          "replaces": ["Splinter Pistol"],
+          "choices": [{ "list": "drukhari-pistols" }],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "gladiatorial-swap",
+          "text": "May have its Mono-Knife and Splinter Pistol exchanged for one Item from the Gladiatorial Weapons List.",
+          "kind": "one",
+          "model": null,
+          "replaces": ["Mono-Knife", "Splinter Pistol"],
+          "choices": [{ "list": "gladiatorial-weapons" }],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "any-of",
+          "text": "May have any of the following selected for it: Haywire Grenades +2 points, Phantasm Grenade Launcher +20 points, Vexator Mask +5 points, Webay Portal +30 points.",
+          "kind": "any",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            { "name": "Haywire Grenades", "points": 2 },
+            { "name": "Phantasm Grenade Launcher", "points": 20 },
+            { "name": "Vexator Mask", "points": 5 },
+            { "name": "Webay Portal", "points": 30 }
+          ],
+          "max": null,
+          "requires": null,
+          "note": "Printed as 'Webay Portal' (typo for 'Webway Portal', which is spelled correctly on the Kabal Archon/Dracon pages); kept verbatim."
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "cult-succubus-skyboard",
+      "name": "Cult Succubus on Hellion Skyboard",
+      "role": "High Command",
+      "page": 10,
+      "limit": null,
+      "unique": false,
+      "basePoints": 140,
+      "composition": "1 Skyboard Succubus",
+      "models": [
+        {
+          "name": "Skyboard Succubus",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": { "M": 16, "WS": 8, "BS": 6, "S": 3, "T": 3, "W": 4, "I": 8, "A": 4, "LD": 9, "CL": 9, "WP": 7, "IN": 8, "SAV": "6+", "INV": "4+" },
+          "wargear": ["Mono-Knife", "Splinter Pistol", "Splinter Pod", "Plasma Grenades"],
+          "unitType": "Cavalry (Antigrav, Command, Light, Skirmish)",
+          "specialRules": ["Bulky (2)", "Deep Strike", "Fast (1)", "Firing Protocols (2)", "Firestorm", "Outflank", "Power From Pain", "Take Heads"]
+        }
+      ],
+      "traits": ["Xenos", "Drukhari", "Jink", "Rulers of the Dark City"],
+      "specialRules": [],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "fixedChoice": "Cults",
+      "combatDrugs": true,
+      "options": [
+        {
+          "id": "melee-swap",
+          "text": "May have its Mono-Knife exchanged for one of the following options: A Mono-Blade or a Mono-Flail for +2 points; A Melee Weapon selected from the Gang Leader Wargear List; An Archite Glaive for +15 points.",
+          "kind": "one",
+          "model": null,
+          "replaces": ["Mono-Knife"],
+          "choices": [
+            { "name": "Mono-Blade", "points": 2 },
+            { "name": "Mono-Flail", "points": 2 },
+            { "list": "gang-leader-wargear" },
+            { "name": "Archite Glaive", "points": 15 }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "pistol-swap",
+          "text": "May have its Splinter Pistol exchanged for an Item from the Drukhari Pistols List.",
+          "kind": "one",
+          "model": null,
+          "replaces": ["Splinter Pistol"],
+          "choices": [{ "list": "drukhari-pistols" }],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "gladiatorial-or-hellglaive",
+          "text": "May have its Mono-Knife and Splinter Pistol exchanged for one of the following options: An Item from the Gladiatorial Weapons List; A Hellglaive for free.",
+          "kind": "one",
+          "model": null,
+          "replaces": ["Mono-Knife", "Splinter Pistol"],
+          "choices": [
+            { "list": "gladiatorial-weapons" },
+            { "name": "Hellglaive", "points": 0 }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "any-of",
+          "text": "May have any of the following selected for it: Haywire Grenades +2 points, Phantasm Grenade Launcher +20 points, Vexator Mask +5 points, Webay Portal +30 points.",
+          "kind": "any",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            { "name": "Haywire Grenades", "points": 2 },
+            { "name": "Phantasm Grenade Launcher", "points": 20 },
+            { "name": "Vexator Mask", "points": 5 },
+            { "name": "Webay Portal", "points": 30 }
+          ],
+          "max": null,
+          "requires": null,
+          "note": "Printed as 'Webay Portal' (typo for 'Webway Portal'); kept verbatim."
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "cult-succubus-jetbike",
+      "name": "Cult Succubus on Reaver Jetbike",
+      "role": "High Command",
+      "page": 11,
+      "limit": null,
+      "unique": false,
+      "basePoints": 150,
+      "composition": "1 Reaver Succubbus",
+      "models": [
+        {
+          "name": "Reaver Syren",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": { "M": 18, "WS": 8, "BS": 6, "S": 3, "T": 3, "W": 4, "I": 8, "A": 4, "LD": 9, "CL": 9, "WP": 7, "IN": 8, "SAV": "6+", "INV": "4+" },
+          "wargear": ["Mono-Knife", "Splinter Pistol", "Splinter Rifle", "Plasma Grenades", "Bladevanes (2)"],
+          "unitType": "Cavalry (Antigrav, Command, Light)",
+          "specialRules": ["Bulky (2)", "Dodge (4+)", "Deep Strike", "Fast (1)", "Firing Protocols (2)", "Implacable Advance", "Outflank", "Power From Pain", "Take Heads", "Shrouded (5+)"]
+        }
+      ],
+      "traits": ["Xenos", "Drukhari", "Jink", "Rulers of the Dark City"],
+      "specialRules": [],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "fixedChoice": "Cults",
+      "combatDrugs": true,
+      "options": [
+        {
+          "id": "melee-swap",
+          "text": "May have its Mono-Knife exchanged for one of the following options: A Mono-Blade or a Mono-Flail for +2 points; A Melee Weapon selected from the Gang Leader Wargear List; An Archite Glaive for +15 points.",
+          "kind": "one",
+          "model": null,
+          "replaces": ["Mono-Knife"],
+          "choices": [
+            { "name": "Mono-Blade", "points": 2 },
+            { "name": "Mono-Flail", "points": 2 },
+            { "list": "gang-leader-wargear" },
+            { "name": "Archite Glaive", "points": 15 }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "pistol-swap",
+          "text": "May have its Splinter Pistol exchanged for an Item from the Drukhari Pistols List.",
+          "kind": "one",
+          "model": null,
+          "replaces": ["Splinter Pistol"],
+          "choices": [{ "list": "drukhari-pistols" }],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "any-of",
+          "text": "May have any of the following selected for it: Haywire Grenades +2 points, Phantasm Grenade Launcher +20 points, Vexator Mask +5 points, Webay Portal +30 points.",
+          "kind": "any",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            { "name": "Haywire Grenades", "points": 2 },
+            { "name": "Phantasm Grenade Launcher", "points": 20 },
+            { "name": "Vexator Mask", "points": 5 },
+            { "name": "Webay Portal", "points": 30 }
+          ],
+          "max": null,
+          "requires": null,
+          "note": "Printed as 'Webay Portal' (typo for 'Webway Portal'); kept verbatim."
+        },
+        {
+          "id": "rifle-swap",
+          "text": "May have its Splinter Rifle exchanged for one of the following: Blaster +15 points, Heat Lance +15 points.",
+          "kind": "one",
+          "model": null,
+          "replaces": ["Splinter Rifle"],
+          "choices": [
+            { "name": "Blaster", "points": 15 },
+            { "name": "Heat Lance", "points": 15 }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "Source composition text reads '1 Reaver Succubbus' (typo for 'Succubus'); kept verbatim."
+    },
+    {
+      "id": "coven-haemonculus-ancient",
+      "name": "Coven Haemonculus Ancient",
+      "role": "High Command",
+      "page": 12,
+      "limit": null,
+      "unique": false,
+      "basePoints": 90,
+      "composition": "1 Haemonculus Ancient",
+      "models": [
+        {
+          "name": "Haemonculus Ancient",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": { "M": 7, "WS": 5, "BS": 5, "S": 3, "T": 5, "W": 4, "I": 5, "A": 4, "LD": 9, "CL": 9, "WP": 7, "IN": 10, "SAV": "6+", "INV": "–" },
+          "wargear": ["Haemonculus Tools", "Splinter Pistol"],
+          "unitType": "Infantry (Command)",
+          "specialRules": ["Altered Physiology", "Fleshcraft (3)", "Power From Pain", "Take Captives"]
+        }
+      ],
+      "traits": ["Xenos", "Drukhari", "Rulers of the Dark City"],
+      "specialRules": [],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "fixedChoice": "Covens",
+      "options": [
+        {
+          "id": "wargear1",
+          "text": "May have up to one Item from either the Gang Leader Wargear or Weapons of Torture List selected for it.",
+          "kind": "one",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            { "list": "gang-leader-wargear" },
+            { "list": "weapons-of-torture" }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "pistol-swap",
+          "text": "May have its Splinter Pistol exchanged for an item from the Tools of Torment List.",
+          "kind": "one",
+          "model": null,
+          "replaces": ["Splinter Pistol"],
+          "choices": [{ "list": "tools-of-torment" }],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "arcana",
+          "text": "May have up to two Items from the Haemonculus Arcana List selected for it.",
+          "kind": "any",
+          "model": null,
+          "replaces": [],
+          "choices": [{ "list": "haemonculus-arcana" }],
+          "max": { "fixed": 2 },
+          "requires": null
+        },
+        {
+          "id": "any-of",
+          "text": "May have any of the following selected for it: Clone Field +20 points, Haemovores +10 points, Vexator Mask +5 points, Webway Portal +30 points, Soul-Trap +5 points.",
+          "kind": "any",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            { "name": "Clone Field", "points": 20 },
+            { "name": "Haemovores", "points": 10 },
+            { "name": "Vexator Mask", "points": 5 },
+            { "name": "Webway Portal", "points": 30 },
+            { "name": "Soul-Trap", "points": 5 }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "kabal-dracon",
+      "name": "Kabal Dracon",
+      "role": "Command",
+      "page": 14,
+      "limit": null,
+      "unique": false,
+      "basePoints": 40,
+      "composition": "1 Dracon",
+      "models": [
+        {
+          "name": "Dracon",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": { "M": 7, "WS": 6, "BS": 6, "S": 3, "T": 3, "W": 3, "I": 6, "A": 3, "LD": 8, "CL": 8, "WP": 6, "IN": 7, "SAV": "4+", "INV": "6+" },
+          "wargear": ["Splinter Pistol", "Plasma Grenades"],
+          "unitType": "Infantry (Command, Light)",
+          "specialRules": ["Fast (1)", "Power From Pain", "Take Captives"]
+        },
+        {
+          "name": "Grafted Dracon",
+          "min": 0,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": { "M": 14, "WS": 6, "BS": 6, "S": 3, "T": 3, "W": 3, "I": 6, "A": 3, "LD": 8, "CL": 8, "WP": 6, "IN": 7, "SAV": "4+", "INV": "6+" },
+          "wargear": ["Splinter Pistol", "Plasma Grenades"],
+          "unitType": "Infantry (Antigrav, Command, Light)",
+          "specialRules": ["Bulky (2)", "Deep Strike", "Fast (2)", "Power From Pain", "Take Captives"]
+        }
+      ],
+      "traits": ["Xenos", "Drukhari"],
+      "specialRules": [],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "fixedChoice": "Kabals",
+      "options": [
+        {
+          "id": "wargear-primary",
+          "text": "May have an Item from the Gang Leader Wargear List or the Exotic Weapons List selected for it.",
+          "kind": "one",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            { "list": "gang-leader-wargear" },
+            { "list": "drukhari-exotic-weapons" }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "pistol-swap",
+          "text": "May have its Splinter Pistol exchanged for an Item from the Drukhari Pistols List or Drukhari Special Weapons List.",
+          "kind": "one",
+          "model": null,
+          "replaces": ["Splinter Pistol"],
+          "choices": [
+            { "list": "drukhari-pistols" },
+            { "list": "drukhari-special-weapons" }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "field",
+          "text": "May have a Clone Field selected for it for +20 points.",
+          "kind": "upgrade",
+          "model": null,
+          "replaces": [],
+          "choices": [{ "name": "Clone Field", "points": 20 }],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "familiar-grenade",
+          "text": "May have one of the following selected for it: Razorwing Familiar +10 points, Terror Grenade +10 points.",
+          "kind": "one",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            { "name": "Razorwing Familiar", "points": 10 },
+            { "name": "Terror Grenade", "points": 10 }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "phantasm",
+          "text": "May have a Phantasm Grenade Launcher selected for it for +20 points. A Dracon with a Phantasm Grenade Launcher may not be upgraded to a Grafted Dracon.",
+          "kind": "upgrade",
+          "model": "Dracon",
+          "replaces": [],
+          "choices": [{ "name": "Phantasm Grenade Launcher", "points": 20 }],
+          "max": null,
+          "requires": null,
+          "excludes": ["grafted-swap"]
+        },
+        {
+          "id": "grafted-swap",
+          "text": "May be upgraded to a Grafted Dracon for +20 points.",
+          "kind": "swapModel",
+          "model": "Dracon",
+          "replaces": [],
+          "choices": [{ "name": "Grafted Dracon", "points": 20 }],
+          "max": { "fixed": 1 },
+          "requires": null,
+          "excludes": ["phantasm"]
+        }
+      ],
+      "note": "The Grafted Dracon profile's own Traits list additionally includes 'Jink' (only printed for that profile, not the base Dracon)."
+    },
+    {
+      "id": "cult-syren",
+      "name": "Cult Syren",
+      "role": "Command",
+      "page": 15,
+      "limit": null,
+      "unique": false,
+      "basePoints": 50,
+      "composition": "1 Syren",
+      "models": [
+        {
+          "name": "Syren",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": { "M": 8, "WS": 7, "BS": 5, "S": 3, "T": 3, "W": 3, "I": 7, "A": 3, "LD": 8, "CL": 8, "WP": 6, "IN": 7, "SAV": "6+", "INV": "–" },
+          "wargear": ["Mono-Knife", "Splinter Pistol", "Plasma Grenades"],
+          "unitType": "Infantry (Command, Light)",
+          "specialRules": ["Dodge (4+)", "Fast (1)", "Power From Pain", "Take Captives"]
+        }
+      ],
+      "traits": ["Xenos", "Drukhari"],
+      "specialRules": [],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "fixedChoice": "Cults",
+      "combatDrugs": true,
+      "options": [
+        {
+          "id": "melee-swap",
+          "text": "May have its Mono-Knife exchanged for one of the following options: A Mono-Blade or a Mono-Flail for +2 points; A Melee Weapon selected from the Gang Leader Wargear List; An Archite Glaive for +15 points.",
+          "kind": "one",
+          "model": null,
+          "replaces": ["Mono-Knife"],
+          "choices": [
+            { "name": "Mono-Blade", "points": 2 },
+            { "name": "Mono-Flail", "points": 2 },
+            { "list": "gang-leader-wargear" },
+            { "name": "Archite Glaive", "points": 15 }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "pistol-swap",
+          "text": "May have its Splinter Pistol exchanged for an Item from the Drukhari Pistols List.",
+          "kind": "one",
+          "model": null,
+          "replaces": ["Splinter Pistol"],
+          "choices": [{ "list": "drukhari-pistols" }],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "gladiatorial-swap",
+          "text": "May have its Mono-Knife and Splinter Pistol exchanged for one Item from the Gladiatorial Weapons List.",
+          "kind": "one",
+          "model": null,
+          "replaces": ["Mono-Knife", "Splinter Pistol"],
+          "choices": [{ "list": "gladiatorial-weapons" }],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "any-of",
+          "text": "May have any of the following selected for it: Haywire Grenades +2 points, Phantasm Grenade Launcher +20 points.",
+          "kind": "any",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            { "name": "Haywire Grenades", "points": 2 },
+            { "name": "Phantasm Grenade Launcher", "points": 20 }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "cult-syren-skyboard",
+      "name": "Cult Syren on Hellion Skyboard",
+      "role": "Command",
+      "page": 16,
+      "limit": null,
+      "unique": false,
+      "basePoints": 70,
+      "composition": "1 Skyboard Syren",
+      "models": [
+        {
+          "name": "Skyboard Syren",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": { "M": 16, "WS": 7, "BS": 5, "S": 3, "T": 3, "W": 3, "I": 7, "A": 3, "LD": 8, "CL": 8, "WP": 6, "IN": 7, "SAV": "6+", "INV": "–" },
+          "wargear": ["Mono-Knife", "Splinter Pistol", "Splinter Pod", "Plasma Grenades"],
+          "unitType": "Cavalry (Antigrav, Command, Light, Skirmish)",
+          "specialRules": ["Bulky (2)", "Dodge (4+)", "Deep Strike", "Fast (1)", "Firing Protocols (2)", "Firestorm", "Outflank", "Power From Pain", "Take Heads"]
+        }
+      ],
+      "traits": ["Xenos", "Drukhari", "Jink"],
+      "specialRules": [],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "fixedChoice": "Cults",
+      "combatDrugs": true,
+      "options": [
+        {
+          "id": "melee-swap",
+          "text": "May have its Mono-Knife exchanged for one of the following options: A Mono-Blade or a Mono-Flail for +2 points; A Melee Weapon selected from the Gang Leader Wargear List; An Archite Glaive for +15 points.",
+          "kind": "one",
+          "model": null,
+          "replaces": ["Mono-Knife"],
+          "choices": [
+            { "name": "Mono-Blade", "points": 2 },
+            { "name": "Mono-Flail", "points": 2 },
+            { "list": "gang-leader-wargear" },
+            { "name": "Archite Glaive", "points": 15 }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "pistol-swap",
+          "text": "May have its Splinter Pistol exchanged for an Item from the Drukhari Pistols List.",
+          "kind": "one",
+          "model": null,
+          "replaces": ["Splinter Pistol"],
+          "choices": [{ "list": "drukhari-pistols" }],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "gladiatorial-or-hellglaive",
+          "text": "May have its Mono-Knife and Splinter Pistol exchanged for one of the following options: An Item from the Gladiatorial Weapons List; A Hellglaive for free.",
+          "kind": "one",
+          "model": null,
+          "replaces": ["Mono-Knife", "Splinter Pistol"],
+          "choices": [
+            { "list": "gladiatorial-weapons" },
+            { "name": "Hellglaive", "points": 0 }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "any-of",
+          "text": "May have any of the following selected for it: Haywire Grenades +2 points, Phantasm Grenade Launcher +20 points.",
+          "kind": "any",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            { "name": "Haywire Grenades", "points": 2 },
+            { "name": "Phantasm Grenade Launcher", "points": 20 }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "cult-syren-jetbike",
+      "name": "Cult Syren on Reaver Jetbike",
+      "role": "Command",
+      "page": 17,
+      "limit": null,
+      "unique": false,
+      "basePoints": 80,
+      "composition": "1 Reaver Syren",
+      "models": [
+        {
+          "name": "Reaver Syren",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": { "M": 18, "WS": 7, "BS": 5, "S": 3, "T": 3, "W": 3, "I": 7, "A": 3, "LD": 8, "CL": 8, "WP": 6, "IN": 7, "SAV": "6+", "INV": "–" },
+          "wargear": ["Mono-Knife", "Splinter Pistol", "Splinter Rifle", "Plasma Grenades", "Bladevanes (2)"],
+          "unitType": "Cavalry (Antigrav, Command, Light)",
+          "specialRules": ["Bulky (2)", "Dodge (4+)", "Deep Strike", "Fast (1)", "Firing Protocols (2)", "Implacable Advance", "Outflank", "Power From Pain", "Take Heads", "Shrouded (5+)"]
+        }
+      ],
+      "traits": ["Xenos", "Drukhari", "Jink"],
+      "specialRules": [],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "fixedChoice": "Cults",
+      "combatDrugs": true,
+      "options": [
+        {
+          "id": "melee-swap",
+          "text": "May have its Mono-Knife exchanged for one of the following options: A Mono-Blade or a Mono-Flail for +2 points; A Melee Weapon selected from the Gang Leader Wargear List; An Archite Glaive for +15 points.",
+          "kind": "one",
+          "model": null,
+          "replaces": ["Mono-Knife"],
+          "choices": [
+            { "name": "Mono-Blade", "points": 2 },
+            { "name": "Mono-Flail", "points": 2 },
+            { "list": "gang-leader-wargear" },
+            { "name": "Archite Glaive", "points": 15 }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "pistol-swap",
+          "text": "May have its Splinter Pistol exchanged for an Item from the Drukhari Pistols List.",
+          "kind": "one",
+          "model": null,
+          "replaces": ["Splinter Pistol"],
+          "choices": [{ "list": "drukhari-pistols" }],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "any-of",
+          "text": "May have any of the following selected for it: Haywire Grenades +2 points, Phantasm Grenade Launcher +20 points.",
+          "kind": "any",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            { "name": "Haywire Grenades", "points": 2 },
+            { "name": "Phantasm Grenade Launcher", "points": 20 }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "rifle-swap",
+          "text": "May have its Splinter Rifle exchanged for one of the following: Blaster +15 points, Heat Lance +15 points.",
+          "kind": "one",
+          "model": null,
+          "replaces": ["Splinter Rifle"],
+          "choices": [
+            { "name": "Blaster", "points": 15 },
+            { "name": "Heat Lance", "points": 15 }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "coven-haemonculus",
+      "name": "Coven Haemonculus",
+      "role": "Command",
+      "page": 18,
+      "limit": null,
+      "unique": false,
+      "basePoints": 50,
+      "composition": "1 Haemonculus",
+      "models": [
+        {
+          "name": "Haemonculus",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": { "M": 7, "WS": 4, "BS": 4, "S": 3, "T": 5, "W": 3, "I": 4, "A": 3, "LD": 8, "CL": 8, "WP": 7, "IN": 9, "SAV": "6+", "INV": "–" },
+          "wargear": ["Haemonculus Tools", "Splinter Pistol"],
+          "unitType": "Infantry (Command)",
+          "specialRules": ["Altered Physiology", "Fleshcraft (2)", "Power From Pain", "Take Captives"]
+        }
+      ],
+      "traits": ["Xenos", "Drukhari"],
+      "specialRules": [],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "fixedChoice": "Covens",
+      "options": [
+        {
+          "id": "wargear1",
+          "text": "May have up to one Item from either the Gang Leader Wargear or Weapons of Torture List selected for it.",
+          "kind": "one",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            { "list": "gang-leader-wargear" },
+            { "list": "weapons-of-torture" }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "pistol-swap",
+          "text": "May have its Splinter Pistol exchanged for an item from the Tools of Torment List.",
+          "kind": "one",
+          "model": null,
+          "replaces": ["Splinter Pistol"],
+          "choices": [{ "list": "tools-of-torment" }],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "arcana",
+          "text": "May have one Item from the Haemonculus Arcana List selected for it.",
+          "kind": "one",
+          "model": null,
+          "replaces": [],
+          "choices": [{ "list": "haemonculus-arcana" }],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "incubus-hierarch",
+      "name": "Incubus Hierarch",
+      "role": "Command",
+      "page": 19,
+      "limit": null,
+      "unique": false,
+      "basePoints": 70,
+      "composition": "1 Hierarch",
+      "models": [
+        {
+          "name": "Hierarch",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": { "M": 7, "WS": 6, "BS": 4, "S": 4, "T": 3, "W": 3, "I": 6, "A": 4, "LD": 10, "CL": 8, "WP": 7, "IN": 7, "SAV": "3+", "INV": "–" },
+          "wargear": ["Klaive", "Tormentors"],
+          "unitType": "Infantry (Command)",
+          "specialRules": ["Fast (1)", "Hatred (Challenge Opponent)", "Murderous Assault (5+)", "Power From Pain", "Take Heads", "Temple Master"]
+        }
+      ],
+      "traits": ["Xenos", "Drukhari"],
+      "specialRules": [],
+      "unitRules": [
+        {
+          "name": "Temple Master",
+          "text": "For every Model with this Special Rule that is selected to fill a Command Slot in a Detachment, one Troops Slot in that Detachment may be replaced with a Retinue Slot. Only Units of Incubi Chambers may be selected to fill those Slots."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [
+        {
+          "id": "klaive-swap",
+          "text": "May have its Klaive exchanged for a Punisher for free or Demiklaives for +10 points.",
+          "kind": "one",
+          "model": null,
+          "replaces": ["Klaive"],
+          "choices": [
+            { "name": "Punisher", "points": 0 },
+            { "name": "Demiklaives", "points": 10 }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "bloodstone",
+          "text": "May have a Bloodstone selected for it for +10 points.",
+          "kind": "upgrade",
+          "model": null,
+          "replaces": [],
+          "choices": [{ "name": "Bloodstone", "points": 10 }],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    }
+  ]
+}

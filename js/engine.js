@@ -147,7 +147,7 @@
       const out = [];
       const seen = new Set();
       for (const c of opt.choices || []) {
-        const items = c.list ? resolveList(c.list, sel) : [{ name: c.name, points: Number(c.points) || 0 }];
+        const items = c.list ? resolveList(c.list, sel) : [{ name: c.name, points: Number(c.points) || 0, pointsUnknown: !!c.pointsUnknown }];
         for (const it of items) {
           if (seen.has(it.name)) continue;
           seen.add(it.name);

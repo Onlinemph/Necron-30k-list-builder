@@ -1,0 +1,725 @@
+{
+  "units": [
+    {
+      "id": "lelith-hesperax",
+      "name": "Lelith Hesperax",
+      "role": "High Command",
+      "page": 94,
+      "limit": null,
+      "unique": true,
+      "basePoints": 250,
+      "composition": "1 Lelith",
+      "models": [
+        {
+          "name": "Lelith",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 6,
+            "WS": 9,
+            "BS": 9,
+            "S": 3,
+            "T": 3,
+            "W": 4,
+            "I": 9,
+            "A": 5,
+            "LD": 9,
+            "CL": 9,
+            "WP": 8,
+            "IN": 8,
+            "SAV": "6+",
+            "INV": "4+"
+          },
+          "wargear": [
+            "Close Combat Weapon"
+          ],
+          "unitType": "Infantry (Command, Light, Unique)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Drukhari",
+        "Rulers of the Dark City"
+      ],
+      "factionChoice": false,
+      "fixedChoice": "Cults",
+      "specialRules": [
+        "A League Apart",
+        "At Last, A Challenge!",
+        "Cult Allegiance (Strife)",
+        "Eternal Warrior (1)",
+        "Fast (1)",
+        "Move Through Cover",
+        "Natural Perfection",
+        "Power From Pain",
+        "Quicksilver Dodge",
+        "Spectacular Displays",
+        "Take Heads"
+      ],
+      "unitRules": [
+        {
+          "name": "A League Apart",
+          "text": "Whilst Lelith is in base contact with any Enemy Models that have a Weapon Skill characteristic, and all of those Models have a lower Weapon Skill Characteristic than she does, her Attacks Characteristic is increased by the difference between her Weapon Skill and the Lowest Weapon Skill amongst Enemy Models in base contact with her. Whilst Lelith is engaged in a Challenge, she is only considered to be in Base Contact with her Challenge Opponent, and no other Enemy models."
+        },
+        {
+          "name": "At Last, A Challenge!",
+          "text": "While a Model with this Special Rule is engaged in a Challenge, its Controlling Player can select the following Gambit for that Model:\n\nAt Last, A Challenge!: If this Gambit is selected, Lelith's Base Initiative Characteristic becomes equal to that of her opponent during the Focus Step. When selecting The Penetrating Blades as the provisions for an Attack during the Strike Step, that Attack gains the Critical Hits (4+) Special Rule, instead of 6+."
+        },
+        {
+          "name": "Natural Perfection",
+          "text": "Lelith is not affected by special rules that negatively modify her Characteristics (other than Wounds)."
+        },
+        {
+          "name": "Quicksilver Dodge",
+          "text": "Lelith's Invulnerable Save characteristic is increased to 3+ against all Attacks made as part of a Reaction and all Melee Attacks."
+        },
+        {
+          "name": "Spectacular Displays",
+          "text": "For each Melee Attack made by Lelith, the Controlling Player must select one of the following provisions to apply to that Attack:\n• Barbed Mane: The Attack gains the Shred (4+) and Ensnare (1) Special Rules.\n• The Penetrating Blades: The Attack gains the Critical Hits (6+) Special Rule and is resolved at AP2."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [],
+      "note": null
+    },
+    {
+      "id": "urien-rakarth",
+      "name": "Urien Rakarth",
+      "role": "High Command",
+      "page": 95,
+      "limit": null,
+      "unique": true,
+      "basePoints": 200,
+      "composition": "1 Urien Rakarth",
+      "models": [
+        {
+          "name": "Haemonculus Ancient",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 7,
+            "WS": 5,
+            "BS": 5,
+            "S": 4,
+            "T": 5,
+            "W": 4,
+            "I": 5,
+            "A": 4,
+            "LD": 10,
+            "CL": 10,
+            "WP": 7,
+            "IN": 10,
+            "SAV": "6+",
+            "INV": "4+"
+          },
+          "wargear": [
+            "Casket of Flensing",
+            "Khaïdesi Haemovores",
+            "Haemonculus Tool",
+            "Ichor Gauntlet",
+            "Ichor Injector",
+            "Clone Field"
+          ],
+          "unitType": "Infantry (Command, Unique)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Drukhari",
+        "Rulers of the Dark City"
+      ],
+      "factionChoice": false,
+      "fixedChoice": "Covens",
+      "specialRules": [
+        "Altered Physiology",
+        "Contempt for Death",
+        "Coven Allegiance (Prophets of Flesh)",
+        "Eternal Warrior (1)",
+        "Father of Pain",
+        "Fleshcraft (3)",
+        "Power From Pain",
+        "Take Captives"
+      ],
+      "unitRules": [
+        {
+          "name": "Contempt for Death",
+          "text": "At the start of each of the Controlling Player's turns, Urien gains 1 Wound. This cannot bring him above his base Wounds value."
+        },
+        {
+          "name": "Father of Pain",
+          "text": "When Urien's Fleshcraft (X) Special Rule is activated, an Enemy Model with the Infantry, Cavalry or Paragon Type within 6\" of Urien may be selected as the Target Model instead of a friendly Model. If doing so, and the Intelligence Test is succesful, then the following option must be chosen instead of Reknit or Restore:\n• Ravage: The Target Model's Controlling Player must make a Willpower check for that model with a penalty equal to the value of X associated with the variant of Fleshcraft (X) associated with the Acting Model. If failed, the Controlling Player of the Acting Model places a Pinned, Suppressed, or Stunned Token (their choice) on the Acting Model."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [],
+      "note": "Casket of Flensing, Haemonculus Tool, Ichor Injector and Clone Field are listed as Wargear but no profile/rules text is printed on these pages; they are standard items defined elsewhere. Source text spells 'Khaïdesi Haemovores' in the Wargear bullet list but 'Khaideshi Haemovores' in the weapon table heading on page 95; both spellings kept as printed in each location."
+    },
+    {
+      "id": "keradruakh",
+      "name": "Keradruakh",
+      "role": "Command",
+      "page": 97,
+      "limit": null,
+      "unique": true,
+      "basePoints": 160,
+      "composition": "1 Keradruakh",
+      "models": [
+        {
+          "name": "Keradruakh",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 7,
+            "WS": 6,
+            "BS": 5,
+            "S": 3,
+            "T": 3,
+            "W": 3,
+            "I": 6,
+            "A": 4,
+            "LD": 9,
+            "CL": 9,
+            "WP": 9,
+            "IN": 8,
+            "SAV": "–",
+            "INV": "–"
+          },
+          "wargear": [
+            "Decapitator",
+            "Baleblast"
+          ],
+          "unitType": "Infantry (Command, Light, Skirmish, Unique)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Drukhari",
+        "Jink"
+      ],
+      "factionChoice": false,
+      "fixedChoice": null,
+      "specialRules": [
+        "Fast (2)",
+        "Fear (1)",
+        "Hunter of Heads",
+        "Infiltrate (9)",
+        "Move Through Cover",
+        "Power From Pain",
+        "Shake Stalker",
+        "Shrouded (4+)",
+        "Take Heads"
+      ],
+      "unitRules": [
+        {
+          "name": "Hunter of Heads",
+          "text": "Keradruakh may only join units of Mandrakes.\n\nIf Keradruakh is selected as part of an army, the Controlling Player may select a Recon Slot in the same Army. That Recon Slot becomes a Prime Slot. Units of Mandrakes that are selected to fill that Slot may have the following Prime Advantage selected for them:\n\nCourt of Aelindrach (Prime Advantage): All Mandrakes in a Unit that has had this Prime Advantage selected for it gain +1 to their WS Characteristic. While Keradruakh has joined that Unit, all Mandrakes in that Unit gain the Shade Stalker Special Rule."
+        },
+        {
+          "name": "Shade Stalker",
+          "text": "Before the start of battle, the Controlling Player may select a Model with the Command or High Command Battlefield Role in the opposing Army. That model is referred to as The Prized Skull. If a friendly Unit enters the battlefield from reserves, and all Models in that Unit have the Shade Stalker Special Rule, then instead of entering the battlefield from reserves normally the Controlling Player may place all Models in that Unit anywhere on the battlefield that is within 12\" of The Prized Skull and more than 3\" from other models and terrain. The Intercept Reaction may be used as normal.\nIf the Unit declares a charge in the same turn that it enters the battlefield in this way, that charge is automatically disordered and only the unit that includes The Prized Skull may be selected as a charge target.\n\nWhile engaged in a Challenge with The Prized Skull, if the Finishing Blow Gambit is selected for Keradruakh, the controlling player can discard the dice with the lowest result in the Focus Step, rather than the highest. However, if Keradruakh fails to destroy The Prized Skull with his attacks during the Strike Step, he automatically gains the Disgraced status and the controlling player gains no Combat Resolution points in the Glory step even if Keradruakh won the challenge."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [],
+      "note": "Baleblast is listed as Wargear but no profile/rules text is printed on this page; it is a standard item defined elsewhere. The Decapitator weapon table on page 97 is printed under a 'Ranged' column header, but its columns (IM/AM/SM/AP/D) are the Melee profile columns; transcribed as a Melee weapon in weapons-d.json, consistent with how the same kind of source typo is handled in the Necron data (see weapons-d.json note on 'The Storm Cometh')."
+    },
+    {
+      "id": "baron-sathonyx",
+      "name": "Baron Sathonyx",
+      "role": "Command",
+      "page": 99,
+      "limit": null,
+      "unique": true,
+      "basePoints": 220,
+      "composition": "1 Sathonyx",
+      "models": [
+        {
+          "name": "Sathonyx",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 16,
+            "WS": 6,
+            "BS": 6,
+            "S": 3,
+            "T": 3,
+            "W": 3,
+            "I": 6,
+            "A": 3,
+            "LD": 9,
+            "CL": 8,
+            "WP": 6,
+            "IN": 7,
+            "SAV": "4+",
+            "INV": "6+"
+          },
+          "wargear": [
+            "Hellglaive",
+            "Splinter Pistol",
+            "Splinter Pod",
+            "Phantasm Grenade Launcher",
+            "Plasma Grenades",
+            "Shadow Field"
+          ],
+          "unitType": "Cavalry (Antigrav, Command, Light, Skirmish, Unique)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Drukhari"
+      ],
+      "factionChoice": false,
+      "fixedChoice": "Cults",
+      "specialRules": [
+        "Bulky (2)",
+        "Bones of the Seer",
+        "Fast (1)",
+        "Firing Protocols (2)",
+        "Firestorm",
+        "Impact (S)",
+        "Lord Hellion",
+        "Outflank",
+        "Power From Pain",
+        "Shrouded (5+)",
+        "Take Captives"
+      ],
+      "unitRules": [
+        {
+          "name": "Bones of the Seer",
+          "text": "Once per turn, when Sathonyx's unit is selected as the Reactive Unit for a Reaction, the controlling player can choose to regain 1 point of Reaction Allotment after the Reaction has been resolved."
+        },
+        {
+          "name": "The Lord Hellion",
+          "text": "Sathonyx may only join Hellion Gangs and may not join other units.\n\nOne Recon Slot in the same army as Baron Sathonyx may be upgraded to a Prime Slot at no additional cost. That Prime Slot must be filled with a Hellion Gang, and the following Prime Advantage must be selected for it:\n\nTwilight Shrouded: Only Sathonyx may join a Unit with this Prime Advantage. All models in the Unit with this Prime Advantage gain the Shrouded (5+) Special Rule."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [],
+      "note": "Special Rules bullet list on page 99 gives this character's Traits sub-heading as 'Dracon' (the Dracon partisan/rank trait), printed above the Xenos/Drukhari/Cults trait bullets; not transcribed as a Trait entry since it labels the Cults choice rather than naming an additional Trait. Hellglaive, Splinter Pistol, Splinter Pod, Phantasm Grenade Launcher, Plasma Grenades and Shadow Field are listed as Wargear but no profile/rules text is printed on this page."
+    },
+    {
+      "id": "duke-sliscus",
+      "name": "Duke Sliscus",
+      "role": "Command",
+      "page": 100,
+      "limit": null,
+      "unique": true,
+      "basePoints": 150,
+      "composition": "1 Sliscus",
+      "models": [
+        {
+          "name": "Sliscus",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 7,
+            "WS": 6,
+            "BS": 6,
+            "S": 3,
+            "T": 3,
+            "W": 3,
+            "I": 6,
+            "A": 3,
+            "LD": 8,
+            "CL": 9,
+            "WP": 6,
+            "IN": 7,
+            "SAV": "4+",
+            "INV": "6+"
+          },
+          "wargear": [
+            "The Serpent's Bite",
+            "Blast Pistol",
+            "Plasma Grenades",
+            "Shadow Field"
+          ],
+          "unitType": "Infantry (Command, Light, Unique)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Drukhari"
+      ],
+      "factionChoice": false,
+      "fixedChoice": "Kabals",
+      "combatDrugs": true,
+      "fixedDrug": null,
+      "specialRules": [
+        "Fast (1)",
+        "Kabal Allegiance (Sky Serpents)",
+        "Power From Pain",
+        "Take Captives",
+        "The Serpent's Venom"
+      ],
+      "unitRules": [
+        {
+          "name": "The Serpent's Venom",
+          "text": "If Sliscus is selected as part of an army, the controlling player can select one Secondary or Apex Detachment in that army. The following Prime Advantages can be selected for units in that are selected to fill Prime Slots in that Detachment that have either the Infantry or Cavalry Unit Type:\n\nSliscus' Dole: If the Unit for which this Prime Advantage is selected does not have the Combat Drugs Trait, it gains the [Combat Drugs] Trait. If that Unit already has the [Combat Drug] Trait, then when selecting Combat Drugs a second Combat Drug Trait may be selected for that unit.\n\nSliscus' Reward: All Weapons with the Splinter Trait used by models in the Unit for which this Prime Advantage is selected have their variant of the Poisoned (X) Special Rule replaced with Poisoned (2+).",
+          "note": "Source text has 'in that are selected to fill' (extra 'that') and 'Combat Drug' (singular) in the second sentence of Sliscus' Dole; kept as printed."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [],
+      "note": "Blast Pistol, Plasma Grenades and Shadow Field are listed as Wargear but no profile/rules text is printed on this page."
+    },
+    {
+      "id": "lady-malys",
+      "name": "Lady Malys",
+      "role": "High Command",
+      "page": 101,
+      "limit": null,
+      "unique": true,
+      "basePoints": 160,
+      "composition": "1 Malys",
+      "models": [
+        {
+          "name": "Malys",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 7,
+            "WS": 7,
+            "BS": 7,
+            "S": 3,
+            "T": 3,
+            "W": 4,
+            "I": 7,
+            "A": 4,
+            "LD": 9,
+            "CL": 9,
+            "WP": 9,
+            "IN": 8,
+            "SAV": "4+",
+            "INV": "4+"
+          },
+          "wargear": [
+            "The Lady's Blade",
+            "Steel Fan",
+            "Plasma Grenades"
+          ],
+          "unitType": "Infantry (Command, Light, Unique)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Drukhari",
+        "Rulers of the Dark City"
+      ],
+      "factionChoice": false,
+      "fixedChoice": "Kabals",
+      "specialRules": [
+        "Anathema",
+        "Fast (1)",
+        "Kabal Allegiance (Poisoned Tongue)",
+        "Mind Like a Steel Trap",
+        "Power From Pain",
+        "Precognisant",
+        "Take Captives"
+      ],
+      "unitRules": [
+        {
+          "name": "Precognisant",
+          "text": "During the first round of a Challenge involving Malys, the opposing player must always select the first Gambit, even if she is not the Challenger, and she gains Challenge Advantage. So long as Malys is involved in a Challenge, she always has Challenge Advantage and cannot lose it, and her opponent cannot gain Challenge Advantage."
+        },
+        {
+          "name": "Mind Like a Steel Trap",
+          "text": "Whenever Malys' Unit is selected as the Target Unit of a Reaction made by the Opposing Player, Malys' Controlling Player may have the Reactive Unit, or one other Enemy Unit within 12\" of that Unit, gain the Stunned status."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [],
+      "note": "Plasma Grenades listed as Wargear but no profile/rules text is printed on this page."
+    },
+    {
+      "id": "asdrubael-vect",
+      "name": "Asdrubael Vect",
+      "role": "Warlord",
+      "page": 102,
+      "limit": null,
+      "unique": true,
+      "basePoints": 300,
+      "composition": "1 Vect",
+      "models": [
+        {
+          "name": "Vect",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 8,
+            "WS": 8,
+            "BS": 8,
+            "S": 3,
+            "T": 3,
+            "W": 5,
+            "I": 8,
+            "A": 4,
+            "LD": 12,
+            "CL": 10,
+            "WP": 10,
+            "IN": 10,
+            "SAV": "4+",
+            "INV": "6+"
+          },
+          "wargear": [
+            "Sceptre of the Dark City",
+            "Obsidian Orbs",
+            "Shadow Field",
+            "Plasma Grenades",
+            "Haywire Grenades"
+          ],
+          "unitType": "Paragon (Command, Light, Unique)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Drukhari",
+        "Rulers of the Dark City"
+      ],
+      "factionChoice": false,
+      "fixedChoice": "Kabals",
+      "specialRules": [
+        "Ancient Nemesis",
+        "Eternal Warrior (2)",
+        "Fast (1)",
+        "Kabal Allegiance (Black Heart)",
+        "The Living Dark Muse",
+        "Power From Pain",
+        "Take Captives"
+      ],
+      "unitRules": [
+        {
+          "name": "Ten Moves Ahead",
+          "text": "If Vect is part of an army, then at the start of each of the Opposing Player's Turns, Vect's Controlling Player gains one additional Reaction Point so long as Vect has not been destroyed.",
+          "note": "'Ten Moves Ahead' is not listed among the bulleted Special Rules on page 102 (which lists 'The Living Dark Muse' but not this rule by name); its full text is printed at the top of the Special Rules box on page 103, so it is recorded here as one of Vect's rules as printed."
+        },
+        {
+          "name": "Ancient Nemesis",
+          "text": "All Melee attacks made by Vect targeting a unit that includes any Models with the Asuryani, Anhrathe, Drukhari, Exodite or Saedath Trait gain +1 to the To Hit roll."
+        },
+        {
+          "name": "The Living Dark Muse",
+          "text": "If a Model with this Special Rule is part of an Army, then the Controlling Player may apply the following additional Special Rules to all Auxiliary, Apex and Primary Detachments that have the Drukhari Trait:\n• If four or more Troops Battlefield Role Slots in the Primary Detachment of this Army are filled with units with the Kabals trait, then all Force Organisation Slots with the Troops Battlefield Role in the Primary Detachment are considered Prime Slots.\n• Friendly Models with the Drukhari Trait in any Detachment with the Drukhari Trait in the same Army, except Vect himself, that are engaged in a challenge can have the following Gambit selected for them:\nThe Eye of Vect: If this Gambit is selected, then during the Focus Step the controlling player may choose a number between 1 and 3 and apply the penalty to their Focus roll. Then, during the Strike Step, the controlling player selects a number of the following characteristics of the Model to improve by +1 during that Step, up to the number of the penalty they inflicted to their Focus roll: Weapon Skill, Strength, and/or Attacks. If the model does not win the Challenge, then during the Glory Step the opposing model automatically gains Challenge Advantage regardless of the result.",
+          "note": "Source header on page 102 reads 'Living Dark Muse' in the bulleted Special Rules list but 'The Living Dark Muse' in the boxed Special Rules text on page 103; both kept as printed in each location."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [],
+      "note": "Shadow Field, Plasma Grenades and Haywire Grenades are listed as Wargear but no profile/rules text is printed on this page."
+    },
+    {
+      "id": "the-dais-of-destruction",
+      "name": "The Dais of Destruction",
+      "role": "Heavy Transport",
+      "page": 104,
+      "limit": null,
+      "unique": true,
+      "basePoints": 300,
+      "composition": "1 Dais of Destruction",
+      "models": [
+        {
+          "name": "Dais of Destruction",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 18,
+            "BS": 4,
+            "FRONT": 12,
+            "SIDE": 11,
+            "REAR": 10,
+            "HP": 5,
+            "CAPACITY": 14
+          },
+          "wargear": [
+            "2 Hull (Front) Mounted Plasma-Disintegrator Cannons",
+            "1 Hull (Front) Mounted Dark Scythe",
+            "Enhanded Aethersails",
+            "Grisly Trophies",
+            "Night Shield"
+          ],
+          "unitType": "Vehicle (Rapid, Skimmer, Transport, Unique)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Drukhari",
+        "Jink"
+      ],
+      "factionChoice": false,
+      "fixedChoice": "Kabals",
+      "specialRules": [
+        "Ablation Field",
+        "Assault Vehicle",
+        "Deep Strike",
+        "Firing Deck (front, left, right, 10)",
+        "Throne of the Dark City"
+      ],
+      "unitRules": [
+        {
+          "name": "Throne of the Dark City",
+          "text": "The Dais of Destruction may only be selected in an Army that includes Asdrubael Vect. If the Days of Destruction is selected, Vect must begin the battle Embarked upon it.\n\nWhile Vect is Embarked upon the Dais of Destruction, the Dais of Destruction uses Vect's Ballistic Skill Characteristic in place of its own.",
+          "note": "Source text reads 'the Days of Destruction' (rather than 'the Dais of Destruction') in the second sentence; kept as printed."
+        },
+        {
+          "name": "Ablation Field",
+          "text": "Attacks with the Armourbane Special Rule that target the Dais of Destruction have a -1 penalty to their Strength Characteristic."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [
+        {
+          "id": "cannon-dark-lance-swap",
+          "text": "May have any Plasma-Disintegrator Cannon exchanged for a Hull (Front) Mounted Dark Lance for +5 points each.",
+          "kind": "perModel",
+          "model": "Dais of Destruction",
+          "replaces": [
+            "Plasma-Disintegrator Cannon"
+          ],
+          "choices": [
+            {
+              "name": "Dark Lance",
+              "points": 5
+            }
+          ],
+          "max": {
+            "fixed": 2
+          },
+          "requires": null
+        },
+        {
+          "id": "dark-scythe-void-lance-swap",
+          "text": "May have its Dark Scythe exchanged for a Hull (Front) Mounted Void Lance for free.",
+          "kind": "upgrade",
+          "model": "Dais of Destruction",
+          "replaces": [
+            "Dark Scythe"
+          ],
+          "choices": [
+            {
+              "name": "Void Lance",
+              "points": 0
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "chain-snares-or-sicklevanes",
+          "text": "May have one of the following selected for it: Chain-Snares or Sicklevanes.",
+          "kind": "one",
+          "model": "Dais of Destruction",
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Chain-Snares",
+              "points": 0,
+              "pointsUnknown": true
+            },
+            {
+              "name": "Sicklevanes",
+              "points": 0,
+              "pointsUnknown": true
+            }
+          ],
+          "max": null,
+          "requires": null,
+          "note": "Source prints '+? points' for both Chain-Snares and Sicklevanes (the point cost was never filled in); points recorded as null and text simplified to drop the unresolved cost."
+        }
+      ],
+      "note": "Source Wargear bullet reads 'Enhanded Aethersails' (an obvious typo for 'Enhanced Aethersails'); kept as printed. No profiles/rules text are printed on this page for the Plasma-Disintegrator Cannons, Dark Scythe, Dark Lance, Void Lance, Chain-Snares or Sicklevanes; they are standard items defined elsewhere. This unit is a unique dedicated Transport rather than a Dramatis Personae character, but is marked unique per its printed Unit Type."
+    },
+    {
+      "id": "drazhar",
+      "name": "Drazhar",
+      "role": "Warlord",
+      "page": 105,
+      "limit": null,
+      "unique": true,
+      "basePoints": 350,
+      "composition": "1 Drazhar",
+      "models": [
+        {
+          "name": "Drazhar",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 8,
+            "WS": 8,
+            "BS": 7,
+            "S": 4,
+            "T": 4,
+            "W": 5,
+            "I": 7,
+            "A": 5,
+            "LD": 10,
+            "CL": 12,
+            "WP": 12,
+            "IN": 8,
+            "SAV": "2+",
+            "INV": "4+"
+          },
+          "wargear": [
+            "The Executioner's Demiklaives",
+            "Tormentors"
+          ],
+          "unitType": "Paragon (Command, Unique)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Drukhari",
+        "Rulers of the Dark City"
+      ],
+      "factionChoice": false,
+      "fixedChoice": "Kabals",
+      "specialRules": [
+        "Eternal Warrior (2)",
+        "Fast (1)",
+        "Father of Incubi",
+        "Master of Blades",
+        "Murderous Assault (4+)",
+        "Power From Pain",
+        "Take Heads"
+      ],
+      "unitRules": [
+        {
+          "name": "Master of Blades",
+          "text": "While a Model with this Special Rule is engaged in a Challenge, its Controlling Player can select one of the following Gambits for that Model:\n\nDarting Strike: If this Gambit is selected, the Model must use the Mantis Stance of the Executioner's Demiklaives when making Attacks during the Strike Step of the Challenge. This Gambit has no effect during the Focus or the Strike Step; however, if this Model wins the challenge, or during the Glory Step if the Model for which this Gambit was selected has Challenge Advantage, the Controlling Player can select another Enemy Model in the same Combat that would be eligible to issue or accept a Challenge. The Model for which this Gambit was selected is not engaged in a Challenge with that model, replacing the previous Challenge Opponent if that Model had not been destroyed.\n\nStrike Back: If this Gambit is selected, the Model must use the Scorpion Stance of the Executioner's Demiklaives when making Attacks during the Strike Step of the Challenge. During the Strike Step of the Challenge, for each succesful Armour and/or Invulnerable Save Roll made for the Model for which this Gambit was selected, then at the end of Step 3 of the Strike Step, the Enemy Model suffers one additional Hit that has a Strength equal to the result of the Saving Throw, an AP of 2, a Damage of 1 and no Special Rules. Those Hits are counted as Hits inflicted by the Model for which this Challenge was selected during the Strike Step in which they occured."
+        },
+        {
+          "name": "Father of Incubi",
+          "text": "If a Model with this Special Rule is part of an Army, then the Controlling Player may apply the following additional Special Rules to all Auxiliary, Apex and Primary Detachments that have Drukhari Trait:\n• The Controlling Player can select up to 1 Retinue Slot in a Detachment of the same Army for every 1000 points of Game Size that is filled with an Incubi Chamber Unit. Each selected Detachment becomes a Prime Slot.\n• Units of Incubi Chambers cannot gain the Routed status unless Drazhar has been destroyed."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [],
+      "note": "Tormentors is listed as Wargear but no profile/rules text is printed on this page; it is a standard item defined elsewhere."
+    }
+  ]
+}
