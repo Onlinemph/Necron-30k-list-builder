@@ -183,3 +183,5 @@ dialog::backdrop { background: rgba(0,0,0,.6); }
 .cfg-rules { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
 .cfg-group { border: 1px solid var(--line); border-radius: 6px; padding: 4px 8px 8px; margin: 6px 0 0; }
 .cfg-group legend { font-size: 13px; padding: 0 4px; }
+.add-det label { display: block; max-width: 100%; }
+#add-det { max-width: 100%; width: 100%; }
