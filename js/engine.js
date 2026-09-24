@@ -748,12 +748,28 @@
         const u = unit(x.sel.unitId);
         if (u && u.allegiance && u.allegiance !== side) issues.push({ level: 'error', msg: `${u.name} is only available to ${u.allegiance} armies.` });
       }
+      // detachments unlocked by an officer's special rule (Tip of the Spear → Planetfall Speartip)
+      const unitHasRule = (u, r) => [...(u.specialRules || []), ...u.models.flatMap((m) => m.specialRules || [])].some((x) => norm(x) === norm(r));
+      const seenOnce = {};
+      for (const d of army.detachments) {
+        const def = d.defId ? detById.get(d.defId) : null;
+        const ul = def && def.unlockRule;
+        if (!ul) continue;
+        const where = ul.primary ? army.detachments.filter((x) => x.kind === 'primary') : army.detachments;
+        const ok = where.some((x) => x.slots.some((s) => s.unit && unit(s.unit.unitId) && unitHasRule(unit(s.unit.unitId), ul.rule)));
+        if (!ok) issues.push({ level: 'error', msg: `${d.name} needs a model with ${ul.rule} in the ${ul.primary ? 'Primary Detachment' : 'army'}.` });
+        seenOnce[def.id] = (seenOnce[def.id] || 0) + 1;
+        if (ul.once && seenOnce[def.id] === 2) issues.push({ level: 'error', msg: `${d.name} can only be taken once per army.` });
+      }
       // Legion detachments that need a particular officer ("Requires a Master of Descent")
       for (const d of army.detachments) {
         const def = d.defId ? detById.get(d.defId) : null;
         for (const need of (def && def.requires) || []) {
           const key = need.toLowerCase();
-          const has = sels.some((x) => {
+          // "Iron Pattern Cohort Doctrine" is met by "Cohort Doctrine: Iron Pattern Cohort"
+          const words = key.split(/[^a-z0-9]+/).filter((w) => w.length > 2);
+          const picked = Object.values(army.config || {}).flat().some((n) => { const t = String(n).toLowerCase(); return words.every((w) => t.includes(w)); });
+          const has = picked || sels.some((x) => {
             const u = unit(x.sel.unitId);
             if (!u) return false;
             if (u.name.toLowerCase().includes(key)) return true;

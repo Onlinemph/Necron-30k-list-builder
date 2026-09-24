@@ -48,7 +48,12 @@
    ],
    "requires": [],
    "restrictions": [],
-   "rules": []
+   "rules": [
+    {
+     "name": "Hold the Line",
+     "text": "\"Models with this Special Rule provide a Feel No Pain Damage Mitigation Roll to nearby Models with the Veletaris Tercio Trait against Volley and Reaction Attacks.\"\n\n\nAny Model with the Veletaris Tercio Trait, the Vanguard (X) Special Rule and the Infantry Type gains the Feel No Pain (5+) Special Rule against any wounds inflicted by Shooting Attacks made as part of a Reaction or a Volley Attack as long as at least one Model in the same Unit is within 18\" of a Friendly Model with this Special Rule."
+    }
+   ]
   },
   {
    "id": "bs-armour-tercio",
@@ -92,7 +97,16 @@
    ],
    "requires": [],
    "restrictions": [],
-   "rules": []
+   "rules": [
+    {
+     "name": "Tank Commander (X)",
+     "text": "\"A Model with this Special Rule allows a number of detachments of tanks equal to the value of X to be included in an Army.\"\n\n\nIf a Model with this Special Rule is selected to fill a High Command or Command Slot in any Detachment, then the Controlling Player may select a number of Auxiliary Detachments equal to the value of X in the specified variant of this Special Rule instead of just one - however, the Detachment selected may only include Armour Slots. If the Model with this Special Rule has the Solar Auxilia Trait, then these Auxiliary Detachments may include Armour Tercio Auxiliary Detachments."
+    },
+    {
+     "name": "Armoured Warfare",
+     "text": "\"Models with this Special Rule provide the Auto-repair (4+) Special Rule to nearby Units with the Armour Tercio Trait.\"\nAny Model with the Armour Tercio Trait gains the Auto-repair (4+) Special Rule as long as it is within 18\" of a Friendly Model with this Special Rule."
+    }
+   ]
   },
   {
    "id": "bs-artillery-tercio",
@@ -136,7 +150,12 @@
    ],
    "requires": [],
    "restrictions": [],
-   "rules": []
+   "rules": [
+    {
+     "name": "Precision Bombardment",
+     "text": "\"Models with this Special Rule decrease the Scatter distance of Shooting Attacks made by nearby Models with the Artillery Tercio Trait.\"\n\n\nWhen making a Shooting Attack for a Model with the Artillery Tercio Trait which is in a Unit containing at least one Model within 18 of one or more Friendly Models with this Special Rule, the Ballistic Skill Characteristic of the attacking Model is subtracted from the total result of the Dice rolled when determining Scatter distance."
+    }
+   ]
   },
   {
    "id": "bs-infantry-tercio",
@@ -182,7 +201,12 @@
    ],
    "requires": [],
    "restrictions": [],
-   "rules": []
+   "rules": [
+    {
+     "name": "Close Order",
+     "text": "\"Models with this Special Rule increase the Value of the Line (x) Special Rule for nearby Friendly Models with the Infantry Tercio Trait.\"\n\n\nIf any Model with the Infantry Tercio Trait and the Infantry Type can draw a Line of Sight to one or more Friendly Models with this Special Rule that are within 18\", then that Model and all other Models in the same Unit add a modifier of +1 to the value of X in any variant of the Line (X) Special Rule they have."
+    }
+   ]
   },
   {
    "id": "bs-scout-tercio",
@@ -220,7 +244,12 @@
    ],
    "requires": [],
    "restrictions": [],
-   "rules": []
+   "rules": [
+    {
+     "name": "Pre-emptive Strike",
+     "text": "\"Models with this Special Rule confer the Firestorm Special Rule to nearby Models with the Scout Tercio Trait.\"\n\n\nAny Model with the Scout Tercio Trait gains the Firestorm Special Rule as long as at least one Model in the same Unit is within 18\" of a Friendly Model with this Special Rule."
+    }
+   ]
   },
   {
    "id": "bs-iron-tercio",

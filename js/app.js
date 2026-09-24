@@ -356,7 +356,7 @@
       if (slot.flexible && u.role !== lastRole) { list.append(h(`<h4 class="muted">${esc(u.role)}</h4>`)); lastRole = u.role; }
       const taken = u.unique && E.allSelections(army).some((x) => x.sel.unitId === u.id);
       const alt = !slot.flexible && !slot.advisor && u.role !== slot.role ? ` <small class="muted">(${esc(u.role)}, via Sequela)</small>` : '';
-      const b = h(`<button type="button" ${taken ? 'disabled' : ''}><span>${esc(u.name)}${alt}${u.unique ? ' <small class="muted">(character)</small>' : ''}${u.limit ? ` <small class="muted">${esc(u.limit)}</small>` : ''}</span><span class="muted">${u.basePoints} pts${u.page ? ` · p.${u.page}` : ''}</span></button>`);
+      const b = h(`<button type="button" ${taken ? 'disabled' : ''}><span>${esc(u.name)}${alt}${u.unique ? ' <small class="muted">(character)</small>' : ''}${u.limit ? ` <small class="muted">${esc(u.limit)}</small>` : ''}</span><span class="muted">${u.basePoints} pts${u.page ? ` · ${esc(pageLabel(u))}` : ''}</span></button>`);
       b.addEventListener('click', () => {
         slot.unit = E.newSelection(u.id);
         // a detachment that only takes one Partisan / Clan presets the unit's choice
@@ -472,7 +472,7 @@
     box.replaceChildren();
 
     box.append(h(`<div class="ed-head"><h2>${esc(u.name)}</h2><span class="pts">${E.unitPoints(sel)} pts</span></div>`));
-    box.append(h(`<p class="ed-sub">${esc(u.role)} · ${esc(det.name)} · ${esc(u.composition || '')} · base ${u.basePoints} pts${u.page ? ` · p.${u.page}` : ''}${u.unique ? ' · Dramatis Personae' : ''}</p>`));
+    box.append(h(`<p class="ed-sub">${esc(u.role)} · ${esc(det.name)} · ${esc(u.composition || '')} · base ${u.basePoints} pts${u.page ? ` · ${esc(pageLabel(u))}` : ''}${u.unique ? ' · Dramatis Personae' : ''}</p>`));
 
     const issues = E.unitIssues(sel);
     if (issues.length) {
@@ -847,7 +847,7 @@
       const k = undefinedNames.has(norm(n)) || coreNames.has(norm(n)) ? norm(n) : undefinedNames.has(wkey(n)) ? wkey(n) : norm(n);
       const tip = r ? 'Show rule' : coreNames.has(k) ? 'Core rule: see the Horus Heresy 3rd edition rulebook' : undefinedNames.has(k) ? 'Not printed in the codex: ' + undefinedNames.get(k) : 'No rules text found';
       const c = h(`<span class="chip ${gained && gained.has(n) ? 'gained ' : ''}${r ? 'rule' : coreNames.has(k) ? 'core' : 'missing'}" title="${esc(tip)}">${esc(n)}${coreNames.has(k) && !r ? ' <small>core</small>' : ''}</span>`);
-      if (r) c.addEventListener('click', () => showText(n, r.text, r.page));
+      if (r) c.addEventListener('click', () => showText(n, r.text, r.page ? pageLabel(r) : null));
       wrap.append(c);
     }
     return wrap;
@@ -885,8 +885,12 @@
   }
   function closeDialog() { const d = $('#dlg'); if (d.open) d.close(); }
 
+  /** "Liber Astartes p.112", or "p.14" when the book isn't known */
+  function pageLabel(x) { return `${x.book ? x.book + ' ' : ''}p.${x.page}`; }
+
   function showText(title, text, page, extra) {
-    const body = h(`<div><h2>${esc(title)}${page ? ` <small>p.${esc(page)}</small>` : ''}</h2><div class="dlg-body-scroll"><p class="rule-text">${esc(text || 'No text.')}</p></div></div>`);
+    const pl = page == null || page === '' ? '' : /^\d/.test(String(page)) ? `p.${page}` : String(page);
+    const body = h(`<div><h2>${esc(title)}${pl ? ` <small>${esc(pl)}</small>` : ''}</h2><div class="dlg-body-scroll"><p class="rule-text">${esc(text || 'No text.')}</p></div></div>`);
     if (extra && extra.length) {
       const ul = h('<ul></ul>');
       for (const x of extra) ul.append(h(`<li>${esc(x)}</li>`));
@@ -1041,7 +1045,7 @@
     }
     if (glossary.size) {
       html += '<h2>Rules reference</h2><dl class="r-glossary">';
-      for (const r of [...glossary.values()].sort((a, b) => a.name.localeCompare(b.name))) html += `<dt>${esc(r.name)}${r.page ? ` <span class="muted">p.${esc(r.page)}</span>` : ''}</dt><dd>${esc(r.text)}</dd>`;
+      for (const r of [...glossary.values()].sort((a, b) => a.name.localeCompare(b.name))) html += `<dt>${esc(r.name)}${r.page ? ` <span class="muted">${esc(pageLabel(r))}</span>` : ''}</dt><dd>${esc(r.text)}</dd>`;
       html += '</dl>';
     }
     el.innerHTML = html;

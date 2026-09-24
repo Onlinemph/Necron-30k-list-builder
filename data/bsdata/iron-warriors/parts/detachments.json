@@ -394,11 +394,19 @@
      ]
     }
    ],
-   "requires": [
-    "Master of Descent"
-   ],
+   "requires": [],
    "restrictions": [],
-   "rules": []
+   "rules": [
+    {
+     "name": "Tip of the Spear",
+     "text": "An Army whose Primary Detachment includes a Model with this Special Rule may select the Planetfall Speartip Auxiliary Detachment once per Army, following all the normal Rules for selecting Auxiliary Detachments.\n\n\nThe Planetfall Speartip Auxiliary Detachments consists of one Retinue Slot which may only be used to select Praetorian Command Squad with Jump Packs Units, and two Prime Elite Slots which may only be used to select Veteran Assault Squad Units."
+    }
+   ],
+   "unlockRule": {
+    "rule": "Tip of the Spear",
+    "primary": true,
+    "once": true
+   }
   },
   {
    "id": "bs-dreadnought-talon",

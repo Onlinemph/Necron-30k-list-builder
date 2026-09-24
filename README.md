@@ -53,7 +53,9 @@ Each army also gets:
 - Allegiance checks: Traitor-only and Loyalist-only units and advantages are flagged.
 - Wargear that changes the model: mounts (a Mounted Praetor on a Scimitar Jetbike), Tartaros armour and jump packs update the statline, rules and unit type.
 
-BSData doesn't give page numbers, so BSData units have none, and it doesn't print the special rules of most Legion detachments beyond their composition.
+In HH3 a Legion detachment's rules are its composition (slots, unit restrictions and the officer it needs), which the builder enforces. Where an officer's special rule unlocks the detachment (Tip of the Spear for Planetfall Speartip, Tank Commander for tank detachments) the rule is shown on the detachment and checked, including "in the Primary Detachment" and "once per army". Rules that benefit a detachment's units (Hold the Line for the Veletaris Tercio) are shown with it too.
+
+Page references show the book, e.g. "Liber Astartes p.218". BSData only records them for about a third of units (mostly Legion-specific ones and characters), so generic units such as the Tactical Squad have none.
 
 To refresh from BSData:
 

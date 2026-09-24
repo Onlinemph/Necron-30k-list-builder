@@ -175,14 +175,32 @@ test('Mounts change the rider: Mounted Praetor on a Scimitar Jetbike', () => {
   assert.match(r.unitType, /Antigrav/);
 });
 
-test('Legion detachments warn when their officer is missing', () => {
+test('Detachments unlocked by an officer: Tip of the Spear for Planetfall Speartip', () => {
   const { D, E, army } = armyOf('ultramarines');
   const def = D.detachments.find((d) => d.name === 'Planetfall Speartip');
-  assert.deepEqual([...def.requires], ['Master of Descent']);
+  assert.equal(def.unlockRule.rule, 'Tip of the Spear');
+  assert.ok(def.rules.some((r) => r.name === 'Tip of the Spear' && /Primary Detachment/.test(r.text)));
   army.detachments.push(E.detachmentFromDef(def.id));
-  assert.ok(E.armyIssues(army).some((i) => /requires a Master of Descent/.test(i.msg)));
+  assert.ok(E.armyIssues(army).some((i) => /needs a model with Tip of the Spear in the Primary Detachment/.test(i.msg)));
   place(E, army.detachments[0].slots.find((s) => s.role === 'Command'), 'master-of-descent');
-  assert.ok(!E.armyIssues(army).some((i) => /Master of Descent/.test(i.msg)));
+  assert.ok(!E.armyIssues(army).some((i) => /Tip of the Spear/.test(i.msg)));
+  army.detachments.push(E.detachmentFromDef(def.id));
+  assert.ok(E.armyIssues(army).some((i) => /Planetfall Speartip can only be taken once/.test(i.msg)));
+});
+
+test('Detachment requirements can be met by the army configuration (Iron Tercio)', () => {
+  const { D, E, army } = armyOf('solar-auxilia');
+  const def = D.detachments.find((d) => d.name === 'Iron Tercio');
+  army.detachments.push(E.detachmentFromDef(def.id));
+  assert.ok(E.armyIssues(army).some((i) => /Iron Tercio requires/.test(i.msg)));
+  army.config['cohort-doctrine'] = ['Cohort Doctrine: Iron Pattern Cohort'];
+  assert.ok(!E.armyIssues(army).some((i) => /Iron Tercio requires/.test(i.msg)));
+});
+
+test('Units carry the book their page number refers to', () => {
+  const u = armyOf('blood-angels').D.units.find((x) => x.name === 'Crimson Paladins');
+  assert.equal(u.book, 'Liber Astartes');
+  assert.equal(u.page, 218);
 });
 
 test('Army configuration keeps nested choices and fixed rules apart', () => {

@@ -41,6 +41,10 @@ function index(node) {
 index(gst.data);
 for (const c of Object.values(cats)) index(c.data);
 
+// book titles for page references ("Liber Astartes p.112")
+const PUBS = new Map([gst.data, ...Object.values(cats).map((c) => c.data)].flatMap((d) => d.publications || []).map((p) => [p.id,
+  String(p.name).trim().replace(/^Horus Heresy - /, '').replace(/ 3rd Edition$/, '').replace(/^Legacies of the Age of Darkness: /, 'Legacies: ')]));
+const book = (n) => (n && n.publicationId && PUBS.get(n.publicationId)) || null;
 const POINTS = (gst.data.costTypes.find((c) => /^Point/.test(c.name)) || {}).id;
 const catName = new Map([...gst.data.categoryEntries, ...Object.values(cats).flatMap((c) => c.data.categoryEntries || [])].map((c) => [c.id, c.name]));
 
@@ -270,29 +274,29 @@ function collectCommon() {
     if (!node || typeof node !== 'object') return;
     if (node.typeName === 'Ranged Weapon' || node.typeName === 'Melee Weapon') {
       const c = Object.fromEntries((node.characteristics || []).map((x) => [x.name, x.$text ?? '']));
-      const w = { name: node.name, page: node.page || null, specialRules: splitList(c['Special Rules']), traits: splitList(c.Traits), modes: null };
+      const w = { name: node.name, page: node.page || null, book: node.page ? book(node) : null, specialRules: splitList(c['Special Rules']), traits: splitList(c.Traits), modes: null };
       const num = (v) => (/^-?\d+$/.test(String(v)) ? Number(v) : (v === '-' ? '–' : v));
       if (node.typeName === 'Ranged Weapon') { Object.assign(w, { R: num(c.R), FP: num(c.FP), RS: num(c.RS), AP: num(c.AP), D: num(c.D) }); if (!ranged.has(node.name)) ranged.set(node.name, w); }
       else { Object.assign(w, { IM: num(c.IM), AM: num(c.AM), SM: num(c.SM), AP: num(c.AP), D: num(c.D) }); if (!melee.has(node.name)) melee.set(node.name, w); }
     }
     if (node.typeName === 'Wargear' && !wargear.has(node.name)) {
       const c = Object.fromEntries((node.characteristics || []).map((x) => [x.name, x.$text ?? '']));
-      wargear.set(node.name, { name: node.name, page: node.page || null, text: c.Description || c.Summary || '' });
+      wargear.set(node.name, { name: node.name, page: node.page || null, book: node.page ? book(node) : null, text: c.Description || c.Summary || '' });
     }
     if (node.typeName === 'Traits' && !traits.has(node.name)) {
       const c = Object.fromEntries((node.characteristics || []).map((x) => [x.name, x.$text ?? '']));
-      traits.set(node.name, { name: node.name, page: node.page || null, text: c.Description || '' });
+      traits.set(node.name, { name: node.name, page: node.page || null, book: node.page ? book(node) : null, text: c.Description || '' });
     }
     if (node.typeName === 'Reaction' && !reactions.has(node.name)) {
       const c = Object.fromEntries((node.characteristics || []).map((x) => [x.name, x.$text ?? '']));
-      reactions.set(node.name, { name: node.name, page: node.page || null, text: ['Trigger', 'Cost', 'Target', 'Process'].map((k) => c[k] ? `${k}: ${c[k]}` : '').filter(Boolean).join('\n\n') || c.Summary || '' });
+      reactions.set(node.name, { name: node.name, page: node.page || null, book: node.page ? book(node) : null, text: ['Trigger', 'Cost', 'Target', 'Process'].map((k) => c[k] ? `${k}: ${c[k]}` : '').filter(Boolean).join('\n\n') || c.Summary || '' });
     }
     if (node.typeName === 'Gambit' && !gambits.has(node.name)) {
       const c = Object.fromEntries((node.characteristics || []).map((x) => [x.name, x.$text ?? '']));
-      gambits.set(node.name, { name: node.name, page: node.page || null, text: c.Description || c.Summary || '' });
+      gambits.set(node.name, { name: node.name, page: node.page || null, book: node.page ? book(node) : null, text: c.Description || c.Summary || '' });
     }
     if (node.description !== undefined && node.name && !node.typeName && !node.characteristics && !rules.has(node.name) && /^[0-9a-f]{4}-/.test(node.id || '') && !node.type) {
-      rules.set(node.name, { name: node.name, page: node.page || null, text: node.description });
+      rules.set(node.name, { name: node.name, page: node.page || null, book: node.page ? book(node) : null, text: node.description });
     }
     for (const [k, v] of Object.entries(node)) if (typeof v === 'object' && k !== 'conditions') walk(v);
   };
@@ -340,7 +344,7 @@ function convertUnit(e, armyId, forcedRole) {
   const role = forcedRole || roleOf(e);
   if (!role) { skipped.push(`${e.name} (${[...(e.categoryLinks || [])].map((l) => catName.get(l.targetId) || l.name).join('/') || 'no role'})`); return null; }
   const unit = {
-    id: slug(e.name), name: e.name, role, page: e.page || null, limit: null, unique: false,
+    id: slug(e.name), name: e.name, role, page: e.page || null, book: e.page ? book(e) : null, limit: null, unique: false,
     basePoints: 0, composition: '', models: [], traits: [], specialRules: [], unitRules: [], options: [], note: null,
   };
   const special = specialCategory(e);
@@ -425,6 +429,8 @@ function convertUnit(e, armyId, forcedRole) {
   }
   // unit-level options (single-model units already handled above)
   if (e.type !== 'model') walkOptions(e, null, unit, opts, optId, (p) => { points += p; });
+  // a unit without its own page reference takes its first model's
+  if (!unit.page) { const pm = modelEntries.map((x) => x.e).find((m) => m.page); if (pm) { unit.page = pm.page; unit.book = book(pm); } }
   unit.basePoints = points;
   unit.options = opts;
   selectionEffects(unit, modelEntries, rules, e);
@@ -778,6 +784,17 @@ function armyDetachments(army, units) {
       requires: [...compText.matchAll(/Requires (?:an? )?([^\n·]+)/gi)].map((m) => m[1].trim()),
       restrictions: [], rules: textItems(f).map((t) => ({ name: t.name, text: t.text })),
     });
+    // the special rule that unlocks it ("Tip of the Spear: an Army whose Primary Detachment includes a Model with this rule may select…")
+    const det = out[out.length - 1];
+    const key = name.trim().replace(/\s*\(.*\)$/, '');
+    const hasRule = (u, r) => [...(u.specialRules || []), ...u.models.flatMap((m) => m.specialRules || [])].some((x) => x === r || String(x).startsWith(r.replace(/\s*\(X\)$/, '') + ' ('));
+    for (const r of common.rules.specialRules) {
+      if (!r.text.includes(key)) continue;
+      if (!det.rules.some((x) => x.name === r.name)) det.rules.push({ name: r.name, text: r.text });
+      if (!new RegExp(`may select (?:the |an? )?${key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`, 'i').test(r.text) || !units.some((u) => hasRule(u, r.name))) continue;
+      det.unlockRule = { rule: r.name, primary: /Primary Detachment includes/i.test(r.text), once: /once per Army/i.test(r.text) };
+      det.requires = [];
+    }
     if (problems.length) console.warn(`${army.name} / ${name}: ${problems.join('; ')}`);
   }
   return out;

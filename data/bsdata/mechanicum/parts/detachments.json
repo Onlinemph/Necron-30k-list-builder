@@ -96,7 +96,12 @@
    ],
    "requires": [],
    "restrictions": [],
-   "rules": []
+   "rules": [
+    {
+     "name": "Archimandrite",
+     "text": "An Archmagos, Archmagos on Abeyant, Magos, Magos on Abeyant or Tech-priest with the Archimandrite Trait gains the Arcana Benifice: The Engram of Authority. An Archmagos or Archmagos on Abeyant with the Archimandrite Trait selected as a High Command Choice may be given the Theurgika Maximus Special Rule for a cost of +10 Points. If an Army includes a Model with the High Command Battlefield Role and the Archimadrite Trait then they may select the Apex Detachment: The Heart of Power. All Units with the Troops Battlefield Role selected as part of this Detachment must have the Combat Veterans Prime Advantage selected for them."
+    }
+   ]
   },
   {
    "id": "bs-command-maniple",
@@ -137,7 +142,12 @@
    ],
    "requires": [],
    "restrictions": [],
-   "rules": []
+   "rules": [
+    {
+     "name": "Cybernetica",
+     "text": "An Archmagos, Archmagos on Abeyant, Magos, Magos on Abeyant or Tech-priest with the Cybernetica Trait gains the Arcana Benifice: The Deus Machina. A Unit composed entirely of Models with both the Automata Type and the Cybernetica Trait in a Prime slot may take the Mechanicum Prime Advantage: Paragon of Metal. If an Army includes a Model with the High Command Battlefield Role and the Cybernetica Trait then they may select the Apex Detachment: Command Maniple. Slots in this Detachment may only be used to select Units that only include Models with the Automata Type."
+    }
+   ]
   },
   {
    "id": "bs-the-panoply-of-cruelty",
@@ -175,7 +185,12 @@
    ],
    "requires": [],
    "restrictions": [],
-   "rules": []
+   "rules": [
+    {
+     "name": "Lacrymaerta",
+     "text": "An Archmagos, Archmagos on Abeyant, Magos, Magos on Abeyant or Tech-priest with the Lacrymarta Trait gains the Arcana Benifice: An Endless Servitude. A Unit composed entirely of Models with the Infantry Type and the Lacrymaerta Trait in a Prime slot may take the Mechanicum Prime Advantage: Prime Specimens. If an Army includes a Model with the High Command Battlefield Role and the Lactrymaerta Trait then they may select the Apex Detachment: The Panoply of Cruelty. Heavy Assault Slots in this Detachment may only be used to select Ursurax Cohort Units."
+    }
+   ]
   },
   {
    "id": "bs-the-host-of-destruction",
@@ -225,7 +240,12 @@
    ],
    "requires": [],
    "restrictions": [],
-   "rules": []
+   "rules": [
+    {
+     "name": "Myrmidax",
+     "text": "An Archmagos, Archmagos on Abeyant, Magos, Magos on Abeyant or Tech-priest with the Myrmidax Trait gains the Arcana Benifice: The Strength of Ages. Any Model with the Myrmidax Trait may use the Mechanicum Gambit: The Myrmidon's Path. If an Army includes a Model with the High Command Battlefield Role and the Myrmidax Trait then they may select the Apex Detachment: The Host of Destruction. Elite Slots in this Detachment may only be used to select Units that only include Models with the Myrmidax Trait."
+    }
+   ]
   },
   {
    "id": "bs-crux-of-judgement",
@@ -263,7 +283,12 @@
    ],
    "requires": [],
    "restrictions": [],
-   "rules": []
+   "rules": [
+    {
+     "name": "Malagra",
+     "text": "An Archmagos, Archmagos on Abeyant, Magos, Magos on Abeyant or Tech-priest with the Malagra Trait gains the Arcana Benifice: Even the Deathless May Know Fear. Any Model with the Malagra Trait may use the Mechanicum Gambit: Power of the Machine Spirit. If an Army includes a Model with the High Command Battlefield Role and the Malagra Trait then they may select the Apex Detachment: Crux of Judgement. All Slots in this Detachment must be filled with Arcuitor Magesterium Units. Models selected as part of this Detachment do not grant additional Auxiliary Detachments and all Models selected as part of this Detachment must be formed into a single Unit before being deployed and may not leave that Unit during the Battle."
+    }
+   ]
   },
   {
    "id": "bs-iron-phalanx",
@@ -301,7 +326,12 @@
    ],
    "requires": [],
    "restrictions": [],
-   "rules": []
+   "rules": [
+    {
+     "name": "Macrotek",
+     "text": "An Archmagos, Archmagos on Abeyant, Magos, Magos on Abeyant or Tech-priest with the Macrotek Trait gains the Arcana Benifice: Protector of Iron. Any Unit with the Macrotek Trait composed of a single Model with the Vehicle Type that does not also have the Super-Heavy Type and is taken in a Prime slot may take the Mechanicum Prime Advantage: Prime Conveyor. If an Army includes a Model with the High Command Battlefield Role and the Macrotek Trait then they may select the Apex Detachment: Iron Phalanx. All Models selected in this Detachment must have the Vehicle Type and must have the Prime Conveyor Prime Advantage selected for them."
+    }
+   ]
   },
   {
    "id": "bs-thallax-command-cohort",
@@ -339,7 +369,12 @@
    ],
    "requires": [],
    "restrictions": [],
-   "rules": []
+   "rules": [
+    {
+     "name": "Reductor",
+     "text": "An Archmagos, Archmagos on Abeyant, Magos, Magos on Abeyant or Tech-priest with the Reductor Trait gains the Arcana Benifice: Wall Breaker. A Thallax Cohort Unit with the Reductor Trait that is taken in a Prime slot may take the Mechanicum Prime Advantage: Thallaxi Principe. If an Army includes a Model with the High Command Battlefield Role and the Reductor Trait then they may select the Apex Detachment: Thallax Command Cohort. All Slots in this Detachment must be filled with Thallax Cohort Units and these units must include a Praetorian."
+    }
+   ]
   },
   {
    "id": "bs-leviathan-armoured-fist",
