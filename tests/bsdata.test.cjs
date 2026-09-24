@@ -85,3 +85,79 @@ test('BSData name modifiers: (X) values, source Legion prefixes, single-name cha
   assert.equal(new Set(al.map((u) => u.id)).size, al.length);
   assert.equal(al.find((u) => u.name === 'Alpharius').unique, true);
 });
+
+function armyOf(id) {
+  const D = load(`data-${id}.js`).ARMY_DATA[id];
+  const E = createEngine(D);
+  const slots = [];
+  for (const d of D.forceorg.primary.slots) for (let i = 0; i < (d.count ?? 1); i++) slots.push({ role: d.role, prime: i < (d.prime || 0) });
+  const army = { version: 2, faction: id, name: '', pointsLimit: 3000, sequelae: [], config: {}, detachments: [E.makeDetachment('primary', 'Crusade Primary Detachment', slots)] };
+  return { D, E, army };
+}
+const place = (E, slot, unitId) => { slot.unit = E.newSelection(unitId); return slot.unit; };
+
+test('Legion detachments: Terror Assault takes only Terror Squads in its Troops slots', () => {
+  const { D, E, army } = armyOf('night-lords');
+  const def = D.detachments.find((d) => d.name === 'Terror Assault');
+  assert.ok(def && def.type === 'Auxiliary');
+  const det = E.detachmentFromDef(def.id);
+  army.detachments.push(det);
+  const troops = det.slots.find((s) => s.role === 'Troops');
+  assert.equal(E.unitsForSlot(troops, det).map((u) => u.id).join(), 'terror-squad');
+  assert.ok(E.unitsForSlot(det.slots.find((s) => s.role === 'Fast Attack'), det).length > 1);
+  place(E, troops, 'tactical-squad');
+  assert.ok(E.armyIssues(army).some((i) => /restrictions/.test(i.msg)));
+});
+
+test('Army configuration: Legion Tactica, Gambit and Advanced Reaction, plus an allegiance to pick', () => {
+  const { D, E, army } = armyOf('night-lords');
+  const names = D.armyConfig.fixed.map((r) => r.name);
+  assert.ok(names.includes('A Talent for Murder') && names.includes('Nostraman Courage') && names.includes('Better Part of Valour'));
+  assert.ok(E.armyIssues(army).some((i) => /choose 1 from Allegiance/.test(i.msg)));
+  army.config.allegiance = ['Traitor'];
+  assert.ok(!E.armyIssues(army).some((i) => /Allegiance/.test(i.msg)));
+  const sa = armyOf('solar-auxilia').D.armyConfig.groups.find((g) => g.id === 'cohort-doctrine');
+  assert.ok(sa.choices.some((c) => /Solar Pattern/.test(c.name) && /Shock Assault/.test(c.text)));
+});
+
+test('Legion Prime Advantages follow the slot: Duty Before Death for Salamanders Troops', () => {
+  const { E, army } = armyOf('salamanders');
+  const primary = army.detachments[0];
+  const troops = primary.slots.find((s) => s.role === 'Troops' && s.prime);
+  const command = primary.slots.find((s) => s.role === 'Command' && s.prime);
+  const t = place(E, troops, 'tactical-squad');
+  const c = place(E, command, 'centurion');
+  assert.ok(E.primeAdvantagesFor(t, army, troops).some((a) => a.name === 'Duty Before Death'));
+  assert.ok(!E.primeAdvantagesFor(c, army, command).some((a) => a.name === 'Duty Before Death'));
+});
+
+test('Clade Operative adds three Support slots that only Assassins fill', () => {
+  const { E, army } = armyOf('ultramarines');
+  army.config.allegiance = ['Loyalist'];
+  const primary = army.detachments[0];
+  const slot = primary.slots.find((s) => s.role === 'Troops' && s.prime);
+  const sel = place(E, slot, 'tactical-squad');
+  assert.ok(E.primeAdvantagesFor(sel, army, slot).some((a) => a.name === 'Clade Operative'));
+  army.config.allegiance = ['Traitor'];
+  assert.ok(!E.primeAdvantagesFor(sel, army, slot).some((a) => a.name === 'Clade Operative'));
+  army.config.allegiance = ['Loyalist'];
+  sel.primeAdvantage = 'Clade Operative';
+  E.syncAdvisorSlots(primary);
+  const extra = primary.slots.filter((s) => s.operative === 'Clade Operative');
+  assert.equal(extra.length, 3);
+  const ids = E.unitsForSlot(extra[0], primary).map((u) => u.id);
+  assert.ok(ids.includes('vindicare-assassin') && !ids.includes('infernus-abomination') && !ids.includes('tactical-squad'));
+  assert.ok(!E.unitsForSlot({ role: 'Support' }, primary).some((u) => u.id === 'vindicare-assassin'));
+  place(E, extra[0], 'eversor-assassin');
+  assert.deepEqual(E.armyIssues(army).filter((i) => /Assassin|operative/i.test(i.msg)), []);
+  sel.primeAdvantage = null;
+  E.syncAdvisorSlots(primary);
+  assert.ok(E.armyIssues(army).some((i) => /Prime Advantage that's gone/.test(i.msg)));
+});
+
+test('Allegiance-locked units are flagged', () => {
+  const { E, army } = armyOf('emperors-children');
+  army.config.allegiance = ['Loyalist'];
+  place(E, army.detachments[0].slots.find((s) => s.role === 'Troops'), 'kakophoni-squad');
+  assert.ok(E.armyIssues(army).some((i) => /only available to Traitor/.test(i.msg)));
+});

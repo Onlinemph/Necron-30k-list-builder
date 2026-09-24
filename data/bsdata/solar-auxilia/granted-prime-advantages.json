@@ -1,0 +1,42 @@
+{
+ "grantedPrimeAdvantages": [
+  {
+   "name": "True Believers",
+   "text": "All Models in the Unit selected to fill the Prime Slot gain the Malefic Sub-Type.",
+   "eligible": {
+    "excludeRoles": [
+     "High Command"
+    ],
+    "allegiance": "Traitor"
+   }
+  },
+  {
+   "name": "Clade Operative",
+   "text": "Add three additional Support Force Organisation Slots to the Detachment that includes the Prime Slot with this Prime Advantage. These Force Organisation Slots may only be filled by Units selected from the Divisio Assassinorum Army List. This Prime Advantage may only be selected for a single Force Organisation Slot in an Army’s Primary Detachment.",
+   "eligible": {
+    "allegiance": "Loyalist"
+   },
+   "oncePerArmy": true,
+   "addSlots": {
+    "role": "Support",
+    "count": 3,
+    "operative": "Clade Operative"
+   },
+   "primaryOnly": true
+  },
+  {
+   "name": "Cult Operative",
+   "text": "Add one additional Support Force Organisation Slot to the Detachment that includes the Prime Slot with this Prime Advantage. This Force Organisation Slot may only be filled by a Unit selected from the Cults Abominatio Army List. This Prime Advantage may only be selected for a single Force Organisation Slot in an Army’s Primary Detachment.",
+   "eligible": {
+    "allegiance": "Traitor"
+   },
+   "oncePerArmy": true,
+   "addSlots": {
+    "role": "Support",
+    "count": 1,
+    "operative": "Cult Operative"
+   },
+   "primaryOnly": true
+  }
+ ]
+}

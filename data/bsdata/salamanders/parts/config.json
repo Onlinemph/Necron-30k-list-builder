@@ -1,0 +1,48 @@
+{
+ "armyConfig": {
+  "fixed": [
+   {
+    "name": "Promethean Endurance",
+    "text": "\"Wound Tests made against Salamanders fail on the unmodified roll of a 1 or 2.\"\n\n\nWound Tests that have an unmodified result of 1 or 2 that target any Unit that includes only Models with this Special Rule are never successful regardless of the Strength Characteristic of a Hit or any Special Rules that set the Target Number for Wound Tests. This Special Rule has no effect on Armour Penetration Tests.",
+    "kind": "rule",
+    "source": "Legion Tactica"
+   },
+   {
+    "name": "Blood of Fire",
+    "text": "\"Units of Salamanders may ignore Tactical Status Checks applied from Flame Weapons.\"\n\n\nA Unit made up entirely of Models with this Special Rule is unaffected by any variant of the Panic (X) Special Rule on Weapons with the Flame Trait.",
+    "kind": "rule",
+    "source": "Legion Tactica"
+   },
+   {
+    "name": "Duty is Sacrifice",
+    "text": "If this Gambit is selected, the Controlling Player can add a bonus of 1,2 or 3 to their Focus Roll. In the Apply Damage from Unsaved Wounds Step of the opponent's Strike Step, the Model this Gambit was selected for suffers a number of wounds, each with an AP Characteristic of 5 and a Damage Characteristic of 1, equal to the bonus to the Focus Roll applied by this Gambit, against which only Armour Saves, Invulnerable Saves and Damage Mitigation rolls can be taken as normal.",
+    "kind": "Gambit",
+    "source": "Gambit"
+   },
+   {
+    "name": "Selfless Burden",
+    "text": "Trigger: Once per Battle, the Reactive Player may declare the Selfless Burden Advanced Reaction at the start of Step 3 of a Charge declared by the Active Player, targeting a Unit under their control which only includes Models with the Salamanders Trait that do not have the Vehicle Type.\n\nCost: The Reactive Player must spend 1 point of their Reaction Allotment to declare a Selfless Burden Advanced Reaction, this cost paid as soon as the declaration is made.\n\nTarget: For a Selfless Burden Advanced Reaction, the Reacting Unit is always the Unit that is the target of the Charge that triggered this Reaction.\n\nProcess: 1. All Models in the Reacting Unit have their Weapon Skill, Strength and Attacks Characteristics modified by +1 until the end of the current assault Phase.\n2. In the following Statuses Sub-Phase, the Reactive Player must roll a D6 for each Model in the Reacting Unit. For each result of a 1, the Reacting Unit suffers 1 automatic wound with a Damage Characteristic of 1, an AP of -. against which Saving Throws and Damage Mitigation Rolls may be taken.",
+    "kind": "Reaction",
+    "source": "Advanced Reaction"
+   }
+  ],
+  "groups": [
+   {
+    "id": "allegiance",
+    "name": "Allegiance",
+    "min": 1,
+    "max": 1,
+    "choices": [
+     {
+      "name": "Loyalist",
+      "text": "The army fights for the Emperor. Some Prime Advantages and units are only available to one side."
+     },
+     {
+      "name": "Traitor",
+      "text": "The army has sided with Horus. Some Prime Advantages and units are only available to one side."
+     }
+    ]
+   }
+  ]
+ }
+}

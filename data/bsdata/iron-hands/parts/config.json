@@ -1,0 +1,42 @@
+{
+ "armyConfig": {
+  "fixed": [
+   {
+    "name": "The Gorgon's Scales",
+    "text": "\"Shooting Attacks targeting Iron Hands suffer a Strength penalty\"\n\nThe Ranged Strength of attacks made as a part of a Shooting Attack are modified by -1 when resolving Wound Tests against a Unit that includes only Models with this Special Rule.",
+    "kind": "rule",
+    "source": "Legion Tactica"
+   },
+   {
+    "name": "Legion of One",
+    "text": "When this Gambit is selected, the Model it is selected for gains double the normal bonus to their Focus Roll they would normally gain from Outside Support. In addition, when this Gambit is selected, their opponent can only ever gain a maximum bonus of +2 from Outside Support.",
+    "kind": "Gambit",
+    "source": "Gambit"
+   },
+   {
+    "name": "Spite of the Gorgon",
+    "text": "Trigger: Once per Battle, the Reactive Player may declare the Spite of the Gorgon Advanced Reaction at the start of Step 3 of the Charge process of any Charge declared by the Active Player that targets a Unit under the Reactive Player's Control that only includes Models with the Iron Hands Trait.\n\nCost: The Reactive Player must spend 1 point of their Reaction Allotment to declare the Spite of the Gorgon Advanced Reaction, this cost paid as soon as the declaration is made.\n\nTarget: The Target Unit is always the Unit whose Charge triggered the Advanced Reaction. The Reacting Unit is always the Unit that was declared as the target of the Charge that triggered this Reaction.\n\nProcess: 1. Once the Spite of the Gorgon Advanced Reaction has been declared, the Reactive Player makes a Shooting Attack with the Reacting Unit.\n\n\n2. This Shooting Attack must target the Target Unit and is made at full Ballistic Skill, not as Snap Shots, and may be made using any Ranged Weapon. Until this Shooting Attack is resolved, Weapons selected for it have their Firepower Characteristic modified by +1 and gain the Overload (1) Special Rule. If that Weapon already has the Overload (X) Special Rule, improve the value of X on that Special Rule by +1.\n\n\n3. After resolving this Shooting Attack, the Active Player proceeds with Step 3 of that Charge as normal. The Reactive Player may not make Volley Attacks during Step 4 of that Charge, even if the Active Player chooses to do so.",
+    "kind": "Reaction",
+    "source": "Advanced Reaction"
+   }
+  ],
+  "groups": [
+   {
+    "id": "allegiance",
+    "name": "Allegiance",
+    "min": 1,
+    "max": 1,
+    "choices": [
+     {
+      "name": "Loyalist",
+      "text": "The army fights for the Emperor. Some Prime Advantages and units are only available to one side."
+     },
+     {
+      "name": "Traitor",
+      "text": "The army has sided with Horus. Some Prime Advantages and units are only available to one side."
+     }
+    ]
+   }
+  ]
+ }
+}

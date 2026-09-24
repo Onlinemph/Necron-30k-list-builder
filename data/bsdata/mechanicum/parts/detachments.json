@@ -1,0 +1,411 @@
+{
+ "detachments": [
+  {
+   "id": "bs-taghmata-cohort",
+   "name": "Taghmata Cohort",
+   "type": "Auxiliary",
+   "source": "army",
+   "page": null,
+   "unlock": "4 Support",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Support",
+     "prime": false
+    },
+    {
+     "role": "Support",
+     "prime": false
+    },
+    {
+     "role": "Support",
+     "prime": false
+    },
+    {
+     "role": "Support",
+     "prime": false
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-apprentice-cadre",
+   "name": "Apprentice Cadre",
+   "type": "Auxiliary",
+   "source": "army",
+   "page": null,
+   "unlock": "4 Troops (1 Prime)",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Troops",
+     "prime": true
+    },
+    {
+     "role": "Troops",
+     "prime": false
+    },
+    {
+     "role": "Troops",
+     "prime": false
+    },
+    {
+     "role": "Troops",
+     "prime": false
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-the-heart-of-power",
+   "name": "The Heart of Power",
+   "type": "Apex",
+   "source": "army",
+   "page": null,
+   "unlock": "3 Retinue (1 Prime) · 3 Troops (3 prime) · All Troops must have the Combat Veterans Prime Advantage",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Retinue",
+     "prime": true
+    },
+    {
+     "role": "Retinue",
+     "prime": false
+    },
+    {
+     "role": "Retinue",
+     "prime": false
+    },
+    {
+     "role": "Troops",
+     "prime": true
+    },
+    {
+     "role": "Troops",
+     "prime": true
+    },
+    {
+     "role": "Troops",
+     "prime": true
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-command-maniple",
+   "name": "Command Maniple",
+   "type": "Apex",
+   "source": "army",
+   "page": null,
+   "unlock": "1 Elite (1 Prime) · 1 Support (1 Prime) · 1 War-engine (1 Prime) · All slots are Automata Only",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Elites",
+     "prime": true,
+     "onlyLabel": "Automata Only",
+     "only": [
+      "domitar-battle-maniple",
+      "decimator",
+      "arlatax-battle-maniple"
+     ]
+    },
+    {
+     "role": "Support",
+     "prime": true,
+     "onlyLabel": "Automata Only",
+     "only": [
+      "castellax-battle-maniple",
+      "castellax-infernus-maniple"
+     ]
+    },
+    {
+     "role": "War Engine",
+     "prime": true,
+     "onlyLabel": "Engine - Automata Only",
+     "only": [
+      "thanatar-siege-maniple"
+     ]
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-the-panoply-of-cruelty",
+   "name": "The Panoply of Cruelty",
+   "type": "Apex",
+   "source": "army",
+   "page": null,
+   "unlock": "3 Heavy Assault (3 Prime) · Only Ursurax Cohort",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Heavy Assault",
+     "prime": true,
+     "onlyLabel": "Ursurax Cohorts Only",
+     "only": [
+      "ursarax-cohort"
+     ]
+    },
+    {
+     "role": "Heavy Assault",
+     "prime": true,
+     "onlyLabel": "Ursurax Cohorts Only",
+     "only": [
+      "ursarax-cohort"
+     ]
+    },
+    {
+     "role": "Heavy Assault",
+     "prime": true,
+     "onlyLabel": "Ursurax Cohorts Only",
+     "only": [
+      "ursarax-cohort"
+     ]
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-the-host-of-destruction",
+   "name": "The Host of Destruction",
+   "type": "Apex",
+   "source": "army",
+   "page": null,
+   "unlock": "4 Elites (1 Prime) · Only units with the Myrmidax trait",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Elites",
+     "prime": true,
+     "onlyLabel": "Myrmidax Only",
+     "only": [
+      "myrmidon-secutor-host",
+      "myrmidon-destructor-host"
+     ]
+    },
+    {
+     "role": "Elites",
+     "prime": false,
+     "onlyLabel": "Myrmidax Only",
+     "only": [
+      "myrmidon-secutor-host",
+      "myrmidon-destructor-host"
+     ]
+    },
+    {
+     "role": "Elites",
+     "prime": false,
+     "onlyLabel": "Myrmidax Only",
+     "only": [
+      "myrmidon-secutor-host",
+      "myrmidon-destructor-host"
+     ]
+    },
+    {
+     "role": "Elites",
+     "prime": false,
+     "onlyLabel": "Myrmidax Only",
+     "only": [
+      "myrmidon-secutor-host",
+      "myrmidon-destructor-host"
+     ]
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-crux-of-judgement",
+   "name": "Crux of Judgement",
+   "type": "Apex",
+   "source": "army",
+   "page": null,
+   "unlock": "3 Command · Only Arcuitor Magisterium units - these do not grant additional Auxiliary Detachments and must form a single Unit",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Command",
+     "prime": false,
+     "onlyLabel": "Arcuitor Magesterium Only",
+     "only": [
+      "arcuitor-magisterium"
+     ]
+    },
+    {
+     "role": "Command",
+     "prime": false,
+     "onlyLabel": "Arcuitor Magesterium Only",
+     "only": [
+      "arcuitor-magisterium"
+     ]
+    },
+    {
+     "role": "Command",
+     "prime": false,
+     "onlyLabel": "Arcuitor Magesterium Only",
+     "only": [
+      "arcuitor-magisterium"
+     ]
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-iron-phalanx",
+   "name": "Iron Phalanx",
+   "type": "Apex",
+   "source": "army",
+   "page": null,
+   "unlock": "3 Armour (3 Prime) · 3 Heavy Transport (3 Prime) · All must take the Prime Conveyor Prime Advantage",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Armour",
+     "prime": true
+    },
+    {
+     "role": "Armour",
+     "prime": true
+    },
+    {
+     "role": "Armour",
+     "prime": true
+    },
+    {
+     "role": "Heavy Transport",
+     "prime": true
+    },
+    {
+     "role": "Heavy Transport",
+     "prime": true
+    },
+    {
+     "role": "Heavy Transport",
+     "prime": true
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-thallax-command-cohort",
+   "name": "Thallax Command Cohort",
+   "type": "Apex",
+   "source": "army",
+   "page": null,
+   "unlock": "3 Support (3 Prime) · Thallax Cohorts only, must include a Praetorian",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Support",
+     "prime": true,
+     "onlyLabel": "Thallax Cohort Only",
+     "only": [
+      "thallax-cohort"
+     ]
+    },
+    {
+     "role": "Support",
+     "prime": true,
+     "onlyLabel": "Thallax Cohort Only",
+     "only": [
+      "thallax-cohort"
+     ]
+    },
+    {
+     "role": "Support",
+     "prime": true,
+     "onlyLabel": "Thallax Cohort Only",
+     "only": [
+      "thallax-cohort"
+     ]
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-leviathan-armoured-fist",
+   "name": "Leviathan Armoured Fist",
+   "type": "Apex",
+   "source": "army",
+   "page": null,
+   "unlock": "3 Lord of War · Detachment can only be used in Leviathan Missions",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Lord of War",
+     "prime": false
+    },
+    {
+     "role": "Lord of War",
+     "prime": false
+    },
+    {
+     "role": "Lord of War",
+     "prime": false
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-leviathan-bastion-of-fire",
+   "name": "Leviathan Bastion of Fire",
+   "type": "Apex",
+   "source": "army",
+   "page": null,
+   "unlock": "3 Support (1 Prime) · Detachment can only be used in Leviathan Missions",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Support",
+     "prime": true
+    },
+    {
+     "role": "Support",
+     "prime": false
+    },
+    {
+     "role": "Support",
+     "prime": false
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-armoured-command-squadron-detachment",
+   "name": "Armoured Command Squadron Detachment",
+   "type": "Apex",
+   "source": "army",
+   "page": null,
+   "unlock": "3 Armour (3 Prime) · Detachment can only be used in Armoured Spearhead Missions · May use Armoured Spearhead Prime Advantages",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Armour",
+     "prime": true
+    },
+    {
+     "role": "Armour",
+     "prime": true
+    },
+    {
+     "role": "Armour",
+     "prime": true
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  }
+ ]
+}

@@ -1,0 +1,107 @@
+{
+ "armyConfig": {
+  "fixed": [],
+  "groups": [
+   {
+    "id": "allegiance",
+    "name": "Allegiance",
+    "min": 1,
+    "max": 1,
+    "choices": [
+     {
+      "name": "Loyalist",
+      "text": "The army fights for the Emperor. Some Prime Advantages and units are only available to one side."
+     },
+     {
+      "name": "Traitor",
+      "text": "The army has sided with Horus. Some Prime Advantages and units are only available to one side."
+     }
+    ]
+   },
+   {
+    "id": "provenances-of-war",
+    "name": "Provenances of War",
+    "min": 0,
+    "max": 1,
+    "choices": [
+     {
+      "name": "Abhuman Muster",
+      "text": "An Army with this Provenance gains the following benefits:\n • All Models with the Irregulars Special Rule in this Army have their Base Strength Characteristic modified by +1, their Base Ballistic Skill Characteristic modified by -1, and gain the Impact (LD) Special Rule.\n • The following item is added to the Militia Armaments list:- Assault shield +1 Point"
+     },
+     {
+      "name": "Alchem-jackers",
+      "text": "If the Controlling Player is making a Leadership Check or Cool Check for a Unit in this Army that only contains Models with the Irregulars Special Rule, they may ignore negative modifiers to Leadership or Cool applied by the Panic (X), Pinning (X), Stun (X) or Suppressive (X) Special Rules.\nEvery Model in a Unit that only includes Models with the Irregulars Special Rule and the Infantry Type in this Army can have Frenzon selected for it for +1 Point per Model"
+     },
+     {
+      "name": "Armoury of Old Night",
+      "text": "An Army with this Provenance gains the following benefits:\n • All Models with the Irregulars Special Rule and the Infantry Type in this Army have their Base Armour Save Characteristic improved by one step and gain the Slow and Purposeful Special Rule. This Provenance may not modify any Model’s Armour Save Characteristic to ‘2+’.\n • The following item is added to the Militia Pistols list and Militia Officer Weapons list:- Volkite serpenta +5 Points\n • The following item is added to the Militia Assault Weapons list:- Volkite charger  +5 Points\n • The following item is added to the Militia Special Weapons list:- Volkite caliver +10 Points\n • The following item is added to the Militia Heavy Weapons list:- Volkite culverin +15 Points"
+     },
+     {
+      "name": "Arms of the Omnissiah",
+      "text": "An Army with this Provenance gains the following benefits:\n • All Models with the Irregulars Special Rule and the Infantry Type in this Army gain the Implacable Advance Special Rule.\n • The following item is added to the Militia Armaments list:- Las-lock +1 Point\n • The following item is added to the Militia Special Weapons list:- Arc rifle +10 Points\n • Triaros Armoured Conveyor Units from the Mechanicum Taghmata Army List may be selected to fill Heavy Transport Force Organisation Slots in any Imperialis Militia Detachments in this Army and Krios Battle Tank Units from the Mechanicum Taghmata Army List may be selected to fill Armour Force Organisation Slots in any Imperialis Militia Detachments in this Army. Any Models in these Units replace the [Mechanicum] or Macrotek Trait with the Imperialis Militia Trait, gain the Third-Line Special Rule and modify their Ballistic Skill Characteristic by -1."
+     },
+     {
+      "name": "Augmented Levy",
+      "text": "An Army with this Provenance gains the following benefits:\n • All Models with the Irregulars Special Rule and the Infantry Type in this Army gain the Rite of Pure Thought Special Rule (see Liber Mechanicum, page 96). \n• Every Model in a Command Troop Unit in this Army can have the Repair Automata Special Rule (see Liber Mechanicum, page 96) selected for it for +2 Points per Model."
+     },
+     {
+      "name": "Cyber-augmetics",
+      "text": "Cyber Augmetics: An Army with this Provenance gains the following benefits:\n• All Models with the Irregulars Special Rule and the Infantry Type in this Army gain the Eternal Warrior (1) Special Rule and their Base Intelligence Characteristic is modified by +1.\n• Any Model with the Irregulars Special Rule and the Command or Sergeant Sub-Type in this Army may have rad grenades selected for it for +5 Points per Model."
+     },
+     {
+      "name": "Debased Rabble",
+      "text": "This Provenance may only be selected for an Army with the Traitor Allegiance. An Army with this Provenance gains the following benefits:\n • All Models with the Irregulars Special Rule in this Army have their Base Cool Characteristic modified by +1 and their Base Intelligence Characteristic modified by -1.\n • The following item is added to the Militia Melee Weapons list and Militia Officer Weapons list:- Tainted implements +1 Point"
+     },
+     {
+      "name": "Feral Warriors",
+      "text": "An Army with this Provenance gains the following benefits:\n • All Models with the Irregulars Special Rule in this Army gain the Impact (WS) Special Rule. \n If a Unit in this Army containing any Models with the Irregulars Special Rule is within 8\" of any enemy Units at the start of the Controlling Player’s Charge Sub-Phase and is eligible to make a Charge Move, the Controlling Player must make an Intelligence Check for that Unit. If that Check is failed, the Controlling Player must make a Charge Move for that Unit.\n • The following items are added to the Militia Armaments list and Militia Assault Weapons list:- Paired close combat weapons +3 Points"
+     },
+     {
+      "name": "Gene-crafted",
+      "text": "Gene Crafted: An Army with this Provenance gains the following benefits:\n • All Models with the Irregulars Special Rule and the Infantry Type in this Army gain the Light Sub-Type, unless they have the Heavy Sub-Type, in which case they instead lose the Heavy Sub-Type.\n • The following item is added to the Militia Pistols list:- Needle pistol +5 Points\n • The following item is added to the Militia Assault Weapons list:- Assault needler +5 Points\n • The following item is added to the Militia Special Weapons list:- Needle rifle +10 Points\n • The following item is added to the Militia Heavy Weapons list:- Needle cannon +15 Points"
+     },
+     {
+      "name": "Imperialis Provosts",
+      "text": "An Army with this Provenance gains the following benefits:\n• If a Combat includes any Models from this Army with the Irregulars Special Rule but not the Expendable (X) Special Rule, the Controlling Player scores 2 additional Combat Resolution Points if that Combat also includes any enemy Models with one or more Tactical Statuses.\n • The following item is added to the Militia Melee Weapons list and Militia Officer Weapons list:- Shock maul +3 Points\n • The following item is added to the Militia Special Weapons list:- Webber +3 Points"
+     },
+     {
+      "name": "Industrial Levy",
+      "text": "An Army with this Provenance gains the following benefits:\n • All Models with the Irregulars Special Rule in this Army gain the Move Through Cover Special Rule.\n • The following item is added to the Militia Assault Weapons list:- Heavy industrial weapon +8 Points\n • The following items are added to the Militia Special Weapons list:- Mining laser +15 Points, Seismic cannon +15 Points\n • The following items are added to the Militia Heavy Weapons list:- Heavy mining laser +25 Points, Heavy seismic cannon +25 Points"
+     },
+     {
+      "name": "Kinfolk Helots",
+      "text": "An Army with this Provenance gains the following benefits:\n • All Models with the Irregulars Special Rule and the Infantry Type in this Army have their Base Toughness Characteristic modified by +1 and their Base Initiative and Base Movement Characteristics modified by -1. \n• One Grenadier Troop Unit in each Detachment in this Army may be upgraded to be Exo-riggers for +8 Points per Model. All Models in Units which have been upgraded in this way:\n- Have the Heavy Sub-Type.\n- Have the Bulky (2) & Slow and Purposeful Special Rules.\n- Have an Armour Save Characteristic of 3+ and an Invulnerable Save Characteristic of 6+.\n- Have an Intelligence Characteristic of 7 and the Battlesmith (1) Special Rule if they have the Sergeant Sub-Type.\n- May each exchange their Militia rifle for one heavy industrial weapon for +8 Points per Model or one pair of industrial weapons for +10 Points per Model"
+     },
+     {
+      "name": "Legacy of the Great Crusade",
+      "text": "An Army with this Provenance gains the following benefits:\n • All Models with the Irregulars Special Rule in this Army which don’t have any version of the Expendable (X) Special Rule have their Base Ballistic Skill Characteristic modified by +1.\n • The following item is added to the Militia Armaments list:- Lasrifle +1 Point\n • The following item is added to the Militia Special Weapons list:- Rotor cannon +10 Points"
+     },
+     {
+      "name": "Ogryn Conscripts",
+      "text": "An Army with this Provenance gains the following benefits:\n • All Models in Ogryn Brute Troop Units in this Army lose the Heedless Special Rule while their Unit includes at least one Model with the Instill Order Special Rule.\n • Every Model with an assault shield in an Ogryn Brute Troop Unit in this Army can have its assault shield exchanged for one boarding shield for +2 Points per Model"
+     },
+     {
+      "name": "Survivors of the Dark Age",
+      "text": "An Army with this Provenance gains the following benefits:\n • All Models with the Vehicle Type and the Imperialis Militia Trait in this Army gain the Auto-Repair (5+) Special Rule.\n • Rhino and Termite Units from the Legiones Astartes Army List may be selected to fill Transport Force Organisation Slots in any Imperialis Militia Detachments in this Army and Land Raider Carrier Units from the Legiones Astartes Army List may be selected to fill Heavy Transport Force Organisation Slots in any Imperialis Militia Detachments in this Army. Any Models in these Units replace the Legiones Astartes Trait with the Imperialis Militia Trait, gain the Third-Line Special Rule and modify their Ballistic Skill Characteristic by -1"
+     },
+     {
+      "name": "Tainted Flesh",
+      "text": "This Provenance may only be selected for an Army with the Traitor Allegiance. An Army with this Provenance gains the following benefits:\n • All Models with the Irregulars Special Rule in this Army gain the Aflame (1) and Impact (I) Special Rules.\n • Each Rogue Psyker Model in this Army may have up to two Psychic Disciplines selected for it from the options available on its profile instead of one."
+     },
+     {
+      "name": "Unending Horde",
+      "text": "An Army with this Provenance gains the following benefits:\n • All Models in Infantry Troop and Levy Troop Units in this Army gain the Endless Horde (4+) Special Rule. \n• Every Model in a Command Troop or Infantry Troop Unit in this Army can have the Expendable (1) Special Rule selected for it for +1 Point per Model"
+     },
+     {
+      "name": "Voidbourne",
+      "text": "An Army with this Provenance gains the following benefits:\n • All Models with the Irregulars Special Rule but not any version of the Bulky (X) or the Expendable (X) Special Rules in this Army gain the Infiltrate (18) Special Rule.\n • Any Reconnaissance Troop or Command Troop Unit in this Army may be upgraded to be Voidjumpers for +3 Points per Model. All Models in Units which have been upgraded in this way:\n- Have the Antigrav Sub-Type\n- Have the Bulky (2), Deep Strike & Firestorm Special Rules.\n- Set their Base Movement Characteristic to 10. \n• The following items are added to the Militia Armaments list and Militia Assault Weapons list:- Two militia pistols Free, Two laspistols +1 Point"
+     },
+     {
+      "name": "Warrior Elite",
+      "text": "An Army with this Provenance gains the following benefits:\n • All Models with the Irregulars Special Rule in this Army have their Base Leadership Characteristic modified by +1 to a maximum of 9.\n • Any Model in this Army may have a Militia vexilla exchanged for one auxilia vexilla for Free"
+     }
+    ]
+   }
+  ]
+ }
+}

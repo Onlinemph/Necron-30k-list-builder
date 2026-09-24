@@ -1,0 +1,29 @@
+{
+ "detachments": [
+  {
+   "id": "bs-armoured-command-squadron-detachment",
+   "name": "Armoured Command Squadron Detachment",
+   "type": "Apex",
+   "source": "army",
+   "page": null,
+   "unlock": "3 Armour (3 Prime) · Detachment can only be used in Armoured Spearhead Missions · May use Armoured Spearhead Prime Advantages",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Armour",
+     "prime": true
+    },
+    {
+     "role": "Armour",
+     "prime": true
+    },
+    {
+     "role": "Armour",
+     "prime": true
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  }
+ ]
+}

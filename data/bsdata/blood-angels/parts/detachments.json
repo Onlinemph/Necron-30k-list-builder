@@ -1,0 +1,650 @@
+{
+ "detachments": [
+  {
+   "id": "bs-revelation-host",
+   "name": "Revelation Host",
+   "type": "Auxiliary",
+   "source": "army",
+   "page": 211,
+   "unlock": "2 Troops (1 Prime) · 2 Elites · Troops must be Assault Squad units · Elites must be Dawnbreaker Cohort or Veteran Assault Squad units",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Troops",
+     "prime": true,
+     "onlyLabel": "Assault Squads Only",
+     "only": [
+      "assault-squad"
+     ]
+    },
+    {
+     "role": "Troops",
+     "prime": false,
+     "onlyLabel": "Assault Squads Only",
+     "only": [
+      "assault-squad"
+     ]
+    },
+    {
+     "role": "Elites",
+     "prime": false,
+     "onlyLabel": "Dawnbreaker Cohorts or Veteran Assault Squads Only",
+     "only": [
+      "dawnbreaker-cohort",
+      "veteran-assault-squad"
+     ]
+    },
+    {
+     "role": "Elites",
+     "prime": false,
+     "onlyLabel": "Dawnbreaker Cohorts or Veteran Assault Squads Only",
+     "only": [
+      "dawnbreaker-cohort",
+      "veteran-assault-squad"
+     ]
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-daemonic-manifestation",
+   "name": "Daemonic Manifestation",
+   "type": "Auxiliary",
+   "source": "army",
+   "page": 16,
+   "unlock": "3 Heavy Assault · Requires Esoterist · Must be Ruinstorm Daemon Brute units",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Heavy Assault",
+     "prime": false,
+     "onlyLabel": "Ruinstorm Daemon Brutes Only",
+     "only": [
+      "ruinstorm-daemon-brutes"
+     ]
+    },
+    {
+     "role": "Heavy Assault",
+     "prime": false,
+     "onlyLabel": "Ruinstorm Daemon Brutes Only",
+     "only": [
+      "ruinstorm-daemon-brutes"
+     ]
+    },
+    {
+     "role": "Heavy Assault",
+     "prime": false,
+     "onlyLabel": "Ruinstorm Daemon Brutes Only",
+     "only": [
+      "ruinstorm-daemon-brutes"
+     ]
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-veteran-cadre",
+   "name": "Veteran Cadre",
+   "type": "Auxiliary",
+   "source": "army",
+   "page": 16,
+   "unlock": "1 Retinue · 1 Elites · 1 Heavy Transport · Requires Legion Champion",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Retinue",
+     "prime": false
+    },
+    {
+     "role": "Elites",
+     "prime": false
+    },
+    {
+     "role": "Heavy Transport",
+     "prime": false
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-apothecarion-delegation",
+   "name": "Apothecarion Delegation",
+   "type": "Auxiliary",
+   "source": "army",
+   "page": 16,
+   "unlock": "6 Support · Must select Apothecary units",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Support",
+     "prime": true,
+     "onlyLabel": "Apothecary Only",
+     "only": [
+      "apothecary"
+     ]
+    },
+    {
+     "role": "Support",
+     "prime": false,
+     "onlyLabel": "Apothecary Only",
+     "only": [
+      "apothecary"
+     ]
+    },
+    {
+     "role": "Support",
+     "prime": false,
+     "onlyLabel": "Apothecary Only",
+     "only": [
+      "apothecary"
+     ]
+    },
+    {
+     "role": "Support",
+     "prime": false,
+     "onlyLabel": "Apothecary Only",
+     "only": [
+      "apothecary"
+     ]
+    },
+    {
+     "role": "Support",
+     "prime": false,
+     "onlyLabel": "Apothecary Only",
+     "only": [
+      "apothecary"
+     ]
+    },
+    {
+     "role": "Support",
+     "prime": false,
+     "onlyLabel": "Apothecary Only",
+     "only": [
+      "apothecary"
+     ]
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-techmarine-covenant",
+   "name": "Techmarine Covenant",
+   "type": "Auxiliary",
+   "source": "army",
+   "page": 17,
+   "unlock": "6 Support · Must select Techmarine units",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Support",
+     "prime": true,
+     "onlyLabel": "Techmarine Only",
+     "only": [
+      "techmarine"
+     ]
+    },
+    {
+     "role": "Support",
+     "prime": false,
+     "onlyLabel": "Techmarine Only",
+     "only": [
+      "techmarine"
+     ]
+    },
+    {
+     "role": "Support",
+     "prime": false,
+     "onlyLabel": "Techmarine Only",
+     "only": [
+      "techmarine"
+     ]
+    },
+    {
+     "role": "Support",
+     "prime": false,
+     "onlyLabel": "Techmarine Only",
+     "only": [
+      "techmarine"
+     ]
+    },
+    {
+     "role": "Support",
+     "prime": false,
+     "onlyLabel": "Techmarine Only",
+     "only": [
+      "techmarine"
+     ]
+    },
+    {
+     "role": "Support",
+     "prime": false,
+     "onlyLabel": "Techmarine Only",
+     "only": [
+      "techmarine"
+     ]
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-storm-battery",
+   "name": "Storm Battery",
+   "type": "Auxiliary",
+   "source": "army",
+   "page": 17,
+   "unlock": "2 Support · 2 Armour · Requires Siege Breaker · Support must be Rapier Battery · Armour must be Aquitor Bombard or Vindicator Siege Tank units",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Support",
+     "prime": false,
+     "onlyLabel": "Rapier Battery Only",
+     "only": [
+      "rapier-battery"
+     ]
+    },
+    {
+     "role": "Support",
+     "prime": false,
+     "onlyLabel": "Rapier Battery Only",
+     "only": [
+      "rapier-battery"
+     ]
+    },
+    {
+     "role": "Armour",
+     "prime": false,
+     "onlyLabel": "Arquitor or Vindicator Only",
+     "only": [
+      "vindicator-siege-tank",
+      "arquitor-bombard"
+     ]
+    },
+    {
+     "role": "Armour",
+     "prime": false,
+     "onlyLabel": "Arquitor or Vindicator Only",
+     "only": [
+      "vindicator-siege-tank",
+      "arquitor-bombard"
+     ]
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-recon-demi-company",
+   "name": "Recon Demi-Company",
+   "type": "Auxiliary",
+   "source": "army",
+   "page": 17,
+   "unlock": "3 Recon (1 Prime) · 1 Fast Attack · Requires a Vigilator · Recon slots must be Reconnaissance Squad units",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Recon",
+     "prime": true,
+     "onlyLabel": "Reconnaissance Squad Only",
+     "only": [
+      "reconnaissance-squad"
+     ]
+    },
+    {
+     "role": "Recon",
+     "prime": false,
+     "onlyLabel": "Reconnaissance Squad Only",
+     "only": [
+      "reconnaissance-squad"
+     ]
+    },
+    {
+     "role": "Recon",
+     "prime": false,
+     "onlyLabel": "Reconnaissance Squad Only",
+     "only": [
+      "reconnaissance-squad"
+     ]
+    },
+    {
+     "role": "Fast Attack",
+     "prime": false
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-planetfall-speartip",
+   "name": "Planetfall Speartip",
+   "type": "Auxiliary",
+   "source": "army",
+   "page": null,
+   "unlock": "1 Retinue · 2 Elites (2 Prime) · Requires a Master of Descent · Retinue must be Praetorian Command Squad with Jump Packs · Elites must be Veteran Assault Squad units",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Elites",
+     "prime": true,
+     "onlyLabel": "Veteran Assault Squads Only",
+     "only": [
+      "veteran-assault-squad"
+     ]
+    },
+    {
+     "role": "Elites",
+     "prime": true,
+     "onlyLabel": "Veteran Assault Squads Only",
+     "only": [
+      "veteran-assault-squad"
+     ]
+    },
+    {
+     "role": "Retinue",
+     "prime": false,
+     "onlyLabel": "Praetorian Command Squad with Jump Packs Only",
+     "only": [
+      "praetorian-command-squad-with-jump-packs"
+     ]
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-dreadnought-talon",
+   "name": "Dreadnought Talon",
+   "type": "Auxiliary",
+   "source": "army",
+   "page": null,
+   "unlock": "3 War-Engine · Contemptor Dreadnoughts only · Requires a Mortificator",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "War Engine",
+     "prime": false,
+     "onlyLabel": "Contemptor Dreadnoughts Only",
+     "only": [
+      "contemptor-dreadnought"
+     ]
+    },
+    {
+     "role": "War Engine",
+     "prime": false,
+     "onlyLabel": "Contemptor Dreadnoughts Only",
+     "only": [
+      "contemptor-dreadnought"
+     ]
+    },
+    {
+     "role": "War Engine",
+     "prime": false,
+     "onlyLabel": "Contemptor Dreadnoughts Only",
+     "only": [
+      "contemptor-dreadnought"
+     ]
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-linebreaker-echelon-saturnine",
+   "name": "Linebreaker Echelon (Saturnine)",
+   "type": "Apex",
+   "source": "army",
+   "page": null,
+   "unlock": "2 Heavy Assault (1 Prime) · 1 Retinue · 1 War-engine · Units must have the word Saturnine in the unit name",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Heavy Assault",
+     "prime": true,
+     "onlyLabel": "Saturnine Only",
+     "only": [
+      "saturnine-terminator-squad"
+     ]
+    },
+    {
+     "role": "Heavy Assault",
+     "prime": false,
+     "onlyLabel": "Saturnine Only",
+     "only": [
+      "saturnine-terminator-squad"
+     ]
+    },
+    {
+     "role": "Retinue",
+     "prime": false,
+     "onlyLabel": "Saturnine Only",
+     "only": [
+      "saturnine-terminator-command-squad"
+     ]
+    },
+    {
+     "role": "War Engine",
+     "prime": false
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-linebreaker-echelon-cataphractii",
+   "name": "Linebreaker Echelon (Cataphractii)",
+   "type": "Apex",
+   "source": "army",
+   "page": null,
+   "unlock": "2 Heavy Assault (1 Prime) · 1 Retinue · 1 War-engine · Units must have the word Cataphractii in the unit name",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Heavy Assault",
+     "prime": true,
+     "onlyLabel": "Cataphractii Only",
+     "only": [
+      "cataphractii-terminator-squad"
+     ]
+    },
+    {
+     "role": "Heavy Assault",
+     "prime": false,
+     "onlyLabel": "Cataphractii Only",
+     "only": [
+      "cataphractii-terminator-squad"
+     ]
+    },
+    {
+     "role": "Retinue",
+     "prime": false,
+     "onlyLabel": "Cataphractii Only",
+     "only": [
+      "cataphractii-terminator-command-squad"
+     ]
+    },
+    {
+     "role": "War Engine",
+     "prime": false
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-linebreaker-echelon-tartaros",
+   "name": "Linebreaker Echelon (Tartaros)",
+   "type": "Apex",
+   "source": "army",
+   "page": null,
+   "unlock": "2 Heavy Assault (1 Prime) · 1 Retinue · 1 War-engine · Units must have the word Tartaros in the unit name",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Heavy Assault",
+     "prime": true,
+     "onlyLabel": "Tartaros Only",
+     "only": [
+      "tartaros-terminator-squad",
+      "tartaros-terminator-siege-squad"
+     ]
+    },
+    {
+     "role": "Heavy Assault",
+     "prime": false,
+     "onlyLabel": "Tartaros Only",
+     "only": [
+      "tartaros-terminator-squad",
+      "tartaros-terminator-siege-squad"
+     ]
+    },
+    {
+     "role": "Retinue",
+     "prime": false,
+     "onlyLabel": "Tartaros Only",
+     "only": [
+      "tartaros-terminator-command-squad"
+     ]
+    },
+    {
+     "role": "War Engine",
+     "prime": false
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-maelstrom-sentry-battery",
+   "name": "Maelstrom Sentry Battery",
+   "type": "Auxiliary",
+   "source": "army",
+   "page": null,
+   "unlock": "2 Support · 3 Recon · Requires a Master of Signals · Support must be Araknae Quad Accelerator Platform units · Recon must be Tarantula Battery units",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Support",
+     "prime": false,
+     "onlyLabel": "Araknae Quad Accelerator Platform Units Only",
+     "only": [
+      "araknae-quad-accelerator-platform"
+     ]
+    },
+    {
+     "role": "Support",
+     "prime": false,
+     "onlyLabel": "Araknae Quad Accelerator Platform Units Only",
+     "only": [
+      "araknae-quad-accelerator-platform"
+     ]
+    },
+    {
+     "role": "Recon",
+     "prime": false,
+     "onlyLabel": "Tarantula Battery Units Only",
+     "only": [
+      "tarantula-battery"
+     ]
+    },
+    {
+     "role": "Recon",
+     "prime": false,
+     "onlyLabel": "Tarantula Battery Units Only",
+     "only": [
+      "tarantula-battery"
+     ]
+    },
+    {
+     "role": "Recon",
+     "prime": false,
+     "onlyLabel": "Tarantula Battery Units Only",
+     "only": [
+      "tarantula-battery"
+     ]
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-leviathan-armoured-fist",
+   "name": "Leviathan Armoured Fist",
+   "type": "Apex",
+   "source": "army",
+   "page": null,
+   "unlock": "3 Lord of War · Detachment can only be used in Leviathan Missions",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Lord of War",
+     "prime": false
+    },
+    {
+     "role": "Lord of War",
+     "prime": false
+    },
+    {
+     "role": "Lord of War",
+     "prime": false
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-leviathan-bastion-of-fire",
+   "name": "Leviathan Bastion of Fire",
+   "type": "Apex",
+   "source": "army",
+   "page": null,
+   "unlock": "3 Support (1 Prime) · Detachment can only be used in Leviathan Missions",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Support",
+     "prime": true
+    },
+    {
+     "role": "Support",
+     "prime": false
+    },
+    {
+     "role": "Support",
+     "prime": false
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-armoured-command-squadron-detachment",
+   "name": "Armoured Command Squadron Detachment",
+   "type": "Apex",
+   "source": "army",
+   "page": null,
+   "unlock": "3 Armour (3 Prime) · Detachment can only be used in Armoured Spearhead Missions · May use Armoured Spearhead Prime Advantages",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Armour",
+     "prime": true
+    },
+    {
+     "role": "Armour",
+     "prime": true
+    },
+    {
+     "role": "Armour",
+     "prime": true
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  }
+ ]
+}

@@ -99,6 +99,7 @@ for (const f of files) {
   if (d.sequelae) { out.sequelae.sequelae.push(...d.sequelae); if (d.intro) out.sequelae.intro = d.intro; }
   if (d.faq) out.faq.push(...d.faq);
   if (d.baseSizes) out.baseSizes.push(...d.baseSizes);
+  if (d.armyConfig) out.armyConfig = d.armyConfig;
 }
 
 // Combat Drugs: a required pick on every unit with the trait, and a +1 modifier per drug

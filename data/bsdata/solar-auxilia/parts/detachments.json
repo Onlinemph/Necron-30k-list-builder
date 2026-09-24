@@ -1,0 +1,339 @@
+{
+ "detachments": [
+  {
+   "id": "bs-veletaris-tercio",
+   "name": "Veletaris Tercio",
+   "type": "Auxiliary",
+   "source": "army",
+   "page": null,
+   "unlock": "2 Elites (1 Prime) · 1 Support · 2 Heavy Transport · All gain Veletaris Tercio trait · Elites must be Veletaris Storm Section, Veletaris Vanguard Section or Veletaris Raider Section · Support must be Hermes Veletaris Squadron",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Elites",
+     "prime": true,
+     "onlyLabel": "Veletaris units only",
+     "only": [
+      "veletaris-storm-section",
+      "veletaris-vanguard-section",
+      "veletaris-raider-section"
+     ]
+    },
+    {
+     "role": "Elites",
+     "prime": false,
+     "onlyLabel": "Veletaris units only",
+     "only": [
+      "veletaris-storm-section",
+      "veletaris-vanguard-section",
+      "veletaris-raider-section"
+     ]
+    },
+    {
+     "role": "Support",
+     "prime": false,
+     "onlyLabel": "Hermes Veletaris units only",
+     "only": [
+      "hermes-veletaris-squadron"
+     ]
+    },
+    {
+     "role": "Heavy Transport",
+     "prime": false
+    },
+    {
+     "role": "Heavy Transport",
+     "prime": false
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-armour-tercio",
+   "name": "Armour Tercio",
+   "type": "Auxiliary",
+   "source": "army",
+   "page": null,
+   "unlock": "3 Armour · All gain Armour Tercio Trait · Leman Russ Strike Tank, Leman Russ Assault Tank or Malcador Heavy Tank Units only",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Armour",
+     "prime": false,
+     "onlyLabel": "Leman Russ Strike, Leman Russ Assault or Malcador Heavy tank units only",
+     "only": [
+      "malcador-heavy-tank",
+      "leman-russ-assault-tank",
+      "leman-russ-strike-tank"
+     ]
+    },
+    {
+     "role": "Armour",
+     "prime": false,
+     "onlyLabel": "Leman Russ Strike, Leman Russ Assault or Malcador Heavy tank units only",
+     "only": [
+      "malcador-heavy-tank",
+      "leman-russ-assault-tank",
+      "leman-russ-strike-tank"
+     ]
+    },
+    {
+     "role": "Armour",
+     "prime": false,
+     "onlyLabel": "Leman Russ Strike, Leman Russ Assault or Malcador Heavy tank units only",
+     "only": [
+      "malcador-heavy-tank",
+      "leman-russ-assault-tank",
+      "leman-russ-strike-tank"
+     ]
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-artillery-tercio",
+   "name": "Artillery Tercio",
+   "type": "Auxiliary",
+   "source": "army",
+   "page": null,
+   "unlock": "3 Support · All gain Artillery Tercio trait · Rapier Section, Basilisk Artillery Tank or Medusa Artillery Tank only.",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Support",
+     "prime": false,
+     "onlyLabel": "Rapier Section, Basilisk Artillery Tank or Medusa Artillery tank units only",
+     "only": [
+      "basilisk-artillery-tank",
+      "medusa-artillery-tank",
+      "rapier-section"
+     ]
+    },
+    {
+     "role": "Support",
+     "prime": false,
+     "onlyLabel": "Rapier Section, Basilisk Artillery Tank or Medusa Artillery tank units only",
+     "only": [
+      "basilisk-artillery-tank",
+      "medusa-artillery-tank",
+      "rapier-section"
+     ]
+    },
+    {
+     "role": "Support",
+     "prime": false,
+     "onlyLabel": "Rapier Section, Basilisk Artillery Tank or Medusa Artillery tank units only",
+     "only": [
+      "basilisk-artillery-tank",
+      "medusa-artillery-tank",
+      "rapier-section"
+     ]
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-infantry-tercio",
+   "name": "Infantry Tercio",
+   "type": "Auxiliary",
+   "source": "army",
+   "page": null,
+   "unlock": "2 Troop (1 Prime) · 1 Elites · 2 Heavy Support · All gain Infantry Tercio trait · Troops must be Lasrifle Section · Recon must be Hermes Light Sentinel Squadron",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Troops",
+     "prime": true,
+     "onlyLabel": "Lasrifle Section Units only",
+     "only": [
+      "lasrifle-section"
+     ]
+    },
+    {
+     "role": "Troops",
+     "prime": false,
+     "onlyLabel": "Lasrifle Section Units only",
+     "only": [
+      "lasrifle-section"
+     ]
+    },
+    {
+     "role": "Recon",
+     "prime": false,
+     "onlyLabel": "Hermes Light Sentinel Squadron units only",
+     "only": [
+      "hermes-light-sentinel-squadron"
+     ]
+    },
+    {
+     "role": "Heavy Transport",
+     "prime": false
+    },
+    {
+     "role": "Heavy Transport",
+     "prime": false
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-scout-tercio",
+   "name": "Scout Tercio",
+   "type": "Auxiliary",
+   "source": "army",
+   "page": null,
+   "unlock": "2 Recon · 1 War-engine · All gain Scout Tercio trait · Recon must be Hermes Light Sentinel Squadron · War-engine must be Aethon Heavy Sentinel Squadron",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Recon",
+     "prime": false,
+     "onlyLabel": "Hermes Light Sentinel Squadron units only",
+     "only": [
+      "hermes-light-sentinel-squadron"
+     ]
+    },
+    {
+     "role": "Recon",
+     "prime": false,
+     "onlyLabel": "Hermes Light Sentinel Squadron units only",
+     "only": [
+      "hermes-light-sentinel-squadron"
+     ]
+    },
+    {
+     "role": "War Engine",
+     "prime": false,
+     "onlyLabel": "engine - Aethon Heavy Sentinel Squadron units only",
+     "only": [
+      "aethon-heavy-sentinel-squadron"
+     ]
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-iron-tercio",
+   "name": "Iron Tercio",
+   "type": "Auxiliary",
+   "source": "army",
+   "page": null,
+   "unlock": "1 Heavy Assault · 1 Troops · 1 Support · Requires Iron Pattern Cohort Doctrine · Replace [Mechanicum], Cybernetica or Reductor with Iron Tercio trait · Heavy Assault must be Castellax Destructor Maniple · Troops must be Tech-priest · Support must be Castellax Battle Maniple or Thallax Cohort · If Detachment contains Tech-priest and Automata then may Hold, Control and Contest Objectives.",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Troops",
+     "prime": false,
+     "onlyLabel": "Tech-Priest unit only",
+     "only": [
+      "tech-priest"
+     ]
+    },
+    {
+     "role": "Support",
+     "prime": false,
+     "onlyLabel": "Castellax Battle Maniple or Thallax Cohort Unit only",
+     "only": [
+      "thallax-cohort",
+      "castellax-battle-maniple"
+     ]
+    },
+    {
+     "role": "Heavy Assault",
+     "prime": false,
+     "onlyLabel": "Castellax Destructor Maniple only",
+     "only": [
+      "castellax-destructor-maniple"
+     ]
+    }
+   ],
+   "restrictions": [],
+   "rules": [
+    {
+     "name": "Iron Tercio",
+     "text": "Units selected as part of this Detachment which contains both one or more Tech-priests and one or more Models with the Automata Type may Hold, Control and Contest Objectives."
+    }
+   ]
+  },
+  {
+   "id": "bs-leviathan-armoured-fist",
+   "name": "Leviathan Armoured Fist",
+   "type": "Apex",
+   "source": "army",
+   "page": null,
+   "unlock": "3 Lord of War · Detachment can only be used in Leviathan Missions",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Lord of War",
+     "prime": false
+    },
+    {
+     "role": "Lord of War",
+     "prime": false
+    },
+    {
+     "role": "Lord of War",
+     "prime": false
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-leviathan-bastion-of-fire",
+   "name": "Leviathan Bastion of Fire",
+   "type": "Apex",
+   "source": "army",
+   "page": null,
+   "unlock": "3 Support (1 Prime) · Detachment can only be used in Leviathan Missions",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Support",
+     "prime": true
+    },
+    {
+     "role": "Support",
+     "prime": false
+    },
+    {
+     "role": "Support",
+     "prime": false
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-armoured-command-squadron-detachment",
+   "name": "Armoured Command Squadron Detachment",
+   "type": "Apex",
+   "source": "army",
+   "page": null,
+   "unlock": "3 Armour (3 Prime) · Detachment can only be used in Armoured Spearhead Missions · May use Armoured Spearhead Prime Advantages",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Armour",
+     "prime": true
+    },
+    {
+     "role": "Armour",
+     "prime": true
+    },
+    {
+     "role": "Armour",
+     "prime": true
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  }
+ ]
+}

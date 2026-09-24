@@ -44,6 +44,8 @@ for (const c of Object.values(cats)) index(c.data);
 const POINTS = (gst.data.costTypes.find((c) => /^Point/.test(c.name)) || {}).id;
 const catName = new Map([...gst.data.categoryEntries, ...Object.values(cats).flatMap((c) => c.data.categoryEntries || [])].map((c) => [c.id, c.name]));
 
+const ALLEGIANCE = Object.fromEntries(['Loyalist', 'Traitor'].map((n) => [[...byId.values()].find((x) => x.name === n && x.type === 'upgrade')?.id, n]));
+
 // ---------- armies ----------
 const LEGIONS = ['Dark Angels', "Emperor's Children", 'Iron Warriors', 'White Scars', 'Space Wolves', 'Imperial Fists', 'Night Lords',
   'Blood Angels', 'Iron Hands', 'World Eaters', 'Ultramarines', 'Death Guard', 'Thousand Sons', 'Sons of Horus', 'Word Bearers',
@@ -77,16 +79,17 @@ function catalogueSet(catId) {
 }
 
 // ---------- conditions (static) ----------
-let CTX = { cats: new Set() };
+let CTX = { cats: new Set(), primary: null };
 function condTrue(c) {
   const id = c.childId;
   const isCat = cats[id] || (gst && gst.data.id === id);
   let n = 0;
-  if (isCat) n = CTX.cats.has(id) ? 1 : 0;
+  // "primary-catalogue" means the army's own catalogue, not the ones it imports
+  if (isCat) n = (c.scope === 'primary-catalogue' ? CTX.primary === id || gst.data.id === id : CTX.cats.has(id)) ? 1 : 0;
   // anything else depends on the roster; assume nothing is selected yet
   switch (c.type) {
-    case 'instanceOf': return isCat ? CTX.cats.has(id) : false;
-    case 'notInstanceOf': return isCat ? !CTX.cats.has(id) : true;
+    case 'instanceOf': return isCat ? n === 1 : false;
+    case 'notInstanceOf': return isCat ? n === 0 : true;
     case 'atLeast': return n >= c.value;
     case 'greaterThan': return n > c.value;
     case 'atMost': return n <= c.value;
@@ -150,6 +153,10 @@ function resolve(e) {
       categoryLinks: e.categoryLinks && e.categoryLinks.length ? e.categoryLinks : base.categoryLinks,
       baseCategoryLinks: base.baseCategoryLinks || base.categoryLinks || [],
       entryLinks: [...(base.entryLinks || []), ...(e.entryLinks || [])],
+      selectionEntries: [...(base.selectionEntries || []), ...(e.selectionEntries || [])],
+      selectionEntryGroups: [...(base.selectionEntryGroups || []), ...(e.selectionEntryGroups || [])],
+      rules: [...(base.rules || []), ...(e.rules || [])],
+      profiles: [...(base.profiles || []), ...(e.profiles || [])],
       infoLinks: [...(base.infoLinks || []), ...(e.infoLinks || [])],
       kind: e.type === 'selectionEntryGroup' ? 'group' : base.kind,
     });
@@ -324,8 +331,8 @@ function specialCategory(e) {
 }
 
 const skipped = [];
-function convertUnit(e, armyId) {
-  const role = roleOf(e);
+function convertUnit(e, armyId, forcedRole) {
+  const role = forcedRole || roleOf(e);
   if (!role) { skipped.push(`${e.name} (${[...(e.categoryLinks || [])].map((l) => catName.get(l.targetId) || l.name).join('/') || 'no role'})`); return null; }
   const unit = {
     id: slug(e.name), name: e.name, role, page: e.page || null, limit: null, unique: false,
@@ -485,14 +492,39 @@ function flatItems(g) {
   return out.filter((i) => (seen.has(i.name) ? false : seen.add(i.name)));
 }
 
+// BSData ids (entries and the links to them) → this army's unit ids, for Prime Advantage eligibility
+let BSID = new Map();
+// categories a unit gains in particular detachments ("set-primary Heavy Assault - Tartaros Only when in Linebreaker Echelon")
+function modCategories(e) {
+  const out = [];
+  const walk = (n) => {
+    for (const m of n.modifiers || []) if (m.field === 'category' && /add|set-primary/.test(m.type) && catName.has(m.value)) out.push(catName.get(m.value).trim());
+    for (const g of n.modifierGroups || []) walk(g);
+  };
+  walk(e);
+  return out;
+}
+const catNames = (links) => (links || []).filter((l) => !isHidden(l)).map((l) => (catName.get(l.targetId) || l.name || '').trim()).filter(Boolean);
+// Operatives come from their own lists and only fill the slots their Prime Advantage adds
+const OPERATIVES = [
+  { file: 'Divisio Assassinorum', advantage: 'Clade Operative' },
+  { file: 'Cults Abominatio', advantage: 'Cult Operative' },
+];
 function armyUnits(army) {
-  CTX = { cats: catalogueSet(army.catalogue) };
+  CTX = { cats: catalogueSet(army.catalogue), primary: army.catalogue };
+  BSID = new Map();
   // root entries: the army's catalogue plus catalogues it imports root entries from
   const rootsFrom = [army.catalogue];
   for (const l of cats[army.catalogue].data.catalogueLinks || []) if (l.importRootEntries) rootsFrom.push(l.targetId);
   const units = [];
   const ids = new Set();
   const seenTarget = new Map(); // same unit linked again for a detachment-restricted slot
+  const add = (u, raw, e) => {
+    for (let n = 2, base = u.id; ids.has(u.id); n++) u.id = `${base}-${n}`;
+    ids.add(u.id);
+    for (const k of [raw.id, raw.targetId, e.id]) if (k && !BSID.has(k)) BSID.set(k, u.id);
+    units.push(u);
+  };
   for (const cid of rootsFrom) {
     const d = cats[cid] && cats[cid].data;
     if (!d) continue;
@@ -500,21 +532,271 @@ function armyUnits(army) {
       const e = resolve(raw);
       if (!e || isHidden(e) || !['unit', 'model'].includes(e.type)) continue;
       const key = raw.targetId || raw.id;
-      const restricted = (raw.categoryLinks || []).map((l) => catName.get(l.targetId) || l.name).find((n) => /\s-\s/.test(n || ''));
+      const linkCats = [...catNames(raw.categoryLinks), ...modCategories(raw)];
+      const restricted = linkCats.find((n) => /\s-\s/.test(n));
       if (seenTarget.has(key)) {
-        if (restricted) { const prev = seenTarget.get(key); prev.note = [prev.note, `Also available as ${restricted}.`].filter(Boolean).join(' '); }
+        const prev = seenTarget.get(key);
+        for (const c of linkCats) if (!ROLES.has(c) && !prev.categories.includes(c)) prev.categories.push(c);
+        if (restricted) prev.note = [prev.note, `Also available as ${restricted}.`].filter(Boolean).join(' ');
+        if (!BSID.has(raw.id)) BSID.set(raw.id, prev.id);
         continue;
       }
       const u = convertUnit(e, army.id);
       if (!u) continue;
+      // categories other than the battlefield role: detachment slots ("Troops - Terror Squads Only") and Prime Advantages use them
+      u.categories = [...new Set([...catNames(e.categoryLinks), ...catNames(e.baseCategoryLinks), ...modCategories(e), ...linkCats])].filter((c) => !ROLES.has(c) && c !== u.role);
       if (restricted) u.note = [u.note, `Listed as ${restricted}.`].filter(Boolean).join(' ');
-      for (let n = 2, base = u.id; ids.has(u.id); n++) u.id = `${base}-${n}`;
-      ids.add(u.id);
+      const side = unitAllegiance(e);
+      if (side) u.allegiance = side;
       seenTarget.set(key, u);
-      units.push(u);
+      add(u, raw, e);
+    }
+  }
+  for (const op of OPERATIVES) {
+    const c = Object.values(cats).find((x) => fileTitle(x.file) === op.file);
+    if (!c || !CTX.cats.has(c.data.id)) continue;
+    for (const raw of [...(c.data.selectionEntries || []), ...(c.data.entryLinks || [])]) {
+      const e = resolve(raw);
+      if (!e || isHidden(e) || !['unit', 'model'].includes(e.type)) continue;
+      const u = convertUnit(e, army.id, 'Support');
+      if (!u) continue;
+      u.categories = [op.advantage];
+      u.operative = op.advantage;
+      u.note = [u.note, `Only fills the Support slots added by the ${op.advantage} Prime Advantage.`].filter(Boolean).join(' ');
+      add(u, raw, e);
     }
   }
   return units;
+}
+
+/** "Hidden if the army is Loyalist" → a Traitor-only unit. */
+function unitAllegiance(e) {
+  const flat = (m) => [...(m.conditions || []), ...(m.conditionGroups || []).flatMap(flat)];
+  for (const m of e.modifiers || []) {
+    if (m.field !== 'hidden' || !(m.value === true || m.value === 'true')) continue;
+    for (const c of flat(m)) {
+      const side = ALLEGIANCE[c.childId];
+      if (side && /atLeast|greaterThan/.test(c.type) && c.value >= 1) return side === 'Loyalist' ? 'Traitor' : 'Loyalist';
+    }
+  }
+  return null;
+}
+
+// ---------- text of rules, reactions and gambits attached to an entry ----------
+function describe(p) {
+  const c = Object.fromEntries((p.characteristics || []).map((x) => [x.name, x.$text ?? '']));
+  if (p.typeName === 'Reaction' || p.typeName === 'Psychic Reaction') return ['Trigger', 'Cost', 'Target', 'Process'].map((k) => (c[k] ? `${k}: ${c[k]}` : '')).filter(Boolean).join('\n\n') || c.Summary || c.Description || '';
+  return c.Description || c.Summary || Object.values(c).join('\n');
+}
+function textItems(e) {
+  const out = [];
+  for (const r of e.rules || []) if (!isHidden(r) && r.name) out.push({ name: r.name.trim(), text: r.description || '', kind: 'rule' });
+  for (const l of e.infoLinks || []) {
+    if (isHidden(l)) continue;
+    const t = byId.get(l.targetId);
+    if (!t) continue;
+    const name = String(applyField(l, 'name', l.name || t.name)).trim();
+    if (l.type === 'rule') out.push({ name, text: t.description || '', kind: 'rule' });
+    else if (l.type === 'profile' && t.typeName !== 'Traits') out.push({ name, text: describe(t), kind: t.typeName });
+  }
+  for (const p of profilesOf(e)) if (!MODEL_PROFILES.includes(p.typeName) && !/Weapon|Traits|Detachment/.test(p.typeName)) out.push({ name: p.name.trim(), text: describe(p), kind: p.typeName });
+  return out;
+}
+// "Name: text" unless the item is the thing being described
+const joinText = (items, own) => items.map((i) => (i.name === own || (!own && items.length === 1) ? i.text : `${i.name}: ${i.text}`)).join('\n\n');
+
+// ---------- army configuration: Legion Tactica, Rites of War, Cohort Doctrines, Provenances… ----------
+function armyConfig(army) {
+  CTX = { cats: catalogueSet(army.catalogue), primary: army.catalogue };
+  const d = cats[army.catalogue].data;
+  const roots = [...(d.selectionEntries || []), ...(d.entryLinks || [])].filter((r) => catNames(r.categoryLinks).includes('Army Configuration'));
+  const fixed = [], groups = [];
+  const gid = new Set();
+  const walk = (e, label) => {
+    for (const t of textItems(e)) fixed.push(Object.assign(t, { source: label }));
+    for (const c of children(e)) {
+      const lim = limits(c);
+      if (c.kind === 'group') {
+        const kids = children(c);
+        const items = kids.filter((k) => k.kind !== 'group');
+        for (const t of textItems(c)) fixed.push(Object.assign(t, { source: c.name.trim() }));
+        if (!items.length || (items.length === 1 && lim.min >= 1)) { for (const k of kids) walk(k, k.kind === 'group' ? label : k.name.trim()); continue; }
+        let id = slug(c.name) || 'choice';
+        for (let n = 2, b = id; gid.has(id); n++) id = `${b}-${n}`;
+        gid.add(id);
+        groups.push({ id, name: c.name.trim().replace(/:$/, ''), min: lim.min, max: lim.max === null ? items.length : lim.max,
+          choices: items.map((i) => ({ name: i.name.trim(), text: joinText(deepText(i), i.name.trim()) })) });
+        continue;
+      }
+      if (lim.max === 0) continue;
+      if (lim.min >= 1) { walk(c, c.name.trim()); continue; }
+      let id = slug(c.name);
+      for (let n = 2, b = id; gid.has(id); n++) id = `${b}-${n}`;
+      gid.add(id);
+      groups.push({ id, name: c.name.trim(), min: 0, max: 1, choices: [{ name: c.name.trim(), text: joinText(deepText(c), c.name.trim()) }] });
+    }
+  };
+  // a choice's own text plus whatever it brings with it
+  const deepText = (e) => {
+    const out = textItems(e);
+    for (const c of children(e)) if (c.kind === 'group' || limits(c).min >= 1) out.push(...deepText(c));
+    return out;
+  };
+  for (const raw of roots) {
+    const e = resolve(raw);
+    if (!e || isHidden(e)) continue;
+    walk(e, e.name.trim());
+  }
+  groups.unshift({ id: 'allegiance', name: 'Allegiance', min: 1, max: 1, choices: [
+    { name: 'Loyalist', text: 'The army fights for the Emperor. Some Prime Advantages and units are only available to one side.' },
+    { name: 'Traitor', text: 'The army has sided with Horus. Some Prime Advantages and units are only available to one side.' }] });
+  const seen = new Set();
+  return { fixed: fixed.filter((f) => f.text && !seen.has(f.name) && seen.add(f.name)), groups };
+}
+
+// ---------- detachments ----------
+const coreDetachments = new Set(JSON.parse(readFileSync(join(root, 'data', 'forceorg.json'), 'utf8')).detachments.map((d) => d.name));
+function armyDetachments(army, units) {
+  CTX = { cats: catalogueSet(army.catalogue), primary: army.catalogue };
+  const crusade = gst.data.forceEntries.find((f) => /^Crusade Force/.test(f.name));
+  const out = [];
+  for (const f of crusade.forceEntries || []) {
+    const m = f.name.match(/^(Auxiliary|Apex)\s*-\s*(.+)$/);
+    if (!m || isHidden(f)) continue;
+    const [, type, name] = m;
+    if (coreDetachments.has(name.trim())) continue;
+    const slots = [], prime = {}, problems = [];
+    for (const cl of f.categoryLinks || []) {
+      const cname = (catName.get(cl.targetId) || cl.name || '').trim();
+      const max = (cl.constraints || []).filter((c) => c.type === 'max' && c.field === 'selections').map((c) => Number(applyField(cl, c.id, c.value)));
+      if (!max.length) continue;
+      const n = Math.min(...max);
+      if (n <= 0) continue;
+      const pm = cname.match(/^Prime (.+)$/);
+      if (pm) { const r = roleName({ name: pm[1] }); if (r) prime[r] = (prime[r] || 0) + n; continue; }
+      const r = roleName({ name: cname });
+      if (!r) { problems.push(cname); continue; }
+      const slot = { role: r, prime: false };
+      if (/\s-\s/.test(cname)) {
+        slot.onlyLabel = cname.replace(/^[^-]+-\s*/, '');
+        slot.only = units.filter((u) => (u.categories || []).includes(cname)).map((u) => u.id);
+        if (!slot.only.length) problems.push(`no units for ${cname}`);
+      }
+      for (let i = 0; i < n; i++) slots.push(Object.assign({}, slot));
+    }
+    for (const [r, n] of Object.entries(prime)) {
+      let k = n;
+      for (const s of slots) if (k > 0 && s.role === r) { s.prime = true; k--; }
+    }
+    if (!slots.length) continue;
+    const comp = profilesOf(f).find((p) => p.typeName === 'Detachment Description');
+    const compText = comp ? describe(comp).trim() : '';
+    out.push({
+      id: `bs-${slug(name)}`, name: name.trim(), type, source: 'army', page: f.page || null,
+      unlock: compText ? compText.split('\n').filter(Boolean).join(' · ') : null, unlockedBy: null, slots,
+      restrictions: [], rules: textItems(f).map((t) => ({ name: t.name, text: t.text })),
+    });
+    if (problems.length) console.warn(`${army.name} / ${name}: ${problems.join('; ')}`);
+  }
+  return out;
+}
+
+// ---------- Prime Advantages from BSData's "Prime Benefits" lists ----------
+// Visibility that depends on the unit taking the advantage is unknown here, so it's tri-state.
+function condTri(c) {
+  if (cats[c.childId] || gst.data.id === c.childId) return condTrue(c);
+  return null;
+}
+const triAnd = (v) => (v.some((x) => x === false) ? false : v.every((x) => x === true) ? true : null);
+const triOr = (v) => (v.some((x) => x === true) ? true : v.every((x) => x === false) ? false : null);
+function groupTri(g) {
+  const parts = [...(g.conditions || []).map(condTri), ...(g.conditionGroups || []).map(groupTri)];
+  if (!parts.length) return true;
+  return g.type === 'or' ? triOr(parts) : triAnd(parts);
+}
+const modTri = (m) => triAnd([...(m.conditions || []).map(condTri), ...(m.conditionGroups || []).map(groupTri)]);
+function eligibility(e) {
+  let allegiance = null;
+  const any = { roles: new Set(), categories: new Set(), units: new Set() }, excludeRoles = new Set(), unitTypes = new Set();
+  let visible = !e.hidden;
+  const visit = (c) => {
+    if (cats[c.childId] || gst.data.id === c.childId) return;
+    if (ALLEGIANCE[c.childId]) {
+      const yes = /atLeast|greaterThan|instanceOf/.test(c.type) && !/not/i.test(c.type) || (c.type === 'equalTo' && c.value >= 1);
+      allegiance = yes ? ALLEGIANCE[c.childId] : ALLEGIANCE[c.childId] === 'Traitor' ? 'Loyalist' : 'Traitor';
+      return;
+    }
+    const name = catName.get(c.childId);
+    if (c.type === 'instanceOf' && ['ancestor', 'unit', 'parent'].includes(c.scope)) {
+      if (name) { const r = roleName({ name }); if (r) any.roles.add(r); else any.categories.add(name); }
+      else if (BSID.has(c.childId)) any.units.add(BSID.get(c.childId));
+      else any.units.add(`?${c.childId}`);
+    } else if (c.type === 'notInstanceOf' && name) {
+      const r = roleName({ name });
+      if (r) excludeRoles.add(r);
+    } else if (/atLeast|greaterThan/.test(c.type) && name && /Model Type|Sub-type/i.test(name)) {
+      unitTypes.add(name.replace(/\s+Model (Sub-)?Type$/i, ''));
+    }
+  };
+  const walkC = (g) => { (g.conditions || []).forEach(visit); (g.conditionGroups || []).forEach(walkC); };
+  for (const m of e.modifiers || []) {
+    if (m.field !== 'hidden') continue;
+    const t = modTri(m);
+    const show = m.value === false || m.value === 'false';
+    if (show && t !== false) { visible = true; walkC(m); }
+    if (!show && t === true) visible = false;
+  }
+  if (!visible) return null;
+  // an id that isn't one of this army's units means the advantage is for units the army doesn't have
+  const units = [...any.units];
+  if (units.length && units.every((u) => u.startsWith('?')) && !any.roles.size && !any.categories.size) return null;
+  const el = {};
+  const a = { roles: [...any.roles], categories: [...any.categories], units: units.filter((u) => !u.startsWith('?')) };
+  if (a.roles.length || a.categories.length || a.units.length) el.any = a;
+  if (excludeRoles.size) el.excludeRoles = [...excludeRoles];
+  if (unitTypes.size) el.unitTypes = [...unitTypes];
+  if (allegiance) el.allegiance = allegiance;
+  return el;
+}
+const COMMON_ADVANTAGES = new Set(['Combat Veterans', 'Special Assignment', 'Master Sergeant', 'Paragon of Battle', 'Logistical Benefit', 'Teleport Transponders']);
+function armyAdvantages(army, units) {
+  CTX = { cats: catalogueSet(army.catalogue), primary: army.catalogue };
+  const out = [];
+  const seen = new Set();
+  const lists = [...byId.values()].filter((n) => n.name === 'Prime Benefits' && !n.targetId && !n.type);
+  for (const list of lists) {
+    const file = Object.values(cats).find((c) => JSON.stringify(c.data).includes(`"id":"${list.id}"`));
+    if (!file || !CTX.cats.has(file.data.id)) continue;
+    const walk = (g) => {
+      for (const raw of [...(g.selectionEntries || []), ...(g.entryLinks || []), ...(g.selectionEntryGroups || [])]) {
+        const e = raw.targetId ? resolve(raw) : raw;
+        if (!e) continue;
+        if (!e.type || e.kind === 'group' || raw.type === 'selectionEntryGroup') { if (limits(e).max !== 0 && !/Prime Traits/.test(e.name)) walk(e); continue; }
+        const name = e.name.trim();
+        if (COMMON_ADVANTAGES.has(name) || seen.has(name) || /^LB - |dummy/i.test(name)) continue;
+        const el = eligibility(e);
+        if (!el) continue;
+        seen.add(name);
+        const items = textItems(e);
+        const own = items.find((i) => i.name === name);
+        const text = own ? [own, ...items.filter((i) => i !== own)] : items;
+        const adv = { name, text: joinText(text, name) || name, eligible: el };
+        if (limits(e).rosterMax === 1) adv.oncePerArmy = true;
+        const op = OPERATIVES.find((o) => o.advantage === name);
+        if (op) {
+          if (!units.some((u) => u.operative === name)) continue;
+          const words = { one: 1, two: 2, three: 3, four: 4 };
+          const n = (adv.text.match(/Add (one|two|three|four|\d+) additional Support/i) || [])[1];
+          adv.addSlots = { role: 'Support', count: words[String(n).toLowerCase()] || Number(n) || 1, operative: name };
+          adv.eligible = el.allegiance ? { allegiance: el.allegiance } : {};
+          adv.primaryOnly = true;
+        }
+        out.push(adv);
+      }
+    };
+    walk(list);
+  }
+  return out;
 }
 
 // ---------- write ----------
@@ -531,9 +813,16 @@ for (const a of armies) {
   mkdirSync(join(out, a.id, 'parts'), { recursive: true });
   // one unit per line keeps the files small and the diffs readable when BSData updates
   writeFileSync(join(out, a.id, 'parts', 'units.json'), '{"units":[\n' + units.map((u) => JSON.stringify(u)).join(',\n') + '\n]}\n');
+  const dets = armyDetachments(a, units);
+  writeFileSync(join(out, a.id, 'parts', 'detachments.json'), JSON.stringify({ detachments: dets }, null, 1) + '\n');
+  const config = armyConfig(a);
+  writeFileSync(join(out, a.id, 'parts', 'config.json'), JSON.stringify({ armyConfig: config }, null, 1) + '\n');
+  const advs = armyAdvantages(a, units);
+  writeFileSync(join(out, a.id, 'granted-prime-advantages.json'), JSON.stringify({ grantedPrimeAdvantages: advs }, null, 1) + '\n');
+  a.detachments = dets.length;
   a.units = units.length;
   a.skipped = [...skipped];
-  report.push(`${a.name}: ${units.length} units${skipped.length ? `, skipped ${skipped.length}` : ''}`);
+  report.push(`${a.name}: ${units.length} units, ${dets.length} detachments, ${config.fixed.length} army rules, ${config.groups.length} army choices, ${advs.length} Prime Advantages${skipped.length ? `, skipped ${skipped.length}` : ''}`);
 }
 const rev = JSON.parse(readFileSync(join(src, fileTitle(gst.file) + '.json'), 'utf8')).gameSystem.revision;
 writeFileSync(join(out, 'armies.json'), JSON.stringify({

@@ -1,0 +1,48 @@
+{
+ "armyConfig": {
+  "fixed": [
+   {
+    "name": "A Saga Woven of Glory",
+    "text": "If a Model with this Gambit selected for it is the winner of the Challenge whilst this Gambit is selected and the opposing Model is Removed as a Casualty, all Models in the same Unit as the Model that this Gambit is selected for gain a modifier of +1 to their Attacks Characteristic in the following Fight Sub-phase.",
+    "kind": "Gambit",
+    "source": "Gambits"
+   },
+   {
+    "name": "No Prey Escapes",
+    "text": "When this Gambit is selected, the Opposing Player may never chose to move to the Glory Step, regardless of who has Challenge Advantage, who is the Active Player or the effects of any other Gambit or Special Rule, until one or both Models are Removed as Casualties.",
+    "kind": "Gambit",
+    "source": "Gambits"
+   },
+   {
+    "name": "The Hunter's Strike",
+    "text": "\"Space Wolves make a longer Set-up Move.\"\n\nModels with this Special Rule must add +2\" to the distance of any Set-up Move, to a maximum of 6\".",
+    "kind": "rule",
+    "source": "Legion Tactica"
+   },
+   {
+    "name": "Bestial Savagery",
+    "text": "Trigger: Once per Battle, the Reactive Player may declare the Bestial Savagery Advanced Reaction in the Shooting Phase, during Step 3 of any Shooting Attack made by the Active Player that targets a Unit that only includes Models with the Space Wolves Trait.\n\nCost: The Reactive Player must spend 1 point of their Reaction Allotment to declare the Bestial Savagery Advanced Reaction, this cost paid as soon as the declaration is made.\n\nTarget: The Target Unit is always the Unit whose Shooting Attack triggers the Reaction. The Reacting Unit is always the Unit that was the target of the Shooting Attack that triggers the Reaction.\n\nProcess: 1. Once the Bestial Savagery Advanced Reaction has been declared, the Active Player must resolve all remaining Steps of the Shooting Attack process as normal. Models in the Reacting Unit gain the Feel No Pain (5+) Special Rule for the duration of this Shooting Phase.\n2. Immediately after Step 11 of the Shooting Attack that triggered this reaction is resolved, the Reacting Unit must Move following the procedure for making a Set-up Move, as if the Target Unit were the Target of a Charge.\n3. If this Move is sufficient to bring any Models into Base Contact with the enemy, the Reacting Unit counts as having made a Successful Charge during the following Assault Phase and automatically passes all Checks that it is required to make in the following Morale Sub-Phase, with the Controlling Player assumed to have rolled a pair of 1s for each required Check.",
+    "kind": "Reaction",
+    "source": "Advanced Reaction"
+   }
+  ],
+  "groups": [
+   {
+    "id": "allegiance",
+    "name": "Allegiance",
+    "min": 1,
+    "max": 1,
+    "choices": [
+     {
+      "name": "Loyalist",
+      "text": "The army fights for the Emperor. Some Prime Advantages and units are only available to one side."
+     },
+     {
+      "name": "Traitor",
+      "text": "The army has sided with Horus. Some Prime Advantages and units are only available to one side."
+     }
+    ]
+   }
+  ]
+ }
+}

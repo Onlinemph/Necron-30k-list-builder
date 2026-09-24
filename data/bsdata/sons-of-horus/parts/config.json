@@ -1,0 +1,42 @@
+{
+ "armyConfig": {
+  "fixed": [
+   {
+    "name": "Merciless Strike",
+    "text": "This Gambit can only be selected during the first Face Off Step of a Challenge involving this Model. While this Gambit is selected, any Weapon this Model uses during this Challenge gains the Phage (T) Special Rule for the duration of this Strike Step.",
+    "kind": "Gambit",
+    "source": "Gambit"
+   },
+   {
+    "name": "Death Dealers",
+    "text": "\"Sons of Horus make Volley Attacks at their full Ballistic Skill Characteristic\"\nWhen a Model with this Special Rule makes Volley Attacks, it is not required to fire Snap Shots.",
+    "kind": "rule",
+    "source": "Legion Tactica"
+   },
+   {
+    "name": "Warrior Pride",
+    "text": "Trigger: The Reactive Player may declare a Warrior Pride Advanced Reaction when a Unit made up of Models with the Sons of Horus Trait is in Combat with an enemy Unit and the Active Player selects a Model to be the Challenger.\n\nCost: The Reactive Player must spend 1 point of their Reaction Allotment to declare the Warrior Pride Advanced Reaction, this cost paid as soon as the declaration is made.\n\nTarget: For a Warrior Pride Advanced Reaction, the Target Unit is always the Unit that includes the enemy Model that is selected as the Challenger. The Reacting Unit is the Unit that includes any Models with the Sons of Horus Trait that could be selected as the Challenged.\n\nProcess: If the Challenger's Base Weapon Skill Characteristic is lower than the Base Weapon Skill Characteristic of all Models in the Reacting Unit that would be eligible to accept the Challenge, the Reactive Player can choose not to accept the Challenge. If they do the Challenge Sub-Phase ends immediately and that Model does not gain the Disgraced Tactical Status.",
+    "kind": "Reaction",
+    "source": "Advanced Reaction"
+   }
+  ],
+  "groups": [
+   {
+    "id": "allegiance",
+    "name": "Allegiance",
+    "min": 1,
+    "max": 1,
+    "choices": [
+     {
+      "name": "Loyalist",
+      "text": "The army fights for the Emperor. Some Prime Advantages and units are only available to one side."
+     },
+     {
+      "name": "Traitor",
+      "text": "The army has sided with Horus. Some Prime Advantages and units are only available to one side."
+     }
+    ]
+   }
+  ]
+ }
+}

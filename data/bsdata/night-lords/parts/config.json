@@ -1,0 +1,42 @@
+{
+ "armyConfig": {
+  "fixed": [
+   {
+    "name": "A Talent for Murder",
+    "text": "\"Night Lords have an improved Weapon Skill Characteristic when fighting Units that have Tactical Statuses\"\n\nWhen Locked in Combat with any Units which contain at least one Model which has any Tactical Statuses, Models in that Combat with this Special Rule gain an additional modifier of +1 to their Weapon Skill Characteristic until the end of the Phase.",
+    "kind": "rule",
+    "source": "Legion Tactica"
+   },
+   {
+    "name": "Nostraman Courage",
+    "text": "This Gambit may only be selected once per Challenge.\nIf selected, at the Start of the Focus Step, this Model's Controlling Player may immediately return the Model to their Unit as if it was the Resolution Sub-Phase. If the Controlling Player chooses to do this, they must select another Model from this Unit (this can be a Model that is not normally eligible to take part in a Challenge). That Model is removed from the Unit and becomes the Challenger or Challenged Model in place of the original Challenger or Challenged Model that was returned to the Unit.",
+    "kind": "Gambit",
+    "source": "Gambit"
+   },
+   {
+    "name": "Better Part of Valour",
+    "text": "Trigger: The Reactive Player may declare a Better Part of Valour Advanced Reaction during Step 4 of the Charge process of any Charge declared by the Active Player that targets a Unit which only includes Models with the Night Lords Trait.\n\nCost: The Reactive Player must spend 1 point of their Reaction Allotment to declare a Better Part of Valour Advanced Reaction, this cost paid as soon as the declaration is made.\n\nTarget: The Target Unit is always the Unit whose Charge triggered the Reaction. The Reacting Unit is always the Unit that was declared as the target of the Charge that triggered this Reaction.\n\nProcess: 1. Once this Reaction is declared, the Reacting Unit must immediately make a Fall Back Move as if it was affected by the Routed Tactical Status.\n2. Once this Fall Back Move is completed, the Reacting Unit does not gain the Routed Tactical Status.",
+    "kind": "Reaction",
+    "source": "Advanced Reaction"
+   }
+  ],
+  "groups": [
+   {
+    "id": "allegiance",
+    "name": "Allegiance",
+    "min": 1,
+    "max": 1,
+    "choices": [
+     {
+      "name": "Loyalist",
+      "text": "The army fights for the Emperor. Some Prime Advantages and units are only available to one side."
+     },
+     {
+      "name": "Traitor",
+      "text": "The army has sided with Horus. Some Prime Advantages and units are only available to one side."
+     }
+    ]
+   }
+  ]
+ }
+}

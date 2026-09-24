@@ -1,0 +1,269 @@
+{
+ "grantedPrimeAdvantages": [
+  {
+   "name": "Interdiction Cadres",
+   "text": "Concealed Positions: \"This Special Rule allows Models to use an Advanced Reaction to arrive from Reserves in close proximity to an enemy Unit.\"\n\n\nThe Controlling Player of a Unit that only contains Models with this Special Rule can use the Concealed Ambush Advanced Reaction.\n\nExpendable (1): \"A Player scores less Victory Points when they destroy a Unit that includes only Models with this Special Rule.\"\nThe number of Victory Points scored by the opponent when a Unit that includes only Models with this Special Rule is entirely Removed as Casualties, for example, as part of the Vanguard (X) Special Rule, First Strike (X) or Slay the Warlord (X) Mission Special Rule, is reduced by the value of X, to a minimum of 1. If a Unit includes Models with different variants of this Special Rule, then the lowest value of X that was present on any Model in that Unit at the start of the Player Turn in which the last Model in the Unit is Removed as a Casualty is used to determine the effect of this Special Rule on that Unit.\n\nNote that, if, at the start of the Player Turn a Unit includes any Models that do not have this Special Rule, then this Special Rule has no effect on that Unit for the duration of that Player Turn regardless of how many other Models in the Unit may have any variant of this Special Rule.\n\nConcealed Ambush Advanced Reaction: Trigger: The Reactive Player may declare the Concealed Ambush Advanced Reaction in Step 2 of the Move Sub-Phase process after an enemy Unit ends a Move.\n\nCost: The Reactive Player must spend 1 point of their Reaction Allotment to declare a Concealed Ambush Reaction, this cost paid as soon as the declaration is made.\n\nTarget: The Target Unit is always the Unit whose Move triggered the Reaction. The Reactive Player must select one Unit under their control that only includes Models with the Concealed Positions Special Rule that is in Reserves. That Unit is the Reacting Unit.\n\nProcess: 1. The Reactive Player must select one Model from the Reacting Unit and place it anywhere on the Battlefield that is not within their Opponent's Deployment Zone, within 6\" of the Unit that triggered this Reaction and at least 5\" away from any enemy Model and 1\" from any Battlefield Edge or piece of Impassable Terrain. Once this first Model has been placed, the remaining Models in the Unit must be placed within Unit Coherency with at least one other Model in the same Unit and within 6\" of the first Model placed. No Models may be placed within 5\" of an enemy Model, or within 1\" of any Battlefield Edge or a piece of Impassable Terrain or within their Opponent's Deployment Zone. Any Models that cannot be placed using these Rules must be Removed as a Casualty immediately.\n\n\n2. Once the Reacting Unit has been set up, the Reacting Player can either make a Shooting Attack with the Reacting Unit against the Unit that triggered this Reaction, but any attacks are made as Snap Shots, or make a Disordered Charge for the Reacting",
+   "eligible": {
+    "any": {
+     "roles": [],
+     "categories": [],
+     "units": [
+      "tactical-squad",
+      "despoiler-squad"
+     ]
+    }
+   }
+  },
+  {
+   "name": "Duty Before Death",
+   "text": "Models in a Unit selected to fill a Prime Force Organisation Slot with this Prime Advantage gain the Feel No Pain (6+) Special Rule.\n\nFeel No Pain (6+): \"Feel No Pain (X) is a Damage Mitigation Test that may be taken in addition to a Saving Throw.\"\nA Model with the Feel No Pain (X) Special Rule gains a Feel No Pain Damage Mitigation Test that may be used in Step 9 of the Shooting Attack process or Step 8 of the Initiative Step of the Fight Sub-Phase process to discard wounds allocated to the Model. A Damage Mitigation Test may be made after and in addition to a Saving Throw. The Target Number for a Feel No Pain Damage Mitigation Test is the value of X attached to the specific variant of the Special Rule.",
+   "eligible": {
+    "any": {
+     "roles": [
+      "Troops"
+     ],
+     "categories": [],
+     "units": []
+    }
+   }
+  },
+  {
+   "name": "Pack Thegn",
+   "text": "Has it's Base Attacks and Weapon Skill Characteristics modified by +1\nMay have it's power sword exchanged with one frost sword or frost axe for Free, or with one frost claw for +5 Points",
+   "eligible": {
+    "any": {
+     "roles": [],
+     "categories": [],
+     "units": [
+      "optae"
+     ]
+    }
+   }
+  },
+  {
+   "name": "Chain-bonded",
+   "text": "This Prime Advantage can only be selected once per Army. When this Prime Advantage is selected, the Controlling Player must select another Unit which only includes Models with the World Eaters Trait that has the Command Battlefield Role from their Army. One Model in the selected Unit and one Model in the Unit selected to fill a Prime Force Organisation Slot with this Prime Advantage both gain the Chain-brothers Special Rule.\n\nChain-brothers: While a Model with this Special Rule is within Unit Coherency of the other Model from your Army with this Special Rule, that Model gains a bonus of +1 to Hit Tests made in the Assault Phase. If a Model that is engaged in a Challenge is in the same Combat as the other Model from your Army with this Special Rule, that Model is treated as being in Unit Coherency  with that other Model for the purposes of this Special Rule.",
+   "eligible": {
+    "any": {
+     "roles": [
+      "Command"
+     ],
+     "categories": [],
+     "units": []
+    }
+   },
+   "oncePerArmy": true
+  },
+  {
+   "name": "Atramentar",
+   "text": "Deep Strike: \"The Deep Strike Special Rule allows a Unit to enter play anywhere on the Battlefield.\"\nA Unit that includes only Models with the Deep Strike Special Rule that enters play from Reserves may make a Deep Strike instead of deploying a described in the Reserves Rules. No more than one Unit may attempt a Deep Strike in a given Player Turn. The Unit attempting a Deep Strike may have another Unit without the Deep Strike Special Rule Embarked Upon it if the Deep Striking Unit includes models with the Transport Sub-Type (note that some Missions may allow more Units to attempt a Deep Strike in the same Player Turn. This will be specifically noted in the Mission Special Rules section of that Mission.) Note that in Missions where the Reserves Mission Special Rule is not in use, the Deep Strike Special Rule has no effect. Furthermore, Units may not make use of the Deep Strike Special Rule during the first Battle Turn, even if they enter play from Reserves.\n\nTo perform a Deep Strike, the Active Player must declare an Eligible Unit that has entered play from Reserves in the Reserves Sub-Phase as the Deep Striking Unit. The Active Player must then select one Model from that Unit and place it anywhere on the Battlefield. This Model must be placed at least 1\"\" away from any enemy Model, Battlefield Edge or piece of Impassable Terrain. Once this first Model has been placed, the remaining Models in the Unit must be placed within Unit Coherency with at least one other Model in the same Unit and withing 6\"\" of the first Model placed. No Models may be placed within 1\"\" of an enemy Model, any Battle Field Edge or a piece of Impassable Terrain. Any Models that cannot be placed using these Rules must be Removed as a Casualty immediately. This deployment must take place during the Reserve Sub-Phase, and a Unit that deploys as a Deep Strike may not move in the Move Sub-Phase of the same Player Turn or have a Charge declared for it in the Charge Sub-Phase of the same Player Turn, but may make Shooting Attacks as normal. A Unit that is Embarked on a Model that is deployed as part of a Deep Strike may Disembark during the Move Sub-Phase of the same Player Turn, but may not make any move other than the move made to Disembark and may not have a Charge declared for it in the Charge Sub-Phase of the same Player Turn.\n\nEnemy Units may declare Intercept Reactions against a Unit deployed as part of a Deep Strike, but not Reposition Reactions.\n\nImpact (I): \"On a successful Charge, a Model with the Impact (X) Special Rule temporarily increases a Characteristic by 1.\"\nIf a Unit that includes any Models with the Impact (X) Special Rule or any Models that have any Weapons with the Impact (X) Special Rule, and that Unit makes a successful Charge, then this Special Rule is triggered. Once triggered, until the end of that Assault Phase, when making Melee Attacks for Models in that Unit, each Model or Weapon that is selected for one of those Models, that has a variant of this Special Rule, gains a modifier of +1 to any Characteristics that is the value of X.",
+   "eligible": {
+    "any": {
+     "roles": [],
+     "categories": [],
+     "units": [
+      "cataphractii-terminator-command-squad",
+      "centurion-in-terminator-armour",
+      "tartaros-terminator-command-squad",
+      "cataphractii-terminator-squad",
+      "tartaros-terminator-squad"
+     ]
+    }
+   }
+  },
+  {
+   "name": "The Iron-clad",
+   "text": "The Iron-clad",
+   "eligible": {
+    "any": {
+     "roles": [
+      "Command"
+     ],
+     "categories": [],
+     "units": []
+    }
+   },
+   "oncePerArmy": true
+  },
+  {
+   "name": "Paladin of the Hekatonystika",
+   "text": "This Prime Advantage can only be selected once per Army. One Model in the Unit selected to fill a Prime Force Organisation Slot with this Prime Advantage gains the following benefits:\n\n\n• Has its Base Weapon Skill Characteristic modified by +1.\n• Must have its bolter exchanged for a Terranic greatsword for Free.\n• Gains the Order Exemplars Special Rule (see page 137).",
+   "eligible": {
+    "any": {
+     "roles": [],
+     "categories": [],
+     "units": [
+      "centurion",
+      "centurion-in-terminator-armour"
+     ]
+    }
+   },
+   "oncePerArmy": true
+  },
+  {
+   "name": "Revenants",
+   "text": "Fear (1): \"Models near an enemy Model with the Fear (X) Special Rule must reduce their Advanced Characteristics.\"\nWhen any Model from a Unit is within 12\" of an enemy Model with the Fear (X) Special Rule, all Models in that Unit must reduce their Leadership, Willpower, Cool, and Intelligence Characteristics by the value of X. This negative modifier is removed as soon as no Models in a given Unit are within 12\" of any Model with the Fear (X) Special Rule. If a Unit would be affected by multiple instances of the Fear (X) Special Rule, the value of X is not stacked and instead the single highest value is used as a negative modifier.",
+   "eligible": {
+    "excludeRoles": [
+     "High Command"
+    ]
+   }
+  },
+  {
+   "name": "Castellan",
+   "text": "Castellan",
+   "eligible": {
+    "any": {
+     "roles": [],
+     "categories": [],
+     "units": [
+      "centurion"
+     ]
+    }
+   }
+  },
+  {
+   "name": "The Unfavoured",
+   "text": "Expendable (1): \"A Player scores less Victory Points when they destroy a Unit that includes only Models with this Special Rule.\"\nThe number of Victory Points scored by the opponent when a Unit that includes only Models with this Special Rule is entirely Removed as Casualties, for example, as part of the Vanguard (X) Special Rule, First Strike (X) or Slay the Warlord (X) Mission Special Rule, is reduced by the value of X, to a minimum of 1. If a Unit includes Models with different variants of this Special Rule, then the lowest value of X that was present on any Model in that Unit at the start of the Player Turn in which the last Model in the Unit is Removed as a Casualty is used to determine the effect of this Special Rule on that Unit.\n\nNote that, if, at the start of the Player Turn a Unit includes any Models that do not have this Special Rule, then this Special Rule has no effect on that Unit for the duration of that Player Turn regardless of how many other Models in the Unit may have any variant of this Special Rule.",
+   "eligible": {
+    "excludeRoles": [
+     "High Command"
+    ],
+    "unitTypes": [
+     "Infantry"
+    ]
+   }
+  },
+  {
+   "name": "Martial Supremacy",
+   "text": "One Model in the Unit selected to ill a Prime Force Organization Slot with this Prime Advantage gains the Champion Sub-type and the Duellist's Edge (1) special rule.\n\nDuellist's Edge (1): \"A Weapon with the Duellist's Edge (X) Special Rule grants a bonus to Focus Rolls in Challenges.\"\nIn Step 3 of the Challenge Sub-Phase, the Focus Step, if a Player has declared that the Model under their control will use a Weapon with the Duellist's Edge (X) Special Rule or has the Duellist's Edge (X) Special Rule, then that Player gains a bonus equal to the value of X on the Focus Roll.",
+   "eligible": {
+    "any": {
+     "roles": [
+      "Elites"
+     ],
+     "categories": [],
+     "units": []
+    }
+   }
+  },
+  {
+   "name": "Zealous Assault",
+   "text": "Impact (S): \"On a successful Charge, a Model with the Impact (X) Special Rule temporarily increases a Characteristic by 1.\"\nIf a Unit that includes any Models with the Impact (X) Special Rule or any Models that have any Weapons with the Impact (X) Special Rule, and that Unit makes a successful Charge, then this Special Rule is triggered. Once triggered, until the end of that Assault Phase, when making Melee Attacks for Models in that Unit, each Model or Weapon that is selected for one of those Models, that has a variant of this Special Rule, gains a modifier of +1 to any Characteristics that is the value of X.",
+   "eligible": {
+    "any": {
+     "roles": [
+      "Troops"
+     ],
+     "categories": [],
+     "units": []
+    }
+   }
+  },
+  {
+   "name": "Phoenix Warden",
+   "text": "Phoenix Warden",
+   "eligible": {
+    "any": {
+     "roles": [],
+     "categories": [],
+     "units": [
+      "centurion-in-terminator-armour"
+     ]
+    }
+   }
+  },
+  {
+   "name": "Unnatural Resilience",
+   "text": "Eternal Warrior (2): \"A Model with this Special Rule takes less Damage from attacks.\"\nWhen a Model with the Eternal Warrior (X) Special Rule is allocated an Unsaved Wound, the Damage of the Unsaved Wound is reduced by the value of X attached o the specific variant of the Eternal Warrior (X) Special Rule. The effects of this Special Rule cannot reduce the Damage of an Unsaved Wound to less than 1, regardless of the value of X.",
+   "eligible": {
+    "any": {
+     "roles": [],
+     "categories": [],
+     "units": [
+      "centurion",
+      "centurion-in-terminator-armour"
+     ]
+    }
+   },
+   "oncePerArmy": true
+  },
+  {
+   "name": "Telekine Shift",
+   "text": "When the Controlling Player chooses to make a Rush Move with a Unit made of Models with this Special Rule, they may also choose to make a Willpower Check for that Unit. If the Willpower Check is successful, the Unit gains the Antigrav Sub-Type and the Move Through Cover Special Rule until the end of the current Movement Phase. If the Willpower Check is failed, the selected Unit may not Move during the current Movement Phase.",
+   "eligible": {
+    "any": {
+     "roles": [
+      "Troops"
+     ],
+     "categories": [],
+     "units": []
+    }
+   }
+  },
+  {
+   "name": "True Believers",
+   "text": "All Models in the Unit selected to fill the Prime Slot gain the Malefic Sub-Type.",
+   "eligible": {
+    "excludeRoles": [
+     "High Command"
+    ],
+    "allegiance": "Traitor"
+   }
+  },
+  {
+   "name": "Butcher Surgeon",
+   "text": "Exhortation of Butchery: At the start of the Charge Sub-Phase of their Battle Turn, the Controlling Player of a Unit which contains any Models with this Special Rule may elect for that Unit to become Lost to the Nails\n\nRavening Madmen: \"Units with Models with this Special Rule count as having a Weapon Skill Characteristic of 3 when their opponent makes Hit Tests.\"\n\n\nAny Hit Tests made in the Assault Phase that target a Unit that includes one or more Models with this Special Rule always count the majority Weapon Skill Characteristic of the Target Unit as 3, regardless of the actual Weapon Skill Characteristic of the Models in that Unit, Additionally, a Unit that includes any Models with this Special Rule may only be joined by Models with this Special Rule.",
+   "eligible": {
+    "any": {
+     "roles": [],
+     "categories": [
+      "Apothecary"
+     ],
+     "units": []
+    }
+   }
+  },
+  {
+   "name": "Rewards of Treachery",
+   "text": "Add one additional Battlefield Role Slot to the Detachment that includes the Unit selected to fill a Prime Force Organisation Slot with this Prime Advantage. This Slot may be of any Battlefield Role other than High Command, Command, Warlord or Lord of War (note that a Detachment may gain more than one additional Force Organisation slot if this option is selected for multiple Units in the same Detachment).\n\nEach Unit selected to fill such a Slot must:\n• Be from the Legiones Astartes Army List.\n• Not have the Alpha Legion Faction Trait on their Unit Profile.\n• Not include any Models that have the Unique Sub-Type.\n\nAll Models in any of these Units have their Faction Trait replaced with 'Alpha Legion'.",
+   "eligible": {
+    "any": {
+     "roles": [
+      "Command"
+     ],
+     "categories": [],
+     "units": []
+    }
+   }
+  },
+  {
+   "name": "Clade Operative",
+   "text": "Add three additional Support Force Organisation Slots to the Detachment that includes the Prime Slot with this Prime Advantage. These Force Organisation Slots may only be filled by Units selected from the Divisio Assassinorum Army List. This Prime Advantage may only be selected for a single Force Organisation Slot in an Army’s Primary Detachment.",
+   "eligible": {
+    "allegiance": "Loyalist"
+   },
+   "oncePerArmy": true,
+   "addSlots": {
+    "role": "Support",
+    "count": 3,
+    "operative": "Clade Operative"
+   },
+   "primaryOnly": true
+  },
+  {
+   "name": "Cult Operative",
+   "text": "Add one additional Support Force Organisation Slot to the Detachment that includes the Prime Slot with this Prime Advantage. This Force Organisation Slot may only be filled by a Unit selected from the Cults Abominatio Army List. This Prime Advantage may only be selected for a single Force Organisation Slot in an Army’s Primary Detachment.",
+   "eligible": {
+    "allegiance": "Traitor"
+   },
+   "oncePerArmy": true,
+   "addSlots": {
+    "role": "Support",
+    "count": 1,
+    "operative": "Cult Operative"
+   },
+   "primaryOnly": true
+  }
+ ]
+}

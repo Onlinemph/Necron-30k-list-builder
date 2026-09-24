@@ -1,0 +1,42 @@
+{
+ "armyConfig": {
+  "fixed": [
+   {
+    "name": "Vengeance of the First Legion",
+    "text": "Trigger: Once per Battle, the Reactive Player may declare the Vengeance of the First Legion Advanced Reaction after the last Initiative Step of a Combat that includes a Unit under that Player's control which only includes Models with the Dark Angels Trait has been resolved, but before the Make Final Pile-in Moves  Step.\n\nCost: The Reactive Player must spend 1 point of their Reaction Allowance to declare the Vengeance of the First Legion Advanced Reaction, this cost paid as soon as the declaration is made.`\n\nTarget: The Target Unit is always a Unit in that Combat which only includes Models with the Dark Angels Trait. That Unit is the Reacting Unit.\n\nProcess: 1. Instead of Proceeding to the Make Final Pile-in Moves Step of that Combat, the Players must return to Step 1 of that Combat and resolve it a second time, discarding any Combat Resolution Points gained during the first round (but not Combat Resolution Points scored from any Challenges during that Combat).\n2. Models in the Reacting Unit gain the Shred (6+) Special Rule on any Weapons they have with the Sword of the Order Trait.",
+    "kind": "Reaction",
+    "source": "Advanced Reaction"
+   },
+   {
+    "name": "Sword of the Order",
+    "text": "If this Gambit is selected, then as long as the Model under this Player's control is declared to be using a chainsword, power sword, force sword, paragon blade or Weapon with the Sword of the Order Trait, in Step 3 of the Challenge Sub-Phase, that Weapon's Attacks Modifier Characteristic is modified by -1 and it gains the Critical Hit (6+) Special Rule, or improves the value of XX of an existing version of the Critical Hit (X) it already possesses by +1.",
+    "kind": "Gambit",
+    "source": "Gambit"
+   },
+   {
+    "name": "The Angel of Death",
+    "text": "\"Negative modifiers to Dark Angels' Leadership, Willpower, Cool and Intelligence are limited.\"\n\n\nModels with this Special Rule may never have their Leadership Characteristic modified to less than 6. Additionally, any variant of the Fear (X) Special Rule may only reduce the Leadership, Cool, Willpower and Intelligence Characteristics of any Model with this Special Rule by a maximum of 1, regardless of the value of X.",
+    "kind": "rule",
+    "source": "Legion Tactica"
+   }
+  ],
+  "groups": [
+   {
+    "id": "allegiance",
+    "name": "Allegiance",
+    "min": 1,
+    "max": 1,
+    "choices": [
+     {
+      "name": "Loyalist",
+      "text": "The army fights for the Emperor. Some Prime Advantages and units are only available to one side."
+     },
+     {
+      "name": "Traitor",
+      "text": "The army has sided with Horus. Some Prime Advantages and units are only available to one side."
+     }
+    ]
+   }
+  ]
+ }
+}

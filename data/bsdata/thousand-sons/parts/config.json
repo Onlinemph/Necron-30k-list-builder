@@ -1,0 +1,42 @@
+{
+ "armyConfig": {
+  "fixed": [
+   {
+    "name": "Cult Arcana",
+    "text": "\"All Models with the Thousand Sons Trait are Psykers and have a higher Willpower Characteristic than shown on their profile.\"\nModels with this special rule gain a bonus of +1 Base Willpower Characteristic and gain the Psyker Trait",
+    "kind": "rule",
+    "source": "Legion Tactica"
+   },
+   {
+    "name": "Prophetic Duellist",
+    "text": "If this Gambit is selected, then immediately after the Controlling Player has made their Focus Roll in the Focus Step, they may choose to replace the result of their Focus Roll (after modifiers) with this Model's Willpower Characteristic.",
+    "kind": "Gambit",
+    "source": "Gambit"
+   },
+   {
+    "name": "Fortress of the Mind",
+    "text": "Trigger: Once per Battle, the Reactive Player may declare the Fortress of the Mind Advanced Reaction during Step 4 of the Shooting Attack process of any Shooting Attack declared by the Active Player that targets a Unit whichonly includes Models with the Thousand Sons Trait and does not contain any Models with the Vehicle Type.\n\nCost: The Reactive Player must spend 1 point of their Reaction Allotment to declare a Fortress of the Mind Advanced Reaction, this cost paid as soon as the declaration is made.\n\nTarget: The Target Unit is always the Unit whose Shooting Attack triggered the Reaction. The Reacting Unit is always the Unit that was declared the target of the Shooting Attack that triggered this Reaction.\n\nProcess: 1. Once a Fortress of the Mind Advanced Reaction has been declared, the Reactive Player must make a Willpower Check for the Reacting Unit.\n2. If the Willpower check is passed, the Reacting Unit gains a 3+ Invulnerable Save against all wounds inflicted as part of the Shooting Attack that triggered the Reaction.\n3. If the Willpower Check is failed, the Reacting Unit gains a 5+ Invulnerable Save against all wounds inflicted as part of the Shooting Attack that triggered the Reaction. Additionally, both the Reacting Unit and the Target Unit suffer the Warp Rupture result from the Perils of the Warp table, resolved immediately after Step 11 of the Shooting Attack.",
+    "kind": "Reaction",
+    "source": "Advanced Reaction"
+   }
+  ],
+  "groups": [
+   {
+    "id": "allegiance",
+    "name": "Allegiance",
+    "min": 1,
+    "max": 1,
+    "choices": [
+     {
+      "name": "Loyalist",
+      "text": "The army fights for the Emperor. Some Prime Advantages and units are only available to one side."
+     },
+     {
+      "name": "Traitor",
+      "text": "The army has sided with Horus. Some Prime Advantages and units are only available to one side."
+     }
+    ]
+   }
+  ]
+ }
+}

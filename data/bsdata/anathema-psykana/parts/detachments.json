@@ -1,0 +1,79 @@
+{
+ "detachments": [
+  {
+   "id": "bs-leviathan-armoured-fist",
+   "name": "Leviathan Armoured Fist",
+   "type": "Apex",
+   "source": "army",
+   "page": null,
+   "unlock": "3 Lord of War · Detachment can only be used in Leviathan Missions",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Lord of War",
+     "prime": false
+    },
+    {
+     "role": "Lord of War",
+     "prime": false
+    },
+    {
+     "role": "Lord of War",
+     "prime": false
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-leviathan-bastion-of-fire",
+   "name": "Leviathan Bastion of Fire",
+   "type": "Apex",
+   "source": "army",
+   "page": null,
+   "unlock": "3 Support (1 Prime) · Detachment can only be used in Leviathan Missions",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Support",
+     "prime": true
+    },
+    {
+     "role": "Support",
+     "prime": false
+    },
+    {
+     "role": "Support",
+     "prime": false
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-armoured-command-squadron-detachment",
+   "name": "Armoured Command Squadron Detachment",
+   "type": "Apex",
+   "source": "army",
+   "page": null,
+   "unlock": "3 Armour (3 Prime) · Detachment can only be used in Armoured Spearhead Missions · May use Armoured Spearhead Prime Advantages",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Armour",
+     "prime": true
+    },
+    {
+     "role": "Armour",
+     "prime": true
+    },
+    {
+     "role": "Armour",
+     "prime": true
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  }
+ ]
+}

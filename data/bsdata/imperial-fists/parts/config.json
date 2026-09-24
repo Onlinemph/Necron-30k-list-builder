@@ -1,0 +1,42 @@
+{
+ "armyConfig": {
+  "fixed": [
+   {
+    "name": "Fire Discipline",
+    "text": "\"Imperial Fists gain a bonus of +1 when making Hit Tests with multiple bolt and auto Weapons.\"\nWhen making a Shooting Attack for a Unit that only includes Models with this Special Rule, add +1 to the result of Hit Tests made for any attacks in any Fire Groups that include more than five Dice or attacks and that have the Bolt or Auto Trait.",
+    "kind": "rule",
+    "source": "Legion Tactica"
+   },
+   {
+    "name": "A Wall Unyielding",
+    "text": "While this Gambit is selected, the Controlling Player does not add their Combat Initiative to the result of the Focus Roll, but gains the Eternal Warrior (1) Special Rule for the duration of the Strike Step.",
+    "kind": "Gambit",
+    "source": "Gambit"
+   },
+   {
+    "name": "Bastion of Fire",
+    "text": "Trigger: Once per Battle, the Reactive Player may declare the Bastion of Fire Advanced Reaction in Step 2 of the Move Sub-Phase process, if an enemy Unit ends a move within 10\" and in Line of Sight of a Unit under the Reactive Player's control capable of making a Shooting Attack with at least one Weapon it has targeting that Unit. The Reacting Unit must be a Unit under the Reactive Player's Control that only includes Models with the Imperial Fists Trait that does not have the Vehicle Type.\n\nCost: The Reactive Player must spend 1 point of their Reaction Allotment to declare the Bastion of Fire Advanced Reaction, this cost paid as soon as the declaration is made.\n\nTarget: The Target Unit is always the Unit whose Move triggered the Reaction.\n\nProcess: 1. Once the Bastion of Fire Advanced Reaction has been declared, the Reactive Player makes a Shooting Attack with the Reacting Unit, targeting only the Target Unit.\n2. Once the Shooting Attack made as part of this Reaction has been completely resolved, including removing any Casualties, the Active Player must then proceed with the remainder of their Movement Phase.",
+    "kind": "Reaction",
+    "source": "Advanced Reaction"
+   }
+  ],
+  "groups": [
+   {
+    "id": "allegiance",
+    "name": "Allegiance",
+    "min": 1,
+    "max": 1,
+    "choices": [
+     {
+      "name": "Loyalist",
+      "text": "The army fights for the Emperor. Some Prime Advantages and units are only available to one side."
+     },
+     {
+      "name": "Traitor",
+      "text": "The army has sided with Horus. Some Prime Advantages and units are only available to one side."
+     }
+    ]
+   }
+  ]
+ }
+}

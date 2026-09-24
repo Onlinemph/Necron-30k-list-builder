@@ -1,0 +1,520 @@
+{
+ "detachments": [
+  {
+   "id": "bs-grenadier-muster",
+   "name": "Grenadier Muster",
+   "type": "Apex",
+   "source": "army",
+   "page": null,
+   "unlock": "8 Elites (1 Prime)",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Elites",
+     "prime": true
+    },
+    {
+     "role": "Elites",
+     "prime": false
+    },
+    {
+     "role": "Elites",
+     "prime": false
+    },
+    {
+     "role": "Elites",
+     "prime": false
+    },
+    {
+     "role": "Elites",
+     "prime": false
+    },
+    {
+     "role": "Elites",
+     "prime": false
+    },
+    {
+     "role": "Elites",
+     "prime": false
+    },
+    {
+     "role": "Elites",
+     "prime": false
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-ogryn-auxilia",
+   "name": "Ogryn Auxilia",
+   "type": "Apex",
+   "source": "army",
+   "page": null,
+   "unlock": "8 Heavy Assault (1 Prime) · Must be Ogryn Brute Troop units",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Heavy Assault",
+     "prime": true,
+     "onlyLabel": "Ogryn Brute Troop Units Only",
+     "only": [
+      "ogryn-brute-troop"
+     ]
+    },
+    {
+     "role": "Heavy Assault",
+     "prime": false,
+     "onlyLabel": "Ogryn Brute Troop Units Only",
+     "only": [
+      "ogryn-brute-troop"
+     ]
+    },
+    {
+     "role": "Heavy Assault",
+     "prime": false,
+     "onlyLabel": "Ogryn Brute Troop Units Only",
+     "only": [
+      "ogryn-brute-troop"
+     ]
+    },
+    {
+     "role": "Heavy Assault",
+     "prime": false,
+     "onlyLabel": "Ogryn Brute Troop Units Only",
+     "only": [
+      "ogryn-brute-troop"
+     ]
+    },
+    {
+     "role": "Heavy Assault",
+     "prime": false,
+     "onlyLabel": "Ogryn Brute Troop Units Only",
+     "only": [
+      "ogryn-brute-troop"
+     ]
+    },
+    {
+     "role": "Heavy Assault",
+     "prime": false,
+     "onlyLabel": "Ogryn Brute Troop Units Only",
+     "only": [
+      "ogryn-brute-troop"
+     ]
+    },
+    {
+     "role": "Heavy Assault",
+     "prime": false,
+     "onlyLabel": "Ogryn Brute Troop Units Only",
+     "only": [
+      "ogryn-brute-troop"
+     ]
+    },
+    {
+     "role": "Heavy Assault",
+     "prime": false,
+     "onlyLabel": "Ogryn Brute Troop Units Only",
+     "only": [
+      "ogryn-brute-troop"
+     ]
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-infantry-cohort",
+   "name": "Infantry Cohort",
+   "type": "Apex",
+   "source": "army",
+   "page": null,
+   "unlock": "8 Troops (1 Prime)",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Troops",
+     "prime": true
+    },
+    {
+     "role": "Troops",
+     "prime": false
+    },
+    {
+     "role": "Troops",
+     "prime": false
+    },
+    {
+     "role": "Troops",
+     "prime": false
+    },
+    {
+     "role": "Troops",
+     "prime": false
+    },
+    {
+     "role": "Troops",
+     "prime": false
+    },
+    {
+     "role": "Troops",
+     "prime": false
+    },
+    {
+     "role": "Troops",
+     "prime": false
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-artillery-division",
+   "name": "Artillery Division",
+   "type": "Apex",
+   "source": "army",
+   "page": null,
+   "unlock": "8 Support (1 Prime) · Must be NOT be Militia Medicae units",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Support",
+     "prime": true
+    },
+    {
+     "role": "Support",
+     "prime": false
+    },
+    {
+     "role": "Support",
+     "prime": false
+    },
+    {
+     "role": "Support",
+     "prime": false
+    },
+    {
+     "role": "Support",
+     "prime": false
+    },
+    {
+     "role": "Support",
+     "prime": false
+    },
+    {
+     "role": "Support",
+     "prime": false
+    },
+    {
+     "role": "Support",
+     "prime": false
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-cavalry-wing",
+   "name": "Cavalry Wing",
+   "type": "Apex",
+   "source": "army",
+   "page": null,
+   "unlock": "8 Recon (1 Prime) · Must be Cavalry Troop units",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Recon",
+     "prime": true,
+     "onlyLabel": "Cavalry Only",
+     "only": [
+      "cavalry-troop"
+     ]
+    },
+    {
+     "role": "Recon",
+     "prime": false,
+     "onlyLabel": "Cavalry Only",
+     "only": [
+      "cavalry-troop"
+     ]
+    },
+    {
+     "role": "Recon",
+     "prime": false,
+     "onlyLabel": "Cavalry Only",
+     "only": [
+      "cavalry-troop"
+     ]
+    },
+    {
+     "role": "Recon",
+     "prime": false,
+     "onlyLabel": "Cavalry Only",
+     "only": [
+      "cavalry-troop"
+     ]
+    },
+    {
+     "role": "Recon",
+     "prime": false,
+     "onlyLabel": "Cavalry Only",
+     "only": [
+      "cavalry-troop"
+     ]
+    },
+    {
+     "role": "Recon",
+     "prime": false,
+     "onlyLabel": "Cavalry Only",
+     "only": [
+      "cavalry-troop"
+     ]
+    },
+    {
+     "role": "Recon",
+     "prime": false,
+     "onlyLabel": "Cavalry Only",
+     "only": [
+      "cavalry-troop"
+     ]
+    },
+    {
+     "role": "Recon",
+     "prime": false,
+     "onlyLabel": "Cavalry Only",
+     "only": [
+      "cavalry-troop"
+     ]
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-armoured-phalanx",
+   "name": "Armoured Phalanx",
+   "type": "Apex",
+   "source": "army",
+   "page": null,
+   "unlock": "8 Armour",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Armour",
+     "prime": false
+    },
+    {
+     "role": "Armour",
+     "prime": false
+    },
+    {
+     "role": "Armour",
+     "prime": false
+    },
+    {
+     "role": "Armour",
+     "prime": false
+    },
+    {
+     "role": "Armour",
+     "prime": false
+    },
+    {
+     "role": "Armour",
+     "prime": false
+    },
+    {
+     "role": "Armour",
+     "prime": false
+    },
+    {
+     "role": "Lord of War",
+     "prime": false
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-oversight-delegation",
+   "name": "Oversight Delegation",
+   "type": "Auxiliary",
+   "source": "army",
+   "page": 16,
+   "unlock": "1 Command · 4 Support · Support must be Militia Medicae units",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Support",
+     "prime": false,
+     "onlyLabel": "Militia Medicae Only",
+     "only": [
+      "militia-medicae"
+     ]
+    },
+    {
+     "role": "Support",
+     "prime": false,
+     "onlyLabel": "Militia Medicae Only",
+     "only": [
+      "militia-medicae"
+     ]
+    },
+    {
+     "role": "Support",
+     "prime": false,
+     "onlyLabel": "Militia Medicae Only",
+     "only": [
+      "militia-medicae"
+     ]
+    },
+    {
+     "role": "Support",
+     "prime": false,
+     "onlyLabel": "Militia Medicae Only",
+     "only": [
+      "militia-medicae"
+     ]
+    },
+    {
+     "role": "Command",
+     "prime": false
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-storm-cadre",
+   "name": "Storm Cadre",
+   "type": "Auxiliary",
+   "source": "army",
+   "page": null,
+   "unlock": "2 Elites",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Elites",
+     "prime": false
+    },
+    {
+     "role": "Elites",
+     "prime": false
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-daemonic-manifestation",
+   "name": "Daemonic Manifestation",
+   "type": "Auxiliary",
+   "source": "army",
+   "page": null,
+   "unlock": "3 Heavy Assault · Requires Rogue Psyker · Heavy Assault must be Ruinstorm Daemon Brute units",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Heavy Assault",
+     "prime": false,
+     "onlyLabel": "Daemon Brute Units Only",
+     "only": [
+      "ruinstorm-daemon-brutes"
+     ]
+    },
+    {
+     "role": "Heavy Assault",
+     "prime": false,
+     "onlyLabel": "Daemon Brute Units Only",
+     "only": [
+      "ruinstorm-daemon-brutes"
+     ]
+    },
+    {
+     "role": "Heavy Assault",
+     "prime": false,
+     "onlyLabel": "Daemon Brute Units Only",
+     "only": [
+      "ruinstorm-daemon-brutes"
+     ]
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-leviathan-armoured-fist",
+   "name": "Leviathan Armoured Fist",
+   "type": "Apex",
+   "source": "army",
+   "page": null,
+   "unlock": "3 Lord of War · Detachment can only be used in Leviathan Missions",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Lord of War",
+     "prime": false
+    },
+    {
+     "role": "Lord of War",
+     "prime": false
+    },
+    {
+     "role": "Lord of War",
+     "prime": false
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-leviathan-bastion-of-fire",
+   "name": "Leviathan Bastion of Fire",
+   "type": "Apex",
+   "source": "army",
+   "page": null,
+   "unlock": "3 Support (1 Prime) · Detachment can only be used in Leviathan Missions",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Support",
+     "prime": true
+    },
+    {
+     "role": "Support",
+     "prime": false
+    },
+    {
+     "role": "Support",
+     "prime": false
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-armoured-command-squadron-detachment",
+   "name": "Armoured Command Squadron Detachment",
+   "type": "Apex",
+   "source": "army",
+   "page": null,
+   "unlock": "3 Armour (3 Prime) · Detachment can only be used in Armoured Spearhead Missions · May use Armoured Spearhead Prime Advantages",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Armour",
+     "prime": true
+    },
+    {
+     "role": "Armour",
+     "prime": true
+    },
+    {
+     "role": "Armour",
+     "prime": true
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  }
+ ]
+}

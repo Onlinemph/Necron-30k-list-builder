@@ -1,0 +1,43 @@
+{
+ "armyConfig": {
+  "fixed": [],
+  "groups": [
+   {
+    "id": "allegiance",
+    "name": "Allegiance",
+    "min": 1,
+    "max": 1,
+    "choices": [
+     {
+      "name": "Loyalist",
+      "text": "The army fights for the Emperor. Some Prime Advantages and units are only available to one side."
+     },
+     {
+      "name": "Traitor",
+      "text": "The army has sided with Horus. Some Prime Advantages and units are only available to one side."
+     }
+    ]
+   },
+   {
+    "id": "rite-of-war",
+    "name": "Rite of War",
+    "min": 3,
+    "max": 3,
+    "choices": [
+     {
+      "name": "Legion Tactica",
+      "text": "Mutable Tactics: \"Models with the Shattered Legions Trait have variable bonuses from this Special Rule based on which Legions have been selected for the Army.\"\n\n\nModels subject to this Special Rule gain a benefit for each Legion that is selected for this Army’s Shattered Legions Detachments. If only two Legions were selected, Models subject to this Special Rule also have the Bound in Blood benefit."
+     },
+     {
+      "name": "Gambit",
+      "text": "Spiteful Strike: This Gambit can only be selected if this Model has had it’s Wounds Characteristic lowered below its starting value. While this Gambit is selected, during the Focus Step, instead of making a Focus Roll, the Controlling Player instead makes one Melee Attack. Hit Tests and Wound Tests for this attack have a modifier of +1. If the enemy Model is Removed as a Casualty as a result of this attack, the Challenge immediately moves to the Glory Step. If the enemy Model is not Removed as a Casualty, this Model is removed as a Casualty instead and the Challenge immediately moves to the Glory Step."
+     },
+     {
+      "name": "Advanced Reaction",
+      "text": "Exact the Price: Trigger: Once per Battle, the Reactive Player may declare the Exact the Price Advanced Reaction at the end of Step 5 of the Charge process of any Charge declared by the Active Player that targets a Unit under that Player’s control which only includes Models with the Shattered Legions Trait.\n\nCost: The Reactive Player must spend 1, 2 or 3 points of their Reaction Allotment to declare the Exact the Price Advanced Reaction, this cost paid as soon as the declaration is made.\n\nTarget: The Target Unit is always the Unit whose Charge triggered the Reaction. The Reacting Unit is always the Unit that was declared as the target of the Charge that triggered this Reaction.\n\nProcess: 1. Once this Reaction is declared, the Reactive Player must declare how many Reaction Points they are spending.\n2. If one Reaction Point was spent, Models in the Reacting Unit gain a modifier to their Toughness Characteristic of +1 until the end of the Phase. If two Reaction Points were spent, Models in the Reacting Unit gain a modifier to their Toughness Characteristic of +1 and Models that make attacks against the Target Unit gain a modifier to their Attacks Characteristic of +1 until the end of the Phase. If three Reaction Points were spent, Models in the Reacting Unit gain a modifier to their Toughness Characteristic of +1 and Models that make attacks against the Target Unit gain a modifier to their Attacks and Strength Characteristics of +1 until the end of the Phase."
+     }
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,30 @@
+{
+ "armyConfig": {
+  "fixed": [
+   {
+    "name": "Marshal Effect",
+    "text": "Trigger: Once per Battle, the Reactive Player may declare the Marshal Effect Advanced Reaction when a friendly Skitarii Battle-Pilgrym Marshall Model is reduced to 0 Wounds.\n\nCost: The Reactive Player must spend 1 point of their Reaction Allotment to declare the Marshal Effect Advanced Reaction, this cost paid as soon as the declaration is made.\n\nTarget: For the Marshal Effect Advanced Reaction, the Target Unit is always a Friendly Unit with the Skitarii Trait with at least one Ordinator Model.\n\nProcess: 1. In the End Phase of any Turn in which this Advanced Reaction was Declared, the Reactive Player must select an Ordinator Model from the Target Unit.\n2. The selected Model gains the Command Sub-Type, and has its Base Weapon Skill, Attacks and Leadership Characteristics each increased by +1. Additionally , the Controlling Player may select one Melee Weapon that the selected Model has to gain the Icon of Authority Special Rule.",
+    "kind": "Reaction",
+    "source": "Advanced Reaction"
+   }
+  ],
+  "groups": [
+   {
+    "id": "allegiance",
+    "name": "Allegiance",
+    "min": 1,
+    "max": 1,
+    "choices": [
+     {
+      "name": "Loyalist",
+      "text": "The army fights for the Emperor. Some Prime Advantages and units are only available to one side."
+     },
+     {
+      "name": "Traitor",
+      "text": "The army has sided with Horus. Some Prime Advantages and units are only available to one side."
+     }
+    ]
+   }
+  ]
+ }
+}

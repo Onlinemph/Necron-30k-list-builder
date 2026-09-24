@@ -1,0 +1,43 @@
+{
+ "armyConfig": {
+  "fixed": [],
+  "groups": [
+   {
+    "id": "allegiance",
+    "name": "Allegiance",
+    "min": 1,
+    "max": 1,
+    "choices": [
+     {
+      "name": "Loyalist",
+      "text": "The army fights for the Emperor. Some Prime Advantages and units are only available to one side."
+     },
+     {
+      "name": "Traitor",
+      "text": "The army has sided with Horus. Some Prime Advantages and units are only available to one side."
+     }
+    ]
+   },
+   {
+    "id": "legio-tactica",
+    "name": "Legio Tactica",
+    "min": 0,
+    "max": 3,
+    "choices": [
+     {
+      "name": "Legio Tactica",
+      "text": "Only in Death: \"Units which only contain Models with this Special Rule become Stunned instead of Routed in Combat and cannot Fall Back or Disengage from a Combat.\"\n\n\nWhenever a Model with this Special Rule would gain the Routed Tactical Status in the Make Panic Checks Step of the Resolution Sub-Phase of the Assault Phase, that Model instead gains the Stunned Tactical Status, unless there are any Models without this Special Rule in the same Unit as that Model. Additionally, a Unit which only contains Models with this Special Rule may never have the Disengage or Fall Back aftermath options selected for it, unless it is entirely composed of Models which also have the Antigrav Sub-Type, in which case it may still have the Disengage aftermath option selected for it."
+     },
+     {
+      "name": "Gambits",
+      "text": "Heaven's Strike: If this Gambit is selected, then as long as the Model for which it was selected is declared to be using a Weapon with the Critical Hit (6+) Special Rule at the beginning of the Focus Step, that Special Rule is replaced with the Critical Hit (5+) Special Rule and that Model's Base Attacks Characteristic is halved for the duration of the Strike Step.\n\nRaptor's Surge: If this Gambit is selected, then if the Opposing Player may claim a greater Outside Support Bonus in the Focus Step than the Controlling Player, the Model for which it was selected gains a bonus to its current Attacks Characteristic in the following Strike Step equal to the difference in the Outside Support Bonuses the Players could claim for the Challenge, to a maximum of +3.\n\nStone's Aegis: This Gambit may only be selected for a Model with the 'Shield' Trait. If this Gambit is selected, then the Model for which it was selected gains a +1 modifier to its Toughness Characteristic for the duration of the Strike Step, but any Wound Tests made for that Model in the same Strike Step automatically fail on a natural result of 1 or 2.\n\nWorld Serpent's Bane: If this Gambit is selected, the Model for which is was selected may only make a single attack in the following Strike Step regardless of its Attacks Characteristic, but the Damage Characteristic of the Weapon used to make that attack is modified to be equal to the Model's current Wounds Characteristic while that attack is resolved.\n\nHeaven's Strike: If this Gambit is selected, then as long as the Model for which it was selected is declared to be using a Weapon with the Critical Hit (6+) Special Rule at the beginning of the Focus Step, that Special Rule is replaced with the Critical Hit (5+) Special Rule and that Model's Base Attacks Characteristic is halved for the duration of the Strike Step.\n\nRaptor's Surge: If this Gambit is selected, then if the Opposing Player may claim a greater Outside Support Bonus in the Focus Step than the Controlling Player, the Model for which it was selected gains a bonus to its current Attacks Characteristic in the following Strike Step equal to the difference in the Outside Support Bonuses the Players could claim for the Challenge, to a maximum of +3.\n\nStone's Aegis: This Gambit may only be selected for a Model with the 'Shield' Trait. If this Gambit is selected, then the Model for which it was selected gains a +1 modifier to its Toughness Characteristic for the duration of the Strike Step, but any Wound Tests made for that Model in the same Strike Step automatically fail on a natural result of 1 or 2.\n\nWorld Serpent's Bane: If this Gambit is selected, the Model for which is was selected may only make a single attack in the following Strike Step regardless of its Attacks Characteristic, but the Damage Characteristic of the Weapon used to make that attack is modified to be equal to the Model's current Wounds Characteristic while that attack is resolved."
+     },
+     {
+      "name": "Advanced Reaction",
+      "text": "The Blade Splits: Trigger: Once per Battle, the Reactive Player may declare a The Blade Splits Advanced Reaction in Step 2 of the Move Sub-Phase process, if an enemy Unit ends a move within 12\" and Line of Sight of a Unit under the Reactive Player's Control.\n\nCost: The Reactive Player must spend 1 point of their Reaction Allotment to declare a The Blade Splits Advanced Reaction, this cost paid as soon as the declaration is made.\n\nTarget: The Target Unit is always the Unit whose Move triggered the Advanced Reaction. Once the cost has been paid, the Reactive Player must select one Unit under their control that is within 12\" and has Line of Sight to the Target Unit, and which contains only Models with the Legio Custodes and The Sodality Traits, and which also contains at least six Models. That Unit is the Reacting Unit.\n\nProcess: 1. Once the The Blade Spits Advanced Reaction has been declared, the Active Player must completely resolve the Target Unit's Movement.\n2. Once the Target Unit has finished its move, the Reactive Player must move a number of Models from the Reacting Unit. When making this move, the Reactive Player must move at least three Models from the Reacting Unit a number of inches up to the Base Value of each Model's Initiative Characteristic so that they are no longer in Unit Coherency with the rest of the Reacting Unit, but are in Unit Coherency with each other. Once this movement is complete, there must still be at least three Models from the Reacting Unit which did not move and which are still in Unit Coherency with each other.\n3. Once this movement has been resolved, the Models from the Reacting Unit which moved are considered to form a new Unit separate from the rest of the Reacting Unit for all purposes, including the scoring of Victory Points (excluding the Last Man Standing (X) Secondary Objective). All Models which were in the Reacting Unit when The Blade Splits Advanced Reaction was declared are considered to have made a Reaction in this Player Turn.\n\nThe Blade Splits: Trigger: Once per Battle, the Reactive Player may declare a The Blade Splits Advanced Reaction in Step 2 of the Move Sub-Phase process, if an enemy Unit ends a move within 12\" and Line of Sight of a Unit under the Reactive Player's Control.\n\nCost: The Reactive Player must spend 1 point of their Reaction Allotment to declare a The Blade Splits Advanced Reaction, this cost paid as soon as the declaration is made.\n\nTarget: The Target Unit is always the Unit whose Move triggered the Advanced Reaction. Once the cost has been paid, the Reactive Player must select one Unit under their control that is within 12\" and has Line of Sight to the Target Unit, and which contains only Models with the Legio Custodes and The Sodality Traits, and which also contains at least six Models. That Unit is the Reacting Unit.\n\nProcess: 1. Once the The Blade Spits Advanced Reaction has been declared, the Active Player must completely resolve the Target Unit's Movement.\n2. Once the Target Unit has finished its move, the Reactive Player must move a number of Models from the Reacting Unit. When making this move, the Reactive Player must move at least three Models from the Reacting Unit a number of inches up to the Base Value of each Model's Initiative Characteristic so that they are no longer in Unit Coherency with the rest of the Reacting Unit, but are in Unit Coherency with each other. Once this movement is complete, there must still be at least three Models from the Reacting Unit which did not move and which are still in Unit Coherency with each other.\n3. Once this movement has been resolved, the Models from the Reacting Unit which moved are considered to form a new Unit separate from the rest of the Reacting Unit for all purposes, including the scoring of Victory Points (excluding the Last Man Standing (X) Secondary Objective). All Models which were in the Reacting Unit when The Blade Splits Advanced Reaction was declared are considered to have made a Reaction in this Player Turn."
+     }
+    ]
+   }
+  ]
+ }
+}

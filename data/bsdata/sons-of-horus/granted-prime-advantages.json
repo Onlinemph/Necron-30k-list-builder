@@ -1,0 +1,69 @@
+{
+ "grantedPrimeAdvantages": [
+  {
+   "name": "Interdiction Cadres",
+   "text": "Concealed Positions: \"This Special Rule allows Models to use an Advanced Reaction to arrive from Reserves in close proximity to an enemy Unit.\"\n\n\nThe Controlling Player of a Unit that only contains Models with this Special Rule can use the Concealed Ambush Advanced Reaction.\n\nExpendable (1): \"A Player scores less Victory Points when they destroy a Unit that includes only Models with this Special Rule.\"\nThe number of Victory Points scored by the opponent when a Unit that includes only Models with this Special Rule is entirely Removed as Casualties, for example, as part of the Vanguard (X) Special Rule, First Strike (X) or Slay the Warlord (X) Mission Special Rule, is reduced by the value of X, to a minimum of 1. If a Unit includes Models with different variants of this Special Rule, then the lowest value of X that was present on any Model in that Unit at the start of the Player Turn in which the last Model in the Unit is Removed as a Casualty is used to determine the effect of this Special Rule on that Unit.\n\nNote that, if, at the start of the Player Turn a Unit includes any Models that do not have this Special Rule, then this Special Rule has no effect on that Unit for the duration of that Player Turn regardless of how many other Models in the Unit may have any variant of this Special Rule.\n\nConcealed Ambush Advanced Reaction: Trigger: The Reactive Player may declare the Concealed Ambush Advanced Reaction in Step 2 of the Move Sub-Phase process after an enemy Unit ends a Move.\n\nCost: The Reactive Player must spend 1 point of their Reaction Allotment to declare a Concealed Ambush Reaction, this cost paid as soon as the declaration is made.\n\nTarget: The Target Unit is always the Unit whose Move triggered the Reaction. The Reactive Player must select one Unit under their control that only includes Models with the Concealed Positions Special Rule that is in Reserves. That Unit is the Reacting Unit.\n\nProcess: 1. The Reactive Player must select one Model from the Reacting Unit and place it anywhere on the Battlefield that is not within their Opponent's Deployment Zone, within 6\" of the Unit that triggered this Reaction and at least 5\" away from any enemy Model and 1\" from any Battlefield Edge or piece of Impassable Terrain. Once this first Model has been placed, the remaining Models in the Unit must be placed within Unit Coherency with at least one other Model in the same Unit and within 6\" of the first Model placed. No Models may be placed within 5\" of an enemy Model, or within 1\" of any Battlefield Edge or a piece of Impassable Terrain or within their Opponent's Deployment Zone. Any Models that cannot be placed using these Rules must be Removed as a Casualty immediately.\n\n\n2. Once the Reacting Unit has been set up, the Reacting Player can either make a Shooting Attack with the Reacting Unit against the Unit that triggered this Reaction, but any attacks are made as Snap Shots, or make a Disordered Charge for the Reacting",
+   "eligible": {
+    "any": {
+     "roles": [],
+     "categories": [],
+     "units": [
+      "tactical-squad",
+      "despoiler-squad"
+     ]
+    }
+   }
+  },
+  {
+   "name": "Martial Supremacy",
+   "text": "One Model in the Unit selected to ill a Prime Force Organization Slot with this Prime Advantage gains the Champion Sub-type and the Duellist's Edge (1) special rule.\n\nDuellist's Edge (1): \"A Weapon with the Duellist's Edge (X) Special Rule grants a bonus to Focus Rolls in Challenges.\"\nIn Step 3 of the Challenge Sub-Phase, the Focus Step, if a Player has declared that the Model under their control will use a Weapon with the Duellist's Edge (X) Special Rule or has the Duellist's Edge (X) Special Rule, then that Player gains a bonus equal to the value of X on the Focus Roll.",
+   "eligible": {
+    "any": {
+     "roles": [
+      "Elites"
+     ],
+     "categories": [],
+     "units": []
+    }
+   }
+  },
+  {
+   "name": "True Believers",
+   "text": "All Models in the Unit selected to fill the Prime Slot gain the Malefic Sub-Type.",
+   "eligible": {
+    "excludeRoles": [
+     "High Command"
+    ],
+    "allegiance": "Traitor"
+   }
+  },
+  {
+   "name": "Clade Operative",
+   "text": "Add three additional Support Force Organisation Slots to the Detachment that includes the Prime Slot with this Prime Advantage. These Force Organisation Slots may only be filled by Units selected from the Divisio Assassinorum Army List. This Prime Advantage may only be selected for a single Force Organisation Slot in an Army’s Primary Detachment.",
+   "eligible": {
+    "allegiance": "Loyalist"
+   },
+   "oncePerArmy": true,
+   "addSlots": {
+    "role": "Support",
+    "count": 3,
+    "operative": "Clade Operative"
+   },
+   "primaryOnly": true
+  },
+  {
+   "name": "Cult Operative",
+   "text": "Add one additional Support Force Organisation Slot to the Detachment that includes the Prime Slot with this Prime Advantage. This Force Organisation Slot may only be filled by a Unit selected from the Cults Abominatio Army List. This Prime Advantage may only be selected for a single Force Organisation Slot in an Army’s Primary Detachment.",
+   "eligible": {
+    "allegiance": "Traitor"
+   },
+   "oncePerArmy": true,
+   "addSlots": {
+    "role": "Support",
+    "count": 1,
+    "operative": "Cult Operative"
+   },
+   "primaryOnly": true
+  }
+ ]
+}

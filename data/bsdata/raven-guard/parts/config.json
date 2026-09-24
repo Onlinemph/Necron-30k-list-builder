@@ -1,0 +1,42 @@
+{
+ "armyConfig": {
+  "fixed": [
+   {
+    "name": "Shadow Walkers",
+    "text": "\"Raven Guard Models are harder to hit with Shooting Attacks made at longer range.\"\n\n\nWhen a Unit that includes only Models with this Special Rule is the target of a Shooting Attack, all attacks must be made as Snap Shots when the distance between the closest Model in the attacking Unit and the Target Unit is 18\" or greater.",
+    "kind": "rule",
+    "source": "Legion Tactica"
+   },
+   {
+    "name": "Decapitation Strike",
+    "text": "This Gambit may be selected once per Challenge. When selected, no Focus Roll is made, instead the Controlling Player of the Model for which this Gambit has been selected makes a single attack at the end of the Focus Step. If the Hit Test and Wound Test made for this attack are both successful (i.e. they meet the required Target Number), the Controlling Player of the Model with this Gambit may then make the remainder of the attacks the Model with this Gambit is eligible to make in the current Strike Step, minus the single attack already made. If either the Hit Test or Wound Test made for the initial attack are not successful, the Model for which this Gambit is selected may make no further attacks during this Strike Step.",
+    "kind": "Gambit",
+    "source": "Gambit"
+   },
+   {
+    "name": "Shadow Veil",
+    "text": "Trigger: Once per Battle, the Reactive Player may declare the Shadow Veil Advanced Reaction when the Active Player targets a Unit under their control which only includes Models with the Raven Guard Trait, that do not have the Vehicle Type, with a Shooting Attack.\n\nCost: The Reactive Player must spend 1 point of their Reaction Allotment to declare a Shadow Veil Advanced Reaction, this cost paid as soon as the declaration is made.\n\nTarget: For a Shadow Veil Advanced reaction, the reacting Unit is always the Unit that is the target of the Shooting attack that triggered this Reaction.\n\nProcess: 1. All Models in the Reacting Unit may be moved a distance equal to their Initiative Characteristic using the normal Rules for Movement, but may not increase this distance by choosing to Rush. If no Model in the Target Unit is determined to be within Line of Sight and/or Range of any Model in the Attacking Unit once this move is resolved, the Active Player may not select an alternative target for that Attacking Unit during the current Shooting Phase.\n2. Once the Reacting Player has resolved this Move, all Models in the Reacting Unit gain the Shrouded (5+) Special Rule for the remainder of the current Shooting Phase and the Active Player may move to Step 2 of the Shooting Attack sequence.",
+    "kind": "Reaction",
+    "source": "Advanced Reaction"
+   }
+  ],
+  "groups": [
+   {
+    "id": "allegiance",
+    "name": "Allegiance",
+    "min": 1,
+    "max": 1,
+    "choices": [
+     {
+      "name": "Loyalist",
+      "text": "The army fights for the Emperor. Some Prime Advantages and units are only available to one side."
+     },
+     {
+      "name": "Traitor",
+      "text": "The army has sided with Horus. Some Prime Advantages and units are only available to one side."
+     }
+    ]
+   }
+  ]
+ }
+}

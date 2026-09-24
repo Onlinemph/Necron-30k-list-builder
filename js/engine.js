@@ -318,7 +318,13 @@
         if (e.units && !e.units.includes(u.id)) continue;
         if (e.roles && !e.roles.includes(u.role)) continue;
         if (e.trait && !unitHasTrait(u, e.trait)) continue;
-        out.push({ name: g.name, text: g.text, grantedBy: g.grantedBy ? unit(g.grantedBy).name : (e.choice || []).join('/') });
+        if (e.any && !((e.any.roles || []).includes(u.role) || (e.any.units || []).includes(u.id) || (e.any.categories || []).some((c) => (u.categories || []).includes(c)))) continue;
+        if (e.excludeRoles && e.excludeRoles.includes(u.role)) continue;
+        const side = army && army.config && (army.config.allegiance || [])[0];
+        if (e.allegiance && side && e.allegiance !== side) continue;
+        if (e.unitTypes && !u.models.some((m) => e.unitTypes.some((t) => (m.unitType || '').includes(t)))) continue;
+        if (g.primaryOnly && slot && army && !army.detachments.some((d) => d.kind === 'primary' && d.slots.includes(slot))) continue;
+        out.push({ name: g.name, text: g.text, grantedBy: g.grantedBy ? unit(g.grantedBy).name : e.allegiance ? `${e.allegiance} only` : (e.choice || []).join('/') });
       }
       return out;
     }
@@ -688,6 +694,12 @@
             issues.push({ level: 'error', msg: 'Dynastic Advisors can only be chosen for a Command or High Command Prime slot.' });
           }
           const granted = (data.grantedPrimeAdvantages || []).find((g) => g.name === s.unit.primeAdvantage);
+          if (granted && granted.oncePerArmy && sels.filter((x) => x.sel.primeAdvantage === granted.name).length > 1 && sels.find((x) => x.sel.primeAdvantage === granted.name).sel === s.unit) {
+            issues.push({ level: 'error', msg: `${granted.name} can only be selected once per army.` });
+          }
+          if (s.extraOf && !d.slots.some((o) => o.unit && o.unit.uid === s.extraOf && (data.grantedPrimeAdvantages || []).some((g) => g.addSlots && g.name === o.unit.primeAdvantage))) {
+            issues.push({ level: 'error', msg: `${u.name} is in a slot added by a Prime Advantage that's gone.` });
+          }
           if (granted && granted.grantedBy && !sels.some((x) => x.sel.unitId === granted.grantedBy)) {
             issues.push({ level: 'error', msg: `${u.name}: ${granted.name} needs ${unit(granted.grantedBy).name} in the army.` });
           }
@@ -723,6 +735,17 @@
           const u = unit(x.sel.unitId);
           if (u && !e.units.includes(u.id)) issues.push({ level: 'error', msg: `${u.name} can't be taken with ${e.sequela}.` });
         }
+      }
+      const side = army.config && (army.config.allegiance || [])[0];
+      if (side) for (const x of sels) {
+        const u = unit(x.sel.unitId);
+        if (u && u.allegiance && u.allegiance !== side) issues.push({ level: 'error', msg: `${u.name} is only available to ${u.allegiance} armies.` });
+      }
+      // army configuration: Rites of War, Cohort Doctrines, Provenances of War…
+      for (const g of (data.armyConfig && data.armyConfig.groups) || []) {
+        const n = ((army.config || {})[g.id] || []).length;
+        if (n < g.min) issues.push({ level: 'error', msg: `Army configuration: choose ${g.min === g.max ? g.min : 'at least ' + g.min} from ${g.name}${n ? ` (${n} chosen)` : ''}.` });
+        if (n > g.max) issues.push({ level: 'error', msg: `Army configuration: at most ${g.max} from ${g.name} (${n} chosen).` });
       }
       // wargear list items limited to one per army (e.g. Haemonculus Arcana)
       const once = new Set((data.lists || []).flatMap((l) => l.items.filter((it) => it.oncePerArmy).map((it) => it.name)));
@@ -760,7 +783,8 @@
     function makeDetachment(kind, name, slotDefs, extra) {
       return Object.assign({
         uid: uid('d'), kind, name,
-        slots: slotDefs.map((s) => ({ uid: uid('s'), role: s.role, prime: !!s.prime, flexible: !!s.flexible, exclude: s.exclude || null, advisor: !!s.advisor, unit: null })),
+        slots: slotDefs.map((s) => Object.assign({ uid: uid('s'), role: s.role, prime: !!s.prime, flexible: !!s.flexible, exclude: s.exclude || null, advisor: !!s.advisor, unit: null },
+          s.only ? { only: s.only, onlyLabel: s.onlyLabel || null } : {})),
       }, extra || {});
     }
 
@@ -769,12 +793,15 @@
       if (!def) throw new Error('Unknown detachment ' + defId);
       const kind = (def.type || 'Auxiliary').toLowerCase();
       const flexExclude = ['Command', 'High Command'];
-      const slots = def.slots.map((s) => ({ role: s.role, prime: s.prime, flexible: s.flexible, exclude: s.flexible ? flexExclude : null }));
+      const slots = def.slots.map((s) => ({ role: s.role, prime: s.prime, flexible: s.flexible, exclude: s.flexible ? flexExclude : null, only: s.only, onlyLabel: s.onlyLabel }));
       return makeDetachment(kind, def.name, slots, Object.assign({ defId }, extra || {}));
     }
 
     /** Detachment restrictions ("Only Units with the Canoptek Trait…") for one slot. */
     function slotAllows(det, slot, u, sel) {
+      if (slot && slot.only && !slot.only.includes(u.id)) return false;
+      // Assassins and other operatives only fill the slots their Prime Advantage adds
+      if (slot && (u.operative || slot.operative) && u.operative !== slot.operative) return false;
       const def = det && det.defId ? detById.get(det.defId) : null;
       if (!def || !def.slotRules) return true;
       const role = slot.flexible ? u.role : slot.role;
@@ -823,6 +850,17 @@
       for (const [owner, role] of owners) {
         if (det.slots.some((s) => s.logisticOf === owner)) continue;
         det.slots.push({ uid: uid('s'), role, prime: false, flexible: false, exclude: null, advisor: false, logisticOf: owner, unit: null });
+      }
+      // Prime Advantages that add slots (Clade Operative: three Support slots for Assassins)
+      const adders = new Map();
+      for (const s of det.slots) {
+        const g = s.unit && (data.grantedPrimeAdvantages || []).find((x) => x.name === s.unit.primeAdvantage && x.addSlots);
+        if (g) adders.set(s.unit.uid, g.addSlots);
+      }
+      det.slots = det.slots.filter((s) => !s.extraOf || adders.has(s.extraOf) || s.unit);
+      for (const [owner, add] of adders) {
+        if (det.slots.some((s) => s.extraOf === owner)) continue;
+        for (let i = 0; i < add.count; i++) det.slots.push({ uid: uid('s'), role: add.role, prime: false, flexible: false, exclude: null, advisor: false, extraOf: owner, operative: add.operative || null, onlyLabel: add.operative ? `${add.operative} only` : null, unit: null });
       }
     }
 

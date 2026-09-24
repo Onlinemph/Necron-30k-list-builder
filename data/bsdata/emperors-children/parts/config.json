@@ -1,0 +1,39 @@
+{
+ "armyConfig": {
+  "fixed": [],
+  "groups": [
+   {
+    "id": "allegiance",
+    "name": "Allegiance",
+    "min": 1,
+    "max": 1,
+    "choices": [
+     {
+      "name": "Loyalist",
+      "text": "The army fights for the Emperor. Some Prime Advantages and units are only available to one side."
+     },
+     {
+      "name": "Traitor",
+      "text": "The army has sided with Horus. Some Prime Advantages and units are only available to one side."
+     }
+    ]
+   },
+   {
+    "id": "rite-of-war",
+    "name": "Rite of War",
+    "min": 1,
+    "max": 1,
+    "choices": [
+     {
+      "name": "Legiones Astartes Emperor's Children",
+      "text": "Flawless Execution: \"Emperor's Children gain an Initiative bonus when they successfully Charge.\"\n\n\nOn any Turn in which they made a Charge Move, Models with this Special Rule gain an additional modifier to their Combat Initiative of +1 until the end of the Phase.\n\nParagon of Excellence: This Gambit can only be selected during the first Face-Off Step of a Challenge involving this Model. While this Gambit is selected, during the Focus Step the Controlling Player gains a +2 modifier to the Focus Roll.\n\nPerfect Counter: Trigger: Once per Battle, the Reactive Player may declare the Perfect Counter Advanced Reaction at the end of Step 3 of the Charge process of any Charge declared by the Active Player that targets a Unit under that Player's control which only includes Models with the Emperor's Children Trait.\n\nCost: The Reactive Player must spend 1 point of their Reaction Allotment to declare the Perfect Counter Advanced Reaction, this cost paid as soon as the declaration is made.\n\nTarget: The Target Unit is always the Unit whose Charge triggered the Reaction. The Reacting Unit is always the Unit that was declared as the target of the Charge that triggered this Reaction.\n\nProcess: 1. Once this Reaction is declared, the Reactive Player must make a Charge Roll for the Reacting Unit.\n2. If the result of the Charge Roll would be enough to move any Model from the Reacting Unit into Base contact with a Model from the Target Unit the a Charge Move is made and the Units are Locked in Combat. No Model in the Target Unit may claim a bonus from any Special Rule that requires a successful Charge to have been made, while the Models in the Reacting Unit gain any bonuses from any Special Rule that would apply to that Unit as a result of a successful Charge.\n3. If the result of the Charge Roll would not bring any Model from the Reacting Unit into Base Contact with a Model from the Target Unit, then no Charge Move is made and the Players proceed to Step 4 of the Charge process."
+     },
+     {
+      "name": "Legiones Hereticus Emperor's Children",
+      "text": "Lords of Profligacy: \"The Controlling Player may choose that a Unit becomes Stupefied when it is the target of a Shooting Attack.\"\n\n\nAfter a Shooting Attack that targets a Unit entirely composed of Models with this Special Rule is resolved, that Unit's Controlling Player can choose for the targeted Unit to become Stupefied.\n\nStupefied: When a Unit becomes Stupefied, all Tactical Statuses affecting it are removed. In addition, while a Unit is Stupefied:\n\n\n- Models in that Unit have the Feel No Pain (6+) Special Rule.\n- The Strength Characteristic of Models in that Unit is modified by +1.\n- Models in that Unit cannot gain Tactical Statuses.\n- The Controlling Player of a Unit that is Stupefied may not declare any Reactions for that Unit and must make all Shooting Attacks declared for that Unit as Snap Shots.\n- In the Effects Sub-Phase of the Controlling Player's End Phase, the Controlling Player must make a Cool Check for each Unit from their Army that is Stupefied. If the Check is passed, that Unit is no longer Stupefied.\n\nThe Broken Mirror: If this Gambit is selected, then the Model gains double the normal modifier for Outside Support during the Focus Step. If the Unit this Model is part of is Stupefied, add an additional modifier of +1.\n\nTwisted Desire: Trigger: The Reactive Player may declare the Twisted Desire Advanced Reaction at the end of Step 2 of a Charge declared by the Active Player that targets a Unit under the Reactive Player's control which only includes Models with the Emperor's Children Trait.\n\nCost: The Reactive Player must spend 1 point of their Reaction Allotment to declare the Twisted Desire Advanced Reaction, this cost paid as soon as the declaration is made.\n\nTarget: The Target Unit is always the Unit whose Charge triggered the Reaction. The Reacting Unit is always the Unit that was declared as the target of the Charge that triggered this Reaction.\n\nProcess: Once this Reaction is declared, the Reacting Unit becomes Stupefied, and for the duration of this Assault Phase, Models in that Unit gain the Feel No Pain (5+) Special Rule."
+     }
+    ]
+   }
+  ]
+ }
+}

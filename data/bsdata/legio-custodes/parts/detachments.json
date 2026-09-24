@@ -1,0 +1,192 @@
+{
+ "detachments": [
+  {
+   "id": "bs-moritoi-convocation",
+   "name": "Moritoi Convocation",
+   "type": "Apex",
+   "source": "army",
+   "page": null,
+   "unlock": "2 War-engine (1 Prime)",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "War Engine",
+     "prime": true
+    },
+    {
+     "role": "War Engine",
+     "prime": false
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-hykanatoi-convocation",
+   "name": "Hykanatoi Convocation",
+   "type": "Auxiliary",
+   "source": "army",
+   "page": null,
+   "unlock": "2 Troops (1 Prime) · 1 Heavy Transport",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Troops",
+     "prime": true
+    },
+    {
+     "role": "Troops",
+     "prime": false
+    },
+    {
+     "role": "Heavy Transport",
+     "prime": false
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-tharanatoi-convocation",
+   "name": "Tharanatoi Convocation",
+   "type": "Auxiliary",
+   "source": "army",
+   "page": null,
+   "unlock": "2 Heavy Assault (1 Prime)",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Heavy Assault",
+     "prime": true
+    },
+    {
+     "role": "Heavy Assault",
+     "prime": false
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-ephoroi-convocation",
+   "name": "Ephoroi Convocation",
+   "type": "Auxiliary",
+   "source": "army",
+   "page": null,
+   "unlock": "2 Recon (1 Prime)",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Recon",
+     "prime": true
+    },
+    {
+     "role": "Recon",
+     "prime": false
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-kataphractoi-convocation",
+   "name": "Kataphractoi Convocation",
+   "type": "Auxiliary",
+   "source": "army",
+   "page": null,
+   "unlock": "2 Fast Attack (1 Prime) · 1 Heavy Transport · 1 Armour",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Heavy Transport",
+     "prime": false
+    },
+    {
+     "role": "Armour",
+     "prime": false
+    },
+    {
+     "role": "Fast Attack",
+     "prime": true
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-leviathan-armoured-fist",
+   "name": "Leviathan Armoured Fist",
+   "type": "Apex",
+   "source": "army",
+   "page": null,
+   "unlock": "3 Lord of War · Detachment can only be used in Leviathan Missions",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Lord of War",
+     "prime": false
+    },
+    {
+     "role": "Lord of War",
+     "prime": false
+    },
+    {
+     "role": "Lord of War",
+     "prime": false
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-leviathan-bastion-of-fire",
+   "name": "Leviathan Bastion of Fire",
+   "type": "Apex",
+   "source": "army",
+   "page": null,
+   "unlock": "3 Support (1 Prime) · Detachment can only be used in Leviathan Missions",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Support",
+     "prime": true
+    },
+    {
+     "role": "Support",
+     "prime": false
+    },
+    {
+     "role": "Support",
+     "prime": false
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  },
+  {
+   "id": "bs-armoured-command-squadron-detachment",
+   "name": "Armoured Command Squadron Detachment",
+   "type": "Apex",
+   "source": "army",
+   "page": null,
+   "unlock": "3 Armour (3 Prime) · Detachment can only be used in Armoured Spearhead Missions · May use Armoured Spearhead Prime Advantages",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Armour",
+     "prime": true
+    },
+    {
+     "role": "Armour",
+     "prime": true
+    },
+    {
+     "role": "Armour",
+     "prime": true
+    }
+   ],
+   "restrictions": [],
+   "rules": []
+  }
+ ]
+}

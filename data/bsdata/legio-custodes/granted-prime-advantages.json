@@ -1,0 +1,56 @@
+{
+ "grantedPrimeAdvantages": [
+  {
+   "name": "Clade Operative",
+   "text": "Add three additional Support Force Organisation Slots to the Detachment that includes the Prime Slot with this Prime Advantage. These Force Organisation Slots may only be filled by Units selected from the Divisio Assassinorum Army List. This Prime Advantage may only be selected for a single Force Organisation Slot in an Army’s Primary Detachment.",
+   "eligible": {
+    "allegiance": "Loyalist"
+   },
+   "oncePerArmy": true,
+   "addSlots": {
+    "role": "Support",
+    "count": 3,
+    "operative": "Clade Operative"
+   },
+   "primaryOnly": true
+  },
+  {
+   "name": "Cult Operative",
+   "text": "Add one additional Support Force Organisation Slot to the Detachment that includes the Prime Slot with this Prime Advantage. This Force Organisation Slot may only be filled by a Unit selected from the Cults Abominatio Army List. This Prime Advantage may only be selected for a single Force Organisation Slot in an Army’s Primary Detachment.",
+   "eligible": {
+    "allegiance": "Traitor"
+   },
+   "oncePerArmy": true,
+   "addSlots": {
+    "role": "Support",
+    "count": 1,
+    "operative": "Cult Operative"
+   },
+   "primaryOnly": true
+  },
+  {
+   "name": "Prefect",
+   "text": "All Models in the Unit selected to fill a Prime Slot with thisd Prime Advantage modify their Base Wounds Characteristic by +1 and gain the Officer of the Line (2) Special Rule\n\nOfficer of the Line (2): \"Models with this Special Rule allow more Auxiliary Detachments to be included in an Army.\"\nIf a Model with this Special Rule is selected to fill a Command Slot in any Detachment in the Crusade Force Organization Chart, then the Controlling Player may select a number of Auxiliary Detachments equal to the value of X in the specific variant of this Special Rule instead of just one.",
+   "eligible": {
+    "any": {
+     "roles": [],
+     "categories": [],
+     "units": [
+      "shield-captain"
+     ]
+    }
+   }
+  },
+  {
+   "name": "Hetaeron Guard",
+   "text": "All Models in the Unit selected to fill a Prime Slot with this Prime Advantage which have the Legio Custodes Trait and the Infantry or Cavalry Type modify the value of X of any version of the Eternal Warrior (X) Special Rule they have to '2'. This Prime Advantage may only be selected once per Army, unless the Army contains any Models with the Golden Exemplar Trait, in which case a single additional selection of this Prime Advantage may be made for each Model in the Army with that Trait.",
+   "eligible": {
+    "unitTypes": [
+     "Infantry",
+     "Cavalry"
+    ]
+   },
+   "oncePerArmy": true
+  }
+ ]
+}

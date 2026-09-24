@@ -1,0 +1,39 @@
+{
+ "armyConfig": {
+  "fixed": [],
+  "groups": [
+   {
+    "id": "allegiance",
+    "name": "Allegiance",
+    "min": 1,
+    "max": 1,
+    "choices": [
+     {
+      "name": "Loyalist",
+      "text": "The army fights for the Emperor. Some Prime Advantages and units are only available to one side."
+     },
+     {
+      "name": "Traitor",
+      "text": "The army has sided with Horus. Some Prime Advantages and units are only available to one side."
+     }
+    ]
+   },
+   {
+    "id": "rite-of-war",
+    "name": "Rite of War",
+    "min": 1,
+    "max": 1,
+    "choices": [
+     {
+      "name": "Legiones Hereticus World Eaters",
+      "text": "The Nails' Bite: \"The Controlling Player may choose that a World Eaters Unit becomes Lost to the Nails when it fails a Leadership Check\"\nWhen a Unit entirely composed of Models with this Special Rule fails a Leadership Check, that Unit's Controlling Player can choose for that Unit to become Lost to the Nails.\n\nLost to the Nails: When a Unit becomes Lost to the Nails, all Tactical Statuses affecting it are removed. In addition, while a Unit is Lost to the Nails:\n\n\n- Models in that Unit may add +1\" to the distance of any Set-up Move.\n- Modify the Attacks Characteristic of Models in that Unit by +1.\n- Models in that Unit are considered to have a Leadership, Cool and Willpower Characteristic of 10 (unless it would normally be higher).\n- If at the start of the Controlling Player's Charge Sub-Phase, the Unit is within 12\" of any enemy Models, that Unit must make a Charge Move. If more than one enemy Unit is within 12\", the Controlling Player of this Unit must select the closest enemy Unit as the Target Unit for that Charge.\n\n\nAt the start of the Controlling Player's Charge Sub-Phase, if there are no enemy Units within 12\" of a Unit that is Lost to the Nails, that Unit is no longer Lost to the Nails.\n\nBrutal Dismemberment: While this Gambit is selected, if the enemy Model is Removed as a Casualty during the Strike Step, during the subsequent Glory Step, the Controlling Player gains 2 additional Combat Resolution Points.\n\nFurious Charge: Trigger: The Reactive Player may declare a Furious Charge Advanced Reaction at the end of Step 4 of a Charge declared by the Active Player that targets a Unit which only includes Models with the World Eaters Trait if any Models were Removed as Casualties as a result of Volley Attacks.\n\nCost: The Reactive Player must spend 1 point of their Reaction Allotment to declare the Furious Charge Advanced Reaction, this cost paid as soon as the declaration is made.\n\nTarget: The Target Unit is always the Unit whose Charge triggered the Reaction. The Reacting Unit is always the Unit that was declared as the target for the Charge that triggered this Reaction.\n\nProcess: 1. Once the Reaction is declared, the Target Unit becomes Lost to the Nails.\n2. The Reactive Player must then make a Charge Roll for the Reacting Unit.\n3. If the result of the Charge Roll would be enough to move any Model from the Reacting Unit into Base Contact with a Model from the Target Unit, then a Charge Move is made and the Units are Locked in Combat. Models in the Reacting Unit gain any bonuses for any Special Rules that would apply to that Unit as a result of a successful Charge.\n4. If the result of the Charge Roll would not bring any Model from the Reacting Unit into contact with a Model from the Target Unit, then no Charge Move is made and the Players proceed to Step 5 of the Charge process."
+     },
+     {
+      "name": "Legiones Astartes World Eaters",
+      "text": "Violence Incarnate: \"World Eaters gain a +1 to their Attacks Characteristic when they Charge.\"\n\nOn any Turn in which they made a Charge Move, Models with this Special Rule modify their Attacks Characteristic by +1 until the end of the Phase.\n\nViolent Overkill: If this Gambit is selected, then when this Model makes attacks during the Strike Step, if the other Model involved in the Challenge is Removed as a Casualty, any remaining wounds must instead be allocated to other eligible enemy Models in the same Combat, using the normal Rules.\n\nBrutal Tide: Trigger: Once per Battle, the Reactive Player may declare the Brutal Tide Advanced Reaction during Step 4 of a Shooting Attack delivered by the Active Player that targets a Unit which only includes Models with the World Eaters Trait and does not have the Vehicle Type.\n\nCost: The Reactive Player must spend 1 point of their Reaction Allotment to declare the Brutal Tide Advanced Reaction, this cost paid as soon as the declaration is made.\n\nTarget: The Target Unit is always the Unit whose Shooting Attack triggered the Reaction. The Reacting Unit is always the Unit that was declared as the target of the Shooting Attack that triggered the Reaction.\n\nProcess: 1. For the duration of the current Shooting Phase, all Models in the Reacting Unit gain the Eternal Warrior (1) Special Rule.\n2. Immediately after Step 11 of the Shooting Attack that triggered the Reaction is resolved, the Reactive Player must make a Charge Roll for the Reacting Unit.\n3. If the result of the Charge Roll would be enough to move any Model from the Reacting Unit into Base Contact with a Model from the Target Unit, then a Charge Move is made and the Units are Locked in Combat. Models in the Reacting Unit gain any bonuses for any Special Rules that would apply to that Unit as a result of a successful Charge.\n4. If the result of the Charge Roll would not bring any Model from the Reacting Unit into contact with a Model from the Target Unit, then no Charge Move is made."
+     }
+    ]
+   }
+  ]
+ }
+}

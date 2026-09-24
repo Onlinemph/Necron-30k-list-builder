@@ -109,7 +109,7 @@
   }
   function newArmy() {
     const primary = E.makeDetachment('primary', (DATA.forceorg && DATA.forceorg.primary.name) || 'Crusade Primary Detachment', expandSlots(defaultPrimarySlots()));
-    return { version: 2, faction: FACTION, name: '', pointsLimit: 3000, sequelae: [], detachments: [primary] };
+    return { version: 2, faction: FACTION, name: '', pointsLimit: 3000, sequelae: [], config: {}, detachments: [primary] };
   }
 
   let army = fromHash() || loadCurrent() || newArmy();
@@ -140,6 +140,7 @@
       }
     }
     a.sequelae = a.sequelae || [];
+    a.config = a.config && typeof a.config === 'object' ? a.config : {};
     a.faction = a.faction || 'necrons';
     if (a.faction !== FACTION) throw new Error(`That list is for ${ARMIES[a.faction] ? ARMIES[a.faction].name : a.faction}.`);
     if ((a.version || 1) < 2) migrateV1(a);
@@ -209,6 +210,47 @@
     }
   }
 
+  // ---------- render: army configuration (Legion Tactica, Rites of War, Cohort Doctrines…) ----------
+  function renderConfig() {
+    const cfg = DATA.armyConfig;
+    const panel = $('#config-panel');
+    panel.hidden = !cfg || (!cfg.fixed.length && !cfg.groups.length);
+    if (panel.hidden) return;
+    const box = $('#armyconfig');
+    box.replaceChildren();
+    if (cfg.fixed.length) {
+      const chips = h('<div class="cfg-rules"></div>');
+      for (const r of cfg.fixed) {
+        const b = h(`<button type="button" class="chip rule" title="${esc(r.source || '')}">${esc(r.name)}</button>`);
+        b.addEventListener('click', () => showText(r.name, r.text, null, r.source ? [r.source] : null));
+        chips.append(b);
+      }
+      box.append(chips);
+    }
+    for (const g of cfg.groups) {
+      const picked = (army.config[g.id] = army.config[g.id] || []);
+      const how = g.min === g.max ? `choose ${g.max}` : g.min ? `choose ${g.min}–${g.max}` : `up to ${g.max}`;
+      const fs = h(`<fieldset class="cfg-group"><legend>${esc(g.name)} <small class="muted">${how}</small></legend><div class="seq-grid"></div></fieldset>`);
+      for (const c of g.choices) {
+        const radio = g.max === 1;
+        const el = h(`<label><input type="${radio ? 'radio' : 'checkbox'}" name="cfg-${esc(g.id)}" ${picked.includes(c.name) ? 'checked' : ''}> ${esc(c.name)} <button type="button" class="link info small" title="Rules">?</button></label>`);
+        $('input', el).addEventListener('click', (e) => {
+          if (radio) army.config[g.id] = picked.includes(c.name) && g.min === 0 ? [] : [c.name];
+          else army.config[g.id] = e.target.checked ? picked.concat(c.name) : picked.filter((n) => n !== c.name);
+          refresh();
+        });
+        $('button', el).addEventListener('click', (e) => { e.preventDefault(); showText(c.name, c.text); });
+        $('.seq-grid', fs).append(el);
+      }
+      box.append(fs);
+    }
+  }
+  function configLines() {
+    const cfg = DATA.armyConfig;
+    if (!cfg) return [];
+    return cfg.groups.filter((g) => (army.config[g.id] || []).length).map((g) => `${g.name}: ${army.config[g.id].join(', ')}`);
+  }
+
   // ---------- render: detachments ----------
   function renderDetachments() {
     const box = $('#detachments');
@@ -264,7 +306,7 @@
   function slotRow(det, s) {
     const u = s.unit ? E.unit(s.unit.unitId) : null;
     const bad = s.unit && E.unitIssues(s.unit).some((i) => i.level === 'error');
-    const label = s.advisor ? 'Advisor' : s.flexible ? 'Flexible' : s.logisticOf ? `${s.role} (Logistical)` : s.role;
+    const label = s.advisor ? 'Advisor' : s.flexible ? 'Flexible' : s.logisticOf ? `${s.role} (Logistical)` : s.onlyLabel ? `${s.role} (${s.onlyLabel.replace(/\s+only$/i, '')})` : s.role;
     const el = h(`<li class="slot ${active === s.uid ? 'active' : ''}">
       <span class="role">${s.prime ? '<span class="prime" title="Prime slot">★</span>' : ''}${s.flexible ? '<span class="flex">◇</span>' : ''}${esc(label)}</span>
       <span class="name ${u ? '' : 'empty'}">${u ? esc(u.name) + (bad ? ' <span class="bad" title="Has problems">⚠</span>' : '') + (s.unit.primeAdvantage ? ` <small>· ${esc(s.unit.primeAdvantage)}</small>` : '') : '+ add unit'}</span>
@@ -860,6 +902,7 @@
     lines.push(`${army.name || 'Unnamed army'} — ${total}/${army.pointsLimit} pts`);
     lines.push(`${DATA.meta.name} (${DATA.meta.source} ${DATA.meta.version})`);
     if (army.sequelae.length) lines.push('Aeonic Sequelae: ' + army.sequelae.join(', '));
+    lines.push(...configLines());
     for (const d of army.detachments) {
       const units = d.slots.filter((s) => s.unit);
       if (!units.length) continue;
@@ -962,8 +1005,15 @@
     let html = `<div class="r-bar"><button type="button" id="r-print">Print</button><button type="button" id="r-close">Close</button></div>`;
     html += `<h1>${esc(army.name || 'Unnamed army')} <span class="muted">— ${total}/${esc(army.pointsLimit)} pts</span></h1>`;
     html += `<p class="muted">${esc((DATA.meta && DATA.meta.source) || '')} v${esc((DATA.meta && DATA.meta.version) || '')}${army.sequelae.length ? ' · Aeonic Sequelae: ' + esc(army.sequelae.join(', ')) : ''}</p>`;
+    const cl = configLines();
+    if (cl.length) html += `<p>${cl.map(esc).join('<br>')}</p>`;
     if (issues.some((i) => i.level === 'error')) html += `<p style="color:#b00">This list has ${issues.filter((i) => i.level === 'error').length} rules problem(s).</p>`;
     const glossary = new Map();
+    const cfg = DATA.armyConfig;
+    if (cfg) {
+      for (const r of cfg.fixed) glossary.set(r.name, { name: r.name, text: r.text });
+      for (const g of cfg.groups) for (const c of g.choices) if ((army.config[g.id] || []).includes(c.name) && c.text) glossary.set(c.name, { name: c.name, text: c.text });
+    }
     for (const d of army.detachments) {
       const units = d.slots.filter((s) => s.unit);
       if (!units.length) continue;
@@ -1007,6 +1057,7 @@
     save();
     renderHeader();
     renderSequelae();
+    renderConfig();
     renderDetachments();
     renderIssues();
     renderEditor();

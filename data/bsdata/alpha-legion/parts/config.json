@@ -1,0 +1,42 @@
+{
+ "armyConfig": {
+  "fixed": [
+   {
+    "name": "I Am Alpharius",
+    "text": "This Gambit can only be selected during the first Face-Off Step of a Challenge involving this Model. If this Gambit is selected, then the opposing Model in the Challenge sets their Combat Initiative to '1' until the end of the Strike Step.",
+    "kind": "Gambit",
+    "source": "Gambit: I Am Alpharius"
+   },
+   {
+    "name": "Lies and Obfuscation",
+    "text": "\"Alpha Legion Models count as further away than they actually are.\"\n\n\nA Model with this Special Rule is always considered to be 2\" further away than it actually is when measuring range to it from any enemy Model for the purpose of resolving a Shooting Attack, Charge or any Reaction declared by an enemy Model or Unit (this is cumulative with any other modifiers to range imposed by Special Rules).",
+    "kind": "rule",
+    "source": "Legion Tactica"
+   },
+   {
+    "name": "Smoke and Mirrors",
+    "text": "Trigger: The Reactive Player may declare a Smoke and Mirrors Advanced Reaction in the Shooting Phase, during Step 3 of the Shooting Attack sequence of any Shooting Attack made by the Active Player that targets a Unit that includes only Models with the Alpha Legion Trait.\n\nCost: The Reactive Player must spend 1 point of their Reaction Allotment to declare a Smoke and Mirrors Advanced Reaction, this cost paid as soon as the declaration is made.\n\nTarget: The Target Unit is always the Unit whose Shooting Attack triggered the Reaction. The Reacting Unit is always the Unit that was the target of the Shooting Attack that triggered the Reaction.\n\nProcess: One this Reaction is declared, until the Target Unit's Shooting Attack has been resolved, Shooting Attack with the Precision (X) Special Rule can only be inflicted on a Hit Test result of 6+.",
+    "kind": "Reaction",
+    "source": "Advanced Reaction - Smoke and Mirrors"
+   }
+  ],
+  "groups": [
+   {
+    "id": "allegiance",
+    "name": "Allegiance",
+    "min": 1,
+    "max": 1,
+    "choices": [
+     {
+      "name": "Loyalist",
+      "text": "The army fights for the Emperor. Some Prime Advantages and units are only available to one side."
+     },
+     {
+      "name": "Traitor",
+      "text": "The army has sided with Horus. Some Prime Advantages and units are only available to one side."
+     }
+    ]
+   }
+  ]
+ }
+}
