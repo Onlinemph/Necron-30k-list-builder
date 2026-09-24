@@ -133,7 +133,7 @@ function resolve(e) {
     const t = byId.get(e.targetId);
     if (!t) return null;
     const base = resolve(t) || t;
-    return Object.assign({}, base, {
+    const merged = Object.assign({}, base, {
       name: e.name || base.name,
       linkId: e.id,
       hidden: !!(e.hidden || base.hidden),
@@ -147,8 +147,13 @@ function resolve(e) {
       infoLinks: [...(base.infoLinks || []), ...(e.infoLinks || [])],
       kind: e.type === 'selectionEntryGroup' ? 'group' : base.kind,
     });
+    // links often rename what they point at ("Legion Sponson Weapons" → "Sponsons #1")
+    merged.name = applyField(merged, 'name', merged.name);
+    return merged;
   }
-  return Object.assign({}, e, { kind: e.kind || (e.type === 'selectionEntryGroup' || (!e.type && (e.selectionEntries || e.entryLinks) && !e.costs && e.defaultSelectionEntryId !== undefined) ? 'group' : e.kind) });
+  const own = Object.assign({}, e, { kind: e.kind || (e.type === 'selectionEntryGroup' || (!e.type && (e.selectionEntries || e.entryLinks) && !e.costs && e.defaultSelectionEntryId !== undefined) ? 'group' : e.kind) });
+  own.name = applyField(own, 'name', own.name);
+  return own;
 }
 const isHidden = (e) => !!applyField(e, 'hidden', !!e.hidden);
 function children(e) {
