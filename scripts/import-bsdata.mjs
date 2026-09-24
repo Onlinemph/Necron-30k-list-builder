@@ -413,7 +413,9 @@ function walkOptions(node, model, unit, opts, optId, addMandatoryCost) {
   const target = model ? model.name : null;
   for (const c of children(node)) {
     if (c.type === 'model') continue;
-    if (/^Prime Unit$|^Warlord$/i.test(c.name)) continue;
+    // army-building bookkeeping, not wargear: Prime/Warlord markers and detachment counters
+    if (/^Prime Unit$|^Warlord$|Detachment Choice/i.test(c.name)) continue;
+    if ((c.costs || []).some((x) => /Detachment\(s\)/.test(x.name) && x.value)) continue;
     const l = limits(c);
     if (c.kind === 'group') {
       // a group with no limits of its own is just a folder: each thing inside is its own option
