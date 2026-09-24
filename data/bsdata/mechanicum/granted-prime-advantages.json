@@ -1,3 +1,70 @@
 {
- "grantedPrimeAdvantages": []
+ "grantedPrimeAdvantages": [
+  {
+   "name": "Logistical Benefit (Mech)",
+   "text": "Logistical Benefit: Add one additional Force Organisation Slot to the Detachment that includes the Prime Slot, this Slot may be any Battlefield Role other than High Command, Command, Warlord or Lord of War. This Advantage may only be selected once per Detachment.",
+   "eligible": {},
+   "oncePerArmy": true,
+   "addSlots": {
+    "count": 1,
+    "chooseRole": true
+   }
+  },
+  {
+   "name": "Paragon of Metal",
+   "text": "Prime Advantage: Paragon of Metal: This Prime Advantage may only be selected for a Unit composed entirely of Models with both the Automata Type and the Cybernetica Trait. One Model in the Unit for which this Prime Advantage is selected, chosen by the Controlling Player, has its Base Leadership, Intelligence and Willpower modified by +4 each, its base Initiative and Weapon Skill modified by +1 each, and gains the Sergeant Sub-type. The Model that gains these benefits is also counted as a Tech-priest with the Cybernetica Trait for the purposes of The Deus Machina Arcana Benefice only.",
+   "eligible": {}
+  },
+  {
+   "name": "Prime Specimens",
+   "text": "Prime Advantage: Prime Specimens: This Prime Advantage may only be selected for a Unit composed entirely of Models with both the Infantry Type and the Lacrymaerta Trait. All Models in a Unit for which this Prime Advantage is selected have the Base Value of their Strength Characteristic modified by +2 and the Base Value of their Wounds Characteristic modified by +1.",
+   "eligible": {}
+  },
+  {
+   "name": "Prime Conveyor",
+   "text": "Prime Advantage: Prime Conveyor: This Prime Advantage may only be selected for a Unit composed of a single Model with the Vehicle Type that does not also have the Super-heavy Sub-Type. A Model for which this Prime Advantage is selected gains a bonus of +1 to its Front and Side Armour Values, to a maximum of 14, +2 to its Hull Points Characterisic. If the Unit selected includes any Models with the Transport Sub-Type, then the Transport Capacity of those Models is also modified by +2.",
+   "eligible": {}
+  },
+  {
+   "name": "Thallaxi Principe",
+   "text": "Prime Advantage: Thallaxi Principe: This Prime Advantage may only be selected for a Thallax Cohort Unit. All Models in a Unit with this Prime Advantage increase the Base Value of the Invulnerable Save Characteristic to 5+ and increase the Base Value of their Leadership Characteristic by +1",
+   "eligible": {
+    "any": {
+     "roles": [],
+     "categories": [],
+     "units": [
+      "thallax-cohort"
+     ]
+    }
+   }
+  },
+  {
+   "name": "Clade Operative",
+   "text": "Add three additional Support Force Organisation Slots to the Detachment that includes the Prime Slot with this Prime Advantage. These Force Organisation Slots may only be filled by Units selected from the Divisio Assassinorum Army List. This Prime Advantage may only be selected for a single Force Organisation Slot in an Army’s Primary Detachment.",
+   "eligible": {
+    "allegiance": "Loyalist"
+   },
+   "oncePerArmy": true,
+   "addSlots": {
+    "role": "Support",
+    "count": 3,
+    "operative": "Clade Operative"
+   },
+   "primaryOnly": true
+  },
+  {
+   "name": "Cult Operative",
+   "text": "Add one additional Support Force Organisation Slot to the Detachment that includes the Prime Slot with this Prime Advantage. This Force Organisation Slot may only be filled by a Unit selected from the Cults Abominatio Army List. This Prime Advantage may only be selected for a single Force Organisation Slot in an Army’s Primary Detachment.",
+   "eligible": {
+    "allegiance": "Traitor"
+   },
+   "oncePerArmy": true,
+   "addSlots": {
+    "role": "Support",
+    "count": 1,
+    "operative": "Cult Operative"
+   },
+   "primaryOnly": true
+  }
+ ]
 }

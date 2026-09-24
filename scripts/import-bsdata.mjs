@@ -857,6 +857,36 @@ function ownForceChart(army, units, config) {
   return out;
 }
 
+/** Units from another army list for one detachment ("Yeomanry Mesnie: may be from Solar Auxilia or Imperialis Militia"). */
+function borrowUnits(army, units, det) {
+  const lists = (det.unlock || '').match(/May be from (.+?) Army Lists?/i);
+  if (!lists) return;
+  const roles = new Set(det.slots.map((s) => s.role));
+  const saved = CTX;
+  for (const name of lists[1].split(/\s+or\s+|,\s*/)) {
+    const c = Object.values(cats).find((x) => fileTitle(x.file) === name.trim());
+    if (!c) continue;
+    // converted as that army would field them
+    CTX = { cats: catalogueSet(c.data.id), primary: c.data.id };
+    for (const raw of [...(c.data.selectionEntries || []), ...(c.data.entryLinks || [])]) {
+      const e = resolve(raw);
+      if (!e || isHidden(e) || !['unit', 'model'].includes(e.type)) continue;
+      const role = roleOf(e);
+      if (!roles.has(role)) continue;
+      const mark = unitEffects.length;
+      const u = convertUnit(e, army.id);
+      if (!u) { unitEffects.length = mark; continue; }
+      u.id = `${slug(name)}-${u.id}`;
+      if (units.some((x) => x.id === u.id)) { unitEffects.length = mark; continue; }
+      u.categories = catNames(e.categoryLinks).filter((x) => !ROLES.has(x) && x !== u.role);
+      u.when = [{ detachment: det.name }];
+      u.note = [u.note, `From the ${name.trim()} list; only in the ${det.name}.`].filter(Boolean).join(' ');
+      units.push(u);
+    }
+  }
+  CTX = saved;
+}
+
 function armyDetachments(army, units, only) {
   if (!only) CTX = { cats: catalogueSet(army.catalogue), primary: army.catalogue };
   const crusade = gst.data.forceEntries.find((f) => /^Crusade Force/.test(f.name));
@@ -899,8 +929,12 @@ function armyDetachments(army, units, only) {
 
 // ---------- Prime Advantages from BSData's "Prime Benefits" lists ----------
 // Visibility that depends on the unit taking the advantage is unknown here, so it's tri-state.
+// force entries (detachment types) are known: an advantage "only in a Cohorts Vagus Detachment" isn't offered
+const FORCE_IDS = new Set();
+(function walkF(n) { for (const f of n.forceEntries || []) { FORCE_IDS.add(f.id); walkF(f); } })(gst.data);
+for (const c of Object.values(cats)) (function walkF(n) { for (const f of n.forceEntries || []) { FORCE_IDS.add(f.id); walkF(f); } })(c.data);
 function condTri(c) {
-  if (cats[c.childId] || gst.data.id === c.childId) return condTrue(c);
+  if (cats[c.childId] || gst.data.id === c.childId || FORCE_IDS.has(c.childId)) return condTrue(c);
   return null;
 }
 const triAnd = (v) => (v.some((x) => x === false) ? false : v.every((x) => x === true) ? true : null);
@@ -960,15 +994,16 @@ function armyAdvantages(army, units) {
   const out = [];
   const seen = new Set();
   // "Prime Benefits" in most books; Questoris calls theirs "Household Rank Prime Advantages"
-  const lists = [...byId.values()].filter((n) => /^(Prime Benefits|.*Prime Advantages)$/.test(String(n.name).trim()) && !n.targetId && !n.type);
+  const lists = [...byId.values()].filter((n) => /Prime (Benefits|Advantages)$/.test(String(n.name).trim()) && !n.targetId && !n.type);
   for (const list of lists) {
     const file = Object.values(cats).find((c) => JSON.stringify(c.data).includes(`"id":"${list.id}"`));
-    if (!file || !CTX.cats.has(file.data.id)) continue;
+    // the army's own lists and shared libraries, not those of armies it borrows units from
+    if (!file || !(file.data.id === army.catalogue || (CTX.cats.has(file.data.id) && file.data.library))) continue;
     const walk = (g) => {
       for (const raw of [...(g.selectionEntries || []), ...(g.entryLinks || []), ...(g.selectionEntryGroups || [])]) {
         const e = raw.targetId ? resolve(raw) : raw;
         if (!e) continue;
-        if (!e.type || e.kind === 'group' || raw.type === 'selectionEntryGroup') { if (limits(e).max !== 0 && !/Prime Traits/.test(e.name)) walk(e); continue; }
+        if (!e.type || e.kind === 'group' || raw.type === 'selectionEntryGroup') { if (limits(e).max !== 0 && !/Prime Traits/.test(e.name) && eligibility(e)) walk(e); continue; }
         const name = e.name.trim();
         if (COMMON_ADVANTAGES.has(name) || seen.has(name) || /^LB - |dummy/i.test(name)) continue;
         const el = eligibility(e);
@@ -1000,7 +1035,7 @@ function armyAdvantages(army, units) {
         out.push(adv);
       }
     };
-    walk(list);
+    if (eligibility(list)) walk(list);
   }
   return out;
 }
@@ -1259,7 +1294,7 @@ for (const a of armies) {
   const dets = armyDetachments(a, units);
   CTX = { cats: catalogueSet(a.catalogue), primary: a.catalogue };
   const chart = ownForceChart(a, units, config);
-  if (chart) dets.push(...chart.detachments);
+  if (chart) { dets.push(...chart.detachments); for (const d of chart.detachments) borrowUnits(a, units, d); }
   const scen = rosterScenarios(a, units, config, dets);
   hiddenDetachments(a, units, dets, scen);
   finishConfig(config, configKeys(config));

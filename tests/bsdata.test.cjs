@@ -296,4 +296,17 @@ test('Questoris Familia uses its own chart: four Prime Lord of War slots and Add
   assert.ok(E.armyIssues(army).some((i) => /Armiger Talon: 1 taken, 0 allowed/.test(i.msg)));
   sel.primeAdvantage = 'Scion Aspirant';
   assert.ok(!E.armyIssues(army).some((i) => /Armiger Talon/.test(i.msg)));
+  // the Yeomanry Mesnie takes Solar Auxilia and Militia units, and nothing else does
+  const yeo = E.detachmentFromDef(D.detachments.find((d) => d.name === 'Yeomanry Mesnie').id);
+  army.detachments.push(yeo);
+  const troops = yeo.slots.find((s) => s.role === 'Troops');
+  assert.ok(E.unitsForSlot(troops, yeo).some((u) => u.id === 'solar-auxilia-lasrifle-section'));
+  assert.ok(!E.unitsForSlot(slot, primary).some((u) => /^(solar-auxilia|imperialis-militia)-/.test(u.id)));
+});
+
+test('Mechanicum has its own Prime Advantages; Legions no longer borrow them', () => {
+  const mech = armyOf('mechanicum').D.grantedPrimeAdvantages.map((a) => a.name);
+  assert.ok(mech.includes('Paragon of Metal') && mech.includes('Thallaxi Principe') && !mech.includes('Battlefield Orphans'));
+  const um = armyOf('ultramarines').D.grantedPrimeAdvantages.map((a) => a.name);
+  assert.ok(!um.includes('Paragon of Metal'));
 });
