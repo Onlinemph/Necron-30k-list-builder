@@ -36,6 +36,7 @@
      "prime": true
     }
    ],
+   "requires": [],
    "restrictions": [],
    "rules": []
   },
@@ -73,6 +74,9 @@
      ]
     }
    ],
+   "requires": [
+    "Esoterist"
+   ],
    "restrictions": [],
    "rules": []
   },
@@ -97,6 +101,9 @@
      "role": "Heavy Transport",
      "prime": false
     }
+   ],
+   "requires": [
+    "Legion Champion"
    ],
    "restrictions": [],
    "rules": []
@@ -159,6 +166,7 @@
      ]
     }
    ],
+   "requires": [],
    "restrictions": [],
    "rules": []
   },
@@ -220,6 +228,7 @@
      ]
     }
    ],
+   "requires": [],
    "restrictions": [],
    "rules": []
   },
@@ -267,6 +276,9 @@
      ]
     }
    ],
+   "requires": [
+    "Siege Breaker"
+   ],
    "restrictions": [],
    "rules": []
   },
@@ -308,6 +320,9 @@
      "prime": false
     }
    ],
+   "requires": [
+    "Vigilator"
+   ],
    "restrictions": [],
    "rules": []
   },
@@ -345,6 +360,9 @@
      ]
     }
    ],
+   "requires": [
+    "Master of Descent"
+   ],
    "restrictions": [],
    "rules": []
   },
@@ -381,6 +399,9 @@
       "contemptor-dreadnought"
      ]
     }
+   ],
+   "requires": [
+    "Mortificator"
    ],
    "restrictions": [],
    "rules": []
@@ -423,6 +444,7 @@
      "prime": false
     }
    ],
+   "requires": [],
    "restrictions": [],
    "rules": []
   },
@@ -464,6 +486,7 @@
      "prime": false
     }
    ],
+   "requires": [],
    "restrictions": [],
    "rules": []
   },
@@ -507,6 +530,7 @@
      "prime": false
     }
    ],
+   "requires": [],
    "restrictions": [],
    "rules": []
   },
@@ -560,6 +584,9 @@
      ]
     }
    ],
+   "requires": [
+    "Master of Signals"
+   ],
    "restrictions": [],
    "rules": []
   },
@@ -585,6 +612,7 @@
      "prime": false
     }
    ],
+   "requires": [],
    "restrictions": [],
    "rules": []
   },
@@ -610,6 +638,7 @@
      "prime": false
     }
    ],
+   "requires": [],
    "restrictions": [],
    "rules": []
   },
@@ -635,6 +664,7 @@
      "prime": true
     }
    ],
+   "requires": [],
    "restrictions": [],
    "rules": []
   }

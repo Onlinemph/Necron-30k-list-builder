@@ -46,6 +46,7 @@
      "prime": false
     }
    ],
+   "requires": [],
    "restrictions": [],
    "rules": []
   },
@@ -89,6 +90,7 @@
      ]
     }
    ],
+   "requires": [],
    "restrictions": [],
    "rules": []
   },
@@ -132,6 +134,7 @@
      ]
     }
    ],
+   "requires": [],
    "restrictions": [],
    "rules": []
   },
@@ -177,6 +180,7 @@
      "prime": false
     }
    ],
+   "requires": [],
    "restrictions": [],
    "rules": []
   },
@@ -214,6 +218,7 @@
      ]
     }
    ],
+   "requires": [],
    "restrictions": [],
    "rules": []
   },
@@ -252,6 +257,9 @@
      ]
     }
    ],
+   "requires": [
+    "Iron Pattern Cohort Doctrine"
+   ],
    "restrictions": [],
    "rules": [
     {
@@ -282,6 +290,7 @@
      "prime": false
     }
    ],
+   "requires": [],
    "restrictions": [],
    "rules": []
   },
@@ -307,6 +316,7 @@
      "prime": false
     }
    ],
+   "requires": [],
    "restrictions": [],
    "rules": []
   },
@@ -332,6 +342,7 @@
      "prime": true
     }
    ],
+   "requires": [],
    "restrictions": [],
    "rules": []
   }

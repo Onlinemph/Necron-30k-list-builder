@@ -22,6 +22,7 @@
      "prime": false
     }
    ],
+   "requires": [],
    "restrictions": [],
    "rules": []
   },
@@ -47,6 +48,7 @@
      "prime": false
     }
    ],
+   "requires": [],
    "restrictions": [],
    "rules": []
   },
@@ -72,6 +74,7 @@
      "prime": true
     }
    ],
+   "requires": [],
    "restrictions": [],
    "rules": []
   }

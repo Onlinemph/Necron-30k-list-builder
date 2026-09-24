@@ -1,0 +1,83 @@
+{
+ "modifiers": [
+  {
+   "id": "ruinstorm-daemon-sovereign-sovereign-wings",
+   "text": "Wings: M 12, gains Bulky (8), becomes Infantry (Champion, Malefic, Antigrav).",
+   "source": {
+    "type": "wargear",
+    "name": "Wings"
+   },
+   "appliesTo": {
+    "units": [
+     "ruinstorm-daemon-sovereign"
+    ],
+    "models": [
+     "Sovereign"
+    ]
+   },
+   "scope": "model",
+   "stats": {
+    "M": "=12"
+   },
+   "addRules": [
+    "Bulky (8)"
+   ],
+   "removeRules": [],
+   "addUnitTypes": [
+    "Antigrav"
+   ]
+  },
+  {
+   "id": "ruinstorm-daemon-hierarch-hierarch-wings",
+   "text": "Wings: M 12, gains Bulky (6), becomes Infantry (Champion, Malefic, Antigrav).",
+   "source": {
+    "type": "wargear",
+    "name": "Wings"
+   },
+   "appliesTo": {
+    "units": [
+     "ruinstorm-daemon-hierarch"
+    ],
+    "models": [
+     "Hierarch"
+    ]
+   },
+   "scope": "model",
+   "stats": {
+    "M": "=12"
+   },
+   "addRules": [
+    "Bulky (6)"
+   ],
+   "removeRules": [],
+   "addUnitTypes": [
+    "Antigrav"
+   ]
+  },
+  {
+   "id": "ascendant-lord-of-tzeench-ascendant-lord-wings",
+   "text": "Wings: M 12, becomes Infantry (Champion, Malefic, Antigrav).",
+   "source": {
+    "type": "wargear",
+    "name": "Wings"
+   },
+   "appliesTo": {
+    "units": [
+     "ascendant-lord-of-tzeench"
+    ],
+    "models": [
+     "Ascendant Lord"
+    ]
+   },
+   "scope": "model",
+   "stats": {
+    "M": "=12"
+   },
+   "addRules": [],
+   "removeRules": [],
+   "addUnitTypes": [
+    "Antigrav"
+   ]
+  }
+ ]
+}

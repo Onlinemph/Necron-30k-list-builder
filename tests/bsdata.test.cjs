@@ -161,3 +161,26 @@ test('Allegiance-locked units are flagged', () => {
   place(E, army.detachments[0].slots.find((s) => s.role === 'Troops'), 'kakophoni-squad');
   assert.ok(E.armyIssues(army).some((i) => /only available to Traitor/.test(i.msg)));
 });
+
+test('Mounts change the rider: Mounted Praetor on a Scimitar Jetbike', () => {
+  const { E } = armyOf('ultramarines');
+  const s = E.newSelection('mounted-praetor');
+  const row = () => E.effectiveModels(s)[0];
+  assert.ok(row().rules.includes('Bulky (2)') && row().rules.includes('Outflank'));
+  const mount = E.optionsOf(s).find((o) => /Mount/.test(o.text));
+  s.options[mount.id] = 'Scimitar Jetbike';
+  const r = row();
+  assert.equal(r.profile.M, 16);
+  assert.ok(r.rules.includes('Bulky (3)') && r.rules.includes('Deep Strike') && !r.rules.includes('Outflank'));
+  assert.match(r.unitType, /Antigrav/);
+});
+
+test('Legion detachments warn when their officer is missing', () => {
+  const { D, E, army } = armyOf('ultramarines');
+  const def = D.detachments.find((d) => d.name === 'Planetfall Speartip');
+  assert.deepEqual([...def.requires], ['Master of Descent']);
+  army.detachments.push(E.detachmentFromDef(def.id));
+  assert.ok(E.armyIssues(army).some((i) => /requires a Master of Descent/.test(i.msg)));
+  place(E, army.detachments[0].slots.find((s) => s.role === 'Command'), 'master-of-descent');
+  assert.ok(!E.armyIssues(army).some((i) => /Master of Descent/.test(i.msg)));
+});

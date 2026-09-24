@@ -45,7 +45,15 @@ Units pick their Partisan (Kabals, Cults or Covens) where the codex leaves it op
 
 `scripts/import-bsdata.mjs` converts BSData's BattleScribe catalogues into this builder's format. It resolves each army statically: rules that depend on which Legion or faction the army is (Thousand Sons' Prosperine Arcana, legion weapons, profile changes) are applied, and rules that depend on what else is in the roster are shown in their default state. Units, models, per-model costs, standard wargear, weapon swaps, upgrades, crews (Rapier Batteries) and all weapon, wargear and special-rule text come across. BSData's core special rules text also fills in the rules the fan codexes only name.
 
-Not imported yet: Rites of War and other legion-specific detachments, Legion-specific Prime Advantages, the Assassins (their "Clade Operative" category has no battlefield role), roster-wide limits that BSData enforces with conditions, and mount swaps on mounted characters (a Mounted Praetor's Bulky value shows as "Bulky (X)"). BSData doesn't give page numbers, so BSData units have none.
+Each army also gets:
+
+- Its own Auxiliary and Apex Detachments (Terror Assault, Planetfall Speartip, Linebreaker Echelon…) in the Add detachment menu. Restricted slots only offer the units they allow, and detachments that need an officer ("Requires a Master of Descent") warn until one is in the army.
+- An Army configuration panel: Allegiance, the Legion Tactica, Gambit and Advanced Reaction, and choices such as Cohort Doctrines, Provenances of War, Oaths of Moment and Household Paradigms.
+- Its Prime Advantages (Duty Before Death, Atramentar, Pack Thegn…), offered only to the units and slots they apply to. Clade Operative adds three Support slots that only Assassins fill; Cult Operative does the same for the Cults Abominatio.
+- Allegiance checks: Traitor-only and Loyalist-only units and advantages are flagged.
+- Wargear that changes the model: mounts (a Mounted Praetor on a Scimitar Jetbike), Tartaros armour and jump packs update the statline, rules and unit type.
+
+BSData doesn't give page numbers, so BSData units have none, and it doesn't print the special rules of most Legion detachments beyond their composition.
 
 To refresh from BSData:
 

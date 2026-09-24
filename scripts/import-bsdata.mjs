@@ -86,6 +86,11 @@ function condTrue(c) {
   let n = 0;
   // "primary-catalogue" means the army's own catalogue, not the ones it imports
   if (isCat) n = (c.scope === 'primary-catalogue' ? CTX.primary === id || gst.data.id === id : CTX.cats.has(id)) ? 1 : 0;
+  // wargear the model is assumed to carry (its defaults, or one option being tried out)
+  else if (CTX.selected && c.field === 'selections' && !['roster', 'force', 'primary-catalogue', 'ancestor'].includes(c.scope)) {
+    const t = byId.get(id);
+    if (t && CTX.selected.has(String(t.name).trim())) n = 1;
+  }
   // anything else depends on the roster; assume nothing is selected yet
   switch (c.type) {
     case 'instanceOf': return isCat ? n === 1 : false;
@@ -422,8 +427,71 @@ function convertUnit(e, armyId, forcedRole) {
   if (e.type !== 'model') walkOptions(e, null, unit, opts, optId, (p) => { points += p; });
   unit.basePoints = points;
   unit.options = opts;
+  selectionEffects(unit, modelEntries, rules, e);
   unit.composition = unit.models.filter((m) => m.min).map((m) => `${m.min} ${m.name}`).join(', ') || (unit.size ? `${unit.size.min}–${unit.size.max} models` : '');
   return unit;
+}
+
+// ---------- wargear that changes the model (mounts, armour): BSData modifiers conditional on a selection ----------
+let unitEffects = [];
+function referencedNames(e) {
+  const out = new Set();
+  const seen = new Set();
+  const walk = (n) => {
+    if (!n || typeof n !== 'object' || seen.has(n)) return;
+    seen.add(n);
+    if (Array.isArray(n)) { n.forEach(walk); return; }
+    if (n.childId && n.field === 'selections') { const t = byId.get(n.childId); if (t && t.name) out.add(String(t.name).trim()); }
+    for (const [k, v] of Object.entries(n)) if (typeof v === 'object') walk(k === 'targetId' ? null : v);
+    if (n.targetId && byId.get(n.targetId)) walk(byId.get(n.targetId));
+  };
+  walk(e);
+  return out;
+}
+function modelState(m, self, unitEntry, unitRules) {
+  const prof = modelProfile(m) || (self ? null : modelProfile(unitEntry)) || { profile: {}, unitType: '' };
+  return { profile: prof.profile, unitType: prof.unitType, rules: self ? rulesOf(m).rules : rulesOf(m).rules.filter((r) => !unitRules.includes(r)) };
+}
+function selectionEffects(unit, modelEntries, unitRules, unitEntry) {
+  for (const { e: m, self } of modelEntries) {
+    const model = unit.models.find((x) => x.name === m.name);
+    if (!model) continue;
+    const refs = referencedNames(m);
+    const defaults = new Set(model.wargear);
+    if (![...refs].some((r) => defaults.has(r)) && !unit.options.some((o) => (o.model === model.name || o.model === null) && o.choices.some((c) => refs.has(c.name)))) continue;
+    const prev = CTX.selected;
+    CTX.selected = defaults;
+    const base = modelState(m, self, unitEntry, unitRules);
+    // the default loadout is what the datasheet shows
+    model.profile = base.profile;
+    model.unitType = base.unitType;
+    if (self) unit.specialRules = base.rules; else model.specialRules = base.rules;
+    for (const o of unit.options) {
+      if (o.model !== model.name && o.model !== null) continue;
+      for (const c of o.choices) {
+        if (!refs.has(c.name)) continue;
+        CTX.selected = new Set([...defaults].filter((w) => !(o.replaces || []).includes(w)).concat(c.name));
+        const alt = modelState(m, self, unitEntry, unitRules);
+        const stats = {};
+        for (const [k, v] of Object.entries(alt.profile)) if (JSON.stringify(v) !== JSON.stringify(base.profile[k]) && typeof v !== 'object') stats[k] = `=${v}`;
+        const addRules = alt.rules.filter((r) => !base.rules.includes(r));
+        const removeRules = base.rules.filter((r) => !alt.rules.includes(r) && !addRules.some((a) => a.replace(/\s*\(.*\)$/, '') === r.replace(/\s*\(.*\)$/, '')));
+        const split = (t) => { const m = String(t || '').match(/^([^(]+?)\s*(?:\((.*)\))?$/) || []; return { main: (m[1] || '').trim(), subs: (m[2] || '').split(',').map((x) => x.trim()).filter(Boolean) }; };
+        const bt = split(base.unitType), at = split(alt.unitType);
+        const addTypes = at.subs.filter((x) => !bt.subs.includes(x)), dropTypes = bt.subs.filter((x) => !at.subs.includes(x));
+        const typeChanged = bt.main !== at.main || addTypes.length || dropTypes.length;
+        if (!Object.keys(stats).length && !addRules.length && !removeRules.length && !typeChanged) continue;
+        const bits = [...Object.entries(stats).map(([k, v]) => `${k} ${v.slice(1)}`), ...addRules.map((r) => `gains ${r}`), ...removeRules.map((r) => `loses ${r}`), ...(typeChanged ? [`becomes ${alt.unitType}`] : [])];
+        const mod = { _unit: unit, id: slug(`${model.name}-${c.name}`), text: `${c.name}: ${bits.join(', ')}.`, source: { type: 'wargear', name: c.name },
+          appliesTo: { units: [unit.id], models: [model.name] }, scope: 'model', stats, addRules, removeRules };
+        if (bt.main !== at.main) mod.setUnitType = at.main;
+        if (addTypes.length) mod.addUnitTypes = addTypes;
+        if (dropTypes.length) mod.removeUnitTypes = dropTypes;
+        unitEffects.push(mod);
+      }
+    }
+    CTX.selected = prev;
+  }
 }
 
 /** Collect default wargear and turn optional entries/groups into Options. */
@@ -453,7 +521,8 @@ function walkOptions(node, model, unit, opts, optId, addMandatoryCost) {
         if (model) model.wargear.push(def.name); else unit.models.forEach((m) => m.wargear.push(def.name));
         if (def.cost) addMandatoryCost(def.cost);
       }
-      const choices = items.filter((i) => i !== def).map((i) => ({ name: i.name, points: Math.max(0, i.cost - (def ? def.cost : 0)) }));
+      // "one per army" items (Master of Descent, relic weapons)
+      const choices = items.filter((i) => i !== def).map((i) => Object.assign({ name: i.name, points: Math.max(0, i.cost - (def ? def.cost : 0)) }, i.once || gl.rosterMax === 1 ? { oncePerArmy: true } : {}));
       if (!choices.length) continue;
       const replaces = def ? [def.name] : [];
       const groupMax = gl.max === null ? choices.length : gl.max;
@@ -476,7 +545,7 @@ function walkOptions(node, model, unit, opts, optId, addMandatoryCost) {
     }
     if (l.max === 0) continue;
     const pts = cost(c);
-    const o = { id: optId(`${target || 'unit'}-${c.name}`), text: `${model ? `${model.name}: ` : ''}${c.name}${multi ? (l.unitMax !== null ? ` (up to ${l.unitMax} in the unit)` : ' (any number of models)') : ''}`, model: target, replaces: [], choices: [{ name: c.name, points: pts }] };
+    const o = { id: optId(`${target || 'unit'}-${c.name}`), text: `${model ? `${model.name}: ` : ''}${c.name}${multi ? (l.unitMax !== null ? ` (up to ${l.unitMax} in the unit)` : ' (any number of models)') : ''}`, model: target, replaces: [], choices: [Object.assign({ name: c.name, points: pts }, l.rosterMax === 1 ? { oncePerArmy: true } : {})] };
     if (multi) { o.kind = 'perModel'; o.max = l.unitMax !== null ? { fixed: l.unitMax } : null; }
     else o.kind = 'upgrade';
     opts.push(o);
@@ -486,7 +555,7 @@ function flatItems(g) {
   const out = [];
   for (const c of children(g)) {
     if (c.kind === 'group') out.push(...flatItems(c));
-    else if (c.type !== 'model') out.push({ name: c.name, cost: cost(c), min: limits(c).min, id: c.id, linkId: c.linkId });
+    else if (c.type !== 'model') out.push({ name: c.name, cost: cost(c), min: limits(c).min, id: c.id, linkId: c.linkId, once: limits(c).rosterMax === 1 });
   }
   const seen = new Set();
   return out.filter((i) => (seen.has(i.name) ? false : seen.add(i.name)));
@@ -513,6 +582,7 @@ const OPERATIVES = [
 function armyUnits(army) {
   CTX = { cats: catalogueSet(army.catalogue), primary: army.catalogue };
   BSID = new Map();
+  unitEffects = [];
   // root entries: the army's catalogue plus catalogues it imports root entries from
   const rootsFrom = [army.catalogue];
   for (const l of cats[army.catalogue].data.catalogueLinks || []) if (l.importRootEntries) rootsFrom.push(l.targetId);
@@ -694,6 +764,8 @@ function armyDetachments(army, units) {
     out.push({
       id: `bs-${slug(name)}`, name: name.trim(), type, source: 'army', page: f.page || null,
       unlock: compText ? compText.split('\n').filter(Boolean).join(' · ') : null, unlockedBy: null, slots,
+      // "Requires a Master of Descent": a Consul-type upgrade some unit in the army must have
+      requires: [...compText.matchAll(/Requires (?:an? )?([^\n·]+)/gi)].map((m) => m[1].trim()),
       restrictions: [], rules: textItems(f).map((t) => ({ name: t.name, text: t.text })),
     });
     if (problems.length) console.warn(`${army.name} / ${name}: ${problems.join('; ')}`);
@@ -813,6 +885,9 @@ for (const a of armies) {
   mkdirSync(join(out, a.id, 'parts'), { recursive: true });
   // one unit per line keeps the files small and the diffs readable when BSData updates
   writeFileSync(join(out, a.id, 'parts', 'units.json'), '{"units":[\n' + units.map((u) => JSON.stringify(u)).join(',\n') + '\n]}\n');
+  // unit ids are final now
+  const effects = unitEffects.map(({ _unit, ...m }) => Object.assign(m, { id: `${_unit.id}-${m.id}`, appliesTo: Object.assign({}, m.appliesTo, { units: [_unit.id] }) }));
+  writeFileSync(join(out, a.id, 'modifiers.json'), JSON.stringify({ modifiers: effects }, null, 1) + '\n');
   const dets = armyDetachments(a, units);
   writeFileSync(join(out, a.id, 'parts', 'detachments.json'), JSON.stringify({ detachments: dets }, null, 1) + '\n');
   const config = armyConfig(a);
@@ -822,7 +897,7 @@ for (const a of armies) {
   a.detachments = dets.length;
   a.units = units.length;
   a.skipped = [...skipped];
-  report.push(`${a.name}: ${units.length} units, ${dets.length} detachments, ${config.fixed.length} army rules, ${config.groups.length} army choices, ${advs.length} Prime Advantages${skipped.length ? `, skipped ${skipped.length}` : ''}`);
+  report.push(`${a.name}: ${units.length} units, ${dets.length} detachments, ${config.fixed.length} army rules, ${config.groups.length} army choices, ${advs.length} Prime Advantages, ${effects.length} wargear effects${skipped.length ? `, skipped ${skipped.length}` : ''}`);
 }
 const rev = JSON.parse(readFileSync(join(src, fileTitle(gst.file) + '.json'), 'utf8')).gameSystem.revision;
 writeFileSync(join(out, 'armies.json'), JSON.stringify({

@@ -1,0 +1,80 @@
+{
+ "modifiers": [
+  {
+   "id": "force-commander-force-commander-mounted",
+   "text": "Mounted: M 12, W 4, becomes Cavalry (Command).",
+   "source": {
+    "type": "wargear",
+    "name": "Mounted"
+   },
+   "appliesTo": {
+    "units": [
+     "force-commander"
+    ],
+    "models": [
+     "Force Commander"
+    ]
+   },
+   "scope": "model",
+   "stats": {
+    "M": "=12",
+    "W": "=4"
+   },
+   "addRules": [],
+   "removeRules": [],
+   "setUnitType": "Cavalry"
+  },
+  {
+   "id": "command-troop-bodyguard-upgrade-bodyguard-to-grenadier-bodyguard",
+   "text": "Upgrade Bodyguard to Grenadier Bodyguard.: SAV 4+.",
+   "source": {
+    "type": "wargear",
+    "name": "Upgrade Bodyguard to Grenadier Bodyguard."
+   },
+   "appliesTo": {
+    "units": [
+     "command-troop"
+    ],
+    "models": [
+     "Bodyguard"
+    ]
+   },
+   "scope": "model",
+   "stats": {
+    "SAV": "=4+"
+   },
+   "addRules": [],
+   "removeRules": []
+  },
+  {
+   "id": "sentinel-patrol-scout-sentinel-replace-with-armoured-sentinels",
+   "text": "Replace with Armoured Sentinels: M 8, T 6, W 4, I 2, LD 9, CL 9, becomes Walker (Skirmish).",
+   "source": {
+    "type": "wargear",
+    "name": "Replace with Armoured Sentinels"
+   },
+   "appliesTo": {
+    "units": [
+     "sentinel-patrol"
+    ],
+    "models": [
+     "Scout Sentinel"
+    ]
+   },
+   "scope": "model",
+   "stats": {
+    "M": "=8",
+    "T": "=6",
+    "W": "=4",
+    "I": "=2",
+    "LD": "=9",
+    "CL": "=9"
+   },
+   "addRules": [],
+   "removeRules": [],
+   "removeUnitTypes": [
+    "Light"
+   ]
+  }
+ ]
+}

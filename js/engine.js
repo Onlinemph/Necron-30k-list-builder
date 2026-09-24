@@ -459,6 +459,13 @@
             unitType = unitType.replace(/^[A-Za-z]+/, m.setUnitType);
             changed.unitType = true;
           }
+          for (const t of m.removeUnitTypes || []) {
+            const m2 = unitType.match(/^([^(]+?)\s*\((.*)\)$/);
+            if (!m2) continue;
+            const subs = m2[2].split(',').map((x) => x.trim()).filter((x) => x && x !== t);
+            const next = subs.length ? `${m2[1]} (${subs.join(', ')})` : m2[1];
+            if (next !== unitType) { unitType = next; changed.unitType = true; }
+          }
           for (const t of m.addUnitTypes || []) {
             if (unitType.includes(t)) continue;
             unitType = /\)$/.test(unitType) ? unitType.replace(/\)$/, `, ${t})`) : `${unitType} (${t})`;
@@ -741,12 +748,39 @@
         const u = unit(x.sel.unitId);
         if (u && u.allegiance && u.allegiance !== side) issues.push({ level: 'error', msg: `${u.name} is only available to ${u.allegiance} armies.` });
       }
+      // Legion detachments that need a particular officer ("Requires a Master of Descent")
+      for (const d of army.detachments) {
+        const def = d.defId ? detById.get(d.defId) : null;
+        for (const need of (def && def.requires) || []) {
+          const key = need.toLowerCase();
+          const has = sels.some((x) => {
+            const u = unit(x.sel.unitId);
+            if (!u) return false;
+            if (u.name.toLowerCase().includes(key)) return true;
+            if (Object.values(x.sel.options || {}).some((v) => JSON.stringify(v).toLowerCase().includes(key))) return true;
+            return loadout(x.sel).some((r) => r.base.concat(r.changes.map((c) => c.name)).some((w) => w.toLowerCase().includes(key)));
+          });
+          if (!has) issues.push({ level: 'warn', msg: `${d.name} requires ${/^[aeiou]/i.test(need) ? 'an' : 'a'} ${need} in the army; none found.` });
+        }
+      }
       // army configuration: Rites of War, Cohort Doctrines, Provenances of War…
       for (const g of (data.armyConfig && data.armyConfig.groups) || []) {
         const n = ((army.config || {})[g.id] || []).length;
         if (n < g.min) issues.push({ level: 'error', msg: `Army configuration: choose ${g.min === g.max ? g.min : 'at least ' + g.min} from ${g.name}${n ? ` (${n} chosen)` : ''}.` });
         if (n > g.max) issues.push({ level: 'error', msg: `Army configuration: at most ${g.max} from ${g.name} (${n} chosen).` });
       }
+      // upgrades limited to one per army ("Master of Descent", relic weapons)
+      const onceTaken = {};
+      for (const x of sels) for (const o of optionsOf(x.sel)) {
+        const v = x.sel.options[o.id];
+        if (!isTaken(v)) continue;
+        const names = o.kind === 'upgrade' ? [o.choices[0].name] : Array.isArray(v) ? v : typeof v === 'object' ? Object.keys(v).filter((k) => v[k] > 0) : [v];
+        for (const n of names) {
+          const c = o.choices.find((ch) => ch.name === n);
+          if (c && c.oncePerArmy) onceTaken[n] = (onceTaken[n] || 0) + (typeof v === 'object' && !Array.isArray(v) ? v[n] : 1);
+        }
+      }
+      for (const [n, c] of Object.entries(onceTaken)) if (c > 1) issues.push({ level: 'error', msg: `${n} may only be taken once per army (${c} taken).` });
       // wargear list items limited to one per army (e.g. Haemonculus Arcana)
       const once = new Set((data.lists || []).flatMap((l) => l.items.filter((it) => it.oncePerArmy).map((it) => it.name)));
       if (once.size) {
