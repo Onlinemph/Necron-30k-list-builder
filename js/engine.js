@@ -348,7 +348,9 @@
     /** Advantages this unit may take: the codex's own plus any granted by characters in the army. */
     function primeAdvantagesFor(sel, army, slot) {
       const u = unit(sel.unitId);
-      const core = ((data.forceorg && data.forceorg.primeAdvantages) || [])
+      const inPrimary = slot && army && army.detachments.some((d) => d.kind === 'primary' && d.slots.includes(slot));
+      const noCore = inPrimary && data.forceorg && data.forceorg.primary && data.forceorg.primary.onlyArmyAdvantages;
+      const core = (noCore ? [] : (data.forceorg && data.forceorg.primeAdvantages) || [])
         .filter((a) => !a.roles || !slot || a.roles.includes(slot.role))
         .map((a) => ({ name: a.name, text: a.text, core: true }));
       const out = core.concat(((data.rules && data.rules.primeAdvantages) || []).map((a) => ({ name: a.name, text: a.text })));
@@ -835,6 +837,18 @@
       for (const d of army.detachments) {
         const def = d.defId ? detById.get(d.defId) : null;
         if (def && def.when && !def.when.some((c) => condOk(c))) issues.push({ level: 'error', msg: `${d.name} needs ${def.when.map(condText).join(' or ')} in the army.` });
+      }
+      // "Additional" detachments (Questoris Familia): one per Household Rank advantage or paradigm that allows it
+      const addCount = {};
+      for (const d of army.detachments) if (d.defId && detById.get(d.defId) && detById.get(d.defId).allowedBy) addCount[d.defId] = (addCount[d.defId] || 0) + 1;
+      for (const [id, n] of Object.entries(addCount)) {
+        const def = detById.get(id);
+        let allowed = 0;
+        for (const a of def.allowedBy) {
+          if (a.config) allowed += ctx.config.has(a.config) ? 1 : 0;
+          if (a.each) allowed += sels.filter((x) => x.sel.primeAdvantage === a.each || unit(x.sel.unitId)?.name === a.each || Object.values(x.sel.options || {}).some((v) => v === a.each || (Array.isArray(v) && v.includes(a.each)))).length;
+        }
+        if (n > allowed) issues.push({ level: 'error', msg: `${def.name}: ${n} taken, ${allowed} allowed (one per ${def.allowedBy.map((a) => a.config || a.each).join(' / ')}).` });
       }
       // army configuration: Rites of War, Cohort Doctrines, Provenances of War…
       for (const g of (data.armyConfig && data.armyConfig.groups) || []) {

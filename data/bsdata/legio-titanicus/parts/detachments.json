@@ -1,3 +1,60 @@
 {
- "detachments": []
+ "detachments": [],
+ "primary": {
+  "name": "Titan Ordinal Primary Detachment",
+  "slots": [
+   {
+    "role": "Command",
+    "count": 1,
+    "prime": 0
+   },
+   {
+    "role": "Troops",
+    "count": 1,
+    "prime": 0
+   },
+   {
+    "role": "Troops",
+    "count": 1,
+    "prime": 0
+   },
+   {
+    "role": "Troops",
+    "count": 1,
+    "prime": 0
+   },
+   {
+    "role": "Troops",
+    "count": 1,
+    "prime": 0
+   },
+   {
+    "role": "Transport",
+    "count": 1,
+    "prime": 0
+   },
+   {
+    "role": "Transport",
+    "count": 1,
+    "prime": 0
+   },
+   {
+    "role": "Transport",
+    "count": 1,
+    "prime": 0
+   },
+   {
+    "role": "Transport",
+    "count": 1,
+    "prime": 0
+   },
+   {
+    "role": "Lord of War",
+    "count": 1,
+    "prime": 0
+   }
+  ],
+  "note": "",
+  "onlyArmyAdvantages": false
+ }
 }

@@ -37,6 +37,64 @@
     "operative": "Cult Operative"
    },
    "primaryOnly": true
+  },
+  {
+   "name": "Seneschal",
+   "text": "This Prime Advantage may only be selected for units entirely composed of Models with the Knight Sub-Type. When a Model in a Unit selected to fill a Prime Slot with this Household Rank Prime Advantage is allocated a Penetrating Hit, the Damage of the Penetrating Hit is modified by -1, to a minimum of 1. Additionally, a Unit with this Household Rank Prime Advantage counts as being a High Command Choice for the purposes of any version of the Slay the Warlord (X) Secondary Objective.",
+   "eligible": {},
+   "oncePerArmy": true
+  },
+  {
+   "name": "Lord Scion",
+   "text": "This Prime Advantage may only be selected for units entirely composed of Models with the Knight Sub-Type. All Models in a Unit selected to fill a Prime Slot with this Household Rank Prime Advantage may have two Repair Tests made for them by the Active Player in each of their Statuses Sub-Phases, rather than just one.",
+   "eligible": {},
+   "oncePerArmy": true
+  },
+  {
+   "name": "Scion Arbalester",
+   "text": "This Prime Advantage may only be selected for units entirely composed of Models with the Knight Sub-Type. When a Model in a Unit selected to fill a Prime Slot with this Household Rank Prime Advantage moves a distance equal to no more than half of its Movement Characteristic in inches in the Movement Phase, it may still benefit from any variant of the Heavy (X) or Ordnance (X) Special Rule on any Weapons it has.",
+   "eligible": {},
+   "oncePerArmy": true
+  },
+  {
+   "name": "Scion Aspirant",
+   "text": "All Models in a Unit selected to fill a Prime Slot with this Household Rank Prime Advantage gain the Expendable (1)\nSpecial Rule and modify the value of X on any version of the Auto-repair (X) Special Rule they have by -1.\n\nExpendable (1): \"A Player scores less Victory Points when they destroy a Unit that includes only Models with this Special Rule.\"\nThe number of Victory Points scored by the opponent when a Unit that includes only Models with this Special Rule is entirely Removed as Casualties, for example, as part of the Vanguard (X) Special Rule, First Strike (X) or Slay the Warlord (X) Mission Special Rule, is reduced by the value of X, to a minimum of 1. If a Unit includes Models with different variants of this Special Rule, then the lowest value of X that was present on any Model in that Unit at the start of the Player Turn in which the last Model in the Unit is Removed as a Casualty is used to determine the effect of this Special Rule on that Unit.\n\nNote that, if, at the start of the Player Turn a Unit includes any Models that do not have this Special Rule, then this Special Rule has no effect on that Unit for the duration of that Player Turn regardless of how many other Models in the Unit may have any variant of this Special Rule.",
+   "eligible": {}
+  },
+  {
+   "name": "Aucteller",
+   "text": "This Prime Advantage may only be selected for units entirely composed of Models with the Knight Sub-Type. All Models in a Unit selected to fill a Prime Slot with this Household Rank Prime Advantage gain the Precision (5+) Special Rule on any Melee Weapons they have. Any Model in a Unit selected to fill a Prime Slot with this Household Rank Prime Advantage may not have any Questoris Vow declared for it other than the Vow of Execution.\n\nPrecision (5+): \"Attacks made with the Precision (X) Special Rule are allocated by the Attacking Player, not the Defender.\"\nWhen any Hit Test is made for an attack with the Precision (X) Special Rule, if the result of the Dice roll, before any modifiers are applied, is equal to or great than the value of X attached to this variant of the Precision (X) Special Rule, then if a Hit is inflicted by that roll, that Hit becomes a 'Precision Hit'.\n\nThese Precision Hits must form a separate Fire Group or Strike Group. Wound Tests are made as normal for Precision Hits and cause Precision wounds. In Step 8 of the Shooting Attack process or Step 7 of the Initiative Step sequence, when selecting a Target Model for a Fire Group or Strike Group that is made up of Precision wounds, the Target Model is not selected using the normal Rules. Instead the attacking Player chooses which Model in the Target Unit will be the Target Model, and may select any Model that is a part of that Unit.\n\nNote that Models Engaged in a Challenge cannot use this Special Rule to allocate Hits to any Model other than the enemy Model that is Engaged in the same Challenge and that any attacks which are made as Snap Shots, or for Weapons or attacks that have either the Blast (X) , Barrage (X), Template or Reaping Blow (X) Special Rules, may never trigger the Precision (X) Special Rule no matter what the result of the Hit Test is.",
+   "eligible": {},
+   "oncePerArmy": true
+  },
+  {
+   "name": "Scion Dolorous",
+   "text": "This Prime Advantage may only be selected for units entirely composed of Models with the Knight Sub-Type. All Models in a Unit selected to fill a Prime Slot with this Household Rank Prime Advantage gain the Fear (2) Special Rule. Any Model in a Unit selected to fill a Prime Slot with this Household Rank Prime Advantage may not have any Questoris Vow declared for it other than the Vow of Slaying.\n\nFear (2): \"Models near an enemy Model with the Fear (X) Special Rule must reduce their Advanced Characteristics.\"\nWhen any Model from a Unit is within 12\" of an enemy Model with the Fear (X) Special Rule, all Models in that Unit must reduce their Leadership, Willpower, Cool, and Intelligence Characteristics by the value of X. This negative modifier is removed as soon as no Models in a given Unit are within 12\" of any Model with the Fear (X) Special Rule. If a Unit would be affected by multiple instances of the Fear (X) Special Rule, the value of X is not stacked and instead the single highest value is used as a negative modifier.",
+   "eligible": {},
+   "oncePerArmy": true
+  },
+  {
+   "name": "Scion Implacable",
+   "text": "This Prime Advantage may only be selected for units entirely composed of Models with the Knight Sub-Type. All Models in a Unit selected to fill a Prime Slot with this Household Rank Prime Advantage gain the Firestorm Special Rule. Any Model in a Unit selected to fill a Prime Slot with this Household Rank Prime Advantage may not have any Questoris Vow declared for it other than the Vow of Resolve.\n\nFirestorm: \"A Model with this Special Rule does not have to make Volley Attacks as Snap Shots\"\nWhen a Model with this Special Rule makes Volley Attacks, it is not required to fire Snap Shots. In addition, after making Volley Attacks in Step 4 of the Charge Procedure, a Unit containing any Models with this Special Rule is not required to make a Charge Roll in Step 5. If the Controlling Player chooses not to make a Charge Roll in Step 5 of the Charge Procedure then the Charge Procedure ends immediately.",
+   "eligible": {},
+   "oncePerArmy": true
+  },
+  {
+   "name": "Scion Martial",
+   "text": "This Prime Advantage may only be selected for units entirely composed of Models with the Knight Sub-Type. The Scions Martial represent the meridian of skill and power on which the Unit Profiles in the Questoris Familia Army List are based, and therefore, the Scion Martial Household Rank Prime Advantage does not modify the profile of any Models in a Unit for which it is selected.",
+   "eligible": {}
+  },
+  {
+   "name": "Preceptor",
+   "text": "This Prime Advantage may only be selected for units entirely composed of Models with the Knight Sub-Type. All Models in a Unit selected to fill a Prime Slot with this Household Rank Prime Advantage gain the Battlesmith (2) Special Rule and count as having an Intelligence Characteristic of 8 when making Intelligence Checks as part of the Battlesmith (X) Special Rule.\n\nBattlesmith (2): \"A model with the Battlesmith (X) Special Rule can repair Vehicles, Automata, and other mechanical Units.\"\n\"In the Controlling Player's Movement Phase as the Active Player, when a Model with the Battlesmith (X) Special Rule has been selected, but either before or after it has been moved, the Controlling Player of that Model may activate this Special Rule. Once activated, the Controlling Player of the Model with the Battlesmith (X) Special Rule hereafter referred to as the 'Acting Model', must select one friendly Model within 6\"\" of the Acting Model. The Model selected must have the Vehicle, Automata, or Walker Type and is hereafter referred to as the 'Target Model'. Once a Target Model has been selected, the Player controlling the Acting Model must make an Intelligence Check for the Acting Model.\n\nIf the Check is failed there is no further effect, but if the Check is passed then the Player controlling the Acting Model may select one of the following options:\n\n- Repair - The Target Model gains a number of Wounds or Hull Points equal to the value of X in the Battlesmith (X) Special Rule variant possessed by the Acting Model. This cannot increase the Target Model's Wounds or Hull Points above its Base Value.\n\n- Restore - A number of Statuses equal to the value of X in the Battlesmith (X) Special Rule variant possessed by the Acting Model may be removed from the Target Model.\n\nActivating the Battlesmith (X) Special Rule does not limit the Acting Model or the Target Model when moving or attacking in the same Turn.\"",
+   "eligible": {},
+   "oncePerArmy": true
+  },
+  {
+   "name": "Scion Uhlan",
+   "text": "This Prime Advantage may only be selected for units entirely composed of Models with the Knight Sub-Type. All Models in a Unit selected to fill a Prime Slot with this Household Rank Prime Advantage gain the Fast (2) and the Impact (A) Special Rules. Any Model in a Unit selected to fill a Prime Slot with this Household Rank Prime Advantage may not have any Questoris Vow declared for it other than the Vow of Alacrity.\n\nFast (2): \"A Unit that only includes Models with the Fast (X) Special Rule gain a bonus to Rush and Charge Moves.\"\nWhen the Player controlling a Unit that is composed entirely of Models with the Fast (X) Special Rule elects to have that Unit Rush, add the value of X attached to the specific variant of Fast (X) to the distance the Unit can move. Likewise, when a Unit composed entirely of Models with the Fast (X) Special Rule is required to make a Charge Move, add the value of X attached to the specific variant of the Fast (X) Special Rule as a positive modifier to the Charge Roll. In any situation where a Unit includes Models with two or more variants of the Fast (X) Special Rule, the lowest possible modifier is used.\n\nImpact (A): \"On a successful Charge, a Model with the Impact (X) Special Rule temporarily increases a Characteristic by 1.\"\nIf a Unit that includes any Models with the Impact (X) Special Rule or any Models that have any Weapons with the Impact (X) Special Rule, and that Unit makes a successful Charge, then this Special Rule is triggered. Once triggered, until the end of that Assault Phase, when making Melee Attacks for Models in that Unit, each Model or Weapon that is selected for one of those Models, that has a variant of this Special Rule, gains a modifier of +1 to any Characteristics that is the value of X.",
+   "eligible": {},
+   "oncePerArmy": true
   }
  ]
 }

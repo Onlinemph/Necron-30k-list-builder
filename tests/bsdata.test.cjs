@@ -280,3 +280,20 @@ test('Tank Commander detachments appear with a Tank Commander in the army', () =
   place(E, army.detachments[0].slots.find((s) => s.role === 'High Command'), 'spartan-prometheus-command-tank');
   assert.ok(!E.armyIssues(army).some((i) => /Armoured Support needs/.test(i.msg)));
 });
+
+test('Questoris Familia uses its own chart: four Prime Lord of War slots and Additional detachments', () => {
+  const { D, E, army } = armyOf('questoris-familia');
+  assert.equal(D.forceorg.primary.slots.length, 4);
+  army.config.allegiance = ['Loyalist'];
+  const primary = army.detachments[0];
+  const slot = primary.slots[0];
+  assert.ok(slot.prime && slot.role === 'Lord of War');
+  assert.ok(E.unitsForSlot(slot, primary).some((u) => u.id === 'knight-questoris'));
+  const sel = place(E, slot, 'knight-questoris');
+  const advs = E.primeAdvantagesFor(sel, army, slot).map((a) => a.name);
+  assert.ok(advs.includes('Scion Aspirant') && !advs.includes('Master Sergeant'));
+  army.detachments.push(E.detachmentFromDef(D.detachments.find((d) => d.name === 'Armiger Talon').id));
+  assert.ok(E.armyIssues(army).some((i) => /Armiger Talon: 1 taken, 0 allowed/.test(i.msg)));
+  sel.primeAdvantage = 'Scion Aspirant';
+  assert.ok(!E.armyIssues(army).some((i) => /Armiger Talon/.test(i.msg)));
+});

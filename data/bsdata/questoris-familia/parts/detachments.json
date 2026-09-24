@@ -1,3 +1,188 @@
 {
- "detachments": []
+ "detachments": [
+  {
+   "id": "bs-armiger-talon",
+   "name": "Armiger Talon",
+   "type": "Additional",
+   "source": "army",
+   "page": null,
+   "unlock": "4 War-engine",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "War Engine",
+     "prime": false
+    },
+    {
+     "role": "War Engine",
+     "prime": false
+    },
+    {
+     "role": "War Engine",
+     "prime": false
+    },
+    {
+     "role": "War Engine",
+     "prime": false
+    }
+   ],
+   "requires": [],
+   "restrictions": [],
+   "rules": [],
+   "allowedBy": [
+    {
+     "each": "Scion Aspirant"
+    },
+    {
+     "config": "Questoris Mendicant"
+    }
+   ]
+  },
+  {
+   "id": "bs-automata-talon",
+   "name": "Automata Talon",
+   "type": "Additional",
+   "source": "army",
+   "page": null,
+   "unlock": "1 Elite · 1 Support · 1 Recon · 1 Fast Attack · Elite must be Domitar Battle Maniple · Support must be Castellax Battle Maniple · Recon must be Vorax Attack Maniple · Fast Attack must be Vultarax Stratos Squadron · replace Cybernetica with [Questoris Familia] trait",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Elites",
+     "prime": false,
+     "onlyLabel": "Domitar Battle Maniple Only",
+     "only": []
+    },
+    {
+     "role": "Support",
+     "prime": false,
+     "onlyLabel": "Castellax Battle Maniple Only",
+     "only": []
+    },
+    {
+     "role": "Recon",
+     "prime": false,
+     "onlyLabel": "Vorax Attack Maniple Only",
+     "only": []
+    },
+    {
+     "role": "Fast Attack",
+     "prime": false,
+     "onlyLabel": "Vultarax Stratos Squadron Only",
+     "only": []
+    }
+   ],
+   "requires": [],
+   "restrictions": [],
+   "rules": [],
+   "allowedBy": [
+    {
+     "config": "Questoris Mechanicum"
+    },
+    {
+     "each": "Preceptor"
+    }
+   ]
+  },
+  {
+   "id": "bs-support-banner",
+   "name": "Support Banner",
+   "type": "Additional",
+   "source": "army",
+   "page": null,
+   "unlock": "2 Lord of War (2 Prime) · May only select Household Rank Prime Advantages",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Lord of War",
+     "prime": true
+    },
+    {
+     "role": "Lord of War",
+     "prime": true
+    }
+   ],
+   "requires": [],
+   "restrictions": [],
+   "rules": [],
+   "allowedBy": [
+    {
+     "each": "Scion Martial"
+    }
+   ]
+  },
+  {
+   "id": "bs-yeomanry-mesnie",
+   "name": "Yeomanry Mesnie",
+   "type": "Additional",
+   "source": "army",
+   "page": null,
+   "unlock": "2 Troop · 1 Elites · 1 Recon · 2 Heavy Transport · May be from Solar Auxilia or Imperialis Militia Army Lists · Replace Solar Auxilia or Imperialis Militia with [Questoris Familia] trait",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Elites",
+     "prime": false
+    },
+    {
+     "role": "Troops",
+     "prime": false
+    },
+    {
+     "role": "Troops",
+     "prime": false
+    },
+    {
+     "role": "Recon",
+     "prime": false
+    },
+    {
+     "role": "Heavy Transport",
+     "prime": false
+    },
+    {
+     "role": "Heavy Transport",
+     "prime": false
+    }
+   ],
+   "requires": [],
+   "restrictions": [],
+   "rules": [],
+   "allowedBy": [
+    {
+     "config": "Questoris Imperialis"
+    },
+    {
+     "each": "Lord Scion"
+    }
+   ]
+  }
+ ],
+ "primary": {
+  "name": "Knight Households Primary Detachment",
+  "slots": [
+   {
+    "role": "Lord of War",
+    "count": 1,
+    "prime": 1
+   },
+   {
+    "role": "Lord of War",
+    "count": 1,
+    "prime": 1
+   },
+   {
+    "role": "Lord of War",
+    "count": 1,
+    "prime": 1
+   },
+   {
+    "role": "Lord of War",
+    "count": 1,
+    "prime": 1
+   }
+  ],
+  "note": "4 Lord of War (4 Prime)\nMay only take Household Rank Prime Advantages",
+  "onlyArmyAdvantages": true
+ }
 }

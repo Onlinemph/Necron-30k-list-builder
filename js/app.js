@@ -328,6 +328,7 @@
     const order = [
       ['Auxiliary', 'core', 'Auxiliary (core rules)'], ['Auxiliary', 'codex', `Auxiliary (${DATA.meta.name})`],
       ['Apex', 'core', 'Apex (core rules)'], ['Apex', 'codex', `Apex (${DATA.meta.name}${(DATA.sequelae && DATA.sequelae.sequelae || []).length ? ', via Aeonic Sequelae' : ''})`],
+      ['Additional', 'codex', `Additional (${DATA.meta.name})`],
       ['Warlord', 'core', 'Warlord'], ['Lord of War', 'core', 'Lord of War'],
     ];
     for (const [type, src, label] of order) {

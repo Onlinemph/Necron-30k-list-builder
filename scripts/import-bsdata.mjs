@@ -789,6 +789,74 @@ function finishConfig(config, keys) {
 
 // ---------- detachments ----------
 const coreDetachments = new Set(JSON.parse(readFileSync(join(root, 'data', 'forceorg.json'), 'utf8')).detachments.map((d) => d.name));
+/** Slots from a force entry's categories: "Troops - Terror Squads Only" max 2, "Prime Troops" max 1… */
+function detachmentSlots(f, units) {
+  const slots = [], prime = {}, problems = [];
+  for (const cl of f.categoryLinks || []) {
+    const cname = (catName.get(cl.targetId) || cl.name || '').trim();
+    const max = (cl.constraints || []).filter((c) => c.type === 'max' && c.field === 'selections').map((c) => Number(applyField(cl, c.id, c.value)));
+    if (!max.length) continue;
+    const n = Math.min(...max);
+    if (n <= 0) continue;
+    const pm = cname.match(/^Prime (.+)$/);
+    if (pm) { const r = roleName({ name: pm[1] }); if (r) prime[r] = (prime[r] || 0) + n; continue; }
+    const r = roleName({ name: cname });
+    if (!r) { problems.push(cname); continue; }
+    const slot = { role: r, prime: false };
+    if (/\s-\s/.test(cname)) {
+      slot.onlyLabel = cname.replace(/^[^-]+-\s*/, '');
+      slot.only = units.filter((u) => (u.categories || []).includes(cname)).map((u) => u.id);
+      if (!slot.only.length) problems.push(`no units for ${cname}`);
+    }
+    for (let i = 0; i < n; i++) slots.push(Object.assign({}, slot));
+  }
+  for (const [r, n] of Object.entries(prime)) {
+    let k = n;
+    for (const s of slots) if (k > 0 && s.role === r) { s.prime = true; k--; }
+  }
+  return { slots, problems };
+}
+
+/** An army with its own force chart (Questoris Familia): its Primary Detachment and "Additional" detachments. */
+function ownForceChart(army, units, config) {
+  const d = cats[army.catalogue].data;
+  const chart = (d.forceEntries || []).find((f) => !isHidden(f) && (f.forceEntries || []).some((x) => /Primary Detachment/.test(x.name)));
+  if (!chart) return null;
+  const keys = configKeys(config);
+  const out = { primary: null, detachments: [] };
+  for (const f of chart.forceEntries || []) {
+    const { slots } = detachmentSlots(f, units);
+    if (!slots.length) continue;
+    const comp = profilesOf(f).find((p) => p.typeName === 'Detachment Description');
+    const compText = comp ? describe(comp).trim() : '';
+    if (/Primary Detachment/.test(f.name)) {
+      out.primary = { name: f.name.trim(), slots: slots.map((s) => ({ role: s.role, count: 1, prime: s.prime ? 1 : 0 })), note: compText,
+        // "May only take Household Rank Prime Advantages": the core ones aren't offered
+        onlyArmyAdvantages: /May only take .*Prime Advantages/i.test(compText) };
+      continue;
+    }
+    const m = f.name.match(/^(\w+)\s*-\s*(.+)$/);
+    const name = (m ? m[2] : f.name).trim();
+    // how many may be taken: +1 per matching config choice, +1 per selection of an advantage or upgrade
+    const allowedBy = [];
+    const cap = (f.constraints || []).find((c) => c.field === 'forces' && c.type === 'max');
+    for (const mod of f.modifiers || []) {
+      if (!cap || mod.field !== cap.id || mod.type !== 'increment') continue;
+      for (const r of mod.repeats || []) { const t = byId.get(r.childId); if (t) allowedBy.push({ each: String(t.name).trim() }); }
+      const names = new Set([...keys.values()].map((k) => k.config));
+      for (const c of mod.conditions || []) {
+        const k = keys.get(c.childId) || (catName.has(c.childId) && names.has(catName.get(c.childId).trim()) ? { config: catName.get(c.childId).trim() }
+          : byId.get(c.childId) && names.has(String(byId.get(c.childId).name).trim()) ? { config: String(byId.get(c.childId).name).trim() } : null);
+        if (k) allowedBy.push(k);
+      }
+    }
+    out.detachments.push({ id: `bs-${slug(name)}`, name, type: 'Additional', source: 'army', page: f.page || null,
+      unlock: compText ? compText.split('\n').filter(Boolean).join(' · ') : null, unlockedBy: null, slots, requires: [], restrictions: [], rules: [],
+      allowedBy });
+  }
+  return out;
+}
+
 function armyDetachments(army, units, only) {
   if (!only) CTX = { cats: catalogueSet(army.catalogue), primary: army.catalogue };
   const crusade = gst.data.forceEntries.find((f) => /^Crusade Force/.test(f.name));
@@ -798,29 +866,7 @@ function armyDetachments(army, units, only) {
     if (!m || isHidden(f)) continue;
     const [, type, name] = m;
     if (coreDetachments.has(name.trim())) continue;
-    const slots = [], prime = {}, problems = [];
-    for (const cl of f.categoryLinks || []) {
-      const cname = (catName.get(cl.targetId) || cl.name || '').trim();
-      const max = (cl.constraints || []).filter((c) => c.type === 'max' && c.field === 'selections').map((c) => Number(applyField(cl, c.id, c.value)));
-      if (!max.length) continue;
-      const n = Math.min(...max);
-      if (n <= 0) continue;
-      const pm = cname.match(/^Prime (.+)$/);
-      if (pm) { const r = roleName({ name: pm[1] }); if (r) prime[r] = (prime[r] || 0) + n; continue; }
-      const r = roleName({ name: cname });
-      if (!r) { problems.push(cname); continue; }
-      const slot = { role: r, prime: false };
-      if (/\s-\s/.test(cname)) {
-        slot.onlyLabel = cname.replace(/^[^-]+-\s*/, '');
-        slot.only = units.filter((u) => (u.categories || []).includes(cname)).map((u) => u.id);
-        if (!slot.only.length) problems.push(`no units for ${cname}`);
-      }
-      for (let i = 0; i < n; i++) slots.push(Object.assign({}, slot));
-    }
-    for (const [r, n] of Object.entries(prime)) {
-      let k = n;
-      for (const s of slots) if (k > 0 && s.role === r) { s.prime = true; k--; }
-    }
+    const { slots, problems } = detachmentSlots(f, units);
     if (!slots.length) continue;
     const comp = profilesOf(f).find((p) => p.typeName === 'Detachment Description');
     const compText = comp ? describe(comp).trim() : '';
@@ -913,7 +959,8 @@ function armyAdvantages(army, units) {
   CTX = { cats: catalogueSet(army.catalogue), primary: army.catalogue };
   const out = [];
   const seen = new Set();
-  const lists = [...byId.values()].filter((n) => n.name === 'Prime Benefits' && !n.targetId && !n.type);
+  // "Prime Benefits" in most books; Questoris calls theirs "Household Rank Prime Advantages"
+  const lists = [...byId.values()].filter((n) => /^(Prime Benefits|.*Prime Advantages)$/.test(String(n.name).trim()) && !n.targetId && !n.type);
   for (const list of lists) {
     const file = Object.values(cats).find((c) => JSON.stringify(c.data).includes(`"id":"${list.id}"`));
     if (!file || !CTX.cats.has(file.data.id)) continue;
@@ -1211,6 +1258,8 @@ for (const a of armies) {
   const config = armyConfig(a);
   const dets = armyDetachments(a, units);
   CTX = { cats: catalogueSet(a.catalogue), primary: a.catalogue };
+  const chart = ownForceChart(a, units, config);
+  if (chart) dets.push(...chart.detachments);
   const scen = rosterScenarios(a, units, config, dets);
   hiddenDetachments(a, units, dets, scen);
   finishConfig(config, configKeys(config));
@@ -1223,7 +1272,7 @@ for (const a of armies) {
     ...scen.effects.map(({ unit, ...m }) => Object.assign(m, { id: `${unit.id}-${m.id}`, appliesTo: Object.assign({}, m.appliesTo, { units: [unit.id] }) })),
   ];
   writeFileSync(join(out, a.id, 'modifiers.json'), JSON.stringify({ modifiers: effects }, null, 1) + '\n');
-  writeFileSync(join(out, a.id, 'parts', 'detachments.json'), JSON.stringify({ detachments: dets }, null, 1) + '\n');
+  writeFileSync(join(out, a.id, 'parts', 'detachments.json'), JSON.stringify(Object.assign({ detachments: dets }, chart && chart.primary ? { primary: chart.primary } : {}), null, 1) + '\n');
   writeFileSync(join(out, a.id, 'parts', 'config.json'), JSON.stringify({ armyConfig: config }, null, 1) + '\n');
   const advs = armyAdvantages(a, units);
   writeFileSync(join(out, a.id, 'granted-prime-advantages.json'), JSON.stringify({ grantedPrimeAdvantages: advs }, null, 1) + '\n');
