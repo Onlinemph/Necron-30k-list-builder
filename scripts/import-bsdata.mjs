@@ -148,11 +148,11 @@ function resolve(e) {
       kind: e.type === 'selectionEntryGroup' ? 'group' : base.kind,
     });
     // links often rename what they point at ("Legion Sponson Weapons" → "Sponsons #1")
-    merged.name = applyField(merged, 'name', merged.name);
+    merged.name = String(applyField(merged, 'name', merged.name)).trim();
     return merged;
   }
   const own = Object.assign({}, e, { kind: e.kind || (e.type === 'selectionEntryGroup' || (!e.type && (e.selectionEntries || e.entryLinks) && !e.costs && e.defaultSelectionEntryId !== undefined) ? 'group' : e.kind) });
-  own.name = applyField(own, 'name', own.name);
+  own.name = String(applyField(own, 'name', own.name ?? '')).trim();
   return own;
 }
 const isHidden = (e) => !!applyField(e, 'hidden', !!e.hidden);
@@ -448,6 +448,8 @@ function walkOptions(node, model, unit, opts, optId, addMandatoryCost) {
       const o = { id: optId(`${target || 'unit'}-${c.name}`), text: `${model ? `${model.name}: ` : ''}${label}${how}`, model: target, replaces, choices };
       if (multi) { o.kind = 'perModel'; o.max = gl.unitMax !== null ? { fixed: gl.unitMax } : null; if (groupMax > 1 && !replaces.length) o.note = `Each model may take up to ${groupMax}.`; }
       else o.kind = groupMax === 1 || replaces.length ? 'one' : 'any';
+      // a pick the model must make, with no free default to fall back on
+      if (gl.min >= 1 && !def) o.required = o.kind === 'perModel' ? { count: 'all' } : o.kind === 'any' ? { count: gl.min } : {};
       opts.push(o);
       continue;
     }
@@ -482,16 +484,25 @@ function armyUnits(army) {
   for (const l of cats[army.catalogue].data.catalogueLinks || []) if (l.importRootEntries) rootsFrom.push(l.targetId);
   const units = [];
   const ids = new Set();
+  const seenTarget = new Map(); // same unit linked again for a detachment-restricted slot
   for (const cid of rootsFrom) {
     const d = cats[cid] && cats[cid].data;
     if (!d) continue;
     for (const raw of [...(d.selectionEntries || []), ...(d.entryLinks || [])]) {
       const e = resolve(raw);
       if (!e || isHidden(e) || !['unit', 'model'].includes(e.type)) continue;
+      const key = raw.targetId || raw.id;
+      const restricted = (raw.categoryLinks || []).map((l) => catName.get(l.targetId) || l.name).find((n) => /\s-\s/.test(n || ''));
+      if (seenTarget.has(key)) {
+        if (restricted) { const prev = seenTarget.get(key); prev.note = [prev.note, `Also available as ${restricted}.`].filter(Boolean).join(' '); }
+        continue;
+      }
       const u = convertUnit(e, army.id);
       if (!u) continue;
+      if (restricted) u.note = [u.note, `Listed as ${restricted}.`].filter(Boolean).join(' ');
       while (ids.has(u.id)) u.id += '-2';
       ids.add(u.id);
+      seenTarget.set(key, u);
       units.push(u);
     }
   }
