@@ -490,9 +490,10 @@
           if (!has) issues.push({ level: 'error', msg: `${u.name}: ${o.choices[0].name} needs a ${o.effect.requiresWargear.join(' or ')}.` });
         }
         if (o.required && !(o.required.or && isTaken(sel.options[o.required.or])) && !(o.requires && !requirementMet(o, sel))) {
-          const need = o.kind === 'perModel' ? (o.required.count === 'all' ? eligible(o, sel) : (o.required.count || 1)) : 1;
-          const have = o.kind === 'perModel' ? perModelUsed(val) : (isTaken(val) ? 1 : 0);
-          if (have < need) issues.push({ level: 'error', msg: `${u.name}: must take ${o.kind === 'perModel' ? need + ' from ' : ''}"${short(o.text)}".` });
+          const counted = o.kind === 'perModel' || (o.kind === 'any' && o.required.count > 1);
+          const need = o.kind === 'perModel' ? (o.required.count === 'all' ? eligible(o, sel) : (o.required.count || 1)) : counted ? o.required.count : 1;
+          const have = o.kind === 'perModel' ? perModelUsed(val) : o.kind === 'any' ? (Array.isArray(val) ? val.length : 0) : (isTaken(val) ? 1 : 0);
+          if (have < need) issues.push({ level: 'error', msg: `${u.name}: must take ${counted ? need + ' from ' : ''}"${short(o.text)}".` });
         }
         if (o.excludes && isTaken(val) && o.excludes.some((id) => isTaken(sel.options[id]))) {
           issues.push({ level: 'error', msg: `${u.name}: "${short(o.text)}" can't be combined with another option already taken.` });
@@ -508,6 +509,9 @@
             pools[o.max.shared] = pools[o.max.shared] || { used: 0, cap: eligible(o, sel) };
             pools[o.max.shared].used += used;
           }
+        }
+        if (o.kind === 'any' && o.max && o.max.fixed != null && Array.isArray(val) && val.length > o.max.fixed) {
+          issues.push({ level: 'error', msg: `${u.name}: at most ${o.max.fixed} from "${short(o.text)}".` });
         }
         if (o.kind === 'swapModel') {
           const n = Number(val) || 0;

@@ -23,7 +23,7 @@ if (!src || !existsSync(src)) {
 }
 
 // ---------- load everything ----------
-const files = readdirSync(src).filter((f) => f.endsWith('.json'));
+const files = readdirSync(src).filter((f) => f.endsWith('.json')).sort();
 const cats = {}; // id -> { file, data }
 let gst = null;
 for (const f of files) {
@@ -122,6 +122,12 @@ function applyField(node, field, value) {
     else if (m.type === 'increment') v = (Number(v) || 0) + Number(m.value);
     else if (m.type === 'decrement') v = (Number(v) || 0) - Number(m.value);
     else if (m.type === 'append') v = `${v} ${m.value}`;
+    else if (m.type === 'prepend') v = `${m.value} ${v}`;
+    else if (m.type === 'replace' && m.arg != null) {
+      const arg = String(m.arg);
+      // "X" must match as a word so it doesn't hit the X in other words; "(X)" can match as written
+      v = /^\w+$/.test(arg) ? String(v).replace(new RegExp(`\\b${arg}\\b`), String(m.value)) : String(v).replace(arg, String(m.value));
+    }
   }
   return v;
 }
@@ -328,7 +334,8 @@ function convertUnit(e, armyId) {
   const special = specialCategory(e);
   if (special) unit.note = `Taken as ${special}.`;
   const lim = limits(e);
-  if (lim.rosterMax === 1) unit.unique = /^[A-Z][a-z]+ [A-Z]/.test(e.name) && !/Squad|Battery|Detachment|Cohort/.test(e.name);
+  // named characters: "Horus Lupercal", or a single name such as "Angron"
+  if (lim.rosterMax === 1) unit.unique = (/^[A-Z][a-z]+ [A-Z]/.test(e.name) || /^[A-Z][a-z]+$/.test(e.name)) && !/Squad|Battery|Detachment|Cohort/.test(e.name);
   if (lim.rosterMax === 1 && !unit.unique) unit.limit = '0-1';
   const { rules, traits } = rulesOf(e);
   unit.specialRules = rules;
@@ -444,10 +451,11 @@ function walkOptions(node, model, unit, opts, optId, addMandatoryCost) {
       const replaces = def ? [def.name] : [];
       const groupMax = gl.max === null ? choices.length : gl.max;
       const label = c.name.replace(/[:\s]+$/, '');
-      const how = replaces.length ? (/exchang/i.test(label) ? '' : ` (exchanges the ${replaces[0]})`) : groupMax === 1 ? ' (choose one)' : ` (up to ${groupMax})`;
+      const how = replaces.length ? (/exchang/i.test(label) ? '' : ` (exchanges the ${replaces[0]})`) : groupMax === 1 ? ' (choose one)' : gl.min === groupMax ? ` (choose ${groupMax})` : ` (up to ${groupMax})`;
       const o = { id: optId(`${target || 'unit'}-${c.name}`), text: `${model ? `${model.name}: ` : ''}${label}${how}`, model: target, replaces, choices };
       if (multi) { o.kind = 'perModel'; o.max = gl.unitMax !== null ? { fixed: gl.unitMax } : null; if (groupMax > 1 && !replaces.length) o.note = `Each model may take up to ${groupMax}.`; }
       else o.kind = groupMax === 1 || replaces.length ? 'one' : 'any';
+      if (o.kind === 'any' && gl.max !== null && gl.max < choices.length) o.max = { fixed: gl.max };
       // a pick the model must make, with no free default to fall back on
       if (gl.min >= 1 && !def) o.required = o.kind === 'perModel' ? { count: 'all' } : o.kind === 'any' ? { count: gl.min } : {};
       opts.push(o);
@@ -500,7 +508,7 @@ function armyUnits(army) {
       const u = convertUnit(e, army.id);
       if (!u) continue;
       if (restricted) u.note = [u.note, `Listed as ${restricted}.`].filter(Boolean).join(' ');
-      while (ids.has(u.id)) u.id += '-2';
+      for (let n = 2, base = u.id; ids.has(u.id); n++) u.id = `${base}-${n}`;
       ids.add(u.id);
       seenTarget.set(key, u);
       units.push(u);

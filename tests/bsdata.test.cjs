@@ -63,3 +63,25 @@ test('Rapier Battery scales crew per gun', () => {
   assert.equal(E.modelCounts(s).Legionary, 6);
   assert.equal(E.unitPoints(s), 120);
 });
+
+test('Warlord Titan must take exactly two arm weapons', () => {
+  const D = load('data-legio-titanicus.js').ARMY_DATA['legio-titanicus'];
+  const E = createEngine(D);
+  const s = E.newSelection('warlord-titan');
+  const arms = E.optionsOf(s).find((o) => o.id === 'warlord-titan-arm-weapons');
+  const errs = () => E.unitIssues(s).map((i) => i.msg).join('\n');
+  assert.match(errs(), /must take 2 from "Warlord Titan: Arm weapons/);
+  s.options[arms.id] = arms.choices.slice(0, 3).map((c) => c.name);
+  assert.match(errs(), /at most 2/);
+  s.options[arms.id] = arms.choices.slice(0, 2).map((c) => c.name);
+  assert.doesNotMatch(errs(), /Arm weapons/);
+});
+
+test('BSData name modifiers: (X) values, source Legion prefixes, single-name characters', () => {
+  const lord = load('data-daemons.js').ARMY_DATA.daemons.units.find((u) => u.name === 'Lord of Change');
+  assert.ok(lord.specialRules.includes('Bulky (7)'));
+  const al = load('data-alpha-legion.js').ARMY_DATA['alpha-legion'].units;
+  assert.ok(al.some((u) => u.name === 'Dark Angels Inductii Squad'));
+  assert.equal(new Set(al.map((u) => u.id)).size, al.length);
+  assert.equal(al.find((u) => u.name === 'Alpharius').unique, true);
+});
