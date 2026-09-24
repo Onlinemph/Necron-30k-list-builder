@@ -75,6 +75,282 @@
    "removeUnitTypes": [
     "Light"
    ]
+  },
+  {
+   "id": "force-commander-force-commander-cyber-augmetics",
+   "text": "Cyber-augmetics: IN 8.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cyber-augmetics"
+    },
+    "name": "Cyber-augmetics"
+   },
+   "appliesTo": {
+    "models": [
+     "Force Commander"
+    ],
+    "units": [
+     "force-commander"
+    ]
+   },
+   "scope": "model",
+   "stats": {
+    "IN": "=8"
+   },
+   "addRules": [],
+   "removeRules": []
+  },
+  {
+   "id": "force-commander-arms-of-the-omnissiah",
+   "text": "Arms of the Omnissiah: gains Implacable Advance.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Arms of the Omnissiah"
+    },
+    "name": "Arms of the Omnissiah"
+   },
+   "appliesTo": {
+    "units": [
+     "force-commander"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Implacable Advance"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "discipline-master-cadre-arms-of-the-omnissiah",
+   "text": "Arms of the Omnissiah: gains Implacable Advance.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Arms of the Omnissiah"
+    },
+    "name": "Arms of the Omnissiah"
+   },
+   "appliesTo": {
+    "units": [
+     "discipline-master-cadre"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Implacable Advance"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "rogue-psyker-arms-of-the-omnissiah",
+   "text": "Arms of the Omnissiah: gains Implacable Advance.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Arms of the Omnissiah"
+    },
+    "name": "Arms of the Omnissiah"
+   },
+   "appliesTo": {
+    "units": [
+     "rogue-psyker"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Implacable Advance"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "beastmaster-troop-militia-handler-arms-of-the-omnissiah",
+   "text": "Arms of the Omnissiah: gains Implacable Advance.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Arms of the Omnissiah"
+    },
+    "name": "Arms of the Omnissiah"
+   },
+   "appliesTo": {
+    "models": [
+     "Militia Handler"
+    ],
+    "units": [
+     "beastmaster-troop"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Implacable Advance"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "infantry-troop-arms-of-the-omnissiah",
+   "text": "Arms of the Omnissiah: gains Implacable Advance.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Arms of the Omnissiah"
+    },
+    "name": "Arms of the Omnissiah"
+   },
+   "appliesTo": {
+    "units": [
+     "infantry-troop"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Implacable Advance"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "levy-troop-arms-of-the-omnissiah",
+   "text": "Arms of the Omnissiah: gains Implacable Advance.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Arms of the Omnissiah"
+    },
+    "name": "Arms of the Omnissiah"
+   },
+   "appliesTo": {
+    "units": [
+     "levy-troop"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Implacable Advance"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "militia-medicae-arms-of-the-omnissiah",
+   "text": "Arms of the Omnissiah: gains Implacable Advance.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Arms of the Omnissiah"
+    },
+    "name": "Arms of the Omnissiah"
+   },
+   "appliesTo": {
+    "units": [
+     "militia-medicae"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Implacable Advance"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "rapier-troop-militia-gunner-arms-of-the-omnissiah",
+   "text": "Arms of the Omnissiah: gains Implacable Advance.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Arms of the Omnissiah"
+    },
+    "name": "Arms of the Omnissiah"
+   },
+   "appliesTo": {
+    "models": [
+     "Militia Gunner"
+    ],
+    "units": [
+     "rapier-troop"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Implacable Advance"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "field-gun-battery-arms-of-the-omnissiah",
+   "text": "Arms of the Omnissiah: gains Implacable Advance.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Arms of the Omnissiah"
+    },
+    "name": "Arms of the Omnissiah"
+   },
+   "appliesTo": {
+    "units": [
+     "field-gun-battery"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Implacable Advance"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "heavy-ordnance-battery-militia-gunner-arms-of-the-omnissiah",
+   "text": "Arms of the Omnissiah: gains Implacable Advance.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Arms of the Omnissiah"
+    },
+    "name": "Arms of the Omnissiah"
+   },
+   "appliesTo": {
+    "models": [
+     "Militia Gunner"
+    ],
+    "units": [
+     "heavy-ordnance-battery"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Implacable Advance"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "reconnaissance-troop-arms-of-the-omnissiah",
+   "text": "Arms of the Omnissiah: gains Implacable Advance.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Arms of the Omnissiah"
+    },
+    "name": "Arms of the Omnissiah"
+   },
+   "appliesTo": {
+    "units": [
+     "reconnaissance-troop"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Implacable Advance"
+   ],
+   "removeRules": []
   }
  ]
 }

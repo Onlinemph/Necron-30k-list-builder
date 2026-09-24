@@ -50,7 +50,12 @@
      },
      {
       "name": "Debased Rabble",
-      "text": "This Provenance may only be selected for an Army with the Traitor Allegiance. An Army with this Provenance gains the following benefits:\n • All Models with the Irregulars Special Rule in this Army have their Base Cool Characteristic modified by +1 and their Base Intelligence Characteristic modified by -1.\n • The following item is added to the Militia Melee Weapons list and Militia Officer Weapons list:- Tainted implements +1 Point"
+      "text": "This Provenance may only be selected for an Army with the Traitor Allegiance. An Army with this Provenance gains the following benefits:\n • All Models with the Irregulars Special Rule in this Army have their Base Cool Characteristic modified by +1 and their Base Intelligence Characteristic modified by -1.\n • The following item is added to the Militia Melee Weapons list and Militia Officer Weapons list:- Tainted implements +1 Point",
+      "unless": [
+       {
+        "config": "Loyalist"
+       }
+      ]
      },
      {
       "name": "Feral Warriors",
@@ -86,7 +91,12 @@
      },
      {
       "name": "Tainted Flesh",
-      "text": "This Provenance may only be selected for an Army with the Traitor Allegiance. An Army with this Provenance gains the following benefits:\n • All Models with the Irregulars Special Rule in this Army gain the Aflame (1) and Impact (I) Special Rules.\n • Each Rogue Psyker Model in this Army may have up to two Psychic Disciplines selected for it from the options available on its profile instead of one."
+      "text": "This Provenance may only be selected for an Army with the Traitor Allegiance. An Army with this Provenance gains the following benefits:\n • All Models with the Irregulars Special Rule in this Army gain the Aflame (1) and Impact (I) Special Rules.\n • Each Rogue Psyker Model in this Army may have up to two Psychic Disciplines selected for it from the options available on its profile instead of one.",
+      "unless": [
+       {
+        "config": "Loyalist"
+       }
+      ]
      },
      {
       "name": "Unending Horde",

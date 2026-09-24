@@ -1,3 +1,3840 @@
 {
- "modifiers": []
+ "modifiers": [
+  {
+   "id": "legatine-command-section-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "legatine-command-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "legatine-command-section-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "legatine-command-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "legatine-command-section-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "legatine-command-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "lasrifle-section-cohort-doctrine-iron-pattern-cohort",
+   "text": "Cohort Doctrine: Iron Pattern Cohort: gains Expendable (1).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Iron Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Iron Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "lasrifle-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Expendable (1)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "lasrifle-section-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "lasrifle-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "tactical-command-section-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "tactical-command-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "tactical-command-section-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "tactical-command-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "tactical-command-section-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "tactical-command-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "line-command-section-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "line-command-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "line-command-section-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "line-command-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "line-command-section-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "line-command-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "veletaris-command-section-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "veletaris-command-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "veletaris-command-section-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "veletaris-command-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "veletaris-command-section-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "veletaris-command-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "hermes-command-section-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "hermes-command-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "hermes-command-section-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "hermes-command-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "hermes-command-section-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "hermes-command-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "armoured-command-section-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "armoured-command-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "armoured-command-section-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "armoured-command-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "armoured-command-section-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "armoured-command-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "veletaris-storm-section-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "veletaris-storm-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "veletaris-storm-section-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "veletaris-storm-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "veletaris-storm-section-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "veletaris-storm-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "veletaris-vanguard-section-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "veletaris-vanguard-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "veletaris-vanguard-section-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "veletaris-vanguard-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "veletaris-vanguard-section-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "veletaris-vanguard-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "charonite-ogryn-section-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "charonite-ogryn-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "charonite-ogryn-section-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "charonite-ogryn-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "charonite-ogryn-section-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "charonite-ogryn-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "basilisk-artillery-tank-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "basilisk-artillery-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "basilisk-artillery-tank-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "basilisk-artillery-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "basilisk-artillery-tank-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "basilisk-artillery-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "medusa-artillery-tank-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "medusa-artillery-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "medusa-artillery-tank-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "medusa-artillery-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "medusa-artillery-tank-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "medusa-artillery-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "hermes-veletaris-squadron-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "hermes-veletaris-squadron"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "hermes-veletaris-squadron-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "hermes-veletaris-squadron"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "hermes-veletaris-squadron-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "hermes-veletaris-squadron"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "aethon-heavy-sentinel-squadron-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "aethon-heavy-sentinel-squadron"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "aethon-heavy-sentinel-squadron-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "aethon-heavy-sentinel-squadron"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "aethon-heavy-sentinel-squadron-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "aethon-heavy-sentinel-squadron"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "rapier-section-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "rapier-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "rapier-section-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "rapier-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "rapier-section-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "rapier-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "arvus-lighter-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "arvus-lighter"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "arvus-lighter-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "arvus-lighter"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "arvus-lighter-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "arvus-lighter"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "dracosan-armoured-transport-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "dracosan-armoured-transport"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor",
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "hermes-light-sentinel-squadron-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "hermes-light-sentinel-squadron"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "hermes-light-sentinel-squadron-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "hermes-light-sentinel-squadron"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "hermes-light-sentinel-squadron-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "hermes-light-sentinel-squadron"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "primaris-lightning-strike-fighter-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "primaris-lightning-strike-fighter"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "primaris-lightning-strike-fighter-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "primaris-lightning-strike-fighter"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "primaris-lightning-strike-fighter-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "primaris-lightning-strike-fighter"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "thunderbolt-heavy-fighter-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "thunderbolt-heavy-fighter"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "thunderbolt-heavy-fighter-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "thunderbolt-heavy-fighter"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "thunderbolt-heavy-fighter-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "thunderbolt-heavy-fighter"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "malcador-heavy-tank-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "malcador-heavy-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "malcador-heavy-tank-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "malcador-heavy-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "malcador-heavy-tank-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "malcador-heavy-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "leman-russ-assault-tank-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "leman-russ-assault-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "leman-russ-assault-tank-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "leman-russ-assault-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "leman-russ-assault-tank-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "leman-russ-assault-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "leman-russ-strike-tank-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "leman-russ-strike-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "leman-russ-strike-tank-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "leman-russ-strike-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "leman-russ-strike-tank-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "leman-russ-strike-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "malcador-infernus-special-weapon-tank-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "malcador-infernus-special-weapon-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "malcador-infernus-special-weapon-tank-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "malcador-infernus-special-weapon-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "malcador-infernus-special-weapon-tank-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "malcador-infernus-special-weapon-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "valdor-tank-destroyer-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "valdor-tank-destroyer"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "valdor-tank-destroyer-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "valdor-tank-destroyer"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "valdor-tank-destroyer-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "valdor-tank-destroyer"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "stormhammer-super-heavy-assault-tank-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "stormhammer-super-heavy-assault-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "stormhammer-super-heavy-assault-tank-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "stormhammer-super-heavy-assault-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "stormhammer-super-heavy-assault-tank-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "stormhammer-super-heavy-assault-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "artillery-command-section-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "artillery-command-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "artillery-command-section-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "artillery-command-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "artillery-command-section-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "artillery-command-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "aurox-transport-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "aurox-transport"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "aurox-transport-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "aurox-transport"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "aurox-transport-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "aurox-transport"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "avenger-strike-fighter-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "avenger-strike-fighter"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "avenger-strike-fighter-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "avenger-strike-fighter"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "avenger-strike-fighter-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "avenger-strike-fighter"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "baneblade-super-heavy-battle-tank-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "baneblade-super-heavy-battle-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "baneblade-super-heavy-battle-tank-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators, gains the Tzeench trait, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "baneblade-super-heavy-battle-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench",
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "baneblade-super-heavy-battle-tank-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "baneblade-super-heavy-battle-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "banehammer-super-heavy-assault-tank-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "banehammer-super-heavy-assault-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "banehammer-super-heavy-assault-tank-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "banehammer-super-heavy-assault-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "banehammer-super-heavy-assault-tank-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "banehammer-super-heavy-assault-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "carnodon-strike-tank-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "carnodon-strike-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "carnodon-strike-tank-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "carnodon-strike-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "carnodon-strike-tank-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "carnodon-strike-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "crassus-armoured-assault-transport-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "crassus-armoured-assault-transport"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "crassus-armoured-assault-transport-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "crassus-armoured-assault-transport"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "crassus-armoured-assault-transport-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "crassus-armoured-assault-transport"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "cyclops-demolition-vehicle-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "cyclops-demolition-vehicle"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "cyclops-demolition-vehicle-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "cyclops-demolition-vehicle"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "cyclops-demolition-vehicle-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "cyclops-demolition-vehicle"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "davinite-lodge-priest-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "davinite-lodge-priest"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "davinite-lodge-priest-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators, gains the Fateweaver trait, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "davinite-lodge-priest"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Fateweaver",
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "davinite-lodge-priest-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "davinite-lodge-priest"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "destroyer-tank-hunter-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "destroyer-tank-hunter"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "expeditionary-navigator-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "expeditionary-navigator"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "expeditionary-navigator-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators, gains the Tzeench trait, gains the Fateweaver trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "expeditionary-navigator"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench",
+    "Fateweaver"
+   ]
+  },
+  {
+   "id": "expeditionary-navigator-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "expeditionary-navigator"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "hellhammer-super-heavy-battle-tank-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "hellhammer-super-heavy-battle-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "hellhammer-super-heavy-battle-tank-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "hellhammer-super-heavy-battle-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "hellhammer-super-heavy-battle-tank-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "hellhammer-super-heavy-battle-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "macharius-heavy-tank-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "macharius-heavy-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "macharius-heavy-tank-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "macharius-heavy-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "macharius-heavy-tank-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "macharius-heavy-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "marauder-bomber-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "marauder-bomber"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "marauder-bomber-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "marauder-bomber"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "marauder-bomber-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "marauder-bomber"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "marauder-destroyer-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "marauder-destroyer"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "marauder-destroyer-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "marauder-destroyer"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "marauder-destroyer-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "marauder-destroyer"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "medicae-section-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "medicae-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "medicae-section-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "medicae-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "medicae-section-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "medicae-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "minotaur-artillery-tank-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "minotaur-artillery-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "minotaur-artillery-tank-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "minotaur-artillery-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "minotaur-artillery-tank-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "minotaur-artillery-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "praetor-armoured-assault-launcher-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "praetor-armoured-assault-launcher"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "praetor-armoured-assault-launcher-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "praetor-armoured-assault-launcher"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "praetor-armoured-assault-launcher-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "praetor-armoured-assault-launcher"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "shadowsword-super-heavy-tank-destroyer-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "shadowsword-super-heavy-tank-destroyer"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "shadowsword-super-heavy-tank-destroyer-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "shadowsword-super-heavy-tank-destroyer"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "shadowsword-super-heavy-tank-destroyer-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "shadowsword-super-heavy-tank-destroyer"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "stormblade-super-heavy-tank-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "stormblade-super-heavy-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "stormblade-super-heavy-tank-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "stormblade-super-heavy-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "stormblade-super-heavy-tank-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "stormblade-super-heavy-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "stormlord-super-heavy-assault-tank-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "stormlord-super-heavy-assault-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "stormlord-super-heavy-assault-tank-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "stormlord-super-heavy-assault-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "stormlord-super-heavy-assault-tank-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "stormlord-super-heavy-assault-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "surgeon-primus-aevos-jovan-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "surgeon-primus-aevos-jovan"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "surgeon-primus-aevos-jovan-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "surgeon-primus-aevos-jovan"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "surgeon-primus-aevos-jovan-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "surgeon-primus-aevos-jovan"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "tarantula-section-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "tarantula-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "tarantula-section-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "tarantula-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "tarantula-section-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "tarantula-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "thunderer-siege-tank-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "thunderer-siege-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "thunderer-siege-tank-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "thunderer-siege-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "thunderer-siege-tank-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "thunderer-siege-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "companion-section-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "companion-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "companion-section-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "companion-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "companion-section-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "companion-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "stormsword-super-heavy-siege-tank-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "stormsword-super-heavy-siege-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "stormsword-super-heavy-siege-tank-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "stormsword-super-heavy-siege-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "stormsword-super-heavy-siege-tank-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "stormsword-super-heavy-siege-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "castellax-battle-maniple-iron-tercio",
+   "text": "Iron Tercio: gains the Iron Tercio trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "detachment": "Iron Tercio"
+    },
+    "name": "Iron Tercio"
+   },
+   "appliesTo": {
+    "units": [
+     "castellax-battle-maniple"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [],
+   "removeRules": [],
+   "addTraits": [
+    "Iron Tercio"
+   ]
+  },
+  {
+   "id": "castellax-destructor-maniple-iron-tercio",
+   "text": "Iron Tercio: gains the Iron Tercio trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "detachment": "Iron Tercio"
+    },
+    "name": "Iron Tercio"
+   },
+   "appliesTo": {
+    "units": [
+     "castellax-destructor-maniple"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [],
+   "removeRules": [],
+   "addTraits": [
+    "Iron Tercio"
+   ]
+  },
+  {
+   "id": "dracosan-command-tank-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "dracosan-command-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "auxilia-combat-technician-section-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "auxilia-combat-technician-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "auxilia-combat-technician-section-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "auxilia-combat-technician-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "auxilia-combat-technician-section-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "auxilia-combat-technician-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "veletaris-raider-section-cohort-doctrine-oblitum-pattern-cohort",
+   "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    },
+    "name": "Cohort Doctrine: Oblitum Pattern Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "veletaris-raider-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Imperial Writ"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "veletaris-raider-section-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean, gains the Tzeench trait.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "veletaris-raider-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
+   ],
+   "removeRules": [],
+   "addTraits": [
+    "Tzeench"
+   ]
+  },
+  {
+   "id": "veletaris-raider-section-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "veletaris-raider-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": []
+  }
+ ]
 }

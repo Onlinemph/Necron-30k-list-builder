@@ -374,6 +374,203 @@
    "requires": [],
    "restrictions": [],
    "rules": []
+  },
+  {
+   "id": "bs-tank-commander-armoured-support-when",
+   "name": "Tank Commander Armoured Support",
+   "type": "Auxiliary",
+   "source": "army",
+   "page": null,
+   "unlock": "4 Armour",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Armour",
+     "prime": false
+    },
+    {
+     "role": "Armour",
+     "prime": false
+    },
+    {
+     "role": "Armour",
+     "prime": false
+    },
+    {
+     "role": "Armour",
+     "prime": false
+    }
+   ],
+   "requires": [],
+   "restrictions": [],
+   "rules": [],
+   "when": [
+    {
+     "category": "Tank Commander"
+    }
+   ]
+  },
+  {
+   "id": "bs-tank-commander-armour-tercio-when",
+   "name": "Tank Commander Armour Tercio",
+   "type": "Auxiliary",
+   "source": "army",
+   "page": null,
+   "unlock": "3 Armour · All gain Armour Tercio Trait · Leman Russ Strike Tank, Leman Russ Assault Tank or Malcador Heavy Tank Units only",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Armour",
+     "prime": false,
+     "onlyLabel": "Leman Russ Strike, Leman Russ Assault or Malcador Heavy tank units only",
+     "only": [
+      "malcador-heavy-tank",
+      "leman-russ-assault-tank",
+      "leman-russ-strike-tank"
+     ]
+    },
+    {
+     "role": "Armour",
+     "prime": false,
+     "onlyLabel": "Leman Russ Strike, Leman Russ Assault or Malcador Heavy tank units only",
+     "only": [
+      "malcador-heavy-tank",
+      "leman-russ-assault-tank",
+      "leman-russ-strike-tank"
+     ]
+    },
+    {
+     "role": "Armour",
+     "prime": false,
+     "onlyLabel": "Leman Russ Strike, Leman Russ Assault or Malcador Heavy tank units only",
+     "only": [
+      "malcador-heavy-tank",
+      "leman-russ-assault-tank",
+      "leman-russ-strike-tank"
+     ]
+    }
+   ],
+   "requires": [],
+   "restrictions": [],
+   "rules": [],
+   "when": [
+    {
+     "category": "Tank Commander"
+    }
+   ]
+  },
+  {
+   "id": "bs-helot-tercio-when",
+   "name": "Helot Tercio",
+   "type": "Auxiliary",
+   "source": "army",
+   "page": null,
+   "unlock": "1 Command · 2 Troops · 1 Support · Command must be Discipline Cadre · Troops must be Infantry Troop or Levy Troop Units · Support must be Militia Medicae or Fire Support Troop Units only · Command Units do not grant additional Auxiliary Detachments",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Command",
+     "prime": false,
+     "onlyLabel": "Discipline Master Cadre only",
+     "only": [
+      "discipline-master-cadre"
+     ]
+    },
+    {
+     "role": "Troops",
+     "prime": false,
+     "onlyLabel": "Infantry Troop or Levy Troop only",
+     "only": [
+      "infantry-troop",
+      "levy-troop"
+     ]
+    },
+    {
+     "role": "Troops",
+     "prime": false,
+     "onlyLabel": "Infantry Troop or Levy Troop only",
+     "only": [
+      "infantry-troop",
+      "levy-troop"
+     ]
+    },
+    {
+     "role": "Support",
+     "prime": false,
+     "onlyLabel": "Militia Medicae or Fire Support Troop only",
+     "only": [
+      "militia-medicae",
+      "fire-support-troop"
+     ]
+    }
+   ],
+   "requires": [],
+   "restrictions": [],
+   "rules": [],
+   "when": [
+    {
+     "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+    }
+   ]
+  },
+  {
+   "id": "bs-theric-incursion-detachment-when",
+   "name": "Ætheric Incursion Detachment",
+   "type": "Auxiliary",
+   "source": "army",
+   "page": null,
+   "unlock": "1 Command · 2 Troops · 1 Support · 1 Fast Attack · Slots in this detachment may only be filled with Units from the Daemons of Tzeench Army list · Command Units do not grant additional Auxiliary Detachments",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Command",
+     "prime": false,
+     "onlyLabel": "Tzeench only",
+     "only": [
+      "herald-of-tzeench"
+     ]
+    },
+    {
+     "role": "Troops",
+     "prime": false,
+     "onlyLabel": "Tzeench only",
+     "only": [
+      "horrors-of-tzeench"
+     ]
+    },
+    {
+     "role": "Troops",
+     "prime": false,
+     "onlyLabel": "Tzeench only",
+     "only": [
+      "horrors-of-tzeench"
+     ]
+    },
+    {
+     "role": "Support",
+     "prime": false,
+     "onlyLabel": "Tzeench only",
+     "only": [
+      "flamers-of-tzeench"
+     ]
+    },
+    {
+     "role": "Fast Attack",
+     "prime": false,
+     "onlyLabel": "Tzeench only",
+     "only": [
+      "screamers-of-tzeench"
+     ]
+    }
+   ],
+   "requires": [],
+   "restrictions": [],
+   "rules": [],
+   "when": [
+    {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    }
+   ]
   }
  ]
 }

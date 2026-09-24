@@ -51,6 +51,47 @@
     const effects = (data.sequelaEffects && data.sequelaEffects.effects) || [];
     let activeSeq = new Set();
     function setSequelae(list) { activeSeq = new Set(list || []); }
+    // ---------- what else is in the army: config choices, units, upgrades, and each unit's detachment ----------
+    // BSData imports mark options, units and effects "only with X" (when) or "not with X" (unless).
+    let ctx = { config: new Set(), units: new Set(), upgrades: new Set(), categories: new Set(), detOf: new Map() };
+    function setArmy(army) {
+      setSequelae(army.sequelae);
+      const config = new Set(Object.values(army.config || {}).flat());
+      const units = new Set(), upgrades = new Set(), categories = new Set(), detOf = new Map();
+      for (const d of army.detachments) for (const s of d.slots) {
+        if (!s.unit) continue;
+        const u = unit(s.unit.unitId);
+        units.add(s.unit.unitId);
+        detOf.set(s.unit, d.name);
+        for (const [id, v] of Object.entries(s.unit.options || {})) {
+          if (v == null || v === false || v === '' || v === 0) continue;
+          if (typeof v === 'string') upgrades.add(v);
+          else if (Array.isArray(v)) v.forEach((x) => upgrades.add(x));
+          else if (typeof v === 'object') Object.entries(v).forEach(([k, n]) => { if (n > 0) upgrades.add(k); });
+          else { const o = u && (u.options || []).find((x) => x.id === id); if (o && o.choices[0]) upgrades.add(o.choices[0].name); }
+        }
+        if (u) for (const m of u.models) for (const w of m.wargear || []) upgrades.add(w);
+        if (u) for (const c of u.categories || []) categories.add(c);
+      }
+      ctx = { config, units, upgrades, categories, detOf };
+    }
+    function condOk(c, sel, detName) {
+      if (c.config) return ctx.config.has(c.config);
+      if (c.unit) return ctx.units.has(c.unit);
+      if (c.upgrade) return ctx.upgrades.has(c.upgrade);
+      if (c.detachment) return (detName || (sel && ctx.detOf.get(sel))) === c.detachment;
+      if (c.category) return ctx.categories.has(c.category);
+      if (c.all) return c.all.every((x) => condOk(x, sel, detName));
+      return false;
+    }
+    function available(x, sel, detName) {
+      if (!x) return false;
+      if (x.when && !x.when.some((c) => condOk(c, sel, detName))) return false;
+      if (x.unless && x.unless.some((c) => condOk(c, sel, detName))) return false;
+      return true;
+    }
+    const condText = (c) => (c.all ? c.all.map((x) => condText(x)).join(' and ') : null) || (c.category ? `a ${c.category}` : null) || c.config || c.unitName || (c.unit && unit(c.unit) ? unit(c.unit).name : c.unit) || c.upgrade || (c.detachment ? `the ${c.detachment}` : '?');
+
     function activeEffects(type) { return effects.filter((e) => activeSeq.has(e.sequela) && (!type || e.type === type)); }
 
     function unitHasTrait(u, t) {
@@ -82,7 +123,7 @@
       const choice = arkanaOf(sel);
       const byChoice = choice ? choiceEffects.filter((e) => e.type === 'option' && (e.choice || []).includes(choice) && choiceEffectMatches(e, u))
         .map((e) => Object.assign({ replaces: [] }, e.option, { effect: e })) : [];
-      return (u.options || []).concat(extra, byChoice);
+      return (u.options || []).filter((o) => !(o.when || o.unless) || available(o, sel)).concat(extra, byChoice);
     }
     const choiceEffects = (data.choiceEffects && data.choiceEffects.effects) || [];
     function choiceEffectMatches(e, u) {
@@ -269,6 +310,7 @@
         if (n > m.min) pts += (n - m.min) * (Number(m.costPerExtra) || 0);
       }
       for (const o of optionsOf(sel)) pts += optionCost(o, sel);
+      for (const p of u.pointsWhen || []) if (condOk(p.when, sel)) pts += p.delta;
       return pts;
     }
 
@@ -410,6 +452,7 @@
           case 'primeAdvantage': return sel.primeAdvantage === src.name;
           case 'unitRule': return (u.unitRules || []).some((r) => norm(r.name) === norm(src.name)) || [...(u.specialRules || []), ...u.models.flatMap((m) => m.specialRules || [])].some((r) => norm(r) === norm(src.name));
           case 'wargear': case 'upgrade': return items.has(src.name);
+          case 'when': return condOk(src.when, sel);
           default: return false;
         }
       };
@@ -563,7 +606,7 @@
     }
 
     function armyPoints(army) {
-      setSequelae(army.sequelae);
+      setArmy(army);
       return allSelections(army).reduce((a, x) => a + unitPoints(x.sel), 0);
     }
 
@@ -584,7 +627,7 @@
     }
 
     function armyIssues(army) {
-      setSequelae(army.sequelae);
+      setArmy(army);
       const issues = [];
       const sels = allSelections(army);
       const total = armyPoints(army);
@@ -678,7 +721,7 @@
           if (s.logisticOf && !d.slots.some((o) => o.unit && o.unit.uid === s.logisticOf && o.unit.primeAdvantage === 'Logistical Benefit' && o.unit.logisticalRole === s.role)) {
             issues.push({ level: 'error', msg: `${u.name} is in an extra ${s.role} slot whose Logistical Benefit is gone.` });
           }
-          if (s.unit.primeAdvantage === 'Logistical Benefit' && !s.unit.logisticalRole) {
+          if ((s.unit.primeAdvantage === 'Logistical Benefit' || (slotAdder(s.unit.primeAdvantage) || {}).chooseRole) && !s.unit.logisticalRole) {
             issues.push({ level: 'error', msg: `${u.name}: choose the Battlefield Role for Logistical Benefit.` });
           }
           if (!slotAllows(d, s, u, s.unit)) {
@@ -704,7 +747,7 @@
           if (granted && granted.oncePerArmy && sels.filter((x) => x.sel.primeAdvantage === granted.name).length > 1 && sels.find((x) => x.sel.primeAdvantage === granted.name).sel === s.unit) {
             issues.push({ level: 'error', msg: `${granted.name} can only be selected once per army.` });
           }
-          if (s.extraOf && !d.slots.some((o) => o.unit && o.unit.uid === s.extraOf && (data.grantedPrimeAdvantages || []).some((g) => g.addSlots && g.name === o.unit.primeAdvantage))) {
+          if (s.extraOf && !d.slots.some((o) => o.unit && o.unit.uid === s.extraOf && slotAdder(o.unit.primeAdvantage))) {
             issues.push({ level: 'error', msg: `${u.name} is in a slot added by a Prime Advantage that's gone.` });
           }
           if (granted && granted.grantedBy && !sels.some((x) => x.sel.unitId === granted.grantedBy)) {
@@ -756,8 +799,11 @@
         const ul = def && def.unlockRule;
         if (!ul) continue;
         const where = ul.primary ? army.detachments.filter((x) => x.kind === 'primary') : army.detachments;
-        const ok = where.some((x) => x.slots.some((s) => s.unit && unit(s.unit.unitId) && unitHasRule(unit(s.unit.unitId), ul.rule)));
-        if (!ok) issues.push({ level: 'error', msg: `${d.name} needs a model with ${ul.rule} in the ${ul.primary ? 'Primary Detachment' : 'army'}.` });
+        // the rule can come from the unit, a trait, or an upgrade it took (Archimandrite)
+        const selHas = (sel) => { const u = unit(sel.unitId); if (!u) return false; if (unitHasRule(u, ul.rule) || (u.traits || []).some((t) => norm(t) === norm(ul.rule))) return true;
+          return Object.values(sel.options || {}).some((v) => JSON.stringify(v).toLowerCase().includes(`"${ul.rule.toLowerCase()}"`)); };
+        const ok = where.some((x) => x.slots.some((s) => s.unit && (!ul.role || s.role === ul.role) && selHas(s.unit)));
+        if (!ok) issues.push({ level: 'error', msg: `${d.name} needs ${ul.role ? `a ${ul.role} model` : 'a model'} with ${ul.rule} in the ${ul.primary ? 'Primary Detachment' : 'army'}.` });
         seenOnce[def.id] = (seenOnce[def.id] || 0) + 1;
         if (ul.once && seenOnce[def.id] === 2) issues.push({ level: 'error', msg: `${d.name} can only be taken once per army.` });
       }
@@ -779,9 +825,27 @@
           if (!has) issues.push({ level: 'warn', msg: `${d.name} requires ${/^[aeiou]/i.test(need) ? 'an' : 'a'} ${need} in the army; none found.` });
         }
       }
+      // units and detachments that depend on something else in the army
+      for (const x of sels) {
+        const u = unit(x.sel.unitId);
+        if (!u || !(u.when || u.unless) || available(u, x.sel)) continue;
+        const bad = (u.unless || []).find((c) => condOk(c, x.sel));
+        issues.push({ level: 'error', msg: bad ? `${u.name} can't be taken with ${condText(bad)}.` : `${u.name} needs ${u.when.map(condText).join(' or ')}.` });
+      }
+      for (const d of army.detachments) {
+        const def = d.defId ? detById.get(d.defId) : null;
+        if (def && def.when && !def.when.some((c) => condOk(c))) issues.push({ level: 'error', msg: `${d.name} needs ${def.when.map(condText).join(' or ')} in the army.` });
+      }
       // army configuration: Rites of War, Cohort Doctrines, Provenances of War…
       for (const g of (data.armyConfig && data.armyConfig.groups) || []) {
-        const n = ((army.config || {})[g.id] || []).length;
+        if (g.when && !available(g)) continue;
+        const picked = (army.config || {})[g.id] || [];
+        for (const c of g.choices) {
+          if (!picked.includes(c.name) || !c.unless) continue;
+          const bad = c.unless.find((k) => condOk(k));
+          if (bad) issues.push({ level: 'error', msg: `Army configuration: ${c.name} can't be combined with ${condText(bad)}.` });
+        }
+        const n = picked.length;
         if (n < g.min) issues.push({ level: 'error', msg: `Army configuration: choose ${g.min === g.max ? g.min : 'at least ' + g.min} from ${g.name}${n ? ` (${n} chosen)` : ''}.` });
         if (n > g.max) issues.push({ level: 'error', msg: `Army configuration: at most ${g.max} from ${g.name} (${n} chosen).` });
       }
@@ -874,11 +938,18 @@
     function unitsForSlot(slot, det) {
       return data.units.filter((u) => {
         if (!slotAllows(det, slot, u)) return false;
+        if ((u.when || u.unless) && !available(u, null, det && det.name)) return false;
         if (slot.advisor) return u.cryptoArkana || !!u.fixedArkana;
         if (slot.flexible) return !(slot.exclude || []).includes(u.role);
         if (slot.role === 'Command' && slot.prime && u.role === 'High Command') return true; // Special Assignment
         return rolesFor(u).includes(slot.role);
       });
+    }
+
+    /** A Prime Advantage that adds slots (Clade Operative, Rewards of Treachery, Logisticae). */
+    function slotAdder(name) {
+      const g = name && (data.grantedPrimeAdvantages || []).find((x) => x.name === name && x.addSlots);
+      return g ? g.addSlots : null;
     }
 
     /** Dynastic Advisors adds two Command slots to the detachment. Keeps slots in sync. */
@@ -904,10 +975,13 @@
       // Prime Advantages that add slots (Clade Operative: three Support slots for Assassins)
       const adders = new Map();
       for (const s of det.slots) {
-        const g = s.unit && (data.grantedPrimeAdvantages || []).find((x) => x.name === s.unit.primeAdvantage && x.addSlots);
-        if (g) adders.set(s.unit.uid, g.addSlots);
+        const add = s.unit && slotAdder(s.unit.primeAdvantage);
+        if (!add) continue;
+        // Rewards of Treachery, Logisticae: the player picks the extra slot's role
+        const role = add.chooseRole ? s.unit.logisticalRole : add.role;
+        if (role) adders.set(s.unit.uid, Object.assign({}, add, { role }));
       }
-      det.slots = det.slots.filter((s) => !s.extraOf || adders.has(s.extraOf) || s.unit);
+      det.slots = det.slots.filter((s) => !s.extraOf || (adders.has(s.extraOf) && adders.get(s.extraOf).role === s.role) || s.unit);
       for (const [owner, add] of adders) {
         if (det.slots.some((s) => s.extraOf === owner)) continue;
         for (let i = 0; i < add.count; i++) det.slots.push({ uid: uid('s'), role: add.role, prime: false, flexible: false, exclude: null, advisor: false, extraOf: owner, operative: add.operative || null, onlyLabel: add.operative ? `${add.operative} only` : null, unit: null });
@@ -917,7 +991,7 @@
     return {
       data, ROLES, ARKANA: CHOICE.options, choiceLabel: CHOICE.label, unit, choicesFor, sizableModels, swapTargets, newSelection, modelCounts, totalModels,
       eligible, optionMax, perModelUsed, optionCost, unitPoints, loadout, unitIssues, armyIssues, armyPoints,
-      allSelections, sequelaAllowance, makeDetachment, detachmentFromDef, unitsForSlot, slotAllows, syncAdvisorSlots,
+      allSelections, sequelaAllowance, setArmy, slotAdder, available, condOk, condText, makeDetachment, detachmentFromDef, unitsForSlot, slotAllows, syncAdvisorSlots,
       hasTrait, arkanaOf, uid, setSequelae, effectiveModels, primeAdvantagesFor, requirementMet, unlocks, optionsOf, modelMax, rolesFor, activeEffects, grantedTraits,
     };
   }

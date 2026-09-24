@@ -196,10 +196,11 @@ for (const r of out.sequelaEffects.rules || []) ruleKeys.add(norm(r.name));
 
 // modifiers must point at real units and models
 const allModels = new Set(out.units.flatMap((u) => u.models.map((m) => m.name)));
-const STAT_KEYS = new Set(['M', 'WS', 'BS', 'S', 'T', 'W', 'I', 'A', 'LD', 'CL', 'WP', 'IN', 'SAV', 'INV', 'FRONT', 'SIDE', 'REAR', 'HP']);
+const STAT_KEYS = new Set(['M', 'WS', 'BS', 'S', 'T', 'W', 'I', 'A', 'LD', 'CL', 'WP', 'IN', 'SAV', 'INV', 'FRONT', 'SIDE', 'REAR', 'HP',
+  ...out.units.flatMap((u) => u.models.flatMap((m) => Object.keys(m.profile || {})))]);
 for (const m of out.modifiers.modifiers) {
   const where = `modifier ${m.id}`;
-  if (!['sequela', 'wargear', 'arkana', 'primeAdvantage', 'upgrade', 'unitRule'].includes(m.source?.type)) problems.push(`${where}: bad source type`);
+  if (!['sequela', 'wargear', 'arkana', 'primeAdvantage', 'upgrade', 'unitRule', 'when'].includes(m.source?.type)) problems.push(`${where}: bad source type`);
   if (m.source?.type === 'sequela' && !seqNames.has(m.source.name)) problems.push(`${where}: unknown sequela ${m.source.name}`);
   for (const id of m.appliesTo?.units || []) if (!ids.has(id)) problems.push(`${where}: unknown unit ${id}`);
   for (const n of m.appliesTo?.models || []) if (!allModels.has(n)) problems.push(`${where}: unknown model ${n}`);

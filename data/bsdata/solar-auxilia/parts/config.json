@@ -1,6 +1,107 @@
 {
  "armyConfig": {
-  "fixed": [],
+  "fixed": [
+   {
+    "name": "Fire Support!",
+    "text": "Trigger: The Reactive Player may declare a Fire Support! Advanced Reaction in the Shooting Phase, during Step 3 of the Shooting Attack sequence of any Shooting Attack made by the Active Player that targets a Unit that contains only Models with the Infantry Type and Solar Auxilia Trait without the Bulky (X) Special Rule.\n\nCost: The Reactive Player must spend 1 point of their Reaction Allotment to declare a Fire Support! Advanced Reaction, this cost paid as soon as the declaration is made.\n\nTarget: The Target Unit is always the Unit whose Shooting Attack triggered the Advanced Reaction. The Reacting Unit is always the Unit that was the target of the Shooting Attack that triggered the Advanced Reaction.\n\nProcess: 1. All Models in the Reacting Unit may be moved a number of inches equal to their Initiative Characteristic and must end the move in Coherency with another Model from the same Unit, but not within 1\" of any Enemy Models. If no Model in the Reacting Unit is determined to be within Line of Sight and/or Range of any Model in the Target Unit once this move is resolved, the Active Player may not select an alternative target for the Target Unit during the current Shooting Phase.\n2. Once the Reacting Player has resolved this move, they may select a single Friendly Model with the Solar Auxilia Trait which has a Weapon with the Barrage (X) Special Rule within 12\" of at least one Model in the Reacting Unit. This Model immediately performs a Shooting Attack against the Target Unit with a single Weapon which has the Barrage (X) Special Rule, which may be made without Line of Sight according to that Special Rule. If this Model has the Vehicle Type, this may be a Battle Weapon and the Model may Pivot immediately before performing the Shooting Attack. Note that this Model’s Unit still counts as having made a Reaction during this Battle Turn.\n3. Once the Shooting Attack made as part of this Advanced Reaction has been completely resolved, including Removing any Casualties, the Players must then finish resolving the original Shooting Attack that triggered the Advanced Reaction.",
+    "kind": "Reaction",
+    "source": "Fire Support!",
+    "unless": [
+     {
+      "config": "Archite Palatines"
+     },
+     {
+      "config": "Chogorian Limitanei"
+     },
+     {
+      "config": "Fenrisian Kaerls"
+     },
+     {
+      "config": "Nagrakal Thraexii"
+     }
+    ]
+   },
+   {
+    "name": "Fix Bayonets!",
+    "text": "Trigger: The Reactive Player may declare a Fix Bayonets! Advanced Reaction in the Assault Phase, at the end of Step 5 of the Charge sequence of a Charge made by the Active Player if the Charge Roll has succeeded.\n\nCost: The Reactive Player must spend 1 point of their Reaction Allotment to declare a Fix Bayonets! Advanced Reaction, this cost paid as soon as the declaration is made.\n\nTarget: For a Fix Bayonets! Advanced Reaction, the Reacting Unit is always the Unit that was the target of the Charge that triggered the Advanced Reaction, and must be entirely composed of Models with the Solar Auxilia Trait.\n\nProcess: 1. Once the cost has been paid, the Reactive Player must select one Weapon with the Bayonet Trait for each Model in the Reacting Unit to make attacks with. Models that do not have any Weapons with the Bayonet Trait cannot make attacks as part of this Advanced Reaction.\n\n\n2. The Reactive Player resolves Steps 3-10 of the Resolving an Initiative Step sequence for the Reacting Unit, with each Model in the Reacting Unit which has a Weapon with the Bayonet Trait counting as being Engaged with the Target Unit and making its attacks in this Initiative Step.\n\n\n3. Models Removed as Casualties as a result of Attacks made as part of this Advanced Reaction are counted for the purposes of scoring Combat\nResolution Points.",
+    "kind": "Reaction",
+    "source": "Fix Bayonets!",
+    "unless": [
+     {
+      "config": "Calibanite Jaegers"
+     },
+     {
+      "config": "Nostraman Damnatil"
+     }
+    ]
+   },
+   {
+    "name": "Form Ranks!",
+    "text": "Trigger: The Reactive Player may declare a Form Ranks! Advanced Reaction in Step 2 of the Move Sub-Phase process, if an enemy Unit ends a move within 12\" and in Line of Sight of a Unit under the Reactive Player's Control.\n\nCost: The Reactive Player must spend 1 point of their only Models with the Infantry Type and Solar Auxilia Reaction Allotment to declare a Form Ranks! Advanced Trait without the Bulky (X) Special Rule. Reaction, this cost paid as soon as the declaration is made.\n\nTarget: The Target Unit is always the Unit whose control that is within 12\" and has Line of Sight to the Shooting Attack triggered the Advanced Reaction. The Target Unit, and which contains only Models with the Reacting Unit is always the Unit that was the target of the Infantry Type and Solar Auxilia Trait without the Bulky Shooting Attack that triggered the Advanced Reaction. (x) Special Rule. That Unit is the Reacting Unit.\n\nProcess: 1. Once a Form Ranks! Advanced Reaction has been declared, the Active Player must completely resolve the Target Unit's movement.\n\n\n2. Once the Target Unit has finished its Move, the Reactive Player may move the Reacting Unit. When making this Move, each Model in the Reacting Unit may move a number of inches up to the Base Value of its Initiative Characteristic. Once all the Models in the Reacting Unit have been Moved, each Model in the Reacting Unit must be in Base Contact with at least two other Models from the same Unit. If for any reason it is not possible for each Model in the Reacting Unit to be placed in Base Contact with at least two other Models from the same Unit as part of this Movement, the Reaction process immediately ends.\n\n\n3. Once the Reacting Unit has completed this move, the Movement Phase continues as normal, but the Reacting Unit gains a 5+ Invulnerable Save against any Shooting Attacks for the remainder of the Active Player's Turn.",
+    "kind": "Reaction",
+    "source": "Form Ranks!",
+    "unless": [
+     {
+      "config": "Prosperine Spireguard"
+     },
+     {
+      "config": "Cthonian Headhunters"
+     },
+     {
+      "config": "Therion Velites"
+     },
+     {
+      "config": "Sparatoi Vindicta"
+     }
+    ]
+   },
+   {
+    "name": "smokescreen",
+    "text": "Trigger: The Reactive Player may declare a Smokescreen Advanced Reaction in the Shooting Phase, at the start of Step 3 of the Shooting Attack sequence of any Shooting Attack made by the Active Player.\n\nCost: The Reactive Player must spend 1 point of their Reaction Allotment to declare a Smokescreen Advanced Reaction, this cost paid as soon as the declaration is made.\n\nTarget: For a Smokescreen Advanced Reaction, the Reacting Unit is always the Unit that was the Target of the Shooting Attack that triggered the Advanced Reaction. This Unit must include a majority of Models with the Smokescreen Trait at the point where the Advanced Reaction is declared.\n\nProcess: 1. The Active Player continues to resolve this Shooting\nAttack as normal.\n\n\n2. All Models in the Unit for which this Reaction was declared gain a 5+ Shrouded Damage Mitigation Test against any wounds, Penetrating Hits or Glancing Hits inflicted during any Shooting Attack made in the same Phase in which this Reaction was declared.",
+    "kind": "Reaction",
+    "source": "Smokescreen"
+   },
+   {
+    "name": "Evade",
+    "text": "Trigger: The Reactive Player may declare an Evade Reaction at the end of Step 4 of a Charge declared by the Active Player that targets a Unit entirely composed of Models with the Light Sub-Type of Cavalry Type.\n\nCost: The Reactive Player must spend 1 point of their Reaction Allotment to declare an Evade Reaction - this cost paid as soon as the declaration is made.\n\nTarget: The Unit that is the target of the Charge that triggered this Reaction is the Reacting Unit, while the Unit making y=the Charge is the Charging Unit.\n\nProcess: 1. After all Volley Attacks have been made by both the Reacting Unit and the Charging Unit, the Reactive Player may make a move for each Model in the Reacting Unit.\n2. Each Model in the Reacting Unit may be moved a number of inches equal to its Initiative Characteristic and must end the Move in Unit Coherency with another Model from the same Unit.\n3. If this move would leave all Models in the Reacting Unit outside of the Charging Unit's maximum possible Charge Range then the Charge has failed and no Combat is resolved. Otherwise the Charge proceeds as normal.",
+    "kind": "Reaction",
+    "source": "Evade",
+    "unless": [
+     {
+      "config": "Seleucid Thorakites"
+     },
+     {
+      "config": "Medusan Chainshroud"
+     },
+     {
+      "config": "Colchisian Torquatii"
+     },
+     {
+      "config": "Proximan Sacramentii"
+     }
+    ]
+   },
+   {
+    "name": "Reposition",
+    "text": "Trigger: The Reactive Player may declare a Reposition Reaction in Step 2 of the Move Sub-Phase process. If an enemy Unit ends a move within 12\" and in Line of Sight of a Unit under the Reactive Player's Control.\n\nCost: The Reactive Player must spend 1 point of their Reaction Allotment to declare a Reposition Reaction - this cost paid as soon as the declaration is made.\n\nTarget: The Target Unit is always the Unit whose move triggered the Reaction. Once the cost has been paid, the Reactive Player must select one Unit under their control that is within 12\" and has Line of Sight to the Target Unit - that Unit is the Reacting Unit.\n\nProcess: 1. Once a Reposition Reaction has been declared, the Active Player must completely resolve the Target Unit's movement.\n2. Once the Target Unit has finished its move, the Reactive Player may move the Reacting Unit. When making this move, each Model in the Reacting Unit may move a number of inches up to the Base Value of its Initiative Characteristic.\n3. Once the Reacting Unit has completed this move, the Movement Phase continues as normal.",
+    "kind": "Reaction",
+    "source": "Reposition",
+    "unless": [
+     {
+      "config": "Inwit Phalangites"
+     },
+     {
+      "config": "Saiphan Elevatii"
+     },
+     {
+      "config": "Ultramar High Guard"
+     },
+     {
+      "config": "Barbaran Ambaxtoi"
+     }
+    ]
+   }
+  ],
   "groups": [
    {
     "id": "allegiance",
@@ -15,38 +116,6 @@
      {
       "name": "Traitor",
       "text": "The army has sided with Horus. Some Prime Advantages and units are only available to one side."
-     }
-    ]
-   },
-   {
-    "id": "reactions",
-    "name": "Reactions",
-    "min": 0,
-    "max": 6,
-    "choices": [
-     {
-      "name": "Fire Support!",
-      "text": "Trigger: The Reactive Player may declare a Fire Support! Advanced Reaction in the Shooting Phase, during Step 3 of the Shooting Attack sequence of any Shooting Attack made by the Active Player that targets a Unit that contains only Models with the Infantry Type and Solar Auxilia Trait without the Bulky (X) Special Rule.\n\nCost: The Reactive Player must spend 1 point of their Reaction Allotment to declare a Fire Support! Advanced Reaction, this cost paid as soon as the declaration is made.\n\nTarget: The Target Unit is always the Unit whose Shooting Attack triggered the Advanced Reaction. The Reacting Unit is always the Unit that was the target of the Shooting Attack that triggered the Advanced Reaction.\n\nProcess: 1. All Models in the Reacting Unit may be moved a number of inches equal to their Initiative Characteristic and must end the move in Coherency with another Model from the same Unit, but not within 1\" of any Enemy Models. If no Model in the Reacting Unit is determined to be within Line of Sight and/or Range of any Model in the Target Unit once this move is resolved, the Active Player may not select an alternative target for the Target Unit during the current Shooting Phase.\n2. Once the Reacting Player has resolved this move, they may select a single Friendly Model with the Solar Auxilia Trait which has a Weapon with the Barrage (X) Special Rule within 12\" of at least one Model in the Reacting Unit. This Model immediately performs a Shooting Attack against the Target Unit with a single Weapon which has the Barrage (X) Special Rule, which may be made without Line of Sight according to that Special Rule. If this Model has the Vehicle Type, this may be a Battle Weapon and the Model may Pivot immediately before performing the Shooting Attack. Note that this Model’s Unit still counts as having made a Reaction during this Battle Turn.\n3. Once the Shooting Attack made as part of this Advanced Reaction has been completely resolved, including Removing any Casualties, the Players must then finish resolving the original Shooting Attack that triggered the Advanced Reaction."
-     },
-     {
-      "name": "Fix Bayonets!",
-      "text": "Trigger: The Reactive Player may declare a Fix Bayonets! Advanced Reaction in the Assault Phase, at the end of Step 5 of the Charge sequence of a Charge made by the Active Player if the Charge Roll has succeeded.\n\nCost: The Reactive Player must spend 1 point of their Reaction Allotment to declare a Fix Bayonets! Advanced Reaction, this cost paid as soon as the declaration is made.\n\nTarget: For a Fix Bayonets! Advanced Reaction, the Reacting Unit is always the Unit that was the target of the Charge that triggered the Advanced Reaction, and must be entirely composed of Models with the Solar Auxilia Trait.\n\nProcess: 1. Once the cost has been paid, the Reactive Player must select one Weapon with the Bayonet Trait for each Model in the Reacting Unit to make attacks with. Models that do not have any Weapons with the Bayonet Trait cannot make attacks as part of this Advanced Reaction.\n\n\n2. The Reactive Player resolves Steps 3-10 of the Resolving an Initiative Step sequence for the Reacting Unit, with each Model in the Reacting Unit which has a Weapon with the Bayonet Trait counting as being Engaged with the Target Unit and making its attacks in this Initiative Step.\n\n\n3. Models Removed as Casualties as a result of Attacks made as part of this Advanced Reaction are counted for the purposes of scoring Combat\nResolution Points."
-     },
-     {
-      "name": "Form Ranks!",
-      "text": "Trigger: The Reactive Player may declare a Form Ranks! Advanced Reaction in Step 2 of the Move Sub-Phase process, if an enemy Unit ends a move within 12\" and in Line of Sight of a Unit under the Reactive Player's Control.\n\nCost: The Reactive Player must spend 1 point of their only Models with the Infantry Type and Solar Auxilia Reaction Allotment to declare a Form Ranks! Advanced Trait without the Bulky (X) Special Rule. Reaction, this cost paid as soon as the declaration is made.\n\nTarget: The Target Unit is always the Unit whose control that is within 12\" and has Line of Sight to the Shooting Attack triggered the Advanced Reaction. The Target Unit, and which contains only Models with the Reacting Unit is always the Unit that was the target of the Infantry Type and Solar Auxilia Trait without the Bulky Shooting Attack that triggered the Advanced Reaction. (x) Special Rule. That Unit is the Reacting Unit.\n\nProcess: 1. Once a Form Ranks! Advanced Reaction has been declared, the Active Player must completely resolve the Target Unit's movement.\n\n\n2. Once the Target Unit has finished its Move, the Reactive Player may move the Reacting Unit. When making this Move, each Model in the Reacting Unit may move a number of inches up to the Base Value of its Initiative Characteristic. Once all the Models in the Reacting Unit have been Moved, each Model in the Reacting Unit must be in Base Contact with at least two other Models from the same Unit. If for any reason it is not possible for each Model in the Reacting Unit to be placed in Base Contact with at least two other Models from the same Unit as part of this Movement, the Reaction process immediately ends.\n\n\n3. Once the Reacting Unit has completed this move, the Movement Phase continues as normal, but the Reacting Unit gains a 5+ Invulnerable Save against any Shooting Attacks for the remainder of the Active Player's Turn."
-     },
-     {
-      "name": "Smokescreen",
-      "text": "smokescreen: Trigger: The Reactive Player may declare a Smokescreen Advanced Reaction in the Shooting Phase, at the start of Step 3 of the Shooting Attack sequence of any Shooting Attack made by the Active Player.\n\nCost: The Reactive Player must spend 1 point of their Reaction Allotment to declare a Smokescreen Advanced Reaction, this cost paid as soon as the declaration is made.\n\nTarget: For a Smokescreen Advanced Reaction, the Reacting Unit is always the Unit that was the Target of the Shooting Attack that triggered the Advanced Reaction. This Unit must include a majority of Models with the Smokescreen Trait at the point where the Advanced Reaction is declared.\n\nProcess: 1. The Active Player continues to resolve this Shooting\nAttack as normal.\n\n\n2. All Models in the Unit for which this Reaction was declared gain a 5+ Shrouded Damage Mitigation Test against any wounds, Penetrating Hits or Glancing Hits inflicted during any Shooting Attack made in the same Phase in which this Reaction was declared."
-     },
-     {
-      "name": "Evade",
-      "text": "Trigger: The Reactive Player may declare an Evade Reaction at the end of Step 4 of a Charge declared by the Active Player that targets a Unit entirely composed of Models with the Light Sub-Type of Cavalry Type.\n\nCost: The Reactive Player must spend 1 point of their Reaction Allotment to declare an Evade Reaction - this cost paid as soon as the declaration is made.\n\nTarget: The Unit that is the target of the Charge that triggered this Reaction is the Reacting Unit, while the Unit making y=the Charge is the Charging Unit.\n\nProcess: 1. After all Volley Attacks have been made by both the Reacting Unit and the Charging Unit, the Reactive Player may make a move for each Model in the Reacting Unit.\n2. Each Model in the Reacting Unit may be moved a number of inches equal to its Initiative Characteristic and must end the Move in Unit Coherency with another Model from the same Unit.\n3. If this move would leave all Models in the Reacting Unit outside of the Charging Unit's maximum possible Charge Range then the Charge has failed and no Combat is resolved. Otherwise the Charge proceeds as normal."
-     },
-     {
-      "name": "Reposition",
-      "text": "Trigger: The Reactive Player may declare a Reposition Reaction in Step 2 of the Move Sub-Phase process. If an enemy Unit ends a move within 12\" and in Line of Sight of a Unit under the Reactive Player's Control.\n\nCost: The Reactive Player must spend 1 point of their Reaction Allotment to declare a Reposition Reaction - this cost paid as soon as the declaration is made.\n\nTarget: The Target Unit is always the Unit whose move triggered the Reaction. Once the cost has been paid, the Reactive Player must select one Unit under their control that is within 12\" and has Line of Sight to the Target Unit - that Unit is the Reacting Unit.\n\nProcess: 1. Once a Reposition Reaction has been declared, the Active Player must completely resolve the Target Unit's movement.\n2. Once the Target Unit has finished its move, the Reactive Player may move the Reacting Unit. When making this move, each Model in the Reacting Unit may move a number of inches up to the Base Value of its Initiative Characteristic.\n3. Once the Reacting Unit has completed this move, the Movement Phase continues as normal."
      }
     ]
    },
@@ -162,11 +231,21 @@
      },
      {
       "name": "Cohort Doctrine: Oblitum Pattern Cohort",
-      "text": "Psycho-Conditioned: *Models with this Special Rule ignore negative Leadership modifiers, but must make Willpower Checks in order to make Reactions or Score Objectives.*\n\n\nModels with this Special Rule may never have negative modifiers applied to their Leadership Characteristic.\n\n\nIn Addition, when a Unit entirely composed of Models with this Special Rule is selected to score an Objective Marker or is declared as the Reacting Unit for a Reaction, a Willpower Check must first be made for that Unit before any Victory Points are Scored or Reaction Allotment is expended. If the Willpower Check is successful, then the Objective Marker is scored or the Reaction proceeds as normal respectively, but if the Willpower Check is unsuccessful, that Unit immediately gains the Stunned Status, preventing the Unit from scoring the Objective or proceeding with the Reaction - if the Controlling Player has other Units eligible to score that Objective Marker, those Units may still do so."
+      "text": "Psycho-Conditioned: *Models with this Special Rule ignore negative Leadership modifiers, but must make Willpower Checks in order to make Reactions or Score Objectives.*\n\n\nModels with this Special Rule may never have negative modifiers applied to their Leadership Characteristic.\n\n\nIn Addition, when a Unit entirely composed of Models with this Special Rule is selected to score an Objective Marker or is declared as the Reacting Unit for a Reaction, a Willpower Check must first be made for that Unit before any Victory Points are Scored or Reaction Allotment is expended. If the Willpower Check is successful, then the Objective Marker is scored or the Reaction proceeds as normal respectively, but if the Willpower Check is unsuccessful, that Unit immediately gains the Stunned Status, preventing the Unit from scoring the Objective or proceeding with the Reaction - if the Controlling Player has other Units eligible to score that Objective Marker, those Units may still do so.",
+      "unless": [
+       {
+        "config": "Traitor"
+       }
+      ]
      },
      {
       "name": "Cohort Doctrine: Fateweaver Cohort",
-      "text": "Servants of the Empyrean: All Models with this Special Rule gain the following\n\n\n- The Tzeench Trait\n- The Traitor Trait\n- A 6+ invulnerable Saving Throw against wounds inflicted by Perils of the Warp or a Weapon with the Psychic Trait\n\n\nIf a Model with this Special Rule has the Command Sub-Type they also gain the Psyker Trait and the Fateweaving Psychic Discipline. They may not be given any other Psychic Discipline.\n\n\nNote that due to the Rules associated with the Tzeench Trait, a Model with both the Tzeench and Psyker Traits gain the Fateweaver Psychic Discipline and maynot be given any other Psychic Discipline"
+      "text": "Servants of the Empyrean: All Models with this Special Rule gain the following\n\n\n- The Tzeench Trait\n- The Traitor Trait\n- A 6+ invulnerable Saving Throw against wounds inflicted by Perils of the Warp or a Weapon with the Psychic Trait\n\n\nIf a Model with this Special Rule has the Command Sub-Type they also gain the Psyker Trait and the Fateweaving Psychic Discipline. They may not be given any other Psychic Discipline.\n\n\nNote that due to the Rules associated with the Tzeench Trait, a Model with both the Tzeench and Psyker Traits gain the Fateweaver Psychic Discipline and maynot be given any other Psychic Discipline",
+      "unless": [
+       {
+        "config": "Loyalist"
+       }
+      ]
      }
     ]
    }

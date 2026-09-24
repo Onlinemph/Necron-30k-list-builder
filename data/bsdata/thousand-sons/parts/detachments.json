@@ -665,6 +665,100 @@
    "requires": [],
    "restrictions": [],
    "rules": []
+  },
+  {
+   "id": "bs-tank-commander-armoured-support-when",
+   "name": "Tank Commander Armoured Support",
+   "type": "Auxiliary",
+   "source": "army",
+   "page": null,
+   "unlock": "4 Armour",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Armour",
+     "prime": false
+    },
+    {
+     "role": "Armour",
+     "prime": false
+    },
+    {
+     "role": "Armour",
+     "prime": false
+    },
+    {
+     "role": "Armour",
+     "prime": false
+    }
+   ],
+   "requires": [],
+   "restrictions": [],
+   "rules": [],
+   "when": [
+    {
+     "category": "Tank Commander"
+    }
+   ]
+  },
+  {
+   "id": "bs-theric-incursion-when",
+   "name": "Ætheric Incursion",
+   "type": "Auxiliary",
+   "source": "army",
+   "page": null,
+   "unlock": "1 Command · 2 Troops · 1 Support · 1 Fast Attack · Slots in this detachment may only be filled with Units from the Daemons of Tzeench Army list",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Command",
+     "prime": false,
+     "onlyLabel": "Tzeench only",
+     "only": [
+      "herald-of-tzeench"
+     ]
+    },
+    {
+     "role": "Troops",
+     "prime": false,
+     "onlyLabel": "Tzeench only",
+     "only": [
+      "horrors-of-tzeench"
+     ]
+    },
+    {
+     "role": "Troops",
+     "prime": false,
+     "onlyLabel": "Tzeench only",
+     "only": [
+      "horrors-of-tzeench"
+     ]
+    },
+    {
+     "role": "Support",
+     "prime": false,
+     "onlyLabel": "Tzeench only",
+     "only": [
+      "flamers-of-tzeench"
+     ]
+    },
+    {
+     "role": "Fast Attack",
+     "prime": false,
+     "onlyLabel": "Tzeench only",
+     "only": [
+      "screamers-of-tzeench"
+     ]
+    }
+   ],
+   "requires": [],
+   "restrictions": [],
+   "rules": [],
+   "when": [
+    {
+     "config": "Traitor"
+    }
+   ]
   }
  ]
 }

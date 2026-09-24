@@ -1,31 +1,6 @@
 {
  "modifiers": [
   {
-   "id": "praetor-praetor-corvid-pattern-jump-pack",
-   "text": "Corvid Pattern Jump Pack: M 14, becomes Infantry (Command, Antigrav).",
-   "source": {
-    "type": "wargear",
-    "name": "Corvid Pattern Jump Pack"
-   },
-   "appliesTo": {
-    "units": [
-     "praetor"
-    ],
-    "models": [
-     "Praetor"
-    ]
-   },
-   "scope": "model",
-   "stats": {
-    "M": "=14"
-   },
-   "addRules": [],
-   "removeRules": [],
-   "addUnitTypes": [
-    "Antigrav"
-   ]
-  },
-  {
    "id": "praetor-praetor-jump-pack",
    "text": "Jump Pack: M 12, becomes Infantry (Command, Antigrav).",
    "source": {
@@ -76,31 +51,6 @@
    ]
   },
   {
-   "id": "praetor-in-terminator-armour-cataphractii-praetor-gorgon-pattern-terminator-armour",
-   "text": "Gorgon Pattern Terminator Armour: M 7, becomes Infantry (Command).",
-   "source": {
-    "type": "wargear",
-    "name": "Gorgon Pattern Terminator Armour"
-   },
-   "appliesTo": {
-    "units": [
-     "praetor-in-terminator-armour"
-    ],
-    "models": [
-     "Cataphractii Praetor"
-    ]
-   },
-   "scope": "model",
-   "stats": {
-    "M": "=7"
-   },
-   "addRules": [],
-   "removeRules": [],
-   "removeUnitTypes": [
-    "Heavy"
-   ]
-  },
-  {
    "id": "centurion-in-terminator-armour-cataphractii-centurion-tartaros",
    "text": "Tartaros: M 7, INV 5+, becomes Infantry (Command).",
    "source": {
@@ -127,57 +77,6 @@
    ]
   },
   {
-   "id": "centurion-in-terminator-armour-cataphractii-centurion-gorgon-pattern-terminator-armour",
-   "text": "Gorgon Pattern Terminator Armour: M 7, INV 5+, becomes Infantry (Command).",
-   "source": {
-    "type": "wargear",
-    "name": "Gorgon Pattern Terminator Armour"
-   },
-   "appliesTo": {
-    "units": [
-     "centurion-in-terminator-armour"
-    ],
-    "models": [
-     "Cataphractii Centurion"
-    ]
-   },
-   "scope": "model",
-   "stats": {
-    "M": "=7",
-    "INV": "=5+"
-   },
-   "addRules": [],
-   "removeRules": [],
-   "removeUnitTypes": [
-    "Heavy"
-   ]
-  },
-  {
-   "id": "centurion-centurion-corvid-pattern-jump-pack",
-   "text": "Corvid Pattern Jump Pack: M 14, becomes Infantry (Command, Antigrav).",
-   "source": {
-    "type": "wargear",
-    "name": "Corvid Pattern Jump Pack"
-   },
-   "appliesTo": {
-    "units": [
-     "centurion"
-    ],
-    "models": [
-     "Centurion"
-    ]
-   },
-   "scope": "model",
-   "stats": {
-    "M": "=14"
-   },
-   "addRules": [],
-   "removeRules": [],
-   "addUnitTypes": [
-    "Antigrav"
-   ]
-  },
-  {
    "id": "centurion-centurion-jump-pack",
    "text": "Jump Pack: M 12, becomes Infantry (Command, Antigrav).",
    "source": {
@@ -195,31 +94,6 @@
    "scope": "model",
    "stats": {
     "M": "=12"
-   },
-   "addRules": [],
-   "removeRules": [],
-   "addUnitTypes": [
-    "Antigrav"
-   ]
-  },
-  {
-   "id": "optae-optae-corvid-pattern-jump-pack",
-   "text": "Corvid Pattern Jump Pack: M 14, becomes Infantry (Command, Antigrav).",
-   "source": {
-    "type": "wargear",
-    "name": "Corvid Pattern Jump Pack"
-   },
-   "appliesTo": {
-    "units": [
-     "optae"
-    ],
-    "models": [
-     "Optae"
-    ]
-   },
-   "scope": "model",
-   "stats": {
-    "M": "=14"
    },
    "addRules": [],
    "removeRules": [],
@@ -250,30 +124,6 @@
    "removeRules": [],
    "addUnitTypes": [
     "Antigrav"
-   ]
-  },
-  {
-   "id": "moritat-moritat-corvid-pattern-jump-pack",
-   "text": "Corvid Pattern Jump Pack: M 14, loses Bulky (2).",
-   "source": {
-    "type": "wargear",
-    "name": "Corvid Pattern Jump Pack"
-   },
-   "appliesTo": {
-    "units": [
-     "moritat"
-    ],
-    "models": [
-     "Moritat"
-    ]
-   },
-   "scope": "model",
-   "stats": {
-    "M": "=14"
-   },
-   "addRules": [],
-   "removeRules": [
-    "Bulky (2)"
    ]
   },
   {
@@ -401,34 +251,6 @@
    ]
   },
   {
-   "id": "librarian-in-terminator-armour-cataphractii-librarian-gorgon-pattern-terminator-armour",
-   "text": "Gorgon Pattern Terminator Armour: M 7, INV 5+, loses Slow and Purposeful, becomes Infantry (Command).",
-   "source": {
-    "type": "wargear",
-    "name": "Gorgon Pattern Terminator Armour"
-   },
-   "appliesTo": {
-    "units": [
-     "librarian-in-terminator-armour"
-    ],
-    "models": [
-     "Cataphractii Librarian"
-    ]
-   },
-   "scope": "model",
-   "stats": {
-    "M": "=7",
-    "INV": "=5+"
-   },
-   "addRules": [],
-   "removeRules": [
-    "Slow and Purposeful"
-   ],
-   "removeUnitTypes": [
-    "Heavy"
-   ]
-  },
-  {
    "id": "mounted-esoterist-outrider-esoterist-scimitar-jetbike",
    "text": "Scimitar Jetbike: M 16, gains Bulky (3), gains Deep Strike, loses Firestorm, loses Implacable Advance, loses Outflank, becomes Cavalry (Command, Antigrav).",
    "source": {
@@ -466,34 +288,6 @@
    "source": {
     "type": "wargear",
     "name": "Tartaros"
-   },
-   "appliesTo": {
-    "units": [
-     "esoterist-in-terminator-armour"
-    ],
-    "models": [
-     "Cataphractii Esoterist"
-    ]
-   },
-   "scope": "model",
-   "stats": {
-    "M": "=7",
-    "INV": "=5+"
-   },
-   "addRules": [],
-   "removeRules": [
-    "Slow and Purposeful"
-   ],
-   "removeUnitTypes": [
-    "Heavy"
-   ]
-  },
-  {
-   "id": "esoterist-in-terminator-armour-cataphractii-esoterist-gorgon-pattern-terminator-armour",
-   "text": "Gorgon Pattern Terminator Armour: M 7, INV 5+, loses Slow and Purposeful, becomes Infantry (Command, ).",
-   "source": {
-    "type": "wargear",
-    "name": "Gorgon Pattern Terminator Armour"
    },
    "appliesTo": {
     "units": [
@@ -577,34 +371,6 @@
    ]
   },
   {
-   "id": "legion-champion-in-terminator-armour-cataphractii-legion-champion-gorgon-pattern-terminator-armour",
-   "text": "Gorgon Pattern Terminator Armour: M 7, INV 5+, loses Slow and Purposeful, becomes Infantry (Command).",
-   "source": {
-    "type": "wargear",
-    "name": "Gorgon Pattern Terminator Armour"
-   },
-   "appliesTo": {
-    "units": [
-     "legion-champion-in-terminator-armour"
-    ],
-    "models": [
-     "Cataphractii Legion Champion"
-    ]
-   },
-   "scope": "model",
-   "stats": {
-    "M": "=7",
-    "INV": "=5+"
-   },
-   "addRules": [],
-   "removeRules": [
-    "Slow and Purposeful"
-   ],
-   "removeUnitTypes": [
-    "Heavy"
-   ]
-  },
-  {
    "id": "mounted-chaplain-outrider-chaplain-scimitar-jetbike",
    "text": "Scimitar Jetbike: M 16, gains Bulky (3), gains Deep Strike, loses Firestorm, loses Implacable Advance, loses Outflank, becomes Cavalry (Command, Antigrav).",
    "source": {
@@ -642,34 +408,6 @@
    "source": {
     "type": "wargear",
     "name": "Tartaros"
-   },
-   "appliesTo": {
-    "units": [
-     "chaplain-in-terminator-armour"
-    ],
-    "models": [
-     "Cataphractii Chaplain"
-    ]
-   },
-   "scope": "model",
-   "stats": {
-    "M": "=7",
-    "INV": "=5+"
-   },
-   "addRules": [],
-   "removeRules": [
-    "Slow and Purposeful"
-   ],
-   "removeUnitTypes": [
-    "Heavy"
-   ]
-  },
-  {
-   "id": "chaplain-in-terminator-armour-cataphractii-chaplain-gorgon-pattern-terminator-armour",
-   "text": "Gorgon Pattern Terminator Armour: M 7, INV 5+, loses Slow and Purposeful, becomes Infantry (Command).",
-   "source": {
-    "type": "wargear",
-    "name": "Gorgon Pattern Terminator Armour"
    },
    "appliesTo": {
     "units": [
@@ -753,34 +491,6 @@
    ]
   },
   {
-   "id": "herald-in-terminator-armour-cataphractii-herald-gorgon-pattern-terminator-armour",
-   "text": "Gorgon Pattern Terminator Armour: M 7, INV 5+, loses Slow and Purposeful, becomes Infantry (Command).",
-   "source": {
-    "type": "wargear",
-    "name": "Gorgon Pattern Terminator Armour"
-   },
-   "appliesTo": {
-    "units": [
-     "herald-in-terminator-armour"
-    ],
-    "models": [
-     "Cataphractii Herald"
-    ]
-   },
-   "scope": "model",
-   "stats": {
-    "M": "=7",
-    "INV": "=5+"
-   },
-   "addRules": [],
-   "removeRules": [
-    "Slow and Purposeful"
-   ],
-   "removeUnitTypes": [
-    "Heavy"
-   ]
-  },
-  {
    "id": "mounted-siege-breaker-outrider-siege-breaker-scimitar-jetbike",
    "text": "Scimitar Jetbike: M 16, gains Bulky (3), gains Deep Strike, loses Firestorm, loses Implacable Advance, loses Outflank, becomes Cavalry (Command, Heavy, Antigrav).",
    "source": {
@@ -818,34 +528,6 @@
    "source": {
     "type": "wargear",
     "name": "Tartaros"
-   },
-   "appliesTo": {
-    "units": [
-     "siege-breaker-in-terminator-armour"
-    ],
-    "models": [
-     "Cataphractii Siege Breaker"
-    ]
-   },
-   "scope": "model",
-   "stats": {
-    "M": "=7",
-    "INV": "=5+"
-   },
-   "addRules": [],
-   "removeRules": [
-    "Slow and Purposeful"
-   ],
-   "removeUnitTypes": [
-    "Heavy"
-   ]
-  },
-  {
-   "id": "siege-breaker-in-terminator-armour-cataphractii-siege-breaker-gorgon-pattern-terminator-armour",
-   "text": "Gorgon Pattern Terminator Armour: M 7, INV 5+, loses Slow and Purposeful, becomes Infantry (Command).",
-   "source": {
-    "type": "wargear",
-    "name": "Gorgon Pattern Terminator Armour"
    },
    "appliesTo": {
     "units": [
@@ -989,34 +671,6 @@
    ]
   },
   {
-   "id": "forge-lord-in-terminator-armour-cataphractii-forge-lord-gorgon-pattern-terminator-armour",
-   "text": "Gorgon Pattern Terminator Armour: M 7, INV 5+, loses Slow and Purposeful, becomes Infantry (Command).",
-   "source": {
-    "type": "wargear",
-    "name": "Gorgon Pattern Terminator Armour"
-   },
-   "appliesTo": {
-    "units": [
-     "forge-lord-in-terminator-armour"
-    ],
-    "models": [
-     "Cataphractii Forge Lord"
-    ]
-   },
-   "scope": "model",
-   "stats": {
-    "M": "=7",
-    "INV": "=5+"
-   },
-   "addRules": [],
-   "removeRules": [
-    "Slow and Purposeful"
-   ],
-   "removeUnitTypes": [
-    "Heavy"
-   ]
-  },
-  {
    "id": "primus-medicae-primus-medicae-jump-pack",
    "text": "Jump Pack: M 12, gains Bulky (2), gains Deep Strike, becomes Infantry (Specialist, Antigrav).",
    "source": {
@@ -1102,59 +756,6 @@
    ],
    "removeUnitTypes": [
     "Heavy"
-   ]
-  },
-  {
-   "id": "primus-medicae-in-terminator-armour-cataphractii-primus-medicae-gorgon-pattern-terminator-armour",
-   "text": "Gorgon Pattern Terminator Armour: M 7, INV 5+, loses Slow and Purposeful, becomes Infantry (Specialist).",
-   "source": {
-    "type": "wargear",
-    "name": "Gorgon Pattern Terminator Armour"
-   },
-   "appliesTo": {
-    "units": [
-     "primus-medicae-in-terminator-armour"
-    ],
-    "models": [
-     "Cataphractii Primus Medicae"
-    ]
-   },
-   "scope": "model",
-   "stats": {
-    "M": "=7",
-    "INV": "=5+"
-   },
-   "addRules": [],
-   "removeRules": [
-    "Slow and Purposeful"
-   ],
-   "removeUnitTypes": [
-    "Heavy"
-   ]
-  },
-  {
-   "id": "delegatus-delegatus-corvid-pattern-jump-pack",
-   "text": "Corvid Pattern Jump Pack: M 14, becomes Infantry (Command, Antigrav).",
-   "source": {
-    "type": "wargear",
-    "name": "Corvid Pattern Jump Pack"
-   },
-   "appliesTo": {
-    "units": [
-     "delegatus"
-    ],
-    "models": [
-     "Delegatus"
-    ]
-   },
-   "scope": "model",
-   "stats": {
-    "M": "=14"
-   },
-   "addRules": [],
-   "removeRules": [],
-   "addUnitTypes": [
-    "Antigrav"
    ]
   },
   {
@@ -1246,34 +847,6 @@
    ]
   },
   {
-   "id": "delegatus-in-terminator-armour-cataphractii-delegatus-gorgon-pattern-terminator-armour",
-   "text": "Gorgon Pattern Terminator Armour: M 7, INV 5+, loses Slow and Purposeful, becomes Infantry (Command).",
-   "source": {
-    "type": "wargear",
-    "name": "Gorgon Pattern Terminator Armour"
-   },
-   "appliesTo": {
-    "units": [
-     "delegatus-in-terminator-armour"
-    ],
-    "models": [
-     "Cataphractii Delegatus"
-    ]
-   },
-   "scope": "model",
-   "stats": {
-    "M": "=7",
-    "INV": "=5+"
-   },
-   "addRules": [],
-   "removeRules": [
-    "Slow and Purposeful"
-   ],
-   "removeUnitTypes": [
-    "Heavy"
-   ]
-  },
-  {
    "id": "mortificator-in-terminator-armour-cataphractii-mortificator-tartaros",
    "text": "Tartaros: M 7, INV 5+, loses Slow and Purposeful, becomes Infantry (Specialist).",
    "source": {
@@ -1302,67 +875,11 @@
    ]
   },
   {
-   "id": "mortificator-in-terminator-armour-cataphractii-mortificator-gorgon-pattern-terminator-armour",
-   "text": "Gorgon Pattern Terminator Armour: M 7, INV 5+, loses Slow and Purposeful, becomes Infantry (Specialist).",
-   "source": {
-    "type": "wargear",
-    "name": "Gorgon Pattern Terminator Armour"
-   },
-   "appliesTo": {
-    "units": [
-     "mortificator-in-terminator-armour"
-    ],
-    "models": [
-     "Cataphractii Mortificator"
-    ]
-   },
-   "scope": "model",
-   "stats": {
-    "M": "=7",
-    "INV": "=5+"
-   },
-   "addRules": [],
-   "removeRules": [
-    "Slow and Purposeful"
-   ],
-   "removeUnitTypes": [
-    "Heavy"
-   ]
-  },
-  {
    "id": "warmonger-in-terminator-armour-cataphractii-warmonger-tartaros",
    "text": "Tartaros: M 7, INV 5+, loses Slow and Purposeful, becomes Infantry (Command).",
    "source": {
     "type": "wargear",
     "name": "Tartaros"
-   },
-   "appliesTo": {
-    "units": [
-     "warmonger-in-terminator-armour"
-    ],
-    "models": [
-     "Cataphractii Warmonger"
-    ]
-   },
-   "scope": "model",
-   "stats": {
-    "M": "=7",
-    "INV": "=5+"
-   },
-   "addRules": [],
-   "removeRules": [
-    "Slow and Purposeful"
-   ],
-   "removeUnitTypes": [
-    "Heavy"
-   ]
-  },
-  {
-   "id": "warmonger-in-terminator-armour-cataphractii-warmonger-gorgon-pattern-terminator-armour",
-   "text": "Gorgon Pattern Terminator Armour: M 7, INV 5+, loses Slow and Purposeful, becomes Infantry (Command).",
-   "source": {
-    "type": "wargear",
-    "name": "Gorgon Pattern Terminator Armour"
    },
    "appliesTo": {
     "units": [

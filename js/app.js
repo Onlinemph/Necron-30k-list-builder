@@ -221,6 +221,7 @@
     if (cfg.fixed.length) {
       const chips = h('<div class="cfg-rules"></div>');
       for (const r of cfg.fixed) {
+        if ((r.when || r.unless) && !E.available(r)) continue;
         const b = h(`<button type="button" class="chip rule" title="${esc(r.source || '')}">${esc(r.name)}</button>`);
         b.addEventListener('click', () => showText(r.name, r.text, null, r.source ? [r.source] : null));
         chips.append(b);
@@ -228,12 +229,15 @@
       box.append(chips);
     }
     for (const g of cfg.groups) {
+      // a choice that only comes with another (Panoply of Old → which Legion)
+      if (g.when && !E.available(g)) { if ((army.config[g.id] || []).length) { army.config[g.id] = []; } continue; }
       const picked = (army.config[g.id] = army.config[g.id] || []);
       const how = g.min === g.max ? `choose ${g.max}` : g.min ? `choose ${g.min}–${g.max}` : `up to ${g.max}`;
       const fs = h(`<fieldset class="cfg-group"><legend>${esc(g.name)} <small class="muted">${how}</small></legend><div class="seq-grid"></div></fieldset>`);
       for (const c of g.choices) {
         const radio = g.max === 1;
-        const el = h(`<label><input type="${radio ? 'radio' : 'checkbox'}" name="cfg-${esc(g.id)}" ${picked.includes(c.name) ? 'checked' : ''}> ${esc(c.name)} <button type="button" class="link info small" title="Rules">?</button></label>`);
+        const blocked = c.unless && !picked.includes(c.name) && c.unless.find((k) => E.condOk(k));
+        const el = h(`<label${blocked ? ` class="muted" title="Not with ${esc(E.condText(blocked))}"` : ''}><input type="${radio ? 'radio' : 'checkbox'}" name="cfg-${esc(g.id)}" ${picked.includes(c.name) ? 'checked' : ''} ${blocked ? 'disabled' : ''}> ${esc(c.name)} <button type="button" class="link info small" title="Rules">?</button></label>`);
         $('input', el).addEventListener('click', (e) => {
           if (radio) army.config[g.id] = picked.includes(c.name) && g.min === 0 ? [] : [c.name];
           else army.config[g.id] = e.target.checked ? picked.concat(c.name) : picked.filter((n) => n !== c.name);
@@ -331,7 +335,7 @@
       if (!list.length) continue;
       const og = document.createElement('optgroup');
       og.label = label;
-      for (const d of list) og.append(new Option(d.name + (d.unlockedBy && d.unlockedBy.sequela ? ` (${d.unlockedBy.sequela})` : ''), d.id));
+      for (const d of list) og.append(new Option(d.name + (d.unlockedBy && d.unlockedBy.sequela ? ` (${d.unlockedBy.sequela})` : '') + (d.when ? ` (with ${d.when.map(E.condText).join(' or ')})` : ''), d.id));
       sel.append(og);
     }
     const og = document.createElement('optgroup');
@@ -533,8 +537,9 @@
       const cur = advs.find((a) => a.name === sel.primeAdvantage);
       if (cur && cur.text) row.append(h(`<small class="muted">${esc(cur.text)}</small>`));
       sec.append(row);
-      if (sel.primeAdvantage === 'Logistical Benefit') {
-        const roles = E.ROLES.filter((r) => !['High Command', 'Command', 'Warlord', 'Lord of War'].includes(r));
+      const adder = E.slotAdder(sel.primeAdvantage);
+      if (sel.primeAdvantage === 'Logistical Benefit' || (adder && adder.chooseRole)) {
+        const roles = adder && adder.roles ? adder.roles : E.ROLES.filter((r) => !['High Command', 'Command', 'Warlord', 'Lord of War'].includes(r));
         const rs = h(`<label class="row">Extra slot <select><option value="">Choose a role…</option>${roles.map((r) => `<option ${sel.logisticalRole === r ? 'selected' : ''}>${esc(r)}</option>`).join('')}</select></label>`);
         $('select', rs).addEventListener('change', (e) => { sel.logisticalRole = e.target.value || null; E.syncAdvisorSlots(det); refresh(); });
         sec.append(rs);
@@ -1056,7 +1061,7 @@
 
   // ---------- wiring ----------
   function refresh() {
-    E.setSequelae(army.sequelae);
+    E.setArmy(army);
     for (const x of E.allSelections(army)) clampOptions(x.sel);
     save();
     renderHeader();

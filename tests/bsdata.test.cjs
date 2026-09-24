@@ -211,3 +211,72 @@ test('Army configuration keeps nested choices and fixed rules apart', () => {
   assert.equal(sl.min, 2);
   assert.equal(sl.max, 3);
 });
+
+test('Oaths of Moment change units: The Weapons of Desperation swaps the Sergeant options', () => {
+  const { D, E, army } = armyOf('blackshields');
+  const s = place(E, army.detachments[0].slots.find((x) => x.role === 'Troops'), 'tactical-squad');
+  E.setArmy(army);
+  const ids = () => E.optionsOf(s).map((o) => o.id);
+  assert.ok(ids().includes('sergeant-may-exchange-bolter-for'));
+  const oaths = D.armyConfig.groups.find((g) => g.name === 'Oaths of Moment');
+  army.config[oaths.id] = ['The Weapons of Desperation'];
+  E.setArmy(army);
+  assert.ok(!ids().includes('sergeant-may-exchange-bolter-for'));
+  assert.ok(ids().some((i) => /weapons-of-desperation/.test(i)));
+  // Panoply of Old brings its own Legion choice
+  const legion = D.armyConfig.groups.find((g) => g.when && g.when[0].config === 'Panoply of Old');
+  assert.ok(legion && !E.available(legion));
+  army.config[oaths.id] = ['Panoply of Old'];
+  E.setArmy(army);
+  assert.ok(E.available(legion));
+});
+
+test('Solar Auxilia: a Legiones Auxilia designation takes away an Advanced Reaction', () => {
+  const { D, E, army } = armyOf('solar-auxilia');
+  const fire = D.armyConfig.fixed.find((r) => r.name === 'Fire Support!');
+  E.setArmy(army);
+  assert.ok(E.available(fire));
+  army.config['legiones-auxilia-designation'] = ['Archite Palatines'];
+  E.setArmy(army);
+  assert.ok(!E.available(fire));
+});
+
+test('Rewards of Treachery: other Legions units only fill the slot the advantage adds', () => {
+  const { E, army } = armyOf('alpha-legion');
+  army.config.allegiance = ['Traitor'];
+  const primary = army.detachments[0];
+  const cmd = primary.slots.find((s) => s.role === 'Command' && s.prime);
+  assert.ok(!E.unitsForSlot(primary.slots.find((s) => s.role === 'Command' && !s.prime), primary).some((u) => u.operative));
+  const sel = place(E, cmd, 'centurion');
+  assert.ok(E.primeAdvantagesFor(sel, army, cmd).some((a) => a.name === 'Rewards of Treachery'));
+  sel.primeAdvantage = 'Rewards of Treachery';
+  E.syncAdvisorSlots(primary);
+  assert.ok(E.armyIssues(army).some((i) => /choose the Battlefield Role/.test(i.msg)));
+  sel.logisticalRole = 'Retinue';
+  E.syncAdvisorSlots(primary);
+  const extra = primary.slots.find((s) => s.operative === 'Rewards of Treachery');
+  assert.equal(extra.role, 'Retinue');
+  const ids = E.unitsForSlot(extra, primary).map((u) => u.id);
+  assert.ok(ids.includes('deathwing-companion-detachment') && !ids.includes('command-squad'));
+});
+
+test('Mechanicum: The Heart of Power needs an Archimandrite in High Command', () => {
+  const { D, E, army } = armyOf('mechanicum');
+  army.config.allegiance = ['Loyalist'];
+  army.detachments.push(E.detachmentFromDef(D.detachments.find((d) => d.name === 'The Heart of Power').id));
+  assert.ok(E.armyIssues(army).some((i) => /The Heart of Power needs a High Command model with Archimandrite/.test(i.msg)));
+  const hc = place(E, army.detachments[0].slots.find((s) => s.role === 'High Command'), 'archmagos');
+  const sub = E.optionsOf(hc).find((o) => o.choices.some((c) => c.name === 'Archimandrite'));
+  hc.options[sub.id] = 'Archimandrite';
+  assert.ok(!E.armyIssues(army).some((i) => /Heart of Power needs/.test(i.msg)));
+});
+
+test('Tank Commander detachments appear with a Tank Commander in the army', () => {
+  const { D, E, army } = armyOf('ultramarines');
+  const def = D.detachments.find((d) => d.name === 'Tank Commander Armoured Support');
+  assert.ok(def && def.when);
+  army.detachments.push(E.detachmentFromDef(def.id));
+  assert.ok(E.armyIssues(army).some((i) => /Tank Commander Armoured Support needs a Tank Commander/.test(i.msg)));
+  place(E, army.detachments[0].slots.find((s) => s.role === 'High Command'), 'spartan-prometheus-command-tank');
+  assert.ok(!E.armyIssues(army).some((i) => /Armoured Support needs/.test(i.msg)));
+});

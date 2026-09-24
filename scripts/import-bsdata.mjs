@@ -89,16 +89,20 @@ function condTrue(c) {
   const isCat = cats[id] || (gst && gst.data.id === id);
   let n = 0;
   // "primary-catalogue" means the army's own catalogue, not the ones it imports
-  if (isCat) n = (c.scope === 'primary-catalogue' ? CTX.primary === id || gst.data.id === id : CTX.cats.has(id)) ? 1 : 0;
+  // "the army is X": its own catalogue (or a shared library it uses), not the other Legions it borrows units from
+  const own = () => CTX.primary === id || gst.data.id === id || (CTX.cats.has(id) && cats[id] && cats[id].data.library);
+  if (isCat) n = (c.scope === 'primary-catalogue' || c.scope === 'force' ? own() : CTX.cats.has(id)) ? 1 : 0;
   // wargear the model is assumed to carry (its defaults, or one option being tried out)
   else if (CTX.selected && c.field === 'selections' && !['roster', 'force', 'primary-catalogue', 'ancestor'].includes(c.scope)) {
     const t = byId.get(id);
     if (t && CTX.selected.has(String(t.name).trim())) n = 1;
   }
+  // something elsewhere in the roster, when trying out one condition (a config choice, a unit, a detachment)
+  else if (CTX.roster && CTX.roster.has(id)) n = 1;
   // anything else depends on the roster; assume nothing is selected yet
   switch (c.type) {
-    case 'instanceOf': return isCat ? n === 1 : false;
-    case 'notInstanceOf': return isCat ? n === 0 : true;
+    case 'instanceOf': return n === 1;
+    case 'notInstanceOf': return n === 0;
     case 'atLeast': return n >= c.value;
     case 'greaterThan': return n > c.value;
     case 'atMost': return n <= c.value;
@@ -580,6 +584,10 @@ function modCategories(e) {
   return out;
 }
 const catNames = (links) => (links || []).filter((l) => !isHidden(l)).map((l) => (catName.get(l.targetId) || l.name || '').trim()).filter(Boolean);
+let hiddenRoots = [];
+// units that only fill the slots a Prime Advantage adds, by the category BSData lists them under
+const SLOT_UNITS = { 'Rewards of Treachery': 'Rewards of Treachery', 'Exemplars of the Legions': 'Exemplars of the Legions' };
+const slotUnitOf = (category) => (category === 'Rewards of Treachery' ? 'Rewards of Treachery' : /^Exemplars of the Legion\b/.test(category || '') ? 'Exemplars of the Legions' : null);
 // Operatives come from their own lists and only fill the slots their Prime Advantage adds
 const OPERATIVES = [
   { file: 'Divisio Assassinorum', advantage: 'Clade Operative' },
@@ -595,6 +603,7 @@ function armyUnits(army) {
   const units = [];
   const ids = new Set();
   const seenTarget = new Map(); // same unit linked again for a detachment-restricted slot
+  hiddenRoots = [];
   const add = (u, raw, e) => {
     for (let n = 2, base = u.id; ids.has(u.id); n++) u.id = `${base}-${n}`;
     ids.add(u.id);
@@ -606,6 +615,7 @@ function armyUnits(army) {
     if (!d) continue;
     for (const raw of [...(d.selectionEntries || []), ...(d.entryLinks || [])]) {
       const e = resolve(raw);
+      if (e && isHidden(e) && ['unit', 'model'].includes(e.type)) hiddenRoots.push({ raw, e });
       if (!e || isHidden(e) || !['unit', 'model'].includes(e.type)) continue;
       const key = raw.targetId || raw.id;
       const linkCats = [...catNames(raw.categoryLinks), ...modCategories(raw)];
@@ -619,9 +629,12 @@ function armyUnits(army) {
       }
       const u = convertUnit(e, army.id);
       if (!u) continue;
+      Object.defineProperty(u, '_e', { value: e, enumerable: false });
       // categories other than the battlefield role: detachment slots ("Troops - Terror Squads Only") and Prime Advantages use them
       u.categories = [...new Set([...catNames(e.categoryLinks), ...catNames(e.baseCategoryLinks), ...modCategories(e), ...linkCats])].filter((c) => !ROLES.has(c) && c !== u.role);
       if (restricted) u.note = [u.note, `Listed as ${restricted}.`].filter(Boolean).join(' ');
+      const via = slotUnitOf(specialCategory(e));
+      if (via) { u.operative = via; u.note = [u.note, `Only fills the slot added by the ${via} Prime Advantage.`].filter(Boolean).join(' '); }
       const side = unitAllegiance(e);
       if (side) u.allegiance = side;
       seenTarget.set(key, u);
@@ -636,6 +649,8 @@ function armyUnits(army) {
       if (!e || isHidden(e) || !['unit', 'model'].includes(e.type)) continue;
       const u = convertUnit(e, army.id, 'Support');
       if (!u) continue;
+      Object.defineProperty(u, '_e', { value: e, enumerable: false });
+      Object.defineProperty(u, '_forcedRole', { value: 'Support', enumerable: false });
       u.categories = [op.advantage];
       u.operative = op.advantage;
       u.note = [u.note, `Only fills the Support slots added by the ${op.advantage} Prime Advantage.`].filter(Boolean).join(' ');
@@ -688,20 +703,23 @@ function armyConfig(army) {
   const roots = [...(d.selectionEntries || []), ...(d.entryLinks || [])].filter((r) => catNames(r.categoryLinks).includes('Army Configuration'));
   const fixed = [], groups = [];
   const gid = new Set();
-  const walk = (e, label) => {
-    for (const t of textItems(e)) fixed.push(Object.assign(t, { source: label }));
-    for (const c of children(e)) handle(c, label);
+  const ids = (e) => [e.id, e.linkId, e.targetId].filter(Boolean);
+  const walk = (e, label, when) => {
+    for (const t of textItems(e)) fixed.push(Object.assign(t, { source: label }, when ? { when } : {}, { _e: e }));
+    for (const c of children(e)) handle(c, label, when);
   };
   // one child of a configuration entry: a group of choices, a mandatory entry, or an optional one
-  const handle = (c, label) => {
+  const handle = (c, label, when) => {
     const lim = limits(c);
     if (c.kind === 'group') {
       const kids = children(c);
       const items = kids.filter((k) => k.kind !== 'group');
-      for (const t of textItems(c)) fixed.push(Object.assign(t, { source: c.name.trim() }));
-      // a group of entries that are each mandatory is just a folder of fixed rules; nested groups are choices of their own
-      if (!items.length || (items.length === 1 && lim.min >= 1) || items.every((i) => limits(i).min >= 1) || lim.min >= items.length) {
-        for (const k of kids) k.kind === 'group' ? handle(k, label) : walk(k, k.name.trim());
+      const constrained = (c.constraints || []).some((k) => k.field === 'selections');
+      for (const t of textItems(c)) fixed.push(Object.assign(t, { source: c.name.trim() }, when ? { when } : {}));
+      // a group of entries that are each mandatory is just a folder of fixed rules; so is one with no limits at all
+      // (Solar Auxilia's Advanced Reactions: all of them, less any a Cohort Doctrine takes away)
+      if (!items.length || (items.length === 1 && lim.min >= 1) || items.every((i) => limits(i).min >= 1) || lim.min >= items.length || !constrained) {
+        for (const k of kids) k.kind === 'group' ? handle(k, label, when) : walk(k, k.name.trim(), when);
         return;
       }
       let id = slug(c.name) || 'choice';
@@ -710,22 +728,28 @@ function armyConfig(army) {
       // a limit another pick can raise ("Three Legions" lets Shattered Legions choose three)
       const raised = (c.modifiers || []).filter((m) => m.type === 'set' && (c.constraints || []).some((k) => k.id === m.field && k.type === 'max')).map((m) => Number(m.value));
       const max = Math.max(lim.max === null ? items.length : lim.max, ...raised);
-      groups.push({ id, name: c.name.trim().replace(/:$/, ''), min: lim.min, max,
-        choices: items.map((i) => ({ name: i.name.trim(), text: joinText(deepText(i), i.name.trim()) })) });
-      for (const k of kids) if (k.kind === 'group') handle(k, label);
+      const g = { id, name: c.name.trim().replace(/:$/, ''), min: lim.min, max,
+        choices: items.map((i) => ({ name: i.name.trim(), text: joinText(deepText(i), i.name.trim()), _ids: ids(i), _e: i })) };
+      if (when) g.when = when;
+      groups.push(g);
+      for (const k of kids) if (k.kind === 'group') handle(k, label, when);
+      // a choice that brings a choice of its own (Panoply of Old → which Legion)
+      for (const i of items) for (const k of children(i)) if (k.kind === 'group') handle(k, i.name.trim(), [{ config: i.name.trim() }]);
       return;
     }
     if (lim.max === 0) return;
-    if (lim.min >= 1) { walk(c, c.name.trim()); return; }
+    if (lim.min >= 1) { walk(c, c.name.trim(), when); return; }
     let id = slug(c.name);
     for (let n = 2, b = id; gid.has(id); n++) id = `${b}-${n}`;
     gid.add(id);
-    groups.push({ id, name: c.name.trim(), min: 0, max: 1, choices: [{ name: c.name.trim(), text: joinText(deepText(c), c.name.trim()) }] });
+    const g = { id, name: c.name.trim(), min: 0, max: 1, choices: [{ name: c.name.trim(), text: joinText(deepText(c), c.name.trim()), _ids: ids(c), _e: c }] };
+    if (when) g.when = when;
+    groups.push(g);
   };
   // a choice's own text plus whatever it brings with it
   const deepText = (e) => {
     const out = textItems(e);
-    for (const c of children(e)) if (c.kind === 'group' || limits(c).min >= 1) out.push(...deepText(c));
+    for (const c of children(e)) if (limits(c).min >= 1) out.push(...deepText(c));
     return out;
   };
   for (const raw of roots) {
@@ -734,19 +758,42 @@ function armyConfig(army) {
     walk(e, e.name.trim());
   }
   groups.unshift({ id: 'allegiance', name: 'Allegiance', min: 1, max: 1, choices: [
-    { name: 'Loyalist', text: 'The army fights for the Emperor. Some Prime Advantages and units are only available to one side.' },
-    { name: 'Traitor', text: 'The army has sided with Horus. Some Prime Advantages and units are only available to one side.' }] });
+    { name: 'Loyalist', text: 'The army fights for the Emperor. Some Prime Advantages and units are only available to one side.', _ids: Object.keys(ALLEGIANCE).filter((k) => ALLEGIANCE[k] === 'Loyalist') },
+    { name: 'Traitor', text: 'The army has sided with Horus. Some Prime Advantages and units are only available to one side.', _ids: Object.keys(ALLEGIANCE).filter((k) => ALLEGIANCE[k] === 'Traitor') }] });
   const seen = new Set();
   return { fixed: fixed.filter((f) => f.text && !seen.has(f.name) && seen.add(f.name)), groups };
+}
+/** Config choices by BSData id, for conditions elsewhere ("only if the army took Panoply of Old - Dark Angels"). */
+function configKeys(config) {
+  const keys = new Map();
+  for (const g of config.groups) for (const c of g.choices) for (const id of c._ids || []) keys.set(id, { config: c.name });
+  return keys;
+}
+/** Drop the converter's working fields before writing; work out which choices other choices rule out. */
+function finishConfig(config, keys) {
+  const scen = [...keys.entries()];
+  const unlessOf = (e) => {
+    if (!e) return null;
+    const out = [];
+    for (const [id, cond] of scen) {
+      CTX.roster = new Set([id]);
+      if (isHidden(e) || limits(e).max === 0) out.push(cond);
+    }
+    CTX.roster = null;
+    return out.length ? out : null;
+  };
+  for (const f of config.fixed) { const u = unlessOf(f._e); if (u) f.unless = u; delete f._e; }
+  for (const g of config.groups) for (const c of g.choices) { const u = unlessOf(c._e); if (u) c.unless = u; delete c._e; delete c._ids; }
+  return config;
 }
 
 // ---------- detachments ----------
 const coreDetachments = new Set(JSON.parse(readFileSync(join(root, 'data', 'forceorg.json'), 'utf8')).detachments.map((d) => d.name));
-function armyDetachments(army, units) {
-  CTX = { cats: catalogueSet(army.catalogue), primary: army.catalogue };
+function armyDetachments(army, units, only) {
+  if (!only) CTX = { cats: catalogueSet(army.catalogue), primary: army.catalogue };
   const crusade = gst.data.forceEntries.find((f) => /^Crusade Force/.test(f.name));
   const out = [];
-  for (const f of crusade.forceEntries || []) {
+  for (const f of only || crusade.forceEntries || []) {
     const m = f.name.match(/^(Auxiliary|Apex)\s*-\s*(.+)$/);
     if (!m || isHidden(f)) continue;
     const [, type, name] = m;
@@ -787,12 +834,16 @@ function armyDetachments(army, units) {
     // the special rule that unlocks it ("Tip of the Spear: an Army whose Primary Detachment includes a Model with this rule may select…")
     const det = out[out.length - 1];
     const key = name.trim().replace(/\s*\(.*\)$/, '');
-    const hasRule = (u, r) => [...(u.specialRules || []), ...u.models.flatMap((m) => m.specialRules || [])].some((x) => x === r || String(x).startsWith(r.replace(/\s*\(X\)$/, '') + ' ('));
+    // a rule on the unit, or a trait/upgrade it can pick (Mechanicum's Archimandrite)
+    const hasRule = (u, r) => [...(u.specialRules || []), ...(u.traits || []), ...u.models.flatMap((m) => m.specialRules || []), ...u.options.flatMap((o) => o.choices.map((c) => c.name))]
+      .some((x) => x === r || String(x).startsWith(r.replace(/\s*\(X\)$/, '') + ' ('));
     for (const r of common.rules.specialRules) {
       if (!r.text.includes(key)) continue;
       if (!det.rules.some((x) => x.name === r.name)) det.rules.push({ name: r.name, text: r.text });
-      if (!new RegExp(`may select (?:the |an? )?${key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`, 'i').test(r.text) || !units.some((u) => hasRule(u, r.name))) continue;
+      if (!new RegExp(`may select (?:the |an? )?(?:(?:Apex|Auxiliary) Detachment:? )?${key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`, 'i').test(r.text) || !units.some((u) => hasRule(u, r.name))) continue;
+      const role = (r.text.match(/Model with the (High Command|Command) Battlefield Role/i) || [])[1];
       det.unlockRule = { rule: r.name, primary: /Primary Detachment includes/i.test(r.text), once: /once per Army/i.test(r.text) };
+      if (role) det.unlockRule.role = role;
       det.requires = [];
     }
     if (problems.length) console.warn(`${army.name} / ${name}: ${problems.join('; ')}`);
@@ -881,6 +932,15 @@ function armyAdvantages(army, units) {
         const text = own ? [own, ...items.filter((i) => i !== own)] : items;
         const adv = { name, text: joinText(text, name) || name, eligible: el };
         if (limits(e).rosterMax === 1) adv.oncePerArmy = true;
+        // "Add one additional … Slot": Rewards of Treachery, Exemplars of the Legions, Logisticae
+        const extra = adv.text.match(/Add one additional (Transport or Heavy Transport )?(?:Battlefield Role |Force Organisation )?Slot/i);
+        if (extra) {
+          const special = SLOT_UNITS[name];
+          adv.addSlots = Object.assign({ count: 1, chooseRole: true },
+            extra[1] ? { roles: ['Transport', 'Heavy Transport'] } : {},
+            special ? { operative: special } : {});
+          if (special && !units.some((u) => u.operative === special)) delete adv.addSlots.operative;
+        }
         const op = OPERATIVES.find((o) => o.advantage === name);
         if (op) {
           if (!units.some((u) => u.operative === name)) continue;
@@ -898,6 +958,245 @@ function armyAdvantages(army, units) {
   return out;
 }
 
+// ---------- roster conditions: things that change with what else the army has ----------
+// Each unit is converted again with one condition assumed true (a config choice taken, a unit present,
+// an upgrade taken somewhere, the unit placed in a given detachment); what changes is recorded as
+// "only with X" / "not with X" for the engine to check against the live list.
+function rosterRefs(e, scopes = ['roster', 'force']) {
+  const out = new Set();
+  const seen = new Set();
+  const walk = (n) => {
+    if (!n || typeof n !== 'object' || seen.has(n)) return;
+    seen.add(n);
+    if (Array.isArray(n)) { n.forEach(walk); return; }
+    if (n.childId && scopes.includes(n.scope)) out.add(n.childId);
+    for (const [k, v] of Object.entries(n)) if (typeof v === 'object') walk(v);
+    if (n.targetId && byId.get(n.targetId)) walk(byId.get(n.targetId));
+  };
+  walk(e);
+  return out;
+}
+/** Modifiers (and modifier groups) under an entry, by the roster ids their conditions mention. */
+function rosterMods(e) {
+  const out = new Map();
+  const seen = new Set();
+  const ids = (n, acc) => { if (!n || typeof n !== 'object') return acc; if (Array.isArray(n)) { n.forEach((x) => ids(x, acc)); return acc; }
+    if (n.childId && ['roster', 'force'].includes(n.scope)) acc.add(n.childId); ids(n.conditions, acc); ids(n.conditionGroups, acc); return acc; };
+  const walk = (n) => {
+    if (!n || typeof n !== 'object' || seen.has(n)) return;
+    seen.add(n);
+    if (Array.isArray(n)) { n.forEach(walk); return; }
+    if ((n.conditions || n.conditionGroups) && (n.field !== undefined || n.modifiers)) {
+      for (const id of ids(n, new Set())) { if (!out.has(id)) out.set(id, []); out.get(id).push(n); }
+    }
+    for (const [k, v] of Object.entries(n)) if (typeof v === 'object') walk(v);
+    if (n.targetId && byId.get(n.targetId)) walk(byId.get(n.targetId));
+  };
+  walk(e);
+  return out;
+}
+/** Would assuming this id is in the roster change any of these modifiers? */
+function flips(mods, id) {
+  const test = (m) => [...(m.conditions || []).map(condTrue), ...(m.conditionGroups || []).map(groupTrue)].every(Boolean);
+  CTX.roster = null;
+  const before = mods.map(test);
+  CTX.roster = new Set([id]);
+  const after = mods.map(test);
+  CTX.roster = null;
+  return before.some((b, i) => b !== after[i]);
+}
+const PROF = new Map();
+process.on('exit', () => { if (process.env.PROFILE) console.log([...PROF].sort((a, b) => b[1] - a[1]).slice(0, 25)); });
+const condLabel = (c) => c.config || c.detachment || c.upgrade || c.unitName || c.unit || c.category || (c.all ? c.all.map(condLabel).join(" + ") : "?");
+const condKey = (c) => JSON.stringify(c);
+function stateDiff(a, b) {
+  const stats = {};
+  for (const [k, v] of Object.entries(b.profile || {})) if (typeof v !== 'object' && JSON.stringify(v) !== JSON.stringify((a.profile || {})[k])) stats[k] = `=${v}`;
+  const addRules = (b.rules || []).filter((r) => !(a.rules || []).includes(r));
+  const base = (r) => String(r).replace(/\s*\(.*\)$/, '');
+  const removeRules = (a.rules || []).filter((r) => !(b.rules || []).includes(r) && !addRules.some((x) => base(x) === base(r)));
+  const split = (t) => { const m = String(t || '').match(/^([^(]+?)\s*(?:\((.*)\))?$/) || []; return { main: (m[1] || '').trim(), subs: (m[2] || '').split(',').map((x) => x.trim()).filter(Boolean) }; };
+  const at = split(a.unitType), bt = split(b.unitType);
+  const out = { stats, addRules, removeRules };
+  if (at.main !== bt.main && bt.main) out.setUnitType = bt.main;
+  const add = bt.subs.filter((x) => !at.subs.includes(x)), drop = at.subs.filter((x) => !bt.subs.includes(x));
+  if (add.length) out.addUnitTypes = add;
+  if (drop.length) out.removeUnitTypes = drop;
+  const addTraits = (b.traits || []).filter((t) => !(a.traits || []).includes(t));
+  if (addTraits.length) out.addTraits = addTraits;
+  const bits = [...Object.entries(stats).map(([k, v]) => `${k} ${v.slice(1)}`), ...addRules.map((r) => `gains ${r}`), ...removeRules.map((r) => `loses ${r}`),
+    ...(out.setUnitType || add.length || drop.length ? [`becomes ${b.unitType}`] : []), ...addTraits.map((t) => `gains the ${t} trait`)];
+  return bits.length ? Object.assign(out, { bits }) : null;
+}
+function addCond(obj, key, cond) {
+  obj[key] = obj[key] || [];
+  if (!obj[key].some((c) => condKey(c) === condKey(cond))) obj[key].push(cond);
+}
+function applyScenario(base, alt, cond, effects) {
+  if (alt.basePoints !== base.basePoints) (base.pointsWhen = base.pointsWhen || []).push({ when: cond, delta: alt.basePoints - base.basePoints });
+  // options: new or changed ones only apply with the condition, ones that go away don't
+  const byId = new Map(base.options.filter((o) => !o.when).map((o) => [o.id, o]));
+  const strip = (o) => JSON.stringify(Object.assign({}, o, { id: undefined, when: undefined, unless: undefined }));
+  const altIds = new Set(alt.options.map((o) => o.id));
+  for (const o of alt.options) {
+    const b = byId.get(o.id);
+    if (b && strip(b) === strip(o)) continue;
+    const same = base.options.find((x) => x.when && strip(x) === strip(o));
+    if (same) { addCond(same, 'when', cond); }
+    else {
+      let id = `${o.id}-${slug(condLabel(cond)).slice(0, 24)}`;
+      while (base.options.some((x) => x.id === id)) id += '-x';
+      base.options.push(Object.assign({}, o, { id, when: [cond] }));
+    }
+    if (b) addCond(b, 'unless', cond);
+  }
+  for (const [id, b] of byId) if (!altIds.has(id)) addCond(b, 'unless', cond);
+  // statline, rules and traits
+  const unitDiff = stateDiff({ rules: base.specialRules, traits: base.traits }, { rules: alt.specialRules, traits: alt.traits });
+  if (unitDiff) effects.push({ unit: base, id: slug(`${condLabel(cond)}`), text: `${condLabel(cond)}: ${unitDiff.bits.join(', ')}.`, source: { type: 'when', when: cond, name: condLabel(cond) }, appliesTo: {}, scope: 'model', ...strip2(unitDiff) });
+  for (const m of base.models) {
+    const am = alt.models.find((x) => x.name === m.name);
+    if (!am) continue;
+    const d = stateDiff({ profile: m.profile, rules: m.specialRules, unitType: m.unitType }, { profile: am.profile, rules: am.specialRules, unitType: am.unitType });
+    if (d) effects.push({ unit: base, id: slug(`${m.name}-${condLabel(cond)}`), text: `${condLabel(cond)}: ${d.bits.join(', ')}.`, source: { type: 'when', when: cond, name: condLabel(cond) }, appliesTo: { models: [m.name] }, scope: 'model', ...strip2(d) });
+  }
+}
+const strip2 = ({ bits, ...rest }) => rest;
+function scenarioKeys(army, units, config, dets) {
+  const keys = new Map(configKeys(config));
+  for (const [id, uid] of BSID) if (!keys.has(id)) keys.set(id, { unit: uid, unitName: units.find((u) => u.id === uid)?.name });
+  const detNames = new Set(['Crusade Primary Detachment', ...coreDetachments, ...dets.map((d) => d.name)]);
+  const walkF = (f) => {
+    for (const x of f.forceEntries || []) {
+      const name = x.name.replace(/^(Auxiliary|Apex|Primary)\s*-\s*/, '').trim();
+      if (detNames.has(name) || /Primary Detachment|Warlord Detachment|Lord of War Detachment/.test(x.name)) keys.set(x.id, { detachment: name });
+      walkF(x);
+    }
+  };
+  walkF(gst.data);
+  // upgrades some unit in this army can take ("if the army includes a Tank Commander")
+  const choiceNames = new Set(units.flatMap((u) => u.options.flatMap((o) => o.choices.map((c) => c.name))));
+  return { keys, choiceNames };
+}
+function upgradeCond(id, choiceNames) {
+  const t = byId.get(id);
+  if (!t || t.type !== 'upgrade') return null;
+  const name = String(t.name).trim();
+  return choiceNames.has(name) ? { upgrade: name } : null;
+}
+function rosterScenarios(army, units, config, dets) {
+  const { keys, choiceNames } = scenarioKeys(army, units, config, dets);
+  const effects = [];
+  const configNames = new Set([...keys.values()].filter((c) => c.config).map((c) => c.config));
+  // a category at roster level: a config choice that adds one (Cohort Doctrines), or "a unit of that kind in the army"
+  // only categories a unit in this army can carry; the rest never happen here
+  const armyCats = new Set(units.flatMap((u) => u.categories || []));
+  const condFor = (id) => {
+    const k = keys.get(id) || upgradeCond(id, choiceNames);
+    if (k) return k;
+    const c = catName.has(id) && catName.get(id).trim();
+    if (!c || ROLES.has(c)) return null;
+    if (configNames.has(c)) return { config: c };
+    return armyCats.has(c) ? { category: c } : null;
+  };
+  let runs = 0;
+  // units BSData hides unless something is in the army (a config choice, usually)
+  const have = new Set(units.map((u) => u.name));
+  for (const { raw, e } of hiddenRoots) {
+    const found = [];
+    for (const id of rosterRefs({ modifiers: e.modifiers, modifierGroups: e.modifierGroups })) {
+      const cond = condFor(id);
+      if (!cond) continue;
+      CTX.roster = new Set([id]);
+      const shown = !isHidden(e);
+      CTX.roster = null;
+      if (shown) found.push({ id, cond });
+    }
+    if (!found.length) continue;
+    const existing = units.find((u) => u._e && (u._e.id === e.id || u._e.targetId === e.targetId) && u.name === e.name);
+    if (existing) { for (const f of found) addCond(existing, 'when', f.cond); continue; }
+    CTX.roster = new Set([found[0].id]);
+    const mark = unitEffects.length;
+    const u = convertUnit(e, army.id);
+    unitEffects.length = mark;
+    CTX.roster = null;
+    if (!u) continue;
+    u.categories = catNames(e.categoryLinks).filter((c) => !ROLES.has(c) && c !== u.role);
+    let id = u.id;
+    for (let n = 2; units.some((x) => x.id === id); n++) id = `${u.id}-${n}`;
+    u.id = id;
+    u.when = found.map((f) => f.cond);
+    if (have.has(u.name)) u.note = [u.note, `This version is used with ${u.when.map(condLabel).join(' or ')}.`].filter(Boolean).join(' ');
+    units.push(u);
+  }
+  for (const u of units) {
+    const e = u._e;
+    if (!e) continue;
+    const mods = rosterMods(e);
+    for (const [id, ms] of mods) {
+      const cond = condFor(id);
+      if (!cond || (cond.unit && cond.unit === u.id)) continue;
+      if (!flips(ms, id)) continue;
+      if (process.env.PROFILE) { const k = condLabel(cond); PROF.set(k, (PROF.get(k) || 0) + 1); }
+      CTX.roster = new Set([id]);
+      const mark = unitEffects.length, sk = skipped.length;
+      const hidden = isHidden(e);
+      const alt = hidden ? null : convertUnit(e, army.id, u._forcedRole);
+      unitEffects.length = mark; skipped.length = sk;
+      CTX.roster = null;
+      runs++;
+      if (hidden) { addCond(u, 'unless', cond); continue; }
+      if (alt) applyScenario(u, alt, cond, effects);
+    }
+  }
+  return { effects, keys, choiceNames, runs };
+}
+
+/** Detachments BSData only shows when something is in the army (a Tank Commander, a config choice). */
+function hiddenDetachments(army, units, dets, scen) {
+  const crusade = gst.data.forceEntries.find((f) => /^Crusade Force/.test(f.name));
+  // for a detachment, "parent" is the roster; a category means "a unit of that kind" (a Tank Commander)
+  const configNames = new Set([...scen.keys.values()].filter((c) => c.config).map((c) => c.config));
+  const condFor = (id) => scen.keys.get(id) || upgradeCond(id, scen.choiceNames)
+    || (catName.has(id) ? (configNames.has(catName.get(id).trim()) ? { config: catName.get(id).trim() } : { category: catName.get(id).trim() }) : null);
+  for (const f of crusade.forceEntries || []) {
+    const m = f.name.match(/^(Auxiliary|Apex)\s*-\s*(.+)$/);
+    if (!m || !isHidden(f)) continue;
+    const name = m[2].trim();
+    if (dets.some((d) => d.name === name) || coreDetachments.has(name)) continue;
+    const found = [];
+    const refs = [...rosterRefs({ modifiers: f.modifiers, modifierGroups: f.modifierGroups }, ['roster', 'force', 'parent'])].filter((id) => !cats[id]);
+    for (const id of refs) {
+      const cond = condFor(id);
+      if (!cond) continue;
+      CTX.roster = new Set([id]);
+      if (!isHidden(f)) found.push({ id, cond });
+      CTX.roster = null;
+    }
+    // several things together (a Tank Commander and its "Two Tank Detachments" choice)
+    let all = null;
+    for (let i = 0; !found.length && i < refs.length; i++) {
+      for (let j = i + 1; j < refs.length; j++) {
+        CTX.roster = new Set([refs[i], refs[j]]);
+        const shown = !isHidden(f);
+        CTX.roster = null;
+        if (!shown) continue;
+        const conds = [refs[i], refs[j]].map(condFor).filter(Boolean);
+        if (!conds.length) continue;
+        all = [refs[i], refs[j]];
+        found.push({ id: refs[i], cond: conds.length === 1 ? conds[0] : { all: conds } });
+        break;
+      }
+    }
+    if (!found.length) continue;
+    CTX.roster = new Set(all || [found[0].id]);
+    const before = dets.length;
+    dets.push(...armyDetachments(army, units, [f]));
+    CTX.roster = null;
+    for (const d of dets.slice(before)) { d.when = found.map((x) => x.cond); d.id = `${d.id}-when`; }
+  }
+}
+
 // ---------- write ----------
 const out = join(root, 'data', 'bsdata');
 if (existsSync(out)) rmSync(out, { recursive: true });
@@ -909,22 +1208,30 @@ const report = [];
 for (const a of armies) {
   skipped.length = 0;
   const units = armyUnits(a);
+  const config = armyConfig(a);
+  const dets = armyDetachments(a, units);
+  CTX = { cats: catalogueSet(a.catalogue), primary: a.catalogue };
+  const scen = rosterScenarios(a, units, config, dets);
+  hiddenDetachments(a, units, dets, scen);
+  finishConfig(config, configKeys(config));
   mkdirSync(join(out, a.id, 'parts'), { recursive: true });
   // one unit per line keeps the files small and the diffs readable when BSData updates
   writeFileSync(join(out, a.id, 'parts', 'units.json'), '{"units":[\n' + units.map((u) => JSON.stringify(u)).join(',\n') + '\n]}\n');
   // unit ids are final now
-  const effects = unitEffects.map(({ _unit, ...m }) => Object.assign(m, { id: `${_unit.id}-${m.id}`, appliesTo: Object.assign({}, m.appliesTo, { units: [_unit.id] }) }));
+  const effects = [
+    ...unitEffects.map(({ _unit, ...m }) => Object.assign(m, { id: `${_unit.id}-${m.id}`, appliesTo: Object.assign({}, m.appliesTo, { units: [_unit.id] }) })),
+    ...scen.effects.map(({ unit, ...m }) => Object.assign(m, { id: `${unit.id}-${m.id}`, appliesTo: Object.assign({}, m.appliesTo, { units: [unit.id] }) })),
+  ];
   writeFileSync(join(out, a.id, 'modifiers.json'), JSON.stringify({ modifiers: effects }, null, 1) + '\n');
-  const dets = armyDetachments(a, units);
   writeFileSync(join(out, a.id, 'parts', 'detachments.json'), JSON.stringify({ detachments: dets }, null, 1) + '\n');
-  const config = armyConfig(a);
   writeFileSync(join(out, a.id, 'parts', 'config.json'), JSON.stringify({ armyConfig: config }, null, 1) + '\n');
   const advs = armyAdvantages(a, units);
   writeFileSync(join(out, a.id, 'granted-prime-advantages.json'), JSON.stringify({ grantedPrimeAdvantages: advs }, null, 1) + '\n');
   a.detachments = dets.length;
   a.units = units.length;
   a.skipped = [...skipped];
-  report.push(`${a.name}: ${units.length} units, ${dets.length} detachments, ${config.fixed.length} army rules, ${config.groups.length} army choices, ${advs.length} Prime Advantages, ${effects.length} wargear effects${skipped.length ? `, skipped ${skipped.length}` : ''}`);
+  const cond = units.filter((u) => u.when || u.unless || u.options.some((o) => o.when || o.unless) || u.pointsWhen).length;
+  report.push(`${a.name}: ${units.length} units (${cond} conditional, ${scen.runs} scenario runs), ${dets.length} detachments, ${config.fixed.length} army rules, ${config.groups.length} army choices, ${advs.length} Prime Advantages, ${effects.length} effects${skipped.length ? `, skipped ${skipped.length}` : ''}`);
 }
 const rev = JSON.parse(readFileSync(join(src, fileTitle(gst.file) + '.json'), 'utf8')).gameSystem.revision;
 writeFileSync(join(out, 'armies.json'), JSON.stringify({

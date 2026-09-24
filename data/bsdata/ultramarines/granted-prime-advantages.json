@@ -35,6 +35,14 @@
      "categories": [],
      "units": []
     }
+   },
+   "addSlots": {
+    "count": 1,
+    "chooseRole": true,
+    "roles": [
+     "Transport",
+     "Heavy Transport"
+    ]
    }
   },
   {

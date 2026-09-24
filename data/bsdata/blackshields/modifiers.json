@@ -901,6 +901,4460 @@
    "removeUnitTypes": [
     "Heavy"
    ]
+  },
+  {
+   "id": "endryd-haar-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "endryd-haar"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "endryd-haar-endryd-haar-the-flesh-is-weak",
+   "text": "The Flesh is Weak: becomes Automata (Command, Unique).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Flesh is Weak"
+    },
+    "name": "The Flesh is Weak"
+   },
+   "appliesTo": {
+    "models": [
+     "Endryd Haar"
+    ],
+    "units": [
+     "endryd-haar"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [],
+   "removeRules": [],
+   "setUnitType": "Automata"
+  },
+  {
+   "id": "praetor-in-saturnine-terminator-armour-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "praetor-in-saturnine-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "rapier-battery-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "rapier-battery"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "tarantula-battery-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "tarantula-battery"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "veteran-tactical-squad-reapers-of-lives",
+   "text": "Reapers of Lives: loses Line (1).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Reapers of Lives"
+    },
+    "name": "Reapers of Lives"
+   },
+   "appliesTo": {
+    "units": [
+     "veteran-tactical-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [],
+   "removeRules": [
+    "Line (1)"
+   ]
+  },
+  {
+   "id": "veteran-tactical-squad-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (2), loses Line (1).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "veteran-tactical-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (2)"
+   ],
+   "removeRules": [
+    "Line (1)"
+   ]
+  },
+  {
+   "id": "veteran-tactical-squad-the-broken-helix",
+   "text": "The Broken Helix: loses Line (1).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Broken Helix"
+    },
+    "name": "The Broken Helix"
+   },
+   "appliesTo": {
+    "units": [
+     "veteran-tactical-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [],
+   "removeRules": [
+    "Line (1)"
+   ]
+  },
+  {
+   "id": "veteran-tactical-squad-the-spoils-of-victory",
+   "text": "The Spoils of Victory: gains Loot the Dead (1), loses Line (1).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Spoils of Victory"
+    },
+    "name": "The Spoils of Victory"
+   },
+   "appliesTo": {
+    "units": [
+     "veteran-tactical-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Loot the Dead (1)"
+   ],
+   "removeRules": [
+    "Line (1)"
+   ]
+  },
+  {
+   "id": "spartan-assault-tank-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "spartan-assault-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "spartan-assault-tank-spartan-the-flesh-is-weak",
+   "text": "The Flesh is Weak: CAPACITY 29.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Flesh is Weak"
+    },
+    "name": "The Flesh is Weak"
+   },
+   "appliesTo": {
+    "models": [
+     "Spartan"
+    ],
+    "units": [
+     "spartan-assault-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {
+    "CAPACITY": "=29"
+   },
+   "addRules": [],
+   "removeRules": []
+  },
+  {
+   "id": "rhino-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "rhino"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "rhino-rhino-the-flesh-is-weak",
+   "text": "The Flesh is Weak: CAPACITY 15.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Flesh is Weak"
+    },
+    "name": "The Flesh is Weak"
+   },
+   "appliesTo": {
+    "models": [
+     "Rhino"
+    ],
+    "units": [
+     "rhino"
+    ]
+   },
+   "scope": "model",
+   "stats": {
+    "CAPACITY": "=15"
+   },
+   "addRules": [],
+   "removeRules": []
+  },
+  {
+   "id": "predator-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "predator"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "deredeo-dreadnought-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "deredeo-dreadnought"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "leviathan-dreadnought-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "leviathan-dreadnought"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "veteran-assault-squad-reapers-of-lives",
+   "text": "Reapers of Lives: loses Vanguard (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Reapers of Lives"
+    },
+    "name": "Reapers of Lives"
+   },
+   "appliesTo": {
+    "units": [
+     "veteran-assault-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [],
+   "removeRules": [
+    "Vanguard (3)"
+   ]
+  },
+  {
+   "id": "veteran-assault-squad-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (6), loses Vanguard (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "veteran-assault-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (6)"
+   ],
+   "removeRules": [
+    "Vanguard (3)"
+   ]
+  },
+  {
+   "id": "veteran-assault-squad-the-broken-helix",
+   "text": "The Broken Helix: loses Vanguard (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Broken Helix"
+    },
+    "name": "The Broken Helix"
+   },
+   "appliesTo": {
+    "units": [
+     "veteran-assault-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [],
+   "removeRules": [
+    "Vanguard (3)"
+   ]
+  },
+  {
+   "id": "veteran-assault-squad-the-spoils-of-victory",
+   "text": "The Spoils of Victory: gains Loot the Dead (1.5*), loses Vanguard (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Spoils of Victory"
+    },
+    "name": "The Spoils of Victory"
+   },
+   "appliesTo": {
+    "units": [
+     "veteran-assault-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Loot the Dead (1.5*)"
+   ],
+   "removeRules": [
+    "Vanguard (3)"
+   ]
+  },
+  {
+   "id": "praetor-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "praetor"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "praetor-in-terminator-armour-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "praetor-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "centurion-in-terminator-armour-alone-and-forgotten",
+   "text": "Alone and Forgotten: gains To Fight and Die Alone.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Alone and Forgotten"
+    },
+    "name": "Alone and Forgotten"
+   },
+   "appliesTo": {
+    "units": [
+     "centurion-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "To Fight and Die Alone"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "centurion-in-terminator-armour-cataphractii-centurion-alone-and-forgotten",
+   "text": "Alone and Forgotten: W 5.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Alone and Forgotten"
+    },
+    "name": "Alone and Forgotten"
+   },
+   "appliesTo": {
+    "models": [
+     "Cataphractii Centurion"
+    ],
+    "units": [
+     "centurion-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {
+    "W": "=5"
+   },
+   "addRules": [],
+   "removeRules": []
+  },
+  {
+   "id": "centurion-in-terminator-armour-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "centurion-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "cataphractii-terminator-command-squad-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "cataphractii-terminator-command-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "chaplain-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "chaplain"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "centurion-alone-and-forgotten",
+   "text": "Alone and Forgotten: gains To Fight and Die Alone.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Alone and Forgotten"
+    },
+    "name": "Alone and Forgotten"
+   },
+   "appliesTo": {
+    "units": [
+     "centurion"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "To Fight and Die Alone"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "centurion-centurion-alone-and-forgotten",
+   "text": "Alone and Forgotten: W 4.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Alone and Forgotten"
+    },
+    "name": "Alone and Forgotten"
+   },
+   "appliesTo": {
+    "models": [
+     "Centurion"
+    ],
+    "units": [
+     "centurion"
+    ]
+   },
+   "scope": "model",
+   "stats": {
+    "W": "=4"
+   },
+   "addRules": [],
+   "removeRules": []
+  },
+  {
+   "id": "centurion-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "centurion"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "esoterist-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "esoterist"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "herald-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "herald"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "legion-champion-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "legion-champion"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "librarian-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "librarian"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "master-of-signals-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "master-of-signals"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "optae-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "optae"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "overseer-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "overseer"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "praevian-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "praevian"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "siege-breaker-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "siege-breaker"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "vigilator-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "vigilator"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "damocles-command-rhino-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "damocles-command-rhino"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "damocles-command-rhino-damocles-command-rhino-the-flesh-is-weak",
+   "text": "The Flesh is Weak: CAPACITY 9.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Flesh is Weak"
+    },
+    "name": "The Flesh is Weak"
+   },
+   "appliesTo": {
+    "models": [
+     "Damocles Command Rhino"
+    ],
+    "units": [
+     "damocles-command-rhino"
+    ]
+   },
+   "scope": "model",
+   "stats": {
+    "CAPACITY": "=9"
+   },
+   "addRules": [],
+   "removeRules": []
+  },
+  {
+   "id": "moritat-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "moritat"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "tactical-squad-reapers-of-lives",
+   "text": "Reapers of Lives: loses Line (2).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Reapers of Lives"
+    },
+    "name": "Reapers of Lives"
+   },
+   "appliesTo": {
+    "units": [
+     "tactical-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [],
+   "removeRules": [
+    "Line (2)"
+   ]
+  },
+  {
+   "id": "tactical-squad-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (4), loses Line (2).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "tactical-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (4)"
+   ],
+   "removeRules": [
+    "Line (2)"
+   ]
+  },
+  {
+   "id": "tactical-squad-the-broken-helix",
+   "text": "The Broken Helix: loses Line (2), loses Fury of the Legion.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Broken Helix"
+    },
+    "name": "The Broken Helix"
+   },
+   "appliesTo": {
+    "units": [
+     "tactical-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [],
+   "removeRules": [
+    "Line (2)",
+    "Fury of the Legion"
+   ]
+  },
+  {
+   "id": "tactical-squad-the-spoils-of-victory",
+   "text": "The Spoils of Victory: gains Loot the Dead (2), loses Line (2).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Spoils of Victory"
+    },
+    "name": "The Spoils of Victory"
+   },
+   "appliesTo": {
+    "units": [
+     "tactical-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Loot the Dead (2)"
+   ],
+   "removeRules": [
+    "Line (2)"
+   ]
+  },
+  {
+   "id": "praetorian-command-squad-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "praetorian-command-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "praetorian-command-squad-with-jump-packs-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "praetorian-command-squad-with-jump-packs"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "centurion-command-squad-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "centurion-command-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "tartaros-terminator-command-squad-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "tartaros-terminator-command-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "seeker-squad-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "seeker-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "cataphractii-terminator-squad-reapers-of-lives",
+   "text": "Reapers of Lives: loses Vanguard (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Reapers of Lives"
+    },
+    "name": "Reapers of Lives"
+   },
+   "appliesTo": {
+    "units": [
+     "cataphractii-terminator-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [],
+   "removeRules": [
+    "Vanguard (3)"
+   ]
+  },
+  {
+   "id": "cataphractii-terminator-squad-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (6), loses Vanguard (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "cataphractii-terminator-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (6)"
+   ],
+   "removeRules": [
+    "Vanguard (3)"
+   ]
+  },
+  {
+   "id": "cataphractii-terminator-squad-the-broken-helix",
+   "text": "The Broken Helix: loses Vanguard (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Broken Helix"
+    },
+    "name": "The Broken Helix"
+   },
+   "appliesTo": {
+    "units": [
+     "cataphractii-terminator-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [],
+   "removeRules": [
+    "Vanguard (3)"
+   ]
+  },
+  {
+   "id": "cataphractii-terminator-squad-the-spoils-of-victory",
+   "text": "The Spoils of Victory: gains Loot the Dead (1.5*), loses Vanguard (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Spoils of Victory"
+    },
+    "name": "The Spoils of Victory"
+   },
+   "appliesTo": {
+    "units": [
+     "cataphractii-terminator-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Loot the Dead (1.5*)"
+   ],
+   "removeRules": [
+    "Vanguard (3)"
+   ]
+  },
+  {
+   "id": "tartaros-terminator-squad-reapers-of-lives",
+   "text": "Reapers of Lives: loses Vanguard (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Reapers of Lives"
+    },
+    "name": "Reapers of Lives"
+   },
+   "appliesTo": {
+    "units": [
+     "tartaros-terminator-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [],
+   "removeRules": [
+    "Vanguard (3)"
+   ]
+  },
+  {
+   "id": "tartaros-terminator-squad-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (6), loses Vanguard (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "tartaros-terminator-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (6)"
+   ],
+   "removeRules": [
+    "Vanguard (3)"
+   ]
+  },
+  {
+   "id": "tartaros-terminator-squad-the-broken-helix",
+   "text": "The Broken Helix: loses Vanguard (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Broken Helix"
+    },
+    "name": "The Broken Helix"
+   },
+   "appliesTo": {
+    "units": [
+     "tartaros-terminator-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [],
+   "removeRules": [
+    "Vanguard (3)"
+   ]
+  },
+  {
+   "id": "tartaros-terminator-squad-the-spoils-of-victory",
+   "text": "The Spoils of Victory: gains Loot the Dead (1.5*), loses Vanguard (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Spoils of Victory"
+    },
+    "name": "The Spoils of Victory"
+   },
+   "appliesTo": {
+    "units": [
+     "tartaros-terminator-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Loot the Dead (1.5*)"
+   ],
+   "removeRules": [
+    "Vanguard (3)"
+   ]
+  },
+  {
+   "id": "saturnine-terminator-squad-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "saturnine-terminator-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "despoiler-squad-reapers-of-lives",
+   "text": "Reapers of Lives: loses Line (2).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Reapers of Lives"
+    },
+    "name": "Reapers of Lives"
+   },
+   "appliesTo": {
+    "units": [
+     "despoiler-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [],
+   "removeRules": [
+    "Line (2)"
+   ]
+  },
+  {
+   "id": "despoiler-squad-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (4), loses Line (2).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "despoiler-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (4)"
+   ],
+   "removeRules": [
+    "Line (2)"
+   ]
+  },
+  {
+   "id": "despoiler-squad-the-broken-helix",
+   "text": "The Broken Helix: loses Line (2).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Broken Helix"
+    },
+    "name": "The Broken Helix"
+   },
+   "appliesTo": {
+    "units": [
+     "despoiler-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [],
+   "removeRules": [
+    "Line (2)"
+   ]
+  },
+  {
+   "id": "despoiler-squad-the-spoils-of-victory",
+   "text": "The Spoils of Victory: gains Loot the Dead (2), loses Line (2).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Spoils of Victory"
+    },
+    "name": "The Spoils of Victory"
+   },
+   "appliesTo": {
+    "units": [
+     "despoiler-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Loot the Dead (2)"
+   ],
+   "removeRules": [
+    "Line (2)"
+   ]
+  },
+  {
+   "id": "assault-squad-reapers-of-lives",
+   "text": "Reapers of Lives: loses Vanguard (2).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Reapers of Lives"
+    },
+    "name": "Reapers of Lives"
+   },
+   "appliesTo": {
+    "units": [
+     "assault-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [],
+   "removeRules": [
+    "Vanguard (2)"
+   ]
+  },
+  {
+   "id": "assault-squad-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (4), loses Vanguard (2).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "assault-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (4)"
+   ],
+   "removeRules": [
+    "Vanguard (2)"
+   ]
+  },
+  {
+   "id": "assault-squad-the-broken-helix",
+   "text": "The Broken Helix: loses Vanguard (2).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Broken Helix"
+    },
+    "name": "The Broken Helix"
+   },
+   "appliesTo": {
+    "units": [
+     "assault-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [],
+   "removeRules": [
+    "Vanguard (2)"
+   ]
+  },
+  {
+   "id": "assault-squad-the-spoils-of-victory",
+   "text": "The Spoils of Victory: gains Loot the Dead (1.5*), loses Vanguard (2).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Spoils of Victory"
+    },
+    "name": "The Spoils of Victory"
+   },
+   "appliesTo": {
+    "units": [
+     "assault-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Loot the Dead (1.5*)"
+   ],
+   "removeRules": [
+    "Vanguard (2)"
+   ]
+  },
+  {
+   "id": "breacher-squad-reapers-of-lives",
+   "text": "Reapers of Lives: loses Line (1).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Reapers of Lives"
+    },
+    "name": "Reapers of Lives"
+   },
+   "appliesTo": {
+    "units": [
+     "breacher-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [],
+   "removeRules": [
+    "Line (1)"
+   ]
+  },
+  {
+   "id": "breacher-squad-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (2), loses Line (1).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "breacher-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (2)"
+   ],
+   "removeRules": [
+    "Line (1)"
+   ]
+  },
+  {
+   "id": "breacher-squad-the-broken-helix",
+   "text": "The Broken Helix: loses Line (1).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Broken Helix"
+    },
+    "name": "The Broken Helix"
+   },
+   "appliesTo": {
+    "units": [
+     "breacher-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [],
+   "removeRules": [
+    "Line (1)"
+   ]
+  },
+  {
+   "id": "breacher-squad-the-spoils-of-victory",
+   "text": "The Spoils of Victory: gains Loot the Dead (1), loses Line (1).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Spoils of Victory"
+    },
+    "name": "The Spoils of Victory"
+   },
+   "appliesTo": {
+    "units": [
+     "breacher-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Loot the Dead (1)"
+   ],
+   "removeRules": [
+    "Line (1)"
+   ]
+  },
+  {
+   "id": "tactical-support-squad-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "tactical-support-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "heavy-support-squad-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "heavy-support-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "apothecary-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "apothecary"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "techmarine-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "techmarine"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "deathstorm-drop-pod-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "deathstorm-drop-pod"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "araknae-quad-accelerator-platform-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "araknae-quad-accelerator-platform"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "contemptor-dreadnought-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "contemptor-dreadnought"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "saturnine-dreadnought-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "saturnine-dreadnought"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "drop-pod-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "drop-pod"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "drop-pod-drop-pod-the-flesh-is-weak",
+   "text": "The Flesh is Weak: CAPACITY 13.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Flesh is Weak"
+    },
+    "name": "The Flesh is Weak"
+   },
+   "appliesTo": {
+    "models": [
+     "Drop Pod"
+    ],
+    "units": [
+     "drop-pod"
+    ]
+   },
+   "scope": "model",
+   "stats": {
+    "CAPACITY": "=13"
+   },
+   "addRules": [],
+   "removeRules": []
+  },
+  {
+   "id": "termite-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "termite"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "termite-termite-the-flesh-is-weak",
+   "text": "The Flesh is Weak: CAPACITY 15.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Flesh is Weak"
+    },
+    "name": "The Flesh is Weak"
+   },
+   "appliesTo": {
+    "models": [
+     "Termite"
+    ],
+    "units": [
+     "termite"
+    ]
+   },
+   "scope": "model",
+   "stats": {
+    "CAPACITY": "=15"
+   },
+   "addRules": [],
+   "removeRules": []
+  },
+  {
+   "id": "land-raider-carrier-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "land-raider-carrier"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "land-raider-carrier-land-raider-carrier-the-flesh-is-weak",
+   "text": "The Flesh is Weak: CAPACITY 15.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Flesh is Weak"
+    },
+    "name": "The Flesh is Weak"
+   },
+   "appliesTo": {
+    "models": [
+     "Land Raider Carrier"
+    ],
+    "units": [
+     "land-raider-carrier"
+    ]
+   },
+   "scope": "model",
+   "stats": {
+    "CAPACITY": "=15"
+   },
+   "addRules": [],
+   "removeRules": []
+  },
+  {
+   "id": "dreadnought-drop-pod-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "dreadnought-drop-pod"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "dreadnought-drop-pod-dreadnought-drop-pod-the-flesh-is-weak",
+   "text": "The Flesh is Weak: CAPACITY 10.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Flesh is Weak"
+    },
+    "name": "The Flesh is Weak"
+   },
+   "appliesTo": {
+    "models": [
+     "Dreadnought Drop Pod"
+    ],
+    "units": [
+     "dreadnought-drop-pod"
+    ]
+   },
+   "scope": "model",
+   "stats": {
+    "CAPACITY": "=10"
+   },
+   "addRules": [],
+   "removeRules": []
+  },
+  {
+   "id": "dreadclaw-drop-pod-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "dreadclaw-drop-pod"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "dreadclaw-drop-pod-dreadclaw-drop-pod-the-flesh-is-weak",
+   "text": "The Flesh is Weak: CAPACITY 15.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Flesh is Weak"
+    },
+    "name": "The Flesh is Weak"
+   },
+   "appliesTo": {
+    "models": [
+     "Dreadclaw Drop Pod"
+    ],
+    "units": [
+     "dreadclaw-drop-pod"
+    ]
+   },
+   "scope": "model",
+   "stats": {
+    "CAPACITY": "=15"
+   },
+   "addRules": [],
+   "removeRules": []
+  },
+  {
+   "id": "kharybdis-assault-claw-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "kharybdis-assault-claw"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "kharybdis-assault-claw-kharybdis-assault-claw-the-flesh-is-weak",
+   "text": "The Flesh is Weak: CAPACITY 25.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Flesh is Weak"
+    },
+    "name": "The Flesh is Weak"
+   },
+   "appliesTo": {
+    "models": [
+     "Kharybdis Assault Claw"
+    ],
+    "units": [
+     "kharybdis-assault-claw"
+    ]
+   },
+   "scope": "model",
+   "stats": {
+    "CAPACITY": "=25"
+   },
+   "addRules": [],
+   "removeRules": []
+  },
+  {
+   "id": "reconnaissance-squad-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "reconnaissance-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "sabre-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "sabre"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "outrider-squadron-reapers-of-lives",
+   "text": "Reapers of Lives: loses Vanguard (1).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Reapers of Lives"
+    },
+    "name": "Reapers of Lives"
+   },
+   "appliesTo": {
+    "units": [
+     "outrider-squadron"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [],
+   "removeRules": [
+    "Vanguard (1)"
+   ]
+  },
+  {
+   "id": "outrider-squadron-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (2), loses Vanguard (1).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "outrider-squadron"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (2)"
+   ],
+   "removeRules": [
+    "Vanguard (1)"
+   ]
+  },
+  {
+   "id": "outrider-squadron-the-broken-helix",
+   "text": "The Broken Helix: loses Vanguard (1).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Broken Helix"
+    },
+    "name": "The Broken Helix"
+   },
+   "appliesTo": {
+    "units": [
+     "outrider-squadron"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [],
+   "removeRules": [
+    "Vanguard (1)"
+   ]
+  },
+  {
+   "id": "outrider-squadron-the-spoils-of-victory",
+   "text": "The Spoils of Victory: gains Loot the Dead (0.5*), loses Vanguard (1).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Spoils of Victory"
+    },
+    "name": "The Spoils of Victory"
+   },
+   "appliesTo": {
+    "units": [
+     "outrider-squadron"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Loot the Dead (0.5*)"
+   ],
+   "removeRules": [
+    "Vanguard (1)"
+   ]
+  },
+  {
+   "id": "land-raider-explorator-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "land-raider-explorator"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "land-raider-explorator-land-raider-explorator-the-flesh-is-weak",
+   "text": "The Flesh is Weak: CAPACITY 13.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Flesh is Weak"
+    },
+    "name": "The Flesh is Weak"
+   },
+   "appliesTo": {
+    "models": [
+     "Land Raider Explorator"
+    ],
+    "units": [
+     "land-raider-explorator"
+    ]
+   },
+   "scope": "model",
+   "stats": {
+    "CAPACITY": "=13"
+   },
+   "addRules": [],
+   "removeRules": []
+  },
+  {
+   "id": "xiphon-interceptor-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "xiphon-interceptor"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "storm-eagle-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "storm-eagle"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "storm-eagle-storm-eagle-the-flesh-is-weak",
+   "text": "The Flesh is Weak: CAPACITY 19.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Flesh is Weak"
+    },
+    "name": "The Flesh is Weak"
+   },
+   "appliesTo": {
+    "models": [
+     "Storm Eagle"
+    ],
+    "units": [
+     "storm-eagle"
+    ]
+   },
+   "scope": "model",
+   "stats": {
+    "CAPACITY": "=19"
+   },
+   "addRules": [],
+   "removeRules": []
+  },
+  {
+   "id": "fire-raptor-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "fire-raptor"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "scimitar-jetbike-squadron-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "scimitar-jetbike-squadron"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "javelin-speeder-squadron-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "javelin-speeder-squadron"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "land-speeder-squadron-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "land-speeder-squadron"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "sicaran-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "sicaran"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "sicaran-venator-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "sicaran-venator"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "kratos-assault-tank-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "kratos-assault-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "vindicator-siege-tank-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "vindicator-siege-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "scorpius-missile-tank-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "scorpius-missile-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "arquitor-bombard-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "arquitor-bombard"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "thunderhawk-gunship-thunderhawk-gunship-the-flesh-is-weak",
+   "text": "The Flesh is Weak: CAPACITY 35.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Flesh is Weak"
+    },
+    "name": "The Flesh is Weak"
+   },
+   "appliesTo": {
+    "models": [
+     "Thunderhawk Gunship"
+    ],
+    "units": [
+     "thunderhawk-gunship"
+    ]
+   },
+   "scope": "model",
+   "stats": {
+    "CAPACITY": "=35"
+   },
+   "addRules": [],
+   "removeRules": []
+  },
+  {
+   "id": "sokar-stormbird-sokar-stormbird-the-flesh-is-weak",
+   "text": "The Flesh is Weak: CAPACITY 55.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Flesh is Weak"
+    },
+    "name": "The Flesh is Weak"
+   },
+   "appliesTo": {
+    "models": [
+     "Sokar Stormbird"
+    ],
+    "units": [
+     "sokar-stormbird"
+    ]
+   },
+   "scope": "model",
+   "stats": {
+    "CAPACITY": "=55"
+   },
+   "addRules": [],
+   "removeRules": []
+  },
+  {
+   "id": "mastodon-super-heavy-assault-transport-mastodon-super-heavy-assault-transport-the-flesh-is-weak",
+   "text": "The Flesh is Weak: CAPACITY 45.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Flesh is Weak"
+    },
+    "name": "The Flesh is Weak"
+   },
+   "appliesTo": {
+    "models": [
+     "Mastodon Super-Heavy Assault Transport"
+    ],
+    "units": [
+     "mastodon-super-heavy-assault-transport"
+    ]
+   },
+   "scope": "model",
+   "stats": {
+    "CAPACITY": "=45"
+   },
+   "addRules": [],
+   "removeRules": []
+  },
+  {
+   "id": "master-of-descent-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "master-of-descent"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "augur-command-and-control-squad-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "augur-command-and-control-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "hyperios-missile-tank-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "hyperios-missile-tank"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mounted-praetor-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "mounted-praetor"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mounted-centurion-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "mounted-centurion"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "librarian-with-jump-pack-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "librarian-with-jump-pack"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mounted-librarian-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "mounted-librarian"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "librarian-in-terminator-armour-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "librarian-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "esoterist-with-jump-pack-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "esoterist-with-jump-pack"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mounted-esoterist-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "mounted-esoterist"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "esoterist-in-terminator-armour-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "esoterist-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "legion-champion-with-jump-pack-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "legion-champion-with-jump-pack"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mounted-legion-champion-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "mounted-legion-champion"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "legion-champion-in-terminator-armour-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "legion-champion-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "chaplain-with-jump-pack-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "chaplain-with-jump-pack"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mounted-chaplain-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "mounted-chaplain"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "chaplain-in-terminator-armour-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "chaplain-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "herald-with-jump-pack-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "herald-with-jump-pack"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mounted-herald-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "mounted-herald"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "herald-in-terminator-armour-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "herald-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "siege-breaker-with-jump-pack-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "siege-breaker-with-jump-pack"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mounted-siege-breaker-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "mounted-siege-breaker"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "siege-breaker-in-terminator-armour-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "siege-breaker-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "master-of-signals-with-jump-pack-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "master-of-signals-with-jump-pack"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mounted-master-of-signals-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "mounted-master-of-signals"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "moritat-mortalis-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "moritat-mortalis"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "forge-lord-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "forge-lord"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mounted-forge-lord-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "mounted-forge-lord"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "forge-lord-in-terminator-armour-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "forge-lord-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "primus-medicae-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "primus-medicae"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mounted-primus-medicae-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "mounted-primus-medicae"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "primus-medicae-in-terminator-armour-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "primus-medicae-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "delegatus-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "delegatus"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mounted-delegatus-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "mounted-delegatus"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "delegatus-in-terminator-armour-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "delegatus-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mortificator-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "mortificator"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mortificator-in-terminator-armour-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "mortificator-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "warmonger-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "warmonger"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "warmonger-in-terminator-armour-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "warmonger-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "pathfinder-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "pathfinder"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "armistos-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "armistos"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "praetorian-command-squad-on-scimitar-jetbikes-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "praetorian-command-squad-on-scimitar-jetbikes"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "outrider-praetorian-command-squad-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "outrider-praetorian-command-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "veteran-breacher-squad-reapers-of-lives",
+   "text": "Reapers of Lives: loses Vanguard (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Reapers of Lives"
+    },
+    "name": "Reapers of Lives"
+   },
+   "appliesTo": {
+    "units": [
+     "veteran-breacher-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [],
+   "removeRules": [
+    "Vanguard (3)"
+   ]
+  },
+  {
+   "id": "veteran-breacher-squad-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (6), loses Vanguard (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "veteran-breacher-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (6)"
+   ],
+   "removeRules": [
+    "Vanguard (3)"
+   ]
+  },
+  {
+   "id": "veteran-breacher-squad-the-broken-helix",
+   "text": "The Broken Helix: loses Vanguard (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Broken Helix"
+    },
+    "name": "The Broken Helix"
+   },
+   "appliesTo": {
+    "units": [
+     "veteran-breacher-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [],
+   "removeRules": [
+    "Vanguard (3)"
+   ]
+  },
+  {
+   "id": "veteran-breacher-squad-the-spoils-of-victory",
+   "text": "The Spoils of Victory: gains Loot the Dead (1.5*), loses Vanguard (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Spoils of Victory"
+    },
+    "name": "The Spoils of Victory"
+   },
+   "appliesTo": {
+    "units": [
+     "veteran-breacher-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Loot the Dead (1.5*)"
+   ],
+   "removeRules": [
+    "Vanguard (3)"
+   ]
+  },
+  {
+   "id": "veteran-heavy-support-squad-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "veteran-heavy-support-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "tartaros-terminator-siege-squad-reapers-of-lives",
+   "text": "Reapers of Lives: loses Vanguard (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Reapers of Lives"
+    },
+    "name": "Reapers of Lives"
+   },
+   "appliesTo": {
+    "units": [
+     "tartaros-terminator-siege-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [],
+   "removeRules": [
+    "Vanguard (3)"
+   ]
+  },
+  {
+   "id": "tartaros-terminator-siege-squad-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (6), loses Vanguard (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "tartaros-terminator-siege-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (6)"
+   ],
+   "removeRules": [
+    "Vanguard (3)"
+   ]
+  },
+  {
+   "id": "tartaros-terminator-siege-squad-the-broken-helix",
+   "text": "The Broken Helix: loses Vanguard (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Broken Helix"
+    },
+    "name": "The Broken Helix"
+   },
+   "appliesTo": {
+    "units": [
+     "tartaros-terminator-siege-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [],
+   "removeRules": [
+    "Vanguard (3)"
+   ]
+  },
+  {
+   "id": "tartaros-terminator-siege-squad-the-spoils-of-victory",
+   "text": "The Spoils of Victory: gains Loot the Dead (1.5*), loses Vanguard (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Spoils of Victory"
+    },
+    "name": "The Spoils of Victory"
+   },
+   "appliesTo": {
+    "units": [
+     "tartaros-terminator-siege-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Loot the Dead (1.5*)"
+   ],
+   "removeRules": [
+    "Vanguard (3)"
+   ]
+  },
+  {
+   "id": "indomitus-terminator-squad-reapers-of-lives",
+   "text": "Reapers of Lives: loses Vanguard (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Reapers of Lives"
+    },
+    "name": "Reapers of Lives"
+   },
+   "appliesTo": {
+    "units": [
+     "indomitus-terminator-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [],
+   "removeRules": [
+    "Vanguard (3)"
+   ]
+  },
+  {
+   "id": "indomitus-terminator-squad-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (6), loses Vanguard (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "indomitus-terminator-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (6)"
+   ],
+   "removeRules": [
+    "Vanguard (3)"
+   ]
+  },
+  {
+   "id": "indomitus-terminator-squad-the-broken-helix",
+   "text": "The Broken Helix: loses Vanguard (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Broken Helix"
+    },
+    "name": "The Broken Helix"
+   },
+   "appliesTo": {
+    "units": [
+     "indomitus-terminator-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [],
+   "removeRules": [
+    "Vanguard (3)"
+   ]
+  },
+  {
+   "id": "indomitus-terminator-squad-the-spoils-of-victory",
+   "text": "The Spoils of Victory: gains Loot the Dead (1.5*), loses Vanguard (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Spoils of Victory"
+    },
+    "name": "The Spoils of Victory"
+   },
+   "appliesTo": {
+    "units": [
+     "indomitus-terminator-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Loot the Dead (1.5*)"
+   ],
+   "removeRules": [
+    "Vanguard (3)"
+   ]
+  },
+  {
+   "id": "mortalis-destroyer-squad-reapers-of-lives",
+   "text": "Reapers of Lives: loses Vanguard (2).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Reapers of Lives"
+    },
+    "name": "Reapers of Lives"
+   },
+   "appliesTo": {
+    "units": [
+     "mortalis-destroyer-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [],
+   "removeRules": [
+    "Vanguard (2)"
+   ]
+  },
+  {
+   "id": "mortalis-destroyer-squad-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (4), loses Vanguard (2).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "mortalis-destroyer-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (4)"
+   ],
+   "removeRules": [
+    "Vanguard (2)"
+   ]
+  },
+  {
+   "id": "mortalis-destroyer-squad-the-broken-helix",
+   "text": "The Broken Helix: loses Vanguard (2).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Broken Helix"
+    },
+    "name": "The Broken Helix"
+   },
+   "appliesTo": {
+    "units": [
+     "mortalis-destroyer-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [],
+   "removeRules": [
+    "Vanguard (2)"
+   ]
+  },
+  {
+   "id": "mortalis-destroyer-squad-the-spoils-of-victory",
+   "text": "The Spoils of Victory: gains Loot the Dead (1), loses Vanguard (2).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Spoils of Victory"
+    },
+    "name": "The Spoils of Victory"
+   },
+   "appliesTo": {
+    "units": [
+     "mortalis-destroyer-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Loot the Dead (1)"
+   ],
+   "removeRules": [
+    "Vanguard (2)"
+   ]
+  },
+  {
+   "id": "destroyer-assault-squad-reapers-of-lives",
+   "text": "Reapers of Lives: loses Vanguard (2).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Reapers of Lives"
+    },
+    "name": "Reapers of Lives"
+   },
+   "appliesTo": {
+    "units": [
+     "destroyer-assault-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [],
+   "removeRules": [
+    "Vanguard (2)"
+   ]
+  },
+  {
+   "id": "destroyer-assault-squad-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (4), loses Vanguard (2).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "destroyer-assault-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (4)"
+   ],
+   "removeRules": [
+    "Vanguard (2)"
+   ]
+  },
+  {
+   "id": "destroyer-assault-squad-the-broken-helix",
+   "text": "The Broken Helix: loses Vanguard (2).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Broken Helix"
+    },
+    "name": "The Broken Helix"
+   },
+   "appliesTo": {
+    "units": [
+     "destroyer-assault-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [],
+   "removeRules": [
+    "Vanguard (2)"
+   ]
+  },
+  {
+   "id": "destroyer-assault-squad-the-spoils-of-victory",
+   "text": "The Spoils of Victory: gains Loot the Dead (1), loses Vanguard (2).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Spoils of Victory"
+    },
+    "name": "The Spoils of Victory"
+   },
+   "appliesTo": {
+    "units": [
+     "destroyer-assault-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Loot the Dead (1)"
+   ],
+   "removeRules": [
+    "Vanguard (2)"
+   ]
+  },
+  {
+   "id": "castra-ferrum-dreadnought-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "castra-ferrum-dreadnought"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "land-raider-achilles-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "land-raider-achilles"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "land-raider-achilles-land-raider-achilles-the-flesh-is-weak",
+   "text": "The Flesh is Weak: CAPACITY 9.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Flesh is Weak"
+    },
+    "name": "The Flesh is Weak"
+   },
+   "appliesTo": {
+    "models": [
+     "Land Raider Achilles"
+    ],
+    "units": [
+     "land-raider-achilles"
+    ]
+   },
+   "scope": "model",
+   "stats": {
+    "CAPACITY": "=9"
+   },
+   "addRules": [],
+   "removeRules": []
+  },
+  {
+   "id": "caestus-assault-ram-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "caestus-assault-ram"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "caestus-assault-ram-caestus-assault-ram-the-flesh-is-weak",
+   "text": "The Flesh is Weak: CAPACITY 19.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Flesh is Weak"
+    },
+    "name": "The Flesh is Weak"
+   },
+   "appliesTo": {
+    "models": [
+     "Caestus Assault Ram"
+    ],
+    "units": [
+     "caestus-assault-ram"
+    ]
+   },
+   "scope": "model",
+   "stats": {
+    "CAPACITY": "=19"
+   },
+   "addRules": [],
+   "removeRules": []
+  },
+  {
+   "id": "attack-bike-squadron-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "attack-bike-squadron"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "scout-squad-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "scout-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "legion-basilisk-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "legion-basilisk"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "legion-medusa-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "legion-medusa"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "thunderhawk-transporter-thunderhawk-transporter-the-flesh-is-weak",
+   "text": "The Flesh is Weak: CAPACITY 23.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Flesh is Weak"
+    },
+    "name": "The Flesh is Weak"
+   },
+   "appliesTo": {
+    "models": [
+     "Thunderhawk Transporter"
+    ],
+    "units": [
+     "thunderhawk-transporter"
+    ]
+   },
+   "scope": "model",
+   "stats": {
+    "CAPACITY": "=23"
+   },
+   "addRules": [],
+   "removeRules": []
+  },
+  {
+   "id": "centurion-in-saturnine-terminator-armour-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "centurion-in-saturnine-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "saturnine-terminator-command-squad-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "saturnine-terminator-command-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (3)"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "veteran-despoiler-squad-reapers-of-lives",
+   "text": "Reapers of Lives: loses Vanguard (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Reapers of Lives"
+    },
+    "name": "Reapers of Lives"
+   },
+   "appliesTo": {
+    "units": [
+     "veteran-despoiler-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [],
+   "removeRules": [
+    "Vanguard (3)"
+   ]
+  },
+  {
+   "id": "veteran-despoiler-squad-the-blade-of-the-just",
+   "text": "The Blade of the Just: gains Doomed Heroics (6), loses Vanguard (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Blade of the Just"
+    },
+    "name": "The Blade of the Just"
+   },
+   "appliesTo": {
+    "units": [
+     "veteran-despoiler-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Doomed Heroics (6)"
+   ],
+   "removeRules": [
+    "Vanguard (3)"
+   ]
+  },
+  {
+   "id": "veteran-despoiler-squad-the-broken-helix",
+   "text": "The Broken Helix: loses Vanguard (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Broken Helix"
+    },
+    "name": "The Broken Helix"
+   },
+   "appliesTo": {
+    "units": [
+     "veteran-despoiler-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [],
+   "removeRules": [
+    "Vanguard (3)"
+   ]
+  },
+  {
+   "id": "veteran-despoiler-squad-the-spoils-of-victory",
+   "text": "The Spoils of Victory: gains Loot the Dead (1.5*), loses Vanguard (3).",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "The Spoils of Victory"
+    },
+    "name": "The Spoils of Victory"
+   },
+   "appliesTo": {
+    "units": [
+     "veteran-despoiler-squad"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Loot the Dead (1.5*)"
+   ],
+   "removeRules": [
+    "Vanguard (3)"
+   ]
   }
  ]
 }

@@ -709,6 +709,41 @@
    "requires": [],
    "restrictions": [],
    "rules": []
+  },
+  {
+   "id": "bs-tank-commander-armoured-support-when",
+   "name": "Tank Commander Armoured Support",
+   "type": "Auxiliary",
+   "source": "army",
+   "page": null,
+   "unlock": "4 Armour",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Armour",
+     "prime": false
+    },
+    {
+     "role": "Armour",
+     "prime": false
+    },
+    {
+     "role": "Armour",
+     "prime": false
+    },
+    {
+     "role": "Armour",
+     "prime": false
+    }
+   ],
+   "requires": [],
+   "restrictions": [],
+   "rules": [],
+   "when": [
+    {
+     "category": "Tank Commander"
+    }
+   ]
   }
  ]
 }

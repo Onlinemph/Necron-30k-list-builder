@@ -18,6 +18,17 @@
     "text": "An Army that includes any Detachments with the Blackshields Faction may select a number of Oaths of Moment for each such Detachment, these are sets of rules that add a number of additional options and Special Rules to Units in that Detachment. The number of Oaths of Moment that may be selected for a Detachment depends on what type of Detachment it is, as shown on the table below:\n \nPrimary Detachment : 2 \nAllied Detachment : 1\n\n\nNote that any Auxiliary or Apex Detachments attached to a Blackshields Allied or Primary Detachment must use the same Oaths of Moment as the Detachment to which they are attached. Other types of Detachment may not have Oaths of Moment selected for them.\n\n\nOaths of Moment are selected when a Detachment is added to the Army Roster, and each such Oath of Moment will explain any effects it may have on which Units may be selected for the Detachment. Most Oaths of Moment will also add Special Rules or other effects to some or all Units in the Detachment, this will also be explained by each individual Oath of Moment.\n\n\nNote that some Oaths of Moment require that certain Special Rules be removed from Models and replaced with other Special Rules. In a Detachment that has more than one Oath of Moment, the effects of these are applied one at a time in an order of the Controlling Player's choice – and if the first Oath of Moment removes a Special Rule it cannot then be affected, modified or removed by the second.",
     "kind": "rule",
     "source": "Oaths of Moment"
+   },
+   {
+    "name": "Panoply of Old",
+    "text": "\"A Unit that includes Models with this Special Rule may make use of Wargear upgrades from a single Legion Armoury.\"\n\n\nFor each Detachment with this Oath of Moment, the Controlling Player must select a single Legion Trait. All Units in that Detachment may make use of any Armoury of the Legion Wargear upgrades. This does not include any Rules or  options from the chosen Legion’s Rites of War or any Prime Advantages – only options which replace Wargear. For the purposes of selecting Wargear upgrades only, all Models in the Detachment for which this Oath of Moment is selected are considered to have the Faction Trait of Legion chosen as part of this Oath of Moment.",
+    "kind": "rule",
+    "source": "Legion",
+    "when": [
+     {
+      "config": "Panoply of Old"
+     }
+    ]
    }
   ],
   "groups": [
@@ -57,7 +68,12 @@
      },
      {
       "name": "The Spoils of Victory",
-      "text": "\"A Unit that includes Models with this Special Rule can score Victory Points for looting the fallen, but loses the Line (X) or Vanguard (X) Special Rules.\"\n\n\nAll Models with the Blackshields Trait in a Detachment with this Oath of Moment lose any variants of the Line (X) or Vanguard (X) Special Rule they may have, and may not thereafter gain any version of Line (X) or Vanguard (X) from any source, and a Unit that includes any Models with this Oath of Moment may not Control or Contest any Objective Marker.\n\n\nModels that have lost either the Line (X) or Vanguard (X) Special Rule due to this Oath of Moment instead gain the Loot the Dead (X) Special Rule – the value of X on the Loot the Dead (X) Special Rule depends on the value of X on the Special Rule variants that were removed:\n\n\n • For Models that have had any variant of Vanguard (X) removed by this Special Rule, the value of X on Loot the Dead is equal to half the value of X on the variant of Vanguard (X) that was removed.\n • For Models that have had any variant of Line (X) removed by this Special Rule, the value of X on Loot the Dead is equal to the value of X on the variant of Line (X) that was removed.\n\n\nThis Oath of Moment may not be selected if the Detachment already has the Reapers of Lives Oath of Moment\n\n\n*NR Data authors note - there is currently no definitive ruling on rounding up or down for X values in Special Rules in HH v3.0 and we are not in any position to be making a ruling on that. We will update the values if an FAQ is released to address the subject. In the mean time, we advise discussing it with your opponent before you play.\"*"
+      "text": "\"A Unit that includes Models with this Special Rule can score Victory Points for looting the fallen, but loses the Line (X) or Vanguard (X) Special Rules.\"\n\n\nAll Models with the Blackshields Trait in a Detachment with this Oath of Moment lose any variants of the Line (X) or Vanguard (X) Special Rule they may have, and may not thereafter gain any version of Line (X) or Vanguard (X) from any source, and a Unit that includes any Models with this Oath of Moment may not Control or Contest any Objective Marker.\n\n\nModels that have lost either the Line (X) or Vanguard (X) Special Rule due to this Oath of Moment instead gain the Loot the Dead (X) Special Rule – the value of X on the Loot the Dead (X) Special Rule depends on the value of X on the Special Rule variants that were removed:\n\n\n • For Models that have had any variant of Vanguard (X) removed by this Special Rule, the value of X on Loot the Dead is equal to half the value of X on the variant of Vanguard (X) that was removed.\n • For Models that have had any variant of Line (X) removed by this Special Rule, the value of X on Loot the Dead is equal to the value of X on the variant of Line (X) that was removed.\n\n\nThis Oath of Moment may not be selected if the Detachment already has the Reapers of Lives Oath of Moment\n\n\n*NR Data authors note - there is currently no definitive ruling on rounding up or down for X values in Special Rules in HH v3.0 and we are not in any position to be making a ruling on that. We will update the values if an FAQ is released to address the subject. In the mean time, we advise discussing it with your opponent before you play.\"*",
+      "unless": [
+       {
+        "config": "Reapers of Lives"
+       }
+      ]
      },
      {
       "name": "An Eternity of War",
@@ -93,15 +109,116 @@
      },
      {
       "name": "The Blade of the Just",
-      "text": "\"A Unit which includes mostly Models with this Special Rule scores additional Victory Points for winning hard combats.\"\n\n\nAll Models with the Blackshields Trait in a Detachment that has this Oath of Moment lose all variants of the Line (X) or Vanguard (X) Special Rule and may not thereafter gain any version of Line (X) or Vanguard (X) from any source. Such Models gain the Doomed Heroics (X) Special Rule, with the value of X on Doomed Heroics being equal to twice the value of X on the Special Rule lost. Models with the Blackshields Trait in a Detachment that has this Oath of Moment that do not have the Heedless Special Rule and no variant of either the Line (X) or Vanguard (X) Special Rule gain the Doomed Heroics (3) Special Rule.\n\nDoomed Heroics (X): Whenever at least one Unit that includes a majority of Models with this Special Rule is on the winning side of a Combat where one or more of the following was true at the start of the Fight Sub-Phase, then the Controlling Player scores a number of Victory Points equal to the value of X (where there are multiple variants of this Special Rule in a Combat, use only the single highest value of X):\n\n\n • The total number of Models on the enemy side is more than twice the number of Models on the Blackshields side.\n • The enemy side includes more Models with the Command Trait or any Models with the Paragon Type.\n • The enemy side includes a majority of Models with a higher Weapon Skill Characteristic than the majority of Models on the Blackshields side.\n\n\nThis Oath of Moment may not be selected if the Detachment already has the Reapers of Lives or Spoils of Victory Oaths of Moment."
+      "text": "\"A Unit which includes mostly Models with this Special Rule scores additional Victory Points for winning hard combats.\"\n\n\nAll Models with the Blackshields Trait in a Detachment that has this Oath of Moment lose all variants of the Line (X) or Vanguard (X) Special Rule and may not thereafter gain any version of Line (X) or Vanguard (X) from any source. Such Models gain the Doomed Heroics (X) Special Rule, with the value of X on Doomed Heroics being equal to twice the value of X on the Special Rule lost. Models with the Blackshields Trait in a Detachment that has this Oath of Moment that do not have the Heedless Special Rule and no variant of either the Line (X) or Vanguard (X) Special Rule gain the Doomed Heroics (3) Special Rule.\n\nDoomed Heroics (X): Whenever at least one Unit that includes a majority of Models with this Special Rule is on the winning side of a Combat where one or more of the following was true at the start of the Fight Sub-Phase, then the Controlling Player scores a number of Victory Points equal to the value of X (where there are multiple variants of this Special Rule in a Combat, use only the single highest value of X):\n\n\n • The total number of Models on the enemy side is more than twice the number of Models on the Blackshields side.\n • The enemy side includes more Models with the Command Trait or any Models with the Paragon Type.\n • The enemy side includes a majority of Models with a higher Weapon Skill Characteristic than the majority of Models on the Blackshields side.\n\n\nThis Oath of Moment may not be selected if the Detachment already has the Reapers of Lives or Spoils of Victory Oaths of Moment.",
+      "unless": [
+       {
+        "config": "The Spoils of Victory"
+       },
+       {
+        "config": "Reapers of Lives"
+       }
+      ]
      },
      {
       "name": "Reapers of Lives",
-      "text": "\"Units that include mostly Models with this Special Rule score Victory Points when used to destroy enemy Units.\"\n\n\nAll Models with the Blackshields Trait in a Detachment with this Oath of Moment lose any variants of the Line (X) or Vanguard (X) Special Rule they may have, and may not thereafter gain any version of Line (X) or Vanguard (X) from any source, and a Unit that includes any Models with this Oath of Moment may not Control or Contest Objectives or score Victory Points from any other Primary or Secondary Objective. Instead the Controlling Player of a Detachment with this Oath of Moment gains D3 Victory Points for each enemy Unit entirely removed as Casualties as part of a Shooting Attack made for any Unit that includes a majority of Models with this Oath of Moment or as part of a Combat which includes any Models with this Oath of Moment under that Player’s Control. \n\n\n- If the Unit with this Oath of Moment is a Model with the Vehicle Type, only 1 Victory Point is scored instead.\n- If the enemy Unit whose destruction triggers this Special Rule includes any Models with the Expendable (X) Special Rule, then the number of Victory Points scored for this Special Rule is reduced by the value of X on that variant of the Expendable (X) Special Rule, to a minimum of 0.\n\n\nThis Oath of Moment may not be selected if the Detachment already has the Spoils of Victory Oath of Moment."
+      "text": "\"Units that include mostly Models with this Special Rule score Victory Points when used to destroy enemy Units.\"\n\n\nAll Models with the Blackshields Trait in a Detachment with this Oath of Moment lose any variants of the Line (X) or Vanguard (X) Special Rule they may have, and may not thereafter gain any version of Line (X) or Vanguard (X) from any source, and a Unit that includes any Models with this Oath of Moment may not Control or Contest Objectives or score Victory Points from any other Primary or Secondary Objective. Instead the Controlling Player of a Detachment with this Oath of Moment gains D3 Victory Points for each enemy Unit entirely removed as Casualties as part of a Shooting Attack made for any Unit that includes a majority of Models with this Oath of Moment or as part of a Combat which includes any Models with this Oath of Moment under that Player’s Control. \n\n\n- If the Unit with this Oath of Moment is a Model with the Vehicle Type, only 1 Victory Point is scored instead.\n- If the enemy Unit whose destruction triggers this Special Rule includes any Models with the Expendable (X) Special Rule, then the number of Victory Points scored for this Special Rule is reduced by the value of X on that variant of the Expendable (X) Special Rule, to a minimum of 0.\n\n\nThis Oath of Moment may not be selected if the Detachment already has the Spoils of Victory Oath of Moment.",
+      "unless": [
+       {
+        "config": "The Spoils of Victory"
+       },
+       {
+        "config": "The Blade of the Just"
+       }
+      ]
      },
      {
       "name": "Alone and Forgotten",
       "text": "\"A Detachment with this Oath of Moment may only have Command Choices selected for it, but gains bonuses for those Units in Combat.\"\n\n\nA Detachment that has this Oath of Moment may only include Command Choices. All Troops Slots in a Primary or Allied Detachment with this Oath of Moment, or any Auxiliary Detachment attached to such a Detachment, are replaced with Command Slots. However, the only Units that may be chosen to fill Command Slots in a Primary or Allied Detachment with this Oath of Moment, or any Detachments linked to them, are Centurions or Centurions in Terminator Armour. \n\n\nAll Command Choices selected for a Detachment with this Oath of Moment gain +1 to their Base Wounds Characteristic and may add +1 to one of the following Characteristics (each Model may have a different Characteristic selected): Willpower, Cool, or Intelligence\n\n\nAll Centurions and Centurions in Terminator Armour selected as part of a Detachment with this Oath of Moment gain  Heedless and To Fight and Die Alone Special Rule:\n\nTo Fight and Die Alone: \"A Model with this Special Rule cannot join Units, but gains bonuses when fighting alone.\"\n\n\nA Model with this Special Rule may not join any other Unit, nor may it be joined by another Model. While part of a Combat where this Model is the only Model the Controlling Player controls in that Combat:\n\n\n- The Controlling Player gains a bonus of +1 to their Combat Resolution Score for each wound lost by that Model in that Combat Round.\n- If a Model with this Special Rule issues or accepts a Challenge, its Controlling Player scores 1 Victory Point. \n- Neither Player may score any Victory Points for this Model being Removed as a Casualty."
+     }
+    ]
+   },
+   {
+    "id": "legion",
+    "name": "Legion",
+    "min": 1,
+    "max": 1,
+    "choices": [
+     {
+      "name": "I - Dark Angels",
+      "text": ""
+     },
+     {
+      "name": "III - Emperor's Children",
+      "text": ""
+     },
+     {
+      "name": "IV - Iron Warriors",
+      "text": ""
+     },
+     {
+      "name": "V - White Scars",
+      "text": ""
+     },
+     {
+      "name": "VI - Space Wolves",
+      "text": ""
+     },
+     {
+      "name": "VII - Imperial Fists",
+      "text": ""
+     },
+     {
+      "name": "VIII - Night Lords",
+      "text": ""
+     },
+     {
+      "name": "IX - Blood Angels",
+      "text": ""
+     },
+     {
+      "name": "X - Iron Hands",
+      "text": ""
+     },
+     {
+      "name": "XII - World Eaters",
+      "text": ""
+     },
+     {
+      "name": "XIII - Ultramarines",
+      "text": ""
+     },
+     {
+      "name": "XIV - Death Guard",
+      "text": ""
+     },
+     {
+      "name": "XV - Thousand Sons",
+      "text": ""
+     },
+     {
+      "name": "XVI - Sons of Horus",
+      "text": ""
+     },
+     {
+      "name": "XVII - Word Bearers",
+      "text": ""
+     },
+     {
+      "name": "XVIII - Salamanders",
+      "text": ""
+     },
+     {
+      "name": "XIX - Raven Guard",
+      "text": ""
+     },
+     {
+      "name": "XX - Alpha Legion",
+      "text": ""
+     }
+    ],
+    "when": [
+     {
+      "config": "Panoply of Old"
      }
     ]
    }
