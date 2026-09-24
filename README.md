@@ -1,7 +1,8 @@
 # 30k List Builder
 
-An army list builder for Horus Heresy 3rd edition xenos armies. Pick the army at the top of the page:
+An army list builder for the Horus Heresy 3rd edition. Pick the army at the top of the page:
 
+- **Every army in BSData's Horus Heresy 3rd edition data**: all eighteen Legions, Shattered Legions, Blackshields, Mechanicum, Solar Auxilia, Imperialis Militia, Legio Custodes, Legio Titanicus, Questoris Familia, Knights-Errant, Skitarii Conclaves, Daemons and Anathema Psykana. Imported from [BSData/horus-heresy-3rd-edition](https://github.com/BSData/horus-heresy-3rd-edition) by `scripts/import-bsdata.mjs`.
 - **Necrons**: *Codex Xenologica – Necrons*, v1.4.2 (August 2026)
 - **Orks**: *Xenos Forces of the Age of Darkness – Orks, 3rd Edition Rules* by Always Strikes First (October 2025)
 - **Drukhari**: *Codex Xenologica – Drukhari*, v1.13 (March 2026)
@@ -40,11 +41,25 @@ Every Ork unit picks its Great Clan (Bad Moons, Blood Axes, Deathskulls, Evil Su
 
 Units pick their Partisan (Kabals, Cults or Covens) where the codex leaves it open, and units with [Combat Drugs] must pick a drug, whose +1 shows on the statline. The Kabal Archon can buy the drugs as an upgrade. The Court of the Archon and Cult Beast Pack are built from a menu of models with a total size limit (and one Beastmaster per four models), and Haemonculus Arcana items are once per army. The eleven Drukhari detachments are in the Add detachment menu; their slots were read from the icons, since the codex has no icon legend. Power From Pain's tiers show as situational reminders.
 
+## BSData armies
+
+`scripts/import-bsdata.mjs` converts BSData's BattleScribe catalogues into this builder's format. It resolves each army statically: rules that depend on which Legion or faction the army is (Thousand Sons' Prosperine Arcana, legion weapons, profile changes) are applied, and rules that depend on what else is in the roster are shown in their default state. Units, models, per-model costs, standard wargear, weapon swaps, upgrades, crews (Rapier Batteries) and all weapon, wargear and special-rule text come across. BSData's core special rules text also fills in the rules the fan codexes only name.
+
+Not imported yet: Rites of War and other legion-specific detachments, Legion-specific Prime Advantages, the Assassins (their "Clade Operative" category has no battlefield role), and roster-wide limits that BSData enforces with conditions.
+
+To refresh from BSData:
+
+```
+git clone --depth 1 https://github.com/BSData/horus-heresy-3rd-edition /tmp/hh3
+node scripts/import-bsdata.mjs /tmp/hh3
+npm test
+```
+
 ## Force organisation
 
 The Primary Detachment follows the Horus Heresy 3rd edition Crusade chart: 1 High Command, 3 Command (1 Prime), 4 Troops (1 Prime), 4 Transport. Each filled Command slot unlocks one Auxiliary Detachment, and filling High Command unlocks one Apex Detachment. The core Auxiliary, Apex, Warlord and Lord of War Detachments are in the **Add detachment** menu next to the Necron ones, and the core Prime Advantages (Master Sergeant, Combat Veterans, Paragon of Battle, Special Assignment, Logistical Benefit) sit alongside the Necron ones. **Edit slots** on the Primary Detachment is there for rules that change the chart.
 
-Rules from the core rulebook (Bulky, Deep Strike, Eternal Warrior…) are labelled `core` because their text isn't in the codex.
+Rules from the core rulebook (Bulky, Deep Strike, Eternal Warrior…) show BSData's rules text.
 
 ## Data
 

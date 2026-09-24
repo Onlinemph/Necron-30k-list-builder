@@ -687,7 +687,10 @@
           if (granted && granted.grantedBy && !sels.some((x) => x.sel.unitId === granted.grantedBy)) {
             issues.push({ level: 'error', msg: `${u.name}: ${granted.name} needs ${unit(granted.grantedBy).name} in the army.` });
           }
-          if (s.unit.primeAdvantage && !hasTrait(s.unit, 'Necron')) {
+          // the codex's own Prime Advantages need its faction trait ("If a unit with the Necron Trait…")
+          const factionTrait = data.meta && data.meta.id === 'necrons' ? 'Necron' : null;
+          const codexAdv = ((data.rules && data.rules.primeAdvantages) || []).some((a) => a.name === s.unit.primeAdvantage);
+          if (factionTrait && codexAdv && !hasTrait(s.unit, factionTrait)) {
             issues.push({ level: 'error', msg: `${u.name} lacks the Necron trait, so it can't take a Necron Prime Advantage.` });
           }
         }

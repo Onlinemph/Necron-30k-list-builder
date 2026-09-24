@@ -1,13 +1,14 @@
-/* 30k list builder UI. Vanilla JS, no build step. One army's data is active per page load. */
+/* 30k list builder UI. Vanilla JS, no build step. One army's data is loaded per page load. */
 (function () {
   'use strict';
 
-  const ARMIES = window.ARMY_DATA || {};
+  // js/armies.js lists every army; only the chosen army's data file (and the shared one) is loaded.
+  const ARMIES = Object.fromEntries((window.ARMY_INDEX || []).map((a) => [a.id, a]));
   const STORE_LAST = 'necron30k.lastArmy';
   // A share link carries its army; otherwise ?army=, then the last army used.
   const FACTION = (() => {
-    const listed = (id) => ARMIES[id] && ARMIES[id].units.length && ARMIES[id].meta.ready !== false;
-    const pick = (id) => (id && ARMIES[id] && ARMIES[id].units.length ? id : null);
+    const listed = (id) => ARMIES[id] && ARMIES[id].units && ARMIES[id].ready !== false;
+    const pick = (id) => (id && ARMIES[id] && ARMIES[id].units ? id : null);
     let fromLink = null;
     try { const m = location.hash.match(/#a=(.+)$/); if (m) fromLink = JSON.parse(decodeURIComponent(escape(atob(m[1])))).faction || 'necrons'; } catch (e) { /* bad link */ }
     let last = null;
@@ -15,7 +16,25 @@
     // ?army= reaches an unfinished army for testing; the picker and "last used" only offer finished ones
     return pick(fromLink) || pick(new URLSearchParams(location.search).get('army')) || (listed(last) ? last : null) || 'necrons';
   })();
-  const DATA = ARMIES[FACTION];
+  const loadScript = (src) => new Promise((ok, fail) => {
+    const el = document.createElement('script');
+    el.src = src;
+    el.onload = ok;
+    el.onerror = () => fail(new Error(`Couldn't load ${src}`));
+    document.head.append(el);
+  });
+  Promise.all([loadScript('js/data-common.js'), loadScript(`js/data-${FACTION}.js`)]).then(main, (err) => {
+    document.querySelector('#editor').textContent = `${err.message}. Try reloading the page.`;
+  });
+
+  function main() {
+  const DATA = window.ARMY_DATA[FACTION];
+  // BSData armies share one weapons/wargear/rules file; every army gets its rules text for core rules
+  const COMMON = window.ARMY_COMMON || { weapons: { ranged: [], melee: [] }, wargear: [], rules: {} };
+  if (DATA.meta.shared === 'bsdata') {
+    DATA.weapons = { ranged: DATA.weapons.ranged.concat(COMMON.weapons.ranged), melee: DATA.weapons.melee.concat(COMMON.weapons.melee) };
+    DATA.wargear = DATA.wargear.concat(COMMON.wargear);
+  }
   const E = window.NecronEngine.createEngine(DATA);
   // Necron lists keep their original storage key so nothing saved earlier is lost.
   const STORE_CUR = FACTION === 'necrons' ? 'necron30k.current' : `necron30k.current.${FACTION}`;
@@ -38,7 +57,7 @@
   function addRule(r, src) {
     if (!r || !r.name || !r.text) return;
     const k = norm(r.name);
-    if (!ruleIndex.has(k)) ruleIndex.set(k, { name: r.name, text: r.text, page: r.page, src });
+    if (!ruleIndex.has(k)) ruleIndex.set(k, { name: r.name, text: r.text, page: r.page, src, core: !!r.core });
   }
   const R = DATA.rules || {};
   for (const key of ['specialRules', 'reactions', 'gambits', 'primeAdvantages', 'traits', 'unitTypes', 'powersOfTheCtan']) {
@@ -51,6 +70,9 @@
     for (const w of a.wargear || []) addRule(w, 'arkana');
   }
   for (const u of DATA.units) for (const r of u.unitRules || []) addRule(Object.assign({ page: u.page }, r), 'unit');
+  // core rules text from BSData fills in rules the codexes only name (Bulky, Deep Strike…)
+  for (const key of ['specialRules', 'traits', 'reactions', 'gambits']) for (const r of (COMMON.rules || {})[key] || []) addRule(Object.assign({ core: true }, r), 'core');
+  for (const w of COMMON.wargear || []) addRule(w, 'core');
   function findRule(name) {
     const k = norm(name);
     if (ruleIndex.has(k)) return ruleIndex.get(k);
@@ -119,7 +141,7 @@
     }
     a.sequelae = a.sequelae || [];
     a.faction = a.faction || 'necrons';
-    if (a.faction !== FACTION) throw new Error(`That list is for ${ARMIES[a.faction] ? ARMIES[a.faction].meta.name : a.faction}.`);
+    if (a.faction !== FACTION) throw new Error(`That list is for ${ARMIES[a.faction] ? ARMIES[a.faction].name : a.faction}.`);
     if ((a.version || 1) < 2) migrateV1(a);
     return a;
   }
@@ -292,7 +314,7 @@
       if (slot.flexible && u.role !== lastRole) { list.append(h(`<h4 class="muted">${esc(u.role)}</h4>`)); lastRole = u.role; }
       const taken = u.unique && E.allSelections(army).some((x) => x.sel.unitId === u.id);
       const alt = !slot.flexible && !slot.advisor && u.role !== slot.role ? ` <small class="muted">(${esc(u.role)}, via Sequela)</small>` : '';
-      const b = h(`<button type="button" ${taken ? 'disabled' : ''}><span>${esc(u.name)}${alt}${u.unique ? ' <small class="muted">(character)</small>' : ''}${u.limit ? ` <small class="muted">${esc(u.limit)}</small>` : ''}</span><span class="muted">${u.basePoints} pts · p.${u.page}</span></button>`);
+      const b = h(`<button type="button" ${taken ? 'disabled' : ''}><span>${esc(u.name)}${alt}${u.unique ? ' <small class="muted">(character)</small>' : ''}${u.limit ? ` <small class="muted">${esc(u.limit)}</small>` : ''}</span><span class="muted">${u.basePoints} pts${u.page ? ` · p.${u.page}` : ''}</span></button>`);
       b.addEventListener('click', () => {
         slot.unit = E.newSelection(u.id);
         // a detachment that only takes one Partisan / Clan presets the unit's choice
@@ -408,7 +430,7 @@
     box.replaceChildren();
 
     box.append(h(`<div class="ed-head"><h2>${esc(u.name)}</h2><span class="pts">${E.unitPoints(sel)} pts</span></div>`));
-    box.append(h(`<p class="ed-sub">${esc(u.role)} · ${esc(det.name)} · ${esc(u.composition || '')} · base ${u.basePoints} pts · p.${u.page}${u.unique ? ' · Dramatis Personae' : ''}</p>`));
+    box.append(h(`<p class="ed-sub">${esc(u.role)} · ${esc(det.name)} · ${esc(u.composition || '')} · base ${u.basePoints} pts${u.page ? ` · p.${u.page}` : ''}${u.unique ? ' · Dramatis Personae' : ''}</p>`));
 
     const issues = E.unitIssues(sel);
     if (issues.length) {
@@ -920,7 +942,7 @@
       const a = saved[n];
       const fac = a.faction || 'necrons';
       const other = fac !== FACTION;
-      const facName = ARMIES[fac] ? ARMIES[fac].meta.name : fac;
+      const facName = ARMIES[fac] ? ARMIES[fac].name : fac;
       const row = h(`<div class="row"><button type="button" style="flex:1"><span>${esc(n)}</span><span class="muted">${esc(facName)} · ${other ? '' : E.armyPoints(a) + ' pts · '}${esc((a.savedAt || '').slice(0, 10))}</span></button><button type="button" class="small danger">Delete</button></div>`);
       row.children[0].addEventListener('click', () => {
         if (other) { switchArmy(fac, JSON.parse(JSON.stringify(a))); return; }
@@ -1023,7 +1045,12 @@
   }
 
   const armySel = $('#army-select');
-  for (const [id, d] of Object.entries(ARMIES)) if ((d.units.length && d.meta.ready !== false) || id === FACTION) armySel.append(new Option(d.meta.name, id, id === FACTION, id === FACTION));
+  const groups = {};
+  for (const a of window.ARMY_INDEX || []) {
+    if (!((a.units && a.ready !== false) || a.id === FACTION)) continue;
+    if (!groups[a.group]) { groups[a.group] = document.createElement('optgroup'); groups[a.group].label = a.group; armySel.append(groups[a.group]); }
+    groups[a.group].append(new Option(a.name, a.id, a.id === FACTION, a.id === FACTION));
+  }
   armySel.addEventListener('change', () => switchArmy(armySel.value));
   store.set(STORE_LAST, FACTION);
   document.title = `${DATA.meta.name} · 30k List Builder`;
@@ -1031,4 +1058,5 @@
 
   addDetachmentMenu();
   refresh();
+  }
 })();

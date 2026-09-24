@@ -1,0 +1,281 @@
+{
+ "source": "BSData/horus-heresy-3rd-edition",
+ "gameSystemRevision": 55,
+ "importedAt": "2026-09-24",
+ "armies": [
+  {
+   "id": "anathema-psykana",
+   "name": "Anathema Psykana",
+   "group": "Imperium & Traitors",
+   "catalogue": "e7b4-2c1c-7d85-a4e3",
+   "units": 10,
+   "skipped": [
+    "Vindicare Assassin (Clade Operative)",
+    "Eversor Assassin (Clade Operative)",
+    "Callidus Assassin (Clade Operative)",
+    "Culexus Assassin (Clade Operative)",
+    "Adamus Assassin (Clade Operative)",
+    "Venenum Assassin (Clade Operative)",
+    "Vanus Infocyte Assassin (Clade Operative)"
+   ]
+  },
+  {
+   "id": "daemons",
+   "name": "Daemons",
+   "group": "Imperium & Traitors",
+   "catalogue": "9396-cc24-458d-d358",
+   "units": 28,
+   "skipped": []
+  },
+  {
+   "id": "imperialis-militia",
+   "name": "Imperialis Militia",
+   "group": "Imperium & Traitors",
+   "catalogue": "f477-a408-5e04-1e5a",
+   "units": 35,
+   "skipped": []
+  },
+  {
+   "id": "knights-errant",
+   "name": "Knights-Errant",
+   "group": "Imperium & Traitors",
+   "catalogue": "8f21-30c9-80d5-20a9",
+   "units": 8,
+   "skipped": []
+  },
+  {
+   "id": "legio-custodes",
+   "name": "Legio Custodes",
+   "group": "Imperium & Traitors",
+   "catalogue": "acc1-f897-a117-9b4a",
+   "units": 26,
+   "skipped": [
+    "Vindicare Assassin (Clade Operative)",
+    "Eversor Assassin (Clade Operative)",
+    "Callidus Assassin (Clade Operative)",
+    "Culexus Assassin (Clade Operative)",
+    "Adamus Assassin (Clade Operative)",
+    "Venenum Assassin (Clade Operative)",
+    "Vanus Infocyte Assassin (Clade Operative)"
+   ]
+  },
+  {
+   "id": "legio-titanicus",
+   "name": "Legio Titanicus",
+   "group": "Imperium & Traitors",
+   "catalogue": "69c0-2783-c191-e6a2",
+   "units": 13,
+   "skipped": []
+  },
+  {
+   "id": "mechanicum",
+   "name": "Mechanicum",
+   "group": "Imperium & Traitors",
+   "catalogue": "2f57-6e9d-8a7b-5c2e",
+   "units": 37,
+   "skipped": [
+    "Vindicare Assassin (Clade Operative)",
+    "Eversor Assassin (Clade Operative)",
+    "Callidus Assassin (Clade Operative)",
+    "Culexus Assassin (Clade Operative)",
+    "Adamus Assassin (Clade Operative)",
+    "Venenum Assassin (Clade Operative)",
+    "Vanus Infocyte Assassin (Clade Operative)",
+    "Infernus Abomination (Cult Operative)"
+   ]
+  },
+  {
+   "id": "questoris-familia",
+   "name": "Questoris Familia",
+   "group": "Imperium & Traitors",
+   "catalogue": "fd9b-d04e-362d-8e5d",
+   "units": 26,
+   "skipped": []
+  },
+  {
+   "id": "skitarii-conclaves",
+   "name": "Skitarii Conclaves",
+   "group": "Imperium & Traitors",
+   "catalogue": "079a-11b5-abfa-96da",
+   "units": 14,
+   "skipped": []
+  },
+  {
+   "id": "solar-auxilia",
+   "name": "Solar Auxilia",
+   "group": "Imperium & Traitors",
+   "catalogue": "7851-69ac-f701-034e",
+   "units": 72,
+   "skipped": [
+    "Vindicare Assassin (Clade Operative)",
+    "Eversor Assassin (Clade Operative)",
+    "Callidus Assassin (Clade Operative)",
+    "Culexus Assassin (Clade Operative)",
+    "Adamus Assassin (Clade Operative)",
+    "Venenum Assassin (Clade Operative)",
+    "Vanus Infocyte Assassin (Clade Operative)",
+    "Infernus Abomination (Cult Operative)"
+   ]
+  },
+  {
+   "id": "alpha-legion",
+   "name": "Alpha Legion",
+   "group": "Legiones Astartes",
+   "catalogue": "8813-5298-c368-ee16",
+   "units": 271,
+   "skipped": []
+  },
+  {
+   "id": "blackshields",
+   "name": "Blackshields",
+   "group": "Legiones Astartes",
+   "catalogue": "c195-9a6a-a56b-4634",
+   "units": 175,
+   "skipped": []
+  },
+  {
+   "id": "blood-angels",
+   "name": "Blood Angels",
+   "group": "Legiones Astartes",
+   "catalogue": "9cff-ac34-56ca-260f",
+   "units": 180,
+   "skipped": []
+  },
+  {
+   "id": "dark-angels",
+   "name": "Dark Angels",
+   "group": "Legiones Astartes",
+   "catalogue": "0a35-fce3-188c-b3aa",
+   "units": 179,
+   "skipped": []
+  },
+  {
+   "id": "death-guard",
+   "name": "Death Guard",
+   "group": "Legiones Astartes",
+   "catalogue": "be98-aa9d-64ef-f62c",
+   "units": 174,
+   "skipped": []
+  },
+  {
+   "id": "emperors-children",
+   "name": "Emperor's Children",
+   "group": "Legiones Astartes",
+   "catalogue": "9a22-d01f-ab5c-ec07",
+   "units": 180,
+   "skipped": []
+  },
+  {
+   "id": "imperial-fists",
+   "name": "Imperial Fists",
+   "group": "Legiones Astartes",
+   "catalogue": "d186-cffc-0950-f632",
+   "units": 179,
+   "skipped": []
+  },
+  {
+   "id": "iron-hands",
+   "name": "Iron Hands",
+   "group": "Legiones Astartes",
+   "catalogue": "736e-3967-e72b-e3ac",
+   "units": 176,
+   "skipped": []
+  },
+  {
+   "id": "iron-warriors",
+   "name": "Iron Warriors",
+   "group": "Legiones Astartes",
+   "catalogue": "21c0-18db-03dd-ae07",
+   "units": 178,
+   "skipped": []
+  },
+  {
+   "id": "night-lords",
+   "name": "Night Lords",
+   "group": "Legiones Astartes",
+   "catalogue": "486f-b32a-ac87-73dd",
+   "units": 175,
+   "skipped": []
+  },
+  {
+   "id": "raven-guard",
+   "name": "Raven Guard",
+   "group": "Legiones Astartes",
+   "catalogue": "340c-1d4f-1f31-fb70",
+   "units": 174,
+   "skipped": []
+  },
+  {
+   "id": "salamanders",
+   "name": "Salamanders",
+   "group": "Legiones Astartes",
+   "catalogue": "f148-a6e4-5a8c-3aeb",
+   "units": 175,
+   "skipped": []
+  },
+  {
+   "id": "shattered-legions",
+   "name": "Shattered Legions",
+   "group": "Legiones Astartes",
+   "catalogue": "3256-29e9-1d7a-12a7",
+   "units": 272,
+   "skipped": []
+  },
+  {
+   "id": "sons-of-horus",
+   "name": "Sons of Horus",
+   "group": "Legiones Astartes",
+   "catalogue": "ac06-fcec-b634-5bd9",
+   "units": 183,
+   "skipped": []
+  },
+  {
+   "id": "space-wolves",
+   "name": "Space Wolves",
+   "group": "Legiones Astartes",
+   "catalogue": "d995-cb33-be41-ecf8",
+   "units": 185,
+   "skipped": []
+  },
+  {
+   "id": "thousand-sons",
+   "name": "Thousand Sons",
+   "group": "Legiones Astartes",
+   "catalogue": "2496-21e2-1870-e9b8",
+   "units": 183,
+   "skipped": []
+  },
+  {
+   "id": "ultramarines",
+   "name": "Ultramarines",
+   "group": "Legiones Astartes",
+   "catalogue": "656a-07b6-d4fd-57af",
+   "units": 177,
+   "skipped": []
+  },
+  {
+   "id": "white-scars",
+   "name": "White Scars",
+   "group": "Legiones Astartes",
+   "catalogue": "f7b4-2531-0962-1379",
+   "units": 181,
+   "skipped": []
+  },
+  {
+   "id": "word-bearers",
+   "name": "Word Bearers",
+   "group": "Legiones Astartes",
+   "catalogue": "4935-1832-63f7-91aa",
+   "units": 183,
+   "skipped": []
+  },
+  {
+   "id": "world-eaters",
+   "name": "World Eaters",
+   "group": "Legiones Astartes",
+   "catalogue": "a956-190d-3b47-6258",
+   "units": 177,
+   "skipped": []
+  }
+ ]
+}
