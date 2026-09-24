@@ -1,6 +1,25 @@
 {
  "armyConfig": {
-  "fixed": [],
+  "fixed": [
+   {
+    "name": "Mutable Tactics",
+    "text": "\"Models with the Shattered Legions Trait have variable bonuses from this Special Rule based on which Legions have been selected for the Army.\"\n\n\nModels subject to this Special Rule gain a benefit for each Legion that is selected for this Army’s Shattered Legions Detachments. If only two Legions were selected, Models subject to this Special Rule also have the Bound in Blood benefit.",
+    "kind": "rule",
+    "source": "Mutable Tactics"
+   },
+   {
+    "name": "Spiteful Strike",
+    "text": "This Gambit can only be selected if this Model has had it’s Wounds Characteristic lowered below its starting value. While this Gambit is selected, during the Focus Step, instead of making a Focus Roll, the Controlling Player instead makes one Melee Attack. Hit Tests and Wound Tests for this attack have a modifier of +1. If the enemy Model is Removed as a Casualty as a result of this attack, the Challenge immediately moves to the Glory Step. If the enemy Model is not Removed as a Casualty, this Model is removed as a Casualty instead and the Challenge immediately moves to the Glory Step.",
+    "kind": "Gambit",
+    "source": "Gambit"
+   },
+   {
+    "name": "Exact the Price",
+    "text": "Trigger: Once per Battle, the Reactive Player may declare the Exact the Price Advanced Reaction at the end of Step 5 of the Charge process of any Charge declared by the Active Player that targets a Unit under that Player’s control which only includes Models with the Shattered Legions Trait.\n\nCost: The Reactive Player must spend 1, 2 or 3 points of their Reaction Allotment to declare the Exact the Price Advanced Reaction, this cost paid as soon as the declaration is made.\n\nTarget: The Target Unit is always the Unit whose Charge triggered the Reaction. The Reacting Unit is always the Unit that was declared as the target of the Charge that triggered this Reaction.\n\nProcess: 1. Once this Reaction is declared, the Reactive Player must declare how many Reaction Points they are spending.\n2. If one Reaction Point was spent, Models in the Reacting Unit gain a modifier to their Toughness Characteristic of +1 until the end of the Phase. If two Reaction Points were spent, Models in the Reacting Unit gain a modifier to their Toughness Characteristic of +1 and Models that make attacks against the Target Unit gain a modifier to their Attacks Characteristic of +1 until the end of the Phase. If three Reaction Points were spent, Models in the Reacting Unit gain a modifier to their Toughness Characteristic of +1 and Models that make attacks against the Target Unit gain a modifier to their Attacks and Strength Characteristics of +1 until the end of the Phase.",
+    "kind": "Reaction",
+    "source": "Advanced Reaction"
+   }
+  ],
   "groups": [
    {
     "id": "allegiance",
@@ -19,22 +38,98 @@
     ]
    },
    {
-    "id": "rite-of-war",
-    "name": "Rite of War",
-    "min": 3,
+    "id": "legions-chosen",
+    "name": "Legions chosen",
+    "min": 2,
     "max": 3,
     "choices": [
      {
-      "name": "Legion Tactica",
-      "text": "Mutable Tactics: \"Models with the Shattered Legions Trait have variable bonuses from this Special Rule based on which Legions have been selected for the Army.\"\n\n\nModels subject to this Special Rule gain a benefit for each Legion that is selected for this Army’s Shattered Legions Detachments. If only two Legions were selected, Models subject to this Special Rule also have the Bound in Blood benefit."
+      "name": "Dark Angels: Children of Old Night",
+      "text": "Children of Old Night: \"Models subject to this benefit are only affected by the Fear (X) Special Rule while they are within 6\" of a Model with that Special Rule instead of 12\".\"\n\n\nIf the Dark Angels Legion was selected for this Army’s Shattered Legions Trait, Models from that Army subject to the Mutable Tactics Special Rule are only affected by the Fear (X) Special Rule while within 6\" of a Model with that Special Rule instead of while within 12\"."
      },
      {
-      "name": "Gambit",
-      "text": "Spiteful Strike: This Gambit can only be selected if this Model has had it’s Wounds Characteristic lowered below its starting value. While this Gambit is selected, during the Focus Step, instead of making a Focus Roll, the Controlling Player instead makes one Melee Attack. Hit Tests and Wound Tests for this attack have a modifier of +1. If the enemy Model is Removed as a Casualty as a result of this attack, the Challenge immediately moves to the Glory Step. If the enemy Model is not Removed as a Casualty, this Model is removed as a Casualty instead and the Challenge immediately moves to the Glory Step."
+      "name": "Emperor’s Children: Unparalleled Skill",
+      "text": "Unparalleled Skill: \"A Hit Test result of 4+ is always successful for Models subject to this benefit.\"\n\n\nIf the Emperor’s Children Legion was selected for this Army’s Shattered Legions Trait, when making a Hit Test for a Melee Attack for a Model from that Army subject to the Mutable Tactics Special Rule, a result of 4+ is always successful."
      },
      {
-      "name": "Advanced Reaction",
-      "text": "Exact the Price: Trigger: Once per Battle, the Reactive Player may declare the Exact the Price Advanced Reaction at the end of Step 5 of the Charge process of any Charge declared by the Active Player that targets a Unit under that Player’s control which only includes Models with the Shattered Legions Trait.\n\nCost: The Reactive Player must spend 1, 2 or 3 points of their Reaction Allotment to declare the Exact the Price Advanced Reaction, this cost paid as soon as the declaration is made.\n\nTarget: The Target Unit is always the Unit whose Charge triggered the Reaction. The Reacting Unit is always the Unit that was declared as the target of the Charge that triggered this Reaction.\n\nProcess: 1. Once this Reaction is declared, the Reactive Player must declare how many Reaction Points they are spending.\n2. If one Reaction Point was spent, Models in the Reacting Unit gain a modifier to their Toughness Characteristic of +1 until the end of the Phase. If two Reaction Points were spent, Models in the Reacting Unit gain a modifier to their Toughness Characteristic of +1 and Models that make attacks against the Target Unit gain a modifier to their Attacks Characteristic of +1 until the end of the Phase. If three Reaction Points were spent, Models in the Reacting Unit gain a modifier to their Toughness Characteristic of +1 and Models that make attacks against the Target Unit gain a modifier to their Attacks and Strength Characteristics of +1 until the end of the Phase."
+      "name": "Iron Warriors: Accustomed to Devastation",
+      "text": "Accustomed to Devastation: \"A Leadership Check result of 9 or less is always successful for Models subject to this benefit in the Shooting Phase.\"\n\n\nIf the Iron Warriors Legion was selected for this Army’s Shattered Legions Trait, when making a Leadership Check in the Morale Sub-Phase for a Unit from that Army subject to the Mutable Tactics Special Rule, a result of 9 or less is always successful."
+     },
+     {
+      "name": "White Scars: Swift of Action",
+      "text": "Swift of Action: \"Models subject to this benefit have their Initiative modified by +1 while making Set-up Moves or Rushing.\"\n\n\nIf the White Scars Legion was selected for this Army’s Shattered Legions Trait, when a Unit that only includes Models subject to the Mutable Tactics Special Rule makes a Set-up Move or is selected to Rush, modify the Initiative Characteristic of Models in that Unit by +1 until the end of that Sub-Phase."
+     },
+     {
+      "name": "Space Wolves: Spirit of Fenris",
+      "text": "Spirit of Fenris: \"Models with this benefit can make longer Set-up Moves than normal.\"\n\n\nIf the Space Wolves Legion was selected for this Army’s Shattered Legions Trait, when making a Set-up Move for a Model from that Army subject to the Mutable Tactics Special Rule, the Controlling Player can add +1\" to the distance moved, to a maximum of 6\"."
+     },
+     {
+      "name": "Imperial Fists: Devastating Volleys",
+      "text": "Devastating Volleys: \"Models subject to this benefit can make Volley Attacks with bolters.\"\n\n\nIf the Imperial Fists Legion was selected for this Army’s Shattered Legions Trait, when making a Volley Attack for a Model from that Army subject to the Mutable Tactics Special Rule, that Model can make Volley Attacks with a bolter as if it had the Assault Trait."
+     },
+     {
+      "name": "Night Lords: Murderous Reputation",
+      "text": "Murderous Reputation: \"If any Models are destroyed by a Model subject to this benefit, the Controlling Player scores 1 additional Combat Resolution Point.\"\n\n\nIf the Night Lords Legion was selected for this Army’s Shattered Legions Trait, if a Unit that includes any Models from that Army subject to the Mutable Tactics Special Rule causes any enemy Models to be Removed as a Casualty, the Controlling Player scores 1 additional Combat Resolution Point when resolving that Combat during that Player Turn."
+     },
+     {
+      "name": "Blood Angels: Vengeful Blows",
+      "text": "Vengeful Blows: \"Models subject to this benefit get bonuses to Wound Tests if any Models in their Unit have been Removed as a Casualty during that phase.\"\n\n\nIf the Blood Angels Legion was selected for this Army’s Shattered Legions Trait, when making a Wound Test for a Melee Attack for a Model from that Army subject to the Mutable Tactics Special Rule, add a modifier of +1 to the result if any Models from the same Unit have been Removed as a Casualty during that Phase."
+     },
+     {
+      "name": "Iron Hands: Iron Resolve",
+      "text": "Iron Resolve: \"Models subject to this benefit gain the Feel No Pain (4+) Special Rule against Volley Attacks.\"\n\n\nIf the Iron Hands Legion was selected for this Army’s Shattered Legions Trait, when any attacks as part of a Volley Attack are allocated, if the Target Model is a Model from that Army subject to the Mutable Tactics Special Rule, that Model has the Feel No Pain (4+) Special Rule until that attack is resolved."
+     },
+     {
+      "name": "World Eaters: Frenzied Pursuit",
+      "text": "Frenzied Pursuit: \"Models subject to this benefit move further when Pursuing.\"\n\n\n\nIf the World Eaters Legion was selected for this Army’s Shattered Legions Trait, when a Unit that includes a Model from that Army subject to the Mutable Tactics Special Rule pursues an enemy Unit, the Controlling Player can add +2\" to the distance moved."
+     },
+     {
+      "name": "Ultramarines: Methodical Fighters",
+      "text": "Methodical Fighters: \"Shooting Attacks made as part of a Reaction that target a Unit that includes any Models subject to this benefit must be made as Snap Shots.\"\n\n\nIf the Ultramarines Legion was selected for this Army’s Shattered Legions Trait, when an enemy Unit makes a Shooting Attack as part of a Reaction that Targets a Unit that includes any Models from that Army subject to the Mutable Tactics Special Rule, attacks made as part of that Shooting Attack are made as Snap Shots."
+     },
+     {
+      "name": "Death Guard: Children of Barbarus",
+      "text": "Children of Barbarus: \"Models subject to this benefit gain the Move Through Cover Special Rule.\"\n\n\nIf the Death Guard Legion was selected for this Army’s Shattered Legions Trait, Models from that Army subject to the Mutable Tactics Special Rule ignore the effects of Difficult Terrain and Dangerous Terrain. If called upon to take a Dangerous Terrain Test then such a Model is assumed to automatically pass without any Dice being rolled."
+     },
+     {
+      "name": "Thousand Sons: Conjured Illusions",
+      "text": "Conjured Illusions: \"Enemy Units cannot Pursue a Unit that contains Models subject to this benefit.\"\n\n\nIf the Thousand Sons Legion was selected for this Army’s Shattered Legions Trait, enemy Units cannot have the Pursue Aftermath option selected for them if any Units that had the Fall Back option selected for them include any Models from that Army subject to the Mutable Tactics Special Rule."
+     },
+     {
+      "name": "Sons of Horus: Brutal Tradition",
+      "text": "Brutal Tradition: \"Models subject to this benefit gain a bonus to Hit Tests while outnumbered.\"\n\n\nIf the Sons of Horus Legion was selected for this Army’s Shattered Legions Trait, when making a Hit Test for a Model from that Army subject to the Mutable Tactics Special Rule, add a modifier of +1 to the result if its Controlling Player controls the fewest Models in that Combat. Models with the Bulky (X) Special Rule count as a number of Models equal to the value of X in the variant of the Bulky (X) Special Rule that Model has."
+     },
+     {
+      "name": "Word Bearers: Zealous Devotion",
+      "text": "Zealous Devotion: \"When making a Charge Roll for a Unit that includes Models subject to this benefit, three Dice are rolled and the lowest two discarded.\"\n\n\nIf the Word Bearers Legion was selected for this Army’s Shattered Legions Trait, when making a Charge Roll for a Unit that includes any Models from that Army subject to the Mutable Tactics Special Rule, the Controlling Player rolls one additional Dice and discards the two Dice with the lowest results."
+     },
+     {
+      "name": "Salamanders: Scions of the Flame",
+      "text": "Scions of the Flame: \"Models subject to this benefit are not affected by the Panic (X) Special Rule on Flame weapons.\"\n If the Salamanders Legion was selected for this Army’s Shattered Legions Trait, a Unit that includes a Model from that Army subject to the Mutable Tactics Special Rule is unaffected by any variant of the Panic (X) Special Rule on Weapons with the Flame Trait."
+     },
+     {
+      "name": "Raven Guard: Masters of Obfuscation",
+      "text": "Masters of Obfuscation: \"Models subject to this benefit gain the Shrouded (6+) Special Rule if they do not remain Stationary in the Movement Phase.\"\n\n\nIf the Raven Guard Legion was selected for this Army’s Shattered Legions Trait, Models from that Army subject to the Mutable Tactics Special Rule that do not remain Stationary in their Controlling Player’s Movement Phase gain the Shrouded (6+) Special Rule until the start of the Controlling Player’s next Turn."
+     },
+     {
+      "name": "Alpha Legion: Assassination Tactics",
+      "text": "Assassination Tactics: \"Volley Attacks made for Models subject to this benefit gain the Precision (6+) Special Rule.\"\n\n\nIf the Alpha Legion Legion was selected for this Army’s Shattered Legions Trait, when making Volley Attacks for a Model from that Army subject to the Mutable Tactics Special Rule, those attacks have the Precision (6+) Special Rule."
+     }
+    ]
+   },
+   {
+    "id": "number-of-legions",
+    "name": "Number of Legions",
+    "min": 1,
+    "max": 1,
+    "choices": [
+     {
+      "name": "Two Legions plus Bound in Blood",
+      "text": "Bound in Blood: \"Models subject to this benefit gain positive Modifiers to their Leadership and Cool Characteristics as the Battle progresses.\"\n\n\nModels from this Army subject to the Mutable Tactics Special Rule modify their Leadership and Cool Characteristics by +1 during the second and third Battle Turn, and by +2 during the fourth and any subsequent Battle Turns."
+     },
+     {
+      "name": "Three Legions",
+      "text": ""
      }
     ]
    }

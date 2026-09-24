@@ -684,27 +684,37 @@ function armyConfig(army) {
   const gid = new Set();
   const walk = (e, label) => {
     for (const t of textItems(e)) fixed.push(Object.assign(t, { source: label }));
-    for (const c of children(e)) {
-      const lim = limits(c);
-      if (c.kind === 'group') {
-        const kids = children(c);
-        const items = kids.filter((k) => k.kind !== 'group');
-        for (const t of textItems(c)) fixed.push(Object.assign(t, { source: c.name.trim() }));
-        if (!items.length || (items.length === 1 && lim.min >= 1)) { for (const k of kids) walk(k, k.kind === 'group' ? label : k.name.trim()); continue; }
-        let id = slug(c.name) || 'choice';
-        for (let n = 2, b = id; gid.has(id); n++) id = `${b}-${n}`;
-        gid.add(id);
-        groups.push({ id, name: c.name.trim().replace(/:$/, ''), min: lim.min, max: lim.max === null ? items.length : lim.max,
-          choices: items.map((i) => ({ name: i.name.trim(), text: joinText(deepText(i), i.name.trim()) })) });
-        continue;
+    for (const c of children(e)) handle(c, label);
+  };
+  // one child of a configuration entry: a group of choices, a mandatory entry, or an optional one
+  const handle = (c, label) => {
+    const lim = limits(c);
+    if (c.kind === 'group') {
+      const kids = children(c);
+      const items = kids.filter((k) => k.kind !== 'group');
+      for (const t of textItems(c)) fixed.push(Object.assign(t, { source: c.name.trim() }));
+      // a group of entries that are each mandatory is just a folder of fixed rules; nested groups are choices of their own
+      if (!items.length || (items.length === 1 && lim.min >= 1) || items.every((i) => limits(i).min >= 1) || lim.min >= items.length) {
+        for (const k of kids) k.kind === 'group' ? handle(k, label) : walk(k, k.name.trim());
+        return;
       }
-      if (lim.max === 0) continue;
-      if (lim.min >= 1) { walk(c, c.name.trim()); continue; }
-      let id = slug(c.name);
+      let id = slug(c.name) || 'choice';
       for (let n = 2, b = id; gid.has(id); n++) id = `${b}-${n}`;
       gid.add(id);
-      groups.push({ id, name: c.name.trim(), min: 0, max: 1, choices: [{ name: c.name.trim(), text: joinText(deepText(c), c.name.trim()) }] });
+      // a limit another pick can raise ("Three Legions" lets Shattered Legions choose three)
+      const raised = (c.modifiers || []).filter((m) => m.type === 'set' && (c.constraints || []).some((k) => k.id === m.field && k.type === 'max')).map((m) => Number(m.value));
+      const max = Math.max(lim.max === null ? items.length : lim.max, ...raised);
+      groups.push({ id, name: c.name.trim().replace(/:$/, ''), min: lim.min, max,
+        choices: items.map((i) => ({ name: i.name.trim(), text: joinText(deepText(i), i.name.trim()) })) });
+      for (const k of kids) if (k.kind === 'group') handle(k, label);
+      return;
     }
+    if (lim.max === 0) return;
+    if (lim.min >= 1) { walk(c, c.name.trim()); return; }
+    let id = slug(c.name);
+    for (let n = 2, b = id; gid.has(id); n++) id = `${b}-${n}`;
+    gid.add(id);
+    groups.push({ id, name: c.name.trim(), min: 0, max: 1, choices: [{ name: c.name.trim(), text: joinText(deepText(c), c.name.trim()) }] });
   };
   // a choice's own text plus whatever it brings with it
   const deepText = (e) => {

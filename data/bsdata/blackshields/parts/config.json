@@ -1,6 +1,25 @@
 {
  "armyConfig": {
-  "fixed": [],
+  "fixed": [
+   {
+    "name": "Bastard Sons of Fate",
+    "text": "\" Blackshields gain bonuses to Toughness and Strength when under the effect of certain Battlefield Statuses.\"\n\n\nWhile affected by any of the Pinned, Suppressed or Stunned Battlefield Statuses, a Model with the Blackshields Trait gains a bonus of +1 to their Toughness and Strength Characteristics. If affected by more than one such Battlefield Status then this bonus is increased to +2.",
+    "kind": "rule",
+    "source": "Blackshields Tactica"
+   },
+   {
+    "name": "Beholden to None",
+    "text": "This Gambit may only be selected if the opposing Model in the Challenge has either the Unique Trait or the Paragon Type. If a Model is Removed as a Casualty during the Strike Step when this Gambit has been selected for them, then D3 wounds are automatically inflicted on the opposing Model at the end of the Glory Step that follows. These wounds have the Damage and AP of the Weapon used by the Model for which this Gambit was selected.",
+    "kind": "Gambit",
+    "source": "Gambit"
+   },
+   {
+    "name": "Oaths of Moment",
+    "text": "An Army that includes any Detachments with the Blackshields Faction may select a number of Oaths of Moment for each such Detachment, these are sets of rules that add a number of additional options and Special Rules to Units in that Detachment. The number of Oaths of Moment that may be selected for a Detachment depends on what type of Detachment it is, as shown on the table below:\n \nPrimary Detachment : 2 \nAllied Detachment : 1\n\n\nNote that any Auxiliary or Apex Detachments attached to a Blackshields Allied or Primary Detachment must use the same Oaths of Moment as the Detachment to which they are attached. Other types of Detachment may not have Oaths of Moment selected for them.\n\n\nOaths of Moment are selected when a Detachment is added to the Army Roster, and each such Oath of Moment will explain any effects it may have on which Units may be selected for the Detachment. Most Oaths of Moment will also add Special Rules or other effects to some or all Units in the Detachment, this will also be explained by each individual Oath of Moment.\n\n\nNote that some Oaths of Moment require that certain Special Rules be removed from Models and replaced with other Special Rules. In a Detachment that has more than one Oath of Moment, the effects of these are applied one at a time in an order of the Controlling Player's choice – and if the first Oath of Moment removes a Special Rule it cannot then be affected, modified or removed by the second.",
+    "kind": "rule",
+    "source": "Oaths of Moment"
+   }
+  ],
   "groups": [
    {
     "id": "allegiance",
@@ -15,18 +34,6 @@
      {
       "name": "Traitor",
       "text": "The army has sided with Horus. Some Prime Advantages and units are only available to one side."
-     }
-    ]
-   },
-   {
-    "id": "rite-of-war",
-    "name": "Rite of War",
-    "min": 0,
-    "max": 1,
-    "choices": [
-     {
-      "name": "Rite of War: Blackshields",
-      "text": "Bastard Sons of Fate: \" Blackshields gain bonuses to Toughness and Strength when under the effect of certain Battlefield Statuses.\"\n\n\nWhile affected by any of the Pinned, Suppressed or Stunned Battlefield Statuses, a Model with the Blackshields Trait gains a bonus of +1 to their Toughness and Strength Characteristics. If affected by more than one such Battlefield Status then this bonus is increased to +2.\n\nBeholden to None: This Gambit may only be selected if the opposing Model in the Challenge has either the Unique Trait or the Paragon Type. If a Model is Removed as a Casualty during the Strike Step when this Gambit has been selected for them, then D3 wounds are automatically inflicted on the opposing Model at the end of the Glory Step that follows. These wounds have the Damage and AP of the Weapon used by the Model for which this Gambit was selected.\n\nOaths of Moment: An Army that includes any Detachments with the Blackshields Faction may select a number of Oaths of Moment for each such Detachment, these are sets of rules that add a number of additional options and Special Rules to Units in that Detachment. The number of Oaths of Moment that may be selected for a Detachment depends on what type of Detachment it is, as shown on the table below:\n \nPrimary Detachment : 2 \nAllied Detachment : 1\n\n\nNote that any Auxiliary or Apex Detachments attached to a Blackshields Allied or Primary Detachment must use the same Oaths of Moment as the Detachment to which they are attached. Other types of Detachment may not have Oaths of Moment selected for them.\n\n\nOaths of Moment are selected when a Detachment is added to the Army Roster, and each such Oath of Moment will explain any effects it may have on which Units may be selected for the Detachment. Most Oaths of Moment will also add Special Rules or other effects to some or all Units in the Detachment, this will also be explained by each individual Oath of Moment.\n\n\nNote that some Oaths of Moment require that certain Special Rules be removed from Models and replaced with other Special Rules. In a Detachment that has more than one Oath of Moment, the effects of these are applied one at a time in an order of the Controlling Player's choice – and if the first Oath of Moment removes a Special Rule it cannot then be affected, modified or removed by the second."
      }
     ]
    },

@@ -1,6 +1,19 @@
 {
  "armyConfig": {
-  "fixed": [],
+  "fixed": [
+   {
+    "name": "Divisio Tactica",
+    "text": "All Models with the Anathema Psykana Trait (excluding Models with the Vehicle Type) are subject to the Anathema Special Rule..",
+    "kind": "rule",
+    "source": "Divisio Tactica"
+   },
+   {
+    "name": "Anathema",
+    "text": "\"Models with this Special Rule ignore the effects of Psychic Abilities and can only be wounded by a Weapon with the Psychic or Immaterial Trait on a 5+.\"\nA Unit which includes any Models with this Special Rule may never be selected as the target of a Psychic Blessing or Psychic Curse, and Models with this Special Rule ignore all Damage inflicted by Psychic Weapons, Psychic Powers, Psychic Reactions or Perils of the Warp. If such a Model is selected as the Target Model of any attack or wound inflicted by a Psychic Weapon, Psychic Power, Psychic Reaction, or Perils of the Warp then all Damage caused has no effect and no Wound Tests, Armour Saves or Damage Mitigation Tests are made. Additionally, Wound Tests made for Weapons with the Psychic or Immaterial Trait that target any Unit that includes only Models with this Special Rule that have an unmodified result of 1, 2, 3 or 4 are never successful, regardless of the Strength Characteristic of a Hit or any Special Rules that set the Target Number for Wound Tests. This Special Rule has no effect on Armour Penetration Tests.",
+    "kind": "rule",
+    "source": "Divisio Tactica"
+   }
+  ],
   "groups": [
    {
     "id": "allegiance",
@@ -15,18 +28,6 @@
      {
       "name": "Traitor",
       "text": "The army has sided with Horus. Some Prime Advantages and units are only available to one side."
-     }
-    ]
-   },
-   {
-    "id": "divisio-tactica",
-    "name": "Divisio Tactica",
-    "min": 0,
-    "max": 1,
-    "choices": [
-     {
-      "name": "Divisio Tactica",
-      "text": "All Models with the Anathema Psykana Trait (excluding Models with the Vehicle Type) are subject to the Anathema Special Rule..\n\nAnathema: \"Models with this Special Rule ignore the effects of Psychic Abilities and can only be wounded by a Weapon with the Psychic or Immaterial Trait on a 5+.\"\nA Unit which includes any Models with this Special Rule may never be selected as the target of a Psychic Blessing or Psychic Curse, and Models with this Special Rule ignore all Damage inflicted by Psychic Weapons, Psychic Powers, Psychic Reactions or Perils of the Warp. If such a Model is selected as the Target Model of any attack or wound inflicted by a Psychic Weapon, Psychic Power, Psychic Reaction, or Perils of the Warp then all Damage caused has no effect and no Wound Tests, Armour Saves or Damage Mitigation Tests are made. Additionally, Wound Tests made for Weapons with the Psychic or Immaterial Trait that target any Unit that includes only Models with this Special Rule that have an unmodified result of 1, 2, 3 or 4 are never successful, regardless of the Strength Characteristic of a Hit or any Special Rules that set the Target Number for Wound Tests. This Special Rule has no effect on Armour Penetration Tests."
      }
     ]
    }

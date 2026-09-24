@@ -184,3 +184,12 @@ test('Legion detachments warn when their officer is missing', () => {
   place(E, army.detachments[0].slots.find((s) => s.role === 'Command'), 'master-of-descent');
   assert.ok(!E.armyIssues(army).some((i) => /Master of Descent/.test(i.msg)));
 });
+
+test('Army configuration keeps nested choices and fixed rules apart', () => {
+  const cus = armyOf('legio-custodes').D.armyConfig;
+  assert.ok(cus.fixed.some((r) => r.name === "Heaven's Strike") && !cus.groups.some((g) => /Tactica/.test(g.name)));
+  const sl = armyOf('shattered-legions').D.armyConfig.groups.find((g) => g.name === 'Legions chosen');
+  assert.equal(sl.choices.length, 18);
+  assert.equal(sl.min, 2);
+  assert.equal(sl.max, 3);
+});
