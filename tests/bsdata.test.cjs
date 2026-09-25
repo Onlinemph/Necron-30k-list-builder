@@ -304,6 +304,8 @@ test('Questoris Familia uses its own chart: four Prime Lord of War slots and Add
   assert.ok(slot.prime && slot.role === 'Lord of War');
   assert.ok(E.unitsForSlot(slot, primary).some((u) => u.id === 'knight-questoris'));
   const sel = place(E, slot, 'knight-questoris');
+  for (const s of primary.slots.slice(1)) place(E, s, 'knight-questoris');
+  assert.ok(!E.armyIssues(army).some((i) => /cap is 25%/.test(i.msg)));
   const advs = E.primeAdvantagesFor(sel, army, slot).map((a) => a.name);
   assert.ok(advs.includes('Scion Aspirant') && !advs.includes('Master Sergeant'));
   army.detachments.push(E.detachmentFromDef(D.detachments.find((d) => d.name === 'Armiger Talon').id));

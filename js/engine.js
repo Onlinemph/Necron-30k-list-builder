@@ -651,7 +651,9 @@
 
       // 25% cap on Warlord + Lord of War
       if (limit) {
-        const capped = sels.filter((x) => ['Warlord', 'Lord of War'].includes(unit(x.sel.unitId)?.role)).reduce((a, x) => a + unitPoints(x.sel), 0);
+        // an army whose own Primary Detachment is Lords of War (Questoris Knight Households) doesn't cap those
+        const lowPrimary = ((data.forceorg && data.forceorg.primary && data.forceorg.primary.slots) || []).some((s) => s.role === 'Lord of War');
+        const capped = sels.filter((x) => ['Warlord', 'Lord of War'].includes(unit(x.sel.unitId)?.role) && !(lowPrimary && x.det.kind === 'primary')).reduce((a, x) => a + unitPoints(x.sel), 0);
         if (capped > limit * 0.25) issues.push({ level: 'error', msg: `Warlord and Lord of War units cost ${capped} points; the cap is 25% (${Math.floor(limit * 0.25)}).` });
       }
 
