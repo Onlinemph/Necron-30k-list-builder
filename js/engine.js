@@ -90,6 +90,12 @@
       if (x.unless && x.unless.some((c) => condOk(c, sel, detName))) return false;
       return true;
     }
+    /** A config group's limit after anything in the army that sets it (a Force Commander: 2; Oblitum Pattern Cohort: 0). */
+    function configMax(g) {
+      const hits = (g.maxWhen || []).filter((x) => condOk(x.when));
+      if (!hits.length) return g.max;
+      return hits.some((x) => x.max < g.max) ? Math.min(...hits.map((x) => x.max)) : Math.max(...hits.map((x) => x.max));
+    }
     const condText = (c) => (c.all ? c.all.map((x) => condText(x)).join(' and ') : null) || (c.category ? `a ${c.category}` : null) || c.config || c.unitName || (c.unit && unit(c.unit) ? unit(c.unit).name : c.unit) || c.upgrade || (c.detachment ? `the ${c.detachment}` : '?');
 
     function activeEffects(type) { return effects.filter((e) => activeSeq.has(e.sequela) && (!type || e.type === type)); }
@@ -860,8 +866,11 @@
           if (bad) issues.push({ level: 'error', msg: `Army configuration: ${c.name} can't be combined with ${condText(bad)}.` });
         }
         const n = picked.length;
+        // a limit raised by something in the army (a Force Commander allows a second Provenance)
+        const max = configMax(g);
+        if (max === 0 && n === 0) continue;
         if (n < g.min) issues.push({ level: 'error', msg: `Army configuration: choose ${g.min === g.max ? g.min : 'at least ' + g.min} from ${g.name}${n ? ` (${n} chosen)` : ''}.` });
-        if (n > g.max) issues.push({ level: 'error', msg: `Army configuration: at most ${g.max} from ${g.name} (${n} chosen).` });
+        if (n > max) issues.push({ level: 'error', msg: `Army configuration: at most ${max} from ${g.name} (${n} chosen)${(g.maxWhen || []).length && max === g.max ? `; ${g.maxWhen.map((x) => `${x.max} with ${condText(x.when)}`).join(', ')}` : ''}.` });
       }
       // upgrades limited to one per army ("Master of Descent", relic weapons)
       const onceTaken = {};
@@ -1005,7 +1014,7 @@
     return {
       data, ROLES, ARKANA: CHOICE.options, choiceLabel: CHOICE.label, unit, choicesFor, sizableModels, swapTargets, newSelection, modelCounts, totalModels,
       eligible, optionMax, perModelUsed, optionCost, unitPoints, loadout, unitIssues, armyIssues, armyPoints,
-      allSelections, sequelaAllowance, setArmy, slotAdder, available, condOk, condText, makeDetachment, detachmentFromDef, unitsForSlot, slotAllows, syncAdvisorSlots,
+      allSelections, sequelaAllowance, configMax, setArmy, slotAdder, available, condOk, condText, makeDetachment, detachmentFromDef, unitsForSlot, slotAllows, syncAdvisorSlots,
       hasTrait, arkanaOf, uid, setSequelae, effectiveModels, primeAdvantagesFor, requirementMet, unlocks, optionsOf, modelMax, rolesFor, activeEffects, grantedTraits,
     };
   }

@@ -41,7 +41,7 @@
     "id": "legions-chosen",
     "name": "Legions chosen",
     "min": 2,
-    "max": 3,
+    "max": 2,
     "choices": [
      {
       "name": "Dark Angels: Children of Old Night",
@@ -114,6 +114,14 @@
      {
       "name": "Alpha Legion: Assassination Tactics",
       "text": "Assassination Tactics: \"Volley Attacks made for Models subject to this benefit gain the Precision (6+) Special Rule.\"\n\n\nIf the Alpha Legion Legion was selected for this Army’s Shattered Legions Trait, when making Volley Attacks for a Model from that Army subject to the Mutable Tactics Special Rule, those attacks have the Precision (6+) Special Rule."
+     }
+    ],
+    "maxWhen": [
+     {
+      "when": {
+       "config": "Three Legions"
+      },
+      "max": 3
      }
     ]
    },

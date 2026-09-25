@@ -21,8 +21,8 @@
    {
     "id": "provenances-of-war",
     "name": "Provenances of War",
-    "min": 0,
-    "max": 2,
+    "min": 1,
+    "max": 1,
     "choices": [
      {
       "name": "Abhuman Muster",
@@ -109,6 +109,14 @@
      {
       "name": "Warrior Elite",
       "text": "An Army with this Provenance gains the following benefits:\n • All Models with the Irregulars Special Rule in this Army have their Base Leadership Characteristic modified by +1 to a maximum of 9.\n • Any Model in this Army may have a Militia vexilla exchanged for one auxilia vexilla for Free"
+     }
+    ],
+    "maxWhen": [
+     {
+      "when": {
+       "category": "Planetary Overlord"
+      },
+      "max": 2
      }
     ]
    }

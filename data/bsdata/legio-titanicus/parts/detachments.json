@@ -1,5 +1,45 @@
 {
- "detachments": [],
+ "detachments": [
+  {
+   "id": "bs-allied-detachment",
+   "name": "Allied Detachment",
+   "type": "Allied",
+   "source": "core",
+   "page": null,
+   "unlock": "2 Command (1 Prime) · 4 Troops · Must be a different Faction than the Primary Detachment · May include Auxiliary Detachments",
+   "unlockedBy": null,
+   "requires": [],
+   "restrictions": [],
+   "rules": [],
+   "allyOnly": true,
+   "slots": [
+    {
+     "role": "Command",
+     "prime": true
+    },
+    {
+     "role": "Command",
+     "prime": false
+    },
+    {
+     "role": "Troops",
+     "prime": false
+    },
+    {
+     "role": "Troops",
+     "prime": false
+    },
+    {
+     "role": "Troops",
+     "prime": false
+    },
+    {
+     "role": "Troops",
+     "prime": false
+    }
+   ]
+  }
+ ],
  "primary": {
   "name": "Titan Ordinal Primary Detachment",
   "slots": [

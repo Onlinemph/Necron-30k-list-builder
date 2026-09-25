@@ -725,12 +725,13 @@ function armyConfig(army) {
       let id = slug(c.name) || 'choice';
       for (let n = 2, b = id; gid.has(id); n++) id = `${b}-${n}`;
       gid.add(id);
-      // a limit another pick can raise ("Three Legions" lets Shattered Legions choose three)
-      const raised = (c.modifiers || []).filter((m) => m.type === 'set' && (c.constraints || []).some((k) => k.id === m.field && k.type === 'max')).map((m) => Number(m.value));
-      const max = Math.max(lim.max === null ? items.length : lim.max, ...raised);
+      // a limit something else in the army raises ("Three Legions", a Militia Force Commander): resolved in finishConfig
+      const raise = (c.modifiers || []).filter((m) => (m.type === 'set' || m.type === 'increment') && (c.constraints || []).some((k) => k.id === m.field && k.type === 'max'));
+      const max = lim.max === null ? items.length : lim.max;
       const g = { id, name: c.name.trim().replace(/:$/, ''), min: lim.min, max,
         choices: items.map((i) => ({ name: i.name.trim(), text: joinText(deepText(i), i.name.trim()), _ids: ids(i), _e: i })) };
       if (when) g.when = when;
+      if (raise.length) Object.defineProperty(g, '_raise', { value: raise, enumerable: false });
       groups.push(g);
       for (const k of kids) if (k.kind === 'group') handle(k, label, when);
       // a choice that brings a choice of its own (Panoply of Old → which Legion)
@@ -755,7 +756,11 @@ function armyConfig(army) {
   for (const raw of roots) {
     const e = resolve(raw);
     if (!e || isHidden(e)) continue;
+    const before = groups.length;
     walk(e, e.name.trim());
+    // a compulsory entry ("Cohort Doctrine" min 1) whose choices sit in one group below it: that group needs a pick
+    const made = groups.slice(before).filter((g) => !g.when);
+    if (limits(e).min >= 1 && made.length === 1) made[0].min = Math.max(made[0].min, 1);
   }
   groups.unshift({ id: 'allegiance', name: 'Allegiance', min: 1, max: 1, choices: [
     { name: 'Loyalist', text: 'The army fights for the Emperor. Some Prime Advantages and units are only available to one side.', _ids: Object.keys(ALLEGIANCE).filter((k) => ALLEGIANCE[k] === 'Loyalist') },
@@ -783,6 +788,20 @@ function finishConfig(config, keys) {
     return out.length ? out : null;
   };
   for (const f of config.fixed) { const u = unlessOf(f._e); if (u) f.unless = u; delete f._e; }
+  // raised limits: "max 2 with a Planetary Overlord (Force Commander)", "3 with Three Legions"
+  const names = new Set([...keys.values()].map((k) => k.config));
+  for (const g of config.groups) {
+    for (const m of g._raise || []) {
+      const conds = [...(m.conditions || []), ...(m.conditionGroups || []).flatMap((x) => x.conditions || [])];
+      const when = conds.map((c) => keys.get(c.childId)
+        || (catName.has(c.childId) ? (names.has(catName.get(c.childId).trim()) ? { config: catName.get(c.childId).trim() } : { category: catName.get(c.childId).trim() }) : null)
+        || (byId.get(c.childId) && names.has(String(byId.get(c.childId).name).trim()) ? { config: String(byId.get(c.childId).name).trim() } : null)).filter(Boolean);
+      const value = m.type === 'set' ? Number(m.value) : g.max + Number(m.value);
+      if (!when.length) { g.max = Math.max(g.max, value); continue; }
+      g.maxWhen = g.maxWhen || [];
+      if (!g.maxWhen.some((x) => x.max === value && JSON.stringify(x.when) === JSON.stringify(when[0]))) g.maxWhen.push({ when: when[0], max: value });
+    }
+  }
   for (const g of config.groups) for (const c of g.choices) { const u = unlessOf(c._e); if (u) c.unless = u; delete c._e; delete c._ids; }
   return config;
 }
@@ -1295,6 +1314,20 @@ for (const a of armies) {
   CTX = { cats: catalogueSet(a.catalogue), primary: a.catalogue };
   const chart = ownForceChart(a, units, config);
   if (chart) { dets.push(...chart.detachments); for (const d of chart.detachments) borrowUnits(a, units, d); }
+  // allies: every army can be taken as an Allied Detachment in another army's list
+  dets.push({ id: 'bs-allied-detachment', name: 'Allied Detachment', type: 'Allied', source: 'core', page: null,
+    unlock: '2 Command (1 Prime) · 4 Troops · Must be a different Faction than the Primary Detachment · May include Auxiliary Detachments',
+    unlockedBy: null, requires: [], restrictions: [], rules: [], allyOnly: true,
+    slots: [{ role: 'Command', prime: true }, { role: 'Command', prime: false }, ...[0, 1, 2, 3].map(() => ({ role: 'Troops', prime: false }))] });
+  // Knights join other armies through a Knight Lord of War detachment
+  const klow = (cats[a.catalogue].data.forceEntries || []).find((f) => /^Knight Lord of War/.test(f.name));
+  if (klow) {
+    const inner = (klow.forceEntries || [])[0];
+    const { slots } = detachmentSlots(inner || klow, units);
+    if (slots.length) dets.push({ id: 'bs-knight-lord-of-war', name: 'Knight Lord of War', type: 'Lord of War', source: 'army', page: null,
+      unlock: '2 Lord of War (2 Prime if Questoris Mendicant) · Knight Household Prime Advantages only · counts toward the 25% Lord of War cap',
+      unlockedBy: null, requires: [], restrictions: [], rules: [], allyOnly: true, slots });
+  }
   const scen = rosterScenarios(a, units, config, dets);
   hiddenDetachments(a, units, dets, scen);
   finishConfig(config, configKeys(config));

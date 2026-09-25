@@ -156,6 +156,68 @@
      "each": "Lord Scion"
     }
    ]
+  },
+  {
+   "id": "bs-allied-detachment",
+   "name": "Allied Detachment",
+   "type": "Allied",
+   "source": "core",
+   "page": null,
+   "unlock": "2 Command (1 Prime) · 4 Troops · Must be a different Faction than the Primary Detachment · May include Auxiliary Detachments",
+   "unlockedBy": null,
+   "requires": [],
+   "restrictions": [],
+   "rules": [],
+   "allyOnly": true,
+   "slots": [
+    {
+     "role": "Command",
+     "prime": true
+    },
+    {
+     "role": "Command",
+     "prime": false
+    },
+    {
+     "role": "Troops",
+     "prime": false
+    },
+    {
+     "role": "Troops",
+     "prime": false
+    },
+    {
+     "role": "Troops",
+     "prime": false
+    },
+    {
+     "role": "Troops",
+     "prime": false
+    }
+   ]
+  },
+  {
+   "id": "bs-knight-lord-of-war",
+   "name": "Knight Lord of War",
+   "type": "Lord of War",
+   "source": "army",
+   "page": null,
+   "unlock": "2 Lord of War (2 Prime if Questoris Mendicant) · Knight Household Prime Advantages only · counts toward the 25% Lord of War cap",
+   "unlockedBy": null,
+   "requires": [],
+   "restrictions": [],
+   "rules": [],
+   "allyOnly": true,
+   "slots": [
+    {
+     "role": "Lord of War",
+     "prime": false
+    },
+    {
+     "role": "Lord of War",
+     "prime": false
+    }
+   ]
   }
  ],
  "primary": {

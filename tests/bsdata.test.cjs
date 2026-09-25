@@ -209,7 +209,21 @@ test('Army configuration keeps nested choices and fixed rules apart', () => {
   const sl = armyOf('shattered-legions').D.armyConfig.groups.find((g) => g.name === 'Legions chosen');
   assert.equal(sl.choices.length, 18);
   assert.equal(sl.min, 2);
-  assert.equal(sl.max, 3);
+  assert.equal(sl.max, 2);
+  assert.deepEqual(JSON.parse(JSON.stringify(sl.maxWhen)), [{ when: { config: 'Three Legions' }, max: 3 }]);
+});
+
+test('Config limits: a second Provenance needs a Force Commander; a Cohort Doctrine is compulsory', () => {
+  const { D, E, army } = armyOf('imperialis-militia');
+  army.config.allegiance = ['Loyalist'];
+  const prov = D.armyConfig.groups.find((g) => g.name === 'Provenances of War');
+  army.config[prov.id] = [prov.choices[0].name, prov.choices[1].name];
+  assert.ok(E.armyIssues(army).some((i) => /at most 1 from Provenances of War/.test(i.msg)));
+  place(E, army.detachments[0].slots.find((s) => s.role === 'High Command'), 'force-commander');
+  assert.ok(!E.armyIssues(army).some((i) => /Provenances of War/.test(i.msg)));
+  const sa = armyOf('solar-auxilia');
+  sa.army.config.allegiance = ['Loyalist'];
+  assert.ok(sa.E.armyIssues(sa.army).some((i) => /choose 1 from Cohort Doctrine/.test(i.msg)));
 });
 
 test('Oaths of Moment change units: The Weapons of Desperation swaps the Sergeant options', () => {

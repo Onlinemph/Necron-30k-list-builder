@@ -232,10 +232,11 @@
       // a choice that only comes with another (Panoply of Old → which Legion)
       if (g.when && !E.available(g)) { if ((army.config[g.id] || []).length) { army.config[g.id] = []; } continue; }
       const picked = (army.config[g.id] = army.config[g.id] || []);
-      const how = g.min === g.max ? `choose ${g.max}` : g.min ? `choose ${g.min}–${g.max}` : `up to ${g.max}`;
+      const gmax = E.configMax(g);
+      const how = (g.min === gmax ? `choose ${gmax}` : g.min ? `choose ${g.min}–${gmax}` : `up to ${gmax}`) + ((g.maxWhen || []).length && gmax === g.max ? ` (${g.maxWhen.map((x) => `${x.max} with ${E.condText(x.when)}`).join(', ')})` : '');
       const fs = h(`<fieldset class="cfg-group"><legend>${esc(g.name)} <small class="muted">${how}</small></legend><div class="seq-grid"></div></fieldset>`);
       for (const c of g.choices) {
-        const radio = g.max === 1;
+        const radio = gmax === 1;
         const blocked = c.unless && !picked.includes(c.name) && c.unless.find((k) => E.condOk(k));
         const el = h(`<label${blocked ? ` class="muted" title="Not with ${esc(E.condText(blocked))}"` : ''}><input type="${radio ? 'radio' : 'checkbox'}" name="cfg-${esc(g.id)}" ${picked.includes(c.name) ? 'checked' : ''} ${blocked ? 'disabled' : ''}> ${esc(c.name)} <button type="button" class="link info small" title="Rules">?</button></label>`);
         $('input', el).addEventListener('click', (e) => {

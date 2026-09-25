@@ -122,7 +122,7 @@
    {
     "id": "legiones-auxilia-designation",
     "name": "Legiones Auxilia designation",
-    "min": 0,
+    "min": 1,
     "max": 1,
     "choices": [
      {
@@ -197,12 +197,20 @@
       "name": "Sparatoi Vindicta",
       "text": "Diversion: Trigger: The Reactive Player may declare a Diversion Advanced Reaction in the Shooting Phase, at the end of Step 3 of the Shooting Attack sequence of any Shooting Attack made by the Active Player which targets a Unit under the Reactive Player's Control. This Unit must also be within 12\" of at least one Model from another Unit under the Reactive Player's Control containing only Models with the Infantry Type and the Solar Auxilia Trait without the Bulky (X) Special Rule, to which the Unit making the Shooting Attack can draw Line of Sight and which is within range of all Weapons declared by the Active Player during Step 3 of their Shooting Attack.\n\nCost: The Reactive Player must spend 1 point of their Reaction Allotment to declare a Diversion Advanced Reaction, this cost paid as soon as the declaration is made.\n\nTarget: For a Diversion Reaction, the Target Unit is the Unit whose Shooting Attack triggered the Advanced Reaction. The Reacting Unit is always the Unit within 12\" of the Shooting Attack's target. This Unit must be entirely composed of Models with the Infantry Type and the Solar Auxilia Trait without the Bulky (4) Special Rule, and must contain at least one Model within Line of Sight of the Target Unit and within range of all Weapons declared by the Active Player during Step 3 of their Shooting Attack.\n\nProcess: 1. Once a Diversion Advanced Reaction has been declared, the Active Player must immediately make a Cool Check for the Target Unit.\n\n\n2.If this Cool Check is successful, the Active Player continues with Steps 4-11 of their Shooting Attack, but all Hit Tests made as part of the Shooting Attack are made as Snap Shots.\n\n\n3.If the Cool Check is unsuccessful, the Active Player must return to Step 1 of their Shooting Attack and instead declare the Reactive Unit as the target of their Shooting Attack, before proceeding with the rest of that Shooting Attack against this new target."
      }
+    ],
+    "maxWhen": [
+     {
+      "when": {
+       "config": "Cohort Doctrine: Oblitum Pattern Cohort"
+      },
+      "max": 0
+     }
     ]
    },
    {
     "id": "cohort-doctrine",
     "name": "Cohort Doctrine",
-    "min": 0,
+    "min": 1,
     "max": 1,
     "choices": [
      {
