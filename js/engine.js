@@ -62,7 +62,7 @@
         if (!s.unit) continue;
         const u = unit(s.unit.unitId);
         units.add(s.unit.unitId);
-        detOf.set(s.unit, d.name);
+        detOf.set(s.unit, baseName(d));
         for (const [id, v] of Object.entries(s.unit.options || {})) {
           if (v == null || v === false || v === '' || v === 0) continue;
           if (typeof v === 'string') upgrades.add(v);
@@ -75,6 +75,8 @@
       }
       ctx = { config, units, upgrades, categories, detOf };
     }
+    /** A detachment's own name, without an ally suffix ("Planetfall Speartip (Ultramarines)"). */
+    function baseName(d) { const def = d.defId && detById.get(d.defId); return def ? def.name : d.name; }
     function condOk(c, sel, detName) {
       if (c.config) return ctx.config.has(c.config);
       if (c.unit) return ctx.units.has(c.unit);
@@ -363,6 +365,7 @@
       const present = new Set(allSelections(army).map((x) => x.sel.unitId));
       for (const g of data.grantedPrimeAdvantages || []) {
         if (g.grantedBy && !present.has(g.grantedBy)) continue;
+        if ((g.ally || null) !== (u.ally || null)) continue;
         const e = g.eligible || {};
         if (e.choice && !e.choice.includes(arkanaOf(sel))) continue;
         if (e.units && !e.units.includes(u.id)) continue;
@@ -856,6 +859,21 @@
         }
         if (n > allowed) issues.push({ level: 'error', msg: `${def.name}: ${n} taken, ${allowed} allowed (one per ${def.allowedBy.map((a) => a.config || a.each).join(' / ')}).` });
       }
+      // allies: an Allied Detachment per allied army; its Auxiliary Detachments come from its own Command slots
+      const allyIds = [...new Set(army.detachments.filter((d) => d.ally).map((d) => d.ally))];
+      for (const id of allyIds) {
+        const mine = army.detachments.filter((d) => d.ally === id);
+        const name = ((data.allies || []).find((a) => a.id === id) || {}).name || id;
+        if (!(data.allies || []).some((a) => a.id === id)) { issues.push({ level: 'warn', msg: `The ${name} allies haven't loaded; reload the page.` }); continue; }
+        const allied = mine.filter((d) => d.kind === 'allied');
+        const lordOfWar = mine.filter((d) => d.kind === 'lord of war');
+        if (!allied.length && !lordOfWar.length) issues.push({ level: 'error', msg: `${name} detachments need an Allied Detachment.` });
+        if (allied.length > 1) issues.push({ level: 'error', msg: `Only one Allied Detachment from ${name}.` });
+        const cmd = allied.reduce((n, d) => n + d.slots.filter((s) => s.role === 'Command' && s.unit).length, 0);
+        const aux = mine.filter((d) => d.kind === 'auxiliary').length;
+        if (aux > cmd) issues.push({ level: 'error', msg: `${aux} allied ${name} Auxiliary Detachment${aux === 1 ? '' : 's'}, but only ${cmd} unlocked (one per filled Command slot in its Allied Detachment).` });
+        if (mine.some((d) => d.kind === 'apex')) issues.push({ level: 'error', msg: `Allies can't take Apex Detachments (${name}).` });
+      }
       // army configuration: Rites of War, Cohort Doctrines, Provenances of War…
       for (const g of (data.armyConfig && data.armyConfig.groups) || []) {
         if (g.when && !available(g)) continue;
@@ -903,8 +921,8 @@
       const command = filled('Command');
       const hc = filled('High Command');
       const scions = primary ? primary.slots.filter((s) => s.role === 'Command' && s.unit && scionTaken(s.unit)).length : 0;
-      const aux = army.detachments.filter((d) => d.kind === 'auxiliary').length;
-      const apex = army.detachments.filter((d) => d.kind === 'apex').length;
+      const aux = army.detachments.filter((d) => d.kind === 'auxiliary' && !d.ally).length;
+      const apex = army.detachments.filter((d) => d.kind === 'apex' && !d.ally).length;
       const hcApex = hc > 0 ? 1 : 0;
       // Dynastic Scion: one Apex may be taken instead of the Auxiliary a Command slot grants
       const scionApex = Math.min(scions > 0 ? 1 : 0, Math.max(0, apex - hcApex));
@@ -931,11 +949,15 @@
       const kind = (def.type || 'Auxiliary').toLowerCase();
       const flexExclude = ['Command', 'High Command'];
       const slots = def.slots.map((s) => ({ role: s.role, prime: s.prime, flexible: s.flexible, exclude: s.flexible ? flexExclude : null, only: s.only, onlyLabel: s.onlyLabel }));
-      return makeDetachment(kind, def.name, slots, Object.assign({ defId }, extra || {}));
+      const ally = def.allyOf || (extra && extra.ally) || null;
+      const allyName = ally && (data.allies || []).find((a) => a.id === ally);
+      return makeDetachment(kind, ally && allyName ? `${def.name} (${allyName.name})` : def.name, slots, Object.assign({ defId }, ally ? { ally } : {}, extra || {}));
     }
 
     /** Detachment restrictions ("Only Units with the Canoptek Trait…") for one slot. */
     function slotAllows(det, slot, u, sel) {
+      // an allied army's units go only in its allied detachments, and those take nothing else
+      if ((u.ally || null) !== ((det && det.ally) || null)) return false;
       if (slot && slot.only && !slot.only.includes(u.id)) return false;
       // Assassins and other operatives only fill the slots their Prime Advantage adds
       if (slot && (u.operative || slot.operative) && u.operative !== slot.operative) return false;
@@ -961,7 +983,7 @@
     function unitsForSlot(slot, det) {
       return data.units.filter((u) => {
         if (!slotAllows(det, slot, u)) return false;
-        if ((u.when || u.unless) && !available(u, null, det && det.name)) return false;
+        if ((u.when || u.unless) && !available(u, null, det && baseName(det))) return false;
         if (slot.advisor) return u.cryptoArkana || !!u.fixedArkana;
         if (slot.flexible) return !(slot.exclude || []).includes(u.role);
         if (slot.role === 'Command' && slot.prime && u.role === 'High Command') return true; // Special Assignment
@@ -1019,7 +1041,36 @@
     };
   }
 
-  const api = { createEngine, ROLES, ARKANA, norm, wkey };
+    /** An allied army's units, advantages, effects and detachments, under "<army>:" ids and marked with the ally. */
+  function mergeAlly(D, A, id) {
+    const pre = (x) => `${id}:${x}`;
+    const cond = (c) => (c && c.unit ? Object.assign({}, c, { unit: pre(c.unit) }) : c && c.all ? { all: c.all.map(cond) } : c);
+    const conds = (list) => list && list.map(cond);
+    for (const u of A.units) {
+      D.units.push(Object.assign({}, u, {
+        id: pre(u.id), ally: id, allyName: A.meta.name, when: conds(u.when), unless: conds(u.unless),
+        pointsWhen: u.pointsWhen && u.pointsWhen.map((p) => Object.assign({}, p, { when: cond(p.when) })),
+        options: (u.options || []).map((o) => Object.assign({}, o, { when: conds(o.when), unless: conds(o.unless) })),
+      }));
+    }
+    for (const g of A.grantedPrimeAdvantages || []) {
+      const e = g.eligible || {};
+      D.grantedPrimeAdvantages = (D.grantedPrimeAdvantages || []).filter((x) => !(x.name === g.name && x.ally === id));
+      D.grantedPrimeAdvantages.push(Object.assign({}, g, { ally: id, eligible: Object.assign({}, e, e.any ? { any: Object.assign({}, e.any, { units: (e.any.units || []).map(pre) }) } : {}, e.units ? { units: e.units.map(pre) } : {}) }));
+    }
+    const mods = (A.modifiers && A.modifiers.modifiers) || [];
+    D.modifiers = D.modifiers || { modifiers: [] };
+    for (const m of mods) D.modifiers.modifiers.push(Object.assign({}, m, { id: pre(m.id), appliesTo: Object.assign({}, m.appliesTo, m.appliesTo && m.appliesTo.units ? { units: m.appliesTo.units.map(pre) } : {}),
+      source: m.source && m.source.type === 'when' ? Object.assign({}, m.source, { when: cond(m.source.when) }) : m.source }));
+    // its own detachments (and the allied ones) can join the list as allies
+    for (const d of A.detachments || []) {
+      if (d.source !== 'army' && !d.allyOnly) continue;
+      D.detachments.push(Object.assign({}, d, { id: pre(d.id), allyOf: id, slots: d.slots.map((s) => Object.assign({}, s, s.only ? { only: s.only.map(pre) } : {})) }));
+    }
+    D.allies = (D.allies || []).concat({ id, name: A.meta.name });
+  }
+
+  const api = { createEngine, mergeAlly, ROLES, ARKANA, norm, wkey };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.NecronEngine = api;
 })(typeof window !== 'undefined' ? window : globalThis);

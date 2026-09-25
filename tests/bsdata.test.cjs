@@ -324,3 +324,27 @@ test('Mechanicum has its own Prime Advantages; Legions no longer borrow them', (
   const um = armyOf('ultramarines').D.grantedPrimeAdvantages.map((a) => a.name);
   assert.ok(!um.includes('Paragon of Metal'));
 });
+
+test('Allies: Solar Auxilia in an Ultramarines list', () => {
+  const { mergeAlly } = require('../js/engine.js');
+  const D = load('data-ultramarines.js').ARMY_DATA.ultramarines;
+  mergeAlly(D, load('data-solar-auxilia.js').ARMY_DATA['solar-auxilia'], 'solar-auxilia');
+  const E = createEngine(D);
+  const slots = [];
+  for (const d of D.forceorg.primary.slots) for (let i = 0; i < (d.count ?? 1); i++) slots.push({ role: d.role, prime: i < (d.prime || 0) });
+  const army = { version: 2, faction: 'ultramarines', name: '', pointsLimit: 3000, sequelae: [], config: { allegiance: ['Loyalist'] }, detachments: [E.makeDetachment('primary', 'Crusade Primary Detachment', slots)] };
+  const allied = E.detachmentFromDef('solar-auxilia:bs-allied-detachment');
+  army.detachments.push(allied);
+  assert.equal(allied.ally, 'solar-auxilia');
+  assert.match(allied.name, /Solar Auxilia/);
+  const cmd = allied.slots.find((s) => s.role === 'Command');
+  const ids = E.unitsForSlot(cmd, allied).map((u) => u.id);
+  assert.ok(ids.length && ids.every((id) => id.startsWith('solar-auxilia:')));
+  assert.ok(!E.unitsForSlot(army.detachments[0].slots.find((s) => s.role === 'Command'), army.detachments[0]).some((u) => u.ally));
+  // allied Auxiliary Detachments come from the allied Command slots
+  army.detachments.push(E.detachmentFromDef('core-armoured-fist', { ally: 'solar-auxilia' }));
+  assert.ok(E.armyIssues(army).some((i) => /allied Solar Auxilia Auxiliary Detachment/.test(i.msg)));
+  cmd.unit = E.newSelection(ids.find((id) => /command-section/.test(id)) || ids[0]);
+  assert.ok(!E.armyIssues(army).some((i) => /allied Solar Auxilia Auxiliary/.test(i.msg)));
+  assert.ok(!E.armyIssues(army).some((i) => /Auxiliary Detachment, but only 0 unlocked/.test(i.msg)));
+});

@@ -23,7 +23,15 @@
     el.onerror = () => fail(new Error(`Couldn't load ${src}`));
     document.head.append(el);
   });
-  Promise.all([loadScript('js/data-common.js'), loadScript(`js/data-${FACTION}.js`)]).then(main, (err) => {
+  // allied armies the current list uses are loaded too (their units join under "<army>:<unit>" ids)
+  const ALLIES = (() => {
+    let list = null;
+    try { const m = location.hash.match(/#a=(.+)$/); if (m) list = JSON.parse(decodeURIComponent(escape(atob(m[1])))); } catch (e) { /* bad link */ }
+    if (!list) try { list = JSON.parse(localStorage.getItem(FACTION === 'necrons' ? 'necron30k.current' : `necron30k.current.${FACTION}`)); } catch (e) { /* no storage */ }
+    const ids = new Set(((list && list.detachments) || []).map((d) => d.ally).filter((id) => id && id !== FACTION && ARMIES[id]));
+    return [...ids];
+  })();
+  Promise.all([loadScript('js/data-common.js'), loadScript(`js/data-${FACTION}.js`), ...ALLIES.map((id) => loadScript(`js/data-${id}.js`))]).then(main, (err) => {
     document.querySelector('#editor').textContent = `${err.message}. Try reloading the page.`;
   });
 
@@ -35,6 +43,7 @@
     DATA.weapons = { ranged: DATA.weapons.ranged.concat(COMMON.weapons.ranged), melee: DATA.weapons.melee.concat(COMMON.weapons.melee) };
     DATA.wargear = DATA.wargear.concat(COMMON.wargear);
   }
+  for (const id of ALLIES) if (window.ARMY_DATA[id]) window.NecronEngine.mergeAlly(DATA, window.ARMY_DATA[id], id);
   const E = window.NecronEngine.createEngine(DATA);
   // Necron lists keep their original storage key so nothing saved earlier is lost.
   const STORE_CUR = FACTION === 'necrons' ? 'necron30k.current' : `necron30k.current.${FACTION}`;
@@ -333,12 +342,28 @@
       ['Warlord', 'core', 'Warlord'], ['Lord of War', 'core', 'Lord of War'],
     ];
     for (const [type, src, label] of order) {
-      const list = (DATA.detachments || []).filter((d) => d.type === type && (d.source === 'core') === (src === 'core'));
+      const list = (DATA.detachments || []).filter((d) => d.type === type && (d.source === 'core') === (src === 'core') && !d.allyOf && !d.allyOnly);
       if (!list.length) continue;
       const og = document.createElement('optgroup');
       og.label = label;
       for (const d of list) og.append(new Option(d.name + (d.unlockedBy && d.unlockedBy.sequela ? ` (${d.unlockedBy.sequela})` : '') + (d.when ? ` (with ${d.when.map(E.condText).join(' or ')})` : ''), d.id));
       sel.append(og);
+    }
+    // allies (BSData armies): each loaded ally's detachments, plus a way to add another
+    if (DATA.meta.shared === 'bsdata') {
+      for (const ally of DATA.allies || []) {
+        const ag = document.createElement('optgroup');
+        ag.label = `Allies: ${ally.name}`;
+        for (const d of (DATA.detachments || []).filter((x) => x.allyOf === ally.id)) ag.append(new Option(`${d.name}${d.type !== 'Allied' ? ` (${d.type})` : ''}`, d.id));
+        for (const d of (DATA.detachments || []).filter((x) => x.source === 'core' && ['Auxiliary', 'Lord of War'].includes(x.type) && !x.allyOnly)) {
+          ag.append(new Option(`${d.name} (${d.type})`, `__allycore:${ally.id}:${d.id}`));
+        }
+        sel.append(ag);
+      }
+      const ag = document.createElement('optgroup');
+      ag.label = 'Allies';
+      ag.append(new Option('Add an allied army…', '__ally'));
+      sel.append(ag);
     }
     const og = document.createElement('optgroup');
     og.label = 'Other';
@@ -1086,6 +1111,13 @@
     const v = e.target.value;
     e.target.value = '';
     if (!v) return;
+    if (v === '__ally') { pickAlly(); return; }
+    if (v.startsWith('__allycore:')) {
+      const [, ally, defId] = v.split(':');
+      army.detachments.push(E.detachmentFromDef(defId, { ally }));
+      refresh();
+      return;
+    }
     if (v === '__custom') {
       const d = E.makeDetachment('custom', 'Custom Detachment', []);
       army.detachments.push(d);
@@ -1096,6 +1128,27 @@
     army.detachments.push(E.detachmentFromDef(v));
     refresh();
   });
+
+  /** Add an allied army: its Allied Detachment goes in now; the page reloads to load its units. */
+  function pickAlly() {
+    const body = h('<div><h2>Add allies</h2><p class="muted">An Allied Detachment (2 Command, 1 Prime, and 4 Troops) from another army list. Its Command slots unlock allied Auxiliary Detachments, and allied Lords of War can join too.</p><div class="picker"></div></div>');
+    const box = $('.picker', body);
+    for (const a of window.ARMY_INDEX || []) {
+      if (a.id === FACTION || a.group === 'Xenos (fan codexes)' || !a.units) continue;
+      const b = h(`<button type="button"><span>${esc(a.name)}</span><span class="muted">${esc(a.group)}</span></button>`);
+      b.addEventListener('click', () => {
+        const d = E.makeDetachment('allied', `Allied Detachment (${a.name})`,
+          [{ role: 'Command', prime: true }, { role: 'Command' }, { role: 'Troops' }, { role: 'Troops' }, { role: 'Troops' }, { role: 'Troops' }],
+          { defId: `${a.id}:bs-allied-detachment`, ally: a.id });
+        army.detachments.push(d);
+        save();
+        if (ALLIES.includes(a.id)) { closeDialog(); refresh(); return; }
+        location.reload();
+      });
+      box.append(b);
+    }
+    openDialog(body);
+  }
 
   /** Armies load one per page: stash the list for the other army, then reload with it. */
   function switchArmy(id, list) {
