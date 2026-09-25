@@ -988,12 +988,25 @@ function eligibility(e) {
     }
   };
   const walkC = (g) => { (g.conditions || []).forEach(visit); (g.conditionGroups || []).forEach(walkC); };
+  // "hidden if the unit isn't category X, or hasn't taken Y": requirements the unit must meet
+  const needCats = new Set(), needItems = new Set();
+  const hideIf = (c) => {
+    const name = catName.get(c.childId);
+    const t = byId.get(c.childId);
+    if (c.type === 'notInstanceOf' && name && ['ancestor', 'unit', 'parent'].includes(c.scope)) { const r = roleName({ name }); if (r) any.roles.add(r); else needCats.add(name.trim()); }
+    else if ((c.type === 'equalTo' || c.type === 'lessThan') && Number(c.value) <= 0 + (c.type === 'lessThan') && c.scope === 'unit' && t && t.name) {
+      const n = String(t.name).trim();
+      if (/Model (Sub-)?Type$/i.test(n)) unitTypes.add(n.replace(/\s+Model (Sub-)?Type$/i, '')); else needItems.add(n);
+    }
+    else if (c.type === 'instanceOf' && name && ['ancestor', 'unit'].includes(c.scope)) { const r = roleName({ name }); if (r) excludeRoles.add(r); }
+  };
   for (const m of e.modifiers || []) {
     if (m.field !== 'hidden') continue;
     const t = modTri(m);
     const show = m.value === false || m.value === 'false';
     if (show && t !== false) { visible = true; walkC(m); }
     if (!show && t === true) visible = false;
+    if (!show && t === null) { (m.conditions || []).forEach(hideIf); for (const g of m.conditionGroups || []) if (g.type === 'or' || !(g.conditions || []).length || (g.conditions || []).length === 1) (g.conditions || []).forEach(hideIf); }
   }
   if (!visible) return null;
   // an id that isn't one of this army's units means the advantage is for units the army doesn't have
@@ -1005,6 +1018,8 @@ function eligibility(e) {
   if (excludeRoles.size) el.excludeRoles = [...excludeRoles];
   if (unitTypes.size) el.unitTypes = [...unitTypes];
   if (allegiance) el.allegiance = allegiance;
+  if (needCats.size) el.categories = [...needCats];
+  if (needItems.size) el.items = [...needItems];
   return el;
 }
 const COMMON_ADVANTAGES = new Set(['Combat Veterans', 'Special Assignment', 'Master Sergeant', 'Paragon of Battle', 'Logistical Benefit', 'Teleport Transponders']);

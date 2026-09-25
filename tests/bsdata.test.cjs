@@ -348,3 +348,15 @@ test('Allies: Solar Auxilia in an Ultramarines list', () => {
   assert.ok(!E.armyIssues(army).some((i) => /allied Solar Auxilia Auxiliary/.test(i.msg)));
   assert.ok(!E.armyIssues(army).some((i) => /Auxiliary Detachment, but only 0 unlocked/.test(i.msg)));
 });
+
+test('Mechanicum advantages follow their traits: Paragon of Metal for Cybernetica Automata', () => {
+  const { E, army } = armyOf('mechanicum');
+  army.config.allegiance = ['Loyalist'];
+  const troops = army.detachments[0].slots.find((s) => s.role === 'Troops' && s.prime);
+  troops.role = 'Support';
+  const cast = place(E, troops, 'castellax-battle-maniple');
+  assert.ok(E.primeAdvantagesFor(cast, army, troops).some((a) => a.name === 'Paragon of Metal'));
+  const cmd = army.detachments[0].slots.find((s) => s.role === 'Command' && s.prime);
+  const magos = place(E, cmd, 'magos');
+  assert.ok(!E.primeAdvantagesFor(magos, army, cmd).some((a) => a.name === 'Paragon of Metal'));
+});

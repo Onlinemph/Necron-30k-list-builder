@@ -376,6 +376,10 @@
         const side = army && army.config && (army.config.allegiance || [])[0];
         if (e.allegiance && side && e.allegiance !== side) continue;
         if (e.unitTypes && !u.models.some((m) => e.unitTypes.some((t) => (m.unitType || '').includes(t)))) continue;
+        // "only for a unit with the Cybernetica trait": a category the unit has, or a trait/upgrade it took
+        const took = (n) => (u.categories || []).includes(n) || (u.traits || []).includes(n) || Object.values(sel.options || {}).some((v) => v === n || (Array.isArray(v) && v.includes(n)));
+        if (e.categories && !e.categories.every(took)) continue;
+        if (e.items && !e.items.every(took)) continue;
         if (g.primaryOnly && slot && army && !army.detachments.some((d) => d.kind === 'primary' && d.slots.includes(slot))) continue;
         out.push({ name: g.name, text: g.text, grantedBy: g.grantedBy ? unit(g.grantedBy).name : e.allegiance ? `${e.allegiance} only` : (e.choice || []).join('/') });
       }

@@ -3,7 +3,11 @@
   {
    "name": "Logistical Benefit (Mech)",
    "text": "Logistical Benefit: Add one additional Force Organisation Slot to the Detachment that includes the Prime Slot, this Slot may be any Battlefield Role other than High Command, Command, Warlord or Lord of War. This Advantage may only be selected once per Detachment.",
-   "eligible": {},
+   "eligible": {
+    "excludeRoles": [
+     "High Command"
+    ]
+   },
    "oncePerArmy": true,
    "addSlots": {
     "count": 1,
@@ -13,17 +17,41 @@
   {
    "name": "Paragon of Metal",
    "text": "Prime Advantage: Paragon of Metal: This Prime Advantage may only be selected for a Unit composed entirely of Models with both the Automata Type and the Cybernetica Trait. One Model in the Unit for which this Prime Advantage is selected, chosen by the Controlling Player, has its Base Leadership, Intelligence and Willpower modified by +4 each, its base Initiative and Weapon Skill modified by +1 each, and gains the Sergeant Sub-type. The Model that gains these benefits is also counted as a Tech-priest with the Cybernetica Trait for the purposes of The Deus Machina Arcana Benefice only.",
-   "eligible": {}
+   "eligible": {
+    "unitTypes": [
+     "Automata"
+    ],
+    "categories": [
+     "Cybernetica"
+    ]
+   }
   },
   {
    "name": "Prime Specimens",
    "text": "Prime Advantage: Prime Specimens: This Prime Advantage may only be selected for a Unit composed entirely of Models with both the Infantry Type and the Lacrymaerta Trait. All Models in a Unit for which this Prime Advantage is selected have the Base Value of their Strength Characteristic modified by +2 and the Base Value of their Wounds Characteristic modified by +1.",
-   "eligible": {}
+   "eligible": {
+    "excludeRoles": [
+     "High Command"
+    ],
+    "unitTypes": [
+     "Infantry"
+    ],
+    "categories": [
+     "Lacrymaerta"
+    ]
+   }
   },
   {
    "name": "Prime Conveyor",
    "text": "Prime Advantage: Prime Conveyor: This Prime Advantage may only be selected for a Unit composed of a single Model with the Vehicle Type that does not also have the Super-heavy Sub-Type. A Model for which this Prime Advantage is selected gains a bonus of +1 to its Front and Side Armour Values, to a maximum of 14, +2 to its Hull Points Characterisic. If the Unit selected includes any Models with the Transport Sub-Type, then the Transport Capacity of those Models is also modified by +2.",
-   "eligible": {}
+   "eligible": {
+    "unitTypes": [
+     "Vehicle"
+    ],
+    "categories": [
+     "Macrotek"
+    ]
+   }
   },
   {
    "name": "Thallaxi Principe",
