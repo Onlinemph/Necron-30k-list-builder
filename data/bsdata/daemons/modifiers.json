@@ -55,6 +55,28 @@
    ]
   },
   {
+   "id": "ascendant-lord-of-tzeench-ascendant-lord-telekinesis-gambit",
+   "text": "Telekinesis: gains Force Barrier.",
+   "source": {
+    "type": "wargear",
+    "name": "Telekinesis"
+   },
+   "appliesTo": {
+    "models": [
+     "Ascendant Lord"
+    ],
+    "units": [
+     "ascendant-lord-of-tzeench"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Force Barrier"
+   ],
+   "removeRules": []
+  },
+  {
    "id": "ascendant-lord-of-tzeench-ascendant-lord-wings",
    "text": "Wings: M 12, becomes Infantry (Champion, Malefic, Antigrav).",
    "source": {
@@ -78,6 +100,50 @@
    "addUnitTypes": [
     "Antigrav"
    ]
+  },
+  {
+   "id": "herald-of-tzeench-herald-of-tzeench-telekinesis-gambit",
+   "text": "Telekinesis: gains Force Barrier.",
+   "source": {
+    "type": "wargear",
+    "name": "Telekinesis"
+   },
+   "appliesTo": {
+    "models": [
+     "Herald of Tzeench"
+    ],
+    "units": [
+     "herald-of-tzeench"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Force Barrier"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "lord-of-change-lord-of-change-telekinesis-gambit",
+   "text": "Telekinesis: gains Force Barrier.",
+   "source": {
+    "type": "wargear",
+    "name": "Telekinesis"
+   },
+   "appliesTo": {
+    "models": [
+     "Lord of Change"
+    ],
+    "units": [
+     "lord-of-change"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Force Barrier"
+   ],
+   "removeRules": []
   }
  ]
 }

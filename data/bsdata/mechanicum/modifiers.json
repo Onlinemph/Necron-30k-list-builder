@@ -1,3 +1,422 @@
 {
- "modifiers": []
+ "modifiers": [
+  {
+   "id": "archmagos-unit-malagra-gambit",
+   "text": "Malagra: gains Power of the Machine Spirit.",
+   "source": {
+    "type": "wargear",
+    "name": "Malagra"
+   },
+   "appliesTo": {
+    "units": [
+     "archmagos"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Power of the Machine Spirit"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "archmagos-unit-myrmidax-gambit",
+   "text": "Myrmidax: gains The Myrmidon's Path.",
+   "source": {
+    "type": "wargear",
+    "name": "Myrmidax"
+   },
+   "appliesTo": {
+    "units": [
+     "archmagos"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "The Myrmidon's Path"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "archmagos-on-abeyant-unit-malagra-gambit",
+   "text": "Malagra: gains Power of the Machine Spirit.",
+   "source": {
+    "type": "wargear",
+    "name": "Malagra"
+   },
+   "appliesTo": {
+    "units": [
+     "archmagos-on-abeyant"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Power of the Machine Spirit"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "archmagos-on-abeyant-unit-myrmidax-gambit",
+   "text": "Myrmidax: gains The Myrmidon's Path.",
+   "source": {
+    "type": "wargear",
+    "name": "Myrmidax"
+   },
+   "appliesTo": {
+    "units": [
+     "archmagos-on-abeyant"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "The Myrmidon's Path"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "magos-unit-malagra-gambit",
+   "text": "Malagra: gains Power of the Machine Spirit.",
+   "source": {
+    "type": "wargear",
+    "name": "Malagra"
+   },
+   "appliesTo": {
+    "units": [
+     "magos"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Power of the Machine Spirit"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "magos-unit-myrmidax-gambit",
+   "text": "Myrmidax: gains The Myrmidon's Path.",
+   "source": {
+    "type": "wargear",
+    "name": "Myrmidax"
+   },
+   "appliesTo": {
+    "units": [
+     "magos"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "The Myrmidon's Path"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "magos-on-abeyant-unit-malagra-gambit",
+   "text": "Malagra: gains Power of the Machine Spirit.",
+   "source": {
+    "type": "wargear",
+    "name": "Malagra"
+   },
+   "appliesTo": {
+    "units": [
+     "magos-on-abeyant"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Power of the Machine Spirit"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "magos-on-abeyant-unit-myrmidax-gambit",
+   "text": "Myrmidax: gains The Myrmidon's Path.",
+   "source": {
+    "type": "wargear",
+    "name": "Myrmidax"
+   },
+   "appliesTo": {
+    "units": [
+     "magos-on-abeyant"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "The Myrmidon's Path"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "scyllax-guardian-maniple-unit-malagra-gambit",
+   "text": "Malagra: gains Power of the Machine Spirit.",
+   "source": {
+    "type": "wargear",
+    "name": "Malagra"
+   },
+   "appliesTo": {
+    "units": [
+     "scyllax-guardian-maniple"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Power of the Machine Spirit"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "scyllax-guardian-maniple-unit-myrmidax-gambit",
+   "text": "Myrmidax: gains The Myrmidon's Path.",
+   "source": {
+    "type": "wargear",
+    "name": "Myrmidax"
+   },
+   "appliesTo": {
+    "units": [
+     "scyllax-guardian-maniple"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "The Myrmidon's Path"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "echidnax-servo-maniple-unit-malagra-gambit",
+   "text": "Malagra: gains Power of the Machine Spirit.",
+   "source": {
+    "type": "wargear",
+    "name": "Malagra"
+   },
+   "appliesTo": {
+    "units": [
+     "echidnax-servo-maniple"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Power of the Machine Spirit"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "echidnax-servo-maniple-unit-myrmidax-gambit",
+   "text": "Myrmidax: gains The Myrmidon's Path.",
+   "source": {
+    "type": "wargear",
+    "name": "Myrmidax"
+   },
+   "appliesTo": {
+    "units": [
+     "echidnax-servo-maniple"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "The Myrmidon's Path"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "tech-priest-unit-malagra-gambit",
+   "text": "Malagra: gains Power of the Machine Spirit.",
+   "source": {
+    "type": "wargear",
+    "name": "Malagra"
+   },
+   "appliesTo": {
+    "units": [
+     "tech-priest"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Power of the Machine Spirit"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "tech-priest-unit-myrmidax-gambit",
+   "text": "Myrmidax: gains The Myrmidon's Path.",
+   "source": {
+    "type": "wargear",
+    "name": "Myrmidax"
+   },
+   "appliesTo": {
+    "units": [
+     "tech-priest"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "The Myrmidon's Path"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "armiger-moirax-unit-malagra-gambit",
+   "text": "Malagra: gains Power of the Machine Spirit.",
+   "source": {
+    "type": "wargear",
+    "name": "Malagra"
+   },
+   "appliesTo": {
+    "units": [
+     "armiger-moirax"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Power of the Machine Spirit"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "armiger-moirax-unit-myrmidax-gambit",
+   "text": "Myrmidax: gains The Myrmidon's Path.",
+   "source": {
+    "type": "wargear",
+    "name": "Myrmidax"
+   },
+   "appliesTo": {
+    "units": [
+     "armiger-moirax"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "The Myrmidon's Path"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "triaros-armoured-conveyor-unit-malagra-gambit",
+   "text": "Malagra: gains Power of the Machine Spirit.",
+   "source": {
+    "type": "wargear",
+    "name": "Malagra"
+   },
+   "appliesTo": {
+    "units": [
+     "triaros-armoured-conveyor"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Power of the Machine Spirit"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "triaros-armoured-conveyor-unit-myrmidax-gambit",
+   "text": "Myrmidax: gains The Myrmidon's Path.",
+   "source": {
+    "type": "wargear",
+    "name": "Myrmidax"
+   },
+   "appliesTo": {
+    "units": [
+     "triaros-armoured-conveyor"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "The Myrmidon's Path"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mechanicum-termite-unit-malagra-gambit",
+   "text": "Malagra: gains Power of the Machine Spirit.",
+   "source": {
+    "type": "wargear",
+    "name": "Malagra"
+   },
+   "appliesTo": {
+    "units": [
+     "mechanicum-termite"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Power of the Machine Spirit"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mechanicum-termite-unit-myrmidax-gambit",
+   "text": "Myrmidax: gains The Myrmidon's Path.",
+   "source": {
+    "type": "wargear",
+    "name": "Myrmidax"
+   },
+   "appliesTo": {
+    "units": [
+     "mechanicum-termite"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "The Myrmidon's Path"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mechanicum-tarantula-battery-unit-malagra-gambit",
+   "text": "Malagra: gains Power of the Machine Spirit.",
+   "source": {
+    "type": "wargear",
+    "name": "Malagra"
+   },
+   "appliesTo": {
+    "units": [
+     "mechanicum-tarantula-battery"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Power of the Machine Spirit"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mechanicum-tarantula-battery-unit-myrmidax-gambit",
+   "text": "Myrmidax: gains The Myrmidon's Path.",
+   "source": {
+    "type": "wargear",
+    "name": "Myrmidax"
+   },
+   "appliesTo": {
+    "units": [
+     "mechanicum-tarantula-battery"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "The Myrmidon's Path"
+   ],
+   "removeRules": []
+  }
+ ]
 }

@@ -1,3 +1,26 @@
 {
- "modifiers": []
+ "modifiers": [
+  {
+   "id": "tribune-tribune-eternity-blade-and-praesidium-shield-gambit",
+   "text": "Eternity Blade and Praesidium Shield: gains Shieldwall!.",
+   "source": {
+    "type": "wargear",
+    "name": "Eternity Blade and Praesidium Shield"
+   },
+   "appliesTo": {
+    "models": [
+     "Tribune"
+    ],
+    "units": [
+     "tribune"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Shieldwall!"
+   ],
+   "removeRules": []
+  }
+ ]
 }

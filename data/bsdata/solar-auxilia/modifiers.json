@@ -1,6 +1,28 @@
 {
  "modifiers": [
   {
+   "id": "herald-of-tzeench-herald-of-tzeench-telekinesis-gambit",
+   "text": "Telekinesis: gains Force Barrier.",
+   "source": {
+    "type": "wargear",
+    "name": "Telekinesis"
+   },
+   "appliesTo": {
+    "models": [
+     "Herald of Tzeench"
+    ],
+    "units": [
+     "herald-of-tzeench"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Force Barrier"
+   ],
+   "removeRules": []
+  },
+  {
    "id": "legatine-command-section-cohort-doctrine-oblitum-pattern-cohort",
    "text": "Cohort Doctrine: Oblitum Pattern Cohort: gains Imperial Writ, gains the Talons of the Emperor trait.",
    "source": {

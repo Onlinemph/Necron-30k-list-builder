@@ -1,6 +1,482 @@
 {
  "modifiers": [
   {
+   "id": "magnus-the-red-magnus-the-red-divination-gambit",
+   "text": "Divination: gains Every Strike Foreseen.",
+   "source": {
+    "type": "wargear",
+    "name": "Divination"
+   },
+   "appliesTo": {
+    "models": [
+     "Magnus the Red"
+    ],
+    "units": [
+     "magnus-the-red"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Every Strike Foreseen"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "magnus-the-red-magnus-the-red-thaumaturgy-gambit",
+   "text": "Thaumaturgy: gains Resurrection.",
+   "source": {
+    "type": "wargear",
+    "name": "Thaumaturgy"
+   },
+   "appliesTo": {
+    "models": [
+     "Magnus the Red"
+    ],
+    "units": [
+     "magnus-the-red"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Resurrection"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "magnus-the-red-magnus-the-red-telekinesis-gambit",
+   "text": "Telekinesis: gains Force Barrier.",
+   "source": {
+    "type": "wargear",
+    "name": "Telekinesis"
+   },
+   "appliesTo": {
+    "models": [
+     "Magnus the Red"
+    ],
+    "units": [
+     "magnus-the-red"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Force Barrier"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "sekhmet-terminator-cabal-unit-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "units": [
+     "sekhmet-terminator-cabal"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "sekhmet-terminator-cabal-unit-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "units": [
+     "sekhmet-terminator-cabal"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "contemptor-osiron-dreadnought-contemptor-osiron-dreadnought-divination-gambit",
+   "text": "Divination: gains Every Strike Foreseen.",
+   "source": {
+    "type": "wargear",
+    "name": "Divination"
+   },
+   "appliesTo": {
+    "models": [
+     "Contemptor-Osiron Dreadnought"
+    ],
+    "units": [
+     "contemptor-osiron-dreadnought"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Every Strike Foreseen"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "contemptor-osiron-dreadnought-contemptor-osiron-dreadnought-telekinesis-gambit",
+   "text": "Telekinesis: gains Force Barrier.",
+   "source": {
+    "type": "wargear",
+    "name": "Telekinesis"
+   },
+   "appliesTo": {
+    "models": [
+     "Contemptor-Osiron Dreadnought"
+    ],
+    "units": [
+     "contemptor-osiron-dreadnought"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Force Barrier"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "contemptor-osiron-dreadnought-contemptor-osiron-dreadnought-thaumaturgy-gambit",
+   "text": "Thaumaturgy: gains Resurrection.",
+   "source": {
+    "type": "wargear",
+    "name": "Thaumaturgy"
+   },
+   "appliesTo": {
+    "models": [
+     "Contemptor-Osiron Dreadnought"
+    ],
+    "units": [
+     "contemptor-osiron-dreadnought"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Resurrection"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "contemptor-osiron-dreadnought-contemptor-osiron-dreadnought-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Contemptor-Osiron Dreadnought"
+    ],
+    "units": [
+     "contemptor-osiron-dreadnought"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "contemptor-osiron-dreadnought-contemptor-osiron-dreadnought-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Contemptor-Osiron Dreadnought"
+    ],
+    "units": [
+     "contemptor-osiron-dreadnought"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "herald-of-tzeench-herald-of-tzeench-telekinesis-gambit",
+   "text": "Telekinesis: gains Force Barrier.",
+   "source": {
+    "type": "wargear",
+    "name": "Telekinesis"
+   },
+   "appliesTo": {
+    "models": [
+     "Herald of Tzeench"
+    ],
+    "units": [
+     "herald-of-tzeench"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Force Barrier"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "praetor-in-saturnine-terminator-armour-saturnine-praetor-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Saturnine Praetor"
+    ],
+    "units": [
+     "praetor-in-saturnine-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "praetor-in-saturnine-terminator-armour-saturnine-praetor-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Saturnine Praetor"
+    ],
+    "units": [
+     "praetor-in-saturnine-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "veteran-tactical-squad-unit-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "units": [
+     "veteran-tactical-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "veteran-tactical-squad-unit-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "units": [
+     "veteran-tactical-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "deredeo-dreadnought-unit-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "units": [
+     "deredeo-dreadnought"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "deredeo-dreadnought-unit-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "units": [
+     "deredeo-dreadnought"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "leviathan-dreadnought-unit-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "units": [
+     "leviathan-dreadnought"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "leviathan-dreadnought-unit-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "units": [
+     "leviathan-dreadnought"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "veteran-assault-squad-unit-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "units": [
+     "veteran-assault-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "veteran-assault-squad-unit-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "units": [
+     "veteran-assault-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "praetor-praetor-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Praetor"
+    ],
+    "units": [
+     "praetor"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "praetor-praetor-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Praetor"
+    ],
+    "units": [
+     "praetor"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
    "id": "praetor-praetor-jump-pack",
    "text": "Jump Pack: M 12, becomes Infantry (Command, Antigrav).",
    "source": {
@@ -26,6 +502,50 @@
    ]
   },
   {
+   "id": "praetor-in-terminator-armour-cataphractii-praetor-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Cataphractii Praetor"
+    ],
+    "units": [
+     "praetor-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "praetor-in-terminator-armour-cataphractii-praetor-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Cataphractii Praetor"
+    ],
+    "units": [
+     "praetor-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
    "id": "praetor-in-terminator-armour-cataphractii-praetor-tartaros",
    "text": "Tartaros: M 7, becomes Infantry (Command).",
    "source": {
@@ -49,6 +569,50 @@
    "removeUnitTypes": [
     "Heavy"
    ]
+  },
+  {
+   "id": "centurion-in-terminator-armour-cataphractii-centurion-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Cataphractii Centurion"
+    ],
+    "units": [
+     "centurion-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "centurion-in-terminator-armour-cataphractii-centurion-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Cataphractii Centurion"
+    ],
+    "units": [
+     "centurion-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
   },
   {
    "id": "centurion-in-terminator-armour-cataphractii-centurion-tartaros",
@@ -77,6 +641,132 @@
    ]
   },
   {
+   "id": "cataphractii-terminator-command-squad-unit-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "units": [
+     "cataphractii-terminator-command-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "cataphractii-terminator-command-squad-unit-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "units": [
+     "cataphractii-terminator-command-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "chaplain-chaplain-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Chaplain"
+    ],
+    "units": [
+     "chaplain"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "chaplain-chaplain-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Chaplain"
+    ],
+    "units": [
+     "chaplain"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "centurion-centurion-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Centurion"
+    ],
+    "units": [
+     "centurion"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "centurion-centurion-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Centurion"
+    ],
+    "units": [
+     "centurion"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
    "id": "centurion-centurion-jump-pack",
    "text": "Jump Pack: M 12, becomes Infantry (Command, Antigrav).",
    "source": {
@@ -102,6 +792,330 @@
    ]
   },
   {
+   "id": "esoterist-esoterist-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Esoterist"
+    ],
+    "units": [
+     "esoterist"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "esoterist-esoterist-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Esoterist"
+    ],
+    "units": [
+     "esoterist"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "herald-herald-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Herald"
+    ],
+    "units": [
+     "herald"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "herald-herald-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Herald"
+    ],
+    "units": [
+     "herald"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "legion-champion-legion-champion-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Legion Champion"
+    ],
+    "units": [
+     "legion-champion"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "legion-champion-legion-champion-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Legion Champion"
+    ],
+    "units": [
+     "legion-champion"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "librarian-librarian-telekinesis-gambit",
+   "text": "Telekinesis: gains Force Barrier.",
+   "source": {
+    "type": "wargear",
+    "name": "Telekinesis"
+   },
+   "appliesTo": {
+    "models": [
+     "Librarian"
+    ],
+    "units": [
+     "librarian"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Force Barrier"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "librarian-librarian-divination-gambit",
+   "text": "Divination: gains Every Strike Foreseen.",
+   "source": {
+    "type": "wargear",
+    "name": "Divination"
+   },
+   "appliesTo": {
+    "models": [
+     "Librarian"
+    ],
+    "units": [
+     "librarian"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Every Strike Foreseen"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "librarian-librarian-thaumaturgy-gambit",
+   "text": "Thaumaturgy: gains Resurrection.",
+   "source": {
+    "type": "wargear",
+    "name": "Thaumaturgy"
+   },
+   "appliesTo": {
+    "models": [
+     "Librarian"
+    ],
+    "units": [
+     "librarian"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Resurrection"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "librarian-librarian-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Librarian"
+    ],
+    "units": [
+     "librarian"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "librarian-librarian-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Librarian"
+    ],
+    "units": [
+     "librarian"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "master-of-signals-unit-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "units": [
+     "master-of-signals"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "master-of-signals-unit-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "units": [
+     "master-of-signals"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "optae-optae-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Optae"
+    ],
+    "units": [
+     "optae"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "optae-optae-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Optae"
+    ],
+    "units": [
+     "optae"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
    "id": "optae-optae-jump-pack",
    "text": "Jump Pack: M 12, becomes Infantry (Command, Antigrav).",
    "source": {
@@ -125,6 +1139,1226 @@
    "addUnitTypes": [
     "Antigrav"
    ]
+  },
+  {
+   "id": "overseer-overseer-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Overseer"
+    ],
+    "units": [
+     "overseer"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "overseer-overseer-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Overseer"
+    ],
+    "units": [
+     "overseer"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "praevian-praevian-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Praevian"
+    ],
+    "units": [
+     "praevian"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "praevian-praevian-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Praevian"
+    ],
+    "units": [
+     "praevian"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "siege-breaker-siege-breaker-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Siege Breaker"
+    ],
+    "units": [
+     "siege-breaker"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "siege-breaker-siege-breaker-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Siege Breaker"
+    ],
+    "units": [
+     "siege-breaker"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "vigilator-vigilator-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Vigilator"
+    ],
+    "units": [
+     "vigilator"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "vigilator-vigilator-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Vigilator"
+    ],
+    "units": [
+     "vigilator"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "moritat-moritat-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Moritat"
+    ],
+    "units": [
+     "moritat"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "moritat-moritat-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Moritat"
+    ],
+    "units": [
+     "moritat"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "tactical-squad-unit-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "units": [
+     "tactical-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "tactical-squad-unit-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "units": [
+     "tactical-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "praetorian-command-squad-unit-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "units": [
+     "praetorian-command-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "praetorian-command-squad-unit-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "units": [
+     "praetorian-command-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "praetorian-command-squad-with-jump-packs-unit-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "units": [
+     "praetorian-command-squad-with-jump-packs"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "praetorian-command-squad-with-jump-packs-unit-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "units": [
+     "praetorian-command-squad-with-jump-packs"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "centurion-command-squad-unit-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "units": [
+     "centurion-command-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "centurion-command-squad-unit-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "units": [
+     "centurion-command-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "tartaros-terminator-command-squad-unit-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "units": [
+     "tartaros-terminator-command-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "tartaros-terminator-command-squad-unit-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "units": [
+     "tartaros-terminator-command-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "seeker-squad-unit-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "units": [
+     "seeker-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "seeker-squad-unit-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "units": [
+     "seeker-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "cataphractii-terminator-squad-unit-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "units": [
+     "cataphractii-terminator-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "cataphractii-terminator-squad-unit-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "units": [
+     "cataphractii-terminator-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "tartaros-terminator-squad-unit-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "units": [
+     "tartaros-terminator-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "tartaros-terminator-squad-unit-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "units": [
+     "tartaros-terminator-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "saturnine-terminator-squad-unit-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "units": [
+     "saturnine-terminator-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "saturnine-terminator-squad-unit-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "units": [
+     "saturnine-terminator-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "despoiler-squad-unit-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "units": [
+     "despoiler-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "despoiler-squad-unit-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "units": [
+     "despoiler-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "assault-squad-unit-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "units": [
+     "assault-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "assault-squad-unit-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "units": [
+     "assault-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "breacher-squad-unit-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "units": [
+     "breacher-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "breacher-squad-unit-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "units": [
+     "breacher-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "tactical-support-squad-unit-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "units": [
+     "tactical-support-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "tactical-support-squad-unit-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "units": [
+     "tactical-support-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "heavy-support-squad-unit-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "units": [
+     "heavy-support-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "heavy-support-squad-unit-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "units": [
+     "heavy-support-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "apothecary-unit-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "units": [
+     "apothecary"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "apothecary-unit-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "units": [
+     "apothecary"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "techmarine-unit-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "units": [
+     "techmarine"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "techmarine-unit-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "units": [
+     "techmarine"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "contemptor-dreadnought-unit-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "units": [
+     "contemptor-dreadnought"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "contemptor-dreadnought-unit-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "units": [
+     "contemptor-dreadnought"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "saturnine-dreadnought-unit-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "units": [
+     "saturnine-dreadnought"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "saturnine-dreadnought-unit-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "units": [
+     "saturnine-dreadnought"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "reconnaissance-squad-unit-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "units": [
+     "reconnaissance-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "reconnaissance-squad-unit-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "units": [
+     "reconnaissance-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "outrider-squadron-unit-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "units": [
+     "outrider-squadron"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "outrider-squadron-unit-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "units": [
+     "outrider-squadron"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "scimitar-jetbike-squadron-unit-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "units": [
+     "scimitar-jetbike-squadron"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "scimitar-jetbike-squadron-unit-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "units": [
+     "scimitar-jetbike-squadron"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "javelin-speeder-squadron-unit-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "units": [
+     "javelin-speeder-squadron"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "javelin-speeder-squadron-unit-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "units": [
+     "javelin-speeder-squadron"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "land-speeder-squadron-unit-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "units": [
+     "land-speeder-squadron"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "land-speeder-squadron-unit-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "units": [
+     "land-speeder-squadron"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "master-of-descent-master-of-descent-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Master of Descent"
+    ],
+    "units": [
+     "master-of-descent"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "master-of-descent-master-of-descent-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Master of Descent"
+    ],
+    "units": [
+     "master-of-descent"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "augur-command-and-control-squad-unit-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "units": [
+     "augur-command-and-control-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "augur-command-and-control-squad-unit-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "units": [
+     "augur-command-and-control-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mounted-praetor-outrider-praetor-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Outrider Praetor"
+    ],
+    "units": [
+     "mounted-praetor"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mounted-praetor-outrider-praetor-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Outrider Praetor"
+    ],
+    "units": [
+     "mounted-praetor"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
   },
   {
    "id": "mounted-praetor-outrider-praetor-scimitar-jetbike",
@@ -159,6 +2393,50 @@
    ]
   },
   {
+   "id": "mounted-centurion-outrider-centurion-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Outrider Centurion"
+    ],
+    "units": [
+     "mounted-centurion"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mounted-centurion-outrider-centurion-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Outrider Centurion"
+    ],
+    "units": [
+     "mounted-centurion"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
    "id": "mounted-centurion-outrider-centurion-scimitar-jetbike",
    "text": "Scimitar Jetbike: M 16, gains Bulky (3), gains Deep Strike, loses Firestorm, loses Implacable Advance, loses Outflank, becomes Cavalry (Command, Antigrav).",
    "source": {
@@ -189,6 +2467,226 @@
    "addUnitTypes": [
     "Antigrav"
    ]
+  },
+  {
+   "id": "librarian-with-jump-pack-librarian-with-jump-pack-telekinesis-gambit",
+   "text": "Telekinesis: gains Force Barrier.",
+   "source": {
+    "type": "wargear",
+    "name": "Telekinesis"
+   },
+   "appliesTo": {
+    "models": [
+     "Librarian with Jump Pack"
+    ],
+    "units": [
+     "librarian-with-jump-pack"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Force Barrier"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "librarian-with-jump-pack-librarian-with-jump-pack-divination-gambit",
+   "text": "Divination: gains Every Strike Foreseen.",
+   "source": {
+    "type": "wargear",
+    "name": "Divination"
+   },
+   "appliesTo": {
+    "models": [
+     "Librarian with Jump Pack"
+    ],
+    "units": [
+     "librarian-with-jump-pack"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Every Strike Foreseen"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "librarian-with-jump-pack-librarian-with-jump-pack-thaumaturgy-gambit",
+   "text": "Thaumaturgy: gains Resurrection.",
+   "source": {
+    "type": "wargear",
+    "name": "Thaumaturgy"
+   },
+   "appliesTo": {
+    "models": [
+     "Librarian with Jump Pack"
+    ],
+    "units": [
+     "librarian-with-jump-pack"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Resurrection"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "librarian-with-jump-pack-librarian-with-jump-pack-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Librarian with Jump Pack"
+    ],
+    "units": [
+     "librarian-with-jump-pack"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "librarian-with-jump-pack-librarian-with-jump-pack-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Librarian with Jump Pack"
+    ],
+    "units": [
+     "librarian-with-jump-pack"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mounted-librarian-outrider-librarian-telekinesis-gambit",
+   "text": "Telekinesis: gains Force Barrier.",
+   "source": {
+    "type": "wargear",
+    "name": "Telekinesis"
+   },
+   "appliesTo": {
+    "models": [
+     "Outrider Librarian"
+    ],
+    "units": [
+     "mounted-librarian"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Force Barrier"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mounted-librarian-outrider-librarian-divination-gambit",
+   "text": "Divination: gains Every Strike Foreseen.",
+   "source": {
+    "type": "wargear",
+    "name": "Divination"
+   },
+   "appliesTo": {
+    "models": [
+     "Outrider Librarian"
+    ],
+    "units": [
+     "mounted-librarian"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Every Strike Foreseen"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mounted-librarian-outrider-librarian-thaumaturgy-gambit",
+   "text": "Thaumaturgy: gains Resurrection.",
+   "source": {
+    "type": "wargear",
+    "name": "Thaumaturgy"
+   },
+   "appliesTo": {
+    "models": [
+     "Outrider Librarian"
+    ],
+    "units": [
+     "mounted-librarian"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Resurrection"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mounted-librarian-outrider-librarian-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Outrider Librarian"
+    ],
+    "units": [
+     "mounted-librarian"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mounted-librarian-outrider-librarian-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Outrider Librarian"
+    ],
+    "units": [
+     "mounted-librarian"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
   },
   {
    "id": "mounted-librarian-outrider-librarian-scimitar-jetbike",
@@ -223,6 +2721,116 @@
    ]
   },
   {
+   "id": "librarian-in-terminator-armour-cataphractii-librarian-telekinesis-gambit",
+   "text": "Telekinesis: gains Force Barrier.",
+   "source": {
+    "type": "wargear",
+    "name": "Telekinesis"
+   },
+   "appliesTo": {
+    "models": [
+     "Cataphractii Librarian"
+    ],
+    "units": [
+     "librarian-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Force Barrier"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "librarian-in-terminator-armour-cataphractii-librarian-divination-gambit",
+   "text": "Divination: gains Every Strike Foreseen.",
+   "source": {
+    "type": "wargear",
+    "name": "Divination"
+   },
+   "appliesTo": {
+    "models": [
+     "Cataphractii Librarian"
+    ],
+    "units": [
+     "librarian-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Every Strike Foreseen"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "librarian-in-terminator-armour-cataphractii-librarian-thaumaturgy-gambit",
+   "text": "Thaumaturgy: gains Resurrection.",
+   "source": {
+    "type": "wargear",
+    "name": "Thaumaturgy"
+   },
+   "appliesTo": {
+    "models": [
+     "Cataphractii Librarian"
+    ],
+    "units": [
+     "librarian-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Resurrection"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "librarian-in-terminator-armour-cataphractii-librarian-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Cataphractii Librarian"
+    ],
+    "units": [
+     "librarian-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "librarian-in-terminator-armour-cataphractii-librarian-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Cataphractii Librarian"
+    ],
+    "units": [
+     "librarian-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
    "id": "librarian-in-terminator-armour-cataphractii-librarian-tartaros",
    "text": "Tartaros: M 7, INV 5+, loses Slow and Purposeful, becomes Infantry (Command).",
    "source": {
@@ -249,6 +2857,94 @@
    "removeUnitTypes": [
     "Heavy"
    ]
+  },
+  {
+   "id": "esoterist-with-jump-pack-esoterist-with-jump-pack-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Esoterist with Jump Pack"
+    ],
+    "units": [
+     "esoterist-with-jump-pack"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "esoterist-with-jump-pack-esoterist-with-jump-pack-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Esoterist with Jump Pack"
+    ],
+    "units": [
+     "esoterist-with-jump-pack"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mounted-esoterist-outrider-esoterist-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Outrider Esoterist"
+    ],
+    "units": [
+     "mounted-esoterist"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mounted-esoterist-outrider-esoterist-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Outrider Esoterist"
+    ],
+    "units": [
+     "mounted-esoterist"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
   },
   {
    "id": "mounted-esoterist-outrider-esoterist-scimitar-jetbike",
@@ -283,6 +2979,50 @@
    ]
   },
   {
+   "id": "esoterist-in-terminator-armour-cataphractii-esoterist-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Cataphractii Esoterist"
+    ],
+    "units": [
+     "esoterist-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "esoterist-in-terminator-armour-cataphractii-esoterist-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Cataphractii Esoterist"
+    ],
+    "units": [
+     "esoterist-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
    "id": "esoterist-in-terminator-armour-cataphractii-esoterist-tartaros",
    "text": "Tartaros: M 7, INV 5+, loses Slow and Purposeful, becomes Infantry (Command, ).",
    "source": {
@@ -309,6 +3049,94 @@
    "removeUnitTypes": [
     "Heavy"
    ]
+  },
+  {
+   "id": "legion-champion-with-jump-pack-legion-champion-with-jump-pack-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Legion Champion with Jump Pack"
+    ],
+    "units": [
+     "legion-champion-with-jump-pack"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "legion-champion-with-jump-pack-legion-champion-with-jump-pack-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Legion Champion with Jump Pack"
+    ],
+    "units": [
+     "legion-champion-with-jump-pack"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mounted-legion-champion-outrider-legion-champion-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Outrider Legion Champion"
+    ],
+    "units": [
+     "mounted-legion-champion"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mounted-legion-champion-outrider-legion-champion-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Outrider Legion Champion"
+    ],
+    "units": [
+     "mounted-legion-champion"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
   },
   {
    "id": "mounted-legion-champion-outrider-legion-champion-scimitar-jetbike",
@@ -343,6 +3171,50 @@
    ]
   },
   {
+   "id": "legion-champion-in-terminator-armour-cataphractii-legion-champion-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Cataphractii Legion Champion"
+    ],
+    "units": [
+     "legion-champion-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "legion-champion-in-terminator-armour-cataphractii-legion-champion-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Cataphractii Legion Champion"
+    ],
+    "units": [
+     "legion-champion-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
    "id": "legion-champion-in-terminator-armour-cataphractii-legion-champion-tartaros",
    "text": "Tartaros: M 7, INV 5+, loses Slow and Purposeful, becomes Infantry (Command).",
    "source": {
@@ -369,6 +3241,94 @@
    "removeUnitTypes": [
     "Heavy"
    ]
+  },
+  {
+   "id": "chaplain-with-jump-pack-chaplain-with-jump-pack-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Chaplain with Jump Pack"
+    ],
+    "units": [
+     "chaplain-with-jump-pack"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "chaplain-with-jump-pack-chaplain-with-jump-pack-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Chaplain with Jump Pack"
+    ],
+    "units": [
+     "chaplain-with-jump-pack"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mounted-chaplain-outrider-chaplain-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Outrider Chaplain"
+    ],
+    "units": [
+     "mounted-chaplain"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mounted-chaplain-outrider-chaplain-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Outrider Chaplain"
+    ],
+    "units": [
+     "mounted-chaplain"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
   },
   {
    "id": "mounted-chaplain-outrider-chaplain-scimitar-jetbike",
@@ -403,6 +3363,50 @@
    ]
   },
   {
+   "id": "chaplain-in-terminator-armour-cataphractii-chaplain-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Cataphractii Chaplain"
+    ],
+    "units": [
+     "chaplain-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "chaplain-in-terminator-armour-cataphractii-chaplain-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Cataphractii Chaplain"
+    ],
+    "units": [
+     "chaplain-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
    "id": "chaplain-in-terminator-armour-cataphractii-chaplain-tartaros",
    "text": "Tartaros: M 7, INV 5+, loses Slow and Purposeful, becomes Infantry (Command).",
    "source": {
@@ -429,6 +3433,94 @@
    "removeUnitTypes": [
     "Heavy"
    ]
+  },
+  {
+   "id": "herald-with-jump-pack-herald-with-jump-pack-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Herald with Jump Pack"
+    ],
+    "units": [
+     "herald-with-jump-pack"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "herald-with-jump-pack-herald-with-jump-pack-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Herald with Jump Pack"
+    ],
+    "units": [
+     "herald-with-jump-pack"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mounted-herald-outrider-herald-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Outrider Herald"
+    ],
+    "units": [
+     "mounted-herald"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mounted-herald-outrider-herald-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Outrider Herald"
+    ],
+    "units": [
+     "mounted-herald"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
   },
   {
    "id": "mounted-herald-outrider-herald-scimitar-jetbike",
@@ -463,6 +3555,50 @@
    ]
   },
   {
+   "id": "herald-in-terminator-armour-cataphractii-herald-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Cataphractii Herald"
+    ],
+    "units": [
+     "herald-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "herald-in-terminator-armour-cataphractii-herald-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Cataphractii Herald"
+    ],
+    "units": [
+     "herald-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
    "id": "herald-in-terminator-armour-cataphractii-herald-tartaros",
    "text": "Tartaros: M 7, INV 5+, loses Slow and Purposeful, becomes Infantry (Command).",
    "source": {
@@ -489,6 +3625,94 @@
    "removeUnitTypes": [
     "Heavy"
    ]
+  },
+  {
+   "id": "siege-breaker-with-jump-pack-siege-breaker-with-jump-pack-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Siege Breaker with Jump Pack"
+    ],
+    "units": [
+     "siege-breaker-with-jump-pack"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "siege-breaker-with-jump-pack-siege-breaker-with-jump-pack-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Siege Breaker with Jump Pack"
+    ],
+    "units": [
+     "siege-breaker-with-jump-pack"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mounted-siege-breaker-outrider-siege-breaker-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Outrider Siege Breaker"
+    ],
+    "units": [
+     "mounted-siege-breaker"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mounted-siege-breaker-outrider-siege-breaker-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Outrider Siege Breaker"
+    ],
+    "units": [
+     "mounted-siege-breaker"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
   },
   {
    "id": "mounted-siege-breaker-outrider-siege-breaker-scimitar-jetbike",
@@ -523,6 +3747,50 @@
    ]
   },
   {
+   "id": "siege-breaker-in-terminator-armour-cataphractii-siege-breaker-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Cataphractii Siege Breaker"
+    ],
+    "units": [
+     "siege-breaker-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "siege-breaker-in-terminator-armour-cataphractii-siege-breaker-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Cataphractii Siege Breaker"
+    ],
+    "units": [
+     "siege-breaker-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
    "id": "siege-breaker-in-terminator-armour-cataphractii-siege-breaker-tartaros",
    "text": "Tartaros: M 7, INV 5+, loses Slow and Purposeful, becomes Infantry (Command).",
    "source": {
@@ -549,6 +3817,94 @@
    "removeUnitTypes": [
     "Heavy"
    ]
+  },
+  {
+   "id": "master-of-signals-with-jump-pack-master-of-signals-with-jump-pack-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Master of Signals with Jump Pack"
+    ],
+    "units": [
+     "master-of-signals-with-jump-pack"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "master-of-signals-with-jump-pack-master-of-signals-with-jump-pack-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Master of Signals with Jump Pack"
+    ],
+    "units": [
+     "master-of-signals-with-jump-pack"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mounted-master-of-signals-outrider-master-of-signals-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Outrider Master of Signals"
+    ],
+    "units": [
+     "mounted-master-of-signals"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mounted-master-of-signals-outrider-master-of-signals-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Outrider Master of Signals"
+    ],
+    "units": [
+     "mounted-master-of-signals"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
   },
   {
    "id": "mounted-master-of-signals-outrider-master-of-signals-scimitar-jetbike",
@@ -583,6 +3939,94 @@
    ]
   },
   {
+   "id": "moritat-mortalis-moritat-mortalis-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Moritat Mortalis"
+    ],
+    "units": [
+     "moritat-mortalis"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "moritat-mortalis-moritat-mortalis-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Moritat Mortalis"
+    ],
+    "units": [
+     "moritat-mortalis"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "forge-lord-forge-lord-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Forge Lord"
+    ],
+    "units": [
+     "forge-lord"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "forge-lord-forge-lord-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Forge Lord"
+    ],
+    "units": [
+     "forge-lord"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
    "id": "forge-lord-forge-lord-jump-pack",
    "text": "Jump Pack: M 12, gains Bulky (2), gains Deep Strike, becomes Infantry (Command, Antigrav).",
    "source": {
@@ -609,6 +4053,50 @@
    "addUnitTypes": [
     "Antigrav"
    ]
+  },
+  {
+   "id": "mounted-forge-lord-outrider-forge-lord-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Outrider Forge Lord"
+    ],
+    "units": [
+     "mounted-forge-lord"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mounted-forge-lord-outrider-forge-lord-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Outrider Forge Lord"
+    ],
+    "units": [
+     "mounted-forge-lord"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
   },
   {
    "id": "mounted-forge-lord-outrider-forge-lord-scimitar-jetbike",
@@ -643,6 +4131,50 @@
    ]
   },
   {
+   "id": "forge-lord-in-terminator-armour-cataphractii-forge-lord-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Cataphractii Forge Lord"
+    ],
+    "units": [
+     "forge-lord-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "forge-lord-in-terminator-armour-cataphractii-forge-lord-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Cataphractii Forge Lord"
+    ],
+    "units": [
+     "forge-lord-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
    "id": "forge-lord-in-terminator-armour-cataphractii-forge-lord-tartaros",
    "text": "Tartaros: M 7, INV 5+, loses Slow and Purposeful, becomes Infantry (Command).",
    "source": {
@@ -671,6 +4203,50 @@
    ]
   },
   {
+   "id": "primus-medicae-primus-medicae-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Primus Medicae"
+    ],
+    "units": [
+     "primus-medicae"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "primus-medicae-primus-medicae-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Primus Medicae"
+    ],
+    "units": [
+     "primus-medicae"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
    "id": "primus-medicae-primus-medicae-jump-pack",
    "text": "Jump Pack: M 12, gains Bulky (2), gains Deep Strike, becomes Infantry (Specialist, Antigrav).",
    "source": {
@@ -697,6 +4273,50 @@
    "addUnitTypes": [
     "Antigrav"
    ]
+  },
+  {
+   "id": "mounted-primus-medicae-outrider-primus-medicae-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Outrider Primus Medicae"
+    ],
+    "units": [
+     "mounted-primus-medicae"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mounted-primus-medicae-outrider-primus-medicae-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Outrider Primus Medicae"
+    ],
+    "units": [
+     "mounted-primus-medicae"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
   },
   {
    "id": "mounted-primus-medicae-outrider-primus-medicae-scimitar-jetbike",
@@ -731,6 +4351,50 @@
    ]
   },
   {
+   "id": "primus-medicae-in-terminator-armour-cataphractii-primus-medicae-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Cataphractii Primus Medicae"
+    ],
+    "units": [
+     "primus-medicae-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "primus-medicae-in-terminator-armour-cataphractii-primus-medicae-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Cataphractii Primus Medicae"
+    ],
+    "units": [
+     "primus-medicae-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
    "id": "primus-medicae-in-terminator-armour-cataphractii-primus-medicae-tartaros",
    "text": "Tartaros: M 7, INV 5+, loses Slow and Purposeful, becomes Infantry (Specialist).",
    "source": {
@@ -759,6 +4423,50 @@
    ]
   },
   {
+   "id": "delegatus-delegatus-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Delegatus"
+    ],
+    "units": [
+     "delegatus"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "delegatus-delegatus-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Delegatus"
+    ],
+    "units": [
+     "delegatus"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
    "id": "delegatus-delegatus-jump-pack",
    "text": "Jump Pack: M 12, gains Bulky (2), gains Deep Strike, becomes Infantry (Command, Antigrav).",
    "source": {
@@ -785,6 +4493,50 @@
    "addUnitTypes": [
     "Antigrav"
    ]
+  },
+  {
+   "id": "mounted-delegatus-outrider-delegatus-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Outrider Delegatus"
+    ],
+    "units": [
+     "mounted-delegatus"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mounted-delegatus-outrider-delegatus-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Outrider Delegatus"
+    ],
+    "units": [
+     "mounted-delegatus"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
   },
   {
    "id": "mounted-delegatus-outrider-delegatus-scimitar-jetbike",
@@ -819,6 +4571,50 @@
    ]
   },
   {
+   "id": "delegatus-in-terminator-armour-cataphractii-delegatus-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Cataphractii Delegatus"
+    ],
+    "units": [
+     "delegatus-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "delegatus-in-terminator-armour-cataphractii-delegatus-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Cataphractii Delegatus"
+    ],
+    "units": [
+     "delegatus-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
    "id": "delegatus-in-terminator-armour-cataphractii-delegatus-tartaros",
    "text": "Tartaros: M 7, INV 5+, loses Slow and Purposeful, becomes Infantry (Command).",
    "source": {
@@ -845,6 +4641,94 @@
    "removeUnitTypes": [
     "Heavy"
    ]
+  },
+  {
+   "id": "mortificator-mortificator-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Mortificator"
+    ],
+    "units": [
+     "mortificator"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mortificator-mortificator-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Mortificator"
+    ],
+    "units": [
+     "mortificator"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mortificator-in-terminator-armour-cataphractii-mortificator-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Cataphractii Mortificator"
+    ],
+    "units": [
+     "mortificator-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mortificator-in-terminator-armour-cataphractii-mortificator-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Cataphractii Mortificator"
+    ],
+    "units": [
+     "mortificator-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
   },
   {
    "id": "mortificator-in-terminator-armour-cataphractii-mortificator-tartaros",
@@ -875,6 +4759,94 @@
    ]
   },
   {
+   "id": "warmonger-warmonger-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Warmonger"
+    ],
+    "units": [
+     "warmonger"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "warmonger-warmonger-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Warmonger"
+    ],
+    "units": [
+     "warmonger"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "warmonger-in-terminator-armour-cataphractii-warmonger-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Cataphractii Warmonger"
+    ],
+    "units": [
+     "warmonger-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "warmonger-in-terminator-armour-cataphractii-warmonger-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Cataphractii Warmonger"
+    ],
+    "units": [
+     "warmonger-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
    "id": "warmonger-in-terminator-armour-cataphractii-warmonger-tartaros",
    "text": "Tartaros: M 7, INV 5+, loses Slow and Purposeful, becomes Infantry (Command).",
    "source": {
@@ -900,6 +4872,732 @@
    ],
    "removeUnitTypes": [
     "Heavy"
+   ]
+  },
+  {
+   "id": "pathfinder-pathfinder-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Pathfinder"
+    ],
+    "units": [
+     "pathfinder"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "pathfinder-pathfinder-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Pathfinder"
+    ],
+    "units": [
+     "pathfinder"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "armistos-armistos-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Armistos"
+    ],
+    "units": [
+     "armistos"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "armistos-armistos-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Armistos"
+    ],
+    "units": [
+     "armistos"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "praetorian-command-squad-on-scimitar-jetbikes-unit-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "units": [
+     "praetorian-command-squad-on-scimitar-jetbikes"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "praetorian-command-squad-on-scimitar-jetbikes-unit-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "units": [
+     "praetorian-command-squad-on-scimitar-jetbikes"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "outrider-praetorian-command-squad-unit-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "units": [
+     "outrider-praetorian-command-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "outrider-praetorian-command-squad-unit-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "units": [
+     "outrider-praetorian-command-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "veteran-breacher-squad-unit-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "units": [
+     "veteran-breacher-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "veteran-breacher-squad-unit-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "units": [
+     "veteran-breacher-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "veteran-heavy-support-squad-unit-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "units": [
+     "veteran-heavy-support-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "veteran-heavy-support-squad-unit-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "units": [
+     "veteran-heavy-support-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "tartaros-terminator-siege-squad-unit-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "units": [
+     "tartaros-terminator-siege-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "tartaros-terminator-siege-squad-unit-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "units": [
+     "tartaros-terminator-siege-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "indomitus-terminator-squad-unit-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "units": [
+     "indomitus-terminator-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "indomitus-terminator-squad-unit-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "units": [
+     "indomitus-terminator-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mortalis-destroyer-squad-unit-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "units": [
+     "mortalis-destroyer-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mortalis-destroyer-squad-unit-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "units": [
+     "mortalis-destroyer-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "destroyer-assault-squad-unit-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "units": [
+     "destroyer-assault-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "destroyer-assault-squad-unit-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "units": [
+     "destroyer-assault-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "castra-ferrum-dreadnought-unit-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "units": [
+     "castra-ferrum-dreadnought"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "castra-ferrum-dreadnought-unit-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "units": [
+     "castra-ferrum-dreadnought"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "attack-bike-squadron-unit-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "units": [
+     "attack-bike-squadron"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "attack-bike-squadron-unit-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "units": [
+     "attack-bike-squadron"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "scout-squad-unit-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "units": [
+     "scout-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "scout-squad-unit-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "units": [
+     "scout-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "centurion-in-saturnine-terminator-armour-saturnine-centurion-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "models": [
+     "Saturnine Centurion"
+    ],
+    "units": [
+     "centurion-in-saturnine-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "centurion-in-saturnine-terminator-armour-saturnine-centurion-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "models": [
+     "Saturnine Centurion"
+    ],
+    "units": [
+     "centurion-in-saturnine-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "saturnine-terminator-command-squad-unit-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "units": [
+     "saturnine-terminator-command-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "saturnine-terminator-command-squad-unit-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "units": [
+     "saturnine-terminator-command-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "veteran-despoiler-squad-unit-pavoni-gambit",
+   "text": "Pavoni: gains Stoneform.",
+   "source": {
+    "type": "wargear",
+    "name": "Pavoni"
+   },
+   "appliesTo": {
+    "units": [
+     "veteran-despoiler-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Stoneform"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "veteran-despoiler-squad-unit-raptora-gambit",
+   "text": "Raptora: gains Kine Shield.",
+   "source": {
+    "type": "wargear",
+    "name": "Raptora"
+   },
+   "appliesTo": {
+    "units": [
+     "veteran-despoiler-squad"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Kine Shield"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "esoterist-esoterist-traitor",
+   "text": "Traitor: loses Seal the Veil.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Traitor"
+    },
+    "name": "Traitor"
+   },
+   "appliesTo": {
+    "models": [
+     "Esoterist"
+    ],
+    "units": [
+     "esoterist"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [],
+   "removeRules": [
+    "Seal the Veil"
+   ]
+  },
+  {
+   "id": "esoterist-with-jump-pack-esoterist-with-jump-pack-traitor",
+   "text": "Traitor: loses Seal the Veil.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Traitor"
+    },
+    "name": "Traitor"
+   },
+   "appliesTo": {
+    "models": [
+     "Esoterist with Jump Pack"
+    ],
+    "units": [
+     "esoterist-with-jump-pack"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [],
+   "removeRules": [
+    "Seal the Veil"
+   ]
+  },
+  {
+   "id": "mounted-esoterist-outrider-esoterist-traitor",
+   "text": "Traitor: loses Seal the Veil.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Traitor"
+    },
+    "name": "Traitor"
+   },
+   "appliesTo": {
+    "models": [
+     "Outrider Esoterist"
+    ],
+    "units": [
+     "mounted-esoterist"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [],
+   "removeRules": [
+    "Seal the Veil"
+   ]
+  },
+  {
+   "id": "esoterist-in-terminator-armour-cataphractii-esoterist-traitor",
+   "text": "Traitor: loses Seal the Veil.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Traitor"
+    },
+    "name": "Traitor"
+   },
+   "appliesTo": {
+    "models": [
+     "Cataphractii Esoterist"
+    ],
+    "units": [
+     "esoterist-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [],
+   "removeRules": [
+    "Seal the Veil"
    ]
   }
  ]

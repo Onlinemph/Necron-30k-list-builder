@@ -1,6 +1,129 @@
 {
  "modifiers": [
   {
+   "id": "caster-of-runes-unit-divination-gambit",
+   "text": "Divination: gains Every Strike Foreseen.",
+   "source": {
+    "type": "wargear",
+    "name": "Divination"
+   },
+   "appliesTo": {
+    "units": [
+     "caster-of-runes"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Every Strike Foreseen"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "caster-of-runes-unit-telekinesis-gambit",
+   "text": "Telekinesis: gains Force Barrier.",
+   "source": {
+    "type": "wargear",
+    "name": "Telekinesis"
+   },
+   "appliesTo": {
+    "units": [
+     "caster-of-runes"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Force Barrier"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "caster-of-runes-unit-runecasting-gambit",
+   "text": "Runecasting: gains Stormwrought.",
+   "source": {
+    "type": "wargear",
+    "name": "Runecasting"
+   },
+   "appliesTo": {
+    "units": [
+     "caster-of-runes"
+    ]
+   },
+   "scope": "unit",
+   "stats": {},
+   "addRules": [
+    "Stormwrought"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "caster-of-runes-in-terminator-armour-caster-of-runes-in-terminator-armour-divination-gambit",
+   "text": "Divination: gains Every Strike Foreseen.",
+   "source": {
+    "type": "wargear",
+    "name": "Divination"
+   },
+   "appliesTo": {
+    "models": [
+     "Caster of Runes in Terminator Armour"
+    ],
+    "units": [
+     "caster-of-runes-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Every Strike Foreseen"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "caster-of-runes-in-terminator-armour-caster-of-runes-in-terminator-armour-telekinesis-gambit",
+   "text": "Telekinesis: gains Force Barrier.",
+   "source": {
+    "type": "wargear",
+    "name": "Telekinesis"
+   },
+   "appliesTo": {
+    "models": [
+     "Caster of Runes in Terminator Armour"
+    ],
+    "units": [
+     "caster-of-runes-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Force Barrier"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "caster-of-runes-in-terminator-armour-caster-of-runes-in-terminator-armour-runecasting-gambit",
+   "text": "Runecasting: gains Stormwrought.",
+   "source": {
+    "type": "wargear",
+    "name": "Runecasting"
+   },
+   "appliesTo": {
+    "models": [
+     "Caster of Runes in Terminator Armour"
+    ],
+    "units": [
+     "caster-of-runes-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stormwrought"
+   ],
+   "removeRules": []
+  },
+  {
    "id": "caster-of-runes-in-terminator-armour-caster-of-runes-in-terminator-armour-tartaros",
    "text": "Tartaros: M 7, INV 5+, becomes Infantry (Command).",
    "source": {
@@ -25,6 +148,138 @@
    "removeUnitTypes": [
     "Heavy"
    ]
+  },
+  {
+   "id": "caster-of-runes-with-jump-pack-caster-of-runes-with-jump-pack-divination-gambit",
+   "text": "Divination: gains Every Strike Foreseen.",
+   "source": {
+    "type": "wargear",
+    "name": "Divination"
+   },
+   "appliesTo": {
+    "models": [
+     "Caster of Runes with Jump Pack"
+    ],
+    "units": [
+     "caster-of-runes-with-jump-pack"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Every Strike Foreseen"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "caster-of-runes-with-jump-pack-caster-of-runes-with-jump-pack-telekinesis-gambit",
+   "text": "Telekinesis: gains Force Barrier.",
+   "source": {
+    "type": "wargear",
+    "name": "Telekinesis"
+   },
+   "appliesTo": {
+    "models": [
+     "Caster of Runes with Jump Pack"
+    ],
+    "units": [
+     "caster-of-runes-with-jump-pack"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Force Barrier"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "caster-of-runes-with-jump-pack-caster-of-runes-with-jump-pack-runecasting-gambit",
+   "text": "Runecasting: gains Stormwrought.",
+   "source": {
+    "type": "wargear",
+    "name": "Runecasting"
+   },
+   "appliesTo": {
+    "models": [
+     "Caster of Runes with Jump Pack"
+    ],
+    "units": [
+     "caster-of-runes-with-jump-pack"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stormwrought"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mounted-caster-of-runes-outrider-caster-of-runes-divination-gambit",
+   "text": "Divination: gains Every Strike Foreseen.",
+   "source": {
+    "type": "wargear",
+    "name": "Divination"
+   },
+   "appliesTo": {
+    "models": [
+     "Outrider Caster of Runes"
+    ],
+    "units": [
+     "mounted-caster-of-runes"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Every Strike Foreseen"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mounted-caster-of-runes-outrider-caster-of-runes-telekinesis-gambit",
+   "text": "Telekinesis: gains Force Barrier.",
+   "source": {
+    "type": "wargear",
+    "name": "Telekinesis"
+   },
+   "appliesTo": {
+    "models": [
+     "Outrider Caster of Runes"
+    ],
+    "units": [
+     "mounted-caster-of-runes"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Force Barrier"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mounted-caster-of-runes-outrider-caster-of-runes-runecasting-gambit",
+   "text": "Runecasting: gains Stormwrought.",
+   "source": {
+    "type": "wargear",
+    "name": "Runecasting"
+   },
+   "appliesTo": {
+    "models": [
+     "Outrider Caster of Runes"
+    ],
+    "units": [
+     "mounted-caster-of-runes"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Stormwrought"
+   ],
+   "removeRules": []
   },
   {
    "id": "mounted-caster-of-runes-outrider-caster-of-runes-scimitar-jetbike",
@@ -243,6 +498,72 @@
    ]
   },
   {
+   "id": "librarian-librarian-telekinesis-gambit",
+   "text": "Telekinesis: gains Force Barrier.",
+   "source": {
+    "type": "wargear",
+    "name": "Telekinesis"
+   },
+   "appliesTo": {
+    "models": [
+     "Librarian"
+    ],
+    "units": [
+     "librarian"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Force Barrier"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "librarian-librarian-divination-gambit",
+   "text": "Divination: gains Every Strike Foreseen.",
+   "source": {
+    "type": "wargear",
+    "name": "Divination"
+   },
+   "appliesTo": {
+    "models": [
+     "Librarian"
+    ],
+    "units": [
+     "librarian"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Every Strike Foreseen"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "librarian-librarian-thaumaturgy-gambit",
+   "text": "Thaumaturgy: gains Resurrection.",
+   "source": {
+    "type": "wargear",
+    "name": "Thaumaturgy"
+   },
+   "appliesTo": {
+    "models": [
+     "Librarian"
+    ],
+    "units": [
+     "librarian"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Resurrection"
+   ],
+   "removeRules": []
+  },
+  {
    "id": "optae-optae-jump-pack",
    "text": "Jump Pack: M 12, becomes Infantry (Command, Antigrav).",
    "source": {
@@ -332,6 +653,138 @@
    ]
   },
   {
+   "id": "librarian-with-jump-pack-librarian-with-jump-pack-telekinesis-gambit",
+   "text": "Telekinesis: gains Force Barrier.",
+   "source": {
+    "type": "wargear",
+    "name": "Telekinesis"
+   },
+   "appliesTo": {
+    "models": [
+     "Librarian with Jump Pack"
+    ],
+    "units": [
+     "librarian-with-jump-pack"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Force Barrier"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "librarian-with-jump-pack-librarian-with-jump-pack-divination-gambit",
+   "text": "Divination: gains Every Strike Foreseen.",
+   "source": {
+    "type": "wargear",
+    "name": "Divination"
+   },
+   "appliesTo": {
+    "models": [
+     "Librarian with Jump Pack"
+    ],
+    "units": [
+     "librarian-with-jump-pack"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Every Strike Foreseen"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "librarian-with-jump-pack-librarian-with-jump-pack-thaumaturgy-gambit",
+   "text": "Thaumaturgy: gains Resurrection.",
+   "source": {
+    "type": "wargear",
+    "name": "Thaumaturgy"
+   },
+   "appliesTo": {
+    "models": [
+     "Librarian with Jump Pack"
+    ],
+    "units": [
+     "librarian-with-jump-pack"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Resurrection"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mounted-librarian-outrider-librarian-telekinesis-gambit",
+   "text": "Telekinesis: gains Force Barrier.",
+   "source": {
+    "type": "wargear",
+    "name": "Telekinesis"
+   },
+   "appliesTo": {
+    "models": [
+     "Outrider Librarian"
+    ],
+    "units": [
+     "mounted-librarian"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Force Barrier"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mounted-librarian-outrider-librarian-divination-gambit",
+   "text": "Divination: gains Every Strike Foreseen.",
+   "source": {
+    "type": "wargear",
+    "name": "Divination"
+   },
+   "appliesTo": {
+    "models": [
+     "Outrider Librarian"
+    ],
+    "units": [
+     "mounted-librarian"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Every Strike Foreseen"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "mounted-librarian-outrider-librarian-thaumaturgy-gambit",
+   "text": "Thaumaturgy: gains Resurrection.",
+   "source": {
+    "type": "wargear",
+    "name": "Thaumaturgy"
+   },
+   "appliesTo": {
+    "models": [
+     "Outrider Librarian"
+    ],
+    "units": [
+     "mounted-librarian"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Resurrection"
+   ],
+   "removeRules": []
+  },
+  {
    "id": "mounted-librarian-outrider-librarian-scimitar-jetbike",
    "text": "Scimitar Jetbike: M 16, gains Bulky (3), gains Deep Strike, loses Firestorm, loses Implacable Advance, loses Outflank, becomes Cavalry (Command, Antigrav).",
    "source": {
@@ -362,6 +815,72 @@
    "addUnitTypes": [
     "Antigrav"
    ]
+  },
+  {
+   "id": "librarian-in-terminator-armour-cataphractii-librarian-telekinesis-gambit",
+   "text": "Telekinesis: gains Force Barrier.",
+   "source": {
+    "type": "wargear",
+    "name": "Telekinesis"
+   },
+   "appliesTo": {
+    "models": [
+     "Cataphractii Librarian"
+    ],
+    "units": [
+     "librarian-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Force Barrier"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "librarian-in-terminator-armour-cataphractii-librarian-divination-gambit",
+   "text": "Divination: gains Every Strike Foreseen.",
+   "source": {
+    "type": "wargear",
+    "name": "Divination"
+   },
+   "appliesTo": {
+    "models": [
+     "Cataphractii Librarian"
+    ],
+    "units": [
+     "librarian-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Every Strike Foreseen"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "librarian-in-terminator-armour-cataphractii-librarian-thaumaturgy-gambit",
+   "text": "Thaumaturgy: gains Resurrection.",
+   "source": {
+    "type": "wargear",
+    "name": "Thaumaturgy"
+   },
+   "appliesTo": {
+    "models": [
+     "Cataphractii Librarian"
+    ],
+    "units": [
+     "librarian-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Resurrection"
+   ],
+   "removeRules": []
   },
   {
    "id": "librarian-in-terminator-armour-cataphractii-librarian-tartaros",
@@ -1041,6 +1560,106 @@
    ],
    "removeUnitTypes": [
     "Heavy"
+   ]
+  },
+  {
+   "id": "esoterist-esoterist-traitor",
+   "text": "Traitor: loses Seal the Veil.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Traitor"
+    },
+    "name": "Traitor"
+   },
+   "appliesTo": {
+    "models": [
+     "Esoterist"
+    ],
+    "units": [
+     "esoterist"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [],
+   "removeRules": [
+    "Seal the Veil"
+   ]
+  },
+  {
+   "id": "esoterist-with-jump-pack-esoterist-with-jump-pack-traitor",
+   "text": "Traitor: loses Seal the Veil.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Traitor"
+    },
+    "name": "Traitor"
+   },
+   "appliesTo": {
+    "models": [
+     "Esoterist with Jump Pack"
+    ],
+    "units": [
+     "esoterist-with-jump-pack"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [],
+   "removeRules": [
+    "Seal the Veil"
+   ]
+  },
+  {
+   "id": "mounted-esoterist-outrider-esoterist-traitor",
+   "text": "Traitor: loses Seal the Veil.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Traitor"
+    },
+    "name": "Traitor"
+   },
+   "appliesTo": {
+    "models": [
+     "Outrider Esoterist"
+    ],
+    "units": [
+     "mounted-esoterist"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [],
+   "removeRules": [
+    "Seal the Veil"
+   ]
+  },
+  {
+   "id": "esoterist-in-terminator-armour-cataphractii-esoterist-traitor",
+   "text": "Traitor: loses Seal the Veil.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Traitor"
+    },
+    "name": "Traitor"
+   },
+   "appliesTo": {
+    "models": [
+     "Cataphractii Esoterist"
+    ],
+    "units": [
+     "esoterist-in-terminator-armour"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [],
+   "removeRules": [
+    "Seal the Veil"
    ]
   }
  ]

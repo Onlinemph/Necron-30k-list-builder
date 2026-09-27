@@ -362,3 +362,17 @@ test('Mechanicum advantages follow their traits: Paragon of Metal for Cybernetic
   const magos = place(E, cmd, 'magos');
   assert.ok(!E.primeAdvantagesFor(magos, army, cmd).some((a) => a.name === 'Paragon of Metal'));
 });
+
+test('Character Gambits are on their datasheets, and trait choices bring theirs', () => {
+  const dorn = armyOf('imperial-fists');
+  const s = dorn.E.newSelection('rogal-dorn');
+  assert.ok(dorn.E.effectiveModels(s)[0].rules.includes('Bulwark of the Imperium'));
+  assert.ok(common.rules.gambits.some((g) => g.name === 'Bulwark of the Imperium' && g.text));
+  const sev = armyOf('night-lords').D.units.find((u) => u.name === 'Sevatar');
+  assert.ok(sev.models[0].specialRules.includes('Dirty Fighter') && !sev.models[0].wargear.some((w) => /Gambit/.test(w)));
+  const mech = armyOf('mechanicum');
+  const a = mech.E.newSelection('archmagos');
+  const sub = mech.E.optionsOf(a).find((o) => o.choices.some((c) => c.name === 'Myrmidax'));
+  a.options[sub.id] = 'Myrmidax';
+  assert.ok(mech.E.effectiveModels(a)[0].rules.includes("The Myrmidon's Path"));
+});

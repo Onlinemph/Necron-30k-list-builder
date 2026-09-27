@@ -47,6 +47,72 @@
    "removeRules": []
   },
   {
+   "id": "rogue-psyker-rogue-psyker-telekinesis-gambit",
+   "text": "Telekinesis: gains Force Barrier.",
+   "source": {
+    "type": "wargear",
+    "name": "Telekinesis"
+   },
+   "appliesTo": {
+    "models": [
+     "Rogue Psyker"
+    ],
+    "units": [
+     "rogue-psyker"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Force Barrier"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "rogue-psyker-rogue-psyker-divination-gambit",
+   "text": "Divination: gains Every Strike Foreseen.",
+   "source": {
+    "type": "wargear",
+    "name": "Divination"
+   },
+   "appliesTo": {
+    "models": [
+     "Rogue Psyker"
+    ],
+    "units": [
+     "rogue-psyker"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Every Strike Foreseen"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "rogue-psyker-rogue-psyker-anathemata-gambit",
+   "text": "Anathemata: gains Seal the Veil.",
+   "source": {
+    "type": "wargear",
+    "name": "Anathemata"
+   },
+   "appliesTo": {
+    "models": [
+     "Rogue Psyker"
+    ],
+    "units": [
+     "rogue-psyker"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Seal the Veil"
+   ],
+   "removeRules": []
+  },
+  {
    "id": "sentinel-patrol-scout-sentinel-replace-with-armoured-sentinels",
    "text": "Replace with Armoured Sentinels: M 8, T 6, W 4, I 2, LD 9, CL 9, becomes Walker (Skirmish).",
    "source": {

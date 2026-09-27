@@ -256,7 +256,29 @@ function rulesOf(e) {
     if (l.type === 'profile' && t.typeName === 'Traits') traits.push(name);
   }
   for (const r of e.rules || []) if (!isHidden(r)) rules.push(r.name);
+  // a character's own Gambits and Advanced Reactions are rules of the model (Rogal Dorn's Bulwark of the Imperium)
+  rules.push(...playNames(e));
   return { rules, traits };
+}
+const PLAYS = new Set(['Gambit', 'Reaction', 'Psychic Reaction']);
+/** Gambits from compulsory upgrades; kept aside so recomputing the model's rules doesn't drop them. */
+function addPlays(m, plays) {
+  if (!m._plays) Object.defineProperty(m, '_plays', { value: [], enumerable: false });
+  for (const g of plays) { if (!m._plays.includes(g)) m._plays.push(g); if (!m.specialRules.includes(g)) m.specialRules.push(g); }
+}
+/** Gambit and Reaction profiles on an entry. */
+function playNames(e, withHidden) {
+  const list = [...(e.profiles || [])];
+  for (const l of e.infoLinks || []) if (l.type === 'profile') { const t = byId.get(l.targetId); if (t) list.push(Object.assign({}, t, { name: l.name || t.name, modifiers: [...(t.modifiers || []), ...(l.modifiers || [])] })); }
+  // withHidden: a trait's Gambit hidden until the model qualifies (Myrmidax's The Myrmidon's Path)
+  return list.filter((p) => PLAYS.has(p.typeName) && (withHidden || !isHidden(p))).map((p) => String(p.name).trim());
+}
+/** Gambits an upgrade brings, including through compulsory entries inside it. */
+function playsIn(e, depth = 0, withHidden = false) {
+  if (!e || depth > 3) return [];
+  const out = playNames(e, withHidden);
+  for (const c of children(e)) if (c.kind !== 'group' && limits(c).min >= 1) out.push(...playsIn(c, depth + 1, withHidden));
+  return [...new Set(out)];
 }
 
 // ---------- weapons / shared text ----------
@@ -475,7 +497,9 @@ function selectionEffects(unit, modelEntries, unitRules, unitEntry) {
     // the default loadout is what the datasheet shows
     model.profile = base.profile;
     model.unitType = base.unitType;
-    if (self) unit.specialRules = base.rules; else model.specialRules = base.rules;
+    const keep = (list) => list.concat((model._plays || []).filter((g) => !list.includes(g)));
+    if (self) unit.specialRules = base.rules; else model.specialRules = keep(base.rules);
+    if (self) model.specialRules = keep(model.specialRules);
     for (const o of unit.options) {
       if (o.model !== model.name && o.model !== null) continue;
       for (const c of o.choices) {
@@ -532,6 +556,13 @@ function walkOptions(node, model, unit, opts, optId, addMandatoryCost) {
         if (def.cost) addMandatoryCost(def.cost);
       }
       // "one per army" items (Master of Descent, relic weapons)
+      // a choice that brings a Gambit (Mechanicum trait arcana): the model gains it when taken
+      for (const i of items) {
+        const plays = playsIn(byId.get(i.id) && resolve(byId.get(i.id)), 0, true);
+        if (plays.length && i !== def) unitEffects.push({ _unit: unit, id: slug(`${target || 'unit'}-${i.name}-gambit`), text: `${i.name}: gains ${plays.join(', ')}.`,
+          source: { type: 'wargear', name: i.name }, appliesTo: target ? { models: [target] } : {}, scope: target ? 'model' : 'unit', stats: {}, addRules: plays, removeRules: [] });
+        if (plays.length && i === def) for (const m of model ? [model] : unit.models) addPlays(m, plays);
+      }
       const choices = items.filter((i) => i !== def).map((i) => Object.assign({ name: i.name, points: Math.max(0, i.cost - (def ? def.cost : 0)) }, i.once || gl.rosterMax === 1 ? { oncePerArmy: true } : {}));
       if (!choices.length) continue;
       const replaces = def ? [def.name] : [];
@@ -549,6 +580,11 @@ function walkOptions(node, model, unit, opts, optId, addMandatoryCost) {
     }
     // a single upgrade entry
     if (l.min >= 1) {
+      // an upgrade that is only a Gambit ("Gambit: Dirty Fighter") is a rule of the model, not wargear
+      const plays = playsIn(c);
+      const onlyPlays = plays.length && !profilesOf(c).some((p) => !PLAYS.has(p.typeName)) && !(c.rules || []).length;
+      if (plays.length) for (const m of model ? [model] : unit.models) addPlays(m, plays);
+      if (onlyPlays) { if (cost(c)) addMandatoryCost(cost(c)); continue; }
       if (model) model.wargear.push(c.name); else unit.models.forEach((m) => { if (!m.wargear.includes(c.name)) m.wargear.push(c.name); });
       if (cost(c)) addMandatoryCost(cost(c));
       continue;
