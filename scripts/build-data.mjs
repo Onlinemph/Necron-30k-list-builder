@@ -50,7 +50,7 @@ const common = opt(join(BS, 'common.json'), { weapons: { ranged: [], melee: [] }
 for (const a of bsIndex.armies) {
   ARMIES.push({
     id: a.id, bsdata: true, group: a.group, dir: join(BS, a.id), parts: join(BS, a.id, 'parts'),
-    meta: { name: a.name, source: `BSData Horus Heresy 3rd Edition (game system revision ${bsIndex.gameSystemRevision})`, version: `imported ${bsIndex.importedAt}`, date: bsIndex.importedAt,
+    meta: { name: a.name, source: `BSData Horus Heresy 3rd Edition (game system revision ${bsIndex.gameSystemRevision})`, version: `data of ${bsIndex.importedAt}${bsIndex.sourceCommit ? `, BSData ${bsIndex.sourceCommit}` : ''}`, date: bsIndex.importedAt,
       choice: { label: '', options: [] }, shared: 'bsdata', skipped: a.skipped },
     files: { granted: 'granted-prime-advantages.json', modifiers: 'modifiers.json' },
   });

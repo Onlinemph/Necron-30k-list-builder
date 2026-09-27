@@ -1403,7 +1403,9 @@ for (const a of armies) {
 }
 const rev = JSON.parse(readFileSync(join(src, fileTitle(gst.file) + '.json'), 'utf8')).gameSystem.revision;
 writeFileSync(join(out, 'armies.json'), JSON.stringify({
-  source: 'BSData/horus-heresy-3rd-edition', gameSystemRevision: rev, importedAt: new Date().toISOString().slice(0, 10),
+  // the refresh workflow passes BSData's commit and its date, so an unchanged BSData gives an unchanged file
+  source: 'BSData/horus-heresy-3rd-edition', gameSystemRevision: rev, importedAt: process.env.BSDATA_DATE || new Date().toISOString().slice(0, 10),
+  ...(process.env.BSDATA_SHA ? { sourceCommit: process.env.BSDATA_SHA } : {}),
   armies: armies.map(({ id, name, group, catalogue, units, skipped }) => ({ id, name, group, catalogue, units, skipped })),
 }, null, 1) + '\n');
 console.log(`${armies.length} armies; ${common.weapons.ranged.length} ranged, ${common.weapons.melee.length} melee, ${common.rules.specialRules.length} rules, ${common.wargear.length} wargear\n` + report.join('\n'));

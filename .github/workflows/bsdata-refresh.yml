@@ -1,0 +1,51 @@
+# Pulls the latest BSData Horus Heresy 3rd edition data every Monday, re-imports it, runs the tests,
+# and opens (or updates) a pull request listing the unit and points changes.
+# One-time setup: Settings → Actions → General → Workflow permissions →
+# tick "Allow GitHub Actions to create and approve pull requests".
+name: Refresh BSData
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Fetch BSData
+        run: |
+          git clone --depth 1 https://github.com/BSData/horus-heresy-3rd-edition "$RUNNER_TEMP/hh3"
+          echo "BSDATA_SHA=$(git -C "$RUNNER_TEMP/hh3" rev-parse --short HEAD)" >> "$GITHUB_ENV"
+          echo "BSDATA_DATE=$(git -C "$RUNNER_TEMP/hh3" log -1 --format=%cs)" >> "$GITHUB_ENV"
+      - name: Import
+        run: node scripts/import-bsdata.mjs "$RUNNER_TEMP/hh3" | tee "$RUNNER_TEMP/import.txt"
+      - name: Test
+        run: npm test
+      - name: Summarise changes
+        run: |
+          {
+            node scripts/bsdata-diff.mjs
+            echo
+            echo '<details><summary>Import report</summary>'
+            echo
+            echo '```'
+            cat "$RUNNER_TEMP/import.txt"
+            echo '```'
+            echo '</details>'
+          } > "$RUNNER_TEMP/pr-body.md"
+      - uses: peter-evans/create-pull-request@v7
+        with:
+          branch: bsdata-refresh
+          delete-branch: true
+          title: "BSData update (${{ env.BSDATA_DATE }})"
+          commit-message: "Import BSData ${{ env.BSDATA_SHA }} (${{ env.BSDATA_DATE }})"
+          body-path: ${{ runner.temp }}/pr-body.md

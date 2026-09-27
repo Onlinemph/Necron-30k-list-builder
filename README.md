@@ -31,6 +31,8 @@ On a phone, open the site and use **Add to Home Screen**; it launches like an ap
 - Full statlines, weapon profiles and special rules text for every unit. Click a rule chip to read it.
 - Battlefield effects change the datasheet: Sequelae, Crypto-Arkana harbingers, wargear such as the Timesplinter Mantle or Canoptek Cloak, and Prime Advantages (including the ones Anrakyr, Zahndrekh, Toholk and Szeras grant) update the statline, rules, traits and unit type. Changed values are highlighted and lost rules are struck through. Effects that depend on the situation ("while joined by a Nemesor") are listed as reminders instead of being applied (`data/modifiers.json`).
 - Roster view with a rules glossary, ready to print.
+- Compare: every unit in the army list at minimum size, with points per model and per wound, sortable and filterable by role.
+- The unit picker has a filter box for long lists.
 - Save lists in the browser. Export as text, JSON or a share link, and import them back.
 
 ## Orks
@@ -64,7 +66,9 @@ In HH3 a Legion detachment's rules are its composition (slots, unit restrictions
 
 Page references show the book, e.g. "Liber Astartes p.218". BSData only records them for about a third of units (mostly Legion-specific ones and characters), so generic units such as the Tactical Squad have none.
 
-To refresh from BSData:
+BSData refreshes itself: every Monday `.github/workflows/bsdata-refresh.yml` pulls the latest BSData, re-imports it, runs the tests and opens a pull request listing each army's added and removed units and points changes (`scripts/bsdata-diff.mjs`). Merge it and the site updates. It needs one setting: Settings → Actions → General → Workflow permissions → "Allow GitHub Actions to create and approve pull requests". You can also run it by hand from the Actions tab.
+
+To refresh by hand:
 
 ```
 git clone --depth 1 https://github.com/BSData/horus-heresy-3rd-edition /tmp/hh3

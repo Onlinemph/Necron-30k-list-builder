@@ -382,12 +382,30 @@
     const body = h(`<div><h2>${esc(slot.flexible ? 'Flexible slot' : slot.role)} <small>${esc(det.name)}</small></h2><div class="picker"></div></div>`);
     const list = $('.picker', body);
     if (!units.length) list.append(h('<p class="muted">No units fill this slot.</p>'));
+    // a long list gets a filter box ("tartaros", "las")
+    if (units.length > 8) {
+      const f = h('<input type="search" class="picker-filter" placeholder="Filter units…" aria-label="Filter units">');
+      f.addEventListener('input', () => {
+        const q = f.value.trim().toLowerCase();
+        for (const el of list.children) {
+          if (el.tagName === 'BUTTON') el.hidden = !!q && !el.dataset.name.includes(q);
+        }
+        // hide a role heading with nothing visible under it
+        for (const el of list.querySelectorAll('h4')) {
+          let n = el.nextElementSibling, any = false;
+          while (n && n.tagName === 'BUTTON') { if (!n.hidden) any = true; n = n.nextElementSibling; }
+          el.hidden = !any;
+        }
+      });
+      list.before(f);
+      setTimeout(() => { if (!window.matchMedia('(pointer: coarse)').matches) f.focus(); }, 0);
+    }
     let lastRole = null;
     for (const u of units) {
       if (slot.flexible && u.role !== lastRole) { list.append(h(`<h4 class="muted">${esc(u.role)}</h4>`)); lastRole = u.role; }
       const taken = u.unique && E.allSelections(army).some((x) => x.sel.unitId === u.id);
       const alt = !slot.flexible && !slot.advisor && u.role !== slot.role ? ` <small class="muted">(${esc(u.role)}, via Sequela)</small>` : '';
-      const b = h(`<button type="button" ${taken ? 'disabled' : ''}><span>${esc(u.name)}${alt}${u.unique ? ' <small class="muted">(character)</small>' : ''}${u.limit ? ` <small class="muted">${esc(u.limit)}</small>` : ''}</span><span class="muted">${u.basePoints} pts${u.page ? ` · ${esc(pageLabel(u))}` : ''}</span></button>`);
+      const b = h(`<button type="button" data-name="${esc(u.name.toLowerCase())}" ${taken ? 'disabled' : ''}><span>${esc(u.name)}${alt}${u.unique ? ' <small class="muted">(character)</small>' : ''}${u.limit ? ` <small class="muted">${esc(u.limit)}</small>` : ''}</span><span class="muted">${u.basePoints} pts${u.page ? ` · ${esc(pageLabel(u))}` : ''}</span></button>`);
       b.addEventListener('click', () => {
         slot.unit = E.newSelection(u.id);
         // a detachment that only takes one Partisan / Clan presets the unit's choice
@@ -1107,6 +1125,7 @@
   $('#btn-export').addEventListener('click', doExport);
   $('#btn-import').addEventListener('click', doImport);
   $('#btn-roster').addEventListener('click', renderRoster);
+  $('#btn-compare').addEventListener('click', showCompare);
   $('#add-det').addEventListener('change', (e) => {
     const v = e.target.value;
     e.target.value = '';
@@ -1147,6 +1166,45 @@
       });
       box.append(b);
     }
+    openDialog(body);
+  }
+
+  // ---------- compare: points per model and per wound across the army list ----------
+  function showCompare() {
+    const rows = DATA.units.filter((u) => !u.ally && !u.operative).map((u) => {
+      const sel = E.newSelection(u.id);
+      const counts = E.modelCounts(sel);
+      const models = Object.values(counts).reduce((a, n) => a + n, 0) || 1;
+      const wounds = u.models.reduce((a, m) => a + (counts[m.name] || 0) * (Number((m.profile || {}).W ?? (m.profile || {}).HP) || 0), 0);
+      const pts = E.unitPoints(sel);
+      return { u, pts, models, wounds, perModel: pts / models, perWound: wounds ? pts / wounds : null };
+    });
+    const roles = [...new Set(rows.map((r) => r.u.role))];
+    const body = h(`<div><h2>Compare units</h2>
+      <p class="muted">Each unit at its minimum size and standard wargear. Wounds count Hull Points for vehicles.</p>
+      <label class="row">Role <select class="cmp-role"><option value="">All</option>${roles.map((r) => `<option>${esc(r)}</option>`).join('')}</select></label>
+      <div class="table-wrap"><table class="stats cmp"><thead><tr>
+        <th data-k="name">Unit</th><th data-k="role">Role</th><th data-k="pts">Pts</th><th data-k="models">Models</th><th data-k="perModel">Pts/model</th><th data-k="wounds">Wounds</th><th data-k="perWound">Pts/wound</th>
+      </tr></thead><tbody></tbody></table></div></div>`);
+    let key = 'perWound', dir = 1;
+    const val = (r, k) => (k === 'name' ? r.u.name : k === 'role' ? r.u.role : r[k]);
+    const draw = () => {
+      const role = $('.cmp-role', body).value;
+      const list = rows.filter((r) => !role || r.u.role === role).sort((a, b) => {
+        const x = val(a, key), y = val(b, key);
+        if (x == null) return 1;
+        if (y == null) return -1;
+        return (typeof x === 'string' ? x.localeCompare(y) : x - y) * dir;
+      });
+      $('tbody', body).replaceChildren(...list.map((r) => h(`<tr><td>${esc(r.u.name)}</td><td>${esc(r.u.role)}</td><td>${r.pts}</td><td>${r.models}</td><td>${r.perModel.toFixed(1)}</td><td>${r.wounds || '–'}</td><td>${r.perWound == null ? '–' : r.perWound.toFixed(1)}</td></tr>`)));
+      for (const th of body.querySelectorAll('th')) th.textContent = th.textContent.replace(/ [▲▼]$/, '') + (th.dataset.k === key ? (dir > 0 ? ' ▲' : ' ▼') : '');
+    };
+    for (const th of body.querySelectorAll('th')) {
+      th.style.cursor = 'pointer';
+      th.addEventListener('click', () => { if (key === th.dataset.k) dir = -dir; else { key = th.dataset.k; dir = 1; } draw(); });
+    }
+    $('.cmp-role', body).addEventListener('change', draw);
+    draw();
     openDialog(body);
   }
 
