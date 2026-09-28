@@ -83,7 +83,8 @@
   for (const key of ['specialRules', 'traits', 'reactions', 'gambits']) for (const r of (COMMON.rules || {})[key] || []) addRule(Object.assign({ core: true }, r), 'core');
   for (const w of COMMON.wargear || []) addRule(w, 'core');
   function findRule(name) {
-    const k = norm(name);
+    // BSData spells it both ways
+    const k = norm(name).replace(/\bduelist's\b/, "duellist's");
     if (ruleIndex.has(k)) return ruleIndex.get(k);
     // "Implacable Advance" vs "Implacable Advance (Destroyers)" etc.
     for (const [key, r] of ruleIndex) if (key.startsWith(k) || k.startsWith(key)) return r;
@@ -798,16 +799,18 @@
       if (f.melee) melee.push(f.melee);
       if (!f.ranged && !f.melee) other.push(n);
     }
-    const sr = (w) => [...(w.specialRules || [])].join(', ');
-    const tr = (w) => [...(w.traits || [])].join(', ');
+    // each rule or trait with rules text is a link that opens it
+    const link = (n) => (findRule(n) ? `<button type="button" class="wrule" data-rule="${esc(n)}">${esc(n)}</button>` : esc(n));
+    const sr = (w) => [...(w.specialRules || [])].map(link).join(', ');
+    const tr = (w) => [...(w.traits || [])].map(link).join(', ');
     let html = '';
     if (ranged.length) {
       html += '<div class="table-wrap"><table class="stats"><thead><tr><th>Ranged</th><th>R</th><th>FP</th><th>RS</th><th>AP</th><th>D</th><th>Special rules</th><th>Traits</th></tr></thead><tbody>';
       for (const w of ranged) {
         if (w.modes && w.modes.length) {
-          html += `<tr><td colspan="6"><strong>${esc(w.name)}</strong></td><td>${esc(sr(w))}</td><td>${esc(tr(w))}</td></tr>`;
-          for (const m of w.modes) html += `<tr><td>– ${esc(m.name)}</td><td>${esc(m.R)}</td><td>${esc(m.FP)}</td><td>${esc(m.RS)}</td><td>${esc(m.AP)}</td><td>${esc(m.D)}</td><td>${esc(sr(m))}</td><td>${esc(tr(m))}</td></tr>`;
-        } else html += `<tr><td>${esc(w.name)}</td><td>${esc(w.R)}</td><td>${esc(w.FP)}</td><td>${esc(w.RS)}</td><td>${esc(w.AP)}</td><td>${esc(w.D)}</td><td>${esc(sr(w))}</td><td>${esc(tr(w))}</td></tr>`;
+          html += `<tr><td colspan="6"><strong>${esc(w.name)}</strong></td><td>${sr(w)}</td><td>${tr(w)}</td></tr>`;
+          for (const m of w.modes) html += `<tr><td>– ${esc(m.name)}</td><td>${esc(m.R)}</td><td>${esc(m.FP)}</td><td>${esc(m.RS)}</td><td>${esc(m.AP)}</td><td>${esc(m.D)}</td><td>${sr(m)}</td><td>${tr(m)}</td></tr>`;
+        } else html += `<tr><td>${esc(w.name)}</td><td>${esc(w.R)}</td><td>${esc(w.FP)}</td><td>${esc(w.RS)}</td><td>${esc(w.AP)}</td><td>${esc(w.D)}</td><td>${sr(w)}</td><td>${tr(w)}</td></tr>`;
       }
       html += '</tbody></table></div>';
     }
@@ -815,7 +818,7 @@
       html += '<div class="table-wrap"><table class="stats"><thead><tr><th>Melee</th><th>IM</th><th>AM</th><th>SM</th><th>AP</th><th>D</th><th>Special rules</th><th>Traits</th></tr></thead><tbody>';
       for (const w of melee) {
         const rows = w.modes && w.modes.length ? w.modes.map((m) => Object.assign({}, m, { name: w.name + ' – ' + m.name })) : [w];
-        for (const m of rows) html += `<tr><td>${esc(m.name)}</td><td>${esc(m.IM)}</td><td>${esc(m.AM)}</td><td>${esc(m.SM)}</td><td>${esc(m.AP)}</td><td>${esc(m.D)}</td><td>${esc(sr(m))}</td><td>${esc(tr(m))}</td></tr>`;
+        for (const m of rows) html += `<tr><td>${esc(m.name)}</td><td>${esc(m.IM)}</td><td>${esc(m.AM)}</td><td>${esc(m.SM)}</td><td>${esc(m.AP)}</td><td>${esc(m.D)}</td><td>${sr(m)}</td><td>${tr(m)}</td></tr>`;
       }
       html += '</tbody></table></div>';
     }
@@ -1126,6 +1129,13 @@
   $('#btn-import').addEventListener('click', doImport);
   $('#btn-roster').addEventListener('click', renderRoster);
   $('#btn-compare').addEventListener('click', showCompare);
+  // weapon special rules and traits in any weapon table (editor or roster)
+  document.addEventListener('click', (e) => {
+    const b = e.target.closest('.wrule');
+    if (!b) return;
+    const r = findRule(b.dataset.rule);
+    if (r) showText(b.dataset.rule, r.text, r.page ? pageLabel(r) : null);
+  });
   $('#add-det').addEventListener('change', (e) => {
     const v = e.target.value;
     e.target.value = '';
