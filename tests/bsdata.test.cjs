@@ -420,3 +420,21 @@ test('Per-model add-ons: Assault Squad combat shields +2 a model', () => {
   s.counts.Legionary = 19;
   assert.equal(E.unitPoints(s), 140 + 10 * 12 + 20 * 2, '20 models');
 });
+
+test('Unit-wide swaps reach every model: Heavy Support Squad lascannons', () => {
+  const { E } = armyOf('ultramarines');
+  const s = E.newSelection('heavy-support-squad');
+  s.counts.Legionary = 9;
+  const heavy = E.optionsOf(s).find((o) => o.replaces && o.replaces.includes('Heavy bolter'));
+  s.options[heavy.id] = 'Lascannon';
+  for (const r of E.loadout(s)) assert.ok(r.changes.some((c) => c.name === 'Lascannon' && c.count === r.count), `${r.model} gets the lascannon`);
+  for (const g of E.effectiveModels(s)) {
+    assert.ok(g.items.includes('Lascannon') && !g.items.includes('Heavy bolter'), `${g.name}: ${g.items.join(', ')}`);
+  }
+  assert.equal(E.effectiveModels(s).reduce((a, g) => a + g.count, 0), 10);
+  // an "every model" add-on with nothing replaced: Assault Squad combat shields
+  const a = E.newSelection('assault-squad');
+  const shields = E.optionsOf(a).find((o) => o.choices.some((c) => /Combat Shields/.test(c.name)));
+  a.options[shields.id] = shields.choices[0].name;
+  assert.ok(E.loadout(a).every((r) => r.changes.some((c) => /Combat Shields/.test(c.name))));
+});

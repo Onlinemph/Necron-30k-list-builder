@@ -343,7 +343,18 @@
         const row = o.models ? (out.find((r) => o.models.includes(r.model)) || byModel(o.model)) : byModel(o.model);
         if (!row) continue;
         const rep = o.replaces && o.replaces.length ? o.replaces.join(' & ') : null;
-        const push = (name, n) => row.changes.push({ name, count: n, replaces: rep });
+        // a unit-wide pick (no model named) goes to every model it concerns: those carrying what it replaces
+        // (a Heavy Support Squad's heavy bolters), or every model for "every model / all may take" add-ons
+        let rows = null;
+        if (!o.model && !o.models && ['one', 'upgrade', 'any'].includes(o.kind)) {
+          if (rep) rows = out.filter((r) => o.replaces.some((w) => r.base.includes(w)));
+          else if (/^(every|all)\b|\b(every|all) models?\b|\b(entire|whole) unit\b/i.test(o.text) || choicesFor(o, sel).some((c) => c.perUnitModel)) rows = out;
+          if (rows && !rows.length) rows = null;
+        }
+        const push = (name, n) => {
+          if (rows) for (const r of rows) r.changes.push({ name, count: r.count, replaces: rep });
+          else row.changes.push({ name, count: n, replaces: rep });
+        };
         switch (o.kind) {
           case 'one': push(val, 1); break;
           case 'upgrade': push(choicesFor(o, sel)[0]?.name || o.text, 1); break;
