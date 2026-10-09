@@ -641,7 +641,15 @@
     const val = sel.options[o.id];
     const el = h(`<div class="opt"><div class="txt">${esc(o.text)}</div><div class="choices"></div></div>`);
     const list = $('.choices', el);
-    const cost = (p, c) => (c && c.pointsUnknown ? '+? (not printed)' : p ? `+${p}` : 'free');
+    // per-model prices show the rate and what it comes to at the unit's current size
+    const models = E.totalModels(sel);
+    const cost = (p, c) => {
+      if (c && c.pointsUnknown) return '+? (not printed)';
+      const per = (c && c.perUnitModel) || 0;
+      if (!per) return p ? `+${p}` : 'free';
+      const sign = per > 0 ? '+' : '−';
+      return `${p ? `+${p} ` : ''}${sign}${Math.abs(per)}/model (${sign}${Math.abs(per * models)})`;
+    };
     const name = `o-${sel.uid}-${o.id}`;
     const blocked = (o.excludes || []).some((id) => isTaken(sel.options[id]));
     const locked = (o.requires && !E.requirementMet(o, sel)) || (blocked && !isTaken(sel.options[o.id]));
@@ -661,7 +669,7 @@
       case 'any': {
         const cur = Array.isArray(val) ? val : [];
         for (const c of choices) {
-          const r = h(`<label class="choice"><input type="checkbox" ${cur.includes(c.name) ? 'checked' : ''} ${locked ? 'disabled' : ''}> ${esc(c.name)}<span class="cost">${cost(c.points)}</span></label>`);
+          const r = h(`<label class="choice"><input type="checkbox" ${cur.includes(c.name) ? 'checked' : ''} ${locked ? 'disabled' : ''}> ${esc(c.name)}<span class="cost">${cost(c.points, c)}</span></label>`);
           $('input', r).addEventListener('change', (e) => {
             const s = new Set(Array.isArray(sel.options[o.id]) ? sel.options[o.id] : []);
             if (e.target.checked) s.add(c.name); else s.delete(c.name);
@@ -674,7 +682,7 @@
       }
       case 'upgrade': {
         const c = choices[0] || { name: o.text, points: 0 };
-        const r = h(`<label class="choice"><input type="checkbox" ${val ? 'checked' : ''} ${locked ? 'disabled' : ''}> ${esc(c.name)}<span class="cost">${cost(c.points)}</span></label>`);
+        const r = h(`<label class="choice"><input type="checkbox" ${val ? 'checked' : ''} ${locked ? 'disabled' : ''}> ${esc(c.name)}<span class="cost">${cost(c.points, c)}</span></label>`);
         $('input', r).addEventListener('change', (e) => { sel.options[o.id] = e.target.checked; refresh(); });
         list.append(r);
         break;
@@ -688,7 +696,7 @@
         if (used > max) el.classList.add('bad');
         for (const c of choices) {
           const n = cur[c.name] || 0;
-          const r = h(`<div class="choice">${counter(n, 0, locked ? n : n + Math.max(0, max - used))} ${esc(c.name)}<span class="cost">${cost(c.points)} each</span></div>`);
+          const r = h(`<div class="choice">${counter(n, 0, locked ? n : n + Math.max(0, max - used))} ${esc(c.name)}<span class="cost">${cost(c.points, c)} each</span></div>`);
           bindCounter(r, (v) => { sel.options[o.id] = Object.assign({}, sel.options[o.id], { [c.name]: v }); refresh(); });
           list.append(r);
         }
@@ -698,7 +706,7 @@
         const n = Number(val) || 0;
         const max = E.optionMax(o, sel);
         const c = choices[0] || { name: '?', points: 0 };
-        const r = h(`<div class="choice">${counter(n, 0, Math.max(n, max))} → ${esc(c.name)}<span class="cost">${cost(c.points)} each</span></div>`);
+        const r = h(`<div class="choice">${counter(n, 0, Math.max(n, max))} → ${esc(c.name)}<span class="cost">${cost(c.points, c)} each</span></div>`);
         bindCounter(r, (v) => { sel.options[o.id] = v; clampOptions(sel); refresh(); });
         list.append(r);
         break;

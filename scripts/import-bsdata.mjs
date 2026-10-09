@@ -198,6 +198,36 @@ function cost(e) {
   const c = (e.costs || []).find((x) => x.typeId === POINTS || /^Point/.test(x.name || ''));
   return Math.round(Number(applyField(e, POINTS, c ? c.value : 0)) || 0);
 }
+/**
+ * Points charged per model in the unit: BSData's "increment Point(s) by N, repeating per model selected
+ * in this unit" (Heavy Support Squad lascannons, +25 a model). Only that kind of repeat is understood;
+ * modApplies still skips every other repeating modifier.
+ */
+function perModelCost(e) {
+  let v = 0;
+  for (const m of allMods(e)) {
+    if (m.field !== POINTS || m.type !== 'increment' || !(m.repeats || []).length) continue;
+    if (!m.repeats.every((r) => r.childId === 'model' && r.scope === 'unit' && r.field === 'selections')) continue;
+    if (![...(m.conditions || []).map(condTrue), ...(m.conditionGroups || []).map(groupTrue)].every(Boolean)) continue;
+    const r = m.repeats[0];
+    v += (Number(m.value) || 0) * (Number(r.repeats) || 1) / (Number(r.value) || 1);
+  }
+  return v;
+}
+/** A per-model charge every model in the unit pays (a default weapon that costs +10 a model). */
+function addPerModel(unit, v) {
+  if (!v) return;
+  if (!Object.prototype.hasOwnProperty.call(unit, '_perModel')) Object.defineProperty(unit, '_perModel', { value: 0, writable: true, enumerable: false });
+  unit._perModel += v;
+}
+/** Fold the per-model charges of the default loadout into the unit's base cost and each model's extra cost. */
+function foldPerModel(unit, points) {
+  const pm = unit._perModel || 0;
+  if (!pm) return points;
+  for (const m of unit.models) if (!m.scaleWith) m.costPerExtra = (Number(m.costPerExtra) || 0) + pm;
+  return points + pm * unit.models.filter((m) => !m.scaleWith).reduce((a, m) => a + (m.min || 0), 0)
+    + unit.models.filter((m) => m.scaleWith).reduce((a, m) => a + pm * m.scaleWith.count * ((unit.models.find((x) => x.name === m.scaleWith.model) || {}).min || 0), 0);
+}
 function limits(e) {
   let min = 0, max = null, unitMax = null, rosterMax = null;
   for (const c of e.constraints || []) {
@@ -424,7 +454,7 @@ function convertUnit(e, armyId, forcedRole) {
       // the crew's own options (e.g. its gun) belong to the driver model, one per crew
       const drv = unit.models.find((m) => m.name === driver.name);
       walkOptions(crew, Object.assign(drv, {}), unit, opts, optId, (p) => { points += p * cl.min; });
-      unit.basePoints = points;
+      unit.basePoints = foldPerModel(unit, points);
       unit.options = opts;
       unit.composition = `${cl.min} ${crew.name}${cl.min === 1 ? '' : 's'}`;
       return unit;
@@ -457,7 +487,7 @@ function convertUnit(e, armyId, forcedRole) {
   if (e.type !== 'model') walkOptions(e, null, unit, opts, optId, (p) => { points += p; });
   // a unit without its own page reference takes its first model's
   if (!unit.page) { const pm = modelEntries.map((x) => x.e).find((m) => m.page); if (pm) { unit.page = pm.page; unit.book = book(pm); } }
-  unit.basePoints = points;
+  unit.basePoints = foldPerModel(unit, points);
   unit.options = opts;
   selectionEffects(unit, modelEntries, rules, e);
   unit.composition = unit.models.filter((m) => m.min).map((m) => `${m.min} ${m.name}`).join(', ') || (unit.size ? `${unit.size.min}–${unit.size.max} models` : '');
@@ -554,6 +584,7 @@ function walkOptions(node, model, unit, opts, optId, addMandatoryCost) {
       if (def) {
         if (model) model.wargear.push(def.name); else unit.models.forEach((m) => m.wargear.push(def.name));
         if (def.cost) addMandatoryCost(def.cost);
+        addPerModel(unit, def.perModel);
       }
       // "one per army" items (Master of Descent, relic weapons)
       // a choice that brings a Gambit (Mechanicum trait arcana): the model gains it when taken
@@ -563,7 +594,11 @@ function walkOptions(node, model, unit, opts, optId, addMandatoryCost) {
           source: { type: 'wargear', name: i.name }, appliesTo: target ? { models: [target] } : {}, scope: target ? 'model' : 'unit', stats: {}, addRules: plays, removeRules: [] });
         if (plays.length && i === def) for (const m of model ? [model] : unit.models) addPlays(m, plays);
       }
-      const choices = items.filter((i) => i !== def).map((i) => Object.assign({ name: i.name, points: Math.max(0, i.cost - (def ? def.cost : 0)) }, i.once || gl.rosterMax === 1 ? { oncePerArmy: true } : {}));
+      const choices = items.filter((i) => i !== def).map((i) => {
+        // a per-model price is charged on top, as the difference from the default's ("lascannon +25 a model" over "heavy bolter +10")
+        const per = (i.perModel || 0) - (def ? def.perModel || 0 : 0);
+        return Object.assign({ name: i.name, points: Math.max(0, i.cost - (def ? def.cost : 0)) }, per ? { perUnitModel: per } : {}, i.once || gl.rosterMax === 1 ? { oncePerArmy: true } : {});
+      });
       if (!choices.length) continue;
       const replaces = def ? [def.name] : [];
       const groupMax = gl.max === null ? choices.length : gl.max;
@@ -584,14 +619,16 @@ function walkOptions(node, model, unit, opts, optId, addMandatoryCost) {
       const plays = playsIn(c);
       const onlyPlays = plays.length && !profilesOf(c).some((p) => !PLAYS.has(p.typeName)) && !(c.rules || []).length;
       if (plays.length) for (const m of model ? [model] : unit.models) addPlays(m, plays);
-      if (onlyPlays) { if (cost(c)) addMandatoryCost(cost(c)); continue; }
+      if (onlyPlays) { if (cost(c)) addMandatoryCost(cost(c)); addPerModel(unit, perModelCost(c)); continue; }
       if (model) model.wargear.push(c.name); else unit.models.forEach((m) => { if (!m.wargear.includes(c.name)) m.wargear.push(c.name); });
       if (cost(c)) addMandatoryCost(cost(c));
+      addPerModel(unit, perModelCost(c));
       continue;
     }
     if (l.max === 0) continue;
     const pts = cost(c);
-    const o = { id: optId(`${target || 'unit'}-${c.name}`), text: `${model ? `${model.name}: ` : ''}${c.name}${multi ? (l.unitMax !== null ? ` (up to ${l.unitMax} in the unit)` : ' (any number of models)') : ''}`, model: target, replaces: [], choices: [Object.assign({ name: c.name, points: pts }, l.rosterMax === 1 ? { oncePerArmy: true } : {})] };
+    const per = perModelCost(c);
+    const o = { id: optId(`${target || 'unit'}-${c.name}`), text: `${model ? `${model.name}: ` : ''}${c.name}${multi ? (l.unitMax !== null ? ` (up to ${l.unitMax} in the unit)` : ' (any number of models)') : ''}`, model: target, replaces: [], choices: [Object.assign({ name: c.name, points: pts }, per ? { perUnitModel: per } : {}, l.rosterMax === 1 ? { oncePerArmy: true } : {})] };
     if (multi) { o.kind = 'perModel'; o.max = l.unitMax !== null ? { fixed: l.unitMax } : null; }
     else o.kind = 'upgrade';
     opts.push(o);
@@ -601,7 +638,7 @@ function flatItems(g) {
   const out = [];
   for (const c of children(g)) {
     if (c.kind === 'group') out.push(...flatItems(c));
-    else if (c.type !== 'model') out.push({ name: c.name, cost: cost(c), min: limits(c).min, id: c.id, linkId: c.linkId, once: limits(c).rosterMax === 1 });
+    else if (c.type !== 'model') out.push({ name: c.name, cost: cost(c), perModel: perModelCost(c), min: limits(c).min, id: c.id, linkId: c.linkId, once: limits(c).rosterMax === 1 });
   }
   const seen = new Set();
   return out.filter((i) => (seen.has(i.name) ? false : seen.add(i.name)));

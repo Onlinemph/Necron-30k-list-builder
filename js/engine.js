@@ -197,7 +197,8 @@
       const out = [];
       const seen = new Set();
       for (const c of opt.choices || []) {
-        const items = c.list ? resolveList(c.list, sel) : [{ name: c.name, points: Number(c.points) || 0, pointsUnknown: !!c.pointsUnknown }];
+        const items = c.list ? resolveList(c.list, sel) : [Object.assign({ name: c.name, points: Number(c.points) || 0, pointsUnknown: !!c.pointsUnknown },
+          c.perUnitModel ? { perUnitModel: Number(c.perUnitModel) } : {})];
         for (const it of items) {
           if (seen.has(it.name)) continue;
           seen.add(it.name);
@@ -298,10 +299,12 @@
       const val = sel.options[opt.id];
       if (val == null || val === false || val === '') return 0;
       const choices = choicesFor(opt, sel);
-      const price = (name) => (choices.find((c) => c.name === name) || { points: 0 }).points;
+      // a choice may also cost so much per model in the unit (perUnitModel), tracking the unit's size
+      const models = totalModels(sel);
+      const price = (name) => { const c = choices.find((x) => x.name === name); return c ? c.points + (c.perUnitModel || 0) * models : 0; };
       switch (opt.kind) {
         case 'one': return price(val);
-        case 'upgrade': return val ? (choices[0] ? choices[0].points : 0) : 0;
+        case 'upgrade': return val ? (choices[0] ? price(choices[0].name) : 0) : 0;
         case 'any': return (Array.isArray(val) ? val : []).reduce((s, n) => s + price(n), 0);
         case 'perModel': return Object.entries(val).reduce((s, [n, c]) => s + price(n) * (Number(c) || 0), 0);
         case 'swapModel': return (Number(val) || 0) * (choices[0] ? choices[0].points : 0);

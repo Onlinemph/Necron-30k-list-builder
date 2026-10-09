@@ -80,7 +80,8 @@ The `text` field always holds the printed bullet text verbatim.
   "replaces": ["Voidblade"],          // wargear removed when a choice is taken ([] if nothing)
   "choices": [
     { "list": "nobility-melee" },     // pull in every item of a shared list (lists.json)
-    { "name": "Voidscythe", "points": 20 }
+    { "name": "Voidscythe", "points": 20 },
+    { "name": "Lascannon", "points": 0, "perUnitModel": 15 }   // optional: also N points per model in the unit
   ],
   "max": null,                        // see "max" below
   "requires": null,                   // option id that must have a selection first, if any
@@ -101,6 +102,14 @@ Kinds:
   `choices[0].name`, costing `choices[0].points` each. Uses `max` like perModel.
 - `"upgrade"` – a single yes/no upgrade (e.g. "may be upgraded to have the Dynastic Scion
   Special Rule … +20 points"). Exactly one choice.
+
+A choice's `perUnitModel` (optional, BSData armies) is charged once per model in the whole unit
+on top of `points`, and follows the model count as it changes: a Heavy Support Squad's lascannon
+upgrade is `perUnitModel: 15`, so 10 models pay 150 more. It comes from BSData's "increment Point(s),
+repeating per model in this unit" modifiers and is the difference from the default weapon's own
+per-model price (lascannon +25 a model over the heavy bolter's +10). The default's per-model price is
+already in `basePoints` and each model's `costPerExtra`. For `perModel` options it applies per
+selection, as BSData prices it. It may be negative when a choice is cheaper than the default.
 
 `max` (only for perModel / swapModel):
 

@@ -3,7 +3,7 @@
   "fixed": [
    {
     "name": "Swift of Action",
-    "text": "\"The White Scars Player may increase their Model's Movement Characteristic.\"\n\n\nAt the start of any of the Controlling Player's Turns that Player may choose to increase the movement Characteristic of any Model with this Special Rule and a Base Movement Characteristic of at least 1 and apply a modifier of +2 to that Characteristic until the end of that Player Turn.",
+    "text": "All Models with the White Scars Trait (excluding Models with the Vehicle Type) are subject to the Swift of Action Special Rule\n\n\n\"The White Scars Player may increase their Model's Movement Characteristic.\"\n\nAt the start of any of the Controlling Player's Turns that Player may choose to increase the movement Characteristic of any Model with this Special Rule and a Base Movement Characteristic of at least 1 and apply a modifier of +2 to that Characteristic until the end of that Player Turn.",
     "kind": "rule",
     "source": "Legion Tactica"
    },

@@ -376,3 +376,47 @@ test('Character Gambits are on their datasheets, and trait choices bring theirs'
   a.options[sub.id] = 'Myrmidax';
   assert.ok(mech.E.effectiveModels(a)[0].rules.includes("The Myrmidon's Path"));
 });
+
+test('Per-model weapon costs: Heavy Support Squad', () => {
+  const { E } = armyOf('ultramarines');
+  const s = E.newSelection('heavy-support-squad');
+  const heavy = E.optionsOf(s).find((o) => o.replaces && o.replaces.includes('Heavy bolter'));
+  assert.equal(E.unitPoints(s), 100, '5 heavy bolters');
+  s.counts.Legionary = 9;
+  assert.equal(E.unitPoints(s), 200, '10 heavy bolters');
+  s.options[heavy.id] = 'Lascannon';
+  assert.equal(E.unitPoints(s), 350, '10 lascannons');
+  s.options[heavy.id] = 'Autocannon';
+  assert.equal(E.unitPoints(s), 300, '10 autocannons');
+  s.options[heavy.id] = 'Missile launcher';
+  assert.equal(E.unitPoints(s), 250, '10 missile launchers');
+  s.options[heavy.id] = 'Multi-melta';
+  assert.equal(E.unitPoints(s), 350, '10 multi-meltas');
+  // the charge follows the model count
+  s.counts.Legionary = 4;
+  assert.equal(E.unitPoints(s), 175, '5 multi-meltas');
+});
+
+test('Per-model weapon costs: Tactical Support Squad', () => {
+  const { E } = armyOf('ultramarines');
+  const s = E.newSelection('tactical-support-squad');
+  const special = E.optionsOf(s).find((o) => o.replaces && o.replaces.includes('Flamer') && o.model === null);
+  assert.equal(E.unitPoints(s), 65, '5 flamers');
+  s.counts.Legionary = 9;
+  assert.equal(E.unitPoints(s), 130, '10 flamers');
+  s.options[special.id] = 'Plasma gun';
+  assert.equal(E.unitPoints(s), 180, '10 plasma guns');
+  s.options[special.id] = 'Meltagun';
+  assert.equal(E.unitPoints(s), 230, '10 meltaguns');
+});
+
+test('Per-model add-ons: Assault Squad combat shields +2 a model', () => {
+  const { E } = armyOf('ultramarines');
+  const s = E.newSelection('assault-squad');
+  const shields = E.optionsOf(s).find((o) => o.choices.some((c) => /Combat Shields/.test(c.name)));
+  assert.equal(E.unitPoints(s), 140);
+  s.options[shields.id] = shields.choices[0].name;
+  assert.equal(E.unitPoints(s), 160, '10 models × 2');
+  s.counts.Legionary = 19;
+  assert.equal(E.unitPoints(s), 140 + 10 * 12 + 20 * 2, '20 models');
+});
