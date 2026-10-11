@@ -94,6 +94,11 @@
   const weaponIndex = { ranged: new Map(), melee: new Map() };
   const W = DATA.weapons || { ranged: [], melee: [] };
   for (const kind of ['ranged', 'melee']) for (const w of W[kind] || []) weaponIndex[kind].set(wkey(w.name), w);
+  // the loose key also matches "Pair of Hyperphase Threshers" for "Hyperphase Thresher"; keep exact names
+  // so a single weapon doesn't show its pair's profile
+  const exactIndex = { ranged: new Map(), melee: new Map() };
+  for (const kind of ['ranged', 'melee']) for (const w of W[kind] || []) exactIndex[kind].set(String(w.name).trim().toLowerCase(), w);
+  const PAIRED = /^(pair of|paired|two|a pair of)\s/i;
   const CORE = DATA.coreRules || { rules: [], undefinedInCodex: [] };
   const aliases = new Map(Object.entries(CORE.weaponAliases || {}).map(([k, v]) => [wkey(k), wkey(v)]));
   const coreNames = new Set((CORE.rules || []).map(norm));
@@ -101,6 +106,10 @@
   function findWeapons(name) {
     const k = aliases.get(wkey(name)) || wkey(name);
     const r = { ranged: weaponIndex.ranged.get(k), melee: weaponIndex.melee.get(k) };
+    if (!PAIRED.test(String(name).trim())) {
+      const raw = String(name).trim().toLowerCase();
+      for (const kind of ['ranged', 'melee']) if (r[kind] && PAIRED.test(r[kind].name) && exactIndex[kind].has(raw)) r[kind] = exactIndex[kind].get(raw);
+    }
     if (!r.ranged && !r.melee && /^twin(-linked)? /.test(k)) return findWeapons(k.replace(/^twin(-linked)? /, ''));
     return r;
   }
