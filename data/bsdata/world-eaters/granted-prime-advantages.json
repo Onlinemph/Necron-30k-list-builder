@@ -40,7 +40,7 @@
   },
   {
    "name": "Butcher Surgeon",
-   "text": "Exhortation of Butchery: At the start of the Charge Sub-Phase of their Battle Turn, the Controlling Player of a Unit which contains any Models with this Special Rule may elect for that Unit to become Lost to the Nails\n\nRavening Madmen: \"Units with Models with this Special Rule count as having a Weapon Skill Characteristic of 3 when their opponent makes Hit Tests.\"\n\n\nAny Hit Tests made in the Assault Phase that target a Unit that includes one or more Models with this Special Rule always count the majority Weapon Skill Characteristic of the Target Unit as 3, regardless of the actual Weapon Skill Characteristic of the Models in that Unit, Additionally, a Unit that includes any Models with this Special Rule may only be joined by Models with this Special Rule.",
+   "text": "Exhortation of Butchery: At the start of the Charge Sub-Phase of their Battle Turn, the Controlling Player of a Unit which contains any Models with this Special Rule may elect for that Unit to become Lost to the Nails\n\nRavening Madmen: \"Units with Models with this Special Rule count as having a Weapon Skill Characteristic of 3 when their opponent makes Hit Tests.\"\n\n\nAny Hit Tests made in the Assault Phase that target a Unit that includes one or more Models with this Special Rule always count the majority Weapon Skill Characteristic of the Target Unit as 3, regardless of the actual Weapon Skill Characteristic of the Models in that Unit. ‘Additionally, a Unit that includes any Models with this Special Rule may only join or be joined by Models with this Special Rule.",
    "eligible": {
     "any": {
      "roles": [],

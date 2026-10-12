@@ -16,7 +16,7 @@
   },
   {
    "name": "Duty Before Death",
-   "text": "Models in a Unit selected to fill a Prime Force Organisation Slot with this Prime Advantage gain the Feel No Pain (6+) Special Rule.\n\nFeel No Pain (6+): \"Feel No Pain (X) is a Damage Mitigation Test that may be taken in addition to a Saving Throw.\"\nA Model with the Feel No Pain (X) Special Rule gains a Feel No Pain Damage Mitigation Test that may be used in Step 9 of the Shooting Attack process or Step 8 of the Initiative Step of the Fight Sub-Phase process to discard wounds allocated to the Model. A Damage Mitigation Test may be made after and in addition to a Saving Throw. The Target Number for a Feel No Pain Damage Mitigation Test is the value of X attached to the specific variant of the Special Rule.",
+   "text": "Models in a Unit selected to fill a Prime Force Organisation Slot with this Prime Advantage gain the Feel No Pain (6+) Special Rule.\n\nFeel No Pain (6+): **Feel No Pain (X) is a Damage Mitigation Test that may be taken in addition to a Saving Throw.**\n\nA Feel No Pain Damage Mitigation Test may be made for a Model with the Feel No Pain (X) Special Rule to discard wounds allocated to the Model after and in addition to a Saving Throw. The Target Number for a Feel No Pain Damage Mitigation Test is the value of X attached to the specific variant of the Special Rule.",
    "eligible": {
     "any": {
      "roles": [

@@ -1,8 +1,8 @@
 {
  "source": "BSData/horus-heresy-3rd-edition",
  "gameSystemRevision": 55,
- "importedAt": "2026-10-09",
- "sourceCommit": "266a733",
+ "importedAt": "2026-10-12",
+ "sourceCommit": "be0adde",
  "armies": [
   {
    "id": "anathema-psykana",
