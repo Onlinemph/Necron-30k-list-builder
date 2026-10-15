@@ -1,0 +1,88 @@
+{
+  "weapons": {
+    "melee": [
+      { "name": "Fang-blade", "IM": "+1", "AM": "A", "SM": "S", "AP": 4, "D": 1, "specialRules": ["Rending (5+)", "Reaping Blow (1)"], "traits": ["Power"] },
+      { "name": "Runic great-axe", "IM": -2, "AM": "A", "SM": "+2", "AP": 3, "D": 1, "specialRules": ["Breaching (4+)", "Reaping Blow (1)"], "traits": ["Power"] }
+    ],
+    "ranged": [
+      { "name": "Hunter's longbolter", "R": 36, "FP": 1, "RS": 5, "AP": 4, "D": 1, "specialRules": ["Precision (5+)"], "traits": ["Bolt"] }
+    ]
+  },
+  "wargear": [
+    { "name": "Wolf-skull totem", "text": "Legacy house rule. A pole hung with the skulls of beasts the pack has run down, and the teeth of a few men. Enemies learn to dread the sight of it. Every model in the unit gains Fear (1)." },
+    { "name": "Wolf-pelt mantle", "text": "Legacy house rule. A heavy cloak cut from a Fenrisian beast the bearer killed alone. The model gains Feel No Pain (6+)." }
+  ],
+  "options": [
+    { "units": ["tactical-squad", "despoiler-squad", "veteran-tactical-squad", "assault-squad", "veteran-assault-squad", "grey-slayer-pack", "breacher-squad"],
+      "option": { "id": "sw-sergeant-blades", "kind": "one", "modelType": "Sergeant", "text": "The Sergeant may take a Fenrisian weapon",
+        "choices": [ { "name": "Fang-blade", "points": 10 }, { "name": "Frost axe", "points": 15 }, { "name": "Runic great-axe", "points": 20 } ] } },
+    { "units": ["assault-squad", "despoiler-squad"],
+      "option": { "id": "sw-legionary-axes", "kind": "perModel", "model": "Legionary", "replaces": ["Chainsword"], "max": 5,
+        "text": "Up to five Legionaries may exchange their chainsword for", "choices": [ { "name": "Fenrisian axe", "points": 2 }, { "name": "Fang-blade", "points": 5 } ] } },
+    { "units": ["jorlund-hunter-pack"],
+      "option": { "id": "sw-hunter-longbolters", "kind": "perModel", "model": "Hunter", "max": 3,
+        "text": "Up to three Hunters may take a Hunter's longbolter", "choices": [ { "name": "Hunter's longbolter", "points": 10 } ] } },
+    { "units": ["tactical-squad", "despoiler-squad", "assault-squad", "grey-slayer-pack", "jorlund-hunter-pack", "veteran-tactical-squad", "inductii-squad"],
+      "option": { "id": "sw-skull-totem", "kind": "upgrade", "model": null, "text": "The unit may carry a Wolf-skull totem",
+        "choices": [ { "name": "Wolf-skull totem", "points": 15 } ] } },
+    { "match": { "roles": ["Command", "High Command"], "notUnitType": "Vehicle" }, "optionalUnits": true,
+      "option": { "id": "sw-pelt-mantle", "kind": "upgrade", "modelType": "Command", "text": "May wear a Wolf-pelt mantle",
+        "choices": [ { "name": "Wolf-pelt mantle", "points": 10 } ] } }
+  ],
+  "modifiers": [
+    { "units": ["grey-slayer-pack"], "models": ["Grey Slayer", "Huscarl"], "text": "Grey Slayers fight as hunters, not marksmen: +1 S, -1 BS.", "stats": { "S": "+1", "BS": "-1" } },
+    { "units": ["jorlund-hunter-pack"], "text": "Jorlund hunters, lean and patient: +1 BS, -1 T.", "stats": { "BS": "+1", "T": "-1" } },
+    { "units": ["tactical-squad", "despoiler-squad", "assault-squad", "veteran-tactical-squad", "veteran-assault-squad"], "text": "Sons of Fenris, proud and unruly: +1 I, -1 LD.", "stats": { "I": "+1", "LD": "-1" } },
+    { "units": ["caster-of-runes", "caster-of-runes-in-terminator-armour", "caster-of-runes-with-jump-pack", "mounted-caster-of-runes"], "text": "Rune-singers trade the blade for the storm: +1 WP, -1 WS.", "stats": { "WP": "+1", "WS": "-1" } },
+    { "units": ["varagyr-wolf-guard-terminators"], "text": "Wolf Guard hold the hall-floor like oaks: +1 WS, -1 I.", "stats": { "WS": "+1", "I": "-1" } },
+    { "units": ["deathsworn-pack"], "text": "The Death Wolf walks beside them: 5+ Invulnerable Save, -1 I.", "stats": { "INV": "best:5+", "I": "-1" } }
+  ],
+  "rites": [
+    {
+      "name": "The Long Hunt",
+      "flavor": "A wolf-pack does not charge the herd. It follows, and it waits, and it picks the moment.",
+      "text": "Jorlund Hunter Packs may fill Troops slots and gain Line (1). Hunter Packs, Reconnaissance Squads and Scout Squads gain Outflank. The army travels on foot and on paw: no Armour units and no Heavy Transports. At least one Jorlund Hunter Pack is required.",
+      "roles": [ { "units": ["jorlund-hunter-pack"], "role": "Troops" } ],
+      "modifiers": [
+        { "units": ["jorlund-hunter-pack"], "text": "The Long Hunt: Line (1).", "addRules": ["Line (1)"] },
+        { "units": ["jorlund-hunter-pack", "reconnaissance-squad", "scout-squad"], "text": "The Long Hunt: Outflank.", "addRules": ["Outflank"] }
+      ],
+      "require": [ { "units": ["jorlund-hunter-pack"], "min": 1, "note": "Bring at least one Jorlund Hunter Pack." } ],
+      "forbid": [ { "match": { "roles": ["Armour", "Heavy Transport"] } } ]
+    },
+    {
+      "name": "Hall of the Wolf Guard",
+      "flavor": "When the Jarl's hearth-companions march, no one else needs to stand in the line.",
+      "text": "Varagyr Wolf Guard Terminators may fill Troops slots, gain Line (1) and cost 25 points less. The Thegn gains +1 Attack. The Guard will not share a hull with lesser men: no Transport units and no Fast Attack units. At least one Varagyr pack is required.",
+      "roles": [ { "units": ["varagyr-wolf-guard-terminators"], "role": "Troops" } ],
+      "points": [ { "units": ["varagyr-wolf-guard-terminators"], "delta": -25 } ],
+      "modifiers": [
+        { "units": ["varagyr-wolf-guard-terminators"], "text": "Hall of the Wolf Guard: Line (1).", "addRules": ["Line (1)"] },
+        { "units": ["varagyr-wolf-guard-terminators"], "models": ["Thegn"], "text": "Hall of the Wolf Guard: Thegn +1 A.", "stats": { "A": "+1" } }
+      ],
+      "require": [ { "units": ["varagyr-wolf-guard-terminators"], "min": 1, "note": "Bring at least one Varagyr pack." } ],
+      "forbid": [ { "match": { "role": "Transport" } }, { "match": { "role": "Fast Attack" } } ]
+    },
+    {
+      "name": "The Wolf Within",
+      "flavor": "Some packs go quiet when the moon rises. Their Wolf Lords stop counting how many come home.",
+      "text": "Grey Slayer Packs and Deathsworn Packs gain +1 Attack and Heedless, and Deathsworn Packs may fill Troops slots. The beast is not to be bargained with: no Casters of Runes of any kind, no Heavy Support or Tactical Support Squads. At least one Grey Slayer Pack is required.",
+      "roles": [ { "units": ["deathsworn-pack"], "role": "Troops" } ],
+      "modifiers": [ { "units": ["grey-slayer-pack", "deathsworn-pack"], "text": "The Wolf Within: +1 A, Heedless.", "stats": { "A": "+1" }, "addRules": ["Heedless"] } ],
+      "require": [ { "units": ["grey-slayer-pack"], "min": 1, "note": "Bring at least one Grey Slayer Pack." } ],
+      "forbid": [ { "match": { "nameIncludes": ["Caster of Runes"] } }, { "units": ["heavy-support-squad", "tactical-support-squad", "veteran-heavy-support-squad"] } ]
+    },
+    {
+      "name": "The Wild Ride",
+      "flavor": "On Fenris the great beasts were ridden before the Legion ever knew a word for armour.",
+      "text": "Outrider Squadrons and Attack Bike Squadrons may fill Troops slots and gain Line (1). Outriders and Attack Bikes gain +1 Movement. A fast army is a thin one: no Heavy Assault or Armour units, no Heavy Transports, and at least two Outrider Squadrons.",
+      "roles": [ { "units": ["outrider-squadron", "attack-bike-squadron"], "role": "Troops" } ],
+      "modifiers": [
+        { "units": ["outrider-squadron", "attack-bike-squadron"], "text": "The Wild Ride: Line (1).", "addRules": ["Line (1)"] },
+        { "units": ["outrider-squadron", "attack-bike-squadron"], "text": "The Wild Ride: +1 M.", "stats": { "M": "+1" } }
+      ],
+      "require": [ { "units": ["outrider-squadron"], "min": 2, "note": "Bring at least two Outrider Squadrons." } ],
+      "forbid": [ { "match": { "roles": ["Heavy Assault", "Armour", "Heavy Transport"] } } ]
+    }
+  ]
+}

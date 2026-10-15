@@ -1,0 +1,88 @@
+{
+  "weapons": {
+    "melee": [
+      { "name": "Paired flensing knives", "IM": "+1", "AM": "+1", "SM": "S", "AP": "–", "D": 1, "specialRules": ["Shred (5+)"], "traits": ["Chain"] }
+    ],
+    "ranged": [
+      { "name": "Banshee pistol", "R": 12, "FP": 1, "RS": 4, "AP": 5, "D": 1, "specialRules": ["Pistol", "Pinning (1)"], "traits": ["Assault", "Bolt"] },
+      { "name": "Darkscope bolter", "R": 36, "FP": 1, "RS": 4, "AP": 4, "D": 1, "specialRules": ["Precision (4+)"], "traits": ["Bolt"] }
+    ]
+  },
+  "wargear": [
+    { "name": "Night-mantle", "text": "Legacy house rule. A cloak of dark, light-eating fabric stitched with something that was once a man's hide. The model gains Shrouded (5+)." },
+    { "name": "Gibbet standard", "text": "Legacy house rule. A frame that carries the last enemy officer the unit caught, still in his armour. Every model in the unit gains Hatred (Infantry)." }
+  ],
+  "options": [
+    { "units": ["tactical-squad", "despoiler-squad", "veteran-tactical-squad", "assault-squad", "veteran-assault-squad", "night-raptor-squad", "terror-squad"],
+      "option": { "id": "nl-sergeant-blades", "kind": "one", "modelType": "Sergeant", "text": "The Sergeant may take a murderer's weapon",
+        "choices": [ { "name": "Paired flensing knives", "points": 10 }, { "name": "Lightning claw", "points": 10 }, { "name": "Pair of lightning claws", "points": 15 } ] } },
+    { "units": ["terror-squad"],
+      "option": { "id": "nl-headsman-axe", "kind": "one", "modelType": "Sergeant", "text": "The Headsman may take a Headsman's axe",
+        "choices": [ { "name": "Headsman's axe", "points": 15 } ] } },
+    { "units": ["reconnaissance-squad", "scout-squad"],
+      "option": { "id": "nl-darkscope", "kind": "perModel", "model": ["Recon Legionary", "Scout"], "max": 2,
+        "text": "Up to two models may take a Darkscope bolter", "choices": [ { "name": "Darkscope bolter", "points": 10 } ] } },
+    { "units": ["night-raptor-squad", "assault-squad", "veteran-assault-squad"],
+      "option": { "id": "nl-banshee-pistols", "kind": "perModel", "model": ["Night Raptor", "Legionary", "Veteran Legionary"], "max": 4,
+        "text": "Up to four models may carry a Banshee pistol", "choices": [ { "name": "Banshee pistol", "points": 5 } ] } },
+    { "units": ["tactical-squad", "despoiler-squad", "veteran-tactical-squad", "assault-squad", "veteran-assault-squad", "night-raptor-squad", "terror-squad", "reconnaissance-squad", "contekar-terminator-squad"],
+      "option": { "id": "nl-night-mantle", "kind": "upgrade", "modelType": "Sergeant", "text": "The Sergeant may wear a Night-mantle",
+        "choices": [ { "name": "Night-mantle", "points": 10 } ] } },
+    { "units": ["tactical-squad", "despoiler-squad", "assault-squad", "night-raptor-squad", "terror-squad"],
+      "option": { "id": "nl-gibbet-standard", "kind": "upgrade", "model": null, "text": "The unit may carry a Gibbet standard",
+        "choices": [ { "name": "Gibbet standard", "points": 15 } ] } }
+  ],
+  "modifiers": [
+    { "units": ["night-raptor-squad"], "text": "Night Raptors strike from above and are hit back: +1 I, -1 T.", "stats": { "I": "+1", "T": "-1" } },
+    { "units": ["terror-squad"], "text": "Terror Squads revel in it and fear it: +1 WS, -1 CL.", "stats": { "WS": "+1", "CL": "-1" } },
+    { "units": ["atramentar-flay-clade"], "text": "The Flay-clade want the knife, not the gun: +1 WS, -1 BS.", "stats": { "WS": "+1", "BS": "-1" } },
+    { "units": ["contekar-terminator-squad"], "text": "Contekar, bitter and unbound: +1 A, -1 LD.", "stats": { "A": "+1", "LD": "-1" } },
+    { "units": ["reconnaissance-squad", "scout-squad"], "text": "Night-eyed stalkers: +1 BS, -1 LD.", "stats": { "BS": "+1", "LD": "-1" } },
+    { "match": { "unitType": "Command", "notUnitType": "Vehicle" }, "text": "Murderers' captains: +1 I, -1 CL.", "stats": { "I": "+1", "CL": "-1" } },
+    { "units": ["*"], "item": "Night-mantle", "text": "Night-mantle: Shrouded (5+).", "addRules": ["Shrouded (5+)"] },
+    { "units": ["*"], "item": "Gibbet standard", "scope": "unit", "text": "Gibbet standard: Hatred (Infantry).", "addRules": ["Hatred (Infantry)"] }
+  ],
+  "rites": [
+    {
+      "name": "Knives in the Dark",
+      "flavor": "The first sign is a sentry who does not answer the next call.",
+      "text": "Night Raptor Squads may fill Troops slots and gain Line (1). Night Raptors, Reconnaissance Squads and Scout Squads gain Shrouded (6+). The Legion hunts quietly: no Armour units, no Heavy Transports, and at least one Night Raptor Squad is required.",
+      "roles": [ { "units": ["night-raptor-squad"], "role": "Troops" } ],
+      "modifiers": [
+        { "units": ["night-raptor-squad"], "text": "Knives in the Dark: Line (1).", "addRules": ["Line (1)"] },
+        { "units": ["night-raptor-squad", "reconnaissance-squad", "scout-squad"], "text": "Knives in the Dark: Shrouded (6+).", "addRules": ["Shrouded (6+)"] }
+      ],
+      "require": [ { "units": ["night-raptor-squad"], "min": 1, "note": "Bring at least one Night Raptor Squad." } ],
+      "forbid": [ { "match": { "roles": ["Armour", "Heavy Transport"] } } ]
+    },
+    {
+      "name": "Dread Procession",
+      "flavor": "They did not need to win the battle if the enemy could be persuaded to lose it first.",
+      "text": "Tactical, Despoiler, Veteran Tactical, Assault, Veteran Assault and Reconnaissance Squads gain Fear (1). Terror must be seen to be believed: no Heavy sub-type Infantry (no Terminators, Breachers or Warders), no Armour units, and no Support units of any kind.",
+      "modifiers": [ { "units": ["tactical-squad", "despoiler-squad", "veteran-tactical-squad", "assault-squad", "veteran-assault-squad", "reconnaissance-squad"], "text": "Dread Procession: Fear (1).", "addRules": ["Fear (1)"] } ],
+      "forbid": [ { "match": { "unitType": "Heavy", "notUnitType": "Vehicle" } }, { "match": { "role": "Armour" } }, { "match": { "role": "Support" } } ]
+    },
+    {
+      "name": "Cabal of Murder",
+      "flavor": "Curze's trusted few do not take orders. They pass judgement on whoever gave them.",
+      "text": "Contekar Terminator Squads and Atramentar Flay-clades may fill Troops slots and cost 20 points less. They gain Line (1). The army must be led by Konrad Curze or Sevatar, and the Cabal tolerates no company that makes noise: no Armour, no Transport units and no Fast Attack units.",
+      "roles": [ { "units": ["contekar-terminator-squad", "atramentar-flay-clade"], "role": "Troops" } ],
+      "points": [ { "units": ["contekar-terminator-squad", "atramentar-flay-clade"], "delta": -20 } ],
+      "modifiers": [ { "units": ["contekar-terminator-squad", "atramentar-flay-clade"], "text": "Cabal of Murder: Line (1).", "addRules": ["Line (1)"] } ],
+      "require": [ { "units": ["konrad-curze", "sevatar"], "min": 1, "note": "Curze or Sevatar must lead the Cabal." } ],
+      "forbid": [ { "match": { "roles": ["Armour", "Transport", "Fast Attack"] } } ]
+    },
+    {
+      "name": "The Headsman's Tithe",
+      "flavor": "A world pays in tithe, one way or another. The Eighth Legion simply prefers the other.",
+      "text": "Terror Squads cost 25 points less and the Headsman gains +1 Attack. The army must include at least two Terror Squads and be led by Konrad Curze or Sevatar, and the Legion allows no lesser lords: no Praetors of any kind, and no Lord of War units.",
+      "points": [ { "units": ["terror-squad"], "delta": -25 } ],
+      "modifiers": [ { "units": ["terror-squad"], "models": ["Headsman"], "text": "The Headsman's Tithe: Headsman +1 A.", "stats": { "A": "+1" } } ],
+      "require": [
+        { "units": ["terror-squad"], "min": 2, "note": "Bring at least two Terror Squads." },
+        { "units": ["konrad-curze", "sevatar"], "min": 1, "note": "Curze or Sevatar must lead the army." }
+      ],
+      "forbid": [ { "units": ["praetor", "praetor-in-terminator-armour", "mounted-praetor", "praetor-in-saturnine-terminator-armour"] }, { "match": { "role": "Lord of War" } } ]
+    }
+  ]
+}

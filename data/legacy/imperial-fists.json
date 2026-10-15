@@ -1,0 +1,95 @@
+{
+  "weapons": {
+    "ranged": [
+      { "name": "Siege-pattern bolter", "R": 24, "FP": 3, "RS": 4, "AP": 5, "D": 1, "specialRules": ["Pinning (1)"], "traits": ["Bolt"] }
+    ],
+    "melee": [
+      { "name": "Bulwark maul", "IM": -1, "AM": "A", "SM": "+2", "AP": 3, "D": 1, "specialRules": ["Stun (1)"], "traits": ["Power"] },
+      { "name": "Templar greatblade", "IM": -1, "AM": "A", "SM": "+2", "AP": 3, "D": 1, "specialRules": ["Breaching (5+)", "Reaping Blow (1)"], "traits": ["Power"] }
+    ]
+  },
+  "wargear": [
+    { "name": "Bastion plate", "text": "Legacy house rule. Extra ceramite slabs bolted over the plate of a man who will not be moved. The model gains +1 Toughness and loses 1 Movement." },
+    { "name": "Rampart standard", "text": "Legacy house rule. A banner planted in the ground and defended to the last. Every model in the unit gains Feel No Pain (6+)." },
+    { "name": "Range-finder array", "text": "Legacy house rule. A pintle-mounted auspex and ranging lasers, calibrated to the yard on a wall the crew has measured a hundred times. Every model in the unit gains +1 Ballistic Skill." }
+  ],
+  "options": [
+    { "units": ["tactical-squad", "despoiler-squad", "veteran-tactical-squad", "breacher-squad", "phalanx-warder-squad"],
+      "option": { "id": "if-sergeant-arms", "kind": "one", "modelType": "Sergeant", "text": "The Sergeant may take a siege-pattern weapon",
+        "choices": [ { "name": "Siege-pattern bolter", "points": 10 }, { "name": "Bulwark maul", "points": 10 }, { "name": "Power fist", "points": 15 }, { "name": "Thunder hammer", "points": 20 } ] } },
+    { "units": ["templar-brethren"],
+      "option": { "id": "if-templar-greatblade", "kind": "one", "modelType": "Champion", "text": "The Templar Champion may take a Templar greatblade",
+        "choices": [ { "name": "Templar greatblade", "points": 15 } ] } },
+    { "units": ["tactical-squad", "despoiler-squad", "veteran-tactical-squad", "breacher-squad", "phalanx-warder-squad"],
+      "option": { "id": "if-bastion-plate", "kind": "perModel", "model": ["Legionary", "Veteran Legionary", "Phalanx Warder"], "max": 3,
+        "text": "Up to three models may wear Bastion plate", "choices": [ { "name": "Bastion plate", "points": 10 } ] } },
+    { "units": ["tactical-squad", "despoiler-squad", "breacher-squad", "phalanx-warder-squad", "veteran-tactical-squad", "veteran-breacher-squad"],
+      "option": { "id": "if-rampart-standard", "kind": "upgrade", "model": null, "text": "The unit may carry a Rampart standard",
+        "choices": [ { "name": "Rampart standard", "points": 25 } ] } },
+    { "units": ["tactical-support-squad", "heavy-support-squad", "veteran-heavy-support-squad", "rapier-battery"],
+      "option": { "id": "if-range-finder", "kind": "upgrade", "model": null, "text": "The unit may fit a Range-finder array",
+        "choices": [ { "name": "Range-finder array", "points": 15 } ] } }
+  ],
+  "modifiers": [
+    { "units": ["tactical-squad", "despoiler-squad"], "text": "Bolter drill, rank on rank: +1 BS, -1 M.", "stats": { "BS": "+1", "M": "-1" } },
+    { "units": ["phalanx-warder-squad"], "text": "Phalanx Warders stand as one: +1 LD, -1 I.", "stats": { "LD": "+1", "I": "-1" } },
+    { "units": ["templar-brethren"], "text": "Templars close for the kill: +1 WS, -1 BS.", "stats": { "WS": "+1", "BS": "-1" } },
+    { "units": ["huscarl-terminator-retinue"], "text": "Dorn's own Huscarls strike hard and aim poorly: +1 A, -1 BS.", "stats": { "A": "+1", "BS": "-1" } },
+    { "units": ["alexis-polux", "fafnir-rann"], "text": "Wall-breakers, not duellists: +1 T, -1 I.", "stats": { "T": "+1", "I": "-1" } },
+    { "units": ["vindicator-siege-tank", "predator", "rhino", "land-raider-carrier"], "text": "Siege-hardened hulls, slow to traverse: +1 HP, -1 BS.", "stats": { "HP": "+1", "BS": "-1" } },
+    { "units": ["*"], "item": "Bastion plate", "text": "Bastion plate: +1 T, -1 M.", "stats": { "T": "+1", "M": "-1" } },
+    { "units": ["*"], "item": "Rampart standard", "scope": "unit", "text": "Rampart standard: Feel No Pain (6+).", "addRules": ["Feel No Pain (6+)"] },
+    { "units": ["*"], "item": "Range-finder array", "scope": "unit", "text": "Range-finder array: +1 BS.", "stats": { "BS": "+1" } }
+  ],
+  "rites": [
+    {
+      "name": "The Unmoved Phalanx",
+      "flavor": "Dorn set a line on the map and told his sons that the enemy would pay for every yard of it.",
+      "text": "Phalanx Warder Squads may fill Troops slots and gain Line (2) and Feel No Pain (6+). Breacher Squads gain +1 Leadership. A shield wall has no use for speed: no Fast Attack units, no Antigrav (jump pack) units and no Cavalry. At least one Phalanx Warder Squad is required.",
+      "roles": [ { "units": ["phalanx-warder-squad"], "role": "Troops" } ],
+      "modifiers": [
+        { "units": ["phalanx-warder-squad"], "text": "The Unmoved Phalanx: Line (2), Feel No Pain (6+).", "addRules": ["Line (2)", "Feel No Pain (6+)"] },
+        { "units": ["breacher-squad", "veteran-breacher-squad"], "text": "The Unmoved Phalanx: +1 LD.", "stats": { "LD": "+1" } }
+      ],
+      "require": [ { "units": ["phalanx-warder-squad"], "min": 1, "note": "Bring at least one Phalanx Warder Squad." } ],
+      "forbid": [ { "match": { "role": "Fast Attack" } }, { "match": { "unitType": "Antigrav" } }, { "match": { "unitType": "Cavalry" } } ]
+    },
+    {
+      "name": "Fire from the Ramparts",
+      "flavor": "Every wall is a gun platform if the engineers have been given a week.",
+      "text": "Tactical Support, Heavy Support and Veteran Heavy Support Squads may fill Troops slots and gain +1 Ballistic Skill but -1 Movement. Rapier and Tarantula Batteries cost 10 points less. The army digs in: at least one Techmarine is required, no Heavy Assault or Fast Attack units, and at most one Transport or Heavy Transport.",
+      "roles": [ { "units": ["tactical-support-squad", "heavy-support-squad", "veteran-heavy-support-squad"], "role": "Troops" } ],
+      "points": [ { "units": ["rapier-battery", "tarantula-battery"], "delta": -10 } ],
+      "modifiers": [ { "units": ["tactical-support-squad", "heavy-support-squad", "veteran-heavy-support-squad"], "text": "Fire from the Ramparts: +1 BS, -1 M.", "stats": { "BS": "+1", "M": "-1" } } ],
+      "require": [ { "units": ["techmarine"], "min": 1, "note": "A Techmarine must oversee the works." } ],
+      "forbid": [ { "match": { "roles": ["Heavy Assault", "Fast Attack"] } } ],
+      "limit": [ { "match": { "roles": ["Transport", "Heavy Transport"] }, "max": 1, "note": "At most one Transport or Heavy Transport." } ]
+    },
+    {
+      "name": "Oath of the Templars",
+      "flavor": "Before Dorn gave them a wall to defend, they were bred to carry the war into someone else's house.",
+      "text": "Templar Brethren may fill Troops slots and cost 20 points less. They gain +1 Initiative. The army must include Sigismund or a Praetor of any kind to take the oaths. The crusade leaves no room for the garrison: no Heavy Assault, Armour or Lord of War units, and at least two Templar Brethren squads.",
+      "roles": [ { "units": ["templar-brethren"], "role": "Troops" } ],
+      "points": [ { "units": ["templar-brethren"], "delta": -20 } ],
+      "modifiers": [ { "units": ["templar-brethren"], "text": "Oath of the Templars: +1 I.", "stats": { "I": "+1" } } ],
+      "require": [
+        { "units": ["templar-brethren"], "min": 2, "note": "Bring at least two Templar Brethren squads." },
+        { "units": ["sigismund", "praetor", "praetor-in-terminator-armour", "mounted-praetor", "praetor-in-saturnine-terminator-armour"], "min": 1, "note": "Sigismund or a Praetor must lead the Templars." }
+      ],
+      "forbid": [ { "match": { "roles": ["Heavy Assault", "Armour", "Lord of War"] } } ]
+    },
+    {
+      "name": "The Praetorian Retinue",
+      "flavor": "The Emperor's Huscarls follow no banner but Dorn's, and Dorn's banner is the Wall.",
+      "text": "Huscarl Terminator Retinues may fill Troops slots, cost 40 points less and gain Line (1). Every Huscarl Terminator gains +1 Leadership. This is a household army: at least one Huscarl Terminator Retinue is required, no Cavalry, no Recon units and no Lord of War units.",
+      "roles": [ { "units": ["huscarl-terminator-retinue"], "role": "Troops" } ],
+      "points": [ { "units": ["huscarl-terminator-retinue"], "delta": -40 } ],
+      "modifiers": [
+        { "units": ["huscarl-terminator-retinue"], "text": "The Praetorian Retinue: Line (1).", "addRules": ["Line (1)"] },
+        { "units": ["huscarl-terminator-retinue"], "text": "The Praetorian Retinue: +1 LD.", "stats": { "LD": "+1" } }
+      ],
+      "require": [ { "units": ["huscarl-terminator-retinue"], "min": 1, "note": "Bring at least one Huscarl Terminator Retinue." } ],
+      "forbid": [ { "match": { "unitType": "Cavalry" } }, { "match": { "role": "Recon" } }, { "match": { "role": "Lord of War" } } ]
+    }
+  ]
+}

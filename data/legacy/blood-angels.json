@@ -1,0 +1,96 @@
+{
+  "weapons": {
+    "melee": [
+      { "name": "Encarmine sabre", "IM": "+1", "AM": "A", "SM": "S", "AP": 3, "D": 1, "specialRules": ["Rending (6+)", "Breaching (6+)"], "traits": ["Power"] },
+      { "name": "Wing-spar glaive", "IM": "I", "AM": "A", "SM": "+1", "AP": 2, "D": 1, "specialRules": ["Breaching (5+)", "Impact (AP)"], "traits": ["Power"] }
+    ],
+    "ranged": [
+      { "name": "Angelus bolter", "R": 24, "FP": 2, "RS": 4, "AP": 4, "D": 1, "specialRules": ["Rending (6+)"], "traits": ["Bolt"] }
+    ]
+  },
+  "wargear": [
+    { "name": "Death-mask", "text": "Legacy house rule. A gilded helm cast in the austere, grieving face of the Primarch. The model gains Fear (1) and +1 Leadership." },
+    { "name": "Grail of the Red Tide", "text": "Legacy house rule. A chalice of sanctified blood carried with the unit and shared before the charge. Every model in the unit gains Feel No Pain (6+)." }
+  ],
+  "options": [
+    { "units": ["tactical-squad", "despoiler-squad", "veteran-tactical-squad", "assault-squad", "veteran-assault-squad", "the-angels-tears", "destroyer-assault-squad"],
+      "option": { "id": "ba-sergeant-arms", "kind": "one", "modelType": "Sergeant", "text": "The Sergeant may take a weapon of the Host",
+        "choices": [ { "name": "Encarmine sabre", "points": 10 }, { "name": "Angelus bolter", "points": 10 }, { "name": "Inferno Pistol", "points": 10 } ] } },
+    { "units": ["dawnbreaker-cohort", "sanguinary-guard"],
+      "option": { "id": "ba-wing-spar-glaives", "kind": "perModel", "model": ["Dawnbreaker", "Sanguinary Guard"], "max": 3,
+        "text": "Up to three models may take a Wing-spar glaive", "choices": [ { "name": "Wing-spar glaive", "points": 12 } ] } },
+    { "units": ["ofanim-court", "ofanim-court-with-jump-packs"],
+      "option": { "id": "ba-ofanim-sabres", "kind": "perModel", "model": ["Ofanim", "Ofanim with Jump Pack"], "max": 3,
+        "text": "Up to three Ofanim may take an Encarmine sabre", "choices": [ { "name": "Encarmine sabre", "points": 10 } ] } },
+    { "units": ["the-angels-tears"],
+      "option": { "id": "ba-erelim-bolters", "kind": "perModel", "model": "Erelim", "max": 4,
+        "text": "Up to four Erelim may take an Angelus bolter", "choices": [ { "name": "Angelus bolter", "points": 5 } ] } },
+    { "units": ["tactical-squad", "despoiler-squad", "assault-squad", "veteran-tactical-squad", "veteran-assault-squad", "the-angels-tears", "dawnbreaker-cohort", "destroyer-assault-squad"],
+      "option": { "id": "ba-death-mask", "kind": "upgrade", "modelType": "Sergeant", "text": "The Sergeant may wear a Death-mask",
+        "choices": [ { "name": "Death-mask", "points": 10 } ] } },
+    { "units": ["tactical-squad", "despoiler-squad", "assault-squad", "veteran-tactical-squad", "veteran-assault-squad", "crimson-paladins", "dawnbreaker-cohort"],
+      "option": { "id": "ba-grail", "kind": "upgrade", "model": null, "text": "The unit may carry a Grail of the Red Tide",
+        "choices": [ { "name": "Grail of the Red Tide", "points": 25 } ] } }
+  ],
+  "modifiers": [
+    { "units": ["sanguinary-guard"], "text": "The Golden Host fights as a dance, and is as fragile: +1 I, -1 T.", "stats": { "I": "+1", "T": "-1" } },
+    { "units": ["dawnbreaker-cohort"], "text": "Dawnbreakers, flamers raised: +1 BS, -1 WS.", "stats": { "BS": "+1", "WS": "-1" } },
+    { "units": ["crimson-paladins"], "text": "Crimson Paladins hit like falling bastions: +1 S, -1 I.", "stats": { "S": "+1", "I": "-1" } },
+    { "units": ["ofanim-court", "ofanim-court-with-jump-packs"], "text": "Ofanim, shielded by the Primarch's grace: 5+ Invulnerable Save, -1 M.", "stats": { "INV": "best:5+", "M": "-1" } },
+    { "units": ["tactical-squad", "despoiler-squad", "veteran-tactical-squad"], "text": "Blood Angels would sooner be at the blade: +1 WS, -1 BS.", "stats": { "WS": "+1", "BS": "-1" } },
+    { "match": { "unitType": "Command", "notUnitType": "Vehicle" }, "text": "The Red Thirst in the captains: +1 A, -1 CL.", "stats": { "A": "+1", "CL": "-1" } },
+    { "units": ["contemptor-incaendius-dreadnought"], "text": "A furnace of old rage: +1 WS, -1 BS.", "stats": { "WS": "+1", "BS": "-1" } },
+    { "units": ["*"], "item": "Death-mask", "text": "Death-mask: Fear (1), +1 LD.", "stats": { "LD": "+1" }, "addRules": ["Fear (1)"] },
+    { "units": ["*"], "item": "Grail of the Red Tide", "scope": "unit", "text": "Grail of the Red Tide: Feel No Pain (6+).", "addRules": ["Feel No Pain (6+)"] }
+  ],
+  "rites": [
+    {
+      "name": "The Descent of the Host",
+      "flavor": "They fall in a spray of gold, and the sun is behind them.",
+      "text": "Dawnbreaker Cohorts and the Angel's Tears may fill Troops slots and gain Line (1). Every Antigrav Infantry unit gains +1 Initiative. The Host does not walk: no Heavy sub-type Infantry, no Armour, no Heavy Transports, and at least two Assault Squads (or Veteran Assault Squads) are required.",
+      "roles": [ { "units": ["dawnbreaker-cohort", "the-angels-tears"], "role": "Troops" } ],
+      "modifiers": [
+        { "units": ["dawnbreaker-cohort", "the-angels-tears"], "text": "The Descent of the Host: Line (1).", "addRules": ["Line (1)"] },
+        { "match": { "unitType": "Antigrav", "notUnitType": "Vehicle" }, "text": "The Descent of the Host: +1 I.", "stats": { "I": "+1" } }
+      ],
+      "require": [ { "units": ["assault-squad", "veteran-assault-squad"], "min": 2, "note": "Bring at least two Assault Squads or Veteran Assault Squads." } ],
+      "forbid": [ { "match": { "unitType": "Heavy", "notUnitType": "Vehicle" } }, { "match": { "roles": ["Armour", "Heavy Transport"] } } ]
+    },
+    {
+      "name": "Thirst of the Red Wings",
+      "flavor": "Sanguinius could hold the rage in his sons. Without him it was a tide.",
+      "text": "Every non-vehicle model gains +1 Attack on a turn it charges, but loses 1 Cool. The tide cannot be shepherded: no Apothecaries, no Recon units and no Support units other than Techmarines.",
+      "modifiers": [
+        { "match": { "notUnitType": "Vehicle" }, "text": "Thirst of the Red Wings: +1 A.", "stats": { "A": "+1" }, "condition": "on a turn the unit charges" },
+        { "match": { "notUnitType": "Vehicle" }, "text": "Thirst of the Red Wings: -1 CL.", "stats": { "CL": "-1" } }
+      ],
+      "forbid": [ { "units": ["apothecary"] }, { "match": { "role": "Recon" } }, { "match": { "role": "Support", "notNameIncludes": ["Techmarine"] } } ]
+    },
+    {
+      "name": "The Celestial Court",
+      "flavor": "A Legion of ten thousand, and only the finest ever walk in the Primarch's shadow.",
+      "text": "Sanguinary Guard, Crimson Paladins and Ofanim Courts may fill Troops slots and gain Line (2). Sanguinary Guard cost 30 points less. The Court takes no commoners: no Tactical Squads, no Despoiler Squads, and no Inductii. At least one Sanguinary Guard and one Crimson Paladin pack are required.",
+      "roles": [ { "units": ["sanguinary-guard", "crimson-paladins", "ofanim-court", "ofanim-court-with-jump-packs"], "role": "Troops" } ],
+      "points": [ { "units": ["sanguinary-guard"], "delta": -30 } ],
+      "modifiers": [ { "units": ["sanguinary-guard", "crimson-paladins", "ofanim-court", "ofanim-court-with-jump-packs"], "text": "The Celestial Court: Line (2).", "addRules": ["Line (2)"] } ],
+      "require": [
+        { "units": ["sanguinary-guard"], "min": 1, "note": "Bring at least one Sanguinary Guard." },
+        { "units": ["crimson-paladins"], "min": 1, "note": "Bring at least one Crimson Paladin pack." }
+      ],
+      "forbid": [ { "units": ["tactical-squad", "despoiler-squad", "inductii-squad"] } ]
+    },
+    {
+      "name": "Pyre-Brothers of Baal",
+      "flavor": "The old ones burn, and they remember. They are very, very angry.",
+      "text": "Contemptor-Incaendius Dreadnoughts may fill Troops slots, gain Line (1) and cost 30 points less. Every Walker gains +1 Attack. The Court of the dead has no room for the living: at least two Contemptor-Incaendius are required, with no Recon units and no Heavy Transports.",
+      "roles": [ { "units": ["contemptor-incaendius-dreadnought"], "role": "Troops" } ],
+      "points": [ { "units": ["contemptor-incaendius-dreadnought"], "delta": -30 } ],
+      "modifiers": [
+        { "units": ["contemptor-incaendius-dreadnought"], "text": "Pyre-Brothers of Baal: Line (1).", "addRules": ["Line (1)"] },
+        { "match": { "unitType": "Walker" }, "text": "Pyre-Brothers of Baal: +1 A.", "stats": { "A": "+1" } }
+      ],
+      "require": [ { "units": ["contemptor-incaendius-dreadnought"], "min": 2, "note": "Bring at least two Contemptor-Incaendius Dreadnoughts." } ],
+      "forbid": [ { "match": { "roles": ["Recon", "Heavy Transport"] } } ]
+    }
+  ]
+}
