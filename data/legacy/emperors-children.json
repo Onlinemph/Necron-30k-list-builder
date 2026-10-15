@@ -56,6 +56,31 @@
         "I": "+1"
       },
       "condition": "while in a Challenge"
+    },
+    {
+      "name": "Court of the Phoenician",
+      "flavor": "Nothing is done in the Third that is not done for an audience, and the Phoenician is always the centre of the room.",
+      "whileInArmy": [
+        "fulgrim",
+        "fulgrim-transfigured"
+      ],
+      "benefits": [
+        "While Fulgrim or Fulgrim Transfigured is on the battlefield, friendly Emperor's Children Models within 12\" of him add 1 to their Cool Characteristic when making Cool Checks."
+      ],
+      "drawbacks": [
+        "If Fulgrim or Fulgrim Transfigured is removed as a casualty, every friendly Emperor's Children Unit must make a Cool Check with a -2 modifier; a Unit that fails gains the Suppressed Tactical Status."
+      ],
+      "match": {
+        "notUnitType": "Vehicle",
+        "notNameIncludes": [
+          "Castellax"
+        ]
+      },
+      "optionalUnits": true,
+      "stats": {
+        "CL": "+1"
+      },
+      "condition": "when making a Cool Check, within 12\" of Fulgrim"
     }
   ],
   "weapons": {
@@ -89,6 +114,18 @@
         "traits": [
           "Power"
         ]
+      },
+      {
+        "name": "Choir-lash coil",
+        "IM": "I",
+        "AM": "+1",
+        "SM": "S",
+        "AP": 3,
+        "D": 1,
+        "specialRules": [
+          "Reaping Blow (1)"
+        ],
+        "traits": []
       }
     ],
     "ranged": [
@@ -138,6 +175,19 @@
         "traits": [
           "Sonic"
         ]
+      },
+      {
+        "name": "Elegy-pistol of Laer",
+        "R": 12,
+        "FP": 2,
+        "RS": 5,
+        "AP": 3,
+        "D": 2,
+        "specialRules": [
+          "Pistol",
+          "Shred (5+)"
+        ],
+        "traits": []
       }
     ]
   },
@@ -186,6 +236,21 @@
       "name": "Screech-field vents",
       "summary": "Tuned vents bolted to the hull that fill the air with a sound like tearing silk.",
       "text": "A Vehicle equipped with Screech-field vents has the Sonic Distortion Special Rule."
+    },
+    {
+      "name": "Silverglass looking-piece",
+      "summary": "A mirror polished until the opponent sees only himself.",
+      "text": "A Model equipped with the Silverglass looking-piece has the Dazzling Reflection Special Rule."
+    },
+    {
+      "name": "Signet of the Unbroken Chord",
+      "summary": "A ring that hums the note a Legion must not break.",
+      "text": "A Model equipped with the Signet of the Unbroken Chord has the Unbroken Chord Special Rule."
+    },
+    {
+      "name": "Phoenix-fire crest",
+      "summary": "A crest of living flame that gutters and relights.",
+      "text": "A Model equipped with the Phoenix-fire crest has the Rekindled Ember Special Rule."
     }
   ],
   "options": [
@@ -492,6 +557,108 @@
           }
         ]
       }
+    },
+    {
+      "units": [
+        "fulgrim"
+      ],
+      "option": {
+        "id": "fulgrim-aspect",
+        "kind": "one",
+        "model": "Fulgrim",
+        "text": "Aspect of the Primarch: Fulgrim may take one",
+        "choices": [
+          {
+            "name": "Duellist of the Gilded Court",
+            "points": 0
+          },
+          {
+            "name": "Resplendent Exemplar",
+            "points": 0
+          },
+          {
+            "name": "Pain-drunk Aesthete",
+            "points": 0
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "fulgrim"
+      ],
+      "option": {
+        "id": "fulgrim-relics",
+        "kind": "any",
+        "model": "Fulgrim",
+        "max": {
+          "fixed": 1
+        },
+        "text": "Relics of the Primarch: Fulgrim may take one",
+        "choices": [
+          {
+            "name": "Silverglass looking-piece",
+            "points": 25
+          },
+          {
+            "name": "Signet of the Unbroken Chord",
+            "points": 15
+          },
+          {
+            "name": "Elegy-pistol of Laer",
+            "points": 20
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "fulgrim-transfigured"
+      ],
+      "option": {
+        "id": "fulgrim-transfigured-aspect",
+        "kind": "one",
+        "model": "Fulgrim Transfigured",
+        "text": "Aspect of the Primarch: Fulgrim Transfigured may take one",
+        "choices": [
+          {
+            "name": "Overture of Agony",
+            "points": 0
+          },
+          {
+            "name": "Gilded Edge Unsheathed",
+            "points": 0
+          },
+          {
+            "name": "Statuesque Sovereign",
+            "points": 0
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "fulgrim-transfigured"
+      ],
+      "option": {
+        "id": "fulgrim-transfigured-relics",
+        "kind": "any",
+        "model": "Fulgrim Transfigured",
+        "max": {
+          "fixed": 1
+        },
+        "text": "Relics of the Primarch: Fulgrim Transfigured may take one",
+        "choices": [
+          {
+            "name": "Phoenix-fire crest",
+            "points": 25
+          },
+          {
+            "name": "Choir-lash coil",
+            "points": 20
+          }
+        ]
+      }
     }
   ],
   "modifiers": [
@@ -659,6 +826,128 @@
       "text": "Screech-field vents: Sonic Distortion.",
       "addRules": [
         "Sonic Distortion"
+      ]
+    },
+    {
+      "units": [
+        "fulgrim"
+      ],
+      "item": "Duellist of the Gilded Court",
+      "text": "Duellist of the Gilded Court.",
+      "addRules": [
+        "Duellist of the Gilded Court"
+      ]
+    },
+    {
+      "units": [
+        "fulgrim"
+      ],
+      "item": "Resplendent Exemplar",
+      "text": "Resplendent Exemplar: -1 T.",
+      "stats": {
+        "T": "-1"
+      },
+      "addRules": [
+        "Resplendent Exemplar"
+      ]
+    },
+    {
+      "units": [
+        "fulgrim"
+      ],
+      "item": "Pain-drunk Aesthete",
+      "text": "Pain-drunk Aesthete: Feel No Pain (6+), -2 WP.",
+      "stats": {
+        "WP": "-2"
+      },
+      "addRules": [
+        "Pain-drunk Aesthete",
+        "Feel No Pain (6+)"
+      ]
+    },
+    {
+      "units": [
+        "fulgrim"
+      ],
+      "item": "Silverglass looking-piece",
+      "text": "Silverglass looking-piece.",
+      "addRules": [
+        "Dazzling Reflection"
+      ]
+    },
+    {
+      "units": [
+        "fulgrim"
+      ],
+      "item": "Signet of the Unbroken Chord",
+      "text": "Signet of the Unbroken Chord.",
+      "addRules": [
+        "Unbroken Chord"
+      ]
+    },
+    {
+      "units": [
+        "fulgrim"
+      ],
+      "item": "Elegy-pistol of Laer",
+      "text": "Elegy-pistol of Laer.",
+      "addRules": [
+        "Dying Note"
+      ]
+    },
+    {
+      "units": [
+        "fulgrim-transfigured"
+      ],
+      "item": "Overture of Agony",
+      "text": "Overture of Agony.",
+      "addRules": [
+        "Overture of Agony"
+      ]
+    },
+    {
+      "units": [
+        "fulgrim-transfigured"
+      ],
+      "item": "Gilded Edge Unsheathed",
+      "text": "Gilded Edge Unsheathed: +1 A, +1 I, -1 T.",
+      "stats": {
+        "A": "+1",
+        "I": "+1",
+        "T": "-1"
+      },
+      "addRules": [
+        "Gilded Edge Unsheathed"
+      ]
+    },
+    {
+      "units": [
+        "fulgrim-transfigured"
+      ],
+      "item": "Statuesque Sovereign",
+      "text": "Statuesque Sovereign: loses Deep Strike.",
+      "addRules": [
+        "Statuesque Sovereign"
+      ]
+    },
+    {
+      "units": [
+        "fulgrim-transfigured"
+      ],
+      "item": "Phoenix-fire crest",
+      "text": "Phoenix-fire crest.",
+      "addRules": [
+        "Rekindled Ember"
+      ]
+    },
+    {
+      "units": [
+        "fulgrim-transfigured"
+      ],
+      "item": "Choir-lash coil",
+      "text": "Choir-lash coil.",
+      "addRules": [
+        "Lash Cadence"
       ]
     }
   ],
@@ -986,6 +1275,61 @@
       "name": "Sonic Distortion",
       "summary": "The air itself screams when the hull is near.",
       "text": "Enemy Shooting Attacks that target a Vehicle with this Special Rule from more than 18\" away subtract 1 from the result of their Hit Tests."
+    },
+    {
+      "name": "Duellist of the Gilded Court",
+      "summary": "Before an audience of one he is flawless; before a crowd he is bored.",
+      "text": "While this Model is taking part in a Challenge, it adds 1 to its Attacks Characteristic and 1 to its Focus Rolls. While this Model is part of a Combat that is not a Challenge, it subtracts 2 from its Attacks Characteristic."
+    },
+    {
+      "name": "Resplendent Exemplar",
+      "summary": "Every step is a performance, and the Legion mirrors it.",
+      "text": "Friendly Emperor's Children Units within 12\" of this Model add 1 to their Charge Rolls. This Model subtracts 1 from its Toughness Characteristic."
+    },
+    {
+      "name": "Pain-drunk Aesthete",
+      "summary": "Sensation is the only honest teacher, and the lesson is never over.",
+      "text": "This Model has the Feel No Pain (6+) Special Rule. Once per battle, after suffering an unsaved Wound, it may add 1 to its Attacks Characteristic until the end of that Battle Turn. It subtracts 2 from its Willpower Characteristic."
+    },
+    {
+      "name": "Dazzling Reflection",
+      "summary": "He fights the reflection and loses to it.",
+      "text": "While this Model is taking part in a Challenge, its opponent subtracts 1 from its Focus Rolls and 1 from its Initiative Characteristic."
+    },
+    {
+      "name": "Unbroken Chord",
+      "summary": "The tune holds for one more bar.",
+      "text": "Once per battle, when a friendly Emperor's Children Unit within 12\" of this Model fails a Cool Check, the Controlling Player may treat that Cool Check as passed."
+    },
+    {
+      "name": "Dying Note",
+      "summary": "The wound sings on after the shot.",
+      "text": "A Model that suffers an unsaved Wound from an Elegy-pistol of Laer subtracts 1 from its Initiative Characteristic until the end of the Battle Turn."
+    },
+    {
+      "name": "Overture of Agony",
+      "summary": "The music begins before he arrives, and no one is spared it.",
+      "text": "Enemy Units within 12\" of this Model subtract 1 from their Cool Checks. Friendly Emperor's Children Units within 6\" of this Model also subtract 1 from their Cool Checks."
+    },
+    {
+      "name": "Gilded Edge Unsheathed",
+      "summary": "The old Phoenician's discipline, with nothing left to hold it back.",
+      "text": "This Model adds 1 to its Attacks and Initiative Characteristics and subtracts 1 from its Toughness Characteristic. Once per battle, in a Challenge, it may add 2 to its Focus Roll."
+    },
+    {
+      "name": "Statuesque Sovereign",
+      "summary": "Glorious, still and untouchable, he will not stoop to descend on his prey.",
+      "text": "Shooting Attacks made against this Model's Unit from more than 12\" away subtract 1 from the result of their Hit Tests. This Model loses the Deep Strike Special Rule."
+    },
+    {
+      "name": "Rekindled Ember",
+      "summary": "The fire is never quite out.",
+      "text": "Once per battle, at the end of the Fight Sub-Phase, this Model regains 2 Wounds."
+    },
+    {
+      "name": "Lash Cadence",
+      "summary": "Every strike lands on the beat.",
+      "text": "While this Model is part of a Combat, enemy Models in base contact with it subtract 1 from their Initiative Characteristic."
     }
   ]
 }

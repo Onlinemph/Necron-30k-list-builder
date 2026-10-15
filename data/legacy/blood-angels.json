@@ -91,6 +91,19 @@
           "Melta (3)"
         ],
         "traits": []
+      },
+      {
+        "name": "Sorrowsong pistol",
+        "R": 12,
+        "FP": 2,
+        "RS": 5,
+        "AP": 3,
+        "D": 2,
+        "specialRules": [
+          "Pistol",
+          "Pinning (1)"
+        ],
+        "traits": []
       }
     ]
   },
@@ -139,6 +152,11 @@
       "name": "Rage-draught",
       "summary": "A flask of the Apothecary's darkest brew.",
       "text": "A Model equipped with a Rage-draught has the Rage-Draught Surge Special Rule."
+    },
+    {
+      "name": "Halo of Dawn-gold",
+      "summary": "A circlet of beaten gold that catches the light and blinds the eye.",
+      "text": "A Model equipped with the Halo of Dawn-gold has the Gilded Radiance Special Rule."
     }
   ],
   "options": [
@@ -495,6 +513,55 @@
           }
         ]
       }
+    },
+    {
+      "units": [
+        "sanguinius"
+      ],
+      "option": {
+        "id": "sang-aspect",
+        "kind": "one",
+        "model": "Sanguinius",
+        "text": "Aspect of the Primarch: Sanguinius may take one",
+        "choices": [
+          {
+            "name": "Seraph of Baal",
+            "points": 0
+          },
+          {
+            "name": "The Black Rage Stirs",
+            "points": 0
+          },
+          {
+            "name": "The Sorrowing Seraph",
+            "points": 0
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "sanguinius"
+      ],
+      "option": {
+        "id": "sang-relics",
+        "kind": "any",
+        "model": "Sanguinius",
+        "max": {
+          "fixed": 1
+        },
+        "text": "Relics of the Primarch: Sanguinius may take one",
+        "choices": [
+          {
+            "name": "Halo of Dawn-gold",
+            "points": 20
+          },
+          {
+            "name": "Sorrowsong pistol",
+            "points": 25
+          }
+        ]
+      }
     }
   ],
   "modifiers": [
@@ -674,6 +741,68 @@
       "addRules": [
         "Rage-Draught Surge"
       ]
+    },
+    {
+      "units": [
+        "sanguinius"
+      ],
+      "item": "Seraph of Baal",
+      "text": "Seraph of Baal: +1 I, -1 T.",
+      "stats": {
+        "I": "+1",
+        "T": "-1"
+      },
+      "addRules": [
+        "Seraph of Baal"
+      ]
+    },
+    {
+      "units": [
+        "sanguinius"
+      ],
+      "item": "The Black Rage Stirs",
+      "text": "The Black Rage Stirs: +1 A, -2 WP.",
+      "stats": {
+        "A": "+1",
+        "WP": "-2"
+      },
+      "addRules": [
+        "The Black Rage Stirs"
+      ]
+    },
+    {
+      "units": [
+        "sanguinius"
+      ],
+      "item": "The Sorrowing Seraph",
+      "text": "The Sorrowing Seraph: -1 WS, -1 A.",
+      "stats": {
+        "WS": "-1",
+        "A": "-1"
+      },
+      "addRules": [
+        "The Sorrowing Seraph"
+      ]
+    },
+    {
+      "units": [
+        "sanguinius"
+      ],
+      "item": "Halo of Dawn-gold",
+      "text": "Halo of Dawn-gold.",
+      "addRules": [
+        "Gilded Radiance"
+      ]
+    },
+    {
+      "units": [
+        "sanguinius"
+      ],
+      "item": "Sorrowsong pistol",
+      "text": "Sorrowsong pistol.",
+      "addRules": [
+        "Sorrowsong"
+      ]
     }
   ],
   "rules": [
@@ -731,6 +860,31 @@
       "name": "Rage-Draught Surge",
       "summary": "One swallow turns a warrior into a storm.",
       "text": "Once per battle, at the start of the Assault phase, the Controlling Player may declare a Rage-Draught Surge for the Unit that includes a Model with this Special Rule. Until the end of that phase, all Models in the Unit add 1 to their Strength Characteristic. At the end of that phase, they subtract 1 from their Initiative Characteristic until the end of their next Battle Turn."
+    },
+    {
+      "name": "Seraph of Baal",
+      "summary": "The Angel in full radiance, swift as light and as easily marked.",
+      "text": "This Model adds 1 to its Initiative Characteristic and adds 2 to the result of its Charge Rolls. This Model subtracts 1 from its Toughness Characteristic."
+    },
+    {
+      "name": "The Black Rage Stirs",
+      "summary": "The vision of his own death takes hold, and the blade moves of its own accord.",
+      "text": "This Model adds 1 to its Attacks Characteristic. This Model subtracts 2 from its Willpower Characteristic."
+    },
+    {
+      "name": "The Sorrowing Seraph",
+      "summary": "He grieves for the sons he is about to lose, and they take heart from his grief.",
+      "text": "Friendly Blood Angels Units within 9\" of this Model add 1 to their Cool Characteristic. This Model subtracts 1 from its Weapon Skill Characteristic and 1 from its Attacks Characteristic."
+    },
+    {
+      "name": "Gilded Radiance",
+      "summary": "The enemy cannot look at him and still strike true.",
+      "text": "Enemy Units that Declare a Charge against a Unit that includes a Model with this Special Rule subtract 1 from the result of their Charge Roll. Hit Tests made against a Model with this Special Rule as part of a Reaction are made with a -1 modifier."
+    },
+    {
+      "name": "Sorrowsong",
+      "summary": "A pistol that sings as it fires, and the wounded remember the note.",
+      "text": "An enemy Unit that suffers one or more Unsaved Wounds from a Shooting Attack made with the Sorrowsong pistol subtracts 1 from its Leadership Characteristic until the end of the current Battle Turn."
     }
   ],
   "rites": [
@@ -1048,6 +1202,28 @@
         ]
       },
       "condition": "after losing a Model in the Assault phase: +1 A until the end of the phase"
+    },
+    {
+      "name": "Wings Above the Host",
+      "flavor": "Where the Angel burns above the line, his sons find a calm they could not keep alone.",
+      "benefits": [
+        "While Sanguinius is on the battlefield, friendly Blood Angels Infantry Models within 12\" of him add 1 to their Willpower Characteristic."
+      ],
+      "drawbacks": [
+        "If Sanguinius is removed as a casualty, every friendly Blood Angels Unit must make a Willpower Check; a Unit that fails must Declare a Charge against the nearest enemy Unit in its Controlling Player's next Assault Phase if able, and cannot Fall Back until the end of the following Battle Turn."
+      ],
+      "match": {
+        "unitType": "Infantry",
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "stats": {
+        "WP": "+1"
+      },
+      "condition": "within 12\" of Sanguinius",
+      "whileInArmy": [
+        "sanguinius"
+      ]
     }
   ]
 }

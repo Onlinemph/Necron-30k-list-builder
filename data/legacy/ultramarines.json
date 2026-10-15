@@ -59,6 +59,19 @@
           "Panic (1)"
         ],
         "traits": []
+      },
+      {
+        "name": "Pilum of Konor",
+        "R": 12,
+        "FP": 1,
+        "RS": 7,
+        "AP": 2,
+        "D": 3,
+        "specialRules": [
+          "Armourbane",
+          "Limited (1)"
+        ],
+        "traits": []
       }
     ],
     "melee": [
@@ -144,6 +157,11 @@
       "name": "Faithful spirit core",
       "summary": "A machine spirit steeped in the Codex.",
       "text": "A Vehicle equipped with a Faithful spirit core has the Dutiful Spirit Special Rule."
+    },
+    {
+      "name": "Laurel of the Hundred Worlds",
+      "summary": "A gold laurel set with a stone from each world the Legion has made compliant.",
+      "text": "A Model equipped with the Laurel of the Hundred Worlds has the Voice of the Regent Special Rule."
     }
   ],
   "options": [
@@ -427,6 +445,55 @@
           }
         ]
       }
+    },
+    {
+      "units": [
+        "roboute-guilliman"
+      ],
+      "option": {
+        "id": "guil-aspect",
+        "kind": "one",
+        "model": "Roboute Guilliman",
+        "text": "Aspect of the Primarch: Roboute Guilliman may take one",
+        "choices": [
+          {
+            "name": "Rampart of Macragge",
+            "points": 0
+          },
+          {
+            "name": "Wrath of Calth",
+            "points": 0
+          },
+          {
+            "name": "Marshal of the Firing Line",
+            "points": 0
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "roboute-guilliman"
+      ],
+      "option": {
+        "id": "guil-relics",
+        "kind": "any",
+        "model": "Roboute Guilliman",
+        "max": {
+          "fixed": 1
+        },
+        "text": "Relics of the Primarch: Roboute Guilliman may take one",
+        "choices": [
+          {
+            "name": "Laurel of the Hundred Worlds",
+            "points": 20
+          },
+          {
+            "name": "Pilum of Konor",
+            "points": 25
+          }
+        ]
+      }
     }
   ],
   "modifiers": [
@@ -594,6 +661,67 @@
       "addRules": [
         "Dutiful Spirit"
       ]
+    },
+    {
+      "units": [
+        "roboute-guilliman"
+      ],
+      "item": "Rampart of Macragge",
+      "text": "Rampart of Macragge: +1 T.",
+      "stats": {
+        "T": "+1"
+      },
+      "addRules": [
+        "Rampart of Macragge"
+      ]
+    },
+    {
+      "units": [
+        "roboute-guilliman"
+      ],
+      "item": "Wrath of Calth",
+      "text": "Wrath of Calth: +1 S, Fear (1).",
+      "stats": {
+        "S": "+1"
+      },
+      "addRules": [
+        "Wrath of Calth",
+        "Fear (1)"
+      ]
+    },
+    {
+      "units": [
+        "roboute-guilliman"
+      ],
+      "item": "Marshal of the Firing Line",
+      "text": "Marshal of the Firing Line: +1 BS, -1 WS.",
+      "stats": {
+        "BS": "+1",
+        "WS": "-1"
+      },
+      "addRules": [
+        "Marshal of the Firing Line"
+      ]
+    },
+    {
+      "units": [
+        "roboute-guilliman"
+      ],
+      "item": "Laurel of the Hundred Worlds",
+      "text": "Laurel of the Hundred Worlds.",
+      "addRules": [
+        "Voice of the Regent"
+      ]
+    },
+    {
+      "units": [
+        "roboute-guilliman"
+      ],
+      "item": "Pilum of Konor",
+      "text": "Pilum of Konor.",
+      "addRules": [
+        "Konor's Cast"
+      ]
     }
   ],
   "rules": [
@@ -651,6 +779,31 @@
       "name": "Dutiful Spirit",
       "summary": "The machine-spirit keeps the Codex even when the crew falters.",
       "text": "Once per battle, a Vehicle with this Special Rule ignores one Crew result that would otherwise affect it."
+    },
+    {
+      "name": "Rampart of Macragge",
+      "summary": "He plants himself and lets the battle come to him.",
+      "text": "This Model adds 1 to its Toughness Characteristic. This Model subtracts 2 from the result of its Charge Rolls and cannot Rush."
+    },
+    {
+      "name": "Wrath of Calth",
+      "summary": "The calm is gone, and so is the arithmetic.",
+      "text": "This Model adds 1 to its Strength Characteristic and has the Fear (1) Special Rule. This Model's Controlling Player cannot select the Calculating Swordsman Gambit for it."
+    },
+    {
+      "name": "Marshal of the Firing Line",
+      "summary": "He measures the field with a gunner's eye and trusts the long reach.",
+      "text": "This Model adds 1 to its Ballistic Skill Characteristic, and weapons carried by this Model have the Suppressive (1) Special Rule. This Model subtracts 1 from its Weapon Skill Characteristic."
+    },
+    {
+      "name": "Voice of the Regent",
+      "summary": "A word from him settles the line.",
+      "text": "Once per battle, when a friendly Ultramarines Unit within 12\" of a Model with this Special Rule fails a Cool Check, the Controlling Player may instead treat that Cool Check as passed."
+    },
+    {
+      "name": "Konor's Cast",
+      "summary": "Thrown once, from a steady arm, to pin the enemy where he stands.",
+      "text": "An enemy Unit that suffers one or more Unsaved Wounds from a Shooting Attack made with the Pilum of Konor cannot make Reactions until the end of the current Battle Turn."
     }
   ],
   "rites": [
@@ -949,6 +1102,29 @@
         "notUnitType": "Flyer"
       },
       "optionalUnits": true
+    },
+    {
+      "name": "The Codex Made Flesh",
+      "flavor": "A line that knows where its commander stands fights as the manual says it should, and no further.",
+      "benefits": [
+        "While Roboute Guilliman is on the battlefield, friendly Ultramarines Infantry Models within 12\" of him add 1 to their Ballistic Skill Characteristic when making a Hit Test as part of a Reaction."
+      ],
+      "drawbacks": [
+        "A friendly Ultramarines Unit within 12\" of Roboute Guilliman subtracts 1 from the result of its Charge Rolls.",
+        "If Roboute Guilliman is removed as a casualty, every friendly Ultramarines Unit subtracts 1 from its Leadership Characteristic for the remainder of the battle."
+      ],
+      "match": {
+        "unitType": "Infantry",
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "stats": {
+        "BS": "+1"
+      },
+      "condition": "making a Reaction, within 12\" of Roboute Guilliman",
+      "whileInArmy": [
+        "roboute-guilliman"
+      ]
     }
   ]
 }

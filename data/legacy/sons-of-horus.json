@@ -30,6 +30,21 @@
         "traits": [
           "Bolt"
         ]
+      },
+      {
+        "name": "Judgement of the Sixteenth",
+        "R": 18,
+        "FP": 2,
+        "RS": 5,
+        "AP": 3,
+        "D": 2,
+        "specialRules": [
+          "Pistol",
+          "Rending (6+)"
+        ],
+        "traits": [
+          "Bolt"
+        ]
       }
     ],
     "melee": [
@@ -92,6 +107,18 @@
         "traits": [
           "Power"
         ]
+      },
+      {
+        "name": "Serpent-lodge shard",
+        "IM": "I",
+        "AM": "A",
+        "SM": "S",
+        "AP": 2,
+        "D": 2,
+        "specialRules": [
+          "Shred (6+)"
+        ],
+        "traits": []
       }
     ]
   },
@@ -135,6 +162,16 @@
       "name": "Claim-spike standard",
       "text": "Each Model in a Unit that includes a Model equipped with a Claim-spike standard has the Planted Standard Special Rule.",
       "summary": "A barbed pole driven into captured ground."
+    },
+    {
+      "name": "Wolf-pelt mantle",
+      "summary": "The grey pelt of the first beast he ever killed, kept for luck.",
+      "text": "A Model equipped with the Wolf-pelt mantle has the Pack Reverence Special Rule."
+    },
+    {
+      "name": "Crown of Hollow Stars",
+      "summary": "A circlet of black glass that shows a sky no one else can see.",
+      "text": "A Model equipped with the Crown of Hollow Stars adds 2 to its Intelligence Characteristic and 1 to its Willpower Characteristic."
     }
   ],
   "options": [
@@ -450,6 +487,104 @@
           }
         ]
       }
+    },
+    {
+      "units": [
+        "horus-lupercal"
+      ],
+      "option": {
+        "id": "horus-lupercal-aspect",
+        "kind": "one",
+        "model": "Horus Lupercal",
+        "text": "Aspect of the Primarch: Horus Lupercal may take one",
+        "choices": [
+          {
+            "name": "First Captain of the Luna Wolves",
+            "points": 0
+          },
+          {
+            "name": "Warmaster at the War-table",
+            "points": 0
+          },
+          {
+            "name": "Davin's Wound",
+            "points": 0
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "horus-lupercal"
+      ],
+      "option": {
+        "id": "horus-lupercal-relics",
+        "kind": "any",
+        "model": "Horus Lupercal",
+        "max": {
+          "fixed": 1
+        },
+        "text": "Relics of the Primarch: Horus Lupercal may take one",
+        "choices": [
+          {
+            "name": "Wolf-pelt mantle",
+            "points": 15
+          },
+          {
+            "name": "Judgement of the Sixteenth",
+            "points": 25
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "horus-ascended"
+      ],
+      "option": {
+        "id": "horus-ascended-aspect",
+        "kind": "one",
+        "model": "Horus Ascended",
+        "text": "Aspect of the Primarch: Horus Ascended may take one",
+        "choices": [
+          {
+            "name": "Dread Majesty",
+            "points": 0
+          },
+          {
+            "name": "Whispering Sovereign",
+            "points": 0
+          },
+          {
+            "name": "The Warmaster's Hunger",
+            "points": 0
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "horus-ascended"
+      ],
+      "option": {
+        "id": "horus-ascended-relics",
+        "kind": "any",
+        "model": "Horus Ascended",
+        "max": {
+          "fixed": 1
+        },
+        "text": "Relics of the Primarch: Horus Ascended may take one",
+        "choices": [
+          {
+            "name": "Crown of Hollow Stars",
+            "points": 25
+          },
+          {
+            "name": "Serpent-lodge shard",
+            "points": 25
+          }
+        ]
+      }
     }
   ],
   "modifiers": [
@@ -587,6 +722,118 @@
       "scope": "unit",
       "addRules": [
         "Planted Standard"
+      ]
+    },
+    {
+      "units": [
+        "horus-lupercal"
+      ],
+      "item": "First Captain of the Luna Wolves",
+      "text": "First Captain of the Luna Wolves: +1 A.",
+      "stats": {
+        "A": "+1"
+      },
+      "addRules": [
+        "First Captain of the Luna Wolves"
+      ]
+    },
+    {
+      "units": [
+        "horus-lupercal"
+      ],
+      "item": "Warmaster at the War-table",
+      "text": "Warmaster at the War-table.",
+      "addRules": [
+        "Warmaster at the War-table"
+      ]
+    },
+    {
+      "units": [
+        "horus-lupercal"
+      ],
+      "item": "Davin's Wound",
+      "text": "Davin's Wound: +1 S, -2 W.",
+      "stats": {
+        "S": "+1",
+        "W": "-2"
+      },
+      "addRules": [
+        "Davin's Wound"
+      ]
+    },
+    {
+      "units": [
+        "horus-lupercal"
+      ],
+      "item": "Wolf-pelt mantle",
+      "text": "Wolf-pelt mantle.",
+      "addRules": [
+        "Pack Reverence"
+      ]
+    },
+    {
+      "units": [
+        "horus-lupercal"
+      ],
+      "item": "Judgement of the Sixteenth",
+      "text": "Judgement of the Sixteenth.",
+      "addRules": [
+        "Warmaster's Aim"
+      ]
+    },
+    {
+      "units": [
+        "horus-ascended"
+      ],
+      "item": "Dread Majesty",
+      "text": "Dread Majesty.",
+      "addRules": [
+        "Dread Majesty"
+      ]
+    },
+    {
+      "units": [
+        "horus-ascended"
+      ],
+      "item": "Whispering Sovereign",
+      "text": "Whispering Sovereign: -1 WS, -1 BS.",
+      "stats": {
+        "WS": "-1",
+        "BS": "-1"
+      },
+      "addRules": [
+        "Whispering Sovereign"
+      ]
+    },
+    {
+      "units": [
+        "horus-ascended"
+      ],
+      "item": "The Warmaster's Hunger",
+      "text": "The Warmaster's Hunger.",
+      "addRules": [
+        "The Warmaster's Hunger"
+      ]
+    },
+    {
+      "units": [
+        "horus-ascended"
+      ],
+      "item": "Crown of Hollow Stars",
+      "text": "Crown of Hollow Stars: +2 IN, +1 WP.",
+      "stats": {
+        "IN": "+2",
+        "WP": "+1"
+      }
+    },
+    {
+      "units": [
+        "horus-ascended"
+      ],
+      "item": "Serpent-lodge shard",
+      "text": "Serpent-lodge shard.",
+      "addRules": [
+        "Serpent's Kiss"
       ]
     }
   ],
@@ -888,6 +1135,51 @@
       "name": "Planted Standard",
       "text": "When a Unit that includes a Model with this Special Rule is counted for Controlling an Objective, it counts as having two additional Models for the purposes of determining Tactical Strength.",
       "summary": "A barbed pole driven into captured ground marks it as the Legion's own."
+    },
+    {
+      "name": "First Captain of the Luna Wolves",
+      "summary": "Before the throne, he led from the front, and his sons loved him for it.",
+      "text": "This Model adds 1 to its Attacks Characteristic. In any Battle Turn in which this Model made a Charge, the Controlling Player subtracts 1 from their Reaction Allotment in the following Battle Turn."
+    },
+    {
+      "name": "Warmaster at the War-table",
+      "summary": "He wins the war with a pointed finger, and the Mournival repeat his words.",
+      "text": "At the start of each of the Controlling Player's Battle Turns, they may nominate one enemy Unit within 24\" of this Model. Shooting Attacks made by friendly Sons of Horus Units against the nominated Unit add 1 to the result of their Hit Tests until the end of that Battle Turn. This Model cannot make a Charge."
+    },
+    {
+      "name": "Davin's Wound",
+      "summary": "The blade that went in at Davin never entirely came out.",
+      "text": "This Model adds 1 to its Strength Characteristic and subtracts 2 from its Wounds Characteristic. Once per battle, at the start of the Fight Sub-Phase, this Model may add 3 to its Initiative Characteristic until the end of that Phase."
+    },
+    {
+      "name": "Pack Reverence",
+      "summary": "The pack follows the grey fur.",
+      "text": "Friendly Sons of Horus Units within 6\" of this Model add 1 to their Cool Checks."
+    },
+    {
+      "name": "Warmaster's Aim",
+      "summary": "He always knew who was giving the orders.",
+      "text": "A Shooting Attack made with a Judgement of the Sixteenth against a Unit that includes a Model with the Command Sub-Type adds 1 to the result of its Hit Tests."
+    },
+    {
+      "name": "Dread Majesty",
+      "summary": "The galaxy's grandest tyrant wants nothing but to be seen.",
+      "text": "Enemy Models in base contact with this Model subtract 1 from their Weapon Skill Characteristic. Friendly Sons of Horus Units within 6\" of this Model subtract 1 from their Cool Checks."
+    },
+    {
+      "name": "Whispering Sovereign",
+      "summary": "He no longer raises his voice, because the dark does it for him.",
+      "text": "At the start of each of the Controlling Player's Battle Turns, they may nominate one enemy Unit within 12\" of this Model; that Unit must make a Cool Check, and gains the Suppressed Tactical Status if it fails. This Model subtracts 1 from its Weapon Skill and Ballistic Skill Characteristics."
+    },
+    {
+      "name": "The Warmaster's Hunger",
+      "summary": "Each kill is a mouthful, and he does not stop eating.",
+      "text": "At the end of each Fight Sub-Phase in which this Model removed at least one enemy Model as a casualty, it regains 1 Wound. At the end of each Fight Sub-Phase in which this Model was part of a Combat and removed no enemy Model, it suffers 1 Wound with no Saving Throw or Damage Mitigation Test allowed."
+    },
+    {
+      "name": "Serpent's Kiss",
+      "summary": "The cut that does not close.",
+      "text": "A Model that suffers an unsaved Wound from a Serpent-lodge shard cannot make Feel No Pain Damage Mitigation Tests against that Wound."
     }
   ],
   "armyRules": [
@@ -957,6 +1249,25 @@
       "stats": {
         "IN": "-1"
       }
+    },
+    {
+      "name": "The Warmaster's Regard",
+      "flavor": "Where Horus looks, the Sixteenth stand taller, and where he falls, they remember what they are.",
+      "whileInArmy": [
+        "horus-lupercal",
+        "horus-ascended"
+      ],
+      "benefits": [
+        "While Horus Lupercal or Horus Ascended is on the battlefield, friendly Sons of Horus Units within 12\" of him add 1 to their Combat Resolution Points in any Combat they are part of."
+      ],
+      "drawbacks": [
+        "If Horus Lupercal or Horus Ascended is removed as a casualty, every friendly Sons of Horus Unit subtracts 2 from its Cool Checks for the rest of the battle.",
+        "While he is on the battlefield, friendly Sons of Horus Units more than 24\" from him subtract 1 from their Cool Checks."
+      ],
+      "match": {
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true
     }
   ]
 }

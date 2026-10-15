@@ -137,6 +137,21 @@
       "name": "Talon-sheath gauntlets",
       "text": "A Model equipped with Talon-sheath gauntlets has the Raven's Strike Special Rule, and adds 1 to its Attacks Characteristic in any Battle Turn in which its Unit made a Charge.",
       "summary": "Spring-loaded blades concealed in the wrists."
+    },
+    {
+      "name": "Crest of Kiavahr",
+      "summary": "A crest of black feathers from the first flock he raised on his homeworld.",
+      "text": "A Model equipped with the Crest of Kiavahr has the Feint of the Raven Special Rule."
+    },
+    {
+      "name": "Obsidian pinion-lenses",
+      "summary": "Black glass set in the brow, ground to catch light no other eye can use.",
+      "text": "A Model equipped with Obsidian pinion-lenses adds 1 to its Ballistic Skill Characteristic."
+    },
+    {
+      "name": "Mantle of Lost Brothers",
+      "summary": "A cloak sewn from the shrouds of the Legion dead, each feather a name.",
+      "text": "A Model equipped with the Mantle of Lost Brothers has an Invulnerable Save of 3+ against Shooting Attacks."
     }
   ],
   "options": [
@@ -487,6 +502,59 @@
           }
         ]
       }
+    },
+    {
+      "units": [
+        "corvus-corax"
+      ],
+      "option": {
+        "id": "corvus-corax-aspect",
+        "kind": "one",
+        "model": "Corvus Corax",
+        "text": "Aspect of the Primarch: Corvus Corax may take one",
+        "choices": [
+          {
+            "name": "Liberator of Lycaeus",
+            "points": 0
+          },
+          {
+            "name": "Hunter of the Hollow Hours",
+            "points": 0
+          },
+          {
+            "name": "Mourner of Isstvan",
+            "points": 0
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "corvus-corax"
+      ],
+      "option": {
+        "id": "corvus-corax-relics",
+        "kind": "any",
+        "model": "Corvus Corax",
+        "max": {
+          "fixed": 1
+        },
+        "text": "Relics of the Primarch: Corvus Corax may take one",
+        "choices": [
+          {
+            "name": "Crest of Kiavahr",
+            "points": 15
+          },
+          {
+            "name": "Obsidian pinion-lenses",
+            "points": 20
+          },
+          {
+            "name": "Mantle of Lost Brothers",
+            "points": 30
+          }
+        ]
+      }
     }
   ],
   "modifiers": [
@@ -636,6 +704,76 @@
         "Raven's Strike"
       ],
       "condition": "on a turn the unit charges"
+    },
+    {
+      "units": [
+        "corvus-corax"
+      ],
+      "item": "Liberator of Lycaeus",
+      "text": "Liberator of Lycaeus.",
+      "addRules": [
+        "Liberator of Lycaeus"
+      ],
+      "removeRules": [
+        "Deep Strike"
+      ]
+    },
+    {
+      "units": [
+        "corvus-corax"
+      ],
+      "item": "Hunter of the Hollow Hours",
+      "text": "Hunter of the Hollow Hours: -1 T.",
+      "addRules": [
+        "Hunter of the Hollow Hours"
+      ],
+      "stats": {
+        "T": "-1"
+      }
+    },
+    {
+      "units": [
+        "corvus-corax"
+      ],
+      "item": "Mourner of Isstvan",
+      "text": "Mourner of Isstvan: +1 A, -1 BS.",
+      "addRules": [
+        "Mourner of Isstvan"
+      ],
+      "stats": {
+        "A": "+1",
+        "BS": "-1"
+      }
+    },
+    {
+      "units": [
+        "corvus-corax"
+      ],
+      "item": "Crest of Kiavahr",
+      "text": "Crest of Kiavahr.",
+      "addRules": [
+        "Feint of the Raven"
+      ]
+    },
+    {
+      "units": [
+        "corvus-corax"
+      ],
+      "item": "Obsidian pinion-lenses",
+      "text": "Obsidian pinion-lenses: +1 BS.",
+      "stats": {
+        "BS": "+1"
+      }
+    },
+    {
+      "units": [
+        "corvus-corax"
+      ],
+      "item": "Mantle of Lost Brothers",
+      "text": "Mantle of Lost Brothers: best:3+ INV.",
+      "stats": {
+        "INV": "best:3+"
+      }
     }
   ],
   "rites": [
@@ -926,6 +1064,26 @@
       "name": "Close Work",
       "summary": "The knife-men do their killing at arm's length and do not miss.",
       "text": "A Model with this Special Rule adds 1 to the Hit Tests of its Shooting Attacks made with Weapons that have the Pistol Special Rule or the Assault Trait."
+    },
+    {
+      "name": "Liberator of Lycaeus",
+      "summary": "He came to Lycaeus to break chains, and the Legion still walks in the shape of that mercy.",
+      "text": "This Model loses the Deep Strike Special Rule and must be Deployed on the battlefield. Friendly Raven Guard Units within 12\" of this Model add 1 to their Cool Characteristic."
+    },
+    {
+      "name": "Hunter of the Hollow Hours",
+      "summary": "He strikes out of the unlit sky and is gone before the guns can turn.",
+      "text": "In a Player Turn in which this Model arrives from Reserves using the Deep Strike Special Rule, it adds 2 to the result of its Charge Rolls, and enemy Models in any Combat it charges subtract 1 from their Initiative Characteristic until the end of that Assault phase. This Model subtracts 1 from its Toughness Characteristic."
+    },
+    {
+      "name": "Mourner of Isstvan",
+      "summary": "Grief has made him a closer, harder killer than the Legion remembers.",
+      "text": "This Model adds 1 to its Attacks Characteristic and subtracts 1 from its Ballistic Skill Characteristic. Once in each Battle Turn, when a friendly Raven Guard Model within 12\" of this Model is removed as a casualty, this Model adds 1 to its Strength Characteristic until the end of that Battle Turn."
+    },
+    {
+      "name": "Feint of the Raven",
+      "summary": "A flash of dark wings, and the charge has already missed.",
+      "text": "Enemy Units that declare a Charge against a Unit that includes a Model with this Special Rule subtract 1 from the result of their Charge Rolls."
     }
   ],
   "armyRules": [
@@ -994,6 +1152,26 @@
       "stats": {
         "CL": "+1"
       }
+    },
+    {
+      "name": "Black Wings Gathering",
+      "flavor": "While the Lord of Shadows watches the field, the Legion falls on it from every side.",
+      "whileInArmy": [
+        "corvus-corax"
+      ],
+      "benefits": [
+        "While Corvus Corax is on the battlefield, friendly Raven Guard Infantry Units add 1 to the result of their Charge Rolls in any Player Turn in which they arrive from Reserves, and Reserve Rolls made for them are made with a +1 modifier."
+      ],
+      "drawbacks": [
+        "A friendly Raven Guard Infantry Unit that was Deployed on the battlefield subtracts 1 from the result of its Charge Rolls in the first Battle Turn.",
+        "If Corvus Corax is removed as a casualty, Reserve Rolls made for friendly Raven Guard Units subtract 1 for the rest of the battle."
+      ],
+      "match": {
+        "unitType": "Infantry",
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "condition": "on a turn the unit arrives from Reserves"
     }
   ]
 }

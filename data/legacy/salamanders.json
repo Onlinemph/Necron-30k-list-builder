@@ -116,6 +116,16 @@
       "name": "Hearthfire standard",
       "text": "Each Model in a Unit that includes a Model equipped with a Hearthfire standard has the Hearthfire Anchor Special Rule.",
       "summary": "A banner-pole with a steady lamp at its crown."
+    },
+    {
+      "name": "Wyrmscale vambrace",
+      "summary": "A forearm guard of drake-hide, quenched in the forge until it will not scorch.",
+      "text": "A Model equipped with the Wyrmscale vambrace has the Hearth-Warded Special Rule."
+    },
+    {
+      "name": "Lamp of the Long Road",
+      "summary": "A hooded lantern that has lit a hundred refugee camps.",
+      "text": "A Model equipped with the Lamp of the Long Road has the Light in the Dark Special Rule."
     }
   ],
   "options": [
@@ -459,6 +469,55 @@
         ],
         "modelType": "Sergeant"
       }
+    },
+    {
+      "units": [
+        "vulkan"
+      ],
+      "option": {
+        "id": "vulk-aspect",
+        "kind": "one",
+        "model": "Vulkan",
+        "text": "Aspect of the Primarch: Vulkan may take one",
+        "choices": [
+          {
+            "name": "Wrath of the Drake",
+            "points": 0
+          },
+          {
+            "name": "Hand upon the Anvil",
+            "points": 0
+          },
+          {
+            "name": "Shepherd of Hearths",
+            "points": 0
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "vulkan"
+      ],
+      "option": {
+        "id": "vulk-relics",
+        "kind": "any",
+        "model": "Vulkan",
+        "max": {
+          "fixed": 1
+        },
+        "text": "Relics of the Primarch: Vulkan may take one",
+        "choices": [
+          {
+            "name": "Wyrmscale vambrace",
+            "points": 15
+          },
+          {
+            "name": "Lamp of the Long Road",
+            "points": 20
+          }
+        ]
+      }
     }
   ],
   "modifiers": [
@@ -594,6 +653,66 @@
       "scope": "unit",
       "addRules": [
         "Hearthfire Anchor"
+      ]
+    },
+    {
+      "units": [
+        "vulkan"
+      ],
+      "item": "Wrath of the Drake",
+      "text": "Wrath of the Drake: +1 A, -1 I.",
+      "stats": {
+        "A": "+1",
+        "I": "-1"
+      },
+      "addRules": [
+        "Wrath of the Drake"
+      ]
+    },
+    {
+      "units": [
+        "vulkan"
+      ],
+      "item": "Hand upon the Anvil",
+      "text": "Hand upon the Anvil: -1 M.",
+      "stats": {
+        "M": "-1"
+      },
+      "addRules": [
+        "Hand upon the Anvil"
+      ]
+    },
+    {
+      "units": [
+        "vulkan"
+      ],
+      "item": "Shepherd of Hearths",
+      "text": "Shepherd of Hearths: -1 A.",
+      "stats": {
+        "A": "-1"
+      },
+      "addRules": [
+        "Shepherd of Hearths"
+      ]
+    },
+    {
+      "units": [
+        "vulkan"
+      ],
+      "item": "Wyrmscale vambrace",
+      "text": "Wyrmscale vambrace.",
+      "addRules": [
+        "Hearth-Warded"
+      ]
+    },
+    {
+      "units": [
+        "vulkan"
+      ],
+      "item": "Lamp of the Long Road",
+      "text": "Lamp of the Long Road.",
+      "addRules": [
+        "Light in the Dark"
       ]
     }
   ],
@@ -904,6 +1023,31 @@
       "name": "Hearthfire Anchor",
       "text": "When a Unit that includes a Model with this Special Rule is counted for Controlling an Objective, it counts as having two additional Models for the purposes of determining Tactical Strength, and its Models add 1 to their Cool Characteristic while it does.",
       "summary": "A steady lamp at its crown shows the line where to stand."
+    },
+    {
+      "name": "Wrath of the Drake",
+      "summary": "Slow to anger, he is slower still to stop, and his sons would rather not see it.",
+      "text": "This Model adds 1 to its Attacks Characteristic and subtracts 1 from its Initiative Characteristic. Friendly Salamanders Units within 6\" of this Model subtract 1 from their Cool Characteristic."
+    },
+    {
+      "name": "Hand upon the Anvil",
+      "summary": "The Forge-Father at his work: what he touches burns hotter.",
+      "text": "Weapons with the Template or Melta Special Rule fired by friendly Salamanders Units within 6\" of this Model add 1 to their Ranged Strength. This Model subtracts 1 from its Movement Characteristic."
+    },
+    {
+      "name": "Shepherd of Hearths",
+      "summary": "He walks the line with a lamp, and gives away his own fire to keep it lit.",
+      "text": "At the start of each of its Controlling Player's Battle Turns, the Controlling Player may remove one Tactical Status from this Model or from one friendly Salamanders Unit within 6\". This Model subtracts 1 from its Attacks Characteristic."
+    },
+    {
+      "name": "Hearth-Warded",
+      "summary": "Fire is his oldest friend, and does not bite him.",
+      "text": "Saving Throws made by a Model with this Special Rule against Wounds inflicted by weapons with the Flame or Melta Trait are made with a +1 modifier."
+    },
+    {
+      "name": "Light in the Dark",
+      "summary": "No one near it is alone in the dark.",
+      "text": "Friendly Salamanders Units within 6\" of a Model with this Special Rule ignore the effects of the Pinned Tactical Status."
     }
   ],
   "armyRules": [
@@ -969,6 +1113,25 @@
         "adherents-squad"
       ],
       "optionalUnits": true
+    },
+    {
+      "name": "Walls Around the Hearth",
+      "flavor": "Where Vulkan stands, none of his sons will be seen to leave.",
+      "benefits": [
+        "While Vulkan is on the battlefield, when Combat Resolution Points are totalled for a Combat, each side adds 1 to its total for each friendly Salamanders Unit in that Combat within 12\" of Vulkan, to a maximum of +3."
+      ],
+      "drawbacks": [
+        "A friendly Salamanders Unit within 12\" of Vulkan cannot voluntarily Fall Back.",
+        "If Vulkan is removed as a casualty, every friendly Salamanders Unit that was within 12\" of him gains the Pinned Tactical Status."
+      ],
+      "match": {
+        "unitType": "Infantry",
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "whileInArmy": [
+        "vulkan"
+      ]
     }
   ]
 }

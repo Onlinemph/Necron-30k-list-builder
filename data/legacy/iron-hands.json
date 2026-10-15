@@ -59,6 +59,21 @@
         "traits": [
           "Missile"
         ]
+      },
+      {
+        "name": "Clan-oath rivet-gun",
+        "R": 18,
+        "FP": 3,
+        "RS": 6,
+        "AP": 3,
+        "D": 1,
+        "specialRules": [
+          "Breaching (5+)",
+          "Suppressive (1)"
+        ],
+        "traits": [
+          "Bolt"
+        ]
       }
     ],
     "melee": [
@@ -169,6 +184,11 @@
       "name": "Clan-fall banner",
       "summary": "The banner of a clan that was cut down.",
       "text": "While a Unit includes a Model equipped with a Clan-fall banner, all Models in that Unit have the Oath of the Clan Remnant Special Rule. If the Model carrying the banner is removed as a casualty, the bonus is lost."
+    },
+    {
+      "name": "Lodestone of Medusa",
+      "summary": "A fist-sized knot of magnetised ore from the Medusan peaks, still pulling.",
+      "text": "A Model equipped with the Lodestone of Medusa has the Magnetic Dominion Special Rule."
     }
   ],
   "options": [
@@ -547,6 +567,55 @@
           }
         ]
       }
+    },
+    {
+      "units": [
+        "ferrus-manus"
+      ],
+      "option": {
+        "id": "ferrus-aspect",
+        "kind": "one",
+        "model": "Ferrus Manus",
+        "text": "Aspect of the Primarch: Ferrus Manus may take one",
+        "choices": [
+          {
+            "name": "The Gorgon Unleashed",
+            "points": 0
+          },
+          {
+            "name": "Smith of Ruin",
+            "points": 0
+          },
+          {
+            "name": "Father of the Clans",
+            "points": 0
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "ferrus-manus"
+      ],
+      "option": {
+        "id": "ferrus-relics",
+        "kind": "any",
+        "model": "Ferrus Manus",
+        "max": {
+          "fixed": 1
+        },
+        "text": "Relics of the Primarch: Ferrus Manus may take one",
+        "choices": [
+          {
+            "name": "Lodestone of Medusa",
+            "points": 20
+          },
+          {
+            "name": "Clan-oath rivet-gun",
+            "points": 25
+          }
+        ]
+      }
     }
   ],
   "modifiers": [
@@ -742,6 +811,66 @@
       "addRules": [
         "Oath of the Clan Remnant"
       ]
+    },
+    {
+      "units": [
+        "ferrus-manus"
+      ],
+      "item": "The Gorgon Unleashed",
+      "text": "The Gorgon Unleashed: +1 S, -2 I.",
+      "stats": {
+        "S": "+1",
+        "I": "-2"
+      },
+      "addRules": [
+        "The Gorgon Unleashed"
+      ]
+    },
+    {
+      "units": [
+        "ferrus-manus"
+      ],
+      "item": "Smith of Ruin",
+      "text": "Smith of Ruin: -1 BS.",
+      "stats": {
+        "BS": "-1"
+      },
+      "addRules": [
+        "Smith of Ruin"
+      ]
+    },
+    {
+      "units": [
+        "ferrus-manus"
+      ],
+      "item": "Father of the Clans",
+      "text": "Father of the Clans: -2 M.",
+      "stats": {
+        "M": "-2"
+      },
+      "addRules": [
+        "Father of the Clans"
+      ]
+    },
+    {
+      "units": [
+        "ferrus-manus"
+      ],
+      "item": "Lodestone of Medusa",
+      "text": "Lodestone of Medusa.",
+      "addRules": [
+        "Magnetic Dominion"
+      ]
+    },
+    {
+      "units": [
+        "ferrus-manus"
+      ],
+      "item": "Clan-oath rivet-gun",
+      "text": "Clan-oath rivet-gun.",
+      "addRules": [
+        "Rivet-Bound"
+      ]
     }
   ],
   "rules": [
@@ -799,6 +928,31 @@
       "name": "Oath of the Clan Remnant",
       "summary": "The clan is gone. The oath is not.",
       "text": "Once per battle, a Unit with this Special Rule automatically passes one Morale Check it is required to make."
+    },
+    {
+      "name": "The Gorgon Unleashed",
+      "summary": "The Gorgon stops being a commander and becomes a force of nature.",
+      "text": "This Model adds 1 to its Strength Characteristic. This Model subtracts 2 from its Initiative Characteristic."
+    },
+    {
+      "name": "Smith of Ruin",
+      "summary": "He knows how every machine is built, and so where it breaks.",
+      "text": "Weapons carried by this Model have the Armourbane Special Rule, and Wound Tests made for its attacks against a Model with the Vehicle, Walker or Automata Type are made with a +1 modifier. This Model cannot use the Battlesmith (X) Special Rule and subtracts 1 from its Ballistic Skill Characteristic."
+    },
+    {
+      "name": "Father of the Clans",
+      "summary": "He is their founder and their judge, and they hold the line to be seen holding it.",
+      "text": "Friendly Iron Hands Units within 9\" of this Model add 1 to their Leadership Characteristic. This Model subtracts 2 from its Movement Characteristic and cannot Rush."
+    },
+    {
+      "name": "Magnetic Dominion",
+      "summary": "Every machine near him is dragged half a degree off true.",
+      "text": "Enemy Models with the Vehicle, Walker or Automata Type that are Engaged with a Model with this Special Rule subtract 2 from their Initiative Characteristic. Hit Tests made by such enemy Models for Shooting Attacks against a Unit that includes a Model with this Special Rule are made with a -1 modifier."
+    },
+    {
+      "name": "Rivet-Bound",
+      "summary": "A rivet driven through the greave is a promise the target will keep.",
+      "text": "An enemy Unit that suffers one or more Unsaved Wounds from a Shooting Attack made with the Clan-oath rivet-gun subtracts 2 from its Movement Characteristic until the end of its Controlling Player's next Battle Turn."
     }
   ],
   "rites": [
@@ -1033,6 +1187,29 @@
         "notUnitType": "Vehicle"
       },
       "optionalUnits": true
+    },
+    {
+      "name": "Clans Behind the Gorgon",
+      "flavor": "The Clans stand harder with the Gorgon's eye on them, and not one wishes to be seen to break.",
+      "benefits": [
+        "While Ferrus Manus is on the battlefield, friendly Iron Hands Infantry Models within 12\" of him add 1 to their Toughness Characteristic when a Wound Test is made against them for a Shooting Attack."
+      ],
+      "drawbacks": [
+        "A friendly Iron Hands Unit within 12\" of Ferrus Manus cannot voluntarily Fall Back.",
+        "If Ferrus Manus is removed as a casualty, every friendly Iron Hands Unit subtracts 1 from its Leadership Characteristic and 1 from its Cool Characteristic for the remainder of the battle."
+      ],
+      "match": {
+        "unitType": "Infantry",
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "stats": {
+        "T": "+1"
+      },
+      "condition": "against Shooting Attacks, within 12\" of Ferrus Manus",
+      "whileInArmy": [
+        "ferrus-manus"
+      ]
     }
   ]
 }

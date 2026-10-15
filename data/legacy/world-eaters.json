@@ -192,6 +192,16 @@
       "name": "Crown of Nails",
       "summary": "A circlet hammered from the Nails his surgeons drew.",
       "text": "A Model equipped with the Crown of Nails has the Fear (2) Special Rule and adds 1 to its Willpower Characteristic, but subtracts 1 from its Leadership Characteristic."
+    },
+    {
+      "name": "Debt-brand of the Nailed",
+      "summary": "A scar of Nails burned into the hide, marking who owes him a death.",
+      "text": "A Model equipped with the Debt-brand of the Nailed has the Debt Marked Special Rule."
+    },
+    {
+      "name": "Tyrant's gore-plate",
+      "summary": "Slag from burned Nuceria, welded over his hide in layers.",
+      "text": "A Model equipped with Tyrant's gore-plate adds 1 to its Toughness Characteristic and subtracts 2 from its Move Characteristic."
     }
   ],
   "rules": [
@@ -264,6 +274,26 @@
       "name": "Chain-bond of Desh'ea",
       "summary": "The chain that held him in the pits, now his to hold others.",
       "text": "Once per battle, at the start of the Fight Sub-Phase, the Controlling Player may choose one enemy Character in base contact with this Model. That Character cannot be removed from the Combat by any means and subtracts 1 from its Initiative Characteristic until the end of the Phase."
+    },
+    {
+      "name": "Wrath Descending",
+      "summary": "He drops from the red sky already swinging.",
+      "text": "This Model adds 2 to its Charge Rolls. It subtracts 1 from its Weapon Skill Characteristic and 1 from its Initiative Characteristic."
+    },
+    {
+      "name": "The Butcher's Tally",
+      "summary": "Every body is a line in a ledger that only he can read.",
+      "text": "While this Model's Unit is part of a Combat, the Controlling Player adds 2 to that Unit's Combat Resolution Points. This Model subtracts 2 from its Focus Rolls in Challenges."
+    },
+    {
+      "name": "Mourner of Nuceria",
+      "summary": "The boy-general remembers the city he lost, and so do his sons.",
+      "text": "Friendly World Eaters Units within 6\" of this Model add 1 to their Cool Checks. This Model's own Unit automatically passes Cool Checks. This Model subtracts 2 from its Attacks Characteristic."
+    },
+    {
+      "name": "Debt Marked",
+      "summary": "The brand picks the next throat.",
+      "text": "At the start of the Controlling Player's Charge Sub-Phase, the Controlling Player may nominate one enemy Unit within 18\" of this Model. This Model adds 1 to its Charge Rolls made to charge the nominated Unit, and the nominated Unit subtracts 1 from its Cool Checks until the end of that Battle Turn."
     }
   ],
   "options": [
@@ -585,6 +615,55 @@
           }
         ]
       }
+    },
+    {
+      "units": [
+        "angron-transfigured"
+      ],
+      "option": {
+        "id": "angron-transfigured-aspect",
+        "kind": "one",
+        "model": "Angron Transfigured",
+        "text": "Aspect of the Primarch: Angron Transfigured may take one",
+        "choices": [
+          {
+            "name": "Wrath Descending",
+            "points": 0
+          },
+          {
+            "name": "The Butcher's Tally",
+            "points": 0
+          },
+          {
+            "name": "Mourner of Nuceria",
+            "points": 0
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "angron-transfigured"
+      ],
+      "option": {
+        "id": "angron-transfigured-relics",
+        "kind": "any",
+        "model": "Angron Transfigured",
+        "max": {
+          "fixed": 1
+        },
+        "text": "Relics of the Primarch: Angron Transfigured may take one",
+        "choices": [
+          {
+            "name": "Debt-brand of the Nailed",
+            "points": 15
+          },
+          {
+            "name": "Tyrant's gore-plate",
+            "points": 25
+          }
+        ]
+      }
     }
   ],
   "modifiers": [
@@ -756,6 +835,64 @@
       "addRules": [
         "Fear (2)"
       ]
+    },
+    {
+      "units": [
+        "angron-transfigured"
+      ],
+      "item": "Wrath Descending",
+      "text": "Wrath Descending: +2 to Charge Rolls, -1 WS, -1 I.",
+      "stats": {
+        "WS": "-1",
+        "I": "-1"
+      },
+      "addRules": [
+        "Wrath Descending"
+      ]
+    },
+    {
+      "units": [
+        "angron-transfigured"
+      ],
+      "item": "The Butcher's Tally",
+      "text": "The Butcher's Tally.",
+      "addRules": [
+        "The Butcher's Tally"
+      ]
+    },
+    {
+      "units": [
+        "angron-transfigured"
+      ],
+      "item": "Mourner of Nuceria",
+      "text": "Mourner of Nuceria: -2 A.",
+      "stats": {
+        "A": "-2"
+      },
+      "addRules": [
+        "Mourner of Nuceria"
+      ]
+    },
+    {
+      "units": [
+        "angron-transfigured"
+      ],
+      "item": "Debt-brand of the Nailed",
+      "text": "Debt-brand of the Nailed.",
+      "addRules": [
+        "Debt Marked"
+      ]
+    },
+    {
+      "units": [
+        "angron-transfigured"
+      ],
+      "item": "Tyrant's gore-plate",
+      "text": "Tyrant's gore-plate: +1 T, -2 M.",
+      "stats": {
+        "T": "+1",
+        "M": "-2"
+      }
     }
   ],
   "rites": [
