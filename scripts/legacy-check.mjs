@@ -2,7 +2,7 @@
 //   node scripts/legacy-check.mjs world-eaters
 // Reports unknown units, models, stats and option kinds (from scripts/legacy.mjs), plus option choices,
 // added rules and weapon rules that have no profile or text anywhere. Exits 1 on any problem.
-import { readFileSync, readdirSync } from 'node:fs';
+import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
@@ -56,5 +56,12 @@ for (const w of [...out.weapons.ranged, ...out.weapons.melee]) {
 const rites = (out.armyConfig.groups.find((g) => g.id === 'legacy-rite-of-war') || { choices: [] }).choices;
 const added = out.units.reduce((n, u) => n + u.options.length - before.get(u.id), 0);
 console.log(`[${id}] ${rites.length} Rites of War (${rites.map((r) => r.name).join(', ')}); ${added} options added; ${out.modifiers.modifiers.length} modifiers; ${out.units.filter((u) => u.roleWhen).length} units with extra roles`);
+// how much of the army's own content leans on morale (kept for fear, rallying and the fall of a leader)
+const ownFile = join(root, 'data', 'legacy', `${id}.json`);
+if (existsSync(ownFile)) {
+  const d = read(ownFile);
+  const texts = [...(d.rules || []), ...(d.wargear || [])].map((r) => r.text || '').concat((d.armyRules || []).flatMap((r) => [...(r.benefits || []), ...(r.drawbacks || [])]));
+  console.log(`morale references (Cool, Leadership, Willpower, Morale): ${texts.filter((t) => /\b(Cool|Leadership|Willpower|Morale)\b/.test(t)).length} of ${texts.length} rules`);
+}
 if (problems.length) { console.error(`${problems.length} problems:\n  ` + problems.join('\n  ')); process.exit(1); }
 console.log('no problems');

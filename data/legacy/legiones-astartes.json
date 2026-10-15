@@ -427,7 +427,7 @@
       "text": "The Legion sends its veterans to the front and trusts them to hold what they take.",
       "benefits": [
         "Veteran Tactical, Veteran Assault, Cataphractii Terminator and Tartaros Terminator Squads may fill Troops slots and gain Line (2).",
-        "Those units gain First Among Brothers: +1 Leadership and +1 Cool."
+        "Those units gain First Among Brothers: they count as two Models more when controlling Objectives, and as Troops for Mission rules."
       ],
       "limitations": [
         "The army must include a Praetor in Terminator armour.",
@@ -456,11 +456,7 @@
           "addRules": [
             "Line (2)",
             "First Among Brothers"
-          ],
-          "stats": {
-            "LD": "+1",
-            "CL": "+1"
-          }
+          ]
         }
       ],
       "require": [
@@ -882,7 +878,7 @@
     {
       "name": "First Among Brothers",
       "summary": "Veterans who have earned the right to hold the line.",
-      "text": "All Models in a Unit with this Special Rule add 1 to their Leadership and Cool Characteristics. For the purposes of Mission special rules, a Unit with this Special Rule counts as a Troops Unit."
+      "text": "When determining which side controls an Objective, a Unit with this Special Rule counts as having two more Models than it does. For the purposes of Mission special rules, a Unit with this Special Rule counts as a Troops Unit."
     },
     {
       "name": "Iron Column",
@@ -1003,12 +999,12 @@
   "armyRules": [
     {
       "name": "Warrior Brotherhood",
-      "flavor": "The bonds of the Legion hold where other armies break.",
+      "flavor": "Brothers cover brothers; the Legion fights as one body.",
       "benefits": [
-        "A Legiones Astartes Unit within 6\" of another friendly Unit of the same Legion adds 1 to its Leadership Characteristic when it makes a Morale Check."
+        "When a Legiones Astartes Unit makes a Reaction while within 6\" of another friendly Unit of the same Legion, it adds 1 to its Hit Tests for attacks made as part of that Reaction."
       ],
       "drawbacks": [
-        "A Legiones Astartes Unit with no friendly Unit of the same Legion within 12\" subtracts 1 from its Leadership Characteristic when it makes a Morale Check."
+        "A Legiones Astartes Unit with no other friendly Unit of the same Legion within 12\" cannot make Reactions."
       ],
       "match": {
         "notUnitType": "Vehicle"
