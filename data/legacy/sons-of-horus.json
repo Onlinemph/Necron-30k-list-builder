@@ -1,0 +1,88 @@
+{
+  "weapons": {
+    "ranged": [
+      { "name": "Banestrike repeater", "R": 24, "FP": 3, "RS": 4, "AP": 4, "D": 1, "specialRules": ["Breaching (6+)"], "traits": ["Bolt"] }
+    ],
+    "melee": [
+      { "name": "Lupercal duelling blade", "IM": "I", "AM": "A", "SM": "+1", "AP": 3, "D": 1, "specialRules": ["Critical Hit (5+)"], "traits": ["Power"] },
+      { "name": "Sedition cleaver", "IM": "I", "AM": "A", "SM": "+1", "AP": 4, "D": 1, "specialRules": ["Shred (6+)"], "traits": ["Chain"] }
+    ]
+  },
+  "wargear": [
+    { "name": "Icon of the Sixteenth", "text": "Legacy house rule. A scarred eye-icon carried by the Legion's proudest companies, a reminder of who they serve. Every model in the unit gains +1 Willpower and +1 Intelligence." },
+    { "name": "Mournival oath-seals", "text": "Legacy house rule. Wax and iron seals pressed over the heart of a bodyguard who has sworn to fall before the Warmaster does. The model gains Feel No Pain (6+)." }
+  ],
+  "options": [
+    { "units": ["tactical-squad", "despoiler-squad", "veteran-tactical-squad"], "optionalUnits": true,
+      "option": { "id": "soh-banestrike-repeater", "kind": "one", "modelType": "Sergeant", "replaces": ["Bolter"], "text": "The Sergeant may exchange their bolter for",
+        "choices": [ { "name": "Banestrike repeater", "points": 10 } ] } },
+    { "units": ["tactical-squad", "despoiler-squad", "assault-squad", "breacher-squad", "veteran-tactical-squad", "veteran-assault-squad"], "optionalUnits": true,
+      "option": { "id": "soh-duelling-blade", "kind": "upgrade", "modelType": "Sergeant", "text": "The Sergeant may carry a Lupercal duelling blade",
+        "choices": [ { "name": "Lupercal duelling blade", "points": 15 } ] } },
+    { "units": ["chieftain-squad"], "optionalUnits": true,
+      "option": { "id": "soh-chieftain-blades", "kind": "perModel", "model": "Chieftain", "replaces": ["Chainsword"], "text": "Any Chieftain may exchange their chainsword for",
+        "choices": [ { "name": "Lupercal duelling blade", "points": 10 } ] } },
+    { "units": ["reaver-attack-squad", "reaver-aggressor-squad"], "optionalUnits": true,
+      "option": { "id": "soh-sedition-cleavers", "kind": "perModel", "model": ["Reaver", "Reaver with Jump Pack"], "text": "Any Reaver may also carry a Sedition cleaver",
+        "choices": [ { "name": "Sedition cleaver", "points": 5 } ] } },
+    { "units": ["tactical-squad", "despoiler-squad", "assault-squad", "reaver-attack-squad", "reaver-aggressor-squad", "chieftain-squad"], "optionalUnits": true,
+      "option": { "id": "soh-sixteenth-icon", "kind": "upgrade", "model": null, "text": "The unit may carry an Icon of the Sixteenth",
+        "choices": [ { "name": "Icon of the Sixteenth", "points": 20 } ] } },
+    { "units": ["justaerin-terminator-squad"], "optionalUnits": true,
+      "option": { "id": "soh-oath-seals", "kind": "perModel", "model": "Justaerin", "text": "Any Justaerin may bear Mournival oath-seals",
+        "choices": [ { "name": "Mournival oath-seals", "points": 10 } ] } }
+  ],
+  "modifiers": [
+    { "units": ["justaerin-terminator-squad"], "text": "Oathsworn guard, slow to turn: +1 WS, -1 I.", "stats": { "WS": "+1", "I": "-1" } },
+    { "units": ["reaver-attack-squad", "reaver-aggressor-squad"], "text": "Reaver swagger: +1 I, -1 LD.", "stats": { "I": "+1", "LD": "-1" } },
+    { "units": ["inductii-squad"], "text": "Blooded fast, taught little: +1 BS, -1 CL.", "stats": { "BS": "+1", "CL": "-1" } },
+    { "units": ["chieftain-squad"], "text": "Boarding shields up: 4+ Invulnerable Save, -1 M.", "stats": { "INV": "best:4+", "M": "-1" } },
+    { "match": { "unitType": "Command", "notUnitType": "Vehicle" }, "text": "Proud of rank and mistrustful of the unseen: +1 CL, -1 WP.", "stats": { "CL": "+1", "WP": "-1" } },
+    { "units": ["*"], "item": "Icon of the Sixteenth", "scope": "unit", "text": "Icon of the Sixteenth: +1 WP, +1 IN.", "stats": { "WP": "+1", "IN": "+1" } },
+    { "units": ["*"], "item": "Mournival oath-seals", "text": "Mournival oath-seals: Feel No Pain (6+).", "addRules": ["Feel No Pain (6+)"] }
+  ],
+  "rites": [
+    {
+      "name": "The Mournival's Word",
+      "flavor": "Four captains speak, and the Legion moves as one voice.",
+      "text": "Chieftain Squads, Praetorian Command Squads and Centurion Command Squads may fill Troops slots. Every Command and High Command model gains +1 Willpower. The rank and file are not invited to the council: no Tactical, Despoiler, Assault, Breacher or Inductii Squads, and at least two High Command units are required.",
+      "roles": [ { "units": ["chieftain-squad", "praetorian-command-squad", "praetorian-command-squad-with-jump-packs", "centurion-command-squad"], "role": "Troops" } ],
+      "modifiers": [ { "match": { "roles": ["Command", "High Command"], "notUnitType": "Vehicle" }, "text": "The Mournival's Word: +1 WP.", "stats": { "WP": "+1" } } ],
+      "require": [ { "match": { "role": "High Command" }, "min": 2, "note": "The Mournival needs at least two High Command units." } ],
+      "forbid": [ { "units": ["tactical-squad", "despoiler-squad", "assault-squad", "breacher-squad", "inductii-squad"] } ]
+    },
+    {
+      "name": "The Spear of Cthonia",
+      "flavor": "Where the Warmaster walks, the Justaerin walk one pace ahead.",
+      "text": "Justaerin Terminator Squads may fill Troops slots, cost 25 points less and gain +1 Ballistic Skill. The army must be led by Horus Lupercal, Horus Ascended or Ezekyle Abaddon. Terminators are slow, so there are no Fast Attack or Recon units and no jump packs of any kind.",
+      "roles": [ { "units": ["justaerin-terminator-squad"], "role": "Troops" } ],
+      "points": [ { "units": ["justaerin-terminator-squad"], "delta": -25 } ],
+      "modifiers": [ { "units": ["justaerin-terminator-squad"], "text": "The Spear of Cthonia: +1 BS.", "stats": { "BS": "+1" } } ],
+      "require": [ { "units": ["horus-lupercal", "horus-ascended", "ezekyle-abaddon"], "min": 1, "note": "Horus or Abaddon must lead the Spear." },
+                   { "units": ["justaerin-terminator-squad"], "min": 1, "note": "Bring at least one Justaerin Squad." } ],
+      "forbid": [ { "match": { "roles": ["Fast Attack", "Recon"] } }, { "match": { "unitType": "Antigrav" } } ]
+    },
+    {
+      "name": "Reaver Doctrine",
+      "flavor": "Strike the vox-tower, kill the legate, be gone before the sirens finish.",
+      "text": "Reaver Attack Squads and Reaver Aggressor Squads may fill Troops slots and gain Fast (1). Chieftain Squads gain +1 Attack. The Legion fights light: no Armour or Lord of War units, and at least one Reaver squad is required.",
+      "roles": [ { "units": ["reaver-attack-squad", "reaver-aggressor-squad"], "role": "Troops" } ],
+      "modifiers": [
+        { "units": ["reaver-attack-squad", "reaver-aggressor-squad"], "text": "Reaver Doctrine: Fast (1).", "addRules": ["Fast (1)"] },
+        { "units": ["chieftain-squad"], "text": "Reaver Doctrine: +1 A.", "stats": { "A": "+1" } }
+      ],
+      "require": [ { "units": ["reaver-attack-squad", "reaver-aggressor-squad"], "min": 1, "note": "Bring at least one Reaver squad." } ],
+      "forbid": [ { "match": { "roles": ["Armour", "Lord of War"] } } ]
+    },
+    {
+      "name": "The Warmaster's Favour",
+      "flavor": "Every recruit in the Legion believes his name was spoken at Horus's elbow.",
+      "text": "Inductii Squads cost 10 points less, and every non-vehicle model gains +1 Leadership. The army must be led by Horus Lupercal or Horus Ascended and may include no more than three High Command units, so no other great name shares his light. The Legion's strange allies stay home: no Malefic units.",
+      "points": [ { "units": ["inductii-squad"], "delta": -10 } ],
+      "modifiers": [ { "match": { "notUnitType": "Vehicle" }, "text": "The Warmaster's Favour: +1 LD.", "stats": { "LD": "+1" } } ],
+      "require": [ { "units": ["horus-lupercal", "horus-ascended"], "min": 1, "note": "Horus must lead in person." } ],
+      "limit": [ { "match": { "role": "High Command" }, "max": 3, "note": "No more than three High Command units." } ],
+      "forbid": [ { "match": { "unitType": "Malefic" } } ]
+    }
+  ]
+}

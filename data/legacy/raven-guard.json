@@ -1,0 +1,90 @@
+{
+  "weapons": {
+    "ranged": [
+      { "name": "Shadeshot carbine", "R": 24, "FP": 2, "RS": 4, "AP": 5, "D": 1, "specialRules": ["Precision (5+)", "Rending (6+)"], "traits": ["Bolt"] }
+    ],
+    "melee": [
+      { "name": "Shade-cut blade", "IM": "+1", "AM": "A", "SM": "S", "AP": 3, "D": 1, "specialRules": ["Precision (5+)"], "traits": ["Power"] },
+      { "name": "Hunter's talons", "IM": "I", "AM": "+1", "SM": "S", "AP": 3, "D": 1, "specialRules": ["Rending (5+)", "Breaching (6+)"], "traits": ["Power"] }
+    ]
+  },
+  "wargear": [
+    { "name": "Shadow-banner", "text": "Legacy house rule. A dull black standard of dark feathers that seems to drink the light around it. Every model in the unit gains +1 Intelligence and Shrouded (6+)." },
+    { "name": "Corvid dirge-shroud", "text": "Legacy house rule. A tattered mourning-cloak worn over the armour of the Isstvan survivors, hiding the bearer in smoke and sorrow. The model gains Shrouded (6+)." }
+  ],
+  "options": [
+    { "units": ["tactical-squad", "assault-squad", "veteran-assault-squad", "destroyer-assault-squad", "despoiler-squad"], "optionalUnits": true,
+      "option": { "id": "rg-sergeant-claws", "kind": "upgrade", "modelType": "Sergeant", "text": "The Sergeant may carry lightning claws",
+        "choices": [ { "name": "Lightning claw", "points": 10 }, { "name": "Pair of lightning claws", "points": 15 } ] } },
+    { "units": ["mor-deythan-squad"],
+      "option": { "id": "rg-shade-blade", "kind": "upgrade", "model": "Mor Deythan Shade", "text": "The Shade may carry a Shade-cut blade",
+        "choices": [ { "name": "Shade-cut blade", "points": 5 } ] } },
+    { "units": ["mor-deythan-squad"],
+      "option": { "id": "rg-shadeshot", "kind": "perModel", "model": "Mor Deythan", "replaces": ["Nemesis bolter"], "text": "Any Mor Deythan may exchange their Nemesis bolter for",
+        "choices": [ { "name": "Shadeshot carbine", "points": 5 } ] } },
+    { "units": ["dark-fury-squad"],
+      "option": { "id": "rg-dark-fury-talons", "kind": "perModel", "model": "Dark Fury", "replaces": ["Pair of Raven's Talons"], "text": "Any Dark Fury may exchange their talons for",
+        "choices": [ { "name": "Pair of lightning claws", "points": 5 }, { "name": "Hunter's talons", "points": 10 } ] } },
+    { "units": ["deliverers-squad"],
+      "option": { "id": "rg-dirge-shroud", "kind": "perModel", "model": "Deliverer", "text": "Any Deliverer may wear a Corvid dirge-shroud",
+        "choices": [ { "name": "Corvid dirge-shroud", "points": 5 } ] } },
+    { "units": ["tactical-squad", "despoiler-squad", "assault-squad", "reconnaissance-squad", "scout-squad", "seeker-squad", "mor-deythan-squad"], "optionalUnits": true,
+      "option": { "id": "rg-shadow-banner", "kind": "upgrade", "model": null, "text": "The unit may carry a Shadow-banner",
+        "choices": [ { "name": "Shadow-banner", "points": 20 } ] } },
+    { "units": ["reconnaissance-squad", "scout-squad", "seeker-squad", "assault-squad"], "optionalUnits": true,
+      "option": { "id": "rg-cameleoline", "kind": "upgrade", "model": null, "text": "The unit may be issued Cameleoline cloaks",
+        "choices": [ { "name": "Cameleoline", "points": 10 } ] } }
+  ],
+  "modifiers": [
+    { "units": ["mor-deythan-squad"], "text": "Gift-wary hunters: +1 IN, -1 LD.", "stats": { "IN": "+1", "LD": "-1" } },
+    { "units": ["dark-fury-squad"], "text": "Feather-light killers: +1 I, -1 T.", "stats": { "I": "+1", "T": "-1" } },
+    { "units": ["deliverers-squad"], "text": "Survivors who will not be hurried: +1 LD, -1 M.", "stats": { "LD": "+1", "M": "-1" } },
+    { "units": ["reconnaissance-squad", "scout-squad", "seeker-squad"], "text": "Slip the net: +1 I, -1 S.", "stats": { "I": "+1", "S": "-1" } },
+    { "units": ["tactical-squad", "despoiler-squad", "assault-squad"], "models": ["Legionary"], "text": "Lean fighters of the shadow war: +1 M, -1 LD.", "stats": { "M": "+1", "LD": "-1" } },
+    { "units": ["*"], "item": "Shadow-banner", "scope": "unit", "text": "Shadow-banner: +1 IN, Shrouded (6+).", "stats": { "IN": "+1" }, "addRules": ["Shrouded (6+)"] },
+    { "units": ["*"], "item": "Corvid dirge-shroud", "text": "Corvid dirge-shroud: Shrouded (6+).", "addRules": ["Shrouded (6+)"] }
+  ],
+  "rites": [
+    {
+      "name": "Wings of the Corvid",
+      "flavor": "A hundred shapes drop out of the smoke, and by the time you count them they are among you.",
+      "text": "Dark Fury Squads, Assault Squads and Destroyer Assault Squads may fill Troops slots. Every Antigrav Infantry unit gains Fast (1) and Shrouded (6+). The wings leave the heavy things behind: no Armour, Heavy Transport or Terminator squads, and at least one Dark Fury Squad is required.",
+      "roles": [ { "units": ["dark-fury-squad", "destroyer-assault-squad"], "role": "Troops" } ],
+      "modifiers": [ { "match": { "unitType": "Antigrav", "notUnitType": "Vehicle" }, "text": "Wings of the Corvid: Fast (1), Shrouded (6+).", "addRules": ["Fast (1)", "Shrouded (6+)"] } ],
+      "require": [ { "units": ["dark-fury-squad"], "min": 1, "note": "Bring at least one Dark Fury Squad." } ],
+      "forbid": [ { "match": { "roles": ["Armour", "Heavy Transport"] } }, { "match": { "nameIncludes": ["Terminator"] } } ]
+    },
+    {
+      "name": "Whispers in the Dark",
+      "flavor": "The enemy never sees the first hundred. The hundred and first is already behind him.",
+      "text": "Reconnaissance Squads, Scout Squads and Mor Deythan Squads may fill Troops slots. Reconnaissance and Scout Squads gain Infiltrate (6) and Shrouded (6+). Stealth demands light feet: no Armour, Support, Heavy Transport, War Engine or Lord of War units, and at least one Reconnaissance or Scout Squad is required.",
+      "roles": [ { "units": ["reconnaissance-squad", "scout-squad", "mor-deythan-squad"], "role": "Troops" } ],
+      "modifiers": [ { "units": ["reconnaissance-squad", "scout-squad"], "text": "Whispers in the Dark: Infiltrate (6), Shrouded (6+).", "addRules": ["Infiltrate (6)", "Shrouded (6+)"] } ],
+      "require": [ { "units": ["reconnaissance-squad", "scout-squad"], "min": 1, "note": "Bring a Reconnaissance or Scout Squad." } ],
+      "forbid": [ { "match": { "roles": ["Armour", "Support", "Heavy Transport", "War Engine", "Lord of War"] } } ]
+    },
+    {
+      "name": "Survivors of the Black Dirge",
+      "flavor": "Isstvan took the Legion's wings. What was left learned to stand.",
+      "text": "Deliverers Squads may fill Troops slots, cost 40 points less and gain Line (1). All non-vehicle models gain +1 Willpower. Those who survive do not strike first: no Recon or Fast Attack units, and the army must be led by Corvus Corax. At least one Deliverers Squad is required.",
+      "roles": [ { "units": ["deliverers-squad"], "role": "Troops" } ],
+      "points": [ { "units": ["deliverers-squad"], "delta": -40 } ],
+      "modifiers": [
+        { "units": ["deliverers-squad"], "text": "Survivors of the Black Dirge: Line (1).", "addRules": ["Line (1)"] },
+        { "match": { "notUnitType": "Vehicle" }, "text": "Survivors of the Black Dirge: +1 WP.", "stats": { "WP": "+1" } }
+      ],
+      "require": [ { "units": ["corvus-corax"], "min": 1, "note": "Corax must lead." }, { "units": ["deliverers-squad"], "min": 1, "note": "Bring at least one Deliverers Squad." } ],
+      "forbid": [ { "match": { "roles": ["Recon", "Fast Attack"] } } ]
+    },
+    {
+      "name": "Knives Among the Stars",
+      "flavor": "One blade, one name, one quiet corridor, and the war ends before it begins.",
+      "text": "Moritat, Moritat Mortalis, Pathfinders and Kaedes Nex cost 15 points less and gain Shrouded (5+). The cost is the army's body: no Retinue or Heavy Assault units, at most one High Command unit, and at least two of Moritat, Moritat Mortalis, Pathfinder or Kaedes Nex.",
+      "points": [ { "units": ["moritat", "moritat-mortalis", "pathfinder", "kaedes-nex"], "delta": -15 } ],
+      "modifiers": [ { "units": ["moritat", "moritat-mortalis", "pathfinder", "kaedes-nex"], "text": "Knives Among the Stars: Shrouded (5+).", "addRules": ["Shrouded (5+)"] } ],
+      "require": [ { "units": ["moritat", "moritat-mortalis", "pathfinder", "kaedes-nex"], "min": 2, "note": "At least two knife-men." } ],
+      "limit": [ { "match": { "role": "High Command" }, "max": 1, "note": "At most one High Command unit." } ],
+      "forbid": [ { "match": { "roles": ["Retinue", "Heavy Assault"] } } ]
+    }
+  ]
+}
