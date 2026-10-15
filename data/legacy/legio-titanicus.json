@@ -458,9 +458,9 @@
       "models": [
         "Secutarii"
       ],
-      "text": "Void-drilled armsmen: +1 LD, -1 I.",
+      "text": "Void-drilled armsmen: +1 WS, -1 I.",
       "stats": {
-        "LD": "+1",
+        "WS": "+1",
         "I": "-1"
       }
     },
@@ -468,10 +468,10 @@
       "units": [
         "secutarii-axiarch"
       ],
-      "text": "Tech-bred officer: +1 IN, -1 CL.",
+      "text": "Tech-bred officer: +1 BS, -1 M.",
       "stats": {
-        "IN": "+1",
-        "CL": "-1"
+        "BS": "+1",
+        "M": "-1"
       }
     },
     {
@@ -603,7 +603,7 @@
     {
       "name": "Bonded Directive",
       "summary": "The Princeps leads from the Titan's head, and the maniple obeys.",
-      "text": "While a Unit with this Special Rule is within 12\" of a friendly Titan, every Model in that Unit adds 1 to its Leadership and Cool Characteristics when the Unit takes a Morale Check or a Cool Check.",
+      "text": "While a Unit with this Special Rule is within 12\" of a friendly Titan, it cannot gain the Suppressed Tactical Status.",
       "source": "The Bonded Cybernetica Maniple"
     },
     {
@@ -647,10 +647,10 @@
       "name": "Legio Pack-Bond",
       "flavor": "Titans of a Legio fight as a pack and wither alone.",
       "benefits": [
-        "A Titan with another friendly Titan within 12\" adds 1 to its Cool Characteristic when it makes a Cool Check to avoid a Tactical Status."
+        "A Titan with another friendly Titan within 12\" cannot gain the Pinned or Suppressed Tactical Status."
       ],
       "drawbacks": [
-        "A Titan with no friendly Titan within 24\" subtracts 1 from its Cool Characteristic for those Cool Checks, and cannot use the Overcharged Reactor Special Rule."
+        "A Titan with no friendly Titan within 24\" cannot Rush and cannot use the Overcharged Reactor Special Rule."
       ],
       "match": {
         "unitType": "Titan"
@@ -664,7 +664,7 @@
         "While within 12\" of a friendly Titan, an Automata Unit adds 1 to its Ballistic Skill Characteristic."
       ],
       "drawbacks": [
-        "While no friendly Titan remains on the battlefield, an Automata Unit subtracts 1 from its Cool Characteristic."
+        "While no friendly Titan remains on the battlefield, an Automata Unit subtracts 1 from its Movement Characteristic and cannot Rush."
       ],
       "match": {
         "unitType": "Automata"
@@ -678,7 +678,7 @@
       "name": "Armsman's Shieldwall",
       "flavor": "Void-drilled armsmen hold a line, but they cannot run.",
       "benefits": [
-        "Secutarii add 1 to their Cool Characteristic."
+        "Secutarii cannot gain the Pinned Tactical Status."
       ],
       "drawbacks": [
         "Secutarii cannot Rush."
@@ -686,10 +686,7 @@
       "units": [
         "secutarii-cohort",
         "secutarii-axiarch"
-      ],
-      "stats": {
-        "CL": "+1"
-      }
+      ]
     }
   ],
   "rites": [
@@ -887,7 +884,7 @@
       "benefits": [
         "Castellax Battle, Castellax Destructor and Domitar Battle Maniples may fill Troops slots and gain Line (1).",
         "Castellaxes add 1 to their Ballistic Skill Characteristic.",
-        "Maniples gain Bonded Directive: while within 12\" of a friendly Titan they add 1 to their Leadership and Cool Characteristics when taking a Morale Check or Cool Check."
+        "Maniples gain Bonded Directive: while within 12\" of a friendly Titan they cannot gain the Suppressed Tactical Status."
       ],
       "limitations": [
         "Exactly one Titan is required.",

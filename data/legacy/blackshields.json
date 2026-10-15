@@ -203,7 +203,7 @@
     {
       "name": "Nothing Left to Lose",
       "summary": "A man with no banner has nothing left to protect except the man beside him.",
-      "text": "A Model with this Special Rule adds 1 to its Cool Characteristic when making a Cool Check. A Unit that includes a Model with this Special Rule may never voluntarily Fall Back."
+      "text": "A Unit that includes a Model with this Special Rule cannot gain the Routed Tactical Status, but may never voluntarily Fall Back."
     },
     {
       "name": "Contract Hunters",
@@ -228,7 +228,7 @@
     {
       "name": "Sealed Contract",
       "summary": "A mark, a price, and a promise to collect personally.",
-      "text": "After both Players have deployed, the Controlling Player chooses one enemy Unit. Every Model in a Unit with this Special Rule adds 1 to the result of its Hit Tests against that Unit. If the chosen Unit is destroyed by any other Unit, every Model in the Unit with this Special Rule subtracts 1 from its Leadership Characteristic for the rest of the battle."
+      "text": "After both Players have deployed, the Controlling Player chooses one enemy Unit. Every Model in a Unit with this Special Rule adds 1 to the result of its Hit Tests against that Unit. If the chosen Unit is destroyed by any other Unit, every Model in the Unit with this Special Rule subtracts 1 from the result of its Charge Rolls for the rest of the battle."
     },
     {
       "name": "Stimm Surge",
@@ -587,10 +587,10 @@
         "despoiler-squad",
         "tactical-squad"
       ],
-      "text": "Nobody to answer to: +1 WP, -1 CL.",
+      "text": "Nobody to answer to: +1 WS, -1 M.",
       "stats": {
-        "WP": "+1",
-        "CL": "-1"
+        "WS": "+1",
+        "M": "-1"
       }
     },
     {
@@ -599,9 +599,9 @@
         "veteran-tactical-squad",
         "veteran-assault-squad"
       ],
-      "text": "Hard-bitten exiles: +1 LD, -1 BS.",
+      "text": "Hard-bitten exiles: +1 WS, -1 BS.",
       "stats": {
-        "LD": "+1",
+        "WS": "+1",
         "BS": "-1"
       }
     },
@@ -611,20 +611,20 @@
         "destroyer-assault-squad",
         "mortalis-destroyer-squad"
       ],
-      "text": "Wild-eyed raiders: +1 I, -1 LD.",
+      "text": "Wild-eyed raiders: +1 I, -1 BS.",
       "stats": {
         "I": "+1",
-        "LD": "-1"
+        "BS": "-1"
       }
     },
     {
       "units": [
         "ruinstorm-daemon-brutes"
       ],
-      "text": "Warp-wracked: +1 S, -1 LD.",
+      "text": "Warp-wracked: +1 S, -1 I.",
       "stats": {
         "S": "+1",
-        "LD": "-1"
+        "I": "-1"
       }
     },
     {
@@ -634,10 +634,10 @@
         "domitar-battle-maniple",
         "vorax-attack-maniple"
       ],
-      "text": "Unshackled cortex: +1 BS, -2 CL.",
+      "text": "Unshackled cortex: +1 BS, -1 I.",
       "stats": {
         "BS": "+1",
-        "CL": "-2"
+        "I": "-1"
       }
     },
     {
@@ -645,10 +645,10 @@
         "praetor",
         "endryd-haar"
       ],
-      "text": "Warlord of nothing, loyal to no one: +1 A, -1 LD.",
+      "text": "Warlord of nothing, loyal to no one: +1 A, -1 BS.",
       "stats": {
         "A": "+1",
-        "LD": "-1"
+        "BS": "-1"
       }
     },
     {
@@ -757,7 +757,7 @@
       "flavor": "Ten years without a flag teaches you who still stands beside you.",
       "benefits": [
         "Veteran Despoiler Squads may fill Troops slots. They lose Vanguard (3) and gain Line (1).",
-        "Veteran Despoilers gain Nothing Left to Lose: +1 Cool for Cool Checks."
+        "Veteran Despoilers gain Nothing Left to Lose: they cannot gain the Routed Tactical Status."
       ],
       "limitations": [
         "At least one Veteran Despoiler Squad is required.",

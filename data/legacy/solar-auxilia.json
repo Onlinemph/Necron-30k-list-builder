@@ -156,7 +156,7 @@
     {
       "name": "Veteran Prime",
       "summary": "A Prime who has marched through three theatres and never lost a standard.",
-      "text": "A Model upgraded to a Veteran Prime adds 1 to its Ballistic Skill and Leadership Characteristics."
+      "text": "A Model upgraded to a Veteran Prime adds 1 to its Ballistic Skill and Initiative Characteristics."
     },
     {
       "name": "Cohort colours",
@@ -739,10 +739,10 @@
         "*"
       ],
       "item": "Veteran Prime",
-      "text": "Veteran Prime: +1 BS, +1 LD.",
+      "text": "Veteran Prime: +1 BS, +1 I.",
       "stats": {
         "BS": "+1",
-        "LD": "+1"
+        "I": "+1"
       }
     },
     {
@@ -808,9 +808,21 @@
       "models": [
         "Auxiliary"
       ],
-      "text": "Volley drill: +1 LD, -1 WS. Drilled to hold a line, not to fight on it.",
+      "text": "Volley drill: +1 BS while the unit did not move in its last Movement Phase.",
       "stats": {
-        "LD": "+1",
+        "BS": "+1"
+      },
+      "condition": "while the unit did not move in its last Movement Phase"
+    },
+    {
+      "units": [
+        "lasrifle-section"
+      ],
+      "models": [
+        "Auxiliary"
+      ],
+      "text": "Volley drill: -1 WS. Drilled to hold a line, not to fight on it.",
+      "stats": {
         "WS": "-1"
       }
     },
@@ -997,7 +1009,7 @@
     {
       "name": "Beacon of the Line",
       "summary": "The Aquila is planted, and the line forms around it.",
-      "text": "While at least one Model with this Special Rule is in a Unit and that Unit is within 6\" of an Objective Marker, the Unit automatically passes any Panic Check and any Cool Check made for Pinning."
+      "text": "While at least one Model with this Special Rule is in a Unit and that Unit is within 6\" of an Objective Marker, each Model in the Unit counts as two Models when determining which Unit Controls that Objective."
     },
     {
       "name": "Wall-Cracker",
@@ -1398,10 +1410,10 @@
       "name": "Orders Down the Line",
       "flavor": "A regiment is only as steady as its officers.",
       "benefits": [
-        "While a Unit with this Special Rule is within 12\" of a friendly Command Unit, all Models in it add 1 to their Cool Characteristic."
+        "While a Unit with this Special Rule is within 12\" of a friendly Command Unit, all Models in it add 1 to the result of Hit Tests they make as part of a Reaction."
       ],
       "drawbacks": [
-        "If a Unit with this Special Rule has lost its Sergeant or Command Model as a casualty, all Models in it subtract 1 from their Cool Characteristic for the rest of the battle."
+        "If a Unit with this Special Rule has lost its Sergeant or Command Model as a casualty, it cannot declare Advanced Reactions for the rest of the battle."
       ],
       "units": [
         "lasrifle-section",
@@ -1415,9 +1427,9 @@
         "veletaris-command-section"
       ],
       "stats": {
-        "CL": "+1"
+        "BS": "+1"
       },
-      "condition": "within 12\" of a friendly Command unit"
+      "condition": "when making a Reaction within 12\" of a friendly Command unit"
     },
     {
       "name": "Armoured Doctrine",

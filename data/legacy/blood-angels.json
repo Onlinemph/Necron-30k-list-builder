@@ -623,10 +623,10 @@
         "unitType": "Command",
         "notUnitType": "Vehicle"
       },
-      "text": "The Red Thirst in the captains: +1 A, -1 CL.",
+      "text": "The Red Thirst in the captains: +1 A, -1 I.",
       "stats": {
         "A": "+1",
-        "CL": "-1"
+        "I": "-1"
       }
     },
     {
@@ -761,10 +761,9 @@
         "sanguinius"
       ],
       "item": "The Black Rage Stirs",
-      "text": "The Black Rage Stirs: +1 A, -2 WP.",
+      "text": "The Black Rage Stirs: +1 A, cannot Fall Back.",
       "stats": {
-        "A": "+1",
-        "WP": "-2"
+        "A": "+1"
       },
       "addRules": [
         "The Black Rage Stirs"
@@ -869,7 +868,7 @@
     {
       "name": "The Black Rage Stirs",
       "summary": "The vision of his own death takes hold, and the blade moves of its own accord.",
-      "text": "This Model adds 1 to its Attacks Characteristic and 2 to its Focus Rolls in Challenges, and subtracts 2 from its Willpower Characteristic. This Model must Accept any Challenge issued against it, and whenever it is able to, it must Issue one."
+      "text": "This Model adds 1 to its Attacks Characteristic and 2 to its Focus Rolls in Challenges, and cannot make a Fall Back move. This Model must Accept any Challenge issued against it, and whenever it is able to, it must Issue one."
     },
     {
       "name": "The Sorrowing Seraph",
@@ -883,8 +882,8 @@
     },
     {
       "name": "Sorrowsong",
-      "summary": "A pistol that sings as it fires, and the wounded remember the note.",
-      "text": "An enemy Unit that suffers one or more Unsaved Wounds from a Shooting Attack made with the Sorrowsong pistol subtracts 1 from its Leadership Characteristic until the end of the current Battle Turn."
+      "summary": "A pistol that sings as it fires, and the wounded cannot shake the note.",
+      "text": "An enemy Unit that suffers one or more Unsaved Wounds from a Shooting Attack made with the Sorrowsong pistol gains the Suppressed Tactical Status."
     }
   ],
   "rites": [
@@ -968,7 +967,7 @@
         "Every non-Vehicle Unit gains The Red Thirst: +1 to Charge Rolls, and a Set-up Move of up to 3\" towards the enemy after destroying a Unit in an Assault."
       ],
       "limitations": [
-        "Every non-Vehicle Model subtracts 1 from its Cool Characteristic.",
+        "Every non-Vehicle Model subtracts 1 from its Initiative Characteristic.",
         "Units with The Red Thirst must declare a Charge if an enemy Unit is within 12\" at the start of their Assault phase.",
         "No Apothecaries, no Recon units and no Support units other than Techmarines."
       ],
@@ -987,9 +986,9 @@
           "match": {
             "notUnitType": "Vehicle"
           },
-          "text": "Thirst of the Red Wings: -1 CL, The Red Thirst.",
+          "text": "Thirst of the Red Wings: -1 I, The Red Thirst.",
           "stats": {
-            "CL": "-1"
+            "I": "-1"
           },
           "addRules": [
             "The Red Thirst"
@@ -1170,7 +1169,7 @@
         "In a Challenge, a Model with this Special Rule adds 1 to its Initiative Characteristic."
       ],
       "drawbacks": [
-        "Once a Model with this Special Rule has lost a Wound, it must pass a Willpower Check at the start of each of its Controlling Player's Battle Turns. On a failure, it must declare a Charge against the nearest enemy Unit if able."
+        "Once a Model with this Special Rule has lost a Wound, at the start of each of its Controlling Player's Battle Turns it must declare a Charge against the nearest enemy Unit within 12\" if able, and cannot make a Fall Back move until the end of that Battle Turn."
       ],
       "match": {
         "roles": [

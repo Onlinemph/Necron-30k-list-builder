@@ -577,10 +577,10 @@
       "units": [
         "terror-squad"
       ],
-      "text": "Terror Squads revel in it and fear it: +1 WS, -1 CL.",
+      "text": "Terror Squads revel in it and tire for it: +1 WS, -1 I.",
       "stats": {
         "WS": "+1",
-        "CL": "-1"
+        "I": "-1"
       }
     },
     {
@@ -597,10 +597,10 @@
       "units": [
         "contekar-terminator-squad"
       ],
-      "text": "Contekar, bitter and unbound: +1 A, -1 LD.",
+      "text": "Contekar, bitter and unbound: +1 A, -1 I.",
       "stats": {
         "A": "+1",
-        "LD": "-1"
+        "I": "-1"
       }
     },
     {
@@ -608,10 +608,10 @@
         "reconnaissance-squad",
         "scout-squad"
       ],
-      "text": "Night-eyed stalkers: +1 BS, -1 LD.",
+      "text": "Night-eyed stalkers: +1 BS, -1 M.",
       "stats": {
         "BS": "+1",
-        "LD": "-1"
+        "M": "-1"
       }
     },
     {
@@ -619,10 +619,10 @@
         "unitType": "Command",
         "notUnitType": "Vehicle"
       },
-      "text": "Murderers' captains: +1 I, -1 CL.",
+      "text": "Murderers' captains: +1 I, -1 WS.",
       "stats": {
         "I": "+1",
-        "CL": "-1"
+        "WS": "-1"
       }
     },
     {
@@ -741,13 +741,12 @@
         "konrad-curze"
       ],
       "item": "Prophet of the Foreseen Fall",
-      "text": "Prophet of the Foreseen Fall: -1 WP, -1 LD.",
+      "text": "Prophet of the Foreseen Fall: -1 I.",
       "addRules": [
         "Prophet of the Foreseen Fall"
       ],
       "stats": {
-        "WP": "-1",
-        "LD": "-1"
+        "I": "-1"
       }
     },
     {
@@ -813,13 +812,13 @@
     },
     {
       "name": "Tithe of Blood",
-      "summary": "The Eighth Legion takes its tithe in fear.",
-      "text": "When a Unit with this Special Rule destroys an enemy Unit in an Assault, each enemy Unit within 12\" of it subtracts 1 from its Cool Characteristic until the end of that Battle Turn."
+      "summary": "The Eighth Legion takes its tithe, and the next victims hesitate to close.",
+      "text": "When a Unit with this Special Rule destroys an enemy Unit in an Assault, each enemy Unit within 12\" subtracts 1 from the result of its Charge Rolls until the end of its Controlling Player's next Battle Turn."
     },
     {
       "name": "Howling Dive",
-      "summary": "The wail of the dive grinds nerves to powder.",
-      "text": "A Unit with this Special Rule that has declared a Charge is hit at -1 in Reaction Shooting Attacks made against it. Each enemy Unit it charges also subtracts 1 from its Cool Characteristic for Cool Checks made during that Charge."
+      "summary": "The wail of the dive drowns every order the defenders try to give.",
+      "text": "A Unit with this Special Rule that has declared a Charge is hit at -1 in Reaction Shooting Attacks made against it. It also adds 1 to the result of its Charge Roll in a Battle Turn in which it arrived from Reserves."
     },
     {
       "name": "Trophy of Terror",
@@ -833,8 +832,8 @@
     },
     {
       "name": "Headsman's Reckoning",
-      "summary": "Every execution is a lesson to those who watch.",
-      "text": "When a Model with this Special Rule wins a Challenge, or destroys an enemy Sergeant or Command Model in an Assault, each enemy Unit within 9\" subtracts 1 from its Cool Characteristic until the start of its Controlling Player's next Battle Turn."
+      "summary": "Every execution turns the whole fight in the killer's favour.",
+      "text": "When a Model with this Special Rule wins a Challenge, or destroys an enemy Sergeant or Command Model in an Assault, its Unit adds 1 to its Combat Resolution Points for that Combat."
     },
     {
       "name": "Rooftop Stalkers",
@@ -848,18 +847,18 @@
     },
     {
       "name": "Dirge of Dread",
-      "summary": "A dying man's note, held for as long as the engine runs.",
-      "text": "At the end of the Movement phase, each enemy Unit within 12\" of a Vehicle with this Special Rule subtracts 1 from its Cool Characteristic until the end of that Battle Turn."
+      "summary": "A dying man's note, held for as long as the engine runs, keeps the enemy from surging forward.",
+      "text": "Enemy Units that start a Rush within 12\" of a Vehicle with this Special Rule subtract 2\" from the distance they Rush."
     },
     {
       "name": "The Night Haunter",
       "summary": "The terror of Nostramo walks in the open, and his own sons give him room.",
-      "text": "This Model loses the Fear (2) Special Rule and has the Fear (3) Special Rule. Friendly Night Lords Units within 6\" of this Model subtract 1 from their Leadership Characteristic."
+      "text": "This Model loses the Fear (2) Special Rule and has the Fear (3) Special Rule. Friendly Night Lords Units within 6\" of this Model cannot make a Fall Back move."
     },
     {
       "name": "Prophet of the Foreseen Fall",
       "summary": "He has seen the blow that will end him, and so he sees every other blow first.",
-      "text": "Once in each Battle Turn, when an enemy Unit declares a Charge against this Model's Unit, the Controlling Player may make a Willpower Check for this Model. If the Check is passed, the Charge Roll is made with a -2 modifier. This Model subtracts 1 from its Willpower Characteristic and 1 from its Leadership Characteristic."
+      "text": "Once in each Battle Turn, when an enemy Unit declares a Charge against this Model's Unit, the Charge Roll is made with a -2 modifier. This Model subtracts 1 from its Initiative Characteristic."
     },
     {
       "name": "Executioner of Nostramo",
@@ -1047,7 +1046,7 @@
       "name": "The Headsman's Tithe",
       "flavor": "A world pays in tithe, one way or another. The Eighth Legion simply prefers the other.",
       "benefits": [
-        "Terror Squads gain Fear (2) in place of Fear (1), and Tithe of Blood: when they destroy an enemy Unit in an Assault, each enemy Unit within 12\" subtracts 1 from its Cool Characteristic until the end of the Battle Turn.",
+        "Terror Squads gain Fear (2) in place of Fear (1), and Tithe of Blood: when they destroy an enemy Unit in an Assault, each enemy Unit within 12\" subtracts 1 from the result of its Charge Rolls until the end of its Controlling Player's next Battle Turn.",
         "The Headsman adds 1 to his Attacks Characteristic."
       ],
       "limitations": [

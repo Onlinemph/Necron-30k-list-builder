@@ -743,11 +743,13 @@
       "models": [
         "Levy"
       ],
-      "text": "Packed shoulder to shoulder: +1 LD, -1 I.",
+      "text": "Packed shoulder to shoulder: Shrouded (6+), -1 I.",
       "stats": {
-        "LD": "+1",
         "I": "-1"
-      }
+      },
+      "addRules": [
+        "Shrouded (6+)"
+      ]
     },
     {
       "units": [
@@ -757,9 +759,22 @@
         "Militia Infantry",
         "Infantry Sergeant"
       ],
-      "text": "Home-ground tenacity: +1 WP, -1 I.",
+      "text": "Home-ground tenacity: +1 WS within 6\" of an Objective Marker.",
       "stats": {
-        "WP": "+1",
+        "WS": "+1"
+      },
+      "condition": "while within 6\" of an Objective Marker"
+    },
+    {
+      "units": [
+        "infantry-troop"
+      ],
+      "models": [
+        "Militia Infantry",
+        "Infantry Sergeant"
+      ],
+      "text": "Home-ground tenacity: -1 I.",
+      "stats": {
         "I": "-1"
       }
     },
@@ -767,10 +782,10 @@
       "units": [
         "grenadier-troop"
       ],
-      "text": "Gene-crafted frames: +1 T, -1 CL.",
+      "text": "Gene-crafted frames: +1 T, -1 I.",
       "stats": {
         "T": "+1",
-        "CL": "-1"
+        "I": "-1"
       }
     },
     {
@@ -788,20 +803,20 @@
         "mounted-command-troop",
         "cavalry-troop"
       ],
-      "text": "Reckless nobles: +1 WS, -1 LD.",
+      "text": "Reckless nobles: +1 WS, -1 BS.",
       "stats": {
         "WS": "+1",
-        "LD": "-1"
+        "BS": "-1"
       }
     },
     {
       "units": [
         "reconnaissance-troop"
       ],
-      "text": "Gangland trackers: +1 I, -1 LD.",
+      "text": "Gangland trackers: +1 I, -1 WS.",
       "stats": {
         "I": "+1",
-        "LD": "-1"
+        "WS": "-1"
       }
     },
     {
@@ -918,7 +933,7 @@
     {
       "name": "Human Wave",
       "summary": "Empty the hab-blocks, hand out the rifles, and let the enemy run out of bullets first.",
-      "text": "While a Unit with this Special Rule includes ten or more Models, all Models in it add 1 to their Leadership and Cool Characteristics and the Unit automatically passes Panic Checks and Cool Checks made for Pinning. When a Unit with this Special Rule is destroyed in the Assault Phase, the enemy Unit that destroyed it cannot make a Consolidation move as a result."
+      "text": "While a Unit with this Special Rule includes ten or more Models, it adds 1 to its Combat Resolution Points in each Assault. When a Unit with this Special Rule is destroyed in the Assault Phase, the enemy Unit that destroyed it cannot make a Consolidation move as a result."
     },
     {
       "name": "Home Turf",
@@ -1081,7 +1096,7 @@
       "text": "Empty the hab-blocks, hand out the rifles, and let the enemy run out of bullets first.",
       "benefits": [
         "Levy Troops gain Line (1).",
-        "They gain Human Wave: while a Levy Troop has ten or more Models it adds 1 to Leadership and Cool and automatically passes Panic Checks and Pinning Cool Checks, and a Levy Troop destroyed in the Assault Phase gives the enemy no Consolidation move."
+        "They gain Human Wave: while a Levy Troop has ten or more Models it adds 1 to its Combat Resolution Points in each Assault, and a Levy Troop destroyed in the Assault Phase gives the enemy no Consolidation move."
       ],
       "limitations": [
         "At least three Levy Troops are required.",
@@ -1331,10 +1346,10 @@
       "name": "Expendable Masses",
       "flavor": "The hive has more bodies than rifles.",
       "benefits": [
-        "While a Unit with this Special Rule includes ten or more Models, all Models in it add 1 to their Cool Characteristic."
+        "While a Unit with this Special Rule includes ten or more Models, it adds 1 to the result of its Charge Rolls."
       ],
       "drawbacks": [
-        "While a Unit with this Special Rule includes fewer than five Models, all Models in it subtract 1 from their Cool Characteristic."
+        "While a Unit with this Special Rule includes fewer than five Models, it cannot declare Advanced Reactions."
       ],
       "units": [
         "infantry-troop",
@@ -1342,11 +1357,7 @@
         "grenadier-troop",
         "fire-support-troop",
         "reconnaissance-troop"
-      ],
-      "stats": {
-        "CL": "+1"
-      },
-      "condition": "while the unit has 10 or more models"
+      ]
     },
     {
       "name": "Summary Discipline",

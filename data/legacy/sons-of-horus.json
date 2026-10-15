@@ -171,7 +171,7 @@
     {
       "name": "Crown of Hollow Stars",
       "summary": "A circlet of black glass that shows a sky no one else can see.",
-      "text": "A Model equipped with the Crown of Hollow Stars adds 1 to its Willpower Characteristic and has the Vision of the Hollow Sky Special Rule."
+      "text": "A Model equipped with the Crown of Hollow Stars adds 1 to its Intelligence Characteristic and has the Vision of the Hollow Sky Special Rule."
     }
   ],
   "options": [
@@ -603,20 +603,20 @@
         "reaver-attack-squad",
         "reaver-aggressor-squad"
       ],
-      "text": "Reaver swagger: +1 I, -1 LD.",
+      "text": "Reaver swagger: +1 I, -1 T.",
       "stats": {
         "I": "+1",
-        "LD": "-1"
+        "T": "-1"
       }
     },
     {
       "units": [
         "inductii-squad"
       ],
-      "text": "Blooded fast, taught little: +1 BS, -1 CL.",
+      "text": "Blooded fast, taught little: +1 BS, -1 I.",
       "stats": {
         "BS": "+1",
-        "CL": "-1"
+        "I": "-1"
       }
     },
     {
@@ -634,10 +634,10 @@
         "unitType": "Command",
         "notUnitType": "Vehicle"
       },
-      "text": "Proud of rank and mistrustful of the unseen: +1 CL, -1 WP.",
+      "text": "Proud of rank and mistrustful of the unseen: +1 WS, -1 BS.",
       "stats": {
-        "CL": "+1",
-        "WP": "-1"
+        "WS": "+1",
+        "BS": "-1"
       }
     },
     {
@@ -820,9 +820,9 @@
         "horus-ascended"
       ],
       "item": "Crown of Hollow Stars",
-      "text": "Crown of Hollow Stars: +1 WP, Vision of the Hollow Sky.",
+      "text": "Crown of Hollow Stars: +1 IN, Vision of the Hollow Sky.",
       "stats": {
-        "WP": "+1"
+        "IN": "+1"
       },
       "addRules": [
         "Vision of the Hollow Sky"
@@ -845,7 +845,7 @@
       "flavor": "Four captains speak, and the Legion moves as one voice.",
       "benefits": [
         "Chieftain, Praetorian Command and Centurion Command Squads may fill Troops slots.",
-        "Every Command and High Command model gains +1 Willpower and Voice of the Mournival: friendly Sons of Horus units within 12\" add 1 to their Leadership and Cool when making Leadership Checks and Cool Checks."
+        "Every Command and High Command model gains +1 Initiative and Voice of the Mournival: friendly Sons of Horus units within 12\" add 1 to their Leadership and Cool when making Leadership Checks and Cool Checks."
       ],
       "limitations": [
         "At least two High Command units are required.",
@@ -860,9 +860,9 @@
             ],
             "notUnitType": "Vehicle"
           },
-          "text": "The Mournival's Word: +1 WP, Voice of the Mournival.",
+          "text": "The Mournival's Word: +1 I, Voice of the Mournival.",
           "stats": {
-            "WP": "+1"
+            "I": "+1"
           },
           "addRules": [
             "Voice of the Mournival"
@@ -1025,23 +1025,14 @@
       "name": "The Warmaster's Favour",
       "flavor": "Every recruit in the Legion believes his name was spoken at Horus's elbow.",
       "benefits": [
-        "Every non-vehicle model gains +1 Leadership.",
-        "Inductii Squads gain Sworn to Horus: they add 1 to their Leadership and Cool when making Leadership Checks and Cool Checks while Horus Lupercal or Horus Ascended is on the table."
+        "Every Sons of Horus Infantry unit adds 1\" to the distance it may move when it Rushes.",
+        "Inductii Squads gain Sworn to Horus: they count as having two additional Models for Tactical Strength when Controlling an Objective while Horus Lupercal or Horus Ascended is on the table."
       ],
       "limitations": [
         "Horus Lupercal or Horus Ascended must lead, and at least two Inductii Squads are required.",
         "No more than three High Command units, and no Malefic units."
       ],
       "modifiers": [
-        {
-          "match": {
-            "notUnitType": "Vehicle"
-          },
-          "text": "The Warmaster's Favour: +1 LD.",
-          "stats": {
-            "LD": "+1"
-          }
-        },
         {
           "units": [
             "inductii-squad"
@@ -1105,7 +1096,7 @@
     },
     {
       "name": "Sworn to Horus",
-      "text": "While Horus Lupercal or Horus Ascended is on the Battlefield, each Model with this Special Rule adds 1 to its Leadership Characteristic and 1 to its Cool Characteristic when making Leadership Checks and Cool Checks.",
+      "text": "While Horus Lupercal or Horus Ascended is on the Battlefield, a Unit made up entirely of Models with this Special Rule counts as having two additional Models for the purposes of determining Tactical Strength when it is counted for Controlling an Objective.",
       "summary": "The recruit believes his name was spoken at the Warmaster's elbow."
     },
     {
@@ -1156,7 +1147,7 @@
     {
       "name": "Pack Reverence",
       "summary": "The pack follows the grey fur.",
-      "text": "Friendly Sons of Horus Units within 6\" of this Model add 1 to their Cool Checks."
+      "text": "Friendly Sons of Horus Units within 6\" of this Model add 1 to their Charge Rolls."
     },
     {
       "name": "Warmaster's Aim",
@@ -1166,7 +1157,7 @@
     {
       "name": "Dread Majesty",
       "summary": "The galaxy's grandest tyrant wants nothing but to be seen.",
-      "text": "Enemy Models in base contact with this Model subtract 1 from their Weapon Skill Characteristic. Friendly Sons of Horus Units within 6\" of this Model subtract 1 from their Cool Checks."
+      "text": "Enemy Models in base contact with this Model subtract 1 from their Weapon Skill Characteristic. Models in friendly Sons of Horus Units within 6\" of this Model subtract 1 from their Initiative Characteristic."
     },
     {
       "name": "Whispering Sovereign",
@@ -1197,7 +1188,7 @@
         "A Model with this Special Rule adds 1 to its Charge Rolls in the Battle Turn in which its Unit enters play from Reserves and during the first Battle Turn."
       ],
       "drawbacks": [
-        "From the third Battle Turn, until its Unit has fought in a Combat, every Model in the Unit subtracts 1 from its Cool Characteristic."
+        "From the third Battle Turn, until its Unit has fought in a Combat, every Model in the Unit subtracts 1 from its Charge Rolls."
       ],
       "match": {
         "roles": [
@@ -1209,11 +1200,7 @@
         ],
         "notUnitType": "Vehicle"
       },
-      "optionalUnits": true,
-      "stats": {
-        "CL": "-1"
-      },
-      "condition": "from the third battle turn, until the unit has fought in a Combat"
+      "optionalUnits": true
     },
     {
       "name": "Mournival Pride",
@@ -1269,7 +1256,7 @@
       ],
       "drawbacks": [
         "If Horus Lupercal or Horus Ascended is removed as a casualty, every friendly Sons of Horus Unit subtracts 2 from its Cool Checks for the rest of the battle.",
-        "While he is on the battlefield, friendly Sons of Horus Units more than 24\" from him subtract 1 from their Cool Checks."
+        "While he is on the battlefield, friendly Sons of Horus Units more than 24\" from him subtract 1 from their Charge Rolls."
       ],
       "match": {
         "notUnitType": "Vehicle"

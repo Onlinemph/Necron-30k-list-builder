@@ -538,11 +538,13 @@
       "units": [
         "sentinel-guard-sodality"
       ],
-      "text": "Shieldwall drilled to stillness: +1 LD, -1 I.",
+      "text": "Shieldwall drilled to stillness: Shrouded (6+), -1 I.",
       "stats": {
-        "LD": "+1",
         "I": "-1"
-      }
+      },
+      "addRules": [
+        "Shrouded (6+)"
+      ]
     },
     {
       "units": [
@@ -569,10 +571,10 @@
       "units": [
         "venatari-sodality"
       ],
-      "text": "Talon hunters: +1 I, -1 LD.",
+      "text": "Talon hunters: +1 I, -1 WS.",
       "stats": {
         "I": "+1",
-        "LD": "-1"
+        "WS": "-1"
       }
     },
     {
@@ -723,7 +725,7 @@
       "flavor": "The Throne is the last thing that falls, and the Ten Thousand are what stands in front of it.",
       "benefits": [
         "Adrasite and Pyrithite Guard Sodalities may fill Troops slots.",
-        "They gain Line (1) and Unbroken Watch: they automatically pass Panic Checks and Pinning Cool Checks while within 6\" of an Objective Marker."
+        "They gain Line (1) and Unbroken Watch: while within 6\" of an Objective Marker they cannot become Pinned or Suppressed."
       ],
       "limitations": [
         "A Shield Captain must be included.",
@@ -968,7 +970,7 @@
     {
       "name": "Unbroken Watch",
       "summary": "The Watch does not break while the Throne's gates are in sight.",
-      "text": "A Unit with this Special Rule automatically passes any Panic Check and any Cool Check made for Pinning while at least one of its Models is within 6\" of an Objective Marker."
+      "text": "While at least one Model in a Unit with this Special Rule is within 6\" of an Objective Marker, that Unit cannot gain the Pinned or Suppressed Tactical Statuses."
     },
     {
       "name": "Talon Writ",
@@ -998,7 +1000,7 @@
     {
       "name": "Hold the Gate",
       "summary": "Here the line stands, and here the line stays.",
-      "text": "While a Unit with this Special Rule is within 3\" of an Objective Marker, each of its Models counts as two Models when determining which Unit Controls that Objective, and the Unit automatically passes Panic Checks. A Unit with this Special Rule cannot Rush."
+      "text": "While a Unit with this Special Rule is within 3\" of an Objective Marker, each of its Models counts as two Models when determining which Unit Controls that Objective, and the Unit cannot gain the Pinned Tactical Status. A Unit with this Special Rule cannot Rush."
     },
     {
       "name": "Mirror-Gold Hull",
@@ -1008,7 +1010,7 @@
     {
       "name": "Voice of the Throne",
       "summary": "An edict that carries the Emperor's seal is not argued with.",
-      "text": "Once per battle, a Unit with this Special Rule may automatically pass one Panic Check or Cool Check it is required to make."
+      "text": "Once per battle, at the start of any Phase, a Unit with this Special Rule may remove the Pinned, Suppressed, Stunned or Routed Tactical Status from itself."
     },
     {
       "name": "Throne's Eye",
@@ -1026,7 +1028,7 @@
       "name": "Aurum Discipline",
       "flavor": "Ten thousand years of drill leave the Custodes unmoved by terror, and unable to yield.",
       "benefits": [
-        "A Unit with this Special Rule automatically passes any Cool Check it is required to make for Pinning."
+        "A Unit with this Special Rule is not affected by the Pinning (X) Special Rule of enemy Weapons."
       ],
       "drawbacks": [
         "A Unit with this Special Rule can never make a Fall Back Move voluntarily."
@@ -1059,17 +1061,14 @@
       "name": "Irreplaceable",
       "flavor": "There are so few of them that every loss is felt across the host.",
       "benefits": [
-        "A Model with this Special Rule adds 1 to its Cool Characteristic."
+        "A Unit with this Special Rule adds 1 to its Combat Resolution Points in each Assault."
       ],
       "drawbacks": [
-        "Whenever a Legio Custodes Unit is destroyed, every other friendly Legio Custodes Unit within 12\" subtracts 1 from its Cool Characteristic until the end of the next Battle Turn."
+        "Whenever a Legio Custodes Unit is destroyed, every other friendly Legio Custodes Unit within 12\" cannot make a Rush Move until the end of the next Battle Turn."
       ],
       "match": {
         "trait": "Legio Custodes",
         "notUnitType": "Vehicle"
-      },
-      "stats": {
-        "CL": "+1"
       }
     }
   ]

@@ -495,10 +495,10 @@
       "units": [
         "ruinstorm-daemon-beasts"
       ],
-      "text": "Hunting-pack ferocity: +1 M, -1 WP.",
+      "text": "Hunting-pack ferocity: +1 M, -1 I.",
       "stats": {
         "M": "+1",
-        "WP": "-1"
+        "I": "-1"
       }
     },
     {
@@ -699,7 +699,7 @@
     {
       "name": "Anchoring Idol",
       "summary": "Stolen faces hold the lesser daemons to the world a little longer.",
-      "text": "Once per battle, a Unit with this Special Rule may treat one failed Morale Check or Cool Check as having been passed."
+      "text": "Once per battle, at the start of its Controlling Player's Movement Phase, a Unit with this Special Rule may remove one Tactical Status it has gained."
     },
     {
       "name": "Barbed Ruin",
@@ -750,7 +750,7 @@
         "Shooting Attacks made against a Tzeench Unit from more than 24\" away subtract 1 from their Hit Tests."
       ],
       "drawbacks": [
-        "A Tzeench Model subtracts 1 from its Cool Characteristic as its attention wanders."
+        "An enemy Unit that makes a Charge against a Tzeench Unit adds 1 to its Charge Roll."
       ],
       "units": [
         "ascendant-lord-of-tzeench",
@@ -759,10 +759,7 @@
         "flamers-of-tzeench",
         "screamers-of-tzeench",
         "horrors-of-tzeench"
-      ],
-      "stats": {
-        "CL": "-1"
-      }
+      ]
     }
   ],
   "rites": [

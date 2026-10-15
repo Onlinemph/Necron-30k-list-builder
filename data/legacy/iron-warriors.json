@@ -73,7 +73,7 @@
         "While Perturabo is on the battlefield, friendly Iron Warriors Infantry Units that did not move during their last Movement phase add 1 to the Hit Tests of Shooting Attacks made with Weapons that have the Heavy (X) or Barrage (X) Special Rule."
       ],
       "drawbacks": [
-        "A friendly Iron Warriors Infantry Unit within 12\" of Perturabo that fails a Cool Check must also remove one Model of the Controlling Player's choice as a casualty.",
+        "Friendly Iron Warriors Infantry Units within 12\" of Perturabo cannot Rush.",
         "If Perturabo is removed as a casualty, friendly Iron Warriors Units subtract 1 from their Cool Characteristic for the rest of the battle."
       ],
       "match": {
@@ -630,11 +630,13 @@
         "breacher-squad",
         "veteran-breacher-squad"
       ],
-      "text": "Drilled to the wall: +1 LD, -1 I.",
+      "text": "Drilled to the wall: Unyielding Bastion, -1 I.",
       "stats": {
-        "LD": "+1",
         "I": "-1"
-      }
+      },
+      "addRules": [
+        "Unyielding Bastion"
+      ]
     },
     {
       "units": [
@@ -672,11 +674,13 @@
         "despoiler-squad",
         "veteran-tactical-squad"
       ],
-      "text": "Grim fortitude: +1 LD, -1 CL.",
+      "text": "Grim fortitude: Dug In, -1 M.",
       "stats": {
-        "LD": "+1",
-        "CL": "-1"
-      }
+        "M": "-1"
+      },
+      "addRules": [
+        "Dug In"
+      ]
     },
     {
       "units": [
@@ -821,13 +825,13 @@
         "perturabo"
       ],
       "item": "The Gorgon's Grudge",
-      "text": "The Gorgon's Grudge: +1 WS, -1 WP.",
+      "text": "The Gorgon's Grudge: +1 WS, -1 I.",
       "addRules": [
         "The Gorgon's Grudge"
       ],
       "stats": {
         "WS": "+1",
-        "WP": "-1"
+        "I": "-1"
       }
     },
     {
@@ -855,12 +859,12 @@
     {
       "name": "Dug In",
       "summary": "Hold the ground long enough and the ground holds you.",
-      "text": "A Unit with this Special Rule that did not move during its last Movement phase counts as being in Cover against Shooting Attacks, and adds 1 to its Cool Checks, until it next moves."
+      "text": "A Unit with this Special Rule that did not move during its last Movement phase counts as being in Cover against Shooting Attacks, and cannot be given the Pinned Tactical Status, until it next moves."
     },
     {
       "name": "Unbroken Garrison",
       "summary": "The Tyrant's guard does not break.",
-      "text": "While a Unit with this Special Rule is within 12\" of Perturabo or a Warsmith, it automatically passes any Cool Check or Pinning Check it is required to make. A Unit with this Special Rule can never choose to Fall Back."
+      "text": "While a Unit with this Special Rule is within 12\" of Perturabo or a Warsmith, it cannot be given the Pinned or Suppressed Tactical Status. A Unit with this Special Rule can never choose to Fall Back."
     },
     {
       "name": "Machine Certainty",
@@ -895,7 +899,7 @@
     {
       "name": "Sapper Tunnels",
       "summary": "Go under the line, and come up behind it.",
-      "text": "A Unit with this Special Rule has the Infiltrate (9) Special Rule, but subtracts 1 from its Cool Checks while an enemy Unit is within 6\"."
+      "text": "A Unit with this Special Rule has the Infiltrate (9) Special Rule, but cannot Rush during the first Battle Turn of the battle."
     },
     {
       "name": "Spall Liners",
@@ -920,7 +924,7 @@
     {
       "name": "The Gorgon's Grudge",
       "summary": "Some of his brothers he cannot forgive, and he intends to say so in person.",
-      "text": "This Model adds 1 to its Weapon Skill Characteristic and has the Hatred (Paragon) Special Rule. When there is an enemy Paragon Model within its reach, this Model must declare a Charge against it, or issue or accept a Challenge against it, if able. This Model subtracts 1 from its Willpower Characteristic."
+      "text": "This Model adds 1 to its Weapon Skill Characteristic and has the Hatred (Paragon) Special Rule. When there is an enemy Paragon Model within its reach, this Model must declare a Charge against it, or issue or accept a Challenge against it, if able. This Model subtracts 1 from its Initiative Characteristic."
     },
     {
       "name": "Weak Point Surveyed",
@@ -939,7 +943,7 @@
       "flavor": "A line that cannot be turned is worth more than ten that cannot be stopped.",
       "benefits": [
         "Iron Havocs, Heavy Support Squads and Tactical Support Squads may fill Troops slots and gain Line (1).",
-        "Those units gain Dug In: after a Battle Turn in which they did not move, they count as being in Cover against Shooting Attacks and add 1 to their Cool Checks."
+        "Those units gain Dug In: after a Battle Turn in which they did not move, they count as being in Cover against Shooting Attacks and cannot be Pinned."
       ],
       "limitations": [
         "No Antigrav units, no Fast Attack units, and no Recon units other than Tarantula Batteries.",
@@ -995,7 +999,7 @@
       "flavor": "Perturabo trusts no one, and so every wall he builds has a guard on the inside.",
       "benefits": [
         "Iron Circle Maniples and Dominator Cohorts may fill Troops slots.",
-        "Those units gain Unbroken Garrison: they automatically pass Cool Checks and Pinning Checks while within 12\" of Perturabo or a Warsmith."
+        "Those units gain Unbroken Garrison: they cannot be Pinned or Suppressed while within 12\" of Perturabo or a Warsmith."
       ],
       "limitations": [
         "Perturabo, a Warsmith or a Warsmith in Artificer armour must lead the army.",

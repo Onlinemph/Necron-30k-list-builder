@@ -393,10 +393,10 @@
       "models": [
         "Null Mistress"
       ],
-      "text": "Hunt-leader's resolve: +1 A, -1 LD.",
+      "text": "Hunt-leader's grim drive: +1 A, -1 I.",
       "stats": {
         "A": "+1",
-        "LD": "-1"
+        "I": "-1"
       }
     },
     {
@@ -548,7 +548,7 @@
     {
       "name": "Snare Volley",
       "summary": "The grapnels fly, and the quarry learns it cannot run.",
-      "text": "Once per battle, at the start of the enemy Controlling Player's Movement Phase, choose one enemy Infantry Unit within 12\" of a Model with this Special Rule. That Unit must pass a Cool Check or gain the Pinned Tactical Status."
+      "text": "Once per battle, at the start of the enemy Controlling Player's Movement Phase, choose one enemy Infantry Unit within 6\" of a Model with this Special Rule. That Unit gains the Pinned Tactical Status."
     },
     {
       "name": "Truth Beam",
@@ -561,7 +561,7 @@
       "name": "Soulless Resolve",
       "flavor": "The Sisters feel no warp-born dread, and give no warmth to it either.",
       "benefits": [
-        "An Anathema Model ignores the effects of the Fear (X) Special Rule and adds 1 to its Cool Characteristic."
+        "An Anathema Model ignores the effects of the Fear (X) Special Rule and cannot gain a Tactical Status as the result of an enemy Psychic Power."
       ],
       "drawbacks": [
         "An Anathema Model cannot be targeted by friendly Psychic Powers, and cannot benefit from a Feel No Pain Special Rule granted by another Model."
@@ -570,10 +570,7 @@
         "anathema-cadre",
         "knight-centura",
         "jenetia-krole"
-      ],
-      "stats": {
-        "CL": "+1"
-      }
+      ]
     },
     {
       "name": "Quarry Marked",
@@ -596,7 +593,7 @@
       "name": "Cell-Block Hold",
       "flavor": "The Acquisitor is a moving prison, and smells like one.",
       "benefits": [
-        "Enemy Units within 6\" of an Acquisitor subtract 1 from their Cool Characteristic."
+        "Enemy Units that begin their move within 6\" of an Acquisitor subtract 2\" from the distance they move when they Rush."
       ],
       "drawbacks": [
         "An Acquisitor subtracts 2 from its Capacity Characteristic, its hold cramped by cells."
@@ -722,7 +719,7 @@
       "benefits": [
         "Castellax Battle and Destructor Maniples may fill Troops slots and gain Line (1).",
         "They gain Incorruptible Engines: enemy Psychic Powers cannot target them.",
-        "Anathema Cadres add 1 to their Leadership Characteristic."
+        "Anathema Cadres gain Dampening Pall: they cannot gain the Pinned, Stunned or Suppressed Tactical Status as the result of an enemy Psychic Power or Malefic ability."
       ],
       "limitations": [
         "At least two Castellax Maniples are required.",
@@ -754,10 +751,10 @@
           "units": [
             "anathema-cadre"
           ],
-          "text": "The Black Ships' Writ: +1 LD.",
-          "stats": {
-            "LD": "+1"
-          }
+          "text": "The Black Ships' Writ: Dampening Pall.",
+          "addRules": [
+            "Dampening Pall"
+          ]
         }
       ],
       "require": [

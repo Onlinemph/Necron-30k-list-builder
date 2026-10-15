@@ -69,7 +69,7 @@
     {
       "name": "Sigillite's black seal",
       "summary": "A wax-and-steel writ carrying Malcador's personal authority, which opens any door and closes most arguments.",
-      "text": "A Model equipped with the Sigillite's black seal adds 1 to its Willpower and Leadership Characteristics."
+      "text": "A Model equipped with the Sigillite's black seal adds 1 to its Willpower Characteristic."
     },
     {
       "name": "Shroud-cloak of the Talons",
@@ -401,9 +401,9 @@
       "units": [
         "tylos-rubio"
       ],
-      "text": "Echoes of fate: +1 IN, -1 S.",
+      "text": "Echoes of fate: +1 I, -1 S.",
       "stats": {
-        "IN": "+1",
+        "I": "+1",
         "S": "-1"
       }
     },
@@ -433,10 +433,9 @@
       ],
       "item": "Sigillite's black seal",
       "scope": "unit",
-      "text": "Sigillite's black seal: +1 WP, +1 LD.",
+      "text": "Sigillite's black seal: +1 WP.",
       "stats": {
-        "WP": "+1",
-        "LD": "+1"
+        "WP": "+1"
       }
     },
     {
@@ -578,7 +577,7 @@
       "name": "Hounded by Fate",
       "flavor": "The two Knights-Errant march with the weight of what they have seen.",
       "benefits": [
-        "Nathaniel Garro and Tylos Rubio add 1 to their Cool Characteristic."
+        "Nathaniel Garro and Tylos Rubio cannot gain the Pinned Tactical Status."
       ],
       "drawbacks": [
         "Nathaniel Garro and Tylos Rubio may only be joined to Units of Automata from this army, and are never counted as part of a Legion for any other friendly Special Rule."
@@ -586,10 +585,7 @@
       "units": [
         "nathaniel-garro",
         "tylos-rubio"
-      ],
-      "stats": {
-        "CL": "+1"
-      }
+      ]
     },
     {
       "name": "Cold Hunters",
@@ -598,15 +594,14 @@
         "Automata add 1 to their Ballistic Skill Characteristic."
       ],
       "drawbacks": [
-        "Automata subtract 1 from their Willpower Characteristic.",
+        "Automata cannot make Reactions.",
         "An Automata Unit cannot hold or contest an Objective unless Nathaniel Garro or Tylos Rubio is within 12\"."
       ],
       "match": {
         "unitType": "Automata"
       },
       "stats": {
-        "BS": "+1",
-        "WP": "-1"
+        "BS": "+1"
       }
     }
   ],
@@ -617,7 +612,7 @@
       "benefits": [
         "Castellax Battle, Castellax Destructor and Domitar Battle Maniples may fill Troops slots and gain Line (1).",
         "Maniples gain Oath-Bonded: while within 12\" of Garro or Rubio they add 1 to their Leadership and Cool Characteristics when taking a Morale Check or Cool Check.",
-        "Garro and Rubio add 1 to their Leadership Characteristic."
+        "Garro and Rubio add 1 to their Initiative Characteristic."
       ],
       "limitations": [
         "Garro or Rubio must be in the army.",
@@ -651,9 +646,9 @@
             "nathaniel-garro",
             "tylos-rubio"
           ],
-          "text": "Garro's Company: +1 LD.",
+          "text": "Garro's Company: +1 I.",
           "stats": {
-            "LD": "+1"
+            "I": "+1"
           }
         }
       ],

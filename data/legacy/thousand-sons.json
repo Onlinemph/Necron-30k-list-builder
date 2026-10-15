@@ -102,7 +102,7 @@
     },
     {
       "name": "Fate-glass",
-      "text": "A Model equipped with a Fate-glass adds 1 to its Willpower Characteristic and 1 to its Intelligence Characteristic.",
+      "text": "A Model equipped with a Fate-glass adds 1 to its Intelligence Characteristic and 1 to its Initiative Characteristic.",
       "summary": "A lens of cut crystal through which a sorcerer glimpses a few seconds of the next minute."
     },
     {
@@ -533,29 +533,29 @@
         "veteran-assault-squad"
       ],
       "optionalUnits": true,
-      "text": "Dissonant Rubric-lore: +1 IN, -1 CL.",
+      "text": "Dissonant Rubric-lore: +1 IN, -1 I.",
       "stats": {
         "IN": "+1",
-        "CL": "-1"
+        "I": "-1"
       }
     },
     {
       "units": [
         "khenetai-occult-cabal"
       ],
-      "text": "Khenetai blade-dancers: +1 I, -1 LD.",
+      "text": "Khenetai blade-dancers: +1 I, -1 T.",
       "stats": {
         "I": "+1",
-        "LD": "-1"
+        "T": "-1"
       }
     },
     {
       "units": [
         "sekhmet-terminator-cabal"
       ],
-      "text": "Sekhmet trance-march: +1 WP, -1 M.",
+      "text": "Sekhmet trance-march: +1 IN, -1 M.",
       "stats": {
-        "WP": "+1",
+        "IN": "+1",
         "M": "-1"
       }
     },
@@ -563,10 +563,10 @@
       "units": [
         "horrors-of-tzeench"
       ],
-      "text": "Mutable horrors: +1 I, -1 CL.",
+      "text": "Mutable horrors: +1 I, -1 WS.",
       "stats": {
         "I": "+1",
-        "CL": "-1"
+        "WS": "-1"
       }
     },
     {
@@ -584,9 +584,9 @@
         "unitType": "Command",
         "notUnitType": "Vehicle"
       },
-      "text": "Scholar-sorcerers: +1 WP, -1 A.",
+      "text": "Scholar-sorcerers: +1 IN, -1 A.",
       "stats": {
-        "WP": "+1",
+        "IN": "+1",
         "A": "-1"
       }
     },
@@ -605,10 +605,10 @@
         "*"
       ],
       "item": "Fate-glass",
-      "text": "Fate-glass: +1 WP, +1 IN.",
+      "text": "Fate-glass: +1 IN, +1 I.",
       "stats": {
-        "WP": "+1",
-        "IN": "+1"
+        "IN": "+1",
+        "I": "+1"
       }
     },
     {
@@ -825,7 +825,7 @@
     {
       "name": "Tutor of the Cabal",
       "summary": "For a battle he teaches rather than strikes, and his sons stand the straighter for it.",
-      "text": "Models in friendly Thousand Sons Units within 12\" of this Model add 1 to their Cool Characteristic when making Cool Checks. This Model subtracts 2 from its Attacks Characteristic."
+      "text": "Models in friendly Thousand Sons Units within 12\" of this Model add 1 to the Hit Tests of Shooting Attacks they make as a Reaction. This Model subtracts 2 from its Attacks Characteristic."
     },
     {
       "name": "Foretold Doom",
@@ -973,7 +973,7 @@
       "benefits": [
         "Numerologist Cabals and Ammitara Occult Intercession Cabals may fill Troops slots.",
         "They gain Foresight: after deployment and before the first turn, each may make a free 6\" Set-up Move.",
-        "Every Thousand Sons Infantry unit gains +1 Willpower."
+        "Every Thousand Sons Infantry unit has the Shrouded (6+) Special Rule against Shooting Attacks made from more than 18\" away."
       ],
       "limitations": [
         "Every Thousand Sons Infantry unit loses 1 Move.",
@@ -995,9 +995,8 @@
             "unitType": "Infantry",
             "notUnitType": "Vehicle"
           },
-          "text": "The Scrying Cabal: +1 WP, -1 M.",
+          "text": "The Scrying Cabal: -1 M.",
           "stats": {
-            "WP": "+1",
             "M": "-1"
           }
         },
@@ -1100,12 +1099,12 @@
     },
     {
       "name": "Capricious Warp",
-      "flavor": "Warp-spawned allies shrug off blows that would fell flesh, but heed the cabal only when it stands near.",
+      "flavor": "Warp-spawned allies shrug off blows that would fell flesh, but act only when the cabal stands near.",
       "benefits": [
         "A Model with this Special Rule has the Feel No Pain (6+) Special Rule."
       ],
       "drawbacks": [
-        "While no friendly Prosperine Sorcerer, Herald of Tzeench, Ahzek Ahriman, Magistus Amon or Magnus the Red is within 12\" of its Unit, every Model in the Unit subtracts 1 from its Cool Characteristic."
+        "While no friendly Prosperine Sorcerer, Herald of Tzeench, Ahzek Ahriman, Magistus Amon or Magnus the Red is within 12\" of its Unit, that Unit may not make Reactions."
       ],
       "units": [
         "horrors-of-tzeench",
@@ -1113,11 +1112,7 @@
         "screamers-of-tzeench",
         "herald-of-tzeench"
       ],
-      "optionalUnits": true,
-      "stats": {
-        "CL": "-1"
-      },
-      "condition": "while more than 12\" from a friendly sorcerer, Herald or Primarch"
+      "optionalUnits": true
     },
     {
       "name": "The Crimson King's Regard",
@@ -1126,7 +1121,7 @@
         "magnus-the-red"
       ],
       "benefits": [
-        "While Magnus the Red is on the battlefield, friendly Thousand Sons Infantry Models within 12\" of him add 1 to their Willpower Characteristic."
+        "While Magnus the Red is on the battlefield, friendly Thousand Sons Infantry Models within 12\" of him ignore the effects of the Suppressed Tactical Status."
       ],
       "drawbacks": [
         "If Magnus the Red is removed as a casualty, every friendly Thousand Sons Model subtracts 1 from its Willpower Characteristic for the remainder of the Battle."
@@ -1135,11 +1130,7 @@
         "unitType": "Infantry",
         "notUnitType": "Vehicle"
       },
-      "optionalUnits": true,
-      "stats": {
-        "WP": "+1"
-      },
-      "condition": "within 12\" of Magnus"
+      "optionalUnits": true
     }
   ]
 }

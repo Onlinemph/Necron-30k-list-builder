@@ -7,7 +7,7 @@
         "A Model with this Special Rule adds 1 to its Initiative Characteristic on a Battle Turn in which its Unit makes a Charge."
       ],
       "drawbacks": [
-        "If a Unit with this Special Rule ends its Controlling Player's Battle Turn having made neither a Shooting Attack nor a Charge, it subtracts 1 from its Cool Checks until it makes one or the other."
+        "If a Unit with this Special Rule ends its Controlling Player's Battle Turn having made neither a Shooting Attack nor a Charge, it cannot make Reactions until the start of its next Battle Turn."
       ],
       "match": {
         "notUnitType": "Vehicle",
@@ -27,7 +27,7 @@
         "A Unit with this Special Rule that wins a Combat has the Feel No Pain (6+) Special Rule until the end of the following Battle Turn."
       ],
       "drawbacks": [
-        "A Unit with this Special Rule that loses a Combat must immediately make a Cool Check with a -1 modifier."
+        "A Unit with this Special Rule that loses a Combat subtracts 1 from the result of its Charge Rolls until the end of the following Battle Turn."
       ],
       "match": {
         "roles": [
@@ -46,7 +46,7 @@
         "A Model with this Special Rule adds 1 to its Initiative Characteristic while it is taking part in a Challenge."
       ],
       "drawbacks": [
-        "If a Model with this Special Rule is slain in a Challenge, every friendly Emperor's Children Unit within 12\" of it must make a Cool Check with a -1 modifier."
+        "A Model with this Special Rule can never decline a Challenge."
       ],
       "match": {
         "unitType": "Command",
@@ -195,7 +195,7 @@
     {
       "name": "Laurels of Perfection",
       "summary": "A circlet of gold leaf awarded for a flawless victory, worn as though the next one were already won.",
-      "text": "A Model equipped with Laurels of Perfection adds 1 to its Cool Characteristic and 1 to its Initiative Characteristic."
+      "text": "A Model equipped with Laurels of Perfection adds 1 to its Initiative Characteristic and 1 to its Focus Rolls."
     },
     {
       "name": "Banner of Dissonance",
@@ -205,7 +205,7 @@
     {
       "name": "Narcotic stimulants",
       "summary": "A cocktail of synaptic boosters that turns pain into pleasure and orders into noise.",
-      "text": "A Unit equipped with Narcotic stimulants has the Feel No Pain (6+) Special Rule, and every Model in it subtracts 1 from its Willpower Characteristic."
+      "text": "A Unit equipped with Narcotic stimulants has the Feel No Pain (6+) Special Rule, and every Model in it subtracts 1 from its Initiative Characteristic."
     },
     {
       "name": "Mirrorbright plate",
@@ -220,7 +220,7 @@
     {
       "name": "Trophy cloak",
       "summary": "A cloak stitched from the banners and sashes of fallen rivals.",
-      "text": "A Model equipped with a Trophy cloak adds 1 to its Cool Characteristic and has the Collected Glories Special Rule."
+      "text": "A Model equipped with a Trophy cloak adds 1 to its Focus Rolls and has the Collected Glories Special Rule."
     },
     {
       "name": "Pain-glove",
@@ -667,10 +667,10 @@
         "palatine-blade-squad",
         "palatine-blade-aquilae-squad"
       ],
-      "text": "Peerless blades: +1 I, -1 WP.",
+      "text": "Peerless blades: +1 I, -1 M.",
       "stats": {
         "I": "+1",
-        "WP": "-1"
+        "M": "-1"
       }
     },
     {
@@ -711,10 +711,10 @@
         "veteran-assault-squad",
         "destroyer-assault-squad"
       ],
-      "text": "Gilded lightning: +1 I, -1 LD.",
+      "text": "Gilded lightning: +1 I, -1 T.",
       "stats": {
         "I": "+1",
-        "LD": "-1"
+        "T": "-1"
       }
     },
     {
@@ -722,10 +722,10 @@
         "unitType": "Command",
         "notUnitType": "Vehicle"
       },
-      "text": "Vain heroes: +1 WS, -1 CL.",
+      "text": "Vain heroes: +1 WS, -1 T.",
       "stats": {
         "WS": "+1",
-        "CL": "-1"
+        "T": "-1"
       }
     },
     {
@@ -733,9 +733,8 @@
         "*"
       ],
       "item": "Laurels of Perfection",
-      "text": "Laurels of Perfection: +1 CL, +1 I.",
+      "text": "Laurels of Perfection: +1 I, +1 Focus Roll.",
       "stats": {
-        "CL": "+1",
         "I": "+1"
       }
     },
@@ -756,9 +755,9 @@
       ],
       "item": "Narcotic stimulants",
       "scope": "unit",
-      "text": "Narcotic stimulants: Feel No Pain (6+), -1 WP.",
+      "text": "Narcotic stimulants: Feel No Pain (6+), -1 I.",
       "stats": {
-        "WP": "-1"
+        "I": "-1"
       },
       "addRules": [
         "Feel No Pain (6+)"
@@ -789,10 +788,7 @@
         "*"
       ],
       "item": "Trophy cloak",
-      "text": "Trophy cloak: Collected Glories, +1 CL.",
-      "stats": {
-        "CL": "+1"
-      },
+      "text": "Trophy cloak: Collected Glories, +1 Focus Roll.",
       "addRules": [
         "Collected Glories"
       ]
@@ -856,9 +852,9 @@
         "fulgrim"
       ],
       "item": "Pain-drunk Aesthete",
-      "text": "Pain-drunk Aesthete: Feel No Pain (6+), -2 WP.",
+      "text": "Pain-drunk Aesthete: Feel No Pain (6+), -1 M.",
       "stats": {
-        "WP": "-2"
+        "M": "-1"
       },
       "addRules": [
         "Pain-drunk Aesthete",
@@ -959,7 +955,7 @@
         "Palatine Blade squads, Phoenix Terminator Squads, Veteran Tactical Squads and Veteran Assault Squads may fill Troops slots.",
         "Palatine Blade squads, Phoenix Terminator Squads and Veteran Assault Squads gain Line (1); Veteran Tactical Squads already have it.",
         "Palatine Blade and Phoenix squads gain +1 Weapon Skill.",
-        "All those units gain Immaculate Ranks: they automatically pass Cool Checks while they have not lost a Model."
+        "All those units gain Immaculate Ranks: while they have not lost a Model, they cannot be Pinned or Suppressed."
       ],
       "limitations": [
         "At least one Palatine Blade squad is required.",
@@ -1229,7 +1225,7 @@
     {
       "name": "Immaculate Ranks",
       "summary": "Not a plume out of place, and so not a man afraid to be seen.",
-      "text": "A Unit with this Special Rule automatically passes any Cool Check it is required to make, provided it has not lost a Model at any point since the start of the battle."
+      "text": "A Unit with this Special Rule that has not lost a Model at any point since the start of the battle cannot be given the Pinned or Suppressed Tactical Status."
     },
     {
       "name": "Dirge of Pain",
@@ -1254,7 +1250,7 @@
     {
       "name": "Siren Song",
       "summary": "A note pitched to root the listener where he stands.",
-      "text": "At the start of its Movement phase, an enemy Unit within 12\" of a Model with this Special Rule must make a Cool Check. If it fails, it cannot Rush during that Battle Turn."
+      "text": "At the start of its Movement phase, an enemy Unit within 12\" of a Model with this Special Rule subtracts 2\" from the distance it moves if it Rushes during that Battle Turn."
     },
     {
       "name": "Collected Glories",
@@ -1289,7 +1285,7 @@
     {
       "name": "Pain-drunk Aesthete",
       "summary": "Sensation is the only honest teacher, and the lesson is never over.",
-      "text": "This Model has the Feel No Pain (6+) Special Rule. Once per battle, after suffering an unsaved Wound, it may add 1 to its Attacks Characteristic until the end of that Battle Turn. It subtracts 2 from its Willpower Characteristic."
+      "text": "This Model has the Feel No Pain (6+) Special Rule. Once per battle, after suffering an unsaved Wound, it may add 1 to its Attacks Characteristic until the end of that Battle Turn. It subtracts 1 from its Movement Characteristic."
     },
     {
       "name": "Dazzling Reflection",
@@ -1309,7 +1305,7 @@
     {
       "name": "Overture of Agony",
       "summary": "The music begins before he arrives, and no one is spared it.",
-      "text": "Enemy Units within 12\" of this Model subtract 1 from their Cool Checks. Friendly Emperor's Children Units within 6\" of this Model also subtract 1 from their Cool Checks."
+      "text": "Enemy Units within 12\" of this Model subtract 1 from the result of their Charge Rolls. Friendly Emperor's Children Units within 6\" of this Model cannot make Reactions."
     },
     {
       "name": "Gilded Edge Unsheathed",

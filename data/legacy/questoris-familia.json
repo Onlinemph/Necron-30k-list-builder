@@ -521,10 +521,10 @@
         "trait": "Imperialis Militia",
         "notUnitType": "Vehicle"
       },
-      "text": "Pressed levies who know the Household's justice: +1 LD, -1 CL.",
+      "text": "Levies drilled to hold the line: +1 WS, -1 I.",
       "stats": {
-        "LD": "+1",
-        "CL": "-1"
+        "WS": "+1",
+        "I": "-1"
       }
     },
     {
@@ -746,7 +746,7 @@
         "A Knight adds 1 to its Weapon Skill Characteristic."
       ],
       "drawbacks": [
-        "If an enemy Knight, Titan or Walker is visible and within a Knight's Charge reach at the start of the Assault Phase, the Controlling Player must declare a Charge with that Knight against it, or the Knight must pass a Cool Check or gain the Suppressed Tactical Status."
+        "If an enemy Knight, Titan or Walker is visible and within a Knight's Charge reach at the start of the Assault Phase, the Controlling Player must declare a Charge with that Knight against it, and that Knight cannot make Reactions in the following enemy Battle Turn."
       ],
       "match": {
         "unitType": "Knight"
@@ -762,18 +762,13 @@
         "An Armiger within 6\" of a friendly Knight cannot gain the Pinned or Suppressed Tactical Status."
       ],
       "drawbacks": [
-        "While no friendly Knight remains on the battlefield, an Armiger subtracts 2 from its Leadership and Cool Characteristics."
+        "While no friendly Knight remains on the battlefield, an Armiger cannot make Reactions and cannot Rush."
       ],
       "units": [
         "armiger-helverin",
         "armiger-warglaive",
         "armiger-moirax"
-      ],
-      "stats": {
-        "LD": "-2",
-        "CL": "-2"
-      },
-      "condition": "when no friendly Knight is on the battlefield"
+      ]
     }
   ],
   "rites": [

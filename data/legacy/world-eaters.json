@@ -7,7 +7,7 @@
         "A Model with this Special Rule adds 1 to its Initiative Characteristic until the end of the Assault Phase in a Player Turn in which its Unit made a successful Charge."
       ],
       "drawbacks": [
-        "If a Unit composed of Models with this Special Rule neither made a Charge nor fought in a Combat during its Controlling Player's previous Player Turn, all its Models subtract 1 from their Cool Characteristic until it does."
+        "If a Unit composed of Models with this Special Rule neither made a Charge nor fought in a Combat during its Controlling Player's previous Player Turn, all its Models subtract 1 from their Initiative Characteristic and the Unit cannot make Reactions until it does."
       ],
       "match": {
         "notUnitType": "Vehicle"
@@ -191,7 +191,7 @@
     {
       "name": "Crown of Nails",
       "summary": "A circlet hammered from the Nails his surgeons drew.",
-      "text": "A Model equipped with the Crown of Nails has the Fear (2) Special Rule and adds 1 to its Willpower Characteristic, but subtracts 1 from its Leadership Characteristic."
+      "text": "A Model equipped with the Crown of Nails has the Fear (2) Special Rule and adds 1 to its Willpower Characteristic, but cannot Rush and must declare a Charge against the nearest enemy Unit if it is able to."
     },
     {
       "name": "Debt-brand of the Nailed",
@@ -223,7 +223,7 @@
     {
       "name": "The Butcher's Chosen",
       "summary": "Angron's favoured walk ahead of him, and the Legion follows the blood.",
-      "text": "A Model with this Special Rule has the Fear (1) Special Rule. When a Unit that includes a Model with this Special Rule destroys an enemy Unit in a Combat, every friendly World Eaters Unit within 12\" adds 1 to its Leadership Characteristic until the end of the next Player Turn."
+      "text": "A Model with this Special Rule has the Fear (1) Special Rule. When a Unit that includes a Model with this Special Rule destroys an enemy Unit in a Combat, every friendly World Eaters Unit within 12\" adds 1 to the result of its Charge Rolls until the end of the next Player Turn."
     },
     {
       "name": "Goad the Pack",
@@ -253,7 +253,7 @@
     {
       "name": "Caged Fury",
       "summary": "The doors drop and the cargo is already screaming.",
-      "text": "Each Model that Disembarks from a Model with this Special Rule adds 2 to the result of its Charge Rolls in that Player Turn, and subtracts 1 from its Cool Characteristic until the end of that Player Turn."
+      "text": "Each Model that Disembarks from a Model with this Special Rule adds 2 to the result of its Charge Rolls in that Player Turn, but its Unit must declare a Charge against the nearest enemy Unit if it is able to, and cannot Rush in that Player Turn."
     },
     {
       "name": "The Red Angel Unchained",
@@ -278,7 +278,7 @@
     {
       "name": "Wrath Descending",
       "summary": "He drops from the red sky already swinging.",
-      "text": "This Model adds 2 to its Charge Rolls. In a Battle Turn in which it makes a successful Charge, each enemy Unit it is Locked in Combat with must make a Cool Check; a Unit that fails gains the Suppressed Tactical Status. This Model subtracts 1 from its Weapon Skill Characteristic."
+      "text": "This Model adds 2 to its Charge Rolls. In a Battle Turn in which it makes a successful Charge, each enemy Unit it is Locked in Combat with subtracts 1 from its Initiative Characteristic until the end of that Assault Phase. This Model subtracts 1 from its Weapon Skill Characteristic."
     },
     {
       "name": "The Butcher's Tally",
@@ -288,12 +288,12 @@
     {
       "name": "Mourner of Nuceria",
       "summary": "The boy-general remembers the city he lost, and so do his sons.",
-      "text": "Friendly World Eaters Units within 6\" of this Model add 1 to their Cool Checks. This Model's own Unit automatically passes Cool Checks. This Model subtracts 2 from its Attacks Characteristic."
+      "text": "Friendly World Eaters Units within 6\" of this Model cannot gain the Pinned Tactical Status. This Model's own Unit cannot gain the Pinned or Suppressed Tactical Statuses. This Model subtracts 2 from its Attacks Characteristic."
     },
     {
       "name": "Debt Marked",
       "summary": "The brand picks the next throat.",
-      "text": "At the start of the Controlling Player's Charge Sub-Phase, the Controlling Player may nominate one enemy Unit within 18\" of this Model. This Model adds 1 to its Charge Rolls made to charge the nominated Unit, and the nominated Unit subtracts 1 from its Cool Checks until the end of that Battle Turn."
+      "text": "At the start of the Controlling Player's Charge Sub-Phase, the Controlling Player may nominate one enemy Unit within 18\" of this Model. This Model adds 1 to its Charge Rolls made to charge the nominated Unit, and the nominated Unit subtracts 1 from the Hit Tests of any Reaction Shooting Attacks it makes until the end of that Battle Turn."
     },
     {
       "name": "Slag-Hide",
@@ -686,10 +686,10 @@
       "units": [
         "rampager-squad"
       ],
-      "text": "Rampagers: +1 I, -1 LD.",
+      "text": "Rampagers: +1 I, -1 M.",
       "stats": {
         "I": "+1",
-        "LD": "-1"
+        "M": "-1"
       }
     },
     {
@@ -697,10 +697,10 @@
         "unitType": "Command",
         "notUnitType": "Vehicle"
       },
-      "text": "The Nails bite deep: +1 A, -1 LD.",
+      "text": "The Nails bite deep: +1 A, -1 I.",
       "stats": {
         "A": "+1",
-        "LD": "-1"
+        "I": "-1"
       }
     },
     {

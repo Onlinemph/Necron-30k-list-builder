@@ -7,18 +7,14 @@
         "A Model with this Special Rule has the Shrouded (6+) Special Rule against Shooting Attacks made from more than 18\" away."
       ],
       "drawbacks": [
-        "While no other friendly Alpha Legion Unit is within 12\" of its Unit, a Model with this Special Rule subtracts 1 from its Cool Characteristic."
+        "While no other friendly Alpha Legion Unit is within 12\" of its Unit, a Unit including a Model with this Special Rule cannot Rush."
       ],
       "match": {
         "notUnitType": "Vehicle",
         "notNameIncludes": [
           "Exodus"
         ]
-      },
-      "stats": {
-        "CL": "-1"
-      },
-      "condition": "while no other friendly Alpha Legion unit is within 12\""
+      }
     },
     {
       "name": "Sabotage Cell",
@@ -46,7 +42,7 @@
         "An attack with the Precision (X) Special Rule made by an enemy Model cannot be allocated to a Model with this Special Rule unless it is the last Model remaining in its Unit."
       ],
       "drawbacks": [
-        "A Model with this Special Rule subtracts 1 from its Leadership Characteristic."
+        "An enemy Unit adds 1 to the result of its Charge Rolls made to charge a Unit that includes a Model with this Special Rule."
       ],
       "match": {
         "roles": [
@@ -55,9 +51,6 @@
           "Warlord"
         ],
         "notUnitType": "Vehicle"
-      },
-      "stats": {
-        "LD": "-1"
       }
     },
     {
@@ -203,7 +196,7 @@
     {
       "name": "Sleeper-cell beacon",
       "summary": "A tiny pulse-caster that lets scattered cells act on a single plan without a word on the vox.",
-      "text": "While a Unit includes a Model equipped with a Sleeper-cell beacon, every Model in that Unit adds 1 to its Cool and Intelligence Characteristics."
+      "text": "While a Unit includes a Model equipped with a Sleeper-cell beacon, every Model in that Unit adds 1 to its Intelligence Characteristic, and in a Player Turn in which that Unit arrives from Reserves it adds 2\" to its Rush distance."
     },
     {
       "name": "Cell pennant",
@@ -255,7 +248,7 @@
     {
       "name": "Cell Network",
       "summary": "Each cell trusts the others to be exactly where the plan says.",
-      "text": "While at least one other friendly Unit with this Special Rule is within 12\" of a Unit that includes a Model with this Special Rule, every Model in that Unit adds 1 to its Cool Characteristic when making a Cool Check."
+      "text": "While at least one other friendly Unit with this Special Rule is within 12\" of a Unit that includes a Model with this Special Rule, the Unit with this Special Rule cannot gain the Pinned Tactical Status."
     },
     {
       "name": "Sleeper Strike",
@@ -270,7 +263,7 @@
     {
       "name": "Purge Resolve",
       "summary": "A Dreadwing line does not break while its brothers stand beside it.",
-      "text": "A Unit that includes a Model with this Special Rule automatically passes every Cool Check it is required to make while it is within 6\" of at least one other friendly Unit with this Special Rule."
+      "text": "A Unit that includes a Model with this Special Rule has the Feel No Pain (6+) Special Rule against Wounds caused by Shooting Attacks while it is within 6\" of at least one other friendly Unit with this Special Rule."
     },
     {
       "name": "Cell Swap",
@@ -320,7 +313,7 @@
     {
       "name": "Margin Notes",
       "summary": "The plan is written down, and so is the plan for when it fails.",
-      "text": "Once per battle, when a friendly Alpha Legion Unit within 18\" of a Model with this Special Rule is about to make a Cool Check, that Unit adds 2 to its Cool Characteristic for that Check."
+      "text": "Once per battle, when a friendly Alpha Legion Unit within 18\" of a Model with this Special Rule makes a Charge Roll, that Unit may add 2 to the result of that Charge Roll."
     },
     {
       "name": "Phantom Orders",
@@ -739,10 +732,10 @@
       "units": [
         "headhunter-kill-team"
       ],
-      "text": "Trained to kill the head, not the body: +1 BS, -1 CL.",
+      "text": "Trained to kill the head, not the body: +1 BS, -1 I.",
       "stats": {
         "BS": "+1",
-        "CL": "-1"
+        "I": "-1"
       }
     },
     {
@@ -751,10 +744,10 @@
         "scout-squad",
         "seeker-squad"
       ],
-      "text": "Ghost-light training: +1 I, -1 LD.",
+      "text": "Ghost-light training: +1 I, -1 T.",
       "stats": {
         "I": "+1",
-        "LD": "-1"
+        "T": "-1"
       }
     },
     {
@@ -763,29 +756,29 @@
         "veteran-tactical-squad",
         "inductii-squad"
       ],
-      "text": "Every legionary a cell leader: +1 IN, -1 LD.",
+      "text": "Every legionary a cell leader: +1 IN, -1 WS.",
       "stats": {
         "IN": "+1",
-        "LD": "-1"
+        "WS": "-1"
       }
     },
     {
       "units": [
         "mor-deythan-squad"
       ],
-      "text": "Shadow-killers with no home to return to: +1 BS, -1 CL.",
+      "text": "Shadow-killers with no home to return to: +1 BS, -1 M.",
       "stats": {
         "BS": "+1",
-        "CL": "-1"
+        "M": "-1"
       }
     },
     {
       "units": [
         "dreadwing-interemptor-squad"
       ],
-      "text": "Hardened by purge after purge: +1 LD, -1 M.",
+      "text": "Hardened by purge after purge: +1 WS, -1 M.",
       "stats": {
-        "LD": "+1",
+        "WS": "+1",
         "M": "-1"
       }
     },
@@ -817,9 +810,8 @@
       ],
       "item": "Sleeper-cell beacon",
       "scope": "unit",
-      "text": "Sleeper-cell beacon: +1 CL, +1 IN.",
+      "text": "Sleeper-cell beacon: +1 IN, longer Rush on arrival.",
       "stats": {
-        "CL": "+1",
         "IN": "+1"
       }
     },
@@ -966,7 +958,7 @@
       "flavor": "No cell knows the plan. Every cell knows its part.",
       "benefits": [
         "Headhunter Kill Teams, Seeker Squads and Reconnaissance Squads may fill Troops slots and gain Line (1).",
-        "Those units gain Cell Network: +1 Cool for Cool Checks while another friendly unit with Cell Network is within 12\"."
+        "Those units gain Cell Network: they cannot gain the Pinned Tactical Status while another friendly unit with Cell Network is within 12\"."
       ],
       "limitations": [
         "At least two Headhunter Kill Teams are required.",
@@ -1129,7 +1121,7 @@
       "name": "Dreadwing Purge-Host",
       "flavor": "When the whispers fail, the Dreadwing is sent to finish the argument.",
       "benefits": [
-        "Dreadwing Interemptor and Lernaean Terminator Squads may fill Troops slots and gain Purge Resolve: they automatically pass Cool Checks while within 6\" of another friendly Unit with Purge Resolve.",
+        "Dreadwing Interemptor and Lernaean Terminator Squads may fill Troops slots and gain Purge Resolve: Feel No Pain (6+) against Shooting Attack Wounds while within 6\" of another friendly Unit with Purge Resolve.",
         "Interemptor Squads gain Line (1) and Scouring Flame: their Plasma burners have Shred (6+). Lernaean Terminator Squads improve Line (1) to Line (2)."
       ],
       "limitations": [
