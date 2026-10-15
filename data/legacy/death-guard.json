@@ -579,10 +579,10 @@
       "units": [
         "mortus-poisoner-squad"
       ],
-      "text": "Chemical adepts: +1 BS, -1 LD.",
+      "text": "Chemical adepts: +1 BS, -1 I.",
       "stats": {
         "BS": "+1",
-        "LD": "-1"
+        "I": "-1"
       }
     },
     {
@@ -610,10 +610,10 @@
         "unitType": "Command",
         "notUnitType": "Vehicle"
       },
-      "text": "Stoic lords of the Legion: +1 LD, -1 I.",
+      "text": "Stoic lords of the Legion: +1 T, -1 M.",
       "stats": {
-        "LD": "+1",
-        "I": "-1"
+        "T": "+1",
+        "M": "-1"
       }
     },
     {
@@ -794,7 +794,7 @@
     {
       "name": "Inexorable",
       "summary": "They have stopped feeling the cost of the march.",
-      "text": "A Unit with this Special Rule adds 1 to its Cool Characteristic when it makes a Morale Check or a Check to avoid gaining a Tactical Status."
+      "text": "A Unit with this Special Rule ignores the effects of the Suppressed Tactical Status."
     },
     {
       "name": "Walking Dead",
@@ -844,7 +844,7 @@
     {
       "name": "Rust-Plough",
       "summary": "The blade tears through wire, rubble and flesh alike.",
-      "text": "A Vehicle with this Special Rule ignores Difficult Terrain. Each enemy Unit that it Rams subtracts 1 from its Cool Characteristic until the end of that Battle Turn."
+      "text": "A Vehicle with this Special Rule ignores Difficult Terrain. Each enemy Unit that it Rams subtracts 1 from its Initiative Characteristic until the end of that Battle Turn."
     },
     {
       "name": "Reaper of Barbarus",
@@ -872,7 +872,7 @@
       "name": "Unhurried Death",
       "flavor": "The Legion has never run, and it has never needed to.",
       "benefits": [
-        "Every Death Guard Infantry Unit gains Inexorable: +1 Cool Characteristic on Morale Checks and Checks to avoid Tactical Statuses.",
+        "Every Death Guard Infantry Unit gains Inexorable: it ignores the effects of the Suppressed Tactical Status.",
         "Every Death Guard Infantry Unit except the Praevian (who already has Feel No Pain (5+)) gains Feel No Pain (6+)."
       ],
       "limitations": [
@@ -1163,7 +1163,7 @@
         "mortarion"
       ],
       "benefits": [
-        "While Mortarion is on the battlefield, friendly Death Guard Infantry Models within 12\" of him add 1 to their Cool Characteristic."
+        "While Mortarion is on the battlefield, each friendly Death Guard Infantry Model within 12\" of him counts as two Models when determining control of an Objective."
       ],
       "drawbacks": [
         "If Mortarion is removed as a casualty, every friendly Death Guard Model subtracts 1 from its Cool Characteristic for the remainder of the Battle."
@@ -1173,10 +1173,7 @@
         "notUnitType": "Vehicle"
       },
       "optionalUnits": true,
-      "stats": {
-        "CL": "+1"
-      },
-      "condition": "within 12\" of Mortarion"
+      "condition": "within 12\" of Mortarion: counts as two Models for Objectives"
     }
   ]
 }

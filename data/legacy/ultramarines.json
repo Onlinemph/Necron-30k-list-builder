@@ -110,8 +110,8 @@
   "wargear": [
     {
       "name": "Strategos slate",
-      "summary": "A cogitator slate loaded with the Codex's battle-plans and the day's terrain surveys.",
-      "text": "A Model equipped with a Strategos slate adds 1 to its Cool and Intelligence Characteristics."
+      "summary": "A cogitator slate loaded with the Codex's battle-plans and the day's terrain surveys, ready to redirect a line at a word.",
+      "text": "A Model equipped with a Strategos slate adds 1 to its Intelligence Characteristic. Once per battle, at the start of any of its Controlling Player's Movement phases, the Unit that includes this Model may make a Set-up Move of up to 3\" before any other Models are moved."
     },
     {
       "name": "Praetorian hoplon",
@@ -136,7 +136,7 @@
     {
       "name": "Oath-scroll of Macragge",
       "summary": "A scroll of oaths sealed in wax.",
-      "text": "A Model equipped with an Oath-scroll of Macragge adds 1 to its Cool Characteristic and has the Macragge Oath Special Rule."
+      "text": "A Model equipped with an Oath-scroll of Macragge has the Macragge Oath Special Rule, and adds 1 to its Weapon Skill Characteristic while it is engaged in a Challenge."
     },
     {
       "name": "Bulwark plates",
@@ -498,27 +498,13 @@
   ],
   "modifiers": [
     {
-      "units": [
-        "tactical-squad",
-        "breacher-squad",
-        "veteran-tactical-squad",
-        "despoiler-squad",
-        "praetorian-breacher-squad"
-      ],
-      "text": "Drilled to the Codex: +1 LD, -1 I.",
-      "stats": {
-        "LD": "+1",
-        "I": "-1"
-      }
-    },
-    {
       "match": {
         "unitType": "Command",
         "notUnitType": "Vehicle"
       },
-      "text": "Strategos of Ultramar: +1 IN, -1 WS.",
+      "text": "Strategos of Ultramar: +1 BS, -1 WS.",
       "stats": {
-        "IN": "+1",
+        "BS": "+1",
         "WS": "-1"
       }
     },
@@ -557,9 +543,8 @@
         "*"
       ],
       "item": "Strategos slate",
-      "text": "Strategos slate: +1 CL, +1 IN.",
+      "text": "Strategos slate: +1 IN.",
       "stats": {
-        "CL": "+1",
         "IN": "+1"
       }
     },
@@ -610,10 +595,7 @@
         "*"
       ],
       "item": "Oath-scroll of Macragge",
-      "text": "Oath-scroll of Macragge: +1 CL, Macragge Oath.",
-      "stats": {
-        "CL": "+1"
-      },
+      "text": "Oath-scroll of Macragge: Macragge Oath.",
       "addRules": [
         "Macragge Oath"
       ]
@@ -743,7 +725,7 @@
     {
       "name": "Vengeance of Calth",
       "summary": "Calth is not forgotten and will not be forgiven.",
-      "text": "While an enemy Word Bearers Unit is within 12\" of a Model with this Special Rule, each friendly Ultramarines Unit within 12\" of that Model passes Morale Checks automatically and adds 1 to the result of its Charge Rolls against Word Bearers Units."
+      "text": "While an enemy Word Bearers Unit is within 12\" of a Model with this Special Rule, each friendly Ultramarines Unit within 12\" of that Model ignores the effects of the Pinned Tactical Status and adds 1 to the result of its Charge Rolls against Word Bearers Units."
     },
     {
       "name": "Rally to the Eagle",
@@ -873,7 +855,7 @@
       "name": "Phalanx of the Invictus",
       "flavor": "Behind the shield-wall of the Suzerains, the rest of the Legion simply refuses to die.",
       "benefits": [
-        "Invictus Suzerain Squads may fill Troops slots and gain +1 Cool.",
+        "Invictus Suzerain Squads may fill Troops slots and gain Line (1).",
         "They gain Shield Wall: Feel No Pain (6+) against Shooting Attacks if they did not Rush in their most recent Movement phase."
       ],
       "limitations": [
@@ -893,12 +875,10 @@
           "units": [
             "invictus-suzerain-squad"
           ],
-          "text": "Phalanx of the Invictus: +1 CL, Shield Wall.",
-          "stats": {
-            "CL": "+1"
-          },
+          "text": "Phalanx of the Invictus: Line (1), Shield Wall.",
           "addRules": [
-            "Shield Wall"
+            "Shield Wall",
+            "Line (1)"
           ]
         }
       ],
@@ -932,7 +912,7 @@
         "They add 1 to their Initiative Characteristic and gain Eagle Strike: in the Battle Turn they arrive by Deep Strike, their Shooting Attacks are made with a +1 modifier to Hit Tests (they may Rush, but not Charge, in that Battle Turn)."
       ],
       "limitations": [
-        "They subtract 1 from their Leadership Characteristic.",
+        "They subtract 1 from their Move Characteristic.",
         "Locutarus Storm Squads must start the battle in Reserve.",
         "At least one Locutarus Storm Squad is required.",
         "No Armour units and no War Engines."
@@ -950,10 +930,10 @@
           "units": [
             "locutarus-storm-squad"
           ],
-          "text": "Strike of the Locutarus: +1 I, -1 LD, Eagle Strike.",
+          "text": "Strike of the Locutarus: +1 I, -1 M, Eagle Strike.",
           "stats": {
             "I": "+1",
-            "LD": "-1"
+            "M": "-1"
           },
           "addRules": [
             "Eagle Strike"
@@ -986,8 +966,8 @@
       "name": "Remember Calth",
       "flavor": "The Legion was shot in the back by its own brothers, and has not yet finished answering.",
       "benefits": [
-        "Every Ultramarines Unit gains Hatred (Word Bearers) (except the Honoured Telemechrus, which already has it), and every non-Vehicle Model adds 1 to its Leadership Characteristic.",
-        "Remus Ventanus and the Honoured Telemechrus gain Vengeance of Calth: nearby friendly Units pass Morale Checks automatically and add 1 to Charge Rolls against Word Bearers while an enemy Word Bearers Unit is within 12\"."
+        "Every Ultramarines Unit gains Hatred (Word Bearers) (except the Honoured Telemechrus, which already has it), and every non-Vehicle Model adds 1 to the result of its Charge Rolls against Word Bearers Units.",
+        "Remus Ventanus and the Honoured Telemechrus gain Vengeance of Calth: nearby friendly Units ignore the Pinned Tactical Status and add 1 to Charge Rolls against Word Bearers while an enemy Word Bearers Unit is within 12\"."
       ],
       "limitations": [
         "Remus Ventanus must lead the army.",
@@ -1004,15 +984,6 @@
           "addRules": [
             "Hatred (Word Bearers)"
           ]
-        },
-        {
-          "match": {
-            "notUnitType": "Vehicle"
-          },
-          "text": "Remember Calth: +1 LD.",
-          "stats": {
-            "LD": "+1"
-          }
         },
         {
           "units": [

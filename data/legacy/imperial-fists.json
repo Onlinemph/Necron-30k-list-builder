@@ -4,7 +4,7 @@
       "name": "Stoic Resilience",
       "flavor": "The Legion is built to be the last thing standing, and has forgotten how to be the first to move.",
       "benefits": [
-        "A Model with this Special Rule adds 1 to its Cool Characteristic."
+        "A Unit with this Special Rule counts as having one additional Model for the purposes of controlling Objectives, provided it did not move during its last Movement phase."
       ],
       "drawbacks": [
         "A Unit with this Special Rule cannot Rush, and subtracts 1 from the result of its Charge Rolls."
@@ -14,9 +14,6 @@
         "notNameIncludes": [
           "Templar"
         ]
-      },
-      "stats": {
-        "CL": "+1"
       }
     },
     {
@@ -39,7 +36,7 @@
       "name": "Wall Captains",
       "flavor": "Dorn's officers hold ground by standing on it.",
       "benefits": [
-        "A Model with this Special Rule adds 1 to its Leadership Characteristic.",
+        "A friendly Unit that includes a Model with this Special Rule cannot be given the Suppressed Tactical Status.",
         "A friendly Unit that includes a Model with this Special Rule treats its Cool Characteristic as 7 if it would otherwise be lower."
       ],
       "drawbacks": [
@@ -50,7 +47,6 @@
         "notUnitType": "Vehicle"
       },
       "stats": {
-        "LD": "+1",
         "M": "-1"
       }
     },
@@ -617,11 +613,13 @@
       "units": [
         "phalanx-warder-squad"
       ],
-      "text": "Phalanx Warders stand as one: +1 LD, -1 I.",
+      "text": "Phalanx Warders stand as one: Anti-Charge Stakes, -1 I.",
       "stats": {
-        "LD": "+1",
         "I": "-1"
-      }
+      },
+      "addRules": [
+        "Anti-Charge Stakes"
+      ]
     },
     {
       "units": [
@@ -811,13 +809,13 @@
         "rogal-dorn"
       ],
       "item": "The Wrathful Master",
-      "text": "The Wrathful Master: +1 A, -2 CL.",
+      "text": "The Wrathful Master: +1 A, -1 M.",
       "addRules": [
         "The Wrathful Master"
       ],
       "stats": {
         "A": "+1",
-        "CL": "-2"
+        "M": "-1"
       }
     },
     {
@@ -845,7 +843,7 @@
     {
       "name": "Shield Wall",
       "summary": "Shoulder to shoulder, the line is a wall that does not bend.",
-      "text": "A Unit with this Special Rule that did not move during its last Movement phase has the Feel No Pain (6+) Special Rule against Wounds caused by Shooting Attacks, and automatically passes Cool Checks, until it next moves."
+      "text": "A Unit with this Special Rule that did not move during its last Movement phase has the Feel No Pain (6+) Special Rule against Wounds caused by Shooting Attacks, and cannot be given the Suppressed Tactical Status, until it next moves."
     },
     {
       "name": "Pre-sighted Arcs",
@@ -885,7 +883,7 @@
     {
       "name": "Closed Ranks",
       "summary": "Every man knows where his neighbour stands.",
-      "text": "A Unit with this Special Rule adds 1 to its Cool Checks while every Model in it is within 2\" of its Sergeant."
+      "text": "While every Model in a Unit with this Special Rule is within 2\" of its Sergeant, the Unit adds 1 to the result of the Hit Tests of Shooting Attacks it makes as a Reaction."
     },
     {
       "name": "Lamp-Lit Targeting",
@@ -910,7 +908,7 @@
     {
       "name": "The Wrathful Master",
       "summary": "The fury beneath his silence is rare, and nobody wants to be near it.",
-      "text": "This Model adds 1 to its Attacks Characteristic and adds 2 to its Focus Rolls in Challenges, and subtracts 2 from its Cool Characteristic. Friendly Imperial Fists Units within 6\" of this Model that fail a Cool Check gain the Suppressed Tactical Status."
+      "text": "This Model adds 1 to its Attacks Characteristic and adds 2 to its Focus Rolls in Challenges, and subtracts 1 from its Movement Characteristic. This Model can never decline a Challenge."
     },
     {
       "name": "Immovable Line",
@@ -929,7 +927,7 @@
       "flavor": "Dorn set a line on the map and told his sons that the enemy would pay for every yard of it.",
       "benefits": [
         "Phalanx Warder Squads may fill Troops slots and gain Line (2).",
-        "Phalanx Warders gain Shield Wall: if they did not move in their last Movement phase they gain Feel No Pain (6+) against Shooting Attacks and automatically pass Cool Checks."
+        "Phalanx Warders gain Shield Wall: if they did not move in their last Movement phase they gain Feel No Pain (6+) against Shooting Attacks and cannot be Suppressed."
       ],
       "limitations": [
         "At least one Phalanx Warder Squad is required.",

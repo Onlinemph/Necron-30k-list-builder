@@ -100,7 +100,7 @@
   "wargear": [
     {
       "name": "Icon of the Word",
-      "text": "Each Model in a Unit that includes a Model equipped with an Icon of the Word has the Fear (1) Special Rule and adds 1 to its Willpower Characteristic.",
+      "text": "Each Model in a Unit that includes a Model equipped with an Icon of the Word has the Fear (1) Special Rule and adds 1 to its Charge Rolls.",
       "summary": "A reliquary-banner scrolled with the Lectitio Divinitatus, carried at the head of the line."
     },
     {
@@ -151,7 +151,7 @@
     {
       "name": "Gilded pectoral of the First Temple",
       "summary": "A breastplate beaten from the temple's own gold, heavy with prayer.",
-      "text": "A Model equipped with the Gilded pectoral of the First Temple has the Feel No Pain (6+) Special Rule and adds 1 to its Cool Characteristic."
+      "text": "A Model equipped with the Gilded pectoral of the First Temple has the Feel No Pain (6+) Special Rule and adds 1 to its Focus Roll when Engaged in a Challenge."
     }
   ],
   "options": [
@@ -537,19 +537,19 @@
         "Sergeant",
         "Veteran Sergeant"
       ],
-      "text": "Lector-trained sergeants: +1 WP, -1 IN.",
+      "text": "Lector-trained sergeants: +1 BS, -1 I.",
       "stats": {
-        "WP": "+1",
-        "IN": "-1"
+        "BS": "+1",
+        "I": "-1"
       }
     },
     {
       "units": [
         "inductii-squad"
       ],
-      "text": "Zealot-recruits: +1 WP, -1 WS.",
+      "text": "Zealot-recruits: +1 I, -1 WS.",
       "stats": {
-        "WP": "+1",
+        "I": "+1",
         "WS": "-1"
       }
     },
@@ -557,10 +557,10 @@
       "units": [
         "gal-vorbak"
       ],
-      "text": "Possessed fury: +1 I, -1 CL.",
+      "text": "Possessed fury: +1 I, -1 BS.",
       "stats": {
         "I": "+1",
-        "CL": "-1"
+        "BS": "-1"
       }
     },
     {
@@ -577,9 +577,9 @@
       "units": [
         "phraetus-anointed-conclave"
       ],
-      "text": "Wreathed in warp-fire: +1 WP, -1 I.",
+      "text": "Wreathed in warp-fire: +1 WS, -1 I.",
       "stats": {
-        "WP": "+1",
+        "WS": "+1",
         "I": "-1"
       }
     },
@@ -588,9 +588,9 @@
         "procurators",
         "procurators-with-jump-packs"
       ],
-      "text": "Practised in rites, not battle: +1 LD, -1 BS.",
+      "text": "Practised in rites, not battle: +1 IN, -1 BS.",
       "stats": {
-        "LD": "+1",
+        "IN": "+1",
         "BS": "-1"
       }
     },
@@ -600,10 +600,7 @@
       ],
       "item": "Icon of the Word",
       "scope": "unit",
-      "text": "Icon of the Word: Fear (1), +1 WP.",
-      "stats": {
-        "WP": "+1"
-      },
+      "text": "Icon of the Word: Fear (1).",
       "addRules": [
         "Fear (1)"
       ]
@@ -747,10 +744,7 @@
         "lorgar-aurelian"
       ],
       "item": "Gilded pectoral of the First Temple",
-      "text": "Gilded pectoral of the First Temple: Feel No Pain (6+), +1 CL.",
-      "stats": {
-        "CL": "+1"
-      },
+      "text": "Gilded pectoral of the First Temple: Feel No Pain (6+).",
       "addRules": [
         "Feel No Pain (6+)"
       ]
@@ -761,7 +755,7 @@
       "name": "Unyielding Faith",
       "flavor": "A Legion that believes cannot be convinced to leave the field.",
       "benefits": [
-        "Every non-vehicle model gains +1 Willpower and +1 Leadership.",
+        "Every non-vehicle unit counts as having one additional Model for the purposes of determining Tactical Strength when it is counted for Controlling an Objective.",
         "Chaplains and Diabolists gain Litany of Resolve: friendly units within 12\" add 1 to their Leadership and Cool when making Leadership Checks and Cool Checks."
       ],
       "limitations": [
@@ -769,16 +763,6 @@
         "No Techmarines, Forge Lords, Thallax, Castellax, Domitar, Thanatar, Vorax or Vultarax."
       ],
       "modifiers": [
-        {
-          "match": {
-            "notUnitType": "Vehicle"
-          },
-          "text": "Unyielding Faith: +1 WP, +1 LD.",
-          "stats": {
-            "WP": "+1",
-            "LD": "+1"
-          }
-        },
         {
           "units": [
             "chaplain",
@@ -938,7 +922,7 @@
       "flavor": "Every world conquered leaves ten thousand new converts to feed the next.",
       "benefits": [
         "Procurators may fill Troops slots.",
-        "Inductii Squads gain +1 Willpower, Line (1) and Tide of Converts: a squad with ten or more models automatically passes Leadership Checks and Cool Checks."
+        "Inductii Squads gain Line (1) and Tide of Converts: a squad with ten or more models counts as having three additional Models for Tactical Strength when Controlling an Objective."
       ],
       "limitations": [
         "At least two Inductii Squads are required.",
@@ -949,10 +933,7 @@
           "units": [
             "inductii-squad"
           ],
-          "text": "The Indoctrinated Tide: +1 WP, Tide of Converts.",
-          "stats": {
-            "WP": "+1"
-          },
+          "text": "The Indoctrinated Tide: Tide of Converts, Line (1).",
           "addRules": [
             "Tide of Converts",
             "Line (1)"
@@ -1008,7 +989,7 @@
     },
     {
       "name": "Tide of Converts",
-      "text": "While a Unit made up entirely of Models with this Special Rule includes ten or more Models, it automatically passes any Leadership Check or Cool Check it is required to make.",
+      "text": "While a Unit made up entirely of Models with this Special Rule includes ten or more Models, it counts as having three additional Models for the purposes of determining Tactical Strength when it is counted for Controlling an Objective.",
       "summary": "Every conquered world feeds ten thousand more converts to the line."
     },
     {
@@ -1023,7 +1004,7 @@
     },
     {
       "name": "Pilgrim's Cry",
-      "text": "A Unit that includes a Model with this Special Rule adds 1 to its Charge Rolls. Once per Battle, the Unit automatically passes one Leadership Check or Cool Check it is required to make.",
+      "text": "A Unit that includes a Model with this Special Rule adds 1 to its Charge Rolls. Once per Battle, the Unit may ignore the effects of the Pinned Tactical Status until the end of the current Phase.",
       "summary": "A thousand names stitched into cloth, and every one of them is shouting."
     },
     {
@@ -1038,13 +1019,13 @@
     },
     {
       "name": "Sacrificial Blade",
-      "text": "When a Model with this Special Rule removes an enemy Model as a Casualty in a Challenge, every friendly Unit within 12\" adds 1 to the Cool Characteristic of its Models until the end of that Battle Turn.",
+      "text": "When a Model with this Special Rule removes an enemy Model as a Casualty in a Challenge, every friendly Unit within 12\" adds 1 to its Combat Resolution Points until the end of that Battle Turn.",
       "summary": "A life given to the thing in the knife buys courage for the line."
     },
     {
       "name": "Preacher of Colchis",
       "summary": "He was gentle once, and his voice alone steadied a legion.",
-      "text": "Models in friendly Word Bearers Units within 6\" of this Model add 1 to their Cool Characteristic when making Cool Checks. This Model subtracts 1 from its Weapon Skill Characteristic."
+      "text": "Friendly Word Bearers Units within 6\" of this Model ignore the effects of the Pinned Tactical Status. This Model subtracts 1 from its Weapon Skill Characteristic."
     },
     {
       "name": "Ascendant Aurelian",
@@ -1091,7 +1072,7 @@
       "name": "Voice of the Faithful",
       "flavor": "A preacher's sermon steels the line.",
       "benefits": [
-        "A friendly Word Bearers Unit within 6\" of a Model with this Special Rule adds 1 to the Willpower Characteristic and 1 to the Cool Characteristic of its Models."
+        "A friendly Word Bearers Unit within 6\" of a Model with this Special Rule adds 1 to its Combat Resolution Points in any Combat it is part of."
       ],
       "drawbacks": [
         "If a Model with this Special Rule is removed as a Casualty, every friendly Word Bearers Unit within 12\" must pass a Cool Check or gain the Suppressed Status."

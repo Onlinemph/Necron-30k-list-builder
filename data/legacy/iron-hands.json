@@ -636,10 +636,10 @@
         "breacher-squad",
         "veteran-tactical-squad"
       ],
-      "text": "Cold calculus: +1 CL, -1 IN.",
+      "text": "Cold calculus: +1 BS, -1 I.",
       "stats": {
-        "CL": "+1",
-        "IN": "-1"
+        "BS": "+1",
+        "I": "-1"
       }
     },
     {
@@ -678,10 +678,10 @@
         "castellax-battle-maniple",
         "castellax-destructor-maniple"
       ],
-      "text": "Cortex-slaved targeting: +1 BS, -1 WP.",
+      "text": "Cortex-slaved targeting: +1 BS, -1 I.",
       "stats": {
         "BS": "+1",
-        "WP": "-1"
+        "I": "-1"
       }
     },
     {
@@ -916,8 +916,8 @@
     },
     {
       "name": "Plough Through",
-      "summary": "Barricades are only a delay.",
-      "text": "A Vehicle with this Special Rule ignores Difficult Terrain. Each enemy Unit that it Rams subtracts 1 from its Cool Characteristic until the end of that Battle Turn."
+      "summary": "Barricades are only a delay, and what stands behind them is shoved aside.",
+      "text": "A Vehicle with this Special Rule ignores Difficult Terrain. Each enemy Unit that it Rams gains the Pinned Tactical Status."
     },
     {
       "name": "Warp-Dead Field",
@@ -927,7 +927,7 @@
     {
       "name": "Oath of the Clan Remnant",
       "summary": "The clan is gone. The oath is not.",
-      "text": "Once per battle, a Unit with this Special Rule automatically passes one Morale Check it is required to make."
+      "text": "Once per battle, at the start of its Controlling Player's Battle Turn, a Unit with this Special Rule may remove one Tactical Status it has."
     },
     {
       "name": "The Gorgon Unleashed",
@@ -1145,16 +1145,13 @@
       "name": "Cold Logic",
       "flavor": "Flesh is weak, and so is fear.",
       "benefits": [
-        "A Unit with this Special Rule adds 1 to its Willpower Characteristic, and does not apply the Cool Characteristic penalties of the Fear (X) and Panic (X) Special Rules."
+        "A Unit with this Special Rule ignores the effects of the Pinned Tactical Status."
       ],
       "drawbacks": [
         "A Unit with this Special Rule subtracts 1 from the result of its Charge Rolls."
       ],
       "match": {
         "notUnitType": "Vehicle"
-      },
-      "stats": {
-        "WP": "+1"
       }
     },
     {
@@ -1174,10 +1171,10 @@
       "name": "Cortex-Net Hub",
       "flavor": "A commander wired into the Legion's battle-net.",
       "benefits": [
-        "Friendly Iron Hands Units within 9\" of a Model with this Special Rule may use that Model's Leadership and Cool Characteristics in place of their own when making Morale Checks and Cool Checks."
+        "Friendly Iron Hands Units within 9\" of a Model with this Special Rule do not gain the Suppressed Tactical Status from Shooting Attacks."
       ],
       "drawbacks": [
-        "If a Model with this Special Rule is removed as a casualty, each friendly Iron Hands Unit that was within 9\" of it becomes Suppressed and subtracts 1 from its Cool Characteristic until the end of its Controlling Player's next Battle Turn."
+        "If a Model with this Special Rule is removed as a casualty, each friendly Iron Hands Unit that was within 9\" of it gains the Suppressed Tactical Status."
       ],
       "match": {
         "roles": [

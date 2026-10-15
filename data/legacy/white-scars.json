@@ -24,7 +24,7 @@
         "A Unit with this Special Rule that moved 6\" or more during its last Movement phase has the Shrouded (6+) Special Rule against Shooting Attacks made from more than 12\" away."
       ],
       "drawbacks": [
-        "A Unit with this Special Rule that moved less than 6\" during its last Movement phase subtracts 1 from its Cool Checks until it next moves."
+        "Enemy Shooting Attacks that target a Unit with this Special Rule that moved less than 6\" during its last Movement phase add 1 to the result of their Hit Tests until it next moves."
       ],
       "match": {
         "roles": [
@@ -41,7 +41,7 @@
         "A Model with this Special Rule adds 1 to its Initiative Characteristic on a Battle Turn in which its Unit makes a Charge."
       ],
       "drawbacks": [
-        "If a Model with this Special Rule has neither made a Charge nor taken part in a Challenge by the end of the third Battle Turn, it subtracts 1 from its Cool Checks until it does."
+        "If a Model with this Special Rule has neither made a Charge nor taken part in a Challenge by the end of the third Battle Turn, it subtracts 1 from its Initiative Characteristic until it does."
       ],
       "match": {
         "unitType": "Command",
@@ -175,7 +175,7 @@
     {
       "name": "Stormcaller's totem",
       "summary": "A bone and feather fetish, empty of any power until a Stormseer decides otherwise.",
-      "text": "A Model equipped with a Stormcaller's totem adds 1 to its Willpower Characteristic and 1 to its Cool Characteristic."
+      "text": "A Model equipped with a Stormcaller's totem adds 1 to its Willpower Characteristic when it is the target of a Psychic Check or Psychic Power."
     },
     {
       "name": "Thunder-drum",
@@ -610,10 +610,10 @@
         "scimitar-jetbike-squadron",
         "golden-keshig"
       ],
-      "text": "Born to the saddle: +1 I, -1 LD.",
+      "text": "Born to the saddle: +1 I, -1 T.",
       "stats": {
         "I": "+1",
-        "LD": "-1"
+        "T": "-1"
       }
     },
     {
@@ -634,10 +634,10 @@
         "veteran-assault-squad",
         "dark-sons-of-death"
       ],
-      "text": "Fleet of foot: +1 M, -1 LD.",
+      "text": "Fleet of foot: +1 M, -1 WS.",
       "stats": {
         "M": "+1",
-        "LD": "-1"
+        "WS": "-1"
       }
     },
     {
@@ -668,10 +668,10 @@
         "mounted-stormseer",
         "stormseer-in-terminator-armour"
       ],
-      "text": "Voice of the storm: +1 IN, -1 CL.",
+      "text": "Voice of the storm: +1 IN, -1 WS.",
       "stats": {
         "IN": "+1",
-        "CL": "-1"
+        "WS": "-1"
       }
     },
     {
@@ -690,11 +690,11 @@
         "*"
       ],
       "item": "Stormcaller's totem",
-      "text": "Stormcaller's totem: +1 WP, +1 CL.",
+      "text": "Stormcaller's totem: +1 WP.",
       "stats": {
-        "WP": "+1",
-        "CL": "+1"
-      }
+        "WP": "+1"
+      },
+      "condition": "against Psychic Checks and Psychic Powers"
     },
     {
       "units": [
@@ -765,13 +765,12 @@
         "jaghatai-khan"
       ],
       "item": "Warrior-Poet of Chogoris",
-      "text": "Warrior-Poet of Chogoris: +1 IN, +1 WP, -1 A.",
+      "text": "Warrior-Poet of Chogoris: +1 IN, -1 A.",
       "addRules": [
         "Warrior-Poet of Chogoris"
       ],
       "stats": {
         "IN": "+1",
-        "WP": "+1",
         "A": "-1"
       }
     },
@@ -878,7 +877,7 @@
     {
       "name": "Warrior-Poet of Chogoris",
       "summary": "He is the calm, courteous host who weighs a man before he kills him.",
-      "text": "This Model adds 1 to its Intelligence Characteristic and 1 to its Willpower Characteristic, and subtracts 1 from its Attacks Characteristic. Once per battle, at the start of a Challenge this Model is engaged in, the Controlling Player may declare Measured Words; the opposing Controlling Player subtracts 2 from every Focus Roll made in that Challenge."
+      "text": "This Model adds 1 to its Intelligence Characteristic and subtracts 1 from its Attacks Characteristic. Once per battle, at the start of a Challenge this Model is engaged in, the Controlling Player may declare Measured Words; the opposing Controlling Player subtracts 2 from every Focus Roll made in that Challenge."
     },
     {
       "name": "Rider of the Endless Steppe",

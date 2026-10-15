@@ -44,7 +44,7 @@
         "A Model with this Special Rule adds 1 to its Willpower and Intelligence Characteristics."
       ],
       "drawbacks": [
-        "A Model with this Special Rule subtracts 1 from its Cool Characteristic."
+        "A Unit that includes a Model with this Special Rule cannot declare Advanced Reactions."
       ],
       "match": {
         "roles": [
@@ -56,8 +56,7 @@
       },
       "stats": {
         "WP": "+1",
-        "IN": "+1",
-        "CL": "-1"
+        "IN": "+1"
       }
     },
     {
@@ -71,7 +70,7 @@
         "When the Controlling Player makes a Reserve Roll for a friendly Dark Angels Terminator Unit, add 1 to the result."
       ],
       "drawbacks": [
-        "A friendly Dark Angels Unit that is more than 12\" from Lion El'Johnson, or any such Unit once he has been removed as a casualty, subtracts 1 from its Cool Checks."
+        "A friendly Dark Angels Unit that is more than 12\" from Lion El'Johnson, or any such Unit once he has been removed as a casualty, cannot Rush."
       ],
       "match": {
         "notUnitType": "Vehicle"
@@ -224,7 +223,7 @@
     {
       "name": "Circlet of the Silent Council",
       "summary": "A plain iron band worn at the Order's closed councils.",
-      "text": "A Model equipped with the Circlet of the Silent Council has the Fear (1) Special Rule and adds 1 to its Cool Characteristic."
+      "text": "A Model equipped with the Circlet of the Silent Council has the Fear (1) Special Rule and adds 1 to its Focus Rolls in Challenges."
     }
   ],
   "rules": [
@@ -246,7 +245,7 @@
     {
       "name": "Inner Circle Mandate",
       "summary": "When the Order takes the field, nobody else is given the honour of holding it.",
-      "text": "A Model with this Special Rule adds 1 to its Cool Characteristic when making a Cool Check. Every other friendly Dark Angels Unit within 6\" of a Model with this Special Rule adds 1 to its Leadership Characteristic."
+      "text": "A Model with this Special Rule adds 1 to its Focus Rolls. Every other friendly Dark Angels Unit within 6\" of a Model with this Special Rule cannot gain the Pinned Tactical Status."
     },
     {
       "name": "Warding Rosarius",
@@ -261,7 +260,7 @@
     {
       "name": "Confession Drive",
       "summary": "A branding iron and a very patient voice.",
-      "text": "Enemy Units that are Locked in Combat with a Unit that includes a Model with this Special Rule subtract 1 from their Leadership Characteristic when making a Combat Check."
+      "text": "Enemy Units that are Locked in Combat with a Unit that includes a Model with this Special Rule subtract 1 from their Combat Resolution Points."
     },
     {
       "name": "Long Watch",
@@ -271,7 +270,7 @@
     {
       "name": "Reliquary Ward",
       "summary": "The sealed dead stand guard over the living.",
-      "text": "While a Model with this Special Rule is in play, every Model in its Unit has the Feel No Pain (6+) Special Rule. If that Model is removed as a casualty, all Models in its Unit subtract 1 from their Cool Characteristic for the rest of the battle."
+      "text": "While a Model with this Special Rule is in play, every Model in its Unit has the Feel No Pain (6+) Special Rule. If that Model is removed as a casualty, its Unit gains the Suppressed Tactical Status."
     },
     {
       "name": "Overcharged Feed",
@@ -291,7 +290,7 @@
     {
       "name": "Master of the First Legion",
       "summary": "On the war-table he is the Order's Grand Master, and the Legion fights as he does.",
-      "text": "Friendly Dark Angels Units within 12\" of this Model add 1 to their Cool Checks and add 1 to the result of their Charge Rolls. This Model subtracts 1 from its Attacks Characteristic."
+      "text": "Friendly Dark Angels Units within 12\" of this Model add 1 to their Combat Resolution Points and add 1 to the result of their Charge Rolls. This Model subtracts 1 from its Attacks Characteristic."
     },
     {
       "name": "The Lion Unforgiving",
@@ -733,20 +732,20 @@
         "inner-circle-knights-cenobium",
         "inner-circle-knights-cenobium-order-of-the-broken-claws"
       ],
-      "text": "Sworn to silence: +1 WS, -1 CL.",
+      "text": "Sworn to silence: +1 WS, -1 I.",
       "stats": {
         "WS": "+1",
-        "CL": "-1"
+        "I": "-1"
       }
     },
     {
       "units": [
         "firewing-enigmatus-cabal"
       ],
-      "text": "Veiled hunters: +1 BS, -1 LD.",
+      "text": "Veiled hunters: +1 BS, -1 WS.",
       "stats": {
         "BS": "+1",
-        "LD": "-1"
+        "WS": "-1"
       }
     },
     {
@@ -764,10 +763,10 @@
         "outrider-squadron",
         "scimitar-jetbike-squadron"
       ],
-      "text": "Ravenwing speed: +1 M, -1 WP.",
+      "text": "Ravenwing speed: +1 M, -1 T.",
       "stats": {
         "M": "+1",
-        "WP": "-1"
+        "T": "-1"
       }
     },
     {
@@ -776,9 +775,9 @@
         "tartaros-terminator-squad",
         "saturnine-terminator-squad"
       ],
-      "text": "Heirs to the Lion's guard: +1 WP, -1 I.",
+      "text": "Heirs to the Lion's guard: +1 WS, -1 I.",
       "stats": {
-        "WP": "+1",
+        "WS": "+1",
         "I": "-1"
       }
     },
@@ -927,13 +926,10 @@
         "lion-eljohnson"
       ],
       "item": "Circlet of the Silent Council",
-      "text": "Circlet of the Silent Council: +1 CL.",
+      "text": "Circlet of the Silent Council: Fear (1).",
       "addRules": [
         "Fear (1)"
-      ],
-      "stats": {
-        "CL": "+1"
-      }
+      ]
     }
   ],
   "rites": [
@@ -1188,8 +1184,8 @@
       "name": "The Inner Circle Convenes",
       "flavor": "When the Order takes the field, nobody else is given the honour of holding it.",
       "benefits": [
-        "Inner Circle Knights squads may fill Troops slots and gain Line (1) and +1 Leadership.",
-        "They gain Inner Circle Mandate: +1 Cool for Cool Checks, and friendly Dark Angels units within 6\" add +1 to their Leadership."
+        "Inner Circle Knights squads may fill Troops slots and gain Line (1).",
+        "They gain Inner Circle Mandate: +1 to Focus Rolls, and friendly Dark Angels units within 6\" cannot gain the Pinned Tactical Status."
       ],
       "limitations": [
         "At least two Inner Circle Knights squads are required.",
@@ -1232,9 +1228,6 @@
             "inner-circle-knights-cenobium-order-of-the-broken-claws"
           ],
           "text": "The Inner Circle Convenes: Inner Circle Mandate, Line (1).",
-          "stats": {
-            "LD": "+1"
-          },
           "addRules": [
             "Inner Circle Mandate",
             "Line (1)"

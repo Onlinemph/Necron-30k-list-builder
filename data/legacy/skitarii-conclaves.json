@@ -752,10 +752,10 @@
       "units": [
         "skitarii-battle-pilgrym-marshal"
       ],
-      "text": "Fanatic duellist: +1 WS, -1 LD.",
+      "text": "Fanatic duellist: +1 WS, -1 BS.",
       "stats": {
         "WS": "+1",
-        "LD": "-1"
+        "BS": "-1"
       }
     },
     {
@@ -908,7 +908,7 @@
     {
       "name": "Ten Thousand Dead",
       "summary": "The chaff is counted in tens of thousands and no one counts the losses.",
-      "text": "While a Unit with this Special Rule includes five or more Models, it automatically passes any Panic Check and any Cool Check it is required to make, including those made for Pinning."
+      "text": "While a Unit with this Special Rule includes five or more Models, it cannot gain the Pinned or Suppressed Tactical Status."
     },
     {
       "name": "Waste Cloak",
@@ -918,7 +918,7 @@
     {
       "name": "Rousing Cant",
       "summary": "The bells chime and the conclave surges forward.",
-      "text": "A Unit with this Special Rule automatically passes any Cool Check made for Pinning, and adds 1 to the result of any Charge Roll it makes."
+      "text": "A Unit with this Special Rule adds 1 to the result of any Charge Roll it makes, and adds 1\" to the distance it may move when it Rushes."
     },
     {
       "name": "Dead-Drop",
@@ -1271,7 +1271,7 @@
       "text": "The conclave's dead are counted in thousands, and its chaff is counted in tens of thousands.",
       "benefits": [
         "Bonepicker Hosts may fill Troops slots and gain Line (1) and Outflank.",
-        "They gain Ten Thousand Dead: while at five or more Models they automatically pass Panic Checks and Cool Checks, including those made for Pinning."
+        "They gain Ten Thousand Dead: while at five or more Models they cannot gain the Pinned or Suppressed Tactical Status."
       ],
       "limitations": [
         "At least two Bonepicker Hosts are required.",
@@ -1289,7 +1289,7 @@
         "Models in a Unit with this Special Rule may make a Feel No Pain (5+) Damage Mitigation Test against Wounds inflicted by Weapons with the Rad Trait."
       ],
       "drawbacks": [
-        "All Models with this Special Rule subtract 1 from their Leadership Characteristic."
+        "All Models with this Special Rule subtract 1 from their Initiative Characteristic."
       ],
       "units": [
         "skitarii-battle-pilgrym-corpus",
@@ -1297,7 +1297,7 @@
         "bonepicker-host"
       ],
       "stats": {
-        "LD": "-1"
+        "I": "-1"
       }
     },
     {

@@ -661,11 +661,13 @@
         "tech-thrall-covenant",
         "tech-thrall-defence-covenant"
       ],
-      "text": "Lobotomised obedience: +1 LD, -1 I.",
+      "text": "Lobotomised obedience: Feel No Pain (6+), -1 I.",
       "stats": {
-        "LD": "+1",
         "I": "-1"
-      }
+      },
+      "addRules": [
+        "Feel No Pain (6+)"
+      ]
     },
     {
       "units": [
@@ -694,10 +696,10 @@
         "myrmidon-secutor-host",
         "myrmidon-destructor-host"
       ],
-      "text": "Flesh remembered: +1 A, -1 WP.",
+      "text": "Flesh remembered: +1 A, -1 I.",
       "stats": {
         "A": "+1",
-        "WP": "-1"
+        "I": "-1"
       }
     },
     {
@@ -825,12 +827,12 @@
     {
       "name": "Cult Fervour",
       "summary": "The cult has long since stopped fearing the flesh.",
-      "text": "A Model with this Special Rule adds 2 to its Cool Characteristic when taking a Cool Check. Once per battle, when a Unit with this Special Rule is reduced to half of its starting Models or fewer, all Models in it add 1 to their Attacks Characteristic until the end of that Battle Turn."
+      "text": "A Unit with this Special Rule adds 1 to the result of its Charge Rolls. Once per battle, when a Unit with this Special Rule is reduced to half of its starting Models or fewer, all Models in it add 1 to their Attacks Characteristic until the end of that Battle Turn."
     },
     {
       "name": "Vigil Protocol",
       "summary": "The Thallax take station around their master.",
-      "text": "After both Players have deployed and before the first Battle Turn begins, each Unit composed entirely of Models with this Special Rule may make a Set-up Move of up to 6\". It cannot end that move within 9\" of any enemy Model. A friendly Magos, Archmagos or Tech-Priest within 3\" of a Unit with this Special Rule adds 1 to its Cool Characteristic."
+      "text": "After both Players have deployed and before the first Battle Turn begins, each Unit composed entirely of Models with this Special Rule may make a Set-up Move of up to 6\". It cannot end that move within 9\" of any enemy Model. While a friendly Magos, Archmagos or Tech-Priest is within 3\" of a Unit with this Special Rule, that Unit cannot gain the Suppressed Tactical Status."
     },
     {
       "name": "Endless Tithe",
@@ -1068,7 +1070,7 @@
       "text": "The cult remembers flesh, and has decided it was a mistake worth repeating.",
       "benefits": [
         "Myrmidon Secutor and Destructor Hosts may fill Troops slots and gain Line (1) and Feel No Pain (6+).",
-        "They gain Cult Fervour: +2 Cool on Cool Checks, and once per battle a host at half strength or less adds 1 to Attacks for a Battle Turn."
+        "They gain Cult Fervour: +1 to Charge Rolls, and once per battle a host at half strength or less adds 1 to Attacks for a Battle Turn."
       ],
       "limitations": [
         "At least two Myrmidon Hosts are required.",
@@ -1121,7 +1123,7 @@
       "text": "A magos with a dozen Thallax at her back has no need of an escort of friends.",
       "benefits": [
         "Thallax Cohorts may fill Troops slots and gain Line (1) and Fear (1).",
-        "They gain Vigil Protocol: a free 6\" Set-up Move before the first Battle Turn (ending more than 9\" from the enemy), and a Magos, Archmagos or Tech-Priest within 3\" adds 1 to Cool."
+        "They gain Vigil Protocol: a free 6\" Set-up Move before the first Battle Turn (ending more than 9\" from the enemy), and while a Magos, Archmagos or Tech-Priest is within 3\" they cannot gain the Suppressed Tactical Status."
       ],
       "limitations": [
         "At least two Thallax Cohorts are required.",
@@ -1222,7 +1224,7 @@
       "name": "Cold Logic",
       "flavor": "The Thallax and the Myrmidax have been purged of fear and doubt.",
       "benefits": [
-        "A Unit with this Special Rule automatically passes any Cool Check made for Pinning."
+        "A Unit with this Special Rule cannot gain the Pinned Tactical Status."
       ],
       "drawbacks": [
         "A Unit with this Special Rule cannot declare Advanced Reactions."

@@ -47,7 +47,7 @@
         "Enemy Units cannot use the Infiltrate (X) or Outflank Special Rules to enter play within 12\" of a Unit with this Special Rule."
       ],
       "drawbacks": [
-        "A Model with this Special Rule subtracts 1 from its Leadership Characteristic."
+        "A Model with this Special Rule subtracts 1 from its Initiative Characteristic."
       ],
       "units": [
         "jorlund-hunter-pack",
@@ -60,7 +60,7 @@
       "optionalUnits": true,
       "stats": {
         "IN": "+1",
-        "LD": "-1"
+        "I": "-1"
       }
     },
     {
@@ -611,10 +611,10 @@
         "veteran-tactical-squad",
         "veteran-assault-squad"
       ],
-      "text": "Sons of Fenris, proud and unruly: +1 I, -1 LD.",
+      "text": "Sons of Fenris, proud and unruly: +1 I, -1 BS.",
       "stats": {
         "I": "+1",
-        "LD": "-1"
+        "BS": "-1"
       }
     },
     {
@@ -766,13 +766,13 @@
         "leman-russ"
       ],
       "item": "Wolf of the Wild Hunt",
-      "text": "Wolf of the Wild Hunt: +2 M, -1 WP.",
+      "text": "Wolf of the Wild Hunt: +2 M, -1 I.",
       "addRules": [
         "Wolf of the Wild Hunt"
       ],
       "stats": {
         "M": "+2",
-        "WP": "-1"
+        "I": "-1"
       }
     },
     {
@@ -805,12 +805,12 @@
     {
       "name": "Oathsworn Hearthguard",
       "summary": "The Jarl's hearth-companions do not give ground.",
-      "text": "A Unit with this Special Rule adds 1 to its Cool Checks and cannot be given the Pinned Tactical Status."
+      "text": "A Unit with this Special Rule cannot be given the Pinned or Suppressed Tactical Status."
     },
     {
       "name": "Blood-Howl",
       "summary": "When the pack is half gone the beast takes over, and the beast does not run.",
-      "text": "Once a Unit with this Special Rule has lost half or more of its starting Models, it has the Feel No Pain (6+) Special Rule and automatically passes Cool Checks. While it is above half strength, it subtracts 1 from its Cool Checks."
+      "text": "Once a Unit with this Special Rule has lost half or more of its starting Models, it has the Feel No Pain (6+) Special Rule and cannot be given the Pinned, Suppressed or Routed Tactical Status. While it is above half strength, it cannot make Reactions."
     },
     {
       "name": "Thunder of the Wild Ride",
@@ -860,7 +860,7 @@
     {
       "name": "Wolf of the Wild Hunt",
       "summary": "Nothing in the wilds runs as far as he does, and he will not stop till the quarry is down.",
-      "text": "This Model adds 2 to its Movement Characteristic and subtracts 1 from its Willpower Characteristic. Whenever it is able to, this Model's Unit must declare a Charge against the nearest enemy Unit within 12\"."
+      "text": "This Model adds 2 to its Movement Characteristic and subtracts 1 from its Initiative Characteristic. Whenever it is able to, this Model's Unit must declare a Charge against the nearest enemy Unit within 12\"."
     },
     {
       "name": "Winter's Hide",
@@ -942,7 +942,7 @@
       "flavor": "When the Jarl's hearth-companions march, no one else needs to stand in the line.",
       "benefits": [
         "Varagyr Wolf Guard Terminators may fill Troops slots and gain Line (1).",
-        "Varagyr gain Oathsworn Hearthguard: they add 1 to their Cool Checks and cannot be Pinned."
+        "Varagyr gain Oathsworn Hearthguard: they cannot be Pinned or Suppressed."
       ],
       "limitations": [
         "At least one Varagyr pack is required.",
@@ -995,11 +995,11 @@
       "flavor": "Some packs go quiet when the moon rises. Their Wolf Lords stop counting how many come home.",
       "benefits": [
         "Deathsworn Packs may fill Troops slots.",
-        "Grey Slayer Packs and Deathsworn Packs gain Blood-Howl: once the Unit is at half strength or less it gains Feel No Pain (6+) and automatically passes Cool Checks.",
+        "Grey Slayer Packs and Deathsworn Packs gain Blood-Howl: once the Unit is at half strength or less it gains Feel No Pain (6+) and cannot be Pinned, Suppressed or Routed.",
         "They also add 1 to their Attacks Characteristic on a Battle Turn in which they Charge."
       ],
       "limitations": [
-        "While above half strength, Grey Slayer and Deathsworn Packs subtract 1 from their Cool Checks.",
+        "While above half strength, Grey Slayer and Deathsworn Packs cannot make Reactions.",
         "At least one Grey Slayer Pack is required.",
         "No Casters of Runes of any kind, and no Heavy Support, Tactical Support or Veteran Heavy Support Squads."
       ],

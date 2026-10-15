@@ -562,10 +562,10 @@
       "units": [
         "mor-deythan-squad"
       ],
-      "text": "Gift-wary hunters: +1 IN, -1 LD.",
+      "text": "Gift-wary hunters: +1 IN, -1 WS.",
       "stats": {
         "IN": "+1",
-        "LD": "-1"
+        "WS": "-1"
       }
     },
     {
@@ -582,9 +582,9 @@
       "units": [
         "deliverers-squad"
       ],
-      "text": "Survivors who will not be hurried: +1 LD, -1 M.",
+      "text": "Survivors who will not be hurried: +1 T, -1 M.",
       "stats": {
-        "LD": "+1",
+        "T": "+1",
         "M": "-1"
       }
     },
@@ -609,10 +609,10 @@
       "models": [
         "Legionary"
       ],
-      "text": "Lean fighters of the shadow war: +1 M, -1 LD.",
+      "text": "Lean fighters of the shadow war: +1 M, -1 WS.",
       "stats": {
         "M": "+1",
-        "LD": "-1"
+        "WS": "-1"
       }
     },
     {
@@ -899,7 +899,7 @@
       "flavor": "Isstvan took the Legion's wings. What was left learned to stand.",
       "benefits": [
         "Deliverers Squads may fill Troops slots and gain Line (1).",
-        "Deliverers gain Last Stand of the Dirge: they automatically pass Leadership Checks and Cool Checks."
+        "Deliverers gain Last Stand of the Dirge: they ignore the effects of the Routed Tactical Status."
       ],
       "limitations": [
         "Corvus Corax must lead the army, and at least one Deliverers Squad is required.",
@@ -1024,7 +1024,7 @@
     {
       "name": "Last Stand of the Dirge",
       "summary": "Isstvan took the Legion's wings, and what was left learned to stand.",
-      "text": "A Unit made up entirely of Models with this Special Rule automatically passes any Leadership Check or Cool Check it is required to make."
+      "text": "A Unit made up entirely of Models with this Special Rule ignores the effects of the Routed Tactical Status."
     },
     {
       "name": "Blade in the Dark",
@@ -1100,7 +1100,7 @@
         "A Unit with this Special Rule adds 2\" to the distance it may move when it Rushes or makes a Set-up Move."
       ],
       "drawbacks": [
-        "While Locked in Combat with an enemy Unit that has more Models, every Model in the Unit subtracts 1 from its Cool Characteristic."
+        "While Locked in Combat with an enemy Unit that has more Models, every Model in the Unit subtracts 1 from its Initiative Characteristic."
       ],
       "match": {
         "roles": [
@@ -1114,7 +1114,7 @@
       },
       "optionalUnits": true,
       "stats": {
-        "CL": "-1"
+        "I": "-1"
       },
       "condition": "while locked in Combat with a unit that has more models"
     },
@@ -1141,7 +1141,7 @@
       "name": "Dirge-Marked Survivors",
       "flavor": "Isstvan taught the Legion how to die slowly.",
       "benefits": [
-        "A Model with this Special Rule adds 1 to its Cool Characteristic."
+        "A Unit with this Special Rule ignores the effects of the Pinned Tactical Status."
       ],
       "drawbacks": [
         "If a Unit with this Special Rule lost a Model to an enemy Unit during the previous Battle Turn, it must declare a Charge against that Unit if able."
@@ -1154,10 +1154,7 @@
         ],
         "notUnitType": "Vehicle"
       },
-      "optionalUnits": true,
-      "stats": {
-        "CL": "+1"
-      }
+      "optionalUnits": true
     },
     {
       "name": "Black Wings Gathering",

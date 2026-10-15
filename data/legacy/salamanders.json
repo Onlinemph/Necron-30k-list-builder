@@ -545,9 +545,9 @@
       "units": [
         "adherents-squad"
       ],
-      "text": "Defenders before fighters: +1 WP, -1 WS.",
+      "text": "Defenders before fighters: +1 BS, -1 WS.",
       "stats": {
-        "WP": "+1",
+        "BS": "+1",
         "WS": "-1"
       }
     },
@@ -555,9 +555,9 @@
       "units": [
         "sanctifier-squad"
       ],
-      "text": "Shield-bearers of the weak: +1 LD, -1 A.",
+      "text": "Shield-bearers of the weak: +1 T, -1 A.",
       "stats": {
-        "LD": "+1",
+        "T": "+1",
         "A": "-1"
       }
     },
@@ -780,7 +780,7 @@
       "flavor": "Vulkan taught his sons that a wall is only a wall when someone stands behind it.",
       "benefits": [
         "Sanctifier Squads may fill Troops slots.",
-        "Adherents and Sanctifier Squads gain Line (1) and Shield Wall: they automatically pass Leadership Checks and Cool Checks while they have not moved this turn."
+        "Adherents and Sanctifier Squads gain Line (1) and Shield Wall: they ignore the effects of the Suppressed Tactical Status while they have not moved this turn."
       ],
       "limitations": [
         "At least one Adherents Squad and one Sanctifier Squad are required.",
@@ -981,7 +981,7 @@
     },
     {
       "name": "Shield Wall",
-      "text": "A Unit made up entirely of Models with this Special Rule that did not move in its Controlling Player's most recent Movement Phase automatically passes any Leadership Check or Cool Check it is required to make.",
+      "text": "A Unit made up entirely of Models with this Special Rule that did not move in its Controlling Player's most recent Movement Phase ignores the effects of the Suppressed Tactical Status.",
       "summary": "A wall is only a wall when someone stands behind it."
     },
     {
@@ -1027,7 +1027,7 @@
     {
       "name": "Wrath of the Drake",
       "summary": "Slow to anger, he is slower still to stop, and his sons would rather not see it.",
-      "text": "This Model adds 1 to its Attacks Characteristic. When this Model's Unit destroys an enemy Unit in Combat, every enemy Unit within 6\" of this Model must make a Cool Check; a Unit that fails gains the Pinned Tactical Status. This Model subtracts 1 from its Initiative Characteristic, and friendly Salamanders Units within 6\" of it subtract 1 from their Cool Characteristic."
+      "text": "This Model adds 1 to its Attacks Characteristic. When this Model's Unit destroys an enemy Unit in Combat, every enemy Unit within 6\" of this Model must make a Cool Check; a Unit that fails gains the Pinned Tactical Status. This Model subtracts 1 from its Initiative Characteristic, and friendly Salamanders Units within 6\" of it may not Rush."
     },
     {
       "name": "Hand upon the Anvil",
@@ -1055,7 +1055,7 @@
       "name": "Stoic Defenders",
       "flavor": "Salamanders do not give ground.",
       "benefits": [
-        "A Model with this Special Rule adds 1 to its Cool Characteristic if its Unit did not move in its Controlling Player's most recent Movement Phase."
+        "A Unit with this Special Rule that did not move in its Controlling Player's most recent Movement Phase adds 1 to the Hit Tests of Shooting Attacks it makes as a Reaction."
       ],
       "drawbacks": [
         "A Unit with this Special Rule may not Rush during the first Battle Turn."
@@ -1069,11 +1069,7 @@
         ],
         "notUnitType": "Vehicle"
       },
-      "optionalUnits": true,
-      "stats": {
-        "CL": "+1"
-      },
-      "condition": "if the unit did not move in its last Movement phase"
+      "optionalUnits": true
     },
     {
       "name": "Nocturne's Mercy",

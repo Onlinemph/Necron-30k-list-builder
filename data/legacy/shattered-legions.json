@@ -185,12 +185,12 @@
     {
       "name": "Muster Call",
       "summary": "Seven Legions' worth of orphans answer a single call.",
-      "text": "While at least one other friendly Inductii Unit is within 12\" of a Unit with this Special Rule, every Model in that Unit adds 1 to its Cool Characteristic when making a Cool Check."
+      "text": "While at least one other friendly Inductii Unit is within 12\" of a Unit with this Special Rule, every Model in that Unit adds 1 to the result of its Charge Rolls."
     },
     {
       "name": "Survivor's Oath",
       "summary": "Whoever else is dead, somebody has to carry the story out.",
-      "text": "While a Unit with this Special Rule is within 12\" of a friendly Garviel Loken, Saul Tarvitz, Shadrak Meduson, Alexis Polux or Hibou Khan, every Model in that Unit adds 1 to its Cool Characteristic when making a Cool Check. A Model with this Special Rule that is Locked in Combat, or Engaged in a Challenge, with an enemy Model of the Traitor allegiance adds 1 to all Wound Tests it makes in that Combat, up to a total bonus of +1 from this Special Rule and any Hatred (X) Special Rule combined."
+      "text": "While a Unit with this Special Rule is within 12\" of a friendly Garviel Loken, Saul Tarvitz, Shadrak Meduson, Alexis Polux or Hibou Khan, every Model in that Unit adds 1 to its Ballistic Skill Characteristic when making a Hit Test as part of a Reaction. A Model with this Special Rule that is Locked in Combat, or Engaged in a Challenge, with an enemy Model of the Traitor allegiance adds 1 to all Wound Tests it makes in that Combat, up to a total bonus of +1 from this Special Rule and any Hatred (X) Special Rule combined."
     },
     {
       "name": "Dig In",
@@ -200,12 +200,12 @@
     {
       "name": "Ancient Resolve",
       "summary": "The oldest warriors have already died once and see no reason to flinch now.",
-      "text": "A Unit with this Special Rule is immune to the Fear (X) Special Rule and automatically passes every Cool Check it is required to make. It must be deployed on the Battlefield and cannot be held in Reserves."
+      "text": "A Unit with this Special Rule is immune to the Fear (X) Special Rule and cannot gain the Pinned or Suppressed Tactical Statuses. It must be deployed on the Battlefield and cannot be held in Reserves."
     },
     {
       "name": "Ashes Remembered",
       "summary": "The soil of a dead homeworld, carried to the next battle.",
-      "text": "Friendly Shattered Legions Units within 6\" of a Model with this Special Rule add 1 to their Cool Characteristic when making a Cool Check. Once per battle, the Controlling Player may declare that the Unit including that Model automatically passes one Cool Check it is required to make."
+      "text": "Friendly Shattered Legions Units within 6\" of a Model with this Special Rule add 1 to their Combat Resolution Points. Once per battle, at the end of its Move Sub-Phase, the Unit including that Model may remove one Tactical Status from itself."
     },
     {
       "name": "Scar-Hardened",
@@ -568,9 +568,9 @@
           "Inductii"
         ]
       },
-      "text": "Fresh-sworn survivors: +1 WP, -1 BS.",
+      "text": "Fresh-sworn survivors: +1 I, -1 BS.",
       "stats": {
-        "WP": "+1",
+        "I": "+1",
         "BS": "-1"
       }
     },
@@ -579,10 +579,10 @@
         "tactical-squad",
         "despoiler-squad"
       ],
-      "text": "Cornered men fight hard: +1 WS, -1 LD.",
+      "text": "Cornered men fight hard: +1 WS, -1 I.",
       "stats": {
         "WS": "+1",
-        "LD": "-1"
+        "I": "-1"
       }
     },
     {
@@ -591,10 +591,10 @@
         "veteran-despoiler-squad",
         "veteran-assault-squad"
       ],
-      "text": "Hard-won veterans of the broken fleets: +1 A, -1 CL.",
+      "text": "Hard-won veterans of the broken fleets: +1 A, -1 BS.",
       "stats": {
         "A": "+1",
-        "CL": "-1"
+        "BS": "-1"
       }
     },
     {
@@ -605,10 +605,10 @@
         "saul-tarvitz",
         "garviel-loken"
       ],
-      "text": "The survivors' conscience: +1 WP, -1 CL.",
+      "text": "The survivors' conscience: +1 WS, -1 BS.",
       "stats": {
-        "WP": "+1",
-        "CL": "-1"
+        "WS": "+1",
+        "BS": "-1"
       }
     },
     {
@@ -731,7 +731,7 @@
       "flavor": "Seven Legions' worth of orphans, one muster call.",
       "benefits": [
         "Inductii Squads of any Legion gain Line (2).",
-        "Inductii gain Muster Call: +1 Cool for Cool Checks while another friendly Inductii unit is within 12\"."
+        "Inductii gain Muster Call: +1 to Charge Rolls while another friendly Inductii unit is within 12\"."
       ],
       "limitations": [
         "At least two Inductii Squads are required.",
@@ -779,7 +779,7 @@
       "name": "Oath of the Survivors",
       "flavor": "Whoever else is dead, somebody has to carry the story out.",
       "benefits": [
-        "Every Legion Infantry unit gains +1 Willpower and Survivor's Oath: +1 Cool for Cool Checks while within 12\" of one of the army's named survivors.",
+        "Every Legion Infantry unit gains Survivor's Oath: +1 BS for Hit Tests made as part of a Reaction while within 12\" of one of the army's named survivors.",
         "Under Survivor's Oath, those units add 1 to Wound Tests against Traitor Models in combat, sharing a single +1 with any Hatred (X) they already have."
       ],
       "limitations": [
@@ -819,10 +819,7 @@
             "unitType": "Infantry",
             "notUnitType": "Vehicle"
           },
-          "text": "Oath of the Survivors: +1 WP, Survivor's Oath.",
-          "stats": {
-            "WP": "+1"
-          },
+          "text": "Oath of the Survivors: Survivor's Oath.",
           "addRules": [
             "Survivor's Oath"
           ]
@@ -892,7 +889,7 @@
       "flavor": "When the Legions died, their oldest warriors stayed in their coffins and kept fighting.",
       "benefits": [
         "Contemptor, Castra Ferrum, Deredeo and Leviathan Dreadnoughts may fill Troops slots and gain Line (1).",
-        "Those Dreadnoughts gain Ancient Resolve: they are immune to Fear and automatically pass Cool Checks."
+        "Those Dreadnoughts gain Ancient Resolve: they are immune to Fear and cannot gain the Pinned or Suppressed Tactical Statuses."
       ],
       "limitations": [
         "At least two War Engine units are required.",
