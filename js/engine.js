@@ -482,7 +482,8 @@
           // character-granted advantages are labelled "Name (Character)" in the picker
           case 'primeAdvantage': return sel.primeAdvantage === src.name;
           case 'unitRule': return (u.unitRules || []).some((r) => norm(r.name) === norm(src.name)) || [...(u.specialRules || []), ...u.models.flatMap((m) => m.specialRules || [])].some((r) => norm(r) === norm(src.name));
-          case 'wargear': case 'upgrade': return items.has(src.name);
+          // a house-rule item bonus only counts while its rules are on
+          case 'wargear': case 'upgrade': return items.has(src.name) && (!src.when || condOk(src.when, sel));
           case 'when': return condOk(src.when, sel);
           default: return false;
         }

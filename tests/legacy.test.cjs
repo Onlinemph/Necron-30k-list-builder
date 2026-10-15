@@ -106,3 +106,17 @@ test('The Butcher\'s Due: Red Butchers cost less and need Angron or Kharn', () =
   assert.equal(E.unitPoints(rb), 225);
   assert.ok(E.armyIssues(army).some((i) => /Butcher's Due: needs at least 1/.test(i.msg)));
 });
+
+test('switching Legacy rules off drops legacy picks from points and statlines', () => {
+  const { E, army } = armyOf('world-eaters');
+  legacyOn(army);
+  const tac = place(E, slotOf(army, 'Troops'), 'tactical-squad');
+  E.setArmy(army);
+  const art = E.optionsOf(tac).find((o) => o.legacy && /Artificer/.test(o.text));
+  tac.options[art.id] = 'Artificer armour';
+  assert.equal(E.unitPoints(tac), 110);
+  army.config['legacy-rules'] = [];
+  E.setArmy(army);
+  assert.equal(E.unitPoints(tac), 100);
+  assert.equal(E.effectiveModels(tac).find((r) => r.model === 'Sergeant').profile.SAV, '3+');
+});

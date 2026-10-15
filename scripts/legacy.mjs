@@ -102,8 +102,8 @@ export function applyLegacy(root, out, army) {
     out.modifiers.modifiers.push({
       id: uniq(`${sourceName}-${entry.text || 'mod'}`),
       text: entry.text || `${sourceName}.`,
-      // "item": the change rides on a piece of wargear (only use it for items a legacy option grants)
-      source: entry.item ? { type: 'upgrade', name: entry.item } : { type: 'when', when, name: sourceName },
+      // "item": the change rides on a piece of wargear, and only while the legacy rules (or Rite) are on
+      source: entry.item ? { type: 'upgrade', name: entry.item, when } : { type: 'when', when, name: sourceName },
       appliesTo: Object.assign({ units: units.map((u) => u.id) }, entry.models ? { models: entry.models } : {}),
       scope: entry.scope || 'model',
       stats: entry.stats || {}, addRules: entry.addRules || [], removeRules: entry.removeRules || [],

@@ -253,7 +253,7 @@
       const picked = (army.config[g.id] = army.config[g.id] || []);
       const gmax = E.configMax(g);
       const how = (g.min === gmax ? `choose ${gmax}` : g.min ? `choose ${g.min}–${gmax}` : `up to ${gmax}`) + ((g.maxWhen || []).length && gmax === g.max ? ` (${g.maxWhen.map((x) => `${x.max} with ${E.condText(x.when)}`).join(', ')})` : '');
-      const fs = h(`<fieldset class="cfg-group"><legend>${esc(g.name)} <small class="muted">${how}</small></legend><div class="seq-grid"></div></fieldset>`);
+      const fs = h(`<fieldset class="cfg-group${g.legacy ? ' legacy' : ''}"><legend>${esc(g.name)} <small class="muted">${how}</small>${g.legacy ? ' <span class="tag house">house rules</span>' : ''}</legend><div class="seq-grid"></div></fieldset>`);
       for (const c of g.choices) {
         const radio = gmax === 1;
         const blocked = c.unless && !picked.includes(c.name) && c.unless.find((k) => E.condOk(k));
@@ -414,7 +414,8 @@
     for (const u of units) {
       if (slot.flexible && u.role !== lastRole) { list.append(h(`<h4 class="muted">${esc(u.role)}</h4>`)); lastRole = u.role; }
       const taken = u.unique && E.allSelections(army).some((x) => x.sel.unitId === u.id);
-      const alt = !slot.flexible && !slot.advisor && u.role !== slot.role ? ` <small class="muted">(${esc(u.role)}, via Sequela)</small>` : '';
+      const viaRite = (u.roleWhen || []).find((x) => x.role === slot.role && E.condOk(x.when));
+      const alt = !slot.flexible && !slot.advisor && u.role !== slot.role ? ` <small class="muted">(${esc(u.role)}, via ${viaRite ? esc(viaRite.when.config) : 'Sequela'})</small>` : '';
       const b = h(`<button type="button" data-name="${esc(u.name.toLowerCase())}" ${taken ? 'disabled' : ''}><span>${esc(u.name)}${alt}${u.unique ? ' <small class="muted">(character)</small>' : ''}${u.limit ? ` <small class="muted">${esc(u.limit)}</small>` : ''}</span><span class="muted">${u.basePoints} pts${u.page ? ` · ${esc(pageLabel(u))}` : ''}</span></button>`);
       b.addEventListener('click', () => {
         slot.unit = E.newSelection(u.id);

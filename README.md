@@ -76,6 +76,12 @@ node scripts/import-bsdata.mjs /tmp/hh3
 npm test
 ```
 
+## Legacy house rules
+
+A common complaint about 3rd edition is that the Legions play alike. The **House rules → Legacy rules** switch in the Army configuration panel turns on an optional layer written for this builder: Rites of War that reshape the force chart (veterans or tanks as Troops, drop pod assaults, jump-pack strikes) with a cost attached, restored options such as Artificer armour, Veteran Sergeants, Legion standards and Legion signature weapons, and statline trades that make each Legion's units feel different. Every Legion gets the shared Rites plus its own; the other BSData armies have their own sets.
+
+None of it is official, and lists that don't switch it on are unchanged. Legacy options are marked "Legacy:" in the unit editor, the panel's house-rule groups have a dashed gold border, and the roster prints the switch and the chosen Rite so your opponent knows. The content lives in `data/legacy/` (format in `data/legacy/README.md`); `node scripts/legacy-check.mjs <army>` checks one army's file.
+
 ## Force organisation
 
 The Primary Detachment follows the Horus Heresy 3rd edition Crusade chart: 1 High Command, 3 Command (1 Prime), 4 Troops (1 Prime), 4 Transport. Each filled Command slot unlocks one Auxiliary Detachment, and filling High Command unlocks one Apex Detachment. The core Auxiliary, Apex, Warlord and Lord of War Detachments are in the **Add detachment** menu next to the Necron ones, and the core Prime Advantages (Master Sergeant, Combat Veterans, Paragon of Battle, Special Assignment, Logistical Benefit) sit alongside the Necron ones. **Edit slots** on the Primary Detachment is there for rules that change the chart.

@@ -66,7 +66,7 @@ Every option, modifier, points change, role and limit names the units it touches
 ```
 
 Stat changes are `+N`, `-N`, `=X` (set) or `best:N+` (use this save if it's better). Add `"item": "Name"`
-to make the change ride on a piece of wargear that a legacy option grants (Artificer armour giving 2+).
+to make the change ride on a piece of wargear (Artificer armour giving 2+); it only applies while Legacy rules (or that Rite) is on.
 Add `"condition": "when charging"` to show the change as a reminder instead of applying it.
 
 ## Rites of War
