@@ -578,28 +578,41 @@
    }
   }
  ],
+ "rules": [
+  {
+   "name": "Rad-Saturation",
+   "text": "Legacy house rule (The Vanguard Saturation Cant). The Corpus walks ahead of the line, fouling the ground. An enemy unit within 6\" of a model with this rule has -1 to its Cool and Leadership."
+  },
+  {
+   "name": "Long Watch",
+   "text": "Legacy house rule (The Ranger Long Watch). Patient hunters pick their moment. A unit with this rule that did not move in its last Movement phase counts its Shooting Attacks as having Precision (6+), and may be deployed after all other units on its side have been placed."
+  },
+  {
+   "name": "Run Them Down",
+   "text": "Legacy house rule (The Sicarian Hunt). The hounds close on a wounded foe. A unit with this rule may re-roll a failed Charge, and gains Outflank."
+  },
+  {
+   "name": "War-Cant Chorus",
+   "text": "Legacy house rule (The Armoured War-Cant). The tanks sing as one. A unit with this rule adds 1 to its Ballistic Skill while it is within 6\" of another friendly unit with War-Cant Chorus."
+  },
+  {
+   "name": "Ten Thousand Dead",
+   "text": "Legacy house rule (The Bonepicker Tithe). The chaff is counted in tens of thousands and no one counts the losses. A unit with this rule automatically passes Cool, Pinning and Panic Checks while it has five or more models, and it gains Outflank."
+  }
+ ],
  "rites": [
   {
    "name": "The Vanguard Saturation Cant",
    "flavor": "The Vanguard walk ahead of the line, and the ground behind them stays too hot to retake.",
-   "text": "Battle-Pilgrym Corpuses cost 10 points less and gain Infiltrate (9) and Fast (1). The radiation fouls anything friendly that follows: no Armour, no Heavy Transport, no War Engines and no Heavy Assault units. At least two Battle-Pilgrym Corpuses are required.",
-   "points": [
-    {
-     "units": [
-      "skitarii-battle-pilgrym-corpus"
-     ],
-     "delta": -10
-    }
-   ],
    "modifiers": [
     {
      "units": [
       "skitarii-battle-pilgrym-corpus"
      ],
-     "text": "The Vanguard Saturation Cant: Infiltrate (9), Fast (1).",
+     "text": "The Vanguard Saturation Cant: Infiltrate (9), Rad-Saturation.",
      "addRules": [
       "Infiltrate (9)",
-      "Fast (1)"
+      "Rad-Saturation"
      ]
     }
    ],
@@ -633,22 +646,30 @@
       "role": "Heavy Assault"
      }
     }
+   ],
+   "text": "The Vanguard walk ahead of the line, and the ground behind them stays too hot to retake.",
+   "benefits": [
+    "Battle-Pilgrym Corpuses gain Infiltrate (9).",
+    "They gain Rad-Saturation: enemy units within 6\" of a Corpus suffer -1 Cool and -1 Leadership."
+   ],
+   "limitations": [
+    "At least two Battle-Pilgrym Corpuses are required.",
+    "No Armour, Heavy Transport, War Engine or Heavy Assault units."
    ]
   },
   {
    "name": "The Ranger Long Watch",
    "flavor": "Patience is a weapon. The Rangers have a great deal of it.",
-   "text": "Battle-Pilgrym Corpuses and the Battle-Pilgrym Marshal gain +1 Ballistic Skill. Waiting is not for the aggressive: no Vorax or Vultarax automata, no Destructor Castellax Maniples and no Domitar. At least one Marshal and one Corpus are required.",
    "modifiers": [
     {
      "units": [
       "skitarii-battle-pilgrym-corpus",
       "skitarii-battle-pilgrym-marshal"
      ],
-     "text": "The Ranger Long Watch: +1 BS.",
-     "stats": {
-      "BS": "+1"
-     }
+     "text": "The Ranger Long Watch: Long Watch.",
+     "addRules": [
+      "Long Watch"
+     ]
     }
    ],
    "require": [
@@ -676,12 +697,20 @@
       "domitar-battle-maniple"
      ]
     }
+   ],
+   "text": "Patience is a weapon. The Rangers have a great deal of it.",
+   "benefits": [
+    "Battle-Pilgrym Corpuses and the Battle-Pilgrym Marshal gain Long Watch: if they did not move, their Shooting Attacks gain Precision (6+).",
+    "Units with Long Watch are deployed after all other units on their side."
+   ],
+   "limitations": [
+    "At least one Battle-Pilgrym Marshal and one Battle-Pilgrym Corpus are required.",
+    "No Vorax or Vultarax automata, no Destructor Castellax Maniples and no Domitar."
    ]
   },
   {
    "name": "The Sicarian Hunt",
    "flavor": "The conclave unleashes its fast-killing hounds and does not look back.",
-   "text": "Vorax Attack Maniples and Vultarax Stratos Automata may fill Troops slots and gain Fast (1) and +1 Initiative. The hunt has no patience for foot soldiers or armour: no more than one Battle-Pilgrym Corpus, no Armour, no Heavy Transport, and no War Engines. At least two Vorax or Vultarax units are required.",
    "roles": [
     {
      "units": [
@@ -697,12 +726,11 @@
       "vorax-attack-maniple",
       "skitarii-vultarax-stratos-automata"
      ],
-     "text": "The Sicarian Hunt: Fast (1), +1 I.",
-     "stats": {
-      "I": "+1"
-     },
+     "text": "The Sicarian Hunt: Fast (1), Outflank, Run Them Down.",
      "addRules": [
-      "Fast (1)"
+      "Fast (1)",
+      "Outflank",
+      "Run Them Down"
      ]
     }
    ],
@@ -740,12 +768,21 @@
       "role": "War Engine"
      }
     }
+   ],
+   "text": "The conclave unleashes its fast-killing hounds and does not look back.",
+   "benefits": [
+    "Vorax Attack Maniples and Vultarax Stratos Automata may fill Troops slots and gain Fast (1) and Outflank.",
+    "They gain Run Them Down: a failed Charge may be re-rolled."
+   ],
+   "limitations": [
+    "At least two Vorax or Vultarax units are required.",
+    "No more than one Battle-Pilgrym Corpus.",
+    "No Armour, Heavy Transport or War Engine units."
    ]
   },
   {
    "name": "The Armoured War-Cant",
    "flavor": "Karacnos tracks, Krios lances: the conclave rides its own chorus into battle.",
-   "text": "Karacnos, Krios and Krios Venator tanks may fill Troops slots and gain Line (1) and +1 Ballistic Skill. Soldiers are an afterthought: no more than one Battle-Pilgrym Corpus and no Bonepicker Hosts. At least three of these tanks are required.",
    "roles": [
     {
      "units": [
@@ -763,13 +800,23 @@
       "skitarii-krios-battle-tank",
       "skitarii-krios-venator-tank-destroyer"
      ],
-     "text": "The Armoured War-Cant: Line (1), +1 BS.",
+     "text": "The Armoured War-Cant: Line (1), War-Cant Chorus.",
+     "addRules": [
+      "Line (1)",
+      "War-Cant Chorus"
+     ]
+    },
+    {
+     "units": [
+      "skitarii-karacnos-assault-tank",
+      "skitarii-krios-battle-tank",
+      "skitarii-krios-venator-tank-destroyer"
+     ],
+     "text": "War-Cant Chorus: +1 BS.",
      "stats": {
       "BS": "+1"
      },
-     "addRules": [
-      "Line (1)"
-     ]
+     "condition": "while within 6\" of another friendly War-Cant Chorus unit"
     }
    ],
    "require": [
@@ -797,12 +844,20 @@
       "bonepicker-host"
      ]
     }
+   ],
+   "text": "Karacnos tracks, Krios lances: the conclave rides its own chorus into battle.",
+   "benefits": [
+    "Karacnos, Krios and Krios Venator tanks may fill Troops slots and gain Line (1).",
+    "They gain War-Cant Chorus: +1 Ballistic Skill while within 6\" of another War-Cant Chorus tank."
+   ],
+   "limitations": [
+    "At least three of those tanks are required.",
+    "No more than one Battle-Pilgrym Corpus and no Bonepicker Hosts."
    ]
   },
   {
    "name": "The Bonepicker Tithe",
    "flavor": "The conclave's dead are counted in thousands, and its chaff is counted in tens of thousands.",
-   "text": "Bonepicker Hosts may fill Troops slots, cost 20 points less, and gain Line (1). They swallow all the conclave's attention: no Elites, no Heavy Assault, no Lord of War, and no more than one Battle-Pilgrym Corpus. At least two Bonepicker Hosts are required.",
    "roles": [
     {
      "units": [
@@ -811,22 +866,16 @@
      "role": "Troops"
     }
    ],
-   "points": [
-    {
-     "units": [
-      "bonepicker-host"
-     ],
-     "delta": -20
-    }
-   ],
    "modifiers": [
     {
      "units": [
       "bonepicker-host"
      ],
-     "text": "The Bonepicker Tithe: Line (1).",
+     "text": "The Bonepicker Tithe: Line (1), Outflank, Ten Thousand Dead.",
      "addRules": [
-      "Line (1)"
+      "Line (1)",
+      "Outflank",
+      "Ten Thousand Dead"
      ]
     }
    ],
@@ -863,6 +912,16 @@
       "role": "Lord of War"
      }
     }
+   ],
+   "text": "The conclave's dead are counted in thousands, and its chaff is counted in tens of thousands.",
+   "benefits": [
+    "Bonepicker Hosts may fill Troops slots and gain Line (1) and Outflank.",
+    "They gain Ten Thousand Dead: while at five or more models they automatically pass Cool, Pinning and Panic Checks."
+   ],
+   "limitations": [
+    "At least two Bonepicker Hosts are required.",
+    "No more than one Battle-Pilgrym Corpus.",
+    "No Elites, Heavy Assault or Lord of War units."
    ]
   }
  ]

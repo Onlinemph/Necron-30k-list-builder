@@ -1,109 +1,710 @@
 {
   "wargear": [
-    { "name": "Artificer armour", "text": "Legacy house rule. Master-crafted plate worn by proven sergeants and veterans. The model's Save becomes 2+ if it was worse." },
-    { "name": "Refractor field", "text": "Legacy house rule. A belt-worn field generator that bends incoming fire. The model's Invulnerable Save becomes 5+ if it was worse." },
-    { "name": "Extra armour", "text": "Legacy house rule. Bolted-on plating, track guards and spall liners. The vehicle gains +1 Hull Point." },
-    { "name": "Legion standard", "text": "Legacy house rule. The unit's colours carried into battle. Every model in the unit gains +1 Leadership and +1 Cool." },
-    { "name": "Veteran Sergeant", "text": "Legacy house rule. A sergeant who has led the squad through a dozen compliances. The model gains +1 Weapon Skill and +1 Attack." }
+    {
+      "name": "Artificer armour",
+      "text": "Legacy house rule. Master-crafted plate worn by proven sergeants and veterans. The model's Save becomes 2+ if it was worse."
+    },
+    {
+      "name": "Refractor field",
+      "text": "Legacy house rule. A belt-worn field generator that bends incoming fire. The model's Invulnerable Save becomes 5+ if it was worse."
+    },
+    {
+      "name": "Extra armour",
+      "text": "Legacy house rule. Bolted-on plating, track guards and spall liners. The vehicle gains +1 Hull Point."
+    },
+    {
+      "name": "Legion standard",
+      "text": "Legacy house rule. The unit's colours carried into battle. Every model in the unit gains +1 Leadership and +1 Cool."
+    },
+    {
+      "name": "Veteran Sergeant",
+      "text": "Legacy house rule. A sergeant who has led the squad through a dozen compliances. The model gains +1 Weapon Skill and +1 Attack."
+    }
   ],
   "options": [
-    { "match": { "notUnitType": "Vehicle", "notNameIncludes": ["Terminator", "Breacher"] }, "optionalUnits": true,
-      "option": { "id": "artificer-armour", "kind": "upgrade", "modelType": "Sergeant", "text": "The Sergeant may take Artificer armour",
-        "choices": [ { "name": "Artificer armour", "points": 10 } ] } },
-    { "match": { "roles": ["Troops", "Elites", "Support", "Heavy Assault", "Recon"], "notUnitType": "Vehicle" }, "optionalUnits": true,
-      "option": { "id": "veteran-sergeant", "kind": "upgrade", "modelType": "Sergeant", "text": "The Sergeant may be upgraded to a Veteran Sergeant",
-        "choices": [ { "name": "Veteran Sergeant", "points": 10 } ] } },
-    { "match": { "roles": ["Troops", "Elites", "Support", "Heavy Assault", "Recon"], "notUnitType": "Vehicle" }, "optionalUnits": true,
-      "option": { "id": "melta-bombs", "kind": "upgrade", "modelType": "Sergeant", "text": "The Sergeant may take Melta bombs",
-        "choices": [ { "name": "Melta bombs", "points": 5 } ] } },
-    { "match": { "roles": ["Command"], "notUnitType": "Vehicle" }, "optionalUnits": true,
-      "option": { "id": "refractor-field", "kind": "upgrade", "modelType": "Command", "text": "May take a Refractor field",
-        "choices": [ { "name": "Refractor field", "points": 10 } ] } },
-    { "units": ["tactical-squad", "assault-squad", "despoiler-squad", "breacher-squad", "veteran-tactical-squad", "veteran-assault-squad"], "optionalUnits": true,
-      "option": { "id": "legion-standard", "kind": "upgrade", "model": null, "text": "The unit may carry a Legion standard",
-        "choices": [ { "name": "Legion standard", "points": 15 } ] } },
-    { "match": { "roles": ["Armour", "Transport", "Heavy Transport"], "unitType": "Vehicle", "notUnitType": "Flyer" }, "optionalUnits": true,
-      "option": { "id": "extra-armour", "kind": "upgrade", "model": null, "text": "May take Extra armour",
-        "choices": [ { "name": "Extra armour", "points": 15 } ] } }
+    {
+      "match": {
+        "notUnitType": "Vehicle",
+        "notNameIncludes": [
+          "Terminator",
+          "Breacher"
+        ]
+      },
+      "optionalUnits": true,
+      "option": {
+        "id": "artificer-armour",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may take Artificer armour",
+        "choices": [
+          {
+            "name": "Artificer armour",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "roles": [
+          "Troops",
+          "Elites",
+          "Support",
+          "Heavy Assault",
+          "Recon"
+        ],
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "option": {
+        "id": "veteran-sergeant",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may be upgraded to a Veteran Sergeant",
+        "choices": [
+          {
+            "name": "Veteran Sergeant",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "roles": [
+          "Troops",
+          "Elites",
+          "Support",
+          "Heavy Assault",
+          "Recon"
+        ],
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "option": {
+        "id": "melta-bombs",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may take Melta bombs",
+        "choices": [
+          {
+            "name": "Melta bombs",
+            "points": 5
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "roles": [
+          "Command"
+        ],
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "option": {
+        "id": "refractor-field",
+        "kind": "upgrade",
+        "modelType": "Command",
+        "text": "May take a Refractor field",
+        "choices": [
+          {
+            "name": "Refractor field",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "assault-squad",
+        "despoiler-squad",
+        "breacher-squad",
+        "veteran-tactical-squad",
+        "veteran-assault-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "legion-standard",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The unit may carry a Legion standard",
+        "choices": [
+          {
+            "name": "Legion standard",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "roles": [
+          "Armour",
+          "Transport",
+          "Heavy Transport"
+        ],
+        "unitType": "Vehicle",
+        "notUnitType": "Flyer"
+      },
+      "optionalUnits": true,
+      "option": {
+        "id": "extra-armour",
+        "kind": "upgrade",
+        "model": null,
+        "text": "May take Extra armour",
+        "choices": [
+          {
+            "name": "Extra armour",
+            "points": 15
+          }
+        ]
+      }
+    }
   ],
   "modifiers": [
-    { "units": ["*"], "item": "Artificer armour", "text": "Artificer armour: 2+ Save.", "stats": { "SAV": "best:2+" } },
-    { "units": ["*"], "item": "Refractor field", "text": "Refractor field: 5+ Invulnerable Save.", "stats": { "INV": "best:5+" } },
-    { "units": ["*"], "item": "Veteran Sergeant", "text": "Veteran Sergeant: +1 WS, +1 A.", "stats": { "WS": "+1", "A": "+1" } },
-    { "units": ["*"], "item": "Legion standard", "scope": "unit", "text": "Legion standard: +1 LD, +1 CL.", "stats": { "LD": "+1", "CL": "+1" } },
-    { "units": ["*"], "item": "Extra armour", "scope": "unit", "text": "Extra armour: +1 HP.", "stats": { "HP": "+1" } }
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Artificer armour",
+      "text": "Artificer armour: 2+ Save.",
+      "stats": {
+        "SAV": "best:2+"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Refractor field",
+      "text": "Refractor field: 5+ Invulnerable Save.",
+      "stats": {
+        "INV": "best:5+"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Veteran Sergeant",
+      "text": "Veteran Sergeant: +1 WS, +1 A.",
+      "stats": {
+        "WS": "+1",
+        "A": "+1"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Legion standard",
+      "scope": "unit",
+      "text": "Legion standard: +1 LD, +1 CL.",
+      "stats": {
+        "LD": "+1",
+        "CL": "+1"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Extra armour",
+      "scope": "unit",
+      "text": "Extra armour: +1 HP.",
+      "stats": {
+        "HP": "+1"
+      }
+    }
   ],
   "rites": [
     {
       "name": "Pride of the Legion",
       "flavor": "The veterans of a hundred compliances take the line themselves.",
-      "text": "Veteran Tactical Squads, Veteran Assault Squads and Cataphractii and Tartaros Terminator Squads may fill Troops slots, and gain Line (2). The army's warlord must be in Terminator armour, and there's no room in the column for Recon units or Inductii.",
-      "roles": [ { "units": ["veteran-tactical-squad", "veteran-assault-squad", "cataphractii-terminator-squad", "tartaros-terminator-squad"], "role": "Troops" } ],
-      "modifiers": [ { "units": ["veteran-tactical-squad", "veteran-assault-squad", "cataphractii-terminator-squad", "tartaros-terminator-squad"], "text": "Pride of the Legion: Line (2).", "addRules": ["Line (2)"] } ],
-      "require": [ { "match": { "roles": ["Warlord", "High Command"], "nameIncludes": ["Terminator Armour"] }, "min": 1, "note": "Include a Praetor in Terminator armour to lead the veterans." } ],
-      "forbid": [ { "match": { "role": "Recon" } }, { "match": { "nameIncludes": ["Inductii"] } } ]
+      "text": "The Legion sends its veterans to the front and trusts them to hold what they take.",
+      "benefits": [
+        "Veteran Tactical, Veteran Assault, Cataphractii Terminator and Tartaros Terminator Squads may fill Troops slots and gain Line (2).",
+        "Those units gain First Among Brothers: +1 Leadership and +1 Cool."
+      ],
+      "limitations": [
+        "The army must include a Praetor in Terminator armour.",
+        "No Recon units and no Inductii."
+      ],
+      "roles": [
+        {
+          "units": [
+            "veteran-tactical-squad",
+            "veteran-assault-squad",
+            "cataphractii-terminator-squad",
+            "tartaros-terminator-squad"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "veteran-tactical-squad",
+            "veteran-assault-squad",
+            "cataphractii-terminator-squad",
+            "tartaros-terminator-squad"
+          ],
+          "text": "Pride of the Legion: Line (2), First Among Brothers.",
+          "addRules": [
+            "Line (2)",
+            "First Among Brothers"
+          ],
+          "stats": {
+            "LD": "+1",
+            "CL": "+1"
+          }
+        }
+      ],
+      "require": [
+        {
+          "match": {
+            "roles": [
+              "Warlord",
+              "High Command"
+            ],
+            "nameIncludes": [
+              "Terminator Armour"
+            ]
+          },
+          "min": 1,
+          "note": "Include a Praetor in Terminator armour to lead the veterans."
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "role": "Recon"
+          }
+        },
+        {
+          "match": {
+            "nameIncludes": [
+              "Inductii"
+            ]
+          }
+        }
+      ]
     },
     {
       "name": "Armoured Spearhead",
       "flavor": "Tracks first, boots second.",
-      "text": "Predators, Sicarans and Sicaran Venators may fill Troops slots and gain Line (1). Every Armour unit gains +1 Ballistic Skill. The army must include at least three Armour units, and it can't arrive from orbit: no Drop Pods, Dreadclaws or Kharybdis.",
-      "roles": [ { "units": ["predator", "sicaran", "sicaran-venator"], "role": "Troops" } ],
-      "modifiers": [
-        { "units": ["predator", "sicaran", "sicaran-venator"], "text": "Armoured Spearhead: Line (1).", "addRules": ["Line (1)"] },
-        { "match": { "role": "Armour" }, "text": "Armoured Spearhead: +1 BS.", "stats": { "BS": "+1" } }
+      "text": "Tracks first, boots second.",
+      "benefits": [
+        "Predators, Sicarans and Sicaran Venators may fill Troops slots and gain Line (1).",
+        "Every Armour unit gains +1 Ballistic Skill and Iron Column (Outflank, and it may Rush and still fire one weapon on the first turn)."
       ],
-      "require": [ { "match": { "role": "Armour" }, "min": 3, "note": "The spearhead needs at least three Armour units." } ],
-      "forbid": [ { "units": ["drop-pod", "dreadnought-drop-pod", "deathstorm-drop-pod", "dreadclaw-drop-pod", "kharybdis-assault-claw"] } ]
+      "limitations": [
+        "The army must include at least three Armour units.",
+        "No more than two Infantry units in Troops slots.",
+        "No Drop Pods, Dreadclaws or Kharybdis."
+      ],
+      "roles": [
+        {
+          "units": [
+            "predator",
+            "sicaran",
+            "sicaran-venator"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "predator",
+            "sicaran",
+            "sicaran-venator"
+          ],
+          "text": "Armoured Spearhead: Line (1).",
+          "addRules": [
+            "Line (1)"
+          ]
+        },
+        {
+          "match": {
+            "role": "Armour"
+          },
+          "text": "Armoured Spearhead: +1 BS, Iron Column.",
+          "stats": {
+            "BS": "+1"
+          },
+          "addRules": [
+            "Iron Column",
+            "Outflank"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "match": {
+            "role": "Armour"
+          },
+          "min": 3,
+          "note": "The spearhead needs at least three Armour units."
+        }
+      ],
+      "forbid": [
+        {
+          "units": [
+            "drop-pod",
+            "dreadnought-drop-pod",
+            "deathstorm-drop-pod",
+            "dreadclaw-drop-pod",
+            "kharybdis-assault-claw"
+          ]
+        }
+      ],
+      "limit": [
+        {
+          "match": {
+            "role": "Troops",
+            "notUnitType": "Vehicle"
+          },
+          "max": 2,
+          "note": "At most two Infantry units in Troops slots."
+        }
+      ]
     },
     {
       "name": "Orbital Assault",
       "flavor": "The first warning is the scream of retros.",
-      "text": "Drop Pods and Dreadnought Drop Pods cost 10 points less. Legion Infantry and Dreadnoughts that start in a Drop Pod gain Hatred (Everything) on the turn they land, so remind your opponent. The army brings no ground armour: no Armour, Heavy Transport other than Drop Pods, or Lord of War units, and at least one Drop Pod is required.",
-      "points": [ { "units": ["drop-pod", "dreadnought-drop-pod"], "delta": -10 } ],
-      "modifiers": [ { "match": { "notUnitType": "Vehicle" }, "text": "Orbital Assault: Hatred (Everything) on the turn the unit lands from a Drop Pod.", "condition": "on the turn the unit disembarks from a Drop Pod that arrived from Reserves" } ],
-      "require": [ { "units": ["drop-pod", "dreadnought-drop-pod", "deathstorm-drop-pod"], "min": 1, "note": "Bring at least one Drop Pod." } ],
-      "forbid": [ { "match": { "roles": ["Armour", "Lord of War"] } }, { "match": { "role": "Heavy Transport", "notNameIncludes": ["Drop Pod"] } }, { "units": ["rhino"] } ]
+      "text": "The first warning is the scream of retros.",
+      "benefits": [
+        "Drop Pods and Dreadnought Drop Pods gain Drop Assault Vanguard: half of them land on the first turn without a Reserves roll.",
+        "Units that disembark from a Drop Pod on the turn it lands gain Hatred (Everything) for that turn."
+      ],
+      "limitations": [
+        "At least one Drop Pod is required, and every Infantry unit that can ride in one must start the battle embarked in a Drop Pod.",
+        "No Armour, Lord of War or Heavy Transport units other than Drop Pods, and no Rhinos."
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "drop-pod",
+            "dreadnought-drop-pod",
+            "deathstorm-drop-pod"
+          ],
+          "optionalUnits": true,
+          "text": "Orbital Assault: Drop Assault Vanguard.",
+          "addRules": [
+            "Drop Assault Vanguard"
+          ]
+        },
+        {
+          "match": {
+            "notUnitType": "Vehicle"
+          },
+          "text": "Orbital Assault: Hatred (Everything) on the turn the unit lands from a Drop Pod.",
+          "condition": "on the turn the unit disembarks from a Drop Pod that arrived from Reserves"
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "drop-pod",
+            "dreadnought-drop-pod",
+            "deathstorm-drop-pod"
+          ],
+          "min": 1,
+          "note": "Bring at least one Drop Pod."
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "roles": [
+              "Armour",
+              "Lord of War"
+            ]
+          }
+        },
+        {
+          "match": {
+            "role": "Heavy Transport",
+            "notNameIncludes": [
+              "Drop Pod"
+            ]
+          }
+        },
+        {
+          "units": [
+            "rhino"
+          ]
+        }
+      ]
     },
     {
       "name": "Skyborne Vanguard",
       "flavor": "Jump packs lit, the line folds under the falling Legion.",
-      "text": "Veteran Assault Squads and Destroyer Assault Squads may fill Troops slots. Every Infantry unit with jump packs (the Antigrav sub-type) gains Fast (1). Nothing heavy can keep up: no Armour, Heavy Assault or Lord of War units.",
-      "roles": [ { "units": ["veteran-assault-squad", "destroyer-assault-squad"], "role": "Troops" } ],
-      "modifiers": [ { "match": { "unitType": "Antigrav", "notUnitType": "Vehicle" }, "text": "Skyborne Vanguard: Fast (1).", "addRules": ["Fast (1)"] } ],
-      "forbid": [ { "match": { "roles": ["Armour", "Heavy Assault", "Lord of War"] } } ]
+      "text": "Jump packs lit, the line folds under the falling Legion.",
+      "benefits": [
+        "Veteran Assault and Destroyer Assault Squads may fill Troops slots.",
+        "Every Infantry unit with jump packs gains Fast (1) and Death from Above: it may charge on the turn it arrives by Deep Strike."
+      ],
+      "limitations": [
+        "No Armour, Heavy Assault or Lord of War units."
+      ],
+      "roles": [
+        {
+          "units": [
+            "veteran-assault-squad",
+            "destroyer-assault-squad"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "modifiers": [
+        {
+          "match": {
+            "unitType": "Antigrav",
+            "notUnitType": "Vehicle"
+          },
+          "text": "Skyborne Vanguard: Fast (1), Death from Above.",
+          "addRules": [
+            "Fast (1)",
+            "Death from Above"
+          ]
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "roles": [
+              "Armour",
+              "Heavy Assault",
+              "Lord of War"
+            ]
+          }
+        }
+      ]
     },
     {
       "name": "Recon in Force",
       "flavor": "Eyes on every road before the main host moves.",
-      "text": "Reconnaissance Squads, Scout Squads and Seeker Squads may fill Troops slots and gain Line (1). Every Recon Infantry unit gains Shrouded (6+). The force travels light: no Heavy Assault or Lord of War units, and no more than one Heavy Transport.",
-      "roles": [ { "units": ["reconnaissance-squad", "scout-squad", "seeker-squad"], "role": "Troops" } ],
-      "modifiers": [
-        { "units": ["reconnaissance-squad", "scout-squad", "seeker-squad"], "text": "Recon in Force: Line (1).", "addRules": ["Line (1)"] },
-        { "match": { "role": "Recon", "notUnitType": "Vehicle" }, "text": "Recon in Force: Shrouded (6+).", "addRules": ["Shrouded (6+)"] }
+      "text": "Eyes on every road before the main host moves.",
+      "benefits": [
+        "Reconnaissance, Scout and Seeker Squads may fill Troops slots and gain Line (1).",
+        "Every Recon Infantry unit gains Shrouded (6+) and Forward Positions: a free 6\" move before the first turn."
       ],
-      "forbid": [ { "match": { "roles": ["Heavy Assault", "Lord of War"] } } ],
-      "limit": [ { "match": { "role": "Heavy Transport" }, "max": 1, "note": "At most one Heavy Transport." } ]
+      "limitations": [
+        "No Heavy Assault or Lord of War units.",
+        "No more than one Heavy Transport."
+      ],
+      "roles": [
+        {
+          "units": [
+            "reconnaissance-squad",
+            "scout-squad",
+            "seeker-squad"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "reconnaissance-squad",
+            "scout-squad",
+            "seeker-squad"
+          ],
+          "text": "Recon in Force: Line (1).",
+          "addRules": [
+            "Line (1)"
+          ]
+        },
+        {
+          "match": {
+            "role": "Recon",
+            "notUnitType": "Vehicle"
+          },
+          "text": "Recon in Force: Shrouded (6+), Forward Positions.",
+          "addRules": [
+            "Shrouded (6+)",
+            "Forward Positions"
+          ]
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "roles": [
+              "Heavy Assault",
+              "Lord of War"
+            ]
+          }
+        }
+      ],
+      "limit": [
+        {
+          "match": {
+            "role": "Heavy Transport"
+          },
+          "max": 1,
+          "note": "At most one Heavy Transport."
+        }
+      ]
     },
     {
       "name": "Siege Breakers",
       "flavor": "Every wall falls. The only question is how many brothers it costs.",
-      "text": "Breacher Squads gain +1 Toughness. Vindicators and Arquitor Bombards cost 15 points less. At least two Breacher Squads are required, and the army has no time for Fast Attack or Recon vehicles.",
-      "modifiers": [ { "units": ["breacher-squad", "veteran-breacher-squad"], "text": "Siege Breakers: +1 T.", "stats": { "T": "+1" } } ],
-      "points": [ { "units": ["vindicator-siege-tank", "arquitor-bombard"], "delta": -15 } ],
-      "require": [ { "units": ["breacher-squad"], "min": 2, "note": "Bring at least two Breacher Squads." } ],
-      "forbid": [ { "match": { "role": "Fast Attack" } }, { "match": { "role": "Recon", "unitType": "Vehicle" } } ]
+      "text": "Every wall falls. The only question is how many brothers it costs.",
+      "benefits": [
+        "Breacher and Veteran Breacher Squads gain +1 Toughness.",
+        "Vindicators and Arquitor Bombards gain Siege Doctrine: their shots ignore cover from buildings and fortifications, and they gain +1 Front Armour."
+      ],
+      "limitations": [
+        "At least two Breacher Squads are required.",
+        "No Fast Attack units and no Recon vehicles."
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "breacher-squad",
+            "veteran-breacher-squad"
+          ],
+          "text": "Siege Breakers: +1 T.",
+          "stats": {
+            "T": "+1"
+          }
+        },
+        {
+          "units": [
+            "vindicator-siege-tank",
+            "arquitor-bombard"
+          ],
+          "text": "Siege Breakers: Siege Doctrine, +1 FRONT.",
+          "stats": {
+            "FRONT": "+1"
+          },
+          "addRules": [
+            "Siege Doctrine"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "breacher-squad"
+          ],
+          "min": 2,
+          "note": "Bring at least two Breacher Squads."
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "role": "Fast Attack"
+          }
+        },
+        {
+          "match": {
+            "role": "Recon",
+            "unitType": "Vehicle"
+          }
+        }
+      ]
     },
     {
       "name": "Iron Ancients",
       "flavor": "The honoured dead walk ahead of the living.",
-      "text": "Contemptor and Castra Ferrum Dreadnoughts may fill Troops slots and gain Line (1). Every Dreadnought gains +1 Weapon Skill. The army must include at least two Dreadnoughts and can't take Recon or Fast Attack units.",
-      "roles": [ { "units": ["contemptor-dreadnought", "castra-ferrum-dreadnought"], "role": "Troops" } ],
-      "modifiers": [
-        { "units": ["contemptor-dreadnought", "castra-ferrum-dreadnought"], "text": "Iron Ancients: Line (1).", "addRules": ["Line (1)"] },
-        { "match": { "unitType": "Walker" }, "text": "Iron Ancients: +1 WS.", "stats": { "WS": "+1" } }
+      "text": "The honoured dead walk ahead of the living.",
+      "benefits": [
+        "Contemptor and Castra Ferrum Dreadnoughts may fill Troops slots and gain Line (1).",
+        "Every Dreadnought gains +1 Weapon Skill and Honoured Ancient: one re-rolled Hit Test per Combat."
       ],
-      "require": [ { "match": { "unitType": "Walker" }, "min": 2, "note": "Bring at least two Dreadnoughts." } ],
-      "forbid": [ { "match": { "roles": ["Recon", "Fast Attack"] } } ]
+      "limitations": [
+        "At least two Dreadnoughts are required.",
+        "No Recon or Fast Attack units."
+      ],
+      "roles": [
+        {
+          "units": [
+            "contemptor-dreadnought",
+            "castra-ferrum-dreadnought"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "contemptor-dreadnought",
+            "castra-ferrum-dreadnought"
+          ],
+          "text": "Iron Ancients: Line (1).",
+          "addRules": [
+            "Line (1)"
+          ]
+        },
+        {
+          "match": {
+            "unitType": "Walker"
+          },
+          "text": "Iron Ancients: +1 WS, Honoured Ancient.",
+          "stats": {
+            "WS": "+1"
+          },
+          "addRules": [
+            "Honoured Ancient"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "match": {
+            "unitType": "Walker"
+          },
+          "min": 2,
+          "note": "Bring at least two Dreadnoughts."
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "roles": [
+              "Recon",
+              "Fast Attack"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "name": "First Among Brothers",
+      "text": "Legacy house rule (Pride of the Legion). Veterans who have earned the right to hold the line. A unit with this rule adds +1 to its Leadership and Cool, and counts as a Troops unit for any mission rule that cares."
+    },
+    {
+      "name": "Iron Column",
+      "text": "Legacy house rule (Armoured Spearhead). The tanks lead and the infantry follow. A model with this rule gains Outflank, and on the first battle turn it may Rush and still fire one weapon at its full Ballistic Skill."
+    },
+    {
+      "name": "Drop Assault Vanguard",
+      "text": "Legacy house rule (Orbital Assault). At the start of the first battle turn, half of the army's Drop Pods (rounding up) land automatically without a Reserves roll; the rest follow normally. Units disembarking from a Drop Pod on the turn it lands gain Hatred (Everything) until the end of that turn."
+    },
+    {
+      "name": "Death from Above",
+      "text": "Legacy house rule (Skyborne Vanguard). A unit with this rule that arrives by Deep Strike may still declare a Charge on that turn, at -2\" to the distance rolled."
+    },
+    {
+      "name": "Forward Positions",
+      "text": "Legacy house rule (Recon in Force). Before the first battle turn, after both sides have deployed, a unit with this rule may make a free move of up to 6\". It can't end that move within 9\" of an enemy model."
+    },
+    {
+      "name": "Siege Doctrine",
+      "text": "Legacy house rule (Siege Breakers). The Legion goes through the walls, not round them. Shooting Attacks made by a model with this rule ignore Cover saves granted by buildings and fortifications, and the model adds +1 to its Front Armour."
+    },
+    {
+      "name": "Honoured Ancient",
+      "text": "Legacy house rule (Iron Ancients). A Dreadnought with this rule may re-roll one failed Hit Test in each Combat and counts as a scoring unit while within 3\" of an objective."
     }
   ]
 }

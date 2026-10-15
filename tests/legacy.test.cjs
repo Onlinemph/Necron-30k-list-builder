@@ -98,12 +98,14 @@ test('Pride of the Legion: veterans as Troops, no Recon, a Terminator warlord re
   assert.ok(!E.armyIssues(army).some((i) => /Pride of the Legion/.test(i.msg)));
 });
 
-test('The Butcher\'s Due: Red Butchers cost less and need Angron or Kharn', () => {
+test('The Butcher\'s Due: Red Butchers take Troops slots and a Rite rule, and need Angron or Kharn', () => {
   const { E, army } = armyOf('world-eaters');
   legacyOn(army, "The Butcher's Due");
   const rb = place(E, slotOf(army, 'Troops'), 'red-butchers');
   E.setArmy(army);
-  assert.equal(E.unitPoints(rb), 225);
+  assert.equal(E.unitPoints(rb), 250);
+  assert.ok(E.unitsForSlot(slotOf(army, 'Troops'), army.detachments[0]).some((u) => u.id === 'red-butchers'));
+  assert.ok(E.effectiveModels(rb)[0].rules.includes("The Butcher's Chosen"));
   assert.ok(E.armyIssues(army).some((i) => /Butcher's Due: needs at least 1/.test(i.msg)));
 });
 

@@ -43,54 +43,277 @@
     { "units": ["*"], "item": "Death-mask", "text": "Death-mask: Fear (1), +1 LD.", "stats": { "LD": "+1" }, "addRules": ["Fear (1)"] },
     { "units": ["*"], "item": "Grail of the Red Tide", "scope": "unit", "text": "Grail of the Red Tide: Feel No Pain (6+).", "addRules": ["Feel No Pain (6+)"] }
   ],
+  "rules": [
+    {
+      "name": "Sun Behind Them",
+      "text": "Legacy house rule (The Descent of the Host). A unit with this rule gains Deep Strike. On the turn it arrives from Reserves by Deep Strike it may still declare a Charge."
+    },
+    {
+      "name": "The Red Thirst",
+      "text": "Legacy house rule (Thirst of the Red Wings). A unit with this rule adds 1 to its Charge roll. If it destroys an enemy unit in combat, it may immediately make a free move of up to 3\" toward the nearest enemy unit. At the start of its Assault phase, if an enemy unit is within 12\", it must declare a Charge against one if able."
+    },
+    {
+      "name": "Unbroken Court",
+      "text": "Legacy house rule (The Celestial Court). A unit with this rule may re-roll failed Morale Checks. While it is within 6\" of a friendly Warlord or High Command model it passes them automatically."
+    },
+    {
+      "name": "Entombed Rage",
+      "text": "Legacy house rule (Pyre-Brothers of Baal). If a unit with this rule is charged, it fights at its normal Initiative in that combat and adds +1 to its Attacks. It also gains Fear (1)."
+    }
+  ],
   "rites": [
     {
       "name": "The Descent of the Host",
       "flavor": "They fall in a spray of gold, and the sun is behind them.",
-      "text": "Dawnbreaker Cohorts and the Angel's Tears may fill Troops slots and gain Line (1). Every Antigrav Infantry unit gains +1 Initiative. The Host does not walk: no Heavy sub-type Infantry, no Armour, no Heavy Transports, and at least two Assault Squads (or Veteran Assault Squads) are required.",
-      "roles": [ { "units": ["dawnbreaker-cohort", "the-angels-tears"], "role": "Troops" } ],
-      "modifiers": [
-        { "units": ["dawnbreaker-cohort", "the-angels-tears"], "text": "The Descent of the Host: Line (1).", "addRules": ["Line (1)"] },
-        { "match": { "unitType": "Antigrav", "notUnitType": "Vehicle" }, "text": "The Descent of the Host: +1 I.", "stats": { "I": "+1" } }
+      "benefits": [
+        "Dawnbreaker Cohorts and the Angel's Tears may fill Troops slots and gain Line (1).",
+        "They also gain Sun Behind Them: Deep Strike, and they may still Charge on the turn they arrive.",
+        "Every Antigrav Infantry unit gains +1 Initiative."
       ],
-      "require": [ { "units": ["assault-squad", "veteran-assault-squad"], "min": 2, "note": "Bring at least two Assault Squads or Veteran Assault Squads." } ],
-      "forbid": [ { "match": { "unitType": "Heavy", "notUnitType": "Vehicle" } }, { "match": { "roles": ["Armour", "Heavy Transport"] } } ]
+      "limitations": [
+        "At least two Assault Squads or Veteran Assault Squads are required.",
+        "Dawnbreaker Cohorts and the Angel's Tears must start the battle in Reserve.",
+        "No Heavy sub-type Infantry, no Armour and no Heavy Transports."
+      ],
+      "roles": [
+        {
+          "units": [
+            "dawnbreaker-cohort",
+            "the-angels-tears"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "dawnbreaker-cohort",
+            "the-angels-tears"
+          ],
+          "text": "The Descent of the Host: Line (1), Sun Behind Them.",
+          "addRules": [
+            "Line (1)",
+            "Sun Behind Them"
+          ]
+        },
+        {
+          "match": {
+            "unitType": "Antigrav",
+            "notUnitType": "Vehicle"
+          },
+          "text": "The Descent of the Host: +1 I.",
+          "stats": {
+            "I": "+1"
+          }
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "assault-squad",
+            "veteran-assault-squad"
+          ],
+          "min": 2,
+          "note": "Bring at least two Assault Squads or Veteran Assault Squads."
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "unitType": "Heavy",
+            "notUnitType": "Vehicle"
+          }
+        },
+        {
+          "match": {
+            "roles": [
+              "Armour",
+              "Heavy Transport"
+            ]
+          }
+        }
+      ]
     },
     {
       "name": "Thirst of the Red Wings",
       "flavor": "Sanguinius could hold the rage in his sons. Without him it was a tide.",
-      "text": "Every non-vehicle model gains +1 Attack on a turn it charges, but loses 1 Cool. The tide cannot be shepherded: no Apothecaries, no Recon units and no Support units other than Techmarines.",
-      "modifiers": [
-        { "match": { "notUnitType": "Vehicle" }, "text": "Thirst of the Red Wings: +1 A.", "stats": { "A": "+1" }, "condition": "on a turn the unit charges" },
-        { "match": { "notUnitType": "Vehicle" }, "text": "Thirst of the Red Wings: -1 CL.", "stats": { "CL": "-1" } }
+      "benefits": [
+        "Every non-vehicle model gains +1 Attack on a turn it charges.",
+        "Every non-vehicle unit gains The Red Thirst: +1 to Charge rolls, and a free 3\" move toward the enemy after destroying a unit in combat."
       ],
-      "forbid": [ { "units": ["apothecary"] }, { "match": { "role": "Recon" } }, { "match": { "role": "Support", "notNameIncludes": ["Techmarine"] } } ]
+      "limitations": [
+        "Every non-vehicle model loses 1 Cool.",
+        "Units with The Red Thirst must charge if an enemy unit is within 12\" at the start of their Assault phase.",
+        "No Apothecaries, no Recon units and no Support units other than Techmarines."
+      ],
+      "modifiers": [
+        {
+          "match": {
+            "notUnitType": "Vehicle"
+          },
+          "text": "Thirst of the Red Wings: +1 A.",
+          "stats": {
+            "A": "+1"
+          },
+          "condition": "on a turn the unit charges"
+        },
+        {
+          "match": {
+            "notUnitType": "Vehicle"
+          },
+          "text": "Thirst of the Red Wings: -1 CL, The Red Thirst.",
+          "stats": {
+            "CL": "-1"
+          },
+          "addRules": [
+            "The Red Thirst"
+          ]
+        }
+      ],
+      "forbid": [
+        {
+          "units": [
+            "apothecary"
+          ]
+        },
+        {
+          "match": {
+            "role": "Recon"
+          }
+        },
+        {
+          "match": {
+            "role": "Support",
+            "notNameIncludes": [
+              "Techmarine"
+            ]
+          }
+        }
+      ]
     },
     {
       "name": "The Celestial Court",
       "flavor": "A Legion of ten thousand, and only the finest ever walk in the Primarch's shadow.",
-      "text": "Sanguinary Guard, Crimson Paladins and Ofanim Courts may fill Troops slots and gain Line (2). Sanguinary Guard cost 30 points less. The Court takes no commoners: no Tactical Squads, no Despoiler Squads, and no Inductii. At least one Sanguinary Guard and one Crimson Paladin pack are required.",
-      "roles": [ { "units": ["sanguinary-guard", "crimson-paladins", "ofanim-court", "ofanim-court-with-jump-packs"], "role": "Troops" } ],
-      "points": [ { "units": ["sanguinary-guard"], "delta": -30 } ],
-      "modifiers": [ { "units": ["sanguinary-guard", "crimson-paladins", "ofanim-court", "ofanim-court-with-jump-packs"], "text": "The Celestial Court: Line (2).", "addRules": ["Line (2)"] } ],
-      "require": [
-        { "units": ["sanguinary-guard"], "min": 1, "note": "Bring at least one Sanguinary Guard." },
-        { "units": ["crimson-paladins"], "min": 1, "note": "Bring at least one Crimson Paladin pack." }
+      "benefits": [
+        "Sanguinary Guard, Crimson Paladins and Ofanim Courts may fill Troops slots and gain Line (2).",
+        "They also gain Unbroken Court: re-roll failed Morale Checks, passing automatically within 6\" of a friendly Warlord or High Command model."
       ],
-      "forbid": [ { "units": ["tactical-squad", "despoiler-squad", "inductii-squad"] } ]
+      "limitations": [
+        "At least one Sanguinary Guard and one Crimson Paladin pack are required.",
+        "No Tactical Squads, Despoiler Squads or Inductii."
+      ],
+      "roles": [
+        {
+          "units": [
+            "sanguinary-guard",
+            "crimson-paladins",
+            "ofanim-court",
+            "ofanim-court-with-jump-packs"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "sanguinary-guard",
+            "crimson-paladins",
+            "ofanim-court",
+            "ofanim-court-with-jump-packs"
+          ],
+          "text": "The Celestial Court: Line (2), Unbroken Court.",
+          "addRules": [
+            "Line (2)",
+            "Unbroken Court"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "sanguinary-guard"
+          ],
+          "min": 1,
+          "note": "Bring at least one Sanguinary Guard."
+        },
+        {
+          "units": [
+            "crimson-paladins"
+          ],
+          "min": 1,
+          "note": "Bring at least one Crimson Paladin pack."
+        }
+      ],
+      "forbid": [
+        {
+          "units": [
+            "tactical-squad",
+            "despoiler-squad",
+            "inductii-squad"
+          ]
+        }
+      ]
     },
     {
       "name": "Pyre-Brothers of Baal",
       "flavor": "The old ones burn, and they remember. They are very, very angry.",
-      "text": "Contemptor-Incaendius Dreadnoughts may fill Troops slots, gain Line (1) and cost 30 points less. Every Walker gains +1 Attack. The Court of the dead has no room for the living: at least two Contemptor-Incaendius are required, with no Recon units and no Heavy Transports.",
-      "roles": [ { "units": ["contemptor-incaendius-dreadnought"], "role": "Troops" } ],
-      "points": [ { "units": ["contemptor-incaendius-dreadnought"], "delta": -30 } ],
-      "modifiers": [
-        { "units": ["contemptor-incaendius-dreadnought"], "text": "Pyre-Brothers of Baal: Line (1).", "addRules": ["Line (1)"] },
-        { "match": { "unitType": "Walker" }, "text": "Pyre-Brothers of Baal: +1 A.", "stats": { "A": "+1" } }
+      "benefits": [
+        "Contemptor-Incaendius Dreadnoughts may fill Troops slots and gain Line (1).",
+        "They gain Entombed Rage: if charged they fight at normal Initiative with +1 Attack, and they gain Fear (1).",
+        "Every Walker gains +1 Attack."
       ],
-      "require": [ { "units": ["contemptor-incaendius-dreadnought"], "min": 2, "note": "Bring at least two Contemptor-Incaendius Dreadnoughts." } ],
-      "forbid": [ { "match": { "roles": ["Recon", "Heavy Transport"] } } ]
+      "limitations": [
+        "At least two Contemptor-Incaendius are required.",
+        "No Recon units and no Heavy Transports."
+      ],
+      "roles": [
+        {
+          "units": [
+            "contemptor-incaendius-dreadnought"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "contemptor-incaendius-dreadnought"
+          ],
+          "text": "Pyre-Brothers of Baal: Line (1), Entombed Rage.",
+          "addRules": [
+            "Line (1)",
+            "Entombed Rage"
+          ]
+        },
+        {
+          "match": {
+            "unitType": "Walker"
+          },
+          "text": "Pyre-Brothers of Baal: +1 A.",
+          "stats": {
+            "A": "+1"
+          }
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "contemptor-incaendius-dreadnought"
+          ],
+          "min": 2,
+          "note": "Bring at least two Contemptor-Incaendius Dreadnoughts."
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "roles": [
+              "Recon",
+              "Heavy Transport"
+            ]
+          }
+        }
+      ]
     }
   ]
 }

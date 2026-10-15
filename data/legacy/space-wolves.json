@@ -37,52 +37,115 @@
     { "units": ["varagyr-wolf-guard-terminators"], "text": "Wolf Guard hold the hall-floor like oaks: +1 WS, -1 I.", "stats": { "WS": "+1", "I": "-1" } },
     { "units": ["deathsworn-pack"], "text": "The Death Wolf walks beside them: 5+ Invulnerable Save, -1 I.", "stats": { "INV": "best:5+", "I": "-1" } }
   ],
+  "rules": [
+    {"name": "Run Down the Prey", "text": "Legacy house rule (The Long Hunt). The pack strikes when the herd is already moving. A unit with this rule that enters play from Reserves may re-roll its Charge distance on that turn."},
+    {"name": "Oathsworn Hearthguard", "text": "Legacy house rule (Hall of the Wolf Guard). The Jarl's hearth-companions do not give ground. A unit with this rule may re-roll failed Cool Checks and cannot be Pinned."},
+    {"name": "Blood-Howl", "text": "Legacy house rule (The Wolf Within). When the pack is half gone the beast takes over. Once a unit with this rule has lost half or more of its starting models, it gains Feel No Pain (6+) and automatically passes Cool Checks."},
+    {"name": "Thunder of the Wild Ride", "text": "Legacy house rule (The Wild Ride). A unit with this rule that Rushes may still declare a Charge on that turn, at -2\" to the distance rolled."}
+  ],
   "rites": [
     {
       "name": "The Long Hunt",
       "flavor": "A wolf-pack does not charge the herd. It follows, and it waits, and it picks the moment.",
-      "text": "Jorlund Hunter Packs may fill Troops slots and gain Line (1). Hunter Packs, Reconnaissance Squads and Scout Squads gain Outflank. The army travels on foot and on paw: no Armour units and no Heavy Transports. At least one Jorlund Hunter Pack is required.",
-      "roles": [ { "units": ["jorlund-hunter-pack"], "role": "Troops" } ],
-      "modifiers": [
-        { "units": ["jorlund-hunter-pack"], "text": "The Long Hunt: Line (1).", "addRules": ["Line (1)"] },
-        { "units": ["jorlund-hunter-pack", "reconnaissance-squad", "scout-squad"], "text": "The Long Hunt: Outflank.", "addRules": ["Outflank"] }
+      "benefits": [
+        "Jorlund Hunter Packs may fill Troops slots and gain Line (1).",
+        "Hunter Packs, Reconnaissance Squads and Scout Squads gain Outflank and Run Down the Prey: a unit that arrives from Reserves may re-roll its Charge distance."
       ],
-      "require": [ { "units": ["jorlund-hunter-pack"], "min": 1, "note": "Bring at least one Jorlund Hunter Pack." } ],
-      "forbid": [ { "match": { "roles": ["Armour", "Heavy Transport"] } } ]
+      "limitations": [
+        "At least one Jorlund Hunter Pack is required.",
+        "At least one unit with Run Down the Prey must start the battle in Reserves.",
+        "No Armour units and no Heavy Transports."
+      ],
+      "roles": [
+        {"units": ["jorlund-hunter-pack"], "role": "Troops"}
+      ],
+      "modifiers": [
+        {"units": ["jorlund-hunter-pack"], "text": "The Long Hunt: Line (1).", "addRules": ["Line (1)"]},
+        {"units": ["jorlund-hunter-pack", "reconnaissance-squad", "scout-squad"], "text": "The Long Hunt: Run Down the Prey, Outflank.", "addRules": ["Run Down the Prey", "Outflank"]}
+      ],
+      "require": [
+        {"units": ["jorlund-hunter-pack"], "min": 1, "note": "Bring at least one Jorlund Hunter Pack."}
+      ],
+      "forbid": [
+        {"match": {"roles": ["Armour", "Heavy Transport"]}}
+      ]
     },
     {
       "name": "Hall of the Wolf Guard",
       "flavor": "When the Jarl's hearth-companions march, no one else needs to stand in the line.",
-      "text": "Varagyr Wolf Guard Terminators may fill Troops slots, gain Line (1) and cost 25 points less. The Thegn gains +1 Attack. The Guard will not share a hull with lesser men: no Transport units and no Fast Attack units. At least one Varagyr pack is required.",
-      "roles": [ { "units": ["varagyr-wolf-guard-terminators"], "role": "Troops" } ],
-      "points": [ { "units": ["varagyr-wolf-guard-terminators"], "delta": -25 } ],
-      "modifiers": [
-        { "units": ["varagyr-wolf-guard-terminators"], "text": "Hall of the Wolf Guard: Line (1).", "addRules": ["Line (1)"] },
-        { "units": ["varagyr-wolf-guard-terminators"], "models": ["Thegn"], "text": "Hall of the Wolf Guard: Thegn +1 A.", "stats": { "A": "+1" } }
+      "benefits": [
+        "Varagyr Wolf Guard Terminators may fill Troops slots and gain Line (1).",
+        "Varagyr gain Oathsworn Hearthguard: they may re-roll failed Cool Checks and cannot be Pinned."
       ],
-      "require": [ { "units": ["varagyr-wolf-guard-terminators"], "min": 1, "note": "Bring at least one Varagyr pack." } ],
-      "forbid": [ { "match": { "role": "Transport" } }, { "match": { "role": "Fast Attack" } } ]
+      "limitations": [
+        "At least one Varagyr pack is required.",
+        "No Transport units and no Fast Attack units."
+      ],
+      "roles": [
+        {"units": ["varagyr-wolf-guard-terminators"], "role": "Troops"}
+      ],
+      "modifiers": [
+        {"units": ["varagyr-wolf-guard-terminators"], "text": "Hall of the Wolf Guard: Line (1), Oathsworn Hearthguard.", "addRules": ["Line (1)", "Oathsworn Hearthguard"]}
+      ],
+      "require": [
+        {"units": ["varagyr-wolf-guard-terminators"], "min": 1, "note": "Bring at least one Varagyr pack."}
+      ],
+      "forbid": [
+        {"match": {"role": "Transport"}},
+        {"match": {"role": "Fast Attack"}}
+      ]
     },
     {
       "name": "The Wolf Within",
       "flavor": "Some packs go quiet when the moon rises. Their Wolf Lords stop counting how many come home.",
-      "text": "Grey Slayer Packs and Deathsworn Packs gain +1 Attack and Heedless, and Deathsworn Packs may fill Troops slots. The beast is not to be bargained with: no Casters of Runes of any kind, no Heavy Support or Tactical Support Squads. At least one Grey Slayer Pack is required.",
-      "roles": [ { "units": ["deathsworn-pack"], "role": "Troops" } ],
-      "modifiers": [ { "units": ["grey-slayer-pack", "deathsworn-pack"], "text": "The Wolf Within: +1 A, Heedless.", "stats": { "A": "+1" }, "addRules": ["Heedless"] } ],
-      "require": [ { "units": ["grey-slayer-pack"], "min": 1, "note": "Bring at least one Grey Slayer Pack." } ],
-      "forbid": [ { "match": { "nameIncludes": ["Caster of Runes"] } }, { "units": ["heavy-support-squad", "tactical-support-squad", "veteran-heavy-support-squad"] } ]
+      "benefits": [
+        "Deathsworn Packs may fill Troops slots.",
+        "Grey Slayer Packs and Deathsworn Packs gain Blood-Howl: once the unit is at half strength or less it gains Feel No Pain (6+) and cannot fail Cool Checks.",
+        "They also gain +1 Attack on a turn they charge."
+      ],
+      "limitations": [
+        "Grey Slayer and Deathsworn Packs have Heedless and cannot claim Objectives.",
+        "At least one Grey Slayer Pack is required.",
+        "No Casters of Runes of any kind, and no Heavy Support, Tactical Support or Veteran Heavy Support Squads."
+      ],
+      "roles": [
+        {"units": ["deathsworn-pack"], "role": "Troops"}
+      ],
+      "modifiers": [
+        {"units": ["grey-slayer-pack", "deathsworn-pack"], "text": "The Wolf Within: Blood-Howl, Heedless.", "addRules": ["Blood-Howl", "Heedless"]},
+        {"units": ["grey-slayer-pack", "deathsworn-pack"], "text": "The Wolf Within: +1 A.", "stats": {"A": "+1"}, "condition": "on a turn the unit charges"}
+      ],
+      "require": [
+        {"units": ["grey-slayer-pack"], "min": 1, "note": "Bring at least one Grey Slayer Pack."}
+      ],
+      "forbid": [
+        {"match": {"nameIncludes": ["Caster of Runes"]}},
+        {"units": ["heavy-support-squad", "tactical-support-squad", "veteran-heavy-support-squad"]}
+      ]
     },
     {
       "name": "The Wild Ride",
       "flavor": "On Fenris the great beasts were ridden before the Legion ever knew a word for armour.",
-      "text": "Outrider Squadrons and Attack Bike Squadrons may fill Troops slots and gain Line (1). Outriders and Attack Bikes gain +1 Movement. A fast army is a thin one: no Heavy Assault or Armour units, no Heavy Transports, and at least two Outrider Squadrons.",
-      "roles": [ { "units": ["outrider-squadron", "attack-bike-squadron"], "role": "Troops" } ],
-      "modifiers": [
-        { "units": ["outrider-squadron", "attack-bike-squadron"], "text": "The Wild Ride: Line (1).", "addRules": ["Line (1)"] },
-        { "units": ["outrider-squadron", "attack-bike-squadron"], "text": "The Wild Ride: +1 M.", "stats": { "M": "+1" } }
+      "benefits": [
+        "Outrider Squadrons and Attack Bike Squadrons may fill Troops slots and gain Line (1) and Fast (1).",
+        "They gain Thunder of the Wild Ride: after Rushing they may still declare a Charge, at -2\" to the distance rolled."
       ],
-      "require": [ { "units": ["outrider-squadron"], "min": 2, "note": "Bring at least two Outrider Squadrons." } ],
-      "forbid": [ { "match": { "roles": ["Heavy Assault", "Armour", "Heavy Transport"] } } ]
+      "limitations": [
+        "At least two Outrider Squadrons are required.",
+        "No Heavy Assault, Armour or Heavy Transport units."
+      ],
+      "roles": [
+        {"units": ["outrider-squadron", "attack-bike-squadron"], "role": "Troops"}
+      ],
+      "modifiers": [
+        {"units": ["outrider-squadron", "attack-bike-squadron"], "text": "The Wild Ride: Line (1), Fast (1), Thunder of the Wild Ride.", "addRules": ["Line (1)", "Fast (1)", "Thunder of the Wild Ride"]}
+      ],
+      "require": [
+        {"units": ["outrider-squadron"], "min": 2, "note": "Bring at least two Outrider Squadrons."}
+      ],
+      "forbid": [
+        {"match": {"roles": ["Heavy Assault", "Armour", "Heavy Transport"]}}
+      ]
     }
   ]
 }

@@ -607,11 +607,32 @@
    }
   }
  ],
+ "rules": [
+  {
+   "name": "Sealed Plate",
+   "text": "Legacy house rule (Void-Armoured Tercios). A unit with this rule is sealed against gas, flame and fear alike: it ignores Pinning (X) and Panic (X), and any Suppressive (X) effects against it are ignored."
+  },
+  {
+   "name": "Spearhead Column",
+   "text": "Legacy house rule (The Armoured Fist). The tanks break from the line and drive deep before the foe has settled. A unit with this rule gains Outflank. On the first battle turn it may Rush and still fire one weapon at its full Ballistic Skill."
+  },
+  {
+   "name": "Forward the Breakers",
+   "text": "Legacy house rule (Charonite Breaker Host). The Ogryn have one order and they have heard it. After both sides have deployed and before the first battle turn, a unit with this rule makes a free move of up to 6\", ending no closer than 9\" to any enemy model. On a turn it charges, it ignores Pinning (X) and Panic (X)."
+  },
+  {
+   "name": "Registered Fire",
+   "text": "Legacy house rule (The Ordnance Park). The park has ranged this ground for hours. If a unit with this rule did not move in its last Movement phase, it adds 1 to its Ballistic Skill, and re-rolls failed hit rolls against a unit another Registered Fire unit has already fired at this phase."
+  },
+  {
+   "name": "Armoured Wave",
+   "text": "Legacy house rule (Dracosan Assault Wave). The Dracosans race ahead of the line and disgorge their cargo at the wall. A unit with this rule gains Outflank, and passengers may disembark from it after it has Rushed on the first battle turn and still declare a Charge that turn."
+  }
+ ],
  "rites": [
   {
    "name": "Void-Armoured Tercios",
    "flavor": "They crossed the dark between worlds in sealed plate, and they will cross a battlefield the same way.",
-   "text": "Veletaris Storm, Vanguard and Raider Sections may fill Troops slots, and gain Line (1) and Feel No Pain (6+). Seals and respirators leave no place for the clumsy: the army brings no Charonite Ogryn, no Aethon Heavy Sentinels and no Lord of War. At least two Veletaris Sections are required.",
    "roles": [
     {
      "units": [
@@ -629,10 +650,11 @@
       "veletaris-vanguard-section",
       "veletaris-raider-section"
      ],
-     "text": "Void-Armoured Tercios: Line (1), Feel No Pain (6+).",
+     "text": "Void-Armoured Tercios: Line (1), Feel No Pain (6+), Sealed Plate.",
      "addRules": [
       "Line (1)",
-      "Feel No Pain (6+)"
+      "Feel No Pain (6+)",
+      "Sealed Plate"
      ]
     }
    ],
@@ -659,12 +681,20 @@
       "role": "Lord of War"
      }
     }
+   ],
+   "text": "They crossed the dark between worlds in sealed plate, and they will cross a battlefield the same way.",
+   "benefits": [
+    "Veletaris Storm, Vanguard and Raider Sections may fill Troops slots and gain Line (1) and Feel No Pain (6+).",
+    "Those sections gain Sealed Plate: they ignore Pinning, Panic and Suppressive effects."
+   ],
+   "limitations": [
+    "At least two Veletaris Sections are required.",
+    "No Charonite Ogryn Sections or Aethon Heavy Sentinels, and no Lord of War units."
    ]
   },
   {
    "name": "The Armoured Fist",
    "flavor": "The infantry are there to hold the ground the tanks have just taken.",
-   "text": "Leman Russ, Malcador, Valdor, Destroyer and Thunderer tanks may fill Troops slots and gain Line (1). Every such tank gains +1 Ballistic Skill. The army must field at least three of these tanks, may take no more than one Lasrifle Section, and no Veletaris Sections.",
    "roles": [
     {
      "units": [
@@ -690,12 +720,11 @@
       "destroyer-tank-hunter",
       "thunderer-siege-tank"
      ],
-     "text": "The Armoured Fist: Line (1), +1 BS.",
-     "stats": {
-      "BS": "+1"
-     },
+     "text": "The Armoured Fist: Line (1), Spearhead Column.",
      "addRules": [
-      "Line (1)"
+      "Line (1)",
+      "Outflank",
+      "Spearhead Column"
      ]
     }
    ],
@@ -730,12 +759,20 @@
       "veletaris-raider-section"
      ]
     }
+   ],
+   "text": "The infantry are there to hold the ground the tanks have just taken.",
+   "benefits": [
+    "Leman Russ, Malcador, Valdor, Destroyer and Thunderer tanks may fill Troops slots and gain Line (1).",
+    "Those tanks gain Outflank and Spearhead Column: on the first turn a tank may Rush and still fire one weapon at full Ballistic Skill."
+   ],
+   "limitations": [
+    "At least three of those tanks are required.",
+    "No more than one Lasrifle Section, and no Veletaris Sections."
    ]
   },
   {
    "name": "Charonite Breaker Host",
    "flavor": "The Ogryn do not understand tactics. They do understand the word 'forward'.",
-   "text": "Charonite Ogryn Sections may fill Troops slots, cost 15 points less, and gain Fear (1). The musters will not tolerate crewed guns or the whine of engines: no Support artillery or Rapier Sections, no Fast Attack, and no more than one tank from the Armour slots. At least one Charonite Ogryn Section is required.",
    "roles": [
     {
      "units": [
@@ -744,22 +781,15 @@
      "role": "Troops"
     }
    ],
-   "points": [
-    {
-     "units": [
-      "charonite-ogryn-section"
-     ],
-     "delta": -15
-    }
-   ],
    "modifiers": [
     {
      "units": [
       "charonite-ogryn-section"
      ],
-     "text": "Charonite Breaker Host: Fear (1).",
+     "text": "Charonite Breaker Host: Fear (1), Forward the Breakers.",
      "addRules": [
-      "Fear (1)"
+      "Fear (1)",
+      "Forward the Breakers"
      ]
     }
    ],
@@ -800,12 +830,22 @@
       "role": "Fast Attack"
      }
     }
+   ],
+   "text": "The Ogryn do not understand tactics. They do understand the word 'forward'.",
+   "benefits": [
+    "Charonite Ogryn Sections may fill Troops slots and gain Fear (1).",
+    "They gain Forward the Breakers: a free 6\" move before the first turn (not within 9\" of the enemy), and they ignore Pinning and Panic on turns they charge."
+   ],
+   "limitations": [
+    "At least one Charonite Ogryn Section is required.",
+    "No more than one tank from the Armour slots.",
+    "No Basilisk, Medusa or Rapier units and no Fast Attack units.",
+    "Table-top: a Charonite Ogryn Section that can charge must charge the nearest enemy unit it can reach."
    ]
   },
   {
    "name": "The Ordnance Park",
    "flavor": "A regiment's real argument is made four kilometres behind its front line.",
-   "text": "Basilisk and Medusa Artillery Tanks may fill Troops slots. Every Basilisk, Medusa, Minotaur and Rapier Section gains +1 Ballistic Skill. The park must be guarded and directed: it needs an Artillery Command Section and at least two of Basilisk, Medusa and Minotaur tanks, and it cannot spare Recon or Fast Attack units.",
    "roles": [
     {
      "units": [
@@ -823,10 +863,23 @@
       "minotaur-artillery-tank",
       "rapier-section"
      ],
-     "text": "The Ordnance Park: +1 BS.",
+     "text": "The Ordnance Park: Registered Fire.",
+     "addRules": [
+      "Registered Fire"
+     ]
+    },
+    {
+     "units": [
+      "basilisk-artillery-tank",
+      "medusa-artillery-tank",
+      "minotaur-artillery-tank",
+      "rapier-section"
+     ],
+     "text": "Registered Fire: +1 BS.",
      "stats": {
       "BS": "+1"
-     }
+     },
+     "condition": "if the unit did not move in its last Movement phase"
     }
    ],
    "require": [
@@ -858,31 +911,35 @@
       "role": "Fast Attack"
      }
     }
+   ],
+   "text": "A regiment's real argument is made four kilometres behind its front line.",
+   "benefits": [
+    "Basilisk and Medusa Artillery Tanks may fill Troops slots.",
+    "Basilisk, Medusa, Minotaur and Rapier units gain Registered Fire: +1 Ballistic Skill if they did not move, and re-rolled misses against a target another Registered Fire unit has already fired at that phase."
+   ],
+   "limitations": [
+    "An Artillery Command Section and at least two Basilisk, Medusa or Minotaur tanks are required.",
+    "No Recon and no Fast Attack units."
    ]
   },
   {
    "name": "Dracosan Assault Wave",
    "flavor": "Every tercio rides, and every Dracosan lands within a pistol-shot of the wall.",
-   "text": "Dracosan Armoured Transports and Command Dracosans cost 20 points less and gain +2 Movement. The army is a mounted fist: it must field at least two Dracosans, and it has no artillery tanks, no Rapier Sections and no Lord of War.",
-   "points": [
-    {
-     "units": [
-      "dracosan-armoured-transport",
-      "dracosan-command-tank"
-     ],
-     "delta": -20
-    }
-   ],
    "modifiers": [
     {
      "units": [
       "dracosan-armoured-transport",
       "dracosan-command-tank"
      ],
-     "text": "Dracosan Assault Wave: +2 M.",
+     "text": "Dracosan Assault Wave: +2 M, Assault Vehicle, Armoured Wave.",
      "stats": {
       "M": "+2"
-     }
+     },
+     "addRules": [
+      "Assault Vehicle",
+      "Outflank",
+      "Armoured Wave"
+     ]
     }
    ],
    "require": [
@@ -909,6 +966,16 @@
       "role": "Lord of War"
      }
     }
+   ],
+   "text": "Every tercio rides, and every Dracosan lands within a pistol-shot of the wall.",
+   "benefits": [
+    "Dracosan Armoured Transports and Command Dracosans gain +2 Movement, Assault Vehicle and Outflank.",
+    "They gain Armoured Wave: on the first turn, passengers may disembark after the Dracosan Rushed and still charge."
+   ],
+   "limitations": [
+    "At least two Dracosans are required.",
+    "No artillery tanks, no Rapier Sections and no Lord of War units.",
+    "Table-top: any Lasrifle or Veletaris Section that fits aboard a Dracosan must start the battle embarked."
    ]
   }
  ]

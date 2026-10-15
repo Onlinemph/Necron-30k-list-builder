@@ -44,44 +44,250 @@
     { "units": ["*"], "item": "Choking cloud canisters", "scope": "unit", "text": "Choking cloud canisters: Fear (1).", "addRules": ["Fear (1)"] },
     { "units": ["*"], "item": "Bloated sarcophagus", "text": "Bloated sarcophagus: Feel No Pain (6+).", "addRules": ["Feel No Pain (6+)"] }
   ],
+  "rules": [
+    {
+      "name": "Inexorable",
+      "text": "Legacy house rule (Unhurried Death). A unit with this rule may re-roll failed Morale Checks and failed Checks to avoid gaining Tactical Statuses."
+    },
+    {
+      "name": "Walking Dead",
+      "text": "Legacy house rule (The Walking Dead March). A unit with this rule gains Move Through Cover. In any turn in which it did not move it also gains Feel No Pain (5+)."
+    },
+    {
+      "name": "Miasma of Contagion",
+      "text": "Legacy house rule (Doctrine of Contagion). Enemy units that charge a unit with this rule, or are charged by it, subtract 1 from their Weapon Skill for the first round of that combat."
+    },
+    {
+      "name": "Sworn Guard",
+      "text": "Legacy house rule (The Reaper's Honour Guard). A unit with this rule gains Feel No Pain (5+) while it is within 6\" of Mortarion or Calas Typhon."
+    }
+  ],
   "rites": [
     {
       "name": "Unhurried Death",
       "flavor": "The Legion has never run, and it has never needed to.",
-      "text": "Every Death Guard Infantry unit gains Feel No Pain (6+) and loses 1 Move. The army cannot go anywhere quickly: no Fast Attack units and no model with the Antigrav type.",
-      "modifiers": [ { "match": { "unitType": "Infantry", "notUnitType": "Vehicle" }, "text": "Unhurried Death: Feel No Pain (6+), -1 M.", "stats": { "M": "-1" }, "addRules": ["Feel No Pain (6+)"] } ],
-      "forbid": [ { "match": { "role": "Fast Attack" } }, { "match": { "unitType": "Antigrav" } } ]
+      "benefits": [
+        "Every Death Guard Infantry unit gains Feel No Pain (6+) and Inexorable: re-roll failed Morale Checks and Checks to avoid Tactical Statuses."
+      ],
+      "limitations": [
+        "Every Death Guard Infantry unit loses 1 Move.",
+        "No Fast Attack units and no model with the Antigrav type."
+      ],
+      "modifiers": [
+        {
+          "match": {
+            "unitType": "Infantry",
+            "notUnitType": "Vehicle"
+          },
+          "text": "Unhurried Death: Feel No Pain (6+), Inexorable, -1 M.",
+          "stats": {
+            "M": "-1"
+          },
+          "addRules": [
+            "Feel No Pain (6+)",
+            "Inexorable"
+          ]
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "role": "Fast Attack"
+          }
+        },
+        {
+          "match": {
+            "unitType": "Antigrav"
+          }
+        }
+      ]
     },
     {
       "name": "The Walking Dead March",
       "flavor": "No tracks. No wings. Only the long walk, and the guns that come with it.",
-      "text": "Grave Warden Terminator Squads may fill Troops slots, cost 25 points less and gain Line (1). At least one Grave Warden Terminator Squad is required. There are no lifts out of this hell: no Transport or Heavy Transport units.",
-      "roles": [ { "units": ["grave-warden-terminator-squad"], "role": "Troops" } ],
-      "points": [ { "units": ["grave-warden-terminator-squad"], "delta": -25 } ],
-      "modifiers": [ { "units": ["grave-warden-terminator-squad"], "text": "The Walking Dead March: Line (1).", "addRules": ["Line (1)"] } ],
-      "require": [ { "units": ["grave-warden-terminator-squad"], "min": 1, "note": "Bring at least one Grave Warden Terminator Squad." } ],
-      "forbid": [ { "match": { "role": "Transport" } }, { "match": { "role": "Heavy Transport" } } ]
+      "benefits": [
+        "Grave Warden Terminator Squads may fill Troops slots and gain Line (1).",
+        "They gain Walking Dead: Move Through Cover, and Feel No Pain (5+) in any turn they did not move."
+      ],
+      "limitations": [
+        "At least one Grave Warden Terminator Squad is required.",
+        "No Transport or Heavy Transport units.",
+        "No unit may start the battle in Reserve: the whole army deploys on the table."
+      ],
+      "roles": [
+        {
+          "units": [
+            "grave-warden-terminator-squad"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "grave-warden-terminator-squad"
+          ],
+          "text": "The Walking Dead March: Line (1), Walking Dead.",
+          "addRules": [
+            "Line (1)",
+            "Walking Dead"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "grave-warden-terminator-squad"
+          ],
+          "min": 1,
+          "note": "Bring at least one Grave Warden Terminator Squad."
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "role": "Transport"
+          }
+        },
+        {
+          "match": {
+            "role": "Heavy Transport"
+          }
+        }
+      ]
     },
     {
       "name": "Doctrine of Contagion",
       "flavor": "A battle is won when the other side is too sick to hold the line.",
-      "text": "Mortus Poisoner Squads may fill Troops slots, cost 20 points less and gain Fear (1) and Feel No Pain (6+). At least two Mortus Poisoner Squads are required. The Death Guard rely on the sickness, not the surgeon: no Apothecaries, no Primus Medicae, and at most one Tactical Squad.",
-      "roles": [ { "units": ["mortus-poisoner-squad"], "role": "Troops" } ],
-      "points": [ { "units": ["mortus-poisoner-squad"], "delta": -20 } ],
-      "modifiers": [ { "units": ["mortus-poisoner-squad"], "text": "Doctrine of Contagion: Fear (1), Feel No Pain (6+).", "addRules": ["Fear (1)", "Feel No Pain (6+)"] } ],
-      "require": [ { "units": ["mortus-poisoner-squad"], "min": 2, "note": "Bring at least two Mortus Poisoner Squads." } ],
-      "limit": [ { "units": ["tactical-squad"], "max": 1 } ],
-      "forbid": [ { "units": ["apothecary", "primus-medicae", "mounted-primus-medicae", "primus-medicae-in-terminator-armour"], "optionalUnits": true } ]
+      "benefits": [
+        "Mortus Poisoner Squads may fill Troops slots and gain Fear (1).",
+        "They gain Miasma of Contagion: enemies that charge them, or that they charge, subtract 1 from Weapon Skill in the first round."
+      ],
+      "limitations": [
+        "At least two Mortus Poisoner Squads are required.",
+        "At most one Tactical Squad.",
+        "No Apothecaries and no Primus Medicae."
+      ],
+      "roles": [
+        {
+          "units": [
+            "mortus-poisoner-squad"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "mortus-poisoner-squad"
+          ],
+          "text": "Doctrine of Contagion: Fear (1), Miasma of Contagion.",
+          "addRules": [
+            "Fear (1)",
+            "Miasma of Contagion"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "mortus-poisoner-squad"
+          ],
+          "min": 2,
+          "note": "Bring at least two Mortus Poisoner Squads."
+        }
+      ],
+      "limit": [
+        {
+          "units": [
+            "tactical-squad"
+          ],
+          "max": 1
+        }
+      ],
+      "forbid": [
+        {
+          "units": [
+            "apothecary",
+            "primus-medicae",
+            "mounted-primus-medicae",
+            "primus-medicae-in-terminator-armour"
+          ],
+          "optionalUnits": true
+        }
+      ]
     },
     {
       "name": "The Reaper's Honour Guard",
       "flavor": "Where the Primarch walks, the Deathshroud walk a pace behind, and nothing else is permitted near.",
-      "text": "Deathshroud Terminator Squads may fill Troops slots, cost 20 points less and gain Line (1). The army must be led by Mortarion or Calas Typhon and include at least two Deathshroud Squads. The honour guard is a jealous thing: no Heavy Assault units other than Grave Warden squads, and no Recon units.",
-      "roles": [ { "units": ["deathshroud-terminator-squad"], "role": "Troops" } ],
-      "points": [ { "units": ["deathshroud-terminator-squad"], "delta": -20 } ],
-      "modifiers": [ { "units": ["deathshroud-terminator-squad"], "text": "The Reaper's Honour Guard: Line (1).", "addRules": ["Line (1)"] } ],
-      "require": [ { "units": ["mortarion", "calas-typhon"], "min": 1, "note": "Mortarion or Calas Typhon must lead the army." }, { "units": ["deathshroud-terminator-squad"], "min": 2, "note": "Bring at least two Deathshroud Squads." } ],
-      "forbid": [ { "match": { "role": "Recon" } }, { "units": ["cataphractii-terminator-squad", "tartaros-terminator-squad", "tartaros-terminator-siege-squad", "indomitus-terminator-squad", "saturnine-terminator-squad", "assault-squad", "mortalis-destroyer-squad", "destroyer-assault-squad", "nemesis-destroyer-squad", "gorgon-terminator-squad"], "optionalUnits": true } ]
+      "benefits": [
+        "Deathshroud Terminator Squads may fill Troops slots and gain Line (1).",
+        "They gain Sworn Guard: Feel No Pain (5+) while within 6\" of Mortarion or Calas Typhon."
+      ],
+      "limitations": [
+        "The army must be led by Mortarion or Calas Typhon.",
+        "At least two Deathshroud Squads are required.",
+        "No Recon units, and no Heavy Assault units other than Grave Warden squads."
+      ],
+      "roles": [
+        {
+          "units": [
+            "deathshroud-terminator-squad"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "deathshroud-terminator-squad"
+          ],
+          "text": "The Reaper's Honour Guard: Line (1), Sworn Guard.",
+          "addRules": [
+            "Line (1)",
+            "Sworn Guard"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "mortarion",
+            "calas-typhon"
+          ],
+          "min": 1,
+          "note": "Mortarion or Calas Typhon must lead the army."
+        },
+        {
+          "units": [
+            "deathshroud-terminator-squad"
+          ],
+          "min": 2,
+          "note": "Bring at least two Deathshroud Squads."
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "role": "Recon"
+          }
+        },
+        {
+          "units": [
+            "cataphractii-terminator-squad",
+            "tartaros-terminator-squad",
+            "tartaros-terminator-siege-squad",
+            "indomitus-terminator-squad",
+            "saturnine-terminator-squad",
+            "assault-squad",
+            "mortalis-destroyer-squad",
+            "destroyer-assault-squad",
+            "nemesis-destroyer-squad",
+            "gorgon-terminator-squad"
+          ],
+          "optionalUnits": true
+        }
+      ]
     }
   ]
 }

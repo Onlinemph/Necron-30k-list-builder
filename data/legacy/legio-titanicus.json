@@ -49,44 +49,280 @@
     {
       "name": "The Hunting Pack",
       "flavor": "Where the great engines march, the Warhounds have already seen the enemy's backs.",
-      "text": "Warhound Titans may fill Fast Attack slots, cost 50 points less and gain Vanguard (2). The pack leaves the heavy engines at the gate: no Reaver, Warbringer or Warlord Titans. At least two Warhounds are required.",
-      "roles": [ { "units": ["warhound-titan"], "role": "Fast Attack" } ],
-      "points": [ { "units": ["warhound-titan"], "delta": -50 } ],
-      "modifiers": [ { "units": ["warhound-titan"], "text": "The Hunting Pack: Vanguard (2).", "addRules": ["Vanguard (2)"] } ],
-      "require": [ { "units": ["warhound-titan"], "min": 2, "note": "A pack needs at least two Warhounds." } ],
-      "forbid": [ { "units": ["reaver-titan", "warbringer-nemesis-titan", "warlord-titan"] } ]
+      "benefits": [
+        "Warhound Titans may fill Fast Attack slots and gain Vanguard (2).",
+        "Warhounds gain Pack Hunters: Outflank, and any Warhound that arrives from Reserves may Rush and still fire one weapon that turn."
+      ],
+      "limitations": [
+        "At least two Warhounds are required.",
+        "No Reaver, Warbringer or Warlord Titans.",
+        "At least half of the Warhounds must start the battle in Reserve."
+      ],
+      "roles": [
+        {
+          "units": [
+            "warhound-titan"
+          ],
+          "role": "Fast Attack"
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "warhound-titan"
+          ],
+          "text": "The Hunting Pack: Vanguard (2), Pack Hunters.",
+          "addRules": [
+            "Vanguard (2)",
+            "Pack Hunters",
+            "Outflank"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "warhound-titan"
+          ],
+          "min": 2,
+          "note": "A pack needs at least two Warhounds."
+        }
+      ],
+      "forbid": [
+        {
+          "units": [
+            "reaver-titan",
+            "warbringer-nemesis-titan",
+            "warlord-titan"
+          ]
+        }
+      ]
     },
     {
       "name": "The Reactor Gambit",
       "flavor": "The Princeps do not ask permission of the reactor. They tell it how long it has.",
-      "text": "Every Titan costs 100 points less and gains Fast (1). The engines are driven past safe limits: no Titan keeps its Repair Crew, and the Legio brings no Triaros Armoured Conveyors.",
-      "points": [ { "match": { "unitType": "Titan" }, "delta": -100 } ],
-      "modifiers": [
-        { "match": { "unitType": "Titan" }, "text": "The Reactor Gambit: Fast (1).", "addRules": ["Fast (1)"] },
-        { "units": ["warhound-titan"], "text": "Reactor Gambit: no Repair Crew.", "removeRules": ["Repair Crew (D3)"] },
-        { "units": ["reaver-titan"], "text": "Reactor Gambit: no Repair Crew.", "removeRules": ["Repair Crew (D3+1)"] },
-        { "units": ["warbringer-nemesis-titan"], "text": "Reactor Gambit: no Repair Crew.", "removeRules": ["Repair Crew (D6)"] },
-        { "units": ["warlord-titan"], "text": "Reactor Gambit: no Repair Crew.", "removeRules": ["Repair Crew (D6+1)"] }
+      "benefits": [
+        "Every Titan gains Fast (1) and Overcharged Reactor: once per battle, in its Movement phase, it may add 6\" to its Move and still fire all weapons."
       ],
-      "forbid": [ { "units": ["triaros-armoured-conveyor"] } ]
+      "limitations": [
+        "At least two Titans are required.",
+        "No Titan keeps its Repair Crew, and a Titan that uses Overcharged Reactor loses 1 Hull Point.",
+        "No Triaros Armoured Conveyors."
+      ],
+      "modifiers": [
+        {
+          "match": {
+            "unitType": "Titan"
+          },
+          "text": "The Reactor Gambit: Fast (1), Overcharged Reactor.",
+          "addRules": [
+            "Fast (1)",
+            "Overcharged Reactor"
+          ]
+        },
+        {
+          "units": [
+            "warhound-titan"
+          ],
+          "text": "Reactor Gambit: no Repair Crew.",
+          "removeRules": [
+            "Repair Crew (D3)"
+          ]
+        },
+        {
+          "units": [
+            "reaver-titan"
+          ],
+          "text": "Reactor Gambit: no Repair Crew.",
+          "removeRules": [
+            "Repair Crew (D3+1)"
+          ]
+        },
+        {
+          "units": [
+            "warbringer-nemesis-titan"
+          ],
+          "text": "Reactor Gambit: no Repair Crew.",
+          "removeRules": [
+            "Repair Crew (D6)"
+          ]
+        },
+        {
+          "units": [
+            "warlord-titan"
+          ],
+          "text": "Reactor Gambit: no Repair Crew.",
+          "removeRules": [
+            "Repair Crew (D6+1)"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "match": {
+            "unitType": "Titan"
+          },
+          "min": 2,
+          "note": "The gambit needs at least two Titans."
+        }
+      ],
+      "forbid": [
+        {
+          "units": [
+            "triaros-armoured-conveyor"
+          ]
+        }
+      ]
     },
     {
       "name": "The Void-Wall Bastion",
       "flavor": "A Titan is only as safe as the men who stand beneath its knees.",
-      "text": "Secutarii Cohorts may fill Elites slots and gain a 4+ Invulnerable Save. The Legio digs in around a single engine: no more than one Titan, and no Warbringer or Warlord.",
-      "roles": [ { "units": ["secutarii-cohort"], "role": "Elites" } ],
-      "modifiers": [ { "units": ["secutarii-cohort"], "text": "The Void-Wall Bastion: best 4+ Invulnerable Save.", "stats": { "INV": "best:4+" } } ],
-      "limit": [ { "match": { "unitType": "Titan" }, "max": 1 } ],
-      "forbid": [ { "units": ["warbringer-nemesis-titan", "warlord-titan"] } ]
+      "benefits": [
+        "Secutarii Cohorts may fill Elites slots, gain a 4+ Invulnerable Save and Line (2).",
+        "Secutarii gain Void-Wall Guard: an enemy that declares a Charge against a friendly Titan must instead charge the nearest unit with this rule within 6\" of that Titan, if it is in range."
+      ],
+      "limitations": [
+        "At least two Secutarii Cohorts are required.",
+        "No more than one Titan, and no Warbringer or Warlord."
+      ],
+      "roles": [
+        {
+          "units": [
+            "secutarii-cohort"
+          ],
+          "role": "Elites"
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "secutarii-cohort"
+          ],
+          "text": "The Void-Wall Bastion: best 4+ Invulnerable Save, Line (2), Void-Wall Guard.",
+          "stats": {
+            "INV": "best:4+"
+          },
+          "addRules": [
+            "Line (2)",
+            "Void-Wall Guard"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "secutarii-cohort"
+          ],
+          "min": 2,
+          "note": "Bring at least two Secutarii Cohorts."
+        }
+      ],
+      "limit": [
+        {
+          "match": {
+            "unitType": "Titan"
+          },
+          "max": 1
+        }
+      ],
+      "forbid": [
+        {
+          "units": [
+            "warbringer-nemesis-titan",
+            "warlord-titan"
+          ]
+        }
+      ]
     },
     {
       "name": "The Bonded Cybernetica Maniple",
       "flavor": "The Princeps leads from the Titan's head. The Castellaxes lead from nowhere at all.",
-      "text": "Castellax Battle and Destructor Maniples and Domitar Battle Maniples may fill Troops slots. Castellaxes gain +1 Ballistic Skill. The Legio relies on its machines and brings no Secutarii Cohorts or Axiarchs, and only one Titan.",
-      "roles": [ { "units": ["castellax-battle-maniple", "castellax-destructor-maniple", "domitar-battle-maniple"], "role": "Troops" } ],
-      "modifiers": [ { "units": ["castellax-battle-maniple", "castellax-destructor-maniple"], "text": "Bonded Maniple: +1 BS.", "stats": { "BS": "+1" } } ],
-      "forbid": [ { "units": ["secutarii-cohort", "secutarii-axiarch"] } ],
-      "limit": [ { "match": { "unitType": "Titan" }, "max": 1 } ]
+      "benefits": [
+        "Castellax Battle, Castellax Destructor and Domitar Battle Maniples may fill Troops slots and gain Line (1).",
+        "Castellaxes gain +1 Ballistic Skill.",
+        "Maniples gain Bonded Directive: while within 12\" of a friendly Titan they automatically pass Morale and Cool Checks."
+      ],
+      "limitations": [
+        "Exactly one Titan is required.",
+        "No Secutarii Cohorts or Axiarchs."
+      ],
+      "roles": [
+        {
+          "units": [
+            "castellax-battle-maniple",
+            "castellax-destructor-maniple",
+            "domitar-battle-maniple"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "castellax-battle-maniple",
+            "castellax-destructor-maniple"
+          ],
+          "text": "Bonded Maniple: +1 BS.",
+          "stats": {
+            "BS": "+1"
+          }
+        },
+        {
+          "units": [
+            "castellax-battle-maniple",
+            "castellax-destructor-maniple",
+            "domitar-battle-maniple"
+          ],
+          "text": "The Bonded Cybernetica Maniple: Line (1), Bonded Directive.",
+          "addRules": [
+            "Line (1)",
+            "Bonded Directive"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "match": {
+            "unitType": "Titan"
+          },
+          "min": 1,
+          "note": "A Titan must anchor the Maniples."
+        }
+      ],
+      "forbid": [
+        {
+          "units": [
+            "secutarii-cohort",
+            "secutarii-axiarch"
+          ]
+        }
+      ],
+      "limit": [
+        {
+          "match": {
+            "unitType": "Titan"
+          },
+          "max": 1
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "name": "Pack Hunters",
+      "text": "Legacy house rule (The Hunting Pack). A model with this rule gains Outflank. On a turn it arrives from Reserves it may Rush and still fire one weapon at its full Ballistic Skill."
+    },
+    {
+      "name": "Overcharged Reactor",
+      "text": "Legacy house rule (The Reactor Gambit). Once per battle, in its Movement phase, a model with this rule may add 6\" to its Move and still fire all its weapons that turn. It then loses 1 Hull Point with no save of any kind."
+    },
+    {
+      "name": "Void-Wall Guard",
+      "text": "Legacy house rule (The Void-Wall Bastion). When an enemy unit declares a Charge against a friendly Titan, and a unit with this rule is within 6\" of that Titan and within the charger's reach, the charger must charge the nearest such unit instead."
+    },
+    {
+      "name": "Bonded Directive",
+      "text": "Legacy house rule (The Bonded Cybernetica Maniple). A unit with this rule within 12\" of a friendly Titan automatically passes Morale and Cool Checks."
     }
   ]
 }

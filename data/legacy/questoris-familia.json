@@ -53,39 +53,237 @@
     {
       "name": "The Armiger Ward",
       "flavor": "The young scions go first, and the Baron watches from the ridge.",
-      "text": "Armiger Helverins, Warglaives and Moiraxes may fill Troops slots and cost 15 points less. Every Armiger gains +1 Initiative. The Household's great Knights are held back for the final reckoning: no Acastus Knights, and no more than one Lord of War. At least three Armigers are required.",
-      "roles": [ { "units": ["armiger-helverin", "armiger-warglaive", "armiger-moirax"], "role": "Troops" } ],
-      "points": [ { "units": ["armiger-helverin", "armiger-warglaive", "armiger-moirax"], "delta": -15 } ],
-      "modifiers": [ { "units": ["armiger-helverin", "armiger-warglaive", "armiger-moirax"], "text": "The Armiger Ward: +1 I.", "stats": { "I": "+1" } } ],
-      "require": [ { "units": ["armiger-helverin", "armiger-warglaive", "armiger-moirax"], "min": 3, "note": "Bring at least three Armigers." } ],
-      "forbid": [ { "units": ["acastus-knight-porphyrion", "acastus-knight-asterius"] } ],
-      "limit": [ { "match": { "role": "Lord of War" }, "max": 1 } ]
+      "benefits": [
+        "Armiger Helverins, Warglaives and Moiraxes may fill Troops slots and gain Line (1).",
+        "Armigers gain Scions Ahead of the Baron: after both sides deploy and before the first turn, each may make a free move of up to 6\"."
+      ],
+      "limitations": [
+        "At least three Armigers are required.",
+        "No Acastus Knights, and no more than one Lord of War.",
+        "Every Lord of War must start the battle in Reserve."
+      ],
+      "roles": [
+        {
+          "units": [
+            "armiger-helverin",
+            "armiger-warglaive",
+            "armiger-moirax"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "armiger-helverin",
+            "armiger-warglaive",
+            "armiger-moirax"
+          ],
+          "text": "The Armiger Ward: Line (1), Scions Ahead of the Baron.",
+          "addRules": [
+            "Line (1)",
+            "Scions Ahead of the Baron"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "armiger-helverin",
+            "armiger-warglaive",
+            "armiger-moirax"
+          ],
+          "min": 3,
+          "note": "Bring at least three Armigers."
+        }
+      ],
+      "forbid": [
+        {
+          "units": [
+            "acastus-knight-porphyrion",
+            "acastus-knight-asterius"
+          ]
+        }
+      ],
+      "limit": [
+        {
+          "match": {
+            "role": "Lord of War"
+          },
+          "max": 1
+        }
+      ]
     },
     {
       "name": "The Lists of Honour",
       "flavor": "A Knight who will not name his challenge is only a tank with a coat of arms.",
-      "text": "Every Knight gains Fear (1) and +1 Weapon Skill. The army will not skulk: no Recon, no Support units and no Acastus Knights. At least one Knight is required.",
-      "modifiers": [ { "match": { "unitType": "Knight" }, "text": "The Lists of Honour: Fear (1), +1 WS.", "stats": { "WS": "+1" }, "addRules": ["Fear (1)"] } ],
-      "require": [ { "match": { "unitType": "Knight" }, "min": 1, "note": "A Knight must issue the challenge." } ],
-      "forbid": [ { "match": { "role": "Recon" } }, { "match": { "role": "Support" } }, { "units": ["acastus-knight-porphyrion", "acastus-knight-asterius"] } ]
+      "benefits": [
+        "Every Knight gains Fear (1), +1 Weapon Skill and Declared Challenge: it may re-roll a failed Charge roll against an enemy Knight, Titan or Walker."
+      ],
+      "limitations": [
+        "At least one Knight is required.",
+        "No Recon, no Support and no Acastus Knights.",
+        "A Knight that can charge an enemy Knight, Titan or Walker must do so rather than charge anything else."
+      ],
+      "modifiers": [
+        {
+          "match": {
+            "unitType": "Knight"
+          },
+          "text": "The Lists of Honour: Fear (1), +1 WS, Declared Challenge.",
+          "stats": {
+            "WS": "+1"
+          },
+          "addRules": [
+            "Fear (1)",
+            "Declared Challenge"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "match": {
+            "unitType": "Knight"
+          },
+          "min": 1,
+          "note": "A Knight must issue the challenge."
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "role": "Recon"
+          }
+        },
+        {
+          "match": {
+            "role": "Support"
+          }
+        },
+        {
+          "units": [
+            "acastus-knight-porphyrion",
+            "acastus-knight-asterius"
+          ]
+        }
+      ]
     },
     {
       "name": "The Sacristan's Vigil",
       "flavor": "Each Knight is carried to war on a ledger of vows, and the ledger is long.",
-      "text": "Every Knight gains +2 Hull Points. The weight of the rites slows the Household: every Knight loses 2 Movement and costs 30 points more, and no more than two Lords of War may be fielded.",
-      "points": [ { "match": { "unitType": "Knight" }, "delta": 30 } ],
-      "modifiers": [ { "match": { "unitType": "Knight" }, "text": "The Sacristan's Vigil: +2 HP, -2 M.", "stats": { "HP": "+2", "M": "-2" } } ],
-      "limit": [ { "match": { "role": "Lord of War" }, "max": 2 } ]
+      "benefits": [
+        "Every Knight gains +2 Hull Points and Ledger of Vows: once per battle it may re-roll a failed Auto-Repair roll."
+      ],
+      "limitations": [
+        "Every Knight loses 2 Movement.",
+        "No more than two Lords of War."
+      ],
+      "modifiers": [
+        {
+          "match": {
+            "unitType": "Knight"
+          },
+          "text": "The Sacristan's Vigil: +2 HP, -2 M, Ledger of Vows.",
+          "stats": {
+            "HP": "+2",
+            "M": "-2"
+          },
+          "addRules": [
+            "Ledger of Vows"
+          ]
+        }
+      ],
+      "limit": [
+        {
+          "match": {
+            "role": "Lord of War"
+          },
+          "max": 2
+        }
+      ]
     },
     {
       "name": "Muster of the Free Levy",
       "flavor": "The Baron calls his tithe, and every town on his world sends its sons.",
-      "text": "Infantry Troops and Levy Troops cost 10 points less, Grenadier Troops may fill Troops slots, and the Household's Militia gain +1 Willpower. The Knights are too few to share the glory: at most one Lord of War, and no Armiger Moirax.",
-      "roles": [ { "units": ["grenadier-troop"], "role": "Troops" } ],
-      "points": [ { "units": ["infantry-troop", "levy-troop"], "delta": -10 } ],
-      "modifiers": [ { "match": { "trait": "Imperialis Militia" }, "text": "Muster of the Free Levy: +1 WP.", "stats": { "WP": "+1" } } ],
-      "limit": [ { "match": { "role": "Lord of War" }, "max": 1 } ],
-      "forbid": [ { "units": ["armiger-moirax"] } ]
+      "benefits": [
+        "Grenadier Troops may fill Troops slots; Grenadier and Levy Troops gain Line (1).",
+        "Militia gain Sworn to the Baron: a failed Morale or Cool Check within 12\" of a friendly Knight or Armiger may be re-rolled."
+      ],
+      "limitations": [
+        "At least two Infantry Troops are required.",
+        "No more than one Lord of War, and no Armiger Moirax."
+      ],
+      "roles": [
+        {
+          "units": [
+            "grenadier-troop"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "grenadier-troop",
+            "levy-troop"
+          ],
+          "text": "Muster of the Free Levy: Line (1).",
+          "addRules": [
+            "Line (1)"
+          ]
+        },
+        {
+          "match": {
+            "trait": "Imperialis Militia"
+          },
+          "text": "Muster of the Free Levy: Sworn to the Baron.",
+          "addRules": [
+            "Sworn to the Baron"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "infantry-troop"
+          ],
+          "min": 2,
+          "note": "Bring at least two Infantry Troops."
+        }
+      ],
+      "limit": [
+        {
+          "match": {
+            "role": "Lord of War"
+          },
+          "max": 1
+        }
+      ],
+      "forbid": [
+        {
+          "units": [
+            "armiger-moirax"
+          ]
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "name": "Scions Ahead of the Baron",
+      "text": "Legacy house rule (The Armiger Ward). Before the first battle turn, after both sides have deployed, a model with this rule may make a free move of up to 6\". It can't end that move within 12\" of an enemy model."
+    },
+    {
+      "name": "Declared Challenge",
+      "text": "Legacy house rule (The Lists of Honour). A model with this rule may re-roll a failed Charge roll made against an enemy Knight, Titan or Walker. If it can charge one of those, it must charge one rather than any other target."
+    },
+    {
+      "name": "Ledger of Vows",
+      "text": "Legacy house rule (The Sacristan's Vigil). Once per battle, a model with this rule may re-roll one failed Auto-Repair roll."
+    },
+    {
+      "name": "Sworn to the Baron",
+      "text": "Legacy house rule (Muster of the Free Levy). A unit with this rule that fails a Morale or Cool Check while within 12\" of a friendly Knight or Armiger may re-roll it."
     }
   ]
 }

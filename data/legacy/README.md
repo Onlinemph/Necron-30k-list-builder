@@ -71,21 +71,28 @@ Add `"condition": "when charging"` to show the change as a reminder instead of a
 
 ## Rites of War
 
+A Rite reads like the ones in the old books: a line of flavour, then Benefits and Limitations. It changes
+how the army fights and what it may take. It never changes points (the build rejects `points` in a Rite).
+
 ```jsonc
 {
-  "name": "The Butcher's Host",
+  "name": "The Butcher's Due",
   "flavor": "One line of in-world colour.",
-  "text": "What the Rite does, in full, as players will read it in the configuration panel.",
-  "roles":   [ { "units": ["rampager-squad"], "role": "Troops" } ],   // may also fill this slot
-  "forbid":  [ { "match": { "role": "Armour" } } ],                    // can't be taken with this Rite
-  "require": [ { "units": ["kharn-the-bloody", "praetor"], "min": 1, "note": "Led from the front." } ],
-  "limit":   [ { "match": { "role": "Lord of War" }, "max": 0 } ],
-  "points":  [ { "units": ["inductii-squad"], "delta": -10 } ],
+  "text": "Optional sentence on what the Rite is about.",
+  "benefits": [ "Red Butchers may fill Troops slots and gain The Butcher's Chosen...", "Inductii gain +1 Attack." ],
+  "limitations": [ "Angron or Kharn must be in the army.", "No Recon units." ],
+  "roles":   [ { "units": ["red-butchers"], "role": "Troops" } ],      // may also fill this slot
+  "forbid":  [ { "match": { "role": "Recon" } } ],                     // can't be taken with this Rite
+  "require": [ { "units": ["angron", "kharn-the-bloody"], "min": 1, "note": "Angron or Kharn must lead." } ],
+  "limit":   [ { "match": { "role": "Heavy Transport" }, "max": 1 } ],
   "options":   [ /* as above, only with this Rite */ ],
-  "modifiers": [ /* as above, only with this Rite */ ],
-  "rules":     [ { "name": "...", "text": "..." } ]
+  "modifiers": [ { "units": ["red-butchers"], "addRules": ["The Butcher's Chosen", "Fear (1)"] } ],
+  "rules":     [ { "name": "The Butcher's Chosen", "text": "Legacy house rule (The Butcher's Due). ..." } ]
 }
 ```
 
-Write a Rite the 3rd edition way: one clear benefit, one clear cost, and a reason a player would pick it.
-Keep the benefit tied to the Legion's story and the cost painful enough that the list changes shape.
+The benefits and limitations are what players read in the configuration panel, so they must describe
+everything the data does, plus any table-top rule the builder can't check (deployment, Reserves, who
+must charge whom). Give a Rite's signature effect a named rule under `rules` and put it on the units with
+`addRules`, so it shows on their datasheets. Benefits should be a named rule, a role change or a small
+stat change; limitations should change the list's shape.

@@ -1,80 +1,535 @@
 {
   "weapons": {
     "ranged": [
-      { "name": "Dragonfire projector", "R": "Template", "FP": 2, "RS": 5, "AP": 3, "D": 1, "specialRules": ["Template", "Panic (2)"], "traits": ["Flame"] }
+      {
+        "name": "Dragonfire projector",
+        "R": "Template",
+        "FP": 2,
+        "RS": 5,
+        "AP": 3,
+        "D": 1,
+        "specialRules": [
+          "Template",
+          "Panic (2)"
+        ],
+        "traits": [
+          "Flame"
+        ]
+      }
     ],
     "melee": [
-      { "name": "Nocturnean forge-maul", "IM": -1, "AM": "A", "SM": "+2", "AP": 3, "D": 1, "specialRules": ["Breaching (5+)", "Stun (1)"], "traits": ["Power"] }
+      {
+        "name": "Nocturnean forge-maul",
+        "IM": -1,
+        "AM": "A",
+        "SM": "+2",
+        "AP": 3,
+        "D": 1,
+        "specialRules": [
+          "Breaching (5+)",
+          "Stun (1)"
+        ],
+        "traits": [
+          "Power"
+        ]
+      }
     ]
   },
   "wargear": [
-    { "name": "Ember-banner", "text": "Legacy house rule. A banner woven on Nocturne from the cloth of a hearth the Legion swore to defend. Every model in the unit gains +1 Willpower and +1 Intelligence." }
+    {
+      "name": "Ember-banner",
+      "text": "Legacy house rule. A banner woven on Nocturne from the cloth of a hearth the Legion swore to defend. Every model in the unit gains +1 Willpower and +1 Intelligence."
+    }
   ],
   "options": [
-    { "units": ["tactical-squad", "despoiler-squad", "veteran-tactical-squad"], "optionalUnits": true,
-      "option": { "id": "sal-sergeant-flame", "kind": "one", "modelType": "Sergeant", "replaces": ["Bolter"], "text": "The Sergeant may exchange their bolter for",
-        "choices": [ { "name": "Flamer", "points": 5 }, { "name": "Meltagun", "points": 10 }, { "name": "Volkite charger", "points": 10 } ] } },
-    { "units": ["tactical-squad", "despoiler-squad", "veteran-tactical-squad", "assault-squad", "breacher-squad", "veteran-assault-squad"], "optionalUnits": true,
-      "option": { "id": "sal-forge-maul", "kind": "upgrade", "modelType": "Sergeant", "text": "The Sergeant may carry a Nocturnean forge-maul",
-        "choices": [ { "name": "Nocturnean forge-maul", "points": 10 } ] } },
-    { "units": ["tactical-squad", "veteran-tactical-squad", "breacher-squad", "veteran-breacher-squad"], "optionalUnits": true,
-      "option": { "id": "sal-sergeant-drakenscale", "kind": "upgrade", "modelType": "Sergeant", "text": "The Sergeant may wear Drakenscale",
-        "choices": [ { "name": "Drakenscale", "points": 15 } ] } },
-    { "units": ["tactical-squad", "despoiler-squad", "veteran-tactical-squad"], "optionalUnits": true,
-      "option": { "id": "sal-legionary-flamers", "kind": "perModel", "model": ["Legionary", "Veteran Legionary"], "replaces": ["Bolter"], "text": "Any Legionary may exchange their bolter for",
-        "choices": [ { "name": "Flamer", "points": 5 } ] } },
-    { "units": ["firedrake-terminator-squad"], "optionalUnits": true,
-      "option": { "id": "sal-dragonfire", "kind": "perModel", "model": "Firedrake", "text": "Any Firedrake may also carry a Dragonfire projector",
-        "choices": [ { "name": "Dragonfire projector", "points": 15 } ] } },
-    { "units": ["tactical-squad", "despoiler-squad", "assault-squad", "adherents-squad", "sanctifier-squad", "pyroclast-squad", "firedrake-terminator-squad"], "optionalUnits": true,
-      "option": { "id": "sal-ember-banner", "kind": "upgrade", "model": null, "text": "The unit may carry an Ember-banner",
-        "choices": [ { "name": "Ember-banner", "points": 15 } ] } }
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "veteran-tactical-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "sal-sergeant-flame",
+        "kind": "one",
+        "modelType": "Sergeant",
+        "replaces": [
+          "Bolter"
+        ],
+        "text": "The Sergeant may exchange their bolter for",
+        "choices": [
+          {
+            "name": "Flamer",
+            "points": 5
+          },
+          {
+            "name": "Meltagun",
+            "points": 10
+          },
+          {
+            "name": "Volkite charger",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "veteran-tactical-squad",
+        "assault-squad",
+        "breacher-squad",
+        "veteran-assault-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "sal-forge-maul",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may carry a Nocturnean forge-maul",
+        "choices": [
+          {
+            "name": "Nocturnean forge-maul",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "veteran-tactical-squad",
+        "breacher-squad",
+        "veteran-breacher-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "sal-sergeant-drakenscale",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may wear Drakenscale",
+        "choices": [
+          {
+            "name": "Drakenscale",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "veteran-tactical-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "sal-legionary-flamers",
+        "kind": "perModel",
+        "model": [
+          "Legionary",
+          "Veteran Legionary"
+        ],
+        "replaces": [
+          "Bolter"
+        ],
+        "text": "Any Legionary may exchange their bolter for",
+        "choices": [
+          {
+            "name": "Flamer",
+            "points": 5
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "firedrake-terminator-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "sal-dragonfire",
+        "kind": "perModel",
+        "model": "Firedrake",
+        "text": "Any Firedrake may also carry a Dragonfire projector",
+        "choices": [
+          {
+            "name": "Dragonfire projector",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "assault-squad",
+        "adherents-squad",
+        "sanctifier-squad",
+        "pyroclast-squad",
+        "firedrake-terminator-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "sal-ember-banner",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The unit may carry an Ember-banner",
+        "choices": [
+          {
+            "name": "Ember-banner",
+            "points": 15
+          }
+        ]
+      }
+    }
   ],
   "modifiers": [
-    { "units": ["pyroclast-squad"], "text": "Dragon-scaled and heavy-footed: +1 T, -1 M.", "stats": { "T": "+1", "M": "-1" } },
-    { "units": ["firedrake-terminator-squad"], "text": "Hammers swung wide: +1 S, -1 I.", "stats": { "S": "+1", "I": "-1" } },
-    { "units": ["adherents-squad"], "text": "Defenders before fighters: +1 WP, -1 WS.", "stats": { "WP": "+1", "WS": "-1" } },
-    { "units": ["sanctifier-squad"], "text": "Shield-bearers of the weak: +1 LD, -1 A.", "stats": { "LD": "+1", "A": "-1" } },
-    { "units": ["tactical-squad", "despoiler-squad", "veteran-tactical-squad", "breacher-squad"], "models": ["Legionary", "Veteran Legionary"], "text": "Nocturne-born hardiness: +1 T, -1 I.", "stats": { "T": "+1", "I": "-1" } },
-    { "units": ["*"], "item": "Ember-banner", "scope": "unit", "text": "Ember-banner: +1 WP, +1 IN.", "stats": { "WP": "+1", "IN": "+1" } }
+    {
+      "units": [
+        "pyroclast-squad"
+      ],
+      "text": "Dragon-scaled and heavy-footed: +1 T, -1 M.",
+      "stats": {
+        "T": "+1",
+        "M": "-1"
+      }
+    },
+    {
+      "units": [
+        "firedrake-terminator-squad"
+      ],
+      "text": "Hammers swung wide: +1 S, -1 I.",
+      "stats": {
+        "S": "+1",
+        "I": "-1"
+      }
+    },
+    {
+      "units": [
+        "adherents-squad"
+      ],
+      "text": "Defenders before fighters: +1 WP, -1 WS.",
+      "stats": {
+        "WP": "+1",
+        "WS": "-1"
+      }
+    },
+    {
+      "units": [
+        "sanctifier-squad"
+      ],
+      "text": "Shield-bearers of the weak: +1 LD, -1 A.",
+      "stats": {
+        "LD": "+1",
+        "A": "-1"
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "veteran-tactical-squad",
+        "breacher-squad"
+      ],
+      "models": [
+        "Legionary",
+        "Veteran Legionary"
+      ],
+      "text": "Nocturne-born hardiness: +1 T, -1 I.",
+      "stats": {
+        "T": "+1",
+        "I": "-1"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Ember-banner",
+      "scope": "unit",
+      "text": "Ember-banner: +1 WP, +1 IN.",
+      "stats": {
+        "WP": "+1",
+        "IN": "+1"
+      }
+    }
   ],
   "rites": [
     {
       "name": "Forge-Fires of Nocturne",
       "flavor": "The drakes walk in front, and nothing that burns stays standing.",
-      "text": "Pyroclast Squads and Firedrake Terminator Squads may fill Troops slots, and Pyroclast Squads cost 20 points less. Fire is a slow art: no Fast Attack or Recon units and nothing with a jump pack. At least one Pyroclast or Firedrake squad is required.",
-      "roles": [ { "units": ["pyroclast-squad", "firedrake-terminator-squad"], "role": "Troops" } ],
-      "points": [ { "units": ["pyroclast-squad"], "delta": -20 } ],
-      "require": [ { "units": ["pyroclast-squad", "firedrake-terminator-squad"], "min": 1, "note": "Bring a Pyroclast or Firedrake squad." } ],
-      "forbid": [ { "match": { "roles": ["Fast Attack", "Recon"] } }, { "match": { "unitType": "Antigrav" } } ]
+      "benefits": [
+        "Pyroclast and Firedrake Terminator Squads may fill Troops slots.",
+        "Pyroclast and Firedrake squads gain Forge-Fire: Shooting Attacks made with their flame (Template) weapons may re-roll failed Wound Tests."
+      ],
+      "limitations": [
+        "At least one Pyroclast or Firedrake squad is required.",
+        "No Fast Attack or Recon units, and nothing with the Antigrav type."
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "pyroclast-squad",
+            "firedrake-terminator-squad"
+          ],
+          "text": "Forge-Fires of Nocturne: Forge-Fire.",
+          "addRules": [
+            "Forge-Fire"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "pyroclast-squad",
+            "firedrake-terminator-squad"
+          ],
+          "min": 1,
+          "note": "Bring a Pyroclast or Firedrake squad."
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "roles": [
+              "Fast Attack",
+              "Recon"
+            ]
+          }
+        },
+        {
+          "match": {
+            "unitType": "Antigrav"
+          }
+        }
+      ],
+      "roles": [
+        {
+          "units": [
+            "pyroclast-squad",
+            "firedrake-terminator-squad"
+          ],
+          "role": "Troops"
+        }
+      ]
     },
     {
       "name": "Shield of the Weak",
       "flavor": "Vulkan taught his sons that a wall is only a wall when someone stands behind it.",
-      "text": "Adherents Squads and Sanctifier Squads gain Line (1) and Feel No Pain (6+), and Sanctifier Squads may fill Troops slots. The shield does not run: no Fast Attack, Recon or Lord of War units. At least one Adherents Squad and one Sanctifier Squad are required.",
-      "roles": [ { "units": ["sanctifier-squad"], "role": "Troops" } ],
-      "modifiers": [ { "units": ["adherents-squad", "sanctifier-squad"], "text": "Shield of the Weak: Line (1), Feel No Pain (6+).", "addRules": ["Line (1)", "Feel No Pain (6+)"] } ],
-      "require": [ { "units": ["adherents-squad"], "min": 1, "note": "Bring an Adherents Squad." }, { "units": ["sanctifier-squad"], "min": 1, "note": "Bring a Sanctifier Squad." } ],
-      "forbid": [ { "match": { "roles": ["Fast Attack", "Recon", "Lord of War"] } } ]
+      "benefits": [
+        "Sanctifier Squads may fill Troops slots.",
+        "Adherents and Sanctifier Squads gain Line (1) and Shield Wall: they automatically pass Morale and Pinning checks while they have not moved this turn."
+      ],
+      "limitations": [
+        "At least one Adherents Squad and one Sanctifier Squad are required.",
+        "No Fast Attack, Recon or Lord of War units."
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "adherents-squad",
+            "sanctifier-squad"
+          ],
+          "text": "Shield of the Weak: Line (1), Shield Wall.",
+          "addRules": [
+            "Line (1)",
+            "Shield Wall"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "adherents-squad"
+          ],
+          "min": 1,
+          "note": "Bring an Adherents Squad."
+        },
+        {
+          "units": [
+            "sanctifier-squad"
+          ],
+          "min": 1,
+          "note": "Bring a Sanctifier Squad."
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "roles": [
+              "Fast Attack",
+              "Recon",
+              "Lord of War"
+            ]
+          }
+        }
+      ],
+      "roles": [
+        {
+          "units": [
+            "sanctifier-squad"
+          ],
+          "role": "Troops"
+        }
+      ]
     },
     {
       "name": "The Armoured Anvil",
       "flavor": "On Nocturne even the tanks are tempered twice.",
-      "text": "Armour and Transport vehicles (other than Flyers) gain +1 Hull Point, but each costs 10 points more for the extra plate. No drops from orbit and no jump infantry: nothing with the Antigrav type and no Drop Pods, Dreadclaws or Kharybdis. At least two Armour units are required.",
-      "points": [ { "match": { "roles": ["Armour", "Transport"], "unitType": "Vehicle", "notUnitType": "Flyer" }, "delta": 10 } ],
-      "modifiers": [ { "match": { "roles": ["Armour", "Transport"], "unitType": "Vehicle", "notUnitType": "Flyer" }, "text": "The Armoured Anvil: +1 HP.", "stats": { "HP": "+1" } } ],
-      "require": [ { "match": { "role": "Armour" }, "min": 2, "note": "The Anvil needs at least two Armour units." } ],
-      "forbid": [ { "match": { "unitType": "Antigrav" } }, { "units": ["drop-pod", "dreadnought-drop-pod", "deathstorm-drop-pod", "dreadclaw-drop-pod", "kharybdis-assault-claw"] } ]
+      "benefits": [
+        "Armour and Transport vehicles (other than Flyers) gain +1 Hull Point.",
+        "Armour units gain Anvil Advance: Line (1), and they may make Shooting Attacks after Rushing in the first battle turn."
+      ],
+      "limitations": [
+        "At least two Armour units are required, and no more than three Infantry units in Troops slots.",
+        "No Drop Pods, Dreadclaws or Kharybdis, and nothing with the Antigrav type."
+      ],
+      "modifiers": [
+        {
+          "match": {
+            "roles": [
+              "Armour",
+              "Transport"
+            ],
+            "unitType": "Vehicle",
+            "notUnitType": "Flyer"
+          },
+          "text": "The Armoured Anvil: +1 HP.",
+          "stats": {
+            "HP": "+1"
+          }
+        },
+        {
+          "match": {
+            "role": "Armour",
+            "unitType": "Vehicle"
+          },
+          "text": "The Armoured Anvil: Line (1), Anvil Advance.",
+          "addRules": [
+            "Line (1)",
+            "Anvil Advance"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "match": {
+            "role": "Armour"
+          },
+          "min": 2,
+          "note": "The Anvil needs at least two Armour units."
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "unitType": "Antigrav"
+          }
+        },
+        {
+          "units": [
+            "drop-pod",
+            "dreadnought-drop-pod",
+            "deathstorm-drop-pod",
+            "dreadclaw-drop-pod",
+            "kharybdis-assault-claw"
+          ]
+        }
+      ],
+      "limit": [
+        {
+          "match": {
+            "role": "Troops",
+            "notUnitType": "Vehicle"
+          },
+          "max": 3,
+          "note": "At most three Infantry units in Troops slots."
+        }
+      ]
     },
     {
       "name": "Procession of the Honoured",
       "flavor": "The entombed brothers are carried to war so that none of them is ever left behind.",
-      "text": "Contemptor and Castra Ferrum Dreadnoughts may fill Troops slots, cost 15 points less and gain +1 Ballistic Skill. The living walk in their shadow: no Terminator squads and no Heavy Assault units, and at least two Dreadnoughts are required.",
-      "roles": [ { "units": ["contemptor-dreadnought", "castra-ferrum-dreadnought"], "role": "Troops" } ],
-      "points": [ { "units": ["contemptor-dreadnought", "castra-ferrum-dreadnought"], "delta": -15 } ],
-      "modifiers": [ { "units": ["contemptor-dreadnought", "castra-ferrum-dreadnought"], "text": "Procession of the Honoured: +1 BS.", "stats": { "BS": "+1" } } ],
-      "require": [ { "units": ["contemptor-dreadnought", "castra-ferrum-dreadnought", "leviathan-dreadnought", "deredeo-dreadnought", "saturnine-dreadnought", "cassian-dracos-reborn"], "min": 2, "note": "At least two Dreadnoughts march in the procession." } ],
-      "forbid": [ { "match": { "nameIncludes": ["Terminator", "Firedrake"] } }, { "match": { "role": "Heavy Assault" } } ]
+      "benefits": [
+        "Contemptor and Castra Ferrum Dreadnoughts may fill Troops slots.",
+        "They gain Line (1) and Unbowed Elders: once per turn each may re-roll one failed Hit Test."
+      ],
+      "limitations": [
+        "At least two Dreadnoughts are required.",
+        "No Terminator squads, and no Heavy Assault units."
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "contemptor-dreadnought",
+            "castra-ferrum-dreadnought"
+          ],
+          "text": "Procession of the Honoured: Line (1), Unbowed Elders.",
+          "addRules": [
+            "Line (1)",
+            "Unbowed Elders"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "contemptor-dreadnought",
+            "castra-ferrum-dreadnought",
+            "leviathan-dreadnought",
+            "deredeo-dreadnought",
+            "saturnine-dreadnought",
+            "cassian-dracos-reborn"
+          ],
+          "min": 2,
+          "note": "At least two Dreadnoughts march in the procession."
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "nameIncludes": [
+              "Terminator",
+              "Firedrake"
+            ]
+          }
+        },
+        {
+          "match": {
+            "role": "Heavy Assault"
+          }
+        }
+      ],
+      "roles": [
+        {
+          "units": [
+            "contemptor-dreadnought",
+            "castra-ferrum-dreadnought"
+          ],
+          "role": "Troops"
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "name": "Forge-Fire",
+      "text": "Legacy house rule (Forge-Fires of Nocturne). A unit with this rule may re-roll failed Wound Tests on Shooting Attacks made with flame (Template) weapons."
+    },
+    {
+      "name": "Shield Wall",
+      "text": "Legacy house rule (Shield of the Weak). A unit with this rule automatically passes Morale and Pinning checks if it has not moved in its own most recent Movement phase."
+    },
+    {
+      "name": "Anvil Advance",
+      "text": "Legacy house rule (The Armoured Anvil). A model with this rule gains Line (1), and on the first battle turn it may Rush and still make a Shooting Attack."
+    },
+    {
+      "name": "Unbowed Elders",
+      "text": "Legacy house rule (Procession of the Honoured). Once per turn, a model with this rule may re-roll one failed Hit Test."
     }
   ]
 }

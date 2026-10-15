@@ -44,28 +44,191 @@
     {
       "name": "Garro's Company",
       "flavor": "A handful of oath-breakers and loyalists, bound by the one thing neither side believed in.",
-      "text": "Castellax and Domitar Maniples may fill Troops slots, and Garro and Rubio gain +1 Leadership. The company answers to a Knight-Errant alone: either Garro or Rubio must be fielded, and the army brings no Vorax or Vultarax hunter-cells.",
-      "roles": [ { "units": ["castellax-battle-maniple", "castellax-destructor-maniple", "domitar-battle-maniple"], "role": "Troops" } ],
-      "modifiers": [ { "units": ["nathaniel-garro", "tylos-rubio"], "text": "Garro's Company: +1 LD.", "stats": { "LD": "+1" } } ],
-      "require": [ { "units": ["nathaniel-garro", "tylos-rubio"], "min": 1, "note": "A Knight-Errant must lead." } ],
-      "forbid": [ { "units": ["vorax-attack-maniple", "vultarax-stratos-squadron"] } ]
+      "benefits": [
+        "Castellax Battle, Castellax Destructor and Domitar Battle Maniples may fill Troops slots and gain Line (1).",
+        "Maniples gain Oath-Bonded: while within 12\" of Garro or Rubio they automatically pass Morale and Cool Checks.",
+        "Garro and Rubio gain +1 Leadership."
+      ],
+      "limitations": [
+        "Garro or Rubio must be in the army.",
+        "No Vorax Attack Maniples or Vultarax Stratos Squadrons."
+      ],
+      "roles": [
+        {
+          "units": [
+            "castellax-battle-maniple",
+            "castellax-destructor-maniple",
+            "domitar-battle-maniple"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "castellax-battle-maniple",
+            "castellax-destructor-maniple",
+            "domitar-battle-maniple"
+          ],
+          "text": "Garro's Company: Line (1), Oath-Bonded.",
+          "addRules": [
+            "Line (1)",
+            "Oath-Bonded"
+          ]
+        },
+        {
+          "units": [
+            "nathaniel-garro",
+            "tylos-rubio"
+          ],
+          "text": "Garro's Company: +1 LD.",
+          "stats": {
+            "LD": "+1"
+          }
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "nathaniel-garro",
+            "tylos-rubio"
+          ],
+          "min": 1,
+          "note": "A Knight-Errant must lead."
+        }
+      ],
+      "forbid": [
+        {
+          "units": [
+            "vorax-attack-maniple",
+            "vultarax-stratos-squadron"
+          ]
+        }
+      ]
     },
     {
       "name": "The Hunter-Killer Cell",
       "flavor": "Four fast engines, one sealed order, and nobody to ask what it said.",
-      "text": "Vorax Attack Maniples and Vultarax Stratos Squadrons may fill Troops slots, and Voraxes cost 15 points less. The cell travels light: no Thanatar Siege Maniples, no Domitar Maniples, and no Castellax Destructor Maniples. At least one Vorax Maniple is required.",
-      "roles": [ { "units": ["vorax-attack-maniple", "vultarax-stratos-squadron"], "role": "Troops" } ],
-      "points": [ { "units": ["vorax-attack-maniple"], "delta": -15 } ],
-      "require": [ { "units": ["vorax-attack-maniple"], "min": 1, "note": "The cell needs its Voraxes." } ],
-      "forbid": [ { "units": ["thanatar-siege-maniple", "domitar-battle-maniple", "castellax-destructor-maniple"] } ]
+      "benefits": [
+        "Vorax Attack Maniples and Vultarax Stratos Squadrons may fill Troops slots and gain Line (1).",
+        "They gain Sealed Orders: Outflank, and on a turn it arrives from Reserves a unit may Rush and still fire one weapon."
+      ],
+      "limitations": [
+        "At least one Vorax Attack Maniple is required.",
+        "Every Vorax and Vultarax must start the battle in Reserve.",
+        "No Thanatar Siege, Domitar Battle or Castellax Destructor Maniples."
+      ],
+      "roles": [
+        {
+          "units": [
+            "vorax-attack-maniple",
+            "vultarax-stratos-squadron"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "vorax-attack-maniple",
+            "vultarax-stratos-squadron"
+          ],
+          "text": "The Hunter-Killer Cell: Line (1), Sealed Orders.",
+          "addRules": [
+            "Line (1)",
+            "Sealed Orders",
+            "Outflank"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "vorax-attack-maniple"
+          ],
+          "min": 1,
+          "note": "The cell needs its Voraxes."
+        }
+      ],
+      "forbid": [
+        {
+          "units": [
+            "thanatar-siege-maniple",
+            "domitar-battle-maniple",
+            "castellax-destructor-maniple"
+          ]
+        }
+      ]
     },
     {
       "name": "The Unwitnessed Writ",
       "flavor": "Some orders are carried out in silence, by engines that cannot be questioned and cannot talk.",
-      "text": "Thanatar Siege Maniples may fill Elites slots and cost 40 points less, and Domitar Maniples cost 25 points less. The Sigillite will not let a witch near this work: no Psykers (no Rubio), and no Vorax or Vultarax.",
-      "roles": [ { "units": ["thanatar-siege-maniple"], "role": "Elites" } ],
-      "points": [ { "units": ["thanatar-siege-maniple"], "delta": -40 }, { "units": ["domitar-battle-maniple"], "delta": -25 } ],
-      "forbid": [ { "match": { "trait": "Psyker" } }, { "units": ["vorax-attack-maniple", "vultarax-stratos-squadron"] } ]
+      "benefits": [
+        "Thanatar Siege Maniples may fill Elites slots.",
+        "Thanatar and Domitar Maniples gain Infiltrate (9) and Unwitnessed: on the first battle turn the enemy can't pick them as a target for Shooting Attacks unless within 12\"."
+      ],
+      "limitations": [
+        "At least one Thanatar Siege Maniple is required.",
+        "No Psykers, so no Rubio.",
+        "No Vorax Attack Maniples or Vultarax Stratos Squadrons."
+      ],
+      "roles": [
+        {
+          "units": [
+            "thanatar-siege-maniple"
+          ],
+          "role": "Elites"
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "thanatar-siege-maniple",
+            "domitar-battle-maniple"
+          ],
+          "text": "The Unwitnessed Writ: Infiltrate (9), Unwitnessed.",
+          "addRules": [
+            "Infiltrate (9)",
+            "Unwitnessed"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "thanatar-siege-maniple"
+          ],
+          "min": 1,
+          "note": "The writ needs a Thanatar to carry it out."
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "trait": "Psyker"
+          }
+        },
+        {
+          "units": [
+            "vorax-attack-maniple",
+            "vultarax-stratos-squadron"
+          ]
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "name": "Oath-Bonded",
+      "text": "Legacy house rule (Garro's Company). A unit with this rule within 12\" of Nathaniel Garro or Tylos Rubio automatically passes Morale and Cool Checks."
+    },
+    {
+      "name": "Sealed Orders",
+      "text": "Legacy house rule (The Hunter-Killer Cell). A unit with this rule gains Outflank. On a turn it arrives from Reserves it may Rush and still fire one weapon at its full Ballistic Skill."
+    },
+    {
+      "name": "Unwitnessed",
+      "text": "Legacy house rule (The Unwitnessed Writ). On the first battle turn, enemy units may not target a model with this rule with Shooting Attacks unless it is within 12\" of them."
     }
   ]
 }

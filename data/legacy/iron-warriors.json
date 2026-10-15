@@ -46,46 +46,111 @@
     { "units": ["*"], "item": "Bastion rangefinder", "scope": "unit", "text": "Bastion rangefinder: +1 BS.", "stats": { "BS": "+1" }, "condition": "if the unit did not move this turn" },
     { "units": ["*"], "item": "Mechanicum augmetics", "text": "Mechanicum augmetics: +1 T, -1 I.", "stats": { "T": "+1", "I": "-1" } }
   ],
+  "rules": [
+    {"name": "Dug In", "text": "Legacy house rule (The Bastion Doctrine). A unit with this rule that did not move in its last Movement phase counts as being in Cover against Shooting Attacks and may re-roll failed Cool Checks until it moves again."},
+    {"name": "Unbroken Garrison", "text": "Legacy house rule (Iron Circle Garrison). The Tyrant's guard does not break. While within 12\" of Perturabo or a Warsmith, a unit with this rule automatically passes Cool Checks and Pinning Checks, and it may never voluntarily Fall Back."},
+    {"name": "Machine Certainty", "text": "Legacy house rule (The Cold Calculus). The automata feel no dread. A unit with this rule ignores the effects of Fear (X) and cannot be Pinned."},
+    {"name": "Through the Breach", "text": "Legacy house rule (Breach and Clear). Siege infantry go through the walls rather than around them. An enemy unit charged by a unit with this rule gets no Cover save, and no benefit from a building or fortification, for the rest of that Combat."}
+  ],
   "rites": [
     {
       "name": "The Bastion Doctrine",
       "flavor": "A line that cannot be turned is worth more than ten that cannot be stopped.",
-      "text": "Iron Havocs, Heavy Support Squads and Tactical Support Squads may fill Troops slots and gain Line (1). Iron Havocs, Heavy Support Squads, Tactical Support Squads and Rapier Batteries gain +1 Ballistic Skill. The Legion digs in and does not run: no Antigrav units, no Fast Attack units, and no Recon units except Tarantula Batteries.",
-      "roles": [ { "units": ["iron-havocs", "heavy-support-squad", "tactical-support-squad"], "role": "Troops" } ],
-      "modifiers": [
-        { "units": ["iron-havocs", "heavy-support-squad", "tactical-support-squad"], "text": "The Bastion Doctrine: Line (1).", "addRules": ["Line (1)"] },
-        { "units": ["iron-havocs", "heavy-support-squad", "tactical-support-squad", "rapier-battery"], "text": "The Bastion Doctrine: +1 BS.", "stats": { "BS": "+1" } }
+      "benefits": [
+        "Iron Havocs, Heavy Support Squads and Tactical Support Squads may fill Troops slots and gain Line (1).",
+        "Those units gain Dug In: after a turn in which they did not move, they count as in Cover against Shooting Attacks and may re-roll failed Cool Checks."
       ],
-      "forbid": [ { "match": { "unitType": "Antigrav" } }, { "match": { "role": "Fast Attack" } }, { "match": { "role": "Recon", "notNameIncludes": ["Tarantula"] } } ]
+      "limitations": [
+        "No Antigrav units, no Fast Attack units, and no Recon units other than Tarantula Batteries.",
+        "Units with Dug In may not start the battle in Reserves."
+      ],
+      "roles": [
+        {"units": ["iron-havocs", "heavy-support-squad", "tactical-support-squad"], "role": "Troops"}
+      ],
+      "modifiers": [
+        {"units": ["iron-havocs", "heavy-support-squad", "tactical-support-squad"], "text": "The Bastion Doctrine: Line (1), Dug In.", "addRules": ["Line (1)", "Dug In"]}
+      ],
+      "forbid": [
+        {"match": {"unitType": "Antigrav"}},
+        {"match": {"role": "Fast Attack"}},
+        {"match": {"role": "Recon", "notNameIncludes": ["Tarantula"]}}
+      ]
     },
     {
       "name": "Iron Circle Garrison",
       "flavor": "Perturabo trusts no one, and so every wall he builds has a guard on the inside.",
-      "text": "Iron Circle Maniples and Dominator Cohorts may fill Troops slots and cost 30 points less. The army must be led by Perturabo or a Warsmith. The Tyrant's guard does not scatter or run: no Recon, Fast Attack or Heavy Assault units, and no more than one Armour unit.",
-      "roles": [ { "units": ["iron-circle-maniple", "dominator-cohort"], "role": "Troops" } ],
-      "points": [ { "units": ["iron-circle-maniple", "dominator-cohort"], "delta": -30 } ],
-      "require": [ { "units": ["perturabo", "warsmith", "warsmith-in-artificer-armour"], "min": 1, "note": "Perturabo or a Warsmith must lead the army." } ],
-      "forbid": [ { "match": { "roles": ["Recon", "Fast Attack", "Heavy Assault"] } } ],
-      "limit": [ { "match": { "role": "Armour" }, "max": 1, "note": "At most one Armour unit." } ]
+      "benefits": [
+        "Iron Circle Maniples and Dominator Cohorts may fill Troops slots.",
+        "Those units gain Unbroken Garrison: they automatically pass Cool Checks and Pinning Checks while within 12\" of Perturabo or a Warsmith."
+      ],
+      "limitations": [
+        "Perturabo, a Warsmith or a Warsmith in Artificer armour must lead the army.",
+        "Units with Unbroken Garrison may not voluntarily Fall Back.",
+        "No Recon, Fast Attack or Heavy Assault units, and at most one Armour unit."
+      ],
+      "roles": [
+        {"units": ["iron-circle-maniple", "dominator-cohort"], "role": "Troops"}
+      ],
+      "modifiers": [
+        {"units": ["iron-circle-maniple", "dominator-cohort"], "text": "Iron Circle Garrison: Unbroken Garrison.", "addRules": ["Unbroken Garrison"]}
+      ],
+      "require": [
+        {"units": ["perturabo", "warsmith", "warsmith-in-artificer-armour"], "min": 1, "note": "Perturabo or a Warsmith must lead the army."}
+      ],
+      "forbid": [
+        {"match": {"roles": ["Recon", "Fast Attack", "Heavy Assault"]}}
+      ],
+      "limit": [
+        {"match": {"role": "Armour"}, "max": 1, "note": "At most one Armour unit."}
+      ]
     },
     {
       "name": "The Cold Calculus",
       "flavor": "A machine does not flinch, and it does not need to be thanked.",
-      "text": "Castellax Battle Maniples may fill Troops slots, cost 20 points less and gain Line (1) and +1 Ballistic Skill. Automata take the line instead of the Legion's brothers: no Tactical, Despoiler, Assault or Inductii Squads. At least two Castellax Battle Maniples are required.",
-      "roles": [ { "units": ["castellax-battle-maniple"], "role": "Troops" } ],
-      "points": [ { "units": ["castellax-battle-maniple"], "delta": -20 } ],
-      "modifiers": [ { "units": ["castellax-battle-maniple"], "text": "The Cold Calculus: Line (1), +1 BS.", "stats": { "BS": "+1" }, "addRules": ["Line (1)"] } ],
-      "require": [ { "units": ["castellax-battle-maniple"], "min": 2, "note": "Bring at least two Castellax Battle Maniples." } ],
-      "forbid": [ { "units": ["tactical-squad", "despoiler-squad", "assault-squad", "inductii-squad"] } ]
+      "benefits": [
+        "Castellax Battle Maniples may fill Troops slots and gain Line (1).",
+        "Castellax gain Machine Certainty: they ignore Fear (X) and cannot be Pinned."
+      ],
+      "limitations": [
+        "At least two Castellax Battle Maniples are required.",
+        "No Tactical, Despoiler, Assault or Inductii Squads."
+      ],
+      "roles": [
+        {"units": ["castellax-battle-maniple"], "role": "Troops"}
+      ],
+      "modifiers": [
+        {"units": ["castellax-battle-maniple"], "text": "The Cold Calculus: Line (1), Machine Certainty.", "addRules": ["Line (1)", "Machine Certainty"]}
+      ],
+      "require": [
+        {"units": ["castellax-battle-maniple"], "min": 2, "note": "Bring at least two Castellax Battle Maniples."}
+      ],
+      "forbid": [
+        {"units": ["tactical-squad", "despoiler-squad", "assault-squad", "inductii-squad"]}
+      ]
     },
     {
       "name": "Breach and Clear",
       "flavor": "The guns open the wall. Then the armour walks through the hole.",
-      "text": "Tyrant Siege Terminators, Tartaros Terminator Siege Squads, Tartaros Terminator Squads and Veteran Breacher Squads may fill Troops slots and gain Line (1) and Feel No Pain (6+). The Legion commits its siege infantry in person: no Armour or Lord of War units. At least two of those squads are required.",
-      "roles": [ { "units": ["tyrant-siege-terminator-squad", "tartaros-terminator-siege-squad", "tartaros-terminator-squad", "veteran-breacher-squad"], "role": "Troops" } ],
-      "modifiers": [ { "units": ["tyrant-siege-terminator-squad", "tartaros-terminator-siege-squad", "tartaros-terminator-squad", "veteran-breacher-squad"], "text": "Breach and Clear: Line (1), Feel No Pain (6+).", "addRules": ["Line (1)", "Feel No Pain (6+)"] } ],
-      "require": [ { "units": ["tyrant-siege-terminator-squad", "tartaros-terminator-siege-squad", "tartaros-terminator-squad", "veteran-breacher-squad"], "min": 2, "note": "Bring at least two siege infantry squads." } ],
-      "forbid": [ { "match": { "roles": ["Armour", "Lord of War"] } } ]
+      "benefits": [
+        "Tyrant Siege Terminators, Tartaros Terminator Siege Squads, Tartaros Terminator Squads and Veteran Breacher Squads may fill Troops slots and gain Line (1) and Move Through Cover.",
+        "Those units gain Through the Breach: enemy units they charge gain no benefit from Cover or fortifications in that Combat."
+      ],
+      "limitations": [
+        "At least two of those siege infantry squads are required.",
+        "No Armour or Lord of War units."
+      ],
+      "roles": [
+        {"units": ["tyrant-siege-terminator-squad", "tartaros-terminator-siege-squad", "tartaros-terminator-squad", "veteran-breacher-squad"], "role": "Troops"}
+      ],
+      "modifiers": [
+        {"units": ["tyrant-siege-terminator-squad", "tartaros-terminator-siege-squad", "tartaros-terminator-squad", "veteran-breacher-squad"], "text": "Breach and Clear: Line (1), Through the Breach, Move Through Cover.", "addRules": ["Line (1)", "Through the Breach", "Move Through Cover"]}
+      ],
+      "require": [
+        {"units": ["tyrant-siege-terminator-squad", "tartaros-terminator-siege-squad", "tartaros-terminator-squad", "veteran-breacher-squad"], "min": 2, "note": "Bring at least two siege infantry squads."}
+      ],
+      "forbid": [
+        {"match": {"roles": ["Armour", "Lord of War"]}}
+      ]
     }
   ]
 }

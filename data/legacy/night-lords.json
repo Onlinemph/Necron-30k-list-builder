@@ -42,47 +42,106 @@
     { "units": ["*"], "item": "Night-mantle", "text": "Night-mantle: Shrouded (5+).", "addRules": ["Shrouded (5+)"] },
     { "units": ["*"], "item": "Gibbet standard", "scope": "unit", "text": "Gibbet standard: Hatred (Infantry).", "addRules": ["Hatred (Infantry)"] }
   ],
+  "rules": [
+    {"name": "Silent Knives", "text": "Legacy house rule (Knives in the Dark). The sentry never saw the blade. On the turn a unit with this rule enters play from Reserves, enemy units may not make Reaction Shooting against it."},
+    {"name": "Dread Herald", "text": "Legacy house rule (Dread Procession). Fear walks ahead of them. An enemy unit charged by a unit with this rule reduces its Cool by a further 1 until the end of that Assault phase."},
+    {"name": "Judgement of the Cabal", "text": "Legacy house rule (Cabal of Murder). Before deployment, the controlling player names one enemy unit as the Condemned. Models with this rule may re-roll failed Hit Tests against that unit; if it is destroyed, name another at the start of the next turn."},
+    {"name": "Tithe of Blood", "text": "Legacy house rule (The Headsman's Tithe). When a unit with this rule destroys an enemy unit in combat, every enemy unit within 12\" reduces its Cool by 1 until the end of the turn."}
+  ],
   "rites": [
     {
       "name": "Knives in the Dark",
       "flavor": "The first sign is a sentry who does not answer the next call.",
-      "text": "Night Raptor Squads may fill Troops slots and gain Line (1). Night Raptors, Reconnaissance Squads and Scout Squads gain Shrouded (6+). The Legion hunts quietly: no Armour units, no Heavy Transports, and at least one Night Raptor Squad is required.",
-      "roles": [ { "units": ["night-raptor-squad"], "role": "Troops" } ],
-      "modifiers": [
-        { "units": ["night-raptor-squad"], "text": "Knives in the Dark: Line (1).", "addRules": ["Line (1)"] },
-        { "units": ["night-raptor-squad", "reconnaissance-squad", "scout-squad"], "text": "Knives in the Dark: Shrouded (6+).", "addRules": ["Shrouded (6+)"] }
+      "benefits": [
+        "Night Raptor Squads may fill Troops slots and gain Line (1).",
+        "Night Raptors, Reconnaissance Squads and Scout Squads gain Shrouded (6+) and Silent Knives: Outflank, and enemy units may not make Reaction Shooting against them on the turn they arrive from Reserves."
       ],
-      "require": [ { "units": ["night-raptor-squad"], "min": 1, "note": "Bring at least one Night Raptor Squad." } ],
-      "forbid": [ { "match": { "roles": ["Armour", "Heavy Transport"] } } ]
+      "limitations": [
+        "At least one Night Raptor Squad is required.",
+        "No Armour units and no Heavy Transports."
+      ],
+      "roles": [
+        {"units": ["night-raptor-squad"], "role": "Troops"}
+      ],
+      "modifiers": [
+        {"units": ["night-raptor-squad"], "text": "Knives in the Dark: Line (1).", "addRules": ["Line (1)"]},
+        {"units": ["night-raptor-squad", "reconnaissance-squad", "scout-squad"], "text": "Knives in the Dark: Silent Knives, Outflank, Shrouded (6+).", "addRules": ["Silent Knives", "Outflank", "Shrouded (6+)"]}
+      ],
+      "require": [
+        {"units": ["night-raptor-squad"], "min": 1, "note": "Bring at least one Night Raptor Squad."}
+      ],
+      "forbid": [
+        {"match": {"roles": ["Armour", "Heavy Transport"]}}
+      ]
     },
     {
       "name": "Dread Procession",
       "flavor": "They did not need to win the battle if the enemy could be persuaded to lose it first.",
-      "text": "Tactical, Despoiler, Veteran Tactical, Assault, Veteran Assault and Reconnaissance Squads gain Fear (1). Terror must be seen to be believed: no Heavy sub-type Infantry (no Terminators, Breachers or Warders), no Armour units, and no Support units of any kind.",
-      "modifiers": [ { "units": ["tactical-squad", "despoiler-squad", "veteran-tactical-squad", "assault-squad", "veteran-assault-squad", "reconnaissance-squad"], "text": "Dread Procession: Fear (1).", "addRules": ["Fear (1)"] } ],
-      "forbid": [ { "match": { "unitType": "Heavy", "notUnitType": "Vehicle" } }, { "match": { "role": "Armour" } }, { "match": { "role": "Support" } } ]
+      "benefits": [
+        "Tactical, Despoiler, Veteran Tactical, Assault, Veteran Assault and Reconnaissance Squads gain Fear (1).",
+        "Those squads gain Dread Herald: an enemy unit they charge reduces its Cool by a further 1 until the end of that Assault phase."
+      ],
+      "limitations": [
+        "No Heavy sub-type Infantry (no Terminators, Breachers or Warders).",
+        "No Armour units and no Support units of any kind."
+      ],
+      "modifiers": [
+        {"units": ["tactical-squad", "despoiler-squad", "veteran-tactical-squad", "assault-squad", "veteran-assault-squad", "reconnaissance-squad"], "text": "Dread Procession: Fear (1), Dread Herald.", "addRules": ["Fear (1)", "Dread Herald"]}
+      ],
+      "forbid": [
+        {"match": {"unitType": "Heavy", "notUnitType": "Vehicle"}},
+        {"match": {"role": "Armour"}},
+        {"match": {"role": "Support"}}
+      ]
     },
     {
       "name": "Cabal of Murder",
       "flavor": "Curze's trusted few do not take orders. They pass judgement on whoever gave them.",
-      "text": "Contekar Terminator Squads and Atramentar Flay-clades may fill Troops slots and cost 20 points less. They gain Line (1). The army must be led by Konrad Curze or Sevatar, and the Cabal tolerates no company that makes noise: no Armour, no Transport units and no Fast Attack units.",
-      "roles": [ { "units": ["contekar-terminator-squad", "atramentar-flay-clade"], "role": "Troops" } ],
-      "points": [ { "units": ["contekar-terminator-squad", "atramentar-flay-clade"], "delta": -20 } ],
-      "modifiers": [ { "units": ["contekar-terminator-squad", "atramentar-flay-clade"], "text": "Cabal of Murder: Line (1).", "addRules": ["Line (1)"] } ],
-      "require": [ { "units": ["konrad-curze", "sevatar"], "min": 1, "note": "Curze or Sevatar must lead the Cabal." } ],
-      "forbid": [ { "match": { "roles": ["Armour", "Transport", "Fast Attack"] } } ]
+      "benefits": [
+        "Contekar Terminator Squads and Atramentar Flay-clades may fill Troops slots and gain Line (1).",
+        "They gain Judgement of the Cabal: before deployment, name one enemy unit as the Condemned; the Cabal may re-roll failed Hit Tests against it."
+      ],
+      "limitations": [
+        "Konrad Curze or Sevatar must lead the army.",
+        "No Armour, Transport or Fast Attack units."
+      ],
+      "roles": [
+        {"units": ["contekar-terminator-squad", "atramentar-flay-clade"], "role": "Troops"}
+      ],
+      "modifiers": [
+        {"units": ["contekar-terminator-squad", "atramentar-flay-clade"], "text": "Cabal of Murder: Line (1), Judgement of the Cabal.", "addRules": ["Line (1)", "Judgement of the Cabal"]}
+      ],
+      "require": [
+        {"units": ["konrad-curze", "sevatar"], "min": 1, "note": "Curze or Sevatar must lead the Cabal."}
+      ],
+      "forbid": [
+        {"match": {"roles": ["Armour", "Transport", "Fast Attack"]}}
+      ]
     },
     {
       "name": "The Headsman's Tithe",
       "flavor": "A world pays in tithe, one way or another. The Eighth Legion simply prefers the other.",
-      "text": "Terror Squads cost 25 points less and the Headsman gains +1 Attack. The army must include at least two Terror Squads and be led by Konrad Curze or Sevatar, and the Legion allows no lesser lords: no Praetors of any kind, and no Lord of War units.",
-      "points": [ { "units": ["terror-squad"], "delta": -25 } ],
-      "modifiers": [ { "units": ["terror-squad"], "models": ["Headsman"], "text": "The Headsman's Tithe: Headsman +1 A.", "stats": { "A": "+1" } } ],
-      "require": [
-        { "units": ["terror-squad"], "min": 2, "note": "Bring at least two Terror Squads." },
-        { "units": ["konrad-curze", "sevatar"], "min": 1, "note": "Curze or Sevatar must lead the army." }
+      "benefits": [
+        "Terror Squads gain Fear (1) and Tithe of Blood: when they destroy an enemy unit in combat, enemy units within 12\" reduce their Cool by 1 until the end of the turn.",
+        "The Headsman gains +1 Attack."
       ],
-      "forbid": [ { "units": ["praetor", "praetor-in-terminator-armour", "mounted-praetor", "praetor-in-saturnine-terminator-armour"] }, { "match": { "role": "Lord of War" } } ]
+      "limitations": [
+        "Konrad Curze or Sevatar must lead the army.",
+        "At least two Terror Squads are required.",
+        "No Praetors of any kind and no Lord of War units."
+      ],
+      "modifiers": [
+        {"units": ["terror-squad"], "text": "The Headsman's Tithe: Fear (1), Tithe of Blood.", "addRules": ["Fear (1)", "Tithe of Blood"]},
+        {"units": ["terror-squad"], "models": ["Headsman"], "text": "The Headsman's Tithe: Headsman +1 A.", "stats": {"A": "+1"}}
+      ],
+      "require": [
+        {"units": ["terror-squad"], "min": 2, "note": "Bring at least two Terror Squads."},
+        {"units": ["konrad-curze", "sevatar"], "min": 1, "note": "Curze or Sevatar must lead the army."}
+      ],
+      "forbid": [
+        {"units": ["praetor", "praetor-in-terminator-armour", "mounted-praetor", "praetor-in-saturnine-terminator-armour"]},
+        {"match": {"role": "Lord of War"}}
+      ]
     }
   ]
 }

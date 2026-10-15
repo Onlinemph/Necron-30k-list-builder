@@ -28,12 +28,15 @@ function filesFor(root, army) {
  */
 function resolveUnits(out, spec, problems, where) {
   const ids = new Set(out.units.map((u) => u.id));
-  let list = out.units.filter((u) => !u.ally && !u.operative);
+  // wildcards and matches leave out the shared Assassins and Cults (Clade and Cult Operatives);
+  // a unit named by id is always included
+  const shared = (u) => u.operative === 'Clade Operative' || u.operative === 'Cult Operative';
+  let list = out.units.filter((u) => !u.ally);
   if (spec.units && !spec.units.includes('*')) {
     // a Legion file may name units another Legion lacks; only the shared file must match everywhere
     for (const id of spec.units) if (!ids.has(id) && !spec.optionalUnits) problems.push(`${where}: no unit "${id}"`);
     list = list.filter((u) => spec.units.includes(u.id));
-  }
+  } else list = list.filter((u) => !shared(u));
   const m = spec.match;
   if (m) {
     list = list.filter((u) => (!m.role || u.role === m.role) && (!m.roles || m.roles.includes(u.role))
@@ -98,7 +101,7 @@ export function applyLegacy(root, out, army) {
   const addModifier = (entry, when, where, sourceName) => {
     checkStats(entry.stats, problems, where);
     const units = resolveUnits(out, entry, problems, where);
-    if (!units.length) return;
+    if (!units.length) { if (!entry.optionalUnits) problems.push(`${where}: "${entry.text || 'modifier'}" fits no unit`); return; }
     out.modifiers.modifiers.push({
       id: uniq(`${sourceName}-${entry.text || 'mod'}`),
       text: entry.text || `${sourceName}.`,
@@ -127,9 +130,14 @@ export function applyLegacy(root, out, army) {
     // Rites of War
     for (const [i, rite] of (data.rites || []).entries()) {
       const where = `${tag} rites[${i}] ${rite.name}`;
-      if (!rite.name || !rite.text) { problems.push(`${where}: a Rite needs a name and text`); continue; }
+      // a Rite reads like the old books: what it's about, then Benefits and Limitations
+      const list = (title, xs) => (xs && xs.length ? `${title}\n${xs.map((x) => `- ${x}`).join('\n')}` : null);
+      const text = [rite.flavor ? `"${rite.flavor}"` : null, rite.text, list('Benefits', rite.benefits), list('Limitations', rite.limitations)].filter(Boolean).join('\n\n');
+      if (!rite.name || !(rite.benefits || []).length || !(rite.limitations || []).length) { problems.push(`${where}: a Rite needs a name, benefits and limitations`); continue; }
+      // Rites change how the army fights, not what it costs
+      if ((rite.points || []).length) problems.push(`${where}: Rites don't change points; give a rule or a statline instead`);
       const when = { config: rite.name };
-      rites.push({ name: rite.name, text: [rite.flavor ? `"${rite.flavor}"` : null, rite.text].filter(Boolean).join('\n\n') });
+      rites.push({ name: rite.name, text });
       for (const [j, e] of (rite.options || []).entries()) addOption(e, when, `${where} options[${j}]`);
       for (const [j, e] of (rite.modifiers || []).entries()) addModifier(e, when, `${where} modifiers[${j}]`, rite.name);
       for (const [j, e] of (rite.roles || []).entries()) {
@@ -139,7 +147,6 @@ export function applyLegacy(root, out, army) {
       for (const [j, e] of (rite.forbid || []).entries()) {
         for (const u of resolveUnits(out, e, problems, `${where} forbid[${j}]`)) (u.unless = u.unless || []).push(when);
       }
-      for (const [j, e] of (rite.points || []).entries()) for (const u of resolveUnits(out, e, problems, `${where} points[${j}]`)) (u.pointsWhen = u.pointsWhen || []).push({ when, delta: e.delta });
       for (const [j, e] of [...(rite.require || []).map((x) => ['min', x]), ...(rite.limit || []).map((x) => ['max', x])].entries()) {
         const [kind, x] = e;
         const units = resolveUnits(out, x, problems, `${where} ${kind === 'min' ? 'require' : 'limit'}[${j}]`).map((u) => u.id);

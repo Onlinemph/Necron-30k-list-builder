@@ -43,44 +43,260 @@
     { "units": ["*"], "item": "Praetorian hoplon", "scope": "unit", "text": "Praetorian hoplon: 4+ Invulnerable Save.", "stats": { "INV": "best:4+" } },
     { "units": ["*"], "item": "Ultramar fire-control array", "text": "Ultramar fire-control array: +1 BS.", "stats": { "BS": "+1" } }
   ],
+  "rules": [
+    {
+      "name": "Drilled Cohorts",
+      "text": "Legacy house rule (The Five Hundred Muster). A unit with this rule adds +1 to its Cool for Checks to avoid gaining Tactical Statuses. If a friendly Centurion is within 6\", it may also re-roll failed Morale Checks."
+    },
+    {
+      "name": "Shield Wall",
+      "text": "Legacy house rule (Phalanx of the Invictus). A unit with this rule gains Feel No Pain (6+) against Shooting Attacks, as long as it did not Rush in its previous Movement phase."
+    },
+    {
+      "name": "Eagle Strike",
+      "text": "Legacy house rule (Strike of the Locutarus). A unit with this rule gains Deep Strike. The turn it arrives by Deep Strike it may Rush as normal but may not Charge."
+    },
+    {
+      "name": "Vengeance of Calth",
+      "text": "Legacy house rule (Remember Calth). While an enemy Word Bearers unit is within 12\" of a model with this rule, friendly Ultramarines units within 12\" of that model pass Morale Checks automatically and may re-roll failed Charge rolls against Word Bearers units."
+    }
+  ],
   "rites": [
     {
       "name": "The Five Hundred Muster",
       "flavor": "Every world of Ultramar sends its sons, and every son has drilled the same manoeuvres since boyhood.",
-      "text": "Veteran Tactical Squads and Praetorian Breacher Squads may fill Troops slots. Tactical Squads cost 10 points less. At least two Tactical Squads and a Centurion are required. The Muster does not improvise: no Fast Attack units and no model with the Antigrav type.",
-      "roles": [ { "units": ["veteran-tactical-squad", "praetorian-breacher-squad"], "role": "Troops" } ],
-      "points": [ { "units": ["tactical-squad"], "delta": -10 } ],
-      "require": [ { "units": ["tactical-squad"], "min": 2, "note": "Bring at least two Tactical Squads." }, { "units": ["centurion", "centurion-in-terminator-armour"], "min": 1, "note": "A Centurion must lead the Muster." } ],
-      "forbid": [ { "match": { "role": "Fast Attack" } }, { "match": { "unitType": "Antigrav" } } ]
+      "benefits": [
+        "Veteran Tactical Squads and Praetorian Breacher Squads may fill Troops slots.",
+        "Tactical Squads and Veteran Tactical Squads gain Drilled Cohorts: +1 Cool to avoid Tactical Statuses, and Morale re-rolls near a friendly Centurion."
+      ],
+      "limitations": [
+        "At least two Tactical Squads and a Centurion are required.",
+        "No Fast Attack units and no model with the Antigrav type."
+      ],
+      "roles": [
+        {
+          "units": [
+            "veteran-tactical-squad",
+            "praetorian-breacher-squad"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "tactical-squad",
+            "veteran-tactical-squad"
+          ],
+          "text": "The Five Hundred Muster: Drilled Cohorts.",
+          "addRules": [
+            "Drilled Cohorts"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "tactical-squad"
+          ],
+          "min": 2,
+          "note": "Bring at least two Tactical Squads."
+        },
+        {
+          "units": [
+            "centurion",
+            "centurion-in-terminator-armour"
+          ],
+          "min": 1,
+          "note": "A Centurion must lead the Muster."
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "role": "Fast Attack"
+          }
+        },
+        {
+          "match": {
+            "unitType": "Antigrav"
+          }
+        }
+      ]
     },
     {
       "name": "Phalanx of the Invictus",
       "flavor": "Behind the shield-wall of the Suzerains, the rest of the Legion simply refuses to die.",
-      "text": "Invictus Suzerain Squads may fill Troops slots, cost 20 points less and gain +1 Cool. At least one Invictus Suzerain Squad is required. A phalanx marches at the pace of its shields: no War Engines and no Lord of War units.",
-      "roles": [ { "units": ["invictus-suzerain-squad"], "role": "Troops" } ],
-      "points": [ { "units": ["invictus-suzerain-squad"], "delta": -20 } ],
-      "modifiers": [ { "units": ["invictus-suzerain-squad"], "text": "Phalanx of the Invictus: +1 CL.", "stats": { "CL": "+1" } } ],
-      "require": [ { "units": ["invictus-suzerain-squad"], "min": 1, "note": "Bring at least one Invictus Suzerain Squad." } ],
-      "forbid": [ { "match": { "role": "War Engine" } }, { "match": { "role": "Lord of War" } } ]
+      "benefits": [
+        "Invictus Suzerain Squads may fill Troops slots and gain +1 Cool.",
+        "They gain Shield Wall: Feel No Pain (6+) against Shooting Attacks if they did not Rush in their previous Movement phase."
+      ],
+      "limitations": [
+        "At least one Invictus Suzerain Squad is required.",
+        "No War Engines and no Lord of War units."
+      ],
+      "roles": [
+        {
+          "units": [
+            "invictus-suzerain-squad"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "invictus-suzerain-squad"
+          ],
+          "text": "Phalanx of the Invictus: +1 CL, Shield Wall.",
+          "stats": {
+            "CL": "+1"
+          },
+          "addRules": [
+            "Shield Wall"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "invictus-suzerain-squad"
+          ],
+          "min": 1,
+          "note": "Bring at least one Invictus Suzerain Squad."
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "role": "War Engine"
+          }
+        },
+        {
+          "match": {
+            "role": "Lord of War"
+          }
+        }
+      ]
     },
     {
       "name": "Strike of the Locutarus",
       "flavor": "A line of retros against the clouds, and the Eagles of Macragge are already on the roof.",
-      "text": "Locutarus Storm Squads may fill Troops slots and cost 25 points less. Their pilots gain +1 Initiative and -1 Leadership. At least one Locutarus Storm Squad is required. The Eagles fight light: no Armour units and no War Engines.",
-      "roles": [ { "units": ["locutarus-storm-squad"], "role": "Troops" } ],
-      "points": [ { "units": ["locutarus-storm-squad"], "delta": -25 } ],
-      "modifiers": [ { "units": ["locutarus-storm-squad"], "text": "Strike of the Locutarus: +1 I, -1 LD.", "stats": { "I": "+1", "LD": "-1" } } ],
-      "require": [ { "units": ["locutarus-storm-squad"], "min": 1, "note": "Bring at least one Locutarus Storm Squad." } ],
-      "forbid": [ { "match": { "role": "Armour" } }, { "match": { "role": "War Engine" } } ]
+      "benefits": [
+        "Locutarus Storm Squads may fill Troops slots.",
+        "They gain +1 Initiative and Eagle Strike: Deep Strike (they may Rush, but not Charge, on the turn they arrive)."
+      ],
+      "limitations": [
+        "They lose 1 Leadership.",
+        "Locutarus Storm Squads must start the battle in Reserve.",
+        "At least one Locutarus Storm Squad is required.",
+        "No Armour units and no War Engines."
+      ],
+      "roles": [
+        {
+          "units": [
+            "locutarus-storm-squad"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "locutarus-storm-squad"
+          ],
+          "text": "Strike of the Locutarus: +1 I, -1 LD, Eagle Strike.",
+          "stats": {
+            "I": "+1",
+            "LD": "-1"
+          },
+          "addRules": [
+            "Eagle Strike",
+            "Deep Strike"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "locutarus-storm-squad"
+          ],
+          "min": 1,
+          "note": "Bring at least one Locutarus Storm Squad."
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "role": "Armour"
+          }
+        },
+        {
+          "match": {
+            "role": "War Engine"
+          }
+        }
+      ]
     },
     {
       "name": "Remember Calth",
       "flavor": "The Legion was shot in the back by its own brothers, and has not yet finished answering.",
-      "text": "Every Ultramarines unit gains Hatred (Word Bearers) and +1 Leadership. The Honoured Telemechrus costs 30 points less. Remus Ventanus must lead the army. Grief leaves no room for hired knives: no Assassins and no Malefic models.",
-      "points": [ { "units": ["honoured-telemechrus"], "delta": -30 } ],
-      "modifiers": [ { "units": ["*"], "text": "Remember Calth: Hatred (Word Bearers), +1 LD.", "stats": { "LD": "+1" }, "addRules": ["Hatred (Word Bearers)"] } ],
-      "require": [ { "units": ["remus-ventanus"], "min": 1, "note": "Remus Ventanus must lead the army." } ],
-      "forbid": [ { "match": { "nameIncludes": ["Assassin", "Abomination"] } }, { "match": { "unitType": "Malefic" } } ]
+      "benefits": [
+        "Every Ultramarines unit gains Hatred (Word Bearers) and +1 Leadership.",
+        "Remus Ventanus and the Honoured Telemechrus gain Vengeance of Calth: nearby friendly units pass Morale Checks automatically and re-roll failed Charges against Word Bearers while an enemy Word Bearers unit is within 12\"."
+      ],
+      "limitations": [
+        "Remus Ventanus must lead the army.",
+        "No Assassins and no Malefic models."
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "*"
+          ],
+          "text": "Remember Calth: Hatred (Word Bearers), +1 LD.",
+          "stats": {
+            "LD": "+1"
+          },
+          "addRules": [
+            "Hatred (Word Bearers)"
+          ]
+        },
+        {
+          "units": [
+            "remus-ventanus",
+            "honoured-telemechrus"
+          ],
+          "text": "Remember Calth: Vengeance of Calth.",
+          "addRules": [
+            "Vengeance of Calth"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "remus-ventanus"
+          ],
+          "min": 1,
+          "note": "Remus Ventanus must lead the army."
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "nameIncludes": [
+              "Assassin",
+              "Abomination"
+            ]
+          }
+        },
+        {
+          "match": {
+            "unitType": "Malefic"
+          }
+        }
+      ]
     }
   ]
 }

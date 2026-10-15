@@ -1,90 +1,558 @@
 {
   "weapons": {
     "ranged": [
-      { "name": "Viper dart pistol", "R": 12, "FP": 1, "RS": 3, "AP": "–", "D": 1, "specialRules": ["Pistol", "Poisoned (2+)"], "traits": ["Needle"] },
-      { "name": "Coil-spined needle carbine", "R": 24, "FP": 2, "RS": 3, "AP": "–", "D": 1, "specialRules": ["Poisoned (3+)", "Pinning (1)", "Precision (6+)"], "traits": ["Needle"] }
+      {
+        "name": "Viper dart pistol",
+        "R": 12,
+        "FP": 1,
+        "RS": 3,
+        "AP": "–",
+        "D": 1,
+        "specialRules": [
+          "Pistol",
+          "Poisoned (2+)"
+        ],
+        "traits": [
+          "Needle"
+        ]
+      },
+      {
+        "name": "Coil-spined needle carbine",
+        "R": 24,
+        "FP": 2,
+        "RS": 3,
+        "AP": "–",
+        "D": 1,
+        "specialRules": [
+          "Poisoned (3+)",
+          "Pinning (1)",
+          "Precision (6+)"
+        ],
+        "traits": [
+          "Needle"
+        ]
+      }
     ],
     "melee": [
-      { "name": "Hydra's fang", "IM": "+1", "AM": "A", "SM": "S", "AP": 4, "D": 1, "specialRules": ["Poisoned (4+)", "Breaching (6+)"], "traits": [] },
-      { "name": "Garrote wire", "IM": "+2", "AM": "A", "SM": -1, "AP": "–", "D": 1, "specialRules": ["Precision (5+)"], "traits": [] }
+      {
+        "name": "Hydra's fang",
+        "IM": "+1",
+        "AM": "A",
+        "SM": "S",
+        "AP": 4,
+        "D": 1,
+        "specialRules": [
+          "Poisoned (4+)",
+          "Breaching (6+)"
+        ],
+        "traits": []
+      },
+      {
+        "name": "Garrote wire",
+        "IM": "+2",
+        "AM": "A",
+        "SM": -1,
+        "AP": "–",
+        "D": 1,
+        "specialRules": [
+          "Precision (5+)"
+        ],
+        "traits": []
+      }
     ]
   },
   "wargear": [
-    { "name": "Mirror-cloak", "text": "Legacy house rule. A shimmering mantle that throws back a dozen false outlines of its wearer. The bearer gains Shrouded (6+), or one step better if they already have it." },
-    { "name": "Reagent injector", "text": "Legacy house rule. A wrist-mounted cocktail of stimms and counter-toxins, tuned for agents who expect to be poisoned in return. The bearer gains Feel No Pain (6+)." },
-    { "name": "Sleeper-cell beacon", "text": "Legacy house rule. A tiny pulse-caster that lets scattered cells act on a single plan without a word on the vox. Every model in the unit gains +1 Cool and +1 Intelligence." }
+    {
+      "name": "Mirror-cloak",
+      "text": "Legacy house rule. A shimmering mantle that throws back a dozen false outlines of its wearer. The bearer gains Shrouded (6+), or one step better if they already have it."
+    },
+    {
+      "name": "Reagent injector",
+      "text": "Legacy house rule. A wrist-mounted cocktail of stimms and counter-toxins, tuned for agents who expect to be poisoned in return. The bearer gains Feel No Pain (6+)."
+    },
+    {
+      "name": "Sleeper-cell beacon",
+      "text": "Legacy house rule. A tiny pulse-caster that lets scattered cells act on a single plan without a word on the vox. Every model in the unit gains +1 Cool and +1 Intelligence."
+    }
   ],
   "options": [
-    { "units": ["headhunter-kill-team"],
-      "option": { "id": "al-hydras-fang", "kind": "one", "model": "Headhunter Prime", "replaces": ["Power dagger"],
-        "text": "The Headhunter Prime may exchange their power dagger for", "choices": [ { "name": "Hydra's fang", "points": 5 }, { "name": "Garrote wire", "points": 5 } ] } },
-    { "units": ["headhunter-kill-team"],
-      "option": { "id": "al-viper-darts", "kind": "perModel", "model": "Headhunter", "replaces": ["Bolt pistol"],
-        "text": "Any Headhunter may exchange their bolt pistol for a Viper dart pistol", "choices": [ { "name": "Viper dart pistol", "points": 3 } ] } },
-    { "units": ["reconnaissance-squad"],
-      "option": { "id": "al-recon-needle-carbines", "kind": "perModel", "model": "Recon Legionary", "replaces": ["Astartes shotgun"],
-        "text": "Any Recon Legionary may exchange their Astartes shotgun for a Coil-spined needle carbine", "choices": [ { "name": "Coil-spined needle carbine", "points": 5 } ] } },
-    { "units": ["scout-squad"],
-      "option": { "id": "al-scout-needle-carbines", "kind": "perModel", "model": "Scout", "replaces": ["Bolter"],
-        "text": "Any Scout may exchange their bolter for a Coil-spined needle carbine", "choices": [ { "name": "Coil-spined needle carbine", "points": 4 } ] } },
-    { "units": ["tactical-squad", "veteran-tactical-squad", "reconnaissance-squad", "seeker-squad", "scout-squad", "mor-deythan-squad", "headhunter-kill-team"], "optionalUnits": true,
-      "option": { "id": "al-mirror-cloak", "kind": "upgrade", "modelType": "Sergeant", "text": "The Sergeant may wear a Mirror-cloak",
-        "choices": [ { "name": "Mirror-cloak", "points": 10 } ] } },
-    { "units": ["saboteur", "dreadwing-interemptor-squad"],
-      "option": { "id": "al-reagent-injector", "kind": "upgrade", "model": ["Saboteur", "Interemptor Praefectus"], "text": "May take a Reagent injector",
-        "choices": [ { "name": "Reagent injector", "points": 10 } ] } },
-    { "units": ["tactical-squad", "veteran-tactical-squad", "inductii-squad", "seeker-squad", "mor-deythan-squad"],
-      "option": { "id": "al-sleeper-cell-beacon", "kind": "upgrade", "model": null, "text": "The unit may carry a Sleeper-cell beacon",
-        "choices": [ { "name": "Sleeper-cell beacon", "points": 15 } ] } }
+    {
+      "units": [
+        "headhunter-kill-team"
+      ],
+      "option": {
+        "id": "al-hydras-fang",
+        "kind": "one",
+        "model": "Headhunter Prime",
+        "replaces": [
+          "Power dagger"
+        ],
+        "text": "The Headhunter Prime may exchange their power dagger for",
+        "choices": [
+          {
+            "name": "Hydra's fang",
+            "points": 5
+          },
+          {
+            "name": "Garrote wire",
+            "points": 5
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "headhunter-kill-team"
+      ],
+      "option": {
+        "id": "al-viper-darts",
+        "kind": "perModel",
+        "model": "Headhunter",
+        "replaces": [
+          "Bolt pistol"
+        ],
+        "text": "Any Headhunter may exchange their bolt pistol for a Viper dart pistol",
+        "choices": [
+          {
+            "name": "Viper dart pistol",
+            "points": 3
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "reconnaissance-squad"
+      ],
+      "option": {
+        "id": "al-recon-needle-carbines",
+        "kind": "perModel",
+        "model": "Recon Legionary",
+        "replaces": [
+          "Astartes shotgun"
+        ],
+        "text": "Any Recon Legionary may exchange their Astartes shotgun for a Coil-spined needle carbine",
+        "choices": [
+          {
+            "name": "Coil-spined needle carbine",
+            "points": 5
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "scout-squad"
+      ],
+      "option": {
+        "id": "al-scout-needle-carbines",
+        "kind": "perModel",
+        "model": "Scout",
+        "replaces": [
+          "Bolter"
+        ],
+        "text": "Any Scout may exchange their bolter for a Coil-spined needle carbine",
+        "choices": [
+          {
+            "name": "Coil-spined needle carbine",
+            "points": 4
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "veteran-tactical-squad",
+        "reconnaissance-squad",
+        "seeker-squad",
+        "scout-squad",
+        "mor-deythan-squad",
+        "headhunter-kill-team"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "al-mirror-cloak",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may wear a Mirror-cloak",
+        "choices": [
+          {
+            "name": "Mirror-cloak",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "saboteur",
+        "dreadwing-interemptor-squad"
+      ],
+      "option": {
+        "id": "al-reagent-injector",
+        "kind": "upgrade",
+        "model": [
+          "Saboteur",
+          "Interemptor Praefectus"
+        ],
+        "text": "May take a Reagent injector",
+        "choices": [
+          {
+            "name": "Reagent injector",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "veteran-tactical-squad",
+        "inductii-squad",
+        "seeker-squad",
+        "mor-deythan-squad"
+      ],
+      "option": {
+        "id": "al-sleeper-cell-beacon",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The unit may carry a Sleeper-cell beacon",
+        "choices": [
+          {
+            "name": "Sleeper-cell beacon",
+            "points": 15
+          }
+        ]
+      }
+    }
   ],
   "modifiers": [
-    { "units": ["headhunter-kill-team"], "text": "Trained to kill the head, not the body: +1 BS, -1 CL.", "stats": { "BS": "+1", "CL": "-1" } },
-    { "units": ["reconnaissance-squad", "scout-squad", "seeker-squad"], "text": "Ghost-light training: +1 I, -1 LD.", "stats": { "I": "+1", "LD": "-1" } },
-    { "units": ["tactical-squad", "veteran-tactical-squad", "inductii-squad"], "text": "Every legionary a cell leader: +1 IN, -1 LD.", "stats": { "IN": "+1", "LD": "-1" } },
-    { "units": ["mor-deythan-squad"], "text": "Shadow-killers with no home to return to: +1 BS, -1 CL.", "stats": { "BS": "+1", "CL": "-1" } },
-    { "units": ["dreadwing-interemptor-squad"], "text": "Hardened by purge after purge: +1 LD, -1 M.", "stats": { "LD": "+1", "M": "-1" } },
-    { "units": ["*"], "item": "Mirror-cloak", "scope": "model", "text": "Mirror-cloak: Shrouded (6+).", "addRules": ["Shrouded (6+)"] },
-    { "units": ["*"], "item": "Reagent injector", "scope": "model", "text": "Reagent injector: Feel No Pain (6+).", "addRules": ["Feel No Pain (6+)"] },
-    { "units": ["*"], "item": "Sleeper-cell beacon", "scope": "unit", "text": "Sleeper-cell beacon: +1 CL, +1 IN.", "stats": { "CL": "+1", "IN": "+1" } }
+    {
+      "units": [
+        "headhunter-kill-team"
+      ],
+      "text": "Trained to kill the head, not the body: +1 BS, -1 CL.",
+      "stats": {
+        "BS": "+1",
+        "CL": "-1"
+      }
+    },
+    {
+      "units": [
+        "reconnaissance-squad",
+        "scout-squad",
+        "seeker-squad"
+      ],
+      "text": "Ghost-light training: +1 I, -1 LD.",
+      "stats": {
+        "I": "+1",
+        "LD": "-1"
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "veteran-tactical-squad",
+        "inductii-squad"
+      ],
+      "text": "Every legionary a cell leader: +1 IN, -1 LD.",
+      "stats": {
+        "IN": "+1",
+        "LD": "-1"
+      }
+    },
+    {
+      "units": [
+        "mor-deythan-squad"
+      ],
+      "text": "Shadow-killers with no home to return to: +1 BS, -1 CL.",
+      "stats": {
+        "BS": "+1",
+        "CL": "-1"
+      }
+    },
+    {
+      "units": [
+        "dreadwing-interemptor-squad"
+      ],
+      "text": "Hardened by purge after purge: +1 LD, -1 M.",
+      "stats": {
+        "LD": "+1",
+        "M": "-1"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Mirror-cloak",
+      "scope": "model",
+      "text": "Mirror-cloak: Shrouded (6+).",
+      "addRules": [
+        "Shrouded (6+)"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Reagent injector",
+      "scope": "model",
+      "text": "Reagent injector: Feel No Pain (6+).",
+      "addRules": [
+        "Feel No Pain (6+)"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Sleeper-cell beacon",
+      "scope": "unit",
+      "text": "Sleeper-cell beacon: +1 CL, +1 IN.",
+      "stats": {
+        "CL": "+1",
+        "IN": "+1"
+      }
+    }
   ],
   "rites": [
     {
       "name": "A Hundred Cells, One Hand",
       "flavor": "No cell knows the plan. Every cell knows its part.",
-      "text": "Headhunter Kill Teams, Seeker Squads and Reconnaissance Squads may fill Troops slots and gain Line (1). The scheme has no room for armour: no Armour, Heavy Transport or Lord of War units. At least two Headhunter Kill Teams are required.",
-      "roles": [ { "units": ["headhunter-kill-team", "seeker-squad", "reconnaissance-squad"], "role": "Troops" } ],
-      "modifiers": [ { "units": ["headhunter-kill-team", "seeker-squad", "reconnaissance-squad"], "text": "A Hundred Cells, One Hand: Line (1).", "addRules": ["Line (1)"] } ],
-      "require": [ { "units": ["headhunter-kill-team"], "min": 2, "note": "Field at least two Headhunter Kill Teams." } ],
-      "forbid": [ { "match": { "role": "Armour" } }, { "match": { "role": "Heavy Transport" } }, { "match": { "role": "Lord of War" } } ]
+      "benefits": [
+        "Headhunter Kill Teams, Seeker Squads and Reconnaissance Squads may fill Troops slots and gain Line (1).",
+        "Those units gain Cell Network: a failed Cool Check may be re-rolled while another friendly unit with Cell Network is within 12\"."
+      ],
+      "limitations": [
+        "At least two Headhunter Kill Teams are required.",
+        "No Armour, Heavy Transport or Lord of War units."
+      ],
+      "roles": [
+        {
+          "units": [
+            "headhunter-kill-team",
+            "seeker-squad",
+            "reconnaissance-squad"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "headhunter-kill-team"
+          ],
+          "min": 2,
+          "note": "Field at least two Headhunter Kill Teams."
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "role": "Armour"
+          }
+        },
+        {
+          "match": {
+            "role": "Heavy Transport"
+          }
+        },
+        {
+          "match": {
+            "role": "Lord of War"
+          }
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "headhunter-kill-team",
+            "seeker-squad",
+            "reconnaissance-squad"
+          ],
+          "text": "A Hundred Cells, One Hand: Cell Network, Line (1).",
+          "addRules": [
+            "Cell Network",
+            "Line (1)"
+          ]
+        }
+      ]
     },
     {
       "name": "The Sleeper Awakens",
       "flavor": "They were standing beside you before the war began.",
-      "text": "Tactical Squads, Veteran Tactical Squads and Inductii Squads gain Infiltrate (9) and cost 5 points more. Sleepers do not ride to war: no Transport or Heavy Transport units, and no Fast Attack units.",
-      "points": [ { "units": ["tactical-squad", "veteran-tactical-squad", "inductii-squad"], "delta": 5 } ],
-      "modifiers": [ { "units": ["tactical-squad", "veteran-tactical-squad", "inductii-squad"], "text": "The Sleeper Awakens: Infiltrate (9).", "addRules": ["Infiltrate (9)"] } ],
-      "forbid": [ { "match": { "role": "Transport" } }, { "match": { "role": "Heavy Transport" } }, { "match": { "role": "Fast Attack" } } ]
+      "benefits": [
+        "Tactical, Veteran Tactical and Inductii Squads gain Infiltrate (9).",
+        "Those units gain Sleeper Strike: in the controlling player's first turn they may re-roll failed Charge rolls."
+      ],
+      "limitations": [
+        "No Transport, Heavy Transport or Fast Attack units.",
+        "Units with Sleeper Strike must be deployed on the table with Infiltrate; they may not start in Reserve."
+      ],
+      "forbid": [
+        {
+          "match": {
+            "role": "Transport"
+          }
+        },
+        {
+          "match": {
+            "role": "Heavy Transport"
+          }
+        },
+        {
+          "match": {
+            "role": "Fast Attack"
+          }
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "tactical-squad",
+            "veteran-tactical-squad",
+            "inductii-squad"
+          ],
+          "text": "The Sleeper Awakens: Sleeper Strike, Infiltrate (9).",
+          "addRules": [
+            "Sleeper Strike",
+            "Infiltrate (9)"
+          ]
+        }
+      ]
     },
     {
       "name": "The Hydra's Gambit",
       "flavor": "Alpharius is present, and three other Alpharii are also present.",
-      "text": "Exodus costs 40 points less and Headhunter Kill Teams cost 25 points less. Exodus, Headhunters and Mor Deythan gain Hatred (Command). Alpharius must lead the army, and the gambit leaves little room for line infantry: at most one Tactical Squad and no Veteran Tactical Squads.",
-      "points": [ { "units": ["exodus"], "delta": -40 }, { "units": ["headhunter-kill-team"], "delta": -25 } ],
-      "modifiers": [ { "units": ["exodus", "headhunter-kill-team", "mor-deythan-squad"], "text": "The Hydra's Gambit: Hatred (Command).", "addRules": ["Hatred (Command)"] } ],
-      "require": [ { "units": ["alpharius"], "min": 1, "note": "Alpharius must lead the gambit." } ],
-      "limit": [ { "units": ["tactical-squad"], "max": 1 }, { "units": ["veteran-tactical-squad"], "max": 0 } ]
+      "benefits": [
+        "Exodus, Headhunter Kill Teams and Mor Deythan Squads gain Hatred (Command) and Many Heads: Outflank, and after both sides have deployed the Alpha Legion player may swap the positions of two units with Many Heads."
+      ],
+      "limitations": [
+        "Alpharius must be in the army.",
+        "At most one Tactical Squad and no Veteran Tactical Squads."
+      ],
+      "require": [
+        {
+          "units": [
+            "alpharius"
+          ],
+          "min": 1,
+          "note": "Alpharius must lead the gambit."
+        }
+      ],
+      "limit": [
+        {
+          "units": [
+            "tactical-squad"
+          ],
+          "max": 1
+        },
+        {
+          "units": [
+            "veteran-tactical-squad"
+          ],
+          "max": 0
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "exodus",
+            "headhunter-kill-team",
+            "mor-deythan-squad"
+          ],
+          "text": "The Hydra's Gambit: Many Heads, Hatred (Command), Outflank.",
+          "addRules": [
+            "Many Heads",
+            "Hatred (Command)",
+            "Outflank"
+          ]
+        }
+      ]
     },
     {
       "name": "Dreadwing Purge-Host",
       "flavor": "When the whispers fail, the Dreadwing is sent to finish the argument.",
-      "text": "Dreadwing Interemptor Squads and Lernaean Terminator Squads may fill Troops slots and gain Line (1). Interemptors gain Rending (6+) in close combat and shooting. The purge moves at a walking pace: no Recon or Fast Attack units. At least two Dreadwing Interemptor Squads are required.",
-      "roles": [ { "units": ["dreadwing-interemptor-squad", "lernaean-terminator-squad"], "role": "Troops" } ],
-      "modifiers": [
-        { "units": ["dreadwing-interemptor-squad", "lernaean-terminator-squad"], "text": "Dreadwing Purge-Host: Line (1).", "addRules": ["Line (1)"] },
-        { "units": ["dreadwing-interemptor-squad"], "text": "Dreadwing Purge-Host: Rending (6+).", "addRules": ["Rending (6+)"] }
+      "benefits": [
+        "Dreadwing Interemptor and Lernaean Terminator Squads may fill Troops slots and gain Line (1) and Purge Resolve: they automatically pass Cool Checks while within 6\" of another friendly unit with Purge Resolve.",
+        "Interemptors gain Rending (6+) in close combat and shooting."
       ],
-      "require": [ { "units": ["dreadwing-interemptor-squad"], "min": 2, "note": "Field at least two Interemptor Squads." } ],
-      "forbid": [ { "match": { "role": "Recon" } }, { "match": { "role": "Fast Attack" } } ]
+      "limitations": [
+        "At least two Dreadwing Interemptor Squads are required.",
+        "No Recon or Fast Attack units."
+      ],
+      "roles": [
+        {
+          "units": [
+            "dreadwing-interemptor-squad",
+            "lernaean-terminator-squad"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "dreadwing-interemptor-squad"
+          ],
+          "min": 2,
+          "note": "Field at least two Interemptor Squads."
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "role": "Recon"
+          }
+        },
+        {
+          "match": {
+            "role": "Fast Attack"
+          }
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "dreadwing-interemptor-squad",
+            "lernaean-terminator-squad"
+          ],
+          "text": "Dreadwing Purge-Host: Purge Resolve, Line (1).",
+          "addRules": [
+            "Purge Resolve",
+            "Line (1)"
+          ]
+        },
+        {
+          "units": [
+            "dreadwing-interemptor-squad"
+          ],
+          "text": "Dreadwing Purge-Host: Rending (6+).",
+          "addRules": [
+            "Rending (6+)"
+          ]
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "name": "Cell Network",
+      "text": "Legacy house rule (A Hundred Cells, One Hand). A unit with this rule may re-roll a failed Cool Check while at least one other friendly unit with Cell Network is within 12\"."
+    },
+    {
+      "name": "Sleeper Strike",
+      "text": "Legacy house rule (The Sleeper Awakens). In its controlling player's first turn, a unit with this rule may re-roll failed Charge rolls. The unit must be deployed on the table using Infiltrate, and may not start in Reserve."
+    },
+    {
+      "name": "Many Heads",
+      "text": "Legacy house rule (The Hydra's Gambit). A unit with this rule gains Outflank. After both armies have deployed, the Alpha Legion player may swap the positions of two units with this rule (both units must be on the table, in the same deployment zone)."
+    },
+    {
+      "name": "Purge Resolve",
+      "text": "Legacy house rule (Dreadwing Purge-Host). A unit with this rule automatically passes Cool Checks while it is within 6\" of at least one other friendly unit with this rule."
     }
   ]
 }

@@ -41,55 +41,119 @@
     { "units": ["*"], "item": "Rampart standard", "scope": "unit", "text": "Rampart standard: Feel No Pain (6+).", "addRules": ["Feel No Pain (6+)"] },
     { "units": ["*"], "item": "Range-finder array", "scope": "unit", "text": "Range-finder array: +1 BS.", "stats": { "BS": "+1" } }
   ],
+  "rules": [
+    {"name": "Shield Wall", "text": "Legacy house rule (The Unmoved Phalanx). A unit with this rule that did not move in its last Movement phase gains Feel No Pain (6+) against Shooting Attacks and automatically passes Cool Checks."},
+    {"name": "Pre-sighted Arcs", "text": "Legacy house rule (Fire from the Ramparts). The engineers have measured every yard. A unit with this rule that did not move in its Movement phase may re-roll one failed Hit Test in each Shooting Attack it makes."},
+    {"name": "Sworn Crusaders", "text": "Legacy house rule (Oath of the Templars). A unit with this rule may re-roll a failed Charge roll. If an enemy unit is within 12\" at the start of its Assault phase, it must declare a Charge against the closest one."},
+    {"name": "Household Guard", "text": "Legacy house rule (The Praetorian Retinue). The household is not frightened by anything it has not already faced. A unit with this rule ignores the effects of Fear (X), cannot be Pinned and may re-roll failed Cool Checks."}
+  ],
   "rites": [
     {
       "name": "The Unmoved Phalanx",
       "flavor": "Dorn set a line on the map and told his sons that the enemy would pay for every yard of it.",
-      "text": "Phalanx Warder Squads may fill Troops slots and gain Line (2) and Feel No Pain (6+). Breacher Squads gain +1 Leadership. A shield wall has no use for speed: no Fast Attack units, no Antigrav (jump pack) units and no Cavalry. At least one Phalanx Warder Squad is required.",
-      "roles": [ { "units": ["phalanx-warder-squad"], "role": "Troops" } ],
-      "modifiers": [
-        { "units": ["phalanx-warder-squad"], "text": "The Unmoved Phalanx: Line (2), Feel No Pain (6+).", "addRules": ["Line (2)", "Feel No Pain (6+)"] },
-        { "units": ["breacher-squad", "veteran-breacher-squad"], "text": "The Unmoved Phalanx: +1 LD.", "stats": { "LD": "+1" } }
+      "benefits": [
+        "Phalanx Warder Squads may fill Troops slots and gain Line (2).",
+        "Phalanx Warders gain Shield Wall: if they did not move in their last Movement phase they gain Feel No Pain (6+) against Shooting Attacks and automatically pass Cool Checks."
       ],
-      "require": [ { "units": ["phalanx-warder-squad"], "min": 1, "note": "Bring at least one Phalanx Warder Squad." } ],
-      "forbid": [ { "match": { "role": "Fast Attack" } }, { "match": { "unitType": "Antigrav" } }, { "match": { "unitType": "Cavalry" } } ]
+      "limitations": [
+        "At least one Phalanx Warder Squad is required.",
+        "No Fast Attack units, no Antigrav units and no Cavalry."
+      ],
+      "roles": [
+        {"units": ["phalanx-warder-squad"], "role": "Troops"}
+      ],
+      "modifiers": [
+        {"units": ["phalanx-warder-squad"], "text": "The Unmoved Phalanx: Line (2), Shield Wall.", "addRules": ["Line (2)", "Shield Wall"]}
+      ],
+      "require": [
+        {"units": ["phalanx-warder-squad"], "min": 1, "note": "Bring at least one Phalanx Warder Squad."}
+      ],
+      "forbid": [
+        {"match": {"role": "Fast Attack"}},
+        {"match": {"unitType": "Antigrav"}},
+        {"match": {"unitType": "Cavalry"}}
+      ]
     },
     {
       "name": "Fire from the Ramparts",
       "flavor": "Every wall is a gun platform if the engineers have been given a week.",
-      "text": "Tactical Support, Heavy Support and Veteran Heavy Support Squads may fill Troops slots and gain +1 Ballistic Skill but -1 Movement. Rapier and Tarantula Batteries cost 10 points less. The army digs in: at least one Techmarine is required, no Heavy Assault or Fast Attack units, and at most one Transport or Heavy Transport.",
-      "roles": [ { "units": ["tactical-support-squad", "heavy-support-squad", "veteran-heavy-support-squad"], "role": "Troops" } ],
-      "points": [ { "units": ["rapier-battery", "tarantula-battery"], "delta": -10 } ],
-      "modifiers": [ { "units": ["tactical-support-squad", "heavy-support-squad", "veteran-heavy-support-squad"], "text": "Fire from the Ramparts: +1 BS, -1 M.", "stats": { "BS": "+1", "M": "-1" } } ],
-      "require": [ { "units": ["techmarine"], "min": 1, "note": "A Techmarine must oversee the works." } ],
-      "forbid": [ { "match": { "roles": ["Heavy Assault", "Fast Attack"] } } ],
-      "limit": [ { "match": { "roles": ["Transport", "Heavy Transport"] }, "max": 1, "note": "At most one Transport or Heavy Transport." } ]
+      "benefits": [
+        "Tactical Support, Heavy Support and Veteran Heavy Support Squads may fill Troops slots.",
+        "Those squads and Rapier and Tarantula Batteries gain Pre-sighted Arcs: a unit that did not move may re-roll one failed Hit Test in each Shooting Attack."
+      ],
+      "limitations": [
+        "At least one Techmarine is required.",
+        "No Heavy Assault or Fast Attack units, and at most one Transport or Heavy Transport."
+      ],
+      "roles": [
+        {"units": ["tactical-support-squad", "heavy-support-squad", "veteran-heavy-support-squad"], "role": "Troops"}
+      ],
+      "modifiers": [
+        {"units": ["tactical-support-squad", "heavy-support-squad", "veteran-heavy-support-squad", "rapier-battery", "tarantula-battery"], "text": "Fire from the Ramparts: Pre-sighted Arcs.", "addRules": ["Pre-sighted Arcs"]}
+      ],
+      "require": [
+        {"units": ["techmarine"], "min": 1, "note": "A Techmarine must oversee the works."}
+      ],
+      "forbid": [
+        {"match": {"roles": ["Heavy Assault", "Fast Attack"]}}
+      ],
+      "limit": [
+        {"match": {"roles": ["Transport", "Heavy Transport"]}, "max": 1, "note": "At most one Transport or Heavy Transport."}
+      ]
     },
     {
       "name": "Oath of the Templars",
       "flavor": "Before Dorn gave them a wall to defend, they were bred to carry the war into someone else's house.",
-      "text": "Templar Brethren may fill Troops slots and cost 20 points less. They gain +1 Initiative. The army must include Sigismund or a Praetor of any kind to take the oaths. The crusade leaves no room for the garrison: no Heavy Assault, Armour or Lord of War units, and at least two Templar Brethren squads.",
-      "roles": [ { "units": ["templar-brethren"], "role": "Troops" } ],
-      "points": [ { "units": ["templar-brethren"], "delta": -20 } ],
-      "modifiers": [ { "units": ["templar-brethren"], "text": "Oath of the Templars: +1 I.", "stats": { "I": "+1" } } ],
-      "require": [
-        { "units": ["templar-brethren"], "min": 2, "note": "Bring at least two Templar Brethren squads." },
-        { "units": ["sigismund", "praetor", "praetor-in-terminator-armour", "mounted-praetor", "praetor-in-saturnine-terminator-armour"], "min": 1, "note": "Sigismund or a Praetor must lead the Templars." }
+      "benefits": [
+        "Templar Brethren may fill Troops slots and gain Sworn Crusaders: they may re-roll failed Charge rolls.",
+        "Templar Brethren add +1 Initiative on a turn they charge."
       ],
-      "forbid": [ { "match": { "roles": ["Heavy Assault", "Armour", "Lord of War"] } } ]
+      "limitations": [
+        "Sigismund or a Praetor of any kind must lead the army.",
+        "At least two Templar Brethren squads are required.",
+        "Templar Brethren must declare a Charge against the closest enemy unit within 12\" when able.",
+        "No Heavy Assault, Armour or Lord of War units."
+      ],
+      "roles": [
+        {"units": ["templar-brethren"], "role": "Troops"}
+      ],
+      "modifiers": [
+        {"units": ["templar-brethren"], "text": "Oath of the Templars: Sworn Crusaders.", "addRules": ["Sworn Crusaders"]},
+        {"units": ["templar-brethren"], "text": "Oath of the Templars: +1 I.", "stats": {"I": "+1"}, "condition": "on a turn the unit charges"}
+      ],
+      "require": [
+        {"units": ["templar-brethren"], "min": 2, "note": "Bring at least two Templar Brethren squads."},
+        {"units": ["sigismund", "praetor", "praetor-in-terminator-armour", "mounted-praetor", "praetor-in-saturnine-terminator-armour"], "min": 1, "note": "Sigismund or a Praetor must lead the Templars."}
+      ],
+      "forbid": [
+        {"match": {"roles": ["Heavy Assault", "Armour", "Lord of War"]}}
+      ]
     },
     {
       "name": "The Praetorian Retinue",
       "flavor": "The Emperor's Huscarls follow no banner but Dorn's, and Dorn's banner is the Wall.",
-      "text": "Huscarl Terminator Retinues may fill Troops slots, cost 40 points less and gain Line (1). Every Huscarl Terminator gains +1 Leadership. This is a household army: at least one Huscarl Terminator Retinue is required, no Cavalry, no Recon units and no Lord of War units.",
-      "roles": [ { "units": ["huscarl-terminator-retinue"], "role": "Troops" } ],
-      "points": [ { "units": ["huscarl-terminator-retinue"], "delta": -40 } ],
-      "modifiers": [
-        { "units": ["huscarl-terminator-retinue"], "text": "The Praetorian Retinue: Line (1).", "addRules": ["Line (1)"] },
-        { "units": ["huscarl-terminator-retinue"], "text": "The Praetorian Retinue: +1 LD.", "stats": { "LD": "+1" } }
+      "benefits": [
+        "Huscarl Terminator Retinues may fill Troops slots and gain Line (1).",
+        "Huscarls gain Household Guard: they ignore Fear (X), cannot be Pinned and may re-roll failed Cool Checks."
       ],
-      "require": [ { "units": ["huscarl-terminator-retinue"], "min": 1, "note": "Bring at least one Huscarl Terminator Retinue." } ],
-      "forbid": [ { "match": { "unitType": "Cavalry" } }, { "match": { "role": "Recon" } }, { "match": { "role": "Lord of War" } } ]
+      "limitations": [
+        "At least one Huscarl Terminator Retinue is required.",
+        "No Cavalry, no Recon units and no Lord of War units."
+      ],
+      "roles": [
+        {"units": ["huscarl-terminator-retinue"], "role": "Troops"}
+      ],
+      "modifiers": [
+        {"units": ["huscarl-terminator-retinue"], "text": "The Praetorian Retinue: Line (1), Household Guard.", "addRules": ["Line (1)", "Household Guard"]}
+      ],
+      "require": [
+        {"units": ["huscarl-terminator-retinue"], "min": 1, "note": "Bring at least one Huscarl Terminator Retinue."}
+      ],
+      "forbid": [
+        {"match": {"unitType": "Cavalry"}},
+        {"match": {"role": "Recon"}},
+        {"match": {"role": "Lord of War"}}
+      ]
     }
   ]
 }

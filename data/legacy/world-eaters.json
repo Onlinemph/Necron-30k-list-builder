@@ -1,61 +1,343 @@
 {
   "weapons": {
     "melee": [
-      { "name": "Flensing chainaxe", "IM": -1, "AM": "+1", "SM": "+1", "AP": 4, "D": 1, "specialRules": ["Shred (5+)"], "traits": ["Chain"] }
+      {
+        "name": "Flensing chainaxe",
+        "IM": -1,
+        "AM": "+1",
+        "SM": "+1",
+        "AP": 4,
+        "D": 1,
+        "specialRules": [
+          "Shred (5+)"
+        ],
+        "traits": [
+          "Chain"
+        ]
+      }
     ]
   },
   "wargear": [
-    { "name": "Gore-soaked banner", "text": "Legacy house rule. A standard stitched from the hides of the last world the company burned. On a turn the unit charges, every model in it gains +1 Attack." }
+    {
+      "name": "Gore-soaked banner",
+      "text": "Legacy house rule. A standard stitched from the hides of the last world the company burned. On a turn the unit charges, every model in it gains +1 Attack."
+    }
   ],
   "rules": [
-    { "name": "Hatred (Psykers)", "text": "Legacy house rule. The Hatred (X) Special Rule, against any Model with the Psyker Trait." }
+    {
+      "name": "Hatred (Psykers)",
+      "text": "Legacy house rule. The Hatred (X) Special Rule, against any Model with the Psyker Trait."
+    },
+    {
+      "name": "Blood Frenzy",
+      "text": "Legacy house rule (The Berserker Charge). A unit with this rule that fails a Charge may re-roll it once. On a turn it charges, it must charge the closest enemy unit it can reach."
+    },
+    {
+      "name": "Witch-hunters of Nikaea",
+      "text": "Legacy house rule (Scorn of Nikaea). A model with this rule adds +1 to its Willpower and may re-roll failed Willpower Checks forced by enemy Psychic powers."
+    },
+    {
+      "name": "The Butcher's Chosen",
+      "text": "Legacy house rule (The Butcher's Due). A unit with this rule gains Fear (1). If it destroys an enemy unit in combat, every friendly World Eaters unit within 12\" adds +1 to its Leadership until the end of the next turn."
+    }
   ],
   "options": [
-    { "units": ["assault-squad", "veteran-assault-squad"], "optionalUnits": true,
-      "option": { "id": "we-legion-chainaxes", "kind": "perModel", "model": ["Legionary", "Veteran Legionary"], "replaces": ["Chainsword"],
-        "text": "Any Legionary may exchange their chainsword for", "choices": [ { "name": "Chainaxe", "points": 2 }, { "name": "Heavy chainaxe", "points": 5 } ] } },
-    { "units": ["tactical-squad", "despoiler-squad", "veteran-tactical-squad", "assault-squad", "veteran-assault-squad", "breacher-squad"], "optionalUnits": true,
-      "option": { "id": "we-caedere-sergeant", "kind": "one", "modelType": "Sergeant", "text": "The Sergeant may take a Caedere weapon",
-        "choices": [ { "name": "Excoriator chainaxe", "points": 10 }, { "name": "Barb-hook lash", "points": 10 }, { "name": "Meteor hammer", "points": 15 } ] } },
-    { "units": ["rampager-squad"],
-      "option": { "id": "we-flensing-chainaxes", "kind": "perModel", "model": "Rampager",
-        "text": "Any Rampager may take a Flensing chainaxe", "choices": [ { "name": "Flensing chainaxe", "points": 5 } ] } },
-    { "units": ["tactical-squad", "despoiler-squad", "assault-squad", "rampager-squad", "inductii-squad"],
-      "option": { "id": "we-gore-banner", "kind": "upgrade", "model": null, "text": "The unit may carry a Gore-soaked banner",
-        "choices": [ { "name": "Gore-soaked banner", "points": 20 } ] } }
+    {
+      "units": [
+        "assault-squad",
+        "veteran-assault-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "we-legion-chainaxes",
+        "kind": "perModel",
+        "model": [
+          "Legionary",
+          "Veteran Legionary"
+        ],
+        "replaces": [
+          "Chainsword"
+        ],
+        "text": "Any Legionary may exchange their chainsword for",
+        "choices": [
+          {
+            "name": "Chainaxe",
+            "points": 2
+          },
+          {
+            "name": "Heavy chainaxe",
+            "points": 5
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "veteran-tactical-squad",
+        "assault-squad",
+        "veteran-assault-squad",
+        "breacher-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "we-caedere-sergeant",
+        "kind": "one",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may take a Caedere weapon",
+        "choices": [
+          {
+            "name": "Excoriator chainaxe",
+            "points": 10
+          },
+          {
+            "name": "Barb-hook lash",
+            "points": 10
+          },
+          {
+            "name": "Meteor hammer",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "rampager-squad"
+      ],
+      "option": {
+        "id": "we-flensing-chainaxes",
+        "kind": "perModel",
+        "model": "Rampager",
+        "text": "Any Rampager may take a Flensing chainaxe",
+        "choices": [
+          {
+            "name": "Flensing chainaxe",
+            "points": 5
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "assault-squad",
+        "rampager-squad",
+        "inductii-squad"
+      ],
+      "option": {
+        "id": "we-gore-banner",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The unit may carry a Gore-soaked banner",
+        "choices": [
+          {
+            "name": "Gore-soaked banner",
+            "points": 20
+          }
+        ]
+      }
+    }
   ],
   "modifiers": [
-    { "units": ["inductii-squad"], "text": "Nails freshly fitted: +1 S, -1 BS.", "stats": { "S": "+1", "BS": "-1" } },
-    { "units": ["rampager-squad"], "text": "Rampagers: +1 I.", "stats": { "I": "+1" } },
-    { "match": { "unitType": "Command", "notUnitType": "Vehicle" }, "text": "The Nails bite deep: +1 A, -1 LD.", "stats": { "A": "+1", "LD": "-1" } },
-    { "units": ["*"], "item": "Gore-soaked banner", "scope": "unit", "text": "Gore-soaked banner: +1 A.", "stats": { "A": "+1" }, "condition": "on a turn the unit charges" }
+    {
+      "units": [
+        "inductii-squad"
+      ],
+      "text": "Nails freshly fitted: +1 S, -1 BS.",
+      "stats": {
+        "S": "+1",
+        "BS": "-1"
+      }
+    },
+    {
+      "units": [
+        "rampager-squad"
+      ],
+      "text": "Rampagers: +1 I.",
+      "stats": {
+        "I": "+1"
+      }
+    },
+    {
+      "match": {
+        "unitType": "Command",
+        "notUnitType": "Vehicle"
+      },
+      "text": "The Nails bite deep: +1 A, -1 LD.",
+      "stats": {
+        "A": "+1",
+        "LD": "-1"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Gore-soaked banner",
+      "scope": "unit",
+      "text": "Gore-soaked banner: +1 A.",
+      "stats": {
+        "A": "+1"
+      },
+      "condition": "on a turn the unit charges"
+    }
   ],
   "rites": [
     {
       "name": "The Berserker Charge",
       "flavor": "Guns are for those who fear to close the distance.",
-      "text": "Rampager Squads may fill Troops slots. Every World Eaters Infantry unit gains Fast (1). The army scorns the gun line: no Heavy Support, Tactical Support or Veteran Heavy Support Squads, no Rapier or Tarantula Batteries, and no Armour units. At least one Rampager Squad is required.",
-      "roles": [ { "units": ["rampager-squad"], "role": "Troops" } ],
-      "modifiers": [ { "match": { "unitType": "Infantry", "notUnitType": "Vehicle" }, "text": "The Berserker Charge: Fast (1).", "addRules": ["Fast (1)"] } ],
-      "require": [ { "units": ["rampager-squad"], "min": 1, "note": "Bring at least one Rampager Squad." } ],
-      "forbid": [ { "units": ["heavy-support-squad", "tactical-support-squad", "veteran-heavy-support-squad", "rapier-battery", "tarantula-battery"] }, { "match": { "role": "Armour" } } ]
+      "text": "Guns are for those who fear to close the distance.",
+      "benefits": [
+        "Rampager Squads may fill Troops slots.",
+        "Every World Eaters Infantry unit gains Fast (1) and Blood Frenzy: a failed Charge may be re-rolled."
+      ],
+      "limitations": [
+        "Units with Blood Frenzy must charge the closest enemy unit they can reach.",
+        "No Heavy Support, Tactical Support or Veteran Heavy Support Squads, no Rapier or Tarantula Batteries, and no Armour units.",
+        "At least one Rampager Squad is required."
+      ],
+      "roles": [
+        {
+          "units": [
+            "rampager-squad"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "modifiers": [
+        {
+          "match": {
+            "unitType": "Infantry",
+            "notUnitType": "Vehicle"
+          },
+          "text": "The Berserker Charge: Fast (1), Blood Frenzy.",
+          "addRules": [
+            "Fast (1)",
+            "Blood Frenzy"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "rampager-squad"
+          ],
+          "min": 1,
+          "note": "Bring at least one Rampager Squad."
+        }
+      ],
+      "forbid": [
+        {
+          "units": [
+            "heavy-support-squad",
+            "tactical-support-squad",
+            "veteran-heavy-support-squad",
+            "rapier-battery",
+            "tarantula-battery"
+          ]
+        },
+        {
+          "match": {
+            "role": "Armour"
+          }
+        }
+      ]
     },
     {
       "name": "Scorn of Nikaea",
       "flavor": "The Legion was forbidden its witches. It learned to hunt everyone else's.",
-      "text": "Every World Eaters unit gains Hatred (Psykers) and +1 Willpower. The army may not include any model with the Psyker Trait.",
-      "modifiers": [ { "units": ["*"], "text": "Scorn of Nikaea: Hatred (Psykers), +1 WP.", "stats": { "WP": "+1" }, "addRules": ["Hatred (Psykers)"] } ],
-      "forbid": [ { "match": { "trait": "Psyker" } } ]
+      "text": "The Legion was forbidden its witches. It learned to hunt everyone else's.",
+      "benefits": [
+        "Every World Eaters unit gains Hatred (Psykers) and Witch-hunters of Nikaea: +1 Willpower, and failed Willpower Checks against enemy powers may be re-rolled."
+      ],
+      "limitations": [
+        "The army may not include any model with the Psyker Trait."
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "*"
+          ],
+          "text": "Scorn of Nikaea: Hatred (Psykers), Witch-hunters of Nikaea.",
+          "stats": {
+            "WP": "+1"
+          },
+          "addRules": [
+            "Hatred (Psykers)",
+            "Witch-hunters of Nikaea"
+          ]
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "trait": "Psyker"
+          }
+        }
+      ]
     },
     {
       "name": "The Butcher's Due",
       "flavor": "Angron's favoured walk ahead of him, and the Legion follows the blood.",
-      "text": "Red Butchers may fill Troops slots and cost 25 points less. Inductii Squads gain +1 Attack. The army must be led by Angron, Angron Transfigured or Kharn the Bloody, and it brings no Recon units.",
-      "roles": [ { "units": ["red-butchers"], "role": "Troops" } ],
-      "points": [ { "units": ["red-butchers"], "delta": -25 } ],
-      "modifiers": [ { "units": ["inductii-squad"], "text": "The Butcher's Due: +1 A.", "stats": { "A": "+1" } } ],
-      "require": [ { "units": ["angron", "angron-transfigured", "kharn-the-bloody"], "min": 1, "note": "Angron or Kharn must lead the army." } ],
-      "forbid": [ { "match": { "role": "Recon" } } ]
+      "text": "Angron's favoured walk ahead of him, and the Legion follows the blood.",
+      "benefits": [
+        "Red Butchers may fill Troops slots and gain The Butcher's Chosen: Fear (1), and a unit they destroy in combat steadies every World Eaters unit nearby.",
+        "Inductii Squads gain +1 Attack."
+      ],
+      "limitations": [
+        "Angron, Angron Transfigured or Kharn the Bloody must be in the army.",
+        "No Recon units."
+      ],
+      "roles": [
+        {
+          "units": [
+            "red-butchers"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "inductii-squad"
+          ],
+          "text": "The Butcher's Due: +1 A.",
+          "stats": {
+            "A": "+1"
+          }
+        },
+        {
+          "units": [
+            "red-butchers"
+          ],
+          "text": "The Butcher's Due: The Butcher's Chosen, Fear (1).",
+          "addRules": [
+            "The Butcher's Chosen",
+            "Fear (1)"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "angron",
+            "angron-transfigured",
+            "kharn-the-bloody"
+          ],
+          "min": 1,
+          "note": "Angron or Kharn must lead the army."
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "role": "Recon"
+          }
+        }
+      ]
     }
   ]
 }

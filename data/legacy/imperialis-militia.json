@@ -554,11 +554,32 @@
    }
   }
  ],
+ "rules": [
+  {
+   "name": "Riders of the Flank",
+   "text": "Legacy house rule (The Feudal Host). The lords sweep wide to take the enemy line from the side. A unit with this rule gains Outflank, and may re-roll one die of a Charge roll made on a turn it arrives from Reserves."
+  },
+  {
+   "name": "Human Wave",
+   "text": "Legacy house rule (The Levy Tide). A Levy unit with this rule while it has ten or more models adds 1 to its Leadership and Cool, and automatically passes Pinning and Panic Checks. A Levy unit that is destroyed in combat does not give the enemy a free Consolidation move."
+  },
+  {
+   "name": "Home Turf",
+   "text": "Legacy house rule (Hive-Gang Muster). The gangs know the ground. After both sides have deployed and before the first battle turn, a unit with this rule may make a free move of up to 6\", ending no closer than 9\" to any enemy model."
+  },
+  {
+   "name": "Stampede",
+   "text": "Legacy house rule (The Abhuman Ranks). The handlers loose their charges and get out of the way. A unit with this rule may re-roll a failed Charge, and adds +1 to its Attacks on a turn in which it charges."
+  },
+  {
+   "name": "Dug-In Guns",
+   "text": "Legacy house rule (The Siege Line). The battery is entrenched before the first shot. A unit with this rule that did not move in its last Movement phase adds 1 to its Ballistic Skill and counts as Shrouded (5+) against Shooting Attacks."
+  }
+ ],
  "rites": [
   {
    "name": "The Feudal Host",
    "flavor": "The lords of this world ride out in their grandfathers' armour and expect to be followed.",
-   "text": "Militia Outriders (Cavalry Troops) and Mounted Command Troops may fill Troops slots, and every model in them gains Fast (1). The lords scorn crewed guns and rigs: no Fire Support, Field Gun, Heavy Ordnance or Rapier units, and no Explorator or Mining Rigs. At least two Cavalry Troops or Mounted Command Troops are required.",
    "roles": [
     {
      "units": [
@@ -574,9 +595,11 @@
       "cavalry-troop",
       "mounted-command-troop"
      ],
-     "text": "The Feudal Host: Fast (1).",
+     "text": "The Feudal Host: Fast (1), Riders of the Flank.",
      "addRules": [
-      "Fast (1)"
+      "Fast (1)",
+      "Outflank",
+      "Riders of the Flank"
      ]
     }
    ],
@@ -600,28 +623,30 @@
       "militia-industrial-rig"
      ]
     }
+   ],
+   "text": "The lords of this world ride out in their grandfathers' armour and expect to be followed.",
+   "benefits": [
+    "Militia Outriders (Cavalry Troops) and Mounted Command Troops may fill Troops slots and gain Fast (1) and Outflank.",
+    "They gain Riders of the Flank: one die of a Charge roll may be re-rolled on a turn they arrive from Reserves."
+   ],
+   "limitations": [
+    "At least two Cavalry Troops or Mounted Command Troops are required.",
+    "No Fire Support, Field Gun, Heavy Ordnance or Rapier units, and no Explorator or Mining Rigs.",
+    "Table-top: a unit with Riders of the Flank that can charge must charge the nearest enemy it can reach."
    ]
   },
   {
    "name": "The Levy Tide",
    "flavor": "Empty the hab-blocks, hand out the rifles, and let the enemy run out of bullets first.",
-   "text": "Levy Troops cost 20 points less and gain Line (1). The tide leaves no room for anything refined or heavy: no Elites, no Armour, no Lord of War, and no more than one Infantry Troop. At least three Levy Troops are required.",
-   "points": [
-    {
-     "units": [
-      "levy-troop"
-     ],
-     "delta": -20
-    }
-   ],
    "modifiers": [
     {
      "units": [
       "levy-troop"
      ],
-     "text": "The Levy Tide: Line (1).",
+     "text": "The Levy Tide: Line (1), Human Wave.",
      "addRules": [
-      "Line (1)"
+      "Line (1)",
+      "Human Wave"
      ]
     }
    ],
@@ -658,12 +683,21 @@
       "role": "Lord of War"
      }
     }
+   ],
+   "text": "Empty the hab-blocks, hand out the rifles, and let the enemy run out of bullets first.",
+   "benefits": [
+    "Levy Troops gain Line (1).",
+    "They gain Human Wave: while a Levy Troop has ten or more models it adds +1 to Leadership and Cool, passes Pinning and Panic Checks, and a Levy Troop destroyed in combat gives the enemy no free Consolidation move."
+   ],
+   "limitations": [
+    "At least three Levy Troops are required.",
+    "No more than one Infantry Troop.",
+    "No Elites, Armour or Lord of War units."
    ]
   },
   {
    "name": "Hive-Gang Muster",
    "flavor": "They know every stairwell, drain and ventilation shaft better than any sector commander.",
-   "text": "Grenadier Troops and Reconnaissance Troops may fill Troops slots. Grenadiers gain Move Through Cover and Reconnaissance Troops gain Shrouded (5+). The gangs fight on their own turf and nowhere else: no Armour, no Heavy Transports, no Lord of War, and no Ogryn Brutes. At least two Grenadier or Reconnaissance Troops are required.",
    "roles": [
     {
      "units": [
@@ -678,18 +712,20 @@
      "units": [
       "grenadier-troop"
      ],
-     "text": "Hive-Gang Muster: Move Through Cover.",
+     "text": "Hive-Gang Muster: Move Through Cover, Home Turf.",
      "addRules": [
-      "Move Through Cover"
+      "Move Through Cover",
+      "Home Turf"
      ]
     },
     {
      "units": [
       "reconnaissance-troop"
      ],
-     "text": "Hive-Gang Muster: Shrouded (5+).",
+     "text": "Hive-Gang Muster: Shrouded (5+), Home Turf.",
      "addRules": [
-      "Shrouded (5+)"
+      "Shrouded (5+)",
+      "Home Turf"
      ]
     }
    ],
@@ -724,12 +760,21 @@
       "ogryn-brute-troop"
      ]
     }
+   ],
+   "text": "They know every stairwell, drain and ventilation shaft better than any sector commander.",
+   "benefits": [
+    "Grenadier Troops and Reconnaissance Troops may fill Troops slots.",
+    "Grenadiers gain Move Through Cover and Reconnaissance Troops gain Shrouded (5+).",
+    "Both gain Home Turf: a free 6\" move before the first turn, not within 9\" of the enemy."
+   ],
+   "limitations": [
+    "At least two Grenadier or Reconnaissance Troops are required.",
+    "No Armour, Heavy Transport or Lord of War units, and no Ogryn Brute Troops."
    ]
   },
   {
    "name": "The Abhuman Ranks",
    "flavor": "What the Imperium will not mention in its histories, the Militia will march at the front.",
-   "text": "Ogryn Brute Troops and Beastmaster Troops may fill Troops slots. Ogryn Brutes gain Feel No Pain (6+) and cost 10 points less. The handlers answer to no mere line officer: no Levy Troops, and no more than one Infantry Troop. At least two Ogryn Brute or Beastmaster Troops are required.",
    "roles": [
     {
      "units": [
@@ -744,18 +789,31 @@
      "units": [
       "ogryn-brute-troop"
      ],
-     "text": "The Abhuman Ranks: Feel No Pain (6+).",
+     "text": "The Abhuman Ranks: Feel No Pain (6+), Stampede.",
      "addRules": [
-      "Feel No Pain (6+)"
+      "Feel No Pain (6+)",
+      "Stampede"
      ]
-    }
-   ],
-   "points": [
+    },
     {
      "units": [
-      "ogryn-brute-troop"
+      "beastmaster-troop"
      ],
-     "delta": -10
+     "text": "The Abhuman Ranks: Stampede.",
+     "addRules": [
+      "Stampede"
+     ]
+    },
+    {
+     "units": [
+      "ogryn-brute-troop",
+      "beastmaster-troop"
+     ],
+     "text": "Stampede: +1 A.",
+     "stats": {
+      "A": "+1"
+     },
+     "condition": "on a turn the unit charges"
     }
    ],
    "require": [
@@ -782,12 +840,22 @@
       "levy-troop"
      ]
     }
+   ],
+   "text": "What the Imperium will not mention in its histories, the Militia will march at the front.",
+   "benefits": [
+    "Ogryn Brute Troops and Beastmaster Troops may fill Troops slots.",
+    "Ogryn Brutes gain Feel No Pain (6+).",
+    "Both gain Stampede: a failed Charge may be re-rolled, and the unit has +1 Attack on a turn it charges."
+   ],
+   "limitations": [
+    "At least two Ogryn Brute or Beastmaster Troops are required.",
+    "No Levy Troops and no more than one Infantry Troop.",
+    "Table-top: a unit with Stampede that can charge must charge the nearest enemy it can reach."
    ]
   },
   {
    "name": "The Siege Line",
    "flavor": "Dig in, lay the guns, and let them come to you across open ground.",
-   "text": "Field Gun Batteries, Heavy Ordnance Batteries, Fire Support Troops and Rapier Troops may fill Troops slots, and gain +1 Ballistic Skill. The line cannot manoeuvre: no Recon, no Fast Attack and no Cavalry. At least one Discipline Master Cadre is required to keep the gunners at their posts.",
    "roles": [
     {
      "units": [
@@ -803,39 +871,27 @@
     {
      "units": [
       "field-gun-battery",
-      "heavy-ordnance-battery"
-     ],
-     "models": [
-      "Field Gun",
-      "Gun Carriage",
-      "Militia Gunner"
-     ],
-     "text": "The Siege Line: +1 BS.",
-     "stats": {
-      "BS": "+1"
-     }
-    },
-    {
-     "units": [
-      "fire-support-troop"
-     ],
-     "text": "The Siege Line: +1 BS.",
-     "stats": {
-      "BS": "+1"
-     }
-    },
-    {
-     "units": [
+      "heavy-ordnance-battery",
+      "fire-support-troop",
       "rapier-troop"
      ],
-     "models": [
-      "Militia Gunner",
-      "Rapier Carrier"
+     "text": "The Siege Line: Dug-In Guns.",
+     "addRules": [
+      "Dug-In Guns"
+     ]
+    },
+    {
+     "units": [
+      "field-gun-battery",
+      "heavy-ordnance-battery",
+      "fire-support-troop",
+      "rapier-troop"
      ],
-     "text": "The Siege Line: +1 BS.",
+     "text": "Dug-In Guns: +1 BS.",
      "stats": {
       "BS": "+1"
-     }
+     },
+     "condition": "if the unit did not move in its last Movement phase"
     }
    ],
    "require": [
@@ -864,6 +920,15 @@
       "mounted-command-troop"
      ]
     }
+   ],
+   "text": "Dig in, lay the guns, and let them come to you across open ground.",
+   "benefits": [
+    "Field Gun Batteries, Heavy Ordnance Batteries, Fire Support Troops and Rapier Troops may fill Troops slots.",
+    "They gain Dug-In Guns: if they did not move, +1 Ballistic Skill and Shrouded (5+) against Shooting Attacks."
+   ],
+   "limitations": [
+    "At least one Discipline Master Cadre is required.",
+    "No Recon, no Fast Attack and no Cavalry or Mounted Command Troops."
    ]
   }
  ]

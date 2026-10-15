@@ -46,34 +46,222 @@
     { "units": ["*"], "item": "Warp-touched banner", "scope": "unit", "text": "Warp-touched banner: +1 WP, +1 IN.", "stats": { "WP": "+1", "IN": "+1" } },
     { "units": ["*"], "item": "Warding-sigil engraving", "text": "Warding-sigil engraving: 4+ Invulnerable Save.", "stats": { "INV": "best:4+" } }
   ],
+  "rules": [
+    {
+      "name": "Warp Rift Arrival",
+      "text": "Legacy house rule (Host of Change). A unit with this rule gains Deep Strike. It may appear from the warp anywhere more than 9\" from enemy units."
+    },
+    {
+      "name": "Cabal Bladework",
+      "text": "Legacy house rule (Khenetai Ascendant). A unit with this rule adds Rending (6+) to all of its melee attacks."
+    },
+    {
+      "name": "Foresight",
+      "text": "Legacy house rule (The Scrying Cabal). After both armies are deployed and before the first turn, each unit with this rule may make one free Set-up Move of up to 6\"."
+    }
+  ],
   "rites": [
     {
       "name": "Host of Change",
       "flavor": "The Cabal stopped asking what the Changer of Ways wanted, and began to give it room.",
-      "text": "Flamers and Screamers of Tzeench may fill Troops slots, and Pink Horror Squads cost 20 points less. At least two Horror Squads and one Herald of Tzeench or Prosperine Sorcerer are required. The sorcerers keep their old order at arm's length: no Tactical, Despoiler, Breacher or Assault Squads.",
-      "roles": [ { "units": ["flamers-of-tzeench", "screamers-of-tzeench"], "role": "Troops" } ],
-      "points": [ { "units": ["horrors-of-tzeench"], "delta": -20 } ],
-      "require": [ { "units": ["horrors-of-tzeench"], "min": 2, "note": "Bring at least two Horrors of Tzeench." }, { "units": ["herald-of-tzeench", "prosperine-sorcerer"], "min": 1, "note": "A Herald or Prosperine Sorcerer must lead the host." } ],
-      "forbid": [ { "units": ["tactical-squad", "despoiler-squad", "breacher-squad", "assault-squad"] } ]
+      "benefits": [
+        "Flamers and Screamers of Tzeench may fill Troops slots.",
+        "Horrors, Flamers and Screamers of Tzeench gain Warp Rift Arrival: Deep Strike."
+      ],
+      "limitations": [
+        "At least one Horrors of Tzeench unit must start the battle in Reserve.",
+        "At least two Horror Squads and one Herald of Tzeench or Prosperine Sorcerer are required.",
+        "No Tactical, Despoiler, Breacher or Assault Squads."
+      ],
+      "roles": [
+        {
+          "units": [
+            "flamers-of-tzeench",
+            "screamers-of-tzeench"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "horrors-of-tzeench",
+            "flamers-of-tzeench",
+            "screamers-of-tzeench"
+          ],
+          "text": "Host of Change: Warp Rift Arrival.",
+          "addRules": [
+            "Warp Rift Arrival",
+            "Deep Strike"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "horrors-of-tzeench"
+          ],
+          "min": 2,
+          "note": "Bring at least two Horrors of Tzeench."
+        },
+        {
+          "units": [
+            "herald-of-tzeench",
+            "prosperine-sorcerer"
+          ],
+          "min": 1,
+          "note": "A Herald or Prosperine Sorcerer must lead the host."
+        }
+      ],
+      "forbid": [
+        {
+          "units": [
+            "tactical-squad",
+            "despoiler-squad",
+            "breacher-squad",
+            "assault-squad"
+          ]
+        }
+      ]
     },
     {
       "name": "Khenetai Ascendant",
       "flavor": "The blade-cabal is where the Legion keeps its pride, and a Legion's pride is rarely kept quiet.",
-      "text": "Khenetai Occult Cabals and Sekhmet Terminator Cabals may fill Troops slots, cost 15 points less and gain Line (1). At least two Khenetai Cabals are required. The blades do not wait for guns to speak: no Armour units and no Support units other than Apothecaries and Techmarines.",
-      "roles": [ { "units": ["khenetai-occult-cabal", "sekhmet-terminator-cabal"], "role": "Troops" } ],
-      "points": [ { "units": ["khenetai-occult-cabal", "sekhmet-terminator-cabal"], "delta": -15 } ],
-      "modifiers": [ { "units": ["khenetai-occult-cabal", "sekhmet-terminator-cabal"], "text": "Khenetai Ascendant: Line (1).", "addRules": ["Line (1)"] } ],
-      "require": [ { "units": ["khenetai-occult-cabal"], "min": 2, "note": "Bring at least two Khenetai Occult Cabals." } ],
-      "forbid": [ { "match": { "role": "Armour" } }, { "match": { "role": "Support" }, "units": ["heavy-support-squad", "tactical-support-squad", "flamers-of-tzeench", "castellax-achea-automata", "araknae-quad-accelerator-platform", "deathstorm-drop-pod", "rapier-battery"], "optionalUnits": true } ]
+      "benefits": [
+        "Khenetai Occult Cabals and Sekhmet Terminator Cabals may fill Troops slots and gain Line (1).",
+        "They gain Cabal Bladework: Rending (6+) on all their melee attacks."
+      ],
+      "limitations": [
+        "At least two Khenetai Occult Cabals are required.",
+        "No Armour units and no Support units other than Apothecaries and Techmarines."
+      ],
+      "roles": [
+        {
+          "units": [
+            "khenetai-occult-cabal",
+            "sekhmet-terminator-cabal"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "khenetai-occult-cabal",
+            "sekhmet-terminator-cabal"
+          ],
+          "text": "Khenetai Ascendant: Line (1), Cabal Bladework.",
+          "addRules": [
+            "Line (1)",
+            "Cabal Bladework"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "khenetai-occult-cabal"
+          ],
+          "min": 2,
+          "note": "Bring at least two Khenetai Occult Cabals."
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "role": "Armour"
+          }
+        },
+        {
+          "match": {
+            "role": "Support"
+          },
+          "units": [
+            "heavy-support-squad",
+            "tactical-support-squad",
+            "flamers-of-tzeench",
+            "castellax-achea-automata",
+            "araknae-quad-accelerator-platform",
+            "deathstorm-drop-pod",
+            "rapier-battery"
+          ],
+          "optionalUnits": true
+        }
+      ]
     },
     {
       "name": "The Scrying Cabal",
       "flavor": "The Legion that has foreseen the battle does not need the biggest guns, only the best-placed.",
-      "text": "Numerologist Cabals and Ammitara Occult Intercession Cabals may fill Troops slots. Every Thousand Sons Infantry unit gains +1 Willpower and -1 Move. A Prosperine Sorcerer, Ahzek Ahriman or Magistus Amon must be in the army. Foresight has no patience for brute weight: no Armour, Heavy Transport or Lord of War units.",
-      "roles": [ { "units": ["numerologist-cabal", "ammitara-occult-intercession-cabal"], "role": "Troops" } ],
-      "modifiers": [ { "match": { "unitType": "Infantry", "notUnitType": "Vehicle" }, "text": "The Scrying Cabal: +1 WP, -1 M.", "stats": { "WP": "+1", "M": "-1" } } ],
-      "require": [ { "units": ["prosperine-sorcerer", "ahzek-ahriman", "magistus-amon"], "min": 1, "note": "A Prosperine Sorcerer, Ahriman or Amon must read the omens." } ],
-      "forbid": [ { "match": { "role": "Armour" } }, { "match": { "role": "Heavy Transport" } }, { "match": { "role": "Lord of War" } } ]
+      "benefits": [
+        "Numerologist Cabals and Ammitara Occult Intercession Cabals may fill Troops slots.",
+        "They gain Foresight: after deployment and before the first turn, each may make a free 6\" Set-up Move.",
+        "Every Thousand Sons Infantry unit gains +1 Willpower."
+      ],
+      "limitations": [
+        "Every Thousand Sons Infantry unit loses 1 Move.",
+        "A Prosperine Sorcerer, Ahzek Ahriman or Magistus Amon must be in the army.",
+        "No Armour, Heavy Transport or Lord of War units."
+      ],
+      "roles": [
+        {
+          "units": [
+            "numerologist-cabal",
+            "ammitara-occult-intercession-cabal"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "modifiers": [
+        {
+          "match": {
+            "unitType": "Infantry",
+            "notUnitType": "Vehicle"
+          },
+          "text": "The Scrying Cabal: +1 WP, -1 M.",
+          "stats": {
+            "WP": "+1",
+            "M": "-1"
+          }
+        },
+        {
+          "units": [
+            "numerologist-cabal",
+            "ammitara-occult-intercession-cabal"
+          ],
+          "text": "The Scrying Cabal: Foresight.",
+          "addRules": [
+            "Foresight"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "prosperine-sorcerer",
+            "ahzek-ahriman",
+            "magistus-amon"
+          ],
+          "min": 1,
+          "note": "A Prosperine Sorcerer, Ahriman or Amon must read the omens."
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "role": "Armour"
+          }
+        },
+        {
+          "match": {
+            "role": "Heavy Transport"
+          }
+        },
+        {
+          "match": {
+            "role": "Lord of War"
+          }
+        }
+      ]
     }
   ]
 }

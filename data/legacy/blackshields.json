@@ -1,93 +1,570 @@
 {
   "weapons": {
     "ranged": [
-      { "name": "Gutter-forged scattergun", "R": 12, "FP": 3, "RS": 4, "AP": "–", "D": 1, "specialRules": ["Shred (6+)"], "traits": ["Assault"] },
-      { "name": "Cobbled lascannon", "R": 36, "FP": 1, "RS": 8, "AP": 3, "D": 1, "specialRules": ["Heavy (D)"], "traits": ["Las"] }
+      {
+        "name": "Gutter-forged scattergun",
+        "R": 12,
+        "FP": 3,
+        "RS": 4,
+        "AP": "–",
+        "D": 1,
+        "specialRules": [
+          "Shred (6+)"
+        ],
+        "traits": [
+          "Assault"
+        ]
+      },
+      {
+        "name": "Cobbled lascannon",
+        "R": 36,
+        "FP": 1,
+        "RS": 8,
+        "AP": 3,
+        "D": 1,
+        "specialRules": [
+          "Heavy (D)"
+        ],
+        "traits": [
+          "Las"
+        ]
+      }
     ],
     "melee": [
-      { "name": "Breaker's maul", "IM": -1, "AM": "A", "SM": "+2", "AP": 4, "D": 1, "specialRules": ["Breaching (6+)"], "traits": [] }
+      {
+        "name": "Breaker's maul",
+        "IM": -1,
+        "AM": "A",
+        "SM": "+2",
+        "AP": 4,
+        "D": 1,
+        "specialRules": [
+          "Breaching (6+)"
+        ],
+        "traits": []
+      }
     ]
   },
   "wargear": [
-    { "name": "Salvaged shield-harness", "text": "Legacy house rule. A scavenged gravitic harness that still works on the days it feels like it. The model's Invulnerable Save becomes 6+ if it was worse." },
-    { "name": "Banner of the Unnamed", "text": "Legacy house rule. A blank shield-colour banner, repainted by every squad that carries it. Every model in the unit gains +1 Willpower." },
-    { "name": "Hide-and-iron plating", "text": "Legacy house rule. Plates riveted straight onto the Brute's warped flesh, so it no longer knows where armour ends. The model gains +1 Wound." }
+    {
+      "name": "Salvaged shield-harness",
+      "text": "Legacy house rule. A scavenged gravitic harness that still works on the days it feels like it. The model's Invulnerable Save becomes 6+ if it was worse."
+    },
+    {
+      "name": "Banner of the Unnamed",
+      "text": "Legacy house rule. A blank shield-colour banner, repainted by every squad that carries it. Every model in the unit gains +1 Willpower."
+    },
+    {
+      "name": "Hide-and-iron plating",
+      "text": "Legacy house rule. Plates riveted straight onto the Brute's warped flesh, so it no longer knows where armour ends. The model gains +1 Wound."
+    }
   ],
   "options": [
-    { "units": ["despoiler-squad"],
-      "option": { "id": "bs-scattergun-despoilers", "kind": "perModel", "model": "Legionary", "replaces": ["Chainsword"],
-        "text": "Any Legionary may swap their chainsword for a Gutter-forged scattergun", "choices": [ { "name": "Gutter-forged scattergun", "points": 3 } ] } },
-    { "units": ["tactical-squad"],
-      "option": { "id": "bs-scattergun-tactical", "kind": "perModel", "model": "Legionary", "replaces": ["Bolter"],
-        "text": "Any Legionary may swap their bolter for a Gutter-forged scattergun", "choices": [ { "name": "Gutter-forged scattergun", "points": 2 } ] } },
-    { "units": ["rapier-battery"],
-      "option": { "id": "bs-cobbled-lascannon", "kind": "perModel", "model": "Rapier Carrier", "replaces": ["Gravis heavy bolter battery"],
-        "text": "Any Rapier Carrier may swap their weapon for a Cobbled lascannon", "choices": [ { "name": "Cobbled lascannon", "points": 15 } ] } },
-    { "units": ["despoiler-squad", "tactical-squad", "veteran-despoiler-squad", "assault-squad"], "optionalUnits": true,
-      "option": { "id": "bs-breaker-maul", "kind": "upgrade", "modelType": "Sergeant", "text": "The Sergeant may carry a Breaker's maul",
-        "choices": [ { "name": "Breaker's maul", "points": 8 } ] } },
-    { "units": ["praetor"],
-      "option": { "id": "bs-praetor-maul", "kind": "upgrade", "model": "Praetor", "text": "The Praetor may carry a Breaker's maul",
-        "choices": [ { "name": "Breaker's maul", "points": 10 } ] } },
-    { "units": ["despoiler-squad", "tactical-squad", "veteran-despoiler-squad", "veteran-tactical-squad", "assault-squad", "scout-squad"], "optionalUnits": true,
-      "option": { "id": "bs-shield-harness", "kind": "upgrade", "modelType": "Sergeant", "text": "The Sergeant may wear a Salvaged shield-harness",
-        "choices": [ { "name": "Salvaged shield-harness", "points": 8 } ] } },
-    { "units": ["despoiler-squad", "tactical-squad", "veteran-despoiler-squad", "assault-squad", "ruinstorm-daemon-brutes"],
-      "option": { "id": "bs-unnamed-banner", "kind": "upgrade", "model": null, "text": "The unit may carry a Banner of the Unnamed",
-        "choices": [ { "name": "Banner of the Unnamed", "points": 10 } ] } },
-    { "units": ["ruinstorm-daemon-brutes"],
-      "option": { "id": "bs-brute-plating", "kind": "upgrade", "model": null, "text": "The unit may be fitted with Hide-and-iron plating",
-        "choices": [ { "name": "Hide-and-iron plating", "points": 25 } ] } }
+    {
+      "units": [
+        "despoiler-squad"
+      ],
+      "option": {
+        "id": "bs-scattergun-despoilers",
+        "kind": "perModel",
+        "model": "Legionary",
+        "replaces": [
+          "Chainsword"
+        ],
+        "text": "Any Legionary may swap their chainsword for a Gutter-forged scattergun",
+        "choices": [
+          {
+            "name": "Gutter-forged scattergun",
+            "points": 3
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad"
+      ],
+      "option": {
+        "id": "bs-scattergun-tactical",
+        "kind": "perModel",
+        "model": "Legionary",
+        "replaces": [
+          "Bolter"
+        ],
+        "text": "Any Legionary may swap their bolter for a Gutter-forged scattergun",
+        "choices": [
+          {
+            "name": "Gutter-forged scattergun",
+            "points": 2
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "rapier-battery"
+      ],
+      "option": {
+        "id": "bs-cobbled-lascannon",
+        "kind": "perModel",
+        "model": "Rapier Carrier",
+        "replaces": [
+          "Gravis heavy bolter battery"
+        ],
+        "text": "Any Rapier Carrier may swap their weapon for a Cobbled lascannon",
+        "choices": [
+          {
+            "name": "Cobbled lascannon",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "despoiler-squad",
+        "tactical-squad",
+        "veteran-despoiler-squad",
+        "assault-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "bs-breaker-maul",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may carry a Breaker's maul",
+        "choices": [
+          {
+            "name": "Breaker's maul",
+            "points": 8
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "praetor"
+      ],
+      "option": {
+        "id": "bs-praetor-maul",
+        "kind": "upgrade",
+        "model": "Praetor",
+        "text": "The Praetor may carry a Breaker's maul",
+        "choices": [
+          {
+            "name": "Breaker's maul",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "despoiler-squad",
+        "tactical-squad",
+        "veteran-despoiler-squad",
+        "veteran-tactical-squad",
+        "assault-squad",
+        "scout-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "bs-shield-harness",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may wear a Salvaged shield-harness",
+        "choices": [
+          {
+            "name": "Salvaged shield-harness",
+            "points": 8
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "despoiler-squad",
+        "tactical-squad",
+        "veteran-despoiler-squad",
+        "assault-squad",
+        "ruinstorm-daemon-brutes"
+      ],
+      "option": {
+        "id": "bs-unnamed-banner",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The unit may carry a Banner of the Unnamed",
+        "choices": [
+          {
+            "name": "Banner of the Unnamed",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "ruinstorm-daemon-brutes"
+      ],
+      "option": {
+        "id": "bs-brute-plating",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The unit may be fitted with Hide-and-iron plating",
+        "choices": [
+          {
+            "name": "Hide-and-iron plating",
+            "points": 25
+          }
+        ]
+      }
+    }
   ],
   "modifiers": [
-    { "units": ["despoiler-squad", "tactical-squad"], "text": "Nobody to answer to: +1 WP, -1 CL.", "stats": { "WP": "+1", "CL": "-1" } },
-    { "units": ["veteran-despoiler-squad", "veteran-tactical-squad", "veteran-assault-squad"], "text": "Hard-bitten exiles: +1 LD, -1 BS.", "stats": { "LD": "+1", "BS": "-1" } },
-    { "units": ["assault-squad", "destroyer-assault-squad", "mortalis-destroyer-squad"], "text": "Wild-eyed raiders: +1 I, -1 LD.", "stats": { "I": "+1", "LD": "-1" } },
-    { "units": ["ruinstorm-daemon-brutes"], "text": "Warp-wracked: +1 S, -1 LD.", "stats": { "S": "+1", "LD": "-1" } },
-    { "units": ["castellax-battle-maniple", "castellax-destructor-maniple", "domitar-battle-maniple", "vorax-attack-maniple"], "text": "Unshackled cortex: +1 BS, -2 CL.", "stats": { "BS": "+1", "CL": "-2" } },
-    { "units": ["praetor", "endryd-haar"], "text": "Warlord of nothing, loyal to no one: +1 A, -1 LD.", "stats": { "A": "+1", "LD": "-1" } },
-    { "units": ["*"], "item": "Salvaged shield-harness", "scope": "model", "text": "Salvaged shield-harness: 6+ Invulnerable Save.", "stats": { "INV": "best:6+" } },
-    { "units": ["*"], "item": "Banner of the Unnamed", "scope": "unit", "text": "Banner of the Unnamed: +1 WP.", "stats": { "WP": "+1" } },
-    { "units": ["*"], "item": "Hide-and-iron plating", "scope": "unit", "text": "Hide-and-iron plating: +1 W.", "stats": { "W": "+1" } }
+    {
+      "units": [
+        "despoiler-squad",
+        "tactical-squad"
+      ],
+      "text": "Nobody to answer to: +1 WP, -1 CL.",
+      "stats": {
+        "WP": "+1",
+        "CL": "-1"
+      }
+    },
+    {
+      "units": [
+        "veteran-despoiler-squad",
+        "veteran-tactical-squad",
+        "veteran-assault-squad"
+      ],
+      "text": "Hard-bitten exiles: +1 LD, -1 BS.",
+      "stats": {
+        "LD": "+1",
+        "BS": "-1"
+      }
+    },
+    {
+      "units": [
+        "assault-squad",
+        "destroyer-assault-squad",
+        "mortalis-destroyer-squad"
+      ],
+      "text": "Wild-eyed raiders: +1 I, -1 LD.",
+      "stats": {
+        "I": "+1",
+        "LD": "-1"
+      }
+    },
+    {
+      "units": [
+        "ruinstorm-daemon-brutes"
+      ],
+      "text": "Warp-wracked: +1 S, -1 LD.",
+      "stats": {
+        "S": "+1",
+        "LD": "-1"
+      }
+    },
+    {
+      "units": [
+        "castellax-battle-maniple",
+        "castellax-destructor-maniple",
+        "domitar-battle-maniple",
+        "vorax-attack-maniple"
+      ],
+      "text": "Unshackled cortex: +1 BS, -2 CL.",
+      "stats": {
+        "BS": "+1",
+        "CL": "-2"
+      }
+    },
+    {
+      "units": [
+        "praetor",
+        "endryd-haar"
+      ],
+      "text": "Warlord of nothing, loyal to no one: +1 A, -1 LD.",
+      "stats": {
+        "A": "+1",
+        "LD": "-1"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Salvaged shield-harness",
+      "scope": "model",
+      "text": "Salvaged shield-harness: 6+ Invulnerable Save.",
+      "stats": {
+        "INV": "best:6+"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Banner of the Unnamed",
+      "scope": "unit",
+      "text": "Banner of the Unnamed: +1 WP.",
+      "stats": {
+        "WP": "+1"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Hide-and-iron plating",
+      "scope": "unit",
+      "text": "Hide-and-iron plating: +1 W.",
+      "stats": {
+        "W": "+1"
+      }
+    }
   ],
   "rites": [
     {
       "name": "Warband of the Long Exile",
       "flavor": "Ten years without a flag teaches you who still stands beside you.",
-      "text": "Veteran Despoiler Squads may fill Troops slots, cost 10 points less and gain Line (1). The warband owns nothing it didn't carry out of the fire: no Lord of War, Heavy Transport or Armour units. At least one Veteran Despoiler Squad is required.",
-      "roles": [ { "units": ["veteran-despoiler-squad"], "role": "Troops" } ],
-      "points": [ { "units": ["veteran-despoiler-squad"], "delta": -10 } ],
-      "modifiers": [ { "units": ["veteran-despoiler-squad"], "text": "Warband of the Long Exile: Line (1).", "addRules": ["Line (1)"] } ],
-      "require": [ { "units": ["veteran-despoiler-squad"], "min": 1, "note": "Bring at least one Veteran Despoiler Squad." } ],
-      "forbid": [ { "match": { "role": "Lord of War" } }, { "match": { "role": "Heavy Transport" } }, { "match": { "role": "Armour" } } ]
+      "benefits": [
+        "Veteran Despoiler Squads may fill Troops slots and gain Line (1).",
+        "Veteran Despoilers gain Nothing Left to Lose: failed Cool Checks may be re-rolled."
+      ],
+      "limitations": [
+        "At least one Veteran Despoiler Squad is required.",
+        "No Lord of War, Heavy Transport or Armour units.",
+        "Units with Nothing Left to Lose may never voluntarily Fall Back."
+      ],
+      "roles": [
+        {
+          "units": [
+            "veteran-despoiler-squad"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "veteran-despoiler-squad"
+          ],
+          "min": 1,
+          "note": "Bring at least one Veteran Despoiler Squad."
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "role": "Lord of War"
+          }
+        },
+        {
+          "match": {
+            "role": "Heavy Transport"
+          }
+        },
+        {
+          "match": {
+            "role": "Armour"
+          }
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "veteran-despoiler-squad"
+          ],
+          "text": "Warband of the Long Exile: Nothing Left to Lose, Line (1).",
+          "addRules": [
+            "Nothing Left to Lose",
+            "Line (1)"
+          ]
+        }
+      ]
     },
     {
       "name": "Hired Knives",
       "flavor": "A contract was signed with a forge that no longer answers to Mars.",
-      "text": "Castellax Battle Maniples may fill Troops slots, cost 25 points less and gain Line (1). The hired machines answer to few: at most one Command unit and one High Command unit may be taken, and at least one Castellax Battle Maniple is required.",
-      "roles": [ { "units": ["castellax-battle-maniple"], "role": "Troops" } ],
-      "points": [ { "units": ["castellax-battle-maniple"], "delta": -25 } ],
-      "modifiers": [ { "units": ["castellax-battle-maniple"], "text": "Hired Knives: Line (1).", "addRules": ["Line (1)"] } ],
-      "require": [ { "units": ["castellax-battle-maniple"], "min": 1, "note": "Bring at least one Castellax Battle Maniple." } ],
-      "limit": [ { "match": { "role": "Command" }, "max": 1 }, { "match": { "role": "High Command" }, "max": 1 } ]
+      "benefits": [
+        "Castellax Battle Maniples may fill Troops slots and gain Line (1).",
+        "Castellax Battle Maniples gain Contract Hunters: Outflank, and failed Charge rolls against a unit that includes a Command or High Command model may be re-rolled."
+      ],
+      "limitations": [
+        "At least one Castellax Battle Maniple is required.",
+        "At most one Command and one High Command unit."
+      ],
+      "roles": [
+        {
+          "units": [
+            "castellax-battle-maniple"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "castellax-battle-maniple"
+          ],
+          "min": 1,
+          "note": "Bring at least one Castellax Battle Maniple."
+        }
+      ],
+      "limit": [
+        {
+          "match": {
+            "role": "Command"
+          },
+          "max": 1
+        },
+        {
+          "match": {
+            "role": "High Command"
+          },
+          "max": 1
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "castellax-battle-maniple"
+          ],
+          "text": "Hired Knives: Contract Hunters, Outflank, Line (1).",
+          "addRules": [
+            "Contract Hunters",
+            "Outflank",
+            "Line (1)"
+          ]
+        }
+      ]
     },
     {
       "name": "Children of the Ruin",
       "flavor": "Nobody asked where the Brutes came from. Nobody wanted the answer.",
-      "text": "Ruinstorm Daemon Brutes may fill Troops slots, cost 30 points less and gain Feel No Pain (6+). Nobody sane stands near them: no Chaplains, Librarians, Esoterists, Apothecaries or Techmarines. At least one Brute unit is required.",
-      "roles": [ { "units": ["ruinstorm-daemon-brutes"], "role": "Troops" } ],
-      "points": [ { "units": ["ruinstorm-daemon-brutes"], "delta": -30 } ],
-      "modifiers": [ { "units": ["ruinstorm-daemon-brutes"], "text": "Children of the Ruin: Feel No Pain (6+).", "addRules": ["Feel No Pain (6+)"] } ],
-      "require": [ { "units": ["ruinstorm-daemon-brutes"], "min": 1, "note": "Bring at least one Ruinstorm Daemon Brute unit." } ],
-      "forbid": [ { "match": { "nameIncludes": ["Chaplain", "Librarian", "Esoterist", "Apothecary", "Techmarine"] } } ]
+      "benefits": [
+        "Ruinstorm Daemon Brutes may fill Troops slots and gain Feel No Pain (6+).",
+        "Brutes gain Ruin-Touched: Fear (1) and immunity to Fear."
+      ],
+      "limitations": [
+        "At least one Ruinstorm Daemon Brute unit is required.",
+        "No Chaplains, Librarians, Esoterists, Apothecaries or Techmarines.",
+        "Units with Ruin-Touched must charge the closest enemy unit they can reach."
+      ],
+      "roles": [
+        {
+          "units": [
+            "ruinstorm-daemon-brutes"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "ruinstorm-daemon-brutes"
+          ],
+          "min": 1,
+          "note": "Bring at least one Ruinstorm Daemon Brute unit."
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "nameIncludes": [
+              "Chaplain",
+              "Librarian",
+              "Esoterist",
+              "Apothecary",
+              "Techmarine"
+            ]
+          }
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "ruinstorm-daemon-brutes"
+          ],
+          "text": "Children of the Ruin: Ruin-Touched, Fear (1), Feel No Pain (6+).",
+          "addRules": [
+            "Ruin-Touched",
+            "Fear (1)",
+            "Feel No Pain (6+)"
+          ]
+        }
+      ]
     },
     {
       "name": "Raiders of the Dead Lanes",
       "flavor": "They hit what the Imperium forgot to guard.",
-      "text": "Mortalis Destroyer Squads and Destroyer Assault Squads may fill Troops slots. Attack Bike Squadrons and Outrider Squadrons gain Outflank. Raiders carry no heavy kit: no Heavy Support Squads, Veteran Heavy Support Squads, Armour or Heavy Transport units.",
-      "roles": [ { "units": ["mortalis-destroyer-squad", "destroyer-assault-squad"], "role": "Troops" } ],
-      "modifiers": [ { "units": ["attack-bike-squadron", "outrider-squadron"], "text": "Raiders of the Dead Lanes: Outflank.", "addRules": ["Outflank"] } ],
-      "forbid": [ { "units": ["heavy-support-squad", "veteran-heavy-support-squad"] }, { "match": { "role": "Armour" } }, { "match": { "role": "Heavy Transport" } } ]
+      "benefits": [
+        "Mortalis Destroyer Squads and Destroyer Assault Squads may fill Troops slots.",
+        "Attack Bike and Outrider Squadrons gain Outflank and Dead Lane Raid: they may re-roll their Charge roll in the turn they enter play from Reserve."
+      ],
+      "limitations": [
+        "No Heavy Support or Veteran Heavy Support Squads, no Armour and no Heavy Transport units.",
+        "Squadrons with Dead Lane Raid must start the battle in Reserve."
+      ],
+      "roles": [
+        {
+          "units": [
+            "mortalis-destroyer-squad",
+            "destroyer-assault-squad"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "forbid": [
+        {
+          "units": [
+            "heavy-support-squad",
+            "veteran-heavy-support-squad"
+          ]
+        },
+        {
+          "match": {
+            "role": "Armour"
+          }
+        },
+        {
+          "match": {
+            "role": "Heavy Transport"
+          }
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "attack-bike-squadron",
+            "outrider-squadron"
+          ],
+          "text": "Raiders of the Dead Lanes: Dead Lane Raid, Outflank.",
+          "addRules": [
+            "Dead Lane Raid",
+            "Outflank"
+          ]
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "name": "Nothing Left to Lose",
+      "text": "Legacy house rule (Warband of the Long Exile). A unit with this rule may re-roll failed Cool Checks, but it may never choose to Fall Back."
+    },
+    {
+      "name": "Contract Hunters",
+      "text": "Legacy house rule (Hired Knives). A unit with this rule gains Outflank, and may re-roll a failed Charge roll against an enemy unit that includes a Command or High Command model."
+    },
+    {
+      "name": "Ruin-Touched",
+      "text": "Legacy house rule (Children of the Ruin). A unit with this rule gains Fear (1) and is immune to the effects of enemy Fear. In any turn it can charge, it must charge the closest enemy unit it can reach."
+    },
+    {
+      "name": "Dead Lane Raid",
+      "text": "Legacy house rule (Raiders of the Dead Lanes). A unit with this rule gains Outflank, and must start the battle in Reserve. In the turn it enters play from Reserve, it may re-roll its Charge roll."
     }
   ]
 }

@@ -50,39 +50,213 @@
     { "units": ["*"], "item": "Pain-engine harness", "text": "Pain-engine harness: +1 A, -1 I.", "stats": { "A": "+1", "I": "-1" } },
     { "units": ["*"], "item": "Clan iron-cladding", "text": "Clan iron-cladding: +1 W.", "stats": { "W": "+1" } }
   ],
+  "rules": [
+    {
+      "name": "Cortex-Locked",
+      "text": "Legacy house rule (Cohorts of the Iron Father). A unit with this rule automatically passes Morale Checks and Checks to avoid Tactical Statuses caused by casualties, while an Iron Father is on the table."
+    },
+    {
+      "name": "Unyielding Wall",
+      "text": "Legacy house rule (Wall of Black Iron). A unit with this rule gains Feel No Pain (6+) in any turn in which it did not move."
+    },
+    {
+      "name": "Hammerfall",
+      "text": "Legacy house rule (The Gorgon's Hammer). On the turn a unit with this rule charges it adds +1 Strength. If it destroys the enemy unit it charged, it may make a free move of up to 3\" afterwards."
+    }
+  ],
   "rites": [
     {
       "name": "Cohorts of the Iron Father",
       "flavor": "A Clan-Council that trusts steel and cortex-code over the whims of flesh.",
-      "text": "Castellax Battle Maniples and Castellax Destructor Maniples may fill Troops slots and cost 10 points less. Every Castellax gains +1 Ballistic Skill. An Iron Father (either pattern) must be in the army. The Legion has no patience for the sorcerous or the swift: no Librarians or Esoterists, no Assault Squads, no model with the Antigrav type, and no more than two Tactical or Despoiler Squads in total.",
-      "roles": [ { "units": ["castellax-battle-maniple", "castellax-destructor-maniple"], "role": "Troops" } ],
-      "points": [ { "units": ["castellax-battle-maniple", "castellax-destructor-maniple"], "delta": -10 } ],
-      "modifiers": [ { "units": ["castellax-battle-maniple", "castellax-destructor-maniple"], "text": "Cohorts of the Iron Father: +1 BS.", "stats": { "BS": "+1" } } ],
-      "require": [ { "units": ["iron-father", "iron-father-in-artificer-armour"], "min": 1, "note": "An Iron Father must command the cohorts." } ],
-      "limit": [ { "units": ["tactical-squad", "despoiler-squad"], "max": 2 } ],
-      "forbid": [ { "match": { "nameIncludes": ["Librarian", "Esoterist"] } }, { "units": ["assault-squad", "veteran-assault-squad"] }, { "match": { "unitType": "Antigrav" } } ]
+      "benefits": [
+        "Castellax Battle Maniples and Castellax Destructor Maniples may fill Troops slots.",
+        "Every Castellax gains +1 Ballistic Skill and Cortex-Locked: it passes Morale Checks automatically while an Iron Father is on the table."
+      ],
+      "limitations": [
+        "An Iron Father (either pattern) must be in the army.",
+        "No more than two Tactical or Despoiler Squads in total.",
+        "No Librarians or Esoterists, no Assault Squads, and no model with the Antigrav type."
+      ],
+      "roles": [
+        {
+          "units": [
+            "castellax-battle-maniple",
+            "castellax-destructor-maniple"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "castellax-battle-maniple",
+            "castellax-destructor-maniple"
+          ],
+          "text": "Cohorts of the Iron Father: +1 BS, Cortex-Locked.",
+          "stats": {
+            "BS": "+1"
+          },
+          "addRules": [
+            "Cortex-Locked"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "iron-father",
+            "iron-father-in-artificer-armour"
+          ],
+          "min": 1,
+          "note": "An Iron Father must command the cohorts."
+        }
+      ],
+      "limit": [
+        {
+          "units": [
+            "tactical-squad",
+            "despoiler-squad"
+          ],
+          "max": 2
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "nameIncludes": [
+              "Librarian",
+              "Esoterist"
+            ]
+          }
+        },
+        {
+          "units": [
+            "assault-squad",
+            "veteran-assault-squad"
+          ]
+        },
+        {
+          "match": {
+            "unitType": "Antigrav"
+          }
+        }
+      ]
     },
     {
       "name": "Wall of Black Iron",
       "flavor": "Nothing in the Legion is built to retreat, and the Immortals least of all.",
-      "text": "Medusan Immortals Squads cost 10 points less and gain Line (1). Gorgon Terminator Squads may fill Troops slots. At least two Medusan Immortals Squads are required. The wall does not move fast, and it does not scout: no Fast Attack units and no Recon units.",
-      "roles": [ { "units": ["gorgon-terminator-squad"], "role": "Troops" } ],
-      "points": [ { "units": ["medusan-immortals-squad"], "delta": -10 } ],
-      "modifiers": [ { "units": ["medusan-immortals-squad"], "text": "Wall of Black Iron: Line (1).", "addRules": ["Line (1)"] } ],
-      "require": [ { "units": ["medusan-immortals-squad"], "min": 2, "note": "Bring at least two Medusan Immortals Squads." } ],
-      "forbid": [ { "match": { "role": "Fast Attack" } }, { "match": { "role": "Recon" } } ]
+      "benefits": [
+        "Gorgon Terminator Squads may fill Troops slots.",
+        "Medusan Immortals Squads gain Line (1) and Unyielding Wall: Feel No Pain (6+) in any turn they did not move."
+      ],
+      "limitations": [
+        "At least two Medusan Immortals Squads are required.",
+        "No Fast Attack units and no Recon units."
+      ],
+      "roles": [
+        {
+          "units": [
+            "gorgon-terminator-squad"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "medusan-immortals-squad"
+          ],
+          "text": "Wall of Black Iron: Line (1), Unyielding Wall.",
+          "addRules": [
+            "Line (1)",
+            "Unyielding Wall"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "medusan-immortals-squad"
+          ],
+          "min": 2,
+          "note": "Bring at least two Medusan Immortals Squads."
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "role": "Fast Attack"
+          }
+        },
+        {
+          "match": {
+            "role": "Recon"
+          }
+        }
+      ]
     },
     {
       "name": "The Gorgon's Hammer",
       "flavor": "When the clan-lords stop talking, the Gorgons go in.",
-      "text": "Gorgon Terminator Squads may fill Troops slots and gain Line (1). On a turn a Gorgon Terminator charges it adds +1 Strength. At least two Gorgon Terminator Squads are required. The hammer needs no tanks to get its blows in: no Armour units and no Recon units.",
-      "roles": [ { "units": ["gorgon-terminator-squad"], "role": "Troops" } ],
-      "modifiers": [
-        { "units": ["gorgon-terminator-squad"], "text": "The Gorgon's Hammer: Line (1).", "addRules": ["Line (1)"] },
-        { "units": ["gorgon-terminator-squad"], "text": "The Gorgon's Hammer: +1 S.", "stats": { "S": "+1" }, "condition": "on a turn the unit charges" }
+      "benefits": [
+        "Gorgon Terminator Squads may fill Troops slots and gain Line (1).",
+        "They gain Hammerfall: +1 Strength on a turn they charge, and a free 3\" move after destroying the unit they charged."
       ],
-      "require": [ { "units": ["gorgon-terminator-squad"], "min": 2, "note": "Bring at least two Gorgon Terminator Squads." } ],
-      "forbid": [ { "match": { "role": "Armour" } }, { "match": { "role": "Recon" } } ]
+      "limitations": [
+        "At least two Gorgon Terminator Squads are required.",
+        "No Armour units and no Recon units."
+      ],
+      "roles": [
+        {
+          "units": [
+            "gorgon-terminator-squad"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "gorgon-terminator-squad"
+          ],
+          "text": "The Gorgon's Hammer: Line (1), Hammerfall.",
+          "addRules": [
+            "Line (1)",
+            "Hammerfall"
+          ]
+        },
+        {
+          "units": [
+            "gorgon-terminator-squad"
+          ],
+          "text": "The Gorgon's Hammer: +1 S.",
+          "stats": {
+            "S": "+1"
+          },
+          "condition": "on a turn the unit charges"
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "gorgon-terminator-squad"
+          ],
+          "min": 2,
+          "note": "Bring at least two Gorgon Terminator Squads."
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "role": "Armour"
+          }
+        },
+        {
+          "match": {
+            "role": "Recon"
+          }
+        }
+      ]
     }
   ]
 }

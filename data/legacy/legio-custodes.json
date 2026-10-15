@@ -1,106 +1,648 @@
 {
   "weapons": {
     "ranged": [
-      { "name": "Cull-bolt carbine", "R": 24, "FP": 2, "RS": 6, "AP": 3, "D": 1, "specialRules": ["Breaching (5+)", "Precision (6+)"], "traits": ["Bolt"] },
-      { "name": "Throne-warden's sidearm", "R": 12, "FP": 2, "RS": 5, "AP": 3, "D": 1, "specialRules": ["Pistol", "Breaching (6+)"], "traits": ["Assault"] }
+      {
+        "name": "Cull-bolt carbine",
+        "R": 24,
+        "FP": 2,
+        "RS": 6,
+        "AP": 3,
+        "D": 1,
+        "specialRules": [
+          "Breaching (5+)",
+          "Precision (6+)"
+        ],
+        "traits": [
+          "Bolt"
+        ]
+      },
+      {
+        "name": "Throne-warden's sidearm",
+        "R": 12,
+        "FP": 2,
+        "RS": 5,
+        "AP": 3,
+        "D": 1,
+        "specialRules": [
+          "Pistol",
+          "Breaching (6+)"
+        ],
+        "traits": [
+          "Assault"
+        ]
+      }
     ],
     "melee": [
-      { "name": "Ceremonial vigil-glaive", "IM": "I", "AM": "A", "SM": "+1", "AP": 2, "D": 1, "specialRules": ["Impact (AM)", "Critical Hit (6+)"], "traits": ["Power"] },
-      { "name": "Paired sentinel warblades", "IM": "I", "AM": "+1", "SM": "S", "AP": 2, "D": 1, "specialRules": [], "traits": ["Power"] },
-      { "name": "Castellan's greatblade", "IM": -1, "AM": "A", "SM": "+2", "AP": 2, "D": 2, "specialRules": ["Critical Hit (6+)"], "traits": ["Power"] }
+      {
+        "name": "Ceremonial vigil-glaive",
+        "IM": "I",
+        "AM": "A",
+        "SM": "+1",
+        "AP": 2,
+        "D": 1,
+        "specialRules": [
+          "Impact (AM)",
+          "Critical Hit (6+)"
+        ],
+        "traits": [
+          "Power"
+        ]
+      },
+      {
+        "name": "Paired sentinel warblades",
+        "IM": "I",
+        "AM": "+1",
+        "SM": "S",
+        "AP": 2,
+        "D": 1,
+        "specialRules": [],
+        "traits": [
+          "Power"
+        ]
+      },
+      {
+        "name": "Castellan's greatblade",
+        "IM": -1,
+        "AM": "A",
+        "SM": "+2",
+        "AP": 2,
+        "D": 2,
+        "specialRules": [
+          "Critical Hit (6+)"
+        ],
+        "traits": [
+          "Power"
+        ]
+      }
     ]
   },
   "wargear": [
-    { "name": "Vigil banner", "text": "Legacy house rule. A Sodality's colours, gilded by ten thousand years of ceremony. Every model in the unit gains +1 Willpower and +1 Leadership." },
-    { "name": "Ablative gilding", "text": "Legacy house rule. A layered auramite coating that sheds blows as a second skin. The model's Invulnerable Save becomes 5+ if it was worse." },
-    { "name": "Mantle of the Silent", "text": "Legacy house rule. A hunter's cloak woven with null-fibre that dims the wearer to the senses. The bearer gains Shrouded (6+), or one step better if they already have it." },
-    { "name": "Reliquary plate", "text": "Legacy house rule. A sarcophagus-ward of Auramite lined with the names of the Dreadnought's former masters. The model gains +1 Wound." }
+    {
+      "name": "Vigil banner",
+      "text": "Legacy house rule. A Sodality's colours, gilded by ten thousand years of ceremony. Every model in the unit gains +1 Willpower and +1 Leadership."
+    },
+    {
+      "name": "Ablative gilding",
+      "text": "Legacy house rule. A layered auramite coating that sheds blows as a second skin. The model's Invulnerable Save becomes 5+ if it was worse."
+    },
+    {
+      "name": "Mantle of the Silent",
+      "text": "Legacy house rule. A hunter's cloak woven with null-fibre that dims the wearer to the senses. The bearer gains Shrouded (6+), or one step better if they already have it."
+    },
+    {
+      "name": "Reliquary plate",
+      "text": "Legacy house rule. A sarcophagus-ward of Auramite lined with the names of the Dreadnought's former masters. The model gains +1 Wound."
+    }
   ],
   "options": [
-    { "units": ["custodian-guard-sodality"],
-      "option": { "id": "lc-vigil-glaive", "kind": "perModel", "model": "Custodian Guard", "replaces": ["Guardian spear"],
-        "text": "Any Custodian Guard may exchange their guardian spear for a Ceremonial vigil-glaive", "choices": [ { "name": "Ceremonial vigil-glaive", "points": 3 } ] } },
-    { "units": ["sentinel-guard-sodality"],
-      "option": { "id": "lc-paired-warblades", "kind": "perModel", "model": "Sentinel Guard", "replaces": ["Sentinel warblade"],
-        "text": "Any Sentinel Guard may exchange their sentinel warblade for Paired sentinel warblades", "choices": [ { "name": "Paired sentinel warblades", "points": 4 } ] } },
-    { "units": ["shield-captain"],
-      "option": { "id": "lc-castellan-greatblade", "kind": "one", "model": "Shield Captain", "replaces": ["Eternity Blade and Praesidium Shield"],
-        "text": "The Shield Captain may take a Castellan's greatblade instead of their blade and shield", "choices": [ { "name": "Castellan's greatblade", "points": 15 } ] } },
-    { "units": ["shield-captain", "tribune"],
-      "option": { "id": "lc-warden-sidearm", "kind": "upgrade", "model": ["Shield Captain", "Tribune"], "text": "May carry a Throne-warden's sidearm",
-        "choices": [ { "name": "Throne-warden's sidearm", "points": 10 } ] } },
-    { "units": ["venatari-sodality"],
-      "option": { "id": "lc-cull-bolt", "kind": "perModel", "model": "Venatari", "replaces": ["Kinetic destroyer and Tarsus buckler"],
-        "text": "Any Venatari may exchange their kinetic destroyer and buckler for a Cull-bolt carbine", "choices": [ { "name": "Cull-bolt carbine", "points": 5 } ] } },
-    { "units": ["venatari-sodality"],
-      "option": { "id": "lc-silent-mantle", "kind": "upgrade", "model": null, "text": "The unit may wear Mantles of the Silent",
-        "choices": [ { "name": "Mantle of the Silent", "points": 15 } ] } },
-    { "units": ["custodian-guard-sodality", "sentinel-guard-sodality", "adrasite-guard-sodality", "pyrithite-guard-sodality", "sagittarum-guard-sodality"],
-      "option": { "id": "lc-vigil-banner", "kind": "upgrade", "model": null, "text": "The Sodality may carry a Vigil banner",
-        "choices": [ { "name": "Vigil banner", "points": 20 } ] } },
-    { "units": ["custodian-guard-sodality", "adrasite-guard-sodality", "pyrithite-guard-sodality", "sagittarum-guard-sodality"],
-      "option": { "id": "lc-ablative-gilding", "kind": "upgrade", "model": null, "text": "The Sodality may be coated in Ablative gilding",
-        "choices": [ { "name": "Ablative gilding", "points": 20 } ] } },
-    { "units": ["contemptor-galatus-dreadnought", "contemptor-achillus-dreadnought"],
-      "option": { "id": "lc-reliquary-plate", "kind": "upgrade", "model": null, "text": "May be fitted with Reliquary plate",
-        "choices": [ { "name": "Reliquary plate", "points": 25 } ] } }
+    {
+      "units": [
+        "custodian-guard-sodality"
+      ],
+      "option": {
+        "id": "lc-vigil-glaive",
+        "kind": "perModel",
+        "model": "Custodian Guard",
+        "replaces": [
+          "Guardian spear"
+        ],
+        "text": "Any Custodian Guard may exchange their guardian spear for a Ceremonial vigil-glaive",
+        "choices": [
+          {
+            "name": "Ceremonial vigil-glaive",
+            "points": 3
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "sentinel-guard-sodality"
+      ],
+      "option": {
+        "id": "lc-paired-warblades",
+        "kind": "perModel",
+        "model": "Sentinel Guard",
+        "replaces": [
+          "Sentinel warblade"
+        ],
+        "text": "Any Sentinel Guard may exchange their sentinel warblade for Paired sentinel warblades",
+        "choices": [
+          {
+            "name": "Paired sentinel warblades",
+            "points": 4
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "shield-captain"
+      ],
+      "option": {
+        "id": "lc-castellan-greatblade",
+        "kind": "one",
+        "model": "Shield Captain",
+        "replaces": [
+          "Eternity Blade and Praesidium Shield"
+        ],
+        "text": "The Shield Captain may take a Castellan's greatblade instead of their blade and shield",
+        "choices": [
+          {
+            "name": "Castellan's greatblade",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "shield-captain",
+        "tribune"
+      ],
+      "option": {
+        "id": "lc-warden-sidearm",
+        "kind": "upgrade",
+        "model": [
+          "Shield Captain",
+          "Tribune"
+        ],
+        "text": "May carry a Throne-warden's sidearm",
+        "choices": [
+          {
+            "name": "Throne-warden's sidearm",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "venatari-sodality"
+      ],
+      "option": {
+        "id": "lc-cull-bolt",
+        "kind": "perModel",
+        "model": "Venatari",
+        "replaces": [
+          "Kinetic destroyer and Tarsus buckler"
+        ],
+        "text": "Any Venatari may exchange their kinetic destroyer and buckler for a Cull-bolt carbine",
+        "choices": [
+          {
+            "name": "Cull-bolt carbine",
+            "points": 5
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "venatari-sodality"
+      ],
+      "option": {
+        "id": "lc-silent-mantle",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The unit may wear Mantles of the Silent",
+        "choices": [
+          {
+            "name": "Mantle of the Silent",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "custodian-guard-sodality",
+        "sentinel-guard-sodality",
+        "adrasite-guard-sodality",
+        "pyrithite-guard-sodality",
+        "sagittarum-guard-sodality"
+      ],
+      "option": {
+        "id": "lc-vigil-banner",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The Sodality may carry a Vigil banner",
+        "choices": [
+          {
+            "name": "Vigil banner",
+            "points": 20
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "custodian-guard-sodality",
+        "adrasite-guard-sodality",
+        "pyrithite-guard-sodality",
+        "sagittarum-guard-sodality"
+      ],
+      "option": {
+        "id": "lc-ablative-gilding",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The Sodality may be coated in Ablative gilding",
+        "choices": [
+          {
+            "name": "Ablative gilding",
+            "points": 20
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "contemptor-galatus-dreadnought",
+        "contemptor-achillus-dreadnought"
+      ],
+      "option": {
+        "id": "lc-reliquary-plate",
+        "kind": "upgrade",
+        "model": null,
+        "text": "May be fitted with Reliquary plate",
+        "choices": [
+          {
+            "name": "Reliquary plate",
+            "points": 25
+          }
+        ]
+      }
+    }
   ],
   "modifiers": [
-    { "units": ["custodian-guard-sodality"], "text": "Spear-drilled for the throne room, not the field: +1 I, -1 M.", "stats": { "I": "+1", "M": "-1" } },
-    { "units": ["sentinel-guard-sodality"], "text": "Shieldwall drilled to stillness: +1 LD, -1 I.", "stats": { "LD": "+1", "I": "-1" } },
-    { "units": ["adrasite-guard-sodality", "pyrithite-guard-sodality"], "text": "Zealots of the spearhead: +1 WS, -1 BS.", "stats": { "WS": "+1", "BS": "-1" } },
-    { "units": ["sagittarum-guard-sodality"], "text": "Marksmen of the Ten Thousand: +1 BS, -1 WS.", "stats": { "BS": "+1", "WS": "-1" } },
-    { "units": ["venatari-sodality"], "text": "Talon hunters: +1 I, -1 LD.", "stats": { "I": "+1", "LD": "-1" } },
-    { "units": ["aquilon-terminator-sodality"], "text": "Gilded siege-plate: +1 A, -1 M.", "stats": { "A": "+1", "M": "-1" } },
-    { "units": ["*"], "item": "Vigil banner", "scope": "unit", "text": "Vigil banner: +1 WP, +1 LD.", "stats": { "WP": "+1", "LD": "+1" } },
-    { "units": ["*"], "item": "Ablative gilding", "scope": "unit", "text": "Ablative gilding: 5+ Invulnerable Save.", "stats": { "INV": "best:5+" } },
-    { "units": ["*"], "item": "Mantle of the Silent", "scope": "unit", "text": "Mantle of the Silent: Shrouded (6+).", "addRules": ["Shrouded (6+)"] },
-    { "units": ["*"], "item": "Reliquary plate", "scope": "unit", "text": "Reliquary plate: +1 W.", "stats": { "W": "+1" } }
+    {
+      "units": [
+        "custodian-guard-sodality"
+      ],
+      "text": "Spear-drilled for the throne room, not the field: +1 I, -1 M.",
+      "stats": {
+        "I": "+1",
+        "M": "-1"
+      }
+    },
+    {
+      "units": [
+        "sentinel-guard-sodality"
+      ],
+      "text": "Shieldwall drilled to stillness: +1 LD, -1 I.",
+      "stats": {
+        "LD": "+1",
+        "I": "-1"
+      }
+    },
+    {
+      "units": [
+        "adrasite-guard-sodality",
+        "pyrithite-guard-sodality"
+      ],
+      "text": "Zealots of the spearhead: +1 WS, -1 BS.",
+      "stats": {
+        "WS": "+1",
+        "BS": "-1"
+      }
+    },
+    {
+      "units": [
+        "sagittarum-guard-sodality"
+      ],
+      "text": "Marksmen of the Ten Thousand: +1 BS, -1 WS.",
+      "stats": {
+        "BS": "+1",
+        "WS": "-1"
+      }
+    },
+    {
+      "units": [
+        "venatari-sodality"
+      ],
+      "text": "Talon hunters: +1 I, -1 LD.",
+      "stats": {
+        "I": "+1",
+        "LD": "-1"
+      }
+    },
+    {
+      "units": [
+        "aquilon-terminator-sodality"
+      ],
+      "text": "Gilded siege-plate: +1 A, -1 M.",
+      "stats": {
+        "A": "+1",
+        "M": "-1"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Vigil banner",
+      "scope": "unit",
+      "text": "Vigil banner: +1 WP, +1 LD.",
+      "stats": {
+        "WP": "+1",
+        "LD": "+1"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Ablative gilding",
+      "scope": "unit",
+      "text": "Ablative gilding: 5+ Invulnerable Save.",
+      "stats": {
+        "INV": "best:5+"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Mantle of the Silent",
+      "scope": "unit",
+      "text": "Mantle of the Silent: Shrouded (6+).",
+      "addRules": [
+        "Shrouded (6+)"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Reliquary plate",
+      "scope": "unit",
+      "text": "Reliquary plate: +1 W.",
+      "stats": {
+        "W": "+1"
+      }
+    }
   ],
   "rites": [
     {
       "name": "Defenders of the Palace",
       "flavor": "The Throne is the last thing that falls, and the Ten Thousand are what stands in front of it.",
-      "text": "Adrasite and Pyrithite Guard may fill Troops slots and gain Line (1), and Custodian Guard, Sentinel Guard, Adrasite and Pyrithite Guard Sodalities gain a 5+ Invulnerable Save if they had worse. They do not leave their post: no Fast Attack, Heavy Transport or Lord of War units. A Shield Captain must be included.",
-      "roles": [ { "units": ["adrasite-guard-sodality", "pyrithite-guard-sodality"], "role": "Troops" } ],
-      "modifiers": [
-        { "units": ["adrasite-guard-sodality", "pyrithite-guard-sodality"], "text": "Defenders of the Palace: Line (1).", "addRules": ["Line (1)"] },
-        { "units": ["custodian-guard-sodality", "sentinel-guard-sodality", "adrasite-guard-sodality", "pyrithite-guard-sodality"], "text": "Defenders of the Palace: 5+ Invulnerable Save.", "stats": { "INV": "best:5+" } }
+      "benefits": [
+        "Adrasite and Pyrithite Guard Sodalities may fill Troops slots.",
+        "They gain Line (1) and Unbroken Watch: they automatically pass Morale and Pinning checks while within 6\" of an objective."
       ],
-      "require": [ { "units": ["shield-captain"], "min": 1, "note": "A Shield Captain commands the watch." } ],
-      "forbid": [ { "match": { "role": "Fast Attack" } }, { "match": { "role": "Heavy Transport" } }, { "match": { "role": "Lord of War" } } ]
+      "limitations": [
+        "A Shield Captain must be included.",
+        "Adrasite and Pyrithite Guard Sodalities must deploy within 12\" of an objective.",
+        "No Fast Attack, Heavy Transport or Lord of War units."
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "adrasite-guard-sodality",
+            "pyrithite-guard-sodality"
+          ],
+          "text": "Defenders of the Palace: Line (1), Unbroken Watch.",
+          "addRules": [
+            "Line (1)",
+            "Unbroken Watch"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "shield-captain"
+          ],
+          "min": 1,
+          "note": "A Shield Captain commands the watch."
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "role": "Fast Attack"
+          }
+        },
+        {
+          "match": {
+            "role": "Heavy Transport"
+          }
+        },
+        {
+          "match": {
+            "role": "Lord of War"
+          }
+        }
+      ],
+      "roles": [
+        {
+          "units": [
+            "adrasite-guard-sodality",
+            "pyrithite-guard-sodality"
+          ],
+          "role": "Troops"
+        }
+      ]
     },
     {
       "name": "The Talon Hunt",
       "flavor": "Someone in the Palace has a secret. The Ten Thousand and the Talons agree on the remedy.",
-      "text": "Venatari Sodalities may fill Troops slots and gain Line (1), and every Assassin costs 20 points less. The hunt is quiet and light: no War Engine or Lord of War units. At least one Venatari Sodality and one Assassin are required.",
-      "roles": [ { "units": ["venatari-sodality"], "role": "Troops" } ],
-      "points": [ { "units": ["vindicare-assassin", "eversor-assassin", "callidus-assassin", "culexus-assassin", "adamus-assassin", "venenum-assassin", "vanus-infocyte-assassin"], "delta": -20 } ],
-      "modifiers": [ { "units": ["venatari-sodality"], "text": "The Talon Hunt: Line (1).", "addRules": ["Line (1)"] } ],
-      "require": [
-        { "units": ["venatari-sodality"], "min": 1, "note": "Bring a Venatari Sodality to run down the quarry." },
-        { "units": ["vindicare-assassin", "eversor-assassin", "callidus-assassin", "culexus-assassin", "adamus-assassin", "venenum-assassin", "vanus-infocyte-assassin"], "min": 1, "note": "A Talon of the Emperor must be present." }
+      "benefits": [
+        "Venatari Sodalities may fill Troops slots and gain Line (1).",
+        "Assassins gain Infiltrate (6) and Talon Writ: after deployment name one enemy unit as the Quarry; the Assassin adds +1 to Hit Tests against it."
       ],
-      "forbid": [ { "match": { "role": "War Engine" } }, { "match": { "role": "Lord of War" } } ]
+      "limitations": [
+        "At least one Venatari Sodality and one Assassin are required.",
+        "No War Engine or Lord of War units."
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "venatari-sodality"
+          ],
+          "text": "The Talon Hunt: Line (1).",
+          "addRules": [
+            "Line (1)"
+          ]
+        },
+        {
+          "units": [
+            "vindicare-assassin",
+            "eversor-assassin",
+            "callidus-assassin",
+            "culexus-assassin",
+            "adamus-assassin",
+            "venenum-assassin",
+            "vanus-infocyte-assassin"
+          ],
+          "text": "The Talon Hunt: Infiltrate (6), Talon Writ.",
+          "addRules": [
+            "Infiltrate (6)",
+            "Talon Writ"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "venatari-sodality"
+          ],
+          "min": 1,
+          "note": "Bring a Venatari Sodality to run down the quarry."
+        },
+        {
+          "units": [
+            "vindicare-assassin",
+            "eversor-assassin",
+            "callidus-assassin",
+            "culexus-assassin",
+            "adamus-assassin",
+            "venenum-assassin",
+            "vanus-infocyte-assassin"
+          ],
+          "min": 1,
+          "note": "A Talon of the Emperor must be present."
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "role": "War Engine"
+          }
+        },
+        {
+          "match": {
+            "role": "Lord of War"
+          }
+        }
+      ],
+      "roles": [
+        {
+          "units": [
+            "venatari-sodality"
+          ],
+          "role": "Troops"
+        }
+      ]
     },
     {
       "name": "The Emperor's Will",
       "flavor": "Valdor does not command the Ten Thousand. He only says aloud what they already know.",
-      "text": "Every Legio Custodes unit gains +1 Willpower and +1 Cool. Constantin Valdor must lead the army. Machine-servitors are not welcome at his side: no Vagus automata (Castellax, Domitar, Thanatar, Vorax or Vultarax) and at most one War Engine.",
-      "modifiers": [ { "match": { "trait": "Legio Custodes" }, "text": "The Emperor's Will: +1 WP, +1 CL.", "stats": { "WP": "+1", "CL": "+1" } } ],
-      "require": [ { "units": ["constantin-valdor"], "min": 1, "note": "Valdor must lead." } ],
-      "forbid": [ { "match": { "trait": "Vagus" } } ],
-      "limit": [ { "match": { "role": "War Engine" }, "max": 1 } ]
+      "benefits": [
+        "Every Legio Custodes unit gains +1 Willpower and Valdor's Word: it automatically passes Morale and Pinning checks while within 12\" of Constantin Valdor."
+      ],
+      "limitations": [
+        "Constantin Valdor must lead the army.",
+        "No Vagus automata (Castellax, Domitar, Thanatar, Vorax or Vultarax), and at most one War Engine."
+      ],
+      "modifiers": [
+        {
+          "match": {
+            "trait": "Legio Custodes"
+          },
+          "text": "The Emperor's Will: +1 WP, Valdor's Word.",
+          "stats": {
+            "WP": "+1"
+          },
+          "addRules": [
+            "Valdor's Word"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "constantin-valdor"
+          ],
+          "min": 1,
+          "note": "Valdor must lead."
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "trait": "Vagus"
+          }
+        }
+      ],
+      "limit": [
+        {
+          "match": {
+            "role": "War Engine"
+          },
+          "max": 1
+        }
+      ]
     },
     {
       "name": "The Vigil of Ancients",
       "flavor": "Within each Contemptor sleeps a warrior who knew the Emperor before He was called that.",
-      "text": "Contemptor-Galatus, Contemptor-Achillus and Telemon Heavy Dreadnoughts may fill Troops slots, cost 20 points less and gain Line (1). The Sodalities remain with the Throne: no Custodian Guard or Sentinel Guard Sodalities. At least two War Engine units are required.",
-      "roles": [ { "units": ["contemptor-galatus-dreadnought", "contemptor-achillus-dreadnought", "telemon-heavy-dreadnought"], "role": "Troops" } ],
-      "points": [ { "units": ["contemptor-galatus-dreadnought", "contemptor-achillus-dreadnought", "telemon-heavy-dreadnought"], "delta": -20 } ],
-      "modifiers": [ { "units": ["contemptor-galatus-dreadnought", "contemptor-achillus-dreadnought", "telemon-heavy-dreadnought"], "text": "The Vigil of Ancients: Line (1).", "addRules": ["Line (1)"] } ],
-      "require": [ { "match": { "role": "War Engine" }, "min": 2, "note": "Wake at least two Dreadnoughts." } ],
-      "forbid": [ { "units": ["custodian-guard-sodality", "sentinel-guard-sodality"] } ]
+      "benefits": [
+        "Contemptor-Galatus, Contemptor-Achillus and Telemon Heavy Dreadnoughts may fill Troops slots and gain Line (1).",
+        "They gain Wakened Ancients: once per turn each may re-roll one failed Hit Test."
+      ],
+      "limitations": [
+        "At least two War Engine units are required.",
+        "No Custodian Guard or Sentinel Guard Sodalities."
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "contemptor-galatus-dreadnought",
+            "contemptor-achillus-dreadnought",
+            "telemon-heavy-dreadnought"
+          ],
+          "text": "The Vigil of Ancients: Line (1), Wakened Ancients.",
+          "addRules": [
+            "Line (1)",
+            "Wakened Ancients"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "match": {
+            "role": "War Engine"
+          },
+          "min": 2,
+          "note": "Wake at least two Dreadnoughts."
+        }
+      ],
+      "forbid": [
+        {
+          "units": [
+            "custodian-guard-sodality",
+            "sentinel-guard-sodality"
+          ]
+        }
+      ],
+      "roles": [
+        {
+          "units": [
+            "contemptor-galatus-dreadnought",
+            "contemptor-achillus-dreadnought",
+            "telemon-heavy-dreadnought"
+          ],
+          "role": "Troops"
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "name": "Unbroken Watch",
+      "text": "Legacy house rule (Defenders of the Palace). A unit with this rule automatically passes Morale and Pinning checks while it is within 6\" of an objective."
+    },
+    {
+      "name": "Talon Writ",
+      "text": "Legacy house rule (The Talon Hunt). After both sides deploy, the controller names one enemy unit as this model's Quarry. The model adds +1 to its Hit Tests against the Quarry."
+    },
+    {
+      "name": "Valdor's Word",
+      "text": "Legacy house rule (The Emperor's Will). A unit with this rule automatically passes Morale and Pinning checks while within 12\" of Constantin Valdor."
+    },
+    {
+      "name": "Wakened Ancients",
+      "text": "Legacy house rule (The Vigil of Ancients). Once per turn, a model with this rule may re-roll one failed Hit Test."
     }
   ]
 }

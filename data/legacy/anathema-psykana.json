@@ -263,7 +263,14 @@
     {
       "name": "Vow of the Silent Hunt",
       "flavor": "They do not shout. They do not speak. The witch notices only that her prayers have stopped working.",
-      "text": "Anathema Cadres gain +1 Attack and cost 10 points less. Kharon Pattern Acquisitors may fill Troops slots. The Sisters work without the Legions' tools: no Vagus automata. At least two Anathema Cadres are required.",
+      "benefits": [
+        "Kharon Pattern Acquisitors may fill Troops slots.",
+        "Anathema Cadres gain Infiltrate (9) and Silent Hunt: an enemy Psyker within 12\" takes -1 to its Willpower."
+      ],
+      "limitations": [
+        "At least two Anathema Cadres are required.",
+        "No Vagus automata."
+      ],
       "roles": [
         {
           "units": [
@@ -272,23 +279,16 @@
           "role": "Troops"
         }
       ],
-      "points": [
-        {
-          "units": [
-            "anathema-cadre"
-          ],
-          "delta": -10
-        }
-      ],
       "modifiers": [
         {
           "units": [
             "anathema-cadre"
           ],
-          "text": "Vow of the Silent Hunt: +1 A.",
-          "stats": {
-            "A": "+1"
-          }
+          "text": "Vow of the Silent Hunt: Infiltrate (9), Silent Hunt.",
+          "addRules": [
+            "Infiltrate (9)",
+            "Silent Hunt"
+          ]
         }
       ],
       "require": [
@@ -311,7 +311,15 @@
     {
       "name": "The Oblivion Knights Ride",
       "flavor": "Even the Silent Sisterhood needs someone to carry a sword where the witch-fire cannot reach.",
-      "text": "Knight-Centuras may fill Troops and Elites slots, and gain +1 Attack. The Cadres stay behind: the army may not field any Anathema Cadres. At least two Knight-Centuras are required.",
+      "benefits": [
+        "Knight-Centuras may fill Troops and Elites slots, gain Line (1) and +1 Attack.",
+        "They gain Oblivion Charge: a unit may Charge on the turn it disembarks from a transport."
+      ],
+      "limitations": [
+        "At least two Knight-Centuras are required.",
+        "No Anathema Cadres.",
+        "A Knight-Centura that can charge an enemy Psyker or Malefic unit must do so."
+      ],
       "roles": [
         {
           "units": [
@@ -331,10 +339,14 @@
           "units": [
             "knight-centura"
           ],
-          "text": "The Oblivion Knights Ride: +1 A.",
+          "text": "The Oblivion Knights Ride: +1 A, Line (1), Oblivion Charge.",
           "stats": {
             "A": "+1"
-          }
+          },
+          "addRules": [
+            "Line (1)",
+            "Oblivion Charge"
+          ]
         }
       ],
       "require": [
@@ -357,7 +369,16 @@
     {
       "name": "The Black Ships' Writ",
       "flavor": "When the Sisters cannot be everywhere, the Throne lends them machines that cannot be tempted.",
-      "text": "Castellax Battle and Destructor Maniples may fill Troops slots and cost 20 points less, and the Cadres gain +1 Leadership. The Sisterhood is thinly spread: at most one Anathema Cadre, and no Kharon Pattern Acquisitors.",
+      "benefits": [
+        "Castellax Battle and Destructor Maniples may fill Troops slots and gain Line (1).",
+        "They gain Incorruptible Engines: enemy Psychic powers can't target them.",
+        "Anathema Cadres gain +1 Leadership."
+      ],
+      "limitations": [
+        "At least two Castellax Maniples are required.",
+        "No more than one Anathema Cadre.",
+        "No Kharon Pattern Acquisitors."
+      ],
       "roles": [
         {
           "units": [
@@ -367,16 +388,18 @@
           "role": "Troops"
         }
       ],
-      "points": [
+      "modifiers": [
         {
           "units": [
             "castellax-battle-maniple",
             "castellax-destructor-maniple"
           ],
-          "delta": -20
-        }
-      ],
-      "modifiers": [
+          "text": "The Black Ships' Writ: Line (1), Incorruptible Engines.",
+          "addRules": [
+            "Line (1)",
+            "Incorruptible Engines"
+          ]
+        },
         {
           "units": [
             "anathema-cadre"
@@ -385,6 +408,16 @@
           "stats": {
             "LD": "+1"
           }
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "castellax-battle-maniple",
+            "castellax-destructor-maniple"
+          ],
+          "min": 2,
+          "note": "The Sisters need their engines."
         }
       ],
       "limit": [
@@ -402,6 +435,20 @@
           ]
         }
       ]
+    }
+  ],
+  "rules": [
+    {
+      "name": "Silent Hunt",
+      "text": "Legacy house rule (Vow of the Silent Hunt). An enemy Psyker within 12\" of a unit with this rule subtracts 1 from its Willpower while it is there."
+    },
+    {
+      "name": "Oblivion Charge",
+      "text": "Legacy house rule (The Oblivion Knights Ride). A unit with this rule may declare a Charge on the turn it disembarks from a transport. If an enemy Psyker or Malefic unit is within its charge reach, it must charge one."
+    },
+    {
+      "name": "Incorruptible Engines",
+      "text": "Legacy house rule (The Black Ships' Writ). Enemy Psychic powers can't target a model with this rule, and it is unaffected by Corruption and Malefic abilities."
     }
   ]
 }

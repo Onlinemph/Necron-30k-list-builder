@@ -466,11 +466,32 @@
    }
   }
  ],
+ "rules": [
+  {
+   "name": "Cold Calculus",
+   "text": "Legacy house rule (The Logic Maniples). The maniples share a firing solution. A unit with this rule adds 1 to its Ballistic Skill when it shoots at an enemy unit that another unit with Cold Calculus has already fired at in the same phase."
+  },
+  {
+   "name": "Subtractive Fire",
+   "text": "Legacy house rule (Ordo Reductor Siege Park). Walls and bunkers are only data waiting to be subtracted. Shooting Attacks made by a unit with this rule ignore the benefit of Shrouded (X) and of any cover or Fortification Save the target would otherwise gain."
+  },
+  {
+   "name": "Cult Fervour",
+   "text": "Legacy house rule (The Myrmidax Cult-Host). The cult has long since stopped fearing the flesh. A unit with this rule may re-roll failed Cool Checks, and once per battle, when it is reduced to half strength or less, it may add +1 to its Attacks until the end of the turn."
+  },
+  {
+   "name": "Vigil Protocol",
+   "text": "Legacy house rule (The Thallax Vigil). The Thallax take station around their master. After both sides have deployed and before the first battle turn, a unit with this rule may make a free move of up to 6\", ending no closer than 9\" to any enemy model. A friendly Magos, Archmagos or Tech-Priest within 3\" of it adds +1 to its Cool."
+  },
+  {
+   "name": "Endless Tithe",
+   "text": "Legacy house rule (The Thrall Press). The forge-world's billions replace what the war consumes. Once per battle, the first Covenant with this rule that is destroyed returns to play at the start of the owner's next turn from Reserves, at half its starting models (rounding up) and with Outflank."
+  }
+ ],
  "rites": [
   {
    "name": "The Logic Maniples",
    "flavor": "Cold arithmetic does not break, and does not ask why.",
-   "text": "Castellax Battle and Destructor Maniples may fill Troops slots and gain Line (1) and +1 Ballistic Skill. No flesh clutters the firing line: no Tech-Thrall Covenants, Myrmidon Hosts or Ursarax Cohorts. The army needs a Magos or Archmagos to run the maniples and at least two Castellax Maniples.",
    "roles": [
     {
      "units": [
@@ -486,13 +507,22 @@
       "castellax-battle-maniple",
       "castellax-destructor-maniple"
      ],
-     "text": "The Logic Maniples: Line (1), +1 BS.",
+     "text": "The Logic Maniples: Line (1), Cold Calculus.",
+     "addRules": [
+      "Line (1)",
+      "Cold Calculus"
+     ]
+    },
+    {
+     "units": [
+      "castellax-battle-maniple",
+      "castellax-destructor-maniple"
+     ],
+     "text": "Cold Calculus: +1 BS.",
      "stats": {
       "BS": "+1"
      },
-     "addRules": [
-      "Line (1)"
-     ]
+     "condition": "when shooting at a unit another Cold Calculus unit has already fired at this phase"
     }
    ],
    "require": [
@@ -526,12 +556,20 @@
       "ursarax-cohort"
      ]
     }
+   ],
+   "text": "Cold arithmetic does not break, and does not ask why.",
+   "benefits": [
+    "Castellax Battle and Destructor Maniples may fill Troops slots and gain Line (1).",
+    "They gain Cold Calculus: +1 Ballistic Skill against an enemy unit another Cold Calculus unit has already shot at that phase."
+   ],
+   "limitations": [
+    "A Magos or Archmagos and at least two Castellax Maniples are required.",
+    "No Tech-Thrall Covenants, Myrmidon Hosts or Ursarax Cohorts."
    ]
   },
   {
    "name": "Ordo Reductor Siege Park",
    "flavor": "Wall, tower and bunker are only data waiting to be subtracted.",
-   "text": "Karacnos Assault Tanks and Thanatar Siege Maniples may fill Troops slots. Karacnos, Krios, Krios Venator and Thanatar units gain +1 Ballistic Skill, and Ordinatus engines cost 40 points less. The park is slow and ponderous: no Recon, no Fast Attack, no Myrmidon Hosts or Ursarax Cohorts. At least two Karacnos, Krios Venator or Thanatar units are required.",
    "roles": [
     {
      "units": [
@@ -541,28 +579,21 @@
      "role": "Troops"
     }
    ],
-   "points": [
-    {
-     "units": [
-      "mechanicum-ordinatus-ulator",
-      "mechanicum-ordinatus-sagittar",
-      "mechanicum-ordinatus-aktaeus"
-     ],
-     "delta": -40
-    }
-   ],
    "modifiers": [
     {
      "units": [
       "karacnos-assault-tank",
       "krios-battle-tank",
       "krios-venator",
-      "thanatar-siege-maniple"
+      "thanatar-siege-maniple",
+      "mechanicum-ordinatus-ulator",
+      "mechanicum-ordinatus-sagittar",
+      "mechanicum-ordinatus-aktaeus"
      ],
-     "text": "Ordo Reductor Siege Park: +1 BS.",
-     "stats": {
-      "BS": "+1"
-     }
+     "text": "Ordo Reductor Siege Park: Subtractive Fire.",
+     "addRules": [
+      "Subtractive Fire"
+     ]
     }
    ],
    "require": [
@@ -594,12 +625,21 @@
       "ursarax-cohort"
      ]
     }
+   ],
+   "text": "Wall, tower and bunker are only data waiting to be subtracted.",
+   "benefits": [
+    "Karacnos Assault Tanks and Thanatar Siege Maniples may fill Troops slots.",
+    "Karacnos, Krios, Krios Venator, Thanatar and Ordinatus units gain Subtractive Fire: their Shooting Attacks ignore the target's cover and Shrouded."
+   ],
+   "limitations": [
+    "At least two Karacnos, Krios Venator or Thanatar units are required.",
+    "No Recon, no Fast Attack, and no Myrmidon Hosts or Ursarax Cohorts.",
+    "Table-top: units with Subtractive Fire may not be held in Reserves."
    ]
   },
   {
    "name": "The Myrmidax Cult-Host",
    "flavor": "The cult remembers flesh, and has decided it was a mistake worth repeating.",
-   "text": "Myrmidon Secutor and Destructor Hosts may fill Troops slots and gain Line (1) and Feel No Pain (6+). The cult will not share a field with thinking engines: no Automata units at all. At least two Myrmidon Hosts are required.",
    "roles": [
     {
      "units": [
@@ -615,10 +655,11 @@
       "myrmidon-secutor-host",
       "myrmidon-destructor-host"
      ],
-     "text": "The Myrmidax Cult-Host: Line (1), Feel No Pain (6+).",
+     "text": "The Myrmidax Cult-Host: Line (1), Feel No Pain (6+), Cult Fervour.",
      "addRules": [
       "Line (1)",
-      "Feel No Pain (6+)"
+      "Feel No Pain (6+)",
+      "Cult Fervour"
      ]
     }
    ],
@@ -638,12 +679,20 @@
       "unitType": "Automata"
      }
     }
+   ],
+   "text": "The cult remembers flesh, and has decided it was a mistake worth repeating.",
+   "benefits": [
+    "Myrmidon Secutor and Destructor Hosts may fill Troops slots and gain Line (1) and Feel No Pain (6+).",
+    "They gain Cult Fervour: failed Cool Checks may be re-rolled, and once per battle a host at half strength or less gains +1 Attack for a turn."
+   ],
+   "limitations": [
+    "At least two Myrmidon Hosts are required.",
+    "No Automata units at all."
    ]
   },
   {
    "name": "The Thallax Vigil",
    "flavor": "A magos with a dozen Thallax at her back has no need of an escort of friends.",
-   "text": "Thallax Cohorts may fill Troops slots, cost 15 points less, and gain Line (1) and Fear (1). The Vigil takes no other lesser retainers: no Tech-Priests, Tech-Thrall Covenants or Ursarax Cohorts. At least two Thallax Cohorts are required.",
    "roles": [
     {
      "units": [
@@ -652,23 +701,16 @@
      "role": "Troops"
     }
    ],
-   "points": [
-    {
-     "units": [
-      "thallax-cohort"
-     ],
-     "delta": -15
-    }
-   ],
    "modifiers": [
     {
      "units": [
       "thallax-cohort"
      ],
-     "text": "The Thallax Vigil: Line (1), Fear (1).",
+     "text": "The Thallax Vigil: Line (1), Fear (1), Vigil Protocol.",
      "addRules": [
       "Line (1)",
-      "Fear (1)"
+      "Fear (1)",
+      "Vigil Protocol"
      ]
     }
    ],
@@ -690,12 +732,20 @@
       "ursarax-cohort"
      ]
     }
+   ],
+   "text": "A magos with a dozen Thallax at her back has no need of an escort of friends.",
+   "benefits": [
+    "Thallax Cohorts may fill Troops slots and gain Line (1) and Fear (1).",
+    "They gain Vigil Protocol: a free 6\" move before the first turn (not within 9\" of the enemy), and a Magos, Archmagos or Tech-Priest within 3\" adds +1 to Cool."
+   ],
+   "limitations": [
+    "At least two Thallax Cohorts are required.",
+    "No Tech-Priests, Tech-Thrall Covenants or Ursarax Cohorts."
    ]
   },
   {
    "name": "The Thrall Press",
    "flavor": "The forge-world's billions are an engine too, and can be fed to the war.",
-   "text": "Tech-Thrall Covenants (both kinds) may fill Troops slots, cost 30 points less, and gain Line (1). The press consumes everything the Archmagos might have spent on elites: no Elites, no Heavy Assault units and no Lord of War. At least two Tech-Thrall Covenants are required.",
    "roles": [
     {
      "units": [
@@ -705,24 +755,16 @@
      "role": "Troops"
     }
    ],
-   "points": [
-    {
-     "units": [
-      "tech-thrall-covenant",
-      "tech-thrall-defence-covenant"
-     ],
-     "delta": -30
-    }
-   ],
    "modifiers": [
     {
      "units": [
       "tech-thrall-covenant",
       "tech-thrall-defence-covenant"
      ],
-     "text": "The Thrall Press: Line (1).",
+     "text": "The Thrall Press: Line (1), Endless Tithe.",
      "addRules": [
-      "Line (1)"
+      "Line (1)",
+      "Endless Tithe"
      ]
     }
    ],
@@ -752,6 +794,15 @@
       "role": "Lord of War"
      }
     }
+   ],
+   "text": "The forge-world's billions are an engine too, and can be fed to the war.",
+   "benefits": [
+    "Tech-Thrall Covenants (both kinds) may fill Troops slots and gain Line (1).",
+    "They gain Endless Tithe: once per battle, the first Covenant destroyed returns from Reserves with Outflank at half its starting models."
+   ],
+   "limitations": [
+    "At least two Tech-Thrall Covenants are required.",
+    "No Elites, Heavy Assault or Lord of War units."
    ]
   }
  ]

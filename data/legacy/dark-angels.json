@@ -1,99 +1,620 @@
 {
   "weapons": {
     "melee": [
-      { "name": "Unforgiven blade", "IM": "+1", "AM": "A", "SM": "+1", "AP": 3, "D": 1, "specialRules": ["Duellist's Edge (1)", "Breaching (6+)"], "traits": ["Power"] },
-      { "name": "Ravenwing hunting lance", "IM": "+1", "AM": "A", "SM": "+2", "AP": 3, "D": 1, "specialRules": ["Impact (AP)"], "traits": ["Power"] }
+      {
+        "name": "Unforgiven blade",
+        "IM": "+1",
+        "AM": "A",
+        "SM": "+1",
+        "AP": 3,
+        "D": 1,
+        "specialRules": [
+          "Duellist's Edge (1)",
+          "Breaching (6+)"
+        ],
+        "traits": [
+          "Power"
+        ]
+      },
+      {
+        "name": "Ravenwing hunting lance",
+        "IM": "+1",
+        "AM": "A",
+        "SM": "+2",
+        "AP": 3,
+        "D": 1,
+        "specialRules": [
+          "Impact (AP)"
+        ],
+        "traits": [
+          "Power"
+        ]
+      }
     ],
     "ranged": [
-      { "name": "Marksman's carbine", "R": 36, "FP": 1, "RS": 5, "AP": 4, "D": 1, "specialRules": ["Precision (4+)"], "traits": ["Bolt"] }
+      {
+        "name": "Marksman's carbine",
+        "R": 36,
+        "FP": 1,
+        "RS": 5,
+        "AP": 4,
+        "D": 1,
+        "specialRules": [
+          "Precision (4+)"
+        ],
+        "traits": [
+          "Bolt"
+        ]
+      }
     ]
   },
   "wargear": [
-    { "name": "Deathwing oath-standard", "text": "Legacy house rule. A tattered banner bearing the names of the sworn, carried by the one brother who will never be asked what it is for. Every model in the unit gains +1 Willpower and +1 Leadership." },
-    { "name": "Ravenwing veil-field", "text": "Legacy house rule. A dispersal screen that smears the heat-shadow of riders and scouts across the horizon. The unit gains Shrouded (6+)." }
+    {
+      "name": "Deathwing oath-standard",
+      "text": "Legacy house rule. A tattered banner bearing the names of the sworn, carried by the one brother who will never be asked what it is for. Every model in the unit gains +1 Willpower and +1 Leadership."
+    },
+    {
+      "name": "Ravenwing veil-field",
+      "text": "Legacy house rule. A dispersal screen that smears the heat-shadow of riders and scouts across the horizon. The unit gains Shrouded (6+)."
+    }
   ],
   "options": [
-    { "units": ["tactical-squad", "despoiler-squad", "assault-squad", "breacher-squad", "heavy-support-squad", "veteran-tactical-squad", "veteran-assault-squad", "dreadwing-interemptor-squad", "seeker-squad"],
-      "option": { "id": "da-unforgiven-blade", "kind": "one", "modelType": "Sergeant", "text": "The Sergeant may take an Unforgiven blade",
-        "choices": [ { "name": "Unforgiven blade", "points": 10 } ] } },
-    { "units": ["outrider-squadron"],
-      "option": { "id": "da-outrider-lance", "kind": "perModel", "model": "Outrider", "replaces": ["Chainsword"], "text": "Any Outrider may exchange their chainsword for",
-        "choices": [ { "name": "Ravenwing hunting lance", "points": 8 } ] } },
-    { "units": ["outrider-squadron", "scimitar-jetbike-squadron"],
-      "option": { "id": "da-ravenwing-sergeant-lance", "kind": "one", "modelType": "Sergeant", "replaces": ["Chainsword"], "text": "The Sergeant may exchange their chainsword for",
-        "choices": [ { "name": "Ravenwing hunting lance", "points": 10 } ] } },
-    { "units": ["seeker-squad"],
-      "option": { "id": "da-seeker-carbine", "kind": "perModel", "model": "Seeker", "max": 2, "replaces": ["Kraken bolter"], "text": "Up to two Seekers may exchange their Kraken bolter for",
-        "choices": [ { "name": "Marksman's carbine", "points": 8 } ] } },
-    { "units": ["scout-squad"],
-      "option": { "id": "da-scout-carbine", "kind": "perModel", "model": "Scout", "max": 2, "replaces": ["Bolter"], "text": "Up to two Scouts may exchange their bolter for",
-        "choices": [ { "name": "Marksman's carbine", "points": 8 } ] } },
-    { "units": ["cataphractii-terminator-squad"],
-      "option": { "id": "da-cataphractii-greatsword", "kind": "perModel", "model": "Cataphractii Terminator", "text": "Any Cataphractii Terminator may take a Terranic greatsword",
-        "choices": [ { "name": "Terranic greatsword", "points": 8 } ] } },
-    { "units": ["tartaros-terminator-squad"],
-      "option": { "id": "da-tartaros-warblade", "kind": "perModel", "model": "Tartaros Terminator", "text": "Any Tartaros Terminator may take a Calibanite Warblade",
-        "choices": [ { "name": "Calibanite Warblade", "points": 5 } ] } },
-    { "units": ["deathwing-companion-detachment", "cataphractii-terminator-deathwing-companions", "tartaros-terminator-deathwing-companions", "inner-circle-knights-cenobium", "inner-circle-knights-cenobium-order-of-the-broken-claws", "cataphractii-terminator-squad", "tartaros-terminator-squad", "saturnine-terminator-squad"],
-      "option": { "id": "da-oath-standard", "kind": "upgrade", "model": null, "text": "The unit may carry a Deathwing oath-standard",
-        "choices": [ { "name": "Deathwing oath-standard", "points": 20 } ] } },
-    { "units": ["outrider-squadron", "scimitar-jetbike-squadron", "seeker-squad", "scout-squad"],
-      "option": { "id": "da-veil-field", "kind": "upgrade", "model": null, "text": "The unit may be fitted with a Ravenwing veil-field",
-        "choices": [ { "name": "Ravenwing veil-field", "points": 10 } ] } }
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "assault-squad",
+        "breacher-squad",
+        "heavy-support-squad",
+        "veteran-tactical-squad",
+        "veteran-assault-squad",
+        "dreadwing-interemptor-squad",
+        "seeker-squad"
+      ],
+      "option": {
+        "id": "da-unforgiven-blade",
+        "kind": "one",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may take an Unforgiven blade",
+        "choices": [
+          {
+            "name": "Unforgiven blade",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "outrider-squadron"
+      ],
+      "option": {
+        "id": "da-outrider-lance",
+        "kind": "perModel",
+        "model": "Outrider",
+        "replaces": [
+          "Chainsword"
+        ],
+        "text": "Any Outrider may exchange their chainsword for",
+        "choices": [
+          {
+            "name": "Ravenwing hunting lance",
+            "points": 8
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "outrider-squadron",
+        "scimitar-jetbike-squadron"
+      ],
+      "option": {
+        "id": "da-ravenwing-sergeant-lance",
+        "kind": "one",
+        "modelType": "Sergeant",
+        "replaces": [
+          "Chainsword"
+        ],
+        "text": "The Sergeant may exchange their chainsword for",
+        "choices": [
+          {
+            "name": "Ravenwing hunting lance",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "seeker-squad"
+      ],
+      "option": {
+        "id": "da-seeker-carbine",
+        "kind": "perModel",
+        "model": "Seeker",
+        "max": 2,
+        "replaces": [
+          "Kraken bolter"
+        ],
+        "text": "Up to two Seekers may exchange their Kraken bolter for",
+        "choices": [
+          {
+            "name": "Marksman's carbine",
+            "points": 8
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "scout-squad"
+      ],
+      "option": {
+        "id": "da-scout-carbine",
+        "kind": "perModel",
+        "model": "Scout",
+        "max": 2,
+        "replaces": [
+          "Bolter"
+        ],
+        "text": "Up to two Scouts may exchange their bolter for",
+        "choices": [
+          {
+            "name": "Marksman's carbine",
+            "points": 8
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "cataphractii-terminator-squad"
+      ],
+      "option": {
+        "id": "da-cataphractii-greatsword",
+        "kind": "perModel",
+        "model": "Cataphractii Terminator",
+        "text": "Any Cataphractii Terminator may take a Terranic greatsword",
+        "choices": [
+          {
+            "name": "Terranic greatsword",
+            "points": 8
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tartaros-terminator-squad"
+      ],
+      "option": {
+        "id": "da-tartaros-warblade",
+        "kind": "perModel",
+        "model": "Tartaros Terminator",
+        "text": "Any Tartaros Terminator may take a Calibanite Warblade",
+        "choices": [
+          {
+            "name": "Calibanite Warblade",
+            "points": 5
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "deathwing-companion-detachment",
+        "cataphractii-terminator-deathwing-companions",
+        "tartaros-terminator-deathwing-companions",
+        "inner-circle-knights-cenobium",
+        "inner-circle-knights-cenobium-order-of-the-broken-claws",
+        "cataphractii-terminator-squad",
+        "tartaros-terminator-squad",
+        "saturnine-terminator-squad"
+      ],
+      "option": {
+        "id": "da-oath-standard",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The unit may carry a Deathwing oath-standard",
+        "choices": [
+          {
+            "name": "Deathwing oath-standard",
+            "points": 20
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "outrider-squadron",
+        "scimitar-jetbike-squadron",
+        "seeker-squad",
+        "scout-squad"
+      ],
+      "option": {
+        "id": "da-veil-field",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The unit may be fitted with a Ravenwing veil-field",
+        "choices": [
+          {
+            "name": "Ravenwing veil-field",
+            "points": 10
+          }
+        ]
+      }
+    }
   ],
   "modifiers": [
-    { "units": ["inner-circle-knights-cenobium", "inner-circle-knights-cenobium-order-of-the-broken-claws"], "text": "Sworn to silence: +1 WS, -1 CL.", "stats": { "WS": "+1", "CL": "-1" } },
-    { "units": ["firewing-enigmatus-cabal"], "text": "Veiled hunters: +1 BS, -1 LD.", "stats": { "BS": "+1", "LD": "-1" } },
-    { "units": ["dreadwing-interemptor-squad"], "text": "Rad-hardened gunners: +1 BS, -1 I.", "stats": { "BS": "+1", "I": "-1" } },
-    { "units": ["outrider-squadron", "scimitar-jetbike-squadron"], "text": "Ravenwing speed: +1 M, -1 WP.", "stats": { "M": "+1", "WP": "-1" } },
-    { "units": ["cataphractii-terminator-squad", "tartaros-terminator-squad", "saturnine-terminator-squad"], "text": "Heirs to the Lion's guard: +1 WP, -1 I.", "stats": { "WP": "+1", "I": "-1" } },
-    { "units": ["*"], "item": "Deathwing oath-standard", "scope": "unit", "text": "Deathwing oath-standard: +1 WP, +1 LD.", "stats": { "WP": "+1", "LD": "+1" } },
-    { "units": ["*"], "item": "Ravenwing veil-field", "scope": "unit", "text": "Ravenwing veil-field: Shrouded (6+).", "addRules": ["Shrouded (6+)"] }
+    {
+      "units": [
+        "inner-circle-knights-cenobium",
+        "inner-circle-knights-cenobium-order-of-the-broken-claws"
+      ],
+      "text": "Sworn to silence: +1 WS, -1 CL.",
+      "stats": {
+        "WS": "+1",
+        "CL": "-1"
+      }
+    },
+    {
+      "units": [
+        "firewing-enigmatus-cabal"
+      ],
+      "text": "Veiled hunters: +1 BS, -1 LD.",
+      "stats": {
+        "BS": "+1",
+        "LD": "-1"
+      }
+    },
+    {
+      "units": [
+        "dreadwing-interemptor-squad"
+      ],
+      "text": "Rad-hardened gunners: +1 BS, -1 I.",
+      "stats": {
+        "BS": "+1",
+        "I": "-1"
+      }
+    },
+    {
+      "units": [
+        "outrider-squadron",
+        "scimitar-jetbike-squadron"
+      ],
+      "text": "Ravenwing speed: +1 M, -1 WP.",
+      "stats": {
+        "M": "+1",
+        "WP": "-1"
+      }
+    },
+    {
+      "units": [
+        "cataphractii-terminator-squad",
+        "tartaros-terminator-squad",
+        "saturnine-terminator-squad"
+      ],
+      "text": "Heirs to the Lion's guard: +1 WP, -1 I.",
+      "stats": {
+        "WP": "+1",
+        "I": "-1"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Deathwing oath-standard",
+      "scope": "unit",
+      "text": "Deathwing oath-standard: +1 WP, +1 LD.",
+      "stats": {
+        "WP": "+1",
+        "LD": "+1"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Ravenwing veil-field",
+      "scope": "unit",
+      "text": "Ravenwing veil-field: Shrouded (6+).",
+      "addRules": [
+        "Shrouded (6+)"
+      ]
+    }
   ],
   "rites": [
     {
       "name": "Oath of the Deathwing",
       "flavor": "The first company keeps its secrets in plate that no blade has yet answered.",
-      "text": "Cataphractii, Tartaros and Saturnine Terminator Squads may fill Troops slots and gain Line (1). Every Terminator squad and Deathwing Companion detachment gains +1 Willpower. The Deathwing marches alone: no Antigrav units, no Fast Attack units, and no more than one Armour unit. At least two Terminator squads are required.",
-      "roles": [ { "units": ["cataphractii-terminator-squad", "tartaros-terminator-squad", "saturnine-terminator-squad"], "role": "Troops" } ],
-      "modifiers": [
-        { "units": ["cataphractii-terminator-squad", "tartaros-terminator-squad", "saturnine-terminator-squad"], "text": "Oath of the Deathwing: Line (1).", "addRules": ["Line (1)"] },
-        { "units": ["cataphractii-terminator-squad", "tartaros-terminator-squad", "saturnine-terminator-squad", "deathwing-companion-detachment", "cataphractii-terminator-deathwing-companions", "tartaros-terminator-deathwing-companions"], "text": "Oath of the Deathwing: +1 WP.", "stats": { "WP": "+1" } }
+      "benefits": [
+        "Cataphractii, Tartaros and Saturnine Terminator Squads may fill Troops slots and gain Line (1).",
+        "Every Terminator squad and Deathwing Companion detachment gains +1 Willpower.",
+        "Terminator squads gain Deathwing Assault: Deep Strike."
       ],
-      "require": [ { "units": ["cataphractii-terminator-squad", "tartaros-terminator-squad", "saturnine-terminator-squad"], "min": 2, "note": "Bring at least two Terminator squads." } ],
-      "forbid": [ { "match": { "unitType": "Antigrav" } }, { "match": { "role": "Fast Attack" } } ],
-      "limit": [ { "match": { "role": "Armour" }, "max": 1, "note": "At most one Armour unit." } ]
+      "limitations": [
+        "At least two Terminator squads are required.",
+        "No Antigrav or Fast Attack units, and at most one Armour unit.",
+        "At least half of the army's Terminator squads (rounded up) must start in Reserve."
+      ],
+      "roles": [
+        {
+          "units": [
+            "cataphractii-terminator-squad",
+            "tartaros-terminator-squad",
+            "saturnine-terminator-squad"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "cataphractii-terminator-squad",
+            "tartaros-terminator-squad",
+            "saturnine-terminator-squad"
+          ],
+          "min": 2,
+          "note": "Bring at least two Terminator squads."
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "unitType": "Antigrav"
+          }
+        },
+        {
+          "match": {
+            "role": "Fast Attack"
+          }
+        }
+      ],
+      "limit": [
+        {
+          "match": {
+            "role": "Armour"
+          },
+          "max": 1,
+          "note": "At most one Armour unit."
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "cataphractii-terminator-squad",
+            "tartaros-terminator-squad",
+            "saturnine-terminator-squad"
+          ],
+          "text": "Oath of the Deathwing: Deathwing Assault, Deep Strike, Line (1).",
+          "addRules": [
+            "Deathwing Assault",
+            "Deep Strike",
+            "Line (1)"
+          ]
+        },
+        {
+          "units": [
+            "cataphractii-terminator-squad",
+            "tartaros-terminator-squad",
+            "saturnine-terminator-squad",
+            "deathwing-companion-detachment",
+            "cataphractii-terminator-deathwing-companions",
+            "tartaros-terminator-deathwing-companions"
+          ],
+          "text": "Oath of the Deathwing: +1 WP.",
+          "stats": {
+            "WP": "+1"
+          }
+        }
+      ]
     },
     {
       "name": "The Wings Unbroken",
       "flavor": "Black-armoured riders ahead of the Host, and no one asks where they ride to.",
-      "text": "Outrider Squadrons, Scimitar Jetbike Squadrons and Land Speeder Squadrons may fill Troops slots and gain Line (1). Every Cavalry unit gains Fast (1). The Wings leave the heavy iron behind: no Heavy Assault, Armour, Heavy Transport or War Engine units. At least two Outrider or Scimitar squadrons are required.",
-      "roles": [ { "units": ["outrider-squadron", "scimitar-jetbike-squadron", "land-speeder-squadron"], "role": "Troops" } ],
-      "modifiers": [
-        { "units": ["outrider-squadron", "scimitar-jetbike-squadron", "land-speeder-squadron"], "text": "The Wings Unbroken: Line (1).", "addRules": ["Line (1)"] },
-        { "match": { "unitType": "Cavalry" }, "text": "The Wings Unbroken: Fast (1).", "addRules": ["Fast (1)"] }
+      "benefits": [
+        "Outrider, Scimitar Jetbike and Land Speeder Squadrons may fill Troops slots and gain Line (1).",
+        "Every Cavalry unit gains Fast (1).",
+        "Those squadrons gain Wings of Night: Outflank."
       ],
-      "require": [ { "units": ["outrider-squadron", "scimitar-jetbike-squadron"], "min": 2, "note": "Bring at least two Outrider or Scimitar squadrons." } ],
-      "forbid": [ { "match": { "roles": ["Heavy Assault", "Armour", "Heavy Transport", "War Engine"] } } ]
+      "limitations": [
+        "At least two Outrider or Scimitar squadrons are required.",
+        "No Heavy Assault, Armour, Heavy Transport or War Engine units.",
+        "Squadrons with Wings of Night may not Charge in the first turn."
+      ],
+      "roles": [
+        {
+          "units": [
+            "outrider-squadron",
+            "scimitar-jetbike-squadron",
+            "land-speeder-squadron"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "outrider-squadron",
+            "scimitar-jetbike-squadron"
+          ],
+          "min": 2,
+          "note": "Bring at least two Outrider or Scimitar squadrons."
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "roles": [
+              "Heavy Assault",
+              "Armour",
+              "Heavy Transport",
+              "War Engine"
+            ]
+          }
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "outrider-squadron",
+            "scimitar-jetbike-squadron",
+            "land-speeder-squadron"
+          ],
+          "text": "The Wings Unbroken: Wings of Night, Outflank, Line (1).",
+          "addRules": [
+            "Wings of Night",
+            "Outflank",
+            "Line (1)"
+          ]
+        },
+        {
+          "match": {
+            "unitType": "Cavalry"
+          },
+          "text": "The Wings Unbroken: Fast (1).",
+          "addRules": [
+            "Fast (1)"
+          ]
+        }
+      ]
     },
     {
       "name": "Secrets Kept in Silence",
       "flavor": "What the hunters find, they never report. What they were hunting, they never name.",
-      "text": "Seeker Squads, Scout Squads and Firewing Enigmatus Cabals may fill Troops slots. They gain +1 Ballistic Skill and Shrouded (6+). The hunt cannot be loud: no Lord of War, Armour, Heavy Transport or War Engine units. At least one Seeker Squad is required.",
-      "roles": [ { "units": ["seeker-squad", "scout-squad", "firewing-enigmatus-cabal"], "role": "Troops" } ],
-      "modifiers": [ { "units": ["seeker-squad", "scout-squad", "firewing-enigmatus-cabal"], "text": "Secrets Kept in Silence: +1 BS, Shrouded (6+).", "stats": { "BS": "+1" }, "addRules": ["Shrouded (6+)"] } ],
-      "require": [ { "units": ["seeker-squad"], "min": 1, "note": "Bring at least one Seeker Squad." } ],
-      "forbid": [ { "match": { "roles": ["Lord of War", "Armour", "Heavy Transport", "War Engine"] } } ]
+      "benefits": [
+        "Seeker Squads, Scout Squads and Firewing Enigmatus Cabals may fill Troops slots and gain Shrouded (6+).",
+        "Those units gain Silent Hunt: Infiltrate (6)."
+      ],
+      "limitations": [
+        "At least one Seeker Squad is required.",
+        "No Lord of War, Armour, Heavy Transport or War Engine units.",
+        "Units with Silent Hunt may not make Charges in the first battle turn."
+      ],
+      "roles": [
+        {
+          "units": [
+            "seeker-squad",
+            "scout-squad",
+            "firewing-enigmatus-cabal"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "seeker-squad"
+          ],
+          "min": 1,
+          "note": "Bring at least one Seeker Squad."
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "roles": [
+              "Lord of War",
+              "Armour",
+              "Heavy Transport",
+              "War Engine"
+            ]
+          }
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "seeker-squad",
+            "scout-squad",
+            "firewing-enigmatus-cabal"
+          ],
+          "text": "Secrets Kept in Silence: Silent Hunt, Infiltrate (6), Shrouded (6+).",
+          "addRules": [
+            "Silent Hunt",
+            "Infiltrate (6)",
+            "Shrouded (6+)"
+          ]
+        }
+      ]
     },
     {
       "name": "The Inner Circle Convenes",
       "flavor": "When the Order takes the field, nobody else is given the honour of holding it.",
-      "text": "Inner Circle Knights squads may fill Troops slots, cost 25 points less and gain Line (1) and +1 Leadership. No rank and file stand beside them: no Tactical, Despoiler, Assault, Breacher or Inductii Squads. At least two Inner Circle Knights squads are required.",
-      "roles": [ { "units": ["inner-circle-knights-cenobium", "inner-circle-knights-cenobium-order-of-the-broken-claws"], "role": "Troops" } ],
-      "points": [ { "units": ["inner-circle-knights-cenobium", "inner-circle-knights-cenobium-order-of-the-broken-claws"], "delta": -25 } ],
-      "modifiers": [ { "units": ["inner-circle-knights-cenobium", "inner-circle-knights-cenobium-order-of-the-broken-claws"], "text": "The Inner Circle Convenes: Line (1), +1 LD.", "stats": { "LD": "+1" }, "addRules": ["Line (1)"] } ],
-      "require": [ { "units": ["inner-circle-knights-cenobium", "inner-circle-knights-cenobium-order-of-the-broken-claws"], "min": 2, "note": "Bring at least two Inner Circle Knights squads." } ],
-      "forbid": [ { "units": ["tactical-squad", "despoiler-squad", "assault-squad", "breacher-squad", "inductii-squad"] } ]
+      "benefits": [
+        "Inner Circle Knights squads may fill Troops slots and gain Line (1) and +1 Leadership.",
+        "They gain Inner Circle Mandate: failed Cool Checks may be re-rolled, and friendly Dark Angels units within 6\" add +1 to their Leadership."
+      ],
+      "limitations": [
+        "At least two Inner Circle Knights squads are required.",
+        "No Tactical, Despoiler, Assault, Breacher or Inductii Squads."
+      ],
+      "roles": [
+        {
+          "units": [
+            "inner-circle-knights-cenobium",
+            "inner-circle-knights-cenobium-order-of-the-broken-claws"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "inner-circle-knights-cenobium",
+            "inner-circle-knights-cenobium-order-of-the-broken-claws"
+          ],
+          "min": 2,
+          "note": "Bring at least two Inner Circle Knights squads."
+        }
+      ],
+      "forbid": [
+        {
+          "units": [
+            "tactical-squad",
+            "despoiler-squad",
+            "assault-squad",
+            "breacher-squad",
+            "inductii-squad"
+          ]
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "inner-circle-knights-cenobium",
+            "inner-circle-knights-cenobium-order-of-the-broken-claws"
+          ],
+          "text": "The Inner Circle Convenes: Inner Circle Mandate, Line (1).",
+          "stats": {
+            "LD": "+1"
+          },
+          "addRules": [
+            "Inner Circle Mandate",
+            "Line (1)"
+          ]
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "name": "Deathwing Assault",
+      "text": "Legacy house rule (Oath of the Deathwing). A unit with this rule gains Deep Strike. At least half of the army's units with this rule (rounded up) must start the battle in Reserve."
+    },
+    {
+      "name": "Wings of Night",
+      "text": "Legacy house rule (The Wings Unbroken). A unit with this rule gains Outflank. It may not make a Charge in the first battle turn."
+    },
+    {
+      "name": "Silent Hunt",
+      "text": "Legacy house rule (Secrets Kept in Silence). A unit with this rule gains Infiltrate (6), but may not make a Charge in the first battle turn."
+    },
+    {
+      "name": "Inner Circle Mandate",
+      "text": "Legacy house rule (The Inner Circle Convenes). A unit with this rule may re-roll failed Cool Checks, and every other friendly Dark Angels unit within 6\" adds +1 to its Leadership."
     }
   ]
 }

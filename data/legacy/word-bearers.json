@@ -1,88 +1,569 @@
 {
   "weapons": {
     "ranged": [
-      { "name": "Warp-etched pistol", "R": 12, "FP": 2, "RS": 5, "AP": 4, "D": 1, "specialRules": ["Pistol", "Panic (1)"], "traits": ["Assault"] }
+      {
+        "name": "Warp-etched pistol",
+        "R": 12,
+        "FP": 2,
+        "RS": 5,
+        "AP": 4,
+        "D": 1,
+        "specialRules": [
+          "Pistol",
+          "Panic (1)"
+        ],
+        "traits": [
+          "Assault"
+        ]
+      }
     ],
     "melee": [
-      { "name": "Gospel-maul", "IM": -1, "AM": "A", "SM": "+2", "AP": 3, "D": 1, "specialRules": ["Breaching (5+)"], "traits": ["Power"] },
-      { "name": "Pyre-forged axe-rake", "IM": "I", "AM": "A", "SM": "+1", "AP": 3, "D": 1, "specialRules": ["Critical Hit (5+)", "Panic (1)"], "traits": ["Chain", "Flame"] }
+      {
+        "name": "Gospel-maul",
+        "IM": -1,
+        "AM": "A",
+        "SM": "+2",
+        "AP": 3,
+        "D": 1,
+        "specialRules": [
+          "Breaching (5+)"
+        ],
+        "traits": [
+          "Power"
+        ]
+      },
+      {
+        "name": "Pyre-forged axe-rake",
+        "IM": "I",
+        "AM": "A",
+        "SM": "+1",
+        "AP": 3,
+        "D": 1,
+        "specialRules": [
+          "Critical Hit (5+)",
+          "Panic (1)"
+        ],
+        "traits": [
+          "Chain",
+          "Flame"
+        ]
+      }
     ]
   },
   "wargear": [
-    { "name": "Icon of the Word", "text": "Legacy house rule. A reliquary-banner scrolled with the Lectitio Divinitatus, carried at the head of the line. Every model in the unit gains Fear (1) and +1 Willpower." },
-    { "name": "Censer of Ruin", "text": "Legacy house rule. A swinging brazier of smoking ash and sacred oils whose stink unmans those who breathe it. The model gains Fear (1) but loses 1 Movement from the weight of the chain." },
-    { "name": "Possession-brand", "text": "Legacy house rule. A ritual scar-pattern that lets the thing within the armour take the blow in the warrior's place. The model gains a 6+ Invulnerable Save if it had none." }
+    {
+      "name": "Icon of the Word",
+      "text": "Legacy house rule. A reliquary-banner scrolled with the Lectitio Divinitatus, carried at the head of the line. Every model in the unit gains Fear (1) and +1 Willpower."
+    },
+    {
+      "name": "Censer of Ruin",
+      "text": "Legacy house rule. A swinging brazier of smoking ash and sacred oils whose stink unmans those who breathe it. The model gains Fear (1) but loses 1 Movement from the weight of the chain."
+    },
+    {
+      "name": "Possession-brand",
+      "text": "Legacy house rule. A ritual scar-pattern that lets the thing within the armour take the blow in the warrior's place. The model gains a 6+ Invulnerable Save if it had none."
+    }
   ],
   "options": [
-    { "units": ["tactical-squad", "despoiler-squad", "veteran-tactical-squad", "assault-squad", "breacher-squad", "veteran-assault-squad"], "optionalUnits": true,
-      "option": { "id": "wb-gospel-maul", "kind": "upgrade", "modelType": "Sergeant", "text": "The Sergeant may carry a Gospel-maul",
-        "choices": [ { "name": "Gospel-maul", "points": 10 } ] } },
-    { "units": ["tactical-squad", "despoiler-squad", "veteran-tactical-squad"], "optionalUnits": true,
-      "option": { "id": "wb-sergeant-pistol", "kind": "one", "modelType": "Sergeant", "replaces": ["Bolt pistol"], "text": "The Sergeant may exchange their bolt pistol for",
-        "choices": [ { "name": "Akkadic hand flamer", "points": 5 }, { "name": "Warp-etched pistol", "points": 8 } ] } },
-    { "units": ["ashen-circle"], "optionalUnits": true,
-      "option": { "id": "wb-ashen-axe-rakes", "kind": "perModel", "model": "Incendiary", "replaces": ["Axe-rake"], "text": "Any Incendiary may exchange their axe-rake for",
-        "choices": [ { "name": "Pyre-forged axe-rake", "points": 5 } ] } },
-    { "units": ["tactical-squad", "despoiler-squad", "assault-squad", "veteran-tactical-squad", "veteran-assault-squad", "inductii-squad", "ashen-circle"], "optionalUnits": true,
-      "option": { "id": "wb-word-icon", "kind": "upgrade", "model": null, "text": "The unit may carry an Icon of the Word",
-        "choices": [ { "name": "Icon of the Word", "points": 25 } ] } },
-    { "units": ["chaplain", "chaplain-with-jump-pack", "mounted-chaplain", "chaplain-in-terminator-armour", "diabolist", "diabolist-in-terminator-armour", "mounted-diabolist"], "optionalUnits": true,
-      "option": { "id": "wb-censer", "kind": "upgrade", "modelType": "Command", "text": "May carry a Censer of Ruin",
-        "choices": [ { "name": "Censer of Ruin", "points": 15 } ] } },
-    { "units": ["gal-vorbak"], "optionalUnits": true,
-      "option": { "id": "wb-possession-brand", "kind": "perModel", "model": "Dark Brethren", "text": "Any Dark Brethren may bear a Possession-brand",
-        "choices": [ { "name": "Possession-brand", "points": 10 } ] } }
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "veteran-tactical-squad",
+        "assault-squad",
+        "breacher-squad",
+        "veteran-assault-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "wb-gospel-maul",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may carry a Gospel-maul",
+        "choices": [
+          {
+            "name": "Gospel-maul",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "veteran-tactical-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "wb-sergeant-pistol",
+        "kind": "one",
+        "modelType": "Sergeant",
+        "replaces": [
+          "Bolt pistol"
+        ],
+        "text": "The Sergeant may exchange their bolt pistol for",
+        "choices": [
+          {
+            "name": "Akkadic hand flamer",
+            "points": 5
+          },
+          {
+            "name": "Warp-etched pistol",
+            "points": 8
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "ashen-circle"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "wb-ashen-axe-rakes",
+        "kind": "perModel",
+        "model": "Incendiary",
+        "replaces": [
+          "Axe-rake"
+        ],
+        "text": "Any Incendiary may exchange their axe-rake for",
+        "choices": [
+          {
+            "name": "Pyre-forged axe-rake",
+            "points": 5
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "assault-squad",
+        "veteran-tactical-squad",
+        "veteran-assault-squad",
+        "inductii-squad",
+        "ashen-circle"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "wb-word-icon",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The unit may carry an Icon of the Word",
+        "choices": [
+          {
+            "name": "Icon of the Word",
+            "points": 25
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "chaplain",
+        "chaplain-with-jump-pack",
+        "mounted-chaplain",
+        "chaplain-in-terminator-armour",
+        "diabolist",
+        "diabolist-in-terminator-armour",
+        "mounted-diabolist"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "wb-censer",
+        "kind": "upgrade",
+        "modelType": "Command",
+        "text": "May carry a Censer of Ruin",
+        "choices": [
+          {
+            "name": "Censer of Ruin",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "gal-vorbak"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "wb-possession-brand",
+        "kind": "perModel",
+        "model": "Dark Brethren",
+        "text": "Any Dark Brethren may bear a Possession-brand",
+        "choices": [
+          {
+            "name": "Possession-brand",
+            "points": 10
+          }
+        ]
+      }
+    }
   ],
   "modifiers": [
-    { "units": ["tactical-squad", "despoiler-squad", "assault-squad", "breacher-squad", "veteran-tactical-squad", "veteran-assault-squad"], "models": ["Sergeant", "Veteran Sergeant"], "text": "Lector-trained sergeants: +1 WP, -1 IN.", "stats": { "WP": "+1", "IN": "-1" } },
-    { "units": ["inductii-squad"], "text": "Zealot-recruits: +1 WP, -1 WS.", "stats": { "WP": "+1", "WS": "-1" } },
-    { "units": ["gal-vorbak"], "text": "Possessed fury: +1 I, -1 CL.", "stats": { "I": "+1", "CL": "-1" } },
-    { "units": ["ashen-circle"], "text": "Fire-hungry zeal: +1 A, -1 T.", "stats": { "A": "+1", "T": "-1" } },
-    { "units": ["phraetus-anointed-conclave"], "text": "Wreathed in warp-fire: +1 WP, -1 I.", "stats": { "WP": "+1", "I": "-1" } },
-    { "units": ["procurators", "procurators-with-jump-packs"], "text": "Practised in rites, not battle: +1 LD, -1 BS.", "stats": { "LD": "+1", "BS": "-1" } },
-    { "units": ["*"], "item": "Icon of the Word", "scope": "unit", "text": "Icon of the Word: Fear (1), +1 WP.", "stats": { "WP": "+1" }, "addRules": ["Fear (1)"] },
-    { "units": ["*"], "item": "Censer of Ruin", "text": "Censer of Ruin: Fear (1), -1 M.", "stats": { "M": "-1" }, "addRules": ["Fear (1)"] },
-    { "units": ["*"], "item": "Possession-brand", "text": "Possession-brand: 6+ Invulnerable Save.", "stats": { "INV": "best:6+" } }
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "assault-squad",
+        "breacher-squad",
+        "veteran-tactical-squad",
+        "veteran-assault-squad"
+      ],
+      "models": [
+        "Sergeant",
+        "Veteran Sergeant"
+      ],
+      "text": "Lector-trained sergeants: +1 WP, -1 IN.",
+      "stats": {
+        "WP": "+1",
+        "IN": "-1"
+      }
+    },
+    {
+      "units": [
+        "inductii-squad"
+      ],
+      "text": "Zealot-recruits: +1 WP, -1 WS.",
+      "stats": {
+        "WP": "+1",
+        "WS": "-1"
+      }
+    },
+    {
+      "units": [
+        "gal-vorbak"
+      ],
+      "text": "Possessed fury: +1 I, -1 CL.",
+      "stats": {
+        "I": "+1",
+        "CL": "-1"
+      }
+    },
+    {
+      "units": [
+        "ashen-circle"
+      ],
+      "text": "Fire-hungry zeal: +1 A, -1 T.",
+      "stats": {
+        "A": "+1",
+        "T": "-1"
+      }
+    },
+    {
+      "units": [
+        "phraetus-anointed-conclave"
+      ],
+      "text": "Wreathed in warp-fire: +1 WP, -1 I.",
+      "stats": {
+        "WP": "+1",
+        "I": "-1"
+      }
+    },
+    {
+      "units": [
+        "procurators",
+        "procurators-with-jump-packs"
+      ],
+      "text": "Practised in rites, not battle: +1 LD, -1 BS.",
+      "stats": {
+        "LD": "+1",
+        "BS": "-1"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Icon of the Word",
+      "scope": "unit",
+      "text": "Icon of the Word: Fear (1), +1 WP.",
+      "stats": {
+        "WP": "+1"
+      },
+      "addRules": [
+        "Fear (1)"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Censer of Ruin",
+      "text": "Censer of Ruin: Fear (1), -1 M.",
+      "stats": {
+        "M": "-1"
+      },
+      "addRules": [
+        "Fear (1)"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Possession-brand",
+      "text": "Possession-brand: 6+ Invulnerable Save.",
+      "stats": {
+        "INV": "best:6+"
+      }
+    }
   ],
   "rites": [
     {
       "name": "Unyielding Faith",
       "flavor": "A Legion that believes cannot be convinced to leave the field.",
-      "text": "Every non-vehicle model gains +1 Willpower and +1 Leadership, and Inductii Squads cost 10 points less. The army must include at least one Chaplain or Diabolist, and has no use for the Mechanicum: no Techmarines, Forge Lords, Thallax, Castellax, Domitar, Thanatar, Vorax or Vultarax.",
-      "points": [ { "units": ["inductii-squad"], "delta": -10 } ],
-      "modifiers": [ { "match": { "notUnitType": "Vehicle" }, "text": "Unyielding Faith: +1 WP, +1 LD.", "stats": { "WP": "+1", "LD": "+1" } } ],
-      "require": [ { "units": ["chaplain", "chaplain-with-jump-pack", "mounted-chaplain", "chaplain-in-terminator-armour", "diabolist", "diabolist-in-terminator-armour", "mounted-diabolist"], "min": 1, "note": "A Chaplain or Diabolist must lead the faithful." } ],
-      "forbid": [ { "units": ["techmarine", "forge-lord", "mounted-forge-lord", "forge-lord-in-terminator-armour", "thallax-cohort", "castellax-battle-maniple", "castellax-destructor-maniple", "domitar-battle-maniple", "thanatar-siege-maniple", "vorax-attack-maniple", "vultarax-stratos-squadron"] } ]
+      "benefits": [
+        "Every non-vehicle model gains +1 Willpower and +1 Leadership.",
+        "Chaplains and Diabolists gain Litany of Resolve: friendly units within 12\" automatically pass Morale and Pinning checks."
+      ],
+      "limitations": [
+        "At least two Chaplains or Diabolists must be in the army.",
+        "No Techmarines, Forge Lords, Thallax, Castellax, Domitar, Thanatar, Vorax or Vultarax."
+      ],
+      "modifiers": [
+        {
+          "match": {
+            "notUnitType": "Vehicle"
+          },
+          "text": "Unyielding Faith: +1 WP, +1 LD.",
+          "stats": {
+            "WP": "+1",
+            "LD": "+1"
+          }
+        },
+        {
+          "units": [
+            "chaplain",
+            "chaplain-with-jump-pack",
+            "mounted-chaplain",
+            "chaplain-in-terminator-armour",
+            "diabolist",
+            "diabolist-in-terminator-armour",
+            "mounted-diabolist"
+          ],
+          "text": "Unyielding Faith: Litany of Resolve.",
+          "addRules": [
+            "Litany of Resolve"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "chaplain",
+            "chaplain-with-jump-pack",
+            "mounted-chaplain",
+            "chaplain-in-terminator-armour",
+            "diabolist",
+            "diabolist-in-terminator-armour",
+            "mounted-diabolist"
+          ],
+          "min": 2,
+          "note": "At least two Chaplains or Diabolists lead the faithful."
+        }
+      ],
+      "forbid": [
+        {
+          "units": [
+            "techmarine",
+            "forge-lord",
+            "mounted-forge-lord",
+            "forge-lord-in-terminator-armour",
+            "thallax-cohort",
+            "castellax-battle-maniple",
+            "castellax-destructor-maniple",
+            "domitar-battle-maniple",
+            "thanatar-siege-maniple",
+            "vorax-attack-maniple",
+            "vultarax-stratos-squadron"
+          ]
+        }
+      ]
     },
     {
       "name": "The Possessed Host",
       "flavor": "The Legion swore it would never take the warp as a weapon. Then it did.",
-      "text": "Gal Vorbak Dark Brethren may fill Troops slots and cost 30 points less. Every Malefic unit gains +1 Attack. The Word will not be shared with witches: no model with the Psyker Trait, and no Armour units. At least one Gal Vorbak unit is required.",
-      "roles": [ { "units": ["gal-vorbak"], "role": "Troops" } ],
-      "points": [ { "units": ["gal-vorbak"], "delta": -30 } ],
-      "modifiers": [ { "match": { "unitType": "Malefic", "notUnitType": "Vehicle" }, "text": "The Possessed Host: +1 A.", "stats": { "A": "+1" } } ],
-      "require": [ { "units": ["gal-vorbak"], "min": 1, "note": "Bring at least one Gal Vorbak unit." } ],
-      "forbid": [ { "match": { "trait": "Psyker" } }, { "match": { "role": "Armour" } } ]
+      "benefits": [
+        "Gal Vorbak Dark Brethren may fill Troops slots.",
+        "Gal Vorbak gain Fear (1) and Daemonic Vessels: on a turn they Charge they gain Rending (6+) in the Combat."
+      ],
+      "limitations": [
+        "At least one Gal Vorbak unit is required, and Gal Vorbak units must charge the closest enemy unit they can reach.",
+        "No model with the Psyker Trait, and no Armour units."
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "gal-vorbak"
+          ],
+          "text": "The Possessed Host: Fear (1), Daemonic Vessels.",
+          "addRules": [
+            "Fear (1)",
+            "Daemonic Vessels"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "gal-vorbak"
+          ],
+          "min": 1,
+          "note": "Bring at least one Gal Vorbak unit."
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "trait": "Psyker"
+          }
+        },
+        {
+          "match": {
+            "role": "Armour"
+          }
+        }
+      ],
+      "roles": [
+        {
+          "units": [
+            "gal-vorbak"
+          ],
+          "role": "Troops"
+        }
+      ]
     },
     {
       "name": "Sermon from the Sky",
       "flavor": "The preachers come down with fire in their fists and a verse already on their lips.",
-      "text": "Ashen Circle may fill Troops slots and cost 20 points less. Ashen Circle and Assault Squads gain Fast (1). Preaching is not a quiet trade: no Recon, Armour, Support or Heavy Transport units, and at least one Ashen Circle is required.",
-      "roles": [ { "units": ["ashen-circle"], "role": "Troops" } ],
-      "points": [ { "units": ["ashen-circle"], "delta": -20 } ],
-      "modifiers": [ { "units": ["ashen-circle", "assault-squad"], "text": "Sermon from the Sky: Fast (1).", "addRules": ["Fast (1)"] } ],
-      "require": [ { "units": ["ashen-circle"], "min": 1, "note": "Bring at least one Ashen Circle." } ],
-      "forbid": [ { "match": { "roles": ["Recon", "Armour", "Support", "Heavy Transport"] } } ]
+      "benefits": [
+        "Ashen Circle may fill Troops slots.",
+        "Ashen Circle and Assault Squads gain Deep Strike and Descent of the Preachers: on the turn they arrive by Deep Strike they gain Fear (1) until the end of that turn."
+      ],
+      "limitations": [
+        "Every Ashen Circle and Assault Squad must start the battle in Reserve, and at least one Ashen Circle is required.",
+        "No Recon, Armour, Support or Heavy Transport units."
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "ashen-circle",
+            "assault-squad"
+          ],
+          "text": "Sermon from the Sky: Deep Strike, Descent of the Preachers.",
+          "addRules": [
+            "Deep Strike",
+            "Descent of the Preachers"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "ashen-circle"
+          ],
+          "min": 1,
+          "note": "Bring at least one Ashen Circle."
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "roles": [
+              "Recon",
+              "Armour",
+              "Support",
+              "Heavy Transport"
+            ]
+          }
+        }
+      ],
+      "roles": [
+        {
+          "units": [
+            "ashen-circle"
+          ],
+          "role": "Troops"
+        }
+      ]
     },
     {
       "name": "The Indoctrinated Tide",
       "flavor": "Every world conquered leaves ten thousand new converts to feed the next.",
-      "text": "Inductii Squads cost 25 points less and gain +1 Willpower. Procurators may fill Troops slots. The veterans are held back to preach: no Veteran, Terminator or Breacher squads, and at least two Inductii Squads are required.",
-      "roles": [ { "units": ["procurators", "procurators-with-jump-packs"], "role": "Troops" } ],
-      "points": [ { "units": ["inductii-squad"], "delta": -25 } ],
-      "modifiers": [ { "units": ["inductii-squad"], "text": "The Indoctrinated Tide: +1 WP.", "stats": { "WP": "+1" } } ],
-      "require": [ { "units": ["inductii-squad"], "min": 2, "note": "At least two Inductii Squads." } ],
-      "forbid": [ { "match": { "nameIncludes": ["Veteran", "Terminator", "Breacher"] } } ]
+      "benefits": [
+        "Procurators may fill Troops slots.",
+        "Inductii Squads gain +1 Willpower and Tide of Converts: Line (1), and a squad with ten or more models automatically passes Morale checks."
+      ],
+      "limitations": [
+        "At least two Inductii Squads are required.",
+        "No Veteran, Terminator or Breacher squads."
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "inductii-squad"
+          ],
+          "text": "The Indoctrinated Tide: +1 WP, Tide of Converts.",
+          "stats": {
+            "WP": "+1"
+          },
+          "addRules": [
+            "Tide of Converts",
+            "Line (1)"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "inductii-squad"
+          ],
+          "min": 2,
+          "note": "At least two Inductii Squads."
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "nameIncludes": [
+              "Veteran",
+              "Terminator",
+              "Breacher"
+            ]
+          }
+        }
+      ],
+      "roles": [
+        {
+          "units": [
+            "procurators",
+            "procurators-with-jump-packs"
+          ],
+          "role": "Troops"
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "name": "Litany of Resolve",
+      "text": "Legacy house rule (Unyielding Faith). While a friendly Word Bearers unit is within 12\" of a model with this rule, it automatically passes Morale and Pinning checks."
+    },
+    {
+      "name": "Daemonic Vessels",
+      "text": "Legacy house rule (The Possessed Host). A unit with this rule gains Rending (6+) in any Combat in which it made a Charge this turn. It must declare a Charge against the closest enemy unit it can reach whenever it is able to."
+    },
+    {
+      "name": "Descent of the Preachers",
+      "text": "Legacy house rule (Sermon from the Sky). A unit with this rule that arrives by Deep Strike gains Fear (1) until the end of the turn it arrives."
+    },
+    {
+      "name": "Tide of Converts",
+      "text": "Legacy house rule (The Indoctrinated Tide). A unit with this rule gains Line (1) and, while it has ten or more models, automatically passes Morale checks."
     }
   ]
 }
