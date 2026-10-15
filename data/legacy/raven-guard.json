@@ -1120,9 +1120,9 @@
     },
     {
       "name": "Ghost of the Shadow War",
-      "flavor": "The shadow war is fought from the dark, at a distance of the enemy's choosing.",
+      "flavor": "The first the enemy knows of the Raven Guard is the blade.",
       "benefits": [
-        "When an enemy Unit makes a Shooting Attack against a Unit with this Special Rule from more than 18\" away, subtract 1 from the Hit Tests."
+        "When a Unit with this Special Rule declares a Charge against an enemy Unit that had no line of sight to it at the start of that Turn, the target Unit cannot make a Reaction in response to that Charge."
       ],
       "drawbacks": [
         "A Unit with this Special Rule subtracts 1 from the Hit Tests of its own Shooting Attacks made against targets more than 24\" away."
