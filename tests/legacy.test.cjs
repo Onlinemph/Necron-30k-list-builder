@@ -165,3 +165,24 @@ test('a Legacy choice the model already has (or beats) isn\'t offered', () => {
   const term = E.newSelection('cataphractii-terminator-squad');
   assert.ok(!E.optionsOf(term).some((o) => /Artificer/.test(o.text)));
 });
+
+test('Primarchs: an Aspect, relics, and a presence rule that only shows while he\'s in the army', () => {
+  const { D, E, army } = armyOf('world-eaters');
+  legacyOn(army);
+  const tac = place(E, slotOf(army, 'Troops'), 'tactical-squad');
+  E.setArmy(army);
+  const wake = D.armyConfig.fixed.find((r) => r.name === "The Red Angel's Wake");
+  assert.ok(wake && !E.available(wake));
+  assert.ok(!E.effectiveModels(tac)[0].rules.includes("The Red Angel's Wake"));
+  const angron = place(E, army.detachments[0].slots.find((s) => s.role === 'High Command'), 'angron');
+  E.setArmy(army);
+  assert.ok(E.available(wake));
+  assert.ok(E.effectiveModels(tac)[0].rules.includes("The Red Angel's Wake"));
+  const aspect = E.optionsOf(angron).find((o) => /Aspect of the Primarch/.test(o.text));
+  const before = E.effectiveModels(angron)[0].profile.A;
+  angron.options[aspect.id] = 'The Red Angel Unchained';
+  const m = E.effectiveModels(angron)[0];
+  assert.equal(m.profile.A, before + 2);
+  assert.ok(m.rules.includes('The Red Angel Unchained'));
+  assert.equal(E.unitPoints(angron), 450);
+});

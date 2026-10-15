@@ -147,6 +147,14 @@ export function applyLegacy(root, out, army) {
     checkStats(entry.stats, problems, where);
     const units = resolveUnits(out, entry, problems, where);
     if (!units.length) { if (!entry.optionalUnits) problems.push(`${where}: "${entry.text || 'modifier'}" fits no unit`); return; }
+    // a situational modifier is shown as a reminder and not applied, so any rules it adds or removes go
+    // in a modifier of their own that always applies
+    if (entry.condition && ((entry.addRules || []).length || (entry.removeRules || []).length)) {
+      const { condition, stats, ...always } = entry;
+      addModifier(always, when, where, sourceName);
+      addModifier({ ...entry, addRules: [], removeRules: [], optionalUnits: true }, when, where, sourceName);
+      return;
+    }
     out.modifiers.modifiers.push({
       id: uniq(`${sourceName}-${entry.text || 'mod'}`),
       text: entry.text || `${sourceName}.`,
@@ -166,7 +174,11 @@ export function applyLegacy(root, out, army) {
     const tag = file.replace(/^.*\/data\//, 'data/');
     // always-on legacy content (with "Legacy rules")
     for (const [i, e] of (data.options || []).entries()) addOption(e, toggle, `${tag} options[${i}]`);
-    for (const [i, e] of (data.modifiers || []).entries()) addModifier(e, toggle, `${tag} modifiers[${i}]`, e.name || 'Legacy rules');
+    // "whileInArmy": only while one of these units is in the army (a Primarch's presence)
+    const gate = (e, base) => (e.whileInArmy ? { all: [base, { any: e.whileInArmy.map((id) => ({ unit: id })) }] } : base);
+    const known = new Set(out.units.map((u) => u.id));
+    const checkGate = (e, where) => { for (const id of e.whileInArmy || []) if (!known.has(id)) problems.push(`${where}: whileInArmy names no unit "${id}"`); };
+    for (const [i, e] of (data.modifiers || []).entries()) { checkGate(e, `${tag} modifiers[${i}]`); addModifier(e, gate(e, toggle), `${tag} modifiers[${i}]`, e.name || 'Legacy rules'); }
     for (const [i, e] of (data.points || []).entries()) for (const u of resolveUnits(out, e, problems, `${tag} points[${i}]`)) (u.pointsWhen = u.pointsWhen || []).push({ when: toggle, delta: e.delta });
     for (const [i, r] of (data.rules || []).entries()) out.rules.specialRules.push({ name: r.name, page: null, text: ruleText(r, `${tag} rules[${i}]`, r.source), legacy: true });
     // army rules: the Legion's (or army's) own special rules, shown in the configuration panel and on
@@ -175,9 +187,15 @@ export function applyLegacy(root, out, army) {
       const where = `${tag} armyRules[${i}] ${r.name}`;
       if (!r.name || !(r.benefits || []).length || !(r.drawbacks || []).length) { problems.push(`${where}: an army rule needs a name, benefits and drawbacks`); continue; }
       const text = [r.flavor ? `"${r.flavor}"` : null, list('Benefits', r.benefits), list('Drawbacks', r.drawbacks), 'Legacy house rule.'].filter(Boolean).join('\n\n');
-      armyRules.push({ name: r.name, text, source: 'Legacy house rule', when: [toggle], legacy: true });
+      checkGate(r, where);
+      armyRules.push({ name: r.name, text, source: 'Legacy house rule', when: [gate(r, toggle)], legacy: true });
       out.rules.specialRules.push({ name: r.name, page: null, text, legacy: true });
-      if (r.units || r.match) addModifier({ units: r.units, match: r.match, optionalUnits: r.optionalUnits, text: `${r.name}.`, addRules: [r.name], stats: r.stats, condition: r.condition }, toggle, where, r.name);
+      if (r.units || r.match) {
+        // the rule always goes on the datasheet; a situational stat goes with it as a reminder
+        const sel = { units: r.units, match: r.match, optionalUnits: r.optionalUnits };
+        addModifier({ ...sel, text: `${r.name}.`, addRules: [r.name], ...(r.condition ? {} : { stats: r.stats }) }, gate(r, toggle), where, r.name);
+        if (r.condition && r.stats) addModifier({ ...sel, optionalUnits: true, text: `${r.name}: ${Object.entries(r.stats).map(([k, v]) => `${v} ${k}`).join(', ')}.`, stats: r.stats, condition: r.condition }, gate(r, toggle), where, r.name);
+      }
     }
     for (const [i, w] of (data.wargear || []).entries()) out.wargear.push({ name: w.name, page: null, text: ruleText(w, `${tag} wargear[${i}]`), legacy: true });
     for (const k of ['ranged', 'melee']) for (const w of (data.weapons && data.weapons[k]) || []) out.weapons[k].push(Object.assign({ page: null, modes: null, specialRules: [], traits: [] }, w, { legacy: true }));

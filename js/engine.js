@@ -84,6 +84,7 @@
       if (c.detachment) return (detName || (sel && ctx.detOf.get(sel))) === c.detachment;
       if (c.category) return ctx.categories.has(c.category);
       if (c.all) return c.all.every((x) => condOk(x, sel, detName));
+      if (c.any) return c.any.some((x) => condOk(x, sel, detName));
       return false;
     }
     function available(x, sel, detName) {
@@ -98,7 +99,7 @@
       if (!hits.length) return g.max;
       return hits.some((x) => x.max < g.max) ? Math.min(...hits.map((x) => x.max)) : Math.max(...hits.map((x) => x.max));
     }
-    const condText = (c) => (c.all ? c.all.map((x) => condText(x)).join(' and ') : null) || (c.category ? `a ${c.category}` : null) || c.config || c.unitName || (c.unit && unit(c.unit) ? unit(c.unit).name : c.unit) || c.upgrade || (c.detachment ? `the ${c.detachment}` : '?');
+    const condText = (c) => (c.all ? c.all.map((x) => condText(x)).join(' and ') : null) || (c.any ? c.any.map((x) => condText(x)).join(' or ') : null) || (c.category ? `a ${c.category}` : null) || c.config || c.unitName || (c.unit && unit(c.unit) ? unit(c.unit).name : c.unit) || c.upgrade || (c.detachment ? `the ${c.detachment}` : '?');
 
     function activeEffects(type) { return effects.filter((e) => activeSeq.has(e.sequela) && (!type || e.type === type)); }
 
@@ -1093,7 +1094,7 @@
     /** An allied army's units, advantages, effects and detachments, under "<army>:" ids and marked with the ally. */
   function mergeAlly(D, A, id) {
     const pre = (x) => `${id}:${x}`;
-    const cond = (c) => (c && c.unit ? Object.assign({}, c, { unit: pre(c.unit) }) : c && c.all ? { all: c.all.map(cond) } : c);
+    const cond = (c) => (c && c.unit ? Object.assign({}, c, { unit: pre(c.unit) }) : c && c.all ? { all: c.all.map(cond) } : c && c.any ? { any: c.any.map(cond) } : c);
     const conds = (list) => list && list.map(cond);
     for (const u of A.units) {
       D.units.push(Object.assign({}, u, {

@@ -56,6 +56,29 @@
         "BS": "-1"
       },
       "condition": "when shooting at a target more than 12\" away"
+    },
+    {
+      "name": "The Red Angel's Wake",
+      "flavor": "Where he walks, the Legion runs to keep pace.",
+      "whileInArmy": [
+        "angron",
+        "angron-transfigured"
+      ],
+      "benefits": [
+        "While Angron or Angron Transfigured is on the battlefield, friendly World Eaters Infantry Models within 12\" of him add 1 to their Attacks Characteristic in any Battle Turn in which their Unit made a Charge."
+      ],
+      "drawbacks": [
+        "If Angron or Angron Transfigured is removed as a casualty, every friendly World Eaters Unit must make a Cool Check; a Unit that fails gains the Suppressed Tactical Status."
+      ],
+      "match": {
+        "unitType": "Infantry",
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "stats": {
+        "A": "+1"
+      },
+      "condition": "on a turn the unit charges, within 12\" of Angron"
     }
   ],
   "weapons": {
@@ -159,6 +182,16 @@
       "name": "Frenzy-cage fittings",
       "summary": "Hatch locks and shock-wire grips that keep the passengers quiet until the doors drop.",
       "text": "A Vehicle equipped with Frenzy-cage fittings has the Caged Fury Special Rule."
+    },
+    {
+      "name": "Chain of Desh'ea",
+      "summary": "A length of the pit-chain that bound him as a slave.",
+      "text": "A Model equipped with the Chain of Desh'ea has the Chain-bond of Desh'ea Special Rule."
+    },
+    {
+      "name": "Crown of Nails",
+      "summary": "A circlet hammered from the Nails his surgeons drew.",
+      "text": "A Model equipped with the Crown of Nails has the Fear (2) Special Rule and adds 1 to its Willpower Characteristic, but subtracts 1 from its Leadership Characteristic."
     }
   ],
   "rules": [
@@ -211,6 +244,26 @@
       "name": "Caged Fury",
       "summary": "The doors drop and the cargo is already screaming.",
       "text": "Each Model that Disembarks from a Model with this Special Rule adds 2 to the result of its Charge Rolls in that Player Turn, and subtracts 1 from its Cool Characteristic until the end of that Player Turn."
+    },
+    {
+      "name": "The Red Angel Unchained",
+      "summary": "The Nails have taken him and there is nothing left to hold.",
+      "text": "This Model adds 2 to its Attacks Characteristic. Whenever it is able to, this Model's Unit must declare a Charge against the nearest enemy Unit, and it cannot make Reactions."
+    },
+    {
+      "name": "Pit-King of Desh'ea",
+      "summary": "The arena taught him that only one walks out.",
+      "text": "This Model adds 2 to its Focus Rolls in Challenges. A Combat in which this Model wins a Challenge counts as won by its side, regardless of any other Combat Resolution Points. Whenever it is able to, this Model must issue or accept a Challenge."
+    },
+    {
+      "name": "The Shackled Lord",
+      "summary": "For one battle his sons hold the leash, and he lets them.",
+      "text": "Friendly World Eaters Infantry Units within 12\" of this Model have the Fast (1) Special Rule. This Model subtracts 1 from its Weapon Skill Characteristic."
+    },
+    {
+      "name": "Chain-bond of Desh'ea",
+      "summary": "The chain that held him in the pits, now his to hold others.",
+      "text": "Once per battle, at the start of the Fight Sub-Phase, the Controlling Player may choose one enemy Character in base contact with this Model. That Character cannot be removed from the Combat by any means and subtracts 1 from its Initiative Characteristic until the end of the Phase."
     }
   ],
   "options": [
@@ -483,6 +536,55 @@
           }
         ]
       }
+    },
+    {
+      "units": [
+        "angron"
+      ],
+      "option": {
+        "id": "angron-aspect",
+        "kind": "one",
+        "model": "Angron",
+        "text": "Aspect of the Primarch: Angron may take one",
+        "choices": [
+          {
+            "name": "The Red Angel Unchained",
+            "points": 0
+          },
+          {
+            "name": "Pit-King of Desh'ea",
+            "points": 0
+          },
+          {
+            "name": "The Shackled Lord",
+            "points": 0
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "angron"
+      ],
+      "option": {
+        "id": "angron-relics",
+        "kind": "any",
+        "model": "Angron",
+        "max": {
+          "fixed": 1
+        },
+        "text": "Relics of the Primarch: Angron may take one",
+        "choices": [
+          {
+            "name": "Chain of Desh'ea",
+            "points": 15
+          },
+          {
+            "name": "Crown of Nails",
+            "points": 20
+          }
+        ]
+      }
     }
   ],
   "modifiers": [
@@ -593,6 +695,66 @@
       "scope": "unit",
       "addRules": [
         "Caged Fury"
+      ]
+    },
+    {
+      "units": [
+        "angron"
+      ],
+      "item": "The Red Angel Unchained",
+      "text": "The Red Angel Unchained: +2 A.",
+      "stats": {
+        "A": "+2"
+      },
+      "addRules": [
+        "The Red Angel Unchained"
+      ]
+    },
+    {
+      "units": [
+        "angron"
+      ],
+      "item": "Pit-King of Desh'ea",
+      "text": "Pit-King of Desh'ea.",
+      "addRules": [
+        "Pit-King of Desh'ea"
+      ]
+    },
+    {
+      "units": [
+        "angron"
+      ],
+      "item": "The Shackled Lord",
+      "text": "The Shackled Lord: -1 WS.",
+      "stats": {
+        "WS": "-1"
+      },
+      "addRules": [
+        "The Shackled Lord"
+      ]
+    },
+    {
+      "units": [
+        "angron"
+      ],
+      "item": "Chain of Desh'ea",
+      "text": "Chain of Desh'ea.",
+      "addRules": [
+        "Chain-bond of Desh'ea"
+      ]
+    },
+    {
+      "units": [
+        "angron"
+      ],
+      "item": "Crown of Nails",
+      "text": "Crown of Nails: Fear (2), +1 WP, -1 LD.",
+      "stats": {
+        "WP": "+1",
+        "LD": "-1"
+      },
+      "addRules": [
+        "Fear (2)"
       ]
     }
   ],
