@@ -203,11 +203,12 @@ test('Legacy units: earlier-edition units only with Legacy rules on', () => {
   assert.ok(rows[0].items.includes('Psyk-out bombs'));
   army.config['legacy-rules'] = [];
   assert.ok(E.armyIssues(army).some((i) => /Prosecutor Cadre needs Legacy rules/.test(i.msg)));
-  // a unit copied from another army's data
-  const c = armyOf('legio-custodes');
-  legacyOn(c.army);
-  c.E.setArmy(c.army);
-  const ast = c.E.newSelection('acastus-knight-asterius');
-  assert.equal(c.E.unitPoints(ast), 750);
-  assert.ok(c.E.unit('acastus-knight-asterius').legacy);
+  // a Chamber Militant puts its rule on the unit
+  legacyOn(army);
+  E.setArmy(army);
+  const ok = E.newSelection('oblivion-knight-cadre');
+  const ch = E.optionsOf(ok).find((o) => /Chamber Militant/.test(o.text));
+  ok.options[ch.id] = 'Chamber of Oblivion';
+  assert.ok(E.effectiveModels(ok)[0].rules.includes('Chamber of Oblivion'));
+  assert.equal(E.unitPoints(ok), 135);
 });

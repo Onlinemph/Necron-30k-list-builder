@@ -384,6 +384,54 @@
           "Centreline Mounted Vratine heavy missiles"
         ]
       }
+    },
+    {
+      "units": [
+        "anathema-cadre",
+        "prosecutor-cadre",
+        "vigilator-cadre",
+        "witchseeker-cadre",
+        "oblivion-knight-cadre",
+        "knight-centura",
+        "jenetia-krole"
+      ],
+      "option": {
+        "id": "chamber-militant",
+        "kind": "one",
+        "model": null,
+        "text": "Chamber Militant: the unit may belong to one Chamber",
+        "choices": [
+          {
+            "name": "Chamber of Vigilance",
+            "points": 0
+          },
+          {
+            "name": "Chamber of Judgement",
+            "points": 0
+          },
+          {
+            "name": "Chamber of Oblivion",
+            "points": 0
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "kharon-pattern-acquisitor"
+      ],
+      "option": {
+        "id": "chamber-militant-acquisitor",
+        "kind": "upgrade",
+        "model": null,
+        "text": "Chamber Militant: the Acquisitor may serve the Chamber of Judgement",
+        "choices": [
+          {
+            "name": "Chamber of Judgement",
+            "points": 0
+          }
+        ]
+      }
     }
   ],
   "modifiers": [
@@ -518,6 +566,39 @@
       "addRules": [
         "Truth Beam"
       ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Chamber of Vigilance",
+      "scope": "unit",
+      "text": "Chamber of Vigilance.",
+      "addRules": [
+        "Chamber of Vigilance"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Chamber of Judgement",
+      "scope": "unit",
+      "text": "Chamber of Judgement.",
+      "addRules": [
+        "Chamber of Judgement"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Chamber of Oblivion",
+      "scope": "unit",
+      "text": "Chamber of Oblivion.",
+      "addRules": [
+        "Chamber of Oblivion"
+      ]
     }
   ],
   "rules": [
@@ -585,9 +666,19 @@
       "text": "Wounds inflicted on a Psyker or Malefic Model by Weapons with the Flame Trait used by a Unit with this Special Rule have the Breaching (5+) Special Rule."
     },
     {
-      "name": "Null-Maiden Hull",
-      "summary": "A transport wrought to carry the soulless, and nothing else.",
-      "text": "Enemy Psychic Powers cannot target this Model, or any Unit Embarked on it. Only Units with the Anathema Psykana Trait may Embark on this Model."
+      "name": "Chamber of Vigilance",
+      "summary": "The watchers on the walls; nothing passes them unseen.",
+      "text": "Once per battle, a Unit with this Special Rule may make a Reaction without spending one of its Controlling Player's Reactions for that Battle Turn. It adds 1 to its Hit Tests for Shooting Attacks made as part of a Reaction."
+    },
+    {
+      "name": "Chamber of Judgement",
+      "summary": "The wardens who stand over the witch and do not flinch.",
+      "text": "While a Unit with this Special Rule is Locked in Combat with an enemy Unit that includes a Psyker, it cannot gain the Pinned, Suppressed or Routed Tactical Status, and it adds 1 to its Combat Resolution Points."
+    },
+    {
+      "name": "Chamber of Oblivion",
+      "summary": "The hunters sent after things that should not exist.",
+      "text": "The Melee Weapons of Models with this Special Rule have the Critical Hit (6+) Special Rule against Malefic Models. A Unit with this Special Rule adds 1 to its Charge Rolls when the Charge targets a Unit that includes a Psyker or Malefic Model."
     }
   ],
   "armyRules": [
@@ -1083,28 +1174,48 @@
       ]
     },
     {
-      "copy": {
-        "army": "world-eaters",
-        "unit": "rhino"
-      },
-      "id": "null-maiden-rhino",
-      "name": "Null-Maiden Rhino",
-      "basePoints": 70,
-      "composition": "1 Null-Maiden Rhino",
+      "id": "oblivion-knight-cadre",
+      "name": "Oblivion Knight Cadre",
+      "role": "Elites",
+      "basePoints": 135,
+      "composition": "3 Oblivion Knights",
       "traits": [
         "Anathema Psykana",
-        "Talons of the Emperor",
-        "Smokescreen"
+        "Talons of the Emperor"
       ],
       "specialRules": [
-        "Auto-Repair (4+)",
-        "Light Transport",
-        "Smokescreen",
-        "Null-Maiden Hull"
+        "Fear (1)",
+        "Hatred (Psyker, Malefic)"
       ],
-      "renameModels": {
-        "Rhino": "Null-Maiden Rhino"
-      }
+      "models": [
+        {
+          "name": "Oblivion Knight",
+          "min": 3,
+          "max": 5,
+          "costPerExtra": 45,
+          "profile": {
+            "M": 6,
+            "WS": 5,
+            "BS": 4,
+            "S": 3,
+            "T": 3,
+            "W": 2,
+            "I": 5,
+            "A": 3,
+            "LD": 9,
+            "CL": 8,
+            "WP": 12,
+            "IN": 8,
+            "SAV": "2+",
+            "INV": "5+"
+          },
+          "wargear": [
+            "Paragon blade",
+            "Psyk-out bombs"
+          ],
+          "unitType": "Infantry (Light)"
+        }
+      ]
     }
   ]
 }

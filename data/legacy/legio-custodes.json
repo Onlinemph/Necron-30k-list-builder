@@ -245,8 +245,7 @@
     {
       "units": [
         "shield-captain",
-        "tribune",
-        "dawneagle-shield-captain"
+        "tribune"
       ],
       "option": {
         "id": "lc-warden-sidearm",
@@ -367,8 +366,7 @@
     {
       "units": [
         "shield-captain",
-        "tribune",
-        "dawneagle-shield-captain"
+        "tribune"
       ],
       "option": {
         "id": "lc-relics",
@@ -520,6 +518,33 @@
           {
             "name": "Sunspear pike",
             "points": 4
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "sentinel-guard-sodality"
+      ],
+      "option": {
+        "id": "sentinel-solarite",
+        "kind": "perModel",
+        "model": "Sentinel Guard",
+        "replaces": [
+          "Sentinel warblade"
+        ],
+        "max": {
+          "fixed": 3
+        },
+        "text": "Up to three Sentinel Guard may exchange their sentinel warblade for",
+        "choices": [
+          {
+            "name": "Solarite power talon",
+            "points": 5
+          },
+          {
+            "name": "Solarite power gauntlet",
+            "points": 10
           }
         ]
       }
@@ -1069,89 +1094,25 @@
         "trait": "Legio Custodes",
         "notUnitType": "Vehicle"
       }
-    }
-  ],
-  "units": [
-    {
-      "copy": {
-        "army": "questoris-familia",
-        "unit": "acastus-knight-asterius"
-      },
-      "limit": "0-1",
-      "traits": [
-        "Legio Custodes"
-      ],
-      "id": "acastus-knight-asterius"
     },
     {
-      "id": "dawneagle-shield-captain",
-      "name": "Shield-Captain on Dawneagle Jetbike",
-      "role": "Command",
-      "basePoints": 240,
-      "composition": "1 Dawneagle Shield-Captain",
-      "traits": [
-        "Legio Custodes",
-        "The Sodality"
+      "name": "Bane of Heroes",
+      "flavor": "The Ten Thousand were made to end the galaxy's champions, not its rank and file.",
+      "benefits": [
+        "When a Legio Custodes Model makes attacks in a Combat against an enemy Unit that includes a Model with the Command, Champion or Unique Sub-Type (other than a Primarch), it adds 1 to its Attacks Characteristic and its Hit Tests succeed on a 4+ or better, whatever the Weapon Skill comparison."
       ],
-      "specialRules": [
-        "Bulky (5)",
-        "Eternal Warrior (1)",
-        "Vanguard (3)",
-        "Outflank",
-        "Deep Strike",
-        "Implacable Advance"
+      "drawbacks": [
+        "A Legio Custodes Unit that could declare a Charge against such an enemy Unit cannot declare a Charge against any other Unit that turn."
       ],
-      "models": [
-        {
-          "name": "Dawneagle Shield-Captain",
-          "min": 1,
-          "max": 1,
-          "costPerExtra": 0,
-          "profile": {
-            "M": 16,
-            "WS": 6,
-            "BS": 5,
-            "S": 5,
-            "T": 5,
-            "W": 4,
-            "I": 5,
-            "A": 4,
-            "LD": 10,
-            "CL": 10,
-            "WP": 9,
-            "IN": 9,
-            "SAV": "2+",
-            "INV": "5+"
-          },
-          "wargear": [
-            "Lastrum bolt cannon",
-            "Solarite power lance",
-            "Misericordia"
-          ],
-          "unitType": "Cavalry (Command, Antigrav)"
-        }
-      ],
-      "options": [
-        {
-          "id": "dawneagle-gun",
-          "kind": "one",
-          "model": "Dawneagle Shield-Captain",
-          "replaces": [
-            "Lastrum bolt cannon"
-          ],
-          "text": "The Shield-Captain may exchange the Lastrum bolt cannon for",
-          "choices": [
-            {
-              "name": "Twin Corvae las-pulser",
-              "points": 10
-            },
-            {
-              "name": "Adrathic devastator",
-              "points": 10
-            }
-          ]
-        }
-      ]
+      "match": {
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "stats": {
+        "A": "+1"
+      },
+      "condition": "in a Combat against an enemy Command, Champion or Unique Model (not a Primarch)"
     }
-  ]
+  ],
+  "units": []
 }
