@@ -68,7 +68,19 @@ export function applyLegacy(root, out, army) {
   const files = filesFor(root, army);
   if (!files.length) return problems;
   const toggle = { config: LEGACY };
+  // a legacy name must not shadow an official weapon, wargear or rule
+  const commonFile = join(root, 'data', 'bsdata', 'common.json');
+  const official = new Set();
+  if (existsSync(commonFile)) {
+    const c = JSON.parse(readFileSync(commonFile, 'utf8'));
+    for (const x of [...c.weapons.ranged, ...c.weapons.melee, ...c.wargear, ...Object.values(c.rules).flat()]) official.add(x.name.toLowerCase());
+  }
+  for (const { file, data } of files) {
+    const own = [...(data.wargear || []), ...(data.rules || []), ...(data.armyRules || []), ...((data.weapons || {}).ranged || []), ...((data.weapons || {}).melee || []), ...(data.rites || []).flatMap((r) => r.rules || [])];
+    for (const x of own) if (x.name && official.has(x.name.toLowerCase())) problems.push(`${file.replace(/^.*\/data\//, 'data/')}: "${x.name}" is already an official name; pick another`);
+  }
   const rites = [];
+  const armyRules = [];
   let n = 0;
   const uniq = (base) => `legacy-${slug(base)}-${++n}`;
 
@@ -124,6 +136,15 @@ export function applyLegacy(root, out, army) {
     for (const [i, e] of (data.modifiers || []).entries()) addModifier(e, toggle, `${tag} modifiers[${i}]`, e.name || 'Legacy rules');
     for (const [i, e] of (data.points || []).entries()) for (const u of resolveUnits(out, e, problems, `${tag} points[${i}]`)) (u.pointsWhen = u.pointsWhen || []).push({ when: toggle, delta: e.delta });
     for (const r of data.rules || []) out.rules.specialRules.push({ name: r.name, page: null, text: r.text, legacy: true });
+    // army rules: the Legion's (or army's) own special rules, shown in the configuration panel and on
+    // the datasheets of the units they name
+    for (const [i, r] of (data.armyRules || []).entries()) {
+      const where = `${tag} armyRules[${i}] ${r.name}`;
+      if (!r.name || !r.text) { problems.push(`${where}: an army rule needs a name and text`); continue; }
+      armyRules.push({ name: r.name, text: r.text, source: 'Legacy house rule', when: [toggle], legacy: true });
+      out.rules.specialRules.push({ name: r.name, page: null, text: r.text, legacy: true });
+      if (r.units || r.match) addModifier({ units: r.units, match: r.match, optionalUnits: r.optionalUnits, text: `${r.name}.`, addRules: [r.name], stats: r.stats, condition: r.condition }, toggle, where, r.name);
+    }
     for (const w of data.wargear || []) out.wargear.push({ name: w.name, page: null, text: w.text, legacy: true });
     for (const k of ['ranged', 'melee']) for (const w of (data.weapons && data.weapons[k]) || []) out.weapons[k].push(Object.assign({ page: null, modes: null, specialRules: [], traits: [] }, w, { legacy: true }));
 
@@ -160,6 +181,7 @@ export function applyLegacy(root, out, army) {
 
   // the switch and the Rite choice go at the end of the army configuration
   out.armyConfig = out.armyConfig || { fixed: [], groups: [] };
+  out.armyConfig.fixed = (out.armyConfig.fixed || []).concat(armyRules);
   out.armyConfig.groups.push({ id: GROUP_TOGGLE, name: 'House rules', min: 0, max: 1, legacy: true,
     choices: [{ name: LEGACY, text: 'Optional house rules, not part of the official 3rd edition: Rites of War, restored Legion wargear and options, and more varied statlines, written for this builder. Agree with your opponent before using them.' }] });
   if (rites.length) out.armyConfig.groups.push({ id: GROUP_RITE, name: 'Legacy Rite of War', min: 0, max: 1, when: [toggle], legacy: true, choices: rites });

@@ -24,6 +24,7 @@ All text here is written for this builder. Don't paste rules text from published
   "modifiers": [ /* statline and rule changes, live whenever Legacy rules is on */ ],
   "points": [ { "units": ["rhino"], "delta": -5 } ],
   "rules": [ { "name": "Blood Frenzy", "text": "..." } ],
+  "armyRules": [ { "name": "Warrior Brotherhood", "text": "...", "match": { "notUnitType": "Vehicle" } } ],
   "wargear": [ { "name": "Artificer armour", "text": "..." } ],
   "weapons": {
     "ranged": [ { "name": "Archaeotech pistol", "R": 12, "FP": 1, "RS": 6, "AP": 3, "D": 1, "specialRules": ["Pistol"], "traits": [] } ],
@@ -32,6 +33,12 @@ All text here is written for this builder. Don't paste rules text from published
 }
 ```
 
+`armyRules` are the army's own special rules (old-style Legion rules). They show as rule chips in the Army
+configuration panel while Legacy rules is on, print on the roster, and are added to the datasheets of the
+units given by `units`/`match` (leave both out for a rule that's only army-wide text). They may carry
+`stats` and `condition` like a modifier.
+
+Names of new weapons, wargear and rules must not match an official BSData name; the build rejects a clash.
 Weapon and wargear names must match option choices exactly so the app can show their profiles.
 Special rules named on weapons, units or modifiers should exist in the core rules (`Rending (X)`,
 `Feel No Pain (X)`, `Fear (X)`...) or be defined under `rules`.

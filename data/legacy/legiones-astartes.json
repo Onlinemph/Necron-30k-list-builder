@@ -13,12 +13,40 @@
       "text": "Legacy house rule. Bolted-on plating, track guards and spall liners. The vehicle gains +1 Hull Point."
     },
     {
-      "name": "Legion standard",
+      "name": "Company colours",
       "text": "Legacy house rule. The unit's colours carried into battle. Every model in the unit gains +1 Leadership and +1 Cool."
     },
     {
       "name": "Veteran Sergeant",
       "text": "Legacy house rule. A sergeant who has led the squad through a dozen compliances. The model gains +1 Weapon Skill and +1 Attack."
+    },
+    {
+      "name": "Iron halo",
+      "text": "Legacy house rule. A crowned field generator granted for deeds beyond counting. The model's Invulnerable Save becomes 4+ if it was worse."
+    },
+    {
+      "name": "Teleport homer",
+      "text": "Legacy house rule. A locator beacon keyed to the fleet's teleportarium. Gives the model Teleport Homer."
+    },
+    {
+      "name": "Auspex array",
+      "text": "Legacy house rule. A hand-held sensor suite. Gives the model Auspex Sweep."
+    },
+    {
+      "name": "Medicae stimm-injector",
+      "text": "Legacy house rule. Combat drugs and coagulants fed straight into the blood. The model gains Feel No Pain (6+)."
+    },
+    {
+      "name": "Relic of the Great Crusade",
+      "text": "Legacy house rule. A banner scrap, a broken blade, a saint's finger-bone. Gives the model Relic of the Great Crusade."
+    },
+    {
+      "name": "Displacer field",
+      "text": "Legacy house rule. A short-range warp jump rig that fires when the bearer is struck. Gives the model Displacer Field."
+    },
+    {
+      "name": "Orbital augur-link",
+      "text": "Legacy house rule. A targeting relay linked to the Legion's orbital augurs. The model gains +1 Ballistic Skill."
     }
   ],
   "options": [
@@ -129,10 +157,10 @@
         "id": "legion-standard",
         "kind": "upgrade",
         "model": null,
-        "text": "The unit may carry a Legion standard",
+        "text": "The unit may carry a Company colours",
         "choices": [
           {
-            "name": "Legion standard",
+            "name": "Company colours",
             "points": 15
           }
         ]
@@ -158,6 +186,72 @@
           {
             "name": "Extra armour",
             "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "roles": [
+          "Warlord",
+          "High Command",
+          "Command"
+        ],
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "option": {
+        "id": "legion-armoury",
+        "kind": "any",
+        "modelType": "Command",
+        "max": {
+          "fixed": 2
+        },
+        "text": "Legion Armoury: may take up to two relics",
+        "choices": [
+          {
+            "name": "Iron halo",
+            "points": 20
+          },
+          {
+            "name": "Teleport homer",
+            "points": 10
+          },
+          {
+            "name": "Auspex array",
+            "points": 5
+          },
+          {
+            "name": "Medicae stimm-injector",
+            "points": 10
+          },
+          {
+            "name": "Relic of the Great Crusade",
+            "points": 15
+          },
+          {
+            "name": "Displacer field",
+            "points": 15
+          },
+          {
+            "name": "Orbital augur-link",
+            "points": 10
+          },
+          {
+            "name": "Digital lasers",
+            "points": 10
+          },
+          {
+            "name": "Archaeotech pistol",
+            "points": 15
+          },
+          {
+            "name": "Master-crafted blade",
+            "points": 15
+          },
+          {
+            "name": "Relic blade",
+            "points": 25
           }
         ]
       }
@@ -199,9 +293,9 @@
       "units": [
         "*"
       ],
-      "item": "Legion standard",
+      "item": "Company colours",
       "scope": "unit",
-      "text": "Legion standard: +1 LD, +1 CL.",
+      "text": "Company colours: +1 LD, +1 CL.",
       "stats": {
         "LD": "+1",
         "CL": "+1"
@@ -216,6 +310,76 @@
       "text": "Extra armour: +1 HP.",
       "stats": {
         "HP": "+1"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Iron halo",
+      "text": "Iron halo: 4+ Invulnerable Save.",
+      "stats": {
+        "INV": "best:4+"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Teleport homer",
+      "text": "Teleport homer.",
+      "addRules": [
+        "Teleport Homer"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Auspex array",
+      "text": "Auspex array.",
+      "addRules": [
+        "Auspex Sweep"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Medicae stimm-injector",
+      "text": "Medicae stimm-injector: Feel No Pain (6+).",
+      "addRules": [
+        "Feel No Pain (6+)"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Relic of the Great Crusade",
+      "text": "Relic of the Great Crusade.",
+      "addRules": [
+        "Relic of the Great Crusade"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Displacer field",
+      "text": "Displacer field.",
+      "addRules": [
+        "Displacer Field"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Orbital augur-link",
+      "text": "Orbital augur-link: +1 BS.",
+      "stats": {
+        "BS": "+1"
       }
     }
   ],
@@ -705,6 +869,105 @@
     {
       "name": "Honoured Ancient",
       "text": "Legacy house rule (Iron Ancients). A Dreadnought with this rule may re-roll one failed Hit Test in each Combat and counts as a scoring unit while within 3\" of an objective."
+    },
+    {
+      "name": "Teleport Homer",
+      "text": "Legacy house rule. A friendly unit arriving by Deep Strike that sets up within 6\" of this model doesn't scatter or suffer a mishap."
+    },
+    {
+      "name": "Auspex Sweep",
+      "text": "Legacy house rule. Once per battle, in its Shooting phase, this model's unit may choose one enemy unit within 18\": that unit loses Shrouded (X) and cover benefits against this unit's attacks until the end of the phase."
+    },
+    {
+      "name": "Relic of the Great Crusade",
+      "text": "Legacy house rule. Friendly Legion units within 6\" of this model add +1 to their Leadership. If this model is removed as a casualty, those units suffer -1 Leadership for the rest of the battle instead."
+    },
+    {
+      "name": "Displacer Field",
+      "text": "Legacy house rule. Once per battle, after this model fails a Saving Throw, roll a dice. On a 4+ the wound is ignored and the model's unit is moved up to 6\" in any direction, ending at least 1\" from enemy models. The unit can't charge that turn."
+    }
+  ],
+  "weapons": {
+    "ranged": [
+      {
+        "name": "Digital lasers",
+        "R": 6,
+        "FP": 1,
+        "RS": 5,
+        "AP": 4,
+        "D": 1,
+        "specialRules": [
+          "Pistol",
+          "Precision (6+)"
+        ],
+        "traits": [
+          "Las"
+        ]
+      },
+      {
+        "name": "Archaeotech pistol",
+        "R": 12,
+        "FP": 1,
+        "RS": 6,
+        "AP": 2,
+        "D": 2,
+        "specialRules": [
+          "Pistol",
+          "Armourbane"
+        ],
+        "traits": [
+          "Assault"
+        ]
+      }
+    ],
+    "melee": [
+      {
+        "name": "Master-crafted blade",
+        "IM": "+1",
+        "AM": "A",
+        "SM": "S",
+        "AP": 3,
+        "D": 2,
+        "specialRules": [
+          "Breaching (5+)",
+          "Duellist's Edge (1)"
+        ],
+        "traits": [
+          "Power"
+        ]
+      },
+      {
+        "name": "Relic blade",
+        "IM": "I",
+        "AM": "A",
+        "SM": "+1",
+        "AP": 2,
+        "D": 2,
+        "specialRules": [
+          "Murderous (6+)"
+        ],
+        "traits": [
+          "Power"
+        ]
+      }
+    ]
+  },
+  "armyRules": [
+    {
+      "name": "Warrior Brotherhood",
+      "text": "Legacy house rule. The bonds of the Legion hold where other armies break. A Legion unit within 6\" of a friendly unit of the same Legion may re-roll a failed Leadership Check for Morale once per turn.",
+      "match": {
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true
+    },
+    {
+      "name": "Death Before Dishonour",
+      "text": "Legacy house rule. A Legion Character in a Challenge can't be forced to decline it, and when it is reduced to its last Wound it may make one last attack at its full Attacks before it is removed.",
+      "match": {
+        "unitType": "Command"
+      },
+      "optionalUnits": true
     }
   ]
 }

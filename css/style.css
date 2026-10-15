@@ -183,6 +183,7 @@ dialog::backdrop { background: rgba(0,0,0,.6); }
 .cfg-rules { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
 .cfg-group { border: 1px solid var(--line); border-radius: 6px; padding: 4px 8px 8px; margin: 6px 0 0; }
 .cfg-group legend { font-size: 13px; padding: 0 4px; }
+.chip.rule.legacy { border-style: dashed; border-color: #b58b3a; }
 .cfg-group.legacy { border-style: dashed; border-color: #b58b3a; }
 .tag.house { font-size: 10px; text-transform: uppercase; letter-spacing: .06em; border: 1px solid #b58b3a; border-radius: 4px; padding: 1px 5px; background: #4a3714; color: #f0cf8a; margin-left: 4px; }
 .add-det label { display: block; max-width: 100%; }

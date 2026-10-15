@@ -241,7 +241,7 @@
       const chips = h('<div class="cfg-rules"></div>');
       for (const r of cfg.fixed) {
         if ((r.when || r.unless) && !E.available(r)) continue;
-        const b = h(`<button type="button" class="chip rule" title="${esc(r.source || '')}">${esc(r.name)}</button>`);
+        const b = h(`<button type="button" class="chip rule${r.legacy ? ' legacy' : ''}" title="${esc(r.source || '')}">${esc(r.name)}</button>`);
         b.addEventListener('click', () => showText(r.name, r.text, null, r.source ? [r.source] : null));
         chips.append(b);
       }
@@ -272,7 +272,10 @@
   function configLines() {
     const cfg = DATA.armyConfig;
     if (!cfg) return [];
-    return cfg.groups.filter((g) => (army.config[g.id] || []).length).map((g) => `${g.name}: ${army.config[g.id].join(', ')}`);
+    const lines = cfg.groups.filter((g) => (army.config[g.id] || []).length).map((g) => `${g.name}: ${army.config[g.id].join(', ')}`);
+    const house = cfg.fixed.filter((r) => r.legacy && E.available(r)).map((r) => r.name);
+    if (house.length) lines.push(`Legacy army rules: ${house.join(', ')}`);
+    return lines;
   }
 
   // ---------- render: detachments ----------

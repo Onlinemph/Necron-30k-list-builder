@@ -18,20 +18,6 @@
     ]
    },
    {
-    "name": "Arc rifle",
-    "R": 24,
-    "FP": 2,
-    "RS": 4,
-    "AP": 5,
-    "D": 1,
-    "specialRules": [
-     "Shock (Suppressed)"
-    ],
-    "traits": [
-     "Arc"
-    ]
-   },
-   {
     "name": "Transuranic arquebus",
     "R": 60,
     "FP": 1,
