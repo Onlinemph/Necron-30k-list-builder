@@ -880,7 +880,7 @@
   "rules": [
     {
       "name": "Litany of Resolve",
-      "text": "Legacy house rule (Unyielding Faith). While a friendly Word Bearers unit is within 12\" of a model with this rule, it automatically passes Morale and Pinning checks."
+      "text": "Legacy house rule (Unyielding Faith). While a friendly Word Bearers unit is within 12\" of a model with this rule, it adds +1 to its Leadership and Cool for Morale and Pinning checks."
     },
     {
       "name": "Daemonic Vessels",

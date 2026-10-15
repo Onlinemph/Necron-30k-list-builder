@@ -10,7 +10,7 @@
         "D": 1,
         "specialRules": [
           "Deflagrate (3)",
-          "Critical Hit (5+)"
+          "Critical Hit (6+)"
         ],
         "traits": [
           "Immaterial",
@@ -187,7 +187,7 @@
         "choices": [
           {
             "name": "Totem of Dominion",
-            "points": 10
+            "points": 20
           }
         ]
       }

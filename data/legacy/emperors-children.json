@@ -1,62 +1,639 @@
 {
   "armyRules": [
-    {"name": "Pursuit of Perfection", "text": "Legacy house rule. Perfection has to be seen to count. A unit with this rule adds 1 to its Initiative on the turn it charges, but a unit that ends its own turn having neither made a Shooting Attack nor a Charge suffers -1 to its Cool Checks until it does one of them.", "match": {"notUnitType": "Vehicle", "notNameIncludes": ["Castellax"]}, "stats": {"I": "+1"}, "condition": "on the turn it charges"},
-    {"name": "Exquisite Cruelty", "text": "Legacy house rule. The Legion savours every kill and is dulled by every refusal. A unit with this rule that wins a Combat gains Feel No Pain (6+) until the end of the following turn, but a unit that loses a Combat must make a Cool Check at -1 at once.", "match": {"roles": ["Troops", "Elites", "Heavy Assault", "Retinue"], "notUnitType": "Vehicle"}},
-    {"name": "Peerless Duellist", "text": "Legacy house rule. A Character of the Legion cannot resist a stage. It adds 1 to its Initiative while in a Challenge, but if it is slain in a Challenge every friendly Emperor's Children unit within 12\" must make a Cool Check at -1.", "match": {"unitType": "Command", "notUnitType": "Vehicle"}, "stats": {"I": "+1"}, "condition": "while in a Challenge"}
+    {
+      "name": "Pursuit of Perfection",
+      "text": "Legacy house rule. Perfection has to be seen to count. A unit with this rule adds 1 to its Initiative on the turn it charges, but a unit that ends its own turn having neither made a Shooting Attack nor a Charge suffers -1 to its Cool Checks until it does one of them.",
+      "match": {
+        "notUnitType": "Vehicle",
+        "notNameIncludes": [
+          "Castellax"
+        ]
+      },
+      "stats": {
+        "I": "+1"
+      },
+      "condition": "on the turn it charges"
+    },
+    {
+      "name": "Exquisite Cruelty",
+      "text": "Legacy house rule. The Legion savours every kill and is dulled by every refusal. A unit with this rule that wins a Combat gains Feel No Pain (6+) until the end of the following turn, but a unit that loses a Combat must make a Cool Check at -1 at once.",
+      "match": {
+        "roles": [
+          "Troops",
+          "Elites",
+          "Heavy Assault",
+          "Retinue"
+        ],
+        "notUnitType": "Vehicle"
+      }
+    },
+    {
+      "name": "Peerless Duellist",
+      "text": "Legacy house rule. A Character of the Legion cannot resist a stage. It adds 1 to its Initiative while in a Challenge, but if it is slain in a Challenge every friendly Emperor's Children unit within 12\" must make a Cool Check at -1.",
+      "match": {
+        "unitType": "Command",
+        "notUnitType": "Vehicle"
+      },
+      "stats": {
+        "I": "+1"
+      },
+      "condition": "while in a Challenge"
+    }
   ],
   "weapons": {
     "melee": [
-      {"name": "Gilded rapier", "IM": "+2", "AM": "A", "SM": "S", "AP": 3, "D": 1, "specialRules": ["Duellist's Edge (1)", "Precision (6+)"], "traits": ["Power"]},
-      {"name": "Rapture lash", "IM": "+1", "AM": "A", "SM": "S", "AP": 5, "D": 1, "specialRules": ["Phage (I)", "Reaping Blow (1)"], "traits": ["Power"]}
+      {
+        "name": "Gilded rapier",
+        "IM": "+2",
+        "AM": "A",
+        "SM": "S",
+        "AP": 3,
+        "D": 1,
+        "specialRules": [
+          "Duellist's Edge (1)",
+          "Precision (6+)"
+        ],
+        "traits": [
+          "Power"
+        ]
+      },
+      {
+        "name": "Rapture lash",
+        "IM": "+1",
+        "AM": "A",
+        "SM": "S",
+        "AP": 5,
+        "D": 1,
+        "specialRules": [
+          "Phage (I)",
+          "Reaping Blow (1)"
+        ],
+        "traits": [
+          "Power"
+        ]
+      }
     ],
     "ranged": [
-      {"name": "Sonic carbine", "R": 18, "FP": 3, "RS": 4, "AP": 5, "D": 1, "specialRules": ["Suppressive (1)", "Stun (1)"], "traits": ["Sonic"]},
-      {"name": "Dirge-cannon", "R": 24, "FP": 2, "RS": 4, "AP": 4, "D": 1, "specialRules": ["Blast (3\")", "Suppressive (2)", "Panic (1)"], "traits": ["Sonic"]},
-      {"name": "Dissonance pistol", "R": 12, "FP": 1, "RS": 5, "AP": 4, "D": 1, "specialRules": ["Pistol", "Critical Hit (6+)", "Stun (1)"], "traits": ["Sonic"]}
+      {
+        "name": "Sonic carbine",
+        "R": 18,
+        "FP": 3,
+        "RS": 4,
+        "AP": 5,
+        "D": 1,
+        "specialRules": [
+          "Suppressive (1)",
+          "Stun (1)"
+        ],
+        "traits": [
+          "Sonic"
+        ]
+      },
+      {
+        "name": "Dirge-cannon",
+        "R": 24,
+        "FP": 2,
+        "RS": 4,
+        "AP": 4,
+        "D": 1,
+        "specialRules": [
+          "Blast (3\")",
+          "Suppressive (2)",
+          "Panic (1)"
+        ],
+        "traits": [
+          "Sonic"
+        ]
+      },
+      {
+        "name": "Dissonance pistol",
+        "R": 12,
+        "FP": 1,
+        "RS": 5,
+        "AP": 4,
+        "D": 1,
+        "specialRules": [
+          "Pistol",
+          "Critical Hit (6+)",
+          "Stun (1)"
+        ],
+        "traits": [
+          "Sonic"
+        ]
+      }
     ]
   },
   "wargear": [
-    {"name": "Laurels of Perfection", "text": "Legacy house rule. A circlet of gold leaf awarded for a flawless victory, and worn as though the next one were already won. The model gains +1 Cool and +1 Initiative."},
-    {"name": "Banner of Dissonance", "text": "Legacy house rule. A standard strung with tuned bells and wire that howl in the wind of the charge. The unit gains Fear (1)."},
-    {"name": "Narcotic stimulants", "text": "Legacy house rule. A cocktail of synaptic boosters that turns pain into pleasure and orders into noise. The unit gains Feel No Pain (6+) and every model suffers -1 Willpower."},
-    {"name": "Mirrorbright plate", "text": "Legacy house rule. Armour polished until it throws the light back in the eyes of anyone who strikes at it. Gives the model Blinding Splendour."},
-    {"name": "Siren-lute", "text": "Legacy house rule. A hand-held instrument whose cadence is meant to be heard across a battlefield. Gives the model Siren Song."},
-    {"name": "Trophy cloak", "text": "Legacy house rule. A cloak stitched from the banners and sashes of fallen rivals. Gives the model Collected Glories and +1 Cool."},
-    {"name": "Pain-glove", "text": "Legacy house rule. A gauntlet of fine needles that rewards a duellist and wounds his partner in rhythm. Gives the model Exquisite Agony."},
-    {"name": "Pavane drum", "text": "Legacy house rule. A drum slung at the hip whose beat sets the pace of the advance. Gives the model Tempo of the Charge."},
-    {"name": "Screech-field vents", "text": "Legacy house rule. Tuned vents bolted to the hull that fill the air with a sound like tearing silk. Gives the vehicle Sonic Distortion."}
+    {
+      "name": "Laurels of Perfection",
+      "text": "Legacy house rule. A circlet of gold leaf awarded for a flawless victory, and worn as though the next one were already won. The model gains +1 Cool and +1 Initiative."
+    },
+    {
+      "name": "Banner of Dissonance",
+      "text": "Legacy house rule. A standard strung with tuned bells and wire that howl in the wind of the charge. The unit gains Fear (1)."
+    },
+    {
+      "name": "Narcotic stimulants",
+      "text": "Legacy house rule. A cocktail of synaptic boosters that turns pain into pleasure and orders into noise. The unit gains Feel No Pain (6+) and every model suffers -1 Willpower."
+    },
+    {
+      "name": "Mirrorbright plate",
+      "text": "Legacy house rule. Armour polished until it throws the light back in the eyes of anyone who strikes at it. Gives the model Blinding Splendour."
+    },
+    {
+      "name": "Siren-lute",
+      "text": "Legacy house rule. A hand-held instrument whose cadence is meant to be heard across a battlefield. Gives the model Siren Song."
+    },
+    {
+      "name": "Trophy cloak",
+      "text": "Legacy house rule. A cloak stitched from the banners and sashes of fallen rivals. Gives the model Collected Glories and +1 Cool."
+    },
+    {
+      "name": "Pain-glove",
+      "text": "Legacy house rule. A gauntlet of fine needles that rewards a duellist and wounds his partner in rhythm. Gives the model Exquisite Agony."
+    },
+    {
+      "name": "Pavane drum",
+      "text": "Legacy house rule. A drum slung at the hip whose beat sets the pace of the advance. Gives the model Tempo of the Charge."
+    },
+    {
+      "name": "Screech-field vents",
+      "text": "Legacy house rule. Tuned vents bolted to the hull that fill the air with a sound like tearing silk. Gives the vehicle Sonic Distortion."
+    }
   ],
   "options": [
-    {"units": ["tactical-squad"], "option": {"id": "ec-sonic-carbine", "kind": "perModel", "model": "Legionary", "max": 2, "replaces": ["Bolter"], "text": "Up to two Legionaries may exchange their bolter for", "choices": [{"name": "Sonic carbine", "points": 6}]}},
-    {"units": ["tactical-squad", "despoiler-squad", "assault-squad", "heavy-support-squad", "veteran-tactical-squad", "veteran-assault-squad", "destroyer-assault-squad"], "option": {"id": "ec-gilded-rapier", "kind": "one", "modelType": "Sergeant", "text": "The Sergeant may take a Gilded rapier", "choices": [{"name": "Gilded rapier", "points": 15}]}},
-    {"units": ["palatine-blade-squad", "palatine-blade-aquilae-squad"], "option": {"id": "ec-prefector-rapier", "kind": "one", "model": ["Palatine Prefector", "Palatine Prefector with Jump Pack"], "replaces": ["Palatine blade"], "text": "The Prefector may exchange their Palatine blade for", "choices": [{"name": "Gilded rapier", "points": 8}]}},
-    {"units": ["tactical-squad", "assault-squad", "despoiler-squad", "veteran-tactical-squad", "veteran-assault-squad", "destroyer-assault-squad"], "option": {"id": "ec-shriekers", "kind": "upgrade", "model": null, "text": "The unit may take Sonic shriekers", "choices": [{"name": "Sonic shriekers", "points": 10}]}},
-    {"units": ["tactical-squad", "assault-squad", "despoiler-squad", "veteran-tactical-squad", "veteran-assault-squad", "palatine-blade-squad", "palatine-blade-aquilae-squad"], "option": {"id": "ec-laurels", "kind": "upgrade", "modelType": "Sergeant", "text": "The Sergeant may wear Laurels of Perfection", "choices": [{"name": "Laurels of Perfection", "points": 10}]}},
-    {"units": ["tactical-squad", "assault-squad", "despoiler-squad", "veteran-tactical-squad", "veteran-assault-squad", "kakophoni-squad", "sun-killer-squad"], "option": {"id": "ec-banner", "kind": "upgrade", "model": null, "text": "The unit may carry a Banner of Dissonance", "choices": [{"name": "Banner of Dissonance", "points": 15}]}},
-    {"units": ["kakophoni-squad", "assault-squad", "destroyer-assault-squad", "tactical-squad", "veteran-assault-squad", "sun-killer-squad"], "option": {"id": "ec-stimulants", "kind": "upgrade", "model": null, "text": "The unit may be dosed with Narcotic stimulants", "choices": [{"name": "Narcotic stimulants", "points": 10}]}},
-    {"match": {"roles": ["Command", "High Command"], "notUnitType": "Vehicle"}, "option": {"id": "ec-exquisite-vanities", "kind": "any", "modelType": "Command", "max": {"fixed": 2}, "text": "Exquisite vanities: may take up to two", "choices": [{"name": "Mirrorbright plate", "points": 20}, {"name": "Siren-lute", "points": 15}, {"name": "Trophy cloak", "points": 10}, {"name": "Rapture lash", "points": 15}]}},
-    {"units": ["tactical-squad", "assault-squad", "despoiler-squad", "veteran-tactical-squad", "veteran-assault-squad", "palatine-blade-squad", "palatine-blade-aquilae-squad"], "option": {"id": "ec-pain-glove", "kind": "upgrade", "modelType": "Sergeant", "text": "The Sergeant may wear a Pain-glove", "choices": [{"name": "Pain-glove", "points": 15}]}},
-    {"units": ["tactical-squad", "assault-squad", "despoiler-squad", "veteran-assault-squad", "inductii-squad", "kakophoni-squad"], "option": {"id": "ec-pavane-drum", "kind": "upgrade", "modelType": "Sergeant", "text": "The Sergeant may carry a Pavane drum", "choices": [{"name": "Pavane drum", "points": 10}]}},
-    {"match": {"unitType": "Vehicle", "notUnitType": "Flyer", "roles": ["Armour", "Transport", "Heavy Transport"]}, "option": {"id": "ec-screech-vents", "kind": "upgrade", "model": null, "text": "May fit Screech-field vents", "choices": [{"name": "Screech-field vents", "points": 15}]}},
-    {"units": ["heavy-support-squad"], "option": {"id": "ec-dirge-cannon", "kind": "perModel", "model": "Legionary", "replaces": ["Heavy bolter"], "max": 1, "text": "Up to one Legionary may exchange their heavy bolter for", "choices": [{"name": "Dirge-cannon", "points": 15}]}},
-    {"units": ["tactical-squad", "veteran-tactical-squad"], "option": {"id": "ec-dissonance-pistol", "kind": "one", "modelType": "Sergeant", "replaces": ["Bolt pistol"], "text": "The Sergeant may exchange their bolt pistol for", "choices": [{"name": "Dissonance pistol", "points": 8}]}}
+    {
+      "units": [
+        "tactical-squad"
+      ],
+      "option": {
+        "id": "ec-sonic-carbine",
+        "kind": "perModel",
+        "model": "Legionary",
+        "max": 2,
+        "replaces": [
+          "Bolter"
+        ],
+        "text": "Up to two Legionaries may exchange their bolter for",
+        "choices": [
+          {
+            "name": "Sonic carbine",
+            "points": 6
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "assault-squad",
+        "heavy-support-squad",
+        "veteran-tactical-squad",
+        "veteran-assault-squad",
+        "destroyer-assault-squad"
+      ],
+      "option": {
+        "id": "ec-gilded-rapier",
+        "kind": "one",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may take a Gilded rapier",
+        "choices": [
+          {
+            "name": "Gilded rapier",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "palatine-blade-squad",
+        "palatine-blade-aquilae-squad"
+      ],
+      "option": {
+        "id": "ec-prefector-rapier",
+        "kind": "one",
+        "model": [
+          "Palatine Prefector",
+          "Palatine Prefector with Jump Pack"
+        ],
+        "replaces": [
+          "Palatine blade"
+        ],
+        "text": "The Prefector may exchange their Palatine blade for",
+        "choices": [
+          {
+            "name": "Gilded rapier",
+            "points": 8
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "assault-squad",
+        "despoiler-squad",
+        "veteran-tactical-squad",
+        "veteran-assault-squad",
+        "destroyer-assault-squad"
+      ],
+      "option": {
+        "id": "ec-shriekers",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The unit may take Sonic shriekers",
+        "choices": [
+          {
+            "name": "Sonic shriekers",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "assault-squad",
+        "despoiler-squad",
+        "veteran-tactical-squad",
+        "veteran-assault-squad",
+        "palatine-blade-squad",
+        "palatine-blade-aquilae-squad"
+      ],
+      "option": {
+        "id": "ec-laurels",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may wear Laurels of Perfection",
+        "choices": [
+          {
+            "name": "Laurels of Perfection",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "assault-squad",
+        "despoiler-squad",
+        "veteran-tactical-squad",
+        "veteran-assault-squad",
+        "kakophoni-squad",
+        "sun-killer-squad"
+      ],
+      "option": {
+        "id": "ec-banner",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The unit may carry a Banner of Dissonance",
+        "choices": [
+          {
+            "name": "Banner of Dissonance",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "kakophoni-squad",
+        "assault-squad",
+        "destroyer-assault-squad",
+        "tactical-squad",
+        "veteran-assault-squad",
+        "sun-killer-squad"
+      ],
+      "option": {
+        "id": "ec-stimulants",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The unit may be dosed with Narcotic stimulants",
+        "choices": [
+          {
+            "name": "Narcotic stimulants",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "roles": [
+          "Command",
+          "High Command"
+        ],
+        "notUnitType": "Vehicle"
+      },
+      "option": {
+        "id": "ec-exquisite-vanities",
+        "kind": "any",
+        "modelType": "Command",
+        "max": {
+          "fixed": 2
+        },
+        "text": "Exquisite vanities: may take up to two",
+        "choices": [
+          {
+            "name": "Mirrorbright plate",
+            "points": 20
+          },
+          {
+            "name": "Siren-lute",
+            "points": 15
+          },
+          {
+            "name": "Trophy cloak",
+            "points": 10
+          },
+          {
+            "name": "Rapture lash",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "assault-squad",
+        "despoiler-squad",
+        "veteran-tactical-squad",
+        "veteran-assault-squad",
+        "palatine-blade-squad",
+        "palatine-blade-aquilae-squad"
+      ],
+      "option": {
+        "id": "ec-pain-glove",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may wear a Pain-glove",
+        "choices": [
+          {
+            "name": "Pain-glove",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "assault-squad",
+        "despoiler-squad",
+        "veteran-assault-squad",
+        "inductii-squad",
+        "kakophoni-squad"
+      ],
+      "option": {
+        "id": "ec-pavane-drum",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may carry a Pavane drum",
+        "choices": [
+          {
+            "name": "Pavane drum",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "unitType": "Vehicle",
+        "notUnitType": "Flyer",
+        "roles": [
+          "Armour",
+          "Transport",
+          "Heavy Transport"
+        ]
+      },
+      "option": {
+        "id": "ec-screech-vents",
+        "kind": "upgrade",
+        "model": null,
+        "text": "May fit Screech-field vents",
+        "choices": [
+          {
+            "name": "Screech-field vents",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "heavy-support-squad"
+      ],
+      "option": {
+        "id": "ec-dirge-cannon",
+        "kind": "perModel",
+        "model": "Legionary",
+        "replaces": [
+          "Heavy bolter"
+        ],
+        "max": 1,
+        "text": "Up to one Legionary may exchange their heavy bolter for",
+        "choices": [
+          {
+            "name": "Dirge-cannon",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "veteran-tactical-squad"
+      ],
+      "option": {
+        "id": "ec-dissonance-pistol",
+        "kind": "one",
+        "modelType": "Sergeant",
+        "replaces": [
+          "Bolt pistol"
+        ],
+        "text": "The Sergeant may exchange their bolt pistol for",
+        "choices": [
+          {
+            "name": "Dissonance pistol",
+            "points": 8
+          }
+        ]
+      }
+    }
   ],
   "modifiers": [
-    {"units": ["palatine-blade-squad", "palatine-blade-aquilae-squad"], "text": "Peerless blades: +1 I, -1 WP.", "stats": {"I": "+1", "WP": "-1"}},
-    {"units": ["phoenix-terminator-squad"], "text": "Gilded Phoenix plate: +1 A, +1 I, -1 M, -1 T.", "stats": {"A": "+1", "I": "+1", "M": "-1", "T": "-1"}},
-    {"units": ["kakophoni-squad"], "text": "Sound-wracked: +1 BS, -1 WS.", "stats": {"BS": "+1", "WS": "-1"}},
-    {"units": ["sun-killer-squad"], "text": "Heedless marksmen: +1 BS, -1 T.", "stats": {"BS": "+1", "T": "-1"}},
-    {"units": ["assault-squad", "veteran-assault-squad", "destroyer-assault-squad"], "text": "Gilded lightning: +1 I, -1 LD.", "stats": {"I": "+1", "LD": "-1"}},
-    {"match": {"unitType": "Command", "notUnitType": "Vehicle"}, "text": "Vain heroes: +1 WS, -1 CL.", "stats": {"WS": "+1", "CL": "-1"}},
-    {"units": ["*"], "item": "Laurels of Perfection", "text": "Laurels of Perfection: +1 CL, +1 I.", "stats": {"CL": "+1", "I": "+1"}},
-    {"units": ["*"], "item": "Banner of Dissonance", "scope": "unit", "text": "Banner of Dissonance: Fear (1).", "addRules": ["Fear (1)"]},
-    {"units": ["*"], "item": "Narcotic stimulants", "scope": "unit", "text": "Narcotic stimulants: Feel No Pain (6+), -1 WP.", "stats": {"WP": "-1"}, "addRules": ["Feel No Pain (6+)"]},
-    {"units": ["*"], "item": "Mirrorbright plate", "text": "Mirrorbright plate: Blinding Splendour.", "addRules": ["Blinding Splendour"]},
-    {"units": ["*"], "item": "Siren-lute", "text": "Siren-lute: Siren Song.", "addRules": ["Siren Song"]},
-    {"units": ["*"], "item": "Trophy cloak", "text": "Trophy cloak: Collected Glories, +1 CL.", "stats": {"CL": "+1"}, "addRules": ["Collected Glories"]},
-    {"units": ["*"], "item": "Pain-glove", "text": "Pain-glove: Exquisite Agony.", "addRules": ["Exquisite Agony"]},
-    {"units": ["*"], "item": "Pavane drum", "scope": "unit", "text": "Pavane drum: Tempo of the Charge.", "addRules": ["Tempo of the Charge"]},
-    {"units": ["*"], "item": "Screech-field vents", "text": "Screech-field vents: Sonic Distortion.", "addRules": ["Sonic Distortion"]}
+    {
+      "units": [
+        "palatine-blade-squad",
+        "palatine-blade-aquilae-squad"
+      ],
+      "text": "Peerless blades: +1 I, -1 WP.",
+      "stats": {
+        "I": "+1",
+        "WP": "-1"
+      }
+    },
+    {
+      "units": [
+        "phoenix-terminator-squad"
+      ],
+      "text": "Gilded Phoenix plate: +1 A, +1 I, -1 M, -1 T.",
+      "stats": {
+        "A": "+1",
+        "I": "+1",
+        "M": "-1",
+        "T": "-1"
+      }
+    },
+    {
+      "units": [
+        "kakophoni-squad"
+      ],
+      "text": "Sound-wracked: +1 BS, -1 WS.",
+      "stats": {
+        "BS": "+1",
+        "WS": "-1"
+      }
+    },
+    {
+      "units": [
+        "sun-killer-squad"
+      ],
+      "text": "Heedless marksmen: +1 BS, -1 T.",
+      "stats": {
+        "BS": "+1",
+        "T": "-1"
+      }
+    },
+    {
+      "units": [
+        "assault-squad",
+        "veteran-assault-squad",
+        "destroyer-assault-squad"
+      ],
+      "text": "Gilded lightning: +1 I, -1 LD.",
+      "stats": {
+        "I": "+1",
+        "LD": "-1"
+      }
+    },
+    {
+      "match": {
+        "unitType": "Command",
+        "notUnitType": "Vehicle"
+      },
+      "text": "Vain heroes: +1 WS, -1 CL.",
+      "stats": {
+        "WS": "+1",
+        "CL": "-1"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Laurels of Perfection",
+      "text": "Laurels of Perfection: +1 CL, +1 I.",
+      "stats": {
+        "CL": "+1",
+        "I": "+1"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Banner of Dissonance",
+      "scope": "unit",
+      "text": "Banner of Dissonance: Fear (1).",
+      "addRules": [
+        "Fear (1)"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Narcotic stimulants",
+      "scope": "unit",
+      "text": "Narcotic stimulants: Feel No Pain (6+), -1 WP.",
+      "stats": {
+        "WP": "-1"
+      },
+      "addRules": [
+        "Feel No Pain (6+)"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Mirrorbright plate",
+      "text": "Mirrorbright plate: Blinding Splendour.",
+      "addRules": [
+        "Blinding Splendour"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Siren-lute",
+      "text": "Siren-lute: Siren Song.",
+      "addRules": [
+        "Siren Song"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Trophy cloak",
+      "text": "Trophy cloak: Collected Glories, +1 CL.",
+      "stats": {
+        "CL": "+1"
+      },
+      "addRules": [
+        "Collected Glories"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Pain-glove",
+      "text": "Pain-glove: Exquisite Agony.",
+      "addRules": [
+        "Exquisite Agony"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Pavane drum",
+      "scope": "unit",
+      "text": "Pavane drum: Tempo of the Charge.",
+      "addRules": [
+        "Tempo of the Charge"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Screech-field vents",
+      "text": "Screech-field vents: Sonic Distortion.",
+      "addRules": [
+        "Sonic Distortion"
+      ]
+    }
   ],
   "rites": [
     {
@@ -323,15 +900,45 @@
     }
   ],
   "rules": [
-    {"name": "Immaculate Ranks", "text": "Legacy house rule (The Flawless Host). A unit with this rule automatically passes Cool Checks while it has not lost a model since the start of the battle."},
-    {"name": "Dirge of Pain", "text": "Legacy house rule (Symphony of Slaughter). While within 12\" of a unit with this rule, enemy units suffer -1 to their Cool Checks."},
-    {"name": "Gilded Descent", "text": "Legacy house rule (Descent of the Gilded Wings). A unit with this rule gains Deep Strike and may Charge in the turn it arrives from Reserve. At least half of the army's units with this rule (rounded up) must start the battle in Reserve."},
-    {"name": "Composed Volley", "text": "Legacy house rule (A Thousand Suns). A unit with this rule gains Precision (6+) on its Shooting attacks."},
-    {"name": "Blinding Splendour", "text": "Legacy house rule. While the bearer is in a Challenge, enemy models subtract 1 from their Hit Tests against it."},
-    {"name": "Siren Song", "text": "Legacy house rule. An enemy unit that begins its Movement phase within 12\" of the bearer must pass a Cool Check or it may not Rush that turn."},
-    {"name": "Collected Glories", "text": "Legacy house rule. When the bearer's unit destroys an enemy Character, the bearer gains Fear (1) for the rest of the battle."},
-    {"name": "Exquisite Agony", "text": "Legacy house rule. Each unsaved Wound the bearer inflicts in melee also gives the target -1 Initiative until the end of that Combat."},
-    {"name": "Tempo of the Charge", "text": "Legacy house rule. The bearer's unit counts any Charge roll of less than 6 as a 6, once per battle."},
-    {"name": "Sonic Distortion", "text": "Legacy house rule. Enemy Shooting Attacks against the vehicle from more than 18\" subtract 1 from their Hit Tests."}
+    {
+      "name": "Immaculate Ranks",
+      "text": "Legacy house rule (The Flawless Host). A unit with this rule automatically passes Cool Checks while it has not lost a model since the start of the battle."
+    },
+    {
+      "name": "Dirge of Pain",
+      "text": "Legacy house rule (Symphony of Slaughter). While within 12\" of a unit with this rule, enemy units suffer -1 to their Cool Checks."
+    },
+    {
+      "name": "Gilded Descent",
+      "text": "Legacy house rule (Descent of the Gilded Wings). A unit with this rule gains Deep Strike and may Charge in the turn it arrives from Reserve. At least half of the army's units with this rule (rounded up) must start the battle in Reserve."
+    },
+    {
+      "name": "Composed Volley",
+      "text": "Legacy house rule (A Thousand Suns). A unit with this rule gains Precision (6+) on its Shooting attacks."
+    },
+    {
+      "name": "Blinding Splendour",
+      "text": "Legacy house rule. While the bearer is in a Challenge, enemy models subtract 1 from their Hit Tests against it."
+    },
+    {
+      "name": "Siren Song",
+      "text": "Legacy house rule. An enemy unit that begins its Movement phase within 12\" of the bearer must pass a Cool Check or it may not Rush that turn."
+    },
+    {
+      "name": "Collected Glories",
+      "text": "Legacy house rule. When the bearer's unit destroys an enemy Character, the bearer gains Fear (1) for the rest of the battle."
+    },
+    {
+      "name": "Exquisite Agony",
+      "text": "Legacy house rule. Each unsaved Wound the bearer inflicts in melee also gives the target -1 Initiative until the end of that Combat."
+    },
+    {
+      "name": "Tempo of the Charge",
+      "text": "Legacy house rule. The bearer's unit counts any Charge roll of less than 6 as a 6, once per battle."
+    },
+    {
+      "name": "Sonic Distortion",
+      "text": "Legacy house rule. Enemy Shooting Attacks against the vehicle from more than 18\" subtract 1 from their Hit Tests."
+    }
   ]
 }

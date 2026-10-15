@@ -585,7 +585,7 @@
     },
     {
       "name": "Bonded Directive",
-      "text": "Legacy house rule (The Bonded Cybernetica Maniple). A unit with this rule within 12\" of a friendly Titan automatically passes Morale and Cool Checks."
+      "text": "Legacy house rule (The Bonded Cybernetica Maniple). A unit with this rule within 12\" of a friendly Titan adds +1 to its Leadership and Cool for Morale and Cool Checks."
     },
     {
       "name": "Banner of Victories",
@@ -843,7 +843,7 @@
       "benefits": [
         "Castellax Battle, Castellax Destructor and Domitar Battle Maniples may fill Troops slots and gain Line (1).",
         "Castellaxes gain +1 Ballistic Skill.",
-        "Maniples gain Bonded Directive: while within 12\" of a friendly Titan they automatically pass Morale and Cool Checks."
+        "Maniples gain Bonded Directive: while within 12\" of a friendly Titan they add +1 to their Leadership and Cool for Morale and Cool Checks."
       ],
       "limitations": [
         "Exactly one Titan is required.",

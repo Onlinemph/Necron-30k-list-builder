@@ -226,11 +226,11 @@
         "choices": [
           {
             "name": "Excoriator chainaxe",
-            "points": 10
+            "points": 20
           },
           {
             "name": "Barb-hook lash",
-            "points": 10
+            "points": 20
           },
           {
             "name": "Meteor hammer",
@@ -460,9 +460,10 @@
       "units": [
         "rampager-squad"
       ],
-      "text": "Rampagers: +1 I.",
+      "text": "Rampagers: +1 I, -1 LD.",
       "stats": {
-        "I": "+1"
+        "I": "+1",
+        "LD": "-1"
       }
     },
     {

@@ -853,7 +853,7 @@
       "name": "The Emperor's Will",
       "flavor": "Valdor does not command the Ten Thousand. He only says aloud what they already know.",
       "benefits": [
-        "Every Legio Custodes unit gains +1 Willpower and Valdor's Word: it automatically passes Morale and Pinning checks while within 12\" of Constantin Valdor."
+        "Every Legio Custodes unit gains +1 Willpower and Valdor's Word: it adds +1 to its Leadership and Cool for Morale and Pinning checks while within 12\" of Constantin Valdor."
       ],
       "limitations": [
         "Constantin Valdor must lead the army.",
@@ -963,7 +963,7 @@
     },
     {
       "name": "Valdor's Word",
-      "text": "Legacy house rule (The Emperor's Will). A unit with this rule automatically passes Morale and Pinning checks while within 12\" of Constantin Valdor."
+      "text": "Legacy house rule (The Emperor's Will). A unit with this rule adds +1 to its Leadership and Cool for Morale and Pinning checks while within 12\" of Constantin Valdor."
     },
     {
       "name": "Wakened Ancients",

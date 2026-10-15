@@ -141,7 +141,9 @@ function offence(rows, look, tgt, melee) {
     if (!r.count) continue;
     if (melee && r.profile.WS == null) continue;
     const att = { p: r.profile, rules: r.rules.filter((x) => SIM.test(x)) };
-    const ws = r.items.flatMap((it) => look(it)[melee ? 'melee' : 'ranged']);
+    // a paired item ("Eternity Blade and Praesidium Shield") is looked up part by part
+    const find = (it) => { const k = melee ? 'melee' : 'ranged'; const w = look(it)[k]; return w.length ? w : / and /.test(it) ? it.split(/ and /).flatMap((x) => look(x)[k]) : w; };
+    const ws = r.items.flatMap(find);
     if (melee && !ws.length) ws.push({ name: 'close combat', IM: 'I', AM: 'A', SM: 'S', AP: 7, D: 1, specialRules: [] });
     let best = 0;
     for (const w of ws) {

@@ -833,7 +833,7 @@
   "rules": [
     {
       "name": "Voice of the Mournival",
-      "text": "Legacy house rule (The Mournival's Word). A model with this rule steadies the Legion around it. While a friendly Sons of Horus unit is within 12\" of a model with this rule, it automatically passes Morale and Pinning checks."
+      "text": "Legacy house rule (The Mournival's Word). A model with this rule steadies the Legion around it. While a friendly Sons of Horus unit is within 12\" of a model with this rule, it adds +1 to its Leadership and Cool for Morale and Pinning checks."
     },
     {
       "name": "Spear Point",
@@ -845,7 +845,7 @@
     },
     {
       "name": "Sworn to Horus",
-      "text": "Legacy house rule (The Warmaster's Favour). A unit with this rule automatically passes Morale and Pinning checks for as long as Horus Lupercal or Horus Ascended is on the battlefield."
+      "text": "Legacy house rule (The Warmaster's Favour). A unit with this rule adds +1 to its Leadership and Cool for Morale and Pinning checks for as long as Horus Lupercal or Horus Ascended is on the battlefield."
     },
     {
       "name": "Victor's Laurel",

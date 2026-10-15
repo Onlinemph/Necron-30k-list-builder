@@ -194,7 +194,7 @@
         "choices": [
           {
             "name": "Graviton pulsar",
-            "points": 10
+            "points": 15
           }
         ]
       }
@@ -514,7 +514,7 @@
   "rules": [
     {
       "name": "Oath-Bonded",
-      "text": "Legacy house rule (Garro's Company). A unit with this rule within 12\" of Nathaniel Garro or Tylos Rubio automatically passes Morale and Cool Checks."
+      "text": "Legacy house rule (Garro's Company). A unit with this rule within 12\" of Nathaniel Garro or Tylos Rubio adds +1 to its Leadership and Cool for Morale and Cool Checks."
     },
     {
       "name": "Sealed Orders",
@@ -579,7 +579,7 @@
       "flavor": "A handful of oath-breakers and loyalists, bound by the one thing neither side believed in.",
       "benefits": [
         "Castellax Battle, Castellax Destructor and Domitar Battle Maniples may fill Troops slots and gain Line (1).",
-        "Maniples gain Oath-Bonded: while within 12\" of Garro or Rubio they automatically pass Morale and Cool Checks.",
+        "Maniples gain Oath-Bonded: while within 12\" of Garro or Rubio they add +1 to their Leadership and Cool for Morale and Cool Checks.",
         "Garro and Rubio gain +1 Leadership."
       ],
       "limitations": [

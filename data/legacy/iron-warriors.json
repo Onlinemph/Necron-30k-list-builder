@@ -1,79 +1,738 @@
 {
   "armyRules": [
-    {"name": "Entrenched Obstinacy", "text": "Legacy house rule. The Legion digs in and does not leave. A unit with this rule that did not move in its last Movement phase adds 1 to its Toughness against Shooting Attacks, but it may not Rush, and it subtracts 1 from its Charge rolls.", "match": {"notUnitType": "Vehicle", "notNameIncludes": ["Castellax", "Domitar", "Thanatar"]}, "stats": {"T": "+1"}, "condition": "against Shooting Attacks, if the unit did not move in its last Movement phase"},
-    {"name": "Methodical Barrage", "text": "Legacy house rule. The guns work through a target in order, and are slow to turn on a new one. A unit with this rule adds 1 to the Hit Tests of its Shooting Attacks against a unit that is Pinned, Suppressed or Stunned, but it subtracts 1 from its Hit Tests against any unit that Rushed in its last turn.", "units": ["iron-havocs", "heavy-support-squad", "tactical-support-squad", "veteran-heavy-support-squad", "rapier-battery", "tyrant-siege-terminator-squad"], "optionalUnits": true, "stats": {"BS": "+1"}, "condition": "against a Pinned, Suppressed or Stunned unit"},
-    {"name": "Siege-Plate Hulls", "text": "Legacy house rule. Iron Warriors armour is built for the long approach, not the race. A vehicle with this rule adds 1 to its Front armour value but loses 1 Movement.", "match": {"unitType": "Vehicle", "notUnitType": "Flyer"}, "stats": {"FRONT": "+1", "M": "-1"}}
+    {
+      "name": "Entrenched Obstinacy",
+      "text": "Legacy house rule. The Legion digs in and does not leave. A unit with this rule that did not move in its last Movement phase adds 1 to its Toughness against Shooting Attacks, but it may not Rush, and it subtracts 1 from its Charge rolls.",
+      "match": {
+        "notUnitType": "Vehicle",
+        "notNameIncludes": [
+          "Castellax",
+          "Domitar",
+          "Thanatar"
+        ]
+      },
+      "stats": {
+        "T": "+1"
+      },
+      "condition": "against Shooting Attacks, if the unit did not move in its last Movement phase"
+    },
+    {
+      "name": "Methodical Barrage",
+      "text": "Legacy house rule. The guns work through a target in order, and are slow to turn on a new one. A unit with this rule adds 1 to the Hit Tests of its Shooting Attacks against a unit that is Pinned, Suppressed or Stunned, but it subtracts 1 from its Hit Tests against any unit that Rushed in its last turn.",
+      "units": [
+        "iron-havocs",
+        "heavy-support-squad",
+        "tactical-support-squad",
+        "veteran-heavy-support-squad",
+        "rapier-battery",
+        "tyrant-siege-terminator-squad"
+      ],
+      "optionalUnits": true,
+      "stats": {
+        "BS": "+1"
+      },
+      "condition": "against a Pinned, Suppressed or Stunned unit"
+    },
+    {
+      "name": "Siege-Plate Hulls",
+      "text": "Legacy house rule. Iron Warriors armour is built for the long approach, not the race. A vehicle with this rule adds 1 to its Front armour value but loses 1 Movement.",
+      "match": {
+        "unitType": "Vehicle",
+        "notUnitType": "Flyer"
+      },
+      "stats": {
+        "FRONT": "+1",
+        "M": "-1"
+      }
+    }
   ],
   "weapons": {
     "melee": [
-      {"name": "Sapper's pick", "IM": -1, "AM": "A", "SM": "+2", "AP": 3, "D": 1, "specialRules": ["Breaching (4+)", "Impact (SM)"], "traits": ["Power"]},
-      {"name": "Rampart-ram gauntlet", "IM": -1, "AM": "A", "SM": "+3", "AP": 3, "D": 1, "specialRules": ["Stun (1)", "Impact (SM)"], "traits": ["Power"]}
+      {
+        "name": "Sapper's pick",
+        "IM": -1,
+        "AM": "A",
+        "SM": "+2",
+        "AP": 3,
+        "D": 1,
+        "specialRules": [
+          "Breaching (4+)",
+          "Impact (SM)"
+        ],
+        "traits": [
+          "Power"
+        ]
+      },
+      {
+        "name": "Rampart-ram gauntlet",
+        "IM": -1,
+        "AM": "A",
+        "SM": "+3",
+        "AP": 3,
+        "D": 1,
+        "specialRules": [
+          "Stun (1)",
+          "Impact (SM)"
+        ],
+        "traits": [
+          "Power"
+        ]
+      }
     ],
     "ranged": [
-      {"name": "Bastion rifle", "R": 30, "FP": 2, "RS": 4, "AP": 5, "D": 1, "specialRules": ["Heavy (RS)", "Suppressive (1)"], "traits": ["Bolt"]},
-      {"name": "Trench sweeper", "R": "Template", "FP": 1, "RS": 4, "AP": 5, "D": 1, "specialRules": ["Template", "Pinning (2)", "Aflame (1)"], "traits": ["Flame"]},
-      {"name": "Fortress-breaker launcher", "R": 24, "FP": 1, "RS": 7, "AP": 3, "D": 2, "specialRules": ["Blast (3\")", "Armourbane", "Limited (2)"], "traits": ["Missile"]}
+      {
+        "name": "Bastion rifle",
+        "R": 30,
+        "FP": 2,
+        "RS": 4,
+        "AP": 5,
+        "D": 1,
+        "specialRules": [
+          "Heavy (RS)",
+          "Suppressive (1)"
+        ],
+        "traits": [
+          "Bolt"
+        ]
+      },
+      {
+        "name": "Trench sweeper",
+        "R": "Template",
+        "FP": 1,
+        "RS": 4,
+        "AP": 5,
+        "D": 1,
+        "specialRules": [
+          "Template",
+          "Pinning (2)",
+          "Aflame (1)"
+        ],
+        "traits": [
+          "Flame"
+        ]
+      },
+      {
+        "name": "Fortress-breaker launcher",
+        "R": 24,
+        "FP": 1,
+        "RS": 7,
+        "AP": 3,
+        "D": 2,
+        "specialRules": [
+          "Blast (3\")",
+          "Armourbane",
+          "Limited (2)"
+        ],
+        "traits": [
+          "Missile"
+        ]
+      }
     ]
   },
   "wargear": [
-    {"name": "Fortification kit", "text": "Legacy house rule. Spades, sandbag lattices and quick-setting ferrocrete foam, hauled across every battlefield and used on all of them. The unit gains Shrouded (6+), and every model suffers -1 Movement."},
-    {"name": "Bastion rangefinder", "text": "Legacy house rule. A tripod-mounted ranging array and a gunner who has never missed a measurement. The unit gains +1 Ballistic Skill, but only when it did not move this turn."},
-    {"name": "Mechanicum augmetics", "text": "Legacy house rule. Bionic limbs and subdermal plating, grafted in by the Legion's own sawbones. The model gains +1 Toughness and suffers -1 Initiative."},
-    {"name": "Demolition satchel", "text": "Legacy house rule. A satchel of shaped charges carried to the walls the Legion means to open. Gives the model Shaped Charge."},
-    {"name": "Bastion standard", "text": "Legacy house rule. A banner on an iron pole, hammered into the ground so that charging enemies must come to it. Gives the unit Unyielding Bastion."},
-    {"name": "Ablative bulwark plate", "text": "Legacy house rule. Layered ceramite slabs that peel away rather than break. Gives the model Ablative Layers."},
-    {"name": "Siege-ledger", "text": "Legacy house rule. A cogitator slate of ranges, wall thicknesses and failure points. Gives the model Siege Calculus."},
-    {"name": "Sapper's tunnelling kit", "text": "Legacy house rule. Augers, props and spades for going under a line rather than over it. Gives the unit Sapper Tunnels."},
-    {"name": "Spall liners", "text": "Legacy house rule. Quilted ablative sheeting packed behind the hull plates. Gives the vehicle Spall Liners."},
-    {"name": "Fixed-fire core", "text": "Legacy house rule. A machine-spirit cogitation core tuned for patience and aim. Gives the automaton Fixed-Fire Protocol."}
+    {
+      "name": "Fortification kit",
+      "text": "Legacy house rule. Spades, sandbag lattices and quick-setting ferrocrete foam, hauled across every battlefield and used on all of them. The unit gains Shrouded (6+), and every model suffers -1 Movement."
+    },
+    {
+      "name": "Bastion rangefinder",
+      "text": "Legacy house rule. A tripod-mounted ranging array and a gunner who has never missed a measurement. The unit gains +1 Ballistic Skill, but only when it did not move this turn."
+    },
+    {
+      "name": "Mechanicum augmetics",
+      "text": "Legacy house rule. Bionic limbs and subdermal plating, grafted in by the Legion's own sawbones. The model gains +1 Toughness and suffers -1 Initiative."
+    },
+    {
+      "name": "Demolition satchel",
+      "text": "Legacy house rule. A satchel of shaped charges carried to the walls the Legion means to open. Gives the model Shaped Charge."
+    },
+    {
+      "name": "Bastion standard",
+      "text": "Legacy house rule. A banner on an iron pole, hammered into the ground so that charging enemies must come to it. Gives the unit Unyielding Bastion."
+    },
+    {
+      "name": "Ablative bulwark plate",
+      "text": "Legacy house rule. Layered ceramite slabs that peel away rather than break. Gives the model Ablative Layers."
+    },
+    {
+      "name": "Siege-ledger",
+      "text": "Legacy house rule. A cogitator slate of ranges, wall thicknesses and failure points. Gives the model Siege Calculus."
+    },
+    {
+      "name": "Sapper's tunnelling kit",
+      "text": "Legacy house rule. Augers, props and spades for going under a line rather than over it. Gives the unit Sapper Tunnels."
+    },
+    {
+      "name": "Spall liners",
+      "text": "Legacy house rule. Quilted ablative sheeting packed behind the hull plates. Gives the vehicle Spall Liners."
+    },
+    {
+      "name": "Fixed-fire core",
+      "text": "Legacy house rule. A machine-spirit cogitation core tuned for patience and aim. Gives the automaton Fixed-Fire Protocol."
+    }
   ],
   "options": [
-    {"units": ["tactical-squad"], "option": {"id": "iw-bastion-rifle", "kind": "perModel", "model": "Legionary", "max": 3, "replaces": ["Bolter"], "text": "Up to three Legionaries may exchange their bolter for", "choices": [{"name": "Bastion rifle", "points": 4}]}},
-    {"units": ["breacher-squad"], "option": {"id": "iw-breacher-bastion-rifle", "kind": "perModel", "model": "Legionary", "max": 3, "replaces": ["Bolter"], "text": "Up to three Legionaries may exchange their bolter for", "choices": [{"name": "Bastion rifle", "points": 4}]}},
-    {"units": ["tactical-squad", "despoiler-squad", "assault-squad", "breacher-squad", "heavy-support-squad", "tactical-support-squad", "veteran-tactical-squad", "veteran-breacher-squad", "iron-havocs"], "option": {"id": "iw-sappers-pick", "kind": "one", "modelType": "Sergeant", "text": "The Sergeant may take a Sapper's pick", "choices": [{"name": "Sapper's pick", "points": 12}]}},
-    {"units": ["tactical-squad", "despoiler-squad", "breacher-squad", "iron-havocs", "heavy-support-squad", "tactical-support-squad", "veteran-tactical-squad"], "option": {"id": "iw-fortification-kit", "kind": "upgrade", "model": null, "text": "The unit may take a Fortification kit", "choices": [{"name": "Fortification kit", "points": 10}]}},
-    {"units": ["iron-havocs", "heavy-support-squad", "tactical-support-squad", "veteran-heavy-support-squad"], "option": {"id": "iw-rangefinder", "kind": "upgrade", "model": null, "text": "The unit may take a Bastion rangefinder", "choices": [{"name": "Bastion rangefinder", "points": 15}]}},
-    {"units": ["tactical-squad", "despoiler-squad", "assault-squad", "breacher-squad", "heavy-support-squad", "tactical-support-squad", "veteran-tactical-squad", "veteran-assault-squad", "veteran-breacher-squad", "iron-havocs"], "option": {"id": "iw-augmetics", "kind": "upgrade", "modelType": "Sergeant", "text": "The Sergeant may take Mechanicum augmetics", "choices": [{"name": "Mechanicum augmetics", "points": 10}]}},
-    {"units": ["castellax-battle-maniple"], "option": {"id": "iw-castellax-mace", "kind": "perModel", "model": "Castellax", "text": "Any Castellax may take a Graviton mace", "choices": [{"name": "Graviton mace", "points": 10}]}},
-    {"match": {"roles": ["Command", "High Command"], "notUnitType": "Vehicle"}, "option": {"id": "iw-siege-regalia", "kind": "any", "modelType": "Command", "max": {"fixed": 2}, "text": "Siege regalia: may take up to two", "choices": [{"name": "Ablative bulwark plate", "points": 20}, {"name": "Siege-ledger", "points": 15}, {"name": "Rampart-ram gauntlet", "points": 15}]}},
-    {"units": ["tactical-squad", "despoiler-squad", "assault-squad", "breacher-squad", "veteran-tactical-squad", "veteran-breacher-squad", "iron-havocs", "tyrant-siege-terminator-squad"], "option": {"id": "iw-satchel", "kind": "upgrade", "modelType": "Sergeant", "text": "The Sergeant may carry a Demolition satchel", "choices": [{"name": "Demolition satchel", "points": 10}]}},
-    {"units": ["tactical-squad", "despoiler-squad", "breacher-squad", "veteran-tactical-squad", "veteran-breacher-squad", "iron-havocs", "dominator-cohort"], "option": {"id": "iw-bastion-standard", "kind": "upgrade", "model": null, "text": "The unit may carry a Bastion standard", "choices": [{"name": "Bastion standard", "points": 15}]}},
-    {"units": ["tactical-squad", "breacher-squad", "veteran-breacher-squad", "reconnaissance-squad"], "option": {"id": "iw-tunnelling-kit", "kind": "upgrade", "model": null, "text": "The unit may take a Sapper's tunnelling kit", "choices": [{"name": "Sapper's tunnelling kit", "points": 15}]}},
-    {"match": {"unitType": "Vehicle", "notUnitType": "Flyer", "roles": ["Armour", "Transport", "Heavy Transport"]}, "option": {"id": "iw-spall-liners", "kind": "upgrade", "model": null, "text": "May fit Spall liners", "choices": [{"name": "Spall liners", "points": 15}]}},
-    {"units": ["castellax-battle-maniple", "castellax-destructor-maniple", "domitar-battle-maniple", "thanatar-siege-maniple", "iron-circle-maniple"], "option": {"id": "iw-fixed-fire", "kind": "upgrade", "model": null, "text": "May fit a Fixed-fire core", "choices": [{"name": "Fixed-fire core", "points": 15}]}},
-    {"units": ["tactical-support-squad"], "option": {"id": "iw-trench-sweeper", "kind": "perModel", "model": "Legionary", "replaces": ["Flamer"], "max": 1, "text": "Up to one Legionary may exchange their flamer for", "choices": [{"name": "Trench sweeper", "points": 8}]}},
-    {"units": ["iron-havocs"], "option": {"id": "iw-fortress-breaker", "kind": "perModel", "model": "Iron Havoc", "max": 2, "text": "Up to two Iron Havocs may take a Fortress-breaker launcher", "choices": [{"name": "Fortress-breaker launcher", "points": 15}]}}
+    {
+      "units": [
+        "tactical-squad"
+      ],
+      "option": {
+        "id": "iw-bastion-rifle",
+        "kind": "perModel",
+        "model": "Legionary",
+        "max": 3,
+        "replaces": [
+          "Bolter"
+        ],
+        "text": "Up to three Legionaries may exchange their bolter for",
+        "choices": [
+          {
+            "name": "Bastion rifle",
+            "points": 4
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "breacher-squad"
+      ],
+      "option": {
+        "id": "iw-breacher-bastion-rifle",
+        "kind": "perModel",
+        "model": "Legionary",
+        "max": 3,
+        "replaces": [
+          "Bolter"
+        ],
+        "text": "Up to three Legionaries may exchange their bolter for",
+        "choices": [
+          {
+            "name": "Bastion rifle",
+            "points": 4
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "assault-squad",
+        "breacher-squad",
+        "heavy-support-squad",
+        "tactical-support-squad",
+        "veteran-tactical-squad",
+        "veteran-breacher-squad",
+        "iron-havocs"
+      ],
+      "option": {
+        "id": "iw-sappers-pick",
+        "kind": "one",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may take a Sapper's pick",
+        "choices": [
+          {
+            "name": "Sapper's pick",
+            "points": 12
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "breacher-squad",
+        "iron-havocs",
+        "heavy-support-squad",
+        "tactical-support-squad",
+        "veteran-tactical-squad"
+      ],
+      "option": {
+        "id": "iw-fortification-kit",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The unit may take a Fortification kit",
+        "choices": [
+          {
+            "name": "Fortification kit",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "iron-havocs",
+        "heavy-support-squad",
+        "tactical-support-squad",
+        "veteran-heavy-support-squad"
+      ],
+      "option": {
+        "id": "iw-rangefinder",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The unit may take a Bastion rangefinder",
+        "choices": [
+          {
+            "name": "Bastion rangefinder",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "assault-squad",
+        "breacher-squad",
+        "heavy-support-squad",
+        "tactical-support-squad",
+        "veteran-tactical-squad",
+        "veteran-assault-squad",
+        "veteran-breacher-squad",
+        "iron-havocs"
+      ],
+      "option": {
+        "id": "iw-augmetics",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may take Mechanicum augmetics",
+        "choices": [
+          {
+            "name": "Mechanicum augmetics",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "castellax-battle-maniple"
+      ],
+      "option": {
+        "id": "iw-castellax-mace",
+        "kind": "perModel",
+        "model": "Castellax",
+        "text": "Any Castellax may take a Graviton mace",
+        "choices": [
+          {
+            "name": "Graviton mace",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "roles": [
+          "Command",
+          "High Command"
+        ],
+        "notUnitType": "Vehicle"
+      },
+      "option": {
+        "id": "iw-siege-regalia",
+        "kind": "any",
+        "modelType": "Command",
+        "max": {
+          "fixed": 2
+        },
+        "text": "Siege regalia: may take up to two",
+        "choices": [
+          {
+            "name": "Ablative bulwark plate",
+            "points": 20
+          },
+          {
+            "name": "Siege-ledger",
+            "points": 15
+          },
+          {
+            "name": "Rampart-ram gauntlet",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "assault-squad",
+        "breacher-squad",
+        "veteran-tactical-squad",
+        "veteran-breacher-squad",
+        "iron-havocs",
+        "tyrant-siege-terminator-squad"
+      ],
+      "option": {
+        "id": "iw-satchel",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may carry a Demolition satchel",
+        "choices": [
+          {
+            "name": "Demolition satchel",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "breacher-squad",
+        "veteran-tactical-squad",
+        "veteran-breacher-squad",
+        "iron-havocs",
+        "dominator-cohort"
+      ],
+      "option": {
+        "id": "iw-bastion-standard",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The unit may carry a Bastion standard",
+        "choices": [
+          {
+            "name": "Bastion standard",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "breacher-squad",
+        "veteran-breacher-squad",
+        "reconnaissance-squad"
+      ],
+      "option": {
+        "id": "iw-tunnelling-kit",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The unit may take a Sapper's tunnelling kit",
+        "choices": [
+          {
+            "name": "Sapper's tunnelling kit",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "unitType": "Vehicle",
+        "notUnitType": "Flyer",
+        "roles": [
+          "Armour",
+          "Transport",
+          "Heavy Transport"
+        ]
+      },
+      "option": {
+        "id": "iw-spall-liners",
+        "kind": "upgrade",
+        "model": null,
+        "text": "May fit Spall liners",
+        "choices": [
+          {
+            "name": "Spall liners",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "castellax-battle-maniple",
+        "castellax-destructor-maniple",
+        "domitar-battle-maniple",
+        "thanatar-siege-maniple",
+        "iron-circle-maniple"
+      ],
+      "option": {
+        "id": "iw-fixed-fire",
+        "kind": "upgrade",
+        "model": null,
+        "text": "May fit a Fixed-fire core",
+        "choices": [
+          {
+            "name": "Fixed-fire core",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-support-squad"
+      ],
+      "option": {
+        "id": "iw-trench-sweeper",
+        "kind": "perModel",
+        "model": "Legionary",
+        "replaces": [
+          "Flamer"
+        ],
+        "max": 1,
+        "text": "Up to one Legionary may exchange their flamer for",
+        "choices": [
+          {
+            "name": "Trench sweeper",
+            "points": 8
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "iron-havocs"
+      ],
+      "option": {
+        "id": "iw-fortress-breaker",
+        "kind": "perModel",
+        "model": "Iron Havoc",
+        "max": 2,
+        "text": "Up to two Iron Havocs may take a Fortress-breaker launcher",
+        "choices": [
+          {
+            "name": "Fortress-breaker launcher",
+            "points": 15
+          }
+        ]
+      }
+    }
   ],
   "modifiers": [
-    {"units": ["iron-havocs"], "text": "Siege gunners: +1 BS, -1 M.", "stats": {"BS": "+1", "M": "-1"}},
-    {"units": ["breacher-squad", "veteran-breacher-squad"], "text": "Drilled to the wall: +1 LD, -1 I.", "stats": {"LD": "+1", "I": "-1"}},
-    {"units": ["iron-circle-maniple"], "text": "The Tyrant's bodyguard: +1 BS, -1 M.", "stats": {"BS": "+1", "M": "-1"}},
-    {"units": ["dominator-cohort"], "text": "Once-honoured: +1 A, -1 BS.", "stats": {"A": "+1", "BS": "-1"}},
-    {"units": ["tyrant-siege-terminator-squad"], "text": "Siege masters: +1 BS, -1 I.", "stats": {"BS": "+1", "I": "-1"}},
-    {"units": ["tactical-squad", "despoiler-squad", "veteran-tactical-squad"], "text": "Grim fortitude: +1 LD, -1 CL.", "stats": {"LD": "+1", "CL": "-1"}},
-    {"units": ["*"], "item": "Fortification kit", "scope": "unit", "text": "Fortification kit: Shrouded (6+), -1 M.", "stats": {"M": "-1"}, "addRules": ["Shrouded (6+)"]},
-    {"units": ["*"], "item": "Bastion rangefinder", "scope": "unit", "text": "Bastion rangefinder: +1 BS.", "stats": {"BS": "+1"}, "condition": "if the unit did not move this turn"},
-    {"units": ["*"], "item": "Mechanicum augmetics", "text": "Mechanicum augmetics: +1 T, -1 I.", "stats": {"T": "+1", "I": "-1"}},
-    {"units": ["*"], "item": "Demolition satchel", "text": "Demolition satchel: Shaped Charge.", "addRules": ["Shaped Charge"]},
-    {"units": ["*"], "item": "Bastion standard", "scope": "unit", "text": "Bastion standard: Unyielding Bastion.", "addRules": ["Unyielding Bastion"]},
-    {"units": ["*"], "item": "Ablative bulwark plate", "text": "Ablative bulwark plate: Ablative Layers.", "addRules": ["Ablative Layers"]},
-    {"units": ["*"], "item": "Siege-ledger", "text": "Siege-ledger: Siege Calculus.", "addRules": ["Siege Calculus"]},
-    {"units": ["*"], "item": "Sapper's tunnelling kit", "scope": "unit", "text": "Sapper's tunnelling kit: Sapper Tunnels.", "addRules": ["Sapper Tunnels"]},
-    {"units": ["*"], "item": "Spall liners", "scope": "unit", "text": "Spall liners: ignores Stunned and Suppressed from Shooting Attacks.", "addRules": ["Spall Liners"]},
-    {"units": ["*"], "item": "Fixed-fire core", "scope": "unit", "text": "Fixed-fire core: +1 BS if it did not move.", "stats": {"BS": "+1"}, "addRules": ["Fixed-Fire Protocol"], "condition": "if the unit did not move this turn"}
+    {
+      "units": [
+        "iron-havocs"
+      ],
+      "text": "Siege gunners: +1 BS, -1 M.",
+      "stats": {
+        "BS": "+1",
+        "M": "-1"
+      }
+    },
+    {
+      "units": [
+        "breacher-squad",
+        "veteran-breacher-squad"
+      ],
+      "text": "Drilled to the wall: +1 LD, -1 I.",
+      "stats": {
+        "LD": "+1",
+        "I": "-1"
+      }
+    },
+    {
+      "units": [
+        "iron-circle-maniple"
+      ],
+      "text": "The Tyrant's bodyguard: +1 BS, -1 M.",
+      "stats": {
+        "BS": "+1",
+        "M": "-1"
+      }
+    },
+    {
+      "units": [
+        "dominator-cohort"
+      ],
+      "text": "Once-honoured: +1 A, -1 BS.",
+      "stats": {
+        "A": "+1",
+        "BS": "-1"
+      }
+    },
+    {
+      "units": [
+        "tyrant-siege-terminator-squad"
+      ],
+      "text": "Siege masters: +1 BS, -1 I.",
+      "stats": {
+        "BS": "+1",
+        "I": "-1"
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "veteran-tactical-squad"
+      ],
+      "text": "Grim fortitude: +1 LD, -1 CL.",
+      "stats": {
+        "LD": "+1",
+        "CL": "-1"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Fortification kit",
+      "scope": "unit",
+      "text": "Fortification kit: Shrouded (6+), -1 M.",
+      "stats": {
+        "M": "-1"
+      },
+      "addRules": [
+        "Shrouded (6+)"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Bastion rangefinder",
+      "scope": "unit",
+      "text": "Bastion rangefinder: +1 BS.",
+      "stats": {
+        "BS": "+1"
+      },
+      "condition": "if the unit did not move this turn"
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Mechanicum augmetics",
+      "text": "Mechanicum augmetics: +1 T, -1 I.",
+      "stats": {
+        "T": "+1",
+        "I": "-1"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Demolition satchel",
+      "text": "Demolition satchel: Shaped Charge.",
+      "addRules": [
+        "Shaped Charge"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Bastion standard",
+      "scope": "unit",
+      "text": "Bastion standard: Unyielding Bastion.",
+      "addRules": [
+        "Unyielding Bastion"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Ablative bulwark plate",
+      "text": "Ablative bulwark plate: Ablative Layers.",
+      "addRules": [
+        "Ablative Layers"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Siege-ledger",
+      "text": "Siege-ledger: Siege Calculus.",
+      "addRules": [
+        "Siege Calculus"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Sapper's tunnelling kit",
+      "scope": "unit",
+      "text": "Sapper's tunnelling kit: Sapper Tunnels.",
+      "addRules": [
+        "Sapper Tunnels"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Spall liners",
+      "scope": "unit",
+      "text": "Spall liners: ignores Stunned and Suppressed from Shooting Attacks.",
+      "addRules": [
+        "Spall Liners"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Fixed-fire core",
+      "scope": "unit",
+      "text": "Fixed-fire core: +1 BS if it did not move.",
+      "stats": {
+        "BS": "+1"
+      },
+      "addRules": [
+        "Fixed-Fire Protocol"
+      ],
+      "condition": "if the unit did not move this turn"
+    }
   ],
   "rules": [
-    {"name": "Dug In", "text": "Legacy house rule (The Bastion Doctrine). A unit with this rule that did not move in its last Movement phase counts as being in Cover against Shooting Attacks and adds +1 to its Cool Checks until it moves again."},
-    {"name": "Unbroken Garrison", "text": "Legacy house rule (Iron Circle Garrison). The Tyrant's guard does not break. While within 12\" of Perturabo or a Warsmith, a unit with this rule automatically passes Cool Checks and Pinning Checks, and it may never voluntarily Fall Back."},
-    {"name": "Machine Certainty", "text": "Legacy house rule (The Cold Calculus). The automata feel no dread. A unit with this rule ignores the effects of Fear (X) and cannot be Pinned."},
-    {"name": "Through the Breach", "text": "Legacy house rule (Breach and Clear). Siege infantry go through the walls rather than around them. An enemy unit charged by a unit with this rule gets no Cover save, and no benefit from a building or fortification, for the rest of that Combat."},
-    {"name": "Shaped Charge", "text": "Legacy house rule. Once per battle, in the Assault phase, the bearer's melee attacks gain Breaching (3+) until the end of that Combat."},
-    {"name": "Unyielding Bastion", "text": "Legacy house rule. Enemy units that charge a unit with this rule subtract 1 from their Charge rolls."},
-    {"name": "Ablative Layers", "text": "Legacy house rule. The first Unsaved Wound the bearer suffers in each battle is discarded."},
-    {"name": "Siege Calculus", "text": "Legacy house rule. At the start of each Shooting phase choose one enemy unit within 24\" of the bearer. Friendly Iron Warriors units add 1 to their Hit Tests against it until the end of the phase."},
-    {"name": "Sapper Tunnels", "text": "Legacy house rule. A unit with this rule gains Infiltrate (9), but subtracts 1 from its Cool Checks while an enemy unit is within 6\"."},
-    {"name": "Spall Liners", "text": "Legacy house rule. The vehicle ignores the Stunned and Suppressed Statuses inflicted by Shooting Attacks."},
-    {"name": "Fixed-Fire Protocol", "text": "Legacy house rule. The automaton adds 1 to its Ballistic Skill if it did not move this turn."}
+    {
+      "name": "Dug In",
+      "text": "Legacy house rule (The Bastion Doctrine). A unit with this rule that did not move in its last Movement phase counts as being in Cover against Shooting Attacks and adds +1 to its Cool Checks until it moves again."
+    },
+    {
+      "name": "Unbroken Garrison",
+      "text": "Legacy house rule (Iron Circle Garrison). The Tyrant's guard does not break. While within 12\" of Perturabo or a Warsmith, a unit with this rule automatically passes Cool Checks and Pinning Checks, and it may never voluntarily Fall Back."
+    },
+    {
+      "name": "Machine Certainty",
+      "text": "Legacy house rule (The Cold Calculus). The automata feel no dread. A unit with this rule ignores the effects of Fear (X) and cannot be Pinned."
+    },
+    {
+      "name": "Through the Breach",
+      "text": "Legacy house rule (Breach and Clear). Siege infantry go through the walls rather than around them. An enemy unit charged by a unit with this rule gets no Cover save, and no benefit from a building or fortification, for the rest of that Combat."
+    },
+    {
+      "name": "Shaped Charge",
+      "text": "Legacy house rule. Once per battle, in the Assault phase, the bearer's melee attacks gain Breaching (3+) until the end of that Combat."
+    },
+    {
+      "name": "Unyielding Bastion",
+      "text": "Legacy house rule. Enemy units that charge a unit with this rule subtract 1 from their Charge rolls."
+    },
+    {
+      "name": "Ablative Layers",
+      "text": "Legacy house rule. The first Unsaved Wound the bearer suffers in each battle is discarded."
+    },
+    {
+      "name": "Siege Calculus",
+      "text": "Legacy house rule. At the start of each Shooting phase choose one enemy unit within 24\" of the bearer. Friendly Iron Warriors units add 1 to their Hit Tests against it until the end of the phase."
+    },
+    {
+      "name": "Sapper Tunnels",
+      "text": "Legacy house rule. A unit with this rule gains Infiltrate (9), but subtracts 1 from its Cool Checks while an enemy unit is within 6\"."
+    },
+    {
+      "name": "Spall Liners",
+      "text": "Legacy house rule. The vehicle ignores the Stunned and Suppressed Statuses inflicted by Shooting Attacks."
+    },
+    {
+      "name": "Fixed-Fire Protocol",
+      "text": "Legacy house rule. The automaton adds 1 to its Ballistic Skill if it did not move this turn."
+    }
   ],
   "rites": [
     {
@@ -88,15 +747,48 @@
         "Units with Dug In may not start the battle in Reserves."
       ],
       "roles": [
-        {"units": ["iron-havocs", "heavy-support-squad", "tactical-support-squad"], "role": "Troops"}
+        {
+          "units": [
+            "iron-havocs",
+            "heavy-support-squad",
+            "tactical-support-squad"
+          ],
+          "role": "Troops"
+        }
       ],
       "modifiers": [
-        {"units": ["iron-havocs", "heavy-support-squad", "tactical-support-squad"], "text": "The Bastion Doctrine: Line (1), Dug In.", "addRules": ["Line (1)", "Dug In"]}
+        {
+          "units": [
+            "iron-havocs",
+            "heavy-support-squad",
+            "tactical-support-squad"
+          ],
+          "text": "The Bastion Doctrine: Line (1), Dug In.",
+          "addRules": [
+            "Line (1)",
+            "Dug In"
+          ]
+        }
       ],
       "forbid": [
-        {"match": {"unitType": "Antigrav"}},
-        {"match": {"role": "Fast Attack"}},
-        {"match": {"role": "Recon", "notNameIncludes": ["Tarantula"]}}
+        {
+          "match": {
+            "unitType": "Antigrav"
+          }
+        },
+        {
+          "match": {
+            "role": "Fast Attack"
+          }
+        },
+        {
+          "match": {
+            "role": "Recon",
+            "notNameIncludes": [
+              "Tarantula"
+            ]
+          }
+        }
       ]
     },
     {
@@ -112,19 +804,56 @@
         "No Recon, Fast Attack or Heavy Assault units, and at most one Armour unit."
       ],
       "roles": [
-        {"units": ["iron-circle-maniple", "dominator-cohort"], "role": "Troops"}
+        {
+          "units": [
+            "iron-circle-maniple",
+            "dominator-cohort"
+          ],
+          "role": "Troops"
+        }
       ],
       "modifiers": [
-        {"units": ["iron-circle-maniple", "dominator-cohort"], "text": "Iron Circle Garrison: Unbroken Garrison.", "addRules": ["Unbroken Garrison"]}
+        {
+          "units": [
+            "iron-circle-maniple",
+            "dominator-cohort"
+          ],
+          "text": "Iron Circle Garrison: Unbroken Garrison.",
+          "addRules": [
+            "Unbroken Garrison"
+          ]
+        }
       ],
       "require": [
-        {"units": ["perturabo", "warsmith", "warsmith-in-artificer-armour"], "min": 1, "note": "Perturabo or a Warsmith must lead the army."}
+        {
+          "units": [
+            "perturabo",
+            "warsmith",
+            "warsmith-in-artificer-armour"
+          ],
+          "min": 1,
+          "note": "Perturabo or a Warsmith must lead the army."
+        }
       ],
       "forbid": [
-        {"match": {"roles": ["Recon", "Fast Attack", "Heavy Assault"]}}
+        {
+          "match": {
+            "roles": [
+              "Recon",
+              "Fast Attack",
+              "Heavy Assault"
+            ]
+          }
+        }
       ],
       "limit": [
-        {"match": {"role": "Armour"}, "max": 1, "note": "At most one Armour unit."}
+        {
+          "match": {
+            "role": "Armour"
+          },
+          "max": 1,
+          "note": "At most one Armour unit."
+        }
       ]
     },
     {
@@ -139,16 +868,43 @@
         "No Tactical, Despoiler, Assault or Inductii Squads."
       ],
       "roles": [
-        {"units": ["castellax-battle-maniple"], "role": "Troops"}
+        {
+          "units": [
+            "castellax-battle-maniple"
+          ],
+          "role": "Troops"
+        }
       ],
       "modifiers": [
-        {"units": ["castellax-battle-maniple"], "text": "The Cold Calculus: Line (1), Machine Certainty.", "addRules": ["Line (1)", "Machine Certainty"]}
+        {
+          "units": [
+            "castellax-battle-maniple"
+          ],
+          "text": "The Cold Calculus: Line (1), Machine Certainty.",
+          "addRules": [
+            "Line (1)",
+            "Machine Certainty"
+          ]
+        }
       ],
       "require": [
-        {"units": ["castellax-battle-maniple"], "min": 2, "note": "Bring at least two Castellax Battle Maniples."}
+        {
+          "units": [
+            "castellax-battle-maniple"
+          ],
+          "min": 2,
+          "note": "Bring at least two Castellax Battle Maniples."
+        }
       ],
       "forbid": [
-        {"units": ["tactical-squad", "despoiler-squad", "assault-squad", "inductii-squad"]}
+        {
+          "units": [
+            "tactical-squad",
+            "despoiler-squad",
+            "assault-squad",
+            "inductii-squad"
+          ]
+        }
       ]
     },
     {
@@ -163,16 +919,53 @@
         "No Armour or Lord of War units."
       ],
       "roles": [
-        {"units": ["tyrant-siege-terminator-squad", "tartaros-terminator-siege-squad", "tartaros-terminator-squad", "veteran-breacher-squad"], "role": "Troops"}
+        {
+          "units": [
+            "tyrant-siege-terminator-squad",
+            "tartaros-terminator-siege-squad",
+            "tartaros-terminator-squad",
+            "veteran-breacher-squad"
+          ],
+          "role": "Troops"
+        }
       ],
       "modifiers": [
-        {"units": ["tyrant-siege-terminator-squad", "tartaros-terminator-siege-squad", "tartaros-terminator-squad", "veteran-breacher-squad"], "text": "Breach and Clear: Line (1), Through the Breach, Move Through Cover.", "addRules": ["Line (1)", "Through the Breach", "Move Through Cover"]}
+        {
+          "units": [
+            "tyrant-siege-terminator-squad",
+            "tartaros-terminator-siege-squad",
+            "tartaros-terminator-squad",
+            "veteran-breacher-squad"
+          ],
+          "text": "Breach and Clear: Line (1), Through the Breach, Move Through Cover.",
+          "addRules": [
+            "Line (1)",
+            "Through the Breach",
+            "Move Through Cover"
+          ]
+        }
       ],
       "require": [
-        {"units": ["tyrant-siege-terminator-squad", "tartaros-terminator-siege-squad", "tartaros-terminator-squad", "veteran-breacher-squad"], "min": 2, "note": "Bring at least two siege infantry squads."}
+        {
+          "units": [
+            "tyrant-siege-terminator-squad",
+            "tartaros-terminator-siege-squad",
+            "tartaros-terminator-squad",
+            "veteran-breacher-squad"
+          ],
+          "min": 2,
+          "note": "Bring at least two siege infantry squads."
+        }
       ],
       "forbid": [
-        {"match": {"roles": ["Armour", "Lord of War"]}}
+        {
+          "match": {
+            "roles": [
+              "Armour",
+              "Lord of War"
+            ]
+          }
+        }
       ]
     }
   ]
