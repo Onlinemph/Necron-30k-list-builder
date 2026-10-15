@@ -1,0 +1,758 @@
+{
+ "weapons": {
+  "ranged": [
+   {
+    "name": "Plasma jezail",
+    "R": 24,
+    "FP": 1,
+    "RS": 6,
+    "AP": 4,
+    "D": 1,
+    "specialRules": [
+     "Breaching (6+)"
+    ],
+    "traits": [
+     "Plasma"
+    ]
+   },
+   {
+    "name": "Pulse-lightning gun",
+    "R": 18,
+    "FP": 3,
+    "RS": 5,
+    "AP": 5,
+    "D": 1,
+    "specialRules": [
+     "Suppressive (1)"
+    ],
+    "traits": [
+     "Assault",
+     "Arc"
+    ]
+   },
+   {
+    "name": "Siege-bolt cannon",
+    "R": 24,
+    "FP": 5,
+    "RS": 5,
+    "AP": 4,
+    "D": 1,
+    "specialRules": [
+     "Breaching (6+)"
+    ],
+    "traits": [
+     "Bolt"
+    ]
+   }
+  ],
+  "melee": [
+   {
+    "name": "Omnissian axe",
+    "IM": -1,
+    "AM": "A",
+    "SM": "+2",
+    "AP": 3,
+    "D": 1,
+    "specialRules": [
+     "Breaching (5+)"
+    ],
+    "traits": [
+     "Power"
+    ]
+   },
+   {
+    "name": "Power-ram piston-fist",
+    "IM": -2,
+    "AM": "A",
+    "SM": "+3",
+    "AP": 2,
+    "D": 2,
+    "specialRules": [],
+    "traits": [
+     "Power"
+    ]
+   },
+   {
+    "name": "Cult shock-halberd",
+    "IM": "I",
+    "AM": "A",
+    "SM": "+2",
+    "AP": 3,
+    "D": 1,
+    "specialRules": [
+     "Shock (Suppressed)"
+    ],
+    "traits": [
+     "Power",
+     "Arc"
+    ]
+   }
+  ]
+ },
+ "wargear": [
+  {
+   "name": "Ferrite plate",
+   "text": "Legacy house rule. Layered ferro-ceramic slabs grafted over a magos's vitals. The model's Save becomes 2+ if it was worse."
+  },
+  {
+   "name": "Inversion field",
+   "text": "Legacy house rule. A salvaged dome-projector that folds incoming energy back on itself. The model's Invulnerable Save becomes 4+ if it was worse."
+  },
+  {
+   "name": "Servo-limb augmentation",
+   "text": "Legacy house rule. Extra mechadendrites with their own sub-routines for close work. The model gains +1 Attack."
+  },
+  {
+   "name": "Targeting coda",
+   "text": "Legacy house rule. A cortex-uploaded firing script from the Taghmata's best gunnery-priests. Every model in the unit gains +1 Ballistic Skill."
+  },
+  {
+   "name": "Auto-repair cradle",
+   "text": "Legacy house rule. A sling of servo-arms and spare plate carried inside the hull. The vehicle gains +1 Hull Point."
+  }
+ ],
+ "options": [
+  {
+   "units": [
+    "tech-priest",
+    "magos",
+    "arcuitor-magisterium"
+   ],
+   "option": {
+    "id": "mech-magos-arms",
+    "kind": "upgrade",
+    "model": null,
+    "text": "May carry a signature weapon",
+    "choices": [
+     {
+      "name": "Plasma jezail",
+      "points": 10
+     },
+     {
+      "name": "Omnissian axe",
+      "points": 10
+     }
+    ]
+   }
+  },
+  {
+   "units": [
+    "tech-priest",
+    "myrmidon-secutor-host",
+    "myrmidon-destructor-host"
+   ],
+   "option": {
+    "id": "mech-ferrite",
+    "kind": "upgrade",
+    "model": [
+     "Tech-Priest",
+     "Secutor Lord",
+     "Destructor Lord"
+    ],
+    "text": "May be fitted with Ferrite plate",
+    "choices": [
+     {
+      "name": "Ferrite plate",
+      "points": 10
+     }
+    ]
+   }
+  },
+  {
+   "units": [
+    "tech-priest",
+    "magos",
+    "arcuitor-magisterium",
+    "magos-on-abeyant"
+   ],
+   "option": {
+    "id": "mech-inversion",
+    "kind": "upgrade",
+    "model": null,
+    "text": "May carry an Inversion field",
+    "choices": [
+     {
+      "name": "Inversion field",
+      "points": 15
+     }
+    ]
+   }
+  },
+  {
+   "units": [
+    "tech-priest",
+    "magos",
+    "myrmidon-secutor-host",
+    "myrmidon-destructor-host"
+   ],
+   "option": {
+    "id": "mech-servo-limbs",
+    "kind": "upgrade",
+    "model": [
+     "Tech-Priest",
+     "Magos",
+     "Secutor Lord",
+     "Destructor Lord"
+    ],
+    "text": "May be fitted with Servo-limb augmentation",
+    "choices": [
+     {
+      "name": "Servo-limb augmentation",
+      "points": 8
+     }
+    ]
+   }
+  },
+  {
+   "units": [
+    "thallax-cohort"
+   ],
+   "option": {
+    "id": "mech-pulse-gun",
+    "kind": "perModel",
+    "model": "Thallax",
+    "replaces": [
+     "Lightning gun"
+    ],
+    "text": "Any Thallax may exchange their lightning gun for",
+    "choices": [
+     {
+      "name": "Pulse-lightning gun",
+      "points": 8
+     }
+    ]
+   }
+  },
+  {
+   "units": [
+    "castellax-battle-maniple",
+    "castellax-destructor-maniple"
+   ],
+   "option": {
+    "id": "mech-siege-bolt",
+    "kind": "perModel",
+    "model": "Castellax",
+    "replaces": [
+     "Mauler bolt cannon"
+    ],
+    "text": "Any Castellax may exchange their mauler bolt cannon for",
+    "choices": [
+     {
+      "name": "Siege-bolt cannon",
+      "points": 8
+     }
+    ]
+   }
+  },
+  {
+   "units": [
+    "castellax-destructor-maniple"
+   ],
+   "option": {
+    "id": "mech-piston-fist",
+    "kind": "perModel",
+    "model": "Castellax",
+    "replaces": [
+     "Shock chargers"
+    ],
+    "text": "Any Castellax may exchange their shock chargers for",
+    "choices": [
+     {
+      "name": "Power-ram piston-fist",
+      "points": 12
+     }
+    ]
+   }
+  },
+  {
+   "units": [
+    "myrmidon-secutor-host"
+   ],
+   "option": {
+    "id": "mech-halberd",
+    "kind": "perModel",
+    "model": [
+     "Secutor",
+     "Secutor Lord"
+    ],
+    "replaces": [
+     "Power axe"
+    ],
+    "text": "Any Secutor may exchange their power axe for",
+    "choices": [
+     {
+      "name": "Cult shock-halberd",
+      "points": 5
+     }
+    ]
+   }
+  },
+  {
+   "units": [
+    "castellax-battle-maniple",
+    "castellax-destructor-maniple",
+    "castellax-infernus-maniple",
+    "domitar-battle-maniple",
+    "thanatar-siege-maniple",
+    "vorax-attack-maniple",
+    "vultarax-stratos-squadron",
+    "arlatax-battle-maniple"
+   ],
+   "option": {
+    "id": "mech-coda",
+    "kind": "upgrade",
+    "model": null,
+    "text": "The maniple may carry a Targeting coda",
+    "choices": [
+     {
+      "name": "Targeting coda",
+      "points": 20
+     }
+    ]
+   }
+  },
+  {
+   "units": [
+    "karacnos-assault-tank",
+    "krios-battle-tank",
+    "krios-venator",
+    "triaros-armoured-conveyor",
+    "mechanicum-termite",
+    "mechanicum-macrocarid-explorator"
+   ],
+   "option": {
+    "id": "mech-cradle",
+    "kind": "upgrade",
+    "model": null,
+    "text": "May carry an Auto-repair cradle",
+    "choices": [
+     {
+      "name": "Auto-repair cradle",
+      "points": 15
+     }
+    ]
+   }
+  }
+ ],
+ "modifiers": [
+  {
+   "units": [
+    "*"
+   ],
+   "item": "Ferrite plate",
+   "text": "Ferrite plate: 2+ Save.",
+   "stats": {
+    "SAV": "best:2+"
+   }
+  },
+  {
+   "units": [
+    "*"
+   ],
+   "item": "Inversion field",
+   "text": "Inversion field: 4+ Invulnerable Save.",
+   "stats": {
+    "INV": "best:4+"
+   }
+  },
+  {
+   "units": [
+    "*"
+   ],
+   "item": "Servo-limb augmentation",
+   "text": "Servo-limb augmentation: +1 A.",
+   "stats": {
+    "A": "+1"
+   }
+  },
+  {
+   "units": [
+    "*"
+   ],
+   "item": "Targeting coda",
+   "scope": "unit",
+   "text": "Targeting coda: +1 BS.",
+   "stats": {
+    "BS": "+1"
+   }
+  },
+  {
+   "units": [
+    "*"
+   ],
+   "item": "Auto-repair cradle",
+   "scope": "unit",
+   "text": "Auto-repair cradle: +1 HP.",
+   "stats": {
+    "HP": "+1"
+   }
+  },
+  {
+   "units": [
+    "tech-thrall-covenant",
+    "tech-thrall-defence-covenant"
+   ],
+   "text": "Lobotomised obedience: +1 LD, -1 I.",
+   "stats": {
+    "LD": "+1",
+    "I": "-1"
+   }
+  },
+  {
+   "units": [
+    "castellax-battle-maniple",
+    "castellax-destructor-maniple",
+    "castellax-infernus-maniple"
+   ],
+   "text": "Hardened gunnery logic: +1 BS, -1 I.",
+   "stats": {
+    "BS": "+1",
+    "I": "-1"
+   }
+  },
+  {
+   "units": [
+    "thallax-cohort"
+   ],
+   "text": "Terror-grade augmetics: +1 S, -1 M.",
+   "stats": {
+    "S": "+1",
+    "M": "-1"
+   }
+  },
+  {
+   "units": [
+    "myrmidon-secutor-host",
+    "myrmidon-destructor-host"
+   ],
+   "text": "Cult fervour: +1 A, -1 WP.",
+   "stats": {
+    "A": "+1",
+    "WP": "-1"
+   }
+  },
+  {
+   "units": [
+    "domitar-battle-maniple",
+    "arlatax-battle-maniple"
+   ],
+   "text": "Ponderous war-frames: +1 T, -1 M.",
+   "stats": {
+    "T": "+1",
+    "M": "-1"
+   }
+  },
+  {
+   "units": [
+    "vorax-attack-maniple",
+    "vultarax-stratos-squadron"
+   ],
+   "text": "Hunter-pattern drives: +1 M, -1 T.",
+   "stats": {
+    "M": "+1",
+    "T": "-1"
+   }
+  },
+  {
+   "units": [
+    "karacnos-assault-tank",
+    "krios-battle-tank",
+    "krios-venator"
+   ],
+   "text": "Ordo Reductor targeters: +1 BS, -1 Side armour.",
+   "stats": {
+    "BS": "+1",
+    "SIDE": "-1"
+   }
+  }
+ ],
+ "rites": [
+  {
+   "name": "The Logic Maniples",
+   "flavor": "Cold arithmetic does not break, and does not ask why.",
+   "text": "Castellax Battle and Destructor Maniples may fill Troops slots and gain Line (1) and +1 Ballistic Skill. No flesh clutters the firing line: no Tech-Thrall Covenants, Myrmidon Hosts or Ursarax Cohorts. The army needs a Magos or Archmagos to run the maniples and at least two Castellax Maniples.",
+   "roles": [
+    {
+     "units": [
+      "castellax-battle-maniple",
+      "castellax-destructor-maniple"
+     ],
+     "role": "Troops"
+    }
+   ],
+   "modifiers": [
+    {
+     "units": [
+      "castellax-battle-maniple",
+      "castellax-destructor-maniple"
+     ],
+     "text": "The Logic Maniples: Line (1), +1 BS.",
+     "stats": {
+      "BS": "+1"
+     },
+     "addRules": [
+      "Line (1)"
+     ]
+    }
+   ],
+   "require": [
+    {
+     "units": [
+      "castellax-battle-maniple",
+      "castellax-destructor-maniple",
+      "castellax-infernus-maniple"
+     ],
+     "min": 2,
+     "note": "Bring at least two Castellax Maniples."
+    },
+    {
+     "units": [
+      "magos",
+      "archmagos",
+      "magos-on-abeyant",
+      "archmagos-on-abeyant"
+     ],
+     "min": 1,
+     "note": "A Magos or Archmagos runs the maniples."
+    }
+   ],
+   "forbid": [
+    {
+     "units": [
+      "tech-thrall-covenant",
+      "tech-thrall-defence-covenant",
+      "myrmidon-secutor-host",
+      "myrmidon-destructor-host",
+      "ursarax-cohort"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Ordo Reductor Siege Park",
+   "flavor": "Wall, tower and bunker are only data waiting to be subtracted.",
+   "text": "Karacnos Assault Tanks and Thanatar Siege Maniples may fill Troops slots. Karacnos, Krios, Krios Venator and Thanatar units gain +1 Ballistic Skill, and Ordinatus engines cost 40 points less. The park is slow and ponderous: no Recon, no Fast Attack, no Myrmidon Hosts or Ursarax Cohorts. At least two Karacnos, Krios Venator or Thanatar units are required.",
+   "roles": [
+    {
+     "units": [
+      "karacnos-assault-tank",
+      "thanatar-siege-maniple"
+     ],
+     "role": "Troops"
+    }
+   ],
+   "points": [
+    {
+     "units": [
+      "mechanicum-ordinatus-ulator",
+      "mechanicum-ordinatus-sagittar",
+      "mechanicum-ordinatus-aktaeus"
+     ],
+     "delta": -40
+    }
+   ],
+   "modifiers": [
+    {
+     "units": [
+      "karacnos-assault-tank",
+      "krios-battle-tank",
+      "krios-venator",
+      "thanatar-siege-maniple"
+     ],
+     "text": "Ordo Reductor Siege Park: +1 BS.",
+     "stats": {
+      "BS": "+1"
+     }
+    }
+   ],
+   "require": [
+    {
+     "units": [
+      "karacnos-assault-tank",
+      "krios-venator",
+      "thanatar-siege-maniple"
+     ],
+     "min": 2,
+     "note": "Bring at least two siege units."
+    }
+   ],
+   "forbid": [
+    {
+     "match": {
+      "role": "Recon"
+     }
+    },
+    {
+     "match": {
+      "role": "Fast Attack"
+     }
+    },
+    {
+     "units": [
+      "myrmidon-secutor-host",
+      "myrmidon-destructor-host",
+      "ursarax-cohort"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "The Myrmidax Cult-Host",
+   "flavor": "The cult remembers flesh, and has decided it was a mistake worth repeating.",
+   "text": "Myrmidon Secutor and Destructor Hosts may fill Troops slots and gain Line (1) and Feel No Pain (6+). The cult will not share a field with thinking engines: no Automata units at all. At least two Myrmidon Hosts are required.",
+   "roles": [
+    {
+     "units": [
+      "myrmidon-secutor-host",
+      "myrmidon-destructor-host"
+     ],
+     "role": "Troops"
+    }
+   ],
+   "modifiers": [
+    {
+     "units": [
+      "myrmidon-secutor-host",
+      "myrmidon-destructor-host"
+     ],
+     "text": "The Myrmidax Cult-Host: Line (1), Feel No Pain (6+).",
+     "addRules": [
+      "Line (1)",
+      "Feel No Pain (6+)"
+     ]
+    }
+   ],
+   "require": [
+    {
+     "units": [
+      "myrmidon-secutor-host",
+      "myrmidon-destructor-host"
+     ],
+     "min": 2,
+     "note": "Bring at least two Myrmidon Hosts."
+    }
+   ],
+   "forbid": [
+    {
+     "match": {
+      "unitType": "Automata"
+     }
+    }
+   ]
+  },
+  {
+   "name": "The Thallax Vigil",
+   "flavor": "A magos with a dozen Thallax at her back has no need of an escort of friends.",
+   "text": "Thallax Cohorts may fill Troops slots, cost 15 points less, and gain Line (1) and Fear (1). The Vigil takes no other lesser retainers: no Tech-Priests, Tech-Thrall Covenants or Ursarax Cohorts. At least two Thallax Cohorts are required.",
+   "roles": [
+    {
+     "units": [
+      "thallax-cohort"
+     ],
+     "role": "Troops"
+    }
+   ],
+   "points": [
+    {
+     "units": [
+      "thallax-cohort"
+     ],
+     "delta": -15
+    }
+   ],
+   "modifiers": [
+    {
+     "units": [
+      "thallax-cohort"
+     ],
+     "text": "The Thallax Vigil: Line (1), Fear (1).",
+     "addRules": [
+      "Line (1)",
+      "Fear (1)"
+     ]
+    }
+   ],
+   "require": [
+    {
+     "units": [
+      "thallax-cohort"
+     ],
+     "min": 2,
+     "note": "Bring at least two Thallax Cohorts."
+    }
+   ],
+   "forbid": [
+    {
+     "units": [
+      "tech-priest",
+      "tech-thrall-covenant",
+      "tech-thrall-defence-covenant",
+      "ursarax-cohort"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "The Thrall Press",
+   "flavor": "The forge-world's billions are an engine too, and can be fed to the war.",
+   "text": "Tech-Thrall Covenants (both kinds) may fill Troops slots, cost 30 points less, and gain Line (1). The press consumes everything the Archmagos might have spent on elites: no Elites, no Heavy Assault units and no Lord of War. At least two Tech-Thrall Covenants are required.",
+   "roles": [
+    {
+     "units": [
+      "tech-thrall-covenant",
+      "tech-thrall-defence-covenant"
+     ],
+     "role": "Troops"
+    }
+   ],
+   "points": [
+    {
+     "units": [
+      "tech-thrall-covenant",
+      "tech-thrall-defence-covenant"
+     ],
+     "delta": -30
+    }
+   ],
+   "modifiers": [
+    {
+     "units": [
+      "tech-thrall-covenant",
+      "tech-thrall-defence-covenant"
+     ],
+     "text": "The Thrall Press: Line (1).",
+     "addRules": [
+      "Line (1)"
+     ]
+    }
+   ],
+   "require": [
+    {
+     "units": [
+      "tech-thrall-covenant",
+      "tech-thrall-defence-covenant"
+     ],
+     "min": 2,
+     "note": "Bring at least two Tech-Thrall Covenants."
+    }
+   ],
+   "forbid": [
+    {
+     "match": {
+      "role": "Elites"
+     }
+    },
+    {
+     "match": {
+      "role": "Heavy Assault"
+     }
+    },
+    {
+     "match": {
+      "role": "Lord of War"
+     }
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,869 @@
+{
+ "weapons": {
+  "ranged": [
+   {
+    "name": "Radium carbine",
+    "R": 18,
+    "FP": 2,
+    "RS": 4,
+    "AP": 6,
+    "D": 1,
+    "specialRules": [
+     "Poisoned (3+)",
+     "Phage (T)"
+    ],
+    "traits": [
+     "Rad",
+     "Assault"
+    ]
+   },
+   {
+    "name": "Arc rifle",
+    "R": 24,
+    "FP": 2,
+    "RS": 4,
+    "AP": 5,
+    "D": 1,
+    "specialRules": [
+     "Shock (Suppressed)"
+    ],
+    "traits": [
+     "Arc"
+    ]
+   },
+   {
+    "name": "Transuranic arquebus",
+    "R": 60,
+    "FP": 1,
+    "RS": 6,
+    "AP": 4,
+    "D": 1,
+    "specialRules": [
+     "Heavy (RS)",
+     "Precision (5+)"
+    ],
+    "traits": [
+     "Rad"
+    ]
+   },
+   {
+    "name": "Plasma culverin",
+    "R": 30,
+    "FP": 2,
+    "RS": 6,
+    "AP": 4,
+    "D": 1,
+    "specialRules": [
+     "Heavy (FP)",
+     "Breaching (6+)"
+    ],
+    "traits": [
+     "Plasma"
+    ]
+   },
+   {
+    "name": "Rad-mauler cannon",
+    "R": 24,
+    "FP": 4,
+    "RS": 5,
+    "AP": 5,
+    "D": 1,
+    "specialRules": [
+     "Phage (T)",
+     "Breaching (6+)"
+    ],
+    "traits": [
+     "Rad",
+     "Bolt"
+    ]
+   },
+   {
+    "name": "Pintle rad-sprayer",
+    "R": "Template",
+    "FP": 1,
+    "RS": 4,
+    "AP": 5,
+    "D": 1,
+    "specialRules": [
+     "Template",
+     "Phage (T)",
+     "Poisoned (3+)"
+    ],
+    "traits": [
+     "Rad"
+    ]
+   }
+  ],
+  "melee": [
+   {
+    "name": "Ordinatus shock-goad",
+    "IM": "+1",
+    "AM": "A",
+    "SM": "+1",
+    "AP": 4,
+    "D": 1,
+    "specialRules": [
+     "Shock (Suppressed)"
+    ],
+    "traits": [
+     "Arc"
+    ]
+   },
+   {
+    "name": "Razor-blade cantic",
+    "IM": "+1",
+    "AM": "+1",
+    "SM": "+1",
+    "AP": 3,
+    "D": 1,
+    "specialRules": [
+     "Rending (6+)"
+    ],
+    "traits": [
+     "Power"
+    ]
+   }
+  ]
+ },
+ "wargear": [
+  {
+   "name": "Sub-dermal plating",
+   "text": "Legacy house rule. Armour sheets implanted beneath the skin of a conclave's best. The model's Save becomes 3+ if it was worse."
+  },
+  {
+   "name": "Refractor halo",
+   "text": "Legacy house rule. A ring of old-pattern deflector crystals worn around the Marshal's head. The model's Invulnerable Save becomes 4+ if it was worse."
+  },
+  {
+   "name": "Cantor choir",
+   "text": "Legacy house rule. Vox-casters and chanting augmetic cantors who broadcast the conclave's war-cant. Every model in the unit gains +1 Leadership and +1 Cool."
+  },
+  {
+   "name": "Stim-pump",
+   "text": "Legacy house rule. A reactor-fed injector that spikes the pilgrym's pulse for the charge. On a turn the unit charges, every model in it gains +1 Attack."
+  },
+  {
+   "name": "Cant-coda",
+   "text": "Legacy house rule. A firing script uploaded from the conclave's gunnery cant. Every model in the unit gains +1 Ballistic Skill."
+  },
+  {
+   "name": "Cradle of servo-arms",
+   "text": "Legacy house rule. A sling of servo-arms and spare plate carried inside the hull. The vehicle gains +1 Hull Point."
+  }
+ ],
+ "options": [
+  {
+   "units": [
+    "skitarii-battle-pilgrym-corpus"
+   ],
+   "option": {
+    "id": "sk-ordinatus-arms",
+    "kind": "upgrade",
+    "model": "Skitarii Ordinatus",
+    "text": "The Ordinatus may carry a specialist weapon",
+    "choices": [
+     {
+      "name": "Ordinatus shock-goad",
+      "points": 6
+     },
+     {
+      "name": "Transuranic arquebus",
+      "points": 8
+     }
+    ]
+   }
+  },
+  {
+   "units": [
+    "skitarii-battle-pilgrym-corpus"
+   ],
+   "option": {
+    "id": "sk-vanguard-carbines",
+    "kind": "perModel",
+    "model": "Skitarii Battle-Pigrym",
+    "replaces": [
+     "Voltlock arquebus"
+    ],
+    "text": "Any Battle-Pigrym may exchange their arquebus for a",
+    "choices": [
+     {
+      "name": "Radium carbine",
+      "points": 3
+     }
+    ]
+   }
+  },
+  {
+   "units": [
+    "skitarii-battle-pilgrym-corpus"
+   ],
+   "option": {
+    "id": "sk-ranger-arms",
+    "kind": "perModel",
+    "model": "Skitarii Battle-Pigrym",
+    "replaces": [
+     "Voltlock arquebus"
+    ],
+    "max": {
+     "per": 4,
+     "count": 1
+    },
+    "text": "One Battle-Pigrym in four may exchange their arquebus for",
+    "choices": [
+     {
+      "name": "Arc rifle",
+      "points": 6
+     },
+     {
+      "name": "Transuranic arquebus",
+      "points": 10
+     },
+     {
+      "name": "Plasma culverin",
+      "points": 15
+     }
+    ]
+   }
+  },
+  {
+   "units": [
+    "skitarii-battle-pilgrym-marshal"
+   ],
+   "option": {
+    "id": "sk-razor-cantic",
+    "kind": "one",
+    "model": "Skitarii Battle-Pilgrym Marshall",
+    "replaces": [
+     "Auctorit sceptre"
+    ],
+    "text": "The Marshal may exchange the Auctorit sceptre for",
+    "choices": [
+     {
+      "name": "Razor-blade cantic",
+      "points": 20
+     }
+    ]
+   }
+  },
+  {
+   "units": [
+    "skitarii-battle-pilgrym-marshal"
+   ],
+   "option": {
+    "id": "sk-marshal-plate",
+    "kind": "upgrade",
+    "model": null,
+    "text": "The Marshal may be fitted with Sub-dermal plating",
+    "choices": [
+     {
+      "name": "Sub-dermal plating",
+      "points": 10
+     }
+    ]
+   }
+  },
+  {
+   "units": [
+    "skitarii-battle-pilgrym-marshal"
+   ],
+   "option": {
+    "id": "sk-marshal-halo",
+    "kind": "upgrade",
+    "model": null,
+    "text": "The Marshal may wear a Refractor halo",
+    "choices": [
+     {
+      "name": "Refractor halo",
+      "points": 12
+     }
+    ]
+   }
+  },
+  {
+   "units": [
+    "skitarii-battle-pilgrym-corpus"
+   ],
+   "option": {
+    "id": "sk-cantor-choir",
+    "kind": "upgrade",
+    "model": null,
+    "text": "The conclave may include a Cantor choir",
+    "choices": [
+     {
+      "name": "Cantor choir",
+      "points": 15
+     }
+    ]
+   }
+  },
+  {
+   "units": [
+    "skitarii-battle-pilgrym-corpus"
+   ],
+   "option": {
+    "id": "sk-stim-pump",
+    "kind": "upgrade",
+    "model": null,
+    "text": "The conclave may be fitted with Stim-pumps",
+    "choices": [
+     {
+      "name": "Stim-pump",
+      "points": 10
+     }
+    ]
+   }
+  },
+  {
+   "units": [
+    "bonepicker-host"
+   ],
+   "option": {
+    "id": "sk-bonepicker-charges",
+    "kind": "perModel",
+    "model": "Bonepicker",
+    "max": {
+     "per": 5,
+     "count": 1
+    },
+    "text": "One Bonepicker in five may carry",
+    "choices": [
+     {
+      "name": "Rad Charges",
+      "points": 2
+     },
+     {
+      "name": "Haywire grenades",
+      "points": 2
+     }
+    ]
+   }
+  },
+  {
+   "units": [
+    "castellax-battle-maniple",
+    "castellax-destructor-maniple"
+   ],
+   "option": {
+    "id": "sk-rad-mauler",
+    "kind": "perModel",
+    "model": "Castellax",
+    "replaces": [
+     "Mauler bolt cannon"
+    ],
+    "text": "Any Castellax may exchange their mauler bolt cannon for",
+    "choices": [
+     {
+      "name": "Rad-mauler cannon",
+      "points": 8
+     }
+    ]
+   }
+  },
+  {
+   "units": [
+    "skitarii-karacnos-assault-tank",
+    "skitarii-krios-battle-tank",
+    "skitarii-krios-venator-tank-destroyer"
+   ],
+   "option": {
+    "id": "sk-rad-sprayer",
+    "kind": "upgrade",
+    "model": null,
+    "text": "May mount a Pintle rad-sprayer",
+    "choices": [
+     {
+      "name": "Pintle rad-sprayer",
+      "points": 12
+     }
+    ]
+   }
+  },
+  {
+   "units": [
+    "skitarii-karacnos-assault-tank",
+    "skitarii-krios-battle-tank",
+    "skitarii-krios-venator-tank-destroyer",
+    "skitarii-triaros-armoured-conveyor"
+   ],
+   "option": {
+    "id": "sk-cradle",
+    "kind": "upgrade",
+    "model": null,
+    "text": "May carry a Cradle of servo-arms",
+    "choices": [
+     {
+      "name": "Cradle of servo-arms",
+      "points": 15
+     }
+    ]
+   }
+  },
+  {
+   "units": [
+    "castellax-battle-maniple",
+    "castellax-destructor-maniple",
+    "domitar-battle-maniple",
+    "thanatar-siege-maniple",
+    "vorax-attack-maniple",
+    "skitarii-vultarax-stratos-automata"
+   ],
+   "option": {
+    "id": "sk-coda",
+    "kind": "upgrade",
+    "model": null,
+    "text": "The maniple may carry a Cant-coda",
+    "choices": [
+     {
+      "name": "Cant-coda",
+      "points": 20
+     }
+    ]
+   }
+  }
+ ],
+ "modifiers": [
+  {
+   "units": [
+    "*"
+   ],
+   "item": "Sub-dermal plating",
+   "text": "Sub-dermal plating: 3+ Save.",
+   "stats": {
+    "SAV": "best:3+"
+   }
+  },
+  {
+   "units": [
+    "*"
+   ],
+   "item": "Refractor halo",
+   "text": "Refractor halo: 4+ Invulnerable Save.",
+   "stats": {
+    "INV": "best:4+"
+   }
+  },
+  {
+   "units": [
+    "*"
+   ],
+   "item": "Cantor choir",
+   "scope": "unit",
+   "text": "Cantor choir: +1 LD, +1 CL.",
+   "stats": {
+    "LD": "+1",
+    "CL": "+1"
+   }
+  },
+  {
+   "units": [
+    "*"
+   ],
+   "item": "Stim-pump",
+   "scope": "unit",
+   "text": "Stim-pump: +1 A.",
+   "stats": {
+    "A": "+1"
+   },
+   "condition": "on a turn the unit charges"
+  },
+  {
+   "units": [
+    "*"
+   ],
+   "item": "Cant-coda",
+   "scope": "unit",
+   "text": "Cant-coda: +1 BS.",
+   "stats": {
+    "BS": "+1"
+   }
+  },
+  {
+   "units": [
+    "*"
+   ],
+   "item": "Cradle of servo-arms",
+   "scope": "unit",
+   "text": "Cradle of servo-arms: +1 HP.",
+   "stats": {
+    "HP": "+1"
+   }
+  },
+  {
+   "units": [
+    "skitarii-battle-pilgrym-corpus"
+   ],
+   "models": [
+    "Skitarii Battle-Pigrym"
+   ],
+   "text": "Fervent war-cant: +1 WS, -1 BS.",
+   "stats": {
+    "WS": "+1",
+    "BS": "-1"
+   }
+  },
+  {
+   "units": [
+    "skitarii-battle-pilgrym-corpus"
+   ],
+   "models": [
+    "Skitarii Ordinatus"
+   ],
+   "text": "Cantor-sergeants: +1 BS, -1 I.",
+   "stats": {
+    "BS": "+1",
+    "I": "-1"
+   }
+  },
+  {
+   "units": [
+    "bonepicker-host"
+   ],
+   "text": "Irradiated chaff: +1 T, -1 M.",
+   "stats": {
+    "T": "+1",
+    "M": "-1"
+   }
+  },
+  {
+   "units": [
+    "skitarii-battle-pilgrym-marshal"
+   ],
+   "text": "Fanatic duellist: +1 WS, -1 LD.",
+   "stats": {
+    "WS": "+1",
+    "LD": "-1"
+   }
+  },
+  {
+   "units": [
+    "vorax-attack-maniple"
+   ],
+   "text": "Sicarian pursuit-engrams: +1 I, -1 BS.",
+   "stats": {
+    "I": "+1",
+    "BS": "-1"
+   }
+  },
+  {
+   "units": [
+    "skitarii-vultarax-stratos-automata"
+   ],
+   "text": "Hunter-pattern drives: +1 M, -1 T.",
+   "stats": {
+    "M": "+1",
+    "T": "-1"
+   }
+  },
+  {
+   "units": [
+    "castellax-battle-maniple",
+    "castellax-destructor-maniple"
+   ],
+   "text": "Hardened gunnery logic: +1 BS, -1 I.",
+   "stats": {
+    "BS": "+1",
+    "I": "-1"
+   }
+  },
+  {
+   "units": [
+    "skitarii-karacnos-assault-tank",
+    "skitarii-krios-battle-tank",
+    "skitarii-krios-venator-tank-destroyer"
+   ],
+   "text": "Rad-hunter targeters: +1 BS, -1 Side armour.",
+   "stats": {
+    "BS": "+1",
+    "SIDE": "-1"
+   }
+  }
+ ],
+ "rites": [
+  {
+   "name": "The Vanguard Saturation Cant",
+   "flavor": "The Vanguard walk ahead of the line, and the ground behind them stays too hot to retake.",
+   "text": "Battle-Pilgrym Corpuses cost 10 points less and gain Infiltrate (9) and Fast (1). The radiation fouls anything friendly that follows: no Armour, no Heavy Transport, no War Engines and no Heavy Assault units. At least two Battle-Pilgrym Corpuses are required.",
+   "points": [
+    {
+     "units": [
+      "skitarii-battle-pilgrym-corpus"
+     ],
+     "delta": -10
+    }
+   ],
+   "modifiers": [
+    {
+     "units": [
+      "skitarii-battle-pilgrym-corpus"
+     ],
+     "text": "The Vanguard Saturation Cant: Infiltrate (9), Fast (1).",
+     "addRules": [
+      "Infiltrate (9)",
+      "Fast (1)"
+     ]
+    }
+   ],
+   "require": [
+    {
+     "units": [
+      "skitarii-battle-pilgrym-corpus"
+     ],
+     "min": 2,
+     "note": "Bring at least two Battle-Pilgrym Corpuses."
+    }
+   ],
+   "forbid": [
+    {
+     "match": {
+      "role": "Armour"
+     }
+    },
+    {
+     "match": {
+      "role": "Heavy Transport"
+     }
+    },
+    {
+     "match": {
+      "role": "War Engine"
+     }
+    },
+    {
+     "match": {
+      "role": "Heavy Assault"
+     }
+    }
+   ]
+  },
+  {
+   "name": "The Ranger Long Watch",
+   "flavor": "Patience is a weapon. The Rangers have a great deal of it.",
+   "text": "Battle-Pilgrym Corpuses and the Battle-Pilgrym Marshal gain +1 Ballistic Skill. Waiting is not for the aggressive: no Vorax or Vultarax automata, no Destructor Castellax Maniples and no Domitar. At least one Marshal and one Corpus are required.",
+   "modifiers": [
+    {
+     "units": [
+      "skitarii-battle-pilgrym-corpus",
+      "skitarii-battle-pilgrym-marshal"
+     ],
+     "text": "The Ranger Long Watch: +1 BS.",
+     "stats": {
+      "BS": "+1"
+     }
+    }
+   ],
+   "require": [
+    {
+     "units": [
+      "skitarii-battle-pilgrym-marshal"
+     ],
+     "min": 1,
+     "note": "A Marshal commands the watch."
+    },
+    {
+     "units": [
+      "skitarii-battle-pilgrym-corpus"
+     ],
+     "min": 1,
+     "note": "Bring at least one Battle-Pilgrym Corpus."
+    }
+   ],
+   "forbid": [
+    {
+     "units": [
+      "vorax-attack-maniple",
+      "skitarii-vultarax-stratos-automata",
+      "castellax-destructor-maniple",
+      "domitar-battle-maniple"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "The Sicarian Hunt",
+   "flavor": "The conclave unleashes its fast-killing hounds and does not look back.",
+   "text": "Vorax Attack Maniples and Vultarax Stratos Automata may fill Troops slots and gain Fast (1) and +1 Initiative. The hunt has no patience for foot soldiers or armour: no more than one Battle-Pilgrym Corpus, no Armour, no Heavy Transport, and no War Engines. At least two Vorax or Vultarax units are required.",
+   "roles": [
+    {
+     "units": [
+      "vorax-attack-maniple",
+      "skitarii-vultarax-stratos-automata"
+     ],
+     "role": "Troops"
+    }
+   ],
+   "modifiers": [
+    {
+     "units": [
+      "vorax-attack-maniple",
+      "skitarii-vultarax-stratos-automata"
+     ],
+     "text": "The Sicarian Hunt: Fast (1), +1 I.",
+     "stats": {
+      "I": "+1"
+     },
+     "addRules": [
+      "Fast (1)"
+     ]
+    }
+   ],
+   "require": [
+    {
+     "units": [
+      "vorax-attack-maniple",
+      "skitarii-vultarax-stratos-automata"
+     ],
+     "min": 2,
+     "note": "Bring at least two hunting automata."
+    }
+   ],
+   "limit": [
+    {
+     "units": [
+      "skitarii-battle-pilgrym-corpus"
+     ],
+     "max": 1
+    }
+   ],
+   "forbid": [
+    {
+     "match": {
+      "role": "Armour"
+     }
+    },
+    {
+     "match": {
+      "role": "Heavy Transport"
+     }
+    },
+    {
+     "match": {
+      "role": "War Engine"
+     }
+    }
+   ]
+  },
+  {
+   "name": "The Armoured War-Cant",
+   "flavor": "Karacnos tracks, Krios lances: the conclave rides its own chorus into battle.",
+   "text": "Karacnos, Krios and Krios Venator tanks may fill Troops slots and gain Line (1) and +1 Ballistic Skill. Soldiers are an afterthought: no more than one Battle-Pilgrym Corpus and no Bonepicker Hosts. At least three of these tanks are required.",
+   "roles": [
+    {
+     "units": [
+      "skitarii-karacnos-assault-tank",
+      "skitarii-krios-battle-tank",
+      "skitarii-krios-venator-tank-destroyer"
+     ],
+     "role": "Troops"
+    }
+   ],
+   "modifiers": [
+    {
+     "units": [
+      "skitarii-karacnos-assault-tank",
+      "skitarii-krios-battle-tank",
+      "skitarii-krios-venator-tank-destroyer"
+     ],
+     "text": "The Armoured War-Cant: Line (1), +1 BS.",
+     "stats": {
+      "BS": "+1"
+     },
+     "addRules": [
+      "Line (1)"
+     ]
+    }
+   ],
+   "require": [
+    {
+     "units": [
+      "skitarii-karacnos-assault-tank",
+      "skitarii-krios-battle-tank",
+      "skitarii-krios-venator-tank-destroyer"
+     ],
+     "min": 3,
+     "note": "Bring at least three tanks."
+    }
+   ],
+   "limit": [
+    {
+     "units": [
+      "skitarii-battle-pilgrym-corpus"
+     ],
+     "max": 1
+    }
+   ],
+   "forbid": [
+    {
+     "units": [
+      "bonepicker-host"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "The Bonepicker Tithe",
+   "flavor": "The conclave's dead are counted in thousands, and its chaff is counted in tens of thousands.",
+   "text": "Bonepicker Hosts may fill Troops slots, cost 20 points less, and gain Line (1). They swallow all the conclave's attention: no Elites, no Heavy Assault, no Lord of War, and no more than one Battle-Pilgrym Corpus. At least two Bonepicker Hosts are required.",
+   "roles": [
+    {
+     "units": [
+      "bonepicker-host"
+     ],
+     "role": "Troops"
+    }
+   ],
+   "points": [
+    {
+     "units": [
+      "bonepicker-host"
+     ],
+     "delta": -20
+    }
+   ],
+   "modifiers": [
+    {
+     "units": [
+      "bonepicker-host"
+     ],
+     "text": "The Bonepicker Tithe: Line (1).",
+     "addRules": [
+      "Line (1)"
+     ]
+    }
+   ],
+   "require": [
+    {
+     "units": [
+      "bonepicker-host"
+     ],
+     "min": 2,
+     "note": "Bring at least two Bonepicker Hosts."
+    }
+   ],
+   "limit": [
+    {
+     "units": [
+      "skitarii-battle-pilgrym-corpus"
+     ],
+     "max": 1
+    }
+   ],
+   "forbid": [
+    {
+     "match": {
+      "role": "Elites"
+     }
+    },
+    {
+     "match": {
+      "role": "Heavy Assault"
+     }
+    },
+    {
+     "match": {
+      "role": "Lord of War"
+     }
+    }
+   ]
+  }
+ ]
+}

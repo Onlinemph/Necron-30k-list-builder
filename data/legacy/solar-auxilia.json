@@ -1,0 +1,915 @@
+{
+ "weapons": {
+  "ranged": [
+   {
+    "name": "Void-pattern lascarbine",
+    "R": 18,
+    "FP": 2,
+    "RS": 3,
+    "AP": 6,
+    "D": 1,
+    "specialRules": [],
+    "traits": [
+     "Las",
+     "Assault"
+    ]
+   },
+   {
+    "name": "Marksman's long-las",
+    "R": 48,
+    "FP": 1,
+    "RS": 5,
+    "AP": 5,
+    "D": 1,
+    "specialRules": [
+     "Heavy (RS)",
+     "Precision (5+)"
+    ],
+    "traits": [
+     "Las"
+    ]
+   },
+   {
+    "name": "Breacher's hellbore",
+    "R": 8,
+    "FP": 2,
+    "RS": 5,
+    "AP": 4,
+    "D": 1,
+    "specialRules": [
+     "Breaching (6+)"
+    ],
+    "traits": [
+     "Assault"
+    ]
+   },
+   {
+    "name": "Pintle-mounted lascarbine array",
+    "R": 24,
+    "FP": 6,
+    "RS": 3,
+    "AP": 6,
+    "D": 1,
+    "specialRules": [
+     "Suppressive (0)"
+    ],
+    "traits": [
+     "Las"
+    ]
+   }
+  ],
+  "melee": [
+   {
+    "name": "Void-sabre",
+    "IM": "+1",
+    "AM": "A",
+    "SM": "+1",
+    "AP": 4,
+    "D": 1,
+    "specialRules": [
+     "Breaching (5+)"
+    ],
+    "traits": [
+     "Power"
+    ]
+   },
+   {
+    "name": "Charonite flail",
+    "IM": -1,
+    "AM": "+1",
+    "SM": 6,
+    "AP": 3,
+    "D": 1,
+    "specialRules": [
+     "Shred (5+)"
+    ],
+    "traits": [
+     "Power"
+    ]
+   }
+  ]
+ },
+ "wargear": [
+  {
+   "name": "Carapace breastplate",
+   "text": "Legacy house rule. Ceramite-laminate plate issued to Primes and officers who have earned it. The model's Save becomes 3+ if it was worse."
+  },
+  {
+   "name": "Bulwark field-cloak",
+   "text": "Legacy house rule. A shimmering cloak woven with a cheap deflector mesh, worn by officers who expect to be shot at. The model's Invulnerable Save becomes 5+ if it was worse."
+  },
+  {
+   "name": "Veteran Prime",
+   "text": "Legacy house rule. A Prime who has marched through three theatres and never lost a standard. The model gains +1 Ballistic Skill and +1 Leadership."
+  },
+  {
+   "name": "Cohort colours",
+   "text": "Legacy house rule. The tercio's battle-honours, stitched into a banner that every trooper can see. Every model in the unit gains +1 Leadership and +1 Cool."
+  },
+  {
+   "name": "Charonite bastion-plate",
+   "text": "Legacy house rule. Riveted slabs of charonite alloy bolted over an Ogryn's chest and shoulders. The model's Save becomes 3+ if it was worse."
+  },
+  {
+   "name": "Applique plating",
+   "text": "Legacy house rule. Spare armour plate welded on in the field. The vehicle gains +1 Hull Point."
+  },
+  {
+   "name": "Siege plating",
+   "text": "Legacy house rule. Thick glacis slabs and track skirts for crawling into a prepared line. The vehicle gains +1 Front armour, but loses 2\" of Movement."
+  },
+  {
+   "name": "Fire-control cogitator",
+   "text": "Legacy house rule. A cogitator rack that works out the arc before the gun is laid. The vehicle gains +1 Ballistic Skill."
+  }
+ ],
+ "options": [
+  {
+   "match": {
+    "roles": [
+     "Troops",
+     "Elites",
+     "Support",
+     "Command"
+    ],
+    "notUnitType": "Vehicle"
+   },
+   "optionalUnits": true,
+   "option": {
+    "id": "sa-carapace",
+    "kind": "upgrade",
+    "modelType": "Sergeant",
+    "text": "The Sergeant may take a Carapace breastplate",
+    "choices": [
+     {
+      "name": "Carapace breastplate",
+      "points": 10
+     }
+    ]
+   }
+  },
+  {
+   "units": [
+    "tactical-command-section",
+    "legatine-command-section"
+   ],
+   "option": {
+    "id": "sa-cloak",
+    "kind": "upgrade",
+    "modelType": "Command",
+    "text": "The commander may take a Bulwark field-cloak",
+    "choices": [
+     {
+      "name": "Bulwark field-cloak",
+      "points": 10
+     }
+    ]
+   }
+  },
+  {
+   "match": {
+    "roles": [
+     "Troops",
+     "Elites",
+     "Support",
+     "Command",
+     "Retinue"
+    ],
+    "notUnitType": "Vehicle"
+   },
+   "optionalUnits": true,
+   "option": {
+    "id": "sa-veteran-prime",
+    "kind": "upgrade",
+    "modelType": "Sergeant",
+    "text": "The Sergeant may be upgraded to a Veteran Prime",
+    "choices": [
+     {
+      "name": "Veteran Prime",
+      "points": 10
+     }
+    ]
+   }
+  },
+  {
+   "units": [
+    "lasrifle-section",
+    "line-command-section",
+    "artillery-command-section",
+    "companion-section"
+   ],
+   "option": {
+    "id": "sa-prime-arms",
+    "kind": "upgrade",
+    "modelType": "Sergeant",
+    "text": "The Sergeant may carry a specialist weapon",
+    "choices": [
+     {
+      "name": "Void-sabre",
+      "points": 10
+     },
+     {
+      "name": "Marksman's long-las",
+      "points": 10
+     }
+    ]
+   }
+  },
+  {
+   "units": [
+    "lasrifle-section"
+   ],
+   "option": {
+    "id": "sa-lascarbines",
+    "kind": "perModel",
+    "model": "Auxiliary",
+    "replaces": [
+     "Lasrifle"
+    ],
+    "max": {
+     "per": 10,
+     "count": 2
+    },
+    "text": "Up to two Auxiliaries per ten may exchange their lasrifle for",
+    "choices": [
+     {
+      "name": "Void-pattern lascarbine",
+      "points": 1
+     },
+     {
+      "name": "Marksman's long-las",
+      "points": 6
+     }
+    ]
+   }
+  },
+  {
+   "units": [
+    "veletaris-storm-section"
+   ],
+   "option": {
+    "id": "sa-hellbore-storm",
+    "kind": "perModel",
+    "model": "Veletarii",
+    "replaces": [
+     "Volkite charger"
+    ],
+    "max": {
+     "per": 5,
+     "count": 1
+    },
+    "text": "One Veletarii in five may exchange their Volkite charger for",
+    "choices": [
+     {
+      "name": "Breacher's hellbore",
+      "points": 3
+     }
+    ]
+   }
+  },
+  {
+   "units": [
+    "veletaris-raider-section"
+   ],
+   "option": {
+    "id": "sa-hellbore-raider",
+    "kind": "perModel",
+    "model": "Veletarii",
+    "replaces": [
+     "Breaching shotgun"
+    ],
+    "max": {
+     "per": 5,
+     "count": 2
+    },
+    "text": "Up to two Veletarii in five may exchange their breaching shotgun for",
+    "choices": [
+     {
+      "name": "Breacher's hellbore",
+      "points": 2
+     }
+    ]
+   }
+  },
+  {
+   "units": [
+    "charonite-ogryn-section"
+   ],
+   "option": {
+    "id": "sa-charonite-flail",
+    "kind": "perModel",
+    "model": "Charonite ogryn",
+    "replaces": [
+     "Charonite claws"
+    ],
+    "text": "Any Charonite ogryn may exchange their claws for",
+    "choices": [
+     {
+      "name": "Charonite flail",
+      "points": 6
+     }
+    ]
+   }
+  },
+  {
+   "units": [
+    "charonite-ogryn-section"
+   ],
+   "option": {
+    "id": "sa-charonite-plate",
+    "kind": "perModel",
+    "model": "Charonite ogryn",
+    "text": "Any Charonite ogryn may be fitted with",
+    "choices": [
+     {
+      "name": "Charonite bastion-plate",
+      "points": 12
+     }
+    ]
+   }
+  },
+  {
+   "units": [
+    "lasrifle-section",
+    "line-command-section",
+    "veletaris-storm-section",
+    "veletaris-vanguard-section",
+    "veletaris-raider-section",
+    "tactical-command-section"
+   ],
+   "option": {
+    "id": "sa-colours",
+    "kind": "upgrade",
+    "model": null,
+    "text": "The unit may carry its Cohort colours",
+    "choices": [
+     {
+      "name": "Cohort colours",
+      "points": 15
+     }
+    ]
+   }
+  },
+  {
+   "match": {
+    "roles": [
+     "Armour",
+     "Transport",
+     "Heavy Transport",
+     "Support"
+    ],
+    "unitType": "Vehicle",
+    "notUnitType": "Flyer"
+   },
+   "optionalUnits": true,
+   "option": {
+    "id": "sa-applique",
+    "kind": "upgrade",
+    "model": null,
+    "text": "May take Applique plating",
+    "choices": [
+     {
+      "name": "Applique plating",
+      "points": 15
+     }
+    ]
+   }
+  },
+  {
+   "units": [
+    "leman-russ-assault-tank",
+    "leman-russ-strike-tank",
+    "malcador-heavy-tank",
+    "malcador-infernus-special-weapon-tank",
+    "valdor-tank-destroyer",
+    "destroyer-tank-hunter",
+    "thunderer-siege-tank"
+   ],
+   "option": {
+    "id": "sa-siege-plating",
+    "kind": "upgrade",
+    "model": null,
+    "text": "May take Siege plating",
+    "choices": [
+     {
+      "name": "Siege plating",
+      "points": 20
+     }
+    ]
+   }
+  },
+  {
+   "units": [
+    "basilisk-artillery-tank",
+    "medusa-artillery-tank",
+    "minotaur-artillery-tank"
+   ],
+   "option": {
+    "id": "sa-cogitator",
+    "kind": "upgrade",
+    "model": null,
+    "text": "May take a Fire-control cogitator",
+    "choices": [
+     {
+      "name": "Fire-control cogitator",
+      "points": 15
+     }
+    ]
+   }
+  },
+  {
+   "units": [
+    "leman-russ-assault-tank",
+    "leman-russ-strike-tank",
+    "malcador-heavy-tank",
+    "dracosan-armoured-transport",
+    "aurox-transport"
+   ],
+   "option": {
+    "id": "sa-lascarbine-array",
+    "kind": "upgrade",
+    "model": null,
+    "text": "May mount a Pintle-mounted lascarbine array",
+    "choices": [
+     {
+      "name": "Pintle-mounted lascarbine array",
+      "points": 10
+     }
+    ]
+   }
+  }
+ ],
+ "modifiers": [
+  {
+   "units": [
+    "*"
+   ],
+   "item": "Carapace breastplate",
+   "text": "Carapace breastplate: 3+ Save.",
+   "stats": {
+    "SAV": "best:3+"
+   }
+  },
+  {
+   "units": [
+    "*"
+   ],
+   "item": "Bulwark field-cloak",
+   "text": "Bulwark field-cloak: 5+ Invulnerable Save.",
+   "stats": {
+    "INV": "best:5+"
+   }
+  },
+  {
+   "units": [
+    "*"
+   ],
+   "item": "Veteran Prime",
+   "text": "Veteran Prime: +1 BS, +1 LD.",
+   "stats": {
+    "BS": "+1",
+    "LD": "+1"
+   }
+  },
+  {
+   "units": [
+    "*"
+   ],
+   "item": "Cohort colours",
+   "scope": "unit",
+   "text": "Cohort colours: +1 LD, +1 CL.",
+   "stats": {
+    "LD": "+1",
+    "CL": "+1"
+   }
+  },
+  {
+   "units": [
+    "*"
+   ],
+   "item": "Charonite bastion-plate",
+   "text": "Charonite bastion-plate: 3+ Save.",
+   "stats": {
+    "SAV": "best:3+"
+   }
+  },
+  {
+   "units": [
+    "*"
+   ],
+   "item": "Applique plating",
+   "scope": "unit",
+   "text": "Applique plating: +1 HP.",
+   "stats": {
+    "HP": "+1"
+   }
+  },
+  {
+   "units": [
+    "*"
+   ],
+   "item": "Siege plating",
+   "scope": "unit",
+   "text": "Siege plating: +1 Front, -2 M.",
+   "stats": {
+    "FRONT": "+1",
+    "M": "-2"
+   }
+  },
+  {
+   "units": [
+    "*"
+   ],
+   "item": "Fire-control cogitator",
+   "scope": "unit",
+   "text": "Fire-control cogitator: +1 BS.",
+   "stats": {
+    "BS": "+1"
+   }
+  },
+  {
+   "units": [
+    "lasrifle-section"
+   ],
+   "models": [
+    "Auxiliary"
+   ],
+   "text": "Volley drill: +1 LD, -1 WS. Drilled to hold a line, not to fight on it.",
+   "stats": {
+    "LD": "+1",
+    "WS": "-1"
+   }
+  },
+  {
+   "units": [
+    "veletaris-storm-section",
+    "veletaris-vanguard-section",
+    "veletaris-raider-section",
+    "veletaris-command-section"
+   ],
+   "models": [
+    "Veletarii",
+    "Veletarii Prime",
+    "First Prime"
+   ],
+   "text": "Void-armoured: +1 T, -1 M.",
+   "stats": {
+    "T": "+1",
+    "M": "-1"
+   }
+  },
+  {
+   "units": [
+    "charonite-ogryn-section"
+   ],
+   "text": "Charonite-bonded bulk: +1 S, -1 I.",
+   "stats": {
+    "S": "+1",
+    "I": "-1"
+   }
+  },
+  {
+   "units": [
+    "hermes-light-sentinel-squadron",
+    "hermes-veletaris-squadron"
+   ],
+   "text": "Stripped-down frames: +1 M, -1 T.",
+   "stats": {
+    "M": "+1",
+    "T": "-1"
+   }
+  },
+  {
+   "units": [
+    "leman-russ-assault-tank",
+    "leman-russ-strike-tank",
+    "malcador-heavy-tank",
+    "valdor-tank-destroyer",
+    "destroyer-tank-hunter",
+    "thunderer-siege-tank"
+   ],
+   "text": "Veteran tank crews: +1 BS, -1 Rear armour.",
+   "stats": {
+    "BS": "+1",
+    "REAR": "-1"
+   }
+  },
+  {
+   "units": [
+    "basilisk-artillery-tank",
+    "medusa-artillery-tank",
+    "minotaur-artillery-tank"
+   ],
+   "text": "Dug-in gun lines: +1 BS, -2 M.",
+   "stats": {
+    "BS": "+1",
+    "M": "-2"
+   }
+  }
+ ],
+ "rites": [
+  {
+   "name": "Void-Armoured Tercios",
+   "flavor": "They crossed the dark between worlds in sealed plate, and they will cross a battlefield the same way.",
+   "text": "Veletaris Storm, Vanguard and Raider Sections may fill Troops slots, and gain Line (1) and Feel No Pain (6+). Seals and respirators leave no place for the clumsy: the army brings no Charonite Ogryn, no Aethon Heavy Sentinels and no Lord of War. At least two Veletaris Sections are required.",
+   "roles": [
+    {
+     "units": [
+      "veletaris-storm-section",
+      "veletaris-vanguard-section",
+      "veletaris-raider-section"
+     ],
+     "role": "Troops"
+    }
+   ],
+   "modifiers": [
+    {
+     "units": [
+      "veletaris-storm-section",
+      "veletaris-vanguard-section",
+      "veletaris-raider-section"
+     ],
+     "text": "Void-Armoured Tercios: Line (1), Feel No Pain (6+).",
+     "addRules": [
+      "Line (1)",
+      "Feel No Pain (6+)"
+     ]
+    }
+   ],
+   "require": [
+    {
+     "units": [
+      "veletaris-storm-section",
+      "veletaris-vanguard-section",
+      "veletaris-raider-section"
+     ],
+     "min": 2,
+     "note": "The Rite needs at least two Veletaris Sections."
+    }
+   ],
+   "forbid": [
+    {
+     "units": [
+      "charonite-ogryn-section",
+      "aethon-heavy-sentinel-squadron"
+     ]
+    },
+    {
+     "match": {
+      "role": "Lord of War"
+     }
+    }
+   ]
+  },
+  {
+   "name": "The Armoured Fist",
+   "flavor": "The infantry are there to hold the ground the tanks have just taken.",
+   "text": "Leman Russ, Malcador, Valdor, Destroyer and Thunderer tanks may fill Troops slots and gain Line (1). Every such tank gains +1 Ballistic Skill. The army must field at least three of these tanks, may take no more than one Lasrifle Section, and no Veletaris Sections.",
+   "roles": [
+    {
+     "units": [
+      "leman-russ-assault-tank",
+      "leman-russ-strike-tank",
+      "malcador-heavy-tank",
+      "malcador-infernus-special-weapon-tank",
+      "valdor-tank-destroyer",
+      "destroyer-tank-hunter",
+      "thunderer-siege-tank"
+     ],
+     "role": "Troops"
+    }
+   ],
+   "modifiers": [
+    {
+     "units": [
+      "leman-russ-assault-tank",
+      "leman-russ-strike-tank",
+      "malcador-heavy-tank",
+      "malcador-infernus-special-weapon-tank",
+      "valdor-tank-destroyer",
+      "destroyer-tank-hunter",
+      "thunderer-siege-tank"
+     ],
+     "text": "The Armoured Fist: Line (1), +1 BS.",
+     "stats": {
+      "BS": "+1"
+     },
+     "addRules": [
+      "Line (1)"
+     ]
+    }
+   ],
+   "require": [
+    {
+     "units": [
+      "leman-russ-assault-tank",
+      "leman-russ-strike-tank",
+      "malcador-heavy-tank",
+      "malcador-infernus-special-weapon-tank",
+      "valdor-tank-destroyer",
+      "destroyer-tank-hunter",
+      "thunderer-siege-tank"
+     ],
+     "min": 3,
+     "note": "Bring at least three tanks."
+    }
+   ],
+   "limit": [
+    {
+     "units": [
+      "lasrifle-section"
+     ],
+     "max": 1
+    }
+   ],
+   "forbid": [
+    {
+     "units": [
+      "veletaris-storm-section",
+      "veletaris-vanguard-section",
+      "veletaris-raider-section"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Charonite Breaker Host",
+   "flavor": "The Ogryn do not understand tactics. They do understand the word 'forward'.",
+   "text": "Charonite Ogryn Sections may fill Troops slots, cost 15 points less, and gain Fear (1). The musters will not tolerate crewed guns or the whine of engines: no Support artillery or Rapier Sections, no Fast Attack, and no more than one tank from the Armour slots. At least one Charonite Ogryn Section is required.",
+   "roles": [
+    {
+     "units": [
+      "charonite-ogryn-section"
+     ],
+     "role": "Troops"
+    }
+   ],
+   "points": [
+    {
+     "units": [
+      "charonite-ogryn-section"
+     ],
+     "delta": -15
+    }
+   ],
+   "modifiers": [
+    {
+     "units": [
+      "charonite-ogryn-section"
+     ],
+     "text": "Charonite Breaker Host: Fear (1).",
+     "addRules": [
+      "Fear (1)"
+     ]
+    }
+   ],
+   "require": [
+    {
+     "units": [
+      "charonite-ogryn-section"
+     ],
+     "min": 1,
+     "note": "Bring at least one Charonite Ogryn Section."
+    }
+   ],
+   "limit": [
+    {
+     "units": [
+      "leman-russ-assault-tank",
+      "leman-russ-strike-tank",
+      "malcador-heavy-tank",
+      "malcador-infernus-special-weapon-tank",
+      "valdor-tank-destroyer",
+      "destroyer-tank-hunter",
+      "thunderer-siege-tank",
+      "minotaur-artillery-tank"
+     ],
+     "max": 1
+    }
+   ],
+   "forbid": [
+    {
+     "units": [
+      "basilisk-artillery-tank",
+      "medusa-artillery-tank",
+      "rapier-section"
+     ]
+    },
+    {
+     "match": {
+      "role": "Fast Attack"
+     }
+    }
+   ]
+  },
+  {
+   "name": "The Ordnance Park",
+   "flavor": "A regiment's real argument is made four kilometres behind its front line.",
+   "text": "Basilisk and Medusa Artillery Tanks may fill Troops slots. Every Basilisk, Medusa, Minotaur and Rapier Section gains +1 Ballistic Skill. The park must be guarded and directed: it needs an Artillery Command Section and at least two of Basilisk, Medusa and Minotaur tanks, and it cannot spare Recon or Fast Attack units.",
+   "roles": [
+    {
+     "units": [
+      "basilisk-artillery-tank",
+      "medusa-artillery-tank"
+     ],
+     "role": "Troops"
+    }
+   ],
+   "modifiers": [
+    {
+     "units": [
+      "basilisk-artillery-tank",
+      "medusa-artillery-tank",
+      "minotaur-artillery-tank",
+      "rapier-section"
+     ],
+     "text": "The Ordnance Park: +1 BS.",
+     "stats": {
+      "BS": "+1"
+     }
+    }
+   ],
+   "require": [
+    {
+     "units": [
+      "artillery-command-section"
+     ],
+     "min": 1,
+     "note": "An Artillery Command Section directs the park."
+    },
+    {
+     "units": [
+      "basilisk-artillery-tank",
+      "medusa-artillery-tank",
+      "minotaur-artillery-tank"
+     ],
+     "min": 2,
+     "note": "At least two Basilisk, Medusa or Minotaur tanks."
+    }
+   ],
+   "forbid": [
+    {
+     "match": {
+      "role": "Recon"
+     }
+    },
+    {
+     "match": {
+      "role": "Fast Attack"
+     }
+    }
+   ]
+  },
+  {
+   "name": "Dracosan Assault Wave",
+   "flavor": "Every tercio rides, and every Dracosan lands within a pistol-shot of the wall.",
+   "text": "Dracosan Armoured Transports and Command Dracosans cost 20 points less and gain +2 Movement. The army is a mounted fist: it must field at least two Dracosans, and it has no artillery tanks, no Rapier Sections and no Lord of War.",
+   "points": [
+    {
+     "units": [
+      "dracosan-armoured-transport",
+      "dracosan-command-tank"
+     ],
+     "delta": -20
+    }
+   ],
+   "modifiers": [
+    {
+     "units": [
+      "dracosan-armoured-transport",
+      "dracosan-command-tank"
+     ],
+     "text": "Dracosan Assault Wave: +2 M.",
+     "stats": {
+      "M": "+2"
+     }
+    }
+   ],
+   "require": [
+    {
+     "units": [
+      "dracosan-armoured-transport",
+      "dracosan-command-tank"
+     ],
+     "min": 2,
+     "note": "Bring at least two Dracosans."
+    }
+   ],
+   "forbid": [
+    {
+     "units": [
+      "basilisk-artillery-tank",
+      "medusa-artillery-tank",
+      "minotaur-artillery-tank",
+      "rapier-section"
+     ]
+    },
+    {
+     "match": {
+      "role": "Lord of War"
+     }
+    }
+   ]
+  }
+ ]
+}
