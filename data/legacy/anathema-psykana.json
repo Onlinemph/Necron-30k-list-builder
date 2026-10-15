@@ -233,6 +233,21 @@
         "traits": [
           "Bolt"
         ]
+      },
+      {
+        "name": "Adrathic destructor",
+        "R": 12,
+        "FP": 1,
+        "RS": 5,
+        "AP": 2,
+        "D": 2,
+        "specialRules": [
+          "Rending (6+)"
+        ],
+        "traits": [
+          "Assault",
+          "Disintegrator"
+        ]
       }
     ],
     "melee": [
@@ -1442,7 +1457,7 @@
               "points": 10
             },
             {
-              "name": "Adrathic devastator",
+              "name": "Adrathic destructor",
               "points": 15
             }
           ]
@@ -1599,7 +1614,7 @@
           "text": "The Silent Fury may exchange her jetbike's snare cannon for",
           "choices": [
             {
-              "name": "Adrathic devastator",
+              "name": "Adrathic destructor",
               "points": 10
             },
             {
@@ -3042,7 +3057,7 @@
           "text": "Every Model in this Unit may exchange its jetbike's snare cannon for one of the following. If this option is selected, every Model in this Unit must exchange its snare cannon for the same item",
           "choices": [
             {
-              "name": "Adrathic devastator",
+              "name": "Adrathic destructor",
               "points": 0
             },
             {
@@ -3371,7 +3386,7 @@
               "points": 0
             },
             {
-              "name": "Adrathic devastator",
+              "name": "Adrathic destructor",
               "points": 0
             },
             {
@@ -3694,7 +3709,7 @@
           "text": "Any Questora may exchange her Vratine bolter for",
           "choices": [
             {
-              "name": "Adrathic devastator",
+              "name": "Adrathic destructor",
               "points": 15
             },
             {
