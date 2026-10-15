@@ -144,6 +144,16 @@
       "name": "Blade-song glyph",
       "text": "A Model equipped with a Blade-song glyph has the Blade-song Rhythm Special Rule.",
       "summary": "A resonant rune cut into the guard of a blademaster's sword."
+    },
+    {
+      "name": "Codex of Unwritten Days",
+      "summary": "A book whose pages fill in the future, always a little before it arrives.",
+      "text": "A Model equipped with the Codex of Unwritten Days has the Foretold Doom Special Rule."
+    },
+    {
+      "name": "Corvid-pinion mantle",
+      "summary": "A cloak of black-and-crimson feathers that stirs without wind.",
+      "text": "A Model equipped with the Corvid-pinion mantle has the Pinion Veil Special Rule."
     }
   ],
   "options": [
@@ -461,6 +471,55 @@
           }
         ]
       }
+    },
+    {
+      "units": [
+        "magnus-the-red"
+      ],
+      "option": {
+        "id": "magnus-the-red-aspect",
+        "kind": "one",
+        "model": "Magnus the Red",
+        "text": "Aspect of the Primarch: Magnus the Red may take one",
+        "choices": [
+          {
+            "name": "Sage-King of Prospero",
+            "points": 0
+          },
+          {
+            "name": "Unbound Sorcerer-King",
+            "points": 0
+          },
+          {
+            "name": "Tutor of the Cabal",
+            "points": 0
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "magnus-the-red"
+      ],
+      "option": {
+        "id": "magnus-the-red-relics",
+        "kind": "any",
+        "model": "Magnus the Red",
+        "max": {
+          "fixed": 1
+        },
+        "text": "Relics of the Primarch: Magnus the Red may take one",
+        "choices": [
+          {
+            "name": "Codex of Unwritten Days",
+            "points": 25
+          },
+          {
+            "name": "Corvid-pinion mantle",
+            "points": 15
+          }
+        ]
+      }
     }
   ],
   "modifiers": [
@@ -646,6 +705,65 @@
       "addRules": [
         "Feel No Pain (6+)"
       ]
+    },
+    {
+      "units": [
+        "magnus-the-red"
+      ],
+      "item": "Sage-King of Prospero",
+      "text": "Sage-King of Prospero: -1 S.",
+      "stats": {
+        "S": "-1"
+      },
+      "addRules": [
+        "Sage-King of Prospero"
+      ]
+    },
+    {
+      "units": [
+        "magnus-the-red"
+      ],
+      "item": "Unbound Sorcerer-King",
+      "text": "Unbound Sorcerer-King: -1 T.",
+      "stats": {
+        "T": "-1"
+      },
+      "addRules": [
+        "Unbound Sorcerer-King"
+      ]
+    },
+    {
+      "units": [
+        "magnus-the-red"
+      ],
+      "item": "Tutor of the Cabal",
+      "text": "Tutor of the Cabal: -2 A.",
+      "stats": {
+        "A": "-2"
+      },
+      "addRules": [
+        "Tutor of the Cabal"
+      ]
+    },
+    {
+      "units": [
+        "magnus-the-red"
+      ],
+      "item": "Codex of Unwritten Days",
+      "text": "Codex of Unwritten Days: Foretold Doom.",
+      "addRules": [
+        "Foretold Doom"
+      ]
+    },
+    {
+      "units": [
+        "magnus-the-red"
+      ],
+      "item": "Corvid-pinion mantle",
+      "text": "Corvid-pinion mantle: Pinion Veil.",
+      "addRules": [
+        "Pinion Veil"
+      ]
     }
   ],
   "rules": [
@@ -693,6 +811,31 @@
       "name": "Blade-song Rhythm",
       "text": "A Model with this Special Rule adds 1 to its Initiative Characteristic during the first Initiative Step of each Combat.",
       "summary": "The glyph hums, and the blade falls to its beat."
+    },
+    {
+      "name": "Sage-King of Prospero",
+      "summary": "Before the burning, he ruled with a scholar's patience: quick of mind and light of hand.",
+      "text": "Once per Battle, when this Model is Engaged in a Challenge, the Controlling Player may declare Foreseen Blow and add 3 to this Model's Focus Roll. This Model subtracts 1 from its Strength Characteristic."
+    },
+    {
+      "name": "Unbound Sorcerer-King",
+      "summary": "He stops holding the Great Ocean back, and it answers, and it takes its share of him.",
+      "text": "At the start of each of its Controlling Player's Shooting Phases, the Controlling Player may choose one enemy Unit within 18\" of this Model and in its line of sight. That Unit suffers three Hits, each with a Strength of 5, an AP of 3, a Damage Characteristic of 1 and the Psychic Trait. If the Controlling Player does so, this Model cannot make a Shooting Attack in that Battle Turn. This Model subtracts 1 from its Toughness Characteristic."
+    },
+    {
+      "name": "Tutor of the Cabal",
+      "summary": "For a battle he teaches rather than strikes, and his sons stand the straighter for it.",
+      "text": "Models in friendly Thousand Sons Units within 12\" of this Model add 1 to their Cool Characteristic when making Cool Checks. This Model subtracts 2 from its Attacks Characteristic."
+    },
+    {
+      "name": "Foretold Doom",
+      "summary": "The page was written before the enemy had marched.",
+      "text": "Once per Battle, at the start of any Battle Turn, the Controlling Player may choose one enemy Unit within 24\" of this Model. That Unit must make a Cool Check, and a Unit that fails gains the Suppressed Tactical Status."
+    },
+    {
+      "name": "Pinion Veil",
+      "summary": "Wings of stolen feathers that are never quite where the blow lands.",
+      "text": "Models in an enemy Unit that declares a Charge against this Model subtract 1 from the result of their Charge Roll."
     }
   ],
   "rites": [
@@ -975,6 +1118,28 @@
         "CL": "-1"
       },
       "condition": "while more than 12\" from a friendly sorcerer, Herald or Primarch"
+    },
+    {
+      "name": "The Crimson King's Regard",
+      "flavor": "Where the Crimson King looks, the Cabal's work grows sure and bright.",
+      "whileInArmy": [
+        "magnus-the-red"
+      ],
+      "benefits": [
+        "While Magnus the Red is on the battlefield, friendly Thousand Sons Infantry Models within 12\" of him add 1 to their Willpower Characteristic."
+      ],
+      "drawbacks": [
+        "If Magnus the Red is removed as a casualty, every friendly Thousand Sons Model subtracts 1 from its Willpower Characteristic for the remainder of the Battle."
+      ],
+      "match": {
+        "unitType": "Infantry",
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "stats": {
+        "WP": "+1"
+      },
+      "condition": "within 12\" of Magnus"
     }
   ]
 }

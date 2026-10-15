@@ -59,6 +59,24 @@
         "IN": "+1",
         "CL": "-1"
       }
+    },
+    {
+      "name": "The Order's Silence",
+      "flavor": "The First Legion does not ask what the Lion intends. It moves where he points, and keeps close.",
+      "whileInArmy": [
+        "lion-eljohnson"
+      ],
+      "benefits": [
+        "While Lion El'Johnson is on the battlefield, friendly Dark Angels Units within 12\" of him add 1 to their Cool Checks.",
+        "When the Controlling Player makes a Reserve Roll for a friendly Dark Angels Terminator Unit, add 1 to the result."
+      ],
+      "drawbacks": [
+        "A friendly Dark Angels Unit that is more than 12\" from Lion El'Johnson, or any such Unit once he has been removed as a casualty, subtracts 1 from its Cool Checks."
+      ],
+      "match": {
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true
     }
   ],
   "weapons": {
@@ -197,6 +215,16 @@
       "name": "Ordnance auto-loader",
       "summary": "A rebuilt shell-feed that trades the engine's safety for speed.",
       "text": "A Vehicle equipped with an Ordnance auto-loader has the Overcharged Feed Special Rule."
+    },
+    {
+      "name": "Mantle of the Watchful Knight",
+      "summary": "A grey mantle sewn with the vows of a sleepless sentinel.",
+      "text": "A Model equipped with the Mantle of the Watchful Knight has the Unsleeping Vigil Special Rule."
+    },
+    {
+      "name": "Circlet of the Silent Council",
+      "summary": "A plain iron band worn at the Order's closed councils.",
+      "text": "A Model equipped with the Circlet of the Silent Council has the Fear (1) Special Rule and adds 1 to its Cool Characteristic."
     }
   ],
   "rules": [
@@ -254,6 +282,26 @@
       "name": "Heat Shadow",
       "summary": "The heat-shadow of riders and scouts is smeared across the horizon.",
       "text": "Every Hit Test made for a Shooting Attack from more than 18\" away that targets a Unit including a Model with this Special Rule is subject to a -1 modifier."
+    },
+    {
+      "name": "Hunter of the Great Forest",
+      "summary": "He is the boy who tracked monsters through Caliban's dark woods, fast and alone.",
+      "text": "This Model adds 2 to its Movement Characteristic and 1 to its Initiative Characteristic, and subtracts 1 from its Ballistic Skill Characteristic. A Unit that includes this Model cannot be the target of a Shooting Attack made from more than 24\" away."
+    },
+    {
+      "name": "Master of the First Legion",
+      "summary": "On the war-table he is the Order's Grand Master, and the Legion fights as he does.",
+      "text": "Friendly Dark Angels Units within 12\" of this Model add 1 to their Cool Checks and add 1 to the result of their Charge Rolls. This Model subtracts 1 from its Attacks Characteristic."
+    },
+    {
+      "name": "The Lion Unforgiving",
+      "summary": "His cold anger comes up like a tide, and it will not be turned back.",
+      "text": "While this Model has lost one or more Wounds, it adds 1 to its Strength Characteristic and 1 to its Attacks Characteristic. This Model must issue or accept a Challenge whenever it is able to, and subtracts 1 from its Intelligence Characteristic."
+    },
+    {
+      "name": "Unsleeping Vigil",
+      "summary": "He has stood watch through worse nights than this.",
+      "text": "A Unit that includes a Model with this Special Rule cannot gain the Pinned or Suppressed Tactical Status."
     }
   ],
   "options": [
@@ -628,6 +676,55 @@
           }
         ]
       }
+    },
+    {
+      "units": [
+        "lion-eljohnson"
+      ],
+      "option": {
+        "id": "lion-eljohnson-aspect",
+        "kind": "one",
+        "model": "Lion El'Johnson",
+        "text": "Aspect of the Primarch: Lion El'Johnson may take one",
+        "choices": [
+          {
+            "name": "Hunter of the Great Forest",
+            "points": 0
+          },
+          {
+            "name": "Master of the First Legion",
+            "points": 0
+          },
+          {
+            "name": "The Lion Unforgiving",
+            "points": 0
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "lion-eljohnson"
+      ],
+      "option": {
+        "id": "lion-eljohnson-relics",
+        "kind": "any",
+        "model": "Lion El'Johnson",
+        "max": {
+          "fixed": 1
+        },
+        "text": "Relics of the Primarch: Lion El'Johnson may take one",
+        "choices": [
+          {
+            "name": "Mantle of the Watchful Knight",
+            "points": 15
+          },
+          {
+            "name": "Circlet of the Silent Council",
+            "points": 20
+          }
+        ]
+      }
     }
   ],
   "modifiers": [
@@ -773,6 +870,70 @@
       "addRules": [
         "Overcharged Feed"
       ]
+    },
+    {
+      "units": [
+        "lion-eljohnson"
+      ],
+      "item": "Hunter of the Great Forest",
+      "text": "Hunter of the Great Forest: +2 M, +1 I, -1 BS.",
+      "addRules": [
+        "Hunter of the Great Forest"
+      ],
+      "stats": {
+        "M": "+2",
+        "I": "+1",
+        "BS": "-1"
+      }
+    },
+    {
+      "units": [
+        "lion-eljohnson"
+      ],
+      "item": "Master of the First Legion",
+      "text": "Master of the First Legion: -1 A.",
+      "addRules": [
+        "Master of the First Legion"
+      ],
+      "stats": {
+        "A": "-1"
+      }
+    },
+    {
+      "units": [
+        "lion-eljohnson"
+      ],
+      "item": "The Lion Unforgiving",
+      "text": "The Lion Unforgiving: -1 IN.",
+      "addRules": [
+        "The Lion Unforgiving"
+      ],
+      "stats": {
+        "IN": "-1"
+      }
+    },
+    {
+      "units": [
+        "lion-eljohnson"
+      ],
+      "item": "Mantle of the Watchful Knight",
+      "text": "Mantle of the Watchful Knight.",
+      "addRules": [
+        "Unsleeping Vigil"
+      ]
+    },
+    {
+      "units": [
+        "lion-eljohnson"
+      ],
+      "item": "Circlet of the Silent Council",
+      "text": "Circlet of the Silent Council: +1 CL.",
+      "addRules": [
+        "Fear (1)"
+      ],
+      "stats": {
+        "CL": "+1"
+      }
     }
   ],
   "rites": [

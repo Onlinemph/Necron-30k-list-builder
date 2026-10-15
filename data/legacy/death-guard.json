@@ -160,6 +160,16 @@
       "name": "Rust-plough",
       "summary": "A corroded plough blade fitted to the prow.",
       "text": "A Vehicle equipped with a Rust-plough has the Rust-Plough Special Rule."
+    },
+    {
+      "name": "Pall-veil of Barbarus",
+      "summary": "A shroud of the grey poison-fog of his home world, which rises to hide him.",
+      "text": "A Model equipped with the Pall-veil of Barbarus has the Shrouded (5+) Special Rule."
+    },
+    {
+      "name": "Reaper's tally-chain",
+      "summary": "A heavy chain strung with a skull for every host he has cut down.",
+      "text": "A Model equipped with the Reaper's tally-chain has the Tally of the Reaped Special Rule."
     }
   ],
   "options": [
@@ -498,6 +508,55 @@
           }
         ]
       }
+    },
+    {
+      "units": [
+        "mortarion"
+      ],
+      "option": {
+        "id": "mortarion-aspect",
+        "kind": "one",
+        "model": "Mortarion",
+        "text": "Aspect of the Primarch: Mortarion may take one",
+        "choices": [
+          {
+            "name": "Reaper of Barbarus",
+            "points": 0
+          },
+          {
+            "name": "Plaguewind Sovereign",
+            "points": 0
+          },
+          {
+            "name": "Unmoving Mourner",
+            "points": 0
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "mortarion"
+      ],
+      "option": {
+        "id": "mortarion-relics",
+        "kind": "any",
+        "model": "Mortarion",
+        "max": {
+          "fixed": 1
+        },
+        "text": "Relics of the Primarch: Mortarion may take one",
+        "choices": [
+          {
+            "name": "Pall-veil of Barbarus",
+            "points": 20
+          },
+          {
+            "name": "Reaper's tally-chain",
+            "points": 15
+          }
+        ]
+      }
     }
   ],
   "modifiers": [
@@ -663,6 +722,72 @@
       "addRules": [
         "Rust-Plough"
       ]
+    },
+    {
+      "units": [
+        "mortarion"
+      ],
+      "item": "Reaper of Barbarus",
+      "text": "Reaper of Barbarus: -1 T.",
+      "stats": {
+        "T": "-1"
+      },
+      "addRules": [
+        "Reaper of Barbarus"
+      ]
+    },
+    {
+      "units": [
+        "mortarion"
+      ],
+      "item": "Plaguewind Sovereign",
+      "text": "Plaguewind Sovereign: -2 M, -1 I.",
+      "stats": {
+        "M": "-2",
+        "I": "-1"
+      },
+      "addRules": [
+        "Plaguewind Sovereign"
+      ]
+    },
+    {
+      "units": [
+        "mortarion"
+      ],
+      "item": "Unmoving Mourner",
+      "text": "Unmoving Mourner: Feel No Pain (5+), -1 A, -1 WS.",
+      "stats": {
+        "A": "-1",
+        "WS": "-1"
+      },
+      "addRules": [
+        "Unmoving Mourner",
+        "Feel No Pain (5+)"
+      ]
+    },
+    {
+      "units": [
+        "mortarion"
+      ],
+      "item": "Pall-veil of Barbarus",
+      "text": "Pall-veil of Barbarus: Shrouded (5+).",
+      "addRules": [
+        "Shrouded (5+)"
+      ]
+    },
+    {
+      "units": [
+        "mortarion"
+      ],
+      "item": "Reaper's tally-chain",
+      "text": "Reaper's tally-chain: Tally of the Reaped.",
+      "stats": {
+        "A": "+1"
+      },
+      "addRules": [
+        "Tally of the Reaped"
+      ],
+      "condition": "while Locked in Combat with a Unit of 5 or more Models"
     }
   ],
   "rules": [
@@ -720,6 +845,26 @@
       "name": "Rust-Plough",
       "summary": "The blade tears through wire, rubble and flesh alike.",
       "text": "A Vehicle with this Special Rule ignores Difficult Terrain. Each enemy Unit that it Rams subtracts 1 from its Cool Characteristic until the end of that Battle Turn."
+    },
+    {
+      "name": "Reaper of Barbarus",
+      "summary": "He was raised on a world that killed the slow, and he fights as its hunters did.",
+      "text": "In a Battle Turn in which this Model made a successful Charge, each enemy Model that is Locked in Combat with it subtracts 1 from its Initiative Characteristic until the end of that Fight Sub-Phase. This Model subtracts 1 from its Toughness Characteristic."
+    },
+    {
+      "name": "Plaguewind Sovereign",
+      "summary": "The poison he carries is no longer content to wait for his enemies to come close.",
+      "text": "At the start of the Fight Sub-Phase, after the Death Cloud has been resolved, each enemy Unit that is Locked in Combat with this Model suffers one additional Hit. This Hit has a Strength of 3, the Poisoned (3+) Special Rule, an AP of 4 and a Damage Characteristic of 1, and no Cover Saves or Shrouded Damage Mitigation Tests may be made against it. This Model subtracts 2 from its Movement Characteristic and 1 from its Initiative Characteristic."
+    },
+    {
+      "name": "Unmoving Mourner",
+      "summary": "He plants his feet, and the field must come to him.",
+      "text": "This Model has the Feel No Pain (5+) Special Rule. It subtracts 1 from its Attacks Characteristic and 1 from its Weapon Skill Characteristic."
+    },
+    {
+      "name": "Tally of the Reaped",
+      "summary": "Every skull on the chain is a crowd he cut through, and he is never content with fewer.",
+      "text": "While this Model is Locked in Combat with an enemy Unit that includes five or more Models, it adds 1 to its Attacks Characteristic."
     }
   ],
   "rites": [
@@ -1010,6 +1155,28 @@
         "notUnitType": "Vehicle"
       },
       "optionalUnits": true
+    },
+    {
+      "name": "The Long Grey March",
+      "flavor": "The Legion is slow, but it cannot be turned, and it does not break while its Primarch walks at the front.",
+      "whileInArmy": [
+        "mortarion"
+      ],
+      "benefits": [
+        "While Mortarion is on the battlefield, friendly Death Guard Infantry Models within 12\" of him add 1 to their Cool Characteristic."
+      ],
+      "drawbacks": [
+        "If Mortarion is removed as a casualty, every friendly Death Guard Model subtracts 1 from its Cool Characteristic for the remainder of the Battle."
+      ],
+      "match": {
+        "unitType": "Infantry",
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "stats": {
+        "CL": "+1"
+      },
+      "condition": "within 12\" of Mortarion"
     }
   ]
 }

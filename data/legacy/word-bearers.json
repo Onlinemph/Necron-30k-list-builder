@@ -142,6 +142,16 @@
       "name": "Pact-forged knife",
       "text": "A Model equipped with a Pact-forged knife has the Sacrificial Blade Special Rule.",
       "summary": "A black knife bearing a name no mortal should speak."
+    },
+    {
+      "name": "Rite-book of Colchis",
+      "summary": "A battered book of sermons, annotated in his own hand.",
+      "text": "A Model equipped with the Rite-book of Colchis has the Sermon of Retribution Special Rule."
+    },
+    {
+      "name": "Gilded pectoral of the First Temple",
+      "summary": "A breastplate beaten from the temple's own gold, heavy with prayer.",
+      "text": "A Model equipped with the Gilded pectoral of the First Temple has the Feel No Pain (6+) Special Rule and adds 1 to its Cool Characteristic."
     }
   ],
   "options": [
@@ -462,6 +472,55 @@
         ],
         "modelType": "Sergeant"
       }
+    },
+    {
+      "units": [
+        "lorgar-aurelian"
+      ],
+      "option": {
+        "id": "lorgar-aurelian-aspect",
+        "kind": "one",
+        "model": "Lorgar Aurelian",
+        "text": "Aspect of the Primarch: Lorgar Aurelian may take one",
+        "choices": [
+          {
+            "name": "Preacher of Colchis",
+            "points": 0
+          },
+          {
+            "name": "Ascendant Aurelian",
+            "points": 0
+          },
+          {
+            "name": "Hierophant of the Lectitio",
+            "points": 0
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "lorgar-aurelian"
+      ],
+      "option": {
+        "id": "lorgar-aurelian-relics",
+        "kind": "any",
+        "model": "Lorgar Aurelian",
+        "max": {
+          "fixed": 1
+        },
+        "text": "Relics of the Primarch: Lorgar Aurelian may take one",
+        "choices": [
+          {
+            "name": "Rite-book of Colchis",
+            "points": 15
+          },
+          {
+            "name": "Gilded pectoral of the First Temple",
+            "points": 20
+          }
+        ]
+      }
     }
   ],
   "modifiers": [
@@ -632,6 +691,68 @@
       "text": "Pact-forged knife: Sacrificial Blade.",
       "addRules": [
         "Sacrificial Blade"
+      ]
+    },
+    {
+      "units": [
+        "lorgar-aurelian"
+      ],
+      "item": "Preacher of Colchis",
+      "text": "Preacher of Colchis: -1 WS.",
+      "stats": {
+        "WS": "-1"
+      },
+      "addRules": [
+        "Preacher of Colchis"
+      ]
+    },
+    {
+      "units": [
+        "lorgar-aurelian"
+      ],
+      "item": "Ascendant Aurelian",
+      "text": "Ascendant Aurelian: -1 T.",
+      "stats": {
+        "T": "-1"
+      },
+      "addRules": [
+        "Ascendant Aurelian"
+      ]
+    },
+    {
+      "units": [
+        "lorgar-aurelian"
+      ],
+      "item": "Hierophant of the Lectitio",
+      "text": "Hierophant of the Lectitio: -2 M.",
+      "stats": {
+        "M": "-2"
+      },
+      "addRules": [
+        "Hierophant of the Lectitio"
+      ]
+    },
+    {
+      "units": [
+        "lorgar-aurelian"
+      ],
+      "item": "Rite-book of Colchis",
+      "text": "Rite-book of Colchis: Sermon of Retribution.",
+      "addRules": [
+        "Sermon of Retribution"
+      ]
+    },
+    {
+      "units": [
+        "lorgar-aurelian"
+      ],
+      "item": "Gilded pectoral of the First Temple",
+      "text": "Gilded pectoral of the First Temple: Feel No Pain (6+), +1 CL.",
+      "stats": {
+        "CL": "+1"
+      },
+      "addRules": [
+        "Feel No Pain (6+)"
       ]
     }
   ],
@@ -919,6 +1040,26 @@
       "name": "Sacrificial Blade",
       "text": "When a Model with this Special Rule removes an enemy Model as a Casualty in a Challenge, every friendly Unit within 12\" adds 1 to the Cool Characteristic of its Models until the end of that Battle Turn.",
       "summary": "A life given to the thing in the knife buys courage for the line."
+    },
+    {
+      "name": "Preacher of Colchis",
+      "summary": "He was gentle once, and his voice alone steadied a legion.",
+      "text": "Models in friendly Word Bearers Units within 6\" of this Model add 1 to their Cool Characteristic when making Cool Checks. This Model subtracts 1 from its Weapon Skill Characteristic."
+    },
+    {
+      "name": "Ascendant Aurelian",
+      "summary": "The god-bound thing he is becoming does not trouble to hide behind a face.",
+      "text": "At the start of the Fight Sub-Phase, each enemy Unit that is Locked in Combat with this Model must make a Cool Check, and a Unit that fails subtracts 1 from the Initiative Characteristic of its Models until the end of that Phase. This Model subtracts 1 from its Toughness Characteristic."
+    },
+    {
+      "name": "Hierophant of the Lectitio",
+      "summary": "The words are written, and the enemy who hears them is already doubting.",
+      "text": "Enemy Models within 12\" of this Model subtract 1 from their Cool Characteristic when making Cool Checks. This Model subtracts 2 from its Movement Characteristic."
+    },
+    {
+      "name": "Sermon of Retribution",
+      "summary": "A verse read aloud, and the Legion hears a grudge.",
+      "text": "Once per Battle, at the start of any Battle Turn, the Controlling Player may choose one friendly Word Bearers Unit within 12\" of this Model. Until the end of that Battle Turn, the Unit has the Hatred (Loyalist) Special Rule."
     }
   ],
   "armyRules": [
@@ -985,6 +1126,24 @@
       "stats": {
         "I": "+1"
       }
+    },
+    {
+      "name": "The Word Made Flesh",
+      "flavor": "Where the Word is spoken by its own author, no Legionary dares to doubt it.",
+      "whileInArmy": [
+        "lorgar-aurelian"
+      ],
+      "benefits": [
+        "While Lorgar Aurelian is on the battlefield, each friendly Word Bearers Unit within 12\" of him scores 1 additional Combat Resolution point in the Resolution Sub-Phase of any Combat it is part of."
+      ],
+      "drawbacks": [
+        "If Lorgar Aurelian is removed as a casualty, friendly Word Bearers Units no longer score Combat Resolution points from Unwavering Conviction or from this rule for the remainder of the Battle."
+      ],
+      "match": {
+        "unitType": "Infantry",
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true
     }
   ]
 }

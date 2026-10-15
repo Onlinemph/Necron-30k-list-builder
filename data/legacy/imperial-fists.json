@@ -53,6 +53,24 @@
         "LD": "+1",
         "M": "-1"
       }
+    },
+    {
+      "name": "The Wall Stands",
+      "flavor": "As long as the Praetorian is on the ramparts, his Legion cannot be shifted.",
+      "whileInArmy": [
+        "rogal-dorn"
+      ],
+      "benefits": [
+        "While Rogal Dorn is on the battlefield, friendly Imperial Fists Infantry Units that did not move during their Controlling Player's last Movement phase have a 5+ Cover Save against Shooting Attacks, for the entire battle."
+      ],
+      "drawbacks": [
+        "If Rogal Dorn is removed as a casualty, every friendly Imperial Fists Unit subtracts 1 from its Cool Checks for the rest of the battle."
+      ],
+      "match": {
+        "unitType": "Infantry",
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true
     }
   ],
   "weapons": {
@@ -148,6 +166,21 @@
         "traits": [
           "Assault"
         ]
+      },
+      {
+        "name": "Fortress-breaker pistol",
+        "R": 12,
+        "FP": 2,
+        "RS": 6,
+        "AP": 3,
+        "D": 2,
+        "specialRules": [
+          "Pistol",
+          "Breaching (5+)"
+        ],
+        "traits": [
+          "Bolt"
+        ]
       }
     ]
   },
@@ -201,6 +234,11 @@
       "name": "Bastion plating",
       "summary": "Extra slabs of vault-grade armour welded across the glacis.",
       "text": "A Vehicle equipped with Bastion plating adds 1 to its Front Armour Value."
+    },
+    {
+      "name": "Anchor-stone of the Phalanx",
+      "summary": "A block of Palace masonry that holds a line to the ground.",
+      "text": "A Model equipped with the Anchor-stone of the Phalanx has the Immovable Line Special Rule."
     }
   ],
   "options": [
@@ -512,6 +550,55 @@
           }
         ]
       }
+    },
+    {
+      "units": [
+        "rogal-dorn"
+      ],
+      "option": {
+        "id": "rogal-dorn-aspect",
+        "kind": "one",
+        "model": "Rogal Dorn",
+        "text": "Aspect of the Primarch: Rogal Dorn may take one",
+        "choices": [
+          {
+            "name": "The Unyielding Praetorian",
+            "points": 0
+          },
+          {
+            "name": "Architect of Sieges",
+            "points": 0
+          },
+          {
+            "name": "The Wrathful Master",
+            "points": 0
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "rogal-dorn"
+      ],
+      "option": {
+        "id": "rogal-dorn-relics",
+        "kind": "any",
+        "model": "Rogal Dorn",
+        "max": {
+          "fixed": 1
+        },
+        "text": "Relics of the Primarch: Rogal Dorn may take one",
+        "choices": [
+          {
+            "name": "Anchor-stone of the Phalanx",
+            "points": 20
+          },
+          {
+            "name": "Fortress-breaker pistol",
+            "points": 20
+          }
+        ]
+      }
     }
   ],
   "modifiers": [
@@ -690,6 +777,68 @@
       "addRules": [
         "Layered Plating"
       ]
+    },
+    {
+      "units": [
+        "rogal-dorn"
+      ],
+      "item": "The Unyielding Praetorian",
+      "text": "The Unyielding Praetorian: +1 T, -2 M.",
+      "addRules": [
+        "The Unyielding Praetorian"
+      ],
+      "stats": {
+        "T": "+1",
+        "M": "-2"
+      }
+    },
+    {
+      "units": [
+        "rogal-dorn"
+      ],
+      "item": "Architect of Sieges",
+      "text": "Architect of Sieges: +1 BS, -1 A.",
+      "addRules": [
+        "Architect of Sieges"
+      ],
+      "stats": {
+        "BS": "+1",
+        "A": "-1"
+      }
+    },
+    {
+      "units": [
+        "rogal-dorn"
+      ],
+      "item": "The Wrathful Master",
+      "text": "The Wrathful Master: +1 A, -2 CL.",
+      "addRules": [
+        "The Wrathful Master"
+      ],
+      "stats": {
+        "A": "+1",
+        "CL": "-2"
+      }
+    },
+    {
+      "units": [
+        "rogal-dorn"
+      ],
+      "item": "Anchor-stone of the Phalanx",
+      "text": "Anchor-stone of the Phalanx.",
+      "addRules": [
+        "Immovable Line"
+      ]
+    },
+    {
+      "units": [
+        "rogal-dorn"
+      ],
+      "item": "Fortress-breaker pistol",
+      "text": "Fortress-breaker pistol.",
+      "addRules": [
+        "Breaker's Reckoning"
+      ]
     }
   ],
   "rules": [
@@ -747,6 +896,31 @@
       "name": "Layered Plating",
       "summary": "Plate laid on plate, and the hull remembers every hit.",
       "text": "A Vehicle with this Special Rule adds 1 to its Front Armour Value."
+    },
+    {
+      "name": "The Unyielding Praetorian",
+      "summary": "He is the wall at the end of the world, and he plants himself like one.",
+      "text": "This Model adds 1 to its Toughness Characteristic and subtracts 2 from its Movement Characteristic, and it cannot Rush. Once per battle, at the start of an enemy Shooting phase, the Controlling Player may declare Stand Fast; until the end of that phase, the Strength Characteristic of every Hit that is allocated to this Model by a Shooting Attack is reduced by 2, to a minimum of 1."
+    },
+    {
+      "name": "Architect of Sieges",
+      "summary": "Before the first shot is fired he has already measured how it will land.",
+      "text": "This Model adds 1 to its Ballistic Skill Characteristic and subtracts 1 from its Attacks Characteristic, and it cannot declare a Charge. Enemy Models cannot make Cover Saves against Wounds caused by this Model's Shooting Attacks."
+    },
+    {
+      "name": "The Wrathful Master",
+      "summary": "The fury beneath his silence is rare, and nobody wants to be near it.",
+      "text": "This Model adds 1 to its Attacks Characteristic and adds 2 to its Focus Rolls in Challenges, and subtracts 2 from its Cool Characteristic. Friendly Imperial Fists Units within 6\" of this Model that fail a Cool Check gain the Suppressed Tactical Status."
+    },
+    {
+      "name": "Immovable Line",
+      "summary": "Where the stone is set, the line is set.",
+      "text": "If a Model with this Special Rule did not move during its Controlling Player's last Movement phase, friendly Imperial Fists Infantry Units within 6\" of it have a 5+ Cover Save against Shooting Attacks."
+    },
+    {
+      "name": "Breaker's Reckoning",
+      "summary": "He knows where a wall is weakest.",
+      "text": "A Model with this Special Rule adds 1 to the result of its Hit Tests made with ranged weapons against an enemy Unit that has a Cover Save."
     }
   ],
   "rites": [

@@ -51,6 +51,23 @@
         "I": "+1"
       },
       "condition": "on the turn it charges"
+    },
+    {
+      "name": "The Khagan's Hunt",
+      "flavor": "When the Khan rides out, the Legion rides with him, and the hunt does not wait for the slow.",
+      "whileInArmy": [
+        "jaghatai-khan"
+      ],
+      "benefits": [
+        "While Jaghatai Khan is on the battlefield, friendly White Scars Units within 12\" of him add 1 to their Charge Rolls and to the distance they Rush."
+      ],
+      "drawbacks": [
+        "If Jaghatai Khan is removed as a casualty, every friendly White Scars Unit subtracts 1 from its Charge Rolls for the rest of the battle."
+      ],
+      "match": {
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true
     }
   ],
   "weapons": {
@@ -132,6 +149,20 @@
         "traits": [
           "Assault"
         ]
+      },
+      {
+        "name": "Khagan's recurve bow",
+        "R": 24,
+        "FP": 2,
+        "RS": 5,
+        "AP": 4,
+        "D": 1,
+        "specialRules": [
+          "Rending (5+)"
+        ],
+        "traits": [
+          "Bolt"
+        ]
       }
     ]
   },
@@ -175,6 +206,11 @@
       "name": "Hunting horn",
       "summary": "A curved horn whose note calls the next wave of riders in from the flank.",
       "text": "A Model equipped with a Hunting horn has the Hunter's Call Special Rule."
+    },
+    {
+      "name": "Moonshadow bridle",
+      "summary": "A silvered bridle from the Khan's favoured steed.",
+      "text": "A Model equipped with the Moonshadow bridle has the Rider's Bond Special Rule."
     }
   ],
   "options": [
@@ -516,6 +552,55 @@
           }
         ]
       }
+    },
+    {
+      "units": [
+        "jaghatai-khan"
+      ],
+      "option": {
+        "id": "jaghatai-khan-aspect",
+        "kind": "one",
+        "model": "Jaghatai Khan",
+        "text": "Aspect of the Primarch: the Khan may take one",
+        "choices": [
+          {
+            "name": "Warrior-Poet of Chogoris",
+            "points": 0
+          },
+          {
+            "name": "Rider of the Endless Steppe",
+            "points": 0
+          },
+          {
+            "name": "Ghost of the Steppe",
+            "points": 0
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "jaghatai-khan"
+      ],
+      "option": {
+        "id": "jaghatai-khan-relics",
+        "kind": "any",
+        "model": "Jaghatai Khan",
+        "max": {
+          "fixed": 1
+        },
+        "text": "Relics of the Primarch: the Khan may take one",
+        "choices": [
+          {
+            "name": "Moonshadow bridle",
+            "points": 20
+          },
+          {
+            "name": "Khagan's recurve bow",
+            "points": 15
+          }
+        ]
+      }
     }
   ],
   "modifiers": [
@@ -674,6 +759,69 @@
       "addRules": [
         "Hunter's Call"
       ]
+    },
+    {
+      "units": [
+        "jaghatai-khan"
+      ],
+      "item": "Warrior-Poet of Chogoris",
+      "text": "Warrior-Poet of Chogoris: +1 IN, +1 WP, -1 A.",
+      "addRules": [
+        "Warrior-Poet of Chogoris"
+      ],
+      "stats": {
+        "IN": "+1",
+        "WP": "+1",
+        "A": "-1"
+      }
+    },
+    {
+      "units": [
+        "jaghatai-khan"
+      ],
+      "item": "Rider of the Endless Steppe",
+      "text": "Rider of the Endless Steppe: +2 M, +1 I, -1 WS.",
+      "addRules": [
+        "Rider of the Endless Steppe"
+      ],
+      "stats": {
+        "M": "+2",
+        "I": "+1",
+        "WS": "-1"
+      }
+    },
+    {
+      "units": [
+        "jaghatai-khan"
+      ],
+      "item": "Ghost of the Steppe",
+      "text": "Ghost of the Steppe: -1 W.",
+      "addRules": [
+        "Ghost of the Steppe"
+      ],
+      "stats": {
+        "W": "-1"
+      }
+    },
+    {
+      "units": [
+        "jaghatai-khan"
+      ],
+      "item": "Moonshadow bridle",
+      "text": "Moonshadow bridle.",
+      "addRules": [
+        "Rider's Bond"
+      ]
+    },
+    {
+      "units": [
+        "jaghatai-khan"
+      ],
+      "item": "Khagan's recurve bow",
+      "text": "Khagan's recurve bow.",
+      "addRules": [
+        "Steppe Marksman"
+      ]
     }
   ],
   "rules": [
@@ -726,6 +874,31 @@
       "name": "Hunter's Call",
       "summary": "One note from the horn, and the second wave is already falling.",
       "text": "When a friendly Unit arrives from Reserves within 12\" of a Model with this Special Rule, it adds 1 to the result of its Charge Roll in that Battle Turn."
+    },
+    {
+      "name": "Warrior-Poet of Chogoris",
+      "summary": "He is the calm, courteous host who weighs a man before he kills him.",
+      "text": "This Model adds 1 to its Intelligence Characteristic and 1 to its Willpower Characteristic, and subtracts 1 from its Attacks Characteristic. Once per battle, at the start of a Challenge this Model is engaged in, the Controlling Player may declare Measured Words; the opposing Controlling Player subtracts 2 from every Focus Roll made in that Challenge."
+    },
+    {
+      "name": "Rider of the Endless Steppe",
+      "summary": "He is born on horseback, and the horizon is an invitation.",
+      "text": "This Model adds 2 to its Movement Characteristic and 1 to its Initiative Characteristic, and subtracts 1 from its Weapon Skill Characteristic. Its Controlling Player subtracts 1 from this Model's Focus Rolls in Challenges. After both sides have deployed and before the first Battle Turn begins, this Model's Unit may make a free Move of up to 8\"."
+    },
+    {
+      "name": "Ghost of the Steppe",
+      "summary": "He is gone before the dust settles, and the foe is left holding the air.",
+      "text": "At the end of the Assault phase, if this Model's Unit won a Combat, that Unit may make a free Disengage move of up to 6\". This Model subtracts 1 from its Wounds Characteristic."
+    },
+    {
+      "name": "Rider's Bond",
+      "summary": "Horse and rider answer before the thought.",
+      "text": "A Model with this Special Rule adds 2 to its Charge Rolls."
+    },
+    {
+      "name": "Steppe Marksman",
+      "summary": "A hunter's eye, trained since before he could walk.",
+      "text": "A Model with this Special Rule adds 1 to the result of its Hit Tests made with ranged weapons against a target more than 12\" away."
     }
   ],
   "rites": [
