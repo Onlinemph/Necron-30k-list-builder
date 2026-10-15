@@ -245,7 +245,8 @@
     {
       "units": [
         "shield-captain",
-        "tribune"
+        "tribune",
+        "dawneagle-shield-captain"
       ],
       "option": {
         "id": "lc-warden-sidearm",
@@ -366,7 +367,8 @@
     {
       "units": [
         "shield-captain",
-        "tribune"
+        "tribune",
+        "dawneagle-shield-captain"
       ],
       "option": {
         "id": "lc-relics",
@@ -865,7 +867,7 @@
       "name": "The Emperor's Will",
       "flavor": "Valdor does not command the Ten Thousand. He only says aloud what they already know.",
       "benefits": [
-        "Every Legio Custodes Unit that is not a Vehicle adds 1 to its Willpower Characteristic.",
+        "Once per Battle Turn, a Legio Custodes Unit within 12\" of Constantin Valdor may make a Reaction without spending one of its Controlling Player's Reactions for that Battle Turn.",
         "They gain Valdor's Word: +1 Leadership and Cool for Panic Checks and Pinning while within 12\" of Constantin Valdor."
       ],
       "limitations": [
@@ -878,10 +880,7 @@
             "trait": "Legio Custodes",
             "notUnitType": "Vehicle"
           },
-          "text": "The Emperor's Will: +1 WP, Valdor's Word.",
-          "stats": {
-            "WP": "+1"
-          },
+          "text": "The Emperor's Will: , Valdor's Word.",
           "addRules": [
             "Valdor's Word"
           ]
@@ -1070,6 +1069,89 @@
         "trait": "Legio Custodes",
         "notUnitType": "Vehicle"
       }
+    }
+  ],
+  "units": [
+    {
+      "copy": {
+        "army": "questoris-familia",
+        "unit": "acastus-knight-asterius"
+      },
+      "limit": "0-1",
+      "traits": [
+        "Legio Custodes"
+      ],
+      "id": "acastus-knight-asterius"
+    },
+    {
+      "id": "dawneagle-shield-captain",
+      "name": "Shield-Captain on Dawneagle Jetbike",
+      "role": "Command",
+      "basePoints": 240,
+      "composition": "1 Dawneagle Shield-Captain",
+      "traits": [
+        "Legio Custodes",
+        "The Sodality"
+      ],
+      "specialRules": [
+        "Bulky (5)",
+        "Eternal Warrior (1)",
+        "Vanguard (3)",
+        "Outflank",
+        "Deep Strike",
+        "Implacable Advance"
+      ],
+      "models": [
+        {
+          "name": "Dawneagle Shield-Captain",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 16,
+            "WS": 6,
+            "BS": 5,
+            "S": 5,
+            "T": 5,
+            "W": 4,
+            "I": 5,
+            "A": 4,
+            "LD": 10,
+            "CL": 10,
+            "WP": 9,
+            "IN": 9,
+            "SAV": "2+",
+            "INV": "5+"
+          },
+          "wargear": [
+            "Lastrum bolt cannon",
+            "Solarite power lance",
+            "Misericordia"
+          ],
+          "unitType": "Cavalry (Command, Antigrav)"
+        }
+      ],
+      "options": [
+        {
+          "id": "dawneagle-gun",
+          "kind": "one",
+          "model": "Dawneagle Shield-Captain",
+          "replaces": [
+            "Lastrum bolt cannon"
+          ],
+          "text": "The Shield-Captain may exchange the Lastrum bolt cannon for",
+          "choices": [
+            {
+              "name": "Twin Corvae las-pulser",
+              "points": 10
+            },
+            {
+              "name": "Adrathic devastator",
+              "points": 10
+            }
+          ]
+        }
+      ]
     }
   ]
 }

@@ -98,6 +98,43 @@ export function applyLegacy(root, out, army) {
     const own = [...(data.wargear || []), ...(data.rules || []), ...(data.armyRules || []), ...((data.weapons || {}).ranged || []), ...((data.weapons || {}).melee || []), ...(data.rites || []).flatMap((r) => r.rules || [])];
     for (const x of own) if (x.name && official.has(x.name.toLowerCase())) problems.push(`${file.replace(/^.*\/data\//, 'data/')}: "${x.name}" is already an official name; pick another`);
   }
+  // units the army had in earlier editions: written out in full, or copied from another army's data
+  // ("copy": { "army": "questoris-familia", "unit": "acastus-knight-asterius" }) and adjusted. They only
+  // appear with Legacy rules on, and options, modifiers and Rites below can target them like any unit.
+  for (const { file, data } of files) {
+    const tag = file.replace(/^.*\/data\//, 'data/');
+    for (const [i, e] of (data.units || []).entries()) {
+      const where = `${tag} units[${i}] ${e.name || e.id}`;
+      let u = e;
+      if (e.copy) {
+        const src = join(root, 'data', 'bsdata', e.copy.army, 'parts', 'units.json');
+        const from = existsSync(src) && JSON.parse(readFileSync(src, 'utf8')).units.find((x) => x.id === e.copy.unit);
+        if (!from) { problems.push(`${where}: nothing to copy at ${e.copy.army}/${e.copy.unit}`); continue; }
+        const { copy, renameModels, ...rest } = e;
+        u = Object.assign(JSON.parse(JSON.stringify(from)), rest);
+        // "renameModels": { "Rhino": "Null-Maiden Rhino" }, carried through the copied options too
+        for (const [a, b] of Object.entries(renameModels || {})) {
+          for (const m of u.models) if (m.name === a) m.name = b;
+          for (const o of u.options || []) if (o.model === a) o.model = b;
+        }
+      } else u = JSON.parse(JSON.stringify(e));
+      if (!u.id || out.units.some((x) => x.id === u.id)) { problems.push(`${where}: needs an id the army doesn't already use`); continue; }
+      if (!ROLES.has(u.role)) problems.push(`${where}: unknown role ${u.role}`);
+      if (typeof u.basePoints !== 'number') problems.push(`${where}: basePoints must be a number`);
+      if (!Array.isArray(u.models) || !u.models.length) { problems.push(`${where}: needs models`); continue; }
+      for (const m of u.models) {
+        if (!m.name || !m.profile || !m.unitType || typeof m.min !== 'number') problems.push(`${where}: model ${m.name || '?'} needs name, min, max, profile and unitType`);
+        checkStats(Object.fromEntries(Object.keys(m.profile || {}).map((k) => [k, '+0'])), problems, `${where} ${m.name}`);
+        m.wargear = m.wargear || []; m.specialRules = m.specialRules || []; m.costPerExtra = m.costPerExtra || 0;
+      }
+      Object.assign(u, { options: u.options || [], traits: u.traits || [], specialRules: u.specialRules || [], unitRules: u.unitRules || [],
+        page: null, book: 'Legacy house rule', unique: !!u.unique, limit: u.limit || null, legacy: true });
+      // only with Legacy rules, and still under any condition the copied unit had
+      u.when = [(u.when || []).length ? { all: [toggle, { any: u.when }] } : toggle];
+      for (const o of u.options) { o.replaces = o.replaces || []; o.model = o.model === undefined ? null : o.model; }
+      out.units.push(u);
+    }
+  }
   const rites = [];
   const armyRules = [];
   let n = 0;

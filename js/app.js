@@ -437,7 +437,7 @@
       const taken = u.unique && E.allSelections(army).some((x) => x.sel.unitId === u.id);
       const viaRite = (u.roleWhen || []).find((x) => x.role === slot.role && E.condOk(x.when));
       const alt = !slot.flexible && !slot.advisor && u.role !== slot.role ? ` <small class="muted">(${esc(u.role)}, via ${viaRite ? esc(viaRite.when.config) : 'Sequela'})</small>` : '';
-      const b = h(`<button type="button" data-name="${esc(u.name.toLowerCase())}" ${taken ? 'disabled' : ''}><span>${esc(u.name)}${alt}${u.unique ? ' <small class="muted">(character)</small>' : ''}${u.limit ? ` <small class="muted">${esc(u.limit)}</small>` : ''}</span><span class="muted">${startPts(u)}${u.page ? ` · ${esc(pageLabel(u))}` : ''}</span></button>`);
+      const b = h(`<button type="button" data-name="${esc(u.name.toLowerCase())}" ${taken ? 'disabled' : ''}><span>${esc(u.name)}${alt}${u.unique ? ' <small class="muted">(character)</small>' : ''}${u.limit ? ` <small class="muted">${esc(u.limit)}</small>` : ''}${u.legacy ? ' <span class="tag house">legacy</span>' : ''}</span><span class="muted">${startPts(u)}${u.page ? ` · ${esc(pageLabel(u))}` : ''}</span></button>`);
       b.addEventListener('click', () => {
         slot.unit = E.newSelection(u.id);
         // a detachment that only takes one Partisan / Clan presets the unit's choice

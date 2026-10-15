@@ -53,6 +53,19 @@ Weapon and wargear names must match option choices exactly so the app can show t
 Special rules named on weapons, units or modifiers should exist in the core rules (`Rending (X)`,
 `Feel No Pain (X)`, `Fear (X)`...) or be defined under `rules`.
 
+## Units
+
+`units` adds units the army had in earlier editions. Write one out in full, in the same shape as
+`data/bsdata/<army>/parts/units.json`, or copy one from another army's data and adjust it:
+
+```jsonc
+{ "copy": { "army": "world-eaters", "unit": "rhino" }, "id": "null-maiden-rhino", "name": "Null-Maiden Rhino",
+  "basePoints": 70, "renameModels": { "Rhino": "Null-Maiden Rhino" }, "specialRules": ["...", "Null-Maiden Hull"] }
+```
+
+They only appear with Legacy rules on (marked "legacy" in the unit picker), and options, modifiers and Rites
+in the same file can target them by id.
+
 ## Targeting units
 
 Every option, modifier, points change, role and limit names the units it touches with either or both of:

@@ -92,6 +92,20 @@
         "traits": [
           "Chain"
         ]
+      },
+      {
+        "name": "Executioner greatblade",
+        "IM": -1,
+        "AM": "A",
+        "SM": "+2",
+        "AP": 2,
+        "D": 2,
+        "specialRules": [
+          "Reaping Blow (1)"
+        ],
+        "traits": [
+          "Power"
+        ]
       }
     ]
   },
@@ -158,11 +172,11 @@
         "choices": [
           {
             "name": "Archeotech pistol",
-            "points": 5
+            "points": 15
           },
           {
             "name": "Power sword",
-            "points": 5
+            "points": 10
           },
           {
             "name": "Sisterhood silence blade",
@@ -393,7 +407,7 @@
       "models": [
         "Null Mistress"
       ],
-      "text": "Hunt-leader's grim drive: +1 A, -1 I.",
+      "text": "Hunt-leader's grim drive: the Null Mistress +1 A, -1 I.",
       "stats": {
         "A": "+1",
         "I": "-1"
@@ -554,6 +568,26 @@
       "name": "Truth Beam",
       "summary": "A hard white light strips cover and shadow from whatever it falls on.",
       "text": "Enemy Units within 24\" of a Model with this Special Rule cannot use the Shrouded (X) or Infiltrate (X) Special Rules against that Model's Shooting Attacks."
+    },
+    {
+      "name": "Prosecution Volley",
+      "summary": "The hunt's first strike is a wall of bolts.",
+      "text": "When a Unit with this Special Rule makes a Shooting Attack against a Unit that includes a Psyker or Malefic Model, its Weapons with the Bolt Trait gain the Breaching (6+) Special Rule for that attack."
+    },
+    {
+      "name": "Silent Executioners",
+      "summary": "The greatblade falls before the witch can speak.",
+      "text": "In a Combat that includes an enemy Psyker or Malefic Model, Models with this Special Rule add 1 to their Initiative Characteristic and their Melee Weapons gain the Critical Hit (6+) Special Rule."
+    },
+    {
+      "name": "Witch-pyre",
+      "summary": "What the blade does not finish, the fire will.",
+      "text": "Wounds inflicted on a Psyker or Malefic Model by Weapons with the Flame Trait used by a Unit with this Special Rule have the Breaching (5+) Special Rule."
+    },
+    {
+      "name": "Null-Maiden Hull",
+      "summary": "A transport wrought to carry the soulless, and nothing else.",
+      "text": "Enemy Psychic Powers cannot target this Model, or any Unit Embarked on it. Only Units with the Anathema Psykana Trait may Embark on this Model."
     }
   ],
   "armyRules": [
@@ -612,10 +646,10 @@
       "flavor": "They do not shout. They do not speak. The witch notices only that her prayers have stopped working.",
       "benefits": [
         "Kharon Pattern Acquisitors may fill Troops slots.",
-        "Anathema Cadres gain Infiltrate (9) and Silent Hunt: while an enemy Psyker is within 12\" of a Cadre, it subtracts 1 from its Willpower Characteristic."
+        "Anathema, Prosecutor, Vigilator and Witchseeker Cadres gain Infiltrate (9) and Silent Hunt: while an enemy Psyker is within 12\" of a Cadre, it subtracts 1 from its Willpower Characteristic."
       ],
       "limitations": [
-        "At least two Anathema Cadres are required.",
+        "At least two Anathema, Prosecutor, Vigilator or Witchseeker Cadres are required.",
         "No Vagus automata."
       ],
       "roles": [
@@ -629,7 +663,10 @@
       "modifiers": [
         {
           "units": [
-            "anathema-cadre"
+            "anathema-cadre",
+            "prosecutor-cadre",
+            "vigilator-cadre",
+            "witchseeker-cadre"
           ],
           "text": "Vow of the Silent Hunt: Infiltrate (9), Silent Hunt.",
           "addRules": [
@@ -641,7 +678,10 @@
       "require": [
         {
           "units": [
-            "anathema-cadre"
+            "anathema-cadre",
+            "prosecutor-cadre",
+            "vigilator-cadre",
+            "witchseeker-cadre"
           ],
           "min": 2,
           "note": "At least two Cadres take the vow."
@@ -664,7 +704,7 @@
       ],
       "limitations": [
         "At least two Knight-Centuras are required.",
-        "No Anathema Cadres.",
+        "No Anathema, Prosecutor, Vigilator or Witchseeker Cadres.",
         "A Knight-Centura that can charge an enemy Psyker or Malefic Unit must do so."
       ],
       "roles": [
@@ -708,7 +748,10 @@
       "forbid": [
         {
           "units": [
-            "anathema-cadre"
+            "anathema-cadre",
+            "prosecutor-cadre",
+            "vigilator-cadre",
+            "witchseeker-cadre"
           ]
         }
       ]
@@ -719,11 +762,11 @@
       "benefits": [
         "Castellax Battle and Destructor Maniples may fill Troops slots and gain Line (1).",
         "They gain Incorruptible Engines: enemy Psychic Powers cannot target them.",
-        "Anathema Cadres gain Dampening Pall: they cannot gain the Pinned, Stunned or Suppressed Tactical Status as the result of an enemy Psychic Power or Malefic ability."
+        "Anathema, Prosecutor, Vigilator and Witchseeker Cadres gain Dampening Pall: they cannot gain the Pinned, Stunned or Suppressed Tactical Status as the result of an enemy Psychic Power or Malefic ability."
       ],
       "limitations": [
         "At least two Castellax Maniples are required.",
-        "No more than one Anathema Cadre.",
+        "No more than one Cadre of any kind.",
         "No Kharon Pattern Acquisitors."
       ],
       "roles": [
@@ -749,7 +792,10 @@
         },
         {
           "units": [
-            "anathema-cadre"
+            "anathema-cadre",
+            "prosecutor-cadre",
+            "vigilator-cadre",
+            "witchseeker-cadre"
           ],
           "text": "The Black Ships' Writ: Dampening Pall.",
           "addRules": [
@@ -770,7 +816,10 @@
       "limit": [
         {
           "units": [
-            "anathema-cadre"
+            "anathema-cadre",
+            "prosecutor-cadre",
+            "vigilator-cadre",
+            "witchseeker-cadre"
           ],
           "max": 1
         }
@@ -782,6 +831,280 @@
           ]
         }
       ]
+    }
+  ],
+  "units": [
+    {
+      "id": "prosecutor-cadre",
+      "name": "Prosecutor Cadre",
+      "role": "Troops",
+      "basePoints": 70,
+      "composition": "4 Prosecutors, 1 Prosecutor Mistress",
+      "traits": [
+        "Anathema Psykana",
+        "Talons of the Emperor"
+      ],
+      "specialRules": [
+        "Fear (1)",
+        "Hatred (Psyker, Malefic)",
+        "Line (1)",
+        "Prosecution Volley"
+      ],
+      "models": [
+        {
+          "name": "Prosecutor",
+          "min": 4,
+          "max": 9,
+          "costPerExtra": 11,
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 4,
+            "S": 3,
+            "T": 3,
+            "W": 1,
+            "I": 4,
+            "A": 2,
+            "LD": 7,
+            "CL": 7,
+            "WP": 10,
+            "IN": 7,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Bolter",
+            "Psyk-out bombs"
+          ],
+          "unitType": "Infantry (Light)"
+        },
+        {
+          "name": "Prosecutor Mistress",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 4,
+            "S": 3,
+            "T": 3,
+            "W": 1,
+            "I": 4,
+            "A": 2,
+            "LD": 8,
+            "CL": 7,
+            "WP": 10,
+            "IN": 7,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Bolter",
+            "Psyk-out bombs"
+          ],
+          "unitType": "Infantry (Sergeant, Light)"
+        }
+      ],
+      "options": [
+        {
+          "id": "prosecutor-mistress-weapon",
+          "kind": "one",
+          "model": "Prosecutor Mistress",
+          "replaces": [
+            "Bolter"
+          ],
+          "text": "The Prosecutor Mistress may exchange her bolter for",
+          "choices": [
+            {
+              "name": "Execution blade",
+              "points": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vigilator-cadre",
+      "name": "Vigilator Cadre",
+      "role": "Elites",
+      "basePoints": 90,
+      "composition": "4 Vigilators, 1 Vigilator Mistress",
+      "traits": [
+        "Anathema Psykana",
+        "Talons of the Emperor"
+      ],
+      "specialRules": [
+        "Fear (1)",
+        "Hatred (Psyker, Malefic)",
+        "Silent Executioners"
+      ],
+      "models": [
+        {
+          "name": "Vigilator",
+          "min": 4,
+          "max": 9,
+          "costPerExtra": 15,
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 4,
+            "S": 3,
+            "T": 3,
+            "W": 1,
+            "I": 4,
+            "A": 2,
+            "LD": 7,
+            "CL": 7,
+            "WP": 10,
+            "IN": 7,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Executioner greatblade"
+          ],
+          "unitType": "Infantry (Light)"
+        },
+        {
+          "name": "Vigilator Mistress",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 4,
+            "S": 3,
+            "T": 3,
+            "W": 1,
+            "I": 4,
+            "A": 3,
+            "LD": 8,
+            "CL": 7,
+            "WP": 10,
+            "IN": 7,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Executioner greatblade"
+          ],
+          "unitType": "Infantry (Sergeant, Light)"
+        }
+      ]
+    },
+    {
+      "id": "witchseeker-cadre",
+      "name": "Witchseeker Cadre",
+      "role": "Support",
+      "basePoints": 85,
+      "composition": "4 Witchseekers, 1 Witchseeker Mistress",
+      "traits": [
+        "Anathema Psykana",
+        "Talons of the Emperor"
+      ],
+      "specialRules": [
+        "Fear (1)",
+        "Hatred (Psyker, Malefic)",
+        "Move Through Cover",
+        "Witch-pyre"
+      ],
+      "models": [
+        {
+          "name": "Witchseeker",
+          "min": 4,
+          "max": 9,
+          "costPerExtra": 13,
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 4,
+            "S": 3,
+            "T": 3,
+            "W": 1,
+            "I": 4,
+            "A": 2,
+            "LD": 7,
+            "CL": 7,
+            "WP": 10,
+            "IN": 7,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Flamer"
+          ],
+          "unitType": "Infantry (Light)"
+        },
+        {
+          "name": "Witchseeker Mistress",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 4,
+            "S": 3,
+            "T": 3,
+            "W": 1,
+            "I": 4,
+            "A": 2,
+            "LD": 8,
+            "CL": 7,
+            "WP": 10,
+            "IN": 7,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Flamer"
+          ],
+          "unitType": "Infantry (Sergeant, Light)"
+        }
+      ],
+      "options": [
+        {
+          "id": "witchseeker-mistress-weapon",
+          "kind": "one",
+          "model": "Witchseeker Mistress",
+          "replaces": [
+            "Flamer"
+          ],
+          "text": "The Witchseeker Mistress may exchange her flamer for",
+          "choices": [
+            {
+              "name": "Heavy flamer",
+              "points": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "copy": {
+        "army": "world-eaters",
+        "unit": "rhino"
+      },
+      "id": "null-maiden-rhino",
+      "name": "Null-Maiden Rhino",
+      "basePoints": 70,
+      "composition": "1 Null-Maiden Rhino",
+      "traits": [
+        "Anathema Psykana",
+        "Talons of the Emperor",
+        "Smokescreen"
+      ],
+      "specialRules": [
+        "Auto-Repair (4+)",
+        "Light Transport",
+        "Smokescreen",
+        "Null-Maiden Hull"
+      ],
+      "renameModels": {
+        "Rhino": "Null-Maiden Rhino"
+      }
     }
   ]
 }

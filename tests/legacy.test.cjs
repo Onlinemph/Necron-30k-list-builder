@@ -187,3 +187,27 @@ test('Primarchs: an Aspect, relics, and a presence rule that only shows while he
   assert.ok(m.rules.includes('The Red Angel Unchained'));
   assert.equal(E.unitPoints(angron), 450);
 });
+
+test('Legacy units: earlier-edition units only with Legacy rules on', () => {
+  const { E, army } = armyOf('anathema-psykana');
+  const troops = slotOf(army, 'Troops');
+  E.setArmy(army);
+  assert.ok(!E.unitsForSlot(troops, army.detachments[0]).some((u) => u.id === 'prosecutor-cadre'));
+  legacyOn(army);
+  E.setArmy(army);
+  assert.ok(E.unitsForSlot(troops, army.detachments[0]).some((u) => u.id === 'prosecutor-cadre'));
+  const pc = place(E, troops, 'prosecutor-cadre');
+  assert.equal(E.unitPoints(pc), 70);
+  const rows = E.effectiveModels(pc);
+  assert.ok(rows[0].rules.includes('Prosecution Volley'));
+  assert.ok(rows[0].items.includes('Psyk-out bombs'));
+  army.config['legacy-rules'] = [];
+  assert.ok(E.armyIssues(army).some((i) => /Prosecutor Cadre needs Legacy rules/.test(i.msg)));
+  // a unit copied from another army's data
+  const c = armyOf('legio-custodes');
+  legacyOn(c.army);
+  c.E.setArmy(c.army);
+  const ast = c.E.newSelection('acastus-knight-asterius');
+  assert.equal(c.E.unitPoints(ast), 750);
+  assert.ok(c.E.unit('acastus-knight-asterius').legacy);
+});

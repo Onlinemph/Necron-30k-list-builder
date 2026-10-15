@@ -34,8 +34,14 @@ for (const w of [...common.weapons.ranged, ...common.weapons.melee, ...out.weapo
 for (const w of [...common.wargear, ...out.wargear]) known.add(norm(w.name));
 for (const k of Object.keys(common.rules)) for (const r of common.rules[k]) known.add(norm(r.name));
 for (const r of out.rules.specialRules) known.add(norm(r.name));
-const has = (n) => known.has(norm(n)) || known.has(wkey(n));
+// weapons with modes are stored as "Name - Mode", and mounted ones carry a "Dorsal (Front) Mounted" prefix
+const modes = new Set([...common.weapons.ranged, ...common.weapons.melee].map((w) => w.name.toLowerCase().split(' - ')[0]));
+const has = (n) => { const bare = String(n).replace(/^.*\bMounted\s+/i, ''); return [n, bare].some((x) => known.has(norm(x)) || known.has(wkey(x)) || modes.has(x.toLowerCase())); };
 
+for (const u of out.units.filter((x) => x.legacy)) {
+  for (const m of u.models) for (const w of m.wargear) if (!has(w)) problems.push(`unit ${u.id}/${m.name}: wargear "${w}" has no weapon profile, wargear or rule text`);
+  for (const r of [...u.specialRules, ...u.models.flatMap((m) => m.specialRules)]) if (!has(r)) problems.push(`unit ${u.id}: rule "${r}" has no text`);
+}
 for (const u of out.units) {
   const models = new Set(u.models.map((m) => m.name));
   for (const o of u.options.filter((x) => x.legacy)) {
@@ -54,7 +60,7 @@ for (const w of [...out.weapons.ranged, ...out.weapons.melee]) {
   for (const k of keys) if (w[k] == null) problems.push(`weapon ${w.name}: missing ${k}`);
 }
 const rites = (out.armyConfig.groups.find((g) => g.id === 'legacy-rite-of-war') || { choices: [] }).choices;
-const added = out.units.reduce((n, u) => n + u.options.length - before.get(u.id), 0);
+const added = out.units.reduce((n, u) => n + u.options.length - (before.get(u.id) || 0), 0);
 console.log(`[${id}] ${rites.length} Rites of War (${rites.map((r) => r.name).join(', ')}); ${added} options added; ${out.modifiers.modifiers.length} modifiers; ${out.units.filter((u) => u.roleWhen).length} units with extra roles`);
 // how much of the army's own content leans on morale (kept for fear, rallying and the fall of a leader)
 const ownFile = join(root, 'data', 'legacy', `${id}.json`);
