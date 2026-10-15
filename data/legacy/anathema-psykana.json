@@ -1,0 +1,407 @@
+{
+  "weapons": {
+    "ranged": [
+      {
+        "name": "Null-lance",
+        "R": 24,
+        "FP": 2,
+        "RS": 5,
+        "AP": 4,
+        "D": 1,
+        "specialRules": [
+          "Rending (6+)",
+          "Psy-Shock"
+        ],
+        "traits": [
+          "Bolt"
+        ]
+      }
+    ],
+    "melee": [
+      {
+        "name": "Sisterhood silence blade",
+        "IM": "+1",
+        "AM": "A",
+        "SM": "S",
+        "AP": 3,
+        "D": 1,
+        "specialRules": [
+          "Breaching (5+)"
+        ],
+        "traits": [
+          "Power"
+        ]
+      },
+      {
+        "name": "Centura's vow-blade",
+        "IM": "I",
+        "AM": "A",
+        "SM": "+1",
+        "AP": 2,
+        "D": 2,
+        "specialRules": [
+          "Critical Hit (5+)"
+        ],
+        "traits": [
+          "Power"
+        ]
+      }
+    ]
+  },
+  "wargear": [
+    {
+      "name": "Vow of Silence",
+      "text": "Legacy house rule. Every Sister has sworn a vow of quiet, and the unit's presence is a cold hole in the warp. Enemy Psykers within 6\" of the unit suffer -1 to every Psychic Check they make."
+    },
+    {
+      "name": "Oblivion-forged aegis",
+      "text": "Legacy house rule. A shield-plate wrought in the Throne Room's own foundries, hungry to unmake what strikes it. The bearer gains a 4+ Invulnerable Save."
+    },
+    {
+      "name": "Null-lattice hull",
+      "text": "Legacy house rule. The Acquisitor's hull is lined with a mesh of soulless iron, built for hauling the damned through the Black Ships' corridors. The vehicle gains +1 Front armour value."
+    }
+  ],
+  "options": [
+    {
+      "units": [
+        "anathema-cadre"
+      ],
+      "option": {
+        "id": "ap-mistress-arm",
+        "kind": "one",
+        "model": "Null Mistress",
+        "replaces": [
+          "Bolter"
+        ],
+        "text": "The Null Mistress may exchange her bolter for",
+        "choices": [
+          {
+            "name": "Archeotech pistol",
+            "points": 5
+          },
+          {
+            "name": "Power sword",
+            "points": 5
+          },
+          {
+            "name": "Sisterhood silence blade",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "anathema-cadre"
+      ],
+      "option": {
+        "id": "ap-sister-lance",
+        "kind": "perModel",
+        "model": "Null Sister",
+        "replaces": [
+          "Bolter"
+        ],
+        "max": 2,
+        "text": "Up to two Null Sisters may exchange their bolter for",
+        "choices": [
+          {
+            "name": "Null-lance",
+            "points": 12
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "anathema-cadre"
+      ],
+      "option": {
+        "id": "ap-vow-silence",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The Cadre may swear a vow of silence",
+        "choices": [
+          {
+            "name": "Vow of Silence",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "knight-centura"
+      ],
+      "option": {
+        "id": "ap-centura-blade",
+        "kind": "one",
+        "model": "Knight-Centura",
+        "replaces": [
+          "Paragon blade"
+        ],
+        "text": "The Knight-Centura may exchange her paragon blade for",
+        "choices": [
+          {
+            "name": "Centura's vow-blade",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "knight-centura",
+        "jenetia-krole"
+      ],
+      "option": {
+        "id": "ap-aegis",
+        "kind": "upgrade",
+        "model": [
+          "Knight-Centura",
+          "Jenetia Krole"
+        ],
+        "text": "The Oblivion Knight may carry an aegis",
+        "choices": [
+          {
+            "name": "Oblivion-forged aegis",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "kharon-pattern-acquisitor"
+      ],
+      "option": {
+        "id": "ap-null-hull",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The Acquisitor may have a lined hull",
+        "choices": [
+          {
+            "name": "Null-lattice hull",
+            "points": 25
+          }
+        ]
+      }
+    }
+  ],
+  "modifiers": [
+    {
+      "units": [
+        "anathema-cadre"
+      ],
+      "models": [
+        "Null Sister"
+      ],
+      "text": "Silent drill: +1 BS, -1 M.",
+      "stats": {
+        "BS": "+1",
+        "M": "-1"
+      }
+    },
+    {
+      "units": [
+        "anathema-cadre"
+      ],
+      "models": [
+        "Null Mistress"
+      ],
+      "text": "Hunt-leader's resolve: +1 A, -1 LD.",
+      "stats": {
+        "A": "+1",
+        "LD": "-1"
+      }
+    },
+    {
+      "units": [
+        "knight-centura"
+      ],
+      "text": "Oblivion Knight: +1 WS, -1 BS.",
+      "stats": {
+        "WS": "+1",
+        "BS": "-1"
+      }
+    },
+    {
+      "units": [
+        "kharon-pattern-acquisitor"
+      ],
+      "text": "Prison-hauler: +1 REAR, -2 M.",
+      "stats": {
+        "REAR": "+1",
+        "M": "-2"
+      }
+    },
+    {
+      "units": [
+        "knight-centura",
+        "jenetia-krole"
+      ],
+      "item": "Oblivion-forged aegis",
+      "scope": "unit",
+      "text": "Oblivion-forged aegis: best 4+ Invulnerable Save.",
+      "stats": {
+        "INV": "best:4+"
+      }
+    },
+    {
+      "units": [
+        "kharon-pattern-acquisitor"
+      ],
+      "item": "Null-lattice hull",
+      "scope": "unit",
+      "text": "Null-lattice hull: +1 FRONT.",
+      "stats": {
+        "FRONT": "+1"
+      }
+    }
+  ],
+  "rites": [
+    {
+      "name": "Vow of the Silent Hunt",
+      "flavor": "They do not shout. They do not speak. The witch notices only that her prayers have stopped working.",
+      "text": "Anathema Cadres gain +1 Attack and cost 10 points less. Kharon Pattern Acquisitors may fill Troops slots. The Sisters work without the Legions' tools: no Vagus automata. At least two Anathema Cadres are required.",
+      "roles": [
+        {
+          "units": [
+            "kharon-pattern-acquisitor"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "points": [
+        {
+          "units": [
+            "anathema-cadre"
+          ],
+          "delta": -10
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "anathema-cadre"
+          ],
+          "text": "Vow of the Silent Hunt: +1 A.",
+          "stats": {
+            "A": "+1"
+          }
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "anathema-cadre"
+          ],
+          "min": 2,
+          "note": "At least two Cadres take the vow."
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "trait": "Vagus"
+          }
+        }
+      ]
+    },
+    {
+      "name": "The Oblivion Knights Ride",
+      "flavor": "Even the Silent Sisterhood needs someone to carry a sword where the witch-fire cannot reach.",
+      "text": "Knight-Centuras may fill Troops and Elites slots, and gain +1 Attack. The Cadres stay behind: the army may not field any Anathema Cadres. At least two Knight-Centuras are required.",
+      "roles": [
+        {
+          "units": [
+            "knight-centura"
+          ],
+          "role": "Troops"
+        },
+        {
+          "units": [
+            "knight-centura"
+          ],
+          "role": "Elites"
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "knight-centura"
+          ],
+          "text": "The Oblivion Knights Ride: +1 A.",
+          "stats": {
+            "A": "+1"
+          }
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "knight-centura"
+          ],
+          "min": 2,
+          "note": "At least two Oblivion Knights ride."
+        }
+      ],
+      "forbid": [
+        {
+          "units": [
+            "anathema-cadre"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "The Black Ships' Writ",
+      "flavor": "When the Sisters cannot be everywhere, the Throne lends them machines that cannot be tempted.",
+      "text": "Castellax Battle and Destructor Maniples may fill Troops slots and cost 20 points less, and the Cadres gain +1 Leadership. The Sisterhood is thinly spread: at most one Anathema Cadre, and no Kharon Pattern Acquisitors.",
+      "roles": [
+        {
+          "units": [
+            "castellax-battle-maniple",
+            "castellax-destructor-maniple"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "points": [
+        {
+          "units": [
+            "castellax-battle-maniple",
+            "castellax-destructor-maniple"
+          ],
+          "delta": -20
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "anathema-cadre"
+          ],
+          "text": "The Black Ships' Writ: +1 LD.",
+          "stats": {
+            "LD": "+1"
+          }
+        }
+      ],
+      "limit": [
+        {
+          "units": [
+            "anathema-cadre"
+          ],
+          "max": 1
+        }
+      ],
+      "forbid": [
+        {
+          "units": [
+            "kharon-pattern-acquisitor"
+          ]
+        }
+      ]
+    }
+  ]
+}

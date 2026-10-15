@@ -1,0 +1,86 @@
+{
+  "weapons": {
+    "ranged": [
+      { "name": "Marksman's bolter", "R": 30, "FP": 2, "RS": 4, "AP": 4, "D": 1, "specialRules": ["Precision (6+)"], "traits": ["Bolt"] },
+      { "name": "Calthan bolt carbine", "R": 24, "FP": 3, "RS": 4, "AP": 5, "D": 1, "specialRules": ["Rending (6+)"], "traits": ["Bolt"] }
+    ],
+    "melee": [
+      { "name": "Macragge gladius", "IM": "I", "AM": "+1", "SM": "S", "AP": 3, "D": 1, "specialRules": ["Duellist's Edge (1)"], "traits": ["Power"] }
+    ]
+  },
+  "wargear": [
+    { "name": "Strategos slate", "text": "Legacy house rule. A cogitator slate loaded with the Codex's battle-plans and the day's terrain surveys. The model gains +1 Cool and +1 Intelligence." },
+    { "name": "Praetorian hoplon", "text": "Legacy house rule. A tall tower shield blazoned with the Ultramar omega. Every model in the unit has a 4+ Invulnerable Save if it was worse." },
+    { "name": "Ultramar fire-control array", "text": "Legacy house rule. Range-finders and a dedicated gunnery cogitator, run to Ultramar tolerances. The vehicle gains +1 Ballistic Skill." }
+  ],
+  "options": [
+    { "units": ["tactical-squad", "despoiler-squad", "breacher-squad", "veteran-tactical-squad", "assault-squad", "veteran-assault-squad"],
+      "option": { "id": "um-sergeant-weapon", "kind": "one", "modelType": "Sergeant", "text": "The Sergeant may take an Ultramar pattern weapon",
+        "choices": [ { "name": "Macragge gladius", "points": 10 }, { "name": "Calthan bolt carbine", "points": 8 } ] } },
+    { "units": ["tactical-squad", "breacher-squad"],
+      "option": { "id": "um-marksman-bolters", "kind": "perModel", "model": "Legionary", "max": 3, "replaces": ["Bolter"],
+        "text": "Up to three Legionaries may exchange their bolter for", "choices": [ { "name": "Marksman's bolter", "points": 5 } ] } },
+    { "units": ["centurion", "praetor", "centurion-in-terminator-armour", "praetor-in-terminator-armour"],
+      "option": { "id": "um-strategos-slate", "kind": "upgrade", "modelType": "Command", "text": "May carry a Strategos slate",
+        "choices": [ { "name": "Strategos slate", "points": 10 } ] } },
+    { "units": ["invictus-suzerain-squad", "praetorian-breacher-squad"],
+      "option": { "id": "um-praetorian-hoplon", "kind": "upgrade", "model": null, "text": "The unit may carry Praetorian hoplons",
+        "choices": [ { "name": "Praetorian hoplon", "points": 25 } ] } },
+    { "units": ["predator", "sicaran", "sicaran-venator", "vindicator-siege-tank", "whirlwind-missile-tank"], "optionalUnits": true,
+      "option": { "id": "um-fire-control", "kind": "upgrade", "model": null, "text": "May be fitted with an Ultramar fire-control array",
+        "choices": [ { "name": "Ultramar fire-control array", "points": 15 } ] } },
+    { "units": ["locutarus-storm-squad"],
+      "option": { "id": "um-locutarus-leader", "kind": "one", "modelType": "Champion", "replaces": ["Argean power sword"],
+        "text": "The Strike Leader may exchange the Argean power sword for", "choices": [ { "name": "Macragge gladius", "points": 5 }, { "name": "Power fist", "points": 10 } ] } }
+  ],
+  "modifiers": [
+    { "units": ["tactical-squad", "breacher-squad", "veteran-tactical-squad", "despoiler-squad", "praetorian-breacher-squad"], "text": "Drilled to the Codex: +1 LD, -1 I.", "stats": { "LD": "+1", "I": "-1" } },
+    { "match": { "unitType": "Command", "notUnitType": "Vehicle" }, "text": "Strategos of Ultramar: +1 IN, -1 WS.", "stats": { "IN": "+1", "WS": "-1" } },
+    { "units": ["invictus-suzerain-squad"], "text": "Lords of Ultramar: +1 A, -1 M.", "stats": { "A": "+1", "M": "-1" } },
+    { "units": ["locutarus-storm-squad"], "text": "Eagles of the storm: +1 WS, -1 T.", "stats": { "WS": "+1", "T": "-1" } },
+    { "units": ["fulmentarus-terminator-squad"], "text": "Fire-lanes drilled in: +1 BS, -1 WS.", "stats": { "BS": "+1", "WS": "-1" } },
+    { "units": ["*"], "item": "Strategos slate", "text": "Strategos slate: +1 CL, +1 IN.", "stats": { "CL": "+1", "IN": "+1" } },
+    { "units": ["*"], "item": "Praetorian hoplon", "scope": "unit", "text": "Praetorian hoplon: 4+ Invulnerable Save.", "stats": { "INV": "best:4+" } },
+    { "units": ["*"], "item": "Ultramar fire-control array", "text": "Ultramar fire-control array: +1 BS.", "stats": { "BS": "+1" } }
+  ],
+  "rites": [
+    {
+      "name": "The Five Hundred Muster",
+      "flavor": "Every world of Ultramar sends its sons, and every son has drilled the same manoeuvres since boyhood.",
+      "text": "Veteran Tactical Squads and Praetorian Breacher Squads may fill Troops slots. Tactical Squads cost 10 points less. At least two Tactical Squads and a Centurion are required. The Muster does not improvise: no Fast Attack units and no model with the Antigrav type.",
+      "roles": [ { "units": ["veteran-tactical-squad", "praetorian-breacher-squad"], "role": "Troops" } ],
+      "points": [ { "units": ["tactical-squad"], "delta": -10 } ],
+      "require": [ { "units": ["tactical-squad"], "min": 2, "note": "Bring at least two Tactical Squads." }, { "units": ["centurion", "centurion-in-terminator-armour"], "min": 1, "note": "A Centurion must lead the Muster." } ],
+      "forbid": [ { "match": { "role": "Fast Attack" } }, { "match": { "unitType": "Antigrav" } } ]
+    },
+    {
+      "name": "Phalanx of the Invictus",
+      "flavor": "Behind the shield-wall of the Suzerains, the rest of the Legion simply refuses to die.",
+      "text": "Invictus Suzerain Squads may fill Troops slots, cost 20 points less and gain +1 Cool. At least one Invictus Suzerain Squad is required. A phalanx marches at the pace of its shields: no War Engines and no Lord of War units.",
+      "roles": [ { "units": ["invictus-suzerain-squad"], "role": "Troops" } ],
+      "points": [ { "units": ["invictus-suzerain-squad"], "delta": -20 } ],
+      "modifiers": [ { "units": ["invictus-suzerain-squad"], "text": "Phalanx of the Invictus: +1 CL.", "stats": { "CL": "+1" } } ],
+      "require": [ { "units": ["invictus-suzerain-squad"], "min": 1, "note": "Bring at least one Invictus Suzerain Squad." } ],
+      "forbid": [ { "match": { "role": "War Engine" } }, { "match": { "role": "Lord of War" } } ]
+    },
+    {
+      "name": "Strike of the Locutarus",
+      "flavor": "A line of retros against the clouds, and the Eagles of Macragge are already on the roof.",
+      "text": "Locutarus Storm Squads may fill Troops slots and cost 25 points less. Their pilots gain +1 Initiative and -1 Leadership. At least one Locutarus Storm Squad is required. The Eagles fight light: no Armour units and no War Engines.",
+      "roles": [ { "units": ["locutarus-storm-squad"], "role": "Troops" } ],
+      "points": [ { "units": ["locutarus-storm-squad"], "delta": -25 } ],
+      "modifiers": [ { "units": ["locutarus-storm-squad"], "text": "Strike of the Locutarus: +1 I, -1 LD.", "stats": { "I": "+1", "LD": "-1" } } ],
+      "require": [ { "units": ["locutarus-storm-squad"], "min": 1, "note": "Bring at least one Locutarus Storm Squad." } ],
+      "forbid": [ { "match": { "role": "Armour" } }, { "match": { "role": "War Engine" } } ]
+    },
+    {
+      "name": "Remember Calth",
+      "flavor": "The Legion was shot in the back by its own brothers, and has not yet finished answering.",
+      "text": "Every Ultramarines unit gains Hatred (Word Bearers) and +1 Leadership. The Honoured Telemechrus costs 30 points less. Remus Ventanus must lead the army. Grief leaves no room for hired knives: no Assassins and no Malefic models.",
+      "points": [ { "units": ["honoured-telemechrus"], "delta": -30 } ],
+      "modifiers": [ { "units": ["*"], "text": "Remember Calth: Hatred (Word Bearers), +1 LD.", "stats": { "LD": "+1" }, "addRules": ["Hatred (Word Bearers)"] } ],
+      "require": [ { "units": ["remus-ventanus"], "min": 1, "note": "Remus Ventanus must lead the army." } ],
+      "forbid": [ { "match": { "nameIncludes": ["Assassin", "Abomination"] } }, { "match": { "unitType": "Malefic" } } ]
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "weapons": {
+    "ranged": [
+      { "name": "Pestilent bolter", "R": 24, "FP": 2, "RS": 4, "AP": 5, "D": 1, "specialRules": ["Poisoned (5+)"], "traits": ["Bolt"] },
+      { "name": "Miasma pistol", "R": 12, "FP": 2, "RS": 3, "AP": 6, "D": 1, "specialRules": ["Pistol", "Poisoned (4+)", "Panic (1)"], "traits": ["Assault"] }
+    ],
+    "melee": [
+      { "name": "Plague-rusted cleaver", "IM": "I", "AM": "A", "SM": "+1", "AP": 4, "D": 1, "specialRules": ["Poisoned (5+)"], "traits": [] },
+      { "name": "Reaper's blight-scythe", "IM": -1, "AM": "A", "SM": "+1", "AP": 3, "D": 1, "specialRules": ["Poisoned (5+)", "Shred (6+)"], "traits": ["Power"] }
+    ]
+  },
+  "wargear": [
+    { "name": "Bile-stained banner", "text": "Legacy house rule. A banner so thick with dried filth that the wind cannot lift it, carried by men who no longer notice the stink. Every model in the unit gains Feel No Pain (6+)." },
+    { "name": "Choking cloud canisters", "text": "Legacy house rule. Canisters of sour vapour cracked open as the squad closes. Every model in the unit gains Fear (1)." },
+    { "name": "Bloated sarcophagus", "text": "Legacy house rule. The occupant has been dead for years and the machine has kept him going on rot. The model gains Feel No Pain (6+)." }
+  ],
+  "options": [
+    { "units": ["tactical-squad", "despoiler-squad", "breacher-squad", "veteran-tactical-squad", "mortus-poisoner-squad", "assault-squad"], "optionalUnits": true,
+      "option": { "id": "dg-sergeant-weapon", "kind": "one", "modelType": "Sergeant", "text": "The Sergeant may take a plague weapon",
+        "choices": [ { "name": "Plague-rusted cleaver", "points": 8 }, { "name": "Reaper's blight-scythe", "points": 15 }, { "name": "Miasma pistol", "points": 5 } ] } },
+    { "units": ["tactical-squad", "breacher-squad"],
+      "option": { "id": "dg-pestilent-bolters", "kind": "perModel", "model": "Legionary", "max": 4, "replaces": ["Bolter"],
+        "text": "Up to four Legionaries may exchange their bolter for", "choices": [ { "name": "Pestilent bolter", "points": 6 } ] } },
+    { "units": ["deathshroud-terminator-squad"],
+      "option": { "id": "dg-blight-scythes", "kind": "perModel", "model": "Deathshroud", "replaces": ["Power scythe"],
+        "text": "Any Deathshroud may exchange their power scythe for", "choices": [ { "name": "Reaper's blight-scythe", "points": 5 } ] } },
+    { "units": ["tactical-squad", "despoiler-squad", "breacher-squad", "veteran-tactical-squad", "assault-squad"], "optionalUnits": true,
+      "option": { "id": "dg-bile-banner", "kind": "upgrade", "model": null, "text": "The unit may carry a Bile-stained banner",
+        "choices": [ { "name": "Bile-stained banner", "points": 20 } ] } },
+    { "units": ["mortus-poisoner-squad", "grave-warden-terminator-squad", "deathshroud-terminator-squad"],
+      "option": { "id": "dg-choking-canisters", "kind": "upgrade", "model": null, "text": "The unit may carry Choking cloud canisters",
+        "choices": [ { "name": "Choking cloud canisters", "points": 15 } ] } },
+    { "units": ["contemptor-dreadnought", "leviathan-dreadnought", "deredeo-dreadnought", "castra-ferrum-dreadnought"], "optionalUnits": true,
+      "option": { "id": "dg-bloated-sarcophagus", "kind": "upgrade", "model": null, "text": "May take a Bloated sarcophagus",
+        "choices": [ { "name": "Bloated sarcophagus", "points": 15 } ] } }
+  ],
+  "modifiers": [
+    { "units": ["tactical-squad", "despoiler-squad", "breacher-squad", "veteran-tactical-squad", "mortus-poisoner-squad"], "optionalUnits": true, "text": "Plague-hardened flesh: +1 T, -1 M.", "stats": { "T": "+1", "M": "-1" } },
+    { "units": ["mortus-poisoner-squad"], "text": "Chemical adepts: +1 BS, -1 LD.", "stats": { "BS": "+1", "LD": "-1" } },
+    { "units": ["deathshroud-terminator-squad"], "text": "Silent honour guard: +1 WS, -1 I.", "stats": { "WS": "+1", "I": "-1" } },
+    { "units": ["grave-warden-terminator-squad"], "text": "Heavy-handed wardens: +1 S, -1 I.", "stats": { "S": "+1", "I": "-1" } },
+    { "match": { "unitType": "Command", "notUnitType": "Vehicle" }, "text": "Stoic lords of the Legion: +1 LD, -1 I.", "stats": { "LD": "+1", "I": "-1" } },
+    { "units": ["*"], "item": "Bile-stained banner", "scope": "unit", "text": "Bile-stained banner: Feel No Pain (6+).", "addRules": ["Feel No Pain (6+)"] },
+    { "units": ["*"], "item": "Choking cloud canisters", "scope": "unit", "text": "Choking cloud canisters: Fear (1).", "addRules": ["Fear (1)"] },
+    { "units": ["*"], "item": "Bloated sarcophagus", "text": "Bloated sarcophagus: Feel No Pain (6+).", "addRules": ["Feel No Pain (6+)"] }
+  ],
+  "rites": [
+    {
+      "name": "Unhurried Death",
+      "flavor": "The Legion has never run, and it has never needed to.",
+      "text": "Every Death Guard Infantry unit gains Feel No Pain (6+) and loses 1 Move. The army cannot go anywhere quickly: no Fast Attack units and no model with the Antigrav type.",
+      "modifiers": [ { "match": { "unitType": "Infantry", "notUnitType": "Vehicle" }, "text": "Unhurried Death: Feel No Pain (6+), -1 M.", "stats": { "M": "-1" }, "addRules": ["Feel No Pain (6+)"] } ],
+      "forbid": [ { "match": { "role": "Fast Attack" } }, { "match": { "unitType": "Antigrav" } } ]
+    },
+    {
+      "name": "The Walking Dead March",
+      "flavor": "No tracks. No wings. Only the long walk, and the guns that come with it.",
+      "text": "Grave Warden Terminator Squads may fill Troops slots, cost 25 points less and gain Line (1). At least one Grave Warden Terminator Squad is required. There are no lifts out of this hell: no Transport or Heavy Transport units.",
+      "roles": [ { "units": ["grave-warden-terminator-squad"], "role": "Troops" } ],
+      "points": [ { "units": ["grave-warden-terminator-squad"], "delta": -25 } ],
+      "modifiers": [ { "units": ["grave-warden-terminator-squad"], "text": "The Walking Dead March: Line (1).", "addRules": ["Line (1)"] } ],
+      "require": [ { "units": ["grave-warden-terminator-squad"], "min": 1, "note": "Bring at least one Grave Warden Terminator Squad." } ],
+      "forbid": [ { "match": { "role": "Transport" } }, { "match": { "role": "Heavy Transport" } } ]
+    },
+    {
+      "name": "Doctrine of Contagion",
+      "flavor": "A battle is won when the other side is too sick to hold the line.",
+      "text": "Mortus Poisoner Squads may fill Troops slots, cost 20 points less and gain Fear (1) and Feel No Pain (6+). At least two Mortus Poisoner Squads are required. The Death Guard rely on the sickness, not the surgeon: no Apothecaries, no Primus Medicae, and at most one Tactical Squad.",
+      "roles": [ { "units": ["mortus-poisoner-squad"], "role": "Troops" } ],
+      "points": [ { "units": ["mortus-poisoner-squad"], "delta": -20 } ],
+      "modifiers": [ { "units": ["mortus-poisoner-squad"], "text": "Doctrine of Contagion: Fear (1), Feel No Pain (6+).", "addRules": ["Fear (1)", "Feel No Pain (6+)"] } ],
+      "require": [ { "units": ["mortus-poisoner-squad"], "min": 2, "note": "Bring at least two Mortus Poisoner Squads." } ],
+      "limit": [ { "units": ["tactical-squad"], "max": 1 } ],
+      "forbid": [ { "units": ["apothecary", "primus-medicae", "mounted-primus-medicae", "primus-medicae-in-terminator-armour"], "optionalUnits": true } ]
+    },
+    {
+      "name": "The Reaper's Honour Guard",
+      "flavor": "Where the Primarch walks, the Deathshroud walk a pace behind, and nothing else is permitted near.",
+      "text": "Deathshroud Terminator Squads may fill Troops slots, cost 20 points less and gain Line (1). The army must be led by Mortarion or Calas Typhon and include at least two Deathshroud Squads. The honour guard is a jealous thing: no Heavy Assault units other than Grave Warden squads, and no Recon units.",
+      "roles": [ { "units": ["deathshroud-terminator-squad"], "role": "Troops" } ],
+      "points": [ { "units": ["deathshroud-terminator-squad"], "delta": -20 } ],
+      "modifiers": [ { "units": ["deathshroud-terminator-squad"], "text": "The Reaper's Honour Guard: Line (1).", "addRules": ["Line (1)"] } ],
+      "require": [ { "units": ["mortarion", "calas-typhon"], "min": 1, "note": "Mortarion or Calas Typhon must lead the army." }, { "units": ["deathshroud-terminator-squad"], "min": 2, "note": "Bring at least two Deathshroud Squads." } ],
+      "forbid": [ { "match": { "role": "Recon" } }, { "units": ["cataphractii-terminator-squad", "tartaros-terminator-squad", "tartaros-terminator-siege-squad", "indomitus-terminator-squad", "saturnine-terminator-squad", "assault-squad", "mortalis-destroyer-squad", "destroyer-assault-squad", "nemesis-destroyer-squad", "gorgon-terminator-squad"], "optionalUnits": true } ]
+    }
+  ]
+}

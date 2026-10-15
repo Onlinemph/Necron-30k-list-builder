@@ -1,0 +1,79 @@
+{
+  "weapons": {
+    "ranged": [
+      { "name": "Warp-lash caster", "R": 18, "FP": 3, "RS": 4, "AP": 5, "D": 1, "specialRules": ["Rending (6+)", "Panic (1)"], "traits": ["Warp"] }
+    ],
+    "melee": [
+      { "name": "Seer's khopesh", "IM": "I", "AM": "+1", "SM": "S", "AP": 3, "D": 1, "specialRules": ["Precision (6+)"], "traits": ["Power"] },
+      { "name": "Reality-shredding talons", "IM": "I", "AM": "+1", "SM": "S", "AP": 5, "D": 1, "specialRules": ["Rending (6+)"], "traits": [] }
+    ]
+  },
+  "wargear": [
+    { "name": "Prospero sigil-charm", "text": "Legacy house rule. A tiny glyph-etched amulet, renewed every dawn by a cabal scribe. The model has a 5+ Invulnerable Save if it was worse." },
+    { "name": "Fate-glass", "text": "Legacy house rule. A lens of cut crystal through which a sorcerer glimpses a few seconds of the next minute. The model gains +1 Willpower and +1 Intelligence." },
+    { "name": "Warp-touched banner", "text": "Legacy house rule. A standard whose threads shift colour when no one is looking. Every model in the unit gains +1 Willpower and +1 Intelligence." },
+    { "name": "Warding-sigil engraving", "text": "Legacy house rule. Rune-lines cut into the hull by a Prosperine artisan. The model has a 4+ Invulnerable Save if it was worse." }
+  ],
+  "options": [
+    { "units": ["tactical-squad", "despoiler-squad", "breacher-squad", "veteran-tactical-squad", "assault-squad", "veteran-assault-squad", "numerologist-cabal", "ammitara-occult-intercession-cabal"], "optionalUnits": true,
+      "option": { "id": "ts-sergeant-weapon", "kind": "one", "modelType": "Sergeant", "text": "The Sergeant may take a Prospero weapon",
+        "choices": [ { "name": "Seer's khopesh", "points": 10 }, { "name": "Warp-lash caster", "points": 10 } ] } },
+    { "units": ["tactical-squad", "despoiler-squad", "breacher-squad", "veteran-tactical-squad", "assault-squad", "numerologist-cabal", "khenetai-occult-cabal"], "optionalUnits": true,
+      "option": { "id": "ts-sigil-charm", "kind": "upgrade", "modelType": "Sergeant", "text": "The Sergeant may wear a Prospero sigil-charm",
+        "choices": [ { "name": "Prospero sigil-charm", "points": 15 } ] } },
+    { "units": ["prosperine-sorcerer", "librarian", "esoterist", "librarian-in-terminator-armour", "librarian-with-jump-pack", "herald-of-tzeench"], "optionalUnits": true,
+      "option": { "id": "ts-fate-glass", "kind": "upgrade", "modelType": "Command", "text": "May carry a Fate-glass",
+        "choices": [ { "name": "Fate-glass", "points": 15 } ] } },
+    { "units": ["tactical-squad", "despoiler-squad", "breacher-squad", "assault-squad", "numerologist-cabal", "khenetai-occult-cabal"], "optionalUnits": true,
+      "option": { "id": "ts-warp-banner", "kind": "upgrade", "model": null, "text": "The unit may carry a Warp-touched banner",
+        "choices": [ { "name": "Warp-touched banner", "points": 20 } ] } },
+    { "units": ["horrors-of-tzeench"],
+      "option": { "id": "ts-horror-talons", "kind": "perModel", "model": "Pink Horror", "max": 5, "replaces": ["Coruscating grasp"],
+        "text": "Up to five Pink Horrors may exchange their coruscating grasp for", "choices": [ { "name": "Reality-shredding talons", "points": 4 } ] } },
+    { "units": ["contemptor-osiron-dreadnought", "castellax-achea-automata"],
+      "option": { "id": "ts-warding-sigils", "kind": "upgrade", "model": null, "text": "May be etched with Warding sigils",
+        "choices": [ { "name": "Warding-sigil engraving", "points": 15 } ] } }
+  ],
+  "modifiers": [
+    { "units": ["tactical-squad", "despoiler-squad", "breacher-squad", "veteran-tactical-squad", "assault-squad", "veteran-assault-squad"], "optionalUnits": true, "text": "Dissonant Rubric-lore: +1 IN, -1 CL.", "stats": { "IN": "+1", "CL": "-1" } },
+    { "units": ["khenetai-occult-cabal"], "text": "Khenetai blade-dancers: +1 I, -1 LD.", "stats": { "I": "+1", "LD": "-1" } },
+    { "units": ["sekhmet-terminator-cabal"], "text": "Sekhmet trance-march: +1 WP, -1 M.", "stats": { "WP": "+1", "M": "-1" } },
+    { "units": ["horrors-of-tzeench"], "text": "Mutable horrors: +1 I, -1 CL.", "stats": { "I": "+1", "CL": "-1" } },
+    { "units": ["flamers-of-tzeench"], "text": "Gouts of Change: +1 BS, -1 I.", "stats": { "BS": "+1", "I": "-1" } },
+    { "match": { "unitType": "Command", "notUnitType": "Vehicle" }, "text": "Scholar-sorcerers: +1 WP, -1 A.", "stats": { "WP": "+1", "A": "-1" } },
+    { "units": ["*"], "item": "Prospero sigil-charm", "text": "Prospero sigil-charm: 5+ Invulnerable Save.", "stats": { "INV": "best:5+" } },
+    { "units": ["*"], "item": "Fate-glass", "text": "Fate-glass: +1 WP, +1 IN.", "stats": { "WP": "+1", "IN": "+1" } },
+    { "units": ["*"], "item": "Warp-touched banner", "scope": "unit", "text": "Warp-touched banner: +1 WP, +1 IN.", "stats": { "WP": "+1", "IN": "+1" } },
+    { "units": ["*"], "item": "Warding-sigil engraving", "text": "Warding-sigil engraving: 4+ Invulnerable Save.", "stats": { "INV": "best:4+" } }
+  ],
+  "rites": [
+    {
+      "name": "Host of Change",
+      "flavor": "The Cabal stopped asking what the Changer of Ways wanted, and began to give it room.",
+      "text": "Flamers and Screamers of Tzeench may fill Troops slots, and Pink Horror Squads cost 20 points less. At least two Horror Squads and one Herald of Tzeench or Prosperine Sorcerer are required. The sorcerers keep their old order at arm's length: no Tactical, Despoiler, Breacher or Assault Squads.",
+      "roles": [ { "units": ["flamers-of-tzeench", "screamers-of-tzeench"], "role": "Troops" } ],
+      "points": [ { "units": ["horrors-of-tzeench"], "delta": -20 } ],
+      "require": [ { "units": ["horrors-of-tzeench"], "min": 2, "note": "Bring at least two Horrors of Tzeench." }, { "units": ["herald-of-tzeench", "prosperine-sorcerer"], "min": 1, "note": "A Herald or Prosperine Sorcerer must lead the host." } ],
+      "forbid": [ { "units": ["tactical-squad", "despoiler-squad", "breacher-squad", "assault-squad"] } ]
+    },
+    {
+      "name": "Khenetai Ascendant",
+      "flavor": "The blade-cabal is where the Legion keeps its pride, and a Legion's pride is rarely kept quiet.",
+      "text": "Khenetai Occult Cabals and Sekhmet Terminator Cabals may fill Troops slots, cost 15 points less and gain Line (1). At least two Khenetai Cabals are required. The blades do not wait for guns to speak: no Armour units and no Support units other than Apothecaries and Techmarines.",
+      "roles": [ { "units": ["khenetai-occult-cabal", "sekhmet-terminator-cabal"], "role": "Troops" } ],
+      "points": [ { "units": ["khenetai-occult-cabal", "sekhmet-terminator-cabal"], "delta": -15 } ],
+      "modifiers": [ { "units": ["khenetai-occult-cabal", "sekhmet-terminator-cabal"], "text": "Khenetai Ascendant: Line (1).", "addRules": ["Line (1)"] } ],
+      "require": [ { "units": ["khenetai-occult-cabal"], "min": 2, "note": "Bring at least two Khenetai Occult Cabals." } ],
+      "forbid": [ { "match": { "role": "Armour" } }, { "match": { "role": "Support" }, "units": ["heavy-support-squad", "tactical-support-squad", "flamers-of-tzeench", "castellax-achea-automata", "araknae-quad-accelerator-platform", "deathstorm-drop-pod", "rapier-battery"], "optionalUnits": true } ]
+    },
+    {
+      "name": "The Scrying Cabal",
+      "flavor": "The Legion that has foreseen the battle does not need the biggest guns, only the best-placed.",
+      "text": "Numerologist Cabals and Ammitara Occult Intercession Cabals may fill Troops slots. Every Thousand Sons Infantry unit gains +1 Willpower and -1 Move. A Prosperine Sorcerer, Ahzek Ahriman or Magistus Amon must be in the army. Foresight has no patience for brute weight: no Armour, Heavy Transport or Lord of War units.",
+      "roles": [ { "units": ["numerologist-cabal", "ammitara-occult-intercession-cabal"], "role": "Troops" } ],
+      "modifiers": [ { "match": { "unitType": "Infantry", "notUnitType": "Vehicle" }, "text": "The Scrying Cabal: +1 WP, -1 M.", "stats": { "WP": "+1", "M": "-1" } } ],
+      "require": [ { "units": ["prosperine-sorcerer", "ahzek-ahriman", "magistus-amon"], "min": 1, "note": "A Prosperine Sorcerer, Ahriman or Amon must read the omens." } ],
+      "forbid": [ { "match": { "role": "Armour" } }, { "match": { "role": "Heavy Transport" } }, { "match": { "role": "Lord of War" } } ]
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "weapons": {
+    "ranged": [
+      { "name": "Sear-lance projector", "R": 60, "FP": 1, "RS": 10, "AP": 2, "D": 5, "specialRules": ["Armourbane", "Blast (3\")"], "traits": ["Las", "Strategic"] },
+      { "name": "Rotary vulcan battery", "R": 48, "FP": 8, "RS": 7, "AP": 3, "D": 2, "specialRules": ["Suppressive (2)"], "traits": ["Auto", "Strategic"] },
+      { "name": "Siege-mortar rack", "R": 150, "FP": 1, "RS": 9, "AP": 4, "D": 4, "specialRules": ["Blast (7\")", "Barrage (2)", "Minimum Range (36)"], "traits": ["Strategic"] },
+      { "name": "Titan siege-saw", "R": 6, "FP": 1, "RS": 12, "AP": 2, "D": 8, "specialRules": ["Armourbane"], "traits": ["Strike"] },
+      { "name": "Reactor-fed plasma lance", "R": 82, "FP": 1, "RS": 11, "AP": 2, "D": 7, "specialRules": ["Blast (5\")", "Power Hungry"], "traits": ["Plasma", "Strategic"] }
+    ],
+    "melee": []
+  },
+  "wargear": [
+    { "name": "Cold-blooded Princeps", "text": "Legacy house rule. A Princeps who has spent decades listening to the reactor's heartbeat and never once let it rattle him. The Titan's controlling player may re-roll one failed Power Hungry or Overload check each battle." },
+    { "name": "Fire-eater Princeps", "text": "Legacy house rule. A Princeps who fights at the edge of the neural link and lets the engine run hot. Once per battle, at the start of the controlling player's Shooting Phase, the Titan may fire one weapon twice, but must then take a Power Hungry check with a -1 penalty." },
+    { "name": "Overlapping void arrays", "text": "Legacy house rule. Secondary projectors are stitched into the primary lattice, so a collapsing shield is quickly replaced. The first time the Titan's void shields would be reduced to zero in a battle, restore one void shield immediately." },
+    { "name": "Servitor-hardened plates", "text": "Legacy house rule. Hull plates seeded with banked servitor labour that can be called on to slap armour back over a breach. The vehicle gains +1 Hull Point." }
+  ],
+  "options": [
+    { "units": ["warhound-titan"],
+      "option": { "id": "lt-warhound-arms", "kind": "any", "model": "Warhound Titan",
+        "text": "The Warhound may take hunter-pattern arm weapons", "choices": [ { "name": "Sear-lance projector", "points": 30 }, { "name": "Rotary vulcan battery", "points": 20 } ] } },
+    { "units": ["reaver-titan"],
+      "option": { "id": "lt-reaver-arms", "kind": "any", "model": "Reaver Titan",
+        "text": "The Reaver may take bespoke arm weapons", "choices": [ { "name": "Siege-mortar rack", "points": 30 }, { "name": "Titan siege-saw", "points": 20 } ] } },
+    { "units": ["warbringer-nemesis-titan", "warlord-titan"],
+      "option": { "id": "lt-heavy-arms", "kind": "any", "model": ["Warbringer Nemesis Titan", "Warlord Titan"],
+        "text": "The Titan may take a reactor-fed arm weapon", "choices": [ { "name": "Reactor-fed plasma lance", "points": 40 } ] } },
+    { "units": ["warhound-titan", "reaver-titan", "warbringer-nemesis-titan", "warlord-titan"],
+      "option": { "id": "lt-princeps-temperament", "kind": "one", "model": null,
+        "text": "The Titan's Princeps may have a marked temperament", "choices": [ { "name": "Cold-blooded Princeps", "points": 25 }, { "name": "Fire-eater Princeps", "points": 25 } ] } },
+    { "units": ["reaver-titan", "warbringer-nemesis-titan", "warlord-titan"],
+      "option": { "id": "lt-void-arrays", "kind": "upgrade", "model": null,
+        "text": "The Titan may carry overlapping void arrays", "choices": [ { "name": "Overlapping void arrays", "points": 50 } ] } },
+    { "units": ["triaros-armoured-conveyor"],
+      "option": { "id": "lt-triaros-plates", "kind": "upgrade", "model": null,
+        "text": "The Conveyor may be armoured further", "choices": [ { "name": "Servitor-hardened plates", "points": 15 } ] } },
+    { "units": ["secutarii-cohort"],
+      "option": { "id": "lt-cohort-casters", "kind": "perModel", "model": "Secutarii", "replaces": ["Arc lance"], "max": 3,
+        "text": "Up to three Secutarii may exchange their arc lance for", "choices": [ { "name": "Galvanic caster", "points": 6 } ] } }
+  ],
+  "modifiers": [
+    { "units": ["secutarii-cohort"], "models": ["Secutarii"], "text": "Void-drilled armsmen: +1 LD, -1 I.", "stats": { "LD": "+1", "I": "-1" } },
+    { "units": ["secutarii-axiarch"], "text": "Tech-bred officer: +1 IN, -1 CL.", "stats": { "IN": "+1", "CL": "-1" } },
+    { "units": ["triaros-armoured-conveyor"], "text": "Ram-prowed hull: +1 FRONT, -2 M.", "stats": { "FRONT": "+1", "M": "-2" } },
+    { "units": ["castellax-battle-maniple", "castellax-destructor-maniple"], "text": "Legio-bonded cortex: +1 BS, -1 I.", "stats": { "BS": "+1", "I": "-1" } },
+    { "units": ["triaros-armoured-conveyor"], "item": "Servitor-hardened plates", "scope": "unit", "text": "Servitor-hardened plates: +1 HP.", "stats": { "HP": "+1" } }
+  ],
+  "rites": [
+    {
+      "name": "The Hunting Pack",
+      "flavor": "Where the great engines march, the Warhounds have already seen the enemy's backs.",
+      "text": "Warhound Titans may fill Fast Attack slots, cost 50 points less and gain Vanguard (2). The pack leaves the heavy engines at the gate: no Reaver, Warbringer or Warlord Titans. At least two Warhounds are required.",
+      "roles": [ { "units": ["warhound-titan"], "role": "Fast Attack" } ],
+      "points": [ { "units": ["warhound-titan"], "delta": -50 } ],
+      "modifiers": [ { "units": ["warhound-titan"], "text": "The Hunting Pack: Vanguard (2).", "addRules": ["Vanguard (2)"] } ],
+      "require": [ { "units": ["warhound-titan"], "min": 2, "note": "A pack needs at least two Warhounds." } ],
+      "forbid": [ { "units": ["reaver-titan", "warbringer-nemesis-titan", "warlord-titan"] } ]
+    },
+    {
+      "name": "The Reactor Gambit",
+      "flavor": "The Princeps do not ask permission of the reactor. They tell it how long it has.",
+      "text": "Every Titan costs 100 points less and gains Fast (1). The engines are driven past safe limits: no Titan keeps its Repair Crew, and the Legio brings no Triaros Armoured Conveyors.",
+      "points": [ { "match": { "unitType": "Titan" }, "delta": -100 } ],
+      "modifiers": [
+        { "match": { "unitType": "Titan" }, "text": "The Reactor Gambit: Fast (1).", "addRules": ["Fast (1)"] },
+        { "units": ["warhound-titan"], "text": "Reactor Gambit: no Repair Crew.", "removeRules": ["Repair Crew (D3)"] },
+        { "units": ["reaver-titan"], "text": "Reactor Gambit: no Repair Crew.", "removeRules": ["Repair Crew (D3+1)"] },
+        { "units": ["warbringer-nemesis-titan"], "text": "Reactor Gambit: no Repair Crew.", "removeRules": ["Repair Crew (D6)"] },
+        { "units": ["warlord-titan"], "text": "Reactor Gambit: no Repair Crew.", "removeRules": ["Repair Crew (D6+1)"] }
+      ],
+      "forbid": [ { "units": ["triaros-armoured-conveyor"] } ]
+    },
+    {
+      "name": "The Void-Wall Bastion",
+      "flavor": "A Titan is only as safe as the men who stand beneath its knees.",
+      "text": "Secutarii Cohorts may fill Elites slots and gain a 4+ Invulnerable Save. The Legio digs in around a single engine: no more than one Titan, and no Warbringer or Warlord.",
+      "roles": [ { "units": ["secutarii-cohort"], "role": "Elites" } ],
+      "modifiers": [ { "units": ["secutarii-cohort"], "text": "The Void-Wall Bastion: best 4+ Invulnerable Save.", "stats": { "INV": "best:4+" } } ],
+      "limit": [ { "match": { "unitType": "Titan" }, "max": 1 } ],
+      "forbid": [ { "units": ["warbringer-nemesis-titan", "warlord-titan"] } ]
+    },
+    {
+      "name": "The Bonded Cybernetica Maniple",
+      "flavor": "The Princeps leads from the Titan's head. The Castellaxes lead from nowhere at all.",
+      "text": "Castellax Battle and Destructor Maniples and Domitar Battle Maniples may fill Troops slots. Castellaxes gain +1 Ballistic Skill. The Legio relies on its machines and brings no Secutarii Cohorts or Axiarchs, and only one Titan.",
+      "roles": [ { "units": ["castellax-battle-maniple", "castellax-destructor-maniple", "domitar-battle-maniple"], "role": "Troops" } ],
+      "modifiers": [ { "units": ["castellax-battle-maniple", "castellax-destructor-maniple"], "text": "Bonded Maniple: +1 BS.", "stats": { "BS": "+1" } } ],
+      "forbid": [ { "units": ["secutarii-cohort", "secutarii-axiarch"] } ],
+      "limit": [ { "match": { "unitType": "Titan" }, "max": 1 } ]
+    }
+  ]
+}

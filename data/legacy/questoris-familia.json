@@ -1,0 +1,91 @@
+{
+  "weapons": {
+    "ranged": [
+      { "name": "Baron's hunter-killer salvo", "R": 48, "FP": 1, "RS": 8, "AP": 3, "D": 1, "specialRules": ["Blast (3\")", "Limited (1)"], "traits": ["Missile"] },
+      { "name": "Armiger longbarrel", "R": 36, "FP": 2, "RS": 8, "AP": 3, "D": 2, "specialRules": ["Breaching (5+)", "Heavy (FP)"], "traits": ["Auto"] }
+    ],
+    "melee": [
+      { "name": "Heirloom glaive", "IM": "I", "AM": "A", "SM": "+2", "AP": 2, "D": 2, "specialRules": ["Reaping Blow (1)"], "traits": ["Power"] },
+      { "name": "Heirloom lance", "IM": "-1", "AM": "A", "SM": "+2", "AP": 2, "D": 3, "specialRules": ["Impact (S)"], "traits": ["Power"] }
+    ]
+  },
+  "wargear": [
+    { "name": "Baronial heraldry", "text": "Legacy house rule. A hundred years of victories painted across the faceplate and shoulder carapace, each one a promise to the Household. The Knight fights with the whole court watching and gains +1 Weapon Skill and +1 Ballistic Skill." },
+    { "name": "Sacristan's reliquary", "text": "Legacy house rule. A locked casket of sacred oils, coolant-psalters and the ashes of former pilots, kept by a Sacristan who rides in the lee of the war machine. The Knight gains +1 Hull Point (or +1 Wound on an Armiger)." }
+  ],
+  "options": [
+    { "units": ["armiger-warglaive"],
+      "option": { "id": "qf-heirloom-glaive", "kind": "one", "model": "Armiger Warglaive", "replaces": ["Reaper chainblade"],
+        "text": "The Armiger Warglaive may exchange its reaper chainblade for", "choices": [ { "name": "Heirloom glaive", "points": 10 } ] } },
+    { "units": ["armiger-helverin"],
+      "option": { "id": "qf-armiger-longbarrel", "kind": "one", "model": "Armiger Helverin", "replaces": ["Phaeton autocannon"],
+        "text": "The Armiger Helverin may exchange its Phaeton autocannon for", "choices": [ { "name": "Armiger longbarrel", "points": 10 } ] } },
+    { "units": ["knight-questoris"],
+      "option": { "id": "qf-hunter-killer-salvo", "kind": "upgrade", "model": "Questoris Knight",
+        "text": "The Knight may carry a salvo of hunter-killer rockets", "choices": [ { "name": "Baron's hunter-killer salvo", "points": 25 } ] } },
+    { "units": ["cerastus-knight-castigator"],
+      "option": { "id": "qf-castigator-flare", "kind": "one", "model": "Knight Castigator", "replaces": ["Ion Shield"],
+        "text": "The Castigator may swap its ion shield for", "choices": [ { "name": "Ionic Flare Shield", "points": 10 } ] } },
+    { "units": ["veletaris-vanguard-section"],
+      "option": { "id": "qf-vanguard-volkite", "kind": "perModel", "model": "Veletarii", "replaces": ["Heavy flamer"], "max": 3,
+        "text": "Up to three Veletarii may exchange their heavy flamer for", "choices": [ { "name": "Volkite charger", "points": 2 } ] } },
+    { "match": { "unitType": "Knight" },
+      "option": { "id": "qf-baronial-heraldry", "kind": "upgrade", "model": null,
+        "text": "The Knight may bear its Household's full heraldry", "choices": [ { "name": "Baronial heraldry", "points": 30 } ] } },
+    { "match": { "unitType": "Knight" },
+      "option": { "id": "qf-reliquary-knight", "kind": "upgrade", "model": null,
+        "text": "The Knight may be attended by a Sacristan", "choices": [ { "name": "Sacristan's reliquary", "points": 25 } ] } },
+    { "units": ["armiger-helverin", "armiger-warglaive", "armiger-moirax"],
+      "option": { "id": "qf-reliquary-armiger", "kind": "upgrade", "model": null,
+        "text": "The Armiger may be attended by a Sacristan", "choices": [ { "name": "Sacristan's reliquary", "points": 15 } ] } }
+  ],
+  "modifiers": [
+    { "units": ["armiger-helverin", "armiger-warglaive", "armiger-moirax"], "text": "Light frames: +2 M, -1 W.", "stats": { "M": "+2", "W": "-1" } },
+    { "units": ["cerastus-knight-castigator", "cerastus-knight-acheron", "cerastus-knight-lancer", "cerastus-knight-atrapos"], "text": "Cerastus charge-frames: +2 M, -1 REAR.", "stats": { "M": "+2", "REAR": "-1" } },
+    { "units": ["acastus-knight-porphyrion", "acastus-knight-asterius"], "text": "Acastus bastions: -2 M, +1 FRONT.", "stats": { "M": "-2", "FRONT": "+1" } },
+    { "units": ["knight-questoris"], "text": "Gunnery doctrine: +1 BS, -1 I.", "stats": { "BS": "+1", "I": "-1" } },
+    { "match": { "trait": "Imperialis Militia" }, "text": "Pressed levies who know the Household's justice: +1 LD, -1 CL.", "stats": { "LD": "+1", "CL": "-1" } },
+    { "match": { "unitType": "Knight" }, "item": "Baronial heraldry", "scope": "unit", "text": "Baronial heraldry: +1 WS, +1 BS.", "stats": { "WS": "+1", "BS": "+1" } },
+    { "match": { "unitType": "Knight" }, "item": "Sacristan's reliquary", "scope": "unit", "text": "Sacristan's reliquary: +1 HP.", "stats": { "HP": "+1" } },
+    { "units": ["armiger-helverin", "armiger-warglaive", "armiger-moirax"], "item": "Sacristan's reliquary", "scope": "unit", "text": "Sacristan's reliquary: +1 W.", "stats": { "W": "+1" } }
+  ],
+  "rites": [
+    {
+      "name": "The Armiger Ward",
+      "flavor": "The young scions go first, and the Baron watches from the ridge.",
+      "text": "Armiger Helverins, Warglaives and Moiraxes may fill Troops slots and cost 15 points less. Every Armiger gains +1 Initiative. The Household's great Knights are held back for the final reckoning: no Acastus Knights, and no more than one Lord of War. At least three Armigers are required.",
+      "roles": [ { "units": ["armiger-helverin", "armiger-warglaive", "armiger-moirax"], "role": "Troops" } ],
+      "points": [ { "units": ["armiger-helverin", "armiger-warglaive", "armiger-moirax"], "delta": -15 } ],
+      "modifiers": [ { "units": ["armiger-helverin", "armiger-warglaive", "armiger-moirax"], "text": "The Armiger Ward: +1 I.", "stats": { "I": "+1" } } ],
+      "require": [ { "units": ["armiger-helverin", "armiger-warglaive", "armiger-moirax"], "min": 3, "note": "Bring at least three Armigers." } ],
+      "forbid": [ { "units": ["acastus-knight-porphyrion", "acastus-knight-asterius"] } ],
+      "limit": [ { "match": { "role": "Lord of War" }, "max": 1 } ]
+    },
+    {
+      "name": "The Lists of Honour",
+      "flavor": "A Knight who will not name his challenge is only a tank with a coat of arms.",
+      "text": "Every Knight gains Fear (1) and +1 Weapon Skill. The army will not skulk: no Recon, no Support units and no Acastus Knights. At least one Knight is required.",
+      "modifiers": [ { "match": { "unitType": "Knight" }, "text": "The Lists of Honour: Fear (1), +1 WS.", "stats": { "WS": "+1" }, "addRules": ["Fear (1)"] } ],
+      "require": [ { "match": { "unitType": "Knight" }, "min": 1, "note": "A Knight must issue the challenge." } ],
+      "forbid": [ { "match": { "role": "Recon" } }, { "match": { "role": "Support" } }, { "units": ["acastus-knight-porphyrion", "acastus-knight-asterius"] } ]
+    },
+    {
+      "name": "The Sacristan's Vigil",
+      "flavor": "Each Knight is carried to war on a ledger of vows, and the ledger is long.",
+      "text": "Every Knight gains +2 Hull Points. The weight of the rites slows the Household: every Knight loses 2 Movement and costs 30 points more, and no more than two Lords of War may be fielded.",
+      "points": [ { "match": { "unitType": "Knight" }, "delta": 30 } ],
+      "modifiers": [ { "match": { "unitType": "Knight" }, "text": "The Sacristan's Vigil: +2 HP, -2 M.", "stats": { "HP": "+2", "M": "-2" } } ],
+      "limit": [ { "match": { "role": "Lord of War" }, "max": 2 } ]
+    },
+    {
+      "name": "Muster of the Free Levy",
+      "flavor": "The Baron calls his tithe, and every town on his world sends its sons.",
+      "text": "Infantry Troops and Levy Troops cost 10 points less, Grenadier Troops may fill Troops slots, and the Household's Militia gain +1 Willpower. The Knights are too few to share the glory: at most one Lord of War, and no Armiger Moirax.",
+      "roles": [ { "units": ["grenadier-troop"], "role": "Troops" } ],
+      "points": [ { "units": ["infantry-troop", "levy-troop"], "delta": -10 } ],
+      "modifiers": [ { "match": { "trait": "Imperialis Militia" }, "text": "Muster of the Free Levy: +1 WP.", "stats": { "WP": "+1" } } ],
+      "limit": [ { "match": { "role": "Lord of War" }, "max": 1 } ],
+      "forbid": [ { "units": ["armiger-moirax"] } ]
+    }
+  ]
+}

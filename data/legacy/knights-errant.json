@@ -1,0 +1,71 @@
+{
+  "weapons": {
+    "ranged": [],
+    "melee": [
+      { "name": "Black-lacquer dirk", "IM": "+1", "AM": "A", "SM": "S", "AP": 3, "D": 1, "specialRules": ["Rending (6+)", "Precision (5+)"], "traits": ["Power"] }
+    ]
+  },
+  "wargear": [
+    { "name": "Sigillite's black seal", "text": "Legacy house rule. A wax-and-steel writ carrying Malcador's personal authority, which opens any door and closes most arguments. The bearer gains +1 Willpower and +1 Leadership." },
+    { "name": "Shroud-cloak of the Talons", "text": "Legacy house rule. A cameleoline mantle woven in the Sigillite's own workshops. Enemy units shooting at the bearer from more than 12\" suffer -1 to hit, and the bearer gains +1 Initiative." }
+  ],
+  "options": [
+    { "units": ["nathaniel-garro"],
+      "option": { "id": "ke-garro-seal", "kind": "upgrade", "model": "Nathaniel Garro",
+        "text": "Garro may carry the Sigillite's own seal", "choices": [ { "name": "Sigillite's black seal", "points": 20 } ] } },
+    { "units": ["nathaniel-garro"],
+      "option": { "id": "ke-garro-dirk", "kind": "upgrade", "model": "Nathaniel Garro",
+        "text": "Garro may carry a black-lacquer dirk as a sidearm", "choices": [ { "name": "Black-lacquer dirk", "points": 10 } ] } },
+    { "units": ["tylos-rubio"],
+      "option": { "id": "ke-rubio-pistol", "kind": "one", "model": "Tylos Rubio", "replaces": ["Bolt pistol"],
+        "text": "Rubio may exchange his bolt pistol for", "choices": [ { "name": "Archeotech pistol", "points": 5 } ] } },
+    { "units": ["nathaniel-garro", "tylos-rubio"],
+      "option": { "id": "ke-shroud-cloak", "kind": "upgrade", "model": ["Nathaniel Garro", "Tylos Rubio"],
+        "text": "The Knight-Errant may be issued a shroud-cloak", "choices": [ { "name": "Shroud-cloak of the Talons", "points": 15 } ] } },
+    { "units": ["domitar-battle-maniple"],
+      "option": { "id": "ke-domitar-pulsar", "kind": "perModel", "model": "Domitar", "replaces": ["Cyclone missile launcher"],
+        "text": "Any Domitar may exchange its cyclone missile launcher for", "choices": [ { "name": "Graviton pulsar", "points": 10 } ] } },
+    { "units": ["vorax-attack-maniple"],
+      "option": { "id": "ke-vorax-incinerator", "kind": "perModel", "model": "Vorax", "replaces": ["Lightning gun"],
+        "text": "Any Vorax may exchange its lightning gun for", "choices": [ { "name": "Volkite incinerator", "points": 4 } ] } },
+    { "units": ["vultarax-stratos-squadron"],
+      "option": { "id": "ke-vultarax-gun", "kind": "one", "model": "Vultarax", "replaces": ["Arc blaster"],
+        "text": "The Vultarax may exchange its arc blaster for", "choices": [ { "name": "Lightning gun", "points": 5 } ] } }
+  ],
+  "modifiers": [
+    { "units": ["nathaniel-garro"], "text": "Veteran duellist: +1 WS, -1 BS.", "stats": { "WS": "+1", "BS": "-1" } },
+    { "units": ["tylos-rubio"], "text": "Echoes of fate: +1 IN, -1 S.", "stats": { "IN": "+1", "S": "-1" } },
+    { "units": ["vorax-attack-maniple"], "text": "Hunter-cell frames: +1 M, -1 T.", "stats": { "M": "+1", "T": "-1" } },
+    { "units": ["domitar-battle-maniple"], "text": "Vanguard fire-control: +1 BS, -1 M.", "stats": { "BS": "+1", "M": "-1" } },
+    { "units": ["nathaniel-garro"], "item": "Sigillite's black seal", "scope": "unit", "text": "Sigillite's black seal: +1 WP, +1 LD.", "stats": { "WP": "+1", "LD": "+1" } },
+    { "units": ["nathaniel-garro", "tylos-rubio"], "item": "Shroud-cloak of the Talons", "scope": "unit", "text": "Shroud-cloak of the Talons: +1 I.", "stats": { "I": "+1" } }
+  ],
+  "rites": [
+    {
+      "name": "Garro's Company",
+      "flavor": "A handful of oath-breakers and loyalists, bound by the one thing neither side believed in.",
+      "text": "Castellax and Domitar Maniples may fill Troops slots, and Garro and Rubio gain +1 Leadership. The company answers to a Knight-Errant alone: either Garro or Rubio must be fielded, and the army brings no Vorax or Vultarax hunter-cells.",
+      "roles": [ { "units": ["castellax-battle-maniple", "castellax-destructor-maniple", "domitar-battle-maniple"], "role": "Troops" } ],
+      "modifiers": [ { "units": ["nathaniel-garro", "tylos-rubio"], "text": "Garro's Company: +1 LD.", "stats": { "LD": "+1" } } ],
+      "require": [ { "units": ["nathaniel-garro", "tylos-rubio"], "min": 1, "note": "A Knight-Errant must lead." } ],
+      "forbid": [ { "units": ["vorax-attack-maniple", "vultarax-stratos-squadron"] } ]
+    },
+    {
+      "name": "The Hunter-Killer Cell",
+      "flavor": "Four fast engines, one sealed order, and nobody to ask what it said.",
+      "text": "Vorax Attack Maniples and Vultarax Stratos Squadrons may fill Troops slots, and Voraxes cost 15 points less. The cell travels light: no Thanatar Siege Maniples, no Domitar Maniples, and no Castellax Destructor Maniples. At least one Vorax Maniple is required.",
+      "roles": [ { "units": ["vorax-attack-maniple", "vultarax-stratos-squadron"], "role": "Troops" } ],
+      "points": [ { "units": ["vorax-attack-maniple"], "delta": -15 } ],
+      "require": [ { "units": ["vorax-attack-maniple"], "min": 1, "note": "The cell needs its Voraxes." } ],
+      "forbid": [ { "units": ["thanatar-siege-maniple", "domitar-battle-maniple", "castellax-destructor-maniple"] } ]
+    },
+    {
+      "name": "The Unwitnessed Writ",
+      "flavor": "Some orders are carried out in silence, by engines that cannot be questioned and cannot talk.",
+      "text": "Thanatar Siege Maniples may fill Elites slots and cost 40 points less, and Domitar Maniples cost 25 points less. The Sigillite will not let a witch near this work: no Psykers (no Rubio), and no Vorax or Vultarax.",
+      "roles": [ { "units": ["thanatar-siege-maniple"], "role": "Elites" } ],
+      "points": [ { "units": ["thanatar-siege-maniple"], "delta": -40 }, { "units": ["domitar-battle-maniple"], "delta": -25 } ],
+      "forbid": [ { "match": { "trait": "Psyker" } }, { "units": ["vorax-attack-maniple", "vultarax-stratos-squadron"] } ]
+    }
+  ]
+}

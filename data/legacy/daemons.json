@@ -1,0 +1,93 @@
+{
+  "weapons": {
+    "ranged": [
+      { "name": "Fate-spark volley", "R": 18, "FP": 2, "RS": 5, "AP": 5, "D": 1, "specialRules": ["Deflagrate (3)"], "traits": ["Immaterial", "Assault"] }
+    ],
+    "melee": [
+      { "name": "Barbed lash-tongue", "IM": "I", "AM": "A", "SM": "S", "AP": 4, "D": 1, "specialRules": ["Reaping Blow (1)"], "traits": ["Immaterial"] },
+      { "name": "Bound-ruin blade", "IM": "I", "AM": "A", "SM": "+1", "AP": 2, "D": 2, "specialRules": ["Phage (S)", "Critical Hit (6+)"], "traits": ["Immaterial"] },
+      { "name": "Warp-maw gorger", "IM": "I", "AM": "+1", "SM": "S", "AP": 4, "D": 2, "specialRules": ["Shred (5+)"], "traits": ["Immaterial"] }
+    ]
+  },
+  "wargear": [
+    { "name": "Warp-brand", "text": "Legacy house rule. The unit has been marked by one of the Powers, a sigil burned into the flesh that will not heal. All models in the unit gain +1 Attack." },
+    { "name": "Ruin-shard crown", "text": "Legacy house rule. A fragment of the Ruinstorm worn as a diadem, bleeding unreality into the air. The bearer's unit gains Fear (1)." }
+  ],
+  "options": [
+    { "units": ["ruinstorm-lesser-daemons"],
+      "option": { "id": "dm-lesser-lash", "kind": "perModel", "model": "Lesser Daemons", "replaces": ["Daemon claws"], "max": 4,
+        "text": "Up to four Lesser Daemons may exchange their claws for", "choices": [ { "name": "Barbed lash-tongue", "points": 2 } ] } },
+    { "units": ["ruinstorm-daemon-brutes"],
+      "option": { "id": "dm-brutes-totem", "kind": "perModel", "model": "Brutes", "max": 1,
+        "text": "One Brute may bear a totem", "choices": [ { "name": "Totem of Dominion", "points": 10 } ] } },
+    { "units": ["ruinstorm-daemon-harbinger"],
+      "option": { "id": "dm-harbinger-blade", "kind": "one", "model": "Harbinger", "replaces": ["Harbinger blade"],
+        "text": "The Harbinger may exchange its blade for", "choices": [ { "name": "Bound-ruin blade", "points": 10 } ] } },
+    { "units": ["ruinstorm-daemon-beasts"],
+      "option": { "id": "dm-beasts-gorger", "kind": "perModel", "model": "Beasts", "replaces": ["Maw & talon"], "max": 3,
+        "text": "Up to three Beasts may exchange their maw and talon for", "choices": [ { "name": "Warp-maw gorger", "points": 5 } ] } },
+    { "units": ["horrors-of-tzeench"],
+      "option": { "id": "dm-horrors-spark", "kind": "perModel", "model": "Pink Horror", "replaces": ["Warpfire"], "max": 3,
+        "text": "Up to three Pink Horrors may exchange their warpfire for", "choices": [ { "name": "Fate-spark volley", "points": 3 } ] } },
+    { "units": ["ruinstorm-lesser-daemons", "ruinstorm-daemon-brutes", "ruinstorm-daemon-beasts", "ruinstorm-daemon-riders", "ruinstorm-daemon-harriers"],
+      "option": { "id": "dm-warp-brand", "kind": "upgrade", "model": null,
+        "text": "The unit may bear the brand of a Power", "choices": [ { "name": "Warp-brand", "points": 20 } ] } },
+    { "units": ["ruinstorm-daemon-sovereign", "ruinstorm-daemon-hierarch", "ruinstorm-daemon-harbinger"],
+      "option": { "id": "dm-ruin-crown", "kind": "upgrade", "model": null,
+        "text": "The commander may wear a crown of unreality", "choices": [ { "name": "Ruin-shard crown", "points": 15 } ] } }
+  ],
+  "modifiers": [
+    { "units": ["ruinstorm-lesser-daemons"], "text": "Flickering imps: +1 I, -1 T.", "stats": { "I": "+1", "T": "-1" } },
+    { "units": ["ruinstorm-daemon-swarms"], "text": "Gnawing mass: +1 A, -1 W.", "stats": { "A": "+1", "W": "-1" } },
+    { "units": ["ruinstorm-daemon-beasts"], "text": "Hunting-pack ferocity: +1 M, -1 WP.", "stats": { "M": "+1", "WP": "-1" } },
+    { "units": ["horrors-of-tzeench"], "text": "Prismatic spite: +1 BS, -1 T.", "stats": { "BS": "+1", "T": "-1" } },
+    { "units": ["ruinstorm-daemon-brutes", "ruinstorm-greater-daemon-beast"], "text": "Raw unreality: +1 S, -1 I.", "stats": { "S": "+1", "I": "-1" } },
+    { "units": ["ruinstorm-lesser-daemons", "ruinstorm-daemon-brutes", "ruinstorm-daemon-beasts", "ruinstorm-daemon-riders", "ruinstorm-daemon-harriers"], "item": "Warp-brand", "scope": "model", "text": "Warp-brand: +1 A.", "stats": { "A": "+1" } }
+  ],
+  "rites": [
+    {
+      "name": "The Gnashing Tide",
+      "flavor": "The Ruinstorm does not march. It rises, and it keeps rising.",
+      "text": "Lesser Daemons cost 20 points less, Daemon Swarms cost 15 points less, and Harriers and Riders may fill Troops slots. A tide has no champions: no Lord of War units and no War Engines. At least one Lesser Daemons unit is required.",
+      "roles": [ { "units": ["ruinstorm-daemon-harriers", "ruinstorm-daemon-riders"], "role": "Troops" } ],
+      "points": [ { "units": ["ruinstorm-lesser-daemons"], "delta": -20 }, { "units": ["ruinstorm-daemon-swarms"], "delta": -15 } ],
+      "require": [ { "units": ["ruinstorm-lesser-daemons"], "min": 1, "note": "The tide needs its Lesser Daemons." } ],
+      "forbid": [ { "match": { "role": "Lord of War" } }, { "match": { "role": "War Engine" } } ]
+    },
+    {
+      "name": "The Pale Banner of Fate",
+      "flavor": "The future is a river, and a river can be made to run uphill if you ask it in the right voice.",
+      "text": "Flamers and Screamers of Tzeench may fill Troops slots, and every Tzeench unit gains +1 Willpower. The army must be faithful to the Changer: only Tzeench daemons and Heresy-born war machines, no Ruinstorm units and no Ka'bandha, Cor'bax or Samus. At least one Lord of Change, Ascendant Lord or Herald is required.",
+      "roles": [ { "units": ["flamers-of-tzeench", "screamers-of-tzeench"], "role": "Troops" } ],
+      "modifiers": [ { "match": { "trait": "Tzeench" }, "text": "The Pale Banner of Fate: +1 WP.", "stats": { "WP": "+1" } } ],
+      "require": [ { "units": ["lord-of-change", "ascendant-lord-of-tzeench", "herald-of-tzeench"], "min": 1, "note": "A Tzeench leader must command." } ],
+      "forbid": [ { "units": ["ruinstorm-daemon-sovereign", "ruinstorm-daemon-hierarch", "ruinstorm-daemon-harbinger", "ruinstorm-daemon-brutes", "ruinstorm-lesser-daemons", "ruinstorm-daemon-swarms", "ruinstorm-greater-daemon-beast", "ruinstorm-daemon-beasts", "ruinstorm-daemon-behemoth", "ruinstorm-daemon-harriers", "ruinstorm-daemon-riders", "kabandha", "corbax-utterblight", "samus"] } ]
+    },
+    {
+      "name": "The Red Tide of Ka'bandha",
+      "flavor": "Skulls for the throne. All of them. All at once.",
+      "text": "Ruinstorm Daemon Brutes and Blood Slaughterers may fill Troops slots, and Brutes gain +1 Attack. The Blood God allows no sorcery: no Psykers and no Tzeench units. Ka'bandha must be fielded.",
+      "roles": [ { "units": ["ruinstorm-daemon-brutes", "blood-slaughterer"], "role": "Troops" } ],
+      "modifiers": [ { "units": ["ruinstorm-daemon-brutes"], "text": "The Red Tide: +1 A.", "stats": { "A": "+1" } } ],
+      "require": [ { "units": ["kabandha"], "min": 1, "note": "Ka'bandha leads the tide." } ],
+      "forbid": [ { "match": { "trait": "Psyker" } }, { "match": { "trait": "Tzeench" } } ]
+    },
+    {
+      "name": "Rot Unbidden",
+      "flavor": "It does not hurry. It has never needed to.",
+      "text": "Every Ruinstorm daemon (Malefic model) gains Feel No Pain (6+) and the Behemoth and Greater Daemon Beast may fill Elites slots. The Plague drags its feet: every Malefic model loses 1 Movement, and the army brings no Recon or Fast Attack units. Cor'bax Utterblight must be fielded.",
+      "roles": [ { "units": ["ruinstorm-daemon-behemoth", "ruinstorm-greater-daemon-beast"], "role": "Elites" } ],
+      "modifiers": [ { "match": { "unitType": "Malefic" }, "text": "Rot Unbidden: Feel No Pain (6+), -1 M.", "stats": { "M": "-1" }, "addRules": ["Feel No Pain (6+)"] } ],
+      "require": [ { "units": ["corbax-utterblight"], "min": 1, "note": "Cor'bax carries the rot." } ],
+      "forbid": [ { "match": { "role": "Recon" } }, { "match": { "role": "Fast Attack" } } ]
+    },
+    {
+      "name": "Rapture's Invitation",
+      "flavor": "They do not want to hurt you. They want you to ask them to.",
+      "text": "Harriers and Riders gain Fast (1) and +1 Initiative. Excess is a poor friend of discipline: no Heavy Assault or War Engine units, and the Behemoth, Brutes and Decimators are all barred. Samus must be fielded.",
+      "modifiers": [ { "units": ["ruinstorm-daemon-harriers", "ruinstorm-daemon-riders"], "text": "Rapture's Invitation: Fast (1), +1 I.", "stats": { "I": "+1" }, "addRules": ["Fast (1)"] } ],
+      "require": [ { "units": ["samus"], "min": 1, "note": "Samus calls the invitation." } ],
+      "forbid": [ { "match": { "role": "Heavy Assault" } }, { "match": { "role": "War Engine" } }, { "units": ["decimator"] } ]
+    }
+  ]
+}

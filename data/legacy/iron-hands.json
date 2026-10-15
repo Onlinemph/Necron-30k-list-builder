@@ -1,0 +1,88 @@
+{
+  "weapons": {
+    "ranged": [
+      { "name": "Gorgon carbine", "R": 18, "FP": 3, "RS": 5, "AP": 4, "D": 1, "specialRules": ["Pinning (1)", "Breaching (6+)"], "traits": ["Bolt"] },
+      { "name": "Rivet storm cannon", "R": 24, "FP": 6, "RS": 5, "AP": 4, "D": 1, "specialRules": ["Breaching (6+)"], "traits": ["Bolt"] }
+    ],
+    "melee": [
+      { "name": "Medusan cleaver", "IM": -1, "AM": "A", "SM": "+2", "AP": 3, "D": 1, "specialRules": ["Shred (5+)"], "traits": ["Power"] },
+      { "name": "Clan power fist", "IM": -3, "AM": "A", "SM": "+4", "AP": 2, "D": 3, "specialRules": ["Breaching (6+)"], "traits": ["Power"] }
+    ]
+  },
+  "wargear": [
+    { "name": "Iron Hand graft", "text": "Legacy house rule. A fist and forearm of black-iron servos, grafted on in a ritual of surrender. The model gains +1 Strength and loses 1 Initiative." },
+    { "name": "Fortress-shield array", "text": "Legacy house rule. Interlocked shield plates and a gyro-stabilised brace turn the squad into a moving bulkhead. Every model in the unit has a 4+ Invulnerable Save if it was worse." },
+    { "name": "Pain-engine harness", "text": "Legacy house rule. A cortex-fed servitor harness that turns every wound into fuel for the next blow. The model gains +1 Attack and loses 1 Initiative." },
+    { "name": "Clan iron-cladding", "text": "Legacy house rule. Layer upon layer of clan-forged plating bolted over the sarcophagus. The model gains +1 Wound." }
+  ],
+  "options": [
+    { "units": ["tactical-squad", "despoiler-squad", "breacher-squad", "veteran-tactical-squad", "assault-squad", "veteran-assault-squad"],
+      "option": { "id": "ih-clan-sergeant-weapon", "kind": "one", "modelType": "Sergeant", "text": "The Sergeant may take a clan-forged weapon",
+        "choices": [ { "name": "Medusan cleaver", "points": 10 }, { "name": "Clan power fist", "points": 15 }, { "name": "Gorgon carbine", "points": 10 } ] } },
+    { "units": ["tactical-squad", "despoiler-squad", "breacher-squad", "veteran-tactical-squad", "assault-squad", "veteran-assault-squad"],
+      "option": { "id": "ih-iron-hand-graft", "kind": "upgrade", "modelType": "Sergeant", "text": "The Sergeant may take an Iron Hand graft",
+        "choices": [ { "name": "Iron Hand graft", "points": 10 } ] } },
+    { "units": ["medusan-immortals-squad"],
+      "option": { "id": "ih-fortress-shield", "kind": "upgrade", "model": null, "text": "The unit may carry a Fortress-shield array",
+        "choices": [ { "name": "Fortress-shield array", "points": 20 } ] } },
+    { "units": ["castellax-battle-maniple"],
+      "option": { "id": "ih-rivet-storm", "kind": "perModel", "model": "Castellax", "replaces": ["Mauler bolt cannon"],
+        "text": "Any Castellax may exchange its mauler bolt cannon for", "choices": [ { "name": "Rivet storm cannon", "points": 5 } ] } },
+    { "units": ["morlock-terminator-squad"],
+      "option": { "id": "ih-morlock-guns", "kind": "perModel", "model": "Morlock", "replaces": ["Combi-bolter"],
+        "text": "Any Morlock may exchange its combi-bolter for", "choices": [ { "name": "Gorgon carbine", "points": 5 }, { "name": "Rivet storm cannon", "points": 10 } ] } },
+    { "units": ["iron-father", "iron-father-in-artificer-armour", "forge-lord", "forge-lord-in-terminator-armour"], "optionalUnits": true,
+      "option": { "id": "ih-pain-engine", "kind": "upgrade", "modelType": "Command", "text": "May take a Pain-engine harness",
+        "choices": [ { "name": "Pain-engine harness", "points": 15 } ] } },
+    { "units": ["contemptor-dreadnought", "castra-ferrum-dreadnought", "leviathan-dreadnought", "deredeo-dreadnought"], "optionalUnits": true,
+      "option": { "id": "ih-iron-cladding", "kind": "upgrade", "model": null, "text": "May be fitted with Clan iron-cladding",
+        "choices": [ { "name": "Clan iron-cladding", "points": 20 } ] } }
+  ],
+  "modifiers": [
+    { "units": ["medusan-immortals-squad"], "text": "Flesh long since replaced: +1 T, -1 I.", "stats": { "T": "+1", "I": "-1" } },
+    { "units": ["tactical-squad", "despoiler-squad", "breacher-squad", "veteran-tactical-squad"], "text": "Cold calculus: +1 CL, -1 IN.", "stats": { "CL": "+1", "IN": "-1" } },
+    { "units": ["gorgon-terminator-squad"], "text": "Gorgon-pattern servos: +1 S, -1 I.", "stats": { "S": "+1", "I": "-1" } },
+    { "units": ["morlock-terminator-squad"], "text": "Morlock hunting-frames: +1 A, -1 M.", "stats": { "A": "+1", "M": "-1" } },
+    { "match": { "unitType": "Command", "notUnitType": "Vehicle" }, "text": "Augmetic commanders: +1 W, -1 I.", "stats": { "W": "+1", "I": "-1" } },
+    { "units": ["castellax-battle-maniple", "castellax-destructor-maniple"], "text": "Cortex-slaved targeting: +1 BS, -1 WP.", "stats": { "BS": "+1", "WP": "-1" } },
+    { "units": ["*"], "item": "Iron Hand graft", "text": "Iron Hand graft: +1 S, -1 I.", "stats": { "S": "+1", "I": "-1" } },
+    { "units": ["*"], "item": "Fortress-shield array", "scope": "unit", "text": "Fortress-shield array: 4+ Invulnerable Save.", "stats": { "INV": "best:4+" } },
+    { "units": ["*"], "item": "Pain-engine harness", "text": "Pain-engine harness: +1 A, -1 I.", "stats": { "A": "+1", "I": "-1" } },
+    { "units": ["*"], "item": "Clan iron-cladding", "text": "Clan iron-cladding: +1 W.", "stats": { "W": "+1" } }
+  ],
+  "rites": [
+    {
+      "name": "Cohorts of the Iron Father",
+      "flavor": "A Clan-Council that trusts steel and cortex-code over the whims of flesh.",
+      "text": "Castellax Battle Maniples and Castellax Destructor Maniples may fill Troops slots and cost 10 points less. Every Castellax gains +1 Ballistic Skill. An Iron Father (either pattern) must be in the army. The Legion has no patience for the sorcerous or the swift: no Librarians or Esoterists, no Assault Squads, no model with the Antigrav type, and no more than two Tactical or Despoiler Squads in total.",
+      "roles": [ { "units": ["castellax-battle-maniple", "castellax-destructor-maniple"], "role": "Troops" } ],
+      "points": [ { "units": ["castellax-battle-maniple", "castellax-destructor-maniple"], "delta": -10 } ],
+      "modifiers": [ { "units": ["castellax-battle-maniple", "castellax-destructor-maniple"], "text": "Cohorts of the Iron Father: +1 BS.", "stats": { "BS": "+1" } } ],
+      "require": [ { "units": ["iron-father", "iron-father-in-artificer-armour"], "min": 1, "note": "An Iron Father must command the cohorts." } ],
+      "limit": [ { "units": ["tactical-squad", "despoiler-squad"], "max": 2 } ],
+      "forbid": [ { "match": { "nameIncludes": ["Librarian", "Esoterist"] } }, { "units": ["assault-squad", "veteran-assault-squad"] }, { "match": { "unitType": "Antigrav" } } ]
+    },
+    {
+      "name": "Wall of Black Iron",
+      "flavor": "Nothing in the Legion is built to retreat, and the Immortals least of all.",
+      "text": "Medusan Immortals Squads cost 10 points less and gain Line (1). Gorgon Terminator Squads may fill Troops slots. At least two Medusan Immortals Squads are required. The wall does not move fast, and it does not scout: no Fast Attack units and no Recon units.",
+      "roles": [ { "units": ["gorgon-terminator-squad"], "role": "Troops" } ],
+      "points": [ { "units": ["medusan-immortals-squad"], "delta": -10 } ],
+      "modifiers": [ { "units": ["medusan-immortals-squad"], "text": "Wall of Black Iron: Line (1).", "addRules": ["Line (1)"] } ],
+      "require": [ { "units": ["medusan-immortals-squad"], "min": 2, "note": "Bring at least two Medusan Immortals Squads." } ],
+      "forbid": [ { "match": { "role": "Fast Attack" } }, { "match": { "role": "Recon" } } ]
+    },
+    {
+      "name": "The Gorgon's Hammer",
+      "flavor": "When the clan-lords stop talking, the Gorgons go in.",
+      "text": "Gorgon Terminator Squads may fill Troops slots and gain Line (1). On a turn a Gorgon Terminator charges it adds +1 Strength. At least two Gorgon Terminator Squads are required. The hammer needs no tanks to get its blows in: no Armour units and no Recon units.",
+      "roles": [ { "units": ["gorgon-terminator-squad"], "role": "Troops" } ],
+      "modifiers": [
+        { "units": ["gorgon-terminator-squad"], "text": "The Gorgon's Hammer: Line (1).", "addRules": ["Line (1)"] },
+        { "units": ["gorgon-terminator-squad"], "text": "The Gorgon's Hammer: +1 S.", "stats": { "S": "+1" }, "condition": "on a turn the unit charges" }
+      ],
+      "require": [ { "units": ["gorgon-terminator-squad"], "min": 2, "note": "Bring at least two Gorgon Terminator Squads." } ],
+      "forbid": [ { "match": { "role": "Armour" } }, { "match": { "role": "Recon" } } ]
+    }
+  ]
+}
