@@ -661,13 +661,11 @@
         "tech-thrall-covenant",
         "tech-thrall-defence-covenant"
       ],
-      "text": "Lobotomised obedience: Feel No Pain (6+), -1 I.",
+      "text": "Lobotomised obedience: +1 S, -1 I.",
       "stats": {
+        "S": "+1",
         "I": "-1"
-      },
-      "addRules": [
-        "Feel No Pain (6+)"
-      ]
+      }
     },
     {
       "units": [
