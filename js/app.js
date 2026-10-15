@@ -279,10 +279,25 @@
   }
 
   // ---------- render: detachments ----------
+  /** The detachments that count (and print): only the unrestricted list while "Ignore detachments" is on. */
+  function shownDetachments() { return army.free ? army.detachments.filter((d) => d.kind === 'free') : army.detachments; }
+  /** "Ignore detachments": one unrestricted list that always ends in an empty slot for any unit. */
+  function freeDetachment() {
+    let d = army.detachments.find((x) => x.kind === 'free');
+    if (!d) { d = E.makeDetachment('free', 'Unrestricted list', []); army.detachments.push(d); }
+    d.slots = d.slots.filter((s) => s.unit);
+    d.slots.push(E.makeDetachment('free', '', [{ role: 'Any', flexible: true }]).slots[0]);
+    return d;
+  }
   function renderDetachments() {
     const box = $('#detachments');
     box.replaceChildren();
+    $('#ignore-dets').checked = !!army.free;
+    $('.add-det').hidden = !!army.free;
+    if (army.free) freeDetachment();
     for (const d of army.detachments) {
+      // with the option on only the unrestricted list shows; with it off, the list shows only if it holds units
+      if (army.free ? d.kind !== 'free' : d.kind === 'free' && !d.slots.some((s) => s.unit)) continue;
       const def = d.defId ? (DATA.detachments || []).find((x) => x.id === d.defId) : null;
       const pts = d.slots.reduce((a, s) => a + (s.unit ? E.unitPoints(s.unit) : 0), 0);
       const el = h(`<div class="det">
@@ -307,7 +322,9 @@
       const tog = h(`<button type="button" class="small">${d.hideEmpty ? `Show ${empty} empty slot${empty === 1 ? '' : 's'}` : 'Hide empty slots'}</button>`);
       tog.addEventListener('click', () => { d.hideEmpty = !d.hideEmpty; refresh(); });
       if (empty) foot.append(tog);
-      if (d.kind === 'primary') {
+      if (d.kind === 'free' && army.free) {
+        // nothing to remove: switch the option off to go back to detachments
+      } else if (d.kind === 'primary') {
         const b = h('<button type="button" class="small">Edit slots</button>');
         b.addEventListener('click', () => editPrimarySlots(d));
         foot.append(b);
@@ -333,7 +350,7 @@
   function slotRow(det, s) {
     const u = s.unit ? E.unit(s.unit.unitId) : null;
     const bad = s.unit && E.unitIssues(s.unit).some((i) => i.level === 'error');
-    const label = s.advisor ? 'Advisor' : s.flexible ? 'Flexible' : s.logisticOf ? `${s.role} (Logistical)` : s.onlyLabel ? `${s.role} (${s.onlyLabel.replace(/\s+only$/i, '')})` : s.role;
+    const label = det.kind === 'free' ? (u ? u.role : 'Any unit') : s.advisor ? 'Advisor' : s.flexible ? 'Flexible' : s.logisticOf ? `${s.role} (Logistical)` : s.onlyLabel ? `${s.role} (${s.onlyLabel.replace(/\s+only$/i, '')})` : s.role;
     const el = h(`<li class="slot ${active === s.uid ? 'active' : ''}">
       <span class="role">${s.prime ? '<span class="prime" title="Prime slot">★</span>' : ''}${s.flexible ? '<span class="flex">◇</span>' : ''}${esc(label)}</span>
       <span class="name ${u ? '' : 'empty'}">${u ? esc(u.name) + (bad ? ' <span class="bad" title="Has problems">⚠</span>' : '') + (s.unit.primeAdvantage ? ` <small>· ${esc(s.unit.primeAdvantage)}</small>` : '') : '+ add unit'}</span>
@@ -391,8 +408,9 @@
 
   // ---------- pickers ----------
   function pickUnit(det, slot) {
-    const units = E.unitsForSlot(slot, det).slice().sort((a, b) => (a.unique - b.unique) || a.name.localeCompare(b.name));
-    const body = h(`<div><h2>${esc(slot.flexible ? 'Flexible slot' : slot.role)} <small>${esc(det.name)}</small></h2><div class="picker"></div></div>`);
+    const roleOrder = (r) => { const i = E.ROLES ? E.ROLES.indexOf(r) : -1; return i < 0 ? 99 : i; };
+    const units = E.unitsForSlot(slot, det).slice().sort((a, b) => (det.kind === 'free' ? roleOrder(a.role) - roleOrder(b.role) || a.role.localeCompare(b.role) : 0) || (a.unique - b.unique) || a.name.localeCompare(b.name));
+    const body = h(`<div><h2>${esc(det.kind === 'free' ? 'Every unit' : slot.flexible ? 'Flexible slot' : slot.role)} <small>${esc(det.name)}</small></h2><div class="picker"></div></div>`);
     const list = $('.picker', body);
     if (!units.length) list.append(h('<p class="muted">No units fill this slot.</p>'));
     // a long list gets a filter box ("tartaros", "las")
@@ -986,7 +1004,7 @@
     lines.push(`${DATA.meta.name} (${DATA.meta.source} ${DATA.meta.version})`);
     if (army.sequelae.length) lines.push('Aeonic Sequelae: ' + army.sequelae.join(', '));
     lines.push(...configLines());
-    for (const d of army.detachments) {
+    for (const d of shownDetachments()) {
       const units = d.slots.filter((s) => s.unit);
       if (!units.length) continue;
       lines.push('', `== ${d.name} ==`);
@@ -996,7 +1014,7 @@
         if (s.prime) extras.push('Prime' + (s.unit.primeAdvantage ? ': ' + s.unit.primeAdvantage : ''));
         const ark = E.arkanaOf(s.unit);
         if (ark) extras.push(ark);
-        lines.push(`[${s.advisor ? 'Command (Advisor)' : s.flexible ? 'Flexible' : s.role}] ${u.name}${extras.length ? ' (' + extras.join(', ') + ')' : ''} — ${E.unitPoints(s.unit)} pts`);
+        lines.push(`[${d.kind === 'free' ? u.role : s.advisor ? 'Command (Advisor)' : s.flexible ? 'Flexible' : s.role}] ${u.name}${extras.length ? ' (' + extras.join(', ') + ')' : ''} — ${E.unitPoints(s.unit)} pts`);
         for (const r of E.loadout(s.unit)) {
           const chg = r.changes.map((c) => `${c.count > 1 ? c.count + 'x ' : ''}${c.name}${c.replaces ? ' (for ' + c.replaces + ')' : ''}`);
           lines.push(`    ${r.count}x ${r.model}: ${r.base.join(', ')}${chg.length ? '; ' + chg.join(', ') : ''}`);
@@ -1097,14 +1115,14 @@
       for (const r of cfg.fixed) glossary.set(r.name, { name: r.name, text: r.text });
       for (const g of cfg.groups) for (const c of g.choices) if ((army.config[g.id] || []).includes(c.name) && c.text) glossary.set(c.name, { name: c.name, text: c.text });
     }
-    for (const d of army.detachments) {
+    for (const d of shownDetachments()) {
       const units = d.slots.filter((s) => s.unit);
       if (!units.length) continue;
       html += `<h2>${esc(d.name)}</h2>`;
       for (const s of units) {
         const u = E.unit(s.unit.unitId);
         const ark = E.arkanaOf(s.unit);
-        html += `<div class="r-unit"><h3><span>${esc(u.name)} <small class="muted">${esc(s.flexible ? 'Flexible' : s.role)}${s.prime ? ' · Prime' + (s.unit.primeAdvantage ? ': ' + esc(s.unit.primeAdvantage) : '') : ''}${ark ? ' · ' + esc(ark) : ''}</small></span><span>${E.unitPoints(s.unit)} pts</span></h3>`;
+        html += `<div class="r-unit"><h3><span>${esc(u.name)} <small class="muted">${esc(d.kind === 'free' ? u.role : s.flexible ? 'Flexible' : s.role)}${s.prime ? ' · Prime' + (s.unit.primeAdvantage ? ': ' + esc(s.unit.primeAdvantage) : '') : ''}${ark ? ' · ' + esc(ark) : ''}</small></span><span>${E.unitPoints(s.unit)} pts</span></h3>`;
         html += profileTable(u, s.unit, s);
         html += '<ul class="loadout">';
         for (const r of E.loadout(s.unit)) {
@@ -1148,6 +1166,7 @@
 
   $('#army-name').addEventListener('input', (e) => { army.name = e.target.value; save(); });
   $('#points-limit').addEventListener('change', (e) => { army.pointsLimit = Math.max(0, +e.target.value || 0); refresh(); });
+  $('#ignore-dets').addEventListener('change', (e) => { army.free = e.target.checked; active = null; refresh(); });
   $('#btn-new').addEventListener('click', () => { if (confirm('Start a new list? Unsaved changes to this one are lost.')) { army = newArmy(); active = null; refresh(); } });
   $('#btn-save').addEventListener('click', doSave);
   $('#btn-load').addEventListener('click', doLoad);

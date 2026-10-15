@@ -58,7 +58,7 @@
       setSequelae(army.sequelae);
       const config = new Set(Object.values(army.config || {}).flat());
       const units = new Set(), upgrades = new Set(), categories = new Set(), detOf = new Map();
-      for (const d of army.detachments) for (const s of d.slots) {
+      for (const d of dets(army)) for (const s of d.slots) {
         if (!s.unit) continue;
         const u = unit(s.unit.unitId);
         units.add(s.unit.unitId);
@@ -375,7 +375,7 @@
     /** Advantages this unit may take: the codex's own plus any granted by characters in the army. */
     function primeAdvantagesFor(sel, army, slot) {
       const u = unit(sel.unitId);
-      const inPrimary = slot && army && army.detachments.some((d) => d.kind === 'primary' && d.slots.includes(slot));
+      const inPrimary = slot && army && dets(army).some((d) => d.kind === 'primary' && d.slots.includes(slot));
       const noCore = inPrimary && data.forceorg && data.forceorg.primary && data.forceorg.primary.onlyArmyAdvantages;
       const core = (noCore ? [] : (data.forceorg && data.forceorg.primeAdvantages) || [])
         .filter((a) => !a.roles || !slot || a.roles.includes(slot.role))
@@ -399,7 +399,7 @@
         const took = (n) => (u.categories || []).includes(n) || (u.traits || []).includes(n) || Object.values(sel.options || {}).some((v) => v === n || (Array.isArray(v) && v.includes(n)));
         if (e.categories && !e.categories.every(took)) continue;
         if (e.items && !e.items.every(took)) continue;
-        if (g.primaryOnly && slot && army && !army.detachments.some((d) => d.kind === 'primary' && d.slots.includes(slot))) continue;
+        if (g.primaryOnly && slot && army && !dets(army).some((d) => d.kind === 'primary' && d.slots.includes(slot))) continue;
         out.push({ name: g.name, text: g.text, grantedBy: g.grantedBy ? unit(g.grantedBy).name : e.allegiance ? `${e.allegiance} only` : (e.choice || []).join('/') });
       }
       return out;
@@ -634,9 +634,14 @@
     function short(t) { return t && t.length > 60 ? t.slice(0, 57) + '…' : t; }
 
     // ---------- army ----------
+    /** The detachments that count: just the unrestricted list while "Ignore detachments" is on. */
+    function dets(army) {
+      const all = army.detachments || [];
+      return army.free ? all.filter((d) => d.kind === 'free') : all;
+    }
     function allSelections(army) {
       const out = [];
-      for (const d of army.detachments) for (const s of d.slots) if (s.unit) out.push({ det: d, slot: s, sel: s.unit });
+      for (const d of dets(army)) for (const s of d.slots) if (s.unit) out.push({ det: d, slot: s, sel: s.unit });
       return out;
     }
 
@@ -695,21 +700,25 @@
       }
 
       // detachments
-      const primary = army.detachments.find((d) => d.kind === 'primary');
-      if (!primary) issues.push({ level: 'error', msg: 'The army needs a Primary Detachment.' });
-      const ul = unlocks(army);
+      if (army.free) issues.push({ level: 'warn', msg: 'Ignoring detachments: force organisation, slots and unlocks aren\'t checked.' });
+      for (const d of dets(army).filter((x) => x.kind === 'free' && !army.free && x.slots.some((s) => s.unit))) {
+        issues.push({ level: 'warn', msg: `${d.name} ignores detachments, so the builder can't check it's legal.` });
+      }
+      const primary = dets(army).find((d) => d.kind === 'primary');
+      if (!primary && !army.free) issues.push({ level: 'error', msg: 'The army needs a Primary Detachment.' });
+      const ul = army.free ? { aux: 0, auxAllowed: 0, apex: 0, apexAllowed: 0 } : unlocks(army);
       if (ul.aux > ul.auxAllowed) {
         issues.push({ level: 'error', msg: `${ul.aux} Auxiliary Detachment${ul.aux === 1 ? '' : 's'}, but only ${ul.auxAllowed} unlocked (one per filled Command slot in the Crusade Primary Detachment${ul.scionApex ? ', less one used by Dynastic Scion for an Apex' : ''}).` });
       }
       if (ul.apex > ul.apexAllowed) {
         issues.push({ level: 'error', msg: ul.apexAllowed ? `${ul.apex} Apex Detachments, but only ${ul.apexAllowed} allowed.` : 'An Apex Detachment needs the Crusade Primary Detachment\'s High Command slot filled (or a Dynastic Scion in a Command slot).' });
       }
-      for (const d of army.detachments.filter((x) => x.kind === 'custom' && x.slots.some((s) => s.unit))) {
+      for (const d of dets(army).filter((x) => x.kind === 'custom' && x.slots.some((s) => s.unit))) {
         issues.push({ level: 'warn', msg: `${d.name} is a custom detachment, so the builder can't check that it's unlocked or legal.` });
       }
       if (CHOICE.sameInDetachment) {
         const exempt = CHOICE.sameInDetachment.exempt;
-        for (const d of army.detachments.filter((x) => x.kind === 'auxiliary' || x.kind === 'apex')) {
+        for (const d of dets(army).filter((x) => x.kind === 'auxiliary' || x.kind === 'apex')) {
           const picks = d.slots.filter((s) => s.unit && !(s.unit.primeAdvantage === 'Logistical Benefit')).map((s) => arkanaOf(s.unit)).filter(Boolean);
           const kinds = new Set(picks.filter((c) => c !== exempt));
           if (kinds.size > 1) issues.push({ level: 'error', msg: `${d.name}: every unit must share one ${CHOICE.label} (found ${[...kinds].join(', ')}).` });
@@ -719,12 +728,12 @@
           }
         }
       }
-      const warlordDets = army.detachments.filter((d) => d.kind === 'warlord');
+      const warlordDets = dets(army).filter((d) => d.kind === 'warlord');
       if (warlordDets.length > 1) issues.push({ level: 'error', msg: 'Only one Warlord Detachment may be taken.' });
       if (warlordDets.length && (Number(army.pointsLimit) || 0) < 3000) issues.push({ level: 'error', msg: 'The Warlord Detachment needs an army of 3,000 points or more.' });
-      if (army.detachments.filter((d) => d.kind === 'lord of war').length > 1) issues.push({ level: 'error', msg: 'Only one Lord of War Detachment may be taken.' });
+      if (dets(army).filter((d) => d.kind === 'lord of war').length > 1) issues.push({ level: 'error', msg: 'Only one Lord of War Detachment may be taken.' });
 
-      for (const d of army.detachments) {
+      for (const d of dets(army)) {
         const def = d.defId ? detById.get(d.defId) : null;
         if (def && def.unlockedBy) {
           const ub = def.unlockedBy;
@@ -733,11 +742,11 @@
           }
           if (ub.commandUnit) {
             const role = ub.slotRole || 'Command';
-            const ok = army.detachments.some((od) => od !== d && od.slots.some((s) => s.unit && s.role === role && ub.commandUnit.includes(s.unit.unitId)));
+            const ok = dets(army).some((od) => od !== d && od.slots.some((s) => s.unit && s.role === role && ub.commandUnit.includes(s.unit.unitId)));
             if (!ok) issues.push({ level: 'error', msg: `${def.name} needs a ${ub.commandUnit.map((id) => unit(id)?.name || id).join(' or ')} in a ${role} slot.` });
           }
           if (ub.commandTrait) {
-            const ok = army.detachments.some((od) => od !== d && od.slots.some((s) => s.unit && ['Command', 'High Command'].includes(s.role) && hasTrait(s.unit, ub.commandTrait)));
+            const ok = dets(army).some((od) => od !== d && od.slots.some((s) => s.unit && ['Command', 'High Command'].includes(s.role) && hasTrait(s.unit, ub.commandTrait)));
             if (!ok) issues.push({ level: 'warn', msg: `${def.name} is unlocked by a ${ub.commandTrait} model filling a Command slot; none found.` });
           }
         }
@@ -840,11 +849,11 @@
       // detachments unlocked by an officer's special rule (Tip of the Spear → Planetfall Speartip)
       const unitHasRule = (u, r) => [...(u.specialRules || []), ...u.models.flatMap((m) => m.specialRules || [])].some((x) => norm(x) === norm(r));
       const seenOnce = {};
-      for (const d of army.detachments) {
+      for (const d of dets(army)) {
         const def = d.defId ? detById.get(d.defId) : null;
         const ul = def && def.unlockRule;
         if (!ul) continue;
-        const where = ul.primary ? army.detachments.filter((x) => x.kind === 'primary') : army.detachments;
+        const where = ul.primary ? dets(army).filter((x) => x.kind === 'primary') : dets(army);
         // the rule can come from the unit, a trait, or an upgrade it took (Archimandrite)
         const selHas = (sel) => { const u = unit(sel.unitId); if (!u) return false; if (unitHasRule(u, ul.rule) || (u.traits || []).some((t) => norm(t) === norm(ul.rule))) return true;
           return Object.values(sel.options || {}).some((v) => JSON.stringify(v).toLowerCase().includes(`"${ul.rule.toLowerCase()}"`)); };
@@ -854,7 +863,7 @@
         if (ul.once && seenOnce[def.id] === 2) issues.push({ level: 'error', msg: `${d.name} can only be taken once per army.` });
       }
       // Legion detachments that need a particular officer ("Requires a Master of Descent")
-      for (const d of army.detachments) {
+      for (const d of dets(army)) {
         const def = d.defId ? detById.get(d.defId) : null;
         for (const need of (def && def.requires) || []) {
           const key = need.toLowerCase();
@@ -878,13 +887,13 @@
         const bad = (u.unless || []).find((c) => condOk(c, x.sel));
         issues.push({ level: 'error', msg: bad ? `${u.name} can't be taken with ${condText(bad)}.` : `${u.name} needs ${u.when.map(condText).join(' or ')}.` });
       }
-      for (const d of army.detachments) {
+      for (const d of dets(army)) {
         const def = d.defId ? detById.get(d.defId) : null;
         if (def && def.when && !def.when.some((c) => condOk(c))) issues.push({ level: 'error', msg: `${d.name} needs ${def.when.map(condText).join(' or ')} in the army.` });
       }
       // "Additional" detachments (Questoris Familia): one per Household Rank advantage or paradigm that allows it
       const addCount = {};
-      for (const d of army.detachments) if (d.defId && detById.get(d.defId) && detById.get(d.defId).allowedBy) addCount[d.defId] = (addCount[d.defId] || 0) + 1;
+      for (const d of dets(army)) if (d.defId && detById.get(d.defId) && detById.get(d.defId).allowedBy) addCount[d.defId] = (addCount[d.defId] || 0) + 1;
       for (const [id, n] of Object.entries(addCount)) {
         const def = detById.get(id);
         let allowed = 0;
@@ -895,9 +904,9 @@
         if (n > allowed) issues.push({ level: 'error', msg: `${def.name}: ${n} taken, ${allowed} allowed (one per ${def.allowedBy.map((a) => a.config || a.each).join(' / ')}).` });
       }
       // allies: an Allied Detachment per allied army; its Auxiliary Detachments come from its own Command slots
-      const allyIds = [...new Set(army.detachments.filter((d) => d.ally).map((d) => d.ally))];
+      const allyIds = [...new Set(dets(army).filter((d) => d.ally).map((d) => d.ally))];
       for (const id of allyIds) {
-        const mine = army.detachments.filter((d) => d.ally === id);
+        const mine = dets(army).filter((d) => d.ally === id);
         const name = ((data.allies || []).find((a) => a.id === id) || {}).name || id;
         if (!(data.allies || []).some((a) => a.id === id)) { issues.push({ level: 'warn', msg: `The ${name} allies haven't loaded; reload the page.` }); continue; }
         const allied = mine.filter((d) => d.kind === 'allied');
@@ -951,13 +960,13 @@
 
     /** How many Auxiliary/Apex Detachments the Crusade Primary Detachment unlocks. */
     function unlocks(army) {
-      const primary = army.detachments.find((d) => d.kind === 'primary');
+      const primary = dets(army).find((d) => d.kind === 'primary');
       const filled = (role) => (primary ? primary.slots.filter((s) => s.role === role && s.unit && !s.logisticOf).length : 0);
       const command = filled('Command');
       const hc = filled('High Command');
       const scions = primary ? primary.slots.filter((s) => s.role === 'Command' && s.unit && scionTaken(s.unit)).length : 0;
-      const aux = army.detachments.filter((d) => d.kind === 'auxiliary' && !d.ally).length;
-      const apex = army.detachments.filter((d) => d.kind === 'apex' && !d.ally).length;
+      const aux = dets(army).filter((d) => d.kind === 'auxiliary' && !d.ally).length;
+      const apex = dets(army).filter((d) => d.kind === 'apex' && !d.ally).length;
       const hcApex = hc > 0 ? 1 : 0;
       // Dynastic Scion: one Apex may be taken instead of the Auxiliary a Command slot grants
       const scionApex = Math.min(scions > 0 ? 1 : 0, Math.max(0, apex - hcApex));
@@ -991,6 +1000,8 @@
 
     /** Detachment restrictions ("Only Units with the Canoptek Trait…") for one slot. */
     function slotAllows(det, slot, u, sel) {
+      // "Ignore detachments": the unrestricted list takes any of the army's own units, operatives included
+      if (det && det.kind === 'free') return !u.ally;
       // an allied army's units go only in its allied detachments, and those take nothing else
       if ((u.ally || null) !== ((det && det.ally) || null)) return false;
       if (slot && slot.only && !slot.only.includes(u.id)) return false;

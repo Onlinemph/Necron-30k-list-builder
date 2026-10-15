@@ -76,6 +76,10 @@ node scripts/import-bsdata.mjs /tmp/hh3
 npm test
 ```
 
+## Ignore detachments
+
+Tick **Ignore detachments** above the detachments to set the force organisation aside. The list becomes one unrestricted list whose slot picker shows every unit in the army, grouped by role, Assassins and other operatives included. Points, unit options and per-unit checks still work; slots, unlocks and the Primary Detachment aren't checked. Untick it to go back to your detachments; the unrestricted list stays (with a warning) until you empty it.
+
 ## Legacy house rules
 
 A common complaint about 3rd edition is that the Legions play alike. The **House rules → Legacy rules** switch in the Army configuration panel turns on an optional layer written for this builder: Rites of War that reshape the force chart (veterans or tanks as Troops, drop pod assaults, jump-pack strikes) with a cost attached, restored options such as Artificer armour, Veteran Sergeants, Legion standards and Legion signature weapons, and statline trades that make each Legion's units feel different. Every Legion gets the shared Rites plus its own; the other BSData armies have their own sets.

@@ -441,3 +441,21 @@ test('Unit-wide swaps reach every model: Heavy Support Squad lascannons', () => 
   a.options[shields.id] = shields.choices[0].name;
   assert.ok(E.loadout(a).every((r) => r.changes.some((c) => /Combat Shields/.test(c.name))));
 });
+
+test('Ignore detachments: an unrestricted list takes any unit and counts alone', () => {
+  const { E, army } = armyOf('alpha-legion');
+  place(E, army.detachments[0].slots.find((s) => s.role === 'Troops'), 'tactical-squad');
+  const free = E.makeDetachment('free', 'Unrestricted list', [{ role: 'Any', flexible: true }, { role: 'Any', flexible: true }]);
+  army.detachments.push(free);
+  army.free = true;
+  E.setArmy(army);
+  const ids = E.unitsForSlot(free.slots[0], free).map((u) => u.id);
+  assert.ok(ids.includes('alpharius') && ids.includes('vindicare-assassin') && ids.includes('predator'));
+  place(E, free.slots[0], 'predator');
+  assert.equal(E.armyPoints(army), E.unitPoints(free.slots[0].unit));
+  const issues = E.armyIssues(army);
+  assert.ok(issues.some((i) => /Ignoring detachments/.test(i.msg)));
+  assert.ok(!issues.some((i) => /needs a Primary Detachment| slot\./.test(i.msg)));
+  army.free = false;
+  assert.ok(E.armyIssues(army).some((i) => /ignores detachments/.test(i.msg)));
+});
