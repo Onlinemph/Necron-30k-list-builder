@@ -1,0 +1,83 @@
+{
+  "weapons": {
+    "ranged": [
+      { "name": "Bandolier of mismatched grenades", "R": 8, "FP": 2, "RS": 4, "AP": 5, "D": 1, "specialRules": ["Blast (3\")"], "traits": ["Grenade"] }
+    ],
+    "melee": [
+      { "name": "Splintered banner-glaive", "IM": "+1", "AM": "A", "SM": "+1", "AP": 3, "D": 1, "specialRules": ["Impact (A)"], "traits": ["Power"] }
+    ]
+  },
+  "wargear": [
+    { "name": "Wall of Names banner", "text": "Legacy house rule. A tattered banner stitched with the names of everyone who didn't make it off the world. Every model in the unit gains +1 Willpower and +1 Intelligence." },
+    { "name": "Patched refractor field", "text": "Legacy house rule. A refractor belt salvaged from a dead officer and repaired with whatever was to hand. The model's Invulnerable Save becomes 5+ if it was worse." },
+    { "name": "Field-welded plating", "text": "Legacy house rule. Hull plates from three different wrecks, welded onto an Ancient who refuses to stay dead. The model gains +1 Wound." }
+  ],
+  "options": [
+    { "match": { "nameIncludes": ["Inductii"] }, "optionalUnits": true,
+      "option": { "id": "sl-wall-of-names-inductii", "kind": "upgrade", "model": null, "text": "The unit may carry a Wall of Names banner",
+        "choices": [ { "name": "Wall of Names banner", "points": 15 } ] } },
+    { "units": ["tactical-squad", "veteran-tactical-squad", "despoiler-squad", "veteran-assault-squad"],
+      "option": { "id": "sl-wall-of-names", "kind": "upgrade", "model": null, "text": "The unit may carry a Wall of Names banner",
+        "choices": [ { "name": "Wall of Names banner", "points": 15 } ] } },
+    { "units": ["tactical-squad", "despoiler-squad", "veteran-tactical-squad", "veteran-despoiler-squad", "veteran-assault-squad"],
+      "option": { "id": "sl-banner-glaive", "kind": "upgrade", "modelType": "Sergeant", "text": "The Sergeant may carry a Splintered banner-glaive",
+        "choices": [ { "name": "Splintered banner-glaive", "points": 10 } ] } },
+    { "units": ["tactical-squad", "veteran-tactical-squad"],
+      "option": { "id": "sl-grenade-bandolier", "kind": "perModel", "model": ["Legionary", "Veteran Legionary"], "max": 2,
+        "text": "Up to two Legionaries may carry a Bandolier of mismatched grenades", "choices": [ { "name": "Bandolier of mismatched grenades", "points": 5 } ] } },
+    { "units": ["tactical-squad", "veteran-tactical-squad", "veteran-despoiler-squad", "despoiler-squad"],
+      "option": { "id": "sl-patched-refractor", "kind": "upgrade", "modelType": "Sergeant", "text": "The Sergeant may take a Patched refractor field",
+        "choices": [ { "name": "Patched refractor field", "points": 10 } ] } },
+    { "units": ["contemptor-dreadnought", "castra-ferrum-dreadnought", "deredeo-dreadnought", "leviathan-dreadnought"],
+      "option": { "id": "sl-welded-plating", "kind": "upgrade", "model": null, "text": "May be fitted with Field-welded plating",
+        "choices": [ { "name": "Field-welded plating", "points": 20 } ] } }
+  ],
+  "modifiers": [
+    { "match": { "nameIncludes": ["Inductii"] }, "text": "Fresh-sworn survivors: +1 WP, -1 BS.", "stats": { "WP": "+1", "BS": "-1" } },
+    { "units": ["tactical-squad", "despoiler-squad"], "text": "Cornered men fight hard: +1 WS, -1 LD.", "stats": { "WS": "+1", "LD": "-1" } },
+    { "units": ["veteran-tactical-squad", "veteran-despoiler-squad", "veteran-assault-squad"], "text": "Hard-won veterans of the broken fleets: +1 A, -1 CL.", "stats": { "A": "+1", "CL": "-1" } },
+    { "units": ["hibou-khan", "alexis-polux", "shadrak-meduson", "saul-tarvitz", "garviel-loken"], "text": "The survivors' conscience: +1 WP, -1 CL.", "stats": { "WP": "+1", "CL": "-1" } },
+    { "units": ["contemptor-dreadnought", "castra-ferrum-dreadnought", "deredeo-dreadnought", "leviathan-dreadnought"], "text": "Held together by prayer and spite: +1 BS, -1 M.", "stats": { "BS": "+1", "M": "-1" } },
+    { "units": ["*"], "item": "Wall of Names banner", "scope": "unit", "text": "Wall of Names banner: +1 WP, +1 IN.", "stats": { "WP": "+1", "IN": "+1" } },
+    { "units": ["*"], "item": "Patched refractor field", "scope": "model", "text": "Patched refractor field: 5+ Invulnerable Save.", "stats": { "INV": "best:5+" } },
+    { "units": ["*"], "item": "Field-welded plating", "scope": "unit", "text": "Field-welded plating: +1 W.", "stats": { "W": "+1" } }
+  ],
+  "rites": [
+    {
+      "name": "Broken Banners Reforged",
+      "flavor": "Seven Legions' worth of orphans, one muster call.",
+      "text": "Inductii Squads of any Legion cost 10 points less and gain Line (2). The muster has no patience for heavy plant: no Armour or Lord of War units. At least two Inductii Squads are required.",
+      "points": [ { "match": { "nameIncludes": ["Inductii"] }, "delta": -10 } ],
+      "modifiers": [ { "match": { "nameIncludes": ["Inductii"] }, "text": "Broken Banners Reforged: Line (2).", "addRules": ["Line (2)"] } ],
+      "require": [ { "match": { "nameIncludes": ["Inductii"] }, "min": 2, "note": "Field at least two Inductii Squads." } ],
+      "forbid": [ { "match": { "role": "Armour" } }, { "match": { "role": "Lord of War" } } ]
+    },
+    {
+      "name": "Oath of the Survivors",
+      "flavor": "Whoever else is dead, somebody has to carry the story out.",
+      "text": "Every Legion Infantry unit gains +1 Willpower and Hatred (Traitors). One of Garviel Loken, Saul Tarvitz, Shadrak Meduson, Alexis Polux or Hibou Khan must lead the army. Too few of the dead are left to crew the siege-engines: no Lord of War units and no more than one Armour unit.",
+      "modifiers": [ { "match": { "unitType": "Infantry", "notUnitType": "Vehicle" }, "text": "Oath of the Survivors: Hatred (Traitors), +1 WP.", "stats": { "WP": "+1" }, "addRules": ["Hatred (Traitors)"] } ],
+      "require": [ { "units": ["garviel-loken", "saul-tarvitz", "shadrak-meduson", "alexis-polux", "hibou-khan"], "min": 1, "note": "A named survivor must lead the oath." } ],
+      "limit": [ { "match": { "role": "Lord of War" }, "max": 0 }, { "match": { "role": "Armour" }, "max": 1 } ]
+    },
+    {
+      "name": "Fortress of the Last Stand",
+      "flavor": "If you cannot leave, you had better dig in.",
+      "text": "Heavy Support Squads, Tactical Support Squads and Rapier Batteries may fill Troops slots and gain Line (1). Nobody has any wish to attack: no Fast Attack or Recon units. At least one Rapier Battery is required.",
+      "roles": [ { "units": ["heavy-support-squad", "tactical-support-squad", "rapier-battery"], "role": "Troops" } ],
+      "modifiers": [ { "units": ["heavy-support-squad", "tactical-support-squad", "rapier-battery"], "text": "Fortress of the Last Stand: Line (1).", "addRules": ["Line (1)"] } ],
+      "require": [ { "units": ["rapier-battery"], "min": 1, "note": "Bring at least one Rapier Battery." } ],
+      "forbid": [ { "match": { "role": "Fast Attack" } }, { "match": { "role": "Recon" } } ]
+    },
+    {
+      "name": "The Ancients Awake",
+      "flavor": "When the Legions died, their oldest warriors stayed in their coffins and kept fighting.",
+      "text": "Contemptor, Castra Ferrum, Deredeo and Leviathan Dreadnoughts may fill Troops slots, cost 15 points less and gain Line (1). The Legions have too few living men for regular squads: no Tactical, Despoiler or Assault Squads. At least two War Engine units are required.",
+      "roles": [ { "units": ["contemptor-dreadnought", "castra-ferrum-dreadnought", "deredeo-dreadnought", "leviathan-dreadnought"], "role": "Troops" } ],
+      "points": [ { "units": ["contemptor-dreadnought", "castra-ferrum-dreadnought", "deredeo-dreadnought", "leviathan-dreadnought"], "delta": -15 } ],
+      "modifiers": [ { "units": ["contemptor-dreadnought", "castra-ferrum-dreadnought", "deredeo-dreadnought", "leviathan-dreadnought"], "text": "The Ancients Awake: Line (1).", "addRules": ["Line (1)"] } ],
+      "require": [ { "match": { "role": "War Engine" }, "min": 2, "note": "Wake at least two Dreadnoughts." } ],
+      "forbid": [ { "units": ["tactical-squad", "despoiler-squad", "assault-squad"] } ]
+    }
+  ]
+}
