@@ -42,6 +42,8 @@ const rel = (v, base) => { const s = String(v); if (s === 'I' || s === 'A' || s 
 function weaponLookup(D) {
   const all = { ranged: D.weapons.ranged.concat(common.weapons.ranged), melee: D.weapons.melee.concat(common.weapons.melee) };
   const idx = { ranged: new Map(), melee: new Map() };
+  // a weapon with modes counts as each of its modes
+  for (const k of ['ranged', 'melee']) all[k] = all[k].flatMap((w) => (w.modes && w.modes.length ? w.modes.map((m) => Object.assign({}, m, { name: w.name })) : [w]));
   for (const k of ['ranged', 'melee']) for (const w of all[k]) {
     for (const key of [w.name.toLowerCase(), wkey(w.name), wkey(w.name.replace(/\s*\(.*\)\s*$/, ''))]) {
       if (!idx[k].has(key)) idx[k].set(key, []);

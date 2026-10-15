@@ -99,11 +99,41 @@
   const exactIndex = { ranged: new Map(), melee: new Map() };
   for (const kind of ['ranged', 'melee']) for (const w of W[kind] || []) exactIndex[kind].set(String(w.name).trim().toLowerCase(), w);
   const PAIRED = /^(pair of|paired|two|a pair of)\s/i;
+  // BSData stores some multi-profile weapons one entry per mode ("Plasma burner (Sustained)", "Adrastus bolt
+  // caliver - Bolt volley (Primary)"). Where there's no plain entry, gather the modes under the base name so
+  // the datasheet shows every profile instead of one, or none.
+  const tidy = (n) => String(n).replace(/\s+/g, ' ').trim();
+  for (const kind of ['ranged', 'melee']) {
+    const groups = new Map();
+    for (const w of W[kind] || []) {
+      if (PAIRED.test(w.name) || (w.modes && w.modes.length)) continue;
+      const base = tidy(w.name.split(/\s+-\s+/)[0]);
+      const key = wkey(base);
+      if (!groups.has(key)) groups.set(key, []);
+      groups.get(key).push(w);
+    }
+    for (const [key, list] of groups) {
+      const plain = list.find((w) => !/\s-\s/.test(w.name) && !/\(/.test(w.name));
+      if (plain) { weaponIndex[kind].set(key, plain); continue; }
+      const seen = new Set();
+      const modes = list.filter((w) => { const k = tidy(w.name).toLowerCase(); if (seen.has(k)) return false; seen.add(k); return true; });
+      if (modes.length < 2) continue;
+      const label = (w) => {
+        const t = tidy(w.name);
+        const dash = t.split(/\s+-\s+/);
+        if (dash.length > 1) return dash.slice(1).join(' - ').replace(/\(\s*([^)]*)$/, '($1)');
+        const m = t.match(/\(([^)]*)\)?\s*$/);
+        return m ? m[1] : t;
+      };
+      const base = tidy(modes[0].name.split(/\s+-\s+/)[0]).replace(/\s*\([^)]*\)?\s*$/, '');
+      weaponIndex[kind].set(key, { name: base, modes: modes.map((w) => Object.assign({}, w, { name: label(w) })), specialRules: [], traits: [] });
+    }
+  }
   const CORE = DATA.coreRules || { rules: [], undefinedInCodex: [] };
   const aliases = new Map(Object.entries(CORE.weaponAliases || {}).map(([k, v]) => [wkey(k), wkey(v)]));
   const coreNames = new Set((CORE.rules || []).map(norm));
   const undefinedNames = new Map((CORE.undefinedInCodex || []).flatMap((x) => [[norm(x.name), x.note], [wkey(x.name), x.note]]));
-  function findWeapons(name) {
+  function findWeapons(name, depth) {
     const k = aliases.get(wkey(name)) || wkey(name);
     const r = { ranged: weaponIndex.ranged.get(k), melee: weaponIndex.melee.get(k) };
     if (!PAIRED.test(String(name).trim())) {
@@ -111,6 +141,19 @@
       for (const kind of ['ranged', 'melee']) if (r[kind] && PAIRED.test(r[kind].name) && exactIndex[kind].has(raw)) r[kind] = exactIndex[kind].get(raw);
     }
     if (!r.ranged && !r.melee && /^twin(-linked)? /.test(k)) return findWeapons(k.replace(/^twin(-linked)? /, ''));
+    if (!r.ranged && !r.melee && !depth) {
+      // last resort for the names datasheets use: "Two Sponson Mounted Gravis autocannon batteries",
+      // "Hull (Front) hunter-killer missile", "Co-axial Autocannon", "Quad Launcher - (Frag) (Shatter)"
+      const plain = String(name)
+        .replace(/^(?:(?:one|two|three|four|\d+)\s+)?(?:(?:hull|turret|sponson|pintle|centreline|dorsal|carapace|arm|torso|chest|co-axial|coaxial)\b(?:\s*\([^)]*\))?\s*(?:mounted\s+)?)+/i, '')
+        .replace(/\s+(?:hull|turret|sponson|pintle|centreline|dorsal|carapace)\b(?:\s*\([^)]*\))?\s*mounted$/i, '')
+        .replace(/\s+-\s+\(.*$/, '')
+        .replace(/ies$/i, 'y').replace(/([^s])s$/i, '$1');
+      if (plain && plain !== name) { const p = findWeapons(plain, 1); if (p.ranged || p.melee) return p; }
+      // Legion-named variants of a common weapon ("Nostraman chainglaive")
+      const bare = String(name).replace(/^[A-Z][a-z]+(?:ian|an|ic)\s+/, '');
+      if (bare !== name) return findWeapons(bare, 1);
+    }
     return r;
   }
 

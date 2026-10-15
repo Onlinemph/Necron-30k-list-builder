@@ -358,6 +358,46 @@ function collectCommon() {
   };
   walk(gst.data);
   for (const c of Object.values(cats)) walk(c.data);
+  // A wargear entry can carry its weapons' profiles under other names: "Combi-flamer" holds "Bolter (Primary)"
+  // and "Flamer (Secondary)", "Two Sponson Mounted Gravis heavy bolter batteries" holds "Gravis heavy bolter
+  // battery". Units name the entry, so give each such entry a weapon of its own name, with its profiles as modes.
+  // "Adrastus bolt caliver -  Adrathic beam (Secondary" → "Adrathic beam (Secondary)"
+  const modeName = (base, n) => {
+    let m = String(n).replace(/\s+/g, ' ').trim();
+    if (m.toLowerCase().startsWith(base.toLowerCase() + ' - ')) m = m.slice(base.length + 3);
+    if ((m.match(/\(/g) || []).length > (m.match(/\)/g) || []).length) m += ')';
+    return m;
+  };
+  // its own profiles, plus those of entries and profiles it links to ("Executioner pistol" links its two)
+  const linked = (node, kind) => {
+    const map = kind === 'Ranged Weapon' ? ranged : melee;
+    const profs = [...(node.profiles || [])];
+    for (const l of [...(node.entryLinks || []), ...(node.infoLinks || [])]) {
+      const t = byId.get(l.targetId);
+      if (!t) continue;
+      if (t.typeName) profs.push(t); else profs.push(...(t.profiles || []));
+    }
+    const seen = new Set();
+    return profs.filter((p) => p.typeName === kind && !seen.has(p.name) && seen.add(p.name)).map((p) => map.get(p.name)).filter(Boolean);
+  };
+  const group = (node) => {
+    if (Array.isArray(node)) { node.forEach(group); return; }
+    if (!node || typeof node !== 'object') return;
+    // a real wargear entry (not an option group, which would gather a whole menu of guns)
+    if (node.name && node.type === 'upgrade' && (node.profiles || node.entryLinks || node.infoLinks)) {
+      for (const [kind, map] of [['Ranged Weapon', ranged], ['Melee Weapon', melee]]) {
+        const ps = linked(node, kind);
+        if (!ps.length || ps.length > 4 || map.has(node.name) || ps.some((w) => w.name.toLowerCase() === node.name.toLowerCase())) continue;
+        const w = ps.length === 1
+          ? Object.assign({}, ps[0], { name: node.name })
+          : { name: node.name, page: ps[0].page, book: ps[0].book, specialRules: [], traits: [], modes: ps.map((x) => Object.assign({}, x, { modes: null, name: modeName(node.name, x.name) })) };
+        map.set(node.name, w);
+      }
+    }
+    for (const [k, v] of Object.entries(node)) if (typeof v === 'object' && k !== 'conditions') group(v);
+  };
+  group(gst.data);
+  for (const c of Object.values(cats)) group(c.data);
   return {
     weapons: { ranged: [...ranged.values()], melee: [...melee.values()] },
     wargear: [...wargear.values()],

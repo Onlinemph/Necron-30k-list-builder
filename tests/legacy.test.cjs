@@ -197,18 +197,19 @@ test('Legacy units: earlier-edition units only with Legacy rules on', () => {
   E.setArmy(army);
   assert.ok(E.unitsForSlot(troops, army.detachments[0]).some((u) => u.id === 'prosecutor-cadre'));
   const pc = place(E, troops, 'prosecutor-cadre');
-  assert.equal(E.unitPoints(pc), 70);
+  assert.equal(E.unitPoints(pc), 65);
   const rows = E.effectiveModels(pc);
-  assert.ok(rows[0].rules.includes('Prosecution Volley'));
-  assert.ok(rows[0].items.includes('Psyk-out bombs'));
+  assert.ok(rows[0].rules.includes('Chamber of Vigilance'));
+  assert.ok(rows[0].items.includes('Bolter'));
   army.config['legacy-rules'] = [];
   assert.ok(E.armyIssues(army).some((i) => /Prosecutor Cadre needs Legacy rules/.test(i.msg)));
-  // a Chamber Militant puts its rule on the unit
+  // each Cadre carries its own Chamber; the Subjugators ride Erinyes jetbikes
   legacyOn(army);
   E.setArmy(army);
-  const ok = E.newSelection('oblivion-knight-cadre');
-  const ch = E.optionsOf(ok).find((o) => /Chamber Militant/.test(o.text));
-  ok.options[ch.id] = 'Chamber of Oblivion';
+  const ok = E.newSelection('oblivion-knights');
   assert.ok(E.effectiveModels(ok)[0].rules.includes('Chamber of Oblivion'));
-  assert.equal(E.unitPoints(ok), 135);
+  assert.equal(E.unitPoints(ok), 100);
+  const sj = E.newSelection('subjugator-cadre');
+  assert.ok(E.effectiveModels(sj)[0].items.includes('Erinyes jetbike'));
+  assert.equal(E.unitPoints(sj), 105);
 });

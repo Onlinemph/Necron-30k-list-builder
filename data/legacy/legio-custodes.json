@@ -60,6 +60,36 @@
         "traits": [
           "Assault"
         ]
+      },
+      {
+        "name": "Guardian axe",
+        "R": 18,
+        "FP": 2,
+        "RS": 4,
+        "AP": 4,
+        "D": 1,
+        "specialRules": [
+          "Shred (5+)"
+        ],
+        "traits": [
+          "Assault",
+          "Bolt"
+        ]
+      },
+      {
+        "name": "Paragon glaive",
+        "R": 18,
+        "FP": 2,
+        "RS": 5,
+        "AP": 4,
+        "D": 1,
+        "specialRules": [
+          "Shred (5+)"
+        ],
+        "traits": [
+          "Assault",
+          "Bolt"
+        ]
       }
     ],
     "melee": [
@@ -117,6 +147,33 @@
         "specialRules": [
           "Reaping Blow (1)",
           "Bypass (6+)"
+        ],
+        "traits": [
+          "Power"
+        ]
+      },
+      {
+        "name": "Guardian axe",
+        "IM": -2,
+        "AM": "A",
+        "SM": "+3",
+        "AP": 2,
+        "D": 1,
+        "specialRules": [],
+        "traits": [
+          "Power"
+        ]
+      },
+      {
+        "name": "Paragon glaive",
+        "IM": "I",
+        "AM": "A",
+        "SM": "+1",
+        "AP": 2,
+        "D": 1,
+        "specialRules": [
+          "Reaping Blow (1)",
+          "Murderous (5+)"
         ],
         "traits": [
           "Power"
@@ -179,6 +236,21 @@
       "name": "Soul-lamp of the Entombed",
       "summary": "A lamp lit from the Dreadnought's own fading memory.",
       "text": "A Model equipped with a Soul-lamp of the Entombed has the Feel No Pain (6+) and Lamp of Remembrance Special Rules."
+    },
+    {
+      "name": "Additional Pallas Grav-Attack (fusil)",
+      "summary": "Another Pallas flies with the squadron, armed as the first.",
+      "text": "The Unit includes one more Pallas Grav-Attack with the same Characteristics, Special Rules and Weapons as the first, armed with a Centreline Mounted Twin Iliastus accelerator fusil. It must stay in Unit Coherency with the rest of the Unit and is removed as a casualty like any other Model."
+    },
+    {
+      "name": "Additional Pallas Grav-Attack (blaze cannon)",
+      "summary": "Another Pallas flies with the squadron, bearing the Arachnus blaze cannon.",
+      "text": "The Unit includes one more Pallas Grav-Attack with the same Characteristics and Special Rules as the first, armed with a Centreline Mounted Twin Arachnus blaze cannon in place of the accelerator fusil. It must stay in Unit Coherency with the rest of the Unit and is removed as a casualty like any other Model."
+    },
+    {
+      "name": "Additional Pallas Grav-Attack (devastator)",
+      "summary": "Another Pallas flies with the squadron, bearing the Adrathic devastators.",
+      "text": "The Unit includes one more Pallas Grav-Attack with the same Characteristics and Special Rules as the first, armed with a Centreline Mounted Twin Adrathic devastator in place of the accelerator fusil. It must stay in Unit Coherency with the rest of the Unit and is removed as a casualty like any other Model."
     }
   ],
   "options": [
@@ -548,6 +620,159 @@
           }
         ]
       }
+    },
+    {
+      "units": [
+        "custodian-guard-sodality"
+      ],
+      "option": {
+        "id": "lc2-guard-axe",
+        "kind": "perModel",
+        "model": "Custodian Guard",
+        "replaces": [
+          "Guardian spear"
+        ],
+        "text": "Any Custodian Guard may exchange their guardian spear for a Guardian axe",
+        "choices": [
+          {
+            "name": "Guardian axe",
+            "points": 0
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "custodian-guard-sodality"
+      ],
+      "option": {
+        "id": "lc2-guard-bearer",
+        "kind": "perModel",
+        "model": "Custodian Guard",
+        "max": {
+          "fixed": 1
+        },
+        "text": "One Custodian Guard carrying a Magisterium Vexilla may also bear one of",
+        "choices": [
+          {
+            "name": "Power axe",
+            "points": 15
+          },
+          {
+            "name": "Power lance",
+            "points": 15
+          },
+          {
+            "name": "Power maul",
+            "points": 15
+          },
+          {
+            "name": "Power sword",
+            "points": 15
+          },
+          {
+            "name": "Sentinel warblade",
+            "points": 20
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tribune"
+      ],
+      "option": {
+        "id": "lc2-tribune-weapon",
+        "kind": "one",
+        "model": "Tribune",
+        "replaces": [
+          "Eternity Spear"
+        ],
+        "text": "The Tribune may exchange his Eternity Spear for",
+        "choices": [
+          {
+            "name": "Guardian axe",
+            "points": 0
+          },
+          {
+            "name": "Sentinel warblade",
+            "points": 0
+          },
+          {
+            "name": "Adrasite spear",
+            "points": 10
+          },
+          {
+            "name": "Pyrithite spear",
+            "points": 15
+          },
+          {
+            "name": "Paragon blade",
+            "points": 25
+          },
+          {
+            "name": "Solarite power talon",
+            "points": 10
+          },
+          {
+            "name": "Two Solarite power talons",
+            "points": 15
+          },
+          {
+            "name": "Paragon glaive",
+            "points": 30
+          },
+          {
+            "name": "Solarite power gauntlet",
+            "points": 30
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tribune"
+      ],
+      "option": {
+        "id": "lc2-tribune-pistol",
+        "kind": "upgrade",
+        "model": "Tribune",
+        "text": "The Tribune may carry an Archeotech pistol",
+        "choices": [
+          {
+            "name": "Archeotech pistol",
+            "points": 5
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "pallas-grav-attack"
+      ],
+      "option": {
+        "id": "lc2-pallas-squadron",
+        "kind": "any",
+        "model": "Pallas Grav-Attack",
+        "max": {
+          "fixed": 2
+        },
+        "text": "The Pallas may fly as a squadron: up to two more Pallas Grav-Attacks may join the Unit",
+        "choices": [
+          {
+            "name": "Additional Pallas Grav-Attack (fusil)",
+            "points": 105
+          },
+          {
+            "name": "Additional Pallas Grav-Attack (blaze cannon)",
+            "points": 130
+          },
+          {
+            "name": "Additional Pallas Grav-Attack (devastator)",
+            "points": 150
+          }
+        ]
+      }
     }
   ],
   "modifiers": [
@@ -744,6 +969,16 @@
         "Lamp of Remembrance",
         "Feel No Pain (6+)"
       ]
+    },
+    {
+      "units": [
+        "hetaeron-guard-squad"
+      ],
+      "item": "Praesidium Shield",
+      "text": "Praesidium Shield: best 5+ Invulnerable Save.",
+      "stats": {
+        "INV": "best:5+"
+      }
     }
   ],
   "rites": [
@@ -1045,6 +1280,16 @@
       "name": "Lamp of Remembrance",
       "summary": "The lamp burns brighter when the Dreadnought is guarding something worth the dying.",
       "text": "While an Objective Marker is within 12\" of a Model with this Special Rule, its Feel No Pain Damage Mitigation Test has a Target Number of 5+ instead of 6+."
+    },
+    {
+      "name": "Stubborn",
+      "summary": "Hard to frighten, and harder to move.",
+      "text": "When a Unit that includes any Model with this Special Rule makes a Cool Check or a Panic Check, it ignores all negative modifiers to the Characteristic used."
+    },
+    {
+      "name": "Relentless",
+      "summary": "The Unit never slows to aim and never slows to strike.",
+      "text": "A Unit made up entirely of Models with this Special Rule treats its Models as Stationary when making a Shooting Attack with a Weapon that has the Heavy (X) or Ordnance (X) Special Rule, even if they Moved earlier in the same Battle Turn. Such a Unit may also declare a Charge in a Battle Turn in which it made a Shooting Attack."
     }
   ],
   "armyRules": [
@@ -1114,5 +1359,128 @@
       "condition": "in a Combat against an enemy Command, Champion or Unique Model (not a Primarch)"
     }
   ],
-  "units": []
+  "units": [
+    {
+      "id": "hetaeron-guard-squad",
+      "name": "Hetaeron Guard Squad",
+      "role": "Elites",
+      "basePoints": 225,
+      "composition": "3 Hetaeron Guard",
+      "traits": [
+        "Legio Custodes"
+      ],
+      "specialRules": [
+        "Bulky (2)",
+        "Relentless",
+        "Stubborn"
+      ],
+      "models": [
+        {
+          "name": "Hetaeron Guard",
+          "min": 3,
+          "max": 10,
+          "costPerExtra": 70,
+          "profile": {
+            "M": 8,
+            "WS": 5,
+            "BS": 5,
+            "S": 5,
+            "T": 5,
+            "W": 3,
+            "I": 5,
+            "A": 4,
+            "LD": 10,
+            "CL": 10,
+            "WP": 8,
+            "IN": 8,
+            "SAV": "2+",
+            "INV": "6+"
+          },
+          "wargear": [
+            "Guardian spear",
+            "Misericordia",
+            "Melta bombs"
+          ],
+          "unitType": "Infantry (Skirmish)",
+          "specialRules": []
+        }
+      ],
+      "options": [
+        {
+          "id": "hetaeron-weapon",
+          "kind": "perModel",
+          "model": "Hetaeron Guard",
+          "replaces": [
+            "Guardian spear"
+          ],
+          "max": null,
+          "text": "Any Hetaeron Guard may exchange his guardian spear for",
+          "choices": [
+            {
+              "name": "Guardian axe",
+              "points": 0
+            },
+            {
+              "name": "Sentinel warblade",
+              "points": 0
+            },
+            {
+              "name": "Adrasite spear",
+              "points": 10
+            },
+            {
+              "name": "Pyrithite spear",
+              "points": 15
+            },
+            {
+              "name": "Paragon blade",
+              "points": 25
+            },
+            {
+              "name": "Solarite power talon",
+              "points": 10
+            },
+            {
+              "name": "Two Solarite power talons",
+              "points": 15
+            },
+            {
+              "name": "Solarite power gauntlet",
+              "points": 30
+            }
+          ]
+        },
+        {
+          "id": "hetaeron-vexilla",
+          "kind": "perModel",
+          "model": "Hetaeron Guard",
+          "replaces": [],
+          "max": {
+            "fixed": 1
+          },
+          "text": "One Hetaeron Guard may carry a vexilla in addition to his weapon",
+          "choices": [
+            {
+              "name": "Magisterium Vexilla",
+              "points": 15
+            }
+          ]
+        },
+        {
+          "id": "hetaeron-shield",
+          "kind": "perModel",
+          "model": "Hetaeron Guard",
+          "replaces": [],
+          "max": null,
+          "text": "Any Hetaeron Guard may carry a shield",
+          "choices": [
+            {
+              "name": "Praesidium Shield",
+              "points": 10
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }

@@ -45,6 +45,194 @@
         "traits": [
           "Missile"
         ]
+      },
+      {
+        "name": "Snare gun",
+        "R": 12,
+        "FP": 3,
+        "RS": 5,
+        "AP": "–",
+        "D": 1,
+        "specialRules": [
+          "Entangle (1)"
+        ],
+        "traits": [
+          "Assault"
+        ]
+      },
+      {
+        "name": "Snare cannon",
+        "R": 18,
+        "FP": 3,
+        "RS": 7,
+        "AP": "–",
+        "D": 1,
+        "specialRules": [
+          "Heavy (FP)",
+          "Entangle (2)"
+        ],
+        "traits": []
+      },
+      {
+        "name": "Vratine bolter",
+        "R": 18,
+        "FP": 2,
+        "RS": 4,
+        "AP": 5,
+        "D": 1,
+        "specialRules": [
+          "Psy-Shock"
+        ],
+        "traits": [
+          "Bolt"
+        ]
+      },
+      {
+        "name": "Vratine grenade launcher",
+        "specialRules": [],
+        "traits": [],
+        "modes": [
+          {
+            "name": "Frag",
+            "R": 24,
+            "FP": 1,
+            "RS": 3,
+            "AP": 6,
+            "D": 1,
+            "specialRules": [
+              "Blast (3\")",
+              "Pinning (1)"
+            ],
+            "traits": [
+              "Assault"
+            ],
+            "page": null,
+            "book": null,
+            "modes": null
+          },
+          {
+            "name": "Krak",
+            "R": 24,
+            "FP": 1,
+            "RS": 5,
+            "AP": 4,
+            "D": 1,
+            "specialRules": [],
+            "traits": [
+              "Assault"
+            ],
+            "page": null,
+            "book": null,
+            "modes": null
+          },
+          {
+            "name": "Psyk-out",
+            "R": 24,
+            "FP": 1,
+            "RS": 4,
+            "AP": "–",
+            "D": 1,
+            "specialRules": [
+              "Blast (3\")",
+              "Psy-Shock"
+            ],
+            "traits": [
+              "Assault"
+            ],
+            "page": null,
+            "book": null,
+            "modes": null
+          }
+        ],
+        "R": 24,
+        "FP": 1,
+        "RS": 5,
+        "AP": 4,
+        "D": 1
+      },
+      {
+        "name": "Vratine missile launcher",
+        "specialRules": [],
+        "traits": [],
+        "modes": [
+          {
+            "name": "Frag",
+            "R": 48,
+            "FP": 1,
+            "RS": 4,
+            "AP": 6,
+            "D": 1,
+            "specialRules": [
+              "Heavy (RS)",
+              "Blast (3\")",
+              "Pinning (1)"
+            ],
+            "traits": [
+              "Missile"
+            ],
+            "page": null,
+            "book": null,
+            "modes": null
+          },
+          {
+            "name": "Krak",
+            "R": 48,
+            "FP": 1,
+            "RS": 8,
+            "AP": 3,
+            "D": 2,
+            "specialRules": [
+              "Heavy (RS)"
+            ],
+            "traits": [
+              "Missile"
+            ],
+            "page": null,
+            "book": null,
+            "modes": null
+          },
+          {
+            "name": "Psyk-out",
+            "R": 36,
+            "FP": 1,
+            "RS": 7,
+            "AP": 3,
+            "D": 1,
+            "specialRules": [
+              "Heavy (RS)",
+              "Psy-Shock"
+            ],
+            "traits": [
+              "Missile"
+            ],
+            "page": null,
+            "book": null,
+            "modes": null
+          }
+        ],
+        "R": 48,
+        "FP": 1,
+        "RS": 8,
+        "AP": 3,
+        "D": 2
+      },
+      {
+        "name": "Vratine nemesis bolter",
+        "R": 36,
+        "FP": 1,
+        "RS": 4,
+        "AP": 5,
+        "D": 1,
+        "specialRules": [
+          "Heavy (RS)",
+          "Breaching (5+)",
+          "Pinning (1)",
+          "Precision (4+)",
+          "Psy-Shock"
+        ],
+        "traits": [
+          "Bolt"
+        ]
       }
     ],
     "melee": [
@@ -94,18 +282,31 @@
         ]
       },
       {
-        "name": "Executioner greatblade",
-        "IM": -1,
+        "name": "Charnabal glaive",
+        "IM": "I",
         "AM": "A",
-        "SM": "+2",
-        "AP": 2,
-        "D": 2,
+        "SM": "+1",
+        "AP": "–",
+        "D": 1,
         "specialRules": [
-          "Reaping Blow (1)"
+          "Breaching (5+)",
+          "Duellist's Edge (2)"
         ],
         "traits": [
-          "Power"
+          "Charnabal"
         ]
+      },
+      {
+        "name": "Proteus neuro-lash",
+        "IM": -1,
+        "AM": "A",
+        "SM": "+3",
+        "AP": "–",
+        "D": 1,
+        "specialRules": [
+          "Deflagrate (6)"
+        ],
+        "traits": []
       }
     ]
   },
@@ -154,6 +355,41 @@
       "name": "Revealing lumen",
       "summary": "A hard white searchlight that strips cover and shadow from whatever it falls on.",
       "text": "A Model equipped with a Revealing lumen has the Truth Beam Special Rule."
+    },
+    {
+      "name": "Voidscale cloak",
+      "summary": "A shimmering cloak that scatters the light of anything aimed at the wearer.",
+      "text": "A Model equipped with a voidscale cloak has an Invulnerable Save of 5+. Against Hits from Weapons with the Template or Blast Special Rules that save is 3+."
+    },
+    {
+      "name": "Voidsheen cloak",
+      "summary": "A lighter cousin of the voidscale, worn by the Oblivion Knights and their Raptora.",
+      "text": "A Model equipped with a voidsheen cloak has an Invulnerable Save of 6+. Against Hits from Weapons with the Template or Blast Special Rules that save is 4+."
+    },
+    {
+      "name": "Distort field",
+      "summary": "A field of bent light that makes the bearer seem further away than it is.",
+      "text": "While a Unit includes a Model equipped with a distort field, the distance from an enemy Unit to that Unit is counted as 6\" greater when measuring Range for Shooting Attacks. Models with the Primarch Type ignore this effect. Weapons with the Barrage (X) Special Rule always treat that Unit as out of Line of Sight when scattering. This does not stack with other effects that increase Range in the same way."
+    },
+    {
+      "name": "Spectra cloaks",
+      "summary": "Cloaks of woven spectral thread that smear the wearer across the eye.",
+      "text": "While a Unit includes a Model equipped with spectra cloaks, the distance from an enemy Unit to that Unit is counted as 6\" greater when measuring Range for Shooting Attacks. Weapons with the Template Special Rule and Models with the Primarch Type ignore this effect. Weapons with the Barrage (X) Special Rule always treat that Unit as out of Line of Sight when scattering. This does not stack with other effects that increase Range in the same way."
+    },
+    {
+      "name": "Excrutia armatus",
+      "summary": "Armour that wears down the nerve of anyone who stands against its bearer.",
+      "text": "While a Unit includes a Model equipped with excrutia armatus, enemy Units cannot declare a Reaction in response to Shooting Attacks or Charges made by that Unit, unless the enemy Unit includes a Model with the Fearless or Stubborn Special Rule."
+    },
+    {
+      "name": "Erinyes jetbike",
+      "summary": "A swift antigrav bike that carries the Sisters in silence to wherever the witch is hiding.",
+      "text": "A Model equipped with an Erinyes jetbike also carries a snare cannon and has the Cavalry Type and the Antigrav Sub-Type, keeping any other Sub-Types it has. In a Battle Turn in which it Moved, it has the Shrouded (6+) Special Rule; in a Battle Turn in which it Rushed, it has the Shrouded (5+) Special Rule instead."
+    },
+    {
+      "name": "Compression tanks",
+      "summary": "Pressurised fuel tanks that make a flamer burn hotter, once.",
+      "text": "Once per battle, when the Controlling Player declares a Shooting Attack for a Unit that includes Models equipped with compression tanks, they may declare that the tanks are used. Every Model in that Unit with compression tanks must then use them: each adds 2 to the RS of its Weapons with the Flame Trait for that Shooting Attack. Once that Shooting Attack is resolved, all the Unit's compression tanks are spent."
     }
   ],
   "options": [
@@ -387,19 +623,13 @@
     },
     {
       "units": [
-        "anathema-cadre",
-        "prosecutor-cadre",
-        "vigilator-cadre",
-        "witchseeker-cadre",
-        "oblivion-knight-cadre",
-        "knight-centura",
-        "jenetia-krole"
+        "kharon-pattern-acquisitor"
       ],
       "option": {
-        "id": "chamber-militant",
+        "id": "chamber-militant-acquisitor",
         "kind": "one",
         "model": null,
-        "text": "Chamber Militant: the unit may belong to one Chamber",
+        "text": "The Acquisitor may serve one Chamber",
         "choices": [
           {
             "name": "Chamber of Vigilance",
@@ -411,23 +641,6 @@
           },
           {
             "name": "Chamber of Oblivion",
-            "points": 0
-          }
-        ]
-      }
-    },
-    {
-      "units": [
-        "kharon-pattern-acquisitor"
-      ],
-      "option": {
-        "id": "chamber-militant-acquisitor",
-        "kind": "upgrade",
-        "model": null,
-        "text": "Chamber Militant: the Acquisitor may serve the Chamber of Judgement",
-        "choices": [
-          {
-            "name": "Chamber of Judgement",
             "points": 0
           }
         ]
@@ -569,7 +782,7 @@
     },
     {
       "units": [
-        "*"
+        "kharon-pattern-acquisitor"
       ],
       "item": "Chamber of Vigilance",
       "scope": "unit",
@@ -580,7 +793,7 @@
     },
     {
       "units": [
-        "*"
+        "kharon-pattern-acquisitor"
       ],
       "item": "Chamber of Judgement",
       "scope": "unit",
@@ -591,13 +804,34 @@
     },
     {
       "units": [
-        "*"
+        "kharon-pattern-acquisitor"
       ],
       "item": "Chamber of Oblivion",
       "scope": "unit",
       "text": "Chamber of Oblivion.",
       "addRules": [
         "Chamber of Oblivion"
+      ]
+    },
+    {
+      "units": [
+        "jenetia-krole",
+        "knight-centura"
+      ],
+      "scope": "unit",
+      "text": "Chamber of Oblivion.",
+      "addRules": [
+        "Chamber of Oblivion"
+      ]
+    },
+    {
+      "units": [
+        "anathema-cadre"
+      ],
+      "scope": "unit",
+      "text": "Chamber of Vigilance.",
+      "addRules": [
+        "Chamber of Vigilance"
       ]
     }
   ],
@@ -651,34 +885,39 @@
       "text": "Enemy Units within 24\" of a Model with this Special Rule cannot use the Shrouded (X) or Infiltrate (X) Special Rules against that Model's Shooting Attacks."
     },
     {
-      "name": "Prosecution Volley",
-      "summary": "The hunt's first strike is a wall of bolts.",
-      "text": "When a Unit with this Special Rule makes a Shooting Attack against a Unit that includes a Psyker or Malefic Model, its Weapons with the Bolt Trait gain the Breaching (6+) Special Rule for that attack."
-    },
-    {
-      "name": "Silent Executioners",
-      "summary": "The greatblade falls before the witch can speak.",
-      "text": "In a Combat that includes an enemy Psyker or Malefic Model, Models with this Special Rule add 1 to their Initiative Characteristic and their Melee Weapons gain the Critical Hit (6+) Special Rule."
-    },
-    {
-      "name": "Witch-pyre",
-      "summary": "What the blade does not finish, the fire will.",
-      "text": "Wounds inflicted on a Psyker or Malefic Model by Weapons with the Flame Trait used by a Unit with this Special Rule have the Breaching (5+) Special Rule."
-    },
-    {
       "name": "Chamber of Vigilance",
-      "summary": "The watchers on the walls; nothing passes them unseen.",
-      "text": "Once per battle, a Unit with this Special Rule may make a Reaction without spending one of its Controlling Player's Reactions for that Battle Turn. It adds 1 to its Hit Tests for Shooting Attacks made as part of a Reaction."
+      "summary": "The Vigilance sit on the edge of the field long before anyone thinks to look for them.",
+      "text": "Before the first Battle Turn, before any Models are deployed, the Controlling Player of a Unit that includes Models with this Special Rule may choose for that Unit to gain either the Scout Special Rule or the Infiltrate (9) Special Rule until the end of the battle."
     },
     {
       "name": "Chamber of Judgement",
-      "summary": "The wardens who stand over the witch and do not flinch.",
-      "text": "While a Unit with this Special Rule is Locked in Combat with an enemy Unit that includes a Psyker, it cannot gain the Pinned, Suppressed or Routed Tactical Status, and it adds 1 to its Combat Resolution Points."
+      "summary": "The Judgement are drilled to stand over a witch and never look away.",
+      "text": "While a Unit that includes Models with this Special Rule is Locked in Combat with an enemy Unit that includes any Model with the Psyker Trait, those Models have the Fearless Special Rule."
     },
     {
       "name": "Chamber of Oblivion",
-      "summary": "The hunters sent after things that should not exist.",
-      "text": "The Melee Weapons of Models with this Special Rule have the Critical Hit (6+) Special Rule against Malefic Models. A Unit with this Special Rule adds 1 to its Charge Rolls when the Charge targets a Unit that includes a Psyker or Malefic Model."
+      "summary": "The Oblivion are sent where the warp has already bled through, and fight on without flinching.",
+      "text": "While a Unit that includes Models with this Special Rule is Locked in Combat with an enemy Unit that includes any Model with the Malefic Sub-Type, those Models have the Fearless Special Rule."
+    },
+    {
+      "name": "Fearless",
+      "summary": "Nothing in the enemy line can make this Unit step back.",
+      "text": "A Model with this Special Rule ignores the Fear (X) Special Rule. A Unit that includes any Model with this Special Rule cannot gain the Pinned or Routed Tactical Status."
+    },
+    {
+      "name": "Stubborn",
+      "summary": "Hard to frighten, and harder to move.",
+      "text": "When a Unit that includes any Model with this Special Rule makes a Cool Check or a Panic Check, it ignores all negative modifiers to the Characteristic used. A Unit that also has the Fearless Special Rule uses that rule instead."
+    },
+    {
+      "name": "Relentless",
+      "summary": "The Unit never slows to aim and never slows to strike.",
+      "text": "A Unit made up entirely of Models with this Special Rule treats its Models as Stationary when making a Shooting Attack with a Weapon that has the Heavy (X) or Ordnance (X) Special Rule, even if they Moved earlier in the same Battle Turn. Such a Unit may also declare a Charge in a Battle Turn in which it made a Shooting Attack."
+    },
+    {
+      "name": "Entangle (X)",
+      "summary": "Weighted nets and snare-charges bind the target where it stands.",
+      "text": "Wound Tests for Hits from a Weapon with this Special Rule compare the attack's Strength to the target's Strength Characteristic instead of its Toughness Characteristic. Wounds from such Hits are not allowed Saving Throws or Damage Mitigation Tests. Instead, for each of them, every Model in the Target Unit reduces its Movement Characteristic by X (to a minimum of 1) until the end of its Controlling Player's next Battle Turn, and the Wound is then discarded without reducing any Wounds Characteristic or removing any Model. Hits from this Special Rule are discarded against Models with the Vehicle or Primarch Type, and against Models with a Wounds Characteristic of 6 or more."
     }
   ],
   "armyRules": [
@@ -737,10 +976,10 @@
       "flavor": "They do not shout. They do not speak. The witch notices only that her prayers have stopped working.",
       "benefits": [
         "Kharon Pattern Acquisitors may fill Troops slots.",
-        "Anathema, Prosecutor, Vigilator and Witchseeker Cadres gain Infiltrate (9) and Silent Hunt: while an enemy Psyker is within 12\" of a Cadre, it subtracts 1 from its Willpower Characteristic."
+        "Anathema, Prosecutor and Vigilator Cadres gain Infiltrate (9) and Silent Hunt: while an enemy Psyker is within 12\" of a Cadre, it subtracts 1 from its Willpower Characteristic."
       ],
       "limitations": [
-        "At least two Anathema, Prosecutor, Vigilator or Witchseeker Cadres are required.",
+        "At least two Anathema, Prosecutor or Vigilator Cadres are required.",
         "No Vagus automata."
       ],
       "roles": [
@@ -756,8 +995,7 @@
           "units": [
             "anathema-cadre",
             "prosecutor-cadre",
-            "vigilator-cadre",
-            "witchseeker-cadre"
+            "vigilator-cadre"
           ],
           "text": "Vow of the Silent Hunt: Infiltrate (9), Silent Hunt.",
           "addRules": [
@@ -771,8 +1009,7 @@
           "units": [
             "anathema-cadre",
             "prosecutor-cadre",
-            "vigilator-cadre",
-            "witchseeker-cadre"
+            "vigilator-cadre"
           ],
           "min": 2,
           "note": "At least two Cadres take the vow."
@@ -790,13 +1027,13 @@
       "name": "The Oblivion Knights Ride",
       "flavor": "Even the Silent Sisterhood needs someone to carry a sword where the witch-fire cannot reach.",
       "benefits": [
-        "Knight-Centuras may fill Troops and Elites slots, gain Line (1) and add 1 to their Attacks Characteristic.",
+        "Knight-Centuras may fill Troops and Elites slots, and Oblivion Knights may fill Troops slots. Both gain Line (1) and add 1 to their Attacks Characteristic.",
         "They gain Oblivion Charge: a Unit may declare a Charge in the Battle Turn in which it Disembarks from a Transport."
       ],
       "limitations": [
-        "At least two Knight-Centuras are required.",
-        "No Anathema, Prosecutor, Vigilator or Witchseeker Cadres.",
-        "A Knight-Centura that can charge an enemy Psyker or Malefic Unit must do so."
+        "At least two Knight-Centuras or Oblivion Knights are required.",
+        "No Anathema, Prosecutor or Vigilator Cadres.",
+        "A Knight-Centura or Oblivion Knights Unit that can charge an enemy Psyker or Malefic Unit must do so."
       ],
       "roles": [
         {
@@ -810,12 +1047,19 @@
             "knight-centura"
           ],
           "role": "Elites"
+        },
+        {
+          "units": [
+            "oblivion-knights"
+          ],
+          "role": "Troops"
         }
       ],
       "modifiers": [
         {
           "units": [
-            "knight-centura"
+            "knight-centura",
+            "oblivion-knights"
           ],
           "text": "The Oblivion Knights Ride: +1 A, Line (1), Oblivion Charge.",
           "stats": {
@@ -830,7 +1074,8 @@
       "require": [
         {
           "units": [
-            "knight-centura"
+            "knight-centura",
+            "oblivion-knights"
           ],
           "min": 2,
           "note": "At least two Oblivion Knights ride."
@@ -841,8 +1086,7 @@
           "units": [
             "anathema-cadre",
             "prosecutor-cadre",
-            "vigilator-cadre",
-            "witchseeker-cadre"
+            "vigilator-cadre"
           ]
         }
       ]
@@ -853,7 +1097,7 @@
       "benefits": [
         "Castellax Battle and Destructor Maniples may fill Troops slots and gain Line (1).",
         "They gain Incorruptible Engines: enemy Psychic Powers cannot target them.",
-        "Anathema, Prosecutor, Vigilator and Witchseeker Cadres gain Dampening Pall: they cannot gain the Pinned, Stunned or Suppressed Tactical Status as the result of an enemy Psychic Power or Malefic ability."
+        "Anathema, Prosecutor and Vigilator Cadres gain Dampening Pall: they cannot gain the Pinned, Stunned or Suppressed Tactical Status as the result of an enemy Psychic Power or Malefic ability."
       ],
       "limitations": [
         "At least two Castellax Maniples are required.",
@@ -885,8 +1129,7 @@
           "units": [
             "anathema-cadre",
             "prosecutor-cadre",
-            "vigilator-cadre",
-            "witchseeker-cadre"
+            "vigilator-cadre"
           ],
           "text": "The Black Ships' Writ: Dampening Pall.",
           "addRules": [
@@ -909,8 +1152,7 @@
           "units": [
             "anathema-cadre",
             "prosecutor-cadre",
-            "vigilator-cadre",
-            "witchseeker-cadre"
+            "vigilator-cadre"
           ],
           "max": 1
         }
@@ -926,27 +1168,755 @@
   ],
   "units": [
     {
-      "id": "prosecutor-cadre",
-      "name": "Prosecutor Cadre",
-      "role": "Troops",
-      "basePoints": 70,
-      "composition": "4 Prosecutors, 1 Prosecutor Mistress",
+      "id": "knight-abyssal",
+      "name": "Knight Abyssal",
+      "role": "High Command",
+      "basePoints": 90,
+      "composition": "1 Knight Abyssal",
       "traits": [
         "Anathema Psykana",
         "Talons of the Emperor"
       ],
       "specialRules": [
-        "Fear (1)",
-        "Hatred (Psyker, Malefic)",
-        "Line (1)",
-        "Prosecution Volley"
+        "Chamber of Oblivion"
       ],
       "models": [
         {
-          "name": "Prosecutor",
+          "name": "Knight Abyssal",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 6,
+            "WS": 6,
+            "BS": 6,
+            "S": 3,
+            "T": 3,
+            "W": 3,
+            "I": 5,
+            "A": 4,
+            "LD": 10,
+            "CL": 10,
+            "WP": 12,
+            "IN": 10,
+            "SAV": "2+",
+            "INV": "5+"
+          },
+          "wargear": [
+            "Execution blade",
+            "Bolt pistol",
+            "Psyk-out bombs",
+            "Voidscale cloak"
+          ],
+          "unitType": "Infantry (Command, Light)",
+          "specialRules": [
+            "Fearless",
+            "Fast (1)",
+            "Precision (5+)",
+            "Ex Oblivio",
+            "Fear (1)",
+            "Hatred (Psyker, Malefic)"
+          ]
+        }
+      ],
+      "options": [
+        {
+          "id": "abyssal-melee",
+          "kind": "one",
+          "model": "Knight Abyssal",
+          "replaces": [
+            "Execution blade"
+          ],
+          "text": "The Knight Abyssal may exchange her execution blade for",
+          "choices": [
+            {
+              "name": "Power axe",
+              "points": 5
+            },
+            {
+              "name": "Power lance",
+              "points": 5
+            },
+            {
+              "name": "Power maul",
+              "points": 5
+            },
+            {
+              "name": "Power sword",
+              "points": 5
+            },
+            {
+              "name": "Charnabal glaive",
+              "points": 5
+            },
+            {
+              "name": "Charnabal sabre",
+              "points": 5
+            },
+            {
+              "name": "Charnabal tabar",
+              "points": 5
+            },
+            {
+              "name": "Proteus neuro-lash",
+              "points": 5
+            },
+            {
+              "name": "Paragon blade",
+              "points": 10
+            }
+          ]
+        },
+        {
+          "id": "abyssal-pistol",
+          "kind": "one",
+          "model": "Knight Abyssal",
+          "replaces": [
+            "Bolt pistol"
+          ],
+          "text": "The Knight Abyssal may exchange her bolt pistol for",
+          "choices": [
+            {
+              "name": "Hand Flamer",
+              "points": 0
+            },
+            {
+              "name": "Needle Pistol",
+              "points": 5
+            },
+            {
+              "name": "Plasma pistol",
+              "points": 10
+            },
+            {
+              "name": "Archeotech pistol",
+              "points": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "silent-judge",
+      "name": "Silent Judge",
+      "role": "Command",
+      "basePoints": 75,
+      "composition": "1 Silent Judge",
+      "traits": [
+        "Anathema Psykana",
+        "Talons of the Emperor"
+      ],
+      "specialRules": [
+        "Chamber of Judgement"
+      ],
+      "models": [
+        {
+          "name": "Silent Judge",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 6,
+            "WS": 5,
+            "BS": 5,
+            "S": 3,
+            "T": 3,
+            "W": 3,
+            "I": 5,
+            "A": 3,
+            "LD": 9,
+            "CL": 8,
+            "WP": 12,
+            "IN": 8,
+            "SAV": "2+",
+            "INV": "5+"
+          },
+          "wargear": [
+            "Two bolt pistols",
+            "Psyk-out bombs",
+            "Voidscale cloak",
+            "Distort field",
+            "Excrutia armatus",
+            "Spectra cloaks"
+          ],
+          "unitType": "Infantry (Command, Light)",
+          "specialRules": [
+            "Fast (1)",
+            "Stubborn",
+            "Precision (6+)",
+            "Fear (1)",
+            "Hatred (Psyker, Malefic)"
+          ]
+        }
+      ],
+      "options": [
+        {
+          "id": "judge-melee",
+          "kind": "one",
+          "model": "Silent Judge",
+          "replaces": [],
+          "text": "The Silent Judge may take a melee weapon",
+          "choices": [
+            {
+              "name": "Power axe",
+              "points": 10
+            },
+            {
+              "name": "Power lance",
+              "points": 10
+            },
+            {
+              "name": "Power maul",
+              "points": 10
+            },
+            {
+              "name": "Power sword",
+              "points": 10
+            },
+            {
+              "name": "Charnabal glaive",
+              "points": 10
+            },
+            {
+              "name": "Charnabal sabre",
+              "points": 10
+            },
+            {
+              "name": "Charnabal tabar",
+              "points": 10
+            },
+            {
+              "name": "Proteus neuro-lash",
+              "points": 5
+            },
+            {
+              "name": "Power fist",
+              "points": 20
+            }
+          ]
+        },
+        {
+          "id": "judge-pistols",
+          "kind": "one",
+          "model": "Silent Judge",
+          "replaces": [
+            "Two bolt pistols"
+          ],
+          "text": "The Silent Judge may exchange her bolt pistols for",
+          "choices": [
+            {
+              "name": "Two Hand Flamers",
+              "points": 0
+            },
+            {
+              "name": "Two Needle Pistols",
+              "points": 10
+            },
+            {
+              "name": "Two Plasma pistols",
+              "points": 20
+            },
+            {
+              "name": "Two Archeotech pistols",
+              "points": 20
+            }
+          ]
+        },
+        {
+          "id": "judge-special",
+          "kind": "one",
+          "model": "Silent Judge",
+          "replaces": [],
+          "text": "The Silent Judge may take a special weapon",
+          "choices": [
+            {
+              "name": "Flamer",
+              "points": 5
+            },
+            {
+              "name": "Heavy flamer",
+              "points": 10
+            },
+            {
+              "name": "Vratine grenade launcher",
+              "points": 10
+            },
+            {
+              "name": "Adrathic devastator",
+              "points": 15
+            }
+          ]
+        },
+        {
+          "id": "judge-tanks",
+          "kind": "upgrade",
+          "model": "Silent Judge",
+          "replaces": [],
+          "text": "The Silent Judge may carry compression tanks",
+          "choices": [
+            {
+              "name": "Compression tanks",
+              "points": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "silent-fury",
+      "name": "Silent Fury",
+      "role": "Command",
+      "basePoints": 80,
+      "composition": "1 Silent Fury",
+      "traits": [
+        "Anathema Psykana",
+        "Talons of the Emperor"
+      ],
+      "specialRules": [
+        "Chamber of Judgement"
+      ],
+      "models": [
+        {
+          "name": "Silent Fury",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 18,
+            "WS": 5,
+            "BS": 5,
+            "S": 3,
+            "T": 3,
+            "W": 3,
+            "I": 5,
+            "A": 3,
+            "LD": 9,
+            "CL": 8,
+            "WP": 12,
+            "IN": 8,
+            "SAV": "2+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Snare cannon",
+            "Bolt pistol",
+            "Close combat weapon",
+            "Psyk-out bombs",
+            "Distort field",
+            "Erinyes jetbike"
+          ],
+          "unitType": "Cavalry (Command, Antigrav, Skirmish, Light)",
+          "specialRules": [
+            "Fast (1)",
+            "Stubborn",
+            "Relentless",
+            "Deep Strike",
+            "Outflank",
+            "Precision (6+)",
+            "Fear (1)",
+            "Hatred (Psyker, Malefic)"
+          ]
+        }
+      ],
+      "options": [
+        {
+          "id": "fury-melee",
+          "kind": "one",
+          "model": "Silent Fury",
+          "replaces": [
+            "Close combat weapon"
+          ],
+          "text": "The Silent Fury may exchange her close combat weapon for",
+          "choices": [
+            {
+              "name": "Power axe",
+              "points": 10
+            },
+            {
+              "name": "Power lance",
+              "points": 10
+            },
+            {
+              "name": "Power maul",
+              "points": 10
+            },
+            {
+              "name": "Power sword",
+              "points": 10
+            },
+            {
+              "name": "Charnabal glaive",
+              "points": 10
+            },
+            {
+              "name": "Charnabal sabre",
+              "points": 10
+            },
+            {
+              "name": "Charnabal tabar",
+              "points": 10
+            },
+            {
+              "name": "Proteus neuro-lash",
+              "points": 5
+            }
+          ]
+        },
+        {
+          "id": "fury-pistol",
+          "kind": "one",
+          "model": "Silent Fury",
+          "replaces": [
+            "Bolt pistol"
+          ],
+          "text": "The Silent Fury may exchange her bolt pistol for",
+          "choices": [
+            {
+              "name": "Hand Flamer",
+              "points": 0
+            },
+            {
+              "name": "Needle Pistol",
+              "points": 5
+            },
+            {
+              "name": "Plasma pistol",
+              "points": 10
+            },
+            {
+              "name": "Archeotech pistol",
+              "points": 10
+            }
+          ]
+        },
+        {
+          "id": "fury-jetbike",
+          "kind": "one",
+          "model": "Silent Fury",
+          "replaces": [
+            "Snare cannon"
+          ],
+          "text": "The Silent Fury may exchange her jetbike's snare cannon for",
+          "choices": [
+            {
+              "name": "Adrathic devastator",
+              "points": 10
+            },
+            {
+              "name": "Needle cannon",
+              "points": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "knight-vestal-covenant",
+      "name": "Knight Vestal Covenant",
+      "role": "Elites",
+      "basePoints": 45,
+      "composition": "1 Knight Vestal (up to 3)",
+      "traits": [
+        "Anathema Psykana",
+        "Talons of the Emperor"
+      ],
+      "specialRules": [
+        "Chamber of Vigilance"
+      ],
+      "models": [
+        {
+          "name": "Knight Vestal",
+          "min": 1,
+          "max": 3,
+          "costPerExtra": 45,
+          "profile": {
+            "M": 6,
+            "WS": 5,
+            "BS": 5,
+            "S": 3,
+            "T": 3,
+            "W": 2,
+            "I": 5,
+            "A": 2,
+            "LD": 9,
+            "CL": 8,
+            "WP": 12,
+            "IN": 8,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Two bolt pistols",
+            "Narthecium"
+          ],
+          "unitType": "Infantry (Command, Light)",
+          "specialRules": [
+            "Fast (1)",
+            "Stubborn",
+            "Fear (1)",
+            "Hatred (Psyker, Malefic)"
+          ]
+        }
+      ],
+      "options": [
+        {
+          "id": "vestal-melee",
+          "kind": "perModel",
+          "model": "Knight Vestal",
+          "replaces": [],
+          "text": "Any Knight Vestal may take a melee weapon",
+          "choices": [
+            {
+              "name": "Power axe",
+              "points": 10
+            },
+            {
+              "name": "Power lance",
+              "points": 10
+            },
+            {
+              "name": "Power maul",
+              "points": 10
+            },
+            {
+              "name": "Power sword",
+              "points": 10
+            },
+            {
+              "name": "Charnabal glaive",
+              "points": 10
+            },
+            {
+              "name": "Charnabal sabre",
+              "points": 10
+            },
+            {
+              "name": "Charnabal tabar",
+              "points": 10
+            }
+          ],
+          "max": null
+        },
+        {
+          "id": "vestal-pistols",
+          "kind": "perModel",
+          "model": "Knight Vestal",
+          "replaces": [
+            "Two bolt pistols"
+          ],
+          "text": "Any Knight Vestal may exchange her bolt pistols for",
+          "choices": [
+            {
+              "name": "Two Needle Pistols",
+              "points": 10
+            },
+            {
+              "name": "Two Archeotech pistols",
+              "points": 20
+            }
+          ],
+          "max": null
+        }
+      ]
+    },
+    {
+      "id": "oblivion-knights",
+      "name": "Oblivion Knights",
+      "role": "Elites",
+      "basePoints": 100,
+      "composition": "4 Oblivion Knight, 1 Oblivion Knight Mistress",
+      "traits": [
+        "Anathema Psykana",
+        "Talons of the Emperor"
+      ],
+      "specialRules": [
+        "Chamber of Oblivion",
+        "Fast (1)",
+        "Stubborn",
+        "Precision (6+)",
+        "Fear (1)",
+        "Hatred (Psyker, Malefic)"
+      ],
+      "models": [
+        {
+          "name": "Oblivion Knight",
           "min": 4,
           "max": 9,
-          "costPerExtra": 11,
+          "costPerExtra": 15,
+          "profile": {
+            "M": 6,
+            "WS": 5,
+            "BS": 4,
+            "S": 3,
+            "T": 3,
+            "W": 1,
+            "I": 4,
+            "A": 1,
+            "LD": 8,
+            "CL": 7,
+            "WP": 10,
+            "IN": 7,
+            "SAV": "3+",
+            "INV": "6+"
+          },
+          "wargear": [
+            "Execution blade",
+            "Bolt pistol",
+            "Voidsheen cloak"
+          ],
+          "unitType": "Infantry (Light)",
+          "specialRules": []
+        },
+        {
+          "name": "Oblivion Knight Mistress",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 6,
+            "WS": 5,
+            "BS": 4,
+            "S": 3,
+            "T": 3,
+            "W": 1,
+            "I": 4,
+            "A": 2,
+            "LD": 9,
+            "CL": 7,
+            "WP": 10,
+            "IN": 7,
+            "SAV": "3+",
+            "INV": "6+"
+          },
+          "wargear": [
+            "Execution blade",
+            "Bolt pistol",
+            "Voidsheen cloak"
+          ],
+          "unitType": "Infantry (Sergeant, Light)",
+          "specialRules": []
+        }
+      ],
+      "options": [
+        {
+          "id": "oblivion-knights-blades",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Execution blade"
+          ],
+          "text": "Every Model in this Unit may exchange its execution blade for one of the following. If this option is selected, every Model in this Unit must exchange its execution blade for the same item",
+          "choices": [
+            {
+              "name": "Charnabal glaive",
+              "points": 0
+            },
+            {
+              "name": "Charnabal sabre",
+              "points": 0
+            },
+            {
+              "name": "Charnabal tabar",
+              "points": 0
+            },
+            {
+              "name": "Power axe",
+              "points": 0
+            },
+            {
+              "name": "Power lance",
+              "points": 0
+            },
+            {
+              "name": "Power maul",
+              "points": 0
+            },
+            {
+              "name": "Power sword",
+              "points": 0
+            },
+            {
+              "name": "Proteus neuro-lash",
+              "points": 0
+            }
+          ]
+        },
+        {
+          "id": "oblivion-knights-mistress-pistol",
+          "kind": "one",
+          "model": "Oblivion Knight Mistress",
+          "replaces": [
+            "Bolt pistol"
+          ],
+          "text": "The Oblivion Knight Mistress may exchange her bolt pistol for",
+          "choices": [
+            {
+              "name": "Hand Flamer",
+              "points": 5
+            },
+            {
+              "name": "Needle Pistol",
+              "points": 5
+            },
+            {
+              "name": "Plasma pistol",
+              "points": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eradicator-cadre",
+      "name": "Eradicator Cadre",
+      "role": "Elites",
+      "basePoints": 65,
+      "composition": "4 Eradicator, 1 Eradicator Mistress",
+      "traits": [
+        "Anathema Psykana",
+        "Talons of the Emperor"
+      ],
+      "specialRules": [
+        "Chamber of Vigilance",
+        "Fast (1)",
+        "Stubborn",
+        "Precision (6+)",
+        "Fear (1)",
+        "Hatred (Psyker, Malefic)"
+      ],
+      "models": [
+        {
+          "name": "Eradicator",
+          "min": 4,
+          "max": 9,
+          "costPerExtra": 10,
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 4,
+            "S": 3,
+            "T": 3,
+            "W": 1,
+            "I": 4,
+            "A": 1,
+            "LD": 7,
+            "CL": 7,
+            "WP": 10,
+            "IN": 7,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Vratine bolter"
+          ],
+          "unitType": "Infantry (Light)",
+          "specialRules": []
+        },
+        {
+          "name": "Eradicator Mistress",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
           "profile": {
             "M": 6,
             "WS": 4,
@@ -956,6 +1926,166 @@
             "W": 1,
             "I": 4,
             "A": 2,
+            "LD": 8,
+            "CL": 7,
+            "WP": 10,
+            "IN": 7,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Vratine bolter"
+          ],
+          "unitType": "Infantry (Sergeant, Light)",
+          "specialRules": []
+        }
+      ],
+      "options": [
+        {
+          "id": "eradicator-combi",
+          "kind": "perModel",
+          "model": "Eradicator",
+          "replaces": [
+            "Vratine bolter"
+          ],
+          "text": "Any Eradicator may exchange her Vratine bolter for",
+          "choices": [
+            {
+              "name": "Combi-flamer",
+              "points": 5
+            },
+            {
+              "name": "Combi-grenade",
+              "points": 5
+            },
+            {
+              "name": "Combi-volkite",
+              "points": 5
+            },
+            {
+              "name": "Combi-melta",
+              "points": 10
+            },
+            {
+              "name": "Combi-plasma",
+              "points": 10
+            }
+          ],
+          "max": null
+        },
+        {
+          "id": "eradicator-tanks",
+          "kind": "perModel",
+          "model": "Eradicator",
+          "replaces": [],
+          "text": "Any Eradicator may carry compression tanks",
+          "choices": [
+            {
+              "name": "Compression tanks",
+              "points": 5
+            }
+          ],
+          "max": null
+        },
+        {
+          "id": "eradicator-mistress-kit",
+          "kind": "any",
+          "model": "Eradicator Mistress",
+          "replaces": [],
+          "text": "The Eradicator Mistress may take any of the following",
+          "choices": [
+            {
+              "name": "Charnabal glaive",
+              "points": 10
+            },
+            {
+              "name": "Charnabal sabre",
+              "points": 10
+            },
+            {
+              "name": "Charnabal tabar",
+              "points": 10
+            },
+            {
+              "name": "Power axe",
+              "points": 10
+            },
+            {
+              "name": "Power lance",
+              "points": 10
+            },
+            {
+              "name": "Power maul",
+              "points": 10
+            },
+            {
+              "name": "Power sword",
+              "points": 10
+            },
+            {
+              "name": "Hand Flamer",
+              "points": 5
+            },
+            {
+              "name": "Needle Pistol",
+              "points": 5
+            },
+            {
+              "name": "Plasma pistol",
+              "points": 10
+            }
+          ],
+          "max": null
+        },
+        {
+          "id": "eradicator-mistress-tanks",
+          "kind": "perModel",
+          "model": "Eradicator Mistress",
+          "replaces": [],
+          "text": "The Eradicator Mistress may carry compression tanks",
+          "choices": [
+            {
+              "name": "Compression tanks",
+              "points": 5
+            }
+          ],
+          "max": null
+        }
+      ]
+    },
+    {
+      "id": "prosecutor-cadre",
+      "name": "Prosecutor Cadre",
+      "role": "Troops",
+      "basePoints": 65,
+      "composition": "4 Prosecutor, 1 Prosecutor Mistress",
+      "traits": [
+        "Anathema Psykana",
+        "Talons of the Emperor"
+      ],
+      "specialRules": [
+        "Chamber of Vigilance",
+        "Fast (1)",
+        "Stubborn",
+        "Line (1)",
+        "Fear (1)",
+        "Hatred (Psyker, Malefic)"
+      ],
+      "models": [
+        {
+          "name": "Prosecutor",
+          "min": 4,
+          "max": 14,
+          "costPerExtra": 10,
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 4,
+            "S": 3,
+            "T": 3,
+            "W": 1,
+            "I": 4,
+            "A": 1,
             "LD": 7,
             "CL": 7,
             "WP": 10,
@@ -964,10 +2094,10 @@
             "INV": "–"
           },
           "wargear": [
-            "Bolter",
-            "Psyk-out bombs"
+            "Bolter"
           ],
-          "unitType": "Infantry (Light)"
+          "unitType": "Infantry (Light)",
+          "specialRules": []
         },
         {
           "name": "Prosecutor Mistress",
@@ -991,51 +2121,108 @@
             "INV": "–"
           },
           "wargear": [
-            "Bolter",
-            "Psyk-out bombs"
+            "Bolter"
           ],
-          "unitType": "Infantry (Sergeant, Light)"
+          "unitType": "Infantry (Sergeant, Light)",
+          "specialRules": []
         }
       ],
       "options": [
         {
-          "id": "prosecutor-mistress-weapon",
+          "id": "prosecutor-cadre-weapons",
           "kind": "one",
-          "model": "Prosecutor Mistress",
+          "model": null,
           "replaces": [
             "Bolter"
           ],
-          "text": "The Prosecutor Mistress may exchange her bolter for",
+          "text": "Every Model in this Unit may exchange its bolter for one of the following. If this option is selected, every Model in this Unit must exchange its bolter for the same item",
           "choices": [
             {
-              "name": "Execution blade",
-              "points": 5
+              "name": "Two Bolt Pistols",
+              "points": 0
+            },
+            {
+              "name": "Assault needler",
+              "points": 0
             }
           ]
+        },
+        {
+          "id": "prosecutor-mistress-kit",
+          "kind": "any",
+          "model": "Prosecutor Mistress",
+          "replaces": [],
+          "text": "The Prosecutor Mistress may take any of the following",
+          "choices": [
+            {
+              "name": "Charnabal glaive",
+              "points": 10
+            },
+            {
+              "name": "Charnabal sabre",
+              "points": 10
+            },
+            {
+              "name": "Charnabal tabar",
+              "points": 10
+            },
+            {
+              "name": "Power axe",
+              "points": 10
+            },
+            {
+              "name": "Power lance",
+              "points": 10
+            },
+            {
+              "name": "Power maul",
+              "points": 10
+            },
+            {
+              "name": "Power sword",
+              "points": 10
+            },
+            {
+              "name": "Hand Flamer",
+              "points": 5
+            },
+            {
+              "name": "Needle Pistol",
+              "points": 5
+            },
+            {
+              "name": "Plasma pistol",
+              "points": 10
+            }
+          ],
+          "max": null
         }
       ]
     },
     {
       "id": "vigilator-cadre",
       "name": "Vigilator Cadre",
-      "role": "Elites",
-      "basePoints": 90,
-      "composition": "4 Vigilators, 1 Vigilator Mistress",
+      "role": "Troops",
+      "basePoints": 65,
+      "composition": "4 Vigilator, 1 Vigilator Mistress",
       "traits": [
         "Anathema Psykana",
         "Talons of the Emperor"
       ],
       "specialRules": [
+        "Chamber of Oblivion",
+        "Fast (1)",
+        "Stubborn",
+        "Line (1)",
         "Fear (1)",
-        "Hatred (Psyker, Malefic)",
-        "Silent Executioners"
+        "Hatred (Psyker, Malefic)"
       ],
       "models": [
         {
           "name": "Vigilator",
           "min": 4,
-          "max": 9,
-          "costPerExtra": 15,
+          "max": 14,
+          "costPerExtra": 12,
           "profile": {
             "M": 6,
             "WS": 4,
@@ -1044,7 +2231,7 @@
             "T": 3,
             "W": 1,
             "I": 4,
-            "A": 2,
+            "A": 1,
             "LD": 7,
             "CL": 7,
             "WP": 10,
@@ -1053,9 +2240,11 @@
             "INV": "–"
           },
           "wargear": [
-            "Executioner greatblade"
+            "Bolt pistol",
+            "Execution blade"
           ],
-          "unitType": "Infantry (Light)"
+          "unitType": "Infantry (Light)",
+          "specialRules": []
         },
         {
           "name": "Vigilator Mistress",
@@ -1070,7 +2259,7 @@
             "T": 3,
             "W": 1,
             "I": 4,
-            "A": 3,
+            "A": 2,
             "LD": 8,
             "CL": 7,
             "WP": 10,
@@ -1079,34 +2268,152 @@
             "INV": "–"
           },
           "wargear": [
-            "Executioner greatblade"
+            "Bolt pistol",
+            "Execution blade"
           ],
-          "unitType": "Infantry (Sergeant, Light)"
+          "unitType": "Infantry (Sergeant, Light)",
+          "specialRules": []
+        }
+      ],
+      "options": [
+        {
+          "id": "vigilator-pistol",
+          "kind": "perModel",
+          "model": "Vigilator",
+          "replaces": [
+            "Bolt pistol"
+          ],
+          "text": "Any Vigilator may exchange her bolt pistol for",
+          "choices": [
+            {
+              "name": "Hand Flamer",
+              "points": 5
+            },
+            {
+              "name": "Needle Pistol",
+              "points": 5
+            }
+          ],
+          "max": null
+        },
+        {
+          "id": "vigilator-tanks",
+          "kind": "perModel",
+          "model": "Vigilator",
+          "replaces": [],
+          "text": "Any Vigilator may carry compression tanks",
+          "choices": [
+            {
+              "name": "Compression tanks",
+              "points": 5
+            }
+          ],
+          "max": null
+        },
+        {
+          "id": "vigilator-mistress-pistol",
+          "kind": "one",
+          "model": "Vigilator Mistress",
+          "replaces": [
+            "Bolt pistol"
+          ],
+          "text": "The Vigilator Mistress may exchange her bolt pistol for",
+          "choices": [
+            {
+              "name": "Plasma pistol",
+              "points": 10
+            }
+          ]
+        },
+        {
+          "id": "vigilator-mistress-blade",
+          "kind": "one",
+          "model": "Vigilator Mistress",
+          "replaces": [
+            "Execution blade"
+          ],
+          "text": "The Vigilator Mistress may exchange her execution blade for",
+          "choices": [
+            {
+              "name": "Power axe",
+              "points": 0
+            },
+            {
+              "name": "Power maul",
+              "points": 0
+            },
+            {
+              "name": "Power lance",
+              "points": 0
+            },
+            {
+              "name": "Power sword",
+              "points": 0
+            },
+            {
+              "name": "Proteus neuro-lash",
+              "points": 5
+            },
+            {
+              "name": "Power fist",
+              "points": 10
+            }
+          ]
         }
       ]
     },
     {
-      "id": "witchseeker-cadre",
-      "name": "Witchseeker Cadre",
-      "role": "Support",
-      "basePoints": 85,
-      "composition": "4 Witchseekers, 1 Witchseeker Mistress",
+      "id": "pursuer-cadre",
+      "name": "Pursuer Cadre",
+      "role": "Fast Attack",
+      "basePoints": 65,
+      "composition": "2 Pursuer, 1 Pursuer Mistress, up to 6 cyber-beasts of one kind",
       "traits": [
         "Anathema Psykana",
         "Talons of the Emperor"
       ],
       "specialRules": [
+        "Chamber of Oblivion",
+        "Fast (1)",
+        "Stubborn",
         "Fear (1)",
-        "Hatred (Psyker, Malefic)",
-        "Move Through Cover",
-        "Witch-pyre"
+        "Hatred (Psyker, Malefic)"
       ],
+      "note": "Choose a single kind of cyber-beast for the Cadre (up to six of them). The beasts follow the Cadre and do not count as Pursuers.",
       "models": [
         {
-          "name": "Witchseeker",
-          "min": 4,
-          "max": 9,
-          "costPerExtra": 13,
+          "name": "Pursuer",
+          "min": 2,
+          "max": 5,
+          "costPerExtra": 10,
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 4,
+            "S": 3,
+            "T": 3,
+            "W": 1,
+            "I": 4,
+            "A": 1,
+            "LD": 7,
+            "CL": 7,
+            "WP": 10,
+            "IN": 7,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Bolt pistol",
+            "Close combat weapon"
+          ],
+          "unitType": "Infantry (Skirmish, Light)",
+          "specialRules": []
+        },
+        {
+          "name": "Pursuer Mistress",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
           "profile": {
             "M": 6,
             "WS": 4,
@@ -1116,6 +2423,377 @@
             "W": 1,
             "I": 4,
             "A": 2,
+            "LD": 8,
+            "CL": 7,
+            "WP": 10,
+            "IN": 7,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Bolt pistol",
+            "Close combat weapon"
+          ],
+          "unitType": "Infantry (Sergeant, Skirmish, Light)",
+          "specialRules": []
+        },
+        {
+          "name": "Cyber Mastiff",
+          "min": 0,
+          "max": 6,
+          "costPerExtra": 5,
+          "profile": {
+            "M": 7,
+            "WS": 4,
+            "BS": 0,
+            "S": 4,
+            "T": 3,
+            "W": 1,
+            "I": 4,
+            "A": 2,
+            "LD": 6,
+            "CL": 6,
+            "WP": 4,
+            "IN": 2,
+            "SAV": "5+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Close combat weapon"
+          ],
+          "unitType": "Infantry (Skirmish, Light)",
+          "specialRules": [
+            "Fast (1)",
+            "Impact (S)"
+          ]
+        },
+        {
+          "name": "Cyber Felidae",
+          "min": 0,
+          "max": 6,
+          "costPerExtra": 5,
+          "profile": {
+            "M": 8,
+            "WS": 4,
+            "BS": 0,
+            "S": 3,
+            "T": 3,
+            "W": 1,
+            "I": 5,
+            "A": 2,
+            "LD": 6,
+            "CL": 6,
+            "WP": 4,
+            "IN": 2,
+            "SAV": "6+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Close combat weapon"
+          ],
+          "unitType": "Infantry (Skirmish, Light)",
+          "specialRules": [
+            "Fast (1)",
+            "Impact (A)"
+          ]
+        },
+        {
+          "name": "Cyber Caiman",
+          "min": 0,
+          "max": 6,
+          "costPerExtra": 10,
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 0,
+            "S": 5,
+            "T": 5,
+            "W": 2,
+            "I": 3,
+            "A": 2,
+            "LD": 6,
+            "CL": 6,
+            "WP": 4,
+            "IN": 2,
+            "SAV": "5+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Close combat weapon"
+          ],
+          "unitType": "Infantry (Skirmish)",
+          "specialRules": [
+            "Feel No Pain (6+)"
+          ]
+        },
+        {
+          "name": "Cyber Raptor",
+          "min": 0,
+          "max": 6,
+          "costPerExtra": 5,
+          "profile": {
+            "M": 8,
+            "WS": 4,
+            "BS": 0,
+            "S": 3,
+            "T": 3,
+            "W": 1,
+            "I": 4,
+            "A": 3,
+            "LD": 6,
+            "CL": 6,
+            "WP": 4,
+            "IN": 2,
+            "SAV": "–",
+            "INV": "–"
+          },
+          "wargear": [
+            "Close combat weapon"
+          ],
+          "unitType": "Infantry (Skirmish, Light)",
+          "specialRules": [
+            "Fast (1)",
+            "Shrouded (6+)"
+          ]
+        }
+      ],
+      "options": [
+        {
+          "id": "pursuer-pistol",
+          "kind": "perModel",
+          "model": "Pursuer",
+          "replaces": [
+            "Bolt pistol"
+          ],
+          "text": "Any Pursuer may exchange her bolt pistol for",
+          "choices": [
+            {
+              "name": "Hand Flamer",
+              "points": 0
+            },
+            {
+              "name": "Needle Pistol",
+              "points": 5
+            }
+          ],
+          "max": null
+        },
+        {
+          "id": "pursuer-blade",
+          "kind": "perModel",
+          "model": "Pursuer",
+          "replaces": [
+            "Close combat weapon"
+          ],
+          "text": "Any Pursuer may exchange her close combat weapon for",
+          "choices": [
+            {
+              "name": "Execution blade",
+              "points": 10
+            }
+          ],
+          "max": null
+        },
+        {
+          "id": "pursuer-scanners",
+          "kind": "perModel",
+          "model": "Pursuer",
+          "replaces": [],
+          "text": "Any Pursuer may carry",
+          "choices": [
+            {
+              "name": "Augury scanner",
+              "points": 10
+            },
+            {
+              "name": "Nuncio-vox",
+              "points": 10
+            }
+          ],
+          "max": null
+        },
+        {
+          "id": "pursuer-mistress-pistol",
+          "kind": "one",
+          "model": "Pursuer Mistress",
+          "replaces": [
+            "Bolt pistol"
+          ],
+          "text": "The Pursuer Mistress may exchange her bolt pistol for",
+          "choices": [
+            {
+              "name": "Hand Flamer",
+              "points": 0
+            },
+            {
+              "name": "Needle Pistol",
+              "points": 5
+            }
+          ]
+        },
+        {
+          "id": "pursuer-mistress-blade",
+          "kind": "one",
+          "model": "Pursuer Mistress",
+          "replaces": [
+            "Close combat weapon"
+          ],
+          "text": "The Pursuer Mistress may exchange her close combat weapon for",
+          "choices": [
+            {
+              "name": "Execution blade",
+              "points": 10
+            }
+          ]
+        },
+        {
+          "id": "pursuer-mistress-kit",
+          "kind": "any",
+          "model": "Pursuer Mistress",
+          "replaces": [],
+          "text": "The Pursuer Mistress may take any of the following",
+          "choices": [
+            {
+              "name": "Charnabal glaive",
+              "points": 10
+            },
+            {
+              "name": "Charnabal sabre",
+              "points": 10
+            },
+            {
+              "name": "Charnabal tabar",
+              "points": 10
+            },
+            {
+              "name": "Power axe",
+              "points": 10
+            },
+            {
+              "name": "Power lance",
+              "points": 10
+            },
+            {
+              "name": "Power maul",
+              "points": 10
+            },
+            {
+              "name": "Power sword",
+              "points": 10
+            },
+            {
+              "name": "Hand Flamer",
+              "points": 5
+            },
+            {
+              "name": "Needle Pistol",
+              "points": 5
+            },
+            {
+              "name": "Plasma pistol",
+              "points": 10
+            }
+          ],
+          "max": null
+        },
+        {
+          "id": "pursuer-cyber-mastiff-blade",
+          "kind": "perModel",
+          "model": "Cyber Mastiff",
+          "replaces": [
+            "Close combat weapon"
+          ],
+          "text": "Any Cyber Mastiff may exchange its close combat weapon for",
+          "choices": [
+            {
+              "name": "Execution blade",
+              "points": 10
+            }
+          ],
+          "max": null
+        },
+        {
+          "id": "pursuer-cyber-felidae-blade",
+          "kind": "perModel",
+          "model": "Cyber Felidae",
+          "replaces": [
+            "Close combat weapon"
+          ],
+          "text": "Any Cyber Felidae may exchange its close combat weapon for",
+          "choices": [
+            {
+              "name": "Execution blade",
+              "points": 10
+            }
+          ],
+          "max": null
+        },
+        {
+          "id": "pursuer-cyber-caiman-blade",
+          "kind": "perModel",
+          "model": "Cyber Caiman",
+          "replaces": [
+            "Close combat weapon"
+          ],
+          "text": "Any Cyber Caiman may exchange its close combat weapon for",
+          "choices": [
+            {
+              "name": "Execution blade",
+              "points": 10
+            }
+          ],
+          "max": null
+        },
+        {
+          "id": "pursuer-cyber-raptor-blade",
+          "kind": "perModel",
+          "model": "Cyber Raptor",
+          "replaces": [
+            "Close combat weapon"
+          ],
+          "text": "Any Cyber Raptor may exchange its close combat weapon for",
+          "choices": [
+            {
+              "name": "Execution blade",
+              "points": 10
+            }
+          ],
+          "max": null
+        }
+      ]
+    },
+    {
+      "id": "firebrand-cadre",
+      "name": "Firebrand Cadre",
+      "role": "Fast Attack",
+      "basePoints": 70,
+      "composition": "4 Firebrand, 1 Firebrand Mistress",
+      "traits": [
+        "Anathema Psykana",
+        "Talons of the Emperor"
+      ],
+      "specialRules": [
+        "Chamber of Judgement",
+        "Fast (1)",
+        "Stubborn",
+        "Fear (1)",
+        "Hatred (Psyker, Malefic)"
+      ],
+      "models": [
+        {
+          "name": "Firebrand",
+          "min": 4,
+          "max": 9,
+          "costPerExtra": 12,
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 4,
+            "S": 3,
+            "T": 3,
+            "W": 1,
+            "I": 4,
+            "A": 1,
             "LD": 7,
             "CL": 7,
             "WP": 10,
@@ -1126,10 +2804,11 @@
           "wargear": [
             "Flamer"
           ],
-          "unitType": "Infantry (Light)"
+          "unitType": "Infantry (Light)",
+          "specialRules": []
         },
         {
-          "name": "Witchseeker Mistress",
+          "name": "Firebrand Mistress",
           "min": 1,
           "max": 1,
           "costPerExtra": 0,
@@ -1152,47 +2831,665 @@
           "wargear": [
             "Flamer"
           ],
-          "unitType": "Infantry (Sergeant, Light)"
+          "unitType": "Infantry (Sergeant, Light)",
+          "specialRules": []
         }
       ],
       "options": [
         {
-          "id": "witchseeker-mistress-weapon",
+          "id": "firebrand-weapons",
           "kind": "one",
-          "model": "Witchseeker Mistress",
+          "model": null,
           "replaces": [
             "Flamer"
           ],
-          "text": "The Witchseeker Mistress may exchange her flamer for",
+          "text": "Every Model in this Unit may exchange its flamer for one of the following. If this option is selected, every Model in this Unit must exchange its flamer for the same item",
           "choices": [
             {
-              "name": "Heavy flamer",
+              "name": "Vratine grenade launcher",
+              "points": 0
+            },
+            {
+              "name": "Snare gun",
+              "points": 0
+            }
+          ]
+        },
+        {
+          "id": "firebrand-kit",
+          "kind": "perModel",
+          "model": "Firebrand",
+          "replaces": [],
+          "text": "Any Firebrand may carry",
+          "choices": [
+            {
+              "name": "Compression tanks",
+              "points": 5
+            },
+            {
+              "name": "Augury scanner",
               "points": 10
+            },
+            {
+              "name": "Nuncio-vox",
+              "points": 10
+            }
+          ],
+          "max": null
+        },
+        {
+          "id": "firebrand-mistress-kit",
+          "kind": "any",
+          "model": "Firebrand Mistress",
+          "replaces": [],
+          "text": "The Firebrand Mistress may take any of the following",
+          "choices": [
+            {
+              "name": "Charnabal glaive",
+              "points": 10
+            },
+            {
+              "name": "Charnabal sabre",
+              "points": 10
+            },
+            {
+              "name": "Charnabal tabar",
+              "points": 10
+            },
+            {
+              "name": "Power axe",
+              "points": 10
+            },
+            {
+              "name": "Power lance",
+              "points": 10
+            },
+            {
+              "name": "Power maul",
+              "points": 10
+            },
+            {
+              "name": "Power sword",
+              "points": 10
+            },
+            {
+              "name": "Hand Flamer",
+              "points": 5
+            },
+            {
+              "name": "Needle Pistol",
+              "points": 5
+            },
+            {
+              "name": "Plasma pistol",
+              "points": 10
+            }
+          ],
+          "max": null
+        },
+        {
+          "id": "firebrand-mistress-tanks",
+          "kind": "perModel",
+          "model": "Firebrand Mistress",
+          "replaces": [],
+          "text": "The Firebrand Mistress may carry compression tanks",
+          "choices": [
+            {
+              "name": "Compression tanks",
+              "points": 5
+            }
+          ],
+          "max": null
+        }
+      ]
+    },
+    {
+      "id": "subjugator-cadre",
+      "name": "Subjugator Cadre",
+      "role": "Fast Attack",
+      "basePoints": 105,
+      "composition": "2 Subjugator, 1 Subjugator Mistress",
+      "traits": [
+        "Anathema Psykana",
+        "Talons of the Emperor"
+      ],
+      "specialRules": [
+        "Chamber of Judgement",
+        "Stubborn",
+        "Fear (1)",
+        "Hatred (Psyker, Malefic)"
+      ],
+      "models": [
+        {
+          "name": "Subjugator",
+          "min": 2,
+          "max": 9,
+          "costPerExtra": 25,
+          "profile": {
+            "M": 18,
+            "WS": 4,
+            "BS": 4,
+            "S": 3,
+            "T": 3,
+            "W": 2,
+            "I": 4,
+            "A": 1,
+            "LD": 7,
+            "CL": 7,
+            "WP": 10,
+            "IN": 7,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Snare cannon",
+            "Bolt pistol",
+            "Close combat weapon",
+            "Erinyes jetbike"
+          ],
+          "unitType": "Cavalry (Antigrav, Skirmish, Light)",
+          "specialRules": [
+            "Deep Strike",
+            "Outflank",
+            "Relentless",
+            "Firing Protocols (2)"
+          ]
+        },
+        {
+          "name": "Subjugator Mistress",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 18,
+            "WS": 4,
+            "BS": 4,
+            "S": 3,
+            "T": 3,
+            "W": 2,
+            "I": 4,
+            "A": 2,
+            "LD": 8,
+            "CL": 7,
+            "WP": 10,
+            "IN": 7,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Snare cannon",
+            "Bolt pistol",
+            "Close combat weapon",
+            "Erinyes jetbike"
+          ],
+          "unitType": "Cavalry (Sergeant, Antigrav, Skirmish, Light)",
+          "specialRules": [
+            "Deep Strike",
+            "Outflank",
+            "Relentless",
+            "Firing Protocols (2)"
+          ]
+        }
+      ],
+      "options": [
+        {
+          "id": "subjugator-cannon",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Snare cannon"
+          ],
+          "text": "Every Model in this Unit may exchange its jetbike's snare cannon for one of the following. If this option is selected, every Model in this Unit must exchange its snare cannon for the same item",
+          "choices": [
+            {
+              "name": "Adrathic devastator",
+              "points": 0
+            },
+            {
+              "name": "Needle cannon",
+              "points": 0
+            }
+          ]
+        },
+        {
+          "id": "subjugator-mistress-pistol",
+          "kind": "one",
+          "model": "Subjugator Mistress",
+          "replaces": [
+            "Bolt pistol"
+          ],
+          "text": "The Subjugator Mistress may exchange her bolt pistol for",
+          "choices": [
+            {
+              "name": "Hand Flamer",
+              "points": 5
+            },
+            {
+              "name": "Needle Pistol",
+              "points": 5
+            },
+            {
+              "name": "Plasma pistol",
+              "points": 10
+            }
+          ]
+        },
+        {
+          "id": "subjugator-mistress-melee",
+          "kind": "one",
+          "model": "Subjugator Mistress",
+          "replaces": [
+            "Close combat weapon"
+          ],
+          "text": "The Subjugator Mistress may exchange her close combat weapon for",
+          "choices": [
+            {
+              "name": "Charnabal glaive",
+              "points": 10
+            },
+            {
+              "name": "Charnabal sabre",
+              "points": 10
+            },
+            {
+              "name": "Charnabal tabar",
+              "points": 10
+            },
+            {
+              "name": "Power axe",
+              "points": 10
+            },
+            {
+              "name": "Power lance",
+              "points": 10
+            },
+            {
+              "name": "Power maul",
+              "points": 10
+            },
+            {
+              "name": "Power sword",
+              "points": 10
+            },
+            {
+              "name": "Power fist",
+              "points": 20
             }
           ]
         }
       ]
     },
     {
-      "id": "oblivion-knight-cadre",
-      "name": "Oblivion Knight Cadre",
-      "role": "Elites",
-      "basePoints": 135,
-      "composition": "3 Oblivion Knights",
+      "id": "sanctioner-cadre",
+      "name": "Sanctioner Cadre",
+      "role": "Support",
+      "basePoints": 85,
+      "composition": "4 Sanctioner, 1 Sanctioner Mistress",
       "traits": [
         "Anathema Psykana",
         "Talons of the Emperor"
       ],
       "specialRules": [
+        "Chamber of Vigilance",
+        "Fast (1)",
+        "Stubborn",
+        "Marked for Death (1)",
         "Fear (1)",
         "Hatred (Psyker, Malefic)"
       ],
       "models": [
         {
-          "name": "Oblivion Knight",
+          "name": "Sanctioner",
+          "min": 4,
+          "max": 9,
+          "costPerExtra": 15,
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 4,
+            "S": 3,
+            "T": 3,
+            "W": 1,
+            "I": 4,
+            "A": 1,
+            "LD": 7,
+            "CL": 7,
+            "WP": 10,
+            "IN": 7,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Nemesis bolter",
+            "Spectra cloaks"
+          ],
+          "unitType": "Infantry (Light)",
+          "specialRules": []
+        },
+        {
+          "name": "Sanctioner Mistress",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 4,
+            "S": 3,
+            "T": 3,
+            "W": 1,
+            "I": 4,
+            "A": 2,
+            "LD": 8,
+            "CL": 7,
+            "WP": 10,
+            "IN": 7,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Nemesis bolter",
+            "Spectra cloaks"
+          ],
+          "unitType": "Infantry (Sergeant, Light)",
+          "specialRules": []
+        }
+      ],
+      "options": [
+        {
+          "id": "sanctioner-bolters",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Nemesis bolter"
+          ],
+          "text": "Every Model in this Unit may exchange its Nemesis bolter for one of the following. If this option is selected, every Model in this Unit must exchange its Nemesis bolter for the same item",
+          "choices": [
+            {
+              "name": "Vratine nemesis bolter",
+              "points": 0
+            }
+          ]
+        },
+        {
+          "id": "sanctioner-scanners",
+          "kind": "any",
+          "model": "Sanctioner",
+          "replaces": [],
+          "text": "One Sanctioner may carry",
+          "choices": [
+            {
+              "name": "Augury scanner",
+              "points": 10
+            },
+            {
+              "name": "Nuncio-vox",
+              "points": 10
+            }
+          ],
+          "max": {
+            "fixed": 1
+          }
+        },
+        {
+          "id": "sanctioner-mistress-kit",
+          "kind": "any",
+          "model": "Sanctioner Mistress",
+          "replaces": [],
+          "text": "The Sanctioner Mistress may take any of the following",
+          "choices": [
+            {
+              "name": "Charnabal glaive",
+              "points": 10
+            },
+            {
+              "name": "Charnabal sabre",
+              "points": 10
+            },
+            {
+              "name": "Charnabal tabar",
+              "points": 10
+            },
+            {
+              "name": "Power axe",
+              "points": 10
+            },
+            {
+              "name": "Power lance",
+              "points": 10
+            },
+            {
+              "name": "Power maul",
+              "points": 10
+            },
+            {
+              "name": "Power sword",
+              "points": 10
+            },
+            {
+              "name": "Hand Flamer",
+              "points": 5
+            },
+            {
+              "name": "Needle Pistol",
+              "points": 5
+            },
+            {
+              "name": "Plasma pistol",
+              "points": 10
+            }
+          ],
+          "max": null
+        }
+      ]
+    },
+    {
+      "id": "expurgator-cadre",
+      "name": "Expurgator Cadre",
+      "role": "Support",
+      "basePoints": 85,
+      "composition": "4 Expurgator, 1 Expurgator Mistress",
+      "traits": [
+        "Anathema Psykana",
+        "Talons of the Emperor"
+      ],
+      "specialRules": [
+        "Chamber of Judgement",
+        "Fast (1)",
+        "Stubborn",
+        "Fear (1)",
+        "Hatred (Psyker, Malefic)"
+      ],
+      "models": [
+        {
+          "name": "Expurgator",
+          "min": 4,
+          "max": 9,
+          "costPerExtra": 15,
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 4,
+            "S": 4,
+            "T": 3,
+            "W": 1,
+            "I": 4,
+            "A": 1,
+            "LD": 7,
+            "CL": 7,
+            "WP": 10,
+            "IN": 7,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Heavy flamer"
+          ],
+          "unitType": "Infantry (Light)",
+          "specialRules": []
+        },
+        {
+          "name": "Expurgator Mistress",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 4,
+            "S": 3,
+            "T": 3,
+            "W": 1,
+            "I": 4,
+            "A": 2,
+            "LD": 8,
+            "CL": 7,
+            "WP": 10,
+            "IN": 7,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Heavy flamer"
+          ],
+          "unitType": "Infantry (Sergeant, Light)",
+          "specialRules": []
+        }
+      ],
+      "options": [
+        {
+          "id": "expurgator-weapons",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Heavy flamer"
+          ],
+          "text": "Every Model in this Unit may exchange its heavy flamer for one of the following. If this option is selected, every Model in this Unit must exchange its heavy flamer for the same item",
+          "choices": [
+            {
+              "name": "Snare cannon",
+              "points": 0
+            },
+            {
+              "name": "Adrathic devastator",
+              "points": 0
+            },
+            {
+              "name": "Vratine missile launcher",
+              "points": 0
+            }
+          ]
+        },
+        {
+          "id": "expurgator-kit",
+          "kind": "perModel",
+          "model": "Expurgator",
+          "replaces": [],
+          "text": "Any Expurgator may carry",
+          "choices": [
+            {
+              "name": "Compression tanks",
+              "points": 5
+            },
+            {
+              "name": "Augury scanner",
+              "points": 10
+            }
+          ],
+          "max": null
+        },
+        {
+          "id": "expurgator-mistress-kit",
+          "kind": "any",
+          "model": "Expurgator Mistress",
+          "replaces": [],
+          "text": "The Expurgator Mistress may take any of the following",
+          "choices": [
+            {
+              "name": "Charnabal glaive",
+              "points": 10
+            },
+            {
+              "name": "Charnabal sabre",
+              "points": 10
+            },
+            {
+              "name": "Charnabal tabar",
+              "points": 10
+            },
+            {
+              "name": "Power axe",
+              "points": 10
+            },
+            {
+              "name": "Power lance",
+              "points": 10
+            },
+            {
+              "name": "Power maul",
+              "points": 10
+            },
+            {
+              "name": "Power sword",
+              "points": 10
+            },
+            {
+              "name": "Hand Flamer",
+              "points": 5
+            },
+            {
+              "name": "Needle Pistol",
+              "points": 5
+            },
+            {
+              "name": "Plasma pistol",
+              "points": 10
+            }
+          ],
+          "max": null
+        },
+        {
+          "id": "expurgator-mistress-tanks",
+          "kind": "perModel",
+          "model": "Expurgator Mistress",
+          "replaces": [],
+          "text": "The Expurgator Mistress may carry compression tanks",
+          "choices": [
+            {
+              "name": "Compression tanks",
+              "points": 5
+            }
+          ],
+          "max": null
+        }
+      ]
+    },
+    {
+      "id": "raptora-cadre",
+      "name": "Raptora Cadre",
+      "role": "Retinue",
+      "basePoints": 95,
+      "composition": "3 Raptora (Retinue of Jenetia Krole, a Knight Abyssal or a Knight-Centura)",
+      "traits": [
+        "Anathema Psykana",
+        "Talons of the Emperor"
+      ],
+      "specialRules": [
+        "Chamber of Oblivion",
+        "Fast (1)",
+        "Stubborn",
+        "Precision (6+)",
+        "Line (1)",
+        "Fear (1)",
+        "Hatred (Psyker, Malefic)"
+      ],
+      "note": "Retinue of an Independent Character of the Chamber of Oblivion: Jenetia Krole, a Knight Abyssal or a Knight-Centura. It uses no slot of its own, is deployed with its Leader as one Unit, and the Leader cannot leave it.",
+      "models": [
+        {
+          "name": "Raptora",
           "min": 3,
-          "max": 5,
-          "costPerExtra": 45,
+          "max": 9,
+          "costPerExtra": 25,
           "profile": {
             "M": 6,
             "WS": 5,
@@ -1200,20 +3497,254 @@
             "S": 3,
             "T": 3,
             "W": 2,
-            "I": 5,
-            "A": 3,
-            "LD": 9,
-            "CL": 8,
-            "WP": 12,
-            "IN": 8,
-            "SAV": "2+",
-            "INV": "5+"
+            "I": 4,
+            "A": 2,
+            "LD": 8,
+            "CL": 7,
+            "WP": 10,
+            "IN": 7,
+            "SAV": "3+",
+            "INV": "6+"
           },
           "wargear": [
-            "Paragon blade",
-            "Psyk-out bombs"
+            "Bolt pistol",
+            "Execution blade",
+            "Voidsheen cloak"
           ],
-          "unitType": "Infantry (Light)"
+          "unitType": "Infantry (Light)",
+          "specialRules": []
+        }
+      ],
+      "options": [
+        {
+          "id": "raptora-heavy-melee",
+          "kind": "perModel",
+          "model": "Raptora",
+          "replaces": [
+            "Execution blade"
+          ],
+          "text": "Up to two Raptora may exchange their execution blade for",
+          "choices": [
+            {
+              "name": "Power fist",
+              "points": 15
+            },
+            {
+              "name": "Proteus neuro-lash",
+              "points": 10
+            }
+          ],
+          "max": {
+            "fixed": 2
+          }
+        },
+        {
+          "id": "raptora-pistol",
+          "kind": "perModel",
+          "model": "Raptora",
+          "replaces": [
+            "Bolt pistol"
+          ],
+          "text": "Any Raptora may exchange her bolt pistol for",
+          "choices": [
+            {
+              "name": "Needle Pistol",
+              "points": 5
+            },
+            {
+              "name": "Hand Flamer",
+              "points": 5
+            },
+            {
+              "name": "Plasma pistol",
+              "points": 10
+            }
+          ],
+          "max": null
+        },
+        {
+          "id": "raptora-kit",
+          "kind": "perModel",
+          "model": "Raptora",
+          "replaces": [],
+          "text": "Any Raptora may carry",
+          "choices": [
+            {
+              "name": "Nuncio-vox",
+              "points": 10
+            },
+            {
+              "name": "Augury scanner",
+              "points": 10
+            }
+          ],
+          "max": null
+        }
+      ]
+    },
+    {
+      "id": "questora-cadre",
+      "name": "Questora Cadre",
+      "role": "Retinue",
+      "basePoints": 65,
+      "composition": "3 Questora (Retinue of a Silent Judge or a Silent Fury)",
+      "traits": [
+        "Anathema Psykana",
+        "Talons of the Emperor"
+      ],
+      "specialRules": [
+        "Chamber of Judgement",
+        "Fast (1)",
+        "Stubborn",
+        "Precision (6+)",
+        "Line (1)",
+        "Fear (1)",
+        "Hatred (Psyker, Malefic)"
+      ],
+      "note": "Retinue of an Independent Character of the Chamber of Judgement: a Silent Judge or a Silent Fury. It uses no slot of its own, is deployed with its Leader as one Unit, and the Leader cannot leave it.",
+      "models": [
+        {
+          "name": "Questora",
+          "min": 3,
+          "max": 9,
+          "costPerExtra": 20,
+          "profile": {
+            "M": 6,
+            "WS": 5,
+            "BS": 4,
+            "S": 3,
+            "T": 3,
+            "W": 2,
+            "I": 4,
+            "A": 2,
+            "LD": 8,
+            "CL": 7,
+            "WP": 10,
+            "IN": 7,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Vratine bolter",
+            "Spectra cloaks"
+          ],
+          "unitType": "Infantry (Light)",
+          "specialRules": []
+        }
+      ],
+      "options": [
+        {
+          "id": "questora-unit-weapons",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Vratine bolter"
+          ],
+          "text": "Every Model in this Unit may exchange its Vratine bolter for one of the following. If this option is selected, every Model in this Unit must exchange its Vratine bolter for the same item",
+          "choices": [
+            {
+              "name": "Two Bolt Pistols",
+              "points": 0
+            },
+            {
+              "name": "Assault needler",
+              "points": 0
+            },
+            {
+              "name": "Flamer",
+              "points": 0
+            },
+            {
+              "name": "Power axe",
+              "points": 0
+            },
+            {
+              "name": "Power lance",
+              "points": 0
+            },
+            {
+              "name": "Power maul",
+              "points": 0
+            },
+            {
+              "name": "Power sword",
+              "points": 0
+            },
+            {
+              "name": "Charnabal glaive",
+              "points": 0
+            },
+            {
+              "name": "Charnabal sabre",
+              "points": 0
+            },
+            {
+              "name": "Charnabal tabar",
+              "points": 0
+            }
+          ]
+        },
+        {
+          "id": "questora-heavy",
+          "kind": "perModel",
+          "model": "Questora",
+          "replaces": [
+            "Vratine bolter"
+          ],
+          "text": "Any Questora may exchange her Vratine bolter for",
+          "choices": [
+            {
+              "name": "Adrathic devastator",
+              "points": 15
+            },
+            {
+              "name": "Heavy flamer",
+              "points": 10
+            },
+            {
+              "name": "Nemesis bolter",
+              "points": 10
+            },
+            {
+              "name": "Snare gun",
+              "points": 0
+            }
+          ],
+          "max": null
+        },
+        {
+          "id": "questora-kit",
+          "kind": "any",
+          "model": "Questora",
+          "replaces": [],
+          "text": "One Questora may carry",
+          "choices": [
+            {
+              "name": "Augury scanner",
+              "points": 10
+            },
+            {
+              "name": "Nuncio-vox",
+              "points": 10
+            }
+          ],
+          "max": {
+            "fixed": 1
+          }
+        },
+        {
+          "id": "questora-tanks",
+          "kind": "perModel",
+          "model": "Questora",
+          "replaces": [],
+          "text": "Any Questora may carry compression tanks",
+          "choices": [
+            {
+              "name": "Compression tanks",
+              "points": 5
+            }
+          ],
+          "max": null
         }
       ]
     }
