@@ -160,6 +160,8 @@
     function rolesFor(u) {
       const r = [u.role];
       for (const e of activeEffects('altRole')) if (effectMatches(e, u) && !r.includes(e.role)) r.push(e.role);
+      // house-rule Rites of War: "this unit may be taken as Troops"
+      for (const x of u.roleWhen || []) if (condOk(x.when) && !r.includes(x.role)) r.push(x.role);
       return r;
     }
     /** Traits a selection gains from Sequela upgrades or from filling an alternative role. */
@@ -799,6 +801,15 @@
         if (d.slots.filter((s) => s.unit && s.unit.primeAdvantage === 'Dynastic Advisors').length > 1) {
           issues.push({ level: 'error', msg: `Dynastic Advisors can only be chosen once per Detachment (${d.name}).` });
         }
+      }
+
+      // house-rule Rites of War: units the army must include, or may only take so many of
+      for (const q of data.requirements || []) {
+        if (!condOk(q.when)) continue;
+        const n = sels.filter((x) => q.units.includes(x.sel.unitId)).length;
+        const names = () => [...new Set(q.units.map((id) => unit(id)?.name).filter(Boolean))].slice(0, 4).join(', ') + (q.units.length > 4 ? '…' : '');
+        if (q.min != null && n < q.min) issues.push({ level: 'error', msg: `${q.source}: needs at least ${q.min} of ${names()} (${n}).${q.note && q.note !== q.source ? ' ' + q.note : ''}` });
+        if (q.max != null && n > q.max) issues.push({ level: 'error', msg: `${q.source}: at most ${q.max} of ${names()} (${n}).${q.note && q.note !== q.source ? ' ' + q.note : ''}` });
       }
 
       // Sequela limits: alternative roles, single-use upgrades, restricted unit lists

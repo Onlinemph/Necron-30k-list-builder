@@ -5,6 +5,7 @@ import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
+import { applyLegacy } from './legacy.mjs';
 const require = createRequire(import.meta.url);
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -137,6 +138,8 @@ out.detachments.push(...(out.forceorg.detachments || []));
 
 // ---------- checks ----------
 const problems = [];
+// optional house rules (data/legacy/), switched on per list in the army configuration
+if (army.bsdata) problems.push(...applyLegacy(root, out, army));
 const warn = [];
 const ids = new Set();
 const listIds = new Set(out.lists.map((l) => l.id));
