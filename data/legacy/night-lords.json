@@ -140,6 +140,21 @@
       "name": "Wailing warsiren",
       "summary": "A hull-mounted siren tuned to the pitch of a dying man.",
       "text": "A Vehicle equipped with a Wailing warsiren has the Dirge of Dread Special Rule."
+    },
+    {
+      "name": "Gallows-rope of Nostramo",
+      "summary": "A hangman's noose, knotted once for every sentence he has carried out.",
+      "text": "A Model equipped with the Gallows-rope of Nostramo has the Sentence Passed Special Rule."
+    },
+    {
+      "name": "Shard of the Foreseen",
+      "summary": "A sliver of black glass in which the bearer glimpses the last moment of the fight.",
+      "text": "A Model equipped with the Shard of the Foreseen has the Feel No Pain (6+) Special Rule."
+    },
+    {
+      "name": "Mask of the Wailing City",
+      "summary": "A grinning mask fitted with a throat of brass reeds, made to scream like the dying hive.",
+      "text": "A Model equipped with the Mask of the Wailing City has the Wail of the Unforgiven Special Rule."
     }
   ],
   "options": [
@@ -492,6 +507,59 @@
           }
         ]
       }
+    },
+    {
+      "units": [
+        "konrad-curze"
+      ],
+      "option": {
+        "id": "konrad-curze-aspect",
+        "kind": "one",
+        "model": "Konrad Curze",
+        "text": "Aspect of the Primarch: Konrad Curze may take one",
+        "choices": [
+          {
+            "name": "The Night Haunter",
+            "points": 0
+          },
+          {
+            "name": "Prophet of the Foreseen Fall",
+            "points": 0
+          },
+          {
+            "name": "Executioner of Nostramo",
+            "points": 0
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "konrad-curze"
+      ],
+      "option": {
+        "id": "konrad-curze-relics",
+        "kind": "any",
+        "model": "Konrad Curze",
+        "max": {
+          "fixed": 1
+        },
+        "text": "Relics of the Primarch: Konrad Curze may take one",
+        "choices": [
+          {
+            "name": "Gallows-rope of Nostramo",
+            "points": 15
+          },
+          {
+            "name": "Shard of the Foreseen",
+            "points": 20
+          },
+          {
+            "name": "Mask of the Wailing City",
+            "points": 25
+          }
+        ]
+      }
     }
   ],
   "modifiers": [
@@ -654,6 +722,77 @@
       "addRules": [
         "Dirge of Dread"
       ]
+    },
+    {
+      "units": [
+        "konrad-curze"
+      ],
+      "item": "The Night Haunter",
+      "text": "The Night Haunter.",
+      "addRules": [
+        "The Night Haunter"
+      ],
+      "removeRules": [
+        "Fear (2)"
+      ]
+    },
+    {
+      "units": [
+        "konrad-curze"
+      ],
+      "item": "Prophet of the Foreseen Fall",
+      "text": "Prophet of the Foreseen Fall: -1 WP, -1 LD.",
+      "addRules": [
+        "Prophet of the Foreseen Fall"
+      ],
+      "stats": {
+        "WP": "-1",
+        "LD": "-1"
+      }
+    },
+    {
+      "units": [
+        "konrad-curze"
+      ],
+      "item": "Executioner of Nostramo",
+      "text": "Executioner of Nostramo: +1 S, -2 BS.",
+      "addRules": [
+        "Executioner of Nostramo"
+      ],
+      "stats": {
+        "S": "+1",
+        "BS": "-2"
+      }
+    },
+    {
+      "units": [
+        "konrad-curze"
+      ],
+      "item": "Gallows-rope of Nostramo",
+      "text": "Gallows-rope of Nostramo.",
+      "addRules": [
+        "Sentence Passed"
+      ]
+    },
+    {
+      "units": [
+        "konrad-curze"
+      ],
+      "item": "Shard of the Foreseen",
+      "text": "Shard of the Foreseen.",
+      "addRules": [
+        "Feel No Pain (6+)"
+      ]
+    },
+    {
+      "units": [
+        "konrad-curze"
+      ],
+      "item": "Mask of the Wailing City",
+      "text": "Mask of the Wailing City.",
+      "addRules": [
+        "Wail of the Unforgiven"
+      ]
     }
   ],
   "rules": [
@@ -711,6 +850,31 @@
       "name": "Dirge of Dread",
       "summary": "A dying man's note, held for as long as the engine runs.",
       "text": "At the end of the Movement phase, each enemy Unit within 12\" of a Vehicle with this Special Rule subtracts 1 from its Cool Characteristic until the end of that Battle Turn."
+    },
+    {
+      "name": "The Night Haunter",
+      "summary": "The terror of Nostramo walks in the open, and his own sons give him room.",
+      "text": "This Model loses the Fear (2) Special Rule and has the Fear (3) Special Rule. Friendly Night Lords Units within 6\" of this Model subtract 1 from their Leadership Characteristic."
+    },
+    {
+      "name": "Prophet of the Foreseen Fall",
+      "summary": "He has seen the blow that will end him, and so he sees every other blow first.",
+      "text": "Once in each Battle Turn, when an enemy Unit declares a Charge against this Model's Unit, the Controlling Player may make a Willpower Check for this Model. If the Check is passed, the Charge Roll is made with a -2 modifier. This Model subtracts 1 from its Willpower Characteristic and 1 from its Leadership Characteristic."
+    },
+    {
+      "name": "Executioner of Nostramo",
+      "summary": "Judgement is done in public, so that the city may learn from it.",
+      "text": "This Model adds 1 to its Strength Characteristic and subtracts 2 from its Ballistic Skill Characteristic. When this Model removes an enemy Character as a casualty, every enemy Unit within 12\" must make a Cool Check, and a Unit that fails gains the Pinned Tactical Status."
+    },
+    {
+      "name": "Sentence Passed",
+      "summary": "The verdict is read in the dark, and the accused hears it.",
+      "text": "Once per battle, at the start of any Shooting phase, the Controlling Player may choose one enemy Unit within 12\" of a Model with this Special Rule. That Unit must make a Cool Check, and gains the Suppressed Tactical Status if it fails."
+    },
+    {
+      "name": "Wail of the Unforgiven",
+      "summary": "Nostramo's dying scream, worn on a face.",
+      "text": "Once per battle, at the start of the Assault phase, each enemy Unit within 6\" of a Model with this Special Rule must make a Cool Check, and gains the Suppressed Tactical Status if it fails."
     }
   ],
   "rites": [
@@ -1000,6 +1164,25 @@
           "High Command",
           "Command"
         ],
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true
+    },
+    {
+      "name": "Verdict Foreseen",
+      "flavor": "He has already seen how this ends, and so has every man who follows him.",
+      "whileInArmy": [
+        "konrad-curze"
+      ],
+      "benefits": [
+        "While Konrad Curze is on the battlefield, at the end of each Assault phase every enemy Unit that lost a Combat against a friendly Night Lords Infantry Unit within 18\" of him must make a Cool Check, and gains the Pinned Tactical Status if it fails."
+      ],
+      "drawbacks": [
+        "A friendly Night Lords Infantry Unit that declares a Charge against an enemy Unit with no Tactical Status subtracts 1 from the result of its Charge Roll.",
+        "If Konrad Curze is removed as a casualty, every friendly Night Lords Unit within 18\" of him gains the Suppressed Tactical Status."
+      ],
+      "match": {
+        "unitType": "Infantry",
         "notUnitType": "Vehicle"
       },
       "optionalUnits": true

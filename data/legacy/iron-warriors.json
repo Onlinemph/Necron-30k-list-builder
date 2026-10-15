@@ -62,6 +62,26 @@
         "FRONT": "+1",
         "M": "-1"
       }
+    },
+    {
+      "name": "The Exacting Eye",
+      "flavor": "He demands the exact range, the exact hour and the exact sacrifice.",
+      "whileInArmy": [
+        "perturabo"
+      ],
+      "benefits": [
+        "While Perturabo is on the battlefield, friendly Iron Warriors Infantry Units that did not move during their last Movement phase add 1 to the Hit Tests of Shooting Attacks made with Weapons that have the Heavy (X) or Barrage (X) Special Rule."
+      ],
+      "drawbacks": [
+        "A friendly Iron Warriors Infantry Unit within 12\" of Perturabo that fails a Cool Check must also remove one Model of the Controlling Player's choice as a casualty.",
+        "If Perturabo is removed as a casualty, friendly Iron Warriors Units subtract 1 from their Cool Characteristic for the rest of the battle."
+      ],
+      "match": {
+        "unitType": "Infantry",
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "condition": "Heavy or Barrage weapons, if the unit did not move"
     }
   ],
   "weapons": {
@@ -197,6 +217,16 @@
       "name": "Fixed-fire core",
       "summary": "A machine-spirit cogitation core tuned for patience and aim.",
       "text": "A Model equipped with a Fixed-fire core has the Fixed-Fire Protocol Special Rule."
+    },
+    {
+      "name": "Fault-line survey",
+      "summary": "A folded plan of the target's every structural weakness, annotated in his own hand.",
+      "text": "A Model equipped with a Fault-line survey has the Weak Point Surveyed Special Rule."
+    },
+    {
+      "name": "Warrant of Decimation",
+      "summary": "A sealed order bearing the Tyrant's mark, which has never been countermanded.",
+      "text": "A Model equipped with a Warrant of Decimation has the Decimation Without Appeal Special Rule."
     }
   ],
   "options": [
@@ -533,6 +563,55 @@
           }
         ]
       }
+    },
+    {
+      "units": [
+        "perturabo"
+      ],
+      "option": {
+        "id": "perturabo-aspect",
+        "kind": "one",
+        "model": "Perturabo",
+        "text": "Aspect of the Primarch: Perturabo may take one",
+        "choices": [
+          {
+            "name": "Siegemaster of Olympia",
+            "points": 0
+          },
+          {
+            "name": "The Tyrant's Wrath",
+            "points": 0
+          },
+          {
+            "name": "The Gorgon's Grudge",
+            "points": 0
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "perturabo"
+      ],
+      "option": {
+        "id": "perturabo-relics",
+        "kind": "any",
+        "model": "Perturabo",
+        "max": {
+          "fixed": 1
+        },
+        "text": "Relics of the Primarch: Perturabo may take one",
+        "choices": [
+          {
+            "name": "Fault-line survey",
+            "points": 20
+          },
+          {
+            "name": "Warrant of Decimation",
+            "points": 15
+          }
+        ]
+      }
     }
   ],
   "modifiers": [
@@ -713,6 +792,63 @@
         "Fixed-Fire Protocol"
       ],
       "condition": "if the unit did not move this turn"
+    },
+    {
+      "units": [
+        "perturabo"
+      ],
+      "item": "Siegemaster of Olympia",
+      "text": "Siegemaster of Olympia: -2 M.",
+      "addRules": [
+        "Siegemaster of Olympia"
+      ],
+      "stats": {
+        "M": "-2"
+      }
+    },
+    {
+      "units": [
+        "perturabo"
+      ],
+      "item": "The Tyrant's Wrath",
+      "text": "The Tyrant's Wrath.",
+      "addRules": [
+        "The Tyrant's Wrath"
+      ]
+    },
+    {
+      "units": [
+        "perturabo"
+      ],
+      "item": "The Gorgon's Grudge",
+      "text": "The Gorgon's Grudge: +1 WS, -1 WP.",
+      "addRules": [
+        "The Gorgon's Grudge"
+      ],
+      "stats": {
+        "WS": "+1",
+        "WP": "-1"
+      }
+    },
+    {
+      "units": [
+        "perturabo"
+      ],
+      "item": "Fault-line survey",
+      "text": "Fault-line survey.",
+      "addRules": [
+        "Weak Point Surveyed"
+      ]
+    },
+    {
+      "units": [
+        "perturabo"
+      ],
+      "item": "Warrant of Decimation",
+      "text": "Warrant of Decimation.",
+      "addRules": [
+        "Decimation Without Appeal"
+      ]
     }
   ],
   "rules": [
@@ -770,6 +906,31 @@
       "name": "Fixed-Fire Protocol",
       "summary": "Patience, aim, and nothing else to think about.",
       "text": "A Model with this Special Rule adds 1 to its Ballistic Skill Characteristic when it makes a Shooting Attack, provided its Unit did not move during its Controlling Player's current Battle Turn."
+    },
+    {
+      "name": "Siegemaster of Olympia",
+      "summary": "The wall is a sum, and he has never failed to solve one.",
+      "text": "While this Model did not move during its Controlling Player's current Battle Turn, Shooting Attacks it makes ignore the effects of Cover and the Shrouded (X) Special Rule. This Model subtracts 2 from its Movement Characteristic and cannot Rush."
+    },
+    {
+      "name": "The Tyrant's Wrath",
+      "summary": "The Legion obeys him out of fear, and tonight he lets it show.",
+      "text": "Once per battle, at the start of the Assault phase, the Controlling Player may declare the Tyrant's Wrath. This Model adds 2 to its Attacks Characteristic until the end of that phase, and then every friendly Iron Warriors Unit within 12\" of it subtracts 1 from its Cool Characteristic until the end of the next Player Turn."
+    },
+    {
+      "name": "The Gorgon's Grudge",
+      "summary": "Some of his brothers he cannot forgive, and he intends to say so in person.",
+      "text": "This Model adds 1 to its Weapon Skill Characteristic and has the Hatred (Paragon) Special Rule. When there is an enemy Paragon Model within its reach, this Model must declare a Charge against it, or issue or accept a Challenge against it, if able. This Model subtracts 1 from its Willpower Characteristic."
+    },
+    {
+      "name": "Weak Point Surveyed",
+      "summary": "Every wall has one place it was always going to fall.",
+      "text": "Once per battle, at the start of a friendly Shooting phase, the Controlling Player may choose one enemy Vehicle or Fortification within 24\" of a Model with this Special Rule. Friendly Iron Warriors Units add 1 to the Hit Tests of Shooting Attacks made against it until the end of that phase."
+    },
+    {
+      "name": "Decimation Without Appeal",
+      "summary": "When the line wavers, he does not rally it. He thins it.",
+      "text": "Once per battle, when a friendly Iron Warriors Unit within 12\" of a Model with this Special Rule is about to make a Cool Check, the Controlling Player may declare a decimation. That Unit adds 2 to its Cool Characteristic for that Check, but must then remove one Model of the Controlling Player's choice as a casualty."
     }
   ],
   "rites": [

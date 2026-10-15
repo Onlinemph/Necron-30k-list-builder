@@ -932,7 +932,7 @@
     {
       "name": "The Gorgon Unleashed",
       "summary": "The Gorgon stops being a commander and becomes a force of nature.",
-      "text": "This Model adds 1 to its Strength Characteristic. This Model subtracts 2 from its Initiative Characteristic."
+      "text": "This Model adds 1 to its Strength Characteristic and subtracts 2 from its Initiative Characteristic, and it cannot make Reactions. Whenever a Combat that includes this Model is won by its side, every enemy Unit in that Combat gains the Suppressed Tactical Status."
     },
     {
       "name": "Smith of Ruin",

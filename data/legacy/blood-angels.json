@@ -864,12 +864,12 @@
     {
       "name": "Seraph of Baal",
       "summary": "The Angel in full radiance, swift as light and as easily marked.",
-      "text": "This Model adds 1 to its Initiative Characteristic and adds 2 to the result of its Charge Rolls. This Model subtracts 1 from its Toughness Characteristic."
+      "text": "This Model adds 1 to its Initiative Characteristic and subtracts 1 from its Toughness Characteristic. Once per battle, when this Model makes a Charge Roll, the Controlling Player may set the result to 12 instead of rolling."
     },
     {
       "name": "The Black Rage Stirs",
       "summary": "The vision of his own death takes hold, and the blade moves of its own accord.",
-      "text": "This Model adds 1 to its Attacks Characteristic. This Model subtracts 2 from its Willpower Characteristic."
+      "text": "This Model adds 1 to its Attacks Characteristic and 2 to its Focus Rolls in Challenges, and subtracts 2 from its Willpower Characteristic. This Model must Accept any Challenge issued against it, and whenever it is able to, it must Issue one."
     },
     {
       "name": "The Sorrowing Seraph",

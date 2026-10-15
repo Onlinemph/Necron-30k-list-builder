@@ -59,6 +59,26 @@
       "stats": {
         "LD": "-1"
       }
+    },
+    {
+      "name": "A Hundred Hands, One Will",
+      "flavor": "While the Hydra lives, no enemy can know which of his sons holds the knife.",
+      "whileInArmy": [
+        "alpharius"
+      ],
+      "benefits": [
+        "While Alpharius is on the battlefield, friendly Alpha Legion Infantry Units add 1 to the result of their Charge Rolls in any Player Turn in which they arrive from Reserves."
+      ],
+      "drawbacks": [
+        "If Alpharius is removed as a casualty, the cells lose their cipher and every friendly Alpha Legion Unit subtracts 1 from its Cool Characteristic for the rest of the battle.",
+        "A friendly Alpha Legion Infantry Unit that arrives from Reserves cannot make a Shooting Attack in that Player Turn."
+      ],
+      "match": {
+        "unitType": "Infantry",
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "condition": "on a turn the unit arrives from Reserves"
     }
   ],
   "weapons": {
@@ -214,6 +234,21 @@
       "name": "Mirror-smoke dischargers",
       "summary": "Smoke charged with reflective grit so the hull seems to be in three places at once.",
       "text": "A Vehicle equipped with Mirror-smoke dischargers has the Mirror Smoke Special Rule."
+    },
+    {
+      "name": "Orders in the Margins",
+      "summary": "A ledger of coded notes that any cell leader can read and no enemy can find.",
+      "text": "A Model equipped with Orders in the Margins has the Margin Notes Special Rule."
+    },
+    {
+      "name": "Phantom-order transmitter",
+      "summary": "A transmitter that speaks in the enemy's own command codes.",
+      "text": "A Model equipped with a Phantom-order transmitter has the Phantom Orders Special Rule."
+    },
+    {
+      "name": "Twin-venom lacquer",
+      "summary": "A coating of the Legion's deadliest reagent, brushed on blade by blade.",
+      "text": "Each Melee Weapon carried by a Model equipped with Twin-venom lacquer has the Poisoned (3+) Special Rule. If it already has the Poisoned (X) Special Rule, the value of X is reduced by 1, to a minimum of 2+."
     }
   ],
   "rules": [
@@ -266,6 +301,31 @@
       "name": "Mirror Smoke",
       "summary": "Smoke charged with reflective grit, so the hull seems to be in three places at once.",
       "text": "Once per battle, at the start of an enemy Shooting Phase, the Controlling Player may release Mirror Smoke. Until the start of its next Player Turn, every Hit Test made for a Shooting Attack that targets a Model with this Special Rule is subject to a -1 modifier. That Model cannot make Shooting Attacks in its next Player Turn."
+    },
+    {
+      "name": "The Face in the Crowd",
+      "summary": "Which of them is the Primarch? The gunner has to guess, and guesses wrong.",
+      "text": "An enemy Shooting Attack cannot target this Model's Unit unless it is the closest eligible target. This Model subtracts 2 from its Attacks Characteristic."
+    },
+    {
+      "name": "Hydra of the Long Game",
+      "summary": "He is content to lose the first hour, so long as the last is his.",
+      "text": "Once per battle, at the end of any Player Turn, the Controlling Player may reveal the cells: up to two friendly Alpha Legion Infantry Units that are not Locked in Combat may each make a Set-up Move of up to 6\", ending more than 9\" from any enemy Model. This Model cannot declare a Charge during the first two Battle Turns."
+    },
+    {
+      "name": "The Hydra Unmasked",
+      "summary": "For one battle he stops hiding and fights as the Primarch he is.",
+      "text": "This Model loses the Everywhere and Nowhere Special Rule. It adds 1 to its Strength and Attacks Characteristics and has the Fear (1) Special Rule."
+    },
+    {
+      "name": "Margin Notes",
+      "summary": "The plan is written down, and so is the plan for when it fails.",
+      "text": "Once per battle, when a friendly Alpha Legion Unit within 18\" of a Model with this Special Rule is about to make a Cool Check, that Unit adds 2 to its Cool Characteristic for that Check."
+    },
+    {
+      "name": "Phantom Orders",
+      "summary": "The enemy's captains receive an order that nobody sent.",
+      "text": "Once per battle, at the start of an enemy Charge Sub-Phase, the Controlling Player may choose one enemy Unit within 18\" of a Model with this Special Rule. That Unit subtracts 2 from the result of its Charge Rolls in that Sub-Phase."
     }
   ],
   "options": [
@@ -619,6 +679,59 @@
           }
         ]
       }
+    },
+    {
+      "units": [
+        "alpharius"
+      ],
+      "option": {
+        "id": "alpharius-aspect",
+        "kind": "one",
+        "model": "Alpharius",
+        "text": "Aspect of the Primarch: Alpharius may take one",
+        "choices": [
+          {
+            "name": "The Face in the Crowd",
+            "points": 0
+          },
+          {
+            "name": "Hydra of the Long Game",
+            "points": 0
+          },
+          {
+            "name": "The Hydra Unmasked",
+            "points": 0
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "alpharius"
+      ],
+      "option": {
+        "id": "alpharius-relics",
+        "kind": "any",
+        "model": "Alpharius",
+        "max": {
+          "fixed": 1
+        },
+        "text": "Relics of the Primarch: Alpharius may take one",
+        "choices": [
+          {
+            "name": "Orders in the Margins",
+            "points": 15
+          },
+          {
+            "name": "Phantom-order transmitter",
+            "points": 20
+          },
+          {
+            "name": "Twin-venom lacquer",
+            "points": 25
+          }
+        ]
+      }
     }
   ],
   "modifiers": [
@@ -774,6 +887,76 @@
       "scope": "unit",
       "addRules": [
         "Mirror Smoke"
+      ]
+    },
+    {
+      "units": [
+        "alpharius"
+      ],
+      "item": "The Face in the Crowd",
+      "text": "The Face in the Crowd: -2 A.",
+      "addRules": [
+        "The Face in the Crowd"
+      ],
+      "stats": {
+        "A": "-2"
+      }
+    },
+    {
+      "units": [
+        "alpharius"
+      ],
+      "item": "Hydra of the Long Game",
+      "text": "Hydra of the Long Game.",
+      "addRules": [
+        "Hydra of the Long Game"
+      ]
+    },
+    {
+      "units": [
+        "alpharius"
+      ],
+      "item": "The Hydra Unmasked",
+      "text": "The Hydra Unmasked: +1 S, +1 A.",
+      "addRules": [
+        "The Hydra Unmasked"
+      ],
+      "stats": {
+        "S": "+1",
+        "A": "+1"
+      },
+      "removeRules": [
+        "Everywhere and Nowhere"
+      ]
+    },
+    {
+      "units": [
+        "alpharius"
+      ],
+      "item": "Orders in the Margins",
+      "text": "Orders in the Margins.",
+      "addRules": [
+        "Margin Notes"
+      ]
+    },
+    {
+      "units": [
+        "alpharius"
+      ],
+      "item": "Phantom-order transmitter",
+      "text": "Phantom-order transmitter.",
+      "addRules": [
+        "Phantom Orders"
+      ]
+    },
+    {
+      "units": [
+        "alpharius"
+      ],
+      "item": "Twin-venom lacquer",
+      "text": "Twin-venom lacquer.",
+      "addRules": [
+        "Poisoned (3+)"
       ]
     }
   ],

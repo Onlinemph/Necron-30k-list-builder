@@ -783,7 +783,7 @@
     {
       "name": "Rampart of Macragge",
       "summary": "He plants himself and lets the battle come to him.",
-      "text": "This Model adds 1 to its Toughness Characteristic. This Model subtracts 2 from the result of its Charge Rolls and cannot Rush."
+      "text": "Enemy Units that Declare a Charge against a Unit that includes this Model subtract 2 from the result of their Charge Roll. This Model adds 1 to its Toughness Characteristic, subtracts 2 from the result of its own Charge Rolls and cannot Rush."
     },
     {
       "name": "Wrath of Calth",
@@ -798,7 +798,7 @@
     {
       "name": "Voice of the Regent",
       "summary": "A word from him settles the line.",
-      "text": "Once per battle, when a friendly Ultramarines Unit within 12\" of a Model with this Special Rule fails a Cool Check, the Controlling Player may instead treat that Cool Check as passed."
+      "text": "Cool Checks made by friendly Ultramarines Units within 12\" of a Model with this Special Rule are made with a +1 modifier, and Cool Checks made for a Unit that includes such a Model are automatically passed."
     },
     {
       "name": "Konor's Cast",
