@@ -127,47 +127,58 @@
   "wargear": [
     {
       "name": "Vigil banner",
-      "text": "Legacy house rule. A Sodality's colours, gilded by ten thousand years of ceremony. Every model in the unit gains +1 Willpower and +1 Leadership."
+      "summary": "A Sodality's colours, gilded by ten thousand years of ceremony.",
+      "text": "While a Unit includes a Model equipped with a Vigil banner, all Models in that Unit add 1 to their Willpower and Leadership Characteristics."
     },
     {
       "name": "Ablative gilding",
-      "text": "Legacy house rule. A layered auramite coating that sheds blows as a second skin. The model's Invulnerable Save becomes 5+ if it was worse."
+      "summary": "A layered auramite coating that sheds blows as a second skin.",
+      "text": "A Model equipped with Ablative gilding has an Invulnerable Save of 5+, unless it already has a better Invulnerable Save."
     },
     {
       "name": "Mantle of the Silent",
-      "text": "Legacy house rule. A hunter's cloak woven with null-fibre that dims the wearer to the senses. The bearer gains Shrouded (6+), or one step better if they already have it."
+      "summary": "A hunter's cloak woven with null-fibre that dims the wearer to the senses.",
+      "text": "A Model equipped with a Mantle of the Silent has the Shrouded (6+) Special Rule."
     },
     {
       "name": "Reliquary plate",
-      "text": "Legacy house rule. A sarcophagus-ward of Auramite lined with the names of the Dreadnought's former masters. The model gains +1 Wound."
+      "summary": "A sarcophagus-ward of auramite lined with the names of the Dreadnought's former masters.",
+      "text": "A Model equipped with Reliquary plate adds 1 to its Wounds Characteristic."
     },
     {
       "name": "Null-gilt pylon",
-      "text": "Legacy house rule. A null-lattice pylon worn at the shoulder, humming against the warp. The bearer gains +1 Willpower and Warp-Sealed."
+      "summary": "A null-lattice pylon worn at the shoulder, humming against the warp.",
+      "text": "A Model equipped with a Null-gilt pylon adds 1 to its Willpower Characteristic and has the Warp-Sealed Special Rule."
     },
     {
       "name": "Oathstone of Reckoning",
-      "text": "Legacy house rule. A fist-sized stone engraved with the names of the fallen, carried by captains who never forget. Gives the model Vengeance Sworn."
+      "summary": "A fist-sized stone engraved with the names of the fallen, carried by captains who never forget.",
+      "text": "A Model equipped with an Oathstone of Reckoning has the Vengeance Sworn Special Rule."
     },
     {
       "name": "Banner of the Last Gate",
-      "text": "Legacy house rule. A tall standard that marks where the line will not move. Gives the unit Hold the Gate."
+      "summary": "A tall standard that marks where the line will not move.",
+      "text": "While a Unit includes a Model equipped with a Banner of the Last Gate, all Models in that Unit have the Hold the Gate Special Rule."
     },
     {
       "name": "Mirror-gold gilding",
-      "text": "Legacy house rule. Polished auramite plating that throws back the light of beams and melta-glare. Gives the vehicle Mirror-Gold Hull and +1 Rear armour."
+      "summary": "Polished auramite plating that throws back the light of beams and melta-glare.",
+      "text": "A Vehicle equipped with Mirror-gold gilding adds 1 to its Rear Armour Value and has the Mirror-Gold Hull Special Rule."
     },
     {
       "name": "Edict-staff of the Vestarios",
-      "text": "Legacy house rule. A staff of office bearing the Emperor's own seal, obeyed without question. Gives the unit Voice of the Throne."
+      "summary": "A staff of office bearing the Emperor's own seal, obeyed without question.",
+      "text": "While a Unit includes a Model equipped with an Edict-staff of the Vestarios, all Models in that Unit have the Voice of the Throne Special Rule."
     },
     {
       "name": "Auric sighting-glass",
-      "text": "Legacy house rule. A lens-and-rangefinder wrought by the Emperor's own artisans. Gives the unit Throne's Eye."
+      "summary": "A lens-and-rangefinder wrought by the Emperor's own artisans.",
+      "text": "While a Unit includes a Model equipped with an Auric sighting-glass, all Models in that Unit have the Throne's Eye Special Rule."
     },
     {
       "name": "Soul-lamp of the Entombed",
-      "text": "Legacy house rule. A lamp lit from the Dreadnought's own fading memory. Gives the model Lamp of Remembrance and Feel No Pain (6+)."
+      "summary": "A lamp lit from the Dreadnought's own fading memory.",
+      "text": "A Model equipped with a Soul-lamp of the Entombed has the Feel No Pain (6+) and Lamp of Remembrance Special Rules."
     }
   ],
   "options": [
@@ -712,7 +723,7 @@
       "flavor": "The Throne is the last thing that falls, and the Ten Thousand are what stands in front of it.",
       "benefits": [
         "Adrasite and Pyrithite Guard Sodalities may fill Troops slots.",
-        "They gain Line (1) and Unbroken Watch: they automatically pass Morale and Pinning checks while within 6\" of an objective."
+        "They gain Line (1) and Unbroken Watch: they automatically pass Panic Checks and Pinning Cool Checks while within 6\" of an Objective Marker."
       ],
       "limitations": [
         "A Shield Captain must be included.",
@@ -773,7 +784,7 @@
       "flavor": "Someone in the Palace has a secret. The Ten Thousand and the Talons agree on the remedy.",
       "benefits": [
         "Venatari Sodalities may fill Troops slots and gain Line (1).",
-        "Assassins gain Infiltrate (6) and Talon Writ: after deployment name one enemy unit as the Quarry; the Assassin adds +1 to Hit Tests against it."
+        "Assassins gain Talon Writ: after deployment the Controlling Player names one enemy Unit as the Quarry of each Assassin, and that Assassin adds 1 to its Hit Tests against it."
       ],
       "limitations": [
         "At least one Venatari Sodality and one Assassin are required.",
@@ -799,9 +810,8 @@
             "venenum-assassin",
             "vanus-infocyte-assassin"
           ],
-          "text": "The Talon Hunt: Infiltrate (6), Talon Writ.",
+          "text": "The Talon Hunt: Talon Writ.",
           "addRules": [
-            "Infiltrate (6)",
             "Talon Writ"
           ]
         }
@@ -853,7 +863,8 @@
       "name": "The Emperor's Will",
       "flavor": "Valdor does not command the Ten Thousand. He only says aloud what they already know.",
       "benefits": [
-        "Every Legio Custodes unit gains +1 Willpower and Valdor's Word: it adds +1 to its Leadership and Cool for Morale and Pinning checks while within 12\" of Constantin Valdor."
+        "Every Legio Custodes Unit that is not a Vehicle adds 1 to its Willpower Characteristic.",
+        "They gain Valdor's Word: +1 Leadership and Cool for Panic Checks and Pinning while within 12\" of Constantin Valdor."
       ],
       "limitations": [
         "Constantin Valdor must lead the army.",
@@ -862,7 +873,8 @@
       "modifiers": [
         {
           "match": {
-            "trait": "Legio Custodes"
+            "trait": "Legio Custodes",
+            "notUnitType": "Vehicle"
           },
           "text": "The Emperor's Will: +1 WP, Valdor's Word.",
           "stats": {
@@ -903,7 +915,7 @@
       "flavor": "Within each Contemptor sleeps a warrior who knew the Emperor before He was called that.",
       "benefits": [
         "Contemptor-Galatus, Contemptor-Achillus and Telemon Heavy Dreadnoughts may fill Troops slots and gain Line (1).",
-        "They gain Wakened Ancients: each adds +1 to its Hit Tests against a unit that destroyed a friendly model earlier this phase."
+        "They gain Wakened Ancients: each adds 1 to its Hit Tests against a Unit that removed a friendly Model as a casualty earlier in the same Phase."
       ],
       "limitations": [
         "At least two War Engine units are required.",
@@ -955,53 +967,70 @@
   "rules": [
     {
       "name": "Unbroken Watch",
-      "text": "Legacy house rule (Defenders of the Palace). A unit with this rule automatically passes Morale and Pinning checks while it is within 6\" of an objective."
+      "summary": "The Watch does not break while the Throne's gates are in sight.",
+      "text": "A Unit with this Special Rule automatically passes any Panic Check and any Cool Check made for Pinning while at least one of its Models is within 6\" of an Objective Marker."
     },
     {
       "name": "Talon Writ",
-      "text": "Legacy house rule (The Talon Hunt). After both sides deploy, the controller names one enemy unit as this model's Quarry. The model adds +1 to its Hit Tests against the Quarry."
+      "summary": "The Talon is given a name, and does not rest until it is struck from the list.",
+      "text": "After both Players have deployed, the Controlling Player of each Model with this Special Rule chooses one enemy Unit to be that Model's Quarry. That Model adds 1 to the result of every Hit Test it makes against its Quarry."
     },
     {
       "name": "Valdor's Word",
-      "text": "Legacy house rule (The Emperor's Will). A unit with this rule adds +1 to its Leadership and Cool for Morale and Pinning checks while within 12\" of Constantin Valdor."
+      "summary": "The Captain-General speaks once, and the Ten Thousand hold.",
+      "text": "While any Model in a Unit with this Special Rule is within 12\" of Constantin Valdor, all Models in that Unit add 1 to their Leadership and Cool Characteristics when taking Panic Checks and Cool Checks made for Pinning."
     },
     {
       "name": "Wakened Ancients",
-      "text": "Legacy house rule (The Vigil of Ancients). A model with this rule adds +1 to its Hit Tests against a unit that destroyed a friendly model earlier in the same phase."
+      "summary": "The old warriors in the sarcophagi wake angry when comrades fall.",
+      "text": "When a Model with this Special Rule makes a Hit Test against a Unit that removed one or more friendly Models as casualties earlier in the same Phase, it adds 1 to the result."
     },
     {
       "name": "Warp-Sealed",
-      "text": "Legacy house rule. The first Wound from a psychic attack against this model in each phase is ignored."
+      "summary": "Null-fibre and Throne-sealed wards make the bearer a poor target for sorcery.",
+      "text": "The first Wound allocated to a Model with this Special Rule by a Psychic Power in each Phase is discarded."
     },
     {
       "name": "Vengeance Sworn",
-      "text": "Legacy house rule. After a friendly Custodes model within 6\" of the bearer is destroyed, the bearer gains +1 Attack until the end of the turn."
+      "summary": "The Custodes do not forget a name, and they do not forgive one.",
+      "text": "When a friendly Legio Custodes Model within 6\" of a Model with this Special Rule is removed as a casualty, the Model with this Special Rule adds 1 to its Attacks Characteristic until the end of that Battle Turn."
     },
     {
       "name": "Hold the Gate",
-      "text": "Legacy house rule. While within 3\" of an objective, every model in the unit counts as two models when contesting it, and the unit automatically passes Morale checks, but it may not Rush."
+      "summary": "Here the line stands, and here the line stays.",
+      "text": "While a Unit with this Special Rule is within 3\" of an Objective Marker, each of its Models counts as two Models when determining which Unit Controls that Objective, and the Unit automatically passes Panic Checks. A Unit with this Special Rule cannot Rush."
     },
     {
       "name": "Mirror-Gold Hull",
-      "text": "Legacy house rule. Shooting attacks against this vehicle lose Armourbane and Melta (X)."
+      "summary": "Polished auramite throws the killing light back at the gunner.",
+      "text": "Shooting Attacks that target a Model with this Special Rule do not benefit from the Armourbane or Melta (X) Special Rules of the Weapons used."
     },
     {
       "name": "Voice of the Throne",
-      "text": "Legacy house rule. Once per battle, the unit automatically passes one Morale check it is required to make."
+      "summary": "An edict that carries the Emperor's seal is not argued with.",
+      "text": "Once per battle, a Unit with this Special Rule may automatically pass one Panic Check or Cool Check it is required to make."
     },
     {
       "name": "Throne's Eye",
-      "text": "Legacy house rule. The unit ignores Shrouded (X) on its targets and adds +1 to its Hit Tests against Flyers."
+      "summary": "A lens that sees what the Emperor's artisans wished it to see.",
+      "text": "Models in a Unit with this Special Rule ignore the Shrouded (X) Special Rule of their targets when making a Shooting Attack, and add 1 to the result of Hit Tests made against Models with the Flyer Sub-Type."
     },
     {
       "name": "Lamp of Remembrance",
-      "text": "Legacy house rule. While an objective is within 12\" of this model, it gains Feel No Pain (5+) instead of the usual 6+."
+      "summary": "The lamp burns brighter when the Dreadnought is guarding something worth the dying.",
+      "text": "While an Objective Marker is within 12\" of a Model with this Special Rule, its Feel No Pain Damage Mitigation Test has a Target Number of 5+ instead of 6+."
     }
   ],
   "armyRules": [
     {
       "name": "Aurum Discipline",
-      "text": "Legacy house rule. Ten thousand years of drill leave the Custodes unmoved by terror, and unable to yield. A unit with this rule automatically passes Pinning checks, but it may never choose to Fall Back.",
+      "flavor": "Ten thousand years of drill leave the Custodes unmoved by terror, and unable to yield.",
+      "benefits": [
+        "A Unit with this Special Rule automatically passes any Cool Check it is required to make for Pinning."
+      ],
+      "drawbacks": [
+        "A Unit with this Special Rule can never make a Fall Back Move voluntarily."
+      ],
       "match": {
         "trait": "Legio Custodes",
         "notUnitType": "Vehicle"
@@ -1009,7 +1038,13 @@
     },
     {
       "name": "Peerless Duellist",
-      "text": "Legacy house rule. The Emperor's champions are trained for single combat above all else. In a Challenge the model adds +1 to its Weapon Skill. The price is pride: it may not decline a Challenge offered by an enemy Champion or Paragon.",
+      "flavor": "The Emperor's champions are trained for single combat above all else.",
+      "benefits": [
+        "While Engaged in a Challenge, a Model with this Special Rule adds 1 to its Weapon Skill Characteristic."
+      ],
+      "drawbacks": [
+        "A Model with this Special Rule cannot decline a Challenge offered by an enemy Champion or Paragon."
+      ],
       "units": [
         "constantin-valdor",
         "tribune",
@@ -1022,7 +1057,13 @@
     },
     {
       "name": "Irreplaceable",
-      "text": "Legacy house rule. There are so few of them that every loss is felt across the host. Custodes models gain +1 Cool, but whenever a Custodes unit is destroyed, every other Custodes unit within 12\" suffers -1 Cool until the end of the next turn.",
+      "flavor": "There are so few of them that every loss is felt across the host.",
+      "benefits": [
+        "A Model with this Special Rule adds 1 to its Cool Characteristic."
+      ],
+      "drawbacks": [
+        "Whenever a Legio Custodes Unit is destroyed, every other friendly Legio Custodes Unit within 12\" subtracts 1 from its Cool Characteristic until the end of the next Battle Turn."
+      ],
       "match": {
         "trait": "Legio Custodes",
         "notUnitType": "Vehicle"

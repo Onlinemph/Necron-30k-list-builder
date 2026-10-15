@@ -100,39 +100,48 @@
   "wargear": [
     {
       "name": "Icon of the Word",
-      "text": "Legacy house rule. A reliquary-banner scrolled with the Lectitio Divinitatus, carried at the head of the line. Every model in the unit gains Fear (1) and +1 Willpower."
+      "text": "Each Model in a Unit that includes a Model equipped with an Icon of the Word has the Fear (1) Special Rule and adds 1 to its Willpower Characteristic.",
+      "summary": "A reliquary-banner scrolled with the Lectitio Divinitatus, carried at the head of the line."
     },
     {
       "name": "Censer of Ruin",
-      "text": "Legacy house rule. A swinging brazier of smoking ash and sacred oils whose stink unmans those who breathe it. The model gains Fear (1) but loses 1 Movement from the weight of the chain."
+      "text": "A Model equipped with a Censer of Ruin has the Fear (1) Special Rule and subtracts 1 from its Movement Characteristic.",
+      "summary": "A swinging brazier of smoking ash and sacred oils whose stink unmans those who breathe it."
     },
     {
       "name": "Possession-brand",
-      "text": "Legacy house rule. A ritual scar-pattern that lets the thing within the armour take the blow in the warrior's place. The model gains a 6+ Invulnerable Save if it had none."
+      "text": "A Model equipped with a Possession-brand has an Invulnerable Save of 5+, unless it already has a better Invulnerable Save.",
+      "summary": "A ritual scar-pattern that lets the thing within the armour take the blow in the warrior's place."
     },
     {
       "name": "Cant-scroll",
-      "text": "Legacy house rule. A tattered hymn-roll chanted on the march. Gives the model Marching Hymn."
+      "text": "A Model equipped with a Cant-scroll has the Marching Hymn Special Rule.",
+      "summary": "A tattered hymn-roll chanted on the march."
     },
     {
       "name": "Anathemata reliquary",
-      "text": "Legacy house rule. A sealed casket of scripture and saints' bone. Gives the model Faith-Warded Mind."
+      "text": "A Model equipped with an Anathemata reliquary has the Faith-Warded Mind Special Rule.",
+      "summary": "A sealed casket of scripture and saints' bone."
     },
     {
       "name": "Banner of the Pilgrim Host",
-      "text": "Legacy house rule. A wide banner stitched with a thousand names. Every model in the unit gains Pilgrim's Cry."
+      "text": "Each Model in a Unit that includes a Model equipped with a Banner of the Pilgrim Host has the Pilgrim's Cry Special Rule.",
+      "summary": "A wide banner stitched with a thousand names."
     },
     {
       "name": "Unction-sealed plating",
-      "text": "Legacy house rule. Hull plates washed in consecrated oils and cinders. The vehicle gains Anointed Hull."
+      "text": "A Vehicle equipped with Unction-sealed plating has the Anointed Hull Special Rule.",
+      "summary": "Hull plates washed in consecrated oils and cinders."
     },
     {
       "name": "Dirge-horn siren",
-      "text": "Legacy house rule. A mournful chorus-siren bolted to the hull. The vehicle gains Siren Wail and Fear (1)."
+      "text": "A Vehicle equipped with a Dirge-horn siren has the Siren Wail Special Rule and the Fear (1) Special Rule.",
+      "summary": "A mournful chorus-siren bolted to the hull."
     },
     {
       "name": "Pact-forged knife",
-      "text": "Legacy house rule. A black knife bearing a name no mortal should speak. Gives the model Sacrificial Blade."
+      "text": "A Model equipped with a Pact-forged knife has the Sacrificial Blade Special Rule.",
+      "summary": "A black knife bearing a name no mortal should speak."
     }
   ],
   "options": [
@@ -558,9 +567,9 @@
         "*"
       ],
       "item": "Possession-brand",
-      "text": "Possession-brand: 6+ Invulnerable Save.",
+      "text": "Possession-brand: 5+ Invulnerable Save.",
       "stats": {
-        "INV": "best:6+"
+        "INV": "best:5+"
       }
     },
     {
@@ -624,21 +633,6 @@
       "addRules": [
         "Sacrificial Blade"
       ]
-    },
-    {
-      "units": [
-        "gal-vorbak",
-        "ashen-circle",
-        "phraetus-anointed-conclave",
-        "argel-tal",
-        "zardu-layak",
-        "mhara-gal-dreadnought"
-      ],
-      "optionalUnits": true,
-      "text": "Blood-Price of the Pact: Feel No Pain (6+).",
-      "addRules": [
-        "Feel No Pain (6+)"
-      ]
     }
   ],
   "rites": [
@@ -647,7 +641,7 @@
       "flavor": "A Legion that believes cannot be convinced to leave the field.",
       "benefits": [
         "Every non-vehicle model gains +1 Willpower and +1 Leadership.",
-        "Chaplains and Diabolists gain Litany of Resolve: friendly units within 12\" automatically pass Morale and Pinning checks."
+        "Chaplains and Diabolists gain Litany of Resolve: friendly units within 12\" add 1 to their Leadership and Cool when making Leadership Checks and Cool Checks."
       ],
       "limitations": [
         "At least two Chaplains or Diabolists must be in the army.",
@@ -718,7 +712,7 @@
       "flavor": "The Legion swore it would never take the warp as a weapon. Then it did.",
       "benefits": [
         "Gal Vorbak Dark Brethren may fill Troops slots.",
-        "Gal Vorbak gain Fear (1) and Daemonic Vessels: on a turn they Charge they gain Rending (6+) in the Combat."
+        "Gal Vorbak gain Daemonic Vessels: on a turn they Charge, the Breaching (6+) on their Tainted Talons becomes Breaching (5+) in that Combat."
       ],
       "limitations": [
         "At least one Gal Vorbak unit is required, and Gal Vorbak units must charge the closest enemy unit they can reach.",
@@ -729,9 +723,8 @@
           "units": [
             "gal-vorbak"
           ],
-          "text": "The Possessed Host: Fear (1), Daemonic Vessels.",
+          "text": "The Possessed Host: Daemonic Vessels.",
           "addRules": [
-            "Fear (1)",
             "Daemonic Vessels"
           ]
         }
@@ -771,7 +764,7 @@
       "flavor": "The preachers come down with fire in their fists and a verse already on their lips.",
       "benefits": [
         "Ashen Circle may fill Troops slots.",
-        "Ashen Circle and Assault Squads gain Deep Strike and Descent of the Preachers: on the turn they arrive by Deep Strike they gain Fear (1) until the end of that turn."
+        "Ashen Circle and Assault Squads gain Descent of the Preachers: on the turn they arrive by Deep Strike they gain Fear (1) and add +1 to the Hit Tests of their Shooting Attacks until the end of that turn."
       ],
       "limitations": [
         "Every Ashen Circle and Assault Squad must start the battle in Reserve, and at least one Ashen Circle is required.",
@@ -783,9 +776,8 @@
             "ashen-circle",
             "assault-squad"
           ],
-          "text": "Sermon from the Sky: Deep Strike, Descent of the Preachers.",
+          "text": "Sermon from the Sky: Descent of the Preachers.",
           "addRules": [
-            "Deep Strike",
             "Descent of the Preachers"
           ]
         }
@@ -825,7 +817,7 @@
       "flavor": "Every world conquered leaves ten thousand new converts to feed the next.",
       "benefits": [
         "Procurators may fill Troops slots.",
-        "Inductii Squads gain +1 Willpower and Tide of Converts: Line (1), and a squad with ten or more models automatically passes Morale checks."
+        "Inductii Squads gain +1 Willpower, Line (1) and Tide of Converts: a squad with ten or more models automatically passes Leadership Checks and Cool Checks."
       ],
       "limitations": [
         "At least two Inductii Squads are required.",
@@ -880,48 +872,65 @@
   "rules": [
     {
       "name": "Litany of Resolve",
-      "text": "Legacy house rule (Unyielding Faith). While a friendly Word Bearers unit is within 12\" of a model with this rule, it adds +1 to its Leadership and Cool for Morale and Pinning checks."
+      "text": "While a friendly Word Bearers Unit is within 12\" of a Model with this Special Rule, each Model in that Unit adds 1 to its Leadership Characteristic and 1 to its Cool Characteristic when making Leadership Checks and Cool Checks.",
+      "summary": "The chaplain's voice carries over the guns and the dying."
     },
     {
       "name": "Daemonic Vessels",
-      "text": "Legacy house rule (The Possessed Host). A unit with this rule gains Rending (6+) in any Combat in which it made a Charge this turn. It must declare a Charge against the closest enemy unit it can reach whenever it is able to."
+      "text": "In any Combat in which its Unit made a Charge during the current Battle Turn, a Model with this Special Rule treats the Breaching (6+) Special Rule on its Tainted Talons as Breaching (5+). A Unit made up of Models with this Special Rule must declare a Charge against the closest enemy Unit it is able to Charge whenever it can.",
+      "summary": "The thing within the armour wants the kill more than the warrior does."
     },
     {
       "name": "Descent of the Preachers",
-      "text": "Legacy house rule (Sermon from the Sky). A unit with this rule that arrives by Deep Strike gains Fear (1) until the end of the turn it arrives."
+      "text": "A Unit made up entirely of Models with this Special Rule that arrives by Deep Strike has the Fear (1) Special Rule and adds 1 to the Hit Tests of its Shooting Attacks until the end of the Battle Turn in which it arrives.",
+      "summary": "The preachers come down with fire in their fists and a verse already on their lips."
     },
     {
       "name": "Tide of Converts",
-      "text": "Legacy house rule (The Indoctrinated Tide). A unit with this rule gains Line (1) and, while it has ten or more models, automatically passes Morale checks."
+      "text": "While a Unit made up entirely of Models with this Special Rule includes ten or more Models, it automatically passes any Leadership Check or Cool Check it is required to make.",
+      "summary": "Every conquered world feeds ten thousand more converts to the line."
     },
     {
       "name": "Marching Hymn",
-      "text": "Legacy house rule. When the unit of a model with this rule Rushes, add 2\" to the distance it moves."
+      "text": "When a Unit that includes a Model with this Special Rule Rushes, add 2\" to the distance it may move.",
+      "summary": "A chanted hymn lengthens every stride."
     },
     {
       "name": "Faith-Warded Mind",
-      "text": "Legacy house rule. The unit of a model with this rule adds 2 to its Willpower Checks made to resist enemy psychic attacks."
+      "text": "A Unit that includes a Model with this Special Rule adds 2 to the Willpower Characteristic of its Models when making Willpower Checks to resist an enemy Psychic attack.",
+      "summary": "Scripture and saints' bone harden the mind against the warp."
     },
     {
       "name": "Pilgrim's Cry",
-      "text": "Legacy house rule. A unit with this rule adds 1 to its Charge rolls. Once per battle it automatically passes one Morale Check."
+      "text": "A Unit that includes a Model with this Special Rule adds 1 to its Charge Rolls. Once per Battle, the Unit automatically passes one Leadership Check or Cool Check it is required to make.",
+      "summary": "A thousand names stitched into cloth, and every one of them is shouting."
     },
     {
       "name": "Anointed Hull",
-      "text": "Legacy house rule. Once per battle, a vehicle with this rule may ignore one Glancing Hit."
+      "text": "Once per Battle, a Vehicle with this Special Rule may discard one Glancing Hit inflicted on it.",
+      "summary": "Consecrated oils and cinders ward the plating against the killing blow."
     },
     {
       "name": "Siren Wail",
-      "text": "Legacy house rule. Enemy units within 12\" of a vehicle with this rule cannot Rush towards it."
+      "text": "Enemy Units that have a Model within 12\" of a Vehicle with this Special Rule cannot Rush towards that Vehicle.",
+      "summary": "A mournful chorus-siren that pins the enemy's nerve to the ground."
     },
     {
       "name": "Sacrificial Blade",
-      "text": "Legacy house rule. When a model with this rule slays an enemy in a Challenge, every friendly unit within 12\" adds 1 to its Cool until the end of the turn."
+      "text": "When a Model with this Special Rule removes an enemy Model as a Casualty in a Challenge, every friendly Unit within 12\" adds 1 to the Cool Characteristic of its Models until the end of that Battle Turn.",
+      "summary": "A life given to the thing in the knife buys courage for the line."
     }
   ],
   "armyRules": [
     {
       "name": "Zealot's Fervour",
+      "flavor": "Faith is a weapon.",
+      "benefits": [
+        "A Model with this Special Rule adds 1 to its Attacks Characteristic in any Battle Turn in which its Unit made a Charge."
+      ],
+      "drawbacks": [
+        "Whenever it is able to, a Unit with this Special Rule must declare a Charge against the nearest enemy Unit."
+      ],
       "match": {
         "roles": [
           "Troops",
@@ -935,11 +944,17 @@
       "stats": {
         "A": "+1"
       },
-      "condition": "on a turn the unit charges",
-      "text": "Legacy house rule. Faith is a weapon. A unit with this rule gains +1 Attack on a turn it charges. Zeal leaves no room for caution: when able, it must declare its Charge against the nearest enemy unit."
+      "condition": "on a turn the unit charges"
     },
     {
       "name": "Voice of the Faithful",
+      "flavor": "A preacher's sermon steels the line.",
+      "benefits": [
+        "A friendly Word Bearers Unit within 6\" of a Model with this Special Rule adds 1 to the Willpower Characteristic and 1 to the Cool Characteristic of its Models."
+      ],
+      "drawbacks": [
+        "If a Model with this Special Rule is removed as a Casualty, every friendly Word Bearers Unit within 12\" must pass a Cool Check or gain the Suppressed Status."
+      ],
       "match": {
         "roles": [
           "High Command",
@@ -947,11 +962,17 @@
         ],
         "notUnitType": "Vehicle"
       },
-      "optionalUnits": true,
-      "text": "Legacy house rule. A preacher's sermon steels the line. A friendly Word Bearers unit within 6\" of a model with this rule adds 1 to its Willpower and Cool. If the model is removed, every such unit within 12\" must pass a Cool Check or gain the Suppressed Status."
+      "optionalUnits": true
     },
     {
       "name": "Blood-Price of the Pact",
+      "flavor": "The thing bound within takes its tithe.",
+      "benefits": [
+        "A Model with this Special Rule adds 1 to its Initiative Characteristic."
+      ],
+      "drawbacks": [
+        "At the start of each of its Controlling Player's Battle Turns from the third, roll a D6 for each Unit with this Special Rule: on a 1, the Unit suffers 1 Wound, and no Saving Throws or Damage Mitigation Tests may be made against it."
+      ],
       "units": [
         "gal-vorbak",
         "ashen-circle",
@@ -961,7 +982,9 @@
         "mhara-gal-dreadnought"
       ],
       "optionalUnits": true,
-      "text": "Legacy house rule. The thing bound within takes its tithe. A unit with this rule has Feel No Pain (6+). At the start of each of its turns from the third, roll a D6: on a 1 the unit suffers 1 Wound with no Saves of any kind."
+      "stats": {
+        "I": "+1"
+      }
     }
   ]
 }

@@ -139,47 +139,58 @@
   "wargear": [
     {
       "name": "Cold-blooded Princeps",
-      "text": "Legacy house rule. A Princeps who has spent decades listening to the reactor's heartbeat and never once let it rattle him. Once each battle the Titan's controlling player may treat one failed Power Hungry or Overload check as passed."
+      "summary": "A Princeps who has spent decades listening to the reactor's heartbeat and never once let it rattle him.",
+      "text": "Once per battle, the Controlling Player of a Titan whose Princeps is Cold-blooded may treat one failed Power Hungry or Overload test made by that Titan as having been passed."
     },
     {
       "name": "Fire-eater Princeps",
-      "text": "Legacy house rule. A Princeps who fights at the edge of the neural link and lets the engine run hot. Once per battle, at the start of the controlling player's Shooting Phase, the Titan may fire one weapon twice, but must then take a Power Hungry check with a -1 penalty."
+      "summary": "A Princeps who fights at the edge of the neural link and lets the engine run hot.",
+      "text": "Once per battle, at the start of the Controlling Player's Shooting Phase, a Titan whose Princeps is a Fire-eater may choose one of its Weapons. That Weapon makes its Shooting Attack twice in that Shooting Phase, after which the Titan must make a Power Hungry test with a -1 modifier."
     },
     {
       "name": "Overlapping void arrays",
-      "text": "Legacy house rule. Secondary projectors are stitched into the primary lattice, so a collapsing shield is quickly replaced. The first time the Titan's void shields would be reduced to zero in a battle, restore one void shield immediately."
+      "summary": "Secondary projectors are stitched into the primary lattice, so a collapsing shield is quickly replaced.",
+      "text": "The first time in each battle that the Void Shields of a Titan equipped with overlapping void arrays would be reduced to zero, the Controlling Player immediately restores one Void Shield."
     },
     {
       "name": "Servitor-hardened plates",
-      "text": "Legacy house rule. Hull plates seeded with banked servitor labour that can be called on to slap armour back over a breach. The vehicle gains +1 Hull Point."
+      "summary": "Hull plates seeded with banked servitor labour that can be called on to slap armour back over a breach.",
+      "text": "A Vehicle equipped with Servitor-hardened plates adds 1 to its Hull Points Characteristic."
     },
     {
       "name": "Legio Battle-banner",
-      "text": "Legacy house rule. A tattered battle-banner carried on a gantry above the Titan's head, its thread-count of victories read out before every deployment."
+      "summary": "A tattered battle-banner carried on a gantry above the Titan's head, its thread-count of victories read out before every deployment.",
+      "text": "A Model equipped with a Legio Battle-banner has the Banner of Victories Special Rule."
     },
     {
       "name": "Ghost-void projector",
-      "text": "Legacy house rule. A masking emitter that smears the Titan's void signature into the dust of the battlefield."
+      "summary": "A masking emitter that smears the Titan's void signature into the dust of the battlefield.",
+      "text": "A Model equipped with a Ghost-void projector has the Void Veil Special Rule."
     },
     {
       "name": "Reactor sink baffles",
-      "text": "Legacy house rule. Extra heat baffles bolted around the plasma reactor so it can run harder without cooking the Princeps."
+      "summary": "Extra heat baffles bolted around the plasma reactor so it can run harder without cooking the Princeps.",
+      "text": "A Model equipped with Reactor sink baffles has the Baffled Exhausts Special Rule."
     },
     {
       "name": "Hardened command throne",
-      "text": "Legacy house rule. A rebuilt Princeps throne with gyro-cushioning and a stronger neural cage."
+      "summary": "A rebuilt Princeps throne with gyro-cushioning and a stronger neural cage.",
+      "text": "A Model equipped with a Hardened command throne has the Unbroken Throne Special Rule."
     },
     {
       "name": "Ram-plough",
-      "text": "Legacy house rule. A wedge of reinforced plating that lets a Triaros smash through barricades and tank traps."
+      "summary": "A wedge of reinforced plating that lets a Triaros smash through barricades and tank traps.",
+      "text": "A Vehicle equipped with a Ram-plough has the Ram-Plough Special Rule."
     },
     {
       "name": "Pennant of the Void Sentries",
-      "text": "Legacy house rule. A scorched pennant of the void-gate watch, sworn to stand till relieved."
+      "summary": "A scorched pennant of the void-gate watch, sworn to stand till relieved.",
+      "text": "A Model equipped with a Pennant of the Void Sentries has the Gate-Watch Oath Special Rule."
     },
     {
       "name": "Servitor compliance governor",
-      "text": "Legacy house rule. A strict governor on the maniple's cortex that stops it from over-reaching."
+      "summary": "A strict governor on the maniple's cortex that stops it from over-reaching.",
+      "text": "A Model equipped with a Servitor compliance governor has the Strict Compliance Special Rule."
     }
   ],
   "options": [
@@ -573,53 +584,74 @@
   "rules": [
     {
       "name": "Pack Hunters",
-      "text": "Legacy house rule (The Hunting Pack). A model with this rule gains Outflank. On a turn it arrives from Reserves it may Rush and still fire one weapon at its full Ballistic Skill."
+      "summary": "The Warhounds are in the enemy's rear before the enemy knows the hunt has begun.",
+      "text": "A Model with this Special Rule has the Outflank Special Rule. In a Battle Turn in which a Unit that includes a Model with this Special Rule arrives from Reserves, that Unit may Rush and still make a Shooting Attack with one of its Weapons, using its full Ballistic Skill.",
+      "source": "The Hunting Pack"
     },
     {
       "name": "Overcharged Reactor",
-      "text": "Legacy house rule (The Reactor Gambit). Once per battle, in its Movement phase, a model with this rule may add 6\" to its Move and still fire all its weapons that turn. It then loses 1 Hull Point with no save of any kind."
+      "summary": "The Princeps does not ask the reactor's permission; he tells it how long it has.",
+      "text": "Once per battle, in the Movement Phase, a Model with this Special Rule may add 6\" to its Movement Characteristic until the end of that phase, and may still make Shooting Attacks with all of its Weapons in the following Shooting Phase. That Model then loses 1 Hull Point, and no Saving Throw or Damage Mitigation Test of any kind may be made against that loss.",
+      "source": "The Reactor Gambit"
     },
     {
       "name": "Void-Wall Guard",
-      "text": "Legacy house rule (The Void-Wall Bastion). When an enemy unit declares a Charge against a friendly Titan, and a unit with this rule is within 6\" of that Titan and within the charger's reach, the charger must charge the nearest such unit instead."
+      "summary": "The armsmen stand beneath the Titan's knees and take the charge that was meant for it.",
+      "text": "When an enemy Unit declares a Charge against a friendly Titan, and a Unit with this Special Rule is within 6\" of that Titan and within the charging Unit's Charge reach, the charging Unit's Controlling Player must instead declare the Charge against the nearest such Unit.",
+      "source": "The Void-Wall Bastion"
     },
     {
       "name": "Bonded Directive",
-      "text": "Legacy house rule (The Bonded Cybernetica Maniple). A unit with this rule within 12\" of a friendly Titan adds +1 to its Leadership and Cool for Morale and Cool Checks."
+      "summary": "The Princeps leads from the Titan's head, and the maniple obeys.",
+      "text": "While a Unit with this Special Rule is within 12\" of a friendly Titan, every Model in that Unit adds 1 to its Leadership and Cool Characteristics when the Unit takes a Morale Check or a Cool Check.",
+      "source": "The Bonded Cybernetica Maniple"
     },
     {
       "name": "Banner of Victories",
-      "text": "Legacy house rule. Friendly Titans and Secutarii within 12\" of the bearer add 1 to their Cool for Morale Checks. The bearer is easy to pick out: enemy models ignore the Shrouded rule against it."
+      "summary": "Every victory is stitched into the banner, and every brother who sees it stands a little taller.",
+      "text": "Friendly Titans and Secutarii Units within 12\" of a Model with this Special Rule add 1 to their Cool Characteristic when they take a Morale Check. A Model with this Special Rule cannot benefit from the Void Veil Special Rule, or from any other modifier that reduces the Hit Tests of Shooting Attacks made against it."
     },
     {
       "name": "Void Veil",
-      "text": "Legacy house rule. Enemy Shooting Attacks made from more than 24\" away against the bearer suffer -1 to Hit."
+      "summary": "A masking emitter smears the Titan into the dust of the battlefield.",
+      "text": "Shooting Attacks made against a Model with this Special Rule from more than 24\" away subtract 1 from their Hit Tests."
     },
     {
       "name": "Baffled Exhausts",
-      "text": "Legacy house rule. The bearer adds 1 to the dice result of its Power Hungry and Overload checks. It may not Rush."
+      "summary": "Heat baffles let the reactor burn harder, at the cost of the Titan's stride.",
+      "text": "A Model with this Special Rule adds 1 to the result of any Power Hungry or Overload test it makes. A Model with this Special Rule cannot Rush."
     },
     {
       "name": "Unbroken Throne",
-      "text": "Legacy house rule. The first time each battle the bearer would gain the Stunned or Suppressed Status, ignore it."
+      "summary": "A caged throne rides out the neural backlash.",
+      "text": "The first time in each battle that a Model with this Special Rule would gain the Stunned or Suppressed Tactical Status, it does not gain that Tactical Status."
     },
     {
       "name": "Ram-Plough",
-      "text": "Legacy house rule. The vehicle ignores Dangerous Terrain Tests and counts as having Impact (S) on a successful Charge. It loses 1 Movement."
+      "summary": "The wedge clears barricades and tank traps, and whatever is caught behind them.",
+      "text": "A Vehicle with this Special Rule ignores Dangerous Terrain Tests. When it uses its Shock Ram Special Rule, the number of Hits it inflicts is D6+4 instead of D6+3. It subtracts 1 from its Movement Characteristic."
     },
     {
       "name": "Gate-Watch Oath",
-      "text": "Legacy house rule. The unit ignores the first Pinned Status it would gain in each turn."
+      "summary": "The watch stands until it is relieved.",
+      "text": "A Unit with this Special Rule ignores the first Pinned Tactical Status it would gain in each Battle Turn."
     },
     {
       "name": "Strict Compliance",
-      "text": "Legacy house rule. Once per battle the unit may ignore a Stunned or Suppressed Status. The unit may not Rush."
+      "summary": "The governor holds the maniple to its orders and to nothing beyond them.",
+      "text": "Once per battle, a Unit with this Special Rule may ignore a Stunned or Suppressed Tactical Status it would gain. A Unit with this Special Rule cannot Rush."
     }
   ],
   "armyRules": [
     {
       "name": "Legio Pack-Bond",
-      "text": "Legacy house rule. Titans of a Legio fight as a pack and wither alone. A Titan with another friendly Titan within 12\" adds 1 to its Cool for Checks to avoid Tactical Statuses. A Titan with no friendly Titan within 24\" subtracts 1 from its Cool for those Checks and may not use Overcharged Reactor.",
+      "flavor": "Titans of a Legio fight as a pack and wither alone.",
+      "benefits": [
+        "A Titan with another friendly Titan within 12\" adds 1 to its Cool Characteristic when it makes a Cool Check to avoid a Tactical Status."
+      ],
+      "drawbacks": [
+        "A Titan with no friendly Titan within 24\" subtracts 1 from its Cool Characteristic for those Cool Checks, and cannot use the Overcharged Reactor Special Rule."
+      ],
       "match": {
         "unitType": "Titan"
       },
@@ -627,7 +659,13 @@
     },
     {
       "name": "Cortex Tether",
-      "text": "Legacy house rule. The Legio's maniples are slaved to a god-engine's cortex. An Automata unit within 12\" of a friendly Titan adds 1 to the Hit Tests of its Shooting Attacks. An Automata unit with no friendly Titan on the battlefield subtracts 1 from its Cool.",
+      "flavor": "The Legio's maniples are slaved to a god-engine's cortex.",
+      "benefits": [
+        "While within 12\" of a friendly Titan, an Automata Unit adds 1 to its Ballistic Skill Characteristic."
+      ],
+      "drawbacks": [
+        "While no friendly Titan remains on the battlefield, an Automata Unit subtracts 1 from its Cool Characteristic."
+      ],
       "match": {
         "unitType": "Automata"
       },
@@ -638,7 +676,13 @@
     },
     {
       "name": "Armsman's Shieldwall",
-      "text": "Legacy house rule. Void-drilled armsmen hold a line but cannot run. Secutarii add 1 to their Cool, but may not Rush.",
+      "flavor": "Void-drilled armsmen hold a line, but they cannot run.",
+      "benefits": [
+        "Secutarii add 1 to their Cool Characteristic."
+      ],
+      "drawbacks": [
+        "Secutarii cannot Rush."
+      ],
       "units": [
         "secutarii-cohort",
         "secutarii-axiarch"
@@ -654,7 +698,7 @@
       "flavor": "Where the great engines march, the Warhounds have already seen the enemy's backs.",
       "benefits": [
         "Warhound Titans may fill Fast Attack slots and gain Vanguard (2).",
-        "Warhounds gain Pack Hunters: Outflank, and any Warhound that arrives from Reserves may Rush and still fire one weapon that turn."
+        "Warhounds gain Pack Hunters: Outflank, and a Warhound that arrives from Reserves may Rush and still make a Shooting Attack with one Weapon that turn."
       ],
       "limitations": [
         "At least two Warhounds are required.",
@@ -705,7 +749,7 @@
       "name": "The Reactor Gambit",
       "flavor": "The Princeps do not ask permission of the reactor. They tell it how long it has.",
       "benefits": [
-        "Every Titan gains Fast (1) and Overcharged Reactor: once per battle, in its Movement phase, it may add 6\" to its Move and still fire all weapons."
+        "Every Titan gains Fast (1) and Overcharged Reactor: once per battle, in the Movement Phase, it may add 6\" to its Movement Characteristic and still make Shooting Attacks with all of its Weapons."
       ],
       "limitations": [
         "At least two Titans are required.",
@@ -782,7 +826,7 @@
       "flavor": "A Titan is only as safe as the men who stand beneath its knees.",
       "benefits": [
         "Secutarii Cohorts may fill Elites slots, gain a 4+ Invulnerable Save and Line (2).",
-        "Secutarii gain Void-Wall Guard: an enemy that declares a Charge against a friendly Titan must instead charge the nearest unit with this rule within 6\" of that Titan, if it is in range."
+        "Secutarii gain Void-Wall Guard: an enemy Unit that declares a Charge against a friendly Titan must instead charge the nearest Unit with this rule within 6\" of that Titan, if it is in Charge reach."
       ],
       "limitations": [
         "At least two Secutarii Cohorts are required.",
@@ -842,8 +886,8 @@
       "flavor": "The Princeps leads from the Titan's head. The Castellaxes lead from nowhere at all.",
       "benefits": [
         "Castellax Battle, Castellax Destructor and Domitar Battle Maniples may fill Troops slots and gain Line (1).",
-        "Castellaxes gain +1 Ballistic Skill.",
-        "Maniples gain Bonded Directive: while within 12\" of a friendly Titan they add +1 to their Leadership and Cool for Morale and Cool Checks."
+        "Castellaxes add 1 to their Ballistic Skill Characteristic.",
+        "Maniples gain Bonded Directive: while within 12\" of a friendly Titan they add 1 to their Leadership and Cool Characteristics when taking a Morale Check or Cool Check."
       ],
       "limitations": [
         "Exactly one Titan is required.",

@@ -114,9 +114,9 @@
         "name": "Charonite flail",
         "IM": -1,
         "AM": "+1",
-        "SM": 6,
+        "SM": 7,
         "AP": 3,
-        "D": 1,
+        "D": 2,
         "specialRules": [
           "Reaping Blow (1)",
           "Stun (1)"
@@ -145,63 +145,78 @@
   "wargear": [
     {
       "name": "Carapace breastplate",
-      "text": "Legacy house rule. Ceramite-laminate plate issued to Primes and officers who have earned it. The model's Save becomes 3+ if it was worse."
+      "summary": "Ceramite-laminate plate issued to Primes and officers who have earned it.",
+      "text": "A Model equipped with a Carapace breastplate has a Save Characteristic of 3+, unless its Save Characteristic is already better."
     },
     {
       "name": "Bulwark field-cloak",
-      "text": "Legacy house rule. A shimmering cloak woven with a cheap deflector mesh, worn by officers who expect to be shot at. The model's Invulnerable Save becomes 5+ if it was worse."
+      "summary": "A shimmering cloak woven with a deflector mesh, worn by officers who expect to be shot at.",
+      "text": "A Model equipped with a Bulwark field-cloak has an Invulnerable Save of 4+, unless it already has a better Invulnerable Save."
     },
     {
       "name": "Veteran Prime",
-      "text": "Legacy house rule. A Prime who has marched through three theatres and never lost a standard. The model gains +1 Ballistic Skill and +1 Leadership."
+      "summary": "A Prime who has marched through three theatres and never lost a standard.",
+      "text": "A Model upgraded to a Veteran Prime adds 1 to its Ballistic Skill and Leadership Characteristics."
     },
     {
       "name": "Cohort colours",
-      "text": "Legacy house rule. The tercio's battle-honours, stitched into a banner that every trooper can see. Every model in the unit gains +1 Leadership and +1 Cool."
+      "summary": "The tercio's battle-honours, stitched into a banner that every trooper can see.",
+      "text": "While a Unit includes a Model equipped with Cohort colours, all Models in that Unit add 1 to their Leadership and Cool Characteristics."
     },
     {
       "name": "Charonite bastion-plate",
-      "text": "Legacy house rule. Riveted slabs of charonite alloy bolted over an Ogryn's chest and shoulders. The model's Save becomes 3+ if it was worse."
+      "summary": "Riveted slabs of charonite alloy bolted over an Ogryn's chest and shoulders.",
+      "text": "A Model equipped with Charonite bastion-plate has a Save Characteristic of 3+, unless its Save Characteristic is already better."
     },
     {
       "name": "Applique plating",
-      "text": "Legacy house rule. Spare armour plate welded on in the field. The vehicle gains +1 Hull Point."
+      "summary": "Spare armour plate welded on in the field.",
+      "text": "A Vehicle equipped with Applique plating adds 1 to its Hull Points Characteristic."
     },
     {
       "name": "Siege plating",
-      "text": "Legacy house rule. Thick glacis slabs and track skirts for crawling into a prepared line. The vehicle gains +1 Front armour, but loses 2\" of Movement."
+      "summary": "Thick glacis slabs and track skirts for crawling into a prepared line.",
+      "text": "A Vehicle equipped with Siege plating adds 1 to its Front Armour Value and subtracts 2 from its Movement Characteristic."
     },
     {
       "name": "Fire-control cogitator",
-      "text": "Legacy house rule. A cogitator rack that works out the arc before the gun is laid. The vehicle gains +1 Ballistic Skill."
+      "summary": "A cogitator rack that works out the arc before the gun is laid.",
+      "text": "A Vehicle equipped with a Fire-control cogitator adds 1 to its Ballistic Skill Characteristic."
     },
     {
       "name": "Abjuration talisman",
-      "text": "Legacy house rule. A tarnished ward-charm blessed by a Lodge priest and worn under the greatcoat. The bearer gains +1 Willpower and Mind Ward."
+      "summary": "A tarnished ward-charm blessed by a Lodge priest and worn under the greatcoat.",
+      "text": "A Model equipped with an Abjuration talisman adds 1 to its Willpower Characteristic and has the Mind Ward Special Rule."
     },
     {
       "name": "Aquila signum-pole",
-      "text": "Legacy house rule. A gilded pole topped with the Aquila, planted where the line must hold. Gives the unit Beacon of the Line and Line (1)."
+      "summary": "A gilded pole topped with the Aquila, planted where the line must hold.",
+      "text": "While a Unit includes a Model equipped with an Aquila signum-pole, all Models in that Unit add 1 to their Cool Characteristic and have the Beacon of the Line Special Rule."
     },
     {
       "name": "Wall-cracker's satchel",
-      "text": "Legacy house rule. A satchel of shaped sapper charges. Gives the bearer Wall-Cracker."
+      "summary": "A satchel of shaped sapper charges.",
+      "text": "A Model equipped with a Wall-cracker's satchel has the Wall-Cracker Special Rule."
     },
     {
       "name": "Pathfinder beacon",
-      "text": "Legacy house rule. A bright homing lamp carried by the lead scout of a Hermes pack. Gives the unit Trail Marker."
+      "summary": "A bright homing lamp carried by the lead scout of a Hermes pack.",
+      "text": "While a Unit includes a Model equipped with a Pathfinder beacon, all Models in that Unit have the Trail Marker Special Rule."
     },
     {
       "name": "Rampart ram-prow",
-      "text": "Legacy house rule. A heavy cast-iron prow bolted over the glacis. Gives the vehicle Rampart Ploughshare."
+      "summary": "A heavy cast-iron prow bolted over the glacis.",
+      "text": "A Vehicle equipped with a Rampart ram-prow has the Rampart Ploughshare Special Rule."
     },
     {
       "name": "Obscurant flare mortars",
-      "text": "Legacy house rule. Roof-mounted mortars that throw a screen of reflective chaff and vapour. Gives the vehicle Obscurant Veil and Shrouded (6+)."
+      "summary": "Roof-mounted mortars that throw a screen of reflective chaff and vapour.",
+      "text": "A Vehicle equipped with Obscurant flare mortars has the Shrouded (6+) and Obscurant Veil Special Rules."
     },
     {
       "name": "Brass signal whistle",
-      "text": "Legacy house rule. A sergeant's whistle whose note carries over the roar of a battle. Gives the unit Sound the Advance."
+      "summary": "A sergeant's whistle whose note carries over the roar of a battle.",
+      "text": "While a Unit includes a Model equipped with a Brass signal whistle, all Models in that Unit have the Sound the Advance Special Rule."
     }
   ],
   "options": [
@@ -224,7 +239,12 @@
         "choices": [
           {
             "name": "Carapace breastplate",
-            "points": 10
+            "points": 10,
+            "onlyIf": {
+              "worse": {
+                "SAV": "3+"
+              }
+            }
           }
         ]
       }
@@ -242,7 +262,12 @@
         "choices": [
           {
             "name": "Bulwark field-cloak",
-            "points": 10
+            "points": 15,
+            "onlyIf": {
+              "worse": {
+                "INV": "4+"
+              }
+            }
           }
         ]
       }
@@ -704,9 +729,9 @@
         "*"
       ],
       "item": "Bulwark field-cloak",
-      "text": "Bulwark field-cloak: 5+ Invulnerable Save.",
+      "text": "Bulwark field-cloak: 4+ Invulnerable Save.",
       "stats": {
-        "INV": "best:5+"
+        "INV": "best:4+"
       }
     },
     {
@@ -874,11 +899,13 @@
       ],
       "item": "Aquila signum-pole",
       "scope": "unit",
-      "text": "Aquila signum-pole: Beacon of the Line, Line (1).",
+      "text": "Aquila signum-pole: +1 CL, Beacon of the Line.",
       "addRules": [
-        "Beacon of the Line",
-        "Line (1)"
-      ]
+        "Beacon of the Line"
+      ],
+      "stats": {
+        "CL": "+1"
+      }
     },
     {
       "units": [
@@ -939,51 +966,63 @@
   "rules": [
     {
       "name": "Sealed Plate",
-      "text": "Legacy house rule (Void-Armoured Tercios). A unit with this rule is sealed against gas, flame and fear alike: it ignores Pinning (X) and Panic (X), and any Suppressive (X) effects against it are ignored."
+      "summary": "Sealed against gas, flame and fear alike.",
+      "text": "A Unit with this Special Rule ignores the Pinning (X) and Panic (X) Special Rules of Weapons used against it, and Suppressive (X) has no effect on it."
     },
     {
       "name": "Spearhead Column",
-      "text": "Legacy house rule (The Armoured Fist). The tanks break from the line and drive deep before the foe has settled. A unit with this rule gains Outflank. On the first battle turn it may Rush and still fire one weapon at its full Ballistic Skill."
+      "summary": "The tanks break from the line and drive deep before the foe has settled.",
+      "text": "During the first Battle Turn, a Model with this Special Rule that Rushes may still make a Shooting Attack with one of its Weapons, using its full Ballistic Skill Characteristic."
     },
     {
       "name": "Forward the Breakers",
-      "text": "Legacy house rule (Charonite Breaker Host). The Ogryn have one order and they have heard it. After both sides have deployed and before the first battle turn, a unit with this rule makes a free move of up to 6\", ending no closer than 9\" to any enemy model. On a turn it charges, it ignores Pinning (X) and Panic (X)."
+      "summary": "The Ogryn have one order, and they have heard it.",
+      "text": "After both Players have deployed and before the first Battle Turn begins, each Unit composed entirely of Models with this Special Rule may make a Set-up Move of up to 6\". It cannot end that move within 9\" of any enemy Model. In any Battle Turn in which a Unit with this Special Rule makes a Charge, it ignores the Pinning (X) and Panic (X) Special Rules of Weapons used against it."
     },
     {
       "name": "Registered Fire",
-      "text": "Legacy house rule (The Ordnance Park). The park has ranged this ground for hours. If a unit with this rule did not move in its last Movement phase, it adds 1 to its Ballistic Skill, and gains a further +1 to its Hit Tests against a unit another Registered Fire unit has already fired at this phase."
+      "summary": "The park has ranged this ground for hours.",
+      "text": "When a Unit with this Special Rule makes a Shooting Attack against an enemy Unit that another friendly Unit with this Special Rule has already made a Shooting Attack against in the same Phase, all Models in the firing Unit add 1 to the result of their Hit Tests."
     },
     {
       "name": "Armoured Wave",
-      "text": "Legacy house rule (Dracosan Assault Wave). The Dracosans race ahead of the line and disgorge their cargo at the wall. A unit with this rule gains Outflank, and passengers may disembark from it after it has Rushed on the first battle turn and still declare a Charge that turn."
+      "summary": "The Dracosans race ahead of the line and disgorge their cargo at the wall.",
+      "text": "If a Model with this Special Rule Rushes during the first Battle Turn, Units Embarked upon it may still Disembark after it has moved and declare a Charge in that Battle Turn."
     },
     {
       "name": "Mind Ward",
-      "text": "Legacy house rule. The first Wound from a psychic attack against this model in each phase is ignored."
+      "summary": "A tarnished ward-charm and a whispered litany keep the warp at arm's length.",
+      "text": "The first Wound allocated to a Model with this Special Rule by a Psychic Power in each Phase is discarded."
     },
     {
       "name": "Beacon of the Line",
-      "text": "Legacy house rule. While the bearer is alive and within 6\" of an objective, the unit automatically passes Pinning checks."
+      "summary": "The Aquila is planted, and the line forms around it.",
+      "text": "While at least one Model with this Special Rule is in a Unit and that Unit is within 6\" of an Objective Marker, the Unit automatically passes any Panic Check and any Cool Check made for Pinning."
     },
     {
       "name": "Wall-Cracker",
-      "text": "Legacy house rule. Once per battle, the bearer may make a melee attack with Armourbane and Breaching (4+) against a Vehicle or Structure."
+      "summary": "A satchel of shaped sapper charges, placed where the wall is weakest.",
+      "text": "Once per battle, a Model with this Special Rule may choose one of its Melee Attacks against a Vehicle or a Structure. That attack's Weapon has the Armourbane and Breaching (4+) Special Rules."
     },
     {
       "name": "Trail Marker",
-      "text": "Legacy house rule. Friendly units arriving from Reserves may be placed within 6\" of the bearer, and do not suffer penalties for arriving this way."
+      "summary": "A homing lamp that tells the reserves exactly where the fight is.",
+      "text": "A friendly Unit that arrives from Reserves may be set up wholly within 6\" of a Model with this Special Rule, even if it would not otherwise be able to arrive there, and suffers no penalty for arriving in this way."
     },
     {
       "name": "Rampart Ploughshare",
-      "text": "Legacy house rule. The vehicle ignores Dangerous Terrain tests for Barricades and Walls, and adds +D3 Hits when it moves through an enemy unit."
+      "summary": "A cast-iron prow that clears barricades and bodies alike.",
+      "text": "A Model with this Special Rule does not take Dangerous Terrain Tests for moving across Barricades and Walls. When it moves through an enemy Unit, that Unit suffers D3 additional Hits."
     },
     {
       "name": "Obscurant Veil",
-      "text": "Legacy house rule. The vehicle counts as having Shrouded (5+) against Ordnance and Barrage weapons."
+      "summary": "A screen of reflective chaff and vapour confuses the gunners' ranging.",
+      "text": "A Model with this Special Rule has the Shrouded (5+) Special Rule against Shooting Attacks made with Weapons that have the Ordnance (X) or Barrage (X) Special Rules."
     },
     {
       "name": "Sound the Advance",
-      "text": "Legacy house rule. Once per battle, after the unit fails a Morale check, it passes it instead."
+      "summary": "A whistle-note that carries over the roar of battle and drags men back to their feet.",
+      "text": "Once per battle, when a Unit with this Special Rule fails a Panic Check, the Controlling Player may choose to treat it as passed instead."
     }
   ],
   "rites": [
@@ -1042,7 +1081,7 @@
       "text": "They crossed the dark between worlds in sealed plate, and they will cross a battlefield the same way.",
       "benefits": [
         "Veletaris Storm, Vanguard and Raider Sections may fill Troops slots and gain Line (1) and Feel No Pain (6+).",
-        "Those sections gain Sealed Plate: they ignore Pinning, Panic and Suppressive effects."
+        "Those sections gain Sealed Plate: they ignore the Pinning (X) and Panic (X) Special Rules of Weapons used against them, and Suppressive (X) has no effect on them."
       ],
       "limitations": [
         "At least two Veletaris Sections are required.",
@@ -1077,7 +1116,7 @@
             "destroyer-tank-hunter",
             "thunderer-siege-tank"
           ],
-          "text": "The Armoured Fist: Line (1), Spearhead Column.",
+          "text": "The Armoured Fist: Line (1), Outflank, Spearhead Column.",
           "addRules": [
             "Line (1)",
             "Outflank",
@@ -1120,7 +1159,7 @@
       "text": "The infantry are there to hold the ground the tanks have just taken.",
       "benefits": [
         "Leman Russ, Malcador, Valdor, Destroyer and Thunderer tanks may fill Troops slots and gain Line (1).",
-        "Those tanks gain Outflank and Spearhead Column: on the first turn a tank may Rush and still fire one weapon at full Ballistic Skill."
+        "Those tanks gain Outflank and Spearhead Column: during the first Battle Turn a tank that Rushes may still make a Shooting Attack with one of its Weapons at its full Ballistic Skill."
       ],
       "limitations": [
         "At least three of those tanks are required.",
@@ -1191,7 +1230,7 @@
       "text": "The Ogryn do not understand tactics. They do understand the word 'forward'.",
       "benefits": [
         "Charonite Ogryn Sections may fill Troops slots and gain Fear (1).",
-        "They gain Forward the Breakers: a free 6\" move before the first turn (not within 9\" of the enemy), and they ignore Pinning and Panic on turns they charge."
+        "They gain Forward the Breakers: a free 6\" Set-up Move before the first Battle Turn (ending more than 9\" from the enemy), and they ignore Pinning (X) and Panic (X) in any Battle Turn in which they Charge."
       ],
       "limitations": [
         "At least one Charonite Ogryn Section is required.",
@@ -1227,9 +1266,6 @@
         },
         {
           "units": [
-            "basilisk-artillery-tank",
-            "medusa-artillery-tank",
-            "minotaur-artillery-tank",
             "rapier-section"
           ],
           "text": "Registered Fire: +1 BS.",
@@ -1272,7 +1308,7 @@
       "text": "A regiment's real argument is made four kilometres behind its front line.",
       "benefits": [
         "Basilisk and Medusa Artillery Tanks may fill Troops slots.",
-        "Basilisk, Medusa, Minotaur and Rapier units gain Registered Fire: +1 Ballistic Skill if they did not move, and a further +1 to Hit Tests against a target another Registered Fire unit has already fired at that phase."
+        "Basilisk, Medusa, Minotaur and Rapier units gain Registered Fire: +1 to Hit Tests against a target another Registered Fire Unit has already shot at in the same Phase. Rapier Sections that did not move also add 1 to their Ballistic Skill; the tanks already gain this from Armoured Doctrine."
       ],
       "limitations": [
         "An Artillery Command Section and at least two Basilisk, Medusa or Minotaur tanks are required.",
@@ -1327,7 +1363,7 @@
       "text": "Every tercio rides, and every Dracosan lands within a pistol-shot of the wall.",
       "benefits": [
         "Dracosan Armoured Transports and Command Dracosans gain +2 Movement, Assault Vehicle and Outflank.",
-        "They gain Armoured Wave: on the first turn, passengers may disembark after the Dracosan Rushed and still charge."
+        "They gain Armoured Wave: if a Dracosan Rushes in the first Battle Turn, its passengers may still Disembark and declare a Charge that turn."
       ],
       "limitations": [
         "At least two Dracosans are required.",
@@ -1339,7 +1375,14 @@
   "armyRules": [
     {
       "name": "Massed Volley",
-      "text": "Legacy house rule. The Auxilia win by weight of las-fire. When a unit with this rule shoots at an enemy unit that another Massed Volley unit has already shot at this phase, it adds +1 to its Hit Tests. A unit that moved more than half its Movement this turn gets no benefit.",
+      "flavor": "The Auxilia win by weight of las-fire.",
+      "benefits": [
+        "When a Unit with this Special Rule makes a Shooting Attack against an enemy Unit that another Unit with this Special Rule has already made a Shooting Attack against in the same Phase, all Models in the firing Unit add 1 to their Ballistic Skill Characteristic for that attack."
+      ],
+      "drawbacks": [
+        "The benefit above is lost if the Unit moved more than half its Movement Characteristic in its last Movement Phase.",
+        "A Unit with this Special Rule subtracts 1 from the result of any Charge Roll it makes."
+      ],
       "units": [
         "lasrifle-section",
         "line-command-section",
@@ -1353,7 +1396,13 @@
     },
     {
       "name": "Orders Down the Line",
-      "text": "Legacy house rule. A regiment is only as steady as its officers. A unit with this rule within 12\" of a friendly Command unit adds +1 to its Cool. If the unit has lost its Sergeant or Command model, it suffers -1 Cool for the rest of the battle.",
+      "flavor": "A regiment is only as steady as its officers.",
+      "benefits": [
+        "While a Unit with this Special Rule is within 12\" of a friendly Command Unit, all Models in it add 1 to their Cool Characteristic."
+      ],
+      "drawbacks": [
+        "If a Unit with this Special Rule has lost its Sergeant or Command Model as a casualty, all Models in it subtract 1 from their Cool Characteristic for the rest of the battle."
+      ],
       "units": [
         "lasrifle-section",
         "line-command-section",
@@ -1372,7 +1421,13 @@
     },
     {
       "name": "Armoured Doctrine",
-      "text": "Legacy house rule. The tank parks fight as a gun line. A vehicle with this rule that did not move adds +1 to its Ballistic Skill, but if it moves more than half its Movement it fires as if making Snap Shots.",
+      "flavor": "The tank parks fight as a gun line.",
+      "benefits": [
+        "A Vehicle with this Special Rule that did not move in its last Movement Phase adds 1 to its Ballistic Skill Characteristic."
+      ],
+      "drawbacks": [
+        "A Vehicle with this Special Rule that moved more than half its Movement Characteristic in its last Movement Phase subtracts 1 from the result of its Hit Tests."
+      ],
       "match": {
         "roles": [
           "Armour",

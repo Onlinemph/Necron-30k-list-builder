@@ -2,7 +2,13 @@
   "armyRules": [
     {
       "name": "Pursuit of Perfection",
-      "text": "Legacy house rule. Perfection has to be seen to count. A unit with this rule adds 1 to its Initiative on the turn it charges, but a unit that ends its own turn having neither made a Shooting Attack nor a Charge suffers -1 to its Cool Checks until it does one of them.",
+      "flavor": "Perfection has to be seen to count, and a Legion that is not performing is a Legion that is failing.",
+      "benefits": [
+        "A Model with this Special Rule adds 1 to its Initiative Characteristic on a Battle Turn in which its Unit makes a Charge."
+      ],
+      "drawbacks": [
+        "If a Unit with this Special Rule ends its Controlling Player's Battle Turn having made neither a Shooting Attack nor a Charge, it subtracts 1 from its Cool Checks until it makes one or the other."
+      ],
       "match": {
         "notUnitType": "Vehicle",
         "notNameIncludes": [
@@ -16,7 +22,13 @@
     },
     {
       "name": "Exquisite Cruelty",
-      "text": "Legacy house rule. The Legion savours every kill and is dulled by every refusal. A unit with this rule that wins a Combat gains Feel No Pain (6+) until the end of the following turn, but a unit that loses a Combat must make a Cool Check at -1 at once.",
+      "flavor": "The Legion savours every kill and is dulled by every refusal.",
+      "benefits": [
+        "A Unit with this Special Rule that wins a Combat has the Feel No Pain (6+) Special Rule until the end of the following Battle Turn."
+      ],
+      "drawbacks": [
+        "A Unit with this Special Rule that loses a Combat must immediately make a Cool Check with a -1 modifier."
+      ],
       "match": {
         "roles": [
           "Troops",
@@ -29,7 +41,13 @@
     },
     {
       "name": "Peerless Duellist",
-      "text": "Legacy house rule. A Character of the Legion cannot resist a stage. It adds 1 to its Initiative while in a Challenge, but if it is slain in a Challenge every friendly Emperor's Children unit within 12\" must make a Cool Check at -1.",
+      "flavor": "A son of the Third cannot resist a stage, and the stage is never large enough.",
+      "benefits": [
+        "A Model with this Special Rule adds 1 to its Initiative Characteristic while it is taking part in a Challenge."
+      ],
+      "drawbacks": [
+        "If a Model with this Special Rule is slain in a Challenge, every friendly Emperor's Children Unit within 12\" of it must make a Cool Check with a -1 modifier."
+      ],
       "match": {
         "unitType": "Command",
         "notUnitType": "Vehicle"
@@ -126,39 +144,48 @@
   "wargear": [
     {
       "name": "Laurels of Perfection",
-      "text": "Legacy house rule. A circlet of gold leaf awarded for a flawless victory, and worn as though the next one were already won. The model gains +1 Cool and +1 Initiative."
+      "summary": "A circlet of gold leaf awarded for a flawless victory, worn as though the next one were already won.",
+      "text": "A Model equipped with Laurels of Perfection adds 1 to its Cool Characteristic and 1 to its Initiative Characteristic."
     },
     {
       "name": "Banner of Dissonance",
-      "text": "Legacy house rule. A standard strung with tuned bells and wire that howl in the wind of the charge. The unit gains Fear (1)."
+      "summary": "A standard strung with tuned bells and wire that howl in the wind of the charge.",
+      "text": "A Unit that includes a Model equipped with a Banner of Dissonance has the Fear (1) Special Rule."
     },
     {
       "name": "Narcotic stimulants",
-      "text": "Legacy house rule. A cocktail of synaptic boosters that turns pain into pleasure and orders into noise. The unit gains Feel No Pain (6+) and every model suffers -1 Willpower."
+      "summary": "A cocktail of synaptic boosters that turns pain into pleasure and orders into noise.",
+      "text": "A Unit equipped with Narcotic stimulants has the Feel No Pain (6+) Special Rule, and every Model in it subtracts 1 from its Willpower Characteristic."
     },
     {
       "name": "Mirrorbright plate",
-      "text": "Legacy house rule. Armour polished until it throws the light back in the eyes of anyone who strikes at it. Gives the model Blinding Splendour."
+      "summary": "Armour polished until it throws the light back in the eyes of anyone who strikes at it.",
+      "text": "A Model equipped with Mirrorbright plate has the Blinding Splendour Special Rule."
     },
     {
       "name": "Siren-lute",
-      "text": "Legacy house rule. A hand-held instrument whose cadence is meant to be heard across a battlefield. Gives the model Siren Song."
+      "summary": "A hand-held instrument whose cadence is meant to be heard across a battlefield.",
+      "text": "A Model equipped with a Siren-lute has the Siren Song Special Rule."
     },
     {
       "name": "Trophy cloak",
-      "text": "Legacy house rule. A cloak stitched from the banners and sashes of fallen rivals. Gives the model Collected Glories and +1 Cool."
+      "summary": "A cloak stitched from the banners and sashes of fallen rivals.",
+      "text": "A Model equipped with a Trophy cloak adds 1 to its Cool Characteristic and has the Collected Glories Special Rule."
     },
     {
       "name": "Pain-glove",
-      "text": "Legacy house rule. A gauntlet of fine needles that rewards a duellist and wounds his partner in rhythm. Gives the model Exquisite Agony."
+      "summary": "A gauntlet of fine needles that rewards a duellist and wounds his partner in rhythm.",
+      "text": "A Model equipped with a Pain-glove has the Exquisite Agony Special Rule."
     },
     {
       "name": "Pavane drum",
-      "text": "Legacy house rule. A drum slung at the hip whose beat sets the pace of the advance. Gives the model Tempo of the Charge."
+      "summary": "A drum slung at the hip whose beat sets the pace of the advance.",
+      "text": "A Unit that includes a Model equipped with a Pavane drum has the Tempo of the Charge Special Rule."
     },
     {
       "name": "Screech-field vents",
-      "text": "Legacy house rule. Tuned vents bolted to the hull that fill the air with a sound like tearing silk. Gives the vehicle Sonic Distortion."
+      "summary": "Tuned vents bolted to the hull that fill the air with a sound like tearing silk.",
+      "text": "A Vehicle equipped with Screech-field vents has the Sonic Distortion Special Rule."
     }
   ],
   "options": [
@@ -640,9 +667,10 @@
       "name": "The Flawless Host",
       "flavor": "To the Third, a victory with a single flaw in it is a defeat in good clothes.",
       "benefits": [
-        "Palatine Blade squads, Phoenix Terminator Squads and Veteran Tactical and Veteran Assault Squads may fill Troops slots and gain Line (1).",
+        "Palatine Blade squads, Phoenix Terminator Squads, Veteran Tactical Squads and Veteran Assault Squads may fill Troops slots.",
+        "Palatine Blade squads, Phoenix Terminator Squads and Veteran Assault Squads gain Line (1); Veteran Tactical Squads already have it.",
         "Palatine Blade and Phoenix squads gain +1 Weapon Skill.",
-        "All those units gain Immaculate Ranks: they automatically pass Cool Checks while at full strength."
+        "All those units gain Immaculate Ranks: they automatically pass Cool Checks while they have not lost a Model."
       ],
       "limitations": [
         "At least one Palatine Blade squad is required.",
@@ -691,9 +719,20 @@
             "veteran-tactical-squad",
             "veteran-assault-squad"
           ],
-          "text": "The Flawless Host: Immaculate Ranks, Line (1).",
+          "text": "The Flawless Host: Immaculate Ranks.",
           "addRules": [
-            "Immaculate Ranks",
+            "Immaculate Ranks"
+          ]
+        },
+        {
+          "units": [
+            "palatine-blade-squad",
+            "palatine-blade-aquilae-squad",
+            "phoenix-terminator-squad",
+            "veteran-assault-squad"
+          ],
+          "text": "The Flawless Host: Line (1).",
+          "addRules": [
             "Line (1)"
           ]
         },
@@ -773,7 +812,7 @@
       "name": "Descent of the Gilded Wings",
       "flavor": "They fall like fireworks and are gone before anyone thinks to look away.",
       "benefits": [
-        "Palatine Blade Aquilae, Veteran Assault and Destroyer Assault Squads may fill Troops slots and gain Gilded Descent: Deep Strike, and they may Charge in the turn they arrive.",
+        "Palatine Blade Aquilae, Veteran Assault and Destroyer Assault Squads may fill Troops slots and gain Gilded Descent: they may Charge in the turn they arrive by Deep Strike.",
         "Every Antigrav Infantry unit gains +1 Movement."
       ],
       "limitations": [
@@ -809,10 +848,9 @@
       ],
       "modifiers": [
         {
-          "text": "Descent of the Gilded Wings: Gilded Descent, Deep Strike.",
+          "text": "Descent of the Gilded Wings: Gilded Descent.",
           "addRules": [
-            "Gilded Descent",
-            "Deep Strike"
+            "Gilded Descent"
           ],
           "units": [
             "palatine-blade-aquilae-squad",
@@ -837,7 +875,7 @@
       "flavor": "Each shot is composed. Each corpse is arranged. Nothing is left to chance but the applause.",
       "benefits": [
         "Sun Killer Squads may fill Troops slots and gain Line (1) and +1 Ballistic Skill.",
-        "They gain Composed Volley: Precision (6+) on their Shooting attacks."
+        "They gain Composed Volley: their heavy weapons (Volkite culverin, plasma cannon, multi-melta, lascannon) gain Precision (6+) on their Shooting Attacks."
       ],
       "limitations": [
         "At least two Sun Killer Squads are required.",
@@ -886,13 +924,12 @@
           "units": [
             "sun-killer-squad"
           ],
-          "text": "A Thousand Suns: Composed Volley, Precision (6+), Line (1).",
+          "text": "A Thousand Suns: Composed Volley, Line (1).",
           "stats": {
             "BS": "+1"
           },
           "addRules": [
             "Composed Volley",
-            "Precision (6+)",
             "Line (1)"
           ]
         }
@@ -902,43 +939,53 @@
   "rules": [
     {
       "name": "Immaculate Ranks",
-      "text": "Legacy house rule (The Flawless Host). A unit with this rule automatically passes Cool Checks while it has not lost a model since the start of the battle."
+      "summary": "Not a plume out of place, and so not a man afraid to be seen.",
+      "text": "A Unit with this Special Rule automatically passes any Cool Check it is required to make, provided it has not lost a Model at any point since the start of the battle."
     },
     {
       "name": "Dirge of Pain",
-      "text": "Legacy house rule (Symphony of Slaughter). While within 12\" of a unit with this rule, enemy units suffer -1 to their Cool Checks."
+      "summary": "The wail of the Kakophoni is meant to be remembered.",
+      "text": "While an enemy Unit is within 12\" of a Model with this Special Rule, it subtracts 1 from the result of its Cool Checks."
     },
     {
       "name": "Gilded Descent",
-      "text": "Legacy house rule (Descent of the Gilded Wings). A unit with this rule gains Deep Strike and may Charge in the turn it arrives from Reserve. At least half of the army's units with this rule (rounded up) must start the battle in Reserve."
+      "summary": "They fall like fireworks and are gone before anyone thinks to look away.",
+      "text": "A Unit composed entirely of Models with this Special Rule that arrives from Reserves by Deep Strike may declare a Charge in the same Battle Turn it arrives. At the start of the battle, at least half of the Units in the army with this Special Rule (rounding up) must be placed in Reserves."
     },
     {
       "name": "Composed Volley",
-      "text": "Legacy house rule (A Thousand Suns). A unit with this rule gains Precision (6+) on its Shooting attacks."
+      "summary": "Each shot is composed. Each corpse is arranged.",
+      "text": "Each Shooting Attack made by a Model with this Special Rule using a Volkite culverin, plasma cannon, multi-melta or lascannon has the Precision (6+) Special Rule."
     },
     {
       "name": "Blinding Splendour",
-      "text": "Legacy house rule. While the bearer is in a Challenge, enemy models subtract 1 from their Hit Tests against it."
+      "summary": "Gilded plate that turns every blow into a squint.",
+      "text": "While a Model with this Special Rule is taking part in a Challenge, enemy Models subtract 1 from the result of any Hit Test they make against it."
     },
     {
       "name": "Siren Song",
-      "text": "Legacy house rule. An enemy unit that begins its Movement phase within 12\" of the bearer must pass a Cool Check or it may not Rush that turn."
+      "summary": "A note pitched to root the listener where he stands.",
+      "text": "At the start of its Movement phase, an enemy Unit within 12\" of a Model with this Special Rule must make a Cool Check. If it fails, it cannot Rush during that Battle Turn."
     },
     {
       "name": "Collected Glories",
-      "text": "Legacy house rule. When the bearer's unit destroys an enemy Character, the bearer gains Fear (1) for the rest of the battle."
+      "summary": "Another sash for the cloak, another reason to be looked at.",
+      "text": "When a Unit that includes a Model with this Special Rule destroys an enemy Character, that Model gains the Fear (1) Special Rule for the rest of the battle."
     },
     {
       "name": "Exquisite Agony",
-      "text": "Legacy house rule. Each unsaved Wound the bearer inflicts in melee also gives the target -1 Initiative until the end of that Combat."
+      "summary": "A slow, careful cruelty, delivered in time.",
+      "text": "Each time a Model with this Special Rule causes an unsaved Wound on an enemy Model in a Combat, the Unit that Model belongs to subtracts 1 from its Initiative Characteristic until the end of that Combat."
     },
     {
       "name": "Tempo of the Charge",
-      "text": "Legacy house rule. The bearer's unit counts any Charge roll of less than 6 as a 6, once per battle."
+      "summary": "The beat quickens and so do the boots.",
+      "text": "Once per battle, when a Unit that includes a Model with this Special Rule makes a Charge Roll, the Controlling Player may declare that the result is a 6 if it would otherwise be lower."
     },
     {
       "name": "Sonic Distortion",
-      "text": "Legacy house rule. Enemy Shooting Attacks against the vehicle from more than 18\" subtract 1 from their Hit Tests."
+      "summary": "The air itself screams when the hull is near.",
+      "text": "Enemy Shooting Attacks that target a Vehicle with this Special Rule from more than 18\" away subtract 1 from the result of their Hit Tests."
     }
   ]
 }

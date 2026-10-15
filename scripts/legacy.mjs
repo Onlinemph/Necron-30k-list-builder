@@ -50,6 +50,21 @@ function resolveUnits(out, spec, problems, where) {
   return list;
 }
 
+const saveNum = (v) => { const m = String(v ?? '').match(/(\d)\+/); return m ? +m[1] : 7; };
+const ruleBase = (r) => String(r).toLowerCase().replace(/\(.*?\)/g, '').trim();
+/** Whether a choice adds anything to this model: a better save, or a rule it doesn't already have as good. */
+function offersSomething(onlyIf, u, md) {
+  const have = [...(u.specialRules || []), ...(md.specialRules || [])];
+  const better = Object.entries(onlyIf.worse || {}).some(([k, v]) => saveNum((md.profile || {})[k]) > saveNum(v));
+  const missing = (onlyIf.missing || []).some((r) => {
+    const h = have.find((x) => ruleBase(x) === ruleBase(r));
+    if (!h) return true;
+    const a = String(r).match(/\((\d+)\+\)/), b = String(h).match(/\((\d+)\+\)/);
+    return a && b ? +a[1] < +b[1] : false;
+  });
+  return better || missing;
+}
+
 function checkOption(o, problems, where) {
   if (!o || !KINDS.has(o.kind)) problems.push(`${where}: option kind must be one of ${[...KINDS].join(', ')}`);
   if (!o || !Array.isArray(o.choices) || !o.choices.length) problems.push(`${where}: option needs choices`);
@@ -87,6 +102,14 @@ export function applyLegacy(root, out, army) {
   const armyRules = [];
   let n = 0;
   const uniq = (base) => `legacy-${slug(base)}-${++n}`;
+  const list = (title, xs) => (xs && xs.length ? `${title}\n${xs.map((x) => `- ${x}`).join('\n')}` : null);
+  // rules and wargear read like the rulebook: a quoted one-line summary, then the rule in full; the
+  // build adds the house-rule tag (and the Rite it comes from) at the end
+  const ruleText = (r, where, source) => {
+    if (!r.summary || !r.text) problems.push(`${where} ${r.name}: needs a "summary" line and the rule "text"`);
+    if (/legacy house rule/i.test(r.text || '')) problems.push(`${where} ${r.name}: leave "Legacy house rule" out of the text; the build adds it`);
+    return [r.summary ? `"${r.summary}"` : null, r.text, `Legacy house rule${source ? ` (${source})` : ''}.`].filter(Boolean).join('\n\n');
+  };
 
   const addOption = (entry, when, where) => {
     checkOption(entry.option, problems, where);
@@ -107,6 +130,12 @@ export function applyLegacy(root, out, army) {
       o.replaces = o.replaces || [];
       // a swap needs the item it replaces on that model
       if (o.replaces.length && model && !o.replaces.every((w) => (u.models.find((m) => m.name === model).wargear || []).includes(w))) continue;
+      // a choice that gives the model nothing it lacks is dropped ("onlyIf": { worse: { INV: '4+' }, missing: ['Feel No Pain (6+)'] })
+      const md = u.models.find((m) => m.name === model) || u.models[0];
+      const carried = new Set((md.wargear || []).map((w) => String(w).toLowerCase()));
+      o.choices = o.choices.filter((c) => (!c.onlyIf || offersSomething(c.onlyIf, u, md)) && (o.replaces.length || !carried.has(c.name.toLowerCase())));
+      for (const c of o.choices) delete c.onlyIf;
+      if (!o.choices.length) continue;
       o.when = [when];
       o.legacy = true;
       u.options.push(o);
@@ -139,24 +168,24 @@ export function applyLegacy(root, out, army) {
     for (const [i, e] of (data.options || []).entries()) addOption(e, toggle, `${tag} options[${i}]`);
     for (const [i, e] of (data.modifiers || []).entries()) addModifier(e, toggle, `${tag} modifiers[${i}]`, e.name || 'Legacy rules');
     for (const [i, e] of (data.points || []).entries()) for (const u of resolveUnits(out, e, problems, `${tag} points[${i}]`)) (u.pointsWhen = u.pointsWhen || []).push({ when: toggle, delta: e.delta });
-    for (const r of data.rules || []) out.rules.specialRules.push({ name: r.name, page: null, text: r.text, legacy: true });
+    for (const [i, r] of (data.rules || []).entries()) out.rules.specialRules.push({ name: r.name, page: null, text: ruleText(r, `${tag} rules[${i}]`, r.source), legacy: true });
     // army rules: the Legion's (or army's) own special rules, shown in the configuration panel and on
-    // the datasheets of the units they name
+    // the datasheets of the units they name. They read like a Rite: flavour, Benefits, Drawbacks.
     for (const [i, r] of (data.armyRules || []).entries()) {
       const where = `${tag} armyRules[${i}] ${r.name}`;
-      if (!r.name || !r.text) { problems.push(`${where}: an army rule needs a name and text`); continue; }
-      armyRules.push({ name: r.name, text: r.text, source: 'Legacy house rule', when: [toggle], legacy: true });
-      out.rules.specialRules.push({ name: r.name, page: null, text: r.text, legacy: true });
+      if (!r.name || !(r.benefits || []).length || !(r.drawbacks || []).length) { problems.push(`${where}: an army rule needs a name, benefits and drawbacks`); continue; }
+      const text = [r.flavor ? `"${r.flavor}"` : null, list('Benefits', r.benefits), list('Drawbacks', r.drawbacks), 'Legacy house rule.'].filter(Boolean).join('\n\n');
+      armyRules.push({ name: r.name, text, source: 'Legacy house rule', when: [toggle], legacy: true });
+      out.rules.specialRules.push({ name: r.name, page: null, text, legacy: true });
       if (r.units || r.match) addModifier({ units: r.units, match: r.match, optionalUnits: r.optionalUnits, text: `${r.name}.`, addRules: [r.name], stats: r.stats, condition: r.condition }, toggle, where, r.name);
     }
-    for (const w of data.wargear || []) out.wargear.push({ name: w.name, page: null, text: w.text, legacy: true });
+    for (const [i, w] of (data.wargear || []).entries()) out.wargear.push({ name: w.name, page: null, text: ruleText(w, `${tag} wargear[${i}]`), legacy: true });
     for (const k of ['ranged', 'melee']) for (const w of (data.weapons && data.weapons[k]) || []) out.weapons[k].push(Object.assign({ page: null, modes: null, specialRules: [], traits: [] }, w, { legacy: true }));
 
     // Rites of War
     for (const [i, rite] of (data.rites || []).entries()) {
       const where = `${tag} rites[${i}] ${rite.name}`;
       // a Rite reads like the old books: what it's about, then Benefits and Limitations
-      const list = (title, xs) => (xs && xs.length ? `${title}\n${xs.map((x) => `- ${x}`).join('\n')}` : null);
       const text = [rite.flavor ? `"${rite.flavor}"` : null, rite.text, list('Benefits', rite.benefits), list('Limitations', rite.limitations)].filter(Boolean).join('\n\n');
       if (!rite.name || !(rite.benefits || []).length || !(rite.limitations || []).length) { problems.push(`${where}: a Rite needs a name, benefits and limitations`); continue; }
       // Rites change how the army fights, not what it costs
@@ -179,7 +208,7 @@ export function applyLegacy(root, out, army) {
         out.requirements = out.requirements || [];
         out.requirements.push({ when, units, [kind]: x[kind] ?? (kind === 'min' ? 1 : 0), note: x.note || `${rite.name}` , source: rite.name });
       }
-      for (const r of rite.rules || []) out.rules.specialRules.push({ name: r.name, page: null, text: r.text, legacy: true });
+      for (const [j, r] of (rite.rules || []).entries()) out.rules.specialRules.push({ name: r.name, page: null, text: ruleText(r, `${where} rules[${j}]`, rite.name), legacy: true });
     }
   }
 

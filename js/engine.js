@@ -517,10 +517,13 @@
             if (rules.length < before) removed.push(r);
           }
           for (const r of m.addRules || []) {
-            const i = rules.findIndex((x) => ruleBase(x) === ruleBase(r));
+            // a new number replaces the old one (Ever-Living (2+)); a rule aimed at something else stacks
+            // alongside it (Hatred (Traitors) doesn't erase Hatred (Command))
+            const numbered = (x) => /\(\s*\d+\+?\s*"?\s*\)/.test(x) || !/\(/.test(x);
+            const i = rules.findIndex((x) => ruleBase(x) === ruleBase(r) && (x === r || (numbered(x) && numbered(r))));
             if (m.ifMissing && i >= 0) continue;
             if (i >= 0 && rules[i] === r) continue;
-            if (i >= 0) rules[i] = r; else rules.push(r); // a new value replaces the old one, e.g. Ever-Living (2+)
+            if (i >= 0) rules[i] = r; else rules.push(r);
             added.push(r);
           }
           for (const mr of m.modifyRules || []) {

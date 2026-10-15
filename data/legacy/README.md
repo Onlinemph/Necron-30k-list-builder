@@ -26,9 +26,9 @@ auto-pass, a set dice result, a characteristic change or a Tactical Status inste
   "options": [ /* extra options, live whenever Legacy rules is on */ ],
   "modifiers": [ /* statline and rule changes, live whenever Legacy rules is on */ ],
   "points": [ { "units": ["rhino"], "delta": -5 } ],
-  "rules": [ { "name": "Blood Frenzy", "text": "..." } ],
-  "armyRules": [ { "name": "Warrior Brotherhood", "text": "...", "match": { "notUnitType": "Vehicle" } } ],
-  "wargear": [ { "name": "Artificer armour", "text": "..." } ],
+  "rules": [ { "name": "Blood Frenzy", "summary": "One line, in quotes in the book.", "text": "The rule in full." } ],
+  "armyRules": [ { "name": "Warrior Brotherhood", "flavor": "...", "benefits": ["..."], "drawbacks": ["..."], "match": { "notUnitType": "Vehicle" } } ],
+  "wargear": [ { "name": "Artificer armour", "summary": "...", "text": "..." } ],
   "weapons": {
     "ranged": [ { "name": "Archaeotech pistol", "R": 12, "FP": 1, "RS": 6, "AP": 3, "D": 1, "specialRules": ["Pistol"], "traits": [] } ],
     "melee":  [ { "name": "Ritual blade", "IM": "+1", "AM": "A", "SM": "+1", "AP": 3, "D": 1, "specialRules": [], "traits": ["Power"] } ]
@@ -36,7 +36,14 @@ auto-pass, a set dice result, a characteristic change or a Tactical Status inste
 }
 ```
 
-`armyRules` are the army's own special rules (old-style Legion rules). They show as rule chips in the Army
+Rules and wargear are written like the rulebook: `summary` is the one-line description the book prints in
+quotes, and `text` is the rule in full, in the rulebook's terms (Model, Unit, Controlling Player, Shooting
+Attack, Hit Test, Wound Test, Saving Throw, Damage Mitigation Test, Charge Roll, Cool Check, Tactical
+Status, Reserves, Battle Turn). Don't write "Legacy house rule" yourself: the build adds it, with the Rite a
+rule comes from.
+
+`armyRules` are the army's own special rules (old-style Legion rules), written like a Rite: `flavor`, then
+`benefits` and `drawbacks` lists, both required. They show as rule chips in the Army
 configuration panel while Legacy rules is on, print on the roster, and are added to the datasheets of the
 units given by `units`/`match` (leave both out for a rule that's only army-wide text). They may carry
 `stats` and `condition` like a modifier.
@@ -65,6 +72,9 @@ Every option, modifier, points change, role and limit names the units it touches
 ```
 
 `kind` is `one` (swap, `replaces` lists what goes), `any`, `perModel` (with `max`) or `upgrade`.
+A choice the model already carries is dropped for that unit, and so is a choice with `"onlyIf"` that
+gives the model nothing: `"onlyIf": { "worse": { "INV": "4+" } }` (only for models whose save is worse) or
+`"onlyIf": { "missing": ["Feel No Pain (6+)"] }` (only for models without that rule, or with a weaker one).
 `model` is a model name in the unit, or null for the whole unit. The text gets a "Legacy:" prefix.
 
 ## Modifiers

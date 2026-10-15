@@ -2,14 +2,26 @@
   "armyRules": [
     {
       "name": "Cut Loose",
-      "text": "Legacy house rule. No Legion command reaches the Blackshields. A unit with this rule ignores the Routed Status, but cannot benefit from Officer of the Line (X) or Warrior Brotherhood.",
+      "flavor": "No Legion command reaches the Blackshields, and none is missed.",
+      "benefits": [
+        "A Unit composed of Models with this Special Rule cannot gain the Routed Tactical Status."
+      ],
+      "drawbacks": [
+        "A Unit composed of Models with this Special Rule gains no benefit from the Officer of the Line (X) Special Rule or from Warrior Brotherhood."
+      ],
       "match": {
         "notUnitType": "Vehicle"
       }
     },
     {
       "name": "Salvage Rights",
-      "text": "Legacy house rule. Once per battle, when a unit with this rule destroys an enemy Vehicle or Character, it gains +1 Ballistic Skill and +1 Attack until the end of its next turn. While looting it cannot Fall Back.",
+      "flavor": "What the Blackshields kill, they strip.",
+      "benefits": [
+        "Once per battle, when a Unit with this Special Rule destroys an enemy Vehicle or Character, every Model in that Unit adds 1 to its Ballistic Skill and Attacks Characteristics until the end of that Unit's next Player Turn."
+      ],
+      "drawbacks": [
+        "While those bonuses last, the Unit is busy looting the wreck and cannot Fall Back."
+      ],
       "match": {
         "notUnitType": "Vehicle",
         "roles": [
@@ -23,7 +35,13 @@
     },
     {
       "name": "Hired Steel",
-      "text": "Legacy house rule. Contract machines fight better with a paymaster nearby. A unit with this rule gains +1 Ballistic Skill while within 12\" of a friendly Character, and suffers -1 Ballistic Skill while it is not.",
+      "flavor": "Contract machines fight better with a paymaster in sight.",
+      "benefits": [
+        "A Model with this Special Rule adds 1 to its Ballistic Skill Characteristic while it is within 12\" of a friendly Character."
+      ],
+      "drawbacks": [
+        "A Model with this Special Rule subtracts 1 from its Ballistic Skill Characteristic while no friendly Character is within 12\"."
+      ],
       "units": [
         "castellax-battle-maniple",
         "castellax-destructor-maniple",
@@ -137,81 +155,100 @@
   "wargear": [
     {
       "name": "Salvaged shield-harness",
-      "text": "Legacy house rule. A scavenged gravitic harness that still works on the days it feels like it. The model's Invulnerable Save becomes 6+ if it was worse."
+      "summary": "A scavenged gravitic harness that still works on the days it feels like it.",
+      "text": "A Model equipped with a Salvaged shield-harness has an Invulnerable Save of 6+, unless it already has a better Invulnerable Save."
     },
     {
       "name": "Banner of the Unnamed",
-      "text": "Legacy house rule. A blank shield-colour banner, repainted by every squad that carries it. Every model in the unit gains +1 Willpower."
+      "summary": "A blank shield-colour banner, repainted by every squad that carries it.",
+      "text": "While a Unit includes a Model equipped with a Banner of the Unnamed, every Model in that Unit adds 1 to its Willpower Characteristic."
     },
     {
       "name": "Hide-and-iron plating",
-      "text": "Legacy house rule. Plates riveted straight onto the Brute's warped flesh, so it no longer knows where armour ends. The model gains +1 Wound."
+      "summary": "Plates riveted straight onto the Brute's warped flesh, so it no longer knows where armour ends.",
+      "text": "While a Unit includes a Model equipped with Hide-and-iron plating, every Model in that Unit adds 1 to its Wounds Characteristic."
     },
     {
       "name": "Warband totem-pole",
-      "text": "Legacy house rule. A trunk of salvaged ship-timber hung with every banner the warband ever served under. Gives the unit Rally Pole."
+      "summary": "A trunk of salvaged ship-timber hung with every banner the warband ever served under.",
+      "text": "A Model equipped with a Warband totem-pole gives its Unit the Rally Pole Special Rule."
     },
     {
       "name": "Contract seal",
-      "text": "Legacy house rule. A wax-and-steel seal naming a mark and a price. Gives the bearer Sealed Contract."
+      "summary": "A wax-and-steel seal naming a mark and a price.",
+      "text": "A Model equipped with a Contract seal gives its Unit the Sealed Contract Special Rule."
     },
     {
       "name": "Dead-man's stimm-rig",
-      "text": "Legacy house rule. A back-mounted drug cocktail that does not care whether its host is alive. Gives the unit Stimm Surge."
+      "summary": "A back-mounted drug cocktail that does not care whether its host is alive.",
+      "text": "A Model equipped with a Dead-man's stimm-rig gives its Unit the Stimm Surge Special Rule."
     },
     {
       "name": "Scrap ablative plating",
-      "text": "Legacy house rule. Hull slabs, vault doors and anything else that stops a shell. Gives the vehicle Ablative Scrap."
+      "summary": "Hull slabs, vault doors and anything else that stops a shell.",
+      "text": "A Vehicle equipped with Scrap ablative plating has the Ablative Scrap Special Rule."
     },
     {
       "name": "Pit-cannibalised dozer blade",
-      "text": "Legacy house rule. A scoop torn off a mining crawler and welded on at an angle. Gives the vehicle Dozer Plough."
+      "summary": "A scoop torn off a mining crawler and welded on at an angle.",
+      "text": "A Vehicle equipped with a Pit-cannibalised dozer blade has the Dozer Plough Special Rule."
     },
     {
       "name": "Ruin-brand",
-      "text": "Legacy house rule. A glowing sigil seared into the Brutes' hides to keep the warp from turning them inside out. Gives the unit Brand of Ruin."
+      "summary": "A glowing sigil seared into the Brutes' hides to keep the warp from turning them inside out.",
+      "text": "A Model equipped with the Ruin-brand gives its Unit the Brand of Ruin Special Rule."
     }
   ],
   "rules": [
     {
       "name": "Nothing Left to Lose",
-      "text": "Legacy house rule (Warband of the Long Exile). A unit with this rule adds +1 to its Cool for Cool Checks, but it may never choose to Fall Back."
+      "summary": "A man with no banner has nothing left to protect except the man beside him.",
+      "text": "A Model with this Special Rule adds 1 to its Cool Characteristic when making a Cool Check. A Unit that includes a Model with this Special Rule may never voluntarily Fall Back."
     },
     {
       "name": "Contract Hunters",
-      "text": "Legacy house rule (Hired Knives). A unit with this rule gains Outflank, and adds +2 to its Charge roll against an enemy unit that includes a Command or High Command model."
+      "summary": "The bigger the head, the better the price.",
+      "text": "A Model with this Special Rule adds 2 to the result of its Charge Roll when it declares a Charge against an enemy Unit that includes a Model with the Command or High Command role."
     },
     {
       "name": "Ruin-Touched",
-      "text": "Legacy house rule (Children of the Ruin). A unit with this rule gains Fear (1) and is immune to the effects of enemy Fear. In any turn it can charge, it must charge the closest enemy unit it can reach."
+      "summary": "Born of the Ruinstorm, it fears nothing and nothing is left to fear it.",
+      "text": "A Unit with this Special Rule is immune to the Fear (X) Special Rule of enemy Models. When a Unit with this Special Rule is able to declare a Charge, it must declare it against the closest enemy Unit that it is able to reach."
     },
     {
       "name": "Dead Lane Raid",
-      "text": "Legacy house rule (Raiders of the Dead Lanes). A unit with this rule gains Outflank, and must start the battle in Reserve. In the turn it enters play from Reserve, it adds +2 to its Charge roll."
+      "summary": "They hit what the Imperium forgot to guard.",
+      "text": "A Unit with this Special Rule must start the battle in Reserves. In the Player Turn after the one in which it entered play from Reserves, every Model in that Unit adds 2 to the result of its Charge Rolls."
     },
     {
       "name": "Rally Pole",
-      "text": "Legacy house rule. While the bearer's unit is within 3\" of an objective it adds +1 to its Cool for Cool Checks. Once per battle, at the end of its Movement phase, it may remove one Tactical Status from itself."
+      "summary": "The warband's colours, planted where the fighting is worst.",
+      "text": "While a Unit with this Special Rule is within 3\" of an Objective, every Model in that Unit adds 1 to its Cool Characteristic when making a Cool Check. Once per battle, at the end of its Move Sub-Phase, that Unit may remove one Tactical Status from itself."
     },
     {
       "name": "Sealed Contract",
-      "text": "Legacy house rule. At deployment choose one enemy unit. The bearer's unit adds +1 to Hit Tests against it. If that unit is destroyed by anyone else, the bearer suffers -1 Leadership for the rest of the battle."
+      "summary": "A mark, a price, and a promise to collect personally.",
+      "text": "After both Players have deployed, the Controlling Player chooses one enemy Unit. Every Model in a Unit with this Special Rule adds 1 to the result of its Hit Tests against that Unit. If the chosen Unit is destroyed by any other Unit, every Model in the Unit with this Special Rule subtracts 1 from its Leadership Characteristic for the rest of the battle."
     },
     {
       "name": "Stimm Surge",
-      "text": "Legacy house rule. Once per battle, at the start of any turn, the unit gains Feel No Pain (5+) until the end of that turn."
+      "summary": "Drugs that do not care whether their host is alive.",
+      "text": "Once per battle, at the start of any Player Turn, a Unit with this Special Rule gains the Feel No Pain (5+) Special Rule until the end of that Player Turn."
     },
     {
       "name": "Ablative Scrap",
-      "text": "Legacy house rule. The first Penetrating Hit this vehicle suffers each battle is treated as a Glancing Hit."
+      "summary": "The first shell to find the hull finds mostly scrap.",
+      "text": "The first time a Model with this Special Rule suffers a Penetrating Hit in a battle, that Hit is treated as a Glancing Hit instead."
     },
     {
       "name": "Dozer Plough",
-      "text": "Legacy house rule. The vehicle ignores the movement penalty of Difficult Terrain and may move through Barricades as if they were open ground."
+      "summary": "Nothing on the field is allowed to stand in the way.",
+      "text": "A Model with this Special Rule ignores the movement penalty for moving through Difficult Terrain and may move through Barricades as though they were open ground."
     },
     {
       "name": "Brand of Ruin",
-      "text": "Legacy house rule. A unit with this rule adds +2 to Willpower Checks forced by enemy Psychic powers, and cannot be the target of friendly Psychic powers."
+      "summary": "The sigil keeps the warp from turning the host inside out.",
+      "text": "A Model with this Special Rule adds 2 to the result of any Willpower Check it is required to make because of a Psychic Power used by an enemy Model. Friendly Psychic Powers cannot target a Model with this Special Rule."
     }
   ],
   "options": [
@@ -331,7 +368,12 @@
         "choices": [
           {
             "name": "Salvaged shield-harness",
-            "points": 8
+            "points": 8,
+            "onlyIf": {
+              "worse": {
+                "INV": "6+"
+              }
+            }
           }
         ]
       }
@@ -714,7 +756,7 @@
       "name": "Warband of the Long Exile",
       "flavor": "Ten years without a flag teaches you who still stands beside you.",
       "benefits": [
-        "Veteran Despoiler Squads may fill Troops slots and gain Line (1).",
+        "Veteran Despoiler Squads may fill Troops slots. They lose Vanguard (3) and gain Line (1).",
         "Veteran Despoilers gain Nothing Left to Lose: +1 Cool for Cool Checks."
       ],
       "limitations": [
@@ -761,10 +803,13 @@
           "units": [
             "veteran-despoiler-squad"
           ],
-          "text": "Warband of the Long Exile: Nothing Left to Lose, Line (1).",
+          "text": "Warband of the Long Exile: Nothing Left to Lose, Line (1), no Vanguard (3).",
           "addRules": [
             "Nothing Left to Lose",
             "Line (1)"
+          ],
+          "removeRules": [
+            "Vanguard (3)"
           ]
         }
       ]
@@ -774,7 +819,7 @@
       "flavor": "A contract was signed with a forge that no longer answers to Mars.",
       "benefits": [
         "Castellax Battle Maniples may fill Troops slots and gain Line (1).",
-        "Castellax Battle Maniples gain Contract Hunters: Outflank, and +2 to Charge rolls against a unit that includes a Command or High Command model."
+        "Castellax Battle Maniples gain Contract Hunters: Outflank, and +2 to Charge Rolls against a unit that includes a Command or High Command model."
       ],
       "limitations": [
         "At least one Castellax Battle Maniple is required.",
@@ -829,8 +874,8 @@
       "name": "Children of the Ruin",
       "flavor": "Nobody asked where the Brutes came from. Nobody wanted the answer.",
       "benefits": [
-        "Ruinstorm Daemon Brutes may fill Troops slots and gain Feel No Pain (6+).",
-        "Brutes gain Ruin-Touched: Fear (1) and immunity to Fear."
+        "Ruinstorm Daemon Brutes may fill Troops slots, improve Fear (1) to Fear (2) and gain Feel No Pain (6+).",
+        "Brutes gain Ruin-Touched: immunity to Fear."
       ],
       "limitations": [
         "At least one Ruinstorm Daemon Brute unit is required.",
@@ -872,10 +917,10 @@
           "units": [
             "ruinstorm-daemon-brutes"
           ],
-          "text": "Children of the Ruin: Ruin-Touched, Fear (1), Feel No Pain (6+).",
+          "text": "Children of the Ruin: Ruin-Touched, Fear (2), Feel No Pain (6+).",
           "addRules": [
             "Ruin-Touched",
-            "Fear (1)",
+            "Fear (2)",
             "Feel No Pain (6+)"
           ]
         }
@@ -886,7 +931,7 @@
       "flavor": "They hit what the Imperium forgot to guard.",
       "benefits": [
         "Mortalis Destroyer Squads and Destroyer Assault Squads may fill Troops slots.",
-        "Attack Bike and Outrider Squadrons gain Outflank and Dead Lane Raid: they add +2 to their Charge roll in the turn they enter play from Reserve."
+        "Attack Bike and Outrider Squadrons gain Dead Lane Raid: in the Player Turn after they enter play from Reserves they add 2 to their Charge Rolls. Attack Bike Squadrons also gain Outflank, which Outrider Squadrons already have."
       ],
       "limitations": [
         "No Heavy Support or Veteran Heavy Support Squads, no Armour and no Heavy Transport units.",
@@ -925,9 +970,17 @@
             "attack-bike-squadron",
             "outrider-squadron"
           ],
-          "text": "Raiders of the Dead Lanes: Dead Lane Raid, Outflank.",
+          "text": "Raiders of the Dead Lanes: Dead Lane Raid.",
           "addRules": [
-            "Dead Lane Raid",
+            "Dead Lane Raid"
+          ]
+        },
+        {
+          "units": [
+            "attack-bike-squadron"
+          ],
+          "text": "Raiders of the Dead Lanes: Outflank.",
+          "addRules": [
             "Outflank"
           ]
         }

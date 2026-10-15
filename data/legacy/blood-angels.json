@@ -97,39 +97,48 @@
   "wargear": [
     {
       "name": "Death-mask",
-      "text": "Legacy house rule. A gilded helm cast in the austere, grieving face of the Primarch. The model gains Fear (1) and +1 Leadership."
+      "summary": "A gilded helm cast in the austere, grieving face of the Primarch.",
+      "text": "A Model equipped with a Death-mask has the Fear (1) Special Rule and adds 1 to its Leadership Characteristic."
     },
     {
       "name": "Grail of the Red Tide",
-      "text": "Legacy house rule. A chalice of sanctified blood carried with the unit and shared before the charge. Every model in the unit gains Feel No Pain (6+)."
+      "summary": "A chalice of sanctified blood carried with the unit and shared before the charge.",
+      "text": "While a Unit includes a Model equipped with a Grail of the Red Tide, all Models in that Unit have the Feel No Pain (6+) Special Rule. If the Model carrying the Grail is removed as a casualty, the bonus is lost."
     },
     {
       "name": "Wing-blade pinions",
-      "text": "Legacy house rule. Razored pinions fitted to a jump pack. Gives the bearer Pinion Strike."
+      "summary": "Razored pinions fitted to a jump pack.",
+      "text": "A Model equipped with Wing-blade pinions has the Pinion Strike Special Rule."
     },
     {
       "name": "Pennon of Baal",
-      "text": "Legacy house rule. A blood-red pennon sewn with the names of the dead. Gives the unit Rise Again."
+      "summary": "A blood-red pennon sewn with the names of the dead.",
+      "text": "While a Unit includes a Model equipped with a Pennon of Baal, all Models in that Unit have the Rise Again Special Rule. If the Model carrying the Pennon is removed as a casualty, the bonus is lost."
     },
     {
       "name": "Rage-wracked pilot",
-      "text": "Legacy house rule. The sarcophagus occupant has been fed a little too much of the Thirst. The walker gains +1 WS and Waking Nightmare."
+      "summary": "The sarcophagus occupant has been fed a little too much of the Thirst.",
+      "text": "A Walker equipped with a Rage-wracked pilot adds 1 to its Weapon Skill Characteristic and has the Waking Nightmare Special Rule."
     },
     {
       "name": "Haloed aegis",
-      "text": "Legacy house rule. A gilt field projector worn like a halo. The bearer has a 5+ Invulnerable Save and Aegis of Light."
+      "summary": "A gilt field projector worn like a halo.",
+      "text": "A Model equipped with a Haloed aegis has an Invulnerable Save of 5+, unless it already has a better Invulnerable Save, and has the Aegis of Light Special Rule."
     },
     {
       "name": "Crimson ablative lacquer",
-      "text": "Legacy house rule. Layers of sacrificial lacquer burned away by the first hit. Gives the vehicle Ablative Coat."
+      "summary": "Layers of sacrificial lacquer burned away by the first hit.",
+      "text": "A Vehicle equipped with Crimson ablative lacquer has the Ablative Coat Special Rule."
     },
     {
       "name": "Dawnlight lamps",
-      "text": "Legacy house rule. Floodlamp arrays that turn night into noon. Gives the vehicle Dawnlight."
+      "summary": "Floodlamp arrays that turn night into noon.",
+      "text": "A Vehicle equipped with Dawnlight lamps has the Dawnlight Special Rule."
     },
     {
       "name": "Rage-draught",
-      "text": "Legacy house rule. A flask of the Apothecary's darkest brew. Gives the bearer Rage-Draught Surge."
+      "summary": "A flask of the Apothecary's darkest brew.",
+      "text": "A Model equipped with a Rage-draught has the Rage-Draught Surge Special Rule."
     }
   ],
   "options": [
@@ -411,7 +420,12 @@
         "choices": [
           {
             "name": "Haloed aegis",
-            "points": 20
+            "points": 20,
+            "onlyIf": {
+              "worse": {
+                "INV": "4+"
+              }
+            }
           },
           {
             "name": "Sunburst pistol",
@@ -665,47 +679,58 @@
   "rules": [
     {
       "name": "Sun Behind Them",
-      "text": "Legacy house rule (The Descent of the Host). A unit with this rule gains Deep Strike. On the turn it arrives from Reserves by Deep Strike it may still declare a Charge."
+      "summary": "The first wave lands before the enemy can react.",
+      "text": "A Unit with this Special Rule that arrives from Reserves by Deep Strike may declare a Charge in the Battle Turn in which it arrives."
     },
     {
       "name": "The Red Thirst",
-      "text": "Legacy house rule (Thirst of the Red Wings). A unit with this rule adds 1 to its Charge roll. If it destroys an enemy unit in combat, it may immediately make a free move of up to 3\" toward the nearest enemy unit. At the start of its Assault phase, if an enemy unit is within 12\", it must declare a Charge against one if able."
+      "summary": "The blood is up and nothing will hold it back.",
+      "text": "A Unit with this Special Rule adds 1 to the result of its Charge Rolls. When it destroys an enemy Unit in an Assault, it may immediately make a Set-up Move of up to 3\" towards the nearest enemy Unit. At the start of its Assault phase, if an enemy Unit is within 12\", the Unit must declare a Charge against one enemy Unit if able."
     },
     {
       "name": "Unbroken Court",
-      "text": "Legacy house rule (The Celestial Court). A unit with this rule adds +1 to its Cool for Morale Checks. While it is within 6\" of a friendly Warlord or High Command model it passes them automatically."
+      "summary": "The Host's finest do not break while the Angel's own watch.",
+      "text": "A Unit with this Special Rule adds 1 to its Cool Characteristic when it makes a Morale Check. While it is within 6\" of a friendly Model with the Warlord or High Command role, it passes Morale Checks automatically."
     },
     {
       "name": "Entombed Rage",
-      "text": "Legacy house rule (Pyre-Brothers of Baal). If a unit with this rule is charged, it fights at its normal Initiative in that combat and adds +1 to its Attacks. It also gains Fear (1)."
+      "summary": "Cut off from the world, the occupant has only fury left.",
+      "text": "When a Unit with this Special Rule is charged, its Models fight at their normal Initiative Characteristic and add 1 to their Attacks Characteristic for that Assault. A Unit with this Special Rule also has the Fear (1) Special Rule."
     },
     {
       "name": "Pinion Strike",
-      "text": "Legacy house rule. On the turn it charges, the bearer adds +1 to its Initiative for the first round of combat, and its Attacks gain Impact (S)."
+      "summary": "The razored wings carve a path before the blade falls.",
+      "text": "In the Battle Turn in which a Model with this Special Rule makes a Charge, it adds 1 to its Initiative Characteristic for the first round of the Assault, and each Melee Weapon it wields has the Impact (S) Special Rule."
     },
     {
       "name": "Rise Again",
-      "text": "Legacy house rule. Once per battle, at the start of its controller's turn, a unit with this rule removes every Tactical Status it has."
+      "summary": "The names on the pennon will not let the Host fall.",
+      "text": "Once per battle, at the start of the Controlling Player's Battle Turn, a Unit with this Special Rule removes every Tactical Status it has."
     },
     {
       "name": "Waking Nightmare",
-      "text": "Legacy house rule. A model with this rule gains Fear (1), and a Charge roll of less than 6 counts as 6 when it charges."
+      "summary": "What stares out from the sarcophagus is no longer sane.",
+      "text": "A Model with this Special Rule has the Fear (1) Special Rule. When it makes a Charge Roll of less than 6, the result is treated as a 6."
     },
     {
       "name": "Aegis of Light",
-      "text": "Legacy house rule. The bearer's Invulnerable Save is 4+ against attacks made in the Assault phase."
+      "summary": "The halo flares at the first sword stroke.",
+      "text": "A Model with this Special Rule has an Invulnerable Save of 4+ against attacks made in the Assault phase."
     },
     {
       "name": "Ablative Coat",
-      "text": "Legacy house rule. The first Hull Point a vehicle with this rule would lose in a battle is ignored."
+      "summary": "The lacquer burns away so the hull does not have to.",
+      "text": "The first Hull Point that a Vehicle with this Special Rule would lose during a battle is ignored."
     },
     {
       "name": "Dawnlight",
-      "text": "Legacy house rule. Shooting Attacks made by a vehicle with this rule against units within 12\" ignore Shrouded (X) and Cover Saves from darkness."
+      "summary": "The lamps strip every shadow from the target.",
+      "text": "Shooting Attacks made by a Vehicle with this Special Rule against a Unit within 12\" ignore the Shrouded (X) Special Rule and any Cover Save granted by darkness."
     },
     {
       "name": "Rage-Draught Surge",
-      "text": "Legacy house rule. Once per battle, at the start of the Assault phase, the bearer's unit adds +1 to its Strength until the end of the phase, then suffers -1 Initiative until the end of its next turn."
+      "summary": "One swallow turns a warrior into a storm.",
+      "text": "Once per battle, at the start of the Assault phase, the Controlling Player may declare a Rage-Draught Surge for the Unit that includes a Model with this Special Rule. Until the end of that phase, all Models in the Unit add 1 to their Strength Characteristic. At the end of that phase, they subtract 1 from their Initiative Characteristic until the end of their next Battle Turn."
     }
   ],
   "rites": [
@@ -714,7 +739,7 @@
       "flavor": "They fall in a spray of gold, and the sun is behind them.",
       "benefits": [
         "Dawnbreaker Cohorts and the Angel's Tears may fill Troops slots and gain Line (1).",
-        "They also gain Sun Behind Them: Deep Strike, and they may still Charge on the turn they arrive.",
+        "They also gain Sun Behind Them: they may declare a Charge in the Battle Turn in which they arrive by Deep Strike.",
         "Every Antigrav Infantry unit gains +1 Initiative."
       ],
       "limitations": [
@@ -785,12 +810,12 @@
       "name": "Thirst of the Red Wings",
       "flavor": "Sanguinius could hold the rage in his sons. Without him it was a tide.",
       "benefits": [
-        "Every non-vehicle model gains +1 Attack on a turn it charges.",
-        "Every non-vehicle unit gains The Red Thirst: +1 to Charge rolls, and a free 3\" move toward the enemy after destroying a unit in combat."
+        "Every non-Vehicle Model adds 1 to its Attacks Characteristic in a Battle Turn in which its Unit makes a Charge.",
+        "Every non-Vehicle Unit gains The Red Thirst: +1 to Charge Rolls, and a Set-up Move of up to 3\" towards the enemy after destroying a Unit in an Assault."
       ],
       "limitations": [
-        "Every non-vehicle model loses 1 Cool.",
-        "Units with The Red Thirst must charge if an enemy unit is within 12\" at the start of their Assault phase.",
+        "Every non-Vehicle Model subtracts 1 from its Cool Characteristic.",
+        "Units with The Red Thirst must declare a Charge if an enemy Unit is within 12\" at the start of their Assault phase.",
         "No Apothecaries, no Recon units and no Support units other than Techmarines."
       ],
       "modifiers": [
@@ -843,7 +868,7 @@
       "flavor": "A Legion of ten thousand, and only the finest ever walk in the Primarch's shadow.",
       "benefits": [
         "Sanguinary Guard, Crimson Paladins and Ofanim Courts may fill Troops slots and gain Line (2).",
-        "They also gain Unbroken Court: +1 Cool on Morale Checks, passing automatically within 6\" of a friendly Warlord or High Command model."
+        "They also gain Unbroken Court: +1 Cool Characteristic for Morale Checks, passing them automatically within 6\" of a friendly Warlord or High Command Model."
       ],
       "limitations": [
         "At least one Sanguinary Guard and one Crimson Paladin pack are required.",
@@ -906,8 +931,8 @@
       "flavor": "The old ones burn, and they remember. They are very, very angry.",
       "benefits": [
         "Contemptor-Incaendius Dreadnoughts may fill Troops slots and gain Line (1).",
-        "They gain Entombed Rage: if charged they fight at normal Initiative with +1 Attack, and they gain Fear (1).",
-        "Every Walker gains +1 Attack."
+        "They gain Entombed Rage: when charged they fight at their normal Initiative Characteristic with +1 Attacks, and they gain Fear (1).",
+        "Every Walker adds 1 to its Attacks Characteristic."
       ],
       "limitations": [
         "At least two Contemptor-Incaendius are required.",
@@ -966,6 +991,13 @@
   "armyRules": [
     {
       "name": "Wings of the Angel",
+      "flavor": "The Host falls on the enemy from the sky.",
+      "benefits": [
+        "A Unit with this Special Rule adds 2 to the result of its Charge Rolls."
+      ],
+      "drawbacks": [
+        "If a Unit with this Special Rule fails a Charge, its Models subtract 1 from their Initiative Characteristic until the end of the Controlling Player's next Battle Turn."
+      ],
       "units": [
         "assault-squad",
         "veteran-assault-squad",
@@ -975,11 +1007,17 @@
         "ofanim-court-with-jump-packs",
         "sanguinary-guard"
       ],
-      "optionalUnits": true,
-      "text": "Legacy house rule. The Host falls on the enemy from the sky. A unit with this rule adds +2 to its Charge rolls. If it fails a Charge, it is left exposed: it suffers -1 Initiative until the end of its controller's next turn."
+      "optionalUnits": true
     },
     {
       "name": "Sanguine Grace",
+      "flavor": "A noble duellist with the Angel's own poise.",
+      "benefits": [
+        "In a Challenge, a Model with this Special Rule adds 1 to its Initiative Characteristic."
+      ],
+      "drawbacks": [
+        "Once a Model with this Special Rule has lost a Wound, it must pass a Willpower Check at the start of each of its Controlling Player's Battle Turns. On a failure, it must declare a Charge against the nearest enemy Unit if able."
+      ],
       "match": {
         "roles": [
           "Warlord",
@@ -989,11 +1027,17 @@
         "notUnitType": "Vehicle"
       },
       "optionalUnits": true,
-      "condition": "in a Challenge: +1 I",
-      "text": "Legacy house rule. A noble duellist with the Angel's own poise. In a Challenge a model with this rule adds +1 to its Initiative. The Red Thirst waits behind the grace: once it has lost a Wound, it must make a Willpower Check at the start of each of its controller's turns, and on a failure it must Charge the nearest enemy unit if able."
+      "condition": "in a Challenge: +1 I"
     },
     {
       "name": "Rage of the Fallen",
+      "flavor": "Each fallen brother feeds the fury of those who remain.",
+      "benefits": [
+        "When a Model in a Unit with this Special Rule is removed as a casualty in the Assault phase, all remaining Models in that Unit add 1 to their Attacks Characteristic until the end of that phase. This bonus cannot be gained more than once in a phase."
+      ],
+      "drawbacks": [
+        "A Unit with this Special Rule cannot voluntarily Fall Back."
+      ],
       "match": {
         "notUnitType": "Vehicle",
         "roles": [
@@ -1003,8 +1047,7 @@
           "Support"
         ]
       },
-      "condition": "at half strength or less: +1 A, Fear (1)",
-      "text": "Legacy house rule. Each fallen brother feeds the fury of those who remain. While a unit with this rule is at half strength or less, its models gain +1 Attack and Fear (1), but the unit may not voluntarily Fall Back."
+      "condition": "after losing a Model in the Assault phase: +1 A until the end of the phase"
     }
   ]
 }

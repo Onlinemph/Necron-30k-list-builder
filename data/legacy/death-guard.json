@@ -113,43 +113,53 @@
   "wargear": [
     {
       "name": "Bile-stained banner",
-      "text": "Legacy house rule. A banner so thick with dried filth that the wind cannot lift it, carried by men who no longer notice the stink. Every model in the unit gains Feel No Pain (6+)."
+      "summary": "A banner so thick with dried filth that the wind cannot lift it, carried by men who no longer notice the stink.",
+      "text": "While a Unit includes a Model equipped with a Bile-stained banner, all Models in that Unit have the Feel No Pain (6+) Special Rule. If the Model carrying the banner is removed as a casualty, the bonus is lost."
     },
     {
       "name": "Choking cloud canisters",
-      "text": "Legacy house rule. Canisters of sour vapour cracked open as the squad closes. Every model in the unit gains Fear (1)."
+      "summary": "Canisters of sour vapour cracked open as the squad closes.",
+      "text": "While a Unit includes a Model equipped with Choking cloud canisters, all Models in that Unit have the Fear (1) Special Rule. If the Model carrying the canisters is removed as a casualty, the bonus is lost."
     },
     {
       "name": "Bloated sarcophagus",
-      "text": "Legacy house rule. The occupant has been dead for years and the machine has kept him going on rot. The model gains Feel No Pain (6+)."
+      "summary": "The occupant has been dead for years and the machine has kept him going on rot.",
+      "text": "A Walker equipped with a Bloated sarcophagus has the Feel No Pain (6+) Special Rule."
     },
     {
       "name": "Blight-grenade bandolier",
-      "text": "Legacy house rule. Bandoliers of cracked, leaking canisters. Gives the unit Blightbomb Salvo."
+      "summary": "Bandoliers of cracked, leaking canisters.",
+      "text": "While a Unit includes a Model equipped with a Blight-grenade bandolier, all Models in that Unit have the Blightbomb Salvo Special Rule. If the Model carrying the bandolier is removed as a casualty, the bonus is lost."
     },
     {
       "name": "Reeking censer",
-      "text": "Legacy house rule. A swinging censer trailing a thick, buzzing cloud. Gives the model Dirge of Flies."
+      "summary": "A swinging censer trailing a thick, buzzing cloud.",
+      "text": "A Model equipped with a Reeking censer has the Dirge of Flies Special Rule."
     },
     {
       "name": "Tolling bell",
-      "text": "Legacy house rule. A cracked bell rung for every brother who falls. Gives the bearer Death Knell."
+      "summary": "A cracked bell rung for every brother who falls.",
+      "text": "A Model equipped with a Tolling bell has the Death Knell Special Rule."
     },
     {
       "name": "Scab-plate carapace",
-      "text": "Legacy house rule. Layers of crusted plate grown over the armour. Gives the model Scabbed Carapace."
+      "summary": "Layers of crusted plate grown over the armour.",
+      "text": "A Model equipped with a Scab-plate carapace has the Scabbed Carapace Special Rule."
     },
     {
       "name": "Choking exhaust vents",
-      "text": "Legacy house rule. Engine vents that trail a cloud of corrosive spores. Gives the vehicle Choking Wake."
+      "summary": "Engine vents that trail a cloud of corrosive spores.",
+      "text": "A Vehicle equipped with Choking exhaust vents has the Choking Wake Special Rule."
     },
     {
       "name": "Rot-fed spirit core",
-      "text": "Legacy house rule. A machine spirit that has learned to rot slowly. Gives the vehicle Unquiet Spirit."
+      "summary": "A machine spirit that has learned to rot slowly.",
+      "text": "A Vehicle equipped with a Rot-fed spirit core has the Unquiet Spirit Special Rule."
     },
     {
       "name": "Rust-plough",
-      "text": "Legacy house rule. A corroded plough blade fitted to the prow. Gives the vehicle Rust-Plough."
+      "summary": "A corroded plough blade fitted to the prow.",
+      "text": "A Vehicle equipped with a Rust-plough has the Rust-Plough Special Rule."
     }
   ],
   "options": [
@@ -658,47 +668,58 @@
   "rules": [
     {
       "name": "Inexorable",
-      "text": "Legacy house rule (Unhurried Death). A unit with this rule adds +1 to its Cool for Morale Checks and Checks to avoid gaining Tactical Statuses."
+      "summary": "They have stopped feeling the cost of the march.",
+      "text": "A Unit with this Special Rule adds 1 to its Cool Characteristic when it makes a Morale Check or a Check to avoid gaining a Tactical Status."
     },
     {
       "name": "Walking Dead",
-      "text": "Legacy house rule (The Walking Dead March). A unit with this rule gains Move Through Cover. In any turn in which it did not move it also gains Feel No Pain (5+)."
+      "summary": "The dead keep walking, and the walking dead are hard to kill.",
+      "text": "A Unit with this Special Rule has the Move Through Cover Special Rule. If it did not move during its Controlling Player's most recent Movement phase, it also has the Feel No Pain (5+) Special Rule until the start of its next Movement phase."
     },
     {
       "name": "Miasma of Contagion",
-      "text": "Legacy house rule (Doctrine of Contagion). Enemy units that charge a unit with this rule, or are charged by it, subtract 1 from their Weapon Skill for the first round of that combat."
+      "summary": "The air around them is a sickness all its own.",
+      "text": "When a Unit with this Special Rule charges an enemy Unit, or is charged by one, the Models of the enemy Unit subtract 1 from their Weapon Skill Characteristic for the first round of that Assault."
     },
     {
       "name": "Sworn Guard",
-      "text": "Legacy house rule (The Reaper's Honour Guard). A unit with this rule gains Feel No Pain (5+) while it is within 6\" of Mortarion or Calas Typhon."
+      "summary": "They stand where the Reaper stands and do not die before he does.",
+      "text": "A Unit with this Special Rule has the Feel No Pain (5+) Special Rule while it is within 6\" of Mortarion or Calas Typhon."
     },
     {
       "name": "Blightbomb Salvo",
-      "text": "Legacy house rule. Once per battle, in the Shooting phase, the unit may throw blight at an enemy unit within 8\". Make one automatic hit with Poisoned (4+), AP -, Damage 1 for each model in the unit, to a maximum of 5."
+      "summary": "A handful of rotted canisters, thrown without a second thought.",
+      "text": "Once per battle, in the Shooting phase, a Unit with this Special Rule may throw blight at one enemy Unit within 8\". The enemy Unit suffers one automatic hit for each Model in the throwing Unit (to a maximum of 5), each with the Poisoned (4+) Special Rule, no AP and a Damage of 1."
     },
     {
       "name": "Dirge of Flies",
-      "text": "Legacy house rule. Enemy units within 6\" of this model cannot make Reaction Shooting Attacks against it or its unit."
+      "summary": "The buzzing cloud hides the bearer from every eye.",
+      "text": "While an enemy Unit is within 6\" of a Model with this Special Rule, it cannot make Reaction Shooting Attacks against that Model or its Unit."
     },
     {
       "name": "Death Knell",
-      "text": "Legacy house rule. Each time a friendly Death Guard unit within 6\" of the bearer is destroyed, every enemy unit within 12\" loses 1 Cool until the end of the turn."
+      "summary": "The bell tolls for every brother who falls.",
+      "text": "Each time a friendly Death Guard Unit within 6\" of a Model with this Special Rule is destroyed, each enemy Unit within 12\" of that Model subtracts 1 from its Cool Characteristic until the end of that Battle Turn."
     },
     {
       "name": "Scabbed Carapace",
-      "text": "Legacy house rule. Attacks with AP 4 or worse made against this model have their AP treated as -."
+      "summary": "The crust thickens over every wound, until blades skate off it.",
+      "text": "The AP of any attack made against a Model with this Special Rule is treated as having no AP if it is 4 or worse."
     },
     {
       "name": "Choking Wake",
-      "text": "Legacy house rule. After a vehicle with this rule moves, each enemy unit it moved within 3\" of suffers one automatic hit with Poisoned (4+), AP -, Damage 1."
+      "summary": "Whatever the hull passes through, it leaves coughing.",
+      "text": "After a Vehicle with this Special Rule moves, each enemy Unit it moved within 3\" of suffers one automatic hit with the Poisoned (4+) Special Rule, no AP and a Damage of 1."
     },
     {
       "name": "Unquiet Spirit",
-      "text": "Legacy house rule. Once per battle, when a vehicle with this rule would be Stunned or Shaken, it ignores that result."
+      "summary": "The spirit has rotted slowly enough to keep fighting.",
+      "text": "Once per battle, when a Vehicle with this Special Rule would be Stunned or Shaken, it ignores that result."
     },
     {
       "name": "Rust-Plough",
-      "text": "Legacy house rule. A vehicle with this rule ignores Difficult Terrain. Units it Rams lose 1 Cool until the end of the turn."
+      "summary": "The blade tears through wire, rubble and flesh alike.",
+      "text": "A Vehicle with this Special Rule ignores Difficult Terrain. Each enemy Unit that it Rams subtracts 1 from its Cool Characteristic until the end of that Battle Turn."
     }
   ],
   "rites": [
@@ -706,10 +727,11 @@
       "name": "Unhurried Death",
       "flavor": "The Legion has never run, and it has never needed to.",
       "benefits": [
-        "Every Death Guard Infantry unit gains Feel No Pain (6+) and Inexorable: +1 Cool on Morale Checks and Checks to avoid Tactical Statuses."
+        "Every Death Guard Infantry Unit gains Inexorable: +1 Cool Characteristic on Morale Checks and Checks to avoid Tactical Statuses.",
+        "Every Death Guard Infantry Unit except the Praevian (who already has Feel No Pain (5+)) gains Feel No Pain (6+)."
       ],
       "limitations": [
-        "Every Death Guard Infantry unit loses 1 Move.",
+        "Every Death Guard Infantry Unit subtracts 1 from its Move Characteristic.",
         "No Fast Attack units and no model with the Antigrav type."
       ],
       "modifiers": [
@@ -718,13 +740,25 @@
             "unitType": "Infantry",
             "notUnitType": "Vehicle"
           },
-          "text": "Unhurried Death: Feel No Pain (6+), Inexorable, -1 M.",
+          "text": "Unhurried Death: Inexorable, -1 M.",
           "stats": {
             "M": "-1"
           },
           "addRules": [
-            "Feel No Pain (6+)",
             "Inexorable"
+          ]
+        },
+        {
+          "match": {
+            "unitType": "Infantry",
+            "notUnitType": "Vehicle",
+            "notNameIncludes": [
+              "Praevian"
+            ]
+          },
+          "text": "Unhurried Death: Feel No Pain (6+).",
+          "addRules": [
+            "Feel No Pain (6+)"
           ]
         }
       ],
@@ -800,7 +834,7 @@
       "flavor": "A battle is won when the other side is too sick to hold the line.",
       "benefits": [
         "Mortus Poisoner Squads may fill Troops slots and gain Fear (1).",
-        "They gain Miasma of Contagion: enemies that charge them, or that they charge, subtract 1 from Weapon Skill in the first round."
+        "They gain Miasma of Contagion: enemy Units that charge them, or that they charge, subtract 1 from their Weapon Skill Characteristic in the first round of that Assault."
       ],
       "limitations": [
         "At least two Mortus Poisoner Squads are required.",
@@ -932,22 +966,41 @@
   "armyRules": [
     {
       "name": "Death's Slow Tread",
+      "flavor": "They do not flinch, and they do not hurry.",
+      "benefits": [
+        "A Unit with this Special Rule ignores the effects of the Pinning (X) and Suppressive (X) Special Rules."
+      ],
+      "drawbacks": [
+        "A Unit with this Special Rule cannot Rush, and its Reaction Shooting Attacks are made with a -1 modifier to Hit Tests."
+      ],
       "match": {
         "notUnitType": "Vehicle"
       },
-      "optionalUnits": true,
-      "text": "Legacy house rule. They do not flinch, and they do not hurry. A unit with this rule ignores the effects of Pinning (X) and Suppressive (X). It may not Rush, and its Reaction Shooting suffers -1 to Hit."
+      "optionalUnits": true
     },
     {
       "name": "Withering Blight",
+      "flavor": "Their wounds fester in the flesh.",
+      "benefits": [
+        "When a Model is wounded but not removed as a casualty by an attack made by a Unit with this Special Rule, it subtracts 1 from its Toughness Characteristic until the end of that Battle Turn."
+      ],
+      "drawbacks": [
+        "Hit Tests made for Shooting Attacks by a Unit with this Special Rule against targets more than 18\" away are made with a -1 modifier."
+      ],
       "match": {
         "notUnitType": "Vehicle"
       },
-      "optionalUnits": true,
-      "text": "Legacy house rule. Their wounds fester in the flesh. A model that is wounded but not slain by an attack from a unit with this rule has its Toughness reduced by 1 until the end of that turn."
+      "optionalUnits": true
     },
     {
       "name": "Pestilential Aura",
+      "flavor": "A cloud of rot rolls from the captains of the Legion.",
+      "benefits": [
+        "At the start of each Assault phase, each enemy Unit in base contact with a Model with this Special Rule suffers one automatic hit with the Poisoned (4+) Special Rule, no AP and a Damage of 1."
+      ],
+      "drawbacks": [
+        "A Unit that includes a Model with this Special Rule cannot benefit from the Medic (X) Special Rule."
+      ],
       "match": {
         "roles": [
           "Warlord",
@@ -956,8 +1009,7 @@
         ],
         "notUnitType": "Vehicle"
       },
-      "optionalUnits": true,
-      "text": "Legacy house rule. A cloud of rot rolls from the captains of the Legion. At the start of each Assault phase, each enemy unit in base contact with a model with this rule suffers one automatic hit with Poisoned (4+), AP -, Damage 1. A unit joined by such a model cannot benefit from Medic (X)."
+      "optionalUnits": true
     }
   ]
 }

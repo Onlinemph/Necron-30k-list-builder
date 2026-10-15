@@ -121,59 +121,73 @@
   "wargear": [
     {
       "name": "Flak jerkin",
-      "text": "Legacy house rule. A layered flak coat scavenged from the regiment's stores and kept for the sergeant. The model's Save becomes 4+ if it was worse."
+      "summary": "A layered flak coat scavenged from the regiment's stores and kept for the sergeant.",
+      "text": "A Model equipped with a Flak jerkin has a Save Characteristic of 4+, unless its Save Characteristic is already better."
     },
     {
       "name": "Provost's greatcoat",
-      "text": "Legacy house rule. A heavy coat sewn with ward-plates and a hidden shield-belt, issued to officers the provosts cannot afford to lose. The model's Invulnerable Save becomes 5+ if it was worse."
+      "summary": "A heavy coat sewn with ward-plates and a hidden shield-belt, issued to officers the provosts cannot afford to lose.",
+      "text": "A Model equipped with a Provost's greatcoat has an Invulnerable Save of 5+, unless it already has a better Invulnerable Save."
     },
     {
       "name": "Old Hand",
-      "text": "Legacy house rule. A sergeant who has survived three levies. The model gains +1 Weapon Skill and +1 Attack."
+      "summary": "A sergeant who has survived three levies.",
+      "text": "A Model upgraded to an Old Hand adds 1 to its Weapon Skill and Attacks Characteristics."
     },
     {
       "name": "Regimental colours",
-      "text": "Legacy house rule. A tattered banner the whole muster would sooner die than lose. Every model in the unit gains +1 Leadership and +1 Cool."
+      "summary": "A tattered banner the whole muster would sooner die than lose.",
+      "text": "While a Unit includes a Model equipped with Regimental colours, all Models in that Unit add 1 to their Leadership and Cool Characteristics."
     },
     {
       "name": "Combat stimms",
-      "text": "Legacy house rule. Cheap injectors handed out before the whistle. On a turn the unit charges, every model in it gains +1 Strength."
+      "summary": "Cheap injectors handed out before the whistle.",
+      "text": "In any Battle Turn in which a Unit that was dosed with Combat stimms makes a Charge, all Models in that Unit add 1 to their Strength Characteristic until the end of the Assault Phase."
     },
     {
       "name": "Scrap-armour plates",
-      "text": "Legacy house rule. Girders, door panels and salvaged hull riveted on in the staging yard. The vehicle gains +1 Hull Point."
+      "summary": "Girders, door panels and salvaged hull riveted on in the staging yard.",
+      "text": "A Vehicle equipped with Scrap-armour plates adds 1 to its Hull Points Characteristic."
     },
     {
       "name": "Salvaged gun shield",
-      "text": "Legacy house rule. A curved shield cut from a wrecked vehicle and bolted to the carriage. The model's Save becomes 3+ if it was worse."
+      "summary": "A curved shield cut from a wrecked vehicle and bolted to the carriage.",
+      "text": "A Model equipped with a Salvaged gun shield has a Save Characteristic of 3+, unless its Save Characteristic is already better."
     },
     {
       "name": "Regimental drum",
-      "text": "Legacy house rule. A battered marching drum carried by the sergeant, setting the pace. Gives the unit Drumbeat March."
+      "summary": "A battered marching drum carried by the sergeant, setting the pace.",
+      "text": "While a Unit includes a Model equipped with a Regimental drum, all Models in that Unit have the Drumbeat March Special Rule."
     },
     {
       "name": "Hive luck charms",
-      "text": "Legacy house rule. Hive-bred talismans of bone and wire that every veteran swears by. The bearer gains Hive Luck and Feel No Pain (6+)."
+      "summary": "Hive-bred talismans of bone and wire that every veteran swears by.",
+      "text": "A Model equipped with Hive luck charms has the Feel No Pain (6+) and Hive Luck Special Rules."
     },
     {
       "name": "Penal brand-iron",
-      "text": "Legacy house rule. A heated iron that marks cowards. Gives the Discipline Master Penal Brand."
+      "summary": "A heated iron that marks cowards.",
+      "text": "A Model equipped with a Penal brand-iron has the Penal Brand Special Rule."
     },
     {
       "name": "Extra shell racks",
-      "text": "Legacy house rule. Spare ammunition crates stacked around the gun. Gives the unit Extra Shells."
+      "summary": "Spare ammunition crates stacked around the gun.",
+      "text": "While a Unit includes a Model equipped with Extra shell racks, all Models in that Unit have the Extra Shells Special Rule."
     },
     {
       "name": "Scrap-iron ram-prow",
-      "text": "Legacy house rule. A ramming prow beaten out of girders and plate. Gives the vehicle Hammer the Barricades."
+      "summary": "A ramming prow beaten out of girders and plate.",
+      "text": "A Vehicle equipped with a Scrap-iron ram-prow has the Hammer the Barricades Special Rule."
     },
     {
       "name": "Witchbane charm-string",
-      "text": "Legacy house rule. Strings of knotted charms and sanctified bone, worn against the whispers. The bearer gains +1 Willpower and Witchbane."
+      "summary": "Strings of knotted charms and sanctified bone, worn against the whispers.",
+      "text": "A Model equipped with a Witchbane charm-string adds 1 to its Willpower Characteristic and has the Witchbane Special Rule."
     },
     {
       "name": "Handler's goad",
-      "text": "Legacy house rule. A cattle-prod and bullhorn that keeps the beasts on the move. Gives the unit Goaded Fury."
+      "summary": "A cattle-prod and bullhorn that keeps the beasts on the move.",
+      "text": "While a Unit includes a Model equipped with a Handler's goad, all Models in that Unit have the Goaded Fury Special Rule."
     }
   ],
   "options": [
@@ -197,7 +211,12 @@
         "choices": [
           {
             "name": "Flak jerkin",
-            "points": 5
+            "points": 5,
+            "onlyIf": {
+              "worse": {
+                "SAV": "4+"
+              }
+            }
           }
         ]
       }
@@ -216,7 +235,12 @@
         "choices": [
           {
             "name": "Provost's greatcoat",
-            "points": 10
+            "points": 10,
+            "onlyIf": {
+              "worse": {
+                "INV": "5+"
+              }
+            }
           }
         ]
       }
@@ -888,51 +912,63 @@
   "rules": [
     {
       "name": "Riders of the Flank",
-      "text": "Legacy house rule (The Feudal Host). The lords sweep wide to take the enemy line from the side. A unit with this rule gains Outflank, and adds 2 to its Charge roll on a turn it arrives from Reserves."
+      "summary": "The lords sweep wide to take the enemy line from the side.",
+      "text": "In a Battle Turn in which a Unit composed entirely of Models with this Special Rule arrived from Reserves, add 2 to the result of its Charge Rolls."
     },
     {
       "name": "Human Wave",
-      "text": "Legacy house rule (The Levy Tide). A Levy unit with this rule while it has ten or more models adds 1 to its Leadership and Cool, and automatically passes Pinning and Panic Checks. A Levy unit that is destroyed in combat does not give the enemy a free Consolidation move."
+      "summary": "Empty the hab-blocks, hand out the rifles, and let the enemy run out of bullets first.",
+      "text": "While a Unit with this Special Rule includes ten or more Models, all Models in it add 1 to their Leadership and Cool Characteristics and the Unit automatically passes Panic Checks and Cool Checks made for Pinning. When a Unit with this Special Rule is destroyed in the Assault Phase, the enemy Unit that destroyed it cannot make a Consolidation move as a result."
     },
     {
       "name": "Home Turf",
-      "text": "Legacy house rule (Hive-Gang Muster). The gangs know the ground. After both sides have deployed and before the first battle turn, a unit with this rule may make a free move of up to 6\", ending no closer than 9\" to any enemy model."
+      "summary": "The gangs know every stairwell, drain and vent shaft on the battlefield.",
+      "text": "After both Players have deployed and before the first Battle Turn begins, each Unit composed entirely of Models with this Special Rule may make a Set-up Move of up to 6\". It cannot end that move within 9\" of any enemy Model."
     },
     {
       "name": "Stampede",
-      "text": "Legacy house rule (The Abhuman Ranks). The handlers loose their charges and get out of the way. A unit with this rule adds 2 to its Charge roll and +1 to its Attacks on a turn in which it charges."
+      "summary": "The handlers loose their charges and get out of the way.",
+      "text": "In any Battle Turn in which a Unit composed entirely of Models with this Special Rule makes a Charge, add 2 to the result of its Charge Roll and add 1 to the Attacks Characteristic of all its Models until the end of the Assault Phase."
     },
     {
       "name": "Dug-In Guns",
-      "text": "Legacy house rule (The Siege Line). The battery is entrenched before the first shot. A unit with this rule that did not move in its last Movement phase adds 1 to its Ballistic Skill and counts as Shrouded (5+) against Shooting Attacks."
+      "summary": "The battery is entrenched before the first shot.",
+      "text": "A Unit with this Special Rule that did not move in its last Movement Phase adds 1 to its Ballistic Skill Characteristic and has the Shrouded (5+) Special Rule against Shooting Attacks until it next moves."
     },
     {
       "name": "Drumbeat March",
-      "text": "Legacy house rule. The unit adds 2\" to its Rush distance."
+      "summary": "A battered marching drum sets the pace and nobody dares fall behind.",
+      "text": "When a Unit with this Special Rule Rushes, add 2\" to the distance it may move."
     },
     {
       "name": "Hive Luck",
-      "text": "Legacy house rule. Once per battle, the bearer may ignore a single Wound."
+      "summary": "Every veteran of the hive has a charm, and swears by it.",
+      "text": "Once per battle, when a Model with this Special Rule is allocated an Unsaved Wound, the Controlling Player may discard that Wound."
     },
     {
       "name": "Penal Brand",
-      "text": "Legacy house rule. Friendly units within 6\" add +1 to their Cool, but the bearer's own unit loses a model each time one of those units fails a Cool check."
+      "summary": "The mark of the coward is also the reminder to every man who sees it.",
+      "text": "All friendly Units within 6\" of a Model with this Special Rule add 1 to their Cool Characteristic. Each time one of those Units fails a Cool Check, the Controlling Player must remove one Model from the Unit that includes the Model with this Special Rule as a casualty."
     },
     {
       "name": "Extra Shells",
-      "text": "Legacy house rule. Once per battle, one weapon of the unit adds 2 to its Firepower for a single Shooting attack."
+      "summary": "Spare ammunition crates stacked around the gun.",
+      "text": "Once per battle, a Unit with this Special Rule may add 2 to the Firepower of one of its Ranged Weapons for a single Shooting Attack."
     },
     {
       "name": "Hammer the Barricades",
-      "text": "Legacy house rule. The vehicle adds +D3 Hits when it moves through an enemy unit, and ignores Dangerous Terrain tests for Barricades."
+      "summary": "A prow of girders and plate that clears barricades and bodies alike.",
+      "text": "A Model with this Special Rule does not make Dangerous Terrain Tests for moving across Barricades. When it moves through an enemy Unit, that Unit suffers D3 additional Hits."
     },
     {
       "name": "Witchbane",
-      "text": "Legacy house rule. Psychic attacks and Force (X) weapons directed at the bearer suffer -1 to their Willpower Checks."
+      "summary": "Knotted charms and sanctified bone, worn against the whispers.",
+      "text": "A Psychic Power or Weapon with the Force (X) Special Rule that targets the Unit of a Model with this Special Rule subtracts 1 from the result of every Willpower Check made to use it."
     },
     {
       "name": "Goaded Fury",
-      "text": "Legacy house rule. On a turn the unit charges, its beast models add +1 to their Attacks."
+      "summary": "A cattle-prod and bullhorn that keeps the beasts on the move.",
+      "text": "While the Model with this Special Rule is in a Unit, that Unit adds 1 to the result of its Charge Rolls, and its Beast Models cannot gain the Pinned Tactical Status."
     }
   ],
   "rites": [
@@ -957,7 +993,6 @@
           "text": "The Feudal Host: Fast (1), Riders of the Flank.",
           "addRules": [
             "Fast (1)",
-            "Outflank",
             "Riders of the Flank"
           ]
         }
@@ -985,8 +1020,8 @@
       ],
       "text": "The lords of this world ride out in their grandfathers' armour and expect to be followed.",
       "benefits": [
-        "Militia Outriders (Cavalry Troops) and Mounted Command Troops may fill Troops slots and gain Fast (1) and Outflank.",
-        "They gain Riders of the Flank: they add 2 to their Charge roll on a turn they arrive from Reserves."
+        "Militia Outriders (Cavalry Troops) and Mounted Command Troops may fill Troops slots and gain Fast (1).",
+        "They gain Riders of the Flank: they add 2 to their Charge Rolls in a Battle Turn in which they arrived from Reserves."
       ],
       "limitations": [
         "At least two Cavalry Troops or Mounted Command Troops are required.",
@@ -1046,7 +1081,7 @@
       "text": "Empty the hab-blocks, hand out the rifles, and let the enemy run out of bullets first.",
       "benefits": [
         "Levy Troops gain Line (1).",
-        "They gain Human Wave: while a Levy Troop has ten or more models it adds +1 to Leadership and Cool, passes Pinning and Panic Checks, and a Levy Troop destroyed in combat gives the enemy no free Consolidation move."
+        "They gain Human Wave: while a Levy Troop has ten or more Models it adds 1 to Leadership and Cool and automatically passes Panic Checks and Pinning Cool Checks, and a Levy Troop destroyed in the Assault Phase gives the enemy no Consolidation move."
       ],
       "limitations": [
         "At least three Levy Troops are required.",
@@ -1124,7 +1159,7 @@
       "benefits": [
         "Grenadier Troops and Reconnaissance Troops may fill Troops slots.",
         "Grenadiers gain Move Through Cover and Reconnaissance Troops gain Shrouded (5+).",
-        "Both gain Home Turf: a free 6\" move before the first turn, not within 9\" of the enemy."
+        "Both gain Home Turf: a free 6\" Set-up Move before the first Battle Turn, ending more than 9\" from the enemy."
       ],
       "limitations": [
         "At least two Grenadier or Reconnaissance Troops are required.",
@@ -1204,7 +1239,7 @@
       "benefits": [
         "Ogryn Brute Troops and Beastmaster Troops may fill Troops slots.",
         "Ogryn Brutes gain Feel No Pain (6+).",
-        "Both gain Stampede: +2 to Charge rolls, and the unit has +1 Attack on a turn it charges."
+        "Both gain Stampede: +2 to Charge Rolls, and all their Models add 1 to Attacks in a Battle Turn in which they Charge."
       ],
       "limitations": [
         "At least two Ogryn Brute or Beastmaster Troops are required.",
@@ -1283,7 +1318,7 @@
       "text": "Dig in, lay the guns, and let them come to you across open ground.",
       "benefits": [
         "Field Gun Batteries, Heavy Ordnance Batteries, Fire Support Troops and Rapier Troops may fill Troops slots.",
-        "They gain Dug-In Guns: if they did not move, +1 Ballistic Skill and Shrouded (5+) against Shooting Attacks."
+        "They gain Dug-In Guns: if they did not move in their last Movement Phase they add 1 to Ballistic Skill and have Shrouded (5+) against Shooting Attacks."
       ],
       "limitations": [
         "At least one Discipline Master Cadre is required.",
@@ -1294,7 +1329,13 @@
   "armyRules": [
     {
       "name": "Expendable Masses",
-      "text": "Legacy house rule. The hive has more bodies than rifles. A unit with this rule of ten or more models adds +1 to its Cool. Once it is reduced below five models, it suffers -1 Cool instead.",
+      "flavor": "The hive has more bodies than rifles.",
+      "benefits": [
+        "While a Unit with this Special Rule includes ten or more Models, all Models in it add 1 to their Cool Characteristic."
+      ],
+      "drawbacks": [
+        "While a Unit with this Special Rule includes fewer than five Models, all Models in it subtract 1 from their Cool Characteristic."
+      ],
       "units": [
         "infantry-troop",
         "levy-troop",
@@ -1309,7 +1350,13 @@
     },
     {
       "name": "Summary Discipline",
-      "text": "Legacy house rule. Provosts keep the line by fear of the firing squad. A unit within 6\" of a friendly Discipline Master automatically passes Morale checks, but each time this saves it from a failed check, one model in the unit is removed as an example.",
+      "flavor": "Provosts keep the line by fear of the firing squad.",
+      "benefits": [
+        "A Unit within 6\" of a friendly Discipline Master automatically passes any Cool Check or Panic Check it is required to make."
+      ],
+      "drawbacks": [
+        "Each time a Unit passes a check by this Special Rule that it would otherwise have failed, the Controlling Player must remove one Model from that Unit as a casualty, as an example to the rest."
+      ],
       "units": [
         "discipline-master-cadre",
         "command-troop",
@@ -1319,7 +1366,13 @@
     },
     {
       "name": "Desperate Courage",
-      "text": "Legacy house rule. Cornered militia fight harder than they should. A unit with this rule at half strength or fewer adds +1 to its Attacks, but it may only Rush toward the nearest enemy unit.",
+      "flavor": "Cornered militia fight harder than they should.",
+      "benefits": [
+        "A Model with this Special Rule adds 1 to its Attacks Characteristic in any Assault Phase in which its Unit was Charged, or while its Unit has half or fewer of its starting Models."
+      ],
+      "drawbacks": [
+        "A Unit with this Special Rule may only Rush towards the nearest enemy Unit."
+      ],
       "match": {
         "roles": [
           "Troops",
@@ -1332,7 +1385,7 @@
       "stats": {
         "A": "+1"
       },
-      "condition": "at half strength or fewer"
+      "condition": "when charged, or at half strength or fewer"
     }
   ]
 }

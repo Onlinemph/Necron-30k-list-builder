@@ -145,51 +145,63 @@
   "wargear": [
     {
       "name": "Ferrite plate",
-      "text": "Legacy house rule. Layered ferro-ceramic slabs grafted over a magos's vitals. The model's Save becomes 2+ if it was worse."
+      "summary": "Layered ferro-ceramic slabs grafted over a magos's vitals.",
+      "text": "A Model equipped with Ferrite plate has a Save Characteristic of 2+, unless its Save Characteristic is already better."
     },
     {
       "name": "Inversion field",
-      "text": "Legacy house rule. A salvaged dome-projector that folds incoming energy back on itself. The model's Invulnerable Save becomes 4+ if it was worse."
+      "summary": "A salvaged dome-projector that folds incoming energy back on itself.",
+      "text": "A Model equipped with an Inversion field has an Invulnerable Save of 4+, unless it already has a better Invulnerable Save."
     },
     {
       "name": "Servo-limb augmentation",
-      "text": "Legacy house rule. Extra mechadendrites with their own sub-routines for close work. The model gains +1 Attack."
+      "summary": "Extra mechadendrites with their own sub-routines for close work.",
+      "text": "A Model equipped with Servo-limb augmentation adds 1 to its Attacks Characteristic."
     },
     {
       "name": "Targeting coda",
-      "text": "Legacy house rule. A cortex-uploaded firing script from the Taghmata's best gunnery-priests. Every model in the unit gains +1 Ballistic Skill."
+      "summary": "A cortex-uploaded firing script from the Taghmata's best gunnery-priests.",
+      "text": "While a Unit includes a Model equipped with a Targeting coda, all Models in that Unit add 1 to their Ballistic Skill Characteristic."
     },
     {
       "name": "Auto-repair cradle",
-      "text": "Legacy house rule. A sling of servo-arms and spare plate carried inside the hull. The vehicle gains +1 Hull Point."
+      "summary": "A sling of servo-arms and spare plate carried inside the hull.",
+      "text": "A Vehicle equipped with an Auto-repair cradle adds 1 to its Hull Points Characteristic."
     },
     {
       "name": "Null-lattice cage",
-      "text": "Legacy house rule. A cogitated cage of ward-glyphs woven round the bearer's cortex. Gives the model Null Lattice."
+      "summary": "A cogitated cage of ward-glyphs woven round the bearer's cortex.",
+      "text": "A Model equipped with a Null-lattice cage has the Null Lattice Special Rule."
     },
     {
       "name": "Doctrina uplink",
-      "text": "Legacy house rule. A mnemonic data-hub that stretches the commander's control over distant automata. Gives the model Wide-Band Command."
+      "summary": "A mnemonic data-hub that stretches the commander's control over distant automata.",
+      "text": "A Model equipped with a Doctrina uplink has the Wide-Band Command Special Rule."
     },
     {
       "name": "Covenant cog-banner",
-      "text": "Legacy house rule. A cog-toothed banner on a servo-arm, signalling the Machine God's will. Gives the unit Rally the Covenant."
+      "summary": "A cog-toothed banner on a servo-arm, signalling the Machine God's will.",
+      "text": "While a Unit includes a Model equipped with a Covenant cog-banner, all Models in that Unit have the Rally the Covenant Special Rule."
     },
     {
       "name": "Strategos engram",
-      "text": "Legacy house rule. A war-engram slaved to the Praetorian's targeting. Gives the unit Strategos Lock."
+      "summary": "A war-engram slaved to the Praetorian's targeting.",
+      "text": "While a Unit includes a Model equipped with a Strategos engram, all Models in that Unit have the Strategos Lock Special Rule."
     },
     {
       "name": "Gyro-lock pylons",
-      "text": "Legacy house rule. Stabiliser pylons that keep the guns steady at speed. Gives the vehicle Gyro-Lock."
+      "summary": "Stabiliser pylons that keep the guns steady at speed.",
+      "text": "A Vehicle equipped with Gyro-lock pylons has the Gyro-Lock Special Rule."
     },
     {
       "name": "Piston-chant grille",
-      "text": "Legacy house rule. A vox-grille that roars binharic psalms in time with the pistons. Gives the model War-Chant."
+      "summary": "A vox-grille that roars binharic psalms in time with the pistons.",
+      "text": "A Model equipped with a Piston-chant grille has the War-Chant Special Rule."
     },
     {
       "name": "Hypercog coprocessor",
-      "text": "Legacy house rule. A parallel logic engine that shortens the response cycle. Gives the model +1 Initiative and Reflex Subroutine."
+      "summary": "A parallel logic engine that shortens the response cycle.",
+      "text": "A Model equipped with a Hypercog coprocessor adds 1 to its Initiative Characteristic and has the Reflex Subroutine Special Rule."
     }
   ],
   "options": [
@@ -682,7 +694,7 @@
         "myrmidon-secutor-host",
         "myrmidon-destructor-host"
       ],
-      "text": "Cult fervour: +1 A, -1 WP.",
+      "text": "Flesh remembered: +1 A, -1 WP.",
       "stats": {
         "A": "+1",
         "WP": "-1"
@@ -802,51 +814,63 @@
   "rules": [
     {
       "name": "Cold Calculus",
-      "text": "Legacy house rule (The Logic Maniples). The maniples share a firing solution. A unit with this rule adds 1 to its Ballistic Skill when it shoots at an enemy unit that another unit with Cold Calculus has already fired at in the same phase."
+      "summary": "The maniples share a single firing solution.",
+      "text": "When a Unit with this Special Rule makes a Shooting Attack against an enemy Unit that another friendly Unit with this Special Rule has already made a Shooting Attack against in the same Phase, all Models in the firing Unit add 1 to their Ballistic Skill Characteristic for that attack."
     },
     {
       "name": "Subtractive Fire",
-      "text": "Legacy house rule (Ordo Reductor Siege Park). Walls and bunkers are only data waiting to be subtracted. Shooting Attacks made by a unit with this rule ignore the benefit of Shrouded (X) and of any cover or Fortification Save the target would otherwise gain."
+      "summary": "Walls and bunkers are only data waiting to be subtracted.",
+      "text": "Shooting Attacks made by a Model with this Special Rule ignore the Shrouded (X) Special Rule of their targets, and the target gains no benefit from Cover or from a Fortification Save."
     },
     {
       "name": "Cult Fervour",
-      "text": "Legacy house rule (The Myrmidax Cult-Host). The cult has long since stopped fearing the flesh. A unit with this rule adds +2 to its Cool for Cool Checks, and once per battle, when it is reduced to half strength or less, it may add +1 to its Attacks until the end of the turn."
+      "summary": "The cult has long since stopped fearing the flesh.",
+      "text": "A Model with this Special Rule adds 2 to its Cool Characteristic when taking a Cool Check. Once per battle, when a Unit with this Special Rule is reduced to half of its starting Models or fewer, all Models in it add 1 to their Attacks Characteristic until the end of that Battle Turn."
     },
     {
       "name": "Vigil Protocol",
-      "text": "Legacy house rule (The Thallax Vigil). The Thallax take station around their master. After both sides have deployed and before the first battle turn, a unit with this rule may make a free move of up to 6\", ending no closer than 9\" to any enemy model. A friendly Magos, Archmagos or Tech-Priest within 3\" of it adds +1 to its Cool."
+      "summary": "The Thallax take station around their master.",
+      "text": "After both Players have deployed and before the first Battle Turn begins, each Unit composed entirely of Models with this Special Rule may make a Set-up Move of up to 6\". It cannot end that move within 9\" of any enemy Model. A friendly Magos, Archmagos or Tech-Priest within 3\" of a Unit with this Special Rule adds 1 to its Cool Characteristic."
     },
     {
       "name": "Endless Tithe",
-      "text": "Legacy house rule (The Thrall Press). The forge-world's billions replace what the war consumes. Once per battle, the first Covenant with this rule that is destroyed returns to play at the start of the owner's next turn from Reserves, at half its starting models (rounding up) and with Outflank."
+      "summary": "The forge-world's billions replace what the war consumes.",
+      "text": "Once per battle, when the first Unit with this Special Rule is destroyed, the Controlling Player may place it in Reserves at the start of their next Battle Turn with half of its starting Models (rounding up). That Unit has the Outflank Special Rule for that arrival."
     },
     {
       "name": "Null Lattice",
-      "text": "Legacy house rule. Psychic attacks and Force (X) weapons directed at the bearer or its unit suffer -1 to their Willpower Checks."
+      "summary": "A cogitated cage of ward-glyphs woven round the bearer's cortex.",
+      "text": "A Psychic Power or Weapon with the Force (X) Special Rule that targets a Unit including a Model with this Special Rule subtracts 1 from the result of every Willpower Check made to use it."
     },
     {
       "name": "Wide-Band Command",
-      "text": "Legacy house rule. Cold-Link Command treats the bearer as a commander within 24\" instead of 12\"."
+      "summary": "A mnemonic data-hub that stretches the commander's control over distant automata.",
+      "text": "For the purposes of the Cold-Link Command Special Rule, a Model with this Special Rule counts as a commander within 24\" of the Unit instead of within 12\"."
     },
     {
       "name": "Rally the Covenant",
-      "text": "Legacy house rule. While within 6\" of an objective, the unit automatically passes Morale checks."
+      "summary": "The cog-banner rises, and the thralls remember their purpose.",
+      "text": "While a Unit with this Special Rule is within 6\" of an Objective Marker, it automatically passes any Panic Check it is required to make."
     },
     {
       "name": "Strategos Lock",
-      "text": "Legacy house rule. The unit adds +1 to its Charge rolls."
+      "summary": "A war-engram slaved to the Praetorian's targeting.",
+      "text": "A Unit with this Special Rule adds 1 to the result of its Charge Rolls."
     },
     {
       "name": "Gyro-Lock",
-      "text": "Legacy house rule. The vehicle's weapons ignore penalties for firing after moving."
+      "summary": "Stabiliser pylons keep the guns steady at speed.",
+      "text": "A Model with this Special Rule ignores any penalty to its Hit Tests, and any restriction on the Weapons it may use, that applies because it moved earlier in the same Battle Turn."
     },
     {
       "name": "War-Chant",
-      "text": "Legacy house rule. Enemy units within 6\" of the bearer suffer -1 Cool."
+      "summary": "Binharic psalms roared in time with the pistons shake the enemy's resolve.",
+      "text": "All enemy Models within 6\" of a Model with this Special Rule subtract 1 from their Cool Characteristic."
     },
     {
       "name": "Reflex Subroutine",
-      "text": "Legacy house rule. When the model makes a Reaction, it adds +1 to its Initiative for that Reaction."
+      "summary": "A parallel logic engine shortens the response cycle.",
+      "text": "Once per battle, a Unit that includes a Model with this Special Rule may declare one Reaction without spending any points of its Controlling Player's Reaction Allotment."
     }
   ],
   "rites": [
@@ -921,7 +945,7 @@
       "text": "Cold arithmetic does not break, and does not ask why.",
       "benefits": [
         "Castellax Battle and Destructor Maniples may fill Troops slots and gain Line (1).",
-        "They gain Cold Calculus: +1 Ballistic Skill against an enemy unit another Cold Calculus unit has already shot at that phase."
+        "They gain Cold Calculus: +1 Ballistic Skill against an enemy Unit another Cold Calculus Unit has already shot at in the same Phase."
       ],
       "limitations": [
         "A Magos or Archmagos and at least two Castellax Maniples are required.",
@@ -990,7 +1014,7 @@
       "text": "Wall, tower and bunker are only data waiting to be subtracted.",
       "benefits": [
         "Karacnos Assault Tanks and Thanatar Siege Maniples may fill Troops slots.",
-        "Karacnos, Krios, Krios Venator, Thanatar and Ordinatus units gain Subtractive Fire: their Shooting Attacks ignore the target's cover and Shrouded."
+        "Karacnos, Krios, Krios Venator, Thanatar and Ordinatus units gain Subtractive Fire: their Shooting Attacks ignore the target's Cover, Fortification Saves and Shrouded (X)."
       ],
       "limitations": [
         "At least two Karacnos, Krios Venator or Thanatar units are required.",
@@ -1044,7 +1068,7 @@
       "text": "The cult remembers flesh, and has decided it was a mistake worth repeating.",
       "benefits": [
         "Myrmidon Secutor and Destructor Hosts may fill Troops slots and gain Line (1) and Feel No Pain (6+).",
-        "They gain Cult Fervour: +2 Cool on Cool Checks, and once per battle a host at half strength or less gains +1 Attack for a turn."
+        "They gain Cult Fervour: +2 Cool on Cool Checks, and once per battle a host at half strength or less adds 1 to Attacks for a Battle Turn."
       ],
       "limitations": [
         "At least two Myrmidon Hosts are required.",
@@ -1097,7 +1121,7 @@
       "text": "A magos with a dozen Thallax at her back has no need of an escort of friends.",
       "benefits": [
         "Thallax Cohorts may fill Troops slots and gain Line (1) and Fear (1).",
-        "They gain Vigil Protocol: a free 6\" move before the first turn (not within 9\" of the enemy), and a Magos, Archmagos or Tech-Priest within 3\" adds +1 to Cool."
+        "They gain Vigil Protocol: a free 6\" Set-up Move before the first Battle Turn (ending more than 9\" from the enemy), and a Magos, Archmagos or Tech-Priest within 3\" adds 1 to Cool."
       ],
       "limitations": [
         "At least two Thallax Cohorts are required.",
@@ -1159,7 +1183,7 @@
       "text": "The forge-world's billions are an engine too, and can be fed to the war.",
       "benefits": [
         "Tech-Thrall Covenants (both kinds) may fill Troops slots and gain Line (1).",
-        "They gain Endless Tithe: once per battle, the first Covenant destroyed returns from Reserves with Outflank at half its starting models."
+        "They gain Endless Tithe: once per battle, the first Covenant destroyed returns from Reserves with Outflank at half its starting Models."
       ],
       "limitations": [
         "At least two Tech-Thrall Covenants are required.",
@@ -1170,7 +1194,13 @@
   "armyRules": [
     {
       "name": "Cold-Link Command",
-      "text": "Legacy house rule. Automata think only as far as their master's signal reaches. An automata unit within 12\" of a friendly Magos, Archmagos or Arcuitor adds +1 to its Ballistic Skill. Beyond that range, its Initiative counts as 1 lower.",
+      "flavor": "Automata think only as far as their master's signal reaches.",
+      "benefits": [
+        "A Unit with this Special Rule within 12\" of a friendly Magos, Archmagos or Arcuitor adds 1 to the Ballistic Skill Characteristic of all its Models."
+      ],
+      "drawbacks": [
+        "A Unit with this Special Rule that is not within 12\" of a friendly Magos, Archmagos or Arcuitor subtracts 1 from the Initiative Characteristic of all its Models."
+      ],
       "units": [
         "castellax-battle-maniple",
         "castellax-destructor-maniple",
@@ -1190,7 +1220,13 @@
     },
     {
       "name": "Cold Logic",
-      "text": "Legacy house rule. The Thallax and the Myrmidax have been purged of fear and doubt. A unit with this rule automatically passes Pinning checks, but it cannot declare Advanced Reactions.",
+      "flavor": "The Thallax and the Myrmidax have been purged of fear and doubt.",
+      "benefits": [
+        "A Unit with this Special Rule automatically passes any Cool Check made for Pinning."
+      ],
+      "drawbacks": [
+        "A Unit with this Special Rule cannot declare Advanced Reactions."
+      ],
       "units": [
         "thallax-cohort",
         "myrmidon-secutor-host",
@@ -1200,7 +1236,13 @@
     },
     {
       "name": "Overclocked Engines",
-      "text": "Legacy house rule. Forge-priests run their war machines past the safe limits. A vehicle with this rule adds +1 to its Movement, but if it Rushes, roll a D6 afterwards: on a 1 it loses a Hull Point.",
+      "flavor": "Forge-priests run their war machines past the safe limits.",
+      "benefits": [
+        "A Vehicle with this Special Rule adds 1 to its Movement Characteristic."
+      ],
+      "drawbacks": [
+        "After a Vehicle with this Special Rule Rushes, the Controlling Player rolls a Dice. On a 1 the Vehicle loses one Hull Point."
+      ],
       "match": {
         "unitType": "Vehicle",
         "notUnitType": "Ordinatus"

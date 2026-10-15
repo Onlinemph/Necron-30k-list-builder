@@ -1,73 +1,732 @@
 {
   "armyRules": [
-    {"name": "Strike and Withdraw", "text": "Legacy house rule. The Legion hits the line, breaks it and is gone before the counter-blow. A unit with this rule that wins a Combat may make a free Disengage move of up to 3\" at the end of the Assault phase, but from the second consecutive turn it stays Locked in Combat it subtracts 1 from its Weapon Skill.", "match": {"notUnitType": "Vehicle"}, "stats": {"WS": "-1"}, "condition": "from the second consecutive turn Locked in Combat"},
-    {"name": "Horizon-Eaters", "text": "Legacy house rule. Swift riders are hard to pin down and badly suited to standing guard. A unit with this rule that moved 6\" or more in its last Movement phase gains Shrouded (6+) against Shooting Attacks from more than 12\" away, but it does not count as controlling an objective while it is Rushing.", "match": {"roles": ["Recon", "Fast Attack"], "notUnitType": "Flyer"}},
-    {"name": "Honour of the Hunt", "text": "Legacy house rule. A White Scars Character leads from the front and is shamed by hanging back. A Character with this rule adds 1 to its Initiative on the turn it charges, but if it has neither charged nor been in a Challenge by the end of battle turn three, it subtracts 1 from its Cool Checks until it does.", "match": {"unitType": "Command", "notUnitType": "Vehicle"}, "stats": {"I": "+1"}, "condition": "on the turn it charges"}
+    {
+      "name": "Strike and Withdraw",
+      "flavor": "The Legion hits the line, breaks it and is gone before the counter-blow.",
+      "benefits": [
+        "A Unit with this Special Rule that wins a Combat may make a free Disengage move of up to 3\" at the end of the Assault phase."
+      ],
+      "drawbacks": [
+        "From the second consecutive Battle Turn that a Unit with this Special Rule remains Locked in Combat, its Models subtract 1 from their Weapon Skill Characteristic."
+      ],
+      "match": {
+        "notUnitType": "Vehicle"
+      },
+      "stats": {
+        "WS": "-1"
+      },
+      "condition": "from the second consecutive turn Locked in Combat"
+    },
+    {
+      "name": "Horizon-Eaters",
+      "flavor": "Swift riders are hard to pin down and badly suited to standing guard.",
+      "benefits": [
+        "A Unit with this Special Rule that moved 6\" or more during its last Movement phase has the Shrouded (6+) Special Rule against Shooting Attacks made from more than 12\" away."
+      ],
+      "drawbacks": [
+        "A Unit with this Special Rule that moved less than 6\" during its last Movement phase subtracts 1 from its Cool Checks until it next moves."
+      ],
+      "match": {
+        "roles": [
+          "Recon",
+          "Fast Attack"
+        ],
+        "notUnitType": "Flyer"
+      }
+    },
+    {
+      "name": "Honour of the Hunt",
+      "flavor": "A White Scars Character leads from the front and is shamed by hanging back.",
+      "benefits": [
+        "A Model with this Special Rule adds 1 to its Initiative Characteristic on a Battle Turn in which its Unit makes a Charge."
+      ],
+      "drawbacks": [
+        "If a Model with this Special Rule has neither made a Charge nor taken part in a Challenge by the end of the third Battle Turn, it subtracts 1 from its Cool Checks until it does."
+      ],
+      "match": {
+        "unitType": "Command",
+        "notUnitType": "Vehicle"
+      },
+      "stats": {
+        "I": "+1"
+      },
+      "condition": "on the turn it charges"
+    }
   ],
   "weapons": {
     "melee": [
-      {"name": "Chogorian war-sabre", "IM": "+1", "AM": "A", "SM": "S", "AP": 3, "D": 1, "specialRules": ["Duellist's Edge (1)", "Impact (I)"], "traits": ["Power"]},
-      {"name": "Storm lance", "IM": "I", "AM": "A", "SM": "+1", "AP": 3, "D": 1, "specialRules": ["Impact (SM)", "Stun (1)"], "traits": ["Power"]}
+      {
+        "name": "Chogorian war-sabre",
+        "IM": "+1",
+        "AM": "A",
+        "SM": "S",
+        "AP": 3,
+        "D": 1,
+        "specialRules": [
+          "Duellist's Edge (1)",
+          "Impact (I)"
+        ],
+        "traits": [
+          "Power"
+        ]
+      },
+      {
+        "name": "Storm lance",
+        "IM": "I",
+        "AM": "A",
+        "SM": "+1",
+        "AP": 3,
+        "D": 1,
+        "specialRules": [
+          "Impact (SM)",
+          "Stun (1)"
+        ],
+        "traits": [
+          "Power"
+        ]
+      }
     ],
     "ranged": [
-      {"name": "Hunting bolter", "R": 36, "FP": 3, "RS": 4, "AP": 5, "D": 1, "specialRules": ["Precision (5+)", "Heavy (RS)"], "traits": ["Bolt"]},
-      {"name": "Skirmisher's carbine", "R": 18, "FP": 2, "RS": 4, "AP": 4, "D": 1, "specialRules": ["Critical Hit (6+)", "Suppressive (1)"], "traits": ["Bolt"]},
-      {"name": "Tempest flare pistol", "R": 12, "FP": 1, "RS": 4, "AP": "–", "D": 1, "specialRules": ["Pistol", "Stun (2)", "Panic (1)"], "traits": ["Assault"]}
+      {
+        "name": "Hunting bolter",
+        "R": 36,
+        "FP": 3,
+        "RS": 4,
+        "AP": 5,
+        "D": 1,
+        "specialRules": [
+          "Precision (5+)",
+          "Heavy (RS)"
+        ],
+        "traits": [
+          "Bolt"
+        ]
+      },
+      {
+        "name": "Skirmisher's carbine",
+        "R": 18,
+        "FP": 2,
+        "RS": 4,
+        "AP": 4,
+        "D": 1,
+        "specialRules": [
+          "Critical Hit (6+)",
+          "Suppressive (1)"
+        ],
+        "traits": [
+          "Bolt"
+        ]
+      },
+      {
+        "name": "Tempest flare pistol",
+        "R": 12,
+        "FP": 1,
+        "RS": 4,
+        "AP": "–",
+        "D": 1,
+        "specialRules": [
+          "Pistol",
+          "Stun (2)",
+          "Panic (1)"
+        ],
+        "traits": [
+          "Assault"
+        ]
+      }
     ]
   },
   "wargear": [
-    {"name": "Horsetail standard", "text": "Legacy house rule. A tall pole hung with the manes of a hundred fallen rivals, which the unit follows as a banner and a challenge. Every model in the unit gains +1 Movement."},
-    {"name": "Stormcaller's totem", "text": "Legacy house rule. A bone and feather fetish, empty of any power until a Stormseer decides otherwise. The model gains +1 Willpower and +1 Cool."},
-    {"name": "Thunder-drum", "text": "Legacy house rule. A hide drum whose roll carries a mile and tells the enemy the riders are coming. Gives the unit Rolling Thunder."},
-    {"name": "Falcon-feather cloak", "text": "Legacy house rule. A cloak of grey and white pinions that moves with the wind rather than against it. Gives the model Wind-Cloaked."},
-    {"name": "Oath-braid", "text": "Legacy house rule. A braid of knotted horsehair, each knot a vow made to the Khan. Gives the model Sworn Knots."},
-    {"name": "Null-wind charm", "text": "Legacy house rule. A strip of lacquered bone carved with a Stormseer's ward against the Warp. Gives the model Null-Wind Ward."},
-    {"name": "Dust-curtain dispensers", "text": "Legacy house rule. Canisters of powdered ceramite scattered behind the vehicle as it runs. Gives the vehicle Dust Cloud."},
-    {"name": "Hunting horn", "text": "Legacy house rule. A curved horn whose note calls the next wave of riders in from the flank. Gives the model Hunter's Call."}
+    {
+      "name": "Horsetail standard",
+      "summary": "A tall pole hung with the manes of a hundred fallen rivals, which the unit follows as a banner and a challenge.",
+      "text": "A Unit that includes a Model equipped with a Horsetail standard adds 1 to the Movement Characteristic of every Model in it."
+    },
+    {
+      "name": "Stormcaller's totem",
+      "summary": "A bone and feather fetish, empty of any power until a Stormseer decides otherwise.",
+      "text": "A Model equipped with a Stormcaller's totem adds 1 to its Willpower Characteristic and 1 to its Cool Characteristic."
+    },
+    {
+      "name": "Thunder-drum",
+      "summary": "A hide drum whose roll carries a mile and tells the enemy the riders are coming.",
+      "text": "A Unit that includes a Model equipped with a Thunder-drum has the Rolling Thunder Special Rule."
+    },
+    {
+      "name": "Falcon-feather cloak",
+      "summary": "A cloak of grey and white pinions that moves with the wind rather than against it.",
+      "text": "A Model equipped with a Falcon-feather cloak has the Wind-Cloaked Special Rule."
+    },
+    {
+      "name": "Oath-braid",
+      "summary": "A braid of knotted horsehair, each knot a vow made to the Khan.",
+      "text": "A Unit that includes a Model equipped with an Oath-braid has the Sworn Knots Special Rule."
+    },
+    {
+      "name": "Null-wind charm",
+      "summary": "A strip of lacquered bone carved with a Stormseer's ward against the Warp.",
+      "text": "A Unit that includes a Model equipped with a Null-wind charm has the Null-Wind Ward Special Rule."
+    },
+    {
+      "name": "Dust-curtain dispensers",
+      "summary": "Canisters of powdered ceramite scattered behind the vehicle as it runs.",
+      "text": "A Vehicle equipped with Dust-curtain dispensers has the Dust Cloud Special Rule."
+    },
+    {
+      "name": "Hunting horn",
+      "summary": "A curved horn whose note calls the next wave of riders in from the flank.",
+      "text": "A Model equipped with a Hunting horn has the Hunter's Call Special Rule."
+    }
   ],
   "options": [
-    {"units": ["tactical-squad", "despoiler-squad", "assault-squad", "heavy-support-squad", "veteran-tactical-squad", "veteran-assault-squad"], "option": {"id": "ws-war-sabre", "kind": "one", "modelType": "Sergeant", "text": "The Sergeant may take a Chogorian war-sabre", "choices": [{"name": "Chogorian war-sabre", "points": 10}]}},
-    {"units": ["outrider-squadron"], "option": {"id": "ws-outrider-sabre", "kind": "perModel", "model": "Outrider", "replaces": ["Chainsword"], "text": "Any Outrider may exchange their chainsword for", "choices": [{"name": "Chogorian war-sabre", "points": 8}]}},
-    {"units": ["outrider-squadron", "scimitar-jetbike-squadron"], "option": {"id": "ws-rider-sergeant-sabre", "kind": "one", "modelType": "Sergeant", "replaces": ["Chainsword"], "text": "The Sergeant may exchange their chainsword for", "choices": [{"name": "Chogorian war-sabre", "points": 10}]}},
-    {"units": ["golden-keshig"], "option": {"id": "ws-keshig-sabre", "kind": "perModel", "model": ["Keshig Rider", "Keshig Champion"], "replaces": ["Power sword"], "text": "Any Keshig may exchange their power sword for", "choices": [{"name": "Chogorian war-sabre", "points": 5}]}},
-    {"units": ["outrider-squadron"], "option": {"id": "ws-hunting-bolter", "kind": "one", "model": null, "replaces": ["Twin bolter"], "text": "All Outriders may exchange their twin bolter for", "choices": [{"name": "Hunting bolter", "points": 10}]}},
-    {"units": ["tactical-squad", "assault-squad", "veteran-assault-squad", "outrider-squadron", "scimitar-jetbike-squadron", "golden-keshig", "dark-sons-of-death"], "option": {"id": "ws-horsetail", "kind": "upgrade", "model": null, "text": "The unit may carry a Horsetail standard", "choices": [{"name": "Horsetail standard", "points": 15}]}},
-    {"units": ["stormseer", "stormseer-with-jump-pack", "mounted-stormseer", "stormseer-in-terminator-armour"], "option": {"id": "ws-totem", "kind": "upgrade", "model": null, "text": "May carry a Stormcaller's totem", "choices": [{"name": "Stormcaller's totem", "points": 10}]}},
-    {"match": {"roles": ["Command", "High Command"], "notUnitType": "Vehicle"}, "option": {"id": "ws-khan-regalia", "kind": "any", "modelType": "Command", "max": {"fixed": 2}, "text": "Regalia of the Khan's riders: may take up to two", "choices": [{"name": "Falcon-feather cloak", "points": 15}, {"name": "Oath-braid", "points": 10}, {"name": "Null-wind charm", "points": 15}, {"name": "Storm lance", "points": 15}]}},
-    {"units": ["assault-squad", "veteran-assault-squad", "outrider-squadron", "scimitar-jetbike-squadron", "golden-keshig", "dark-sons-of-death"], "option": {"id": "ws-thunder-drum", "kind": "upgrade", "model": null, "text": "The unit may carry a Thunder-drum", "choices": [{"name": "Thunder-drum", "points": 10}]}},
-    {"units": ["tactical-squad", "assault-squad", "outrider-squadron", "scimitar-jetbike-squadron", "reconnaissance-squad", "scout-squad"], "option": {"id": "ws-hunting-horn", "kind": "upgrade", "modelType": "Sergeant", "text": "The Sergeant may carry a Hunting horn", "choices": [{"name": "Hunting horn", "points": 10}]}},
-    {"match": {"unitType": "Vehicle", "notUnitType": "Flyer", "roles": ["Armour", "Transport", "Heavy Transport"]}, "option": {"id": "ws-dust-curtain", "kind": "upgrade", "model": null, "text": "May fit Dust-curtain dispensers", "choices": [{"name": "Dust-curtain dispensers", "points": 10}]}},
-    {"units": ["golden-keshig"], "option": {"id": "ws-keshig-lance", "kind": "perModel", "model": ["Keshig Rider", "Keshig Champion"], "replaces": ["Kontos Power Lance"], "text": "Any Keshig may exchange their Kontos lance for", "choices": [{"name": "Storm lance", "points": 5}]}},
-    {"units": ["scout-squad", "reconnaissance-squad"], "option": {"id": "ws-skirmisher-carbine", "kind": "perModel", "model": ["Scout", "Recon Legionary"], "replaces": ["Bolter"], "max": 2, "text": "Up to two Scouts may exchange their bolter for", "choices": [{"name": "Skirmisher's carbine", "points": 5}]}},
-    {"units": ["tactical-squad", "assault-squad", "outrider-squadron"], "option": {"id": "ws-flare-pistol", "kind": "one", "modelType": "Sergeant", "replaces": ["Bolt pistol"], "text": "The Sergeant may exchange their bolt pistol for", "choices": [{"name": "Tempest flare pistol", "points": 5}]}}
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "assault-squad",
+        "heavy-support-squad",
+        "veteran-tactical-squad",
+        "veteran-assault-squad"
+      ],
+      "option": {
+        "id": "ws-war-sabre",
+        "kind": "one",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may take a Chogorian war-sabre",
+        "choices": [
+          {
+            "name": "Chogorian war-sabre",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "outrider-squadron"
+      ],
+      "option": {
+        "id": "ws-outrider-sabre",
+        "kind": "perModel",
+        "model": "Outrider",
+        "replaces": [
+          "Chainsword"
+        ],
+        "text": "Any Outrider may exchange their chainsword for",
+        "choices": [
+          {
+            "name": "Chogorian war-sabre",
+            "points": 8
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "outrider-squadron",
+        "scimitar-jetbike-squadron"
+      ],
+      "option": {
+        "id": "ws-rider-sergeant-sabre",
+        "kind": "one",
+        "modelType": "Sergeant",
+        "replaces": [
+          "Chainsword"
+        ],
+        "text": "The Sergeant may exchange their chainsword for",
+        "choices": [
+          {
+            "name": "Chogorian war-sabre",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "golden-keshig"
+      ],
+      "option": {
+        "id": "ws-keshig-sabre",
+        "kind": "perModel",
+        "model": [
+          "Keshig Rider",
+          "Keshig Champion"
+        ],
+        "replaces": [
+          "Power sword"
+        ],
+        "text": "Any Keshig may exchange their power sword for",
+        "choices": [
+          {
+            "name": "Chogorian war-sabre",
+            "points": 5
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "outrider-squadron"
+      ],
+      "option": {
+        "id": "ws-hunting-bolter",
+        "kind": "one",
+        "model": null,
+        "replaces": [
+          "Twin bolter"
+        ],
+        "text": "All Outriders may exchange their twin bolter for",
+        "choices": [
+          {
+            "name": "Hunting bolter",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "assault-squad",
+        "veteran-assault-squad",
+        "outrider-squadron",
+        "scimitar-jetbike-squadron",
+        "golden-keshig",
+        "dark-sons-of-death"
+      ],
+      "option": {
+        "id": "ws-horsetail",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The unit may carry a Horsetail standard",
+        "choices": [
+          {
+            "name": "Horsetail standard",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "stormseer",
+        "stormseer-with-jump-pack",
+        "mounted-stormseer",
+        "stormseer-in-terminator-armour"
+      ],
+      "option": {
+        "id": "ws-totem",
+        "kind": "upgrade",
+        "model": null,
+        "text": "May carry a Stormcaller's totem",
+        "choices": [
+          {
+            "name": "Stormcaller's totem",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "roles": [
+          "Command",
+          "High Command"
+        ],
+        "notUnitType": "Vehicle"
+      },
+      "option": {
+        "id": "ws-khan-regalia",
+        "kind": "any",
+        "modelType": "Command",
+        "max": {
+          "fixed": 2
+        },
+        "text": "Regalia of the Khan's riders: may take up to two",
+        "choices": [
+          {
+            "name": "Falcon-feather cloak",
+            "points": 15
+          },
+          {
+            "name": "Oath-braid",
+            "points": 10
+          },
+          {
+            "name": "Null-wind charm",
+            "points": 15
+          },
+          {
+            "name": "Storm lance",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "assault-squad",
+        "veteran-assault-squad",
+        "outrider-squadron",
+        "scimitar-jetbike-squadron",
+        "golden-keshig",
+        "dark-sons-of-death"
+      ],
+      "option": {
+        "id": "ws-thunder-drum",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The unit may carry a Thunder-drum",
+        "choices": [
+          {
+            "name": "Thunder-drum",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "assault-squad",
+        "outrider-squadron",
+        "scimitar-jetbike-squadron",
+        "reconnaissance-squad",
+        "scout-squad"
+      ],
+      "option": {
+        "id": "ws-hunting-horn",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may carry a Hunting horn",
+        "choices": [
+          {
+            "name": "Hunting horn",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "unitType": "Vehicle",
+        "notUnitType": "Flyer",
+        "roles": [
+          "Armour",
+          "Transport",
+          "Heavy Transport"
+        ]
+      },
+      "option": {
+        "id": "ws-dust-curtain",
+        "kind": "upgrade",
+        "model": null,
+        "text": "May fit Dust-curtain dispensers",
+        "choices": [
+          {
+            "name": "Dust-curtain dispensers",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "golden-keshig"
+      ],
+      "option": {
+        "id": "ws-keshig-lance",
+        "kind": "perModel",
+        "model": [
+          "Keshig Rider",
+          "Keshig Champion"
+        ],
+        "replaces": [
+          "Kontos Power Lance"
+        ],
+        "text": "Any Keshig may exchange their Kontos lance for",
+        "choices": [
+          {
+            "name": "Storm lance",
+            "points": 5
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "scout-squad"
+      ],
+      "option": {
+        "id": "ws-skirmisher-carbine",
+        "kind": "perModel",
+        "model": "Scout",
+        "replaces": [
+          "Bolter"
+        ],
+        "max": 2,
+        "text": "Up to two Scouts may exchange their bolter for",
+        "choices": [
+          {
+            "name": "Skirmisher's carbine",
+            "points": 5
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "reconnaissance-squad"
+      ],
+      "option": {
+        "id": "ws-recon-skirmisher-carbine",
+        "kind": "perModel",
+        "model": "Recon Legionary",
+        "replaces": [
+          "Astartes shotgun"
+        ],
+        "max": 2,
+        "text": "Up to two Recon Legionaries may exchange their Astartes shotgun for",
+        "choices": [
+          {
+            "name": "Skirmisher's carbine",
+            "points": 5
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "assault-squad",
+        "outrider-squadron"
+      ],
+      "option": {
+        "id": "ws-flare-pistol",
+        "kind": "one",
+        "modelType": "Sergeant",
+        "replaces": [
+          "Bolt pistol"
+        ],
+        "text": "The Sergeant may exchange their bolt pistol for",
+        "choices": [
+          {
+            "name": "Tempest flare pistol",
+            "points": 5
+          }
+        ]
+      }
+    }
   ],
   "modifiers": [
-    {"units": ["outrider-squadron", "scimitar-jetbike-squadron", "golden-keshig"], "text": "Born to the saddle: +1 I, -1 LD.", "stats": {"I": "+1", "LD": "-1"}},
-    {"units": ["land-speeder-squadron", "javelin-speeder-squadron", "kyzagan-assault-speeder"], "text": "Wind-skimmers: +1 M, -1 T.", "stats": {"M": "+1", "T": "-1"}},
-    {"units": ["assault-squad", "veteran-assault-squad", "dark-sons-of-death"], "text": "Fleet of foot: +1 M, -1 LD.", "stats": {"M": "+1", "LD": "-1"}},
-    {"units": ["tactical-squad", "veteran-tactical-squad"], "text": "Hunters, not brawlers: +1 BS, -1 WS.", "stats": {"BS": "+1", "WS": "-1"}},
-    {"units": ["ebon-keshig"], "text": "Sworn to the Khan: +1 WS, -1 BS.", "stats": {"WS": "+1", "BS": "-1"}},
-    {"units": ["stormseer", "stormseer-with-jump-pack", "mounted-stormseer", "stormseer-in-terminator-armour"], "text": "Voice of the storm: +1 IN, -1 CL.", "stats": {"IN": "+1", "CL": "-1"}},
-    {"units": ["*"], "item": "Horsetail standard", "scope": "unit", "text": "Horsetail standard: +1 M.", "stats": {"M": "+1"}},
-    {"units": ["*"], "item": "Stormcaller's totem", "text": "Stormcaller's totem: +1 WP, +1 CL.", "stats": {"WP": "+1", "CL": "+1"}},
-    {"units": ["*"], "item": "Thunder-drum", "scope": "unit", "text": "Thunder-drum: Rolling Thunder.", "addRules": ["Rolling Thunder"]},
-    {"units": ["*"], "item": "Falcon-feather cloak", "text": "Falcon-feather cloak: Wind-Cloaked.", "addRules": ["Wind-Cloaked"]},
-    {"units": ["*"], "item": "Oath-braid", "scope": "unit", "text": "Oath-braid: Sworn Knots.", "addRules": ["Sworn Knots"]},
-    {"units": ["*"], "item": "Null-wind charm", "scope": "unit", "text": "Null-wind charm: Null-Wind Ward.", "addRules": ["Null-Wind Ward"]},
-    {"units": ["*"], "item": "Dust-curtain dispensers", "scope": "unit", "text": "Dust-curtain dispensers: Dust Cloud.", "addRules": ["Dust Cloud"]},
-    {"units": ["*"], "item": "Hunting horn", "text": "Hunting horn: Hunter's Call.", "addRules": ["Hunter's Call"]}
+    {
+      "units": [
+        "outrider-squadron",
+        "scimitar-jetbike-squadron",
+        "golden-keshig"
+      ],
+      "text": "Born to the saddle: +1 I, -1 LD.",
+      "stats": {
+        "I": "+1",
+        "LD": "-1"
+      }
+    },
+    {
+      "units": [
+        "land-speeder-squadron",
+        "javelin-speeder-squadron",
+        "kyzagan-assault-speeder"
+      ],
+      "text": "Wind-skimmers: +1 M, -1 T.",
+      "stats": {
+        "M": "+1",
+        "T": "-1"
+      }
+    },
+    {
+      "units": [
+        "assault-squad",
+        "veteran-assault-squad",
+        "dark-sons-of-death"
+      ],
+      "text": "Fleet of foot: +1 M, -1 LD.",
+      "stats": {
+        "M": "+1",
+        "LD": "-1"
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "veteran-tactical-squad"
+      ],
+      "text": "Hunters, not brawlers: +1 BS, -1 WS.",
+      "stats": {
+        "BS": "+1",
+        "WS": "-1"
+      }
+    },
+    {
+      "units": [
+        "ebon-keshig"
+      ],
+      "text": "Sworn to the Khan: +1 WS, -1 BS.",
+      "stats": {
+        "WS": "+1",
+        "BS": "-1"
+      }
+    },
+    {
+      "units": [
+        "stormseer",
+        "stormseer-with-jump-pack",
+        "mounted-stormseer",
+        "stormseer-in-terminator-armour"
+      ],
+      "text": "Voice of the storm: +1 IN, -1 CL.",
+      "stats": {
+        "IN": "+1",
+        "CL": "-1"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Horsetail standard",
+      "scope": "unit",
+      "text": "Horsetail standard: +1 M.",
+      "stats": {
+        "M": "+1"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Stormcaller's totem",
+      "text": "Stormcaller's totem: +1 WP, +1 CL.",
+      "stats": {
+        "WP": "+1",
+        "CL": "+1"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Thunder-drum",
+      "scope": "unit",
+      "text": "Thunder-drum: Rolling Thunder.",
+      "addRules": [
+        "Rolling Thunder"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Falcon-feather cloak",
+      "text": "Falcon-feather cloak: Wind-Cloaked.",
+      "addRules": [
+        "Wind-Cloaked"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Oath-braid",
+      "scope": "unit",
+      "text": "Oath-braid: Sworn Knots.",
+      "addRules": [
+        "Sworn Knots"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Null-wind charm",
+      "scope": "unit",
+      "text": "Null-wind charm: Null-Wind Ward.",
+      "addRules": [
+        "Null-Wind Ward"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Dust-curtain dispensers",
+      "scope": "unit",
+      "text": "Dust-curtain dispensers: Dust Cloud.",
+      "addRules": [
+        "Dust Cloud"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Hunting horn",
+      "text": "Hunting horn: Hunter's Call.",
+      "addRules": [
+        "Hunter's Call"
+      ]
+    }
   ],
   "rules": [
-    {"name": "Storm Riders", "text": "Legacy house rule (The Great Hunt). Riders who burst out of the flank are already committed. A unit with this rule that enters play from Reserves may declare a Charge on the turn it arrives."},
-    {"name": "Khagan's Escort", "text": "Legacy house rule (The Khagan's Own). The Khan's chosen ride where he rides. While within 12\" of the Khan, Qin Xa or Hibou Khan, a unit with this rule adds +1 to its Cool Checks and to its Charge rolls."},
-    {"name": "Tempest-Born", "text": "Legacy house rule (Calling the Tempest). Wind, dust and lightning gather round the Stormseers' brothers. A unit with this rule gains Shrouded (6+) against Shooting Attacks."},
-    {"name": "Killers in the Dark", "text": "Legacy house rule (Dark Sons Descend). The Dark Sons are in place before the enemy knows a fight has begun. A unit with this rule gains Infiltrate (9). On the first battle turn, enemy units may not make Reaction Shooting against it."},
-    {"name": "Rolling Thunder", "text": "Legacy house rule. Enemy Reaction Shooting against the unit subtracts 1 from its Hit Tests on the turn the unit charges."},
-    {"name": "Wind-Cloaked", "text": "Legacy house rule. The bearer gains Shrouded (6+) against Shooting Attacks from more than 12\" away."},
-    {"name": "Sworn Knots", "text": "Legacy house rule. Once per battle, the bearer's unit automatically passes one Cool Check."},
-    {"name": "Null-Wind Ward", "text": "Legacy house rule. Enemy Psychic Checks that target the bearer's unit subtract 1 from the result."},
-    {"name": "Dust Cloud", "text": "Legacy house rule. After the vehicle Rushes, enemy Shooting Attacks against it subtract 1 from their Hit Tests until the start of its next turn."},
-    {"name": "Hunter's Call", "text": "Legacy house rule. A friendly unit that arrives from Reserves within 12\" of the bearer adds 1 to its Charge roll on that turn."}
+    {
+      "name": "Storm Riders",
+      "summary": "Riders who burst out of the flank are already committed.",
+      "text": "A Unit composed entirely of Models with this Special Rule that arrives from Reserves may declare a Charge in the same Battle Turn it arrives."
+    },
+    {
+      "name": "Khagan's Escort",
+      "summary": "The Khan's chosen ride where he rides.",
+      "text": "While a Unit with this Special Rule is within 12\" of Jaghatai Khan, Qin Xa or Hibou Khan, its Models add 1 to their Cool Checks and add 1 to the result of its Charge Rolls."
+    },
+    {
+      "name": "Tempest-Born",
+      "summary": "Wind, dust and lightning gather round the Stormseers' brothers.",
+      "text": "A Model with this Special Rule has the Shrouded (6+) Special Rule against Shooting Attacks."
+    },
+    {
+      "name": "Killers in the Dark",
+      "summary": "The Dark Sons are in place before the enemy knows a fight has begun.",
+      "text": "A Unit with this Special Rule has the Infiltrate (9) Special Rule. During the first Battle Turn, enemy Units cannot make Reaction Shooting Attacks against a Unit with this Special Rule."
+    },
+    {
+      "name": "Rolling Thunder",
+      "summary": "The drum rolls, and the enemy hears the hooves before it sees them.",
+      "text": "When a Unit with this Special Rule makes a Charge, enemy Shooting Attacks made as Reactions against it subtract 1 from the result of their Hit Tests."
+    },
+    {
+      "name": "Wind-Cloaked",
+      "summary": "Grey and white pinions flicker where the eye cannot settle.",
+      "text": "A Model with this Special Rule has the Shrouded (6+) Special Rule against Shooting Attacks made from more than 12\" away."
+    },
+    {
+      "name": "Sworn Knots",
+      "summary": "One knot cut, one vow kept, one breath of calm.",
+      "text": "Once per battle, a Unit that includes a Model with this Special Rule automatically passes one Cool Check of the Controlling Player's choice."
+    },
+    {
+      "name": "Null-Wind Ward",
+      "summary": "A carved ward that turns the Warp's breath aside.",
+      "text": "When an enemy Model makes a Psychic Check that targets a Unit including a Model with this Special Rule, it subtracts 1 from the result."
+    },
+    {
+      "name": "Dust Cloud",
+      "summary": "The riders vanish in their own wake.",
+      "text": "After a Vehicle with this Special Rule Rushes, enemy Shooting Attacks that target it subtract 1 from the result of their Hit Tests until the start of its Controlling Player's next Battle Turn."
+    },
+    {
+      "name": "Hunter's Call",
+      "summary": "One note from the horn, and the second wave is already falling.",
+      "text": "When a friendly Unit arrives from Reserves within 12\" of a Model with this Special Rule, it adds 1 to the result of its Charge Roll in that Battle Turn."
+    }
   ],
   "rites": [
     {
@@ -75,7 +734,8 @@
       "flavor": "The steppe has no fortresses. It has only prey that has not yet noticed it is being run down.",
       "benefits": [
         "Outrider Squadrons, Scimitar Jetbike Squadrons and Golden Keshig may fill Troops slots and gain Line (1).",
-        "Those units gain Storm Riders: Outflank, and a unit entering from Reserves may still Charge that turn."
+        "Scimitar Jetbike Squadrons and Golden Keshig gain Outflank; Outrider Squadrons already have it.",
+        "Those units gain Storm Riders: a Unit entering from Reserves may still Charge in that Battle Turn."
       ],
       "limitations": [
         "At least two Outrider, Scimitar or Keshig units are required.",
@@ -83,17 +743,69 @@
         "No Terminator squads, and no Armour, Heavy Transport or War Engine units."
       ],
       "roles": [
-        {"units": ["outrider-squadron", "scimitar-jetbike-squadron", "golden-keshig"], "role": "Troops"}
+        {
+          "units": [
+            "outrider-squadron",
+            "scimitar-jetbike-squadron",
+            "golden-keshig"
+          ],
+          "role": "Troops"
+        }
       ],
       "modifiers": [
-        {"units": ["outrider-squadron", "scimitar-jetbike-squadron", "golden-keshig"], "text": "The Great Hunt: Line (1), Storm Riders, Outflank.", "addRules": ["Line (1)", "Storm Riders", "Outflank"]}
+        {
+          "units": [
+            "outrider-squadron",
+            "scimitar-jetbike-squadron",
+            "golden-keshig"
+          ],
+          "text": "The Great Hunt: Line (1), Storm Riders.",
+          "addRules": [
+            "Line (1)",
+            "Storm Riders"
+          ]
+        },
+        {
+          "units": [
+            "scimitar-jetbike-squadron",
+            "golden-keshig"
+          ],
+          "text": "The Great Hunt: Outflank.",
+          "addRules": [
+            "Outflank"
+          ]
+        }
       ],
       "require": [
-        {"units": ["outrider-squadron", "scimitar-jetbike-squadron", "golden-keshig"], "min": 2, "note": "Bring at least two cavalry squads."}
+        {
+          "units": [
+            "outrider-squadron",
+            "scimitar-jetbike-squadron",
+            "golden-keshig"
+          ],
+          "min": 2,
+          "note": "Bring at least two cavalry squads."
+        }
       ],
       "forbid": [
-        {"units": ["cataphractii-terminator-squad", "tartaros-terminator-squad", "saturnine-terminator-squad", "tartaros-terminator-siege-squad", "indomitus-terminator-squad"]},
-        {"match": {"roles": ["Armour", "Heavy Transport", "War Engine"]}}
+        {
+          "units": [
+            "cataphractii-terminator-squad",
+            "tartaros-terminator-squad",
+            "saturnine-terminator-squad",
+            "tartaros-terminator-siege-squad",
+            "indomitus-terminator-squad"
+          ]
+        },
+        {
+          "match": {
+            "roles": [
+              "Armour",
+              "Heavy Transport",
+              "War Engine"
+            ]
+          }
+        }
       ]
     },
     {
@@ -101,7 +813,7 @@
       "flavor": "When the Khan's own riders and shadows take the line, the rest of the Legion simply follows.",
       "benefits": [
         "Golden Keshig and Ebon Keshig may fill Troops slots and gain Line (1).",
-        "Keshig gain Khagan's Escort: while within 12\" of the Khan, Qin Xa or Hibou Khan they add +1 to Cool Checks and to Charge rolls."
+        "Keshig gain Khagan's Escort: while within 12\" of the Khan, Qin Xa or Hibou Khan they add 1 to their Cool Checks and to their Charge Rolls."
       ],
       "limitations": [
         "The Khan, Qin Xa or Hibou Khan must lead the army.",
@@ -109,17 +821,56 @@
         "No Tactical, Despoiler, Breacher, Scout or Inductii Squads."
       ],
       "roles": [
-        {"units": ["golden-keshig", "ebon-keshig"], "role": "Troops"}
+        {
+          "units": [
+            "golden-keshig",
+            "ebon-keshig"
+          ],
+          "role": "Troops"
+        }
       ],
       "modifiers": [
-        {"units": ["golden-keshig", "ebon-keshig"], "text": "The Khagan's Own: Line (1), Khagan's Escort.", "addRules": ["Line (1)", "Khagan's Escort"]}
+        {
+          "units": [
+            "golden-keshig",
+            "ebon-keshig"
+          ],
+          "text": "The Khagan's Own: Line (1), Khagan's Escort.",
+          "addRules": [
+            "Line (1)",
+            "Khagan's Escort"
+          ]
+        }
       ],
       "require": [
-        {"units": ["jaghatai-khan", "qin-xa", "hibou-khan"], "min": 1, "note": "The Khan, Qin Xa or Hibou Khan must lead the army."},
-        {"units": ["golden-keshig", "ebon-keshig"], "min": 2, "note": "Bring at least two Keshig units."}
+        {
+          "units": [
+            "jaghatai-khan",
+            "qin-xa",
+            "hibou-khan"
+          ],
+          "min": 1,
+          "note": "The Khan, Qin Xa or Hibou Khan must lead the army."
+        },
+        {
+          "units": [
+            "golden-keshig",
+            "ebon-keshig"
+          ],
+          "min": 2,
+          "note": "Bring at least two Keshig units."
+        }
       ],
       "forbid": [
-        {"units": ["tactical-squad", "despoiler-squad", "breacher-squad", "scout-squad", "inductii-squad"]}
+        {
+          "units": [
+            "tactical-squad",
+            "despoiler-squad",
+            "breacher-squad",
+            "scout-squad",
+            "inductii-squad"
+          ]
+        }
       ]
     },
     {
@@ -128,24 +879,71 @@
       "benefits": [
         "Falcon's Claws may fill Troops slots and gain Line (1).",
         "Every Stormseer gains +1 Willpower.",
-        "Stormseers and Falcon's Claws gain Tempest-Born: Shrouded (6+) against Shooting Attacks."
+        "Stormseers and Falcon's Claws gain Tempest-Born: the Shrouded (6+) Special Rule against Shooting Attacks."
       ],
       "limitations": [
         "At least two Stormseers are required.",
         "No Armour, Heavy Transport or Lord of War units."
       ],
       "roles": [
-        {"units": ["falcons-claws"], "role": "Troops"}
+        {
+          "units": [
+            "falcons-claws"
+          ],
+          "role": "Troops"
+        }
       ],
       "modifiers": [
-        {"units": ["falcons-claws"], "text": "Calling the Tempest: Line (1), Tempest-Born.", "addRules": ["Line (1)", "Tempest-Born", "Shrouded (6+)"]},
-        {"units": ["stormseer", "stormseer-with-jump-pack", "mounted-stormseer", "stormseer-in-terminator-armour"], "text": "Calling the Tempest: +1 WP, Tempest-Born.", "stats": {"WP": "+1"}, "addRules": ["Tempest-Born", "Shrouded (6+)"]}
+        {
+          "units": [
+            "falcons-claws"
+          ],
+          "text": "Calling the Tempest: Line (1), Tempest-Born.",
+          "addRules": [
+            "Line (1)",
+            "Tempest-Born",
+            "Shrouded (6+)"
+          ]
+        },
+        {
+          "units": [
+            "stormseer",
+            "stormseer-with-jump-pack",
+            "mounted-stormseer",
+            "stormseer-in-terminator-armour"
+          ],
+          "text": "Calling the Tempest: +1 WP, Tempest-Born.",
+          "stats": {
+            "WP": "+1"
+          },
+          "addRules": [
+            "Tempest-Born",
+            "Shrouded (6+)"
+          ]
+        }
       ],
       "require": [
-        {"units": ["stormseer", "stormseer-with-jump-pack", "mounted-stormseer", "stormseer-in-terminator-armour"], "min": 2, "note": "Bring at least two Stormseers."}
+        {
+          "units": [
+            "stormseer",
+            "stormseer-with-jump-pack",
+            "mounted-stormseer",
+            "stormseer-in-terminator-armour"
+          ],
+          "min": 2,
+          "note": "Bring at least two Stormseers."
+        }
       ],
       "forbid": [
-        {"match": {"roles": ["Armour", "Heavy Transport", "Lord of War"]}}
+        {
+          "match": {
+            "roles": [
+              "Armour",
+              "Heavy Transport",
+              "Lord of War"
+            ]
+          }
+        }
       ]
     },
     {
@@ -153,24 +951,56 @@
       "flavor": "No one remembers the Dark Sons' names. They like it that way, and so does the Khan.",
       "benefits": [
         "Dark Sons of Death may fill Troops slots and gain Line (1).",
-        "Dark Sons gain Killers in the Dark: Infiltrate (9), and enemy units may not make Reaction Shooting against them on the first battle turn."
+        "Dark Sons gain Killers in the Dark: Infiltrate (9), and enemy Units cannot make Reaction Shooting Attacks against them in the first Battle Turn."
       ],
       "limitations": [
         "At least two Dark Sons of Death squads are required.",
         "No Stormseers or other models with the Psyker Trait."
       ],
       "roles": [
-        {"units": ["dark-sons-of-death"], "role": "Troops"}
+        {
+          "units": [
+            "dark-sons-of-death"
+          ],
+          "role": "Troops"
+        }
       ],
       "modifiers": [
-        {"units": ["dark-sons-of-death"], "text": "Dark Sons Descend: Line (1), Killers in the Dark, Infiltrate (9).", "addRules": ["Line (1)", "Killers in the Dark", "Infiltrate (9)"]}
+        {
+          "units": [
+            "dark-sons-of-death"
+          ],
+          "text": "Dark Sons Descend: Line (1), Killers in the Dark, Infiltrate (9).",
+          "addRules": [
+            "Line (1)",
+            "Killers in the Dark",
+            "Infiltrate (9)"
+          ]
+        }
       ],
       "require": [
-        {"units": ["dark-sons-of-death"], "min": 2, "note": "Bring at least two Dark Sons of Death squads."}
+        {
+          "units": [
+            "dark-sons-of-death"
+          ],
+          "min": 2,
+          "note": "Bring at least two Dark Sons of Death squads."
+        }
       ],
       "forbid": [
-        {"units": ["stormseer", "stormseer-with-jump-pack", "mounted-stormseer", "stormseer-in-terminator-armour"]},
-        {"match": {"trait": "Psyker"}}
+        {
+          "units": [
+            "stormseer",
+            "stormseer-with-jump-pack",
+            "mounted-stormseer",
+            "stormseer-in-terminator-armour"
+          ]
+        },
+        {
+          "match": {
+            "trait": "Psyker"
+          }
+        }
       ]
     }
   ]

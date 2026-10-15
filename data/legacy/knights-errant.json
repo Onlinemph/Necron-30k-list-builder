@@ -68,35 +68,43 @@
   "wargear": [
     {
       "name": "Sigillite's black seal",
-      "text": "Legacy house rule. A wax-and-steel writ carrying Malcador's personal authority, which opens any door and closes most arguments. The bearer gains +1 Willpower and +1 Leadership."
+      "summary": "A wax-and-steel writ carrying Malcador's personal authority, which opens any door and closes most arguments.",
+      "text": "A Model equipped with the Sigillite's black seal adds 1 to its Willpower and Leadership Characteristics."
     },
     {
       "name": "Shroud-cloak of the Talons",
-      "text": "Legacy house rule. A cameleoline mantle woven in the Sigillite's own workshops. Enemy units shooting at the bearer from more than 12\" suffer -1 to hit, and the bearer gains +1 Initiative."
+      "summary": "A cameleoline mantle woven in the Sigillite's own workshops.",
+      "text": "A Model equipped with a Shroud-cloak of the Talons adds 1 to its Initiative Characteristic and has the Shrouded (6+) Special Rule."
     },
     {
       "name": "Seeker's death-mask",
-      "text": "Legacy house rule. A lacquered faceplate worn by those who hunt oath-breakers, said to still every doubt behind it."
+      "summary": "A lacquered faceplate worn by those who hunt oath-breakers, said to still every doubt behind it.",
+      "text": "A Model equipped with a Seeker's death-mask has the Unblinking Mask Special Rule."
     },
     {
       "name": "Reliquary of Terran ash",
-      "text": "Legacy house rule. A sealed flask of ash gathered from the Palace grounds and kept against the heart."
+      "summary": "A sealed flask of ash gathered from the Palace grounds and kept against the heart.",
+      "text": "A Model equipped with a Reliquary of Terran ash has the Ashes of the Oath Special Rule."
     },
     {
       "name": "Warding strand",
-      "text": "Legacy house rule. A braid of silvered wire and prayer-tags knotted across the shoulder guards."
+      "summary": "A braid of silvered wire and prayer-tags knotted across the shoulder guards.",
+      "text": "A Model equipped with a Warding strand has the Strand of Warding Special Rule."
     },
     {
       "name": "Quarry lens",
-      "text": "Legacy house rule. An optic tuned to a single writ-signature, scanning for the one face it has been told to find."
+      "summary": "An optic tuned to a single writ-signature, scanning for the one face it has been told to find.",
+      "text": "A Model equipped with a Quarry lens has the Marked Quarry Special Rule."
     },
     {
       "name": "Spite plating",
-      "text": "Legacy house rule. Plates scavenged from fallen cell-engines, riveted over fresh wounds."
+      "summary": "Plates scavenged from fallen cell-engines, riveted over fresh wounds.",
+      "text": "A Model equipped with Spite plating adds 1 to its Toughness Characteristic, subtracts 1 from its Movement Characteristic and has the Plated in Spite Special Rule."
     },
     {
       "name": "Chaff pods",
-      "text": "Legacy house rule. Drop-pods of sheared foil and radiating filament, fired to blind pursuing guns."
+      "summary": "Drop-pods of sheared foil and radiating filament, fired to blind pursuing guns.",
+      "text": "A Model equipped with Chaff pods has the Chaff Veil Special Rule."
     }
   ],
   "options": [
@@ -438,10 +446,13 @@
       ],
       "item": "Shroud-cloak of the Talons",
       "scope": "unit",
-      "text": "Shroud-cloak of the Talons: +1 I.",
+      "text": "Shroud-cloak of the Talons: +1 I, Shrouded (6+).",
       "stats": {
         "I": "+1"
-      }
+      },
+      "addRules": [
+        "Shrouded (6+)"
+      ]
     },
     {
       "units": [
@@ -460,7 +471,7 @@
         "tylos-rubio"
       ],
       "item": "Reliquary of Terran ash",
-      "text": "Reliquary of Terran ash: Ashes of the Oath.",
+      "text": "Reliquary of Terran ash: Feel No Pain (6+), Ashes of the Oath.",
       "addRules": [
         "Feel No Pain (6+)",
         "Ashes of the Oath"
@@ -492,9 +503,10 @@
         "unitType": "Automata"
       },
       "item": "Spite plating",
-      "text": "Spite plating: Plated in Spite.",
+      "text": "Spite plating: Plated in Spite, +1 T, -1 M.",
       "stats": {
-        "SAV": "best:5+"
+        "T": "+1",
+        "M": "-1"
       },
       "addRules": [
         "Plated in Spite"
@@ -514,45 +526,63 @@
   "rules": [
     {
       "name": "Oath-Bonded",
-      "text": "Legacy house rule (Garro's Company). A unit with this rule within 12\" of Nathaniel Garro or Tylos Rubio adds +1 to its Leadership and Cool for Morale and Cool Checks."
+      "summary": "Those who followed Garro followed him because they chose to.",
+      "text": "While a Unit with this Special Rule is within 12\" of Nathaniel Garro or Tylos Rubio, every Model in that Unit adds 1 to its Leadership and Cool Characteristics when the Unit takes a Morale Check or a Cool Check.",
+      "source": "Garro's Company"
     },
     {
       "name": "Sealed Orders",
-      "text": "Legacy house rule (The Hunter-Killer Cell). A unit with this rule gains Outflank. On a turn it arrives from Reserves it may Rush and still fire one weapon at its full Ballistic Skill."
+      "summary": "The order was sealed before launch, and nobody aboard knows what it says.",
+      "text": "A Model with this Special Rule has the Outflank Special Rule. In a Battle Turn in which a Unit that includes a Model with this Special Rule arrives from Reserves, that Unit may Rush and still make a Shooting Attack with one of its Weapons, using its full Ballistic Skill.",
+      "source": "The Hunter-Killer Cell"
     },
     {
       "name": "Unwitnessed",
-      "text": "Legacy house rule (The Unwitnessed Writ). On the first battle turn, enemy units may not target a model with this rule with Shooting Attacks unless it is within 12\" of them."
+      "summary": "No witness, no record, no trial.",
+      "text": "During the first Battle Turn, enemy Units cannot target a Model with this Special Rule with a Shooting Attack unless that Model is within 12\" of them.",
+      "source": "The Unwitnessed Writ"
     },
     {
       "name": "Unblinking Mask",
-      "text": "Legacy house rule. An enemy model in a Challenge with the bearer subtracts 1 from its Focus roll."
+      "summary": "The mask stills every doubt behind it, and sows them in front.",
+      "text": "Enemy Models in a Challenge with a Model with this Special Rule subtract 1 from the result of their Focus Roll."
     },
     {
       "name": "Ashes of the Oath",
-      "text": "Legacy house rule. The bearer gains Feel No Pain (6+) and ignores Fear."
+      "summary": "The ashes of Terra rest against the heart, and nothing the warp offers can shake them.",
+      "text": "A Model with this Special Rule has the Feel No Pain (6+) Special Rule and ignores the effects of the Fear (X) Special Rule."
     },
     {
       "name": "Strand of Warding",
-      "text": "Legacy house rule. Enemy Psychic Checks made to target the bearer or its unit suffer -1."
+      "summary": "Silver wire and prayer-tags turn aside the witch's reach.",
+      "text": "Psychic Checks made by enemy Models to target a Model with this Special Rule, or its Unit, suffer a -1 modifier."
     },
     {
       "name": "Marked Quarry",
-      "text": "Legacy house rule. Once in each of its controlling player's Shooting phases, the first Shooting Attack the unit makes against an enemy unit adds 1 to its Hit Tests."
+      "summary": "The lens finds the one face it was told to find.",
+      "text": "Once in each of the Controlling Player's Shooting Phases, the first Shooting Attack made by a Unit that includes a Model with this Special Rule against an enemy Unit adds 1 to its Hit Tests."
     },
     {
       "name": "Plated in Spite",
-      "text": "Legacy house rule. The model gains a 5+ Save if it was worse. A model with this rule slain in combat inflicts one automatic Hit (S4, AP -) on the unit that slew it."
+      "summary": "Even dead, the cell-engine hates.",
+      "text": "When a Model with this Special Rule is removed as a casualty by a Melee Attack, the enemy Unit that removed it suffers one automatic Hit with a Strength of 4 and an AP of –."
     },
     {
       "name": "Chaff Veil",
-      "text": "Legacy house rule. The first Shooting Attack made against the unit each battle suffers -1 to Hit."
+      "summary": "A cloud of foil and filament blinds the pursuing guns.",
+      "text": "The first Shooting Attack made against a Unit with this Special Rule in each battle subtracts 1 from its Hit Tests."
     }
   ],
   "armyRules": [
     {
       "name": "Hounded by Fate",
-      "text": "Legacy house rule. The two Knights-Errant march with the weight of what they have seen. Nathaniel Garro and Tylos Rubio add 1 to their Cool, but may only be joined to Automata units from this army and are never counted as part of a Legion for any other friendly rule.",
+      "flavor": "The two Knights-Errant march with the weight of what they have seen.",
+      "benefits": [
+        "Nathaniel Garro and Tylos Rubio add 1 to their Cool Characteristic."
+      ],
+      "drawbacks": [
+        "Nathaniel Garro and Tylos Rubio may only be joined to Units of Automata from this army, and are never counted as part of a Legion for any other friendly Special Rule."
+      ],
       "units": [
         "nathaniel-garro",
         "tylos-rubio"
@@ -563,7 +593,14 @@
     },
     {
       "name": "Cold Hunters",
-      "text": "Legacy house rule. The Mechanicum automata of the cell are built for a single purpose, and have no patience for anything else. Automata add 1 to their Ballistic Skill and subtract 1 from their Willpower. They cannot hold or contest objectives unless Nathaniel Garro or Tylos Rubio is within 12\".",
+      "flavor": "The Mechanicum automata of the cell are built for a single purpose, and have no patience for anything else.",
+      "benefits": [
+        "Automata add 1 to their Ballistic Skill Characteristic."
+      ],
+      "drawbacks": [
+        "Automata subtract 1 from their Willpower Characteristic.",
+        "An Automata Unit cannot hold or contest an Objective unless Nathaniel Garro or Tylos Rubio is within 12\"."
+      ],
       "match": {
         "unitType": "Automata"
       },
@@ -579,8 +616,8 @@
       "flavor": "A handful of oath-breakers and loyalists, bound by the one thing neither side believed in.",
       "benefits": [
         "Castellax Battle, Castellax Destructor and Domitar Battle Maniples may fill Troops slots and gain Line (1).",
-        "Maniples gain Oath-Bonded: while within 12\" of Garro or Rubio they add +1 to their Leadership and Cool for Morale and Cool Checks.",
-        "Garro and Rubio gain +1 Leadership."
+        "Maniples gain Oath-Bonded: while within 12\" of Garro or Rubio they add 1 to their Leadership and Cool Characteristics when taking a Morale Check or Cool Check.",
+        "Garro and Rubio add 1 to their Leadership Characteristic."
       ],
       "limitations": [
         "Garro or Rubio must be in the army.",
@@ -644,7 +681,7 @@
       "flavor": "Four fast engines, one sealed order, and nobody to ask what it said.",
       "benefits": [
         "Vorax Attack Maniples and Vultarax Stratos Squadrons may fill Troops slots and gain Line (1).",
-        "They gain Sealed Orders: Outflank, and on a turn it arrives from Reserves a unit may Rush and still fire one weapon."
+        "They gain Sealed Orders: Outflank, and in a Battle Turn in which a Unit arrives from Reserves it may Rush and still make a Shooting Attack with one Weapon."
       ],
       "limitations": [
         "At least one Vorax Attack Maniple is required.",
@@ -698,7 +735,7 @@
       "flavor": "Some orders are carried out in silence, by engines that cannot be questioned and cannot talk.",
       "benefits": [
         "Thanatar Siege Maniples may fill Elites slots.",
-        "Thanatar and Domitar Maniples gain Infiltrate (9) and Unwitnessed: on the first battle turn the enemy can't pick them as a target for Shooting Attacks unless within 12\"."
+        "Thanatar and Domitar Maniples gain Infiltrate (9) and Unwitnessed: in the first Battle Turn the enemy cannot target them with Shooting Attacks unless within 12\"."
       ],
       "limitations": [
         "At least one Thanatar Siege Maniple is required.",

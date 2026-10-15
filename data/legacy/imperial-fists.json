@@ -1,78 +1,753 @@
 {
   "armyRules": [
-    {"name": "Stoic Resilience", "text": "Legacy house rule. The Legion is built to be the last thing standing and has forgotten how to be the first to move. A unit with this rule adds 1 to its Cool, but it may not Rush and it subtracts 1 from its Charge rolls.", "match": {"notUnitType": "Vehicle", "notNameIncludes": ["Templar"]}, "stats": {"CL": "+1"}},
-    {"name": "Siege Engineers", "text": "Legacy house rule. Imperial Fists gunners are taught to reduce a wall one stone at a time. Shooting Attacks made by a unit with this rule ignore the Hit Test penalty for the target being in Cover, but the unit subtracts 1 from its Hit Tests against Flyers and against units that Rushed in their last turn.", "match": {"roles": ["Support", "Armour"]}},
-    {"name": "Wall Captains", "text": "Legacy house rule. Dorn's officers hold ground by standing on it. A Character with this rule adds 1 to its Leadership, and any friendly unit it has joined is never worse than Cool 7, but the Character loses 1 Movement.", "match": {"unitType": "Command", "notUnitType": "Vehicle"}, "stats": {"LD": "+1", "M": "-1"}}
+    {
+      "name": "Stoic Resilience",
+      "flavor": "The Legion is built to be the last thing standing, and has forgotten how to be the first to move.",
+      "benefits": [
+        "A Model with this Special Rule adds 1 to its Cool Characteristic."
+      ],
+      "drawbacks": [
+        "A Unit with this Special Rule cannot Rush, and subtracts 1 from the result of its Charge Rolls."
+      ],
+      "match": {
+        "notUnitType": "Vehicle",
+        "notNameIncludes": [
+          "Templar"
+        ]
+      },
+      "stats": {
+        "CL": "+1"
+      }
+    },
+    {
+      "name": "Siege Engineers",
+      "flavor": "Imperial Fists gunners are taught to reduce a wall one stone at a time.",
+      "benefits": [
+        "Enemy Models cannot make Cover Saves against Wounds caused by a Shooting Attack made by a Model with this Special Rule, if its Unit did not move during its Controlling Player's last Movement phase."
+      ],
+      "drawbacks": [
+        "A Model with this Special Rule subtracts 1 from the result of its Hit Tests when it makes a Shooting Attack against a Flyer or against a Unit that Rushed during its Controlling Player's last Battle Turn."
+      ],
+      "match": {
+        "roles": [
+          "Support",
+          "Armour"
+        ]
+      }
+    },
+    {
+      "name": "Wall Captains",
+      "flavor": "Dorn's officers hold ground by standing on it.",
+      "benefits": [
+        "A Model with this Special Rule adds 1 to its Leadership Characteristic.",
+        "A friendly Unit that includes a Model with this Special Rule treats its Cool Characteristic as 7 if it would otherwise be lower."
+      ],
+      "drawbacks": [
+        "A Model with this Special Rule subtracts 1 from its Movement Characteristic."
+      ],
+      "match": {
+        "unitType": "Command",
+        "notUnitType": "Vehicle"
+      },
+      "stats": {
+        "LD": "+1",
+        "M": "-1"
+      }
+    }
   ],
   "weapons": {
     "melee": [
-      {"name": "Bulwark maul", "IM": -1, "AM": "A", "SM": "+2", "AP": 3, "D": 1, "specialRules": ["Stun (1)", "Shock (Stunned)"], "traits": ["Power"]},
-      {"name": "Templar greatblade", "IM": -1, "AM": "A", "SM": "+2", "AP": 3, "D": 1, "specialRules": ["Reaping Blow (2)", "Murderous (6+)"], "traits": ["Power"]},
-      {"name": "Bastion sledge", "IM": -2, "AM": "A", "SM": "+3", "AP": 3, "D": 2, "specialRules": ["Armourbane", "Stun (1)"], "traits": ["Power"]}
+      {
+        "name": "Bulwark maul",
+        "IM": -1,
+        "AM": "A",
+        "SM": "+2",
+        "AP": 3,
+        "D": 1,
+        "specialRules": [
+          "Stun (1)",
+          "Shock (Stunned)"
+        ],
+        "traits": [
+          "Power"
+        ]
+      },
+      {
+        "name": "Templar greatblade",
+        "IM": -1,
+        "AM": "A",
+        "SM": "+2",
+        "AP": 3,
+        "D": 1,
+        "specialRules": [
+          "Reaping Blow (2)",
+          "Murderous (6+)"
+        ],
+        "traits": [
+          "Power"
+        ]
+      },
+      {
+        "name": "Bastion sledge",
+        "IM": -2,
+        "AM": "A",
+        "SM": "+3",
+        "AP": 3,
+        "D": 2,
+        "specialRules": [
+          "Armourbane",
+          "Stun (1)"
+        ],
+        "traits": [
+          "Power"
+        ]
+      }
     ],
     "ranged": [
-      {"name": "Siege-pattern bolter", "R": 24, "FP": 3, "RS": 4, "AP": 5, "D": 1, "specialRules": ["Heavy (FP)", "Pinning (1)"], "traits": ["Bolt"]},
-      {"name": "Rampart volkite caster", "R": 18, "FP": 2, "RS": 5, "AP": 5, "D": 1, "specialRules": ["Deflagrate (6)", "Suppressive (1)"], "traits": ["Volkite"]},
-      {"name": "Breacher's shell-gun", "R": 12, "FP": 1, "RS": 6, "AP": 3, "D": 2, "specialRules": ["Blast (3\")", "Bypass (6+)"], "traits": ["Assault"]}
+      {
+        "name": "Siege-pattern bolter",
+        "R": 24,
+        "FP": 3,
+        "RS": 4,
+        "AP": 5,
+        "D": 1,
+        "specialRules": [
+          "Heavy (FP)",
+          "Pinning (1)"
+        ],
+        "traits": [
+          "Bolt"
+        ]
+      },
+      {
+        "name": "Rampart volkite caster",
+        "R": 18,
+        "FP": 2,
+        "RS": 5,
+        "AP": 5,
+        "D": 1,
+        "specialRules": [
+          "Deflagrate (6)",
+          "Suppressive (1)"
+        ],
+        "traits": [
+          "Volkite"
+        ]
+      },
+      {
+        "name": "Breacher's shell-gun",
+        "R": 12,
+        "FP": 1,
+        "RS": 6,
+        "AP": 3,
+        "D": 2,
+        "specialRules": [
+          "Blast (3\")",
+          "Bypass (6+)"
+        ],
+        "traits": [
+          "Assault"
+        ]
+      }
     ]
   },
   "wargear": [
-    {"name": "Bastion plate", "text": "Legacy house rule. Extra ceramite slabs bolted over the plate of a man who will not be moved. The model gains +1 Toughness and loses 1 Movement."},
-    {"name": "Rampart standard", "text": "Legacy house rule. A banner planted in the ground and defended to the last. Every model in the unit gains Feel No Pain (6+)."},
-    {"name": "Range-finder array", "text": "Legacy house rule. A pintle-mounted auspex and ranging lasers, calibrated to the yard on a wall the crew has measured a hundred times. Every model in the unit gains +1 Ballistic Skill."},
-    {"name": "Pavise stakes", "text": "Legacy house rule. Sharpened iron stakes driven into the ground before the line to break any charge. Gives the unit Anti-Charge Stakes."},
-    {"name": "Praetorian seal", "text": "Legacy house rule. A seal of Dorn's household, said to steady any unit that sees it. Gives the model Unshaken Seal."},
-    {"name": "Warden's targeter", "text": "Legacy house rule. A rangemark projector that paints a wall for every gun behind it. Gives the model Warden's Mark."},
-    {"name": "Wall-breaker gauntlets", "text": "Legacy house rule. Gauntlets built to tear the doors from fortress gates. Gives the model Wall-Breaker's Grasp."},
-    {"name": "Phalanx pennant", "text": "Legacy house rule. A narrow pennant that tells each warrior where his neighbour stands. Gives the model Closed Ranks."},
-    {"name": "Fortress-lamp cluster", "text": "Legacy house rule. A bank of floodlights and rangefinding lamps lit on the hull. Gives the vehicle Lamp-Lit Targeting."},
-    {"name": "Bastion plating", "text": "Legacy house rule. Extra slabs of vault-grade armour welded across the glacis. Gives the vehicle Layered Plating and +1 Front armour."}
+    {
+      "name": "Bastion plate",
+      "summary": "Extra ceramite slabs bolted over the plate of a man who will not be moved.",
+      "text": "A Model equipped with Bastion plate adds 1 to its Toughness Characteristic and subtracts 1 from its Movement Characteristic."
+    },
+    {
+      "name": "Rampart standard",
+      "summary": "A banner planted in the ground and defended to the last.",
+      "text": "A Unit that includes a Model equipped with a Rampart standard has the Feel No Pain (6+) Special Rule."
+    },
+    {
+      "name": "Range-finder array",
+      "summary": "A pintle-mounted auspex and ranging lasers, calibrated to the yard on a wall the crew has measured a hundred times.",
+      "text": "A Unit that includes a Model equipped with a Range-finder array adds 1 to the Ballistic Skill Characteristic of every Model in it."
+    },
+    {
+      "name": "Pavise stakes",
+      "summary": "Sharpened iron stakes driven into the ground before the line to break any charge.",
+      "text": "A Unit that includes a Model equipped with Pavise stakes has the Anti-Charge Stakes Special Rule."
+    },
+    {
+      "name": "Praetorian seal",
+      "summary": "A seal of Dorn's household, said to steady any Unit that sees it.",
+      "text": "A Unit that includes a Model equipped with a Praetorian seal has the Unshaken Seal Special Rule."
+    },
+    {
+      "name": "Warden's targeter",
+      "summary": "A rangemark projector that paints a wall for every gun behind it.",
+      "text": "A Model equipped with a Warden's targeter has the Warden's Mark Special Rule."
+    },
+    {
+      "name": "Wall-breaker gauntlets",
+      "summary": "Gauntlets built to tear the doors from fortress gates.",
+      "text": "A Model equipped with Wall-breaker gauntlets has the Wall-Breaker's Grasp Special Rule."
+    },
+    {
+      "name": "Phalanx pennant",
+      "summary": "A narrow pennant that tells each warrior where his neighbour stands.",
+      "text": "A Unit that includes a Model equipped with a Phalanx pennant has the Closed Ranks Special Rule."
+    },
+    {
+      "name": "Fortress-lamp cluster",
+      "summary": "A bank of floodlights and rangefinding lamps lit on the hull.",
+      "text": "A Vehicle equipped with a Fortress-lamp cluster has the Lamp-Lit Targeting Special Rule."
+    },
+    {
+      "name": "Bastion plating",
+      "summary": "Extra slabs of vault-grade armour welded across the glacis.",
+      "text": "A Vehicle equipped with Bastion plating adds 1 to its Front Armour Value."
+    }
   ],
   "options": [
-    {"units": ["tactical-squad", "despoiler-squad", "veteran-tactical-squad", "breacher-squad", "phalanx-warder-squad"], "option": {"id": "if-sergeant-arms", "kind": "one", "modelType": "Sergeant", "text": "The Sergeant may take a siege-pattern weapon", "choices": [{"name": "Siege-pattern bolter", "points": 10}, {"name": "Bulwark maul", "points": 10}, {"name": "Power fist", "points": 15}, {"name": "Thunder hammer", "points": 20}]}},
-    {"units": ["templar-brethren"], "option": {"id": "if-templar-greatblade", "kind": "one", "modelType": "Champion", "text": "The Templar Champion may take a Templar greatblade", "choices": [{"name": "Templar greatblade", "points": 15}]}},
-    {"units": ["tactical-squad", "despoiler-squad", "veteran-tactical-squad", "breacher-squad", "phalanx-warder-squad"], "option": {"id": "if-bastion-plate", "kind": "perModel", "model": ["Legionary", "Veteran Legionary", "Phalanx Warder"], "max": 3, "text": "Up to three models may wear Bastion plate", "choices": [{"name": "Bastion plate", "points": 10}]}},
-    {"units": ["tactical-squad", "despoiler-squad", "breacher-squad", "phalanx-warder-squad", "veteran-tactical-squad", "veteran-breacher-squad"], "option": {"id": "if-rampart-standard", "kind": "upgrade", "model": null, "text": "The unit may carry a Rampart standard", "choices": [{"name": "Rampart standard", "points": 25}]}},
-    {"units": ["tactical-support-squad", "heavy-support-squad", "veteran-heavy-support-squad", "rapier-battery"], "option": {"id": "if-range-finder", "kind": "upgrade", "model": null, "text": "The unit may fit a Range-finder array", "choices": [{"name": "Range-finder array", "points": 15}]}},
-    {"match": {"roles": ["Command", "High Command"], "notUnitType": "Vehicle"}, "option": {"id": "if-praetorian-regalia", "kind": "any", "modelType": "Command", "max": {"fixed": 2}, "text": "Praetorian regalia: may take up to two", "choices": [{"name": "Praetorian seal", "points": 20}, {"name": "Warden's targeter", "points": 15}, {"name": "Wall-breaker gauntlets", "points": 15}, {"name": "Bastion sledge", "points": 15}]}},
-    {"units": ["tactical-squad", "despoiler-squad", "veteran-tactical-squad", "breacher-squad", "veteran-breacher-squad", "phalanx-warder-squad", "tactical-support-squad", "heavy-support-squad"], "option": {"id": "if-pavise-stakes", "kind": "upgrade", "model": null, "text": "The unit may plant Pavise stakes", "choices": [{"name": "Pavise stakes", "points": 10}]}},
-    {"units": ["tactical-squad", "despoiler-squad", "veteran-tactical-squad", "breacher-squad", "veteran-breacher-squad", "phalanx-warder-squad", "templar-brethren"], "option": {"id": "if-phalanx-pennant", "kind": "upgrade", "modelType": "Sergeant", "text": "The Sergeant may carry a Phalanx pennant", "choices": [{"name": "Phalanx pennant", "points": 10}]}},
-    {"match": {"unitType": "Vehicle", "notUnitType": "Flyer", "roles": ["Armour", "Transport", "Heavy Transport"]}, "option": {"id": "if-fortress-lamps", "kind": "upgrade", "model": null, "text": "May fit a Fortress-lamp cluster", "choices": [{"name": "Fortress-lamp cluster", "points": 5}]}},
-    {"match": {"unitType": "Vehicle", "notUnitType": "Flyer", "roles": ["Armour", "Transport", "Heavy Transport"]}, "option": {"id": "if-bastion-plating", "kind": "upgrade", "model": null, "text": "May fit Bastion plating", "choices": [{"name": "Bastion plating", "points": 20}]}},
-    {"units": ["tactical-squad", "veteran-tactical-squad"], "option": {"id": "if-volkite-caster", "kind": "perModel", "model": ["Legionary", "Veteran Legionary"], "replaces": ["Bolter"], "max": 2, "text": "Up to two Legionaries may exchange their bolter for", "choices": [{"name": "Rampart volkite caster", "points": 8}]}},
-    {"units": ["breacher-squad"], "option": {"id": "if-shell-gun", "kind": "perModel", "model": "Legionary", "replaces": ["Bolter"], "max": 2, "text": "Up to two Legionaries may exchange their bolter for", "choices": [{"name": "Breacher's shell-gun", "points": 10}]}},
-    {"units": ["tactical-squad", "breacher-squad", "veteran-breacher-squad", "phalanx-warder-squad"], "option": {"id": "if-bastion-sledge", "kind": "one", "modelType": "Sergeant", "text": "The Sergeant may take a Bastion sledge", "choices": [{"name": "Bastion sledge", "points": 15}]}}
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "veteran-tactical-squad",
+        "breacher-squad",
+        "phalanx-warder-squad"
+      ],
+      "option": {
+        "id": "if-sergeant-arms",
+        "kind": "one",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may take a siege-pattern weapon",
+        "choices": [
+          {
+            "name": "Siege-pattern bolter",
+            "points": 10
+          },
+          {
+            "name": "Bulwark maul",
+            "points": 10
+          },
+          {
+            "name": "Power fist",
+            "points": 15
+          },
+          {
+            "name": "Thunder hammer",
+            "points": 20
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "templar-brethren"
+      ],
+      "option": {
+        "id": "if-templar-greatblade",
+        "kind": "one",
+        "modelType": "Champion",
+        "text": "The Templar Champion may take a Templar greatblade",
+        "choices": [
+          {
+            "name": "Templar greatblade",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "veteran-tactical-squad",
+        "breacher-squad",
+        "phalanx-warder-squad"
+      ],
+      "option": {
+        "id": "if-bastion-plate",
+        "kind": "perModel",
+        "model": [
+          "Legionary",
+          "Veteran Legionary",
+          "Phalanx Warder"
+        ],
+        "max": 3,
+        "text": "Up to three models may wear Bastion plate",
+        "choices": [
+          {
+            "name": "Bastion plate",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "breacher-squad",
+        "phalanx-warder-squad",
+        "veteran-tactical-squad",
+        "veteran-breacher-squad"
+      ],
+      "option": {
+        "id": "if-rampart-standard",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The unit may carry a Rampart standard",
+        "choices": [
+          {
+            "name": "Rampart standard",
+            "points": 25
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-support-squad",
+        "heavy-support-squad",
+        "veteran-heavy-support-squad",
+        "rapier-battery"
+      ],
+      "option": {
+        "id": "if-range-finder",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The unit may fit a Range-finder array",
+        "choices": [
+          {
+            "name": "Range-finder array",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "roles": [
+          "Command",
+          "High Command"
+        ],
+        "notUnitType": "Vehicle"
+      },
+      "option": {
+        "id": "if-praetorian-regalia",
+        "kind": "any",
+        "modelType": "Command",
+        "max": {
+          "fixed": 2
+        },
+        "text": "Praetorian regalia: may take up to two",
+        "choices": [
+          {
+            "name": "Praetorian seal",
+            "points": 20
+          },
+          {
+            "name": "Warden's targeter",
+            "points": 15
+          },
+          {
+            "name": "Wall-breaker gauntlets",
+            "points": 15
+          },
+          {
+            "name": "Bastion sledge",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "veteran-tactical-squad",
+        "breacher-squad",
+        "veteran-breacher-squad",
+        "phalanx-warder-squad",
+        "tactical-support-squad",
+        "heavy-support-squad"
+      ],
+      "option": {
+        "id": "if-pavise-stakes",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The unit may plant Pavise stakes",
+        "choices": [
+          {
+            "name": "Pavise stakes",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "veteran-tactical-squad",
+        "breacher-squad",
+        "veteran-breacher-squad",
+        "phalanx-warder-squad",
+        "templar-brethren"
+      ],
+      "option": {
+        "id": "if-phalanx-pennant",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may carry a Phalanx pennant",
+        "choices": [
+          {
+            "name": "Phalanx pennant",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "unitType": "Vehicle",
+        "notUnitType": "Flyer",
+        "roles": [
+          "Armour",
+          "Transport",
+          "Heavy Transport"
+        ]
+      },
+      "option": {
+        "id": "if-fortress-lamps",
+        "kind": "upgrade",
+        "model": null,
+        "text": "May fit a Fortress-lamp cluster",
+        "choices": [
+          {
+            "name": "Fortress-lamp cluster",
+            "points": 5
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "unitType": "Vehicle",
+        "notUnitType": "Flyer",
+        "roles": [
+          "Armour",
+          "Transport",
+          "Heavy Transport"
+        ]
+      },
+      "option": {
+        "id": "if-bastion-plating",
+        "kind": "upgrade",
+        "model": null,
+        "text": "May fit Bastion plating",
+        "choices": [
+          {
+            "name": "Bastion plating",
+            "points": 20
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad"
+      ],
+      "option": {
+        "id": "if-volkite-caster",
+        "kind": "perModel",
+        "model": "Legionary",
+        "replaces": [
+          "Bolter"
+        ],
+        "max": 2,
+        "text": "Up to two Legionaries may exchange their bolter for",
+        "choices": [
+          {
+            "name": "Rampart volkite caster",
+            "points": 8
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "breacher-squad"
+      ],
+      "option": {
+        "id": "if-shell-gun",
+        "kind": "perModel",
+        "model": "Legionary",
+        "replaces": [
+          "Bolter"
+        ],
+        "max": 2,
+        "text": "Up to two Legionaries may exchange their bolter for",
+        "choices": [
+          {
+            "name": "Breacher's shell-gun",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "breacher-squad",
+        "veteran-breacher-squad",
+        "phalanx-warder-squad"
+      ],
+      "option": {
+        "id": "if-bastion-sledge",
+        "kind": "one",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may take a Bastion sledge",
+        "choices": [
+          {
+            "name": "Bastion sledge",
+            "points": 15
+          }
+        ]
+      }
+    }
   ],
   "modifiers": [
-    {"units": ["tactical-squad", "despoiler-squad"], "text": "Bolter drill, rank on rank: +1 BS, -1 M.", "stats": {"BS": "+1", "M": "-1"}},
-    {"units": ["phalanx-warder-squad"], "text": "Phalanx Warders stand as one: +1 LD, -1 I.", "stats": {"LD": "+1", "I": "-1"}},
-    {"units": ["templar-brethren"], "text": "Templars close for the kill: +1 WS, -1 BS.", "stats": {"WS": "+1", "BS": "-1"}},
-    {"units": ["huscarl-terminator-retinue"], "text": "Dorn's own Huscarls strike hard and aim poorly: +1 A, -1 BS.", "stats": {"A": "+1", "BS": "-1"}},
-    {"units": ["alexis-polux", "fafnir-rann"], "text": "Wall-breakers, not duellists: +1 T, -1 I.", "stats": {"T": "+1", "I": "-1"}},
-    {"units": ["vindicator-siege-tank", "predator", "rhino", "land-raider-carrier"], "text": "Siege-hardened hulls, slow to traverse: +1 HP, -1 BS.", "stats": {"HP": "+1", "BS": "-1"}},
-    {"units": ["*"], "item": "Bastion plate", "text": "Bastion plate: +1 T, -1 M.", "stats": {"T": "+1", "M": "-1"}},
-    {"units": ["*"], "item": "Rampart standard", "scope": "unit", "text": "Rampart standard: Feel No Pain (6+).", "addRules": ["Feel No Pain (6+)"]},
-    {"units": ["*"], "item": "Range-finder array", "scope": "unit", "text": "Range-finder array: +1 BS.", "stats": {"BS": "+1"}},
-    {"units": ["*"], "item": "Pavise stakes", "scope": "unit", "text": "Pavise stakes: Anti-Charge Stakes.", "addRules": ["Anti-Charge Stakes"]},
-    {"units": ["*"], "item": "Praetorian seal", "scope": "unit", "text": "Praetorian seal: Unshaken Seal.", "addRules": ["Unshaken Seal"]},
-    {"units": ["*"], "item": "Warden's targeter", "text": "Warden's targeter: Warden's Mark.", "addRules": ["Warden's Mark"]},
-    {"units": ["*"], "item": "Wall-breaker gauntlets", "text": "Wall-breaker gauntlets: Wall-Breaker's Grasp.", "addRules": ["Wall-Breaker's Grasp"]},
-    {"units": ["*"], "item": "Phalanx pennant", "scope": "unit", "text": "Phalanx pennant: Closed Ranks.", "addRules": ["Closed Ranks"]},
-    {"units": ["*"], "item": "Fortress-lamp cluster", "scope": "unit", "text": "Fortress-lamp cluster: Lamp-Lit Targeting.", "addRules": ["Lamp-Lit Targeting"]},
-    {"units": ["*"], "item": "Bastion plating", "scope": "unit", "text": "Bastion plating: +1 Front armour.", "stats": {"FRONT": "+1"}, "addRules": ["Layered Plating"]}
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad"
+      ],
+      "text": "Bolter drill, rank on rank: +1 BS, -1 M.",
+      "stats": {
+        "BS": "+1",
+        "M": "-1"
+      }
+    },
+    {
+      "units": [
+        "phalanx-warder-squad"
+      ],
+      "text": "Phalanx Warders stand as one: +1 LD, -1 I.",
+      "stats": {
+        "LD": "+1",
+        "I": "-1"
+      }
+    },
+    {
+      "units": [
+        "templar-brethren"
+      ],
+      "text": "Templars close for the kill: +1 WS, -1 BS.",
+      "stats": {
+        "WS": "+1",
+        "BS": "-1"
+      }
+    },
+    {
+      "units": [
+        "huscarl-terminator-retinue"
+      ],
+      "text": "Dorn's own Huscarls strike hard and aim poorly: +1 A, -1 BS.",
+      "stats": {
+        "A": "+1",
+        "BS": "-1"
+      }
+    },
+    {
+      "units": [
+        "alexis-polux",
+        "fafnir-rann"
+      ],
+      "text": "Wall-breakers, not duellists: +1 T, -1 I.",
+      "stats": {
+        "T": "+1",
+        "I": "-1"
+      }
+    },
+    {
+      "units": [
+        "vindicator-siege-tank",
+        "predator",
+        "rhino",
+        "land-raider-carrier"
+      ],
+      "text": "Siege-hardened hulls, slow to traverse: +1 HP, -1 BS.",
+      "stats": {
+        "HP": "+1",
+        "BS": "-1"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Bastion plate",
+      "text": "Bastion plate: +1 T, -1 M.",
+      "stats": {
+        "T": "+1",
+        "M": "-1"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Rampart standard",
+      "scope": "unit",
+      "text": "Rampart standard: Feel No Pain (6+).",
+      "addRules": [
+        "Feel No Pain (6+)"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Range-finder array",
+      "scope": "unit",
+      "text": "Range-finder array: +1 BS.",
+      "stats": {
+        "BS": "+1"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Pavise stakes",
+      "scope": "unit",
+      "text": "Pavise stakes: Anti-Charge Stakes.",
+      "addRules": [
+        "Anti-Charge Stakes"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Praetorian seal",
+      "scope": "unit",
+      "text": "Praetorian seal: Unshaken Seal.",
+      "addRules": [
+        "Unshaken Seal"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Warden's targeter",
+      "text": "Warden's targeter: Warden's Mark.",
+      "addRules": [
+        "Warden's Mark"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Wall-breaker gauntlets",
+      "text": "Wall-breaker gauntlets: Wall-Breaker's Grasp.",
+      "addRules": [
+        "Wall-Breaker's Grasp"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Phalanx pennant",
+      "scope": "unit",
+      "text": "Phalanx pennant: Closed Ranks.",
+      "addRules": [
+        "Closed Ranks"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Fortress-lamp cluster",
+      "scope": "unit",
+      "text": "Fortress-lamp cluster: Lamp-Lit Targeting.",
+      "addRules": [
+        "Lamp-Lit Targeting"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Bastion plating",
+      "scope": "unit",
+      "text": "Bastion plating: +1 Front armour.",
+      "stats": {
+        "FRONT": "+1"
+      },
+      "addRules": [
+        "Layered Plating"
+      ]
+    }
   ],
   "rules": [
-    {"name": "Shield Wall", "text": "Legacy house rule (The Unmoved Phalanx). A unit with this rule that did not move in its last Movement phase gains Feel No Pain (6+) against Shooting Attacks and automatically passes Cool Checks."},
-    {"name": "Pre-sighted Arcs", "text": "Legacy house rule (Fire from the Ramparts). The engineers have measured every yard. A unit with this rule that did not move in its Movement phase adds +1 to the Hit Tests of its Shooting Attacks."},
-    {"name": "Sworn Crusaders", "text": "Legacy house rule (Oath of the Templars). A unit with this rule adds +1 to its Charge rolls. If an enemy unit is within 12\" at the start of its Assault phase, it must declare a Charge against the closest one."},
-    {"name": "Household Guard", "text": "Legacy house rule (The Praetorian Retinue). The household is not frightened by anything it has not already faced. A unit with this rule ignores the effects of Fear (X), cannot be Pinned and adds +1 to its Cool Checks."},
-    {"name": "Anti-Charge Stakes", "text": "Legacy house rule. Enemy units that charge a unit with this rule subtract 1 from their Charge rolls."},
-    {"name": "Unshaken Seal", "text": "Legacy house rule. Once per battle, the bearer's unit may ignore one Tactical Status (Pinned, Suppressed or Stunned) when it is applied."},
-    {"name": "Warden's Mark", "text": "Legacy house rule. At the start of each Shooting phase choose one enemy unit within 24\" of the bearer. Friendly Imperial Fists Shooting Attacks against it gain Breaching (6+) until the end of the phase."},
-    {"name": "Wall-Breaker's Grasp", "text": "Legacy house rule. The bearer's melee attacks against Vehicles and Fortifications gain Armourbane."},
-    {"name": "Closed Ranks", "text": "Legacy house rule. A unit with this rule adds 1 to its Cool Checks while every model in it is within 2\" of the Sergeant."},
-    {"name": "Lamp-Lit Targeting", "text": "Legacy house rule. The vehicle's Shooting Attacks ignore the Hit Test penalty for the target being in Cover."},
-    {"name": "Layered Plating", "text": "Legacy house rule. The vehicle's Front armour value is increased by 1."}
+    {
+      "name": "Shield Wall",
+      "summary": "Shoulder to shoulder, the line is a wall that does not bend.",
+      "text": "A Unit with this Special Rule that did not move during its last Movement phase has the Feel No Pain (6+) Special Rule against Wounds caused by Shooting Attacks, and automatically passes Cool Checks, until it next moves."
+    },
+    {
+      "name": "Pre-sighted Arcs",
+      "summary": "The engineers have measured every yard.",
+      "text": "A Model with this Special Rule adds 1 to the result of its Hit Tests when it makes a Shooting Attack, provided its Unit did not move during its Controlling Player's current Movement phase."
+    },
+    {
+      "name": "Sworn Crusaders",
+      "summary": "The oath is sworn, and the only direction left is forward.",
+      "text": "A Unit with this Special Rule adds 1 to the result of its Charge Rolls. If an enemy Unit is within 12\" at the start of this Unit's Assault phase, it must declare a Charge against the closest one."
+    },
+    {
+      "name": "Household Guard",
+      "summary": "The household is not frightened by anything it has not already faced.",
+      "text": "A Unit with this Special Rule is not affected by the Fear (X) Special Rule, cannot be given the Pinned Tactical Status, and adds 1 to its Cool Checks."
+    },
+    {
+      "name": "Anti-Charge Stakes",
+      "summary": "Iron stakes driven into the earth turn every charge into a stumble.",
+      "text": "An enemy Unit that makes a Charge against a Unit with this Special Rule subtracts 1 from the result of its Charge Roll."
+    },
+    {
+      "name": "Unshaken Seal",
+      "summary": "Dorn's seal says that the line will hold, and the line believes it.",
+      "text": "Once per battle, when a Unit that includes a Model with this Special Rule would be given the Pinned, Suppressed or Stunned Tactical Status, the Controlling Player may choose to ignore it."
+    },
+    {
+      "name": "Warden's Mark",
+      "summary": "One target painted for every gun on the wall.",
+      "text": "At the start of each Shooting phase, the Controlling Player chooses one enemy Unit within 24\" of a Model with this Special Rule. Until the end of that phase, Shooting Attacks made by friendly Imperial Fists Models against that Unit using a Weapon with an AP of 4 or worse have the Breaching (5+) Special Rule."
+    },
+    {
+      "name": "Wall-Breaker's Grasp",
+      "summary": "The gate comes off its hinges, and so does whatever stands behind it.",
+      "text": "Melee Weapons used by a Model with this Special Rule have the Armourbane Special Rule when they are used against a Vehicle or a Fortification."
+    },
+    {
+      "name": "Closed Ranks",
+      "summary": "Every man knows where his neighbour stands.",
+      "text": "A Unit with this Special Rule adds 1 to its Cool Checks while every Model in it is within 2\" of its Sergeant."
+    },
+    {
+      "name": "Lamp-Lit Targeting",
+      "summary": "Floodlit, ranged and measured: nothing hides from the hull.",
+      "text": "Cover Saves made against Wounds caused by a Shooting Attack from a Vehicle with this Special Rule have their Target Number increased by 1 (a 5+ Cover Save becomes 6+)."
+    },
+    {
+      "name": "Layered Plating",
+      "summary": "Plate laid on plate, and the hull remembers every hit.",
+      "text": "A Vehicle with this Special Rule adds 1 to its Front Armour Value."
+    }
   ],
   "rites": [
     {
@@ -87,18 +762,50 @@
         "No Fast Attack units, no Antigrav units and no Cavalry."
       ],
       "roles": [
-        {"units": ["phalanx-warder-squad"], "role": "Troops"}
+        {
+          "units": [
+            "phalanx-warder-squad"
+          ],
+          "role": "Troops"
+        }
       ],
       "modifiers": [
-        {"units": ["phalanx-warder-squad"], "text": "The Unmoved Phalanx: Line (2), Shield Wall.", "addRules": ["Line (2)", "Shield Wall"]}
+        {
+          "units": [
+            "phalanx-warder-squad"
+          ],
+          "text": "The Unmoved Phalanx: Line (2), Shield Wall.",
+          "addRules": [
+            "Line (2)",
+            "Shield Wall"
+          ]
+        }
       ],
       "require": [
-        {"units": ["phalanx-warder-squad"], "min": 1, "note": "Bring at least one Phalanx Warder Squad."}
+        {
+          "units": [
+            "phalanx-warder-squad"
+          ],
+          "min": 1,
+          "note": "Bring at least one Phalanx Warder Squad."
+        }
       ],
       "forbid": [
-        {"match": {"role": "Fast Attack"}},
-        {"match": {"unitType": "Antigrav"}},
-        {"match": {"unitType": "Cavalry"}}
+        {
+          "match": {
+            "role": "Fast Attack"
+          }
+        },
+        {
+          "match": {
+            "unitType": "Antigrav"
+          }
+        },
+        {
+          "match": {
+            "unitType": "Cavalry"
+          }
+        }
       ]
     },
     {
@@ -106,34 +813,75 @@
       "flavor": "Every wall is a gun platform if the engineers have been given a week.",
       "benefits": [
         "Tactical Support, Heavy Support and Veteran Heavy Support Squads may fill Troops slots.",
-        "Those squads and Rapier and Tarantula Batteries gain Pre-sighted Arcs: a unit that did not move add +1 to the Hit Tests of their Shooting Attacks."
+        "Those squads and Rapier and Tarantula Batteries gain Pre-sighted Arcs: a Unit that did not move adds 1 to the Hit Tests of its Shooting Attacks."
       ],
       "limitations": [
         "At least one Techmarine is required.",
         "No Heavy Assault or Fast Attack units, and at most one Transport or Heavy Transport."
       ],
       "roles": [
-        {"units": ["tactical-support-squad", "heavy-support-squad", "veteran-heavy-support-squad"], "role": "Troops"}
+        {
+          "units": [
+            "tactical-support-squad",
+            "heavy-support-squad",
+            "veteran-heavy-support-squad"
+          ],
+          "role": "Troops"
+        }
       ],
       "modifiers": [
-        {"units": ["tactical-support-squad", "heavy-support-squad", "veteran-heavy-support-squad", "rapier-battery", "tarantula-battery"], "text": "Fire from the Ramparts: Pre-sighted Arcs.", "addRules": ["Pre-sighted Arcs"]}
+        {
+          "units": [
+            "tactical-support-squad",
+            "heavy-support-squad",
+            "veteran-heavy-support-squad",
+            "rapier-battery",
+            "tarantula-battery"
+          ],
+          "text": "Fire from the Ramparts: Pre-sighted Arcs.",
+          "addRules": [
+            "Pre-sighted Arcs"
+          ]
+        }
       ],
       "require": [
-        {"units": ["techmarine"], "min": 1, "note": "A Techmarine must oversee the works."}
+        {
+          "units": [
+            "techmarine"
+          ],
+          "min": 1,
+          "note": "A Techmarine must oversee the works."
+        }
       ],
       "forbid": [
-        {"match": {"roles": ["Heavy Assault", "Fast Attack"]}}
+        {
+          "match": {
+            "roles": [
+              "Heavy Assault",
+              "Fast Attack"
+            ]
+          }
+        }
       ],
       "limit": [
-        {"match": {"roles": ["Transport", "Heavy Transport"]}, "max": 1, "note": "At most one Transport or Heavy Transport."}
+        {
+          "match": {
+            "roles": [
+              "Transport",
+              "Heavy Transport"
+            ]
+          },
+          "max": 1,
+          "note": "At most one Transport or Heavy Transport."
+        }
       ]
     },
     {
       "name": "Oath of the Templars",
       "flavor": "Before Dorn gave them a wall to defend, they were bred to carry the war into someone else's house.",
       "benefits": [
-        "Templar Brethren may fill Troops slots and gain Sworn Crusaders: they add +1 to Charge rolls.",
-        "Templar Brethren add +1 Initiative on a turn they charge."
+        "Templar Brethren may fill Troops slots and gain Sworn Crusaders: they add 1 to their Charge Rolls.",
+        "Templar Brethren add 1 to their Initiative Characteristic on a Battle Turn in which they Charge."
       ],
       "limitations": [
         "Sigismund or a Praetor of any kind must lead the army.",
@@ -142,18 +890,64 @@
         "No Heavy Assault, Armour or Lord of War units."
       ],
       "roles": [
-        {"units": ["templar-brethren"], "role": "Troops"}
+        {
+          "units": [
+            "templar-brethren"
+          ],
+          "role": "Troops"
+        }
       ],
       "modifiers": [
-        {"units": ["templar-brethren"], "text": "Oath of the Templars: Sworn Crusaders.", "addRules": ["Sworn Crusaders"]},
-        {"units": ["templar-brethren"], "text": "Oath of the Templars: +1 I.", "stats": {"I": "+1"}, "condition": "on a turn the unit charges"}
+        {
+          "units": [
+            "templar-brethren"
+          ],
+          "text": "Oath of the Templars: Sworn Crusaders.",
+          "addRules": [
+            "Sworn Crusaders"
+          ]
+        },
+        {
+          "units": [
+            "templar-brethren"
+          ],
+          "text": "Oath of the Templars: +1 I.",
+          "stats": {
+            "I": "+1"
+          },
+          "condition": "on a turn the unit charges"
+        }
       ],
       "require": [
-        {"units": ["templar-brethren"], "min": 2, "note": "Bring at least two Templar Brethren squads."},
-        {"units": ["sigismund", "praetor", "praetor-in-terminator-armour", "mounted-praetor", "praetor-in-saturnine-terminator-armour"], "min": 1, "note": "Sigismund or a Praetor must lead the Templars."}
+        {
+          "units": [
+            "templar-brethren"
+          ],
+          "min": 2,
+          "note": "Bring at least two Templar Brethren squads."
+        },
+        {
+          "units": [
+            "sigismund",
+            "praetor",
+            "praetor-in-terminator-armour",
+            "mounted-praetor",
+            "praetor-in-saturnine-terminator-armour"
+          ],
+          "min": 1,
+          "note": "Sigismund or a Praetor must lead the Templars."
+        }
       ],
       "forbid": [
-        {"match": {"roles": ["Heavy Assault", "Armour", "Lord of War"]}}
+        {
+          "match": {
+            "roles": [
+              "Heavy Assault",
+              "Armour",
+              "Lord of War"
+            ]
+          }
+        }
       ]
     },
     {
@@ -161,25 +955,57 @@
       "flavor": "The Emperor's Huscarls follow no banner but Dorn's, and Dorn's banner is the Wall.",
       "benefits": [
         "Huscarl Terminator Retinues may fill Troops slots and gain Line (1).",
-        "Huscarls gain Household Guard: they ignore Fear (X), cannot be Pinned and add +1 to their Cool Checks."
+        "Huscarls gain Household Guard: they are not affected by Fear (X), cannot be Pinned and add 1 to their Cool Checks."
       ],
       "limitations": [
         "At least one Huscarl Terminator Retinue is required.",
         "No Cavalry, no Recon units and no Lord of War units."
       ],
       "roles": [
-        {"units": ["huscarl-terminator-retinue"], "role": "Troops"}
+        {
+          "units": [
+            "huscarl-terminator-retinue"
+          ],
+          "role": "Troops"
+        }
       ],
       "modifiers": [
-        {"units": ["huscarl-terminator-retinue"], "text": "The Praetorian Retinue: Line (1), Household Guard.", "addRules": ["Line (1)", "Household Guard"]}
+        {
+          "units": [
+            "huscarl-terminator-retinue"
+          ],
+          "text": "The Praetorian Retinue: Line (1), Household Guard.",
+          "addRules": [
+            "Line (1)",
+            "Household Guard"
+          ]
+        }
       ],
       "require": [
-        {"units": ["huscarl-terminator-retinue"], "min": 1, "note": "Bring at least one Huscarl Terminator Retinue."}
+        {
+          "units": [
+            "huscarl-terminator-retinue"
+          ],
+          "min": 1,
+          "note": "Bring at least one Huscarl Terminator Retinue."
+        }
       ],
       "forbid": [
-        {"match": {"unitType": "Cavalry"}},
-        {"match": {"role": "Recon"}},
-        {"match": {"role": "Lord of War"}}
+        {
+          "match": {
+            "unitType": "Cavalry"
+          }
+        },
+        {
+          "match": {
+            "role": "Recon"
+          }
+        },
+        {
+          "match": {
+            "role": "Lord of War"
+          }
+        }
       ]
     }
   ]

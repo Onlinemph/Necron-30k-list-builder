@@ -84,31 +84,38 @@
   "wargear": [
     {
       "name": "Ember-banner",
-      "text": "Legacy house rule. A banner woven on Nocturne from the cloth of a hearth the Legion swore to defend. Every model in the unit gains +1 Willpower and +1 Intelligence."
+      "text": "Each Model in a Unit that includes a Model equipped with an Ember-banner adds 1 to its Willpower Characteristic and 1 to its Intelligence Characteristic.",
+      "summary": "A banner woven on Nocturne from the cloth of a hearth the Legion swore to defend."
     },
     {
       "name": "Forge-blessed bandolier",
-      "text": "Legacy house rule. Fuel canisters slung across the chest, filled to the cap. Gives the model Fuel Reserve."
+      "text": "A Model equipped with a Forge-blessed bandolier has the Fuel Reserve Special Rule.",
+      "summary": "Fuel canisters slung across the chest, filled to the cap."
     },
     {
       "name": "Mantle of the Drake",
-      "text": "Legacy house rule. A cloak of dragon-hide cured on Nocturne's slopes. The model gains +1 Toughness and Drake-Hide Mantle."
+      "text": "A Model equipped with a Mantle of the Drake adds 1 to its Toughness Characteristic and has the Drake-Hide Mantle Special Rule.",
+      "summary": "A cloak of dragon-hide cured on Nocturne's slopes."
     },
     {
       "name": "Interlocked pavises",
-      "text": "Legacy house rule. Heavy shields that lock edge to edge. Every model in the unit gains Pavise Wall."
+      "text": "Each Model in a Unit that includes a Model equipped with Interlocked pavises has the Pavise Wall Special Rule.",
+      "summary": "Heavy shields that lock edge to edge."
     },
     {
       "name": "Salvage-crew toolkit",
-      "text": "Legacy house rule. A crew that carries a forge on its back. The vehicle gains Field Mending."
+      "text": "A Vehicle equipped with a Salvage-crew toolkit has the Field Mending Special Rule.",
+      "summary": "A crew that carries a forge on its back."
     },
     {
       "name": "Hearth-ram dozer blade",
-      "text": "Legacy house rule. A broad blade of Nocturnean steel. The vehicle gains Hearth-ram Plough."
+      "text": "A Vehicle equipped with a Hearth-ram dozer blade has the Hearth-ram Plough Special Rule.",
+      "summary": "A broad blade of Nocturnean steel."
     },
     {
       "name": "Hearthfire standard",
-      "text": "Legacy house rule. A banner-pole with a steady lamp at its crown. Every model in the unit gains Hearthfire Anchor."
+      "text": "Each Model in a Unit that includes a Model equipped with a Hearthfire standard has the Hearthfire Anchor Special Rule.",
+      "summary": "A banner-pole with a steady lamp at its crown."
     }
   ],
   "options": [
@@ -654,7 +661,7 @@
       "flavor": "Vulkan taught his sons that a wall is only a wall when someone stands behind it.",
       "benefits": [
         "Sanctifier Squads may fill Troops slots.",
-        "Adherents and Sanctifier Squads gain Line (1) and Shield Wall: they automatically pass Morale and Pinning checks while they have not moved this turn."
+        "Adherents and Sanctifier Squads gain Line (1) and Shield Wall: they automatically pass Leadership Checks and Cool Checks while they have not moved this turn."
       ],
       "limitations": [
         "At least one Adherents Squad and one Sanctifier Squad are required.",
@@ -850,48 +857,65 @@
   "rules": [
     {
       "name": "Forge-Fire",
-      "text": "Legacy house rule (Forge-Fires of Nocturne). A unit with this rule adds 1 to the Wound Tests of Shooting Attacks made with flame (Template) weapons."
+      "text": "A Unit that includes a Model with this Special Rule adds 1 to the Wound Tests of its Shooting Attacks made with Weapons that have the Template Special Rule.",
+      "summary": "The drakes walk in front, and nothing that burns stays standing."
     },
     {
       "name": "Shield Wall",
-      "text": "Legacy house rule (Shield of the Weak). A unit with this rule automatically passes Morale and Pinning checks if it has not moved in its own most recent Movement phase."
+      "text": "A Unit made up entirely of Models with this Special Rule that did not move in its Controlling Player's most recent Movement Phase automatically passes any Leadership Check or Cool Check it is required to make.",
+      "summary": "A wall is only a wall when someone stands behind it."
     },
     {
       "name": "Anvil Advance",
-      "text": "Legacy house rule (The Armoured Anvil). A model with this rule gains Line (1), and on the first battle turn it may Rush and still make a Shooting Attack."
+      "text": "During the first Battle Turn, a Model with this Special Rule that Rushes may still make a Shooting Attack.",
+      "summary": "The tanks of Nocturne are tempered twice and they do not wait for the infantry."
     },
     {
       "name": "Unbowed Elders",
-      "text": "Legacy house rule (Procession of the Honoured). Once per battle, a model with this rule may treat one Hit Test as if it had rolled a 6."
+      "text": "Once per Battle, a Model with this Special Rule may treat one Hit Test it makes as if the result of the Dice roll had been a 6.",
+      "summary": "The entombed brothers have never missed what they were aiming at."
     },
     {
       "name": "Fuel Reserve",
-      "text": "Legacy house rule. The unit of a model with this rule ignores the first natural 1 each battle for Overstoked Promethium, and its flame (Template) weapons add 1 to their Wound Tests against units that are Aflame."
+      "text": "The first time in each Battle that a Unit including a Model with this Special Rule would suffer from a natural 1 for the Overstoked Promethium Special Rule, it ignores that result. In addition, the Unit adds 1 to the Wound Tests of its Shooting Attacks made with Weapons that have the Template Special Rule against enemy Units that are aflame.",
+      "summary": "Canisters filled to the cap burn hotter and last longer."
     },
     {
       "name": "Drake-Hide Mantle",
-      "text": "Legacy house rule. Damage from Template weapons and weapons with Aflame (X) against a model with this rule is reduced by 1 (to a minimum of 1)."
+      "text": "When a Model with this Special Rule suffers Damage from a Weapon that has the Template Special Rule or the Aflame (X) Special Rule, reduce that Damage by 1, to a minimum of 1.",
+      "summary": "Dragon-hide turns the worst of the fire aside."
     },
     {
       "name": "Pavise Wall",
-      "text": "Legacy house rule. A unit with this rule that did not move in its last Movement phase gains Shrouded (5+) against Shooting Attacks."
+      "text": "A Model with this Special Rule has the Shrouded (5+) Special Rule against Shooting Attacks, provided its Unit did not move in its Controlling Player's most recent Movement Phase.",
+      "summary": "Shields locked edge to edge turn the enemy's fire."
     },
     {
       "name": "Field Mending",
-      "text": "Legacy house rule. Once per battle, at the start of its controller's turn, a vehicle with this rule may remove one Tactical Status or restore one lost Hull Point."
+      "text": "Once per Battle, at the start of its Controlling Player's Battle Turn, a Vehicle with this Special Rule may remove one Tactical Status from itself or restore one lost Hull Point.",
+      "summary": "A crew that carries a forge on its back keeps the engine fighting."
     },
     {
       "name": "Hearth-ram Plough",
-      "text": "Legacy house rule. A vehicle with this rule ignores movement penalties from barricades and rubble, and adds 1 to the Hits it inflicts when it moves through enemy units."
+      "text": "A Vehicle with this Special Rule ignores movement penalties from barricades and rubble, and adds 1 to the number of Hits it inflicts when it moves through an enemy Unit.",
+      "summary": "A broad blade clears the way and the enemy with it."
     },
     {
       "name": "Hearthfire Anchor",
-      "text": "Legacy house rule. The unit of a model with this rule counts as having two additional models when Controlling an Objective, and adds 1 to Cool Checks while it does."
+      "text": "When a Unit that includes a Model with this Special Rule is counted for Controlling an Objective, it counts as having two additional Models for the purposes of determining Tactical Strength, and its Models add 1 to their Cool Characteristic while it does.",
+      "summary": "A steady lamp at its crown shows the line where to stand."
     }
   ],
   "armyRules": [
     {
       "name": "Stoic Defenders",
+      "flavor": "Salamanders do not give ground.",
+      "benefits": [
+        "A Model with this Special Rule adds 1 to its Cool Characteristic if its Unit did not move in its Controlling Player's most recent Movement Phase."
+      ],
+      "drawbacks": [
+        "A Unit with this Special Rule may not Rush during the first Battle Turn."
+      ],
       "match": {
         "roles": [
           "Troops",
@@ -905,11 +929,17 @@
       "stats": {
         "CL": "+1"
       },
-      "condition": "if the unit did not move in its last Movement phase",
-      "text": "Legacy house rule. Salamanders do not give ground. A unit with this rule adds 1 to its Cool if it did not move in its last Movement phase. The price is a slow start: it may not Rush on the first battle turn."
+      "condition": "if the unit did not move in its last Movement phase"
     },
     {
       "name": "Nocturne's Mercy",
+      "flavor": "A captain who tends his own.",
+      "benefits": [
+        "Once per Battle, a Model with this Special Rule may restore one lost Wound to a friendly Infantry Model within 6\"."
+      ],
+      "drawbacks": [
+        "A Model with this Special Rule may not Rush."
+      ],
       "match": {
         "roles": [
           "High Command",
@@ -917,11 +947,17 @@
         ],
         "notUnitType": "Vehicle"
       },
-      "optionalUnits": true,
-      "text": "Legacy house rule. A captain who tends his own. Once per battle, a model with this rule may restore one lost Wound to a friendly Infantry model within 6\". The vow of protection costs mobility: the model may not Rush."
+      "optionalUnits": true
     },
     {
       "name": "Overstoked Promethium",
+      "flavor": "Salamander flame weapons burn hot.",
+      "benefits": [
+        "Weapons with the Template Special Rule fired by a Unit with this Special Rule add 1 to the value of their Panic (X) Special Rule."
+      ],
+      "drawbacks": [
+        "When a Hit Test made for such a Weapon has a natural result of 1, the firing Unit suffers 1 Hit from that Weapon."
+      ],
       "units": [
         "tactical-squad",
         "despoiler-squad",
@@ -932,8 +968,7 @@
         "sanctifier-squad",
         "adherents-squad"
       ],
-      "optionalUnits": true,
-      "text": "Legacy house rule. Salamander flame weapons burn hot. Template weapons fired by a unit with this rule add 1 to their Panic (X) value. The fuel is unstable: on a natural 1 on any Hit Test with such a weapon, the firing unit suffers 1 Hit from the weapon."
+      "optionalUnits": true
     }
   ]
 }

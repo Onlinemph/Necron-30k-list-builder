@@ -2,7 +2,13 @@
   "armyRules": [
     {
       "name": "Last Stand of the Broken Fleets",
-      "text": "Legacy house rule. A unit with this rule at half strength or fewer fights on with a survivor's fury: each model gains +1 Attack. A unit with this rule can never choose to Fall Back.",
+      "flavor": "With no fleet left to retreat to, every survivor fights to the last.",
+      "benefits": [
+        "While a Unit with this Special Rule is at half strength or fewer, every Model in it adds 1 to its Attacks Characteristic."
+      ],
+      "drawbacks": [
+        "A Unit with this Special Rule can never voluntarily Fall Back."
+      ],
       "match": {
         "notUnitType": "Vehicle"
       },
@@ -13,7 +19,13 @@
     },
     {
       "name": "Mixed Banners",
-      "text": "Legacy house rule. A Character with this rule is the glue of the survivors. Friendly units within 6\" add +1 to their Cool. If the Character is removed, every friendly unit within 12\" must pass a Cool Check or gain the Pinned Status.",
+      "flavor": "Survivors of seven Legions follow whoever is still standing.",
+      "benefits": [
+        "Friendly Units within 6\" of a Model with this Special Rule add 1 to their Cool Characteristic."
+      ],
+      "drawbacks": [
+        "If a Model with this Special Rule is removed as a casualty, every friendly Unit within 12\" of it must immediately pass a Cool Check or gain the Pinned Tactical Status."
+      ],
       "units": [
         "hibou-khan",
         "alexis-polux",
@@ -25,7 +37,13 @@
     },
     {
       "name": "Held Together by Spite",
-      "text": "Legacy house rule. A Dreadnought with this rule gains Feel No Pain (6+), but cannot Rush.",
+      "flavor": "Too stubborn to stop, too broken to run.",
+      "benefits": [
+        "A Dreadnought with this Special Rule has the Feel No Pain (6+) Special Rule."
+      ],
+      "drawbacks": [
+        "A Dreadnought with this Special Rule cannot Rush."
+      ],
       "units": [
         "contemptor-dreadnought",
         "castra-ferrum-dreadnought",
@@ -119,81 +137,100 @@
   "wargear": [
     {
       "name": "Wall of Names banner",
-      "text": "Legacy house rule. A tattered banner stitched with the names of everyone who didn't make it off the world. Every model in the unit gains +1 Willpower and +1 Intelligence."
+      "summary": "A tattered banner stitched with the names of everyone who didn't make it off the world.",
+      "text": "While a Unit includes a Model equipped with a Wall of Names banner, every Model in that Unit adds 1 to its Willpower and Intelligence Characteristics."
     },
     {
       "name": "Patched refractor field",
-      "text": "Legacy house rule. A refractor belt salvaged from a dead officer and repaired with whatever was to hand. The model's Invulnerable Save becomes 5+ if it was worse."
+      "summary": "A refractor belt salvaged from a dead officer and repaired with whatever was to hand.",
+      "text": "A Model equipped with a Patched refractor field has an Invulnerable Save of 5+, unless it already has a better Invulnerable Save."
     },
     {
       "name": "Field-welded plating",
-      "text": "Legacy house rule. Hull plates from three different wrecks, welded onto an Ancient who refuses to stay dead. The model gains +1 Wound."
+      "summary": "Hull plates from three different wrecks, welded onto an Ancient who refuses to stay dead.",
+      "text": "While a Unit includes a Model equipped with Field-welded plating, every Model in that Unit adds 1 to its Wounds Characteristic."
     },
     {
       "name": "Ashes reliquary",
-      "text": "Legacy house rule. A sealed urn of soil from a homeworld that no longer exists. Gives the bearer Ashes Remembered."
+      "summary": "A sealed urn of soil from a homeworld that no longer exists.",
+      "text": "A Model equipped with an Ashes reliquary has the Ashes Remembered Special Rule."
     },
     {
       "name": "Cracked void-plate",
-      "text": "Legacy house rule. Armour that once sealed a ship's airlock and has outlasted three owners. Gives the bearer Scar-Hardened."
+      "summary": "Armour that once sealed a ship's airlock and has outlasted three owners.",
+      "text": "A Model equipped with Cracked void-plate has the Scar-Hardened Special Rule."
     },
     {
       "name": "Tithe crate",
-      "text": "Legacy house rule. The last of the squad's ammunition, handed round before the final push. Gives the unit Tithe of Shells."
+      "summary": "The last of the squad's ammunition, handed round before the final push.",
+      "text": "A Model equipped with a Tithe crate gives its Unit the Tithe of Shells Special Rule."
     },
     {
       "name": "Rally beacon",
-      "text": "Legacy house rule. A hand-cranked lamp whose pattern every survivor of the old fleets still knows. Gives the bearer Rally Flare."
+      "summary": "A hand-cranked lamp whose pattern every survivor of the old fleets still knows.",
+      "text": "A Model equipped with a Rally beacon gives its Unit the Rally Flare Special Rule."
     },
     {
       "name": "Slab-plates",
-      "text": "Legacy house rule. Slabs cut from fallen hulls and bolted over every joint. Gives the model Slab-Plated."
+      "summary": "Slabs cut from fallen hulls and bolted over every joint.",
+      "text": "While a Unit includes a Model equipped with Slab-plates, every Model in that Unit has the Slab-Plated Special Rule."
     },
     {
       "name": "Orphaned machine-spirit",
-      "text": "Legacy house rule. A cogitator core that has lost its crew and learned to watch for itself. Gives the model Vigil Spirit."
+      "summary": "A cogitator core that has lost its crew and learned to watch for itself.",
+      "text": "While a Unit includes a Model equipped with an Orphaned machine-spirit, every Model in that Unit has the Vigil Spirit Special Rule."
     }
   ],
   "rules": [
     {
       "name": "Muster Call",
-      "text": "Legacy house rule (Broken Banners Reforged). A unit with this rule adds +1 to its Cool for Cool Checks while another friendly Inductii unit is within 12\"."
+      "summary": "Seven Legions' worth of orphans answer a single call.",
+      "text": "While at least one other friendly Inductii Unit is within 12\" of a Unit with this Special Rule, every Model in that Unit adds 1 to its Cool Characteristic when making a Cool Check."
     },
     {
       "name": "Survivor's Oath",
-      "text": "Legacy house rule (Oath of the Survivors). A unit with this rule adds +1 to its Cool for Cool Checks while it is within 12\" of a friendly Garviel Loken, Saul Tarvitz, Shadrak Meduson, Alexis Polux or Hibou Khan."
+      "summary": "Whoever else is dead, somebody has to carry the story out.",
+      "text": "While a Unit with this Special Rule is within 12\" of a friendly Garviel Loken, Saul Tarvitz, Shadrak Meduson, Alexis Polux or Hibou Khan, every Model in that Unit adds 1 to its Cool Characteristic when making a Cool Check. A Model with this Special Rule that is Locked in Combat, or Engaged in a Challenge, with an enemy Model of the Traitor allegiance adds 1 to all Wound Tests it makes in that Combat, up to a total bonus of +1 from this Special Rule and any Hatred (X) Special Rule combined."
     },
     {
       "name": "Dig In",
-      "text": "Legacy house rule (Fortress of the Last Stand). A unit with this rule has Shrouded (6+) against shooting attacks while it has not moved in its own most recent Movement phase."
+      "summary": "If you cannot leave, you had better dig in.",
+      "text": "A Model with this Special Rule has the Shrouded (6+) Special Rule against Shooting Attacks while its Unit did not move during its own most recent Move Sub-Phase."
     },
     {
       "name": "Ancient Resolve",
-      "text": "Legacy house rule (The Ancients Awake). A unit with this rule is immune to Fear and automatically passes Cool Checks. It must be deployed on the table and may not be held in Reserve."
+      "summary": "The oldest warriors have already died once and see no reason to flinch now.",
+      "text": "A Unit with this Special Rule is immune to the Fear (X) Special Rule and automatically passes every Cool Check it is required to make. It must be deployed on the Battlefield and cannot be held in Reserves."
     },
     {
       "name": "Ashes Remembered",
-      "text": "Legacy house rule. Friendly Shattered Legions units within 6\" of the bearer add +1 to their Cool for Cool Checks. Once per battle the bearer's unit may pass a Cool Check automatically."
+      "summary": "The soil of a dead homeworld, carried to the next battle.",
+      "text": "Friendly Shattered Legions Units within 6\" of a Model with this Special Rule add 1 to their Cool Characteristic when making a Cool Check. Once per battle, the Controlling Player may declare that the Unit including that Model automatically passes one Cool Check it is required to make."
     },
     {
       "name": "Scar-Hardened",
-      "text": "Legacy house rule. The first Wound the bearer would lose each battle is ignored."
+      "summary": "Armour that has outlasted three owners refuses to give up a fourth.",
+      "text": "The first Wound allocated to a Model with this Special Rule in each battle is discarded."
     },
     {
       "name": "Tithe of Shells",
-      "text": "Legacy house rule. Once per battle, in the Shooting phase, a unit with this rule adds 1 to the Firepower of each of its ranged weapons for one Shooting Attack."
+      "summary": "The last of the ammunition, handed round before the final push.",
+      "text": "Once per battle, when a Unit with this Special Rule makes a Shooting Attack, each Ranged Weapon used adds 1 to its Firepower Characteristic for the duration of that Shooting Attack."
     },
     {
       "name": "Rally Flare",
-      "text": "Legacy house rule. Once per battle, at the start of a friendly turn, the bearer's unit and one other friendly unit within 12\" each remove one Tactical Status."
+      "summary": "A lamp pattern every survivor of the old fleets still knows.",
+      "text": "Once per battle, at the start of a friendly Player Turn, the Controlling Player may remove one Tactical Status from the Unit that includes a Model with this Special Rule, and one Tactical Status from one other friendly Unit within 12\"."
     },
     {
       "name": "Slab-Plated",
-      "text": "Legacy house rule. Unsaved Wounds from weapons with AP 4 or worse inflict 1 less Damage on this model, to a minimum of 1."
+      "summary": "Slabs cut from fallen hulls and bolted over every joint.",
+      "text": "Each unsaved Wound inflicted on a Model with this Special Rule inflicts 1 less Damage, to a minimum of 1."
     },
     {
       "name": "Vigil Spirit",
-      "text": "Legacy house rule. Once per battle, when an enemy unit ends a move within 12\", this model may make a Shooting Attack against it at -1 Ballistic Skill."
+      "summary": "A machine-spirit that has lost its crew and learned to watch for itself.",
+      "text": "Once per battle, when an enemy Unit ends a Move within 12\" of a Model with this Special Rule, that Model may immediately make a Shooting Attack against that Unit, subtracting 1 from its Ballistic Skill Characteristic for the Hit Tests."
     }
   ],
   "options": [
@@ -295,7 +332,12 @@
         "choices": [
           {
             "name": "Patched refractor field",
-            "points": 10
+            "points": 10,
+            "onlyIf": {
+              "worse": {
+                "INV": "5+"
+              }
+            }
           }
         ]
       }
@@ -737,8 +779,8 @@
       "name": "Oath of the Survivors",
       "flavor": "Whoever else is dead, somebody has to carry the story out.",
       "benefits": [
-        "Every Legion Infantry unit gains +1 Willpower and Hatred (Traitors).",
-        "Those units gain Survivor's Oath: +1 Cool for Cool Checks while within 12\" of the army's named survivor."
+        "Every Legion Infantry unit gains +1 Willpower and Survivor's Oath: +1 Cool for Cool Checks while within 12\" of one of the army's named survivors.",
+        "Under Survivor's Oath, those units add 1 to Wound Tests against Traitor Models in combat, sharing a single +1 with any Hatred (X) they already have."
       ],
       "limitations": [
         "Garviel Loken, Saul Tarvitz, Shadrak Meduson, Alexis Polux or Hibou Khan must be in the army.",
@@ -777,12 +819,11 @@
             "unitType": "Infantry",
             "notUnitType": "Vehicle"
           },
-          "text": "Oath of the Survivors: Hatred (Traitors), Survivor's Oath.",
+          "text": "Oath of the Survivors: +1 WP, Survivor's Oath.",
           "stats": {
             "WP": "+1"
           },
           "addRules": [
-            "Hatred (Traitors)",
             "Survivor's Oath"
           ]
         }

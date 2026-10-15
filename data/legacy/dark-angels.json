@@ -2,7 +2,13 @@
   "armyRules": [
     {
       "name": "Lock-Step of the Deathwing",
-      "text": "Legacy house rule. A Terminator unit with this rule ignores the Pinned Status while within 6\" of another friendly Dark Angels Terminator unit, but cannot Rush on a turn it arrives by Deep Strike.",
+      "flavor": "The Deathwing advances as one and falls as one.",
+      "benefits": [
+        "A Unit with this Special Rule cannot gain the Pinned Tactical Status while it is within 6\" of another friendly Dark Angels Terminator Unit."
+      ],
+      "drawbacks": [
+        "A Unit with this Special Rule cannot Rush in a Player Turn in which it entered play from Reserves by Deep Strike."
+      ],
       "match": {
         "nameIncludes": [
           "Terminator",
@@ -15,7 +21,13 @@
     },
     {
       "name": "Ravenwing Strike and Fade",
-      "text": "Legacy house rule. After making a Shooting Attack, a unit with this rule that did not Rush may make a free 3\" move directly away from the nearest enemy unit. If it does, it cannot declare a Charge that turn.",
+      "flavor": "Strike, vanish, strike again.",
+      "benefits": [
+        "After making a Shooting Attack in a Player Turn in which it did not Rush, a Unit with this Special Rule may make a free Move of up to 3\" directly away from the nearest enemy Unit."
+      ],
+      "drawbacks": [
+        "A Unit that makes this free Move cannot declare a Charge in the same Player Turn."
+      ],
       "units": [
         "outrider-squadron",
         "scimitar-jetbike-squadron",
@@ -27,7 +39,13 @@
     },
     {
       "name": "The Guilty Secret",
-      "text": "Legacy house rule. A Character with this rule is driven by a secret it will not share. It gains +1 Willpower and +1 Intelligence, but suffers -1 Cool.",
+      "flavor": "Every Dark Angel carries something he will not confess.",
+      "benefits": [
+        "A Model with this Special Rule adds 1 to its Willpower and Intelligence Characteristics."
+      ],
+      "drawbacks": [
+        "A Model with this Special Rule subtracts 1 from its Cool Characteristic."
+      ],
       "match": {
         "roles": [
           "Command",
@@ -142,77 +160,100 @@
   "wargear": [
     {
       "name": "Deathwing oath-standard",
-      "text": "Legacy house rule. A tattered banner bearing the names of the sworn, carried by the one brother who will never be asked what it is for. Every model in the unit gains +1 Willpower and +1 Leadership."
+      "summary": "A tattered banner bearing the names of the sworn, carried by the one brother who will never be asked what it is for.",
+      "text": "While a Unit includes a Model equipped with a Deathwing oath-standard, every Model in that Unit adds 1 to its Willpower and Leadership Characteristics."
     },
     {
       "name": "Ravenwing veil-field",
-      "text": "Legacy house rule. A dispersal screen that smears the heat-shadow of riders and scouts across the horizon. The unit gains Shrouded (6+)."
+      "summary": "A dispersal screen that smears the heat-shadow of riders and scouts across the horizon.",
+      "text": "While a Unit includes a Model equipped with a Ravenwing veil-field, every Model in that Unit has the Heat Shadow Special Rule."
     },
     {
       "name": "Penitent's rosarius",
-      "text": "Legacy house rule. A chained reliquary of the Order, said to turn aside what it cannot explain. Gives the bearer Warding Rosarius."
+      "summary": "A chained reliquary of the Order, said to turn aside what it cannot explain.",
+      "text": "A Model equipped with a Penitent's rosarius has the Warding Rosarius Special Rule."
     },
     {
       "name": "Ravenwing locator-beacon",
-      "text": "Legacy house rule. A strobing transponder that tells the whole wing where the quarry is running. Gives the vehicle Hunter's Mark."
+      "summary": "A strobing transponder that tells the whole wing where the quarry is running.",
+      "text": "A Vehicle equipped with a Ravenwing locator-beacon has the Hunter's Mark Special Rule."
     },
     {
       "name": "Interrogator's brand",
-      "text": "Legacy house rule. A branding iron and a very patient voice. Gives the bearer's unit Confession Drive."
+      "summary": "A branding iron and a very patient voice.",
+      "text": "A Model equipped with an Interrogator's brand gives its Unit the Confession Drive Special Rule."
     },
     {
       "name": "Standard of the Long Watch",
-      "text": "Legacy house rule. A black banner that has never been furled while its bearer lives. Gives the unit Long Watch."
+      "summary": "A black banner that has never been furled while its bearer lives.",
+      "text": "A Model equipped with a Standard of the Long Watch gives its Unit the Long Watch Special Rule."
     },
     {
       "name": "Reliquary plate",
-      "text": "Legacy house rule. Armour inlaid with the sealed remains of a fallen brother. Gives the bearer's unit Reliquary Ward."
+      "summary": "Armour inlaid with the sealed remains of a fallen brother.",
+      "text": "A Model equipped with Reliquary plate gives its Unit the Reliquary Ward Special Rule."
     },
     {
       "name": "Ordnance auto-loader",
-      "text": "Legacy house rule. A rebuilt shell-feed that trades the engine's safety for speed. Gives the vehicle Overcharged Feed."
+      "summary": "A rebuilt shell-feed that trades the engine's safety for speed.",
+      "text": "A Vehicle equipped with an Ordnance auto-loader has the Overcharged Feed Special Rule."
     }
   ],
   "rules": [
     {
       "name": "Deathwing Assault",
-      "text": "Legacy house rule (Oath of the Deathwing). A unit with this rule gains Deep Strike. At least half of the army's units with this rule (rounded up) must start the battle in Reserve."
+      "summary": "The First Legion's oldest warriors arrive where the fighting is thickest.",
+      "text": "A Model with this Special Rule has the Deep Strike Special Rule. At least half of the Units in the army that include a Model with this Special Rule (rounding up) must start the battle in Reserves."
     },
     {
       "name": "Wings of Night",
-      "text": "Legacy house rule (The Wings Unbroken). A unit with this rule gains Outflank. It may not make a Charge in the first battle turn."
+      "summary": "The Ravenwing strikes from the flank, in the dark.",
+      "text": "A Unit with this Special Rule cannot declare a Charge in the first Battle Turn."
     },
     {
       "name": "Silent Hunt",
-      "text": "Legacy house rule (Secrets Kept in Silence). A unit with this rule gains Infiltrate (6), but may not make a Charge in the first battle turn."
+      "summary": "What the hunters find, they never report.",
+      "text": "When a Unit with this Special Rule is deployed using the Infiltrate (X) Special Rule, it reduces X by 3 for that deployment, to a minimum of 3. A Unit with this Special Rule cannot declare a Charge in the first Battle Turn."
     },
     {
       "name": "Inner Circle Mandate",
-      "text": "Legacy house rule (The Inner Circle Convenes). A unit with this rule adds +1 to its Cool for Cool Checks, and every other friendly Dark Angels unit within 6\" adds +1 to its Leadership."
+      "summary": "When the Order takes the field, nobody else is given the honour of holding it.",
+      "text": "A Model with this Special Rule adds 1 to its Cool Characteristic when making a Cool Check. Every other friendly Dark Angels Unit within 6\" of a Model with this Special Rule adds 1 to its Leadership Characteristic."
     },
     {
       "name": "Warding Rosarius",
-      "text": "Legacy house rule. The bearer adds +2 to Willpower Checks forced by enemy Psychic powers and has Feel No Pain (5+) against Wounds caused by Psychic powers."
+      "summary": "A chained reliquary, said to turn aside what it cannot explain.",
+      "text": "A Model with this Special Rule adds 2 to the result of any Willpower Check it is required to make because of a Psychic Power used by an enemy Model, and has the Feel No Pain (5+) Special Rule against Wounds caused by Psychic Powers."
     },
     {
       "name": "Hunter's Mark",
-      "text": "Legacy house rule. Once per battle, in the Shooting phase, choose one enemy unit within 24\". Friendly Dark Angels units add +1 to Ballistic Skill against it until the end of the phase."
+      "summary": "The quarry is marked, and the whole wing knows where it runs.",
+      "text": "Once per battle, in the Shooting Phase, the Controlling Player may choose one enemy Unit within 24\" of a Model with this Special Rule. Until the end of that Phase, every friendly Dark Angels Model adds 1 to its Ballistic Skill Characteristic when making a Shooting Attack against that Unit."
     },
     {
       "name": "Confession Drive",
-      "text": "Legacy house rule. Enemy units in combat with the bearer's unit suffer -1 Leadership for Combat Checks."
+      "summary": "A branding iron and a very patient voice.",
+      "text": "Enemy Units that are Locked in Combat with a Unit that includes a Model with this Special Rule subtract 1 from their Leadership Characteristic when making a Combat Check."
     },
     {
       "name": "Long Watch",
-      "text": "Legacy house rule. A unit with this rule that did not move in its last Movement phase counts as having two additional models for the purpose of holding an objective."
+      "summary": "A black banner that has never been furled while its bearer lives.",
+      "text": "If a Unit with this Special Rule did not move during its previous Move Sub-Phase, it counts as having two additional Models for the purpose of determining which Player Controls an Objective."
     },
     {
       "name": "Reliquary Ward",
-      "text": "Legacy house rule. The bearer's unit has Feel No Pain (6+) while the bearer is alive. If the bearer is removed, models in the unit suffer -1 Cool for the rest of the battle."
+      "summary": "The sealed dead stand guard over the living.",
+      "text": "While a Model with this Special Rule is in play, every Model in its Unit has the Feel No Pain (6+) Special Rule. If that Model is removed as a casualty, all Models in its Unit subtract 1 from their Cool Characteristic for the rest of the battle."
     },
     {
       "name": "Overcharged Feed",
-      "text": "Legacy house rule. Once per battle, one weapon on this vehicle may double its Firepower for one Shooting Attack. The vehicle cannot make Shooting Attacks in its next turn."
+      "summary": "A rebuilt shell-feed that trades the engine's safety for speed.",
+      "text": "Once per battle, when a Model with this Special Rule makes a Shooting Attack, the Controlling Player may choose one of its Ranged Weapons and double that Weapon's Firepower Characteristic for that Shooting Attack. The Model cannot make a Shooting Attack in its next Player Turn."
+    },
+    {
+      "name": "Heat Shadow",
+      "summary": "The heat-shadow of riders and scouts is smeared across the horizon.",
+      "text": "Every Hit Test made for a Shooting Attack from more than 18\" away that targets a Unit including a Model with this Special Rule is subject to a -1 modifier."
     }
   ],
   "options": [
@@ -662,9 +703,9 @@
       ],
       "item": "Ravenwing veil-field",
       "scope": "unit",
-      "text": "Ravenwing veil-field: Shrouded (6+).",
+      "text": "Ravenwing veil-field: Heat Shadow.",
       "addRules": [
-        "Shrouded (6+)"
+        "Heat Shadow"
       ]
     },
     {
@@ -739,7 +780,7 @@
       "name": "Oath of the Deathwing",
       "flavor": "The first company keeps its secrets in plate that no blade has yet answered.",
       "benefits": [
-        "Cataphractii, Tartaros and Saturnine Terminator Squads may fill Troops slots and gain Line (1).",
+        "Cataphractii, Tartaros and Saturnine Terminator Squads may fill Troops slots and gain Line (1). Cataphractii and Tartaros Terminator Squads lose Vanguard (3).",
         "Every Terminator squad and Deathwing Companion detachment gains +1 Willpower.",
         "Terminator squads gain Deathwing Assault: Deep Strike."
       ],
@@ -794,7 +835,20 @@
         {
           "units": [
             "cataphractii-terminator-squad",
-            "tartaros-terminator-squad",
+            "tartaros-terminator-squad"
+          ],
+          "text": "Oath of the Deathwing: Deathwing Assault, Deep Strike, Line (1), no Vanguard (3).",
+          "addRules": [
+            "Deathwing Assault",
+            "Deep Strike",
+            "Line (1)"
+          ],
+          "removeRules": [
+            "Vanguard (3)"
+          ]
+        },
+        {
+          "units": [
             "saturnine-terminator-squad"
           ],
           "text": "Oath of the Deathwing: Deathwing Assault, Deep Strike, Line (1).",
@@ -824,9 +878,9 @@
       "name": "The Wings Unbroken",
       "flavor": "Black-armoured riders ahead of the Host, and no one asks where they ride to.",
       "benefits": [
-        "Outrider, Scimitar Jetbike and Land Speeder Squadrons may fill Troops slots and gain Line (1).",
+        "Outrider, Scimitar Jetbike and Land Speeder Squadrons may fill Troops slots and gain Line (1). Outrider Squadrons lose Vanguard (1).",
         "Every Cavalry unit gains Fast (1).",
-        "Those squadrons gain Wings of Night: Outflank."
+        "Those squadrons gain Wings of Night: Outflank (Outriders already have it)."
       ],
       "limitations": [
         "At least two Outrider or Scimitar squadrons are required.",
@@ -868,7 +922,19 @@
       "modifiers": [
         {
           "units": [
-            "outrider-squadron",
+            "outrider-squadron"
+          ],
+          "text": "The Wings Unbroken: Wings of Night, Line (1), no Vanguard (1).",
+          "addRules": [
+            "Wings of Night",
+            "Line (1)"
+          ],
+          "removeRules": [
+            "Vanguard (1)"
+          ]
+        },
+        {
+          "units": [
             "scimitar-jetbike-squadron",
             "land-speeder-squadron"
           ],
@@ -895,7 +961,7 @@
       "flavor": "What the hunters find, they never report. What they were hunting, they never name.",
       "benefits": [
         "Seeker Squads, Scout Squads and Firewing Enigmatus Cabals may fill Troops slots and gain Shrouded (6+).",
-        "Those units gain Silent Hunt: Infiltrate (6)."
+        "Those units gain Silent Hunt: they deploy using Infiltrate 3\" closer to the enemy than normal (Firewing Enigmatus Cabals gain Infiltrate (9) first)."
       ],
       "limitations": [
         "At least one Seeker Squad is required.",
@@ -940,11 +1006,19 @@
             "scout-squad",
             "firewing-enigmatus-cabal"
           ],
-          "text": "Secrets Kept in Silence: Silent Hunt, Infiltrate (6), Shrouded (6+).",
+          "text": "Secrets Kept in Silence: Silent Hunt, Shrouded (6+).",
           "addRules": [
             "Silent Hunt",
-            "Infiltrate (6)",
             "Shrouded (6+)"
+          ]
+        },
+        {
+          "units": [
+            "firewing-enigmatus-cabal"
+          ],
+          "text": "Secrets Kept in Silence: Infiltrate (9).",
+          "addRules": [
+            "Infiltrate (9)"
           ]
         }
       ]

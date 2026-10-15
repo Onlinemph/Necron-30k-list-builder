@@ -115,39 +115,48 @@
   "wargear": [
     {
       "name": "Baronial heraldry",
-      "text": "Legacy house rule. A hundred years of victories painted across the faceplate and shoulder carapace, each one a promise to the Household. The Knight fights with the whole court watching and gains +1 Weapon Skill and +1 Ballistic Skill."
+      "summary": "A hundred years of victories painted across the faceplate and shoulder carapace, each one a promise to the Household.",
+      "text": "A Knight equipped with Baronial heraldry adds 1 to its Weapon Skill and Ballistic Skill Characteristics."
     },
     {
       "name": "Sacristan's reliquary",
-      "text": "Legacy house rule. A locked casket of sacred oils, coolant-psalters and the ashes of former pilots, kept by a Sacristan who rides in the lee of the war machine. The Knight gains +1 Hull Point (or +1 Wound on an Armiger)."
+      "summary": "A locked casket of sacred oils, coolant-psalters and the ashes of former pilots, kept by a Sacristan who rides in the lee of the war machine.",
+      "text": "A Knight equipped with a Sacristan's reliquary adds 1 to its Hull Points Characteristic. An Armiger equipped with a Sacristan's reliquary adds 1 to its Wounds Characteristic instead."
     },
     {
       "name": "Heraldic Warhorn",
-      "text": "Legacy house rule. A hunting horn of silvered brass the length of a man, sounded from a Knight's shoulder to send the Household's levies forward."
+      "summary": "A hunting horn of silvered brass the length of a man, sounded from a Knight's shoulder to send the Household's levies forward.",
+      "text": "A Model equipped with a Heraldic Warhorn has the Herald's Summons Special Rule."
     },
     {
       "name": "Ablative Mantle",
-      "text": "Legacy house rule. Layered ceramite shingles hung over the carapace, built to burn away in place of the frame beneath."
+      "summary": "Layered ceramite shingles hung over the carapace, built to burn away in place of the frame beneath.",
+      "text": "A Model equipped with an Ablative Mantle has the Ablative Sacrifice Special Rule."
     },
     {
       "name": "Gunnery Cantor",
-      "text": "Legacy house rule. A hooded cogitator-savant who chants firing solutions into the Knight's ear."
+      "summary": "A hooded cogitator-savant who chants firing solutions into the Knight's ear.",
+      "text": "A Model equipped with a Gunnery Cantor has the Cantor's Lock Special Rule."
     },
     {
       "name": "Oathmarker Beacon",
-      "text": "Legacy house rule. A standard-staff driven into the earth to mark ground the Household has sworn not to give up."
+      "summary": "A standard-staff driven into the earth to mark ground the Household has sworn not to give up.",
+      "text": "A Model equipped with an Oathmarker Beacon has the Oathkeeper Special Rule."
     },
     {
       "name": "Honour-scourge",
-      "text": "Legacy house rule. A braided lash carried by the sergeant, for use on laggards and on those who flinch."
+      "summary": "A braided lash carried by the sergeant, for use on laggards and on those who flinch.",
+      "text": "A Model equipped with an Honour-scourge has the Drill Discipline Special Rule."
     },
     {
       "name": "Barony Signal Rockets",
-      "text": "Legacy house rule. A bandolier of coloured flares that tells the great engines where the Baron wants them to look."
+      "summary": "A bandolier of coloured flares that tells the great engines where the Baron wants them to look.",
+      "text": "A Model equipped with Barony Signal Rockets has the Signal Flare Special Rule."
     },
     {
       "name": "Furrow-plough",
-      "text": "Legacy house rule. A broad blade slung beneath the prow to clear hedgerows, wreckage and, if need be, men."
+      "summary": "A broad blade slung beneath the prow to clear hedgerows, wreckage and, if need be, men.",
+      "text": "A Vehicle equipped with a Furrow-plough has the Furrow-Plough Special Rule and subtracts 1 from its Movement Characteristic."
     }
   ],
   "options": [
@@ -509,7 +518,8 @@
     },
     {
       "match": {
-        "trait": "Imperialis Militia"
+        "trait": "Imperialis Militia",
+        "notUnitType": "Vehicle"
       },
       "text": "Pressed levies who know the Household's justice: +1 LD, -1 CL.",
       "stats": {
@@ -656,60 +666,88 @@
   "rules": [
     {
       "name": "Scions Ahead of the Baron",
-      "text": "Legacy house rule (The Armiger Ward). Before the first battle turn, after both sides have deployed, a model with this rule may make a free move of up to 6\". It can't end that move within 12\" of an enemy model."
+      "summary": "The young scions ride out ahead of the Baron's banner, and the Baron watches from the ridge.",
+      "text": "After both Players have deployed and before the first Battle Turn begins, each Unit composed entirely of Models with this Special Rule may make a Set-up Move of up to 6\". A Unit cannot end this move within 12\" of any enemy Model.",
+      "source": "The Armiger Ward"
     },
     {
       "name": "Declared Challenge",
-      "text": "Legacy house rule (The Lists of Honour). A model with this rule adds 1 to its Charge roll against an enemy Knight, Titan or Walker. If it can charge one of those, it must charge one rather than any other target."
+      "summary": "A Knight who names its challenge expects to see it answered.",
+      "text": "A Model with this Special Rule adds 1 to the result of its Charge Roll when it declares a Charge against an enemy Model with the Knight, Titan or Walker Type.",
+      "source": "The Lists of Honour"
     },
     {
       "name": "Ledger of Vows",
-      "text": "Legacy house rule (The Sacristan's Vigil). Once per battle, a model with this rule may add 1 to one Auto-Repair roll."
+      "summary": "Every vow kept is entered in the ledger, and the ledger is long.",
+      "text": "Once per battle, when a Model with this Special Rule makes an Auto-Repair roll, the Controlling Player may add 1 to the result.",
+      "source": "The Sacristan's Vigil"
     },
     {
       "name": "Sworn to the Baron",
-      "text": "Legacy house rule (Muster of the Free Levy). A unit with this rule adds 1 to its Cool for Morale and Cool Checks while within 12\" of a friendly Knight or Armiger."
+      "summary": "The levy swore to stand on the Baron's ground, and stand it will.",
+      "text": "While a Unit with this Special Rule is within 3\" of an Objective, it counts as a Scoring Unit and cannot gain the Pinned Tactical Status.",
+      "source": "Muster of the Free Levy"
     },
     {
       "name": "Herald's Summons",
-      "text": "Legacy house rule. Once per battle, in its controlling player's Movement phase, the bearer may sound the horn. Until the end of that turn every friendly unit within 12\" adds 2\" to its Rush distance."
+      "summary": "A long brass note carries over the field, and the levies surge forward.",
+      "text": "Once per battle, at the start of the Controlling Player's Movement Phase, a Model with this Special Rule may sound its horn. Until the end of that Battle Turn, every friendly Unit within 12\" of that Model adds 2\" to the distance it moves when it Rushes."
     },
     {
       "name": "Ablative Sacrifice",
-      "text": "Legacy house rule. The first Hull Point (or Wound, on an Armiger) the bearer would lose to a Shooting Attack each battle is ignored."
+      "summary": "The mantle burns away so that the frame beneath need not.",
+      "text": "The first time in each battle that a Model with this Special Rule would lose a Hull Point (or, if it has a Wounds Characteristic, a Wound) as the result of a Shooting Attack, that loss is ignored."
     },
     {
       "name": "Cantor's Lock",
-      "text": "Legacy house rule. Once in each of its controlling player's Shooting phases, one ranged weapon of the bearer adds 1 to its Hit Tests."
+      "summary": "The firing solution is chanted until the gun cannot miss.",
+      "text": "Once in each of the Controlling Player's Shooting Phases, a Model with this Special Rule may choose one of its ranged Weapons. That Weapon adds 1 to its Hit Tests until the end of that Shooting Phase."
     },
     {
       "name": "Oathkeeper",
-      "text": "Legacy house rule. While within 6\" of an objective, the bearer counts as having Line (1). It may not Rush in a turn in which it starts within 6\" of an objective it wishes to keep."
+      "summary": "A Household does not give up sworn ground.",
+      "text": "While a Model with this Special Rule is within 6\" of an Objective, it has the Line (1) Special Rule. A Model with this Special Rule cannot Rush in a Battle Turn in which it begins its move within 6\" of an Objective."
     },
     {
       "name": "Drill Discipline",
-      "text": "Legacy house rule. While the Sergeant lives, the unit adds 1 to its Cool for Morale Checks. A unit that nevertheless fails a Morale Check removes one model other than the Sergeant as a casualty."
+      "summary": "The sergeant's lash keeps the line straight and the laggards moving.",
+      "text": "While the Sergeant of a Unit with this Special Rule remains in play, every Model in that Unit adds 1 to its Cool Characteristic when the Unit takes a Morale Check. If a Unit with this Special Rule fails a Morale Check, the Controlling Player must also remove one Model other than the Sergeant as a casualty."
     },
     {
       "name": "Signal Flare",
-      "text": "Legacy house rule. Once per battle, in its controlling player's Shooting phase, one friendly Knight or Armiger within 24\" of the bearer adds 1 to the Hit Tests of one Shooting Attack against a target the bearer's unit can see."
+      "summary": "Coloured flares show the great engines where to look.",
+      "text": "Once per battle, in the Controlling Player's Shooting Phase, one friendly Knight or Armiger within 24\" of a Model with this Special Rule adds 1 to the Hit Tests of one Shooting Attack it makes against an enemy Unit that is visible to the Unit that includes the Model with this Special Rule."
     },
     {
       "name": "Furrow-Plough",
-      "text": "Legacy house rule. The vehicle ignores Dangerous Terrain Tests. It loses 1 Movement."
+      "summary": "The plough clears the road, and whatever stands upon it.",
+      "text": "A Vehicle with this Special Rule ignores Dangerous Terrain Tests. It subtracts 1 from its Movement Characteristic."
     }
   ],
   "armyRules": [
     {
       "name": "Liege-Sworn Retinue",
-      "text": "Legacy house rule. The Household's levies fight better under the Baron's eye and worse without it. A Militia or Auxilia unit within 12\" of a friendly Knight or Armiger adds 1 to its Cool for Morale Checks. When a friendly Knight is destroyed, every such unit within 12\" of it must make a Cool Check or gain the Suppressed Status.",
+      "flavor": "The Household's levies fight better under the Baron's eye and worse without it.",
+      "benefits": [
+        "A Militia Unit within 12\" of a friendly Knight or Armiger adds 1 to its Cool Characteristic when it takes a Morale Check."
+      ],
+      "drawbacks": [
+        "When a friendly Knight is removed as a casualty, every Militia Unit within 12\" of it must pass a Cool Check or gain the Suppressed Tactical Status."
+      ],
       "match": {
-        "trait": "Imperialis Militia"
+        "trait": "Imperialis Militia",
+        "notUnitType": "Vehicle"
       }
     },
     {
       "name": "Heraldic Pride",
-      "text": "Legacy house rule. A Knight cannot let an insult to its colours pass. A Knight with this rule gains +1 Weapon Skill. If an enemy Knight, Titan or Walker is within the Knight's charge reach and visible, the Knight must declare a Charge against it or make a Cool Check; on a failure it gains the Suppressed Status.",
+      "flavor": "A Knight cannot let an insult to its colours pass.",
+      "benefits": [
+        "A Knight adds 1 to its Weapon Skill Characteristic."
+      ],
+      "drawbacks": [
+        "If an enemy Knight, Titan or Walker is visible and within a Knight's Charge reach at the start of the Assault Phase, the Controlling Player must declare a Charge with that Knight against it, or the Knight must pass a Cool Check or gain the Suppressed Tactical Status."
+      ],
       "match": {
         "unitType": "Knight"
       },
@@ -719,7 +757,13 @@
     },
     {
       "name": "Ward of the Elders",
-      "text": "Legacy house rule. Armigers are the Household's heirs and the Knights guard them jealously. An Armiger within 6\" of a friendly Knight ignores the Pinned and Suppressed Statuses. If no friendly Knight is left on the battlefield, the Armiger is cut adrift and loses 2 Leadership and 2 Cool.",
+      "flavor": "Armigers are the Household's heirs, and the Knights guard them jealously.",
+      "benefits": [
+        "An Armiger within 6\" of a friendly Knight cannot gain the Pinned or Suppressed Tactical Status."
+      ],
+      "drawbacks": [
+        "While no friendly Knight remains on the battlefield, an Armiger subtracts 2 from its Leadership and Cool Characteristics."
+      ],
       "units": [
         "armiger-helverin",
         "armiger-warglaive",
@@ -738,12 +782,12 @@
       "flavor": "The young scions go first, and the Baron watches from the ridge.",
       "benefits": [
         "Armiger Helverins, Warglaives and Moiraxes may fill Troops slots and gain Line (1).",
-        "Armigers gain Scions Ahead of the Baron: after both sides deploy and before the first turn, each may make a free move of up to 6\"."
+        "Armigers gain Scions Ahead of the Baron: after both Players have deployed and before the first Battle Turn, each may make a Set-up Move of up to 6\"."
       ],
       "limitations": [
         "At least three Armigers are required.",
         "No Acastus Knights, and no more than one Lord of War.",
-        "Every Lord of War must start the battle in Reserve."
+        "Every Lord of War must start the battle in Reserves."
       ],
       "roles": [
         {
@@ -801,12 +845,12 @@
       "name": "The Lists of Honour",
       "flavor": "A Knight who will not name his challenge is only a tank with a coat of arms.",
       "benefits": [
-        "Every Knight gains Fear (1), +1 Weapon Skill and Declared Challenge: it adds 1 to its Charge rolls against an enemy Knight, Titan or Walker."
+        "Every Knight gains Fear (1), adds 1 to its Weapon Skill Characteristic and gains Declared Challenge: it adds 1 to its Charge Rolls against an enemy Knight, Titan or Walker."
       ],
       "limitations": [
         "At least one Knight is required.",
         "No Recon, no Support and no Acastus Knights.",
-        "A Knight that can charge an enemy Knight, Titan or Walker must do so rather than charge anything else."
+        "A Knight cannot Rush while a visible enemy Knight, Titan or Walker is within 12\"."
       ],
       "modifiers": [
         {
@@ -855,10 +899,10 @@
       "name": "The Sacristan's Vigil",
       "flavor": "Each Knight is carried to war on a ledger of vows, and the ledger is long.",
       "benefits": [
-        "Every Knight gains +2 Hull Points and Ledger of Vows: once per battle it may add 1 to one Auto-Repair roll."
+        "Every Knight adds 2 to its Hull Points Characteristic and gains Ledger of Vows: once per battle it may add 1 to one Auto-Repair roll."
       ],
       "limitations": [
-        "Every Knight loses 2 Movement.",
+        "Every Knight subtracts 2 from its Movement Characteristic.",
         "No more than two Lords of War."
       ],
       "modifiers": [
@@ -890,7 +934,7 @@
       "flavor": "The Baron calls his tithe, and every town on his world sends its sons.",
       "benefits": [
         "Grenadier Troops may fill Troops slots; Grenadier and Levy Troops gain Line (1).",
-        "Militia gain Sworn to the Baron: Morale and Cool Checks made within 12\" of a friendly Knight or Armiger gain +1 Cool."
+        "Militia gain Sworn to the Baron: while within 3\" of an Objective, a Militia Unit counts as a Scoring Unit and cannot gain the Pinned Tactical Status."
       ],
       "limitations": [
         "At least two Infantry Troops are required.",
@@ -917,7 +961,8 @@
         },
         {
           "match": {
-            "trait": "Imperialis Militia"
+            "trait": "Imperialis Militia",
+            "notUnitType": "Vehicle"
           },
           "text": "Muster of the Free Levy: Sworn to the Baron.",
           "addRules": [

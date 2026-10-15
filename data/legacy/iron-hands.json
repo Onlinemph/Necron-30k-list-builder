@@ -112,51 +112,63 @@
   "wargear": [
     {
       "name": "Iron Hand graft",
-      "text": "Legacy house rule. A fist and forearm of black-iron servos, grafted on in a ritual of surrender. The model gains +1 Strength and loses 1 Initiative."
+      "summary": "A fist and forearm of black-iron servos, grafted on in a ritual of surrender.",
+      "text": "A Model equipped with an Iron Hand graft adds 1 to its Strength Characteristic and subtracts 1 from its Initiative Characteristic."
     },
     {
       "name": "Fortress-shield array",
-      "text": "Legacy house rule. Interlocked shield plates and a gyro-stabilised brace turn the squad into a moving bulkhead. Every model in the unit has a 4+ Invulnerable Save if it was worse."
+      "summary": "Interlocked shield plates and a gyro-stabilised brace turn the squad into a moving bulkhead.",
+      "text": "While a Unit includes a Model equipped with a Fortress-shield array, all Models in that Unit have an Invulnerable Save of 4+, unless they already have a better Invulnerable Save. If the Model carrying the array is removed as a casualty, the bonus is lost."
     },
     {
       "name": "Pain-engine harness",
-      "text": "Legacy house rule. A cortex-fed servitor harness that turns every wound into fuel for the next blow. The model gains +1 Attack and loses 1 Initiative."
+      "summary": "A cortex-fed servitor harness that turns every wound into fuel for the next blow.",
+      "text": "A Model equipped with a Pain-engine harness adds 1 to its Attacks Characteristic and subtracts 1 from its Initiative Characteristic."
     },
     {
       "name": "Clan iron-cladding",
-      "text": "Legacy house rule. Layer upon layer of clan-forged plating bolted over the sarcophagus. The model gains +1 Wound."
+      "summary": "Layer upon layer of clan-forged plating bolted over the sarcophagus.",
+      "text": "A Walker equipped with Clan iron-cladding adds 1 to its Wounds Characteristic."
     },
     {
       "name": "Cortex-link relay",
-      "text": "Legacy house rule. A mast-mounted relay that shares aiming data between brothers. Gives the model Linked Targeting."
+      "summary": "A mast-mounted relay that shares aiming data between brothers.",
+      "text": "A Model equipped with a Cortex-link relay has the Linked Targeting Special Rule."
     },
     {
       "name": "Magnetic clamps",
-      "text": "Legacy house rule. Boots that lock to any deck or plate. Gives the unit Anchored."
+      "summary": "Boots that lock to any deck or plate.",
+      "text": "While a Unit includes a Model equipped with Magnetic clamps, all Models in that Unit have the Anchored Special Rule. If the Model carrying the clamps is removed as a casualty, the bonus is lost."
     },
     {
       "name": "Servo-arm array",
-      "text": "Legacy house rule. A pair of clamp-armed servos. Gives the bearer Servo Grapple."
+      "summary": "A pair of clamp-armed servos.",
+      "text": "A Model equipped with a Servo-arm array has the Servo Grapple Special Rule."
     },
     {
       "name": "Spall slabs",
-      "text": "Legacy house rule. Slab plates bolted over the glacis. Gives the vehicle Slab Plating."
+      "summary": "Slab plates bolted over the glacis.",
+      "text": "A Vehicle equipped with Spall slabs has the Slab Plating Special Rule."
     },
     {
       "name": "Hair-trigger cortex",
-      "text": "Legacy house rule. A machine-spirit core tuned to lash out the moment something moves. Gives the model Cogitator Overwatch."
+      "summary": "A machine-spirit core tuned to lash out the moment something moves.",
+      "text": "A Model equipped with a Hair-trigger cortex has the Cogitator Overwatch Special Rule."
     },
     {
       "name": "Dozer ram-plate",
-      "text": "Legacy house rule. A dozer plate forged for clearing barricades. Gives the vehicle Plough Through."
+      "summary": "A dozer plate forged for clearing barricades.",
+      "text": "A Vehicle equipped with a Dozer ram-plate has the Plough Through Special Rule."
     },
     {
       "name": "Warp-dead rod",
-      "text": "Legacy house rule. A rod threaded with warp-dead iron. Gives the model Warp-Dead Field."
+      "summary": "A rod threaded with warp-dead iron.",
+      "text": "A Model equipped with a Warp-dead rod has the Warp-Dead Field Special Rule."
     },
     {
       "name": "Clan-fall banner",
-      "text": "Legacy house rule. The banner of a clan that was cut down. Gives the unit Oath of the Clan Remnant."
+      "summary": "The banner of a clan that was cut down.",
+      "text": "While a Unit includes a Model equipped with a Clan-fall banner, all Models in that Unit have the Oath of the Clan Remnant Special Rule. If the Model carrying the banner is removed as a casualty, the bonus is lost."
     }
   ],
   "options": [
@@ -735,47 +747,58 @@
   "rules": [
     {
       "name": "Cortex-Locked",
-      "text": "Legacy house rule (Cohorts of the Iron Father). A unit with this rule automatically passes Morale Checks and Checks to avoid Tactical Statuses caused by casualties, while an Iron Father is on the table."
+      "summary": "The Iron Father's cold commands leave no room for hesitation.",
+      "text": "While an Iron Father is on the table, a Unit with this Special Rule cannot gain the Pinned or Suppressed Tactical Status."
     },
     {
       "name": "Unyielding Wall",
-      "text": "Legacy house rule (Wall of Black Iron). A unit with this rule gains Feel No Pain (6+) in any turn in which it did not move."
+      "summary": "Set the line, lock the plates, and let the enemy come.",
+      "text": "If a Unit with this Special Rule did not move during its Controlling Player's most recent Movement phase, its Models improve their Save Characteristic by 1, to a best of 2+, against Shooting Attacks."
     },
     {
       "name": "Hammerfall",
-      "text": "Legacy house rule (The Gorgon's Hammer). On the turn a unit with this rule charges it adds +1 Strength. If it destroys the enemy unit it charged, it may make a free move of up to 3\" afterwards."
+      "summary": "The Gorgon's chosen strike like a falling mountain.",
+      "text": "In a Battle Turn in which a Unit with this Special Rule makes a Charge, its Models add 1 to their Strength Characteristic. If the Unit destroys the Unit it charged, it may make a Set-up Move of up to 3\"."
     },
     {
       "name": "Linked Targeting",
-      "text": "Legacy house rule. When friendly Iron Hands units within 6\" of this model shoot at the same target as the bearer's unit, they add +1 to their Hit Tests against it."
+      "summary": "One brother's sight is every brother's sight.",
+      "text": "When a friendly Iron Hands Unit within 6\" of a Model with this Special Rule makes a Shooting Attack against the same target as that Model's Unit, its Hit Tests against that target are made with a +1 modifier."
     },
     {
       "name": "Anchored",
-      "text": "Legacy house rule. A unit with this rule ignores the effects of Pinning (X) and cannot be moved by effects that push or displace it, but it may not Rush."
+      "summary": "Locked to the deck, they cannot be shifted.",
+      "text": "A Unit with this Special Rule ignores the effects of the Pinning (X) Special Rule and cannot be moved by any effect that pushes or displaces it. A Unit with this Special Rule cannot Rush."
     },
     {
       "name": "Servo Grapple",
-      "text": "Legacy house rule. At the start of each combat, choose one enemy model in base contact with the bearer. It subtracts 1 from its Weapon Skill for that combat."
+      "summary": "The servos clamp on and do not let go.",
+      "text": "At the start of each Assault, the Controlling Player chooses one enemy Model in base contact with a Model with this Special Rule. That Model subtracts 1 from its Weapon Skill Characteristic for that Assault."
     },
     {
       "name": "Slab Plating",
-      "text": "Legacy house rule. The AP of Shooting Attacks that hit the front of a vehicle with this rule is reduced by 1, to a minimum of 6."
+      "summary": "Thick plate takes the sting from head-on fire.",
+      "text": "The AP of each Shooting Attack that hits the front of a Vehicle with this Special Rule is worsened by 1 (for example, AP 3 becomes AP 4), to a worst of AP 6. A Shooting Attack with no AP is unaffected."
     },
     {
       "name": "Cogitator Overwatch",
-      "text": "Legacy house rule. A model with this rule makes Reaction Shooting at its full Ballistic Skill instead of as a Snap Shot."
+      "summary": "The cortex fires the instant a target steps into its arc.",
+      "text": "A Model with this Special Rule makes Reaction Shooting Attacks using its full Ballistic Skill instead of making Snap Shots."
     },
     {
       "name": "Plough Through",
-      "text": "Legacy house rule. A vehicle with this rule ignores Difficult Terrain. Units it Rams lose 1 Cool until the end of the turn."
+      "summary": "Barricades are only a delay.",
+      "text": "A Vehicle with this Special Rule ignores Difficult Terrain. Each enemy Unit that it Rams subtracts 1 from its Cool Characteristic until the end of that Battle Turn."
     },
     {
       "name": "Warp-Dead Field",
-      "text": "Legacy house rule. Enemy psychic powers used within 6\" of this model suffer -1 to their Psychic Check, and enemy Psykers within 6\" of it lose 1 Willpower."
+      "summary": "The rod drinks the warp and gives nothing back.",
+      "text": "Psychic Checks made for enemy psychic powers used within 6\" of a Model with this Special Rule are made with a -1 modifier. Each enemy Psyker within 6\" of that Model subtracts 1 from its Willpower Characteristic."
     },
     {
       "name": "Oath of the Clan Remnant",
-      "text": "Legacy house rule. Once per battle, a unit with this rule automatically passes a Morale Check it is required to make."
+      "summary": "The clan is gone. The oath is not.",
+      "text": "Once per battle, a Unit with this Special Rule automatically passes one Morale Check it is required to make."
     }
   ],
   "rites": [
@@ -784,7 +807,7 @@
       "flavor": "A Clan-Council that trusts steel and cortex-code over the whims of flesh.",
       "benefits": [
         "Castellax Battle Maniples and Castellax Destructor Maniples may fill Troops slots.",
-        "Every Castellax gains +1 Ballistic Skill and Cortex-Locked: it passes Morale Checks automatically while an Iron Father is on the table."
+        "Every Castellax gains +1 Ballistic Skill and Cortex-Locked: it cannot gain the Pinned or Suppressed Tactical Status while an Iron Father is on the table."
       ],
       "limitations": [
         "An Iron Father (either pattern) must be in the army.",
@@ -861,7 +884,7 @@
       "flavor": "Nothing in the Legion is built to retreat, and the Immortals least of all.",
       "benefits": [
         "Gorgon Terminator Squads may fill Troops slots.",
-        "Medusan Immortals Squads gain Line (1) and Unyielding Wall: Feel No Pain (6+) in any turn they did not move."
+        "Medusan Immortals Squads gain Line (1) and Unyielding Wall: they improve their Save Characteristic by 1 (to a best of 2+) against Shooting Attacks in any turn they did not move."
       ],
       "limitations": [
         "At least two Medusan Immortals Squads are required.",
@@ -914,7 +937,7 @@
       "flavor": "When the clan-lords stop talking, the Gorgons go in.",
       "benefits": [
         "Gorgon Terminator Squads may fill Troops slots and gain Line (1).",
-        "They gain Hammerfall: +1 Strength on a turn they charge, and a free 3\" move after destroying the unit they charged."
+        "They gain Hammerfall: +1 Strength on a turn they charge, and a Set-up Move of up to 3\" after destroying the Unit they charged."
       ],
       "limitations": [
         "At least two Gorgon Terminator Squads are required.",
@@ -938,16 +961,6 @@
             "Line (1)",
             "Hammerfall"
           ]
-        },
-        {
-          "units": [
-            "gorgon-terminator-squad"
-          ],
-          "text": "The Gorgon's Hammer: +1 S.",
-          "stats": {
-            "S": "+1"
-          },
-          "condition": "on a turn the unit charges"
         }
       ],
       "require": [
@@ -976,23 +989,42 @@
   "armyRules": [
     {
       "name": "Cold Logic",
+      "flavor": "Flesh is weak, and so is fear.",
+      "benefits": [
+        "A Unit with this Special Rule adds 1 to its Willpower Characteristic, and does not apply the Cool Characteristic penalties of the Fear (X) and Panic (X) Special Rules."
+      ],
+      "drawbacks": [
+        "A Unit with this Special Rule subtracts 1 from the result of its Charge Rolls."
+      ],
       "match": {
         "notUnitType": "Vehicle"
       },
       "stats": {
         "WP": "+1"
-      },
-      "text": "Legacy house rule. Flesh is weak, and so is fear. A unit with this rule ignores the Cool penalties of Fear (X) and Panic (X). The cold march has a cost: it subtracts 1 from its Charge rolls."
+      }
     },
     {
       "name": "Grudge-Ledger",
+      "flavor": "The Clans record every wound taken and repay it.",
+      "benefits": [
+        "Once an enemy Unit has destroyed a Model in a Unit with this Special Rule, Hit Tests made by that Unit against that enemy Unit are made with a +1 modifier for the rest of the battle."
+      ],
+      "drawbacks": [
+        "Until the enemy Unit is destroyed, a Unit with this Special Rule must choose it as the target of its Shooting Attacks if it can see it."
+      ],
       "units": [
         "*"
-      ],
-      "text": "Legacy house rule. The Clans record every wound taken and repay it. Once an enemy unit has destroyed a model in a unit with this rule, that unit adds +1 to its Hit Tests against the enemy unit for the rest of the battle. Until the ledger is settled, it must pick that enemy unit as its target in the Shooting phase if it can see it."
+      ]
     },
     {
       "name": "Cortex-Net Hub",
+      "flavor": "A commander wired into the Legion's battle-net.",
+      "benefits": [
+        "Friendly Iron Hands Units within 9\" of a Model with this Special Rule may use that Model's Leadership and Cool Characteristics in place of their own when making Morale Checks and Cool Checks."
+      ],
+      "drawbacks": [
+        "If a Model with this Special Rule is removed as a casualty, each friendly Iron Hands Unit that was within 9\" of it becomes Suppressed and subtracts 1 from its Cool Characteristic until the end of its Controlling Player's next Battle Turn."
+      ],
       "match": {
         "roles": [
           "Command",
@@ -1000,8 +1032,7 @@
         ],
         "notUnitType": "Vehicle"
       },
-      "optionalUnits": true,
-      "text": "Legacy house rule. A commander wired into the Legion's battle-net. Friendly Iron Hands units within 9\" of a model with this rule may use its Leadership and Cool for their own checks. If the model is removed as a casualty, those units become Suppressed at once and lose 1 Cool until the end of the next turn."
+      "optionalUnits": true
     }
   ]
 }

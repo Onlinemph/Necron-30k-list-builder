@@ -2,51 +2,63 @@
   "wargear": [
     {
       "name": "Artificer armour",
-      "text": "Legacy house rule. Master-crafted plate worn by proven sergeants and veterans. The model's Save becomes 2+ if it was worse."
+      "summary": "Master-crafted plate worn by proven sergeants and veterans.",
+      "text": "A Model equipped with Artificer armour has a Save Characteristic of 2+, unless its Save Characteristic is already better."
     },
     {
       "name": "Refractor field",
-      "text": "Legacy house rule. A belt-worn field generator that bends incoming fire. The model's Invulnerable Save becomes 5+ if it was worse."
+      "summary": "A belt-worn field generator that bends incoming fire.",
+      "text": "A Model equipped with a Refractor field has an Invulnerable Save of 5+, unless it already has a better Invulnerable Save."
     },
     {
       "name": "Extra armour",
-      "text": "Legacy house rule. Bolted-on plating, track guards and spall liners. The vehicle gains +1 Hull Point."
+      "summary": "Bolted-on plating, track guards and spall liners.",
+      "text": "A Vehicle equipped with Extra armour adds 1 to its Hull Points Characteristic."
     },
     {
       "name": "Company colours",
-      "text": "Legacy house rule. The unit's colours carried into battle. Every model in the unit gains +1 Leadership and +1 Cool."
+      "summary": "The company's colours, carried into battle.",
+      "text": "While a Unit includes a Model equipped with Company colours, all Models in that Unit add 1 to their Leadership and Cool Characteristics. If the Model carrying the Company colours is removed as a casualty, the bonus is lost."
     },
     {
       "name": "Veteran Sergeant",
-      "text": "Legacy house rule. A sergeant who has led the squad through a dozen compliances. The model gains +1 Weapon Skill and +1 Attack."
+      "summary": "A sergeant who has led the squad through a dozen compliances.",
+      "text": "A Model upgraded to a Veteran Sergeant adds 1 to its Weapon Skill and Attacks Characteristics."
     },
     {
       "name": "Iron halo",
-      "text": "Legacy house rule. A crowned field generator granted for deeds beyond counting. The model's Invulnerable Save becomes 4+ if it was worse."
+      "summary": "A crowned field generator granted for deeds beyond counting.",
+      "text": "A Model equipped with an Iron halo has an Invulnerable Save of 4+, unless it already has a better Invulnerable Save."
     },
     {
       "name": "Teleport homer",
-      "text": "Legacy house rule. A locator beacon keyed to the fleet's teleportarium. Gives the model Teleport Homer."
+      "summary": "A locator beacon keyed to the fleet's teleportarium.",
+      "text": "A Model equipped with a Teleport homer has the Teleport Homer Special Rule."
     },
     {
       "name": "Auspex array",
-      "text": "Legacy house rule. A hand-held sensor suite. Gives the model Auspex Sweep."
+      "summary": "A hand-held sensor suite that strips the enemy of cover.",
+      "text": "A Model equipped with an Auspex array has the Auspex Sweep Special Rule."
     },
     {
       "name": "Medicae stimm-injector",
-      "text": "Legacy house rule. Combat drugs and coagulants fed straight into the blood. The model gains Feel No Pain (6+)."
+      "summary": "Combat drugs and coagulants fed straight into the blood.",
+      "text": "A Model equipped with a Medicae stimm-injector has the Feel No Pain (6+) Special Rule."
     },
     {
       "name": "Relic of the Great Crusade",
-      "text": "Legacy house rule. A banner scrap, a broken blade, a saint's finger-bone. Gives the model Relic of the Great Crusade."
+      "summary": "A banner scrap, a broken blade, a saint's finger-bone.",
+      "text": "A Model equipped with a Relic of the Great Crusade has the Relic of the Great Crusade Special Rule."
     },
     {
       "name": "Displacer field",
-      "text": "Legacy house rule. A short-range warp jump rig that fires when the bearer is struck. Gives the model Displacer Field."
+      "summary": "A short-range warp jump rig that fires when the bearer is struck.",
+      "text": "A Model equipped with a Displacer field has the Displacer Field Special Rule."
     },
     {
       "name": "Orbital augur-link",
-      "text": "Legacy house rule. A targeting relay linked to the Legion's orbital augurs. The model gains +1 Ballistic Skill."
+      "summary": "A targeting relay linked to the Legion's orbital augurs.",
+      "text": "A Model equipped with an Orbital augur-link adds 1 to its Ballistic Skill Characteristic."
     }
   ],
   "options": [
@@ -67,7 +79,12 @@
         "choices": [
           {
             "name": "Artificer armour",
-            "points": 10
+            "points": 10,
+            "onlyIf": {
+              "worse": {
+                "SAV": "2+"
+              }
+            }
           }
         ]
       }
@@ -138,7 +155,12 @@
         "choices": [
           {
             "name": "Refractor field",
-            "points": 10
+            "points": 10,
+            "onlyIf": {
+              "worse": {
+                "INV": "5+"
+              }
+            }
           }
         ]
       }
@@ -211,11 +233,21 @@
         "choices": [
           {
             "name": "Iron halo",
-            "points": 20
+            "points": 20,
+            "onlyIf": {
+              "worse": {
+                "INV": "4+"
+              }
+            }
           },
           {
             "name": "Teleport homer",
-            "points": 10
+            "points": 10,
+            "onlyIf": {
+              "missing": [
+                "Teleport Homer"
+              ]
+            }
           },
           {
             "name": "Auspex array",
@@ -223,7 +255,12 @@
           },
           {
             "name": "Medicae stimm-injector",
-            "points": 10
+            "points": 10,
+            "onlyIf": {
+              "missing": [
+                "Feel No Pain (6+)"
+              ]
+            }
           },
           {
             "name": "Relic of the Great Crusade",
@@ -844,47 +881,58 @@
   "rules": [
     {
       "name": "First Among Brothers",
-      "text": "Legacy house rule (Pride of the Legion). Veterans who have earned the right to hold the line. A unit with this rule adds +1 to its Leadership and Cool, and counts as a Troops unit for any mission rule that cares."
+      "summary": "Veterans who have earned the right to hold the line.",
+      "text": "All Models in a Unit with this Special Rule add 1 to their Leadership and Cool Characteristics. For the purposes of Mission special rules, a Unit with this Special Rule counts as a Troops Unit."
     },
     {
       "name": "Iron Column",
-      "text": "Legacy house rule (Armoured Spearhead). The tanks lead and the infantry follow. A model with this rule gains Outflank, and on the first battle turn it may Rush and still fire one weapon at its full Ballistic Skill."
+      "summary": "The tanks lead and the infantry follow.",
+      "text": "A Model with this Special Rule has the Outflank Special Rule. During the first Battle Turn, a Model with this Special Rule that Rushes may still make a Shooting Attack with one of its Weapons, using its full Ballistic Skill."
     },
     {
       "name": "Drop Assault Vanguard",
-      "text": "Legacy house rule (Orbital Assault). At the start of the first battle turn, half of the army's Drop Pods (rounding up) land automatically without a Reserves roll; the rest follow normally. Units disembarking from a Drop Pod on the turn it lands gain Hatred (Everything) until the end of that turn."
+      "summary": "The first wave lands before the enemy can react.",
+      "text": "At the start of the first Battle Turn, the Controlling Player chooses half of their Drop Pods with this Special Rule (rounding up); those Drop Pods arrive from Reserves without making a Reserves Roll. The rest arrive normally. Every Model that Disembarks from a Drop Pod with this Special Rule on the turn it arrives has the Hatred (Everything) Special Rule until the end of that turn."
     },
     {
       "name": "Death from Above",
-      "text": "Legacy house rule (Skyborne Vanguard). A unit with this rule that arrives by Deep Strike may still declare a Charge on that turn, at -2\" to the distance rolled."
+      "summary": "Jump packs lit, the line folds under the falling Legion.",
+      "text": "A Unit composed entirely of Models with this Special Rule that arrives from Reserves by Deep Strike may declare a Charge in the same turn. Subtract 2 from the result of that Charge Roll."
     },
     {
       "name": "Forward Positions",
-      "text": "Legacy house rule (Recon in Force). Before the first battle turn, after both sides have deployed, a unit with this rule may make a free move of up to 6\". It can't end that move within 9\" of an enemy model."
+      "summary": "Eyes on every road before the main host moves.",
+      "text": "After both Players have deployed and before the first Battle Turn begins, each Unit composed entirely of Models with this Special Rule may make a Set-up Move of up to 6\". It cannot end that move within 9\" of any enemy Model."
     },
     {
       "name": "Siege Doctrine",
-      "text": "Legacy house rule (Siege Breakers). The Legion goes through the walls, not round them. Shooting Attacks made by a model with this rule ignore Cover saves granted by buildings and fortifications, and the model adds +1 to its Front Armour."
+      "summary": "The Legion goes through the walls, not round them.",
+      "text": "Shooting Attacks made by a Model with this Special Rule ignore any Cover granted by Buildings and Fortifications. A Model with this Special Rule adds 1 to its Front Armour Value."
     },
     {
       "name": "Honoured Ancient",
-      "text": "Legacy house rule (Iron Ancients). A Dreadnought with this rule is never Pinned or Suppressed and counts as a scoring unit while within 3\" of an objective."
+      "summary": "The honoured dead walk ahead of the living.",
+      "text": "A Model with this Special Rule can never gain the Pinned or Suppressed Tactical Status. A Model with this Special Rule counts as a Scoring Unit while it is within 3\" of an Objective."
     },
     {
       "name": "Teleport Homer",
-      "text": "Legacy house rule. A friendly unit arriving by Deep Strike that sets up within 6\" of this model doesn't scatter or suffer a mishap."
+      "summary": "A beacon for the teleportarium.",
+      "text": "When a friendly Unit arrives from Reserves by Deep Strike and is set up wholly within 6\" of a Model with this Special Rule, it does not Scatter and cannot suffer a Mishap."
     },
     {
       "name": "Auspex Sweep",
-      "text": "Legacy house rule. Once per battle, in its Shooting phase, this model's unit may choose one enemy unit within 18\": that unit loses Shrouded (X) and cover benefits against this unit's attacks until the end of the phase."
+      "summary": "Nowhere to hide from the augur.",
+      "text": "Once per battle, when a Unit that includes a Model with this Special Rule makes a Shooting Attack, the Controlling Player may choose one enemy Unit within 18\". Until the end of that Shooting Attack, that Unit cannot make Shrouded Damage Mitigation Tests and gains no benefit from Cover against it."
     },
     {
       "name": "Relic of the Great Crusade",
-      "text": "Legacy house rule. Friendly Legion units within 6\" of this model add +1 to their Leadership. If this model is removed as a casualty, those units suffer -1 Leadership for the rest of the battle instead."
+      "summary": "Brothers rally to the relics of better days.",
+      "text": "Friendly Legiones Astartes Units within 6\" of a Model with this Special Rule add 1 to their Leadership Characteristic. If this Model is removed as a casualty, every friendly Legiones Astartes Unit that was within 6\" of it subtracts 1 from its Leadership Characteristic for the rest of the battle."
     },
     {
       "name": "Displacer Field",
-      "text": "Legacy house rule. Once per battle, after this model fails a Saving Throw, roll a dice. On a 4+ the wound is ignored and the model's unit is moved up to 6\" in any direction, ending at least 1\" from enemy models. The unit can't charge that turn."
+      "summary": "The bearer is struck, and then is somewhere else.",
+      "text": "Once per battle, after a Model with this Special Rule fails a Saving Throw, roll a dice. On a 4+ the Wound is discarded and the Model's Unit is moved up to 6\" in any direction, ending at least 1\" from any enemy Model. That Unit cannot declare a Charge in the same turn."
     }
   ],
   "weapons": {
@@ -955,7 +1003,13 @@
   "armyRules": [
     {
       "name": "Warrior Brotherhood",
-      "text": "Legacy house rule. The bonds of the Legion hold where other armies break. A Legion unit within 6\" of a friendly unit of the same Legion adds +1 to its Leadership for Morale Checks.",
+      "flavor": "The bonds of the Legion hold where other armies break.",
+      "benefits": [
+        "A Legiones Astartes Unit within 6\" of another friendly Unit of the same Legion adds 1 to its Leadership Characteristic when it makes a Morale Check."
+      ],
+      "drawbacks": [
+        "A Legiones Astartes Unit with no friendly Unit of the same Legion within 12\" subtracts 1 from its Leadership Characteristic when it makes a Morale Check."
+      ],
       "match": {
         "notUnitType": "Vehicle"
       },
@@ -963,7 +1017,13 @@
     },
     {
       "name": "Death Before Dishonour",
-      "text": "Legacy house rule. A Legion Character in a Challenge can't be forced to decline it, and when it is reduced to its last Wound it may make one last attack at its full Attacks before it is removed.",
+      "flavor": "No son of the Legion turns from a challenge.",
+      "benefits": [
+        "When a Model with this Special Rule is reduced to its last Wound in a Challenge, it may immediately make one final set of attacks with its full Attacks Characteristic before it is removed."
+      ],
+      "drawbacks": [
+        "A Model with this Special Rule can never decline a Challenge, and cannot be prevented from accepting one."
+      ],
       "match": {
         "unitType": "Command"
       },

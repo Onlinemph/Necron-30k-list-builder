@@ -98,39 +98,48 @@
   "wargear": [
     {
       "name": "Vow of Silence",
-      "text": "Legacy house rule. Every Sister has sworn a vow of quiet, and the unit's presence is a cold hole in the warp. Enemy Psykers within 6\" of the unit suffer -1 to every Psychic Check they make."
+      "summary": "Every Sister has sworn a vow of quiet, and the unit's presence is a cold hole in the warp.",
+      "text": "While a Unit includes a Model equipped with Vow of Silence, enemy Psykers within 6\" of that Unit subtract 1 from the result of every Psychic Check they make."
     },
     {
       "name": "Oblivion-forged aegis",
-      "text": "Legacy house rule. A shield-plate wrought in the Throne Room's own foundries, hungry to unmake what strikes it. The bearer gains a 4+ Invulnerable Save."
+      "summary": "A shield-plate wrought in the Throne Room's own foundries, hungry to unmake what strikes it.",
+      "text": "A Model equipped with an Oblivion-forged aegis has an Invulnerable Save of 4+, unless it already has a better Invulnerable Save."
     },
     {
       "name": "Null-lattice hull",
-      "text": "Legacy house rule. The Acquisitor's hull is lined with a mesh of soulless iron, built for hauling the damned through the Black Ships' corridors. The vehicle gains +1 Front armour value."
+      "summary": "The Acquisitor's hull is lined with a mesh of soulless iron, built for hauling the damned through the Black Ships' corridors.",
+      "text": "A Vehicle equipped with a Null-lattice hull adds 1 to its Front Armour Value."
     },
     {
       "name": "Soul-dampener collar",
-      "text": "Legacy house rule. A choker of black iron that drinks the warp-light from the air around it."
+      "summary": "A choker of black iron that drinks the warp-light from the air around it.",
+      "text": "A Model equipped with a Soul-dampener collar has the Dampening Pall Special Rule."
     },
     {
       "name": "Null-iron rosary",
-      "text": "Legacy house rule. A string of beads cast from the black iron of the Palace dungeons."
+      "summary": "A string of beads cast from the black iron of the Palace dungeons.",
+      "text": "A Model equipped with a Null-iron rosary has the Rosary of Quiet Special Rule."
     },
     {
       "name": "Hushed bell",
-      "text": "Legacy house rule. A bell with no clapper that, when swung, rings only inside the mind."
+      "summary": "A bell with no clapper that, when swung, rings only inside the mind.",
+      "text": "A Model equipped with a Hushed bell has the Muting Toll Special Rule."
     },
     {
       "name": "Verdict-seal manacles",
-      "text": "Legacy house rule. Warded iron cuffs bearing a sentence already pronounced."
+      "summary": "Warded iron cuffs bearing a sentence already pronounced.",
+      "text": "A Model equipped with Verdict-seal manacles has the Seal of Arrest Special Rule."
     },
     {
       "name": "Cell-lock grapnels",
-      "text": "Legacy house rule. Spring-fed grapnels fired from the Acquisitor's flanks to snare running prey."
+      "summary": "Spring-fed grapnels fired from the Acquisitor's flanks to snare running prey.",
+      "text": "A Model equipped with Cell-lock grapnels has the Snare Volley Special Rule."
     },
     {
       "name": "Revealing lumen",
-      "text": "Legacy house rule. A hard white searchlight that strips cover and shadow from whatever it falls on."
+      "summary": "A hard white searchlight that strips cover and shadow from whatever it falls on.",
+      "text": "A Model equipped with a Revealing lumen has the Truth Beam Special Rule."
     }
   ],
   "options": [
@@ -230,17 +239,13 @@
     },
     {
       "units": [
-        "knight-centura",
-        "jenetia-krole"
+        "knight-centura"
       ],
       "option": {
         "id": "ap-aegis",
         "kind": "upgrade",
-        "model": [
-          "Knight-Centura",
-          "Jenetia Krole"
-        ],
-        "text": "The Oblivion Knight may carry an aegis",
+        "model": "Knight-Centura",
+        "text": "The Knight-Centura may carry an aegis",
         "choices": [
           {
             "name": "Oblivion-forged aegis",
@@ -416,8 +421,7 @@
     },
     {
       "units": [
-        "knight-centura",
-        "jenetia-krole"
+        "knight-centura"
       ],
       "item": "Oblivion-forged aegis",
       "scope": "unit",
@@ -505,45 +509,63 @@
   "rules": [
     {
       "name": "Silent Hunt",
-      "text": "Legacy house rule (Vow of the Silent Hunt). An enemy Psyker within 12\" of a unit with this rule subtracts 1 from its Willpower while it is there."
+      "summary": "They do not shout. They do not speak. The witch notices only that her prayers have stopped working.",
+      "text": "While an enemy Psyker is within 12\" of a Unit with this Special Rule, that Psyker subtracts 1 from its Willpower Characteristic.",
+      "source": "Vow of the Silent Hunt"
     },
     {
       "name": "Oblivion Charge",
-      "text": "Legacy house rule (The Oblivion Knights Ride). A unit with this rule may declare a Charge on the turn it disembarks from a transport. If an enemy Psyker or Malefic unit is within its charge reach, it must charge one."
+      "summary": "Where witch-fire cannot reach, a blade can.",
+      "text": "A Unit with this Special Rule may declare a Charge in the Battle Turn in which it Disembarks from a Transport. If an enemy Psyker or Malefic Unit is within that Unit's Charge reach, the Controlling Player must declare the Charge against one such Unit.",
+      "source": "The Oblivion Knights Ride"
     },
     {
       "name": "Incorruptible Engines",
-      "text": "Legacy house rule (The Black Ships' Writ). Enemy Psychic powers can't target a model with this rule, and it is unaffected by Corruption and Malefic abilities."
+      "summary": "A machine cannot be tempted, and a null cannot be reached.",
+      "text": "Enemy Psychic Powers cannot target a Model with this Special Rule, and such a Model is unaffected by the Corruption and Malefic abilities of enemy Models.",
+      "source": "The Black Ships' Writ"
     },
     {
       "name": "Dampening Pall",
-      "text": "Legacy house rule. Enemy Psykers within 12\" of the bearer subtract 1 from their Psychic Checks."
+      "summary": "The pall smothers the pains the witch would visit on those around the bearer.",
+      "text": "A Unit that includes a Model with this Special Rule cannot gain the Pinned, Stunned or Suppressed Tactical Status as the result of an enemy Psychic Power or Malefic ability."
     },
     {
       "name": "Rosary of Quiet",
-      "text": "Legacy house rule. The bearer gains Feel No Pain (6+)."
+      "summary": "Black-iron beads, each one a small silence.",
+      "text": "A Model with this Special Rule has the Feel No Pain (6+) Special Rule."
     },
     {
       "name": "Muting Toll",
-      "text": "Legacy house rule. Once per battle, at the start of the enemy Shooting phase, choose one enemy unit within 18\". It may not use Psychic weapons or Force (X) until the end of the phase."
+      "summary": "The bell rings only inside the mind, and what it rings out is the witch's own power.",
+      "text": "Once per battle, at the start of the enemy Shooting Phase, the Controlling Player may choose one enemy Unit within 18\" of a Model with this Special Rule. Until the end of that phase, that Unit cannot use Psychic Weapons or the Force (X) Special Rule."
     },
     {
       "name": "Seal of Arrest",
-      "text": "Legacy house rule. If the bearer's unit wins an Assault with a Psyker or Malefic unit, that unit gains the Stunned Status."
+      "summary": "The sentence has already been pronounced.",
+      "text": "If a Unit that includes a Model with this Special Rule wins an Assault against a Unit that includes a Psyker or Malefic Model, that enemy Unit gains the Stunned Tactical Status."
     },
     {
       "name": "Snare Volley",
-      "text": "Legacy house rule. Once per battle, one enemy Infantry unit within 12\" at the start of its controller's Movement phase must pass a Cool Check or gain the Pinned Status."
+      "summary": "The grapnels fly, and the quarry learns it cannot run.",
+      "text": "Once per battle, at the start of the enemy Controlling Player's Movement Phase, choose one enemy Infantry Unit within 12\" of a Model with this Special Rule. That Unit must pass a Cool Check or gain the Pinned Tactical Status."
     },
     {
       "name": "Truth Beam",
-      "text": "Legacy house rule. Enemy units within 24\" of the Acquisitor lose Shrouded (X) and Infiltrate (X) benefits against its Shooting Attacks."
+      "summary": "A hard white light strips cover and shadow from whatever it falls on.",
+      "text": "Enemy Units within 24\" of a Model with this Special Rule cannot use the Shrouded (X) or Infiltrate (X) Special Rules against that Model's Shooting Attacks."
     }
   ],
   "armyRules": [
     {
       "name": "Soulless Resolve",
-      "text": "Legacy house rule. The Sisters feel no warp-born dread and give no warmth to it either. Anathema models ignore Fear and add 1 to their Cool, but may not be targeted by friendly Psychic powers or benefit from friendly Feel No Pain-granting abilities.",
+      "flavor": "The Sisters feel no warp-born dread, and give no warmth to it either.",
+      "benefits": [
+        "An Anathema Model ignores the effects of the Fear (X) Special Rule and adds 1 to its Cool Characteristic."
+      ],
+      "drawbacks": [
+        "An Anathema Model cannot be targeted by friendly Psychic Powers, and cannot benefit from a Feel No Pain Special Rule granted by another Model."
+      ],
       "units": [
         "anathema-cadre",
         "knight-centura",
@@ -555,7 +577,13 @@
     },
     {
       "name": "Quarry Marked",
-      "text": "Legacy house rule. A cadre hunts the gifted by sight. A Null Sister adds 1 to her Hit Tests against units containing a Psyker or Malefic model; against other targets she suffers -1 to Hit when she Shoots at over 12\".",
+      "flavor": "A cadre hunts the gifted by sight.",
+      "benefits": [
+        "A Null Sister adds 1 to her Hit Tests when she makes a Shooting Attack against a Unit that includes a Psyker or Malefic Model."
+      ],
+      "drawbacks": [
+        "Against any other target more than 12\" away, a Null Sister subtracts 1 from her Hit Tests."
+      ],
       "units": [
         "anathema-cadre"
       ],
@@ -566,7 +594,13 @@
     },
     {
       "name": "Cell-Block Hold",
-      "text": "Legacy house rule. The Acquisitor is a moving prison and smells like one. Enemy units within 6\" of an Acquisitor subtract 1 from their Cool. Its hold is cramped by cells, so its Capacity is reduced by 2.",
+      "flavor": "The Acquisitor is a moving prison, and smells like one.",
+      "benefits": [
+        "Enemy Units within 6\" of an Acquisitor subtract 1 from their Cool Characteristic."
+      ],
+      "drawbacks": [
+        "An Acquisitor subtracts 2 from its Capacity Characteristic, its hold cramped by cells."
+      ],
       "units": [
         "kharon-pattern-acquisitor"
       ],
@@ -581,7 +615,7 @@
       "flavor": "They do not shout. They do not speak. The witch notices only that her prayers have stopped working.",
       "benefits": [
         "Kharon Pattern Acquisitors may fill Troops slots.",
-        "Anathema Cadres gain Infiltrate (9) and Silent Hunt: an enemy Psyker within 12\" takes -1 to its Willpower."
+        "Anathema Cadres gain Infiltrate (9) and Silent Hunt: while an enemy Psyker is within 12\" of a Cadre, it subtracts 1 from its Willpower Characteristic."
       ],
       "limitations": [
         "At least two Anathema Cadres are required.",
@@ -628,13 +662,13 @@
       "name": "The Oblivion Knights Ride",
       "flavor": "Even the Silent Sisterhood needs someone to carry a sword where the witch-fire cannot reach.",
       "benefits": [
-        "Knight-Centuras may fill Troops and Elites slots, gain Line (1) and +1 Attack.",
-        "They gain Oblivion Charge: a unit may Charge on the turn it disembarks from a transport."
+        "Knight-Centuras may fill Troops and Elites slots, gain Line (1) and add 1 to their Attacks Characteristic.",
+        "They gain Oblivion Charge: a Unit may declare a Charge in the Battle Turn in which it Disembarks from a Transport."
       ],
       "limitations": [
         "At least two Knight-Centuras are required.",
         "No Anathema Cadres.",
-        "A Knight-Centura that can charge an enemy Psyker or Malefic unit must do so."
+        "A Knight-Centura that can charge an enemy Psyker or Malefic Unit must do so."
       ],
       "roles": [
         {
@@ -687,8 +721,8 @@
       "flavor": "When the Sisters cannot be everywhere, the Throne lends them machines that cannot be tempted.",
       "benefits": [
         "Castellax Battle and Destructor Maniples may fill Troops slots and gain Line (1).",
-        "They gain Incorruptible Engines: enemy Psychic powers can't target them.",
-        "Anathema Cadres gain +1 Leadership."
+        "They gain Incorruptible Engines: enemy Psychic Powers cannot target them.",
+        "Anathema Cadres add 1 to their Leadership Characteristic."
       ],
       "limitations": [
         "At least two Castellax Maniples are required.",

@@ -117,39 +117,48 @@
   "wargear": [
     {
       "name": "Warp-brand",
-      "text": "Legacy house rule. The unit has been marked by one of the Powers, a sigil burned into the flesh that will not heal. All models in the unit gain +1 Attack."
+      "summary": "A sigil burned into the flesh by one of the Powers, a mark that will not heal.",
+      "text": "Every Model in a Unit that includes a Model equipped with a Warp-brand adds 1 to its Attacks Characteristic."
     },
     {
       "name": "Ruin-shard crown",
-      "text": "Legacy house rule. A fragment of the Ruinstorm worn as a diadem, bleeding unreality into the air. The bearer's unit gains Fear (1)."
+      "summary": "A fragment of the Ruinstorm worn as a diadem, bleeding unreality into the air.",
+      "text": "A Model equipped with a Ruin-shard crown has the Fear (2) Special Rule in place of the Fear (1) Special Rule."
     },
     {
       "name": "Bloodied skull-rack",
-      "text": "Legacy house rule. A frame of skulls taken from champions, still weeping from the ruin they came from."
+      "summary": "A frame of skulls taken from champions, still weeping from the ruin they came from.",
+      "text": "A Model equipped with a Bloodied skull-rack has the Skull Tally Special Rule."
     },
     {
       "name": "Chime of stolen hours",
-      "text": "Legacy house rule. A bell whose note drags the surroundings a heartbeat out of step."
+      "summary": "A bell whose note drags the surroundings a heartbeat out of step.",
+      "text": "A Model equipped with a Chime of stolen hours has the Slipped Moment Special Rule."
     },
     {
       "name": "Canker-urn",
-      "text": "Legacy house rule. A bronze urn that vents a slow, sweet-smelling miasma."
+      "summary": "A bronze urn that vents a slow, sweet-smelling miasma.",
+      "text": "A Model equipped with a Canker-urn has the Festering Cloud Special Rule."
     },
     {
       "name": "Mirror-glass aegis",
-      "text": "Legacy house rule. A hall of mirrors ground into a shield, returning every threat as an unwelcome gift."
+      "summary": "A hall of mirrors ground into a shield, returning every threat as an unwelcome gift.",
+      "text": "A Model equipped with a Mirror-glass aegis has the Hall of Mirrors Special Rule."
     },
     {
       "name": "Lash-gall harness",
-      "text": "Legacy house rule. Barbed rigging cutting into the pack's flanks and driving them into a rage."
+      "summary": "Barbed rigging cutting into the pack's flanks and driving them into a rage.",
+      "text": "A Model equipped with a Lash-gall harness has the Goaded Pack Special Rule."
     },
     {
       "name": "Hollow idol",
-      "text": "Legacy house rule. An effigy of stolen faces that anchors lesser daemons to the world."
+      "summary": "An effigy of stolen faces that anchors lesser daemons to the world.",
+      "text": "A Model equipped with a Hollow idol has the Anchoring Idol Special Rule."
     },
     {
       "name": "Ruin-barbs",
-      "text": "Legacy house rule. Quills of hardened unreality that jut out from the hide at every angle."
+      "summary": "Quills of hardened unreality that jut out from the hide at every angle.",
+      "text": "A Model equipped with Ruin-barbs has the Barbed Ruin Special Rule."
     }
   ],
   "options": [
@@ -534,6 +543,21 @@
         "ruinstorm-daemon-hierarch",
         "ruinstorm-daemon-harbinger"
       ],
+      "item": "Ruin-shard crown",
+      "text": "Ruin-shard crown: Fear (2).",
+      "addRules": [
+        "Fear (2)"
+      ],
+      "removeRules": [
+        "Fear (1)"
+      ]
+    },
+    {
+      "units": [
+        "ruinstorm-daemon-sovereign",
+        "ruinstorm-daemon-hierarch",
+        "ruinstorm-daemon-harbinger"
+      ],
       "item": "Bloodied skull-rack",
       "text": "Bloodied skull-rack: Skull Tally.",
       "addRules": [
@@ -571,8 +595,7 @@
         "ruinstorm-daemon-harbinger",
         "ascendant-lord-of-tzeench",
         "herald-of-tzeench",
-        "lord-of-change",
-        "ruinstorm-greater-daemon-beast"
+        "lord-of-change"
       ],
       "item": "Mirror-glass aegis",
       "text": "Mirror-glass aegis: Hall of Mirrors.",
@@ -620,67 +643,98 @@
   "rules": [
     {
       "name": "Warp Rift Tide",
-      "text": "Legacy house rule (The Gnashing Tide). A unit with this rule may be placed in Reserves and arrive by Deep Strike. If it is still in Reserve at the start of its controller's second turn, it arrives automatically without a Reserves roll."
+      "summary": "The Ruinstorm does not march. It rises, and it keeps rising.",
+      "text": "A Unit with this Special Rule may be placed in Reserves and arrive by Deep Strike. If it is still in Reserves at the start of its Controlling Player's second Battle Turn, it arrives automatically without making a Reserves Roll.",
+      "source": "The Gnashing Tide"
     },
     {
       "name": "Threads of Fate",
-      "text": "Legacy house rule (The Pale Banner of Fate). After both sides have deployed and before the first battle turn, up to three friendly units with this rule may each make a free move of up to 6\". None may end that move within 12\" of an enemy model."
+      "summary": "The future is a river, and a river can be made to run uphill if you ask it in the right voice.",
+      "text": "After both Players have deployed and before the first Battle Turn begins, up to three friendly Units with this Special Rule may each make a Set-up Move of up to 6\". A Unit cannot end this move within 12\" of any enemy Model.",
+      "source": "The Pale Banner of Fate"
     },
     {
       "name": "Skulls for the Throne",
-      "text": "Legacy house rule (The Red Tide of Ka'bandha). A unit with this rule adds 1 to its Charge roll. On a turn it charges, it must charge the closest enemy unit it can reach."
+      "summary": "Skulls for the Throne. All of them. All at once.",
+      "text": "A Unit with this Special Rule adds 1 to the result of its Charge Roll. In a Battle Turn in which it declares a Charge, it must declare it against the closest enemy Unit it can reach.",
+      "source": "The Red Tide of Ka'bandha"
     },
     {
       "name": "Creeping Rot",
-      "text": "Legacy house rule (Rot Unbidden). Enemy models in base contact with a model with this rule subtract 1 from their Initiative."
+      "summary": "It does not hurry. It has never needed to.",
+      "text": "Enemy Models in base contact with a Model with this Special Rule subtract 1 from their Initiative Characteristic.",
+      "source": "Rot Unbidden"
     },
     {
       "name": "Irresistible Allure",
-      "text": "Legacy house rule (Rapture's Invitation). An enemy unit charged by a unit with this rule subtracts 1 from its Initiative until the end of that Assault phase."
+      "summary": "They do not want to hurt you. They want you to ask them to.",
+      "text": "An enemy Unit charged by a Unit with this Special Rule subtracts 1 from its Initiative Characteristic until the end of that Assault Phase.",
+      "source": "Rapture's Invitation"
     },
     {
       "name": "Skull Tally",
-      "text": "Legacy house rule. Each time the bearer's unit destroys an enemy Character in combat, the bearer gains +1 Attack until the end of the battle (maximum +2)."
+      "summary": "Every champion taken is another notch on the rack.",
+      "text": "Each time a Unit that includes a Model with this Special Rule removes an enemy Character as a casualty in the Assault Phase, that Model adds 1 to its Attacks Characteristic for the rest of the battle, to a maximum of +2."
     },
     {
       "name": "Slipped Moment",
-      "text": "Legacy house rule. Once per battle, at the end of its controlling player's turn, the bearer's unit may be removed from the battlefield and placed in Reserve to arrive next turn by Deep Strike."
+      "summary": "A heartbeat out of step, and the Daemon is elsewhere.",
+      "text": "Once per battle, at the end of the Controlling Player's Battle Turn, a Unit that includes a Model with this Special Rule may be removed from the battlefield and placed in Reserves. It arrives by Deep Strike in the following Battle Turn."
     },
     {
       "name": "Festering Cloud",
-      "text": "Legacy house rule. Enemy models within 3\" of the bearer subtract 1 from their Toughness."
+      "summary": "A slow, sweet-smelling miasma that rots from within.",
+      "text": "Enemy Models within 3\" of a Model with this Special Rule subtract 1 from their Toughness Characteristic."
     },
     {
       "name": "Hall of Mirrors",
-      "text": "Legacy house rule. Enemy Psychic Checks made to target the bearer suffer -1. The first time each battle the bearer suffers an unsaved wound from a Shooting Attack, the shooter's unit suffers one automatic Hit (S3, AP -)."
+      "summary": "Every threat is returned as an unwelcome gift.",
+      "text": "Psychic Checks made by enemy Models to target a Model with this Special Rule suffer a -1 modifier. The first time in each battle that a Model with this Special Rule suffers an unsaved Wound from a Shooting Attack, the Unit that made that Shooting Attack suffers one automatic Hit with a Strength of 3 and an AP of –."
     },
     {
       "name": "Goaded Pack",
-      "text": "Legacy house rule. A Charge roll of less than 6 made by the unit counts as 6."
+      "summary": "The barbs drive the pack into a rage that outruns its own fear.",
+      "text": "If the result of a Charge Roll made by a Unit with this Special Rule is less than 6, it counts as 6."
     },
     {
       "name": "Anchoring Idol",
-      "text": "Legacy house rule. Once per battle, the unit may treat a failed Morale or Cool Check as passed."
+      "summary": "Stolen faces hold the lesser daemons to the world a little longer.",
+      "text": "Once per battle, a Unit with this Special Rule may treat one failed Morale Check or Cool Check as having been passed."
     },
     {
       "name": "Barbed Ruin",
-      "text": "Legacy house rule. An enemy unit that Charges the bearer's unit suffers one automatic Hit (S4, AP -) for each model in base contact."
+      "summary": "Quills of unreality jut out at every angle.",
+      "text": "An enemy Unit that Charges a Unit with this Special Rule suffers one automatic Hit with a Strength of 4 and an AP of – for each of its Models that is in base contact with a Model with this Special Rule."
     }
   ],
   "armyRules": [
     {
       "name": "Tethered to the Storm",
-      "text": "Legacy house rule. Ruinstorm daemons are held in the material world by the storm's fury and slip away when it quiets. A Malefic unit gains a 5+ Invulnerable Save if it was worse. At the end of its controlling player's turn, a unit that neither made nor suffered an attack that turn must pass a Cool Check or lose one model.",
+      "flavor": "Ruinstorm daemons are held in the material world by the storm's fury, and slip away when it quiets.",
+      "benefits": [
+        "A Malefic Model adds 1 to its Initiative Characteristic in a Battle Turn in which its Unit makes a Charge.",
+        "A Malefic Model ignores Dangerous Terrain Tests."
+      ],
+      "drawbacks": [
+        "At the end of its Controlling Player's Battle Turn, a Malefic Unit that neither made nor suffered an attack in that turn must pass a Cool Check or lose one Model."
+      ],
       "match": {
         "unitType": "Malefic"
       },
       "stats": {
-        "INV": "best:5+"
-      }
+        "I": "+1"
+      },
+      "condition": "in a Battle Turn in which its Unit makes a Charge"
     },
     {
       "name": "Anchor of the Storm",
-      "text": "Legacy house rule. Greater powers bind the lesser to their will. A friendly Malefic unit within 12\" of a Sovereign, Hierarch, Harbinger, Ascendant Lord or Herald adds 1 to its Cool. If that commander is slain, each such unit must make a Cool Check or gain the Stunned Status.",
+      "flavor": "Greater powers bind the lesser to their will.",
+      "benefits": [
+        "A friendly Malefic Unit within 12\" of a Sovereign, Hierarch, Harbinger, Ascendant Lord or Herald adds 1 to its Cool Characteristic."
+      ],
+      "drawbacks": [
+        "When such a commander is removed as a casualty, every Malefic Unit that was within 12\" of it must pass a Cool Check or gain the Stunned Tactical Status."
+      ],
       "units": [
         "ruinstorm-daemon-sovereign",
         "ruinstorm-daemon-hierarch",
@@ -691,7 +745,13 @@
     },
     {
       "name": "Shifting Fates",
-      "text": "Legacy house rule. The Changer's servants are never quite where the enemy aimed. Tzeentch units gain a 5+ Invulnerable Save if it was worse, but subtract 1 from their Cool as their attention wanders.",
+      "flavor": "The Changer's servants are never quite where the enemy aimed.",
+      "benefits": [
+        "Shooting Attacks made against a Tzeench Unit from more than 24\" away subtract 1 from their Hit Tests."
+      ],
+      "drawbacks": [
+        "A Tzeench Model subtracts 1 from its Cool Characteristic as its attention wanders."
+      ],
       "units": [
         "ascendant-lord-of-tzeench",
         "herald-of-tzeench",
@@ -701,7 +761,6 @@
         "horrors-of-tzeench"
       ],
       "stats": {
-        "INV": "best:5+",
         "CL": "-1"
       }
     }
@@ -712,7 +771,7 @@
       "flavor": "The Ruinstorm does not march. It rises, and it keeps rising.",
       "benefits": [
         "Daemon Harriers and Riders may fill Troops slots; they, Lesser Daemons and Daemon Swarms gain Line (1).",
-        "Those units gain Warp Rift Tide: they may arrive by Deep Strike, and any still in Reserve at the start of turn two arrive automatically."
+        "Those units gain Warp Rift Tide: they may arrive by Deep Strike, and any still in Reserves at the start of the second Battle Turn arrive automatically."
       ],
       "limitations": [
         "At least one Lesser Daemons unit is required.",
@@ -771,7 +830,7 @@
       "flavor": "The future is a river, and a river can be made to run uphill if you ask it in the right voice.",
       "benefits": [
         "Flamers and Screamers of Tzeench may fill Troops slots and gain Line (1).",
-        "Tzeench units gain Threads of Fate: after deployment and before the first turn, up to three Tzeench units may each make a free move of up to 6\"."
+        "Tzeench units gain Threads of Fate: after deployment and before the first Battle Turn, up to three Tzeench Units may each make a Set-up Move of up to 6\"."
       ],
       "limitations": [
         "A Lord of Change, Ascendant Lord or Herald of Tzeench is required.",
@@ -844,12 +903,12 @@
       "flavor": "Skulls for the throne. All of them. All at once.",
       "benefits": [
         "Ruinstorm Daemon Brutes and Blood Slaughterers may fill Troops slots and gain Line (1).",
-        "They gain Skulls for the Throne: Charge rolls gain +1."
+        "They gain Skulls for the Throne: they add 1 to their Charge Rolls."
       ],
       "limitations": [
         "Ka'bandha must be in the army.",
         "No Psykers and no Tzeench units.",
-        "A unit with Skulls for the Throne must charge the closest enemy unit it can reach."
+        "A Unit with Skulls for the Throne must charge the closest enemy Unit it can reach."
       ],
       "roles": [
         {
@@ -900,11 +959,11 @@
       "flavor": "It does not hurry. It has never needed to.",
       "benefits": [
         "The Daemon Behemoth and Greater Daemon Beast may fill Elites slots.",
-        "Every Malefic model gains Feel No Pain (6+) and Creeping Rot: enemy models in base contact with it subtract 1 from their Initiative."
+        "Every Malefic Model gains Creeping Rot (enemy Models in base contact with it subtract 1 from their Initiative Characteristic), and every Malefic Model except Cor'bax Utterblight, who already has Feel No Pain (5+), gains Feel No Pain (6+)."
       ],
       "limitations": [
         "Cor'bax Utterblight must be in the army.",
-        "Every Malefic model loses 1 Movement.",
+        "Every Malefic Model subtracts 1 from its Movement Characteristic.",
         "No Recon or Fast Attack units."
       ],
       "roles": [
@@ -921,13 +980,24 @@
           "match": {
             "unitType": "Malefic"
           },
-          "text": "Rot Unbidden: Feel No Pain (6+), Creeping Rot, -1 M.",
+          "text": "Rot Unbidden: Creeping Rot, -1 M.",
           "stats": {
             "M": "-1"
           },
           "addRules": [
-            "Feel No Pain (6+)",
             "Creeping Rot"
+          ]
+        },
+        {
+          "match": {
+            "unitType": "Malefic",
+            "notNameIncludes": [
+              "Utterblight"
+            ]
+          },
+          "text": "Rot Unbidden: Feel No Pain (6+).",
+          "addRules": [
+            "Feel No Pain (6+)"
           ]
         }
       ],
@@ -957,7 +1027,7 @@
       "name": "Rapture's Invitation",
       "flavor": "They do not want to hurt you. They want you to ask them to.",
       "benefits": [
-        "Daemon Harriers and Riders gain Fast (1), Outflank and Irresistible Allure: an enemy unit they charge subtracts 1 from its Initiative until the end of that Assault phase."
+        "Daemon Harriers and Riders gain Fast (1), Outflank and Irresistible Allure: an enemy Unit they charge subtracts 1 from its Initiative Characteristic until the end of that Assault Phase."
       ],
       "limitations": [
         "Samus must be in the army.",

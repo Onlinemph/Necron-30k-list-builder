@@ -98,39 +98,48 @@
   "wargear": [
     {
       "name": "Night-mantle",
-      "text": "Legacy house rule. A cloak of dark, light-eating fabric stitched with something that was once a man's hide. The model gains Shrouded (5+)."
+      "summary": "A cloak of dark, light-eating fabric stitched with something that was once a man's hide.",
+      "text": "A Model equipped with a Night-mantle has the Shrouded (5+) Special Rule."
     },
     {
       "name": "Gibbet standard",
-      "text": "Legacy house rule. A frame that carries the last enemy officer the unit caught, still in his armour. Every model in the unit gains Hatred (Infantry)."
+      "summary": "A frame that carries the last enemy officer the unit caught, still in his armour.",
+      "text": "While a Unit includes a Model equipped with a Gibbet standard, all Models in that Unit have the Hatred (Infantry) Special Rule. If the Model carrying the Gibbet standard is removed as a casualty, the bonus is lost."
     },
     {
       "name": "Siren harness",
-      "text": "Legacy house rule. A scream-tuned jump pack rig that howls on the descent. Gives the unit Howling Dive."
+      "summary": "A scream-tuned jump pack rig that howls on the descent.",
+      "text": "A Model equipped with a Siren harness gives its Unit the Howling Dive Special Rule."
     },
     {
       "name": "Atrocity trophies",
-      "text": "Legacy house rule. A rack of enemy standards, helms and banners. Gives the model Trophy of Terror."
+      "summary": "A rack of enemy standards, helms and banners.",
+      "text": "A Model equipped with Atrocity trophies has the Trophy of Terror Special Rule."
     },
     {
       "name": "Whisper-warded fetish",
-      "text": "Legacy house rule. Knotted hair, bone and a murmured curse against the warp. The model gains +1 Willpower and Hexed Mind."
+      "summary": "Knotted hair, bone and a murmured curse against the warp.",
+      "text": "A Model equipped with a Whisper-warded fetish adds 1 to its Willpower Characteristic and has the Hexed Mind Special Rule."
     },
     {
       "name": "Headsman's chain",
-      "text": "Legacy house rule. A weighted chain hung with the badges of men executed. Gives the model Headsman's Reckoning."
+      "summary": "A weighted chain hung with the badges of men executed.",
+      "text": "A Model equipped with a Headsman's chain has the Headsman's Reckoning Special Rule."
     },
     {
       "name": "Grapnel lines",
-      "text": "Legacy house rule. Wire-line launchers for taking walls and rooftops in a heartbeat. Gives the unit Rooftop Stalkers."
+      "summary": "Wire-line launchers for taking walls and rooftops in a heartbeat.",
+      "text": "A Model equipped with Grapnel lines gives its Unit the Rooftop Stalkers Special Rule."
     },
     {
       "name": "Murk-smoke projectors",
-      "text": "Legacy house rule. Vents that pour oily dark behind the hull. Gives the vehicle Murk Shroud."
+      "summary": "Vents that pour oily dark behind the hull.",
+      "text": "A Vehicle equipped with Murk-smoke projectors has the Murk Shroud Special Rule."
     },
     {
       "name": "Wailing warsiren",
-      "text": "Legacy house rule. A hull-mounted siren tuned to the pitch of a dying man. Gives the vehicle Dirge of Dread."
+      "summary": "A hull-mounted siren tuned to the pitch of a dying man.",
+      "text": "A Vehicle equipped with a Wailing warsiren has the Dirge of Dread Special Rule."
     }
   ],
   "options": [
@@ -258,8 +267,7 @@
         "tactical-squad",
         "despoiler-squad",
         "assault-squad",
-        "night-raptor-squad",
-        "terror-squad"
+        "night-raptor-squad"
       ],
       "option": {
         "id": "nl-gibbet-standard",
@@ -651,47 +659,58 @@
   "rules": [
     {
       "name": "Silent Knives",
-      "text": "Legacy house rule (Knives in the Dark). The sentry never saw the blade. On the turn a unit with this rule enters play from Reserves, enemy units may not make Reaction Shooting against it."
+      "summary": "The sentry never saw the blade.",
+      "text": "A Unit with this Special Rule that arrives from Reserves cannot be the target of Reaction Shooting Attacks made by enemy Units during the Battle Turn in which it arrives."
     },
     {
       "name": "Dread Herald",
-      "text": "Legacy house rule (Dread Procession). Fear walks ahead of them. An enemy unit charged by a unit with this rule reduces its Cool by a further 1 until the end of that Assault phase."
+      "summary": "Fear walks ahead of them.",
+      "text": "When a Unit with this Special Rule makes a Charge, each enemy Unit it charges subtracts 1 from its Cool Characteristic for any Cool Check it makes until the end of that Assault phase. This is in addition to any effect of the Fear (X) Special Rule."
     },
     {
       "name": "Judgement of the Cabal",
-      "text": "Legacy house rule (Cabal of Murder). Before deployment, the controlling player names one enemy unit as the Condemned. Models with this rule add +1 to Hit Tests against that unit; if it is destroyed, name another at the start of the next turn."
+      "summary": "The Cabal names its victim before the first shot is fired.",
+      "text": "Before Deployment, the Controlling Player chooses one enemy Unit to be the Condemned. Hit Tests made by Models with this Special Rule against the Condemned Unit are made with a +1 modifier. When the Condemned Unit is destroyed, the Controlling Player chooses a new Condemned Unit at the start of their next Battle Turn."
     },
     {
       "name": "Tithe of Blood",
-      "text": "Legacy house rule (The Headsman's Tithe). When a unit with this rule destroys an enemy unit in combat, every enemy unit within 12\" reduces its Cool by 1 until the end of the turn."
+      "summary": "The Eighth Legion takes its tithe in fear.",
+      "text": "When a Unit with this Special Rule destroys an enemy Unit in an Assault, each enemy Unit within 12\" of it subtracts 1 from its Cool Characteristic until the end of that Battle Turn."
     },
     {
       "name": "Howling Dive",
-      "text": "Legacy house rule. The wail of the dive grinds nerves to powder. Enemy Reaction Shooting against a unit with this rule that has just declared a Charge suffers -1 to Hit, and enemy units it charges lose 1 Cool for that Charge."
+      "summary": "The wail of the dive grinds nerves to powder.",
+      "text": "A Unit with this Special Rule that has declared a Charge is hit at -1 in Reaction Shooting Attacks made against it. Each enemy Unit it charges also subtracts 1 from its Cool Characteristic for Cool Checks made during that Charge."
     },
     {
       "name": "Trophy of Terror",
-      "text": "Legacy house rule. Friendly Night Lords units within 6\" of this model add +1 to their Cool. Enemy units within 6\" of it subtract 1 from their Cool."
+      "summary": "Every banner on the rack was taken from someone who thought they were safe.",
+      "text": "Friendly Night Lords Units within 6\" of a Model with this Special Rule add 1 to their Cool Characteristic. Enemy Units within 6\" of that Model subtract 1 from their Cool Characteristic."
     },
     {
       "name": "Hexed Mind",
-      "text": "Legacy house rule. Enemy psychic powers that target this model or its unit suffer -1 to their Psychic Check."
+      "summary": "A mind knotted shut against the warp.",
+      "text": "Psychic Checks made for enemy psychic powers that target a Model with this Special Rule, or its Unit, are made with a -1 modifier."
     },
     {
       "name": "Headsman's Reckoning",
-      "text": "Legacy house rule. When this model wins a Challenge, or destroys an enemy Sergeant or Character in combat, every enemy unit within 9\" loses 1 Cool until the start of its controller's next turn."
+      "summary": "Every execution is a lesson to those who watch.",
+      "text": "When a Model with this Special Rule wins a Challenge, or destroys an enemy Sergeant or Command Model in an Assault, each enemy Unit within 9\" subtracts 1 from its Cool Characteristic until the start of its Controlling Player's next Battle Turn."
     },
     {
       "name": "Rooftop Stalkers",
-      "text": "Legacy house rule. A unit with this rule ignores Difficult Terrain while charging, and treats a Charge roll of less than 6 as 6 if the Charge crosses or ends in terrain."
+      "summary": "They come over the walls, not through the gates.",
+      "text": "A Unit with this Special Rule ignores the effects of Difficult Terrain when it makes a Charge. If a Unit with this Special Rule crosses or ends its Charge move in terrain, a Charge Roll of less than 6 is treated as a 6."
     },
     {
       "name": "Murk Shroud",
-      "text": "Legacy house rule. A vehicle with this rule gains Shrouded (5+) in any turn in which it moved."
+      "summary": "The hull vanishes into its own dark.",
+      "text": "A Vehicle with this Special Rule has the Shrouded (5+) Special Rule during any Battle Turn in which it moved."
     },
     {
       "name": "Dirge of Dread",
-      "text": "Legacy house rule. At the end of this vehicle's Movement phase, each enemy unit within 12\" loses 1 Cool until the end of the turn."
+      "summary": "A dying man's note, held for as long as the engine runs.",
+      "text": "At the end of the Movement phase, each enemy Unit within 12\" of a Vehicle with this Special Rule subtracts 1 from its Cool Characteristic until the end of that Battle Turn."
     }
   ],
   "rites": [
@@ -700,7 +719,7 @@
       "flavor": "The first sign is a sentry who does not answer the next call.",
       "benefits": [
         "Night Raptor Squads may fill Troops slots and gain Line (1).",
-        "Night Raptors, Reconnaissance Squads and Scout Squads gain Shrouded (6+) and Silent Knives: Outflank, and enemy units may not make Reaction Shooting against them on the turn they arrive from Reserves."
+        "Night Raptors, Reconnaissance Squads and Scout Squads gain Shrouded (6+) and Silent Knives: they have the Outflank Special Rule, and enemy Units cannot make Reaction Shooting Attacks against them during the Battle Turn they arrive from Reserves."
       ],
       "limitations": [
         "At least one Night Raptor Squad is required.",
@@ -763,7 +782,7 @@
       "flavor": "They did not need to win the battle if the enemy could be persuaded to lose it first.",
       "benefits": [
         "Tactical, Despoiler, Veteran Tactical, Assault, Veteran Assault and Reconnaissance Squads gain Fear (1).",
-        "Those squads gain Dread Herald: an enemy unit they charge reduces its Cool by a further 1 until the end of that Assault phase."
+        "Those squads gain Dread Herald: each enemy Unit they charge subtracts a further 1 from its Cool Characteristic until the end of that Assault phase."
       ],
       "limitations": [
         "No Heavy sub-type Infantry (no Terminators, Breachers or Warders).",
@@ -810,7 +829,7 @@
       "flavor": "Curze's trusted few do not take orders. They pass judgement on whoever gave them.",
       "benefits": [
         "Contekar Terminator Squads and Atramentar Flay-clades may fill Troops slots and gain Line (1).",
-        "They gain Judgement of the Cabal: before deployment, name one enemy unit as the Condemned; the Cabal adds +1 to Hit Tests against it."
+        "They gain Judgement of the Cabal: before Deployment, choose one enemy Unit as the Condemned; Hit Tests the Cabal makes against it are made with a +1 modifier."
       ],
       "limitations": [
         "Konrad Curze or Sevatar must lead the army.",
@@ -864,8 +883,8 @@
       "name": "The Headsman's Tithe",
       "flavor": "A world pays in tithe, one way or another. The Eighth Legion simply prefers the other.",
       "benefits": [
-        "Terror Squads gain Fear (1) and Tithe of Blood: when they destroy an enemy unit in combat, enemy units within 12\" reduce their Cool by 1 until the end of the turn.",
-        "The Headsman gains +1 Attack."
+        "Terror Squads gain Fear (2) in place of Fear (1), and Tithe of Blood: when they destroy an enemy Unit in an Assault, each enemy Unit within 12\" subtracts 1 from its Cool Characteristic until the end of the Battle Turn.",
+        "The Headsman adds 1 to his Attacks Characteristic."
       ],
       "limitations": [
         "Konrad Curze or Sevatar must lead the army.",
@@ -877,10 +896,13 @@
           "units": [
             "terror-squad"
           ],
-          "text": "The Headsman's Tithe: Fear (1), Tithe of Blood.",
+          "text": "The Headsman's Tithe: Fear (2), Tithe of Blood.",
           "addRules": [
-            "Fear (1)",
+            "Fear (2)",
             "Tithe of Blood"
+          ],
+          "removeRules": [
+            "Fear (1)"
           ]
         },
         {
@@ -933,14 +955,27 @@
   "armyRules": [
     {
       "name": "Prey on the Weak",
+      "flavor": "Nostramo breeds predators, not soldiers.",
+      "benefits": [
+        "In the Assault phase, Hit Tests made by a Model with this Special Rule against an enemy Unit that has a Tactical Status are made with a +1 modifier."
+      ],
+      "drawbacks": [
+        "If a Unit with this Special Rule is charged by an enemy Unit that has no Tactical Status, its Models subtract 1 from their Initiative Characteristic for that Assault."
+      ],
       "match": {
         "notUnitType": "Vehicle"
       },
-      "condition": "vs enemy with a Tactical Status: +1 to Hit in the Assault phase",
-      "text": "Legacy house rule. Nostramo breeds predators, not soldiers. A unit with this rule adds +1 to its Hit Tests in the Assault phase against enemy units that have a Tactical Status. In exchange, if it is charged by an enemy unit with no Tactical Status, it fights at -1 Initiative in that combat."
+      "condition": "vs enemy with a Tactical Status: +1 to Hit in the Assault phase"
     },
     {
       "name": "Shadows of Nostramo",
+      "flavor": "Hunters who live in the dark, and fear the open field.",
+      "benefits": [
+        "Shooting Attacks made against a Unit with this Special Rule from more than 18\" away are made with a -1 modifier to the Hit Test."
+      ],
+      "drawbacks": [
+        "A Unit with this Special Rule cannot make Reaction Shooting Attacks."
+      ],
       "match": {
         "roles": [
           "Recon",
@@ -948,11 +983,17 @@
           "Elites"
         ],
         "notUnitType": "Vehicle"
-      },
-      "text": "Legacy house rule. Hunters who live in the dark, and fear the open field. Shooting Attacks made against a unit with this rule from more than 18\" suffer -1 to Hit. In exchange, the unit may not make Reaction Shooting."
+      }
     },
     {
       "name": "Doom Foretold",
+      "flavor": "The Night Haunter's captains speak of judgement as if it were already written.",
+      "benefits": [
+        "At the start of each Assault phase, the Controlling Player chooses one enemy Unit within 12\" of a Model with this Special Rule. That Unit subtracts 1 from its Cool Characteristic until the end of the phase."
+      ],
+      "drawbacks": [
+        "If a Model with this Special Rule is removed as a casualty, each friendly Night Lords Unit within 12\" must immediately make a Morale Check with a -1 modifier to its Leadership Characteristic."
+      ],
       "match": {
         "roles": [
           "Warlord",
@@ -961,8 +1002,7 @@
         ],
         "notUnitType": "Vehicle"
       },
-      "optionalUnits": true,
-      "text": "Legacy house rule. The Night Haunter's captains speak of judgement as if it were already written. At the start of each Assault phase, one enemy unit within 12\" of a model with this rule loses 1 Cool until the end of the phase. If the model is removed as a casualty, every friendly Night Lords unit within 12\" must make an immediate Morale Check at -1 Leadership."
+      "optionalUnits": true
     }
   ]
 }

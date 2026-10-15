@@ -2,9 +2,18 @@
   "armyRules": [
     {
       "name": "Faceless Hydra",
-      "text": "Legacy house rule. The Legion is never quite where the enemy thinks it is. A unit with this rule has Shrouded (6+) against Shooting Attacks from more than 18\" away, but suffers -1 Cool while no other friendly Alpha Legion unit is within 12\".",
+      "flavor": "The Legion is never quite where the enemy thinks it is.",
+      "benefits": [
+        "A Model with this Special Rule has the Shrouded (6+) Special Rule against Shooting Attacks made from more than 18\" away."
+      ],
+      "drawbacks": [
+        "While no other friendly Alpha Legion Unit is within 12\" of its Unit, a Model with this Special Rule subtracts 1 from its Cool Characteristic."
+      ],
       "match": {
-        "notUnitType": "Vehicle"
+        "notUnitType": "Vehicle",
+        "notNameIncludes": [
+          "Exodus"
+        ]
       },
       "stats": {
         "CL": "-1"
@@ -13,7 +22,13 @@
     },
     {
       "name": "Sabotage Cell",
-      "text": "Legacy house rule. Once per battle, at the start of the enemy turn, a unit with this rule may choose an enemy Vehicle within 18\"; that Vehicle gains the Stunned Status. The unit cannot Rush in its own next turn.",
+      "flavor": "One saboteur in the right place ends a whole armoured column.",
+      "benefits": [
+        "Once per battle, at the start of an enemy Player Turn, the Controlling Player may choose one enemy Vehicle within 18\" of a Unit with this Special Rule. That Vehicle gains the Stunned Tactical Status."
+      ],
+      "drawbacks": [
+        "A Unit that uses this benefit cannot Rush during its next Player Turn."
+      ],
       "units": [
         "saboteur",
         "headhunter-kill-team",
@@ -26,7 +41,13 @@
     },
     {
       "name": "Many Masks",
-      "text": "Legacy house rule. Enemy Precision (X) attacks cannot single out a Character with this rule unless it is the only model left in its unit. Trust is a weakness: the Character suffers -1 Leadership.",
+      "flavor": "Which of them is the real one? The enemy rarely finds out in time.",
+      "benefits": [
+        "An attack with the Precision (X) Special Rule made by an enemy Model cannot be allocated to a Model with this Special Rule unless it is the last Model remaining in its Unit."
+      ],
+      "drawbacks": [
+        "A Model with this Special Rule subtracts 1 from its Leadership Characteristic."
+      ],
       "match": {
         "roles": [
           "Command",
@@ -151,81 +172,100 @@
   "wargear": [
     {
       "name": "Mirror-cloak",
-      "text": "Legacy house rule. A shimmering mantle that throws back a dozen false outlines of its wearer. The bearer gains Shrouded (6+), or one step better if they already have it."
+      "summary": "A shimmering mantle that throws back a dozen false outlines of its wearer.",
+      "text": "A Model equipped with a Mirror-cloak has the Shrouded (6+) Special Rule. If it already has the Shrouded (X) Special Rule, X is reduced by 1 (to a minimum of 2+)."
     },
     {
       "name": "Reagent injector",
-      "text": "Legacy house rule. A wrist-mounted cocktail of stimms and counter-toxins, tuned for agents who expect to be poisoned in return. The bearer gains Feel No Pain (6+)."
+      "summary": "A wrist-mounted cocktail of stimms and counter-toxins, tuned for agents who expect to be poisoned in return.",
+      "text": "A Model equipped with a Reagent injector has the Feel No Pain (6+) Special Rule."
     },
     {
       "name": "Sleeper-cell beacon",
-      "text": "Legacy house rule. A tiny pulse-caster that lets scattered cells act on a single plan without a word on the vox. Every model in the unit gains +1 Cool and +1 Intelligence."
+      "summary": "A tiny pulse-caster that lets scattered cells act on a single plan without a word on the vox.",
+      "text": "While a Unit includes a Model equipped with a Sleeper-cell beacon, every Model in that Unit adds 1 to its Cool and Intelligence Characteristics."
     },
     {
       "name": "Cell pennant",
-      "text": "Legacy house rule. A scrap of cloth in the cell's private colours, worn by whoever the cell trusts. Gives the unit Cell Swap."
+      "summary": "A scrap of cloth in the cell's private colours, worn by whoever the cell trusts.",
+      "text": "A Model equipped with a Cell pennant gives its Unit the Cell Swap Special Rule."
     },
     {
       "name": "Venom-bladder harness",
-      "text": "Legacy house rule. Glands and reservoirs that coat every blade the bearer carries. Gives the bearer Venom Laced."
+      "summary": "Glands and reservoirs that coat every blade the bearer carries.",
+      "text": "A Model equipped with a Venom-bladder harness has the Venom Laced Special Rule."
     },
     {
       "name": "Ghost-signal scrambler",
-      "text": "Legacy house rule. A vox-mimic that fills the enemy's channels with orders that never came. Gives the bearer Signal Ghost."
+      "summary": "A vox-mimic that fills the enemy's channels with orders that never came.",
+      "text": "A Model equipped with a Ghost-signal scrambler gives its Unit the Signal Ghost Special Rule."
     },
     {
       "name": "Dead-drop cache",
-      "text": "Legacy house rule. A buried crate of the right ammunition, left exactly where the plan said. Gives the unit Cache Opened."
+      "summary": "A buried crate of the right ammunition, left exactly where the plan said.",
+      "text": "A Model equipped with a Dead-drop cache gives its Unit the Cache Opened Special Rule."
     },
     {
       "name": "Chameleonic hull-skin",
-      "text": "Legacy house rule. A pigment-shifting coat that is hard to find and harder to hold in a sight. Gives the vehicle Shifting Hull."
+      "summary": "A pigment-shifting coat that is hard to find and harder to hold in a sight.",
+      "text": "A Vehicle equipped with a Chameleonic hull-skin has the Shifting Hull Special Rule."
     },
     {
       "name": "Mirror-smoke dischargers",
-      "text": "Legacy house rule. Smoke charged with reflective grit so the hull seems to be in three places at once. Gives the vehicle Mirror Smoke."
+      "summary": "Smoke charged with reflective grit so the hull seems to be in three places at once.",
+      "text": "A Vehicle equipped with Mirror-smoke dischargers has the Mirror Smoke Special Rule."
     }
   ],
   "rules": [
     {
       "name": "Cell Network",
-      "text": "Legacy house rule (A Hundred Cells, One Hand). A unit with this rule adds +1 to its Cool for Cool Checks while at least one other friendly unit with Cell Network is within 12\"."
+      "summary": "Each cell trusts the others to be exactly where the plan says.",
+      "text": "While at least one other friendly Unit with this Special Rule is within 12\" of a Unit that includes a Model with this Special Rule, every Model in that Unit adds 1 to its Cool Characteristic when making a Cool Check."
     },
     {
       "name": "Sleeper Strike",
-      "text": "Legacy house rule (The Sleeper Awakens). In its controlling player's first turn, a unit with this rule adds +2 to its Charge rolls. The unit must be deployed on the table using Infiltrate, and may not start in Reserve."
+      "summary": "They were standing beside you before the war began.",
+      "text": "In its Controlling Player's first Battle Turn, a Model with this Special Rule adds 2 to the result of its Charge Rolls. A Unit with this Special Rule must be deployed on the Battlefield using the Infiltrate (X) Special Rule and cannot start the battle in Reserves."
     },
     {
       "name": "Many Heads",
-      "text": "Legacy house rule (The Hydra's Gambit). A unit with this rule gains Outflank. After both armies have deployed, the Alpha Legion player may swap the positions of two units with this rule (both units must be on the table, in the same deployment zone)."
+      "summary": "Alpharius is present, and three other Alpharii are also present.",
+      "text": "After both Players have finished deploying, the Controlling Player may swap the positions of two of their Units with this Special Rule that are deployed in the same Deployment Zone. Neither Unit may be Embarked upon a Vehicle."
     },
     {
       "name": "Purge Resolve",
-      "text": "Legacy house rule (Dreadwing Purge-Host). A unit with this rule automatically passes Cool Checks while it is within 6\" of at least one other friendly unit with this rule."
+      "summary": "A Dreadwing line does not break while its brothers stand beside it.",
+      "text": "A Unit that includes a Model with this Special Rule automatically passes every Cool Check it is required to make while it is within 6\" of at least one other friendly Unit with this Special Rule."
     },
     {
       "name": "Cell Swap",
-      "text": "Legacy house rule. Once per battle, at the end of its Movement phase, a unit with this rule that is not in combat may swap places with a friendly Alpha Legion Infantry unit of equal or smaller size within 6\" that is also not in combat."
+      "summary": "A cell vanishes from one place and a different one takes its seat.",
+      "text": "Once per battle, at the end of its Move Sub-Phase, a Unit with this Special Rule that is not Locked in Combat may swap places with one friendly Alpha Legion Infantry Unit that is within 6\", is not Locked in Combat and has an equal or lower number of Models. Each Unit is placed so that its Models are as close as possible to where the other Unit stood, and in unit coherency."
     },
     {
       "name": "Venom Laced",
-      "text": "Legacy house rule. Melee weapons carried by the bearer gain Poisoned (5+), or the Poisoned (X) value they already have improves by 1."
+      "summary": "Every blade the bearer carries has been dipped in something unpleasant.",
+      "text": "Each Melee Weapon carried by a Model with this Special Rule has the Poisoned (5+) Special Rule. If it already has the Poisoned (X) Special Rule, the value of X is reduced by 1, to a minimum of 2+."
     },
     {
       "name": "Signal Ghost",
-      "text": "Legacy house rule. Enemy units cannot use Reactions against the bearer's unit while it is more than 12\" away from them."
+      "summary": "The enemy's vox channels fill with orders that never came.",
+      "text": "While an enemy Unit is more than 12\" from a Unit that includes a Model with this Special Rule, that enemy Unit cannot make a Reaction in response to anything the Unit with this Special Rule does."
     },
     {
       "name": "Cache Opened",
-      "text": "Legacy house rule. Once per battle, in the Shooting phase, a unit with this rule's ranged attacks gain Armourbane and +1 Ballistic Skill."
+      "summary": "The right ammunition, left exactly where the plan said.",
+      "text": "Once per battle, when a Unit with this Special Rule makes a Shooting Attack, the Controlling Player may declare that the cache is opened. For the duration of that Shooting Attack, every Ranged Weapon used by that Unit has the Armourbane Special Rule and every Model in that Unit adds 1 to its Ballistic Skill Characteristic."
     },
     {
       "name": "Shifting Hull",
-      "text": "Legacy house rule. A vehicle with this rule has Shrouded (6+) against Shooting Attacks from more than 24\" away, or Shrouded (5+) if it did not move in its last Movement phase."
+      "summary": "A hull the colour of whatever it passes.",
+      "text": "A Model with this Special Rule has the Shrouded (6+) Special Rule against Shooting Attacks made from more than 24\" away. If the Model did not move during its previous Move Sub-Phase, it has Shrouded (5+) against those Shooting Attacks instead."
     },
     {
       "name": "Mirror Smoke",
-      "text": "Legacy house rule. Once per battle, at the start of the enemy Shooting phase, the vehicle imposes -1 on all Hit Tests made against it until the start of its next turn. The vehicle cannot make Shooting Attacks in its next turn."
+      "summary": "Smoke charged with reflective grit, so the hull seems to be in three places at once.",
+      "text": "Once per battle, at the start of an enemy Shooting Phase, the Controlling Player may release Mirror Smoke. Until the start of its next Player Turn, every Hit Test made for a Shooting Attack that targets a Model with this Special Rule is subject to a -1 modifier. That Model cannot make Shooting Attacks in its next Player Turn."
     }
   ],
   "options": [
@@ -805,7 +845,7 @@
       "flavor": "They were standing beside you before the war began.",
       "benefits": [
         "Tactical, Veteran Tactical and Inductii Squads gain Infiltrate (9).",
-        "Those units gain Sleeper Strike: in the controlling player's first turn they add +2 to their Charge rolls."
+        "Those units gain Sleeper Strike: in the controlling player's first turn they add +2 to their Charge Rolls."
       ],
       "limitations": [
         "No Transport, Heavy Transport or Fast Attack units.",
@@ -847,7 +887,8 @@
       "name": "The Hydra's Gambit",
       "flavor": "Alpharius is present, and three other Alpharii are also present.",
       "benefits": [
-        "Exodus, Headhunter Kill Teams and Mor Deythan Squads gain Hatred (Command) and Many Heads: Outflank, and after both sides have deployed the Alpha Legion player may swap the positions of two units with Many Heads."
+        "Exodus, Headhunter Kill Teams and Mor Deythan Squads gain Many Heads and Outflank. After both sides have deployed, the Controlling Player may swap the positions of two Units with Many Heads.",
+        "Exodus and Mor Deythan Squads gain Hatred (Command), as the Headhunter Kill Teams already have."
       ],
       "limitations": [
         "Alpharius must be in the army.",
@@ -883,11 +924,20 @@
             "headhunter-kill-team",
             "mor-deythan-squad"
           ],
-          "text": "The Hydra's Gambit: Many Heads, Hatred (Command), Outflank.",
+          "text": "The Hydra's Gambit: Many Heads, Outflank.",
           "addRules": [
             "Many Heads",
-            "Hatred (Command)",
             "Outflank"
+          ]
+        },
+        {
+          "units": [
+            "exodus",
+            "mor-deythan-squad"
+          ],
+          "text": "The Hydra's Gambit: Hatred (Command).",
+          "addRules": [
+            "Hatred (Command)"
           ]
         }
       ]
@@ -896,8 +946,8 @@
       "name": "Dreadwing Purge-Host",
       "flavor": "When the whispers fail, the Dreadwing is sent to finish the argument.",
       "benefits": [
-        "Dreadwing Interemptor and Lernaean Terminator Squads may fill Troops slots and gain Line (1) and Purge Resolve: they automatically pass Cool Checks while within 6\" of another friendly unit with Purge Resolve.",
-        "Interemptors gain Rending (6+) in close combat and shooting."
+        "Dreadwing Interemptor and Lernaean Terminator Squads may fill Troops slots and gain Purge Resolve: they automatically pass Cool Checks while within 6\" of another friendly Unit with Purge Resolve.",
+        "Interemptor Squads gain Line (1) and Scouring Flame: their Plasma burners have Shred (6+). Lernaean Terminator Squads improve Line (1) to Line (2)."
       ],
       "limitations": [
         "At least two Dreadwing Interemptor Squads are required.",
@@ -936,8 +986,7 @@
       "modifiers": [
         {
           "units": [
-            "dreadwing-interemptor-squad",
-            "lernaean-terminator-squad"
+            "dreadwing-interemptor-squad"
           ],
           "text": "Dreadwing Purge-Host: Purge Resolve, Line (1).",
           "addRules": [
@@ -947,12 +996,29 @@
         },
         {
           "units": [
+            "lernaean-terminator-squad"
+          ],
+          "text": "Dreadwing Purge-Host: Purge Resolve, Line (2).",
+          "addRules": [
+            "Purge Resolve",
+            "Line (2)"
+          ]
+        },
+        {
+          "units": [
             "dreadwing-interemptor-squad"
           ],
-          "text": "Dreadwing Purge-Host: Rending (6+).",
+          "text": "Dreadwing Purge-Host: Scouring Flame.",
           "addRules": [
-            "Rending (6+)"
+            "Scouring Flame"
           ]
+        }
+      ],
+      "rules": [
+        {
+          "name": "Scouring Flame",
+          "summary": "The Dreadwing's flamers are not asked to leave anything standing.",
+          "text": "Each Plasma burner carried by a Model with this Special Rule has the Shred (6+) Special Rule."
         }
       ]
     }

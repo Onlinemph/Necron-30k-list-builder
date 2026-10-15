@@ -97,43 +97,53 @@
   "wargear": [
     {
       "name": "Prospero sigil-charm",
-      "text": "Legacy house rule. A tiny glyph-etched amulet, renewed every dawn by a cabal scribe. The model has a 5+ Invulnerable Save if it was worse."
+      "text": "A Model equipped with a Prospero sigil-charm has an Invulnerable Save of 5+, unless it already has a better Invulnerable Save.",
+      "summary": "A tiny glyph-etched amulet, renewed every dawn by a cabal scribe."
     },
     {
       "name": "Fate-glass",
-      "text": "Legacy house rule. A lens of cut crystal through which a sorcerer glimpses a few seconds of the next minute. The model gains +1 Willpower and +1 Intelligence."
+      "text": "A Model equipped with a Fate-glass adds 1 to its Willpower Characteristic and 1 to its Intelligence Characteristic.",
+      "summary": "A lens of cut crystal through which a sorcerer glimpses a few seconds of the next minute."
     },
     {
       "name": "Warp-touched banner",
-      "text": "Legacy house rule. A standard whose threads shift colour when no one is looking. Every model in the unit gains +1 Willpower and +1 Intelligence."
+      "text": "Each Model in a Unit that includes a Model equipped with a Warp-touched banner adds 1 to its Willpower Characteristic and 1 to its Intelligence Characteristic.",
+      "summary": "A standard whose threads shift colour when no one is looking."
     },
     {
       "name": "Warding-sigil engraving",
-      "text": "Legacy house rule. Rune-lines cut into the hull by a Prosperine artisan. The model has a 4+ Invulnerable Save if it was worse."
+      "text": "A Model equipped with a Warding-sigil engraving has an Invulnerable Save of 4+, unless it already has a better Invulnerable Save.",
+      "summary": "Rune-lines cut into the hull by a Prosperine artisan."
     },
     {
       "name": "Aegis of Utterances",
-      "text": "Legacy house rule. A tablet of closely-written wards worn at the breast. Gives the model Spell-Ward."
+      "text": "A Model equipped with an Aegis of Utterances has the Spell-Ward Special Rule.",
+      "summary": "A tablet of closely-written wards worn at the breast."
     },
     {
       "name": "Cabal obelisk-key",
-      "text": "Legacy house rule. A small black prism that fixes a patch of ground in the cabal's foresight. Gives the model Sorcerous Claim."
+      "text": "A Model equipped with a Cabal obelisk-key has the Sorcerous Claim Special Rule.",
+      "summary": "A small black prism that fixes a patch of ground in the cabal's foresight."
     },
     {
       "name": "Numerologist's slate",
-      "text": "Legacy house rule. A wax slate scored with firing solutions, carried by the squad's sergeant. Gives the model Calculated Volley."
+      "text": "A Model equipped with a Numerologist's slate has the Calculated Volley Special Rule.",
+      "summary": "A wax slate scored with firing solutions, carried by the squad's sergeant."
     },
     {
       "name": "Banner of Shifting Hues",
-      "text": "Legacy house rule. A standard whose colours crawl and never settle. Every model in the unit gains Dizzying Hues."
+      "text": "Each Model in a Unit that includes a Model equipped with a Banner of Shifting Hues has the Dizzying Hues Special Rule.",
+      "summary": "A standard whose colours crawl and never settle."
     },
     {
       "name": "Mirage lacquer",
-      "text": "Legacy house rule. A prismatic coating laid over hull plates by Prosperine artisans. The vehicle gains Mirage Lacquer."
+      "text": "A Vehicle equipped with Mirage lacquer has the Mirage Lacquer Special Rule.",
+      "summary": "A prismatic coating laid over hull plates by Prosperine artisans."
     },
     {
       "name": "Blade-song glyph",
-      "text": "Legacy house rule. A resonant rune cut into the guard of a blademaster's sword. Gives the model Blade-song Rhythm."
+      "text": "A Model equipped with a Blade-song glyph has the Blade-song Rhythm Special Rule.",
+      "summary": "A resonant rune cut into the guard of a blademaster's sword."
     }
   ],
   "options": [
@@ -170,7 +180,6 @@
       "units": [
         "tactical-squad",
         "despoiler-squad",
-        "breacher-squad",
         "veteran-tactical-squad",
         "assault-squad",
         "numerologist-cabal",
@@ -642,39 +651,48 @@
   "rules": [
     {
       "name": "Warp Rift Arrival",
-      "text": "Legacy house rule (Host of Change). A unit with this rule gains Deep Strike. It may appear from the warp anywhere more than 9\" from enemy units."
+      "text": "A Model with this Special Rule has the Deep Strike Special Rule. When a Unit made up entirely of Models with this Special Rule makes a Deep Strike, the remaining Models in the Unit may be placed within 9\" of the first Model placed, instead of within 6\".",
+      "summary": "The host steps out of the warp wherever the Changer of Ways pleases."
     },
     {
       "name": "Cabal Bladework",
-      "text": "Legacy house rule (Khenetai Ascendant). A unit with this rule adds Rending (6+) to all of its melee attacks."
+      "text": "A Model with this Special Rule treats the Breaching (5+) Special Rule on its Achea pattern force sword or Paired Achea pattern force sword as Breaching (4+).",
+      "summary": "Every cut of the blade-cabal is a lesson in where the armour is thinnest."
     },
     {
       "name": "Foresight",
-      "text": "Legacy house rule (The Scrying Cabal). After both armies are deployed and before the first turn, each unit with this rule may make one free Set-up Move of up to 6\"."
+      "text": "After both players have deployed and before the first Battle Turn begins, each Unit that includes a Model with this Special Rule may make one Set-up Move of up to 6\".",
+      "summary": "The cabal has already seen where the battle will be decided."
     },
     {
       "name": "Spell-Ward",
-      "text": "Legacy house rule. Once per battle, a model with this rule may declare that its unit ignores all effects of one enemy psychic attack."
+      "text": "Once per Battle, when an enemy Unit makes a Psychic attack against a Unit that includes a Model with this Special Rule, the Controlling Player may declare that the Unit ignores all effects of that attack.",
+      "summary": "A tablet of wards turns aside one hostile working."
     },
     {
       "name": "Sorcerous Claim",
-      "text": "Legacy house rule. When the unit of a model with this rule is counted for Controlling an Objective, it counts as having two additional models."
+      "text": "When a Unit that includes a Model with this Special Rule is counted for Controlling an Objective, it counts as having two additional Models for the purposes of determining Tactical Strength.",
+      "summary": "A patch of ground the cabal has already foreseen holding."
     },
     {
       "name": "Calculated Volley",
-      "text": "Legacy house rule. If the unit of a model with this rule remained Stationary, add 1 to the Hit Tests of its Shooting Attacks made with Bolt weapons."
+      "text": "If a Unit that includes a Model with this Special Rule remained Stationary in the previous Movement Phase, add 1 to the Hit Tests of Shooting Attacks that Unit makes with Weapons that have the Bolt Trait.",
+      "summary": "Every shot is plotted on the slate before the trigger is touched."
     },
     {
       "name": "Dizzying Hues",
-      "text": "Legacy house rule. An enemy unit that declares a Charge against a unit with this rule subtracts 2 from the Charge roll."
+      "text": "When an enemy Unit declares a Charge against a Unit that includes a Model with this Special Rule, that Unit subtracts 2 from its Charge Roll.",
+      "summary": "The banner's colours crawl across the eye until the charge loses its line."
     },
     {
       "name": "Mirage Lacquer",
-      "text": "Legacy house rule. Enemy Shooting Attacks against a vehicle with this rule from more than 18\" subtract 1 from their Hit Tests."
+      "text": "When an enemy Unit makes a Shooting Attack against a Vehicle with this Special Rule from more than 18\" away, subtract 1 from the Hit Tests.",
+      "summary": "A shimmering lacquer makes the hull seem to stand a little to the left of where it is."
     },
     {
       "name": "Blade-song Rhythm",
-      "text": "Legacy house rule. A model with this rule adds 1 to its Initiative in the first Initiative Step of each Combat."
+      "text": "A Model with this Special Rule adds 1 to its Initiative Characteristic during the first Initiative Step of each Combat.",
+      "summary": "The glyph hums, and the blade falls to its beat."
     }
   ],
   "rites": [
@@ -683,7 +701,7 @@
       "flavor": "The Cabal stopped asking what the Changer of Ways wanted, and began to give it room.",
       "benefits": [
         "Flamers and Screamers of Tzeench may fill Troops slots.",
-        "Horrors, Flamers and Screamers of Tzeench gain Warp Rift Arrival: Deep Strike."
+        "Horrors, Flamers and Screamers of Tzeench gain Warp Rift Arrival: Deep Strike, with the rest of the Unit placed within 9\" of the first Model instead of 6\"."
       ],
       "limitations": [
         "At least one Horrors of Tzeench unit must start the battle in Reserve.",
@@ -746,7 +764,7 @@
       "flavor": "The blade-cabal is where the Legion keeps its pride, and a Legion's pride is rarely kept quiet.",
       "benefits": [
         "Khenetai Occult Cabals and Sekhmet Terminator Cabals may fill Troops slots and gain Line (1).",
-        "They gain Cabal Bladework: Rending (6+) on all their melee attacks."
+        "They gain Cabal Bladework: Breaching (4+) on their Achea pattern force swords instead of Breaching (5+)."
       ],
       "limitations": [
         "At least two Khenetai Occult Cabals are required.",
@@ -884,6 +902,13 @@
   "armyRules": [
     {
       "name": "Weavers of Fate",
+      "flavor": "Cabal sorcerers read the next heartbeat and lean on it.",
+      "benefits": [
+        "Once per Battle Turn, a Model with this Special Rule may add 1 to the result of one Hit Test, Wound Test or Saving Throw made for its Unit."
+      ],
+      "drawbacks": [
+        "If the test is still failed after the modifier, the Model suffers 1 Wound, and no Saving Throws or Damage Mitigation Tests may be made against it."
+      ],
       "match": {
         "roles": [
           "Warlord",
@@ -892,11 +917,17 @@
         ],
         "notUnitType": "Vehicle"
       },
-      "optionalUnits": true,
-      "text": "Legacy house rule. Cabal sorcerers read the next heartbeat and lean on it. Once per turn, a model with this rule may add 1 to one Hit Test, Wound Test or Saving Throw made for its unit. If the test fails anyway, the model suffers 1 Wound with no Saves allowed as the warp bites back."
+      "optionalUnits": true
     },
     {
       "name": "Wards of Prospero",
+      "flavor": "A scribed ward sits under the plate of every battle-brother.",
+      "benefits": [
+        "A Model with this Special Rule that has no Invulnerable Save has an Invulnerable Save of 6+."
+      ],
+      "drawbacks": [
+        "The ward gives no protection against Wounds caused by Weapons with the Force Special Rule or by Psychic attacks."
+      ],
       "match": {
         "roles": [
           "Troops",
@@ -905,16 +936,34 @@
           "Heavy Assault",
           "Support"
         ],
-        "notUnitType": "Vehicle"
+        "notUnitType": "Vehicle",
+        "notNameIncludes": [
+          "Terminator",
+          "Castellax",
+          "Thallax",
+          "Vorax",
+          "Domitar",
+          "Brutes",
+          "Flamers",
+          "Horrors",
+          "Breacher",
+          "Abomination"
+        ]
       },
       "optionalUnits": true,
       "stats": {
         "INV": "best:6+"
-      },
-      "text": "Legacy house rule. Every battle-brother wears a scribed ward under the plate, granting a 6+ Invulnerable Save if it was worse. The wards are brittle: they give no protection against Force weapons or psychic attacks."
+      }
     },
     {
       "name": "Capricious Warp",
+      "flavor": "Warp-spawned allies shrug off blows that would fell flesh, but heed the cabal only when it stands near.",
+      "benefits": [
+        "A Model with this Special Rule has the Feel No Pain (6+) Special Rule."
+      ],
+      "drawbacks": [
+        "While no friendly Prosperine Sorcerer, Herald of Tzeench, Ahzek Ahriman, Magistus Amon or Magnus the Red is within 12\" of its Unit, every Model in the Unit subtracts 1 from its Cool Characteristic."
+      ],
       "units": [
         "horrors-of-tzeench",
         "flamers-of-tzeench",
@@ -925,8 +974,7 @@
       "stats": {
         "CL": "-1"
       },
-      "condition": "while more than 12\" from a friendly sorcerer, Herald or Primarch",
-      "text": "Legacy house rule. Warp-spawned allies shrug off blows that would fell flesh, gaining Feel No Pain (6+), but they heed the Cabal only when it stands near. While more than 12\" from a friendly Prosperine Sorcerer, Herald of Tzeench, Ahzek Ahriman, Magistus Amon or Magnus, the unit suffers -1 Cool."
+      "condition": "while more than 12\" from a friendly sorcerer, Herald or Primarch"
     }
   ]
 }

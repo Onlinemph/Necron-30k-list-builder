@@ -100,35 +100,43 @@
   "wargear": [
     {
       "name": "Shadow-banner",
-      "text": "Legacy house rule. A dull black standard of dark feathers that seems to drink the light around it. Every model in the unit gains +1 Intelligence and Shrouded (6+)."
+      "text": "Each Model in a Unit that includes a Model equipped with a Shadow-banner adds 1 to its Intelligence Characteristic and has the Shrouded (6+) Special Rule.",
+      "summary": "A dull black standard of dark feathers that seems to drink the light around it."
     },
     {
       "name": "Corvid dirge-shroud",
-      "text": "Legacy house rule. A tattered mourning-cloak worn over the armour of the Isstvan survivors, hiding the bearer in smoke and sorrow. The model gains Shrouded (6+)."
+      "text": "A Model equipped with a Corvid dirge-shroud has the Shrouded (6+) Special Rule.",
+      "summary": "A tattered mourning-cloak worn over the armour of the Isstvan survivors, hiding the bearer in smoke and sorrow."
     },
     {
       "name": "Night-sight visor",
-      "text": "Legacy house rule. A black-lensed visor tuned to the dark between stars. Gives the model Dark Sight."
+      "text": "A Model equipped with a Night-sight visor has the Dark Sight Special Rule.",
+      "summary": "A black-lensed visor tuned to the dark between stars."
     },
     {
       "name": "Raptor-pinion harness",
-      "text": "Legacy house rule. A light glide-frame of feathered vanes. Gives the model Pinion Glide."
+      "text": "A Model equipped with a Raptor-pinion harness has the Pinion Glide Special Rule.",
+      "summary": "A light glide-frame of feathered vanes."
     },
     {
       "name": "Gloom smoke launchers",
-      "text": "Legacy house rule. Banks of shadow-smoke tubes along the hull. The vehicle gains Gloom Veil."
+      "text": "A Vehicle equipped with Gloom smoke launchers has the Gloom Veil Special Rule.",
+      "summary": "Banks of shadow-smoke tubes along the hull."
     },
     {
       "name": "Pathfinder's markers",
-      "text": "Legacy house rule. Hooded beacons left along the approach. Every model in the unit gains Hidden Trail."
+      "text": "Each Model in a Unit that includes a Model equipped with Pathfinder's markers has the Hidden Trail Special Rule.",
+      "summary": "Hooded beacons left along the approach."
     },
     {
       "name": "Dirge banner",
-      "text": "Legacy house rule. A banner of black feathers bearing the names of the dead. Every model in the unit gains Standard of the Dirge."
+      "text": "Each Model in a Unit that includes a Model equipped with a Dirge banner has the Standard of the Dirge Special Rule.",
+      "summary": "A banner of black feathers bearing the names of the dead."
     },
     {
       "name": "Talon-sheath gauntlets",
-      "text": "Legacy house rule. Spring-loaded blades concealed in the wrists. The model gains +1 Attack on a turn its unit charges, and gains Raven's Strike."
+      "text": "A Model equipped with Talon-sheath gauntlets has the Raven's Strike Special Rule, and adds 1 to its Attacks Characteristic in any Battle Turn in which its Unit made a Charge.",
+      "summary": "Spring-loaded blades concealed in the wrists."
     }
   ],
   "options": [
@@ -636,7 +644,7 @@
       "flavor": "A hundred shapes drop out of the smoke, and by the time you count them they are among you.",
       "benefits": [
         "Dark Fury and Destroyer Assault Squads may fill Troops slots.",
-        "Every Antigrav Infantry unit gains Deep Strike and Out of the Smoke: on the turn it arrives by Deep Strike it may Charge with no penalty."
+        "Every Antigrav Infantry unit gains Out of the Smoke: on the turn it arrives by Deep Strike it may have a Charge declared for it with no penalty."
       ],
       "limitations": [
         "Every Antigrav Infantry unit must start the battle in Reserve, and at least one Dark Fury Squad is required.",
@@ -648,9 +656,8 @@
             "unitType": "Antigrav",
             "notUnitType": "Vehicle"
           },
-          "text": "Wings of the Corvid: Deep Strike, Out of the Smoke.",
+          "text": "Wings of the Corvid: Out of the Smoke.",
           "addRules": [
-            "Deep Strike",
             "Out of the Smoke"
           ]
         }
@@ -696,7 +703,7 @@
       "flavor": "The enemy never sees the first hundred. The hundred and first is already behind him.",
       "benefits": [
         "Reconnaissance, Scout and Mor Deythan Squads may fill Troops slots.",
-        "Reconnaissance and Scout Squads gain Infiltrate (6) and Unseen Hunters: on the first battle turn enemy units may not Shoot at or Charge them from more than 12\" away."
+        "Reconnaissance and Scout Squads gain Unseen Hunters: during the first Battle Turn enemy units may not Shoot at or Charge them unless they begin the turn within 12\"."
       ],
       "limitations": [
         "At least one Reconnaissance or Scout Squad is required.",
@@ -708,9 +715,8 @@
             "reconnaissance-squad",
             "scout-squad"
           ],
-          "text": "Whispers in the Dark: Infiltrate (6), Unseen Hunters.",
+          "text": "Whispers in the Dark: Unseen Hunters.",
           "addRules": [
-            "Infiltrate (6)",
             "Unseen Hunters"
           ]
         }
@@ -754,7 +760,7 @@
       "flavor": "Isstvan took the Legion's wings. What was left learned to stand.",
       "benefits": [
         "Deliverers Squads may fill Troops slots and gain Line (1).",
-        "Deliverers gain Last Stand of the Dirge: they automatically pass Morale and Pinning checks."
+        "Deliverers gain Last Stand of the Dirge: they automatically pass Leadership Checks and Cool Checks."
       ],
       "limitations": [
         "Corvus Corax must lead the army, and at least one Deliverers Squad is required.",
@@ -811,7 +817,7 @@
       "name": "Knives Among the Stars",
       "flavor": "One blade, one name, one quiet corridor, and the war ends before it begins.",
       "benefits": [
-        "Moritat, Moritat Mortalis, Pathfinders and Kaedes Nex gain Precision (5+) and Blade in the Dark: after both sides deploy, each may make a free move of up to 6\"."
+        "Moritat, Moritat Mortalis, Pathfinders and Kaedes Nex gain Blade in the Dark (after both sides deploy, each may make a free move of up to 6\") and Close Work (+1 to Hit Tests with Pistol and Assault Trait weapons)."
       ],
       "limitations": [
         "At least two of Moritat, Moritat Mortalis, Pathfinder or Kaedes Nex are required.",
@@ -825,10 +831,10 @@
             "pathfinder",
             "kaedes-nex"
           ],
-          "text": "Knives Among the Stars: Precision (5+), Blade in the Dark.",
+          "text": "Knives Among the Stars: Blade in the Dark, Close Work.",
           "addRules": [
-            "Precision (5+)",
-            "Blade in the Dark"
+            "Blade in the Dark",
+            "Close Work"
           ]
         }
       ],
@@ -868,48 +874,70 @@
   "rules": [
     {
       "name": "Out of the Smoke",
-      "text": "Legacy house rule (Wings of the Corvid). A unit with this rule that arrives by Deep Strike may declare a Charge on the turn it arrives without the usual penalty."
+      "summary": "A hundred shapes drop out of the smoke and are among you before you can count them.",
+      "text": "A Unit made up entirely of Models with this Special Rule that arrives by Deep Strike may have a Charge declared for it in the Charge Sub-Phase of the same Player Turn."
     },
     {
       "name": "Unseen Hunters",
-      "text": "Legacy house rule (Whispers in the Dark). On the first battle turn, enemy units may not target a unit with this rule with Shooting Attacks or Charges unless they begin within 12\" of it."
+      "summary": "The enemy never sees the first hundred.",
+      "text": "During the first Battle Turn, enemy Units may not target a Unit that includes a Model with this Special Rule with a Shooting Attack or declare a Charge against it unless they begin the Battle Turn within 12\" of it."
     },
     {
       "name": "Last Stand of the Dirge",
-      "text": "Legacy house rule (Survivors of the Black Dirge). A unit with this rule automatically passes Morale and Pinning checks."
+      "summary": "Isstvan took the Legion's wings, and what was left learned to stand.",
+      "text": "A Unit made up entirely of Models with this Special Rule automatically passes any Leadership Check or Cool Check it is required to make."
     },
     {
       "name": "Blade in the Dark",
-      "text": "Legacy house rule (Knives Among the Stars). After both sides have deployed and before the first battle turn, a unit with this rule may make a free move of up to 6\". It can't end that move within 9\" of an enemy model."
+      "summary": "One blade, one name, one quiet corridor.",
+      "text": "After both players have deployed and before the first Battle Turn begins, each Unit that includes a Model with this Special Rule may make one Set-up Move of up to 6\". It may not end that move within 9\" of an enemy Model."
     },
     {
       "name": "Dark Sight",
-      "text": "Legacy house rule. The unit of a model with this rule ignores the first -1 modifier from Shrouded or cover applied to the Hit Tests of its Shooting Attacks."
+      "summary": "A black-lensed visor tuned to the dark between stars.",
+      "text": "The first time in each Shooting Attack that a Unit that includes a Model with this Special Rule would suffer a -1 modifier to a Hit Test because of Shrouded or cover, ignore that modifier."
     },
     {
       "name": "Pinion Glide",
-      "text": "Legacy house rule. The unit of a model with this rule adds 2\" to its Rush distance, and the model ignores difficult terrain."
+      "summary": "Feathered vanes carry the bearer over ground that would stop others.",
+      "text": "A Unit that includes a Model with this Special Rule adds 2\" to the distance it may move when it Rushes, and that Model ignores the effects of Difficult Terrain."
     },
     {
       "name": "Gloom Veil",
-      "text": "Legacy house rule. Once per battle, at the start of the enemy Shooting phase, a vehicle with this rule may declare that all Shooting Attacks against it this phase are made as Snap Shots."
+      "summary": "Shadow-smoke swallows the hull before the enemy can find it.",
+      "text": "Once per Battle, at the start of the enemy Shooting Phase, the Controlling Player of a Vehicle with this Special Rule may declare that all Shooting Attacks made against it in that Phase are made as Snap Shots."
     },
     {
       "name": "Hidden Trail",
-      "text": "Legacy house rule. A unit with this rule may be placed 3\" further forward when it makes a Set-up Move, and cannot be targeted by Shooting Attacks from more than 24\" on the first battle turn."
+      "summary": "Hooded beacons mark a path only the Legion can follow.",
+      "text": "When a Unit that includes a Model with this Special Rule makes a Set-up Move, it may move 3\" further forward. During the first Battle Turn, it cannot be targeted by Shooting Attacks made from more than 24\" away."
     },
     {
       "name": "Standard of the Dirge",
-      "text": "Legacy house rule. A unit with this rule adds 1 to its Cool Checks. Once per battle it may ignore the Routed, Pinned or Suppressed Status."
+      "summary": "A banner of black feathers bearing the names of the dead.",
+      "text": "A Unit that includes a Model with this Special Rule adds 1 to the Cool Characteristic of its Models. Once per Battle, the Unit may ignore the effects of the Routed Status, the Pinned Status or the Suppressed Status until the end of the current Phase."
     },
     {
       "name": "Raven's Strike",
-      "text": "Legacy house rule. A model with this rule that charges strikes before its foes settle: it adds 1 to its Initiative in the first Initiative Step of that Combat."
+      "summary": "The raven strikes before its prey has settled.",
+      "text": "A Model with this Special Rule that made a Charge this Battle Turn adds 1 to its Initiative Characteristic during the first Initiative Step of that Combat."
+    },
+    {
+      "name": "Close Work",
+      "summary": "The knife-men do their killing at arm's length and do not miss.",
+      "text": "A Model with this Special Rule adds 1 to the Hit Tests of its Shooting Attacks made with Weapons that have the Pistol Special Rule or the Assault Trait."
     }
   ],
   "armyRules": [
     {
       "name": "Lightfoot Raiders",
+      "flavor": "Raven Guard raiders slip through ground others cannot cross.",
+      "benefits": [
+        "A Unit with this Special Rule adds 2\" to the distance it may move when it Rushes or makes a Set-up Move."
+      ],
+      "drawbacks": [
+        "While Locked in Combat with an enemy Unit that has more Models, every Model in the Unit subtracts 1 from its Cool Characteristic."
+      ],
       "match": {
         "roles": [
           "Troops",
@@ -924,11 +952,17 @@
       "stats": {
         "CL": "-1"
       },
-      "condition": "while locked in Combat with a unit that has more models",
-      "text": "Legacy house rule. Raven Guard raiders slip through ground others cannot cross. A unit with this rule adds 2\" to Rush and Set-up Move distances. They are poor at standing toe to toe: while locked in Combat with a unit that has more models, they suffer -1 Cool."
+      "condition": "while locked in Combat with a unit that has more models"
     },
     {
       "name": "Ghost of the Shadow War",
+      "flavor": "The shadow war is fought from the dark, at a distance of the enemy's choosing.",
+      "benefits": [
+        "When an enemy Unit makes a Shooting Attack against a Unit with this Special Rule from more than 18\" away, subtract 1 from the Hit Tests."
+      ],
+      "drawbacks": [
+        "A Unit with this Special Rule subtracts 1 from the Hit Tests of its own Shooting Attacks made against targets more than 24\" away."
+      ],
       "match": {
         "roles": [
           "Recon",
@@ -937,11 +971,17 @@
         ],
         "notUnitType": "Vehicle"
       },
-      "optionalUnits": true,
-      "text": "Legacy house rule. Enemy Shooting Attacks against a unit with this rule from more than 18\" subtract 1 from their Hit Tests. Hunters of the dark see little at distance themselves: the unit subtracts 1 from the Hit Tests of its own Shooting Attacks against targets more than 24\" away."
+      "optionalUnits": true
     },
     {
       "name": "Dirge-Marked Survivors",
+      "flavor": "Isstvan taught the Legion how to die slowly.",
+      "benefits": [
+        "A Model with this Special Rule adds 1 to its Cool Characteristic."
+      ],
+      "drawbacks": [
+        "If a Unit with this Special Rule lost a Model to an enemy Unit during the previous Battle Turn, it must declare a Charge against that Unit if able."
+      ],
       "match": {
         "roles": [
           "Troops",
@@ -952,10 +992,8 @@
       },
       "optionalUnits": true,
       "stats": {
-        "INV": "best:6+"
-      },
-      "condition": "while below half its starting models",
-      "text": "Legacy house rule. Isstvan taught the Legion how to die slowly. A unit with this rule has a 6+ Invulnerable Save if it was worse while below half its starting models. Grief drives it: if it lost a model to an enemy unit last turn, it must declare a Charge against that unit if able."
+        "CL": "+1"
+      }
     }
   ]
 }

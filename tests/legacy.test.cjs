@@ -151,3 +151,17 @@ test('Legion Armoury: characters take up to two relics, each with its own effect
   cen.options[arm.id] = ['Iron halo', 'Displacer field', 'Teleport homer'];
   assert.ok(E.unitIssues(cen).some((i) => /at most 2/.test(i.msg)));
 });
+
+test('a Legacy choice the model already has (or beats) isn\'t offered', () => {
+  const { E, army } = armyOf('ultramarines');
+  legacyOn(army);
+  E.setArmy(army);
+  // a Praetor already has a 4+ invulnerable save: no Iron halo; a Centurion (5+) gets one
+  const praetor = E.newSelection('praetor'), cen = E.newSelection('centurion');
+  const armoury = (s) => E.optionsOf(s).find((o) => /Legion Armoury/.test(o.text));
+  assert.ok(!armoury(praetor).choices.some((c) => c.name === 'Iron halo'));
+  assert.ok(armoury(cen).choices.some((c) => c.name === 'Iron halo'));
+  // Terminators already wear 2+ armour: no Artificer armour for their Sergeant
+  const term = E.newSelection('cataphractii-terminator-squad');
+  assert.ok(!E.optionsOf(term).some((o) => /Artificer/.test(o.text)));
+});

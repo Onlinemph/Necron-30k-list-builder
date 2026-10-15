@@ -165,55 +165,68 @@
   "wargear": [
     {
       "name": "Sub-dermal plating",
-      "text": "Legacy house rule. Armour sheets implanted beneath the skin of a conclave's best. The model's Save becomes 3+ if it was worse."
+      "summary": "Armour sheets implanted beneath the skin of a conclave's best.",
+      "text": "A Model equipped with Sub-dermal plating has a Save Characteristic of 3+, unless its Save Characteristic is already better."
     },
     {
       "name": "Refractor halo",
-      "text": "Legacy house rule. A ring of old-pattern deflector crystals worn around the Marshal's head. The model's Invulnerable Save becomes 4+ if it was worse."
+      "summary": "A ring of old-pattern deflector crystals worn around the Marshal's head.",
+      "text": "A Model equipped with a Refractor halo has an Invulnerable Save of 4+, unless it already has a better Invulnerable Save."
     },
     {
       "name": "Cantor choir",
-      "text": "Legacy house rule. Vox-casters and chanting augmetic cantors who broadcast the conclave's war-cant. Every model in the unit gains +1 Leadership and +1 Cool."
+      "summary": "Vox-casters and chanting augmetic cantors broadcast the conclave's war-cant.",
+      "text": "While a Unit includes a Model equipped with a Cantor choir, all Models in that Unit add 1 to their Leadership and Cool Characteristics."
     },
     {
       "name": "Stim-pump",
-      "text": "Legacy house rule. A reactor-fed injector that spikes the pilgrym's pulse for the charge. On a turn the unit charges, every model in it gains +1 Attack."
+      "summary": "A reactor-fed injector spikes the pilgrym's pulse for the charge.",
+      "text": "In any Battle Turn in which a Unit equipped with Stim-pumps makes a Charge, all Models in that Unit add 1 to their Attacks Characteristic until the end of the Assault Phase."
     },
     {
       "name": "Cant-coda",
-      "text": "Legacy house rule. A firing script uploaded from the conclave's gunnery cant. Every model in the unit gains +1 Ballistic Skill."
+      "summary": "A firing script uploaded from the conclave's gunnery cant.",
+      "text": "While a Unit includes a Model equipped with a Cant-coda, all Models in that Unit add 1 to their Ballistic Skill Characteristic."
     },
     {
       "name": "Cradle of servo-arms",
-      "text": "Legacy house rule. A sling of servo-arms and spare plate carried inside the hull. The vehicle gains +1 Hull Point."
+      "summary": "A sling of servo-arms and spare plate carried inside the hull.",
+      "text": "A Vehicle equipped with a Cradle of servo-arms adds 1 to its Hull Points Characteristic."
     },
     {
       "name": "Waste-hide cloak",
-      "text": "Legacy house rule. A cloak of sand-coloured hide dyed with ash and dust. Gives the Ordinatus Waste Cloak and Shrouded (5+)."
+      "summary": "A cloak of sand-coloured hide dyed with ash and dust.",
+      "text": "A Model equipped with a Waste-hide cloak has the Shrouded (5+) and Waste Cloak Special Rules."
     },
     {
       "name": "Rousing-cant standard",
-      "text": "Legacy house rule. A rattling standard whose bells chime the conclave's war-cant. Gives the unit Rousing Cant."
+      "summary": "A rattling standard whose bells chime the conclave's war-cant.",
+      "text": "While a Unit includes a Model equipped with a Rousing-cant standard, all Models in that Unit have the Rousing Cant Special Rule."
     },
     {
       "name": "Dead-drop beacon",
-      "text": "Legacy house rule. A pulsing locator the Marshal plants for those still to arrive. Gives the model Dead-Drop."
+      "summary": "A pulsing locator the Marshal plants for those still to arrive.",
+      "text": "A Model equipped with a Dead-drop beacon has the Dead-Drop Special Rule."
     },
     {
       "name": "Rad-nimbus furnace",
-      "text": "Legacy house rule. A back-mounted reactor that bathes the bearer in killing glare. Gives the model Rad-Nimbus."
+      "summary": "A back-mounted reactor that bathes the bearer in killing glare.",
+      "text": "A Model equipped with a Rad-nimbus furnace has the Rad-Nimbus Special Rule."
     },
     {
       "name": "Geiger-vane mast",
-      "text": "Legacy house rule. A spinning sensor mast that tastes the contamination in the air. Gives the vehicle Hot-Zone Sensing."
+      "summary": "A spinning sensor mast that tastes the contamination in the air.",
+      "text": "A Vehicle equipped with a Geiger-vane mast has the Hot-Zone Sensing Special Rule."
     },
     {
       "name": "Ablative sand-skirts",
-      "text": "Legacy house rule. Sacrificial skirts of plate that crumble under fire. Gives the vehicle +1 Side armour and Shed Plating."
+      "summary": "Sacrificial skirts of plate that crumble under fire.",
+      "text": "A Vehicle equipped with Ablative sand-skirts adds 1 to its Side Armour Value and has the Shed Plating Special Rule."
     },
     {
       "name": "Kill-code scroll",
-      "text": "Legacy house rule. A strip of scored data-vellum that overrides every restraint in an automaton's core. Gives the model Kill-Code, +1 Weapon Skill and -1 Ballistic Skill."
+      "summary": "A strip of scored data-vellum that overrides every restraint in an automaton's core.",
+      "text": "While a Unit includes a Model equipped with a Kill-code scroll, all Models in that Unit add 1 to their Weapon Skill Characteristic, subtract 1 from their Ballistic Skill Characteristic and have the Kill-Code Special Rule."
     }
   ],
   "options": [
@@ -874,51 +887,63 @@
   "rules": [
     {
       "name": "Rad-Saturation",
-      "text": "Legacy house rule (The Vanguard Saturation Cant). The Corpus walks ahead of the line, fouling the ground. An enemy unit within 6\" of a model with this rule has -1 to its Cool and Leadership."
+      "summary": "The Corpus walks ahead of the line, fouling the ground.",
+      "text": "All enemy Models within 6\" of a Model with this Special Rule subtract 1 from their Cool and Leadership Characteristics. This negative modifier is removed as soon as no Model in the enemy Unit is within 6\" of a Model with this Special Rule."
     },
     {
       "name": "Long Watch",
-      "text": "Legacy house rule (The Ranger Long Watch). Patient hunters pick their moment. A unit with this rule that did not move in its last Movement phase counts its Shooting Attacks as having Precision (6+), and may be deployed after all other units on its side have been placed."
+      "summary": "Patient hunters pick their moment.",
+      "text": "A Unit composed entirely of Models with this Special Rule that did not move in its last Movement Phase gives every Ranged Weapon its Models use in a Shooting Attack the Precision (6+) Special Rule for that attack; a Weapon that already has a Precision (X) Special Rule uses the lower value of X. When the Controlling Player deploys, a Unit with this Special Rule is placed after all other Units on that Player's side have been deployed."
     },
     {
       "name": "Run Them Down",
-      "text": "Legacy house rule (The Sicarian Hunt). The hounds close on a wounded foe. A unit with this rule adds 2 to its Charge roll and gains Outflank."
+      "summary": "The hounds close on a wounded foe.",
+      "text": "Add 2 to the result of any Charge Roll made for a Unit composed entirely of Models with this Special Rule."
     },
     {
       "name": "War-Cant Chorus",
-      "text": "Legacy house rule (The Armoured War-Cant). The tanks sing as one. A unit with this rule adds 1 to its Ballistic Skill while it is within 6\" of another friendly unit with War-Cant Chorus."
+      "summary": "The tanks sing as one.",
+      "text": "While a Model with this Special Rule is within 6\" of another friendly Model with this Special Rule, it adds 1 to its Ballistic Skill Characteristic."
     },
     {
       "name": "Ten Thousand Dead",
-      "text": "Legacy house rule (The Bonepicker Tithe). The chaff is counted in tens of thousands and no one counts the losses. A unit with this rule automatically passes Cool, Pinning and Panic Checks while it has five or more models, and it gains Outflank."
+      "summary": "The chaff is counted in tens of thousands and no one counts the losses.",
+      "text": "While a Unit with this Special Rule includes five or more Models, it automatically passes any Panic Check and any Cool Check it is required to make, including those made for Pinning."
     },
     {
       "name": "Waste Cloak",
-      "text": "Legacy house rule. The bearer may use Infiltrate (9) when deployed in a wasteland or ruin terrain feature."
+      "summary": "Sand-coloured hide dyed with ash and dust makes the wearer part of the wasteland.",
+      "text": "A Model with this Special Rule has the Infiltrate (9) Special Rule when it is deployed wholly within a Wasteland or Ruin terrain feature."
     },
     {
       "name": "Rousing Cant",
-      "text": "Legacy house rule. The unit automatically passes Pinning checks and adds +1 to its Charge rolls."
+      "summary": "The bells chime and the conclave surges forward.",
+      "text": "A Unit with this Special Rule automatically passes any Cool Check made for Pinning, and adds 1 to the result of any Charge Roll it makes."
     },
     {
       "name": "Dead-Drop",
-      "text": "Legacy house rule. Friendly units arriving from Reserves within 6\" of the bearer do not scatter."
+      "summary": "A pulsing locator planted for those still to arrive.",
+      "text": "A friendly Unit that arrives from Reserves and is set up wholly within 6\" of a Model with this Special Rule does not Scatter."
     },
     {
       "name": "Rad-Nimbus",
-      "text": "Legacy house rule. Enemy units in combat with the bearer suffer -1 Initiative."
+      "summary": "A back-mounted reactor bathes the bearer in killing glare.",
+      "text": "While an enemy Model is Locked in Combat with a Model with this Special Rule, it subtracts 1 from its Initiative Characteristic."
     },
     {
       "name": "Hot-Zone Sensing",
-      "text": "Legacy house rule. The vehicle ignores Dangerous Terrain tests and adds +1 to its Hit Tests against units that have suffered Phage (X)."
+      "summary": "A spinning sensor mast that tastes the contamination in the air.",
+      "text": "A Model with this Special Rule does not make Dangerous Terrain Tests, and adds 1 to the result of its Hit Tests against Units that have suffered the effects of the Phage (X) Special Rule."
     },
     {
       "name": "Shed Plating",
-      "text": "Legacy house rule. The first Glancing Hit against the vehicle each battle is ignored."
+      "summary": "Sacrificial skirts of plate crumble under the first blow.",
+      "text": "The first Glancing Hit allocated to a Model with this Special Rule in each battle is discarded."
     },
     {
       "name": "Kill-Code",
-      "text": "Legacy house rule. The model must charge the nearest enemy unit whenever it is able to."
+      "summary": "A strip of scored data-vellum overrides every restraint in an automaton's core.",
+      "text": "Whenever a Unit that includes a Model with this Special Rule is able to declare a Charge, it must declare a Charge against the nearest enemy Unit it can reach."
     }
   ],
   "rites": [
@@ -971,7 +996,7 @@
       "text": "The Vanguard walk ahead of the line, and the ground behind them stays too hot to retake.",
       "benefits": [
         "Battle-Pilgrym Corpuses gain Infiltrate (9).",
-        "They gain Rad-Saturation: enemy units within 6\" of a Corpus suffer -1 Cool and -1 Leadership."
+        "They gain Rad-Saturation: enemy Units within 6\" of a Corpus subtract 1 from their Cool and Leadership Characteristics."
       ],
       "limitations": [
         "At least two Battle-Pilgrym Corpuses are required.",
@@ -1021,8 +1046,8 @@
       ],
       "text": "Patience is a weapon. The Rangers have a great deal of it.",
       "benefits": [
-        "Battle-Pilgrym Corpuses and the Battle-Pilgrym Marshal gain Long Watch: if they did not move, their Shooting Attacks gain Precision (6+).",
-        "Units with Long Watch are deployed after all other units on their side."
+        "Battle-Pilgrym Corpuses and the Battle-Pilgrym Marshal gain Long Watch: if they did not move in their last Movement Phase, every Ranged Weapon they use in a Shooting Attack has Precision (6+).",
+        "Units with Long Watch are deployed after all other Units on their side."
       ],
       "limitations": [
         "At least one Battle-Pilgrym Marshal and one Battle-Pilgrym Corpus are required.",
@@ -1044,7 +1069,16 @@
       "modifiers": [
         {
           "units": [
-            "vorax-attack-maniple",
+            "vorax-attack-maniple"
+          ],
+          "text": "The Sicarian Hunt: Outflank, Run Them Down.",
+          "addRules": [
+            "Outflank",
+            "Run Them Down"
+          ]
+        },
+        {
+          "units": [
             "skitarii-vultarax-stratos-automata"
           ],
           "text": "The Sicarian Hunt: Fast (1), Outflank, Run Them Down.",
@@ -1092,8 +1126,8 @@
       ],
       "text": "The conclave unleashes its fast-killing hounds and does not look back.",
       "benefits": [
-        "Vorax Attack Maniples and Vultarax Stratos Automata may fill Troops slots and gain Fast (1) and Outflank.",
-        "They gain Run Them Down: +2 to Charge rolls."
+        "Vorax Attack Maniples and Vultarax Stratos Automata may fill Troops slots and gain Outflank. Vultarax also gain Fast (1); Vorax already have Fast (2).",
+        "They gain Run Them Down: +2 to Charge Rolls."
       ],
       "limitations": [
         "At least two Vorax or Vultarax units are required.",
@@ -1237,7 +1271,7 @@
       "text": "The conclave's dead are counted in thousands, and its chaff is counted in tens of thousands.",
       "benefits": [
         "Bonepicker Hosts may fill Troops slots and gain Line (1) and Outflank.",
-        "They gain Ten Thousand Dead: while at five or more models they automatically pass Cool, Pinning and Panic Checks."
+        "They gain Ten Thousand Dead: while at five or more Models they automatically pass Panic Checks and Cool Checks, including those made for Pinning."
       ],
       "limitations": [
         "At least two Bonepicker Hosts are required.",
@@ -1249,7 +1283,14 @@
   "armyRules": [
     {
       "name": "Rad-Hardened",
-      "text": "Legacy house rule. Generations in the irradiated wastes have left the Skitarii immune to their own poisons. A unit with this rule is not affected by Phage (X) or Poisoned (X) from Rad weapons, friend or foe. The price is a shortened life and a shortened temper: -1 Leadership.",
+      "flavor": "Generations in the irradiated wastes have left the Skitarii immune to their own poisons.",
+      "benefits": [
+        "A Unit with this Special Rule is not affected by the Phage (X) or Poisoned (X) Special Rules of Weapons with the Rad Trait, friend or foe.",
+        "Models in a Unit with this Special Rule may make a Feel No Pain (5+) Damage Mitigation Test against Wounds inflicted by Weapons with the Rad Trait."
+      ],
+      "drawbacks": [
+        "All Models with this Special Rule subtract 1 from their Leadership Characteristic."
+      ],
       "units": [
         "skitarii-battle-pilgrym-corpus",
         "skitarii-battle-pilgrym-marshal",
@@ -1261,7 +1302,13 @@
     },
     {
       "name": "Prey-Cant",
-      "text": "Legacy house rule. The hunt is run by cant, and it admits no second quarry. At the start of the Shooting phase the controller names one enemy unit as the Prey. Skitarii with this rule add +1 to their Hit Tests against it, but must direct at least one weapon at it each turn if able.",
+      "flavor": "The hunt is run by cant, and it admits no second quarry.",
+      "benefits": [
+        "At the start of the Shooting Phase the Controlling Player names one enemy Unit as the Prey. Models with this Special Rule add 1 to the result of their Hit Tests against the Prey."
+      ],
+      "drawbacks": [
+        "A Unit with this Special Rule must direct at least one of its Weapons at the Prey in each Shooting Attack it makes, if able."
+      ],
       "units": [
         "skitarii-battle-pilgrym-corpus",
         "skitarii-battle-pilgrym-marshal",
@@ -1275,7 +1322,13 @@
     },
     {
       "name": "Overseer's Cant",
-      "text": "Legacy house rule. The Marshal's voice holds the pack together. Units with this rule within 12\" of a living Marshal add +1 to their Cool. If the Marshal is destroyed, they suffer -1 Cool for the rest of the battle.",
+      "flavor": "The Marshal's voice holds the pack together.",
+      "benefits": [
+        "While a Unit with this Special Rule is within 12\" of a friendly Battle-Pilgrym Marshal, all Models in it add 1 to their Cool Characteristic."
+      ],
+      "drawbacks": [
+        "If the Battle-Pilgrym Marshal is removed as a casualty, all Models in Units with this Special Rule subtract 1 from their Cool Characteristic for the rest of the battle."
+      ],
       "units": [
         "skitarii-battle-pilgrym-corpus",
         "bonepicker-host",
