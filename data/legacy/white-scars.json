@@ -1,0 +1,96 @@
+{
+  "weapons": {
+    "melee": [
+      { "name": "Chogorian war-sabre", "IM": "+1", "AM": "A", "SM": "S", "AP": 3, "D": 1, "specialRules": ["Duellist's Edge (1)", "Rending (6+)"], "traits": ["Power"] }
+    ],
+    "ranged": [
+      { "name": "Hunting bolter", "R": 36, "FP": 3, "RS": 4, "AP": 5, "D": 1, "specialRules": ["Precision (5+)"], "traits": ["Bolt"] }
+    ]
+  },
+  "wargear": [
+    { "name": "Horsetail standard", "text": "Legacy house rule. A tall pole hung with the manes of a hundred fallen rivals, which the unit follows as a banner and a challenge. Every model in the unit gains +1 Movement." },
+    { "name": "Stormcaller's totem", "text": "Legacy house rule. A bone and feather fetish, empty of any power until a Stormseer decides otherwise. The model gains +1 Willpower and +1 Cool." }
+  ],
+  "options": [
+    { "units": ["tactical-squad", "despoiler-squad", "assault-squad", "heavy-support-squad", "veteran-tactical-squad", "veteran-assault-squad"],
+      "option": { "id": "ws-war-sabre", "kind": "one", "modelType": "Sergeant", "text": "The Sergeant may take a Chogorian war-sabre",
+        "choices": [ { "name": "Chogorian war-sabre", "points": 10 } ] } },
+    { "units": ["outrider-squadron"],
+      "option": { "id": "ws-outrider-sabre", "kind": "perModel", "model": "Outrider", "replaces": ["Chainsword"], "text": "Any Outrider may exchange their chainsword for",
+        "choices": [ { "name": "Chogorian war-sabre", "points": 8 } ] } },
+    { "units": ["outrider-squadron", "scimitar-jetbike-squadron"],
+      "option": { "id": "ws-rider-sergeant-sabre", "kind": "one", "modelType": "Sergeant", "replaces": ["Chainsword"], "text": "The Sergeant may exchange their chainsword for",
+        "choices": [ { "name": "Chogorian war-sabre", "points": 10 } ] } },
+    { "units": ["golden-keshig"],
+      "option": { "id": "ws-keshig-sabre", "kind": "perModel", "model": ["Keshig Rider", "Keshig Champion"], "replaces": ["Power sword"], "text": "Any Keshig may exchange their power sword for",
+        "choices": [ { "name": "Chogorian war-sabre", "points": 5 } ] } },
+    { "units": ["outrider-squadron"],
+      "option": { "id": "ws-hunting-bolter", "kind": "one", "model": null, "replaces": ["Twin bolter"], "text": "All Outriders may exchange their twin bolter for",
+        "choices": [ { "name": "Hunting bolter", "points": 10 } ] } },
+    { "units": ["tactical-squad", "assault-squad", "veteran-assault-squad", "outrider-squadron", "scimitar-jetbike-squadron", "golden-keshig", "dark-sons-of-death"],
+      "option": { "id": "ws-horsetail", "kind": "upgrade", "model": null, "text": "The unit may carry a Horsetail standard",
+        "choices": [ { "name": "Horsetail standard", "points": 15 } ] } },
+    { "units": ["stormseer", "stormseer-with-jump-pack", "mounted-stormseer", "stormseer-in-terminator-armour"],
+      "option": { "id": "ws-totem", "kind": "upgrade", "model": null, "text": "May carry a Stormcaller's totem",
+        "choices": [ { "name": "Stormcaller's totem", "points": 10 } ] } }
+  ],
+  "modifiers": [
+    { "units": ["outrider-squadron", "scimitar-jetbike-squadron", "golden-keshig"], "text": "Born to the saddle: +1 I, -1 LD.", "stats": { "I": "+1", "LD": "-1" } },
+    { "units": ["land-speeder-squadron", "javelin-speeder-squadron", "kyzagan-assault-speeder"], "text": "Wind-skimmers: +1 M, -1 T.", "stats": { "M": "+1", "T": "-1" } },
+    { "units": ["assault-squad", "veteran-assault-squad", "dark-sons-of-death"], "text": "Fleet of foot: +1 M, -1 LD.", "stats": { "M": "+1", "LD": "-1" } },
+    { "units": ["tactical-squad", "veteran-tactical-squad"], "text": "Hunters, not brawlers: +1 BS, -1 WS.", "stats": { "BS": "+1", "WS": "-1" } },
+    { "units": ["ebon-keshig"], "text": "Sworn to the Khan: +1 WS, -1 BS.", "stats": { "WS": "+1", "BS": "-1" } },
+    { "units": ["stormseer", "stormseer-with-jump-pack", "mounted-stormseer", "stormseer-in-terminator-armour"], "text": "Voice of the storm: +1 IN, -1 CL.", "stats": { "IN": "+1", "CL": "-1" } },
+    { "units": ["*"], "item": "Horsetail standard", "scope": "unit", "text": "Horsetail standard: +1 M.", "stats": { "M": "+1" } },
+    { "units": ["*"], "item": "Stormcaller's totem", "text": "Stormcaller's totem: +1 WP, +1 CL.", "stats": { "WP": "+1", "CL": "+1" } }
+  ],
+  "rites": [
+    {
+      "name": "The Great Hunt",
+      "flavor": "The steppe has no fortresses. It has only prey that has not yet noticed it is being run down.",
+      "text": "Outrider Squadrons, Scimitar Jetbike Squadrons and Golden Keshig may fill Troops slots and gain Line (1). Every Cavalry unit gains Fast (1). The Hunt is cavalry and nothing else: no Terminator squads, no Armour, Heavy Transport or War Engine units. At least two Outrider, Scimitar or Keshig units are required.",
+      "roles": [ { "units": ["outrider-squadron", "scimitar-jetbike-squadron", "golden-keshig"], "role": "Troops" } ],
+      "modifiers": [
+        { "units": ["outrider-squadron", "scimitar-jetbike-squadron", "golden-keshig"], "text": "The Great Hunt: Line (1).", "addRules": ["Line (1)"] },
+        { "match": { "unitType": "Cavalry" }, "text": "The Great Hunt: Fast (1).", "addRules": ["Fast (1)"] }
+      ],
+      "require": [ { "units": ["outrider-squadron", "scimitar-jetbike-squadron", "golden-keshig"], "min": 2, "note": "Bring at least two cavalry squads." } ],
+      "forbid": [ { "units": ["cataphractii-terminator-squad", "tartaros-terminator-squad", "saturnine-terminator-squad", "tartaros-terminator-siege-squad", "indomitus-terminator-squad"] }, { "match": { "roles": ["Armour", "Heavy Transport", "War Engine"] } } ]
+    },
+    {
+      "name": "The Khagan's Own",
+      "flavor": "When the Khan's own riders and shadows take the line, the rest of the Legion simply follows.",
+      "text": "Golden Keshig and Ebon Keshig may fill Troops slots, cost 20 points less and gain Line (1) and +1 Leadership. The army must be led by the Khan, Qin Xa or Hibou Khan. The levy is left behind: no Tactical, Despoiler, Breacher, Scout or Inductii Squads. At least two Keshig units are required.",
+      "roles": [ { "units": ["golden-keshig", "ebon-keshig"], "role": "Troops" } ],
+      "points": [ { "units": ["golden-keshig", "ebon-keshig"], "delta": -20 } ],
+      "modifiers": [ { "units": ["golden-keshig", "ebon-keshig"], "text": "The Khagan's Own: Line (1), +1 LD.", "stats": { "LD": "+1" }, "addRules": ["Line (1)"] } ],
+      "require": [
+        { "units": ["jaghatai-khan", "qin-xa", "hibou-khan"], "min": 1, "note": "The Khan, Qin Xa or Hibou Khan must lead the army." },
+        { "units": ["golden-keshig", "ebon-keshig"], "min": 2, "note": "Bring at least two Keshig units." }
+      ],
+      "forbid": [ { "units": ["tactical-squad", "despoiler-squad", "breacher-squad", "scout-squad", "inductii-squad"] } ]
+    },
+    {
+      "name": "Calling the Tempest",
+      "flavor": "The Stormseers raise their voices, and the sky answers in kind.",
+      "text": "Falcon's Claws may fill Troops slots and gain Line (1). Every Stormseer gains +1 Willpower and +1 Attack. The storm needs open sky and open ground: no Armour, Heavy Transport or Lord of War units. At least two Stormseers are required.",
+      "roles": [ { "units": ["falcons-claws"], "role": "Troops" } ],
+      "modifiers": [
+        { "units": ["falcons-claws"], "text": "Calling the Tempest: Line (1).", "addRules": ["Line (1)"] },
+        { "units": ["stormseer", "stormseer-with-jump-pack", "mounted-stormseer", "stormseer-in-terminator-armour"], "text": "Calling the Tempest: +1 WP, +1 A.", "stats": { "WP": "+1", "A": "+1" } }
+      ],
+      "require": [ { "units": ["stormseer", "stormseer-with-jump-pack", "mounted-stormseer", "stormseer-in-terminator-armour"], "min": 2, "note": "Bring at least two Stormseers." } ],
+      "forbid": [ { "match": { "roles": ["Armour", "Heavy Transport", "Lord of War"] } } ]
+    },
+    {
+      "name": "Dark Sons Descend",
+      "flavor": "No one remembers the Dark Sons' names. They like it that way, and so does the Khan.",
+      "text": "Dark Sons of Death may fill Troops slots, cost 25 points less and gain Line (1) and +1 Attack. The Dark Sons will not fight beside witchcraft: no Stormseers or other models with the Psyker Trait. At least two Dark Sons of Death squads are required.",
+      "roles": [ { "units": ["dark-sons-of-death"], "role": "Troops" } ],
+      "points": [ { "units": ["dark-sons-of-death"], "delta": -25 } ],
+      "modifiers": [ { "units": ["dark-sons-of-death"], "text": "Dark Sons Descend: Line (1), +1 A.", "stats": { "A": "+1" }, "addRules": ["Line (1)"] } ],
+      "require": [ { "units": ["dark-sons-of-death"], "min": 2, "note": "Bring at least two Dark Sons of Death squads." } ],
+      "forbid": [ { "units": ["stormseer", "stormseer-with-jump-pack", "mounted-stormseer", "stormseer-in-terminator-armour"] }, { "match": { "trait": "Psyker" } } ]
+    }
+  ]
+}

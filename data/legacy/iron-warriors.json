@@ -1,0 +1,91 @@
+{
+  "weapons": {
+    "melee": [
+      { "name": "Sapper's pick", "IM": -1, "AM": "A", "SM": "+2", "AP": 3, "D": 1, "specialRules": ["Breaching (4+)"], "traits": ["Power"] }
+    ],
+    "ranged": [
+      { "name": "Bastion rifle", "R": 30, "FP": 2, "RS": 4, "AP": 5, "D": 1, "specialRules": ["Pinning (1)"], "traits": ["Bolt"] }
+    ]
+  },
+  "wargear": [
+    { "name": "Fortification kit", "text": "Legacy house rule. Spades, sandbag lattices and quick-setting ferrocrete foam, hauled across every battlefield and used on all of them. The unit gains Shrouded (6+), and every model suffers -1 Movement." },
+    { "name": "Bastion rangefinder", "text": "Legacy house rule. A tripod-mounted ranging array and a gunner who has never missed a measurement. The unit gains +1 Ballistic Skill, but only when it did not move this turn." },
+    { "name": "Mechanicum augmetics", "text": "Legacy house rule. Bionic limbs and subdermal plating, grafted in by the Legion's own sawbones. The model gains +1 Toughness and suffers -1 Initiative." }
+  ],
+  "options": [
+    { "units": ["tactical-squad"],
+      "option": { "id": "iw-bastion-rifle", "kind": "perModel", "model": "Legionary", "max": 3, "replaces": ["Bolter"], "text": "Up to three Legionaries may exchange their bolter for",
+        "choices": [ { "name": "Bastion rifle", "points": 4 } ] } },
+    { "units": ["breacher-squad"],
+      "option": { "id": "iw-breacher-bastion-rifle", "kind": "perModel", "model": "Legionary", "max": 3, "replaces": ["Bolter"], "text": "Up to three Legionaries may exchange their bolter for",
+        "choices": [ { "name": "Bastion rifle", "points": 4 } ] } },
+    { "units": ["tactical-squad", "despoiler-squad", "assault-squad", "breacher-squad", "heavy-support-squad", "tactical-support-squad", "veteran-tactical-squad", "veteran-breacher-squad", "iron-havocs"],
+      "option": { "id": "iw-sappers-pick", "kind": "one", "modelType": "Sergeant", "text": "The Sergeant may take a Sapper's pick",
+        "choices": [ { "name": "Sapper's pick", "points": 12 } ] } },
+    { "units": ["tactical-squad", "despoiler-squad", "breacher-squad", "iron-havocs", "heavy-support-squad", "tactical-support-squad", "veteran-tactical-squad"],
+      "option": { "id": "iw-fortification-kit", "kind": "upgrade", "model": null, "text": "The unit may take a Fortification kit",
+        "choices": [ { "name": "Fortification kit", "points": 10 } ] } },
+    { "units": ["iron-havocs", "heavy-support-squad", "tactical-support-squad", "veteran-heavy-support-squad"],
+      "option": { "id": "iw-rangefinder", "kind": "upgrade", "model": null, "text": "The unit may take a Bastion rangefinder",
+        "choices": [ { "name": "Bastion rangefinder", "points": 15 } ] } },
+    { "units": ["tactical-squad", "despoiler-squad", "assault-squad", "breacher-squad", "heavy-support-squad", "tactical-support-squad", "veteran-tactical-squad", "veteran-assault-squad", "veteran-breacher-squad", "iron-havocs"],
+      "option": { "id": "iw-augmetics", "kind": "upgrade", "modelType": "Sergeant", "text": "The Sergeant may take Mechanicum augmetics",
+        "choices": [ { "name": "Mechanicum augmetics", "points": 10 } ] } },
+    { "units": ["castellax-battle-maniple"],
+      "option": { "id": "iw-castellax-mace", "kind": "perModel", "model": "Castellax", "text": "Any Castellax may take a Graviton mace",
+        "choices": [ { "name": "Graviton mace", "points": 10 } ] } }
+  ],
+  "modifiers": [
+    { "units": ["iron-havocs"], "text": "Siege gunners: +1 BS, -1 M.", "stats": { "BS": "+1", "M": "-1" } },
+    { "units": ["breacher-squad", "veteran-breacher-squad"], "text": "Drilled to the wall: +1 LD, -1 I.", "stats": { "LD": "+1", "I": "-1" } },
+    { "units": ["iron-circle-maniple"], "text": "The Tyrant's bodyguard: +1 BS, -1 M.", "stats": { "BS": "+1", "M": "-1" } },
+    { "units": ["dominator-cohort"], "text": "Once-honoured: +1 A, -1 BS.", "stats": { "A": "+1", "BS": "-1" } },
+    { "units": ["tyrant-siege-terminator-squad"], "text": "Siege masters: +1 BS, -1 I.", "stats": { "BS": "+1", "I": "-1" } },
+    { "units": ["tactical-squad", "despoiler-squad", "veteran-tactical-squad"], "text": "Grim fortitude: +1 LD, -1 CL.", "stats": { "LD": "+1", "CL": "-1" } },
+    { "units": ["*"], "item": "Fortification kit", "scope": "unit", "text": "Fortification kit: Shrouded (6+), -1 M.", "stats": { "M": "-1" }, "addRules": ["Shrouded (6+)"] },
+    { "units": ["*"], "item": "Bastion rangefinder", "scope": "unit", "text": "Bastion rangefinder: +1 BS.", "stats": { "BS": "+1" }, "condition": "if the unit did not move this turn" },
+    { "units": ["*"], "item": "Mechanicum augmetics", "text": "Mechanicum augmetics: +1 T, -1 I.", "stats": { "T": "+1", "I": "-1" } }
+  ],
+  "rites": [
+    {
+      "name": "The Bastion Doctrine",
+      "flavor": "A line that cannot be turned is worth more than ten that cannot be stopped.",
+      "text": "Iron Havocs, Heavy Support Squads and Tactical Support Squads may fill Troops slots and gain Line (1). Iron Havocs, Heavy Support Squads, Tactical Support Squads and Rapier Batteries gain +1 Ballistic Skill. The Legion digs in and does not run: no Antigrav units, no Fast Attack units, and no Recon units except Tarantula Batteries.",
+      "roles": [ { "units": ["iron-havocs", "heavy-support-squad", "tactical-support-squad"], "role": "Troops" } ],
+      "modifiers": [
+        { "units": ["iron-havocs", "heavy-support-squad", "tactical-support-squad"], "text": "The Bastion Doctrine: Line (1).", "addRules": ["Line (1)"] },
+        { "units": ["iron-havocs", "heavy-support-squad", "tactical-support-squad", "rapier-battery"], "text": "The Bastion Doctrine: +1 BS.", "stats": { "BS": "+1" } }
+      ],
+      "forbid": [ { "match": { "unitType": "Antigrav" } }, { "match": { "role": "Fast Attack" } }, { "match": { "role": "Recon", "notNameIncludes": ["Tarantula"] } } ]
+    },
+    {
+      "name": "Iron Circle Garrison",
+      "flavor": "Perturabo trusts no one, and so every wall he builds has a guard on the inside.",
+      "text": "Iron Circle Maniples and Dominator Cohorts may fill Troops slots and cost 30 points less. The army must be led by Perturabo or a Warsmith. The Tyrant's guard does not scatter or run: no Recon, Fast Attack or Heavy Assault units, and no more than one Armour unit.",
+      "roles": [ { "units": ["iron-circle-maniple", "dominator-cohort"], "role": "Troops" } ],
+      "points": [ { "units": ["iron-circle-maniple", "dominator-cohort"], "delta": -30 } ],
+      "require": [ { "units": ["perturabo", "warsmith", "warsmith-in-artificer-armour"], "min": 1, "note": "Perturabo or a Warsmith must lead the army." } ],
+      "forbid": [ { "match": { "roles": ["Recon", "Fast Attack", "Heavy Assault"] } } ],
+      "limit": [ { "match": { "role": "Armour" }, "max": 1, "note": "At most one Armour unit." } ]
+    },
+    {
+      "name": "The Cold Calculus",
+      "flavor": "A machine does not flinch, and it does not need to be thanked.",
+      "text": "Castellax Battle Maniples may fill Troops slots, cost 20 points less and gain Line (1) and +1 Ballistic Skill. Automata take the line instead of the Legion's brothers: no Tactical, Despoiler, Assault or Inductii Squads. At least two Castellax Battle Maniples are required.",
+      "roles": [ { "units": ["castellax-battle-maniple"], "role": "Troops" } ],
+      "points": [ { "units": ["castellax-battle-maniple"], "delta": -20 } ],
+      "modifiers": [ { "units": ["castellax-battle-maniple"], "text": "The Cold Calculus: Line (1), +1 BS.", "stats": { "BS": "+1" }, "addRules": ["Line (1)"] } ],
+      "require": [ { "units": ["castellax-battle-maniple"], "min": 2, "note": "Bring at least two Castellax Battle Maniples." } ],
+      "forbid": [ { "units": ["tactical-squad", "despoiler-squad", "assault-squad", "inductii-squad"] } ]
+    },
+    {
+      "name": "Breach and Clear",
+      "flavor": "The guns open the wall. Then the armour walks through the hole.",
+      "text": "Tyrant Siege Terminators, Tartaros Terminator Siege Squads, Tartaros Terminator Squads and Veteran Breacher Squads may fill Troops slots and gain Line (1) and Feel No Pain (6+). The Legion commits its siege infantry in person: no Armour or Lord of War units. At least two of those squads are required.",
+      "roles": [ { "units": ["tyrant-siege-terminator-squad", "tartaros-terminator-siege-squad", "tartaros-terminator-squad", "veteran-breacher-squad"], "role": "Troops" } ],
+      "modifiers": [ { "units": ["tyrant-siege-terminator-squad", "tartaros-terminator-siege-squad", "tartaros-terminator-squad", "veteran-breacher-squad"], "text": "Breach and Clear: Line (1), Feel No Pain (6+).", "addRules": ["Line (1)", "Feel No Pain (6+)"] } ],
+      "require": [ { "units": ["tyrant-siege-terminator-squad", "tartaros-terminator-siege-squad", "tartaros-terminator-squad", "veteran-breacher-squad"], "min": 2, "note": "Bring at least two siege infantry squads." } ],
+      "forbid": [ { "match": { "roles": ["Armour", "Lord of War"] } } ]
+    }
+  ]
+}
