@@ -133,7 +133,8 @@ test('Legion army rules show with Legacy rules on and go on datasheets', () => {
   assert.ok(!E.effectiveModels(tac)[0].rules.includes('Warrior Brotherhood'));
   legacyOn(army);
   E.setArmy(army);
-  assert.ok(fixed.every((r) => E.available(r)));
+  // a Primarch's presence rule waits for him; the rest come on with Legacy rules
+  assert.ok(fixed.filter((r) => !JSON.stringify(r.when).includes('"any"')).every((r) => E.available(r)));
   assert.ok(E.effectiveModels(tac)[0].rules.includes('Warrior Brotherhood'));
 });
 

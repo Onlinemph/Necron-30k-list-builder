@@ -171,7 +171,7 @@
     {
       "name": "Crown of Hollow Stars",
       "summary": "A circlet of black glass that shows a sky no one else can see.",
-      "text": "A Model equipped with the Crown of Hollow Stars adds 2 to its Intelligence Characteristic and 1 to its Willpower Characteristic."
+      "text": "A Model equipped with the Crown of Hollow Stars adds 1 to its Willpower Characteristic and has the Vision of the Hollow Sky Special Rule."
     }
   ],
   "options": [
@@ -820,11 +820,13 @@
         "horus-ascended"
       ],
       "item": "Crown of Hollow Stars",
-      "text": "Crown of Hollow Stars: +2 IN, +1 WP.",
+      "text": "Crown of Hollow Stars: +1 WP, Vision of the Hollow Sky.",
       "stats": {
-        "IN": "+2",
         "WP": "+1"
-      }
+      },
+      "addRules": [
+        "Vision of the Hollow Sky"
+      ]
     },
     {
       "units": [
@@ -1180,6 +1182,11 @@
       "name": "Serpent's Kiss",
       "summary": "The cut that does not close.",
       "text": "A Model that suffers an unsaved Wound from a Serpent-lodge shard cannot make Feel No Pain Damage Mitigation Tests against that Wound."
+    },
+    {
+      "name": "Vision of the Hollow Sky",
+      "summary": "He has already seen how this ends for them.",
+      "text": "Once per battle, at the start of the opposing Player's Movement Phase, the Controlling Player of this Model may choose one enemy Unit within 24\". That Unit cannot Rush or make Reactions until the end of that Player Turn."
     }
   ],
   "armyRules": [

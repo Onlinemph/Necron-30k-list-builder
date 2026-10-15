@@ -84,6 +84,8 @@ Tick **Ignore detachments** above the detachments to set the force organisation 
 
 A common complaint about 3rd edition is that the Legions play alike. The **House rules → Legacy rules** switch in the Army configuration panel turns on an optional layer written for this builder: Rites of War that reshape the force chart (veterans or tanks as Troops, drop pod assaults, jump-pack strikes) with a cost attached, restored options such as Artificer armour, Veteran Sergeants, Legion standards and Legion signature weapons, and statline trades that make each Legion's units feel different. Every Legion gets the shared Rites plus its own; the other BSData armies have their own sets.
 
+Every Primarch gets three Aspects to choose from for free (a different side of him, each with a benefit and a cost), two or three relics, and a Presence rule that changes how his Legion fights while he's on the table and hurts it when he falls.
+
 None of it is official, and lists that don't switch it on are unchanged. Legacy options are marked "Legacy:" in the unit editor, the panel's house-rule groups have a dashed gold border, and the roster prints the switch and the chosen Rite so your opponent knows. The content lives in `data/legacy/` (format in `data/legacy/README.md`); `node scripts/legacy-check.mjs <army>` checks one army's file.
 
 ## Force organisation

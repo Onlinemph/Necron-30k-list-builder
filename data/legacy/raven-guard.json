@@ -146,7 +146,7 @@
     {
       "name": "Obsidian pinion-lenses",
       "summary": "Black glass set in the brow, ground to catch light no other eye can use.",
-      "text": "A Model equipped with Obsidian pinion-lenses adds 1 to its Ballistic Skill Characteristic."
+      "text": "A Model equipped with Obsidian pinion-lenses has the Eyes of the Raven Special Rule."
     },
     {
       "name": "Mantle of Lost Brothers",
@@ -760,20 +760,21 @@
         "corvus-corax"
       ],
       "item": "Obsidian pinion-lenses",
-      "text": "Obsidian pinion-lenses: +1 BS.",
-      "stats": {
-        "BS": "+1"
-      }
+      "text": "Obsidian pinion-lenses: Eyes of the Raven.",
+      "addRules": [
+        "Eyes of the Raven"
+      ]
     },
     {
       "units": [
         "corvus-corax"
       ],
       "item": "Mantle of Lost Brothers",
-      "text": "Mantle of Lost Brothers: best:3+ INV.",
+      "text": "Mantle of Lost Brothers: 3+ Invulnerable Save against Shooting Attacks.",
       "stats": {
         "INV": "best:3+"
-      }
+      },
+      "condition": "against Shooting Attacks"
     }
   ],
   "rites": [
@@ -1084,6 +1085,11 @@
       "name": "Feint of the Raven",
       "summary": "A flash of dark wings, and the charge has already missed.",
       "text": "Enemy Units that declare a Charge against a Unit that includes a Model with this Special Rule subtract 1 from the result of their Charge Rolls."
+    },
+    {
+      "name": "Eyes of the Raven",
+      "summary": "No shadow hides from the Raven Lord.",
+      "text": "Shrouded Damage Mitigation Tests cannot be made against Hits inflicted by this Model's Shooting Attacks, and those Shooting Attacks ignore Cover granted by darkness or smoke."
     }
   ],
   "armyRules": [

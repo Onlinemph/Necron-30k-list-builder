@@ -201,7 +201,7 @@
     {
       "name": "Tyrant's gore-plate",
       "summary": "Slag from burned Nuceria, welded over his hide in layers.",
-      "text": "A Model equipped with Tyrant's gore-plate adds 1 to its Toughness Characteristic and subtracts 2 from its Move Characteristic."
+      "text": "A Model equipped with Tyrant's gore-plate has the Slag-Hide Special Rule and subtracts 2 from its Move Characteristic."
     }
   ],
   "rules": [
@@ -278,7 +278,7 @@
     {
       "name": "Wrath Descending",
       "summary": "He drops from the red sky already swinging.",
-      "text": "This Model adds 2 to its Charge Rolls. It subtracts 1 from its Weapon Skill Characteristic and 1 from its Initiative Characteristic."
+      "text": "This Model adds 2 to its Charge Rolls. In a Battle Turn in which it makes a successful Charge, each enemy Unit it is Locked in Combat with must make a Cool Check; a Unit that fails gains the Suppressed Tactical Status. This Model subtracts 1 from its Weapon Skill Characteristic."
     },
     {
       "name": "The Butcher's Tally",
@@ -294,6 +294,11 @@
       "name": "Debt Marked",
       "summary": "The brand picks the next throat.",
       "text": "At the start of the Controlling Player's Charge Sub-Phase, the Controlling Player may nominate one enemy Unit within 18\" of this Model. This Model adds 1 to its Charge Rolls made to charge the nominated Unit, and the nominated Unit subtracts 1 from its Cool Checks until the end of that Battle Turn."
+    },
+    {
+      "name": "Slag-Hide",
+      "summary": "The plate takes the blow so the Red Angel need not.",
+      "text": "Once per battle, when this Model would suffer an Unsaved Wound, its Controlling Player may discard that Wound before any Damage is applied."
     }
   ],
   "options": [
@@ -841,10 +846,9 @@
         "angron-transfigured"
       ],
       "item": "Wrath Descending",
-      "text": "Wrath Descending: +2 to Charge Rolls, -1 WS, -1 I.",
+      "text": "Wrath Descending: -1 WS.",
       "stats": {
-        "WS": "-1",
-        "I": "-1"
+        "WS": "-1"
       },
       "addRules": [
         "Wrath Descending"
@@ -888,11 +892,13 @@
         "angron-transfigured"
       ],
       "item": "Tyrant's gore-plate",
-      "text": "Tyrant's gore-plate: +1 T, -2 M.",
+      "text": "Tyrant's gore-plate: Slag-Hide, -2 M.",
       "stats": {
-        "T": "+1",
         "M": "-2"
-      }
+      },
+      "addRules": [
+        "Slag-Hide"
+      ]
     }
   ],
   "rites": [

@@ -1027,7 +1027,7 @@
     {
       "name": "Wrath of the Drake",
       "summary": "Slow to anger, he is slower still to stop, and his sons would rather not see it.",
-      "text": "This Model adds 1 to its Attacks Characteristic and subtracts 1 from its Initiative Characteristic. Friendly Salamanders Units within 6\" of this Model subtract 1 from their Cool Characteristic."
+      "text": "This Model adds 1 to its Attacks Characteristic. When this Model's Unit destroys an enemy Unit in Combat, every enemy Unit within 6\" of this Model must make a Cool Check; a Unit that fails gains the Pinned Tactical Status. This Model subtracts 1 from its Initiative Characteristic, and friendly Salamanders Units within 6\" of it subtract 1 from their Cool Characteristic."
     },
     {
       "name": "Hand upon the Anvil",
@@ -1118,7 +1118,7 @@
       "name": "Walls Around the Hearth",
       "flavor": "Where Vulkan stands, none of his sons will be seen to leave.",
       "benefits": [
-        "While Vulkan is on the battlefield, when Combat Resolution Points are totalled for a Combat, each side adds 1 to its total for each friendly Salamanders Unit in that Combat within 12\" of Vulkan, to a maximum of +3."
+        "While Vulkan is on the battlefield, when Combat Resolution Points are totalled for a Combat, the Salamanders side adds 1 to its total for each friendly Salamanders Unit in that Combat within 12\" of Vulkan, to a maximum of +3."
       ],
       "drawbacks": [
         "A friendly Salamanders Unit within 12\" of Vulkan cannot voluntarily Fall Back.",
