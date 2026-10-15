@@ -37,9 +37,9 @@
     },
     {
       "name": "Many Masks",
-      "flavor": "Which of them is the real one? The enemy rarely finds out in time.",
+      "flavor": "The Legion's officers have studied every duelling form in the galaxy, and wear whichever face their foe least expects.",
       "benefits": [
-        "An attack with the Precision (X) Special Rule made by an enemy Model cannot be allocated to a Model with this Special Rule unless it is the last Model remaining in its Unit."
+        "An enemy Model Engaged in a Challenge with a Model with this Special Rule cannot select a Gambit during the first Face-Off Step of that Challenge."
       ],
       "drawbacks": [
         "An enemy Unit adds 1 to the result of its Charge Rolls made to charge a Unit that includes a Model with this Special Rule."

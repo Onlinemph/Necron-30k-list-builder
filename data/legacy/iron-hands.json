@@ -1189,7 +1189,7 @@
       "name": "Clans Behind the Gorgon",
       "flavor": "The Clans stand harder with the Gorgon's eye on them, and not one wishes to be seen to break.",
       "benefits": [
-        "While Ferrus Manus is on the battlefield, friendly Iron Hands Infantry Models within 12\" of him add 1 to their Toughness Characteristic when a Wound Test is made against them for a Shooting Attack."
+        "While Ferrus Manus is on the battlefield, friendly Iron Hands Infantry Models within 12\" of him add 1 to their Weapon Skill Characteristic in any Assault phase in which their Unit was the target of an enemy Charge."
       ],
       "drawbacks": [
         "A friendly Iron Hands Unit within 12\" of Ferrus Manus cannot voluntarily Fall Back.",
@@ -1201,9 +1201,9 @@
       },
       "optionalUnits": true,
       "stats": {
-        "T": "+1"
+        "WS": "+1"
       },
-      "condition": "against Shooting Attacks, within 12\" of Ferrus Manus",
+      "condition": "when charged, within 12\" of Ferrus Manus",
       "whileInArmy": [
         "ferrus-manus"
       ]

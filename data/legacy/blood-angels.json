@@ -858,7 +858,7 @@
     {
       "name": "Rage-Draught Surge",
       "summary": "One swallow turns a warrior into a storm.",
-      "text": "Once per battle, at the start of the Assault phase, the Controlling Player may declare a Rage-Draught Surge for the Unit that includes a Model with this Special Rule. Until the end of that phase, all Models in the Unit add 1 to their Strength Characteristic. At the end of that phase, they subtract 1 from their Initiative Characteristic until the end of their next Battle Turn."
+      "text": "Once per battle, at the start of the Assault phase, the Controlling Player may declare a Rage-Draught Surge for the Unit that includes a Model with this Special Rule. Until the end of that phase, all Models in the Unit add 1 to their Attacks Characteristic. At the end of that phase, they subtract 1 from their Toughness Characteristic until the end of their next Battle Turn."
     },
     {
       "name": "Seraph of Baal",

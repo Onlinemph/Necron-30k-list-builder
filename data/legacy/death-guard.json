@@ -799,7 +799,7 @@
     {
       "name": "Walking Dead",
       "summary": "The dead keep walking, and the walking dead are hard to kill.",
-      "text": "A Unit with this Special Rule has the Move Through Cover Special Rule. If it did not move during its Controlling Player's most recent Movement phase, it also has the Feel No Pain (5+) Special Rule until the start of its next Movement phase."
+      "text": "When a Model with this Special Rule is removed as a casualty in the Fight Sub-Phase, roll a Dice: on a 5+ it may make one Melee Attack before it is removed. If its Unit did not move during its Controlling Player's most recent Movement phase, it also has the Feel No Pain (5+) Special Rule until the start of its next Movement phase."
     },
     {
       "name": "Miasma of Contagion",
@@ -844,7 +844,7 @@
     {
       "name": "Rust-Plough",
       "summary": "The blade tears through wire, rubble and flesh alike.",
-      "text": "A Vehicle with this Special Rule ignores Difficult Terrain. Each enemy Unit that it Rams subtracts 1 from its Initiative Characteristic until the end of that Battle Turn."
+      "text": "A Vehicle with this Special Rule does not make Dangerous Terrain Tests. Each enemy Unit that it Rams subtracts 1 from its Initiative Characteristic until the end of that Battle Turn."
     },
     {
       "name": "Reaper of Barbarus",
@@ -925,7 +925,7 @@
       "flavor": "No tracks. No wings. Only the long walk, and the guns that come with it.",
       "benefits": [
         "Grave Warden Terminator Squads may fill Troops slots and gain Line (1).",
-        "They gain Walking Dead: Move Through Cover, and Feel No Pain (5+) in any turn they did not move."
+        "They gain Walking Dead: a Model slain in the Fight Sub-Phase strikes once more on a 5+, and Feel No Pain (5+) in any turn they did not move."
       ],
       "limitations": [
         "At least one Grave Warden Terminator Squad is required.",

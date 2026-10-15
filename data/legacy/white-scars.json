@@ -170,7 +170,7 @@
     {
       "name": "Horsetail standard",
       "summary": "A tall pole hung with the manes of a hundred fallen rivals, which the unit follows as a banner and a challenge.",
-      "text": "A Unit that includes a Model equipped with a Horsetail standard adds 1 to the Movement Characteristic of every Model in it."
+      "text": "Every Model in a Unit that includes a Model equipped with a Horsetail standard has the Loosed at the Gallop Special Rule."
     },
     {
       "name": "Stormcaller's totem",
@@ -680,10 +680,10 @@
       ],
       "item": "Horsetail standard",
       "scope": "unit",
-      "text": "Horsetail standard: +1 M.",
-      "stats": {
-        "M": "+1"
-      }
+      "text": "Horsetail standard: Loosed at the Gallop.",
+      "addRules": [
+        "Loosed at the Gallop"
+      ]
     },
     {
       "units": [
@@ -779,12 +779,11 @@
         "jaghatai-khan"
       ],
       "item": "Rider of the Endless Steppe",
-      "text": "Rider of the Endless Steppe: +2 M, +1 I, -1 WS.",
+      "text": "Rider of the Endless Steppe: +1 I, -1 WS.",
       "addRules": [
         "Rider of the Endless Steppe"
       ],
       "stats": {
-        "M": "+2",
         "I": "+1",
         "WS": "-1"
       }
@@ -882,7 +881,7 @@
     {
       "name": "Rider of the Endless Steppe",
       "summary": "He is born on horseback, and the horizon is an invitation.",
-      "text": "This Model adds 2 to its Movement Characteristic and 1 to its Initiative Characteristic, and subtracts 1 from its Weapon Skill Characteristic. Its Controlling Player subtracts 1 from this Model's Focus Rolls in Challenges. After both sides have deployed and before the first Battle Turn begins, this Model's Unit may make a free Move of up to 8\"."
+      "text": "This Model adds 1 to its Initiative Characteristic and subtracts 1 from its Weapon Skill Characteristic. Its Controlling Player subtracts 1 from this Model's Focus Rolls in Challenges. Enemy Units cannot make Reaction Shooting Attacks against this Model's Unit in a Battle Turn in which it Rushed. After both sides have deployed and before the first Battle Turn begins, this Model's Unit may make a free Move of up to 8\"."
     },
     {
       "name": "Ghost of the Steppe",
@@ -898,6 +897,11 @@
       "name": "Steppe Marksman",
       "summary": "A hunter's eye, trained since before he could walk.",
       "text": "A Model with this Special Rule adds 1 to the result of its Hit Tests made with ranged weapons against a target more than 12\" away."
+    },
+    {
+      "name": "Loosed at the Gallop",
+      "summary": "The riders of Chogoris shoot as they ride, never slowing to aim.",
+      "text": "A Unit made up of Models with this Special Rule may make a Shooting Attack in a Battle Turn in which it Rushed. Every attack made as part of that Shooting Attack is made as a Snap Shot."
     }
   ],
   "rites": [

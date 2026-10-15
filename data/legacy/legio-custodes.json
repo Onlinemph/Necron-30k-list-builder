@@ -1295,12 +1295,12 @@
   "armyRules": [
     {
       "name": "Aurum Discipline",
-      "flavor": "Ten thousand years of drill leave the Custodes unmoved by terror, and unable to yield.",
+      "flavor": "Ten thousand years of drill leave the Custodes unmoved by terror, and unhurried in everything.",
       "benefits": [
         "A Unit with this Special Rule is not affected by the Pinning (X) Special Rule of enemy Weapons."
       ],
       "drawbacks": [
-        "A Unit with this Special Rule can never make a Fall Back Move voluntarily."
+        "A Unit with this Special Rule cannot Rush during the first Battle Turn."
       ],
       "match": {
         "trait": "Legio Custodes",

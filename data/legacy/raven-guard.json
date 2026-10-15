@@ -1044,7 +1044,7 @@
     {
       "name": "Gloom Veil",
       "summary": "Shadow-smoke swallows the hull before the enemy can find it.",
-      "text": "Once per Battle, at the start of the enemy Shooting Phase, the Controlling Player of a Vehicle with this Special Rule may declare that all Shooting Attacks made against it in that Phase are made as Snap Shots."
+      "text": "Once per Battle, at the start of the enemy Shooting Phase, the Controlling Player of a Vehicle with this Special Rule may fire its gloom charges. Until the end of that Phase, the Vehicle has the Shrouded (4+) Special Rule."
     },
     {
       "name": "Hidden Trail",

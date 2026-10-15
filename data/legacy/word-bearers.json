@@ -1019,8 +1019,8 @@
     },
     {
       "name": "Sacrificial Blade",
-      "text": "When a Model with this Special Rule removes an enemy Model as a Casualty in a Challenge, every friendly Unit within 12\" adds 1 to its Combat Resolution Points until the end of that Battle Turn.",
-      "summary": "A life given to the thing in the knife buys courage for the line."
+      "text": "When a Model with this Special Rule removes an enemy Model as a Casualty in a Challenge, it regains one lost Wound, up to its starting Wounds Characteristic.",
+      "summary": "A life given to the thing in the knife buys the bearer a little more of its own."
     },
     {
       "name": "Preacher of Colchis",
@@ -1040,7 +1040,7 @@
     {
       "name": "Sermon of Retribution",
       "summary": "A verse read aloud, and the Legion hears a grudge.",
-      "text": "Once per Battle, at the start of any Battle Turn, the Controlling Player may choose one friendly Word Bearers Unit within 12\" of this Model. Until the end of that Battle Turn, the Unit has the Hatred (Loyalist) Special Rule."
+      "text": "Once per Battle, at the start of any Battle Turn, the Controlling Player may choose one friendly Word Bearers Unit within 12\" of this Model. Until the end of that Battle Turn, the Models in that Unit add 1 to their Attacks Characteristic."
     }
   ],
   "armyRules": [
@@ -1070,9 +1070,9 @@
     },
     {
       "name": "Voice of the Faithful",
-      "flavor": "A preacher's sermon steels the line.",
+      "flavor": "A preacher's sermon makes the faithful deaf to their own wounds.",
       "benefits": [
-        "A friendly Word Bearers Unit within 6\" of a Model with this Special Rule adds 1 to its Combat Resolution Points in any Combat it is part of."
+        "A friendly Word Bearers Unit within 6\" of a Model with this Special Rule has the Feel No Pain (6+) Special Rule in any Battle Turn in which it is Locked in Combat."
       ],
       "drawbacks": [
         "If a Model with this Special Rule is removed as a Casualty, every friendly Word Bearers Unit within 12\" must pass a Cool Check or gain the Suppressed Status."
@@ -1115,10 +1115,10 @@
         "lorgar-aurelian"
       ],
       "benefits": [
-        "While Lorgar Aurelian is on the battlefield, each friendly Word Bearers Unit within 12\" of him scores 1 additional Combat Resolution point in the Resolution Sub-Phase of any Combat it is part of."
+        "While Lorgar Aurelian is on the battlefield, friendly Word Bearers Infantry Models within 12\" of him add 1 to their Weapon Skill Characteristic."
       ],
       "drawbacks": [
-        "If Lorgar Aurelian is removed as a casualty, friendly Word Bearers Units no longer score Combat Resolution points from Unwavering Conviction or from this rule for the remainder of the Battle."
+        "If Lorgar Aurelian is removed as a casualty, friendly Word Bearers Infantry Models subtract 1 from their Weapon Skill Characteristic for the remainder of the Battle."
       ],
       "match": {
         "unitType": "Infantry",

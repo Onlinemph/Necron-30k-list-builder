@@ -2,9 +2,9 @@
   "armyRules": [
     {
       "name": "Cut Loose",
-      "flavor": "No Legion command reaches the Blackshields, and none is missed.",
+      "flavor": "No Legion command reaches the Blackshields, and no Legion's code of honour binds them either.",
       "benefits": [
-        "A Unit composed of Models with this Special Rule cannot gain the Routed Tactical Status."
+        "Models in a Unit with this Special Rule add 1 to their Wound Tests for Melee Attacks against an enemy Unit that is also Locked in Combat with another friendly Unit."
       ],
       "drawbacks": [
         "A Unit composed of Models with this Special Rule gains no benefit from the Officer of the Line (X) Special Rule or from Warrior Brotherhood."

@@ -1120,15 +1120,15 @@
       "name": "Prey on the Weak",
       "flavor": "Nostramo breeds predators, not soldiers.",
       "benefits": [
-        "In the Assault phase, Hit Tests made by a Model with this Special Rule against an enemy Unit that has a Tactical Status are made with a +1 modifier."
+        "In the Assault phase, Wound Tests made for Melee Attacks by a Model with this Special Rule against an enemy Unit that has fewer than half of its starting Models are made with a +1 modifier."
       ],
       "drawbacks": [
-        "If a Unit with this Special Rule is charged by an enemy Unit that has no Tactical Status, its Models subtract 1 from their Initiative Characteristic for that Assault."
+        "A Unit with this Special Rule subtracts 1 from the result of its Charge Rolls when it declares a Charge against an enemy Unit that still has all of its starting Models."
       ],
       "match": {
         "notUnitType": "Vehicle"
       },
-      "condition": "vs enemy with a Tactical Status: +1 to Hit in the Assault phase"
+      "condition": "vs enemy below half strength: +1 to Wound in the Assault phase"
     },
     {
       "name": "Shadows of Nostramo",

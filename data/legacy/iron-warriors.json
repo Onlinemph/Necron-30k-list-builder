@@ -859,12 +859,12 @@
     {
       "name": "Dug In",
       "summary": "Hold the ground long enough and the ground holds you.",
-      "text": "A Unit with this Special Rule that did not move during its last Movement phase counts as being in Cover against Shooting Attacks, and cannot be given the Pinned Tactical Status, until it next moves."
+      "text": "A Unit with this Special Rule that did not move during its last Movement phase counts as being in Cover against Shooting Attacks until it next moves. While it counts as being in Cover in this way, an enemy Unit that Charges it gains no bonus from any Special Rule that requires a successful Charge to have been made."
     },
     {
       "name": "Unbroken Garrison",
       "summary": "The Tyrant's guard does not break.",
-      "text": "While a Unit with this Special Rule is within 12\" of Perturabo or a Warsmith, it cannot be given the Pinned or Suppressed Tactical Status. A Unit with this Special Rule can never choose to Fall Back."
+      "text": "While a Unit with this Special Rule is within 12\" of Perturabo or a Warsmith, it counts as having three additional Models for the purposes of determining Tactical Strength when it is counted for Controlling an Objective. A Unit with this Special Rule can never choose to Fall Back."
     },
     {
       "name": "Machine Certainty",
@@ -943,7 +943,7 @@
       "flavor": "A line that cannot be turned is worth more than ten that cannot be stopped.",
       "benefits": [
         "Iron Havocs, Heavy Support Squads and Tactical Support Squads may fill Troops slots and gain Line (1).",
-        "Those units gain Dug In: after a Battle Turn in which they did not move, they count as being in Cover against Shooting Attacks and cannot be Pinned."
+        "Those units gain Dug In: after a Battle Turn in which they did not move, they count as being in Cover against Shooting Attacks, and enemy Units that charge them gain no charge bonuses."
       ],
       "limitations": [
         "No Antigrav units, no Fast Attack units, and no Recon units other than Tarantula Batteries.",
@@ -999,7 +999,7 @@
       "flavor": "Perturabo trusts no one, and so every wall he builds has a guard on the inside.",
       "benefits": [
         "Iron Circle Maniples and Dominator Cohorts may fill Troops slots.",
-        "Those units gain Unbroken Garrison: they cannot be Pinned or Suppressed while within 12\" of Perturabo or a Warsmith."
+        "Those units gain Unbroken Garrison: they count as three extra Models for holding Objectives while within 12\" of Perturabo or a Warsmith."
       ],
       "limitations": [
         "Perturabo, a Warsmith or a Warsmith in Artificer armour must lead the army.",

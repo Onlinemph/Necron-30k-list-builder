@@ -65,7 +65,7 @@
         "angron-transfigured"
       ],
       "benefits": [
-        "While Angron or Angron Transfigured is on the battlefield, friendly World Eaters Infantry Models within 12\" of him add 1 to their Attacks Characteristic in any Battle Turn in which their Unit made a Charge."
+        "While Angron or Angron Transfigured is on the battlefield, friendly World Eaters Infantry Models within 12\" of him have the Feel No Pain (6+) Special Rule against Wounds caused by Melee Attacks."
       ],
       "drawbacks": [
         "If Angron or Angron Transfigured is removed as a casualty, every friendly World Eaters Unit must make a Cool Check; a Unit that fails gains the Suppressed Tactical Status."
@@ -74,11 +74,7 @@
         "unitType": "Infantry",
         "notUnitType": "Vehicle"
       },
-      "optionalUnits": true,
-      "stats": {
-        "A": "+1"
-      },
-      "condition": "on a turn the unit charges, within 12\" of Angron"
+      "optionalUnits": true
     }
   ],
   "weapons": {
@@ -151,7 +147,7 @@
     {
       "name": "Gore-soaked banner",
       "summary": "A standard stitched from the hides of the last world the company burned.",
-      "text": "While a Unit includes a Model equipped with a Gore-soaked banner, every Model in that Unit adds 1 to its Attacks Characteristic in a Player Turn in which that Unit made a successful Charge."
+      "text": "While a Unit includes a Model equipped with a Gore-soaked banner, every Model in that Unit has the Scent of Spilled Blood Special Rule."
     },
     {
       "name": "Pit-master's goad",
@@ -299,6 +295,11 @@
       "name": "Slag-Hide",
       "summary": "The plate takes the blow so the Red Angel need not.",
       "text": "Once per battle, when this Model would suffer an Unsaved Wound, its Controlling Player may discard that Wound before any Damage is applied."
+    },
+    {
+      "name": "Scent of Spilled Blood",
+      "summary": "Once the first enemy falls, the squad smells the rest.",
+      "text": "Melee Attacks made by a Model with this Special Rule add 1 to their Wound Tests against an enemy Unit that has already had one or more of its Models removed as casualties during the current Fight Sub-Phase."
     }
   ],
   "options": [
@@ -709,11 +710,10 @@
       ],
       "item": "Gore-soaked banner",
       "scope": "unit",
-      "text": "Gore-soaked banner: +1 A.",
-      "stats": {
-        "A": "+1"
-      },
-      "condition": "on a turn the unit charges"
+      "text": "Gore-soaked banner: Scent of Spilled Blood.",
+      "addRules": [
+        "Scent of Spilled Blood"
+      ]
     },
     {
       "units": [

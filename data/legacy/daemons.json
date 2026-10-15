@@ -712,7 +712,7 @@
       "name": "Tethered to the Storm",
       "flavor": "Ruinstorm daemons are held in the material world by the storm's fury, and slip away when it quiets.",
       "benefits": [
-        "A Malefic Model adds 1 to its Initiative Characteristic in a Battle Turn in which its Unit makes a Charge.",
+        "A Malefic Model adds 1 to the result of its Charge Rolls in a Battle Turn in which its Unit arrived from Reserves.",
         "A Malefic Model ignores Dangerous Terrain Tests."
       ],
       "drawbacks": [
@@ -720,11 +720,7 @@
       ],
       "match": {
         "unitType": "Malefic"
-      },
-      "stats": {
-        "I": "+1"
-      },
-      "condition": "in a Battle Turn in which its Unit makes a Charge"
+      }
     },
     {
       "name": "Anchor of the Storm",

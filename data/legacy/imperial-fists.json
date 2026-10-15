@@ -57,7 +57,7 @@
         "rogal-dorn"
       ],
       "benefits": [
-        "While Rogal Dorn is on the battlefield, friendly Imperial Fists Infantry Units that did not move during their Controlling Player's last Movement phase have a 5+ Cover Save against Shooting Attacks, for the entire battle."
+        "While Rogal Dorn is on the battlefield, friendly Imperial Fists Infantry Units within 12\" of him that did not move during their Controlling Player's last Movement phase have the Eternal Warrior (1) Special Rule against Shooting Attacks."
       ],
       "drawbacks": [
         "If Rogal Dorn is removed as a casualty, every friendly Imperial Fists Unit subtracts 1 from its Cool Checks for the rest of the battle."
@@ -848,7 +848,7 @@
     {
       "name": "Pre-sighted Arcs",
       "summary": "The engineers have measured every yard.",
-      "text": "A Model with this Special Rule adds 1 to the result of its Hit Tests when it makes a Shooting Attack, provided its Unit did not move during its Controlling Player's current Movement phase."
+      "text": "If its Unit did not move during its Controlling Player's current Movement phase, every Ranged Weapon a Model with this Special Rule uses in a Shooting Attack has the Breaching (6+) Special Rule. A Weapon that already has a Breaching (X) Special Rule improves the value of X by 1 instead, to a best of 4+."
     },
     {
       "name": "Sworn Crusaders",
@@ -913,7 +913,7 @@
     {
       "name": "Immovable Line",
       "summary": "Where the stone is set, the line is set.",
-      "text": "If a Model with this Special Rule did not move during its Controlling Player's last Movement phase, friendly Imperial Fists Infantry Units within 6\" of it have a 5+ Cover Save against Shooting Attacks."
+      "text": "While a Model with this Special Rule did not move during its Controlling Player's last Movement phase, enemy Units treat all ground within 6\" of it as Difficult Terrain."
     },
     {
       "name": "Breaker's Reckoning",
@@ -985,7 +985,7 @@
       "flavor": "Every wall is a gun platform if the engineers have been given a week.",
       "benefits": [
         "Tactical Support, Heavy Support and Veteran Heavy Support Squads may fill Troops slots.",
-        "Those squads and Rapier and Tarantula Batteries gain Pre-sighted Arcs: a Unit that did not move adds 1 to the Hit Tests of its Shooting Attacks."
+        "Those squads and Rapier and Tarantula Batteries gain Pre-sighted Arcs: a Unit that did not move gives its Ranged Weapons Breaching (6+), or improves the Breaching they already have."
       ],
       "limitations": [
         "At least one Techmarine is required.",

@@ -871,8 +871,8 @@
     },
     {
       "name": "Dampening Pall",
-      "summary": "The pall smothers the pains the witch would visit on those around the bearer.",
-      "text": "A Unit that includes a Model with this Special Rule cannot gain the Pinned, Stunned or Suppressed Tactical Status as the result of an enemy Psychic Power or Malefic ability."
+      "summary": "The pall smothers the warp-strength a witch or daemon draws on in the press of battle.",
+      "text": "Enemy Models with the Psyker Trait or the Malefic Sub-Type that are Locked in Combat with a Unit that includes a Model with this Special Rule subtract 1 from their Attacks Characteristic, to a minimum of 1."
     },
     {
       "name": "Rosary of Quiet",
@@ -940,10 +940,10 @@
       "name": "Soulless Resolve",
       "flavor": "The Sisters feel no warp-born dread, and give no warmth to it either.",
       "benefits": [
-        "An Anathema Model ignores the effects of the Fear (X) Special Rule and cannot gain a Tactical Status as the result of an enemy Psychic Power."
+        "An Anathema Model ignores the effects of the Fear (X) Special Rule. An enemy Unit that includes a Model with the Psyker Trait cannot make Reactions in response to a Charge declared by a Unit that includes an Anathema Model."
       ],
       "drawbacks": [
-        "An Anathema Model cannot be targeted by friendly Psychic Powers, and cannot benefit from a Feel No Pain Special Rule granted by another Model."
+        "An Anathema Model cannot benefit from a Feel No Pain Special Rule or an Invulnerable Save granted by another Model."
       ],
       "units": [
         "anathema-cadre",
@@ -1112,7 +1112,7 @@
       "benefits": [
         "Castellax Battle and Destructor Maniples may fill Troops slots and gain Line (1).",
         "They gain Incorruptible Engines: enemy Psychic Powers cannot target them.",
-        "Anathema, Prosecutor and Vigilator Cadres gain Dampening Pall: they cannot gain the Pinned, Stunned or Suppressed Tactical Status as the result of an enemy Psychic Power or Malefic ability."
+        "Anathema, Prosecutor and Vigilator Cadres gain Dampening Pall: enemy Psykers and Malefic Models Locked in Combat with them subtract 1 from their Attacks Characteristic."
       ],
       "limitations": [
         "At least two Castellax Maniples are required.",

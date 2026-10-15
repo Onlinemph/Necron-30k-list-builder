@@ -4,7 +4,7 @@
       "name": "Pursuit of Perfection",
       "flavor": "Perfection has to be seen to count, and a Legion that is not performing is a Legion that is failing.",
       "benefits": [
-        "A Model with this Special Rule adds 1 to its Initiative Characteristic on a Battle Turn in which its Unit makes a Charge."
+        "Once per battle, after making the Hit Tests for an attack made by a Unit with this Special Rule, the Controlling Player may treat one failed Hit Test made for that attack as successful."
       ],
       "drawbacks": [
         "If a Unit with this Special Rule ends its Controlling Player's Battle Turn having made neither a Shooting Attack nor a Charge, it cannot make Reactions until the start of its next Battle Turn."
@@ -14,11 +14,7 @@
         "notNameIncludes": [
           "Castellax"
         ]
-      },
-      "stats": {
-        "I": "+1"
-      },
-      "condition": "on the turn it charges"
+      }
     },
     {
       "name": "Exquisite Cruelty",

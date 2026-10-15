@@ -634,7 +634,7 @@
     {
       "name": "Gate-Watch Oath",
       "summary": "The watch stands until it is relieved.",
-      "text": "A Unit with this Special Rule ignores the first Pinned Tactical Status it would gain in each Battle Turn."
+      "text": "While a Unit with this Special Rule is within 6\" of an Objective, enemy Units cannot end a Charge Move within 1\" of that Objective unless they also end it Engaged with this Unit."
     },
     {
       "name": "Strict Compliance",
