@@ -416,7 +416,7 @@
       const taken = u.unique && E.allSelections(army).some((x) => x.sel.unitId === u.id);
       const viaRite = (u.roleWhen || []).find((x) => x.role === slot.role && E.condOk(x.when));
       const alt = !slot.flexible && !slot.advisor && u.role !== slot.role ? ` <small class="muted">(${esc(u.role)}, via ${viaRite ? esc(viaRite.when.config) : 'Sequela'})</small>` : '';
-      const b = h(`<button type="button" data-name="${esc(u.name.toLowerCase())}" ${taken ? 'disabled' : ''}><span>${esc(u.name)}${alt}${u.unique ? ' <small class="muted">(character)</small>' : ''}${u.limit ? ` <small class="muted">${esc(u.limit)}</small>` : ''}</span><span class="muted">${u.basePoints} pts${u.page ? ` · ${esc(pageLabel(u))}` : ''}</span></button>`);
+      const b = h(`<button type="button" data-name="${esc(u.name.toLowerCase())}" ${taken ? 'disabled' : ''}><span>${esc(u.name)}${alt}${u.unique ? ' <small class="muted">(character)</small>' : ''}${u.limit ? ` <small class="muted">${esc(u.limit)}</small>` : ''}</span><span class="muted">${startPts(u)}${u.page ? ` · ${esc(pageLabel(u))}` : ''}</span></button>`);
       b.addEventListener('click', () => {
         slot.unit = E.newSelection(u.id);
         // a detachment that only takes one Partisan / Clan presets the unit's choice
@@ -532,7 +532,7 @@
     box.replaceChildren();
 
     box.append(h(`<div class="ed-head"><h2>${esc(u.name)}</h2><span class="pts">${E.unitPoints(sel)} pts</span></div>`));
-    box.append(h(`<p class="ed-sub">${esc(u.role)} · ${esc(det.name)} · ${esc(u.composition || '')} · base ${u.basePoints} pts${u.page ? ` · ${esc(pageLabel(u))}` : ''}${u.unique ? ' · Dramatis Personae' : ''}</p>`));
+    box.append(h(`<p class="ed-sub">${esc(u.role)} · ${esc(det.name)} · ${esc(u.composition || '')} · base ${startPts(u)}${u.page ? ` · ${esc(pageLabel(u))}` : ''}${u.unique ? ' · Dramatis Personae' : ''}</p>`));
 
     const issues = E.unitIssues(sel);
     if (issues.length) {
@@ -959,6 +959,11 @@
   /** "Liber Astartes p.112", or "p.14" when the book isn't known */
   function pageLabel(x) { return `${x.book ? x.book + ' ' : ''}p.${x.page}`; }
 
+  /** What a fresh unit costs; build-your-own units (all models optional) are priced per model. */
+  function startPts(u) {
+    const p = E.unitPoints(E.newSelection(u.id));
+    return p || !u.models.every((m) => !m.min) ? `${p} pts` : 'points per model';
+  }
   function showText(title, text, page, extra) {
     const pl = page == null || page === '' ? '' : /^\d/.test(String(page)) ? `p.${page}` : String(page);
     const body = h(`<div><h2>${esc(title)}${pl ? ` <small>${esc(pl)}</small>` : ''}</h2><div class="dlg-body-scroll"><p class="rule-text">${esc(text || 'No text.')}</p></div></div>`);

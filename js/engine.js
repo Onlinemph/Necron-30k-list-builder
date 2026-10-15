@@ -231,6 +231,9 @@
       const counts = {};
       const targets = swapTargets(u);
       for (const m of u.models) counts[m.name] = targets.has(m.name) ? 0 : m.min;
+      // a one-model unit that offers a choice of model (Caladius or Caladius Annihilator) starts with the first
+      const first = u.models.find((m) => !targets.has(m.name));
+      if (first && u.size && u.size.max === 1 && u.models.every((m) => !m.min)) counts[first.name] = 1;
       return { uid: uid('u'), unitId, counts, options: {}, arkana: u.cryptoArkana && !u.fixedArkana ? null : undefined, primeAdvantage: null };
     }
 

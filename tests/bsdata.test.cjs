@@ -24,7 +24,10 @@ for (const a of index) {
     assert.ok(D.units.length > 0);
     for (const u of D.units) {
       const s = E.newSelection(u.id);
-      assert.equal(E.unitPoints(s), u.basePoints, `${u.id} points`);
+      // a one-model unit with a choice of model starts with the first one
+      const pick = u.size && u.size.max === 1 && u.models.every((m) => !m.min);
+      assert.equal(E.unitPoints(s), u.basePoints + (pick ? u.models[0].costPerExtra : 0), `${u.id} points`);
+      assert.ok(E.unitPoints(s) > 0 || u.models.every((m) => !m.min), `${u.id} starts at 0 points`);
       assert.ok(u.basePoints >= 0, `${u.id} negative points`);
       const rows = E.effectiveModels(s);
       if (!u.size) assert.ok(rows.length > 0, `${u.id} has no models`);
