@@ -122,3 +122,32 @@ test('switching Legacy rules off drops legacy picks from points and statlines', 
   assert.equal(E.unitPoints(tac), 100);
   assert.equal(E.effectiveModels(tac).find((r) => r.model === 'Sergeant').profile.SAV, '3+');
 });
+
+test('Legion army rules show with Legacy rules on and go on datasheets', () => {
+  const { D, E, army } = armyOf('ultramarines');
+  const fixed = D.armyConfig.fixed.filter((r) => r.legacy);
+  assert.ok(fixed.some((r) => r.name === 'Warrior Brotherhood'));
+  const tac = place(E, slotOf(army, 'Troops'), 'tactical-squad');
+  E.setArmy(army);
+  assert.ok(!fixed.some((r) => E.available(r)));
+  assert.ok(!E.effectiveModels(tac)[0].rules.includes('Warrior Brotherhood'));
+  legacyOn(army);
+  E.setArmy(army);
+  assert.ok(fixed.every((r) => E.available(r)));
+  assert.ok(E.effectiveModels(tac)[0].rules.includes('Warrior Brotherhood'));
+});
+
+test('Legion Armoury: characters take up to two relics, each with its own effect', () => {
+  const { E, army } = armyOf('ultramarines');
+  legacyOn(army);
+  const cen = place(E, army.detachments[0].slots.find((s) => s.role === 'Command' && !s.unit), 'centurion');
+  E.setArmy(army);
+  const arm = E.optionsOf(cen).find((o) => /Legion Armoury/.test(o.text));
+  cen.options[arm.id] = ['Iron halo', 'Displacer field'];
+  assert.equal(E.unitPoints(cen), 80 + 20 + 15);
+  const m = E.effectiveModels(cen)[0];
+  assert.equal(m.profile.INV, '4+');
+  assert.ok(m.rules.includes('Displacer Field'));
+  cen.options[arm.id] = ['Iron halo', 'Displacer field', 'Teleport homer'];
+  assert.ok(E.unitIssues(cen).some((i) => /at most 2/.test(i.msg)));
+});
