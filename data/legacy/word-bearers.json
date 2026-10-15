@@ -10,10 +10,41 @@
         "D": 1,
         "specialRules": [
           "Pistol",
-          "Panic (1)"
+          "Suppressive (1)"
         ],
         "traits": [
           "Assault"
+        ]
+      },
+      {
+        "name": "Choking thurible",
+        "R": "Template",
+        "FP": 1,
+        "RS": 4,
+        "AP": 5,
+        "D": 1,
+        "specialRules": [
+          "Template",
+          "Poisoned (4+)",
+          "Panic (1)"
+        ],
+        "traits": [
+          "Flame"
+        ]
+      },
+      {
+        "name": "Shriekbolt carbine",
+        "R": 24,
+        "FP": 2,
+        "RS": 4,
+        "AP": 4,
+        "D": 1,
+        "specialRules": [
+          "Stun (1)",
+          "Panic (1)"
+        ],
+        "traits": [
+          "Bolt"
         ]
       }
     ],
@@ -26,7 +57,8 @@
         "AP": 3,
         "D": 1,
         "specialRules": [
-          "Breaching (5+)"
+          "Impact (SM)",
+          "Breaching (6+)"
         ],
         "traits": [
           "Power"
@@ -40,12 +72,27 @@
         "AP": 3,
         "D": 1,
         "specialRules": [
-          "Critical Hit (5+)",
-          "Panic (1)"
+          "Aflame (1)",
+          "Shred (6+)"
         ],
         "traits": [
           "Chain",
           "Flame"
+        ]
+      },
+      {
+        "name": "Hierophant's crozier",
+        "IM": "+1",
+        "AM": "A",
+        "SM": "+1",
+        "AP": 3,
+        "D": 2,
+        "specialRules": [
+          "Precision (6+)",
+          "Reaping Blow (1)"
+        ],
+        "traits": [
+          "Power"
         ]
       }
     ]
@@ -62,6 +109,30 @@
     {
       "name": "Possession-brand",
       "text": "Legacy house rule. A ritual scar-pattern that lets the thing within the armour take the blow in the warrior's place. The model gains a 6+ Invulnerable Save if it had none."
+    },
+    {
+      "name": "Cant-scroll",
+      "text": "Legacy house rule. A tattered hymn-roll chanted on the march. Gives the model Marching Hymn."
+    },
+    {
+      "name": "Anathemata reliquary",
+      "text": "Legacy house rule. A sealed casket of scripture and saints' bone. Gives the model Faith-Warded Mind."
+    },
+    {
+      "name": "Banner of the Pilgrim Host",
+      "text": "Legacy house rule. A wide banner stitched with a thousand names. Every model in the unit gains Pilgrim's Cry."
+    },
+    {
+      "name": "Unction-sealed plating",
+      "text": "Legacy house rule. Hull plates washed in consecrated oils and cinders. The vehicle gains Anointed Hull."
+    },
+    {
+      "name": "Dirge-horn siren",
+      "text": "Legacy house rule. A mournful chorus-siren bolted to the hull. The vehicle gains Siren Wail and Fear (1)."
+    },
+    {
+      "name": "Pact-forged knife",
+      "text": "Legacy house rule. A black knife bearing a name no mortal should speak. Gives the model Sacrificial Blade."
     }
   ],
   "options": [
@@ -201,6 +272,187 @@
           }
         ]
       }
+    },
+    {
+      "match": {
+        "roles": [
+          "High Command",
+          "Command"
+        ],
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "option": {
+        "id": "wb-regalia",
+        "kind": "any",
+        "modelType": "Command",
+        "max": {
+          "fixed": 2
+        },
+        "text": "Cult regalia: may take up to two items",
+        "choices": [
+          {
+            "name": "Anathemata reliquary",
+            "points": 15
+          },
+          {
+            "name": "Pact-forged knife",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "veteran-tactical-squad",
+        "assault-squad",
+        "veteran-assault-squad",
+        "breacher-squad",
+        "inductii-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "wb-cant",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may carry a Cant-scroll",
+        "choices": [
+          {
+            "name": "Cant-scroll",
+            "points": 5
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "veteran-tactical-squad",
+        "assault-squad",
+        "gal-vorbak",
+        "ashen-circle",
+        "inductii-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "wb-pilgrim",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The unit may carry a Banner of the Pilgrim Host",
+        "choices": [
+          {
+            "name": "Banner of the Pilgrim Host",
+            "points": 25
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "unitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "option": {
+        "id": "wb-plating",
+        "kind": "upgrade",
+        "model": null,
+        "text": "May be fitted with Unction-sealed plating",
+        "choices": [
+          {
+            "name": "Unction-sealed plating",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "unitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "option": {
+        "id": "wb-siren",
+        "kind": "upgrade",
+        "model": null,
+        "text": "May be fitted with a Dirge-horn siren",
+        "choices": [
+          {
+            "name": "Dirge-horn siren",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "chaplain",
+        "chaplain-with-jump-pack",
+        "mounted-chaplain",
+        "chaplain-in-terminator-armour",
+        "diabolist",
+        "diabolist-in-terminator-armour",
+        "mounted-diabolist"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "wb-crozier",
+        "kind": "upgrade",
+        "modelType": "Command",
+        "text": "May carry a Hierophant's crozier",
+        "choices": [
+          {
+            "name": "Hierophant's crozier",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "wb-thurible",
+        "kind": "perModel",
+        "model": "Legionary",
+        "replaces": [
+          "Bolter"
+        ],
+        "max": 1,
+        "text": "One Legionary may exchange their bolter for",
+        "choices": [
+          {
+            "name": "Choking thurible",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "veteran-tactical-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "wb-shriek",
+        "kind": "one",
+        "replaces": [
+          "Bolter"
+        ],
+        "text": "The Sergeant may exchange their bolter for",
+        "choices": [
+          {
+            "name": "Shriekbolt carbine",
+            "points": 5
+          }
+        ],
+        "modelType": "Sergeant"
+      }
     }
   ],
   "modifiers": [
@@ -310,6 +562,83 @@
       "stats": {
         "INV": "best:6+"
       }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Cant-scroll",
+      "text": "Cant-scroll: Marching Hymn.",
+      "addRules": [
+        "Marching Hymn"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Anathemata reliquary",
+      "text": "Anathemata reliquary: Faith-Warded Mind.",
+      "addRules": [
+        "Faith-Warded Mind"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Banner of the Pilgrim Host",
+      "text": "Banner of the Pilgrim Host: Pilgrim's Cry.",
+      "scope": "unit",
+      "addRules": [
+        "Pilgrim's Cry"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Unction-sealed plating",
+      "text": "Unction-sealed plating: Anointed Hull.",
+      "addRules": [
+        "Anointed Hull"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Dirge-horn siren",
+      "text": "Dirge-horn siren: Siren Wail, Fear (1).",
+      "addRules": [
+        "Siren Wail",
+        "Fear (1)"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Pact-forged knife",
+      "text": "Pact-forged knife: Sacrificial Blade.",
+      "addRules": [
+        "Sacrificial Blade"
+      ]
+    },
+    {
+      "units": [
+        "gal-vorbak",
+        "ashen-circle",
+        "phraetus-anointed-conclave",
+        "argel-tal",
+        "zardu-layak",
+        "mhara-gal-dreadnought"
+      ],
+      "optionalUnits": true,
+      "text": "Blood-Price of the Pact: Feel No Pain (6+).",
+      "addRules": [
+        "Feel No Pain (6+)"
+      ]
     }
   ],
   "rites": [
@@ -564,6 +893,75 @@
     {
       "name": "Tide of Converts",
       "text": "Legacy house rule (The Indoctrinated Tide). A unit with this rule gains Line (1) and, while it has ten or more models, automatically passes Morale checks."
+    },
+    {
+      "name": "Marching Hymn",
+      "text": "Legacy house rule. When the unit of a model with this rule Rushes, add 2\" to the distance it moves."
+    },
+    {
+      "name": "Faith-Warded Mind",
+      "text": "Legacy house rule. The unit of a model with this rule adds 2 to its Willpower Checks made to resist enemy psychic attacks."
+    },
+    {
+      "name": "Pilgrim's Cry",
+      "text": "Legacy house rule. A unit with this rule adds 1 to its Charge rolls. Once per battle it automatically passes one Morale Check."
+    },
+    {
+      "name": "Anointed Hull",
+      "text": "Legacy house rule. Once per battle, a vehicle with this rule may ignore one Glancing Hit."
+    },
+    {
+      "name": "Siren Wail",
+      "text": "Legacy house rule. Enemy units within 12\" of a vehicle with this rule cannot Rush towards it."
+    },
+    {
+      "name": "Sacrificial Blade",
+      "text": "Legacy house rule. When a model with this rule slays an enemy in a Challenge, every friendly unit within 12\" adds 1 to its Cool until the end of the turn."
+    }
+  ],
+  "armyRules": [
+    {
+      "name": "Zealot's Fervour",
+      "match": {
+        "roles": [
+          "Troops",
+          "Elites",
+          "Heavy Assault",
+          "Fast Attack"
+        ],
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "stats": {
+        "A": "+1"
+      },
+      "condition": "on a turn the unit charges",
+      "text": "Legacy house rule. Faith is a weapon. A unit with this rule gains +1 Attack on a turn it charges. Zeal leaves no room for caution: when able, it must declare its Charge against the nearest enemy unit."
+    },
+    {
+      "name": "Voice of the Faithful",
+      "match": {
+        "roles": [
+          "High Command",
+          "Command"
+        ],
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "text": "Legacy house rule. A preacher's sermon steels the line. A friendly Word Bearers unit within 6\" of a model with this rule adds 1 to its Willpower and Cool. If the model is removed, every such unit within 12\" must pass a Cool Check or gain the Suppressed Status."
+    },
+    {
+      "name": "Blood-Price of the Pact",
+      "units": [
+        "gal-vorbak",
+        "ashen-circle",
+        "phraetus-anointed-conclave",
+        "argel-tal",
+        "zardu-layak",
+        "mhara-gal-dreadnought"
+      ],
+      "optionalUnits": true,
+      "text": "Legacy house rule. The thing bound within takes its tithe. A unit with this rule has Feel No Pain (6+). At the start of each of its turns from the third, roll a D6: on a 1 the unit suffers 1 Wound with no Saves of any kind."
     }
   ]
 }

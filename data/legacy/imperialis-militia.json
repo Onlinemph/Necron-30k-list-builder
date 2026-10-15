@@ -1,935 +1,1338 @@
 {
- "weapons": {
-  "ranged": [
-   {
-    "name": "Scrap-gun",
-    "R": 12,
-    "FP": 3,
-    "RS": 3,
-    "AP": 6,
-    "D": 1,
-    "specialRules": [
-     "Shred (6+)"
+  "weapons": {
+    "ranged": [
+      {
+        "name": "Scrap-gun",
+        "R": 12,
+        "FP": 3,
+        "RS": 3,
+        "AP": 6,
+        "D": 1,
+        "specialRules": [
+          "Shred (6+)",
+          "Overload (1)"
+        ],
+        "traits": [
+          "Assault"
+        ]
+      },
+      {
+        "name": "Hive-boss pistol",
+        "R": 12,
+        "FP": 2,
+        "RS": 4,
+        "AP": 5,
+        "D": 1,
+        "specialRules": [
+          "Pistol",
+          "Stun (1)"
+        ],
+        "traits": [
+          "Assault"
+        ]
+      },
+      {
+        "name": "Bastard lobber",
+        "R": 24,
+        "FP": 1,
+        "RS": 5,
+        "AP": 5,
+        "D": 1,
+        "specialRules": [
+          "Blast (3\")",
+          "Barrage (1)",
+          "Pinning (1)"
+        ],
+        "traits": []
+      },
+      {
+        "name": "Acid-flask sling",
+        "R": 12,
+        "FP": 1,
+        "RS": 5,
+        "AP": 5,
+        "D": 1,
+        "specialRules": [
+          "Blast (3\")",
+          "Poisoned (4+)"
+        ],
+        "traits": []
+      }
     ],
-    "traits": [
-     "Assault"
+    "melee": [
+      {
+        "name": "Baron's blade",
+        "IM": "+1",
+        "AM": "A",
+        "SM": "+1",
+        "AP": 4,
+        "D": 1,
+        "specialRules": [
+          "Duellist's Edge (1)",
+          "Breaching (6+)"
+        ],
+        "traits": [
+          "Power"
+        ]
+      },
+      {
+        "name": "Ogryn pit-maul",
+        "IM": -2,
+        "AM": "A",
+        "SM": "+3",
+        "AP": 4,
+        "D": 1,
+        "specialRules": [
+          "Stun (1)",
+          "Reaping Blow (1)"
+        ],
+        "traits": []
+      },
+      {
+        "name": "Charge-lance",
+        "IM": "+1",
+        "AM": "A",
+        "SM": "+2",
+        "AP": 4,
+        "D": 1,
+        "specialRules": [
+          "Impact (S)",
+          "Critical Hit (5+)"
+        ],
+        "traits": [
+          "Power"
+        ]
+      },
+      {
+        "name": "Pit-chain flail",
+        "IM": -1,
+        "AM": "+1",
+        "SM": "+2",
+        "AP": 4,
+        "D": 1,
+        "specialRules": [
+          "Reaping Blow (2)",
+          "Shock (Suppressed)"
+        ],
+        "traits": []
+      }
     ]
-   },
-   {
-    "name": "Hive-boss pistol",
-    "R": 12,
-    "FP": 2,
-    "RS": 4,
-    "AP": 5,
-    "D": 1,
-    "specialRules": [
-     "Pistol"
-    ],
-    "traits": [
-     "Assault"
-    ]
-   },
-   {
-    "name": "Bastard lobber",
-    "R": 24,
-    "FP": 1,
-    "RS": 5,
-    "AP": 5,
-    "D": 1,
-    "specialRules": [
-     "Blast (3\")",
-     "Pinning (1)"
-    ],
-    "traits": []
-   }
-  ],
-  "melee": [
-   {
-    "name": "Baron's blade",
-    "IM": "+1",
-    "AM": "A",
-    "SM": "+1",
-    "AP": 4,
-    "D": 1,
-    "specialRules": [
-     "Breaching (6+)"
-    ],
-    "traits": [
-     "Power"
-    ]
-   },
-   {
-    "name": "Ogryn pit-maul",
-    "IM": -2,
-    "AM": "A",
-    "SM": "+3",
-    "AP": 4,
-    "D": 1,
-    "specialRules": [
-     "Stun (1)"
-    ],
-    "traits": []
-   }
-  ]
- },
- "wargear": [
-  {
-   "name": "Flak jerkin",
-   "text": "Legacy house rule. A layered flak coat scavenged from the regiment's stores and kept for the sergeant. The model's Save becomes 4+ if it was worse."
   },
-  {
-   "name": "Provost's greatcoat",
-   "text": "Legacy house rule. A heavy coat sewn with ward-plates and a hidden shield-belt, issued to officers the provosts cannot afford to lose. The model's Invulnerable Save becomes 5+ if it was worse."
-  },
-  {
-   "name": "Old Hand",
-   "text": "Legacy house rule. A sergeant who has survived three levies. The model gains +1 Weapon Skill and +1 Attack."
-  },
-  {
-   "name": "Regimental colours",
-   "text": "Legacy house rule. A tattered banner the whole muster would sooner die than lose. Every model in the unit gains +1 Leadership and +1 Cool."
-  },
-  {
-   "name": "Combat stimms",
-   "text": "Legacy house rule. Cheap injectors handed out before the whistle. On a turn the unit charges, every model in it gains +1 Strength."
-  },
-  {
-   "name": "Scrap-armour plates",
-   "text": "Legacy house rule. Girders, door panels and salvaged hull riveted on in the staging yard. The vehicle gains +1 Hull Point."
-  },
-  {
-   "name": "Salvaged gun shield",
-   "text": "Legacy house rule. A curved shield cut from a wrecked vehicle and bolted to the carriage. The model's Save becomes 3+ if it was worse."
-  }
- ],
- "options": [
-  {
-   "match": {
-    "roles": [
-     "Troops",
-     "Elites",
-     "Recon",
-     "Command",
-     "Heavy Assault"
-    ],
-    "notUnitType": "Vehicle"
-   },
-   "optionalUnits": true,
-   "option": {
-    "id": "mil-flak",
-    "kind": "upgrade",
-    "modelType": "Sergeant",
-    "text": "The Sergeant may wear a Flak jerkin",
-    "choices": [
-     {
+  "wargear": [
+    {
       "name": "Flak jerkin",
-      "points": 5
-     }
-    ]
-   }
-  },
-  {
-   "units": [
-    "command-troop",
-    "mounted-command-troop",
-    "discipline-master-cadre"
-   ],
-   "option": {
-    "id": "mil-greatcoat",
-    "kind": "upgrade",
-    "modelType": "Command",
-    "text": "The officer may wear a Provost's greatcoat",
-    "choices": [
-     {
+      "text": "Legacy house rule. A layered flak coat scavenged from the regiment's stores and kept for the sergeant. The model's Save becomes 4+ if it was worse."
+    },
+    {
       "name": "Provost's greatcoat",
-      "points": 10
-     }
-    ]
-   }
-  },
-  {
-   "units": [
-    "infantry-troop",
-    "levy-troop",
-    "grenadier-troop",
-    "reconnaissance-troop",
-    "cavalry-troop"
-   ],
-   "option": {
-    "id": "mil-old-hand",
-    "kind": "upgrade",
-    "modelType": "Sergeant",
-    "text": "The Sergeant may be upgraded to an Old Hand",
-    "choices": [
-     {
+      "text": "Legacy house rule. A heavy coat sewn with ward-plates and a hidden shield-belt, issued to officers the provosts cannot afford to lose. The model's Invulnerable Save becomes 5+ if it was worse."
+    },
+    {
       "name": "Old Hand",
-      "points": 8
-     }
-    ]
-   }
-  },
-  {
-   "units": [
-    "infantry-troop",
-    "levy-troop",
-    "grenadier-troop",
-    "reconnaissance-troop",
-    "cavalry-troop"
-   ],
-   "option": {
-    "id": "mil-sergeant-arms",
-    "kind": "upgrade",
-    "modelType": "Sergeant",
-    "text": "The Sergeant may carry a sidearm or blade",
-    "choices": [
-     {
-      "name": "Hive-boss pistol",
-      "points": 3
-     },
-     {
-      "name": "Baron's blade",
-      "points": 8
-     }
-    ]
-   }
-  },
-  {
-   "units": [
-    "mounted-command-troop"
-   ],
-   "option": {
-    "id": "mil-baron-blade",
-    "kind": "upgrade",
-    "model": "Militia Lancemaster",
-    "text": "The Lancemaster may carry a Baron's blade",
-    "choices": [
-     {
-      "name": "Baron's blade",
-      "points": 8
-     }
-    ]
-   }
-  },
-  {
-   "units": [
-    "levy-troop"
-   ],
-   "option": {
-    "id": "mil-scrap-gun",
-    "kind": "perModel",
-    "model": "Levy",
-    "max": {
-     "per": 5,
-     "count": 1
+      "text": "Legacy house rule. A sergeant who has survived three levies. The model gains +1 Weapon Skill and +1 Attack."
     },
-    "text": "Up to one Levy in five may carry a",
-    "choices": [
-     {
-      "name": "Scrap-gun",
-      "points": 2
-     }
-    ]
-   }
-  },
-  {
-   "units": [
-    "infantry-troop"
-   ],
-   "option": {
-    "id": "mil-lobber-infantry",
-    "kind": "perModel",
-    "model": "Militia Infantry",
-    "max": {
-     "per": 10,
-     "count": 1
-    },
-    "text": "One Militia Infantry in ten may carry a",
-    "choices": [
-     {
-      "name": "Bastard lobber",
-      "points": 8
-     }
-    ]
-   }
-  },
-  {
-   "units": [
-    "grenadier-troop"
-   ],
-   "option": {
-    "id": "mil-lobber-grenadier",
-    "kind": "perModel",
-    "model": "Grenadier",
-    "max": {
-     "per": 5,
-     "count": 1
-    },
-    "text": "One Grenadier in five may carry a",
-    "choices": [
-     {
-      "name": "Bastard lobber",
-      "points": 8
-     }
-    ]
-   }
-  },
-  {
-   "units": [
-    "ogryn-brute-troop"
-   ],
-   "option": {
-    "id": "mil-pit-maul",
-    "kind": "perModel",
-    "model": "Ogryn Brute",
-    "text": "Any Ogryn Brute may swing an",
-    "choices": [
-     {
-      "name": "Ogryn pit-maul",
-      "points": 5
-     }
-    ]
-   }
-  },
-  {
-   "units": [
-    "infantry-troop",
-    "levy-troop",
-    "grenadier-troop",
-    "ogryn-brute-troop",
-    "cavalry-troop"
-   ],
-   "option": {
-    "id": "mil-stimms",
-    "kind": "upgrade",
-    "model": null,
-    "text": "The unit may be dosed with Combat stimms",
-    "choices": [
-     {
-      "name": "Combat stimms",
-      "points": 10
-     }
-    ]
-   }
-  },
-  {
-   "units": [
-    "infantry-troop",
-    "levy-troop",
-    "grenadier-troop",
-    "cavalry-troop",
-    "command-troop"
-   ],
-   "option": {
-    "id": "mil-colours",
-    "kind": "upgrade",
-    "model": null,
-    "text": "The unit may carry its Regimental colours",
-    "choices": [
-     {
+    {
       "name": "Regimental colours",
-      "points": 12
-     }
-    ]
-   }
-  },
-  {
-   "units": [
-    "field-gun-battery"
-   ],
-   "option": {
-    "id": "mil-gun-shield",
-    "kind": "perModel",
-    "model": "Field Gun",
-    "text": "Any Field Gun may be fitted with a",
-    "choices": [
-     {
-      "name": "Salvaged gun shield",
-      "points": 8
-     }
-    ]
-   }
-  },
-  {
-   "match": {
-    "roles": [
-     "Armour",
-     "Transport",
-     "Heavy Transport",
-     "Fast Attack"
-    ],
-    "unitType": "Vehicle",
-    "notUnitType": "Flyer"
-   },
-   "units": [
-    "militia-leman-russ-tank",
-    "militia-malcador-heavy-tank",
-    "militia-industrial-rig",
-    "militia-utility-hauler",
-    "militia-gorgon-transporter",
-    "militia-scout-rover"
-   ],
-   "option": {
-    "id": "mil-scrap-armour",
-    "kind": "upgrade",
-    "model": null,
-    "text": "May be fitted with Scrap-armour plates",
-    "choices": [
-     {
+      "text": "Legacy house rule. A tattered banner the whole muster would sooner die than lose. Every model in the unit gains +1 Leadership and +1 Cool."
+    },
+    {
+      "name": "Combat stimms",
+      "text": "Legacy house rule. Cheap injectors handed out before the whistle. On a turn the unit charges, every model in it gains +1 Strength."
+    },
+    {
       "name": "Scrap-armour plates",
-      "points": 10
-     }
-    ]
-   }
-  }
- ],
- "modifiers": [
-  {
-   "units": [
-    "*"
-   ],
-   "item": "Flak jerkin",
-   "text": "Flak jerkin: 4+ Save.",
-   "stats": {
-    "SAV": "best:4+"
-   }
-  },
-  {
-   "units": [
-    "*"
-   ],
-   "item": "Provost's greatcoat",
-   "text": "Provost's greatcoat: 5+ Invulnerable Save.",
-   "stats": {
-    "INV": "best:5+"
-   }
-  },
-  {
-   "units": [
-    "*"
-   ],
-   "item": "Old Hand",
-   "text": "Old Hand: +1 WS, +1 A.",
-   "stats": {
-    "WS": "+1",
-    "A": "+1"
-   }
-  },
-  {
-   "units": [
-    "*"
-   ],
-   "item": "Regimental colours",
-   "scope": "unit",
-   "text": "Regimental colours: +1 LD, +1 CL.",
-   "stats": {
-    "LD": "+1",
-    "CL": "+1"
-   }
-  },
-  {
-   "units": [
-    "*"
-   ],
-   "item": "Combat stimms",
-   "scope": "unit",
-   "text": "Combat stimms: +1 S.",
-   "stats": {
-    "S": "+1"
-   },
-   "condition": "on a turn the unit charges"
-  },
-  {
-   "units": [
-    "*"
-   ],
-   "item": "Scrap-armour plates",
-   "scope": "unit",
-   "text": "Scrap-armour plates: +1 HP.",
-   "stats": {
-    "HP": "+1"
-   }
-  },
-  {
-   "units": [
-    "*"
-   ],
-   "item": "Salvaged gun shield",
-   "text": "Salvaged gun shield: 3+ Save.",
-   "stats": {
-    "SAV": "best:3+"
-   }
-  },
-  {
-   "units": [
-    "levy-troop"
-   ],
-   "models": [
-    "Levy"
-   ],
-   "text": "Packed shoulder to shoulder: +1 LD, -1 I.",
-   "stats": {
-    "LD": "+1",
-    "I": "-1"
-   }
-  },
-  {
-   "units": [
-    "infantry-troop"
-   ],
-   "models": [
-    "Militia Infantry",
-    "Infantry Sergeant"
-   ],
-   "text": "Home-ground tenacity: +1 WP, -1 I.",
-   "stats": {
-    "WP": "+1",
-    "I": "-1"
-   }
-  },
-  {
-   "units": [
-    "grenadier-troop"
-   ],
-   "text": "Gene-crafted frames: +1 T, -1 CL.",
-   "stats": {
-    "T": "+1",
-    "CL": "-1"
-   }
-  },
-  {
-   "units": [
-    "ogryn-brute-troop"
-   ],
-   "text": "Slow-witted bulk: +1 W, -1 WS.",
-   "stats": {
-    "W": "+1",
-    "WS": "-1"
-   }
-  },
-  {
-   "units": [
-    "mounted-command-troop",
-    "cavalry-troop"
-   ],
-   "text": "Reckless nobles: +1 WS, -1 LD.",
-   "stats": {
-    "WS": "+1",
-    "LD": "-1"
-   }
-  },
-  {
-   "units": [
-    "reconnaissance-troop"
-   ],
-   "text": "Gangland trackers: +1 I, -1 LD.",
-   "stats": {
-    "I": "+1",
-    "LD": "-1"
-   }
-  },
-  {
-   "units": [
-    "field-gun-battery",
-    "heavy-ordnance-battery"
-   ],
-   "models": [
-    "Field Gun",
-    "Gun Carriage"
-   ],
-   "text": "Hand-cranked laying: +1 BS, -1 I.",
-   "stats": {
-    "BS": "+1",
-    "I": "-1"
-   }
-  },
-  {
-   "units": [
-    "militia-leman-russ-tank",
-    "militia-malcador-heavy-tank"
-   ],
-   "text": "Scrap-hardened hulls: +1 Front, -1 BS.",
-   "stats": {
-    "FRONT": "+1",
-    "BS": "-1"
-   }
-  }
- ],
- "rules": [
-  {
-   "name": "Riders of the Flank",
-   "text": "Legacy house rule (The Feudal Host). The lords sweep wide to take the enemy line from the side. A unit with this rule gains Outflank, and may re-roll one die of a Charge roll made on a turn it arrives from Reserves."
-  },
-  {
-   "name": "Human Wave",
-   "text": "Legacy house rule (The Levy Tide). A Levy unit with this rule while it has ten or more models adds 1 to its Leadership and Cool, and automatically passes Pinning and Panic Checks. A Levy unit that is destroyed in combat does not give the enemy a free Consolidation move."
-  },
-  {
-   "name": "Home Turf",
-   "text": "Legacy house rule (Hive-Gang Muster). The gangs know the ground. After both sides have deployed and before the first battle turn, a unit with this rule may make a free move of up to 6\", ending no closer than 9\" to any enemy model."
-  },
-  {
-   "name": "Stampede",
-   "text": "Legacy house rule (The Abhuman Ranks). The handlers loose their charges and get out of the way. A unit with this rule may re-roll a failed Charge, and adds +1 to its Attacks on a turn in which it charges."
-  },
-  {
-   "name": "Dug-In Guns",
-   "text": "Legacy house rule (The Siege Line). The battery is entrenched before the first shot. A unit with this rule that did not move in its last Movement phase adds 1 to its Ballistic Skill and counts as Shrouded (5+) against Shooting Attacks."
-  }
- ],
- "rites": [
-  {
-   "name": "The Feudal Host",
-   "flavor": "The lords of this world ride out in their grandfathers' armour and expect to be followed.",
-   "roles": [
-    {
-     "units": [
-      "cavalry-troop",
-      "mounted-command-troop"
-     ],
-     "role": "Troops"
-    }
-   ],
-   "modifiers": [
-    {
-     "units": [
-      "cavalry-troop",
-      "mounted-command-troop"
-     ],
-     "text": "The Feudal Host: Fast (1), Riders of the Flank.",
-     "addRules": [
-      "Fast (1)",
-      "Outflank",
-      "Riders of the Flank"
-     ]
-    }
-   ],
-   "require": [
-    {
-     "units": [
-      "cavalry-troop",
-      "mounted-command-troop"
-     ],
-     "min": 2,
-     "note": "Bring at least two mounted units."
-    }
-   ],
-   "forbid": [
-    {
-     "units": [
-      "field-gun-battery",
-      "heavy-ordnance-battery",
-      "fire-support-troop",
-      "rapier-troop",
-      "militia-industrial-rig"
-     ]
-    }
-   ],
-   "text": "The lords of this world ride out in their grandfathers' armour and expect to be followed.",
-   "benefits": [
-    "Militia Outriders (Cavalry Troops) and Mounted Command Troops may fill Troops slots and gain Fast (1) and Outflank.",
-    "They gain Riders of the Flank: one die of a Charge roll may be re-rolled on a turn they arrive from Reserves."
-   ],
-   "limitations": [
-    "At least two Cavalry Troops or Mounted Command Troops are required.",
-    "No Fire Support, Field Gun, Heavy Ordnance or Rapier units, and no Explorator or Mining Rigs.",
-    "Table-top: a unit with Riders of the Flank that can charge must charge the nearest enemy it can reach."
-   ]
-  },
-  {
-   "name": "The Levy Tide",
-   "flavor": "Empty the hab-blocks, hand out the rifles, and let the enemy run out of bullets first.",
-   "modifiers": [
-    {
-     "units": [
-      "levy-troop"
-     ],
-     "text": "The Levy Tide: Line (1), Human Wave.",
-     "addRules": [
-      "Line (1)",
-      "Human Wave"
-     ]
-    }
-   ],
-   "require": [
-    {
-     "units": [
-      "levy-troop"
-     ],
-     "min": 3,
-     "note": "Bring at least three Levy Troops."
-    }
-   ],
-   "limit": [
-    {
-     "units": [
-      "infantry-troop"
-     ],
-     "max": 1
-    }
-   ],
-   "forbid": [
-    {
-     "match": {
-      "role": "Elites"
-     }
+      "text": "Legacy house rule. Girders, door panels and salvaged hull riveted on in the staging yard. The vehicle gains +1 Hull Point."
     },
     {
-     "match": {
-      "role": "Armour"
-     }
+      "name": "Salvaged gun shield",
+      "text": "Legacy house rule. A curved shield cut from a wrecked vehicle and bolted to the carriage. The model's Save becomes 3+ if it was worse."
     },
     {
-     "match": {
-      "role": "Lord of War"
-     }
-    }
-   ],
-   "text": "Empty the hab-blocks, hand out the rifles, and let the enemy run out of bullets first.",
-   "benefits": [
-    "Levy Troops gain Line (1).",
-    "They gain Human Wave: while a Levy Troop has ten or more models it adds +1 to Leadership and Cool, passes Pinning and Panic Checks, and a Levy Troop destroyed in combat gives the enemy no free Consolidation move."
-   ],
-   "limitations": [
-    "At least three Levy Troops are required.",
-    "No more than one Infantry Troop.",
-    "No Elites, Armour or Lord of War units."
-   ]
-  },
-  {
-   "name": "Hive-Gang Muster",
-   "flavor": "They know every stairwell, drain and ventilation shaft better than any sector commander.",
-   "roles": [
-    {
-     "units": [
-      "grenadier-troop",
-      "reconnaissance-troop"
-     ],
-     "role": "Troops"
-    }
-   ],
-   "modifiers": [
-    {
-     "units": [
-      "grenadier-troop"
-     ],
-     "text": "Hive-Gang Muster: Move Through Cover, Home Turf.",
-     "addRules": [
-      "Move Through Cover",
-      "Home Turf"
-     ]
+      "name": "Regimental drum",
+      "text": "Legacy house rule. A battered marching drum carried by the sergeant, setting the pace. Gives the unit Drumbeat March."
     },
     {
-     "units": [
-      "reconnaissance-troop"
-     ],
-     "text": "Hive-Gang Muster: Shrouded (5+), Home Turf.",
-     "addRules": [
-      "Shrouded (5+)",
-      "Home Turf"
-     ]
-    }
-   ],
-   "require": [
-    {
-     "units": [
-      "grenadier-troop",
-      "reconnaissance-troop"
-     ],
-     "min": 2,
-     "note": "Bring at least two gang units."
-    }
-   ],
-   "forbid": [
-    {
-     "match": {
-      "role": "Armour"
-     }
+      "name": "Hive luck charms",
+      "text": "Legacy house rule. Hive-bred talismans of bone and wire that every veteran swears by. The bearer gains Hive Luck and Feel No Pain (6+)."
     },
     {
-     "match": {
-      "role": "Heavy Transport"
-     }
+      "name": "Penal brand-iron",
+      "text": "Legacy house rule. A heated iron that marks cowards. Gives the Discipline Master Penal Brand."
     },
     {
-     "match": {
-      "role": "Lord of War"
-     }
+      "name": "Extra shell racks",
+      "text": "Legacy house rule. Spare ammunition crates stacked around the gun. Gives the unit Extra Shells."
     },
     {
-     "units": [
-      "ogryn-brute-troop"
-     ]
-    }
-   ],
-   "text": "They know every stairwell, drain and ventilation shaft better than any sector commander.",
-   "benefits": [
-    "Grenadier Troops and Reconnaissance Troops may fill Troops slots.",
-    "Grenadiers gain Move Through Cover and Reconnaissance Troops gain Shrouded (5+).",
-    "Both gain Home Turf: a free 6\" move before the first turn, not within 9\" of the enemy."
-   ],
-   "limitations": [
-    "At least two Grenadier or Reconnaissance Troops are required.",
-    "No Armour, Heavy Transport or Lord of War units, and no Ogryn Brute Troops."
-   ]
-  },
-  {
-   "name": "The Abhuman Ranks",
-   "flavor": "What the Imperium will not mention in its histories, the Militia will march at the front.",
-   "roles": [
-    {
-     "units": [
-      "ogryn-brute-troop",
-      "beastmaster-troop"
-     ],
-     "role": "Troops"
-    }
-   ],
-   "modifiers": [
-    {
-     "units": [
-      "ogryn-brute-troop"
-     ],
-     "text": "The Abhuman Ranks: Feel No Pain (6+), Stampede.",
-     "addRules": [
-      "Feel No Pain (6+)",
-      "Stampede"
-     ]
+      "name": "Scrap-iron ram-prow",
+      "text": "Legacy house rule. A ramming prow beaten out of girders and plate. Gives the vehicle Hammer the Barricades."
     },
     {
-     "units": [
-      "beastmaster-troop"
-     ],
-     "text": "The Abhuman Ranks: Stampede.",
-     "addRules": [
-      "Stampede"
-     ]
+      "name": "Witchbane charm-string",
+      "text": "Legacy house rule. Strings of knotted charms and sanctified bone, worn against the whispers. The bearer gains +1 Willpower and Witchbane."
     },
     {
-     "units": [
-      "ogryn-brute-troop",
-      "beastmaster-troop"
-     ],
-     "text": "Stampede: +1 A.",
-     "stats": {
-      "A": "+1"
-     },
-     "condition": "on a turn the unit charges"
+      "name": "Handler's goad",
+      "text": "Legacy house rule. A cattle-prod and bullhorn that keeps the beasts on the move. Gives the unit Goaded Fury."
     }
-   ],
-   "require": [
+  ],
+  "options": [
     {
-     "units": [
-      "ogryn-brute-troop",
-      "beastmaster-troop"
-     ],
-     "min": 2,
-     "note": "Bring at least two abhuman or beast units."
-    }
-   ],
-   "limit": [
-    {
-     "units": [
-      "infantry-troop"
-     ],
-     "max": 1
-    }
-   ],
-   "forbid": [
-    {
-     "units": [
-      "levy-troop"
-     ]
-    }
-   ],
-   "text": "What the Imperium will not mention in its histories, the Militia will march at the front.",
-   "benefits": [
-    "Ogryn Brute Troops and Beastmaster Troops may fill Troops slots.",
-    "Ogryn Brutes gain Feel No Pain (6+).",
-    "Both gain Stampede: a failed Charge may be re-rolled, and the unit has +1 Attack on a turn it charges."
-   ],
-   "limitations": [
-    "At least two Ogryn Brute or Beastmaster Troops are required.",
-    "No Levy Troops and no more than one Infantry Troop.",
-    "Table-top: a unit with Stampede that can charge must charge the nearest enemy it can reach."
-   ]
-  },
-  {
-   "name": "The Siege Line",
-   "flavor": "Dig in, lay the guns, and let them come to you across open ground.",
-   "roles": [
-    {
-     "units": [
-      "field-gun-battery",
-      "heavy-ordnance-battery",
-      "fire-support-troop",
-      "rapier-troop"
-     ],
-     "role": "Troops"
-    }
-   ],
-   "modifiers": [
-    {
-     "units": [
-      "field-gun-battery",
-      "heavy-ordnance-battery",
-      "fire-support-troop",
-      "rapier-troop"
-     ],
-     "text": "The Siege Line: Dug-In Guns.",
-     "addRules": [
-      "Dug-In Guns"
-     ]
+      "match": {
+        "roles": [
+          "Troops",
+          "Elites",
+          "Recon",
+          "Command",
+          "Heavy Assault"
+        ],
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "option": {
+        "id": "mil-flak",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may wear a Flak jerkin",
+        "choices": [
+          {
+            "name": "Flak jerkin",
+            "points": 5
+          }
+        ]
+      }
     },
     {
-     "units": [
-      "field-gun-battery",
-      "heavy-ordnance-battery",
-      "fire-support-troop",
-      "rapier-troop"
-     ],
-     "text": "Dug-In Guns: +1 BS.",
-     "stats": {
-      "BS": "+1"
-     },
-     "condition": "if the unit did not move in its last Movement phase"
-    }
-   ],
-   "require": [
-    {
-     "units": [
-      "discipline-master-cadre"
-     ],
-     "min": 1,
-     "note": "Provosts keep the gunners at their posts."
-    }
-   ],
-   "forbid": [
-    {
-     "match": {
-      "role": "Recon"
-     }
+      "units": [
+        "command-troop",
+        "mounted-command-troop",
+        "discipline-master-cadre"
+      ],
+      "option": {
+        "id": "mil-greatcoat",
+        "kind": "upgrade",
+        "modelType": "Command",
+        "text": "The officer may wear a Provost's greatcoat",
+        "choices": [
+          {
+            "name": "Provost's greatcoat",
+            "points": 10
+          }
+        ]
+      }
     },
     {
-     "match": {
-      "role": "Fast Attack"
-     }
+      "units": [
+        "infantry-troop",
+        "levy-troop",
+        "grenadier-troop",
+        "reconnaissance-troop",
+        "cavalry-troop"
+      ],
+      "option": {
+        "id": "mil-old-hand",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may be upgraded to an Old Hand",
+        "choices": [
+          {
+            "name": "Old Hand",
+            "points": 8
+          }
+        ]
+      }
     },
     {
-     "units": [
-      "cavalry-troop",
-      "mounted-command-troop"
-     ]
+      "units": [
+        "infantry-troop",
+        "levy-troop",
+        "grenadier-troop",
+        "reconnaissance-troop",
+        "cavalry-troop"
+      ],
+      "option": {
+        "id": "mil-sergeant-arms",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may carry a sidearm or blade",
+        "choices": [
+          {
+            "name": "Hive-boss pistol",
+            "points": 3
+          },
+          {
+            "name": "Baron's blade",
+            "points": 8
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "mounted-command-troop"
+      ],
+      "option": {
+        "id": "mil-baron-blade",
+        "kind": "upgrade",
+        "model": "Militia Lancemaster",
+        "text": "The Lancemaster may carry a Baron's blade",
+        "choices": [
+          {
+            "name": "Baron's blade",
+            "points": 8
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "levy-troop"
+      ],
+      "option": {
+        "id": "mil-scrap-gun",
+        "kind": "perModel",
+        "model": "Levy",
+        "max": {
+          "per": 5,
+          "count": 1
+        },
+        "text": "Up to one Levy in five may carry a",
+        "choices": [
+          {
+            "name": "Scrap-gun",
+            "points": 2
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "infantry-troop"
+      ],
+      "option": {
+        "id": "mil-lobber-infantry",
+        "kind": "perModel",
+        "model": "Militia Infantry",
+        "max": {
+          "per": 10,
+          "count": 1
+        },
+        "text": "One Militia Infantry in ten may carry a",
+        "choices": [
+          {
+            "name": "Bastard lobber",
+            "points": 8
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "grenadier-troop"
+      ],
+      "option": {
+        "id": "mil-lobber-grenadier",
+        "kind": "perModel",
+        "model": "Grenadier",
+        "max": {
+          "per": 5,
+          "count": 1
+        },
+        "text": "One Grenadier in five may carry a",
+        "choices": [
+          {
+            "name": "Bastard lobber",
+            "points": 8
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "ogryn-brute-troop"
+      ],
+      "option": {
+        "id": "mil-pit-maul",
+        "kind": "perModel",
+        "model": "Ogryn Brute",
+        "text": "Any Ogryn Brute may swing an",
+        "choices": [
+          {
+            "name": "Ogryn pit-maul",
+            "points": 5
+          },
+          {
+            "name": "Pit-chain flail",
+            "points": 6
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "infantry-troop",
+        "levy-troop",
+        "grenadier-troop",
+        "ogryn-brute-troop",
+        "cavalry-troop"
+      ],
+      "option": {
+        "id": "mil-stimms",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The unit may be dosed with Combat stimms",
+        "choices": [
+          {
+            "name": "Combat stimms",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "infantry-troop",
+        "levy-troop",
+        "grenadier-troop",
+        "cavalry-troop",
+        "command-troop"
+      ],
+      "option": {
+        "id": "mil-colours",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The unit may carry its Regimental colours",
+        "choices": [
+          {
+            "name": "Regimental colours",
+            "points": 12
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "field-gun-battery"
+      ],
+      "option": {
+        "id": "mil-gun-shield",
+        "kind": "perModel",
+        "model": "Field Gun",
+        "text": "Any Field Gun may be fitted with a",
+        "choices": [
+          {
+            "name": "Salvaged gun shield",
+            "points": 8
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "roles": [
+          "Armour",
+          "Transport",
+          "Heavy Transport",
+          "Fast Attack"
+        ],
+        "unitType": "Vehicle",
+        "notUnitType": "Flyer"
+      },
+      "units": [
+        "militia-leman-russ-tank",
+        "militia-malcador-heavy-tank",
+        "militia-industrial-rig",
+        "militia-utility-hauler",
+        "militia-gorgon-transporter",
+        "militia-scout-rover"
+      ],
+      "option": {
+        "id": "mil-scrap-armour",
+        "kind": "upgrade",
+        "model": null,
+        "text": "May be fitted with Scrap-armour plates",
+        "choices": [
+          {
+            "name": "Scrap-armour plates",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "infantry-troop",
+        "levy-troop",
+        "grenadier-troop",
+        "cavalry-troop"
+      ],
+      "option": {
+        "id": "mil-drum",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may carry a Regimental drum",
+        "choices": [
+          {
+            "name": "Regimental drum",
+            "points": 5
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "command-troop",
+        "mounted-command-troop",
+        "force-commander",
+        "discipline-master-cadre"
+      ],
+      "option": {
+        "id": "mil-luck",
+        "kind": "any",
+        "modelType": "Command",
+        "max": {
+          "fixed": 1
+        },
+        "text": "May take Hive luck charms",
+        "choices": [
+          {
+            "name": "Hive luck charms",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "discipline-master-cadre"
+      ],
+      "option": {
+        "id": "mil-brand-iron",
+        "kind": "upgrade",
+        "model": "Discipline Master",
+        "text": "The Discipline Master may carry a Penal brand-iron",
+        "choices": [
+          {
+            "name": "Penal brand-iron",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "field-gun-battery",
+        "heavy-ordnance-battery"
+      ],
+      "option": {
+        "id": "mil-shell-racks",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The battery may take Extra shell racks",
+        "choices": [
+          {
+            "name": "Extra shell racks",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "militia-leman-russ-tank",
+        "militia-malcador-heavy-tank",
+        "militia-industrial-rig",
+        "militia-utility-hauler"
+      ],
+      "option": {
+        "id": "mil-prow",
+        "kind": "upgrade",
+        "model": null,
+        "text": "May be fitted with a Scrap-iron ram-prow",
+        "choices": [
+          {
+            "name": "Scrap-iron ram-prow",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "command-troop",
+        "force-commander",
+        "rogue-psyker"
+      ],
+      "option": {
+        "id": "mil-witchbane",
+        "kind": "upgrade",
+        "model": [
+          "Militia Lieutenant",
+          "Force Commander",
+          "Militia Warden"
+        ],
+        "text": "May wear a Witchbane charm-string",
+        "choices": [
+          {
+            "name": "Witchbane charm-string",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "beastmaster-troop"
+      ],
+      "option": {
+        "id": "mil-goad",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Handler may carry a Handler's goad",
+        "choices": [
+          {
+            "name": "Handler's goad",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "grenadier-troop"
+      ],
+      "option": {
+        "id": "mil-acid-sling",
+        "kind": "perModel",
+        "model": "Grenadier",
+        "replaces": [
+          "Krak grenades"
+        ],
+        "text": "Any Grenadier may take an Acid-flask sling instead of their krak grenades",
+        "choices": [
+          {
+            "name": "Acid-flask sling",
+            "points": 4
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "mounted-command-troop"
+      ],
+      "option": {
+        "id": "mil-charge-lance",
+        "kind": "upgrade",
+        "model": "Lancer",
+        "text": "The Lancer may carry a Charge-lance",
+        "choices": [
+          {
+            "name": "Charge-lance",
+            "points": 8
+          }
+        ]
+      }
     }
-   ],
-   "text": "Dig in, lay the guns, and let them come to you across open ground.",
-   "benefits": [
-    "Field Gun Batteries, Heavy Ordnance Batteries, Fire Support Troops and Rapier Troops may fill Troops slots.",
-    "They gain Dug-In Guns: if they did not move, +1 Ballistic Skill and Shrouded (5+) against Shooting Attacks."
-   ],
-   "limitations": [
-    "At least one Discipline Master Cadre is required.",
-    "No Recon, no Fast Attack and no Cavalry or Mounted Command Troops."
-   ]
-  }
- ]
+  ],
+  "modifiers": [
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Flak jerkin",
+      "text": "Flak jerkin: 4+ Save.",
+      "stats": {
+        "SAV": "best:4+"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Provost's greatcoat",
+      "text": "Provost's greatcoat: 5+ Invulnerable Save.",
+      "stats": {
+        "INV": "best:5+"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Old Hand",
+      "text": "Old Hand: +1 WS, +1 A.",
+      "stats": {
+        "WS": "+1",
+        "A": "+1"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Regimental colours",
+      "scope": "unit",
+      "text": "Regimental colours: +1 LD, +1 CL.",
+      "stats": {
+        "LD": "+1",
+        "CL": "+1"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Combat stimms",
+      "scope": "unit",
+      "text": "Combat stimms: +1 S.",
+      "stats": {
+        "S": "+1"
+      },
+      "condition": "on a turn the unit charges"
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Scrap-armour plates",
+      "scope": "unit",
+      "text": "Scrap-armour plates: +1 HP.",
+      "stats": {
+        "HP": "+1"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Salvaged gun shield",
+      "text": "Salvaged gun shield: 3+ Save.",
+      "stats": {
+        "SAV": "best:3+"
+      }
+    },
+    {
+      "units": [
+        "levy-troop"
+      ],
+      "models": [
+        "Levy"
+      ],
+      "text": "Packed shoulder to shoulder: +1 LD, -1 I.",
+      "stats": {
+        "LD": "+1",
+        "I": "-1"
+      }
+    },
+    {
+      "units": [
+        "infantry-troop"
+      ],
+      "models": [
+        "Militia Infantry",
+        "Infantry Sergeant"
+      ],
+      "text": "Home-ground tenacity: +1 WP, -1 I.",
+      "stats": {
+        "WP": "+1",
+        "I": "-1"
+      }
+    },
+    {
+      "units": [
+        "grenadier-troop"
+      ],
+      "text": "Gene-crafted frames: +1 T, -1 CL.",
+      "stats": {
+        "T": "+1",
+        "CL": "-1"
+      }
+    },
+    {
+      "units": [
+        "ogryn-brute-troop"
+      ],
+      "text": "Slow-witted bulk: +1 W, -1 WS.",
+      "stats": {
+        "W": "+1",
+        "WS": "-1"
+      }
+    },
+    {
+      "units": [
+        "mounted-command-troop",
+        "cavalry-troop"
+      ],
+      "text": "Reckless nobles: +1 WS, -1 LD.",
+      "stats": {
+        "WS": "+1",
+        "LD": "-1"
+      }
+    },
+    {
+      "units": [
+        "reconnaissance-troop"
+      ],
+      "text": "Gangland trackers: +1 I, -1 LD.",
+      "stats": {
+        "I": "+1",
+        "LD": "-1"
+      }
+    },
+    {
+      "units": [
+        "field-gun-battery",
+        "heavy-ordnance-battery"
+      ],
+      "models": [
+        "Field Gun",
+        "Gun Carriage"
+      ],
+      "text": "Hand-cranked laying: +1 BS, -1 I.",
+      "stats": {
+        "BS": "+1",
+        "I": "-1"
+      }
+    },
+    {
+      "units": [
+        "militia-leman-russ-tank",
+        "militia-malcador-heavy-tank"
+      ],
+      "text": "Scrap-hardened hulls: +1 Front, -1 BS.",
+      "stats": {
+        "FRONT": "+1",
+        "BS": "-1"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Regimental drum",
+      "scope": "unit",
+      "text": "Regimental drum: Drumbeat March.",
+      "addRules": [
+        "Drumbeat March"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Hive luck charms",
+      "text": "Hive luck charms: Hive Luck, Feel No Pain (6+).",
+      "addRules": [
+        "Hive Luck",
+        "Feel No Pain (6+)"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Penal brand-iron",
+      "text": "Penal brand-iron: Penal Brand.",
+      "addRules": [
+        "Penal Brand"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Extra shell racks",
+      "scope": "unit",
+      "text": "Extra shell racks: Extra Shells.",
+      "addRules": [
+        "Extra Shells"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Scrap-iron ram-prow",
+      "scope": "unit",
+      "text": "Scrap-iron ram-prow: Hammer the Barricades.",
+      "addRules": [
+        "Hammer the Barricades"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Witchbane charm-string",
+      "text": "Witchbane charm-string: +1 WP, Witchbane.",
+      "stats": {
+        "WP": "+1"
+      },
+      "addRules": [
+        "Witchbane"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Handler's goad",
+      "scope": "unit",
+      "text": "Handler's goad: Goaded Fury.",
+      "addRules": [
+        "Goaded Fury"
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "name": "Riders of the Flank",
+      "text": "Legacy house rule (The Feudal Host). The lords sweep wide to take the enemy line from the side. A unit with this rule gains Outflank, and adds 2 to its Charge roll on a turn it arrives from Reserves."
+    },
+    {
+      "name": "Human Wave",
+      "text": "Legacy house rule (The Levy Tide). A Levy unit with this rule while it has ten or more models adds 1 to its Leadership and Cool, and automatically passes Pinning and Panic Checks. A Levy unit that is destroyed in combat does not give the enemy a free Consolidation move."
+    },
+    {
+      "name": "Home Turf",
+      "text": "Legacy house rule (Hive-Gang Muster). The gangs know the ground. After both sides have deployed and before the first battle turn, a unit with this rule may make a free move of up to 6\", ending no closer than 9\" to any enemy model."
+    },
+    {
+      "name": "Stampede",
+      "text": "Legacy house rule (The Abhuman Ranks). The handlers loose their charges and get out of the way. A unit with this rule adds 2 to its Charge roll and +1 to its Attacks on a turn in which it charges."
+    },
+    {
+      "name": "Dug-In Guns",
+      "text": "Legacy house rule (The Siege Line). The battery is entrenched before the first shot. A unit with this rule that did not move in its last Movement phase adds 1 to its Ballistic Skill and counts as Shrouded (5+) against Shooting Attacks."
+    },
+    {
+      "name": "Drumbeat March",
+      "text": "Legacy house rule. The unit adds 2\" to its Rush distance."
+    },
+    {
+      "name": "Hive Luck",
+      "text": "Legacy house rule. Once per battle, the bearer may ignore a single Wound."
+    },
+    {
+      "name": "Penal Brand",
+      "text": "Legacy house rule. Friendly units within 6\" add +1 to their Cool, but the bearer's own unit loses a model each time one of those units fails a Cool check."
+    },
+    {
+      "name": "Extra Shells",
+      "text": "Legacy house rule. Once per battle, one weapon of the unit adds 2 to its Firepower for a single Shooting attack."
+    },
+    {
+      "name": "Hammer the Barricades",
+      "text": "Legacy house rule. The vehicle adds +D3 Hits when it moves through an enemy unit, and ignores Dangerous Terrain tests for Barricades."
+    },
+    {
+      "name": "Witchbane",
+      "text": "Legacy house rule. Psychic attacks and Force (X) weapons directed at the bearer suffer -1 to their Willpower Checks."
+    },
+    {
+      "name": "Goaded Fury",
+      "text": "Legacy house rule. On a turn the unit charges, its beast models add +1 to their Attacks."
+    }
+  ],
+  "rites": [
+    {
+      "name": "The Feudal Host",
+      "flavor": "The lords of this world ride out in their grandfathers' armour and expect to be followed.",
+      "roles": [
+        {
+          "units": [
+            "cavalry-troop",
+            "mounted-command-troop"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "cavalry-troop",
+            "mounted-command-troop"
+          ],
+          "text": "The Feudal Host: Fast (1), Riders of the Flank.",
+          "addRules": [
+            "Fast (1)",
+            "Outflank",
+            "Riders of the Flank"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "cavalry-troop",
+            "mounted-command-troop"
+          ],
+          "min": 2,
+          "note": "Bring at least two mounted units."
+        }
+      ],
+      "forbid": [
+        {
+          "units": [
+            "field-gun-battery",
+            "heavy-ordnance-battery",
+            "fire-support-troop",
+            "rapier-troop",
+            "militia-industrial-rig"
+          ]
+        }
+      ],
+      "text": "The lords of this world ride out in their grandfathers' armour and expect to be followed.",
+      "benefits": [
+        "Militia Outriders (Cavalry Troops) and Mounted Command Troops may fill Troops slots and gain Fast (1) and Outflank.",
+        "They gain Riders of the Flank: they add 2 to their Charge roll on a turn they arrive from Reserves."
+      ],
+      "limitations": [
+        "At least two Cavalry Troops or Mounted Command Troops are required.",
+        "No Fire Support, Field Gun, Heavy Ordnance or Rapier units, and no Explorator or Mining Rigs.",
+        "Table-top: a unit with Riders of the Flank that can charge must charge the nearest enemy it can reach."
+      ]
+    },
+    {
+      "name": "The Levy Tide",
+      "flavor": "Empty the hab-blocks, hand out the rifles, and let the enemy run out of bullets first.",
+      "modifiers": [
+        {
+          "units": [
+            "levy-troop"
+          ],
+          "text": "The Levy Tide: Line (1), Human Wave.",
+          "addRules": [
+            "Line (1)",
+            "Human Wave"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "levy-troop"
+          ],
+          "min": 3,
+          "note": "Bring at least three Levy Troops."
+        }
+      ],
+      "limit": [
+        {
+          "units": [
+            "infantry-troop"
+          ],
+          "max": 1
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "role": "Elites"
+          }
+        },
+        {
+          "match": {
+            "role": "Armour"
+          }
+        },
+        {
+          "match": {
+            "role": "Lord of War"
+          }
+        }
+      ],
+      "text": "Empty the hab-blocks, hand out the rifles, and let the enemy run out of bullets first.",
+      "benefits": [
+        "Levy Troops gain Line (1).",
+        "They gain Human Wave: while a Levy Troop has ten or more models it adds +1 to Leadership and Cool, passes Pinning and Panic Checks, and a Levy Troop destroyed in combat gives the enemy no free Consolidation move."
+      ],
+      "limitations": [
+        "At least three Levy Troops are required.",
+        "No more than one Infantry Troop.",
+        "No Elites, Armour or Lord of War units."
+      ]
+    },
+    {
+      "name": "Hive-Gang Muster",
+      "flavor": "They know every stairwell, drain and ventilation shaft better than any sector commander.",
+      "roles": [
+        {
+          "units": [
+            "grenadier-troop",
+            "reconnaissance-troop"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "grenadier-troop"
+          ],
+          "text": "Hive-Gang Muster: Move Through Cover, Home Turf.",
+          "addRules": [
+            "Move Through Cover",
+            "Home Turf"
+          ]
+        },
+        {
+          "units": [
+            "reconnaissance-troop"
+          ],
+          "text": "Hive-Gang Muster: Shrouded (5+), Home Turf.",
+          "addRules": [
+            "Shrouded (5+)",
+            "Home Turf"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "grenadier-troop",
+            "reconnaissance-troop"
+          ],
+          "min": 2,
+          "note": "Bring at least two gang units."
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "role": "Armour"
+          }
+        },
+        {
+          "match": {
+            "role": "Heavy Transport"
+          }
+        },
+        {
+          "match": {
+            "role": "Lord of War"
+          }
+        },
+        {
+          "units": [
+            "ogryn-brute-troop"
+          ]
+        }
+      ],
+      "text": "They know every stairwell, drain and ventilation shaft better than any sector commander.",
+      "benefits": [
+        "Grenadier Troops and Reconnaissance Troops may fill Troops slots.",
+        "Grenadiers gain Move Through Cover and Reconnaissance Troops gain Shrouded (5+).",
+        "Both gain Home Turf: a free 6\" move before the first turn, not within 9\" of the enemy."
+      ],
+      "limitations": [
+        "At least two Grenadier or Reconnaissance Troops are required.",
+        "No Armour, Heavy Transport or Lord of War units, and no Ogryn Brute Troops."
+      ]
+    },
+    {
+      "name": "The Abhuman Ranks",
+      "flavor": "What the Imperium will not mention in its histories, the Militia will march at the front.",
+      "roles": [
+        {
+          "units": [
+            "ogryn-brute-troop",
+            "beastmaster-troop"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "ogryn-brute-troop"
+          ],
+          "text": "The Abhuman Ranks: Feel No Pain (6+), Stampede.",
+          "addRules": [
+            "Feel No Pain (6+)",
+            "Stampede"
+          ]
+        },
+        {
+          "units": [
+            "beastmaster-troop"
+          ],
+          "text": "The Abhuman Ranks: Stampede.",
+          "addRules": [
+            "Stampede"
+          ]
+        },
+        {
+          "units": [
+            "ogryn-brute-troop",
+            "beastmaster-troop"
+          ],
+          "text": "Stampede: +1 A.",
+          "stats": {
+            "A": "+1"
+          },
+          "condition": "on a turn the unit charges"
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "ogryn-brute-troop",
+            "beastmaster-troop"
+          ],
+          "min": 2,
+          "note": "Bring at least two abhuman or beast units."
+        }
+      ],
+      "limit": [
+        {
+          "units": [
+            "infantry-troop"
+          ],
+          "max": 1
+        }
+      ],
+      "forbid": [
+        {
+          "units": [
+            "levy-troop"
+          ]
+        }
+      ],
+      "text": "What the Imperium will not mention in its histories, the Militia will march at the front.",
+      "benefits": [
+        "Ogryn Brute Troops and Beastmaster Troops may fill Troops slots.",
+        "Ogryn Brutes gain Feel No Pain (6+).",
+        "Both gain Stampede: +2 to Charge rolls, and the unit has +1 Attack on a turn it charges."
+      ],
+      "limitations": [
+        "At least two Ogryn Brute or Beastmaster Troops are required.",
+        "No Levy Troops and no more than one Infantry Troop.",
+        "Table-top: a unit with Stampede that can charge must charge the nearest enemy it can reach."
+      ]
+    },
+    {
+      "name": "The Siege Line",
+      "flavor": "Dig in, lay the guns, and let them come to you across open ground.",
+      "roles": [
+        {
+          "units": [
+            "field-gun-battery",
+            "heavy-ordnance-battery",
+            "fire-support-troop",
+            "rapier-troop"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "field-gun-battery",
+            "heavy-ordnance-battery",
+            "fire-support-troop",
+            "rapier-troop"
+          ],
+          "text": "The Siege Line: Dug-In Guns.",
+          "addRules": [
+            "Dug-In Guns"
+          ]
+        },
+        {
+          "units": [
+            "field-gun-battery",
+            "heavy-ordnance-battery",
+            "fire-support-troop",
+            "rapier-troop"
+          ],
+          "text": "Dug-In Guns: +1 BS.",
+          "stats": {
+            "BS": "+1"
+          },
+          "condition": "if the unit did not move in its last Movement phase"
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "discipline-master-cadre"
+          ],
+          "min": 1,
+          "note": "Provosts keep the gunners at their posts."
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "role": "Recon"
+          }
+        },
+        {
+          "match": {
+            "role": "Fast Attack"
+          }
+        },
+        {
+          "units": [
+            "cavalry-troop",
+            "mounted-command-troop"
+          ]
+        }
+      ],
+      "text": "Dig in, lay the guns, and let them come to you across open ground.",
+      "benefits": [
+        "Field Gun Batteries, Heavy Ordnance Batteries, Fire Support Troops and Rapier Troops may fill Troops slots.",
+        "They gain Dug-In Guns: if they did not move, +1 Ballistic Skill and Shrouded (5+) against Shooting Attacks."
+      ],
+      "limitations": [
+        "At least one Discipline Master Cadre is required.",
+        "No Recon, no Fast Attack and no Cavalry or Mounted Command Troops."
+      ]
+    }
+  ],
+  "armyRules": [
+    {
+      "name": "Expendable Masses",
+      "text": "Legacy house rule. The hive has more bodies than rifles. A unit with this rule of ten or more models adds +1 to its Cool. Once it is reduced below five models, it suffers -1 Cool instead.",
+      "units": [
+        "infantry-troop",
+        "levy-troop",
+        "grenadier-troop",
+        "fire-support-troop",
+        "reconnaissance-troop"
+      ],
+      "stats": {
+        "CL": "+1"
+      },
+      "condition": "while the unit has 10 or more models"
+    },
+    {
+      "name": "Summary Discipline",
+      "text": "Legacy house rule. Provosts keep the line by fear of the firing squad. A unit within 6\" of a friendly Discipline Master automatically passes Morale checks, but each time this saves it from a failed check, one model in the unit is removed as an example.",
+      "units": [
+        "discipline-master-cadre",
+        "command-troop",
+        "mounted-command-troop",
+        "force-commander"
+      ]
+    },
+    {
+      "name": "Desperate Courage",
+      "text": "Legacy house rule. Cornered militia fight harder than they should. A unit with this rule at half strength or fewer adds +1 to its Attacks, but it may only Rush toward the nearest enemy unit.",
+      "match": {
+        "roles": [
+          "Troops",
+          "Elites",
+          "Recon",
+          "Heavy Assault"
+        ],
+        "notUnitType": "Vehicle"
+      },
+      "stats": {
+        "A": "+1"
+      },
+      "condition": "at half strength or fewer"
+    }
+  ]
 }

@@ -1,53 +1,664 @@
 {
   "weapons": {
     "ranged": [
-      { "name": "Pestilent bolter", "R": 24, "FP": 2, "RS": 4, "AP": 5, "D": 1, "specialRules": ["Poisoned (5+)"], "traits": ["Bolt"] },
-      { "name": "Miasma pistol", "R": 12, "FP": 2, "RS": 3, "AP": 6, "D": 1, "specialRules": ["Pistol", "Poisoned (4+)", "Panic (1)"], "traits": ["Assault"] }
+      {
+        "name": "Pestilent bolter",
+        "R": 24,
+        "FP": 2,
+        "RS": 4,
+        "AP": 5,
+        "D": 1,
+        "specialRules": [
+          "Poisoned (5+)",
+          "Suppressive (1)"
+        ],
+        "traits": [
+          "Bolt"
+        ]
+      },
+      {
+        "name": "Miasma pistol",
+        "R": 12,
+        "FP": 2,
+        "RS": 3,
+        "AP": 6,
+        "D": 1,
+        "specialRules": [
+          "Pistol",
+          "Poisoned (4+)",
+          "Panic (1)"
+        ],
+        "traits": [
+          "Assault"
+        ]
+      },
+      {
+        "name": "Blightflame sprayer",
+        "R": "Template",
+        "FP": 1,
+        "RS": 5,
+        "AP": 5,
+        "D": 1,
+        "specialRules": [
+          "Template",
+          "Aflame (1)",
+          "Poisoned (4+)"
+        ],
+        "traits": [
+          "Flame"
+        ]
+      },
+      {
+        "name": "Cankerball launcher",
+        "R": 24,
+        "FP": 1,
+        "RS": 4,
+        "AP": 5,
+        "D": 1,
+        "specialRules": [
+          "Blast (3\")",
+          "Phage (T)"
+        ],
+        "traits": [
+          "Missile"
+        ]
+      }
     ],
     "melee": [
-      { "name": "Plague-rusted cleaver", "IM": "I", "AM": "A", "SM": "+1", "AP": 4, "D": 1, "specialRules": ["Poisoned (5+)"], "traits": [] },
-      { "name": "Reaper's blight-scythe", "IM": -1, "AM": "A", "SM": "+1", "AP": 3, "D": 1, "specialRules": ["Poisoned (5+)", "Shred (6+)"], "traits": ["Power"] }
+      {
+        "name": "Plague-rusted cleaver",
+        "IM": "I",
+        "AM": "A",
+        "SM": "+1",
+        "AP": 4,
+        "D": 1,
+        "specialRules": [
+          "Poisoned (5+)",
+          "Stun (1)"
+        ],
+        "traits": []
+      },
+      {
+        "name": "Reaper's blight-scythe",
+        "IM": -1,
+        "AM": "A",
+        "SM": "+1",
+        "AP": 3,
+        "D": 1,
+        "specialRules": [
+          "Poisoned (5+)",
+          "Reaping Blow (1)"
+        ],
+        "traits": [
+          "Power"
+        ]
+      },
+      {
+        "name": "Rotmaul",
+        "IM": -1,
+        "AM": "A",
+        "SM": "+2",
+        "AP": 3,
+        "D": 2,
+        "specialRules": [
+          "Impact (SM)",
+          "Stun (1)"
+        ],
+        "traits": [
+          "Power"
+        ]
+      }
     ]
   },
   "wargear": [
-    { "name": "Bile-stained banner", "text": "Legacy house rule. A banner so thick with dried filth that the wind cannot lift it, carried by men who no longer notice the stink. Every model in the unit gains Feel No Pain (6+)." },
-    { "name": "Choking cloud canisters", "text": "Legacy house rule. Canisters of sour vapour cracked open as the squad closes. Every model in the unit gains Fear (1)." },
-    { "name": "Bloated sarcophagus", "text": "Legacy house rule. The occupant has been dead for years and the machine has kept him going on rot. The model gains Feel No Pain (6+)." }
+    {
+      "name": "Bile-stained banner",
+      "text": "Legacy house rule. A banner so thick with dried filth that the wind cannot lift it, carried by men who no longer notice the stink. Every model in the unit gains Feel No Pain (6+)."
+    },
+    {
+      "name": "Choking cloud canisters",
+      "text": "Legacy house rule. Canisters of sour vapour cracked open as the squad closes. Every model in the unit gains Fear (1)."
+    },
+    {
+      "name": "Bloated sarcophagus",
+      "text": "Legacy house rule. The occupant has been dead for years and the machine has kept him going on rot. The model gains Feel No Pain (6+)."
+    },
+    {
+      "name": "Blight-grenade bandolier",
+      "text": "Legacy house rule. Bandoliers of cracked, leaking canisters. Gives the unit Blightbomb Salvo."
+    },
+    {
+      "name": "Reeking censer",
+      "text": "Legacy house rule. A swinging censer trailing a thick, buzzing cloud. Gives the model Dirge of Flies."
+    },
+    {
+      "name": "Tolling bell",
+      "text": "Legacy house rule. A cracked bell rung for every brother who falls. Gives the bearer Death Knell."
+    },
+    {
+      "name": "Scab-plate carapace",
+      "text": "Legacy house rule. Layers of crusted plate grown over the armour. Gives the model Scabbed Carapace."
+    },
+    {
+      "name": "Choking exhaust vents",
+      "text": "Legacy house rule. Engine vents that trail a cloud of corrosive spores. Gives the vehicle Choking Wake."
+    },
+    {
+      "name": "Rot-fed spirit core",
+      "text": "Legacy house rule. A machine spirit that has learned to rot slowly. Gives the vehicle Unquiet Spirit."
+    },
+    {
+      "name": "Rust-plough",
+      "text": "Legacy house rule. A corroded plough blade fitted to the prow. Gives the vehicle Rust-Plough."
+    }
   ],
   "options": [
-    { "units": ["tactical-squad", "despoiler-squad", "breacher-squad", "veteran-tactical-squad", "mortus-poisoner-squad", "assault-squad"], "optionalUnits": true,
-      "option": { "id": "dg-sergeant-weapon", "kind": "one", "modelType": "Sergeant", "text": "The Sergeant may take a plague weapon",
-        "choices": [ { "name": "Plague-rusted cleaver", "points": 8 }, { "name": "Reaper's blight-scythe", "points": 15 }, { "name": "Miasma pistol", "points": 5 } ] } },
-    { "units": ["tactical-squad", "breacher-squad"],
-      "option": { "id": "dg-pestilent-bolters", "kind": "perModel", "model": "Legionary", "max": 4, "replaces": ["Bolter"],
-        "text": "Up to four Legionaries may exchange their bolter for", "choices": [ { "name": "Pestilent bolter", "points": 6 } ] } },
-    { "units": ["deathshroud-terminator-squad"],
-      "option": { "id": "dg-blight-scythes", "kind": "perModel", "model": "Deathshroud", "replaces": ["Power scythe"],
-        "text": "Any Deathshroud may exchange their power scythe for", "choices": [ { "name": "Reaper's blight-scythe", "points": 5 } ] } },
-    { "units": ["tactical-squad", "despoiler-squad", "breacher-squad", "veteran-tactical-squad", "assault-squad"], "optionalUnits": true,
-      "option": { "id": "dg-bile-banner", "kind": "upgrade", "model": null, "text": "The unit may carry a Bile-stained banner",
-        "choices": [ { "name": "Bile-stained banner", "points": 20 } ] } },
-    { "units": ["mortus-poisoner-squad", "grave-warden-terminator-squad", "deathshroud-terminator-squad"],
-      "option": { "id": "dg-choking-canisters", "kind": "upgrade", "model": null, "text": "The unit may carry Choking cloud canisters",
-        "choices": [ { "name": "Choking cloud canisters", "points": 15 } ] } },
-    { "units": ["contemptor-dreadnought", "leviathan-dreadnought", "deredeo-dreadnought", "castra-ferrum-dreadnought"], "optionalUnits": true,
-      "option": { "id": "dg-bloated-sarcophagus", "kind": "upgrade", "model": null, "text": "May take a Bloated sarcophagus",
-        "choices": [ { "name": "Bloated sarcophagus", "points": 15 } ] } }
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "breacher-squad",
+        "veteran-tactical-squad",
+        "mortus-poisoner-squad",
+        "assault-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "dg-sergeant-weapon",
+        "kind": "one",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may take a plague weapon",
+        "choices": [
+          {
+            "name": "Plague-rusted cleaver",
+            "points": 8
+          },
+          {
+            "name": "Reaper's blight-scythe",
+            "points": 15
+          },
+          {
+            "name": "Miasma pistol",
+            "points": 5
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "breacher-squad"
+      ],
+      "option": {
+        "id": "dg-pestilent-bolters",
+        "kind": "perModel",
+        "model": "Legionary",
+        "max": 4,
+        "replaces": [
+          "Bolter"
+        ],
+        "text": "Up to four Legionaries may exchange their bolter for",
+        "choices": [
+          {
+            "name": "Pestilent bolter",
+            "points": 6
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "deathshroud-terminator-squad"
+      ],
+      "option": {
+        "id": "dg-blight-scythes",
+        "kind": "perModel",
+        "model": "Deathshroud",
+        "replaces": [
+          "Power scythe"
+        ],
+        "text": "Any Deathshroud may exchange their power scythe for",
+        "choices": [
+          {
+            "name": "Reaper's blight-scythe",
+            "points": 5
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "breacher-squad",
+        "veteran-tactical-squad",
+        "assault-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "dg-bile-banner",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The unit may carry a Bile-stained banner",
+        "choices": [
+          {
+            "name": "Bile-stained banner",
+            "points": 20
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "mortus-poisoner-squad",
+        "grave-warden-terminator-squad",
+        "deathshroud-terminator-squad"
+      ],
+      "option": {
+        "id": "dg-choking-canisters",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The unit may carry Choking cloud canisters",
+        "choices": [
+          {
+            "name": "Choking cloud canisters",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "contemptor-dreadnought",
+        "leviathan-dreadnought",
+        "deredeo-dreadnought",
+        "castra-ferrum-dreadnought"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "dg-bloated-sarcophagus",
+        "kind": "upgrade",
+        "model": null,
+        "text": "May take a Bloated sarcophagus",
+        "choices": [
+          {
+            "name": "Bloated sarcophagus",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "breacher-squad",
+        "veteran-tactical-squad",
+        "assault-squad",
+        "despoiler-squad",
+        "mortus-poisoner-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "dg-bandolier",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may order Blight-grenade bandoliers for the unit",
+        "choices": [
+          {
+            "name": "Blight-grenade bandolier",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "roles": [
+          "Troops",
+          "Elites",
+          "Support",
+          "Heavy Assault",
+          "Recon"
+        ],
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "option": {
+        "id": "dg-censer",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may carry a Reeking censer",
+        "choices": [
+          {
+            "name": "Reeking censer",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "breacher-squad",
+        "veteran-tactical-squad",
+        "despoiler-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "dg-bell",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may carry a Tolling bell",
+        "choices": [
+          {
+            "name": "Tolling bell",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "roles": [
+          "Command",
+          "High Command"
+        ],
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "option": {
+        "id": "dg-relics",
+        "kind": "any",
+        "modelType": "Command",
+        "max": {
+          "fixed": 2
+        },
+        "text": "Reliquary of Rot: may take up to two relics",
+        "choices": [
+          {
+            "name": "Scab-plate carapace",
+            "points": 20
+          },
+          {
+            "name": "Reeking censer",
+            "points": 10
+          },
+          {
+            "name": "Tolling bell",
+            "points": 10
+          },
+          {
+            "name": "Rotmaul",
+            "points": 12
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "roles": [
+          "Armour",
+          "Transport",
+          "Heavy Transport"
+        ],
+        "unitType": "Vehicle",
+        "notUnitType": "Flyer"
+      },
+      "optionalUnits": true,
+      "option": {
+        "id": "dg-vehicle-fittings",
+        "kind": "upgrade",
+        "model": null,
+        "text": "May take a Death Guard vehicle fitting",
+        "choices": [
+          {
+            "name": "Choking exhaust vents",
+            "points": 15
+          },
+          {
+            "name": "Rot-fed spirit core",
+            "points": 15
+          },
+          {
+            "name": "Rust-plough",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "breacher-squad",
+        "veteran-tactical-squad",
+        "despoiler-squad",
+        "assault-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "dg-rotmaul",
+        "kind": "one",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may take a Rotmaul",
+        "choices": [
+          {
+            "name": "Rotmaul",
+            "points": 12
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "breacher-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "dg-blightflamer",
+        "kind": "perModel",
+        "model": "Legionary",
+        "max": 1,
+        "text": "One model may carry a Blightflame sprayer",
+        "choices": [
+          {
+            "name": "Blightflame sprayer",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "heavy-support-squad",
+        "tactical-support-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "dg-cankerball",
+        "kind": "perModel",
+        "model": "Legionary",
+        "max": 1,
+        "text": "One model may carry a Cankerball launcher",
+        "choices": [
+          {
+            "name": "Cankerball launcher",
+            "points": 15
+          }
+        ]
+      }
+    }
   ],
   "modifiers": [
-    { "units": ["tactical-squad", "despoiler-squad", "breacher-squad", "veteran-tactical-squad", "mortus-poisoner-squad"], "optionalUnits": true, "text": "Plague-hardened flesh: +1 T, -1 M.", "stats": { "T": "+1", "M": "-1" } },
-    { "units": ["mortus-poisoner-squad"], "text": "Chemical adepts: +1 BS, -1 LD.", "stats": { "BS": "+1", "LD": "-1" } },
-    { "units": ["deathshroud-terminator-squad"], "text": "Silent honour guard: +1 WS, -1 I.", "stats": { "WS": "+1", "I": "-1" } },
-    { "units": ["grave-warden-terminator-squad"], "text": "Heavy-handed wardens: +1 S, -1 I.", "stats": { "S": "+1", "I": "-1" } },
-    { "match": { "unitType": "Command", "notUnitType": "Vehicle" }, "text": "Stoic lords of the Legion: +1 LD, -1 I.", "stats": { "LD": "+1", "I": "-1" } },
-    { "units": ["*"], "item": "Bile-stained banner", "scope": "unit", "text": "Bile-stained banner: Feel No Pain (6+).", "addRules": ["Feel No Pain (6+)"] },
-    { "units": ["*"], "item": "Choking cloud canisters", "scope": "unit", "text": "Choking cloud canisters: Fear (1).", "addRules": ["Fear (1)"] },
-    { "units": ["*"], "item": "Bloated sarcophagus", "text": "Bloated sarcophagus: Feel No Pain (6+).", "addRules": ["Feel No Pain (6+)"] }
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "breacher-squad",
+        "veteran-tactical-squad",
+        "mortus-poisoner-squad"
+      ],
+      "optionalUnits": true,
+      "text": "Plague-hardened flesh: +1 T, -1 M.",
+      "stats": {
+        "T": "+1",
+        "M": "-1"
+      }
+    },
+    {
+      "units": [
+        "mortus-poisoner-squad"
+      ],
+      "text": "Chemical adepts: +1 BS, -1 LD.",
+      "stats": {
+        "BS": "+1",
+        "LD": "-1"
+      }
+    },
+    {
+      "units": [
+        "deathshroud-terminator-squad"
+      ],
+      "text": "Silent honour guard: +1 WS, -1 I.",
+      "stats": {
+        "WS": "+1",
+        "I": "-1"
+      }
+    },
+    {
+      "units": [
+        "grave-warden-terminator-squad"
+      ],
+      "text": "Heavy-handed wardens: +1 S, -1 I.",
+      "stats": {
+        "S": "+1",
+        "I": "-1"
+      }
+    },
+    {
+      "match": {
+        "unitType": "Command",
+        "notUnitType": "Vehicle"
+      },
+      "text": "Stoic lords of the Legion: +1 LD, -1 I.",
+      "stats": {
+        "LD": "+1",
+        "I": "-1"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Bile-stained banner",
+      "scope": "unit",
+      "text": "Bile-stained banner: Feel No Pain (6+).",
+      "addRules": [
+        "Feel No Pain (6+)"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Choking cloud canisters",
+      "scope": "unit",
+      "text": "Choking cloud canisters: Fear (1).",
+      "addRules": [
+        "Fear (1)"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Bloated sarcophagus",
+      "text": "Bloated sarcophagus: Feel No Pain (6+).",
+      "addRules": [
+        "Feel No Pain (6+)"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Blight-grenade bandolier",
+      "text": "Blight-grenade bandolier: Blightbomb Salvo.",
+      "scope": "unit",
+      "addRules": [
+        "Blightbomb Salvo"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Reeking censer",
+      "text": "Reeking censer: Dirge of Flies.",
+      "addRules": [
+        "Dirge of Flies"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Tolling bell",
+      "text": "Tolling bell: Death Knell.",
+      "scope": "unit",
+      "addRules": [
+        "Death Knell"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Scab-plate carapace",
+      "text": "Scab-plate carapace: Scabbed Carapace.",
+      "addRules": [
+        "Scabbed Carapace"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Choking exhaust vents",
+      "text": "Choking exhaust vents: Choking Wake.",
+      "scope": "unit",
+      "addRules": [
+        "Choking Wake"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Rot-fed spirit core",
+      "text": "Rot-fed spirit core: Unquiet Spirit.",
+      "scope": "unit",
+      "addRules": [
+        "Unquiet Spirit"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Rust-plough",
+      "text": "Rust-plough: Rust-Plough.",
+      "scope": "unit",
+      "addRules": [
+        "Rust-Plough"
+      ]
+    }
   ],
   "rules": [
     {
       "name": "Inexorable",
-      "text": "Legacy house rule (Unhurried Death). A unit with this rule may re-roll failed Morale Checks and failed Checks to avoid gaining Tactical Statuses."
+      "text": "Legacy house rule (Unhurried Death). A unit with this rule adds +1 to its Cool for Morale Checks and Checks to avoid gaining Tactical Statuses."
     },
     {
       "name": "Walking Dead",
@@ -60,6 +671,34 @@
     {
       "name": "Sworn Guard",
       "text": "Legacy house rule (The Reaper's Honour Guard). A unit with this rule gains Feel No Pain (5+) while it is within 6\" of Mortarion or Calas Typhon."
+    },
+    {
+      "name": "Blightbomb Salvo",
+      "text": "Legacy house rule. Once per battle, in the Shooting phase, the unit may throw blight at an enemy unit within 8\". Make one automatic hit with Poisoned (4+), AP -, Damage 1 for each model in the unit, to a maximum of 5."
+    },
+    {
+      "name": "Dirge of Flies",
+      "text": "Legacy house rule. Enemy units within 6\" of this model cannot make Reaction Shooting Attacks against it or its unit."
+    },
+    {
+      "name": "Death Knell",
+      "text": "Legacy house rule. Each time a friendly Death Guard unit within 6\" of the bearer is destroyed, every enemy unit within 12\" loses 1 Cool until the end of the turn."
+    },
+    {
+      "name": "Scabbed Carapace",
+      "text": "Legacy house rule. Attacks with AP 4 or worse made against this model have their AP treated as -."
+    },
+    {
+      "name": "Choking Wake",
+      "text": "Legacy house rule. After a vehicle with this rule moves, each enemy unit it moved within 3\" of suffers one automatic hit with Poisoned (4+), AP -, Damage 1."
+    },
+    {
+      "name": "Unquiet Spirit",
+      "text": "Legacy house rule. Once per battle, when a vehicle with this rule would be Stunned or Shaken, it ignores that result."
+    },
+    {
+      "name": "Rust-Plough",
+      "text": "Legacy house rule. A vehicle with this rule ignores Difficult Terrain. Units it Rams lose 1 Cool until the end of the turn."
     }
   ],
   "rites": [
@@ -67,7 +706,7 @@
       "name": "Unhurried Death",
       "flavor": "The Legion has never run, and it has never needed to.",
       "benefits": [
-        "Every Death Guard Infantry unit gains Feel No Pain (6+) and Inexorable: re-roll failed Morale Checks and Checks to avoid Tactical Statuses."
+        "Every Death Guard Infantry unit gains Feel No Pain (6+) and Inexorable: +1 Cool on Morale Checks and Checks to avoid Tactical Statuses."
       ],
       "limitations": [
         "Every Death Guard Infantry unit loses 1 Move.",
@@ -288,6 +927,37 @@
           "optionalUnits": true
         }
       ]
+    }
+  ],
+  "armyRules": [
+    {
+      "name": "Death's Slow Tread",
+      "match": {
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "text": "Legacy house rule. They do not flinch, and they do not hurry. A unit with this rule ignores the effects of Pinning (X) and Suppressive (X). It may not Rush, and its Reaction Shooting suffers -1 to Hit."
+    },
+    {
+      "name": "Withering Blight",
+      "match": {
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "text": "Legacy house rule. Their wounds fester in the flesh. A model that is wounded but not slain by an attack from a unit with this rule has its Toughness reduced by 1 until the end of that turn."
+    },
+    {
+      "name": "Pestilential Aura",
+      "match": {
+        "roles": [
+          "Warlord",
+          "High Command",
+          "Command"
+        ],
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "text": "Legacy house rule. A cloud of rot rolls from the captains of the Legion. At the start of each Assault phase, each enemy unit in base contact with a model with this rule suffers one automatic hit with Poisoned (4+), AP -, Damage 1. A unit joined by such a model cannot benefit from Medic (X)."
     }
   ]
 }

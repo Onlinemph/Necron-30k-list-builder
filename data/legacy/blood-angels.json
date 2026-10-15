@@ -1,47 +1,666 @@
 {
   "weapons": {
     "melee": [
-      { "name": "Encarmine sabre", "IM": "+1", "AM": "A", "SM": "S", "AP": 3, "D": 1, "specialRules": ["Rending (6+)", "Breaching (6+)"], "traits": ["Power"] },
-      { "name": "Wing-spar glaive", "IM": "I", "AM": "A", "SM": "+1", "AP": 2, "D": 1, "specialRules": ["Breaching (5+)", "Impact (AP)"], "traits": ["Power"] }
+      {
+        "name": "Encarmine sabre",
+        "IM": "+1",
+        "AM": "A",
+        "SM": "S",
+        "AP": 3,
+        "D": 1,
+        "specialRules": [
+          "Critical Hit (6+)",
+          "Duellist's Edge (1)"
+        ],
+        "traits": [
+          "Power"
+        ]
+      },
+      {
+        "name": "Wing-spar glaive",
+        "IM": "I",
+        "AM": "A",
+        "SM": "+1",
+        "AP": 2,
+        "D": 1,
+        "specialRules": [
+          "Impact (AP)",
+          "Reaping Blow (1)"
+        ],
+        "traits": [
+          "Power"
+        ]
+      },
+      {
+        "name": "Sanguine glaive-axe",
+        "IM": "I",
+        "AM": "A",
+        "SM": "+1",
+        "AP": 3,
+        "D": 1,
+        "specialRules": [
+          "Reaping Blow (1)",
+          "Shock (Pinned)"
+        ],
+        "traits": [
+          "Power"
+        ]
+      }
     ],
     "ranged": [
-      { "name": "Angelus bolter", "R": 24, "FP": 2, "RS": 4, "AP": 4, "D": 1, "specialRules": ["Rending (6+)"], "traits": ["Bolt"] }
+      {
+        "name": "Angelus bolter",
+        "R": 24,
+        "FP": 2,
+        "RS": 4,
+        "AP": 4,
+        "D": 1,
+        "specialRules": [
+          "Rending (6+)",
+          "Suppressive (1)"
+        ],
+        "traits": [
+          "Bolt"
+        ]
+      },
+      {
+        "name": "Bloodfire flamer",
+        "R": "Template",
+        "FP": 1,
+        "RS": 5,
+        "AP": 4,
+        "D": 1,
+        "specialRules": [
+          "Template",
+          "Aflame (1)",
+          "Panic (1)"
+        ],
+        "traits": [
+          "Flame"
+        ]
+      },
+      {
+        "name": "Sunburst pistol",
+        "R": 8,
+        "FP": 1,
+        "RS": 5,
+        "AP": 2,
+        "D": 2,
+        "specialRules": [
+          "Pistol",
+          "Melta (3)"
+        ],
+        "traits": []
+      }
     ]
   },
   "wargear": [
-    { "name": "Death-mask", "text": "Legacy house rule. A gilded helm cast in the austere, grieving face of the Primarch. The model gains Fear (1) and +1 Leadership." },
-    { "name": "Grail of the Red Tide", "text": "Legacy house rule. A chalice of sanctified blood carried with the unit and shared before the charge. Every model in the unit gains Feel No Pain (6+)." }
+    {
+      "name": "Death-mask",
+      "text": "Legacy house rule. A gilded helm cast in the austere, grieving face of the Primarch. The model gains Fear (1) and +1 Leadership."
+    },
+    {
+      "name": "Grail of the Red Tide",
+      "text": "Legacy house rule. A chalice of sanctified blood carried with the unit and shared before the charge. Every model in the unit gains Feel No Pain (6+)."
+    },
+    {
+      "name": "Wing-blade pinions",
+      "text": "Legacy house rule. Razored pinions fitted to a jump pack. Gives the bearer Pinion Strike."
+    },
+    {
+      "name": "Pennon of Baal",
+      "text": "Legacy house rule. A blood-red pennon sewn with the names of the dead. Gives the unit Rise Again."
+    },
+    {
+      "name": "Rage-wracked pilot",
+      "text": "Legacy house rule. The sarcophagus occupant has been fed a little too much of the Thirst. The walker gains +1 WS and Waking Nightmare."
+    },
+    {
+      "name": "Haloed aegis",
+      "text": "Legacy house rule. A gilt field projector worn like a halo. The bearer has a 5+ Invulnerable Save and Aegis of Light."
+    },
+    {
+      "name": "Crimson ablative lacquer",
+      "text": "Legacy house rule. Layers of sacrificial lacquer burned away by the first hit. Gives the vehicle Ablative Coat."
+    },
+    {
+      "name": "Dawnlight lamps",
+      "text": "Legacy house rule. Floodlamp arrays that turn night into noon. Gives the vehicle Dawnlight."
+    },
+    {
+      "name": "Rage-draught",
+      "text": "Legacy house rule. A flask of the Apothecary's darkest brew. Gives the bearer Rage-Draught Surge."
+    }
   ],
   "options": [
-    { "units": ["tactical-squad", "despoiler-squad", "veteran-tactical-squad", "assault-squad", "veteran-assault-squad", "the-angels-tears", "destroyer-assault-squad"],
-      "option": { "id": "ba-sergeant-arms", "kind": "one", "modelType": "Sergeant", "text": "The Sergeant may take a weapon of the Host",
-        "choices": [ { "name": "Encarmine sabre", "points": 10 }, { "name": "Angelus bolter", "points": 10 }, { "name": "Inferno Pistol", "points": 10 } ] } },
-    { "units": ["dawnbreaker-cohort", "sanguinary-guard"],
-      "option": { "id": "ba-wing-spar-glaives", "kind": "perModel", "model": ["Dawnbreaker", "Sanguinary Guard"], "max": 3,
-        "text": "Up to three models may take a Wing-spar glaive", "choices": [ { "name": "Wing-spar glaive", "points": 12 } ] } },
-    { "units": ["ofanim-court", "ofanim-court-with-jump-packs"],
-      "option": { "id": "ba-ofanim-sabres", "kind": "perModel", "model": ["Ofanim", "Ofanim with Jump Pack"], "max": 3,
-        "text": "Up to three Ofanim may take an Encarmine sabre", "choices": [ { "name": "Encarmine sabre", "points": 10 } ] } },
-    { "units": ["the-angels-tears"],
-      "option": { "id": "ba-erelim-bolters", "kind": "perModel", "model": "Erelim", "max": 4,
-        "text": "Up to four Erelim may take an Angelus bolter", "choices": [ { "name": "Angelus bolter", "points": 5 } ] } },
-    { "units": ["tactical-squad", "despoiler-squad", "assault-squad", "veteran-tactical-squad", "veteran-assault-squad", "the-angels-tears", "dawnbreaker-cohort", "destroyer-assault-squad"],
-      "option": { "id": "ba-death-mask", "kind": "upgrade", "modelType": "Sergeant", "text": "The Sergeant may wear a Death-mask",
-        "choices": [ { "name": "Death-mask", "points": 10 } ] } },
-    { "units": ["tactical-squad", "despoiler-squad", "assault-squad", "veteran-tactical-squad", "veteran-assault-squad", "crimson-paladins", "dawnbreaker-cohort"],
-      "option": { "id": "ba-grail", "kind": "upgrade", "model": null, "text": "The unit may carry a Grail of the Red Tide",
-        "choices": [ { "name": "Grail of the Red Tide", "points": 25 } ] } }
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "veteran-tactical-squad",
+        "assault-squad",
+        "veteran-assault-squad",
+        "the-angels-tears",
+        "destroyer-assault-squad"
+      ],
+      "option": {
+        "id": "ba-sergeant-arms",
+        "kind": "one",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may take a weapon of the Host",
+        "choices": [
+          {
+            "name": "Encarmine sabre",
+            "points": 10
+          },
+          {
+            "name": "Angelus bolter",
+            "points": 10
+          },
+          {
+            "name": "Inferno Pistol",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "dawnbreaker-cohort",
+        "sanguinary-guard"
+      ],
+      "option": {
+        "id": "ba-wing-spar-glaives",
+        "kind": "perModel",
+        "model": [
+          "Dawnbreaker",
+          "Sanguinary Guard"
+        ],
+        "max": 3,
+        "text": "Up to three models may take a Wing-spar glaive",
+        "choices": [
+          {
+            "name": "Wing-spar glaive",
+            "points": 12
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "ofanim-court",
+        "ofanim-court-with-jump-packs"
+      ],
+      "option": {
+        "id": "ba-ofanim-sabres",
+        "kind": "perModel",
+        "model": [
+          "Ofanim",
+          "Ofanim with Jump Pack"
+        ],
+        "max": 3,
+        "text": "Up to three Ofanim may take an Encarmine sabre",
+        "choices": [
+          {
+            "name": "Encarmine sabre",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "the-angels-tears"
+      ],
+      "option": {
+        "id": "ba-erelim-bolters",
+        "kind": "perModel",
+        "model": "Erelim",
+        "max": 4,
+        "text": "Up to four Erelim may take an Angelus bolter",
+        "choices": [
+          {
+            "name": "Angelus bolter",
+            "points": 5
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "assault-squad",
+        "veteran-tactical-squad",
+        "veteran-assault-squad",
+        "the-angels-tears",
+        "dawnbreaker-cohort",
+        "destroyer-assault-squad"
+      ],
+      "option": {
+        "id": "ba-death-mask",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may wear a Death-mask",
+        "choices": [
+          {
+            "name": "Death-mask",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "assault-squad",
+        "veteran-tactical-squad",
+        "veteran-assault-squad",
+        "crimson-paladins",
+        "dawnbreaker-cohort"
+      ],
+      "option": {
+        "id": "ba-grail",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The unit may carry a Grail of the Red Tide",
+        "choices": [
+          {
+            "name": "Grail of the Red Tide",
+            "points": 25
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "assault-squad",
+        "veteran-assault-squad",
+        "destroyer-assault-squad",
+        "the-angels-tears",
+        "dawnbreaker-cohort"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "ba-wing-pinions",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may fit Wing-blade pinions",
+        "choices": [
+          {
+            "name": "Wing-blade pinions",
+            "points": 12
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "assault-squad",
+        "veteran-tactical-squad",
+        "veteran-assault-squad",
+        "sanguinary-guard",
+        "crimson-paladins"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "ba-pennon",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The unit may carry a Pennon of Baal",
+        "choices": [
+          {
+            "name": "Pennon of Baal",
+            "points": 20
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "roles": [
+          "Troops",
+          "Elites",
+          "Support",
+          "Heavy Assault",
+          "Recon"
+        ],
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "option": {
+        "id": "ba-rage-draught",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may carry a Rage-draught",
+        "choices": [
+          {
+            "name": "Rage-draught",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "nameIncludes": [
+          "Dreadnought"
+        ]
+      },
+      "optionalUnits": true,
+      "option": {
+        "id": "ba-pilot",
+        "kind": "upgrade",
+        "model": null,
+        "text": "May carry a Rage-wracked pilot",
+        "choices": [
+          {
+            "name": "Rage-wracked pilot",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "roles": [
+          "Armour",
+          "Transport",
+          "Heavy Transport"
+        ],
+        "unitType": "Vehicle",
+        "notUnitType": "Flyer"
+      },
+      "optionalUnits": true,
+      "option": {
+        "id": "ba-vehicle-fittings",
+        "kind": "upgrade",
+        "model": null,
+        "text": "May take a Baal vehicle fitting",
+        "choices": [
+          {
+            "name": "Crimson ablative lacquer",
+            "points": 15
+          },
+          {
+            "name": "Dawnlight lamps",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "roles": [
+          "Command",
+          "High Command"
+        ],
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "option": {
+        "id": "ba-captains-regalia",
+        "kind": "any",
+        "modelType": "Command",
+        "max": {
+          "fixed": 2
+        },
+        "text": "Regalia of the Host: may take up to two relics",
+        "choices": [
+          {
+            "name": "Haloed aegis",
+            "points": 20
+          },
+          {
+            "name": "Sunburst pistol",
+            "points": 15
+          },
+          {
+            "name": "Sanguine glaive-axe",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "the-angels-tears"
+      ],
+      "option": {
+        "id": "ba-bloodfire",
+        "kind": "perModel",
+        "model": "Erelim",
+        "max": 2,
+        "text": "Up to two models may carry a Bloodfire flamer",
+        "choices": [
+          {
+            "name": "Bloodfire flamer",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "assault-squad",
+        "tactical-squad"
+      ],
+      "option": {
+        "id": "ba-bloodfire-assault",
+        "kind": "perModel",
+        "model": "Legionary",
+        "max": 1,
+        "text": "One model may carry a Bloodfire flamer",
+        "choices": [
+          {
+            "name": "Bloodfire flamer",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "assault-squad",
+        "veteran-assault-squad",
+        "tactical-squad",
+        "destroyer-assault-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "ba-glaive-axe",
+        "kind": "one",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may take a Sanguine glaive-axe",
+        "choices": [
+          {
+            "name": "Sanguine glaive-axe",
+            "points": 12
+          }
+        ]
+      }
+    }
   ],
   "modifiers": [
-    { "units": ["sanguinary-guard"], "text": "The Golden Host fights as a dance, and is as fragile: +1 I, -1 T.", "stats": { "I": "+1", "T": "-1" } },
-    { "units": ["dawnbreaker-cohort"], "text": "Dawnbreakers, flamers raised: +1 BS, -1 WS.", "stats": { "BS": "+1", "WS": "-1" } },
-    { "units": ["crimson-paladins"], "text": "Crimson Paladins hit like falling bastions: +1 S, -1 I.", "stats": { "S": "+1", "I": "-1" } },
-    { "units": ["ofanim-court", "ofanim-court-with-jump-packs"], "text": "Ofanim, shielded by the Primarch's grace: 5+ Invulnerable Save, -1 M.", "stats": { "INV": "best:5+", "M": "-1" } },
-    { "units": ["tactical-squad", "despoiler-squad", "veteran-tactical-squad"], "text": "Blood Angels would sooner be at the blade: +1 WS, -1 BS.", "stats": { "WS": "+1", "BS": "-1" } },
-    { "match": { "unitType": "Command", "notUnitType": "Vehicle" }, "text": "The Red Thirst in the captains: +1 A, -1 CL.", "stats": { "A": "+1", "CL": "-1" } },
-    { "units": ["contemptor-incaendius-dreadnought"], "text": "A furnace of old rage: +1 WS, -1 BS.", "stats": { "WS": "+1", "BS": "-1" } },
-    { "units": ["*"], "item": "Death-mask", "text": "Death-mask: Fear (1), +1 LD.", "stats": { "LD": "+1" }, "addRules": ["Fear (1)"] },
-    { "units": ["*"], "item": "Grail of the Red Tide", "scope": "unit", "text": "Grail of the Red Tide: Feel No Pain (6+).", "addRules": ["Feel No Pain (6+)"] }
+    {
+      "units": [
+        "sanguinary-guard"
+      ],
+      "text": "The Golden Host fights as a dance, and is as fragile: +1 I, -1 T.",
+      "stats": {
+        "I": "+1",
+        "T": "-1"
+      }
+    },
+    {
+      "units": [
+        "dawnbreaker-cohort"
+      ],
+      "text": "Dawnbreakers, flamers raised: +1 BS, -1 WS.",
+      "stats": {
+        "BS": "+1",
+        "WS": "-1"
+      }
+    },
+    {
+      "units": [
+        "crimson-paladins"
+      ],
+      "text": "Crimson Paladins hit like falling bastions: +1 S, -1 I.",
+      "stats": {
+        "S": "+1",
+        "I": "-1"
+      }
+    },
+    {
+      "units": [
+        "ofanim-court",
+        "ofanim-court-with-jump-packs"
+      ],
+      "text": "Ofanim, shielded by the Primarch's grace: 5+ Invulnerable Save, -1 M.",
+      "stats": {
+        "INV": "best:5+",
+        "M": "-1"
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "veteran-tactical-squad"
+      ],
+      "text": "Blood Angels would sooner be at the blade: +1 WS, -1 BS.",
+      "stats": {
+        "WS": "+1",
+        "BS": "-1"
+      }
+    },
+    {
+      "match": {
+        "unitType": "Command",
+        "notUnitType": "Vehicle"
+      },
+      "text": "The Red Thirst in the captains: +1 A, -1 CL.",
+      "stats": {
+        "A": "+1",
+        "CL": "-1"
+      }
+    },
+    {
+      "units": [
+        "contemptor-incaendius-dreadnought"
+      ],
+      "text": "A furnace of old rage: +1 WS, -1 BS.",
+      "stats": {
+        "WS": "+1",
+        "BS": "-1"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Death-mask",
+      "text": "Death-mask: Fear (1), +1 LD.",
+      "stats": {
+        "LD": "+1"
+      },
+      "addRules": [
+        "Fear (1)"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Grail of the Red Tide",
+      "scope": "unit",
+      "text": "Grail of the Red Tide: Feel No Pain (6+).",
+      "addRules": [
+        "Feel No Pain (6+)"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Wing-blade pinions",
+      "text": "Wing-blade pinions: Pinion Strike.",
+      "addRules": [
+        "Pinion Strike"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Pennon of Baal",
+      "text": "Pennon of Baal: Rise Again.",
+      "scope": "unit",
+      "addRules": [
+        "Rise Again"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Rage-wracked pilot",
+      "text": "Rage-wracked pilot: +1 WS, Waking Nightmare.",
+      "stats": {
+        "WS": "+1"
+      },
+      "addRules": [
+        "Waking Nightmare"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Haloed aegis",
+      "text": "Haloed aegis: 5+ Invulnerable Save, Aegis of Light.",
+      "stats": {
+        "INV": "best:5+"
+      },
+      "addRules": [
+        "Aegis of Light"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Crimson ablative lacquer",
+      "text": "Crimson ablative lacquer: Ablative Coat.",
+      "scope": "unit",
+      "addRules": [
+        "Ablative Coat"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Dawnlight lamps",
+      "text": "Dawnlight lamps: Dawnlight.",
+      "scope": "unit",
+      "addRules": [
+        "Dawnlight"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Rage-draught",
+      "text": "Rage-draught: Rage-Draught Surge.",
+      "addRules": [
+        "Rage-Draught Surge"
+      ]
+    }
   ],
   "rules": [
     {
@@ -54,11 +673,39 @@
     },
     {
       "name": "Unbroken Court",
-      "text": "Legacy house rule (The Celestial Court). A unit with this rule may re-roll failed Morale Checks. While it is within 6\" of a friendly Warlord or High Command model it passes them automatically."
+      "text": "Legacy house rule (The Celestial Court). A unit with this rule adds +1 to its Cool for Morale Checks. While it is within 6\" of a friendly Warlord or High Command model it passes them automatically."
     },
     {
       "name": "Entombed Rage",
       "text": "Legacy house rule (Pyre-Brothers of Baal). If a unit with this rule is charged, it fights at its normal Initiative in that combat and adds +1 to its Attacks. It also gains Fear (1)."
+    },
+    {
+      "name": "Pinion Strike",
+      "text": "Legacy house rule. On the turn it charges, the bearer adds +1 to its Initiative for the first round of combat, and its Attacks gain Impact (S)."
+    },
+    {
+      "name": "Rise Again",
+      "text": "Legacy house rule. Once per battle, at the start of its controller's turn, a unit with this rule removes every Tactical Status it has."
+    },
+    {
+      "name": "Waking Nightmare",
+      "text": "Legacy house rule. A model with this rule gains Fear (1), and a Charge roll of less than 6 counts as 6 when it charges."
+    },
+    {
+      "name": "Aegis of Light",
+      "text": "Legacy house rule. The bearer's Invulnerable Save is 4+ against attacks made in the Assault phase."
+    },
+    {
+      "name": "Ablative Coat",
+      "text": "Legacy house rule. The first Hull Point a vehicle with this rule would lose in a battle is ignored."
+    },
+    {
+      "name": "Dawnlight",
+      "text": "Legacy house rule. Shooting Attacks made by a vehicle with this rule against units within 12\" ignore Shrouded (X) and Cover Saves from darkness."
+    },
+    {
+      "name": "Rage-Draught Surge",
+      "text": "Legacy house rule. Once per battle, at the start of the Assault phase, the bearer's unit adds +1 to its Strength until the end of the phase, then suffers -1 Initiative until the end of its next turn."
     }
   ],
   "rites": [
@@ -196,7 +843,7 @@
       "flavor": "A Legion of ten thousand, and only the finest ever walk in the Primarch's shadow.",
       "benefits": [
         "Sanguinary Guard, Crimson Paladins and Ofanim Courts may fill Troops slots and gain Line (2).",
-        "They also gain Unbroken Court: re-roll failed Morale Checks, passing automatically within 6\" of a friendly Warlord or High Command model."
+        "They also gain Unbroken Court: +1 Cool on Morale Checks, passing automatically within 6\" of a friendly Warlord or High Command model."
       ],
       "limitations": [
         "At least one Sanguinary Guard and one Crimson Paladin pack are required.",
@@ -314,6 +961,50 @@
           }
         }
       ]
+    }
+  ],
+  "armyRules": [
+    {
+      "name": "Wings of the Angel",
+      "units": [
+        "assault-squad",
+        "veteran-assault-squad",
+        "destroyer-assault-squad",
+        "dawnbreaker-cohort",
+        "the-angels-tears",
+        "ofanim-court-with-jump-packs",
+        "sanguinary-guard"
+      ],
+      "optionalUnits": true,
+      "text": "Legacy house rule. The Host falls on the enemy from the sky. A unit with this rule adds +2 to its Charge rolls. If it fails a Charge, it is left exposed: it suffers -1 Initiative until the end of its controller's next turn."
+    },
+    {
+      "name": "Sanguine Grace",
+      "match": {
+        "roles": [
+          "Warlord",
+          "High Command",
+          "Command"
+        ],
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "condition": "in a Challenge: +1 I",
+      "text": "Legacy house rule. A noble duellist with the Angel's own poise. In a Challenge a model with this rule adds +1 to its Initiative. The Red Thirst waits behind the grace: once it has lost a Wound, it must make a Willpower Check at the start of each of its controller's turns, and on a failure it must Charge the nearest enemy unit if able."
+    },
+    {
+      "name": "Rage of the Fallen",
+      "match": {
+        "notUnitType": "Vehicle",
+        "roles": [
+          "Troops",
+          "Elites",
+          "Heavy Assault",
+          "Support"
+        ]
+      },
+      "condition": "at half strength or less: +1 A, Fear (1)",
+      "text": "Legacy house rule. Each fallen brother feeds the fury of those who remain. While a unit with this rule is at half strength or less, its models gain +1 Attack and Fear (1), but the unit may not voluntarily Fall Back."
     }
   ]
 }

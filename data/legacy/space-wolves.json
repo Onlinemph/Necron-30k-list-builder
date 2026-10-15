@@ -1,47 +1,70 @@
 {
+  "armyRules": [
+    {"name": "Fenrisian Fury", "text": "Legacy house rule. The Wolves fight with their whole bodies and are not good at waiting. A unit with this rule adds 1 to its Attacks on the turn it charges, but at the start of its Assault phase it must declare a Charge against the nearest enemy unit within 8\" if it is able to.", "match": {"notUnitType": "Vehicle", "notNameIncludes": ["Wolf Pack", "Wolf-kin"]}, "stats": {"A": "+1"}, "condition": "on the turn it charges"},
+    {"name": "Saga-Bound", "text": "Legacy house rule. A Space Wolves lord has sworn his boasts before the hall and cannot take them back. A Character with this rule adds 1 to its Attacks while in a Challenge and may never decline one, and when it is slain, every friendly Space Wolves unit within 12\" must make a Cool Check at -1.", "match": {"unitType": "Command", "notUnitType": "Vehicle"}, "stats": {"A": "+1"}, "condition": "while in a Challenge"},
+    {"name": "Keen Senses", "text": "Legacy house rule. Fenrisian hunters smell an ambush before it is sprung. A unit with this rule adds 1 to its Intelligence and enemy units may not use Infiltrate or Outflank to arrive within 12\" of it, but the unit subtracts 1 from its Leadership.", "units": ["jorlund-hunter-pack", "grey-slayer-pack", "scout-squad", "reconnaissance-squad", "fenrisian-wolf-pack", "wolf-kin-of-russ"], "optionalUnits": true, "stats": {"IN": "+1", "LD": "-1"}}
+  ],
   "weapons": {
     "melee": [
-      { "name": "Fang-blade", "IM": "+1", "AM": "A", "SM": "S", "AP": 4, "D": 1, "specialRules": ["Rending (5+)", "Reaping Blow (1)"], "traits": ["Power"] },
-      { "name": "Runic great-axe", "IM": -2, "AM": "A", "SM": "+2", "AP": 3, "D": 1, "specialRules": ["Breaching (4+)", "Reaping Blow (1)"], "traits": ["Power"] }
+      {"name": "Fang-blade", "IM": "+1", "AM": "A", "SM": "S", "AP": 4, "D": 1, "specialRules": ["Rending (5+)", "Duellist's Edge (1)"], "traits": ["Power"]},
+      {"name": "Runic great-axe", "IM": -2, "AM": "A", "SM": "+2", "AP": 3, "D": 1, "specialRules": ["Reaping Blow (2)", "Breaching (5+)"], "traits": ["Power"]},
+      {"name": "Bonebreaker maul", "IM": -1, "AM": "A", "SM": "+2", "AP": 3, "D": 1, "specialRules": ["Stun (1)", "Phage (I)"], "traits": ["Power"]}
     ],
     "ranged": [
-      { "name": "Hunter's longbolter", "R": 36, "FP": 1, "RS": 5, "AP": 4, "D": 1, "specialRules": ["Precision (5+)"], "traits": ["Bolt"] }
+      {"name": "Hunter's longbolter", "R": 36, "FP": 1, "RS": 5, "AP": 4, "D": 1, "specialRules": ["Precision (5+)", "Heavy (RS)"], "traits": ["Bolt"]},
+      {"name": "Whale-spear launcher", "R": 18, "FP": 1, "RS": 5, "AP": 3, "D": 1, "specialRules": ["Pinning (2)", "Stun (2)", "Limited (3)"], "traits": ["Missile"]},
+      {"name": "Rime shotgun", "R": 12, "FP": 2, "RS": 4, "AP": 5, "D": 1, "specialRules": ["Pinning (1)", "Phage (M)"], "traits": ["Assault"]}
     ]
   },
   "wargear": [
-    { "name": "Wolf-skull totem", "text": "Legacy house rule. A pole hung with the skulls of beasts the pack has run down, and the teeth of a few men. Enemies learn to dread the sight of it. Every model in the unit gains Fear (1)." },
-    { "name": "Wolf-pelt mantle", "text": "Legacy house rule. A heavy cloak cut from a Fenrisian beast the bearer killed alone. The model gains Feel No Pain (6+)." }
+    {"name": "Wolf-skull totem", "text": "Legacy house rule. A pole hung with the skulls of beasts the pack has run down, and the teeth of a few men. Enemies learn to dread the sight of it. Every model in the unit gains Fear (1)."},
+    {"name": "Wolf-pelt mantle", "text": "Legacy house rule. A heavy cloak cut from a Fenrisian beast the bearer killed alone. The model gains Feel No Pain (6+)."},
+    {"name": "Skald's saga-horn", "text": "Legacy house rule. A great horn from which a skald sounds the deeds of the pack so that no brother fights unremembered. Gives the model Rousing Saga."},
+    {"name": "Jarl's drinking horn", "text": "Legacy house rule. A horn of Fenrisian mead that must be drained before battle. Gives the model Mead of Heroes."},
+    {"name": "Fang-talisman", "text": "Legacy house rule. A rune-carved fang worn by Rune Priests against the Warp. Gives the model Rune-Ward."},
+    {"name": "Chain-snares", "text": "Legacy house rule. Weighted chains thrown to bind the legs of prey. Gives the model Snare-Chains."},
+    {"name": "Rune-sight", "text": "Legacy house rule. A rune-etched targeter fitted to a hunter's helm. Gives the model Predator's Eye."},
+    {"name": "Bone-trophy racks", "text": "Legacy house rule. Skulls and tusks lashed to a hull until it looks like a hunting lodge on tracks. Gives the vehicle Skull-Strewn Hull."}
   ],
   "options": [
-    { "units": ["tactical-squad", "despoiler-squad", "veteran-tactical-squad", "assault-squad", "veteran-assault-squad", "grey-slayer-pack", "breacher-squad"],
-      "option": { "id": "sw-sergeant-blades", "kind": "one", "modelType": "Sergeant", "text": "The Sergeant may take a Fenrisian weapon",
-        "choices": [ { "name": "Fang-blade", "points": 10 }, { "name": "Frost axe", "points": 15 }, { "name": "Runic great-axe", "points": 20 } ] } },
-    { "units": ["assault-squad", "despoiler-squad"],
-      "option": { "id": "sw-legionary-axes", "kind": "perModel", "model": "Legionary", "replaces": ["Chainsword"], "max": 5,
-        "text": "Up to five Legionaries may exchange their chainsword for", "choices": [ { "name": "Fenrisian axe", "points": 2 }, { "name": "Fang-blade", "points": 5 } ] } },
-    { "units": ["jorlund-hunter-pack"],
-      "option": { "id": "sw-hunter-longbolters", "kind": "perModel", "model": "Hunter", "max": 3,
-        "text": "Up to three Hunters may take a Hunter's longbolter", "choices": [ { "name": "Hunter's longbolter", "points": 10 } ] } },
-    { "units": ["tactical-squad", "despoiler-squad", "assault-squad", "grey-slayer-pack", "jorlund-hunter-pack", "veteran-tactical-squad", "inductii-squad"],
-      "option": { "id": "sw-skull-totem", "kind": "upgrade", "model": null, "text": "The unit may carry a Wolf-skull totem",
-        "choices": [ { "name": "Wolf-skull totem", "points": 15 } ] } },
-    { "match": { "roles": ["Command", "High Command"], "notUnitType": "Vehicle" }, "optionalUnits": true,
-      "option": { "id": "sw-pelt-mantle", "kind": "upgrade", "modelType": "Command", "text": "May wear a Wolf-pelt mantle",
-        "choices": [ { "name": "Wolf-pelt mantle", "points": 10 } ] } }
+    {"units": ["tactical-squad", "despoiler-squad", "veteran-tactical-squad", "assault-squad", "veteran-assault-squad", "grey-slayer-pack", "breacher-squad"], "option": {"id": "sw-sergeant-blades", "kind": "one", "modelType": "Sergeant", "text": "The Sergeant may take a Fenrisian weapon", "choices": [{"name": "Fang-blade", "points": 10}, {"name": "Frost axe", "points": 15}, {"name": "Runic great-axe", "points": 20}]}},
+    {"units": ["assault-squad", "despoiler-squad"], "option": {"id": "sw-legionary-axes", "kind": "perModel", "model": "Legionary", "replaces": ["Chainsword"], "max": 5, "text": "Up to five Legionaries may exchange their chainsword for", "choices": [{"name": "Fenrisian axe", "points": 2}, {"name": "Fang-blade", "points": 5}]}},
+    {"units": ["jorlund-hunter-pack"], "option": {"id": "sw-hunter-longbolters", "kind": "perModel", "model": "Hunter", "max": 3, "text": "Up to three Hunters may take a Hunter's longbolter", "choices": [{"name": "Hunter's longbolter", "points": 10}]}},
+    {"units": ["tactical-squad", "despoiler-squad", "assault-squad", "grey-slayer-pack", "jorlund-hunter-pack", "veteran-tactical-squad", "inductii-squad"], "option": {"id": "sw-skull-totem", "kind": "upgrade", "model": null, "text": "The unit may carry a Wolf-skull totem", "choices": [{"name": "Wolf-skull totem", "points": 15}]}},
+    {"match": {"roles": ["Command", "High Command"], "notUnitType": "Vehicle"}, "optionalUnits": true, "option": {"id": "sw-pelt-mantle", "kind": "upgrade", "modelType": "Command", "text": "May wear a Wolf-pelt mantle", "choices": [{"name": "Wolf-pelt mantle", "points": 10}]}},
+    {"match": {"roles": ["Command", "High Command"], "notUnitType": "Vehicle"}, "option": {"id": "sw-saga-trophies", "kind": "any", "modelType": "Command", "max": {"fixed": 2}, "text": "Trophies of the saga: may take up to two", "choices": [{"name": "Skald's saga-horn", "points": 15}, {"name": "Jarl's drinking horn", "points": 10}, {"name": "Fang-talisman", "points": 15}, {"name": "Bonebreaker maul", "points": 15}]}},
+    {"units": ["tactical-squad", "despoiler-squad", "assault-squad", "veteran-tactical-squad", "veteran-assault-squad", "grey-slayer-pack", "jorlund-hunter-pack"], "option": {"id": "sw-chain-snares", "kind": "upgrade", "modelType": "Sergeant", "text": "The Sergeant may carry Chain-snares", "choices": [{"name": "Chain-snares", "points": 10}]}},
+    {"units": ["heavy-support-squad", "tactical-support-squad", "veteran-heavy-support-squad", "jorlund-hunter-pack", "rapier-battery"], "option": {"id": "sw-rune-sight", "kind": "upgrade", "modelType": "Sergeant", "text": "The Sergeant may take a Rune-sight", "choices": [{"name": "Rune-sight", "points": 15}]}},
+    {"match": {"unitType": "Vehicle", "notUnitType": "Flyer", "roles": ["Armour", "Transport", "Heavy Transport"]}, "option": {"id": "sw-bone-trophies", "kind": "upgrade", "model": null, "text": "May fit Bone-trophy racks", "choices": [{"name": "Bone-trophy racks", "points": 10}]}},
+    {"units": ["jorlund-hunter-pack"], "option": {"id": "sw-whale-spear", "kind": "perModel", "model": "Hunter", "max": 1, "text": "Up to one Hunter may take a Whale-spear launcher", "choices": [{"name": "Whale-spear launcher", "points": 12}]}},
+    {"units": ["tactical-squad"], "option": {"id": "sw-rime-shotgun", "kind": "perModel", "model": "Legionary", "replaces": ["Bolter"], "max": 2, "text": "Up to two Legionaries may exchange their bolter for", "choices": [{"name": "Rime shotgun", "points": 4}]}},
+    {"units": ["tactical-squad", "assault-squad", "veteran-tactical-squad", "grey-slayer-pack"], "option": {"id": "sw-sergeant-maul", "kind": "one", "modelType": "Sergeant", "text": "The Sergeant may take a Bonebreaker maul", "choices": [{"name": "Bonebreaker maul", "points": 12}]}}
   ],
   "modifiers": [
-    { "units": ["grey-slayer-pack"], "models": ["Grey Slayer", "Huscarl"], "text": "Grey Slayers fight as hunters, not marksmen: +1 S, -1 BS.", "stats": { "S": "+1", "BS": "-1" } },
-    { "units": ["jorlund-hunter-pack"], "text": "Jorlund hunters, lean and patient: +1 BS, -1 T.", "stats": { "BS": "+1", "T": "-1" } },
-    { "units": ["tactical-squad", "despoiler-squad", "assault-squad", "veteran-tactical-squad", "veteran-assault-squad"], "text": "Sons of Fenris, proud and unruly: +1 I, -1 LD.", "stats": { "I": "+1", "LD": "-1" } },
-    { "units": ["caster-of-runes", "caster-of-runes-in-terminator-armour", "caster-of-runes-with-jump-pack", "mounted-caster-of-runes"], "text": "Rune-singers trade the blade for the storm: +1 WP, -1 WS.", "stats": { "WP": "+1", "WS": "-1" } },
-    { "units": ["varagyr-wolf-guard-terminators"], "text": "Wolf Guard hold the hall-floor like oaks: +1 WS, -1 I.", "stats": { "WS": "+1", "I": "-1" } },
-    { "units": ["deathsworn-pack"], "text": "The Death Wolf walks beside them: 5+ Invulnerable Save, -1 I.", "stats": { "INV": "best:5+", "I": "-1" } }
+    {"units": ["grey-slayer-pack"], "models": ["Grey Slayer", "Huscarl"], "text": "Grey Slayers fight as hunters, not marksmen: +1 S, -1 BS.", "stats": {"S": "+1", "BS": "-1"}},
+    {"units": ["jorlund-hunter-pack"], "text": "Jorlund hunters, lean and patient: +1 BS, -1 T.", "stats": {"BS": "+1", "T": "-1"}},
+    {"units": ["tactical-squad", "despoiler-squad", "assault-squad", "veteran-tactical-squad", "veteran-assault-squad"], "text": "Sons of Fenris, proud and unruly: +1 I, -1 LD.", "stats": {"I": "+1", "LD": "-1"}},
+    {"units": ["caster-of-runes", "caster-of-runes-in-terminator-armour", "caster-of-runes-with-jump-pack", "mounted-caster-of-runes"], "text": "Rune-singers trade the blade for the storm: +1 WP, -1 WS.", "stats": {"WP": "+1", "WS": "-1"}},
+    {"units": ["varagyr-wolf-guard-terminators"], "text": "Wolf Guard hold the hall-floor like oaks: +1 WS, -1 I.", "stats": {"WS": "+1", "I": "-1"}},
+    {"units": ["deathsworn-pack"], "text": "The Death Wolf walks beside them: 5+ Invulnerable Save, -1 I.", "stats": {"INV": "best:5+", "I": "-1"}},
+    {"units": ["*"], "item": "Skald's saga-horn", "text": "Skald's saga-horn: Rousing Saga.", "addRules": ["Rousing Saga"]},
+    {"units": ["*"], "item": "Jarl's drinking horn", "scope": "unit", "text": "Jarl's drinking horn: Mead of Heroes.", "addRules": ["Mead of Heroes"]},
+    {"units": ["*"], "item": "Fang-talisman", "scope": "unit", "text": "Fang-talisman: Rune-Ward.", "addRules": ["Rune-Ward"]},
+    {"units": ["*"], "item": "Chain-snares", "text": "Chain-snares: Snare-Chains.", "addRules": ["Snare-Chains"]},
+    {"units": ["*"], "item": "Rune-sight", "text": "Rune-sight: Predator's Eye.", "addRules": ["Predator's Eye"]},
+    {"units": ["*"], "item": "Bone-trophy racks", "scope": "unit", "text": "Bone-trophy racks: Fear (1).", "addRules": ["Skull-Strewn Hull"]}
   ],
   "rules": [
-    {"name": "Run Down the Prey", "text": "Legacy house rule (The Long Hunt). The pack strikes when the herd is already moving. A unit with this rule that enters play from Reserves may re-roll its Charge distance on that turn."},
-    {"name": "Oathsworn Hearthguard", "text": "Legacy house rule (Hall of the Wolf Guard). The Jarl's hearth-companions do not give ground. A unit with this rule may re-roll failed Cool Checks and cannot be Pinned."},
+    {"name": "Run Down the Prey", "text": "Legacy house rule (The Long Hunt). The pack strikes when the herd is already moving. A unit with this rule that enters play from Reserves counts any Charge roll of less than 6 as a 6 on that turn."},
+    {"name": "Oathsworn Hearthguard", "text": "Legacy house rule (Hall of the Wolf Guard). The Jarl's hearth-companions do not give ground. A unit with this rule adds +1 to its Cool Checks and cannot be Pinned."},
     {"name": "Blood-Howl", "text": "Legacy house rule (The Wolf Within). When the pack is half gone the beast takes over. Once a unit with this rule has lost half or more of its starting models, it gains Feel No Pain (6+) and automatically passes Cool Checks."},
-    {"name": "Thunder of the Wild Ride", "text": "Legacy house rule (The Wild Ride). A unit with this rule that Rushes may still declare a Charge on that turn, at -2\" to the distance rolled."}
+    {"name": "Thunder of the Wild Ride", "text": "Legacy house rule (The Wild Ride). A unit with this rule that Rushes may still declare a Charge on that turn, at -2\" to the distance rolled."},
+    {"name": "Rousing Saga", "text": "Legacy house rule. Friendly Space Wolves units within 12\" of the bearer add 1 to their Cool Checks."},
+    {"name": "Mead of Heroes", "text": "Legacy house rule. Once per battle, at the start of a Combat, the bearer's unit adds 1 to its Attacks until the end of that turn."},
+    {"name": "Rune-Ward", "text": "Legacy house rule. Enemy Psychic Checks that target the bearer's unit subtract 1 from the result."},
+    {"name": "Snare-Chains", "text": "Legacy house rule. Enemy models Locked in Combat with the bearer subtract 1 from their Initiative."},
+    {"name": "Predator's Eye", "text": "Legacy house rule. The bearer adds 1 to its Hit Tests against units that Rushed in their last turn."},
+    {"name": "Skull-Strewn Hull", "text": "Legacy house rule. The vehicle gains Fear (1)."}
   ],
   "rites": [
     {
@@ -49,7 +72,7 @@
       "flavor": "A wolf-pack does not charge the herd. It follows, and it waits, and it picks the moment.",
       "benefits": [
         "Jorlund Hunter Packs may fill Troops slots and gain Line (1).",
-        "Hunter Packs, Reconnaissance Squads and Scout Squads gain Outflank and Run Down the Prey: a unit that arrives from Reserves may re-roll its Charge distance."
+        "Hunter Packs, Reconnaissance Squads and Scout Squads gain Outflank and Run Down the Prey: a unit that arrives from Reserves counts any Charge roll of less than 6 as a 6 on that turn."
       ],
       "limitations": [
         "At least one Jorlund Hunter Pack is required.",
@@ -75,7 +98,7 @@
       "flavor": "When the Jarl's hearth-companions march, no one else needs to stand in the line.",
       "benefits": [
         "Varagyr Wolf Guard Terminators may fill Troops slots and gain Line (1).",
-        "Varagyr gain Oathsworn Hearthguard: they may re-roll failed Cool Checks and cannot be Pinned."
+        "Varagyr gain Oathsworn Hearthguard: they add +1 to Cool Checks and cannot be Pinned."
       ],
       "limitations": [
         "At least one Varagyr pack is required.",

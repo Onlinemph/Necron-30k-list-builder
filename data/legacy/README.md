@@ -10,6 +10,9 @@ unknown unit id, stat or option kind.
 
 All text here is written for this builder. Don't paste rules text from published books.
 
+Stay inside 3rd edition's mechanics: there are no re-rolls (the build rejects the word). Use a modifier, an
+auto-pass, a set dice result, a characteristic change or a Tactical Status instead.
+
 ## Files
 
 - `legiones-astartes.json` applies to every Legion (and the Blackshields and Shattered Legions).

@@ -1,53 +1,736 @@
 {
   "weapons": {
     "ranged": [
-      { "name": "Baron's hunter-killer salvo", "R": 48, "FP": 1, "RS": 8, "AP": 3, "D": 1, "specialRules": ["Blast (3\")", "Limited (1)"], "traits": ["Missile"] },
-      { "name": "Armiger longbarrel", "R": 36, "FP": 2, "RS": 8, "AP": 3, "D": 2, "specialRules": ["Breaching (5+)", "Heavy (FP)"], "traits": ["Auto"] }
+      {
+        "name": "Baron's hunter-killer salvo",
+        "R": 48,
+        "FP": 1,
+        "RS": 8,
+        "AP": 3,
+        "D": 1,
+        "specialRules": [
+          "Blast (3\")",
+          "Limited (1)",
+          "Pinning (2)"
+        ],
+        "traits": [
+          "Missile"
+        ]
+      },
+      {
+        "name": "Armiger longbarrel",
+        "R": 36,
+        "FP": 2,
+        "RS": 8,
+        "AP": 3,
+        "D": 2,
+        "specialRules": [
+          "Breaching (5+)",
+          "Precision (5+)",
+          "Heavy (FP)"
+        ],
+        "traits": [
+          "Auto"
+        ]
+      },
+      {
+        "name": "Sentinel arc-lancer",
+        "R": 30,
+        "FP": 2,
+        "RS": 6,
+        "AP": 3,
+        "D": 2,
+        "specialRules": [
+          "Bypass (6+)",
+          "Skyfire"
+        ],
+        "traits": [
+          "Arc"
+        ]
+      },
+      {
+        "name": "Hearth-fire spitter",
+        "R": "Template",
+        "FP": 1,
+        "RS": 5,
+        "AP": 4,
+        "D": 1,
+        "specialRules": [
+          "Template",
+          "Aflame (1)"
+        ],
+        "traits": [
+          "Flame"
+        ]
+      }
     ],
     "melee": [
-      { "name": "Heirloom glaive", "IM": "I", "AM": "A", "SM": "+2", "AP": 2, "D": 2, "specialRules": ["Reaping Blow (1)"], "traits": ["Power"] },
-      { "name": "Heirloom lance", "IM": "-1", "AM": "A", "SM": "+2", "AP": 2, "D": 3, "specialRules": ["Impact (S)"], "traits": ["Power"] }
+      {
+        "name": "Heirloom glaive",
+        "IM": "I",
+        "AM": "A",
+        "SM": "+2",
+        "AP": 2,
+        "D": 2,
+        "specialRules": [
+          "Reaping Blow (1)",
+          "Duellist's Edge (1)"
+        ],
+        "traits": [
+          "Power"
+        ]
+      },
+      {
+        "name": "Heirloom lance",
+        "IM": "-1",
+        "AM": "A",
+        "SM": "+2",
+        "AP": 2,
+        "D": 3,
+        "specialRules": [
+          "Impact (S)",
+          "Shock (Stunned)"
+        ],
+        "traits": [
+          "Power"
+        ]
+      },
+      {
+        "name": "Ironbark flail",
+        "IM": "I",
+        "AM": "A",
+        "SM": "+1",
+        "AP": 3,
+        "D": 2,
+        "specialRules": [
+          "Critical Hit (6+)",
+          "Impact (SM)"
+        ],
+        "traits": [
+          "Chain"
+        ]
+      }
     ]
   },
   "wargear": [
-    { "name": "Baronial heraldry", "text": "Legacy house rule. A hundred years of victories painted across the faceplate and shoulder carapace, each one a promise to the Household. The Knight fights with the whole court watching and gains +1 Weapon Skill and +1 Ballistic Skill." },
-    { "name": "Sacristan's reliquary", "text": "Legacy house rule. A locked casket of sacred oils, coolant-psalters and the ashes of former pilots, kept by a Sacristan who rides in the lee of the war machine. The Knight gains +1 Hull Point (or +1 Wound on an Armiger)." }
+    {
+      "name": "Baronial heraldry",
+      "text": "Legacy house rule. A hundred years of victories painted across the faceplate and shoulder carapace, each one a promise to the Household. The Knight fights with the whole court watching and gains +1 Weapon Skill and +1 Ballistic Skill."
+    },
+    {
+      "name": "Sacristan's reliquary",
+      "text": "Legacy house rule. A locked casket of sacred oils, coolant-psalters and the ashes of former pilots, kept by a Sacristan who rides in the lee of the war machine. The Knight gains +1 Hull Point (or +1 Wound on an Armiger)."
+    },
+    {
+      "name": "Heraldic Warhorn",
+      "text": "Legacy house rule. A hunting horn of silvered brass the length of a man, sounded from a Knight's shoulder to send the Household's levies forward."
+    },
+    {
+      "name": "Ablative Mantle",
+      "text": "Legacy house rule. Layered ceramite shingles hung over the carapace, built to burn away in place of the frame beneath."
+    },
+    {
+      "name": "Gunnery Cantor",
+      "text": "Legacy house rule. A hooded cogitator-savant who chants firing solutions into the Knight's ear."
+    },
+    {
+      "name": "Oathmarker Beacon",
+      "text": "Legacy house rule. A standard-staff driven into the earth to mark ground the Household has sworn not to give up."
+    },
+    {
+      "name": "Honour-scourge",
+      "text": "Legacy house rule. A braided lash carried by the sergeant, for use on laggards and on those who flinch."
+    },
+    {
+      "name": "Barony Signal Rockets",
+      "text": "Legacy house rule. A bandolier of coloured flares that tells the great engines where the Baron wants them to look."
+    },
+    {
+      "name": "Furrow-plough",
+      "text": "Legacy house rule. A broad blade slung beneath the prow to clear hedgerows, wreckage and, if need be, men."
+    }
   ],
   "options": [
-    { "units": ["armiger-warglaive"],
-      "option": { "id": "qf-heirloom-glaive", "kind": "one", "model": "Armiger Warglaive", "replaces": ["Reaper chainblade"],
-        "text": "The Armiger Warglaive may exchange its reaper chainblade for", "choices": [ { "name": "Heirloom glaive", "points": 10 } ] } },
-    { "units": ["armiger-helverin"],
-      "option": { "id": "qf-armiger-longbarrel", "kind": "one", "model": "Armiger Helverin", "replaces": ["Phaeton autocannon"],
-        "text": "The Armiger Helverin may exchange its Phaeton autocannon for", "choices": [ { "name": "Armiger longbarrel", "points": 10 } ] } },
-    { "units": ["knight-questoris"],
-      "option": { "id": "qf-hunter-killer-salvo", "kind": "upgrade", "model": "Questoris Knight",
-        "text": "The Knight may carry a salvo of hunter-killer rockets", "choices": [ { "name": "Baron's hunter-killer salvo", "points": 25 } ] } },
-    { "units": ["cerastus-knight-castigator"],
-      "option": { "id": "qf-castigator-flare", "kind": "one", "model": "Knight Castigator", "replaces": ["Ion Shield"],
-        "text": "The Castigator may swap its ion shield for", "choices": [ { "name": "Ionic Flare Shield", "points": 10 } ] } },
-    { "units": ["veletaris-vanguard-section"],
-      "option": { "id": "qf-vanguard-volkite", "kind": "perModel", "model": "Veletarii", "replaces": ["Heavy flamer"], "max": 3,
-        "text": "Up to three Veletarii may exchange their heavy flamer for", "choices": [ { "name": "Volkite charger", "points": 2 } ] } },
-    { "match": { "unitType": "Knight" },
-      "option": { "id": "qf-baronial-heraldry", "kind": "upgrade", "model": null,
-        "text": "The Knight may bear its Household's full heraldry", "choices": [ { "name": "Baronial heraldry", "points": 30 } ] } },
-    { "match": { "unitType": "Knight" },
-      "option": { "id": "qf-reliquary-knight", "kind": "upgrade", "model": null,
-        "text": "The Knight may be attended by a Sacristan", "choices": [ { "name": "Sacristan's reliquary", "points": 25 } ] } },
-    { "units": ["armiger-helverin", "armiger-warglaive", "armiger-moirax"],
-      "option": { "id": "qf-reliquary-armiger", "kind": "upgrade", "model": null,
-        "text": "The Armiger may be attended by a Sacristan", "choices": [ { "name": "Sacristan's reliquary", "points": 15 } ] } }
+    {
+      "units": [
+        "armiger-warglaive"
+      ],
+      "option": {
+        "id": "qf-heirloom-glaive",
+        "kind": "one",
+        "model": "Armiger Warglaive",
+        "replaces": [
+          "Reaper chainblade"
+        ],
+        "text": "The Armiger Warglaive may exchange its reaper chainblade for",
+        "choices": [
+          {
+            "name": "Heirloom glaive",
+            "points": 10
+          },
+          {
+            "name": "Ironbark flail",
+            "points": 12
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "armiger-helverin"
+      ],
+      "option": {
+        "id": "qf-armiger-longbarrel",
+        "kind": "one",
+        "model": "Armiger Helverin",
+        "replaces": [
+          "Phaeton autocannon"
+        ],
+        "text": "The Armiger Helverin may exchange its Phaeton autocannon for",
+        "choices": [
+          {
+            "name": "Armiger longbarrel",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "knight-questoris"
+      ],
+      "option": {
+        "id": "qf-hunter-killer-salvo",
+        "kind": "upgrade",
+        "model": "Questoris Knight",
+        "text": "The Knight may carry a salvo of hunter-killer rockets",
+        "choices": [
+          {
+            "name": "Baron's hunter-killer salvo",
+            "points": 25
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "cerastus-knight-castigator"
+      ],
+      "option": {
+        "id": "qf-castigator-flare",
+        "kind": "one",
+        "model": "Knight Castigator",
+        "replaces": [
+          "Ion Shield"
+        ],
+        "text": "The Castigator may swap its ion shield for",
+        "choices": [
+          {
+            "name": "Ionic Flare Shield",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "veletaris-vanguard-section"
+      ],
+      "option": {
+        "id": "qf-vanguard-volkite",
+        "kind": "perModel",
+        "model": "Veletarii",
+        "replaces": [
+          "Heavy flamer"
+        ],
+        "max": 3,
+        "text": "Up to three Veletarii may exchange their heavy flamer for",
+        "choices": [
+          {
+            "name": "Volkite charger",
+            "points": 2
+          },
+          {
+            "name": "Hearth-fire spitter",
+            "points": 4
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "unitType": "Knight"
+      },
+      "option": {
+        "id": "qf-baronial-heraldry",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The Knight may bear its Household's full heraldry",
+        "choices": [
+          {
+            "name": "Baronial heraldry",
+            "points": 30
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "unitType": "Knight"
+      },
+      "option": {
+        "id": "qf-reliquary-knight",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The Knight may be attended by a Sacristan",
+        "choices": [
+          {
+            "name": "Sacristan's reliquary",
+            "points": 25
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "armiger-helverin",
+        "armiger-warglaive",
+        "armiger-moirax"
+      ],
+      "option": {
+        "id": "qf-reliquary-armiger",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The Armiger may be attended by a Sacristan",
+        "choices": [
+          {
+            "name": "Sacristan's reliquary",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "unitType": "Knight"
+      },
+      "option": {
+        "id": "qf-knight-fittings",
+        "kind": "any",
+        "text": "The Knight may be fitted with household fittings (up to two)",
+        "choices": [
+          {
+            "name": "Heraldic Warhorn",
+            "points": 15
+          },
+          {
+            "name": "Ablative Mantle",
+            "points": 20
+          },
+          {
+            "name": "Gunnery Cantor",
+            "points": 20
+          },
+          {
+            "name": "Oathmarker Beacon",
+            "points": 10
+          }
+        ],
+        "model": null,
+        "max": {
+          "fixed": 2
+        }
+      }
+    },
+    {
+      "units": [
+        "armiger-helverin",
+        "armiger-warglaive",
+        "armiger-moirax"
+      ],
+      "option": {
+        "id": "qf-armiger-fittings",
+        "kind": "any",
+        "text": "The Armiger may be fitted with household fittings",
+        "choices": [
+          {
+            "name": "Ablative Mantle",
+            "points": 10
+          },
+          {
+            "name": "Gunnery Cantor",
+            "points": 10
+          },
+          {
+            "name": "Oathmarker Beacon",
+            "points": 10
+          }
+        ],
+        "model": null,
+        "max": {
+          "fixed": 1
+        }
+      }
+    },
+    {
+      "units": [
+        "infantry-troop",
+        "levy-troop",
+        "grenadier-troop",
+        "lasrifle-section",
+        "veletaris-storm-section",
+        "veletaris-vanguard-section",
+        "cavalry-troop",
+        "reconnaissance-troop"
+      ],
+      "option": {
+        "id": "qf-sergeant-scourge",
+        "kind": "upgrade",
+        "text": "The Sergeant may carry an Honour-scourge",
+        "choices": [
+          {
+            "name": "Honour-scourge",
+            "points": 10
+          }
+        ],
+        "modelType": "Sergeant"
+      }
+    },
+    {
+      "units": [
+        "infantry-troop",
+        "levy-troop",
+        "grenadier-troop",
+        "lasrifle-section",
+        "veletaris-storm-section",
+        "veletaris-vanguard-section",
+        "cavalry-troop",
+        "reconnaissance-troop"
+      ],
+      "option": {
+        "id": "qf-sergeant-rockets",
+        "kind": "upgrade",
+        "text": "The Sergeant may carry signal rockets",
+        "choices": [
+          {
+            "name": "Barony Signal Rockets",
+            "points": 5
+          }
+        ],
+        "modelType": "Sergeant"
+      }
+    },
+    {
+      "units": [
+        "dracosan-armoured-transport",
+        "militia-gorgon-transporter"
+      ],
+      "option": {
+        "id": "qf-transport-plough",
+        "kind": "upgrade",
+        "text": "The transport may mount a furrow-plough",
+        "choices": [
+          {
+            "name": "Furrow-plough",
+            "points": 10
+          }
+        ],
+        "model": null
+      }
+    },
+    {
+      "units": [
+        "hermes-light-sentinel-squadron"
+      ],
+      "option": {
+        "id": "qf-hermes-lancer",
+        "kind": "perModel",
+        "text": "Up to two Hermes Sentinels may exchange their multi-laser for",
+        "choices": [
+          {
+            "name": "Sentinel arc-lancer",
+            "points": 10
+          }
+        ],
+        "model": "Hermes Light Sentinel",
+        "replaces": [
+          "Multi-laser"
+        ],
+        "max": 2
+      }
+    }
   ],
   "modifiers": [
-    { "units": ["armiger-helverin", "armiger-warglaive", "armiger-moirax"], "text": "Light frames: +2 M, -1 W.", "stats": { "M": "+2", "W": "-1" } },
-    { "units": ["cerastus-knight-castigator", "cerastus-knight-acheron", "cerastus-knight-lancer", "cerastus-knight-atrapos"], "text": "Cerastus charge-frames: +2 M, -1 REAR.", "stats": { "M": "+2", "REAR": "-1" } },
-    { "units": ["acastus-knight-porphyrion", "acastus-knight-asterius"], "text": "Acastus bastions: -2 M, +1 FRONT.", "stats": { "M": "-2", "FRONT": "+1" } },
-    { "units": ["knight-questoris"], "text": "Gunnery doctrine: +1 BS, -1 I.", "stats": { "BS": "+1", "I": "-1" } },
-    { "match": { "trait": "Imperialis Militia" }, "text": "Pressed levies who know the Household's justice: +1 LD, -1 CL.", "stats": { "LD": "+1", "CL": "-1" } },
-    { "match": { "unitType": "Knight" }, "item": "Baronial heraldry", "scope": "unit", "text": "Baronial heraldry: +1 WS, +1 BS.", "stats": { "WS": "+1", "BS": "+1" } },
-    { "match": { "unitType": "Knight" }, "item": "Sacristan's reliquary", "scope": "unit", "text": "Sacristan's reliquary: +1 HP.", "stats": { "HP": "+1" } },
-    { "units": ["armiger-helverin", "armiger-warglaive", "armiger-moirax"], "item": "Sacristan's reliquary", "scope": "unit", "text": "Sacristan's reliquary: +1 W.", "stats": { "W": "+1" } }
+    {
+      "units": [
+        "armiger-helverin",
+        "armiger-warglaive",
+        "armiger-moirax"
+      ],
+      "text": "Light frames: +2 M, -1 W.",
+      "stats": {
+        "M": "+2",
+        "W": "-1"
+      }
+    },
+    {
+      "units": [
+        "cerastus-knight-castigator",
+        "cerastus-knight-acheron",
+        "cerastus-knight-lancer",
+        "cerastus-knight-atrapos"
+      ],
+      "text": "Cerastus charge-frames: +2 M, -1 REAR.",
+      "stats": {
+        "M": "+2",
+        "REAR": "-1"
+      }
+    },
+    {
+      "units": [
+        "acastus-knight-porphyrion",
+        "acastus-knight-asterius"
+      ],
+      "text": "Acastus bastions: -2 M, +1 FRONT.",
+      "stats": {
+        "M": "-2",
+        "FRONT": "+1"
+      }
+    },
+    {
+      "units": [
+        "knight-questoris"
+      ],
+      "text": "Gunnery doctrine: +1 BS, -1 I.",
+      "stats": {
+        "BS": "+1",
+        "I": "-1"
+      }
+    },
+    {
+      "match": {
+        "trait": "Imperialis Militia"
+      },
+      "text": "Pressed levies who know the Household's justice: +1 LD, -1 CL.",
+      "stats": {
+        "LD": "+1",
+        "CL": "-1"
+      }
+    },
+    {
+      "match": {
+        "unitType": "Knight"
+      },
+      "item": "Baronial heraldry",
+      "scope": "unit",
+      "text": "Baronial heraldry: +1 WS, +1 BS.",
+      "stats": {
+        "WS": "+1",
+        "BS": "+1"
+      }
+    },
+    {
+      "match": {
+        "unitType": "Knight"
+      },
+      "item": "Sacristan's reliquary",
+      "scope": "unit",
+      "text": "Sacristan's reliquary: +1 HP.",
+      "stats": {
+        "HP": "+1"
+      }
+    },
+    {
+      "units": [
+        "armiger-helverin",
+        "armiger-warglaive",
+        "armiger-moirax"
+      ],
+      "item": "Sacristan's reliquary",
+      "scope": "unit",
+      "text": "Sacristan's reliquary: +1 W.",
+      "stats": {
+        "W": "+1"
+      }
+    },
+    {
+      "match": {
+        "unitType": "Knight"
+      },
+      "item": "Heraldic Warhorn",
+      "text": "Heraldic Warhorn: Herald's Summons.",
+      "addRules": [
+        "Herald's Summons"
+      ]
+    },
+    {
+      "match": {
+        "unitType": "Knight"
+      },
+      "item": "Ablative Mantle",
+      "text": "Ablative Mantle: Ablative Sacrifice.",
+      "addRules": [
+        "Ablative Sacrifice"
+      ]
+    },
+    {
+      "match": {
+        "unitType": "Knight"
+      },
+      "item": "Gunnery Cantor",
+      "text": "Gunnery Cantor: Cantor's Lock.",
+      "addRules": [
+        "Cantor's Lock"
+      ]
+    },
+    {
+      "units": [
+        "knight-questoris",
+        "questoris-knight-magaera",
+        "questoris-knight-styrix",
+        "cerastus-knight-castigator",
+        "cerastus-knight-acheron",
+        "cerastus-knight-lancer",
+        "cerastus-knight-atrapos",
+        "acastus-knight-porphyrion",
+        "acastus-knight-asterius",
+        "armiger-helverin",
+        "armiger-warglaive",
+        "armiger-moirax"
+      ],
+      "item": "Oathmarker Beacon",
+      "text": "Oathmarker Beacon: Oathkeeper.",
+      "addRules": [
+        "Oathkeeper"
+      ]
+    },
+    {
+      "units": [
+        "infantry-troop",
+        "levy-troop",
+        "grenadier-troop",
+        "lasrifle-section",
+        "veletaris-storm-section",
+        "veletaris-vanguard-section",
+        "cavalry-troop",
+        "reconnaissance-troop"
+      ],
+      "item": "Honour-scourge",
+      "text": "Honour-scourge: Drill Discipline.",
+      "addRules": [
+        "Drill Discipline"
+      ]
+    },
+    {
+      "units": [
+        "infantry-troop",
+        "levy-troop",
+        "grenadier-troop",
+        "lasrifle-section",
+        "veletaris-storm-section",
+        "veletaris-vanguard-section",
+        "cavalry-troop",
+        "reconnaissance-troop"
+      ],
+      "item": "Barony Signal Rockets",
+      "text": "Barony Signal Rockets: Signal Flare.",
+      "addRules": [
+        "Signal Flare"
+      ]
+    },
+    {
+      "units": [
+        "dracosan-armoured-transport",
+        "militia-gorgon-transporter"
+      ],
+      "item": "Furrow-plough",
+      "text": "Furrow-plough: Furrow-Plough.",
+      "stats": {
+        "M": "-1"
+      },
+      "addRules": [
+        "Furrow-Plough"
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "name": "Scions Ahead of the Baron",
+      "text": "Legacy house rule (The Armiger Ward). Before the first battle turn, after both sides have deployed, a model with this rule may make a free move of up to 6\". It can't end that move within 12\" of an enemy model."
+    },
+    {
+      "name": "Declared Challenge",
+      "text": "Legacy house rule (The Lists of Honour). A model with this rule adds 1 to its Charge roll against an enemy Knight, Titan or Walker. If it can charge one of those, it must charge one rather than any other target."
+    },
+    {
+      "name": "Ledger of Vows",
+      "text": "Legacy house rule (The Sacristan's Vigil). Once per battle, a model with this rule may add 1 to one Auto-Repair roll."
+    },
+    {
+      "name": "Sworn to the Baron",
+      "text": "Legacy house rule (Muster of the Free Levy). A unit with this rule adds 1 to its Cool for Morale and Cool Checks while within 12\" of a friendly Knight or Armiger."
+    },
+    {
+      "name": "Herald's Summons",
+      "text": "Legacy house rule. Once per battle, in its controlling player's Movement phase, the bearer may sound the horn. Until the end of that turn every friendly unit within 12\" adds 2\" to its Rush distance."
+    },
+    {
+      "name": "Ablative Sacrifice",
+      "text": "Legacy house rule. The first Hull Point (or Wound, on an Armiger) the bearer would lose to a Shooting Attack each battle is ignored."
+    },
+    {
+      "name": "Cantor's Lock",
+      "text": "Legacy house rule. Once in each of its controlling player's Shooting phases, one ranged weapon of the bearer adds 1 to its Hit Tests."
+    },
+    {
+      "name": "Oathkeeper",
+      "text": "Legacy house rule. While within 6\" of an objective, the bearer counts as having Line (1). It may not Rush in a turn in which it starts within 6\" of an objective it wishes to keep."
+    },
+    {
+      "name": "Drill Discipline",
+      "text": "Legacy house rule. While the Sergeant lives, the unit adds 1 to its Cool for Morale Checks. A unit that nevertheless fails a Morale Check removes one model other than the Sergeant as a casualty."
+    },
+    {
+      "name": "Signal Flare",
+      "text": "Legacy house rule. Once per battle, in its controlling player's Shooting phase, one friendly Knight or Armiger within 24\" of the bearer adds 1 to the Hit Tests of one Shooting Attack against a target the bearer's unit can see."
+    },
+    {
+      "name": "Furrow-Plough",
+      "text": "Legacy house rule. The vehicle ignores Dangerous Terrain Tests. It loses 1 Movement."
+    }
+  ],
+  "armyRules": [
+    {
+      "name": "Liege-Sworn Retinue",
+      "text": "Legacy house rule. The Household's levies fight better under the Baron's eye and worse without it. A Militia or Auxilia unit within 12\" of a friendly Knight or Armiger adds 1 to its Cool for Morale Checks. When a friendly Knight is destroyed, every such unit within 12\" of it must make a Cool Check or gain the Suppressed Status.",
+      "match": {
+        "trait": "Imperialis Militia"
+      }
+    },
+    {
+      "name": "Heraldic Pride",
+      "text": "Legacy house rule. A Knight cannot let an insult to its colours pass. A Knight with this rule gains +1 Weapon Skill. If an enemy Knight, Titan or Walker is within the Knight's charge reach and visible, the Knight must declare a Charge against it or make a Cool Check; on a failure it gains the Suppressed Status.",
+      "match": {
+        "unitType": "Knight"
+      },
+      "stats": {
+        "WS": "+1"
+      }
+    },
+    {
+      "name": "Ward of the Elders",
+      "text": "Legacy house rule. Armigers are the Household's heirs and the Knights guard them jealously. An Armiger within 6\" of a friendly Knight ignores the Pinned and Suppressed Statuses. If no friendly Knight is left on the battlefield, the Armiger is cut adrift and loses 2 Leadership and 2 Cool.",
+      "units": [
+        "armiger-helverin",
+        "armiger-warglaive",
+        "armiger-moirax"
+      ],
+      "stats": {
+        "LD": "-2",
+        "CL": "-2"
+      },
+      "condition": "when no friendly Knight is on the battlefield"
+    }
   ],
   "rites": [
     {
@@ -118,7 +801,7 @@
       "name": "The Lists of Honour",
       "flavor": "A Knight who will not name his challenge is only a tank with a coat of arms.",
       "benefits": [
-        "Every Knight gains Fear (1), +1 Weapon Skill and Declared Challenge: it may re-roll a failed Charge roll against an enemy Knight, Titan or Walker."
+        "Every Knight gains Fear (1), +1 Weapon Skill and Declared Challenge: it adds 1 to its Charge rolls against an enemy Knight, Titan or Walker."
       ],
       "limitations": [
         "At least one Knight is required.",
@@ -172,7 +855,7 @@
       "name": "The Sacristan's Vigil",
       "flavor": "Each Knight is carried to war on a ledger of vows, and the ledger is long.",
       "benefits": [
-        "Every Knight gains +2 Hull Points and Ledger of Vows: once per battle it may re-roll a failed Auto-Repair roll."
+        "Every Knight gains +2 Hull Points and Ledger of Vows: once per battle it may add 1 to one Auto-Repair roll."
       ],
       "limitations": [
         "Every Knight loses 2 Movement.",
@@ -207,7 +890,7 @@
       "flavor": "The Baron calls his tithe, and every town on his world sends its sons.",
       "benefits": [
         "Grenadier Troops may fill Troops slots; Grenadier and Levy Troops gain Line (1).",
-        "Militia gain Sworn to the Baron: a failed Morale or Cool Check within 12\" of a friendly Knight or Armiger may be re-rolled."
+        "Militia gain Sworn to the Baron: Morale and Cool Checks made within 12\" of a friendly Knight or Armiger gain +1 Cool."
       ],
       "limitations": [
         "At least two Infantry Troops are required.",
@@ -266,24 +949,6 @@
           ]
         }
       ]
-    }
-  ],
-  "rules": [
-    {
-      "name": "Scions Ahead of the Baron",
-      "text": "Legacy house rule (The Armiger Ward). Before the first battle turn, after both sides have deployed, a model with this rule may make a free move of up to 6\". It can't end that move within 12\" of an enemy model."
-    },
-    {
-      "name": "Declared Challenge",
-      "text": "Legacy house rule (The Lists of Honour). A model with this rule may re-roll a failed Charge roll made against an enemy Knight, Titan or Walker. If it can charge one of those, it must charge one rather than any other target."
-    },
-    {
-      "name": "Ledger of Vows",
-      "text": "Legacy house rule (The Sacristan's Vigil). Once per battle, a model with this rule may re-roll one failed Auto-Repair roll."
-    },
-    {
-      "name": "Sworn to the Baron",
-      "text": "Legacy house rule (Muster of the Free Levy). A unit with this rule that fails a Morale or Cool Check while within 12\" of a friendly Knight or Armiger may re-roll it."
     }
   ]
 }

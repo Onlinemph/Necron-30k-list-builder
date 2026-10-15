@@ -1,809 +1,1213 @@
 {
- "weapons": {
-  "ranged": [
-   {
-    "name": "Plasma jezail",
-    "R": 24,
-    "FP": 1,
-    "RS": 6,
-    "AP": 4,
-    "D": 1,
-    "specialRules": [
-     "Breaching (6+)"
+  "weapons": {
+    "ranged": [
+      {
+        "name": "Plasma jezail",
+        "R": 24,
+        "FP": 1,
+        "RS": 6,
+        "AP": 4,
+        "D": 1,
+        "specialRules": [
+          "Breaching (6+)",
+          "Precision (6+)"
+        ],
+        "traits": [
+          "Plasma"
+        ]
+      },
+      {
+        "name": "Pulse-lightning gun",
+        "R": 18,
+        "FP": 3,
+        "RS": 5,
+        "AP": 5,
+        "D": 1,
+        "specialRules": [
+          "Suppressive (1)",
+          "Stun (1)"
+        ],
+        "traits": [
+          "Assault",
+          "Arc"
+        ]
+      },
+      {
+        "name": "Siege-bolt cannon",
+        "R": 24,
+        "FP": 5,
+        "RS": 5,
+        "AP": 4,
+        "D": 1,
+        "specialRules": [
+          "Breaching (6+)",
+          "Heavy (FP)"
+        ],
+        "traits": [
+          "Bolt"
+        ]
+      },
+      {
+        "name": "Reductor-ray caster",
+        "R": 18,
+        "FP": 1,
+        "RS": 6,
+        "AP": 3,
+        "D": 1,
+        "specialRules": [
+          "Phage (T)",
+          "Precision (5+)"
+        ],
+        "traits": [
+          "Arc"
+        ]
+      },
+      {
+        "name": "Chem-lobber",
+        "R": "Template",
+        "FP": 1,
+        "RS": 4,
+        "AP": 5,
+        "D": 1,
+        "specialRules": [
+          "Template",
+          "Poisoned (4+)",
+          "Aflame (1)"
+        ],
+        "traits": [
+          "Flame"
+        ]
+      }
     ],
-    "traits": [
-     "Plasma"
+    "melee": [
+      {
+        "name": "Omnissian axe",
+        "IM": -1,
+        "AM": "A",
+        "SM": "+2",
+        "AP": 3,
+        "D": 1,
+        "specialRules": [
+          "Breaching (5+)",
+          "Bypass (6+)"
+        ],
+        "traits": [
+          "Power"
+        ]
+      },
+      {
+        "name": "Power-ram piston-fist",
+        "IM": -2,
+        "AM": "A",
+        "SM": "+3",
+        "AP": 2,
+        "D": 2,
+        "specialRules": [
+          "Armourbane"
+        ],
+        "traits": [
+          "Power"
+        ]
+      },
+      {
+        "name": "Cult shock-halberd",
+        "IM": "I",
+        "AM": "A",
+        "SM": "+2",
+        "AP": 3,
+        "D": 1,
+        "specialRules": [
+          "Shock (Suppressed)",
+          "Reaping Blow (1)"
+        ],
+        "traits": [
+          "Power",
+          "Arc"
+        ]
+      },
+      {
+        "name": "Siege-grinder lance",
+        "IM": -1,
+        "AM": "A",
+        "SM": "+3",
+        "AP": 3,
+        "D": 2,
+        "specialRules": [
+          "Armourbane",
+          "Impact (S)"
+        ],
+        "traits": [
+          "Power"
+        ]
+      }
     ]
-   },
-   {
-    "name": "Pulse-lightning gun",
-    "R": 18,
-    "FP": 3,
-    "RS": 5,
-    "AP": 5,
-    "D": 1,
-    "specialRules": [
-     "Suppressive (1)"
-    ],
-    "traits": [
-     "Assault",
-     "Arc"
-    ]
-   },
-   {
-    "name": "Siege-bolt cannon",
-    "R": 24,
-    "FP": 5,
-    "RS": 5,
-    "AP": 4,
-    "D": 1,
-    "specialRules": [
-     "Breaching (6+)"
-    ],
-    "traits": [
-     "Bolt"
-    ]
-   }
-  ],
-  "melee": [
-   {
-    "name": "Omnissian axe",
-    "IM": -1,
-    "AM": "A",
-    "SM": "+2",
-    "AP": 3,
-    "D": 1,
-    "specialRules": [
-     "Breaching (5+)"
-    ],
-    "traits": [
-     "Power"
-    ]
-   },
-   {
-    "name": "Power-ram piston-fist",
-    "IM": -2,
-    "AM": "A",
-    "SM": "+3",
-    "AP": 2,
-    "D": 2,
-    "specialRules": [],
-    "traits": [
-     "Power"
-    ]
-   },
-   {
-    "name": "Cult shock-halberd",
-    "IM": "I",
-    "AM": "A",
-    "SM": "+2",
-    "AP": 3,
-    "D": 1,
-    "specialRules": [
-     "Shock (Suppressed)"
-    ],
-    "traits": [
-     "Power",
-     "Arc"
-    ]
-   }
-  ]
- },
- "wargear": [
-  {
-   "name": "Ferrite plate",
-   "text": "Legacy house rule. Layered ferro-ceramic slabs grafted over a magos's vitals. The model's Save becomes 2+ if it was worse."
   },
-  {
-   "name": "Inversion field",
-   "text": "Legacy house rule. A salvaged dome-projector that folds incoming energy back on itself. The model's Invulnerable Save becomes 4+ if it was worse."
-  },
-  {
-   "name": "Servo-limb augmentation",
-   "text": "Legacy house rule. Extra mechadendrites with their own sub-routines for close work. The model gains +1 Attack."
-  },
-  {
-   "name": "Targeting coda",
-   "text": "Legacy house rule. A cortex-uploaded firing script from the Taghmata's best gunnery-priests. Every model in the unit gains +1 Ballistic Skill."
-  },
-  {
-   "name": "Auto-repair cradle",
-   "text": "Legacy house rule. A sling of servo-arms and spare plate carried inside the hull. The vehicle gains +1 Hull Point."
-  }
- ],
- "options": [
-  {
-   "units": [
-    "tech-priest",
-    "magos",
-    "arcuitor-magisterium"
-   ],
-   "option": {
-    "id": "mech-magos-arms",
-    "kind": "upgrade",
-    "model": null,
-    "text": "May carry a signature weapon",
-    "choices": [
-     {
-      "name": "Plasma jezail",
-      "points": 10
-     },
-     {
-      "name": "Omnissian axe",
-      "points": 10
-     }
-    ]
-   }
-  },
-  {
-   "units": [
-    "tech-priest",
-    "myrmidon-secutor-host",
-    "myrmidon-destructor-host"
-   ],
-   "option": {
-    "id": "mech-ferrite",
-    "kind": "upgrade",
-    "model": [
-     "Tech-Priest",
-     "Secutor Lord",
-     "Destructor Lord"
-    ],
-    "text": "May be fitted with Ferrite plate",
-    "choices": [
-     {
+  "wargear": [
+    {
       "name": "Ferrite plate",
-      "points": 10
-     }
-    ]
-   }
-  },
-  {
-   "units": [
-    "tech-priest",
-    "magos",
-    "arcuitor-magisterium",
-    "magos-on-abeyant"
-   ],
-   "option": {
-    "id": "mech-inversion",
-    "kind": "upgrade",
-    "model": null,
-    "text": "May carry an Inversion field",
-    "choices": [
-     {
+      "text": "Legacy house rule. Layered ferro-ceramic slabs grafted over a magos's vitals. The model's Save becomes 2+ if it was worse."
+    },
+    {
       "name": "Inversion field",
-      "points": 15
-     }
-    ]
-   }
-  },
-  {
-   "units": [
-    "tech-priest",
-    "magos",
-    "myrmidon-secutor-host",
-    "myrmidon-destructor-host"
-   ],
-   "option": {
-    "id": "mech-servo-limbs",
-    "kind": "upgrade",
-    "model": [
-     "Tech-Priest",
-     "Magos",
-     "Secutor Lord",
-     "Destructor Lord"
-    ],
-    "text": "May be fitted with Servo-limb augmentation",
-    "choices": [
-     {
+      "text": "Legacy house rule. A salvaged dome-projector that folds incoming energy back on itself. The model's Invulnerable Save becomes 4+ if it was worse."
+    },
+    {
       "name": "Servo-limb augmentation",
-      "points": 8
-     }
-    ]
-   }
-  },
-  {
-   "units": [
-    "thallax-cohort"
-   ],
-   "option": {
-    "id": "mech-pulse-gun",
-    "kind": "perModel",
-    "model": "Thallax",
-    "replaces": [
-     "Lightning gun"
-    ],
-    "text": "Any Thallax may exchange their lightning gun for",
-    "choices": [
-     {
-      "name": "Pulse-lightning gun",
-      "points": 8
-     }
-    ]
-   }
-  },
-  {
-   "units": [
-    "castellax-battle-maniple",
-    "castellax-destructor-maniple"
-   ],
-   "option": {
-    "id": "mech-siege-bolt",
-    "kind": "perModel",
-    "model": "Castellax",
-    "replaces": [
-     "Mauler bolt cannon"
-    ],
-    "text": "Any Castellax may exchange their mauler bolt cannon for",
-    "choices": [
-     {
-      "name": "Siege-bolt cannon",
-      "points": 8
-     }
-    ]
-   }
-  },
-  {
-   "units": [
-    "castellax-destructor-maniple"
-   ],
-   "option": {
-    "id": "mech-piston-fist",
-    "kind": "perModel",
-    "model": "Castellax",
-    "replaces": [
-     "Shock chargers"
-    ],
-    "text": "Any Castellax may exchange their shock chargers for",
-    "choices": [
-     {
-      "name": "Power-ram piston-fist",
-      "points": 12
-     }
-    ]
-   }
-  },
-  {
-   "units": [
-    "myrmidon-secutor-host"
-   ],
-   "option": {
-    "id": "mech-halberd",
-    "kind": "perModel",
-    "model": [
-     "Secutor",
-     "Secutor Lord"
-    ],
-    "replaces": [
-     "Power axe"
-    ],
-    "text": "Any Secutor may exchange their power axe for",
-    "choices": [
-     {
-      "name": "Cult shock-halberd",
-      "points": 5
-     }
-    ]
-   }
-  },
-  {
-   "units": [
-    "castellax-battle-maniple",
-    "castellax-destructor-maniple",
-    "castellax-infernus-maniple",
-    "domitar-battle-maniple",
-    "thanatar-siege-maniple",
-    "vorax-attack-maniple",
-    "vultarax-stratos-squadron",
-    "arlatax-battle-maniple"
-   ],
-   "option": {
-    "id": "mech-coda",
-    "kind": "upgrade",
-    "model": null,
-    "text": "The maniple may carry a Targeting coda",
-    "choices": [
-     {
+      "text": "Legacy house rule. Extra mechadendrites with their own sub-routines for close work. The model gains +1 Attack."
+    },
+    {
       "name": "Targeting coda",
-      "points": 20
-     }
-    ]
-   }
-  },
-  {
-   "units": [
-    "karacnos-assault-tank",
-    "krios-battle-tank",
-    "krios-venator",
-    "triaros-armoured-conveyor",
-    "mechanicum-termite",
-    "mechanicum-macrocarid-explorator"
-   ],
-   "option": {
-    "id": "mech-cradle",
-    "kind": "upgrade",
-    "model": null,
-    "text": "May carry an Auto-repair cradle",
-    "choices": [
-     {
+      "text": "Legacy house rule. A cortex-uploaded firing script from the Taghmata's best gunnery-priests. Every model in the unit gains +1 Ballistic Skill."
+    },
+    {
       "name": "Auto-repair cradle",
-      "points": 15
-     }
-    ]
-   }
-  }
- ],
- "modifiers": [
-  {
-   "units": [
-    "*"
-   ],
-   "item": "Ferrite plate",
-   "text": "Ferrite plate: 2+ Save.",
-   "stats": {
-    "SAV": "best:2+"
-   }
-  },
-  {
-   "units": [
-    "*"
-   ],
-   "item": "Inversion field",
-   "text": "Inversion field: 4+ Invulnerable Save.",
-   "stats": {
-    "INV": "best:4+"
-   }
-  },
-  {
-   "units": [
-    "*"
-   ],
-   "item": "Servo-limb augmentation",
-   "text": "Servo-limb augmentation: +1 A.",
-   "stats": {
-    "A": "+1"
-   }
-  },
-  {
-   "units": [
-    "*"
-   ],
-   "item": "Targeting coda",
-   "scope": "unit",
-   "text": "Targeting coda: +1 BS.",
-   "stats": {
-    "BS": "+1"
-   }
-  },
-  {
-   "units": [
-    "*"
-   ],
-   "item": "Auto-repair cradle",
-   "scope": "unit",
-   "text": "Auto-repair cradle: +1 HP.",
-   "stats": {
-    "HP": "+1"
-   }
-  },
-  {
-   "units": [
-    "tech-thrall-covenant",
-    "tech-thrall-defence-covenant"
-   ],
-   "text": "Lobotomised obedience: +1 LD, -1 I.",
-   "stats": {
-    "LD": "+1",
-    "I": "-1"
-   }
-  },
-  {
-   "units": [
-    "castellax-battle-maniple",
-    "castellax-destructor-maniple",
-    "castellax-infernus-maniple"
-   ],
-   "text": "Hardened gunnery logic: +1 BS, -1 I.",
-   "stats": {
-    "BS": "+1",
-    "I": "-1"
-   }
-  },
-  {
-   "units": [
-    "thallax-cohort"
-   ],
-   "text": "Terror-grade augmetics: +1 S, -1 M.",
-   "stats": {
-    "S": "+1",
-    "M": "-1"
-   }
-  },
-  {
-   "units": [
-    "myrmidon-secutor-host",
-    "myrmidon-destructor-host"
-   ],
-   "text": "Cult fervour: +1 A, -1 WP.",
-   "stats": {
-    "A": "+1",
-    "WP": "-1"
-   }
-  },
-  {
-   "units": [
-    "domitar-battle-maniple",
-    "arlatax-battle-maniple"
-   ],
-   "text": "Ponderous war-frames: +1 T, -1 M.",
-   "stats": {
-    "T": "+1",
-    "M": "-1"
-   }
-  },
-  {
-   "units": [
-    "vorax-attack-maniple",
-    "vultarax-stratos-squadron"
-   ],
-   "text": "Hunter-pattern drives: +1 M, -1 T.",
-   "stats": {
-    "M": "+1",
-    "T": "-1"
-   }
-  },
-  {
-   "units": [
-    "karacnos-assault-tank",
-    "krios-battle-tank",
-    "krios-venator"
-   ],
-   "text": "Ordo Reductor targeters: +1 BS, -1 Side armour.",
-   "stats": {
-    "BS": "+1",
-    "SIDE": "-1"
-   }
-  }
- ],
- "rules": [
-  {
-   "name": "Cold Calculus",
-   "text": "Legacy house rule (The Logic Maniples). The maniples share a firing solution. A unit with this rule adds 1 to its Ballistic Skill when it shoots at an enemy unit that another unit with Cold Calculus has already fired at in the same phase."
-  },
-  {
-   "name": "Subtractive Fire",
-   "text": "Legacy house rule (Ordo Reductor Siege Park). Walls and bunkers are only data waiting to be subtracted. Shooting Attacks made by a unit with this rule ignore the benefit of Shrouded (X) and of any cover or Fortification Save the target would otherwise gain."
-  },
-  {
-   "name": "Cult Fervour",
-   "text": "Legacy house rule (The Myrmidax Cult-Host). The cult has long since stopped fearing the flesh. A unit with this rule may re-roll failed Cool Checks, and once per battle, when it is reduced to half strength or less, it may add +1 to its Attacks until the end of the turn."
-  },
-  {
-   "name": "Vigil Protocol",
-   "text": "Legacy house rule (The Thallax Vigil). The Thallax take station around their master. After both sides have deployed and before the first battle turn, a unit with this rule may make a free move of up to 6\", ending no closer than 9\" to any enemy model. A friendly Magos, Archmagos or Tech-Priest within 3\" of it adds +1 to its Cool."
-  },
-  {
-   "name": "Endless Tithe",
-   "text": "Legacy house rule (The Thrall Press). The forge-world's billions replace what the war consumes. Once per battle, the first Covenant with this rule that is destroyed returns to play at the start of the owner's next turn from Reserves, at half its starting models (rounding up) and with Outflank."
-  }
- ],
- "rites": [
-  {
-   "name": "The Logic Maniples",
-   "flavor": "Cold arithmetic does not break, and does not ask why.",
-   "roles": [
-    {
-     "units": [
-      "castellax-battle-maniple",
-      "castellax-destructor-maniple"
-     ],
-     "role": "Troops"
-    }
-   ],
-   "modifiers": [
-    {
-     "units": [
-      "castellax-battle-maniple",
-      "castellax-destructor-maniple"
-     ],
-     "text": "The Logic Maniples: Line (1), Cold Calculus.",
-     "addRules": [
-      "Line (1)",
-      "Cold Calculus"
-     ]
+      "text": "Legacy house rule. A sling of servo-arms and spare plate carried inside the hull. The vehicle gains +1 Hull Point."
     },
     {
-     "units": [
-      "castellax-battle-maniple",
-      "castellax-destructor-maniple"
-     ],
-     "text": "Cold Calculus: +1 BS.",
-     "stats": {
-      "BS": "+1"
-     },
-     "condition": "when shooting at a unit another Cold Calculus unit has already fired at this phase"
-    }
-   ],
-   "require": [
-    {
-     "units": [
-      "castellax-battle-maniple",
-      "castellax-destructor-maniple",
-      "castellax-infernus-maniple"
-     ],
-     "min": 2,
-     "note": "Bring at least two Castellax Maniples."
+      "name": "Null-lattice cage",
+      "text": "Legacy house rule. A cogitated cage of ward-glyphs woven round the bearer's cortex. Gives the model Null Lattice."
     },
     {
-     "units": [
-      "magos",
-      "archmagos",
-      "magos-on-abeyant",
-      "archmagos-on-abeyant"
-     ],
-     "min": 1,
-     "note": "A Magos or Archmagos runs the maniples."
-    }
-   ],
-   "forbid": [
-    {
-     "units": [
-      "tech-thrall-covenant",
-      "tech-thrall-defence-covenant",
-      "myrmidon-secutor-host",
-      "myrmidon-destructor-host",
-      "ursarax-cohort"
-     ]
-    }
-   ],
-   "text": "Cold arithmetic does not break, and does not ask why.",
-   "benefits": [
-    "Castellax Battle and Destructor Maniples may fill Troops slots and gain Line (1).",
-    "They gain Cold Calculus: +1 Ballistic Skill against an enemy unit another Cold Calculus unit has already shot at that phase."
-   ],
-   "limitations": [
-    "A Magos or Archmagos and at least two Castellax Maniples are required.",
-    "No Tech-Thrall Covenants, Myrmidon Hosts or Ursarax Cohorts."
-   ]
-  },
-  {
-   "name": "Ordo Reductor Siege Park",
-   "flavor": "Wall, tower and bunker are only data waiting to be subtracted.",
-   "roles": [
-    {
-     "units": [
-      "karacnos-assault-tank",
-      "thanatar-siege-maniple"
-     ],
-     "role": "Troops"
-    }
-   ],
-   "modifiers": [
-    {
-     "units": [
-      "karacnos-assault-tank",
-      "krios-battle-tank",
-      "krios-venator",
-      "thanatar-siege-maniple",
-      "mechanicum-ordinatus-ulator",
-      "mechanicum-ordinatus-sagittar",
-      "mechanicum-ordinatus-aktaeus"
-     ],
-     "text": "Ordo Reductor Siege Park: Subtractive Fire.",
-     "addRules": [
-      "Subtractive Fire"
-     ]
-    }
-   ],
-   "require": [
-    {
-     "units": [
-      "karacnos-assault-tank",
-      "krios-venator",
-      "thanatar-siege-maniple"
-     ],
-     "min": 2,
-     "note": "Bring at least two siege units."
-    }
-   ],
-   "forbid": [
-    {
-     "match": {
-      "role": "Recon"
-     }
+      "name": "Doctrina uplink",
+      "text": "Legacy house rule. A mnemonic data-hub that stretches the commander's control over distant automata. Gives the model Wide-Band Command."
     },
     {
-     "match": {
-      "role": "Fast Attack"
-     }
+      "name": "Covenant cog-banner",
+      "text": "Legacy house rule. A cog-toothed banner on a servo-arm, signalling the Machine God's will. Gives the unit Rally the Covenant."
     },
     {
-     "units": [
-      "myrmidon-secutor-host",
-      "myrmidon-destructor-host",
-      "ursarax-cohort"
-     ]
-    }
-   ],
-   "text": "Wall, tower and bunker are only data waiting to be subtracted.",
-   "benefits": [
-    "Karacnos Assault Tanks and Thanatar Siege Maniples may fill Troops slots.",
-    "Karacnos, Krios, Krios Venator, Thanatar and Ordinatus units gain Subtractive Fire: their Shooting Attacks ignore the target's cover and Shrouded."
-   ],
-   "limitations": [
-    "At least two Karacnos, Krios Venator or Thanatar units are required.",
-    "No Recon, no Fast Attack, and no Myrmidon Hosts or Ursarax Cohorts.",
-    "Table-top: units with Subtractive Fire may not be held in Reserves."
-   ]
-  },
-  {
-   "name": "The Myrmidax Cult-Host",
-   "flavor": "The cult remembers flesh, and has decided it was a mistake worth repeating.",
-   "roles": [
-    {
-     "units": [
-      "myrmidon-secutor-host",
-      "myrmidon-destructor-host"
-     ],
-     "role": "Troops"
-    }
-   ],
-   "modifiers": [
-    {
-     "units": [
-      "myrmidon-secutor-host",
-      "myrmidon-destructor-host"
-     ],
-     "text": "The Myrmidax Cult-Host: Line (1), Feel No Pain (6+), Cult Fervour.",
-     "addRules": [
-      "Line (1)",
-      "Feel No Pain (6+)",
-      "Cult Fervour"
-     ]
-    }
-   ],
-   "require": [
-    {
-     "units": [
-      "myrmidon-secutor-host",
-      "myrmidon-destructor-host"
-     ],
-     "min": 2,
-     "note": "Bring at least two Myrmidon Hosts."
-    }
-   ],
-   "forbid": [
-    {
-     "match": {
-      "unitType": "Automata"
-     }
-    }
-   ],
-   "text": "The cult remembers flesh, and has decided it was a mistake worth repeating.",
-   "benefits": [
-    "Myrmidon Secutor and Destructor Hosts may fill Troops slots and gain Line (1) and Feel No Pain (6+).",
-    "They gain Cult Fervour: failed Cool Checks may be re-rolled, and once per battle a host at half strength or less gains +1 Attack for a turn."
-   ],
-   "limitations": [
-    "At least two Myrmidon Hosts are required.",
-    "No Automata units at all."
-   ]
-  },
-  {
-   "name": "The Thallax Vigil",
-   "flavor": "A magos with a dozen Thallax at her back has no need of an escort of friends.",
-   "roles": [
-    {
-     "units": [
-      "thallax-cohort"
-     ],
-     "role": "Troops"
-    }
-   ],
-   "modifiers": [
-    {
-     "units": [
-      "thallax-cohort"
-     ],
-     "text": "The Thallax Vigil: Line (1), Fear (1), Vigil Protocol.",
-     "addRules": [
-      "Line (1)",
-      "Fear (1)",
-      "Vigil Protocol"
-     ]
-    }
-   ],
-   "require": [
-    {
-     "units": [
-      "thallax-cohort"
-     ],
-     "min": 2,
-     "note": "Bring at least two Thallax Cohorts."
-    }
-   ],
-   "forbid": [
-    {
-     "units": [
-      "tech-priest",
-      "tech-thrall-covenant",
-      "tech-thrall-defence-covenant",
-      "ursarax-cohort"
-     ]
-    }
-   ],
-   "text": "A magos with a dozen Thallax at her back has no need of an escort of friends.",
-   "benefits": [
-    "Thallax Cohorts may fill Troops slots and gain Line (1) and Fear (1).",
-    "They gain Vigil Protocol: a free 6\" move before the first turn (not within 9\" of the enemy), and a Magos, Archmagos or Tech-Priest within 3\" adds +1 to Cool."
-   ],
-   "limitations": [
-    "At least two Thallax Cohorts are required.",
-    "No Tech-Priests, Tech-Thrall Covenants or Ursarax Cohorts."
-   ]
-  },
-  {
-   "name": "The Thrall Press",
-   "flavor": "The forge-world's billions are an engine too, and can be fed to the war.",
-   "roles": [
-    {
-     "units": [
-      "tech-thrall-covenant",
-      "tech-thrall-defence-covenant"
-     ],
-     "role": "Troops"
-    }
-   ],
-   "modifiers": [
-    {
-     "units": [
-      "tech-thrall-covenant",
-      "tech-thrall-defence-covenant"
-     ],
-     "text": "The Thrall Press: Line (1), Endless Tithe.",
-     "addRules": [
-      "Line (1)",
-      "Endless Tithe"
-     ]
-    }
-   ],
-   "require": [
-    {
-     "units": [
-      "tech-thrall-covenant",
-      "tech-thrall-defence-covenant"
-     ],
-     "min": 2,
-     "note": "Bring at least two Tech-Thrall Covenants."
-    }
-   ],
-   "forbid": [
-    {
-     "match": {
-      "role": "Elites"
-     }
+      "name": "Strategos engram",
+      "text": "Legacy house rule. A war-engram slaved to the Praetorian's targeting. Gives the unit Strategos Lock."
     },
     {
-     "match": {
-      "role": "Heavy Assault"
-     }
+      "name": "Gyro-lock pylons",
+      "text": "Legacy house rule. Stabiliser pylons that keep the guns steady at speed. Gives the vehicle Gyro-Lock."
     },
     {
-     "match": {
-      "role": "Lord of War"
-     }
+      "name": "Piston-chant grille",
+      "text": "Legacy house rule. A vox-grille that roars binharic psalms in time with the pistons. Gives the model War-Chant."
+    },
+    {
+      "name": "Hypercog coprocessor",
+      "text": "Legacy house rule. A parallel logic engine that shortens the response cycle. Gives the model +1 Initiative and Reflex Subroutine."
     }
-   ],
-   "text": "The forge-world's billions are an engine too, and can be fed to the war.",
-   "benefits": [
-    "Tech-Thrall Covenants (both kinds) may fill Troops slots and gain Line (1).",
-    "They gain Endless Tithe: once per battle, the first Covenant destroyed returns from Reserves with Outflank at half its starting models."
-   ],
-   "limitations": [
-    "At least two Tech-Thrall Covenants are required.",
-    "No Elites, Heavy Assault or Lord of War units."
-   ]
-  }
- ]
+  ],
+  "options": [
+    {
+      "units": [
+        "tech-priest",
+        "magos",
+        "arcuitor-magisterium"
+      ],
+      "option": {
+        "id": "mech-magos-arms",
+        "kind": "upgrade",
+        "model": null,
+        "text": "May carry a signature weapon",
+        "choices": [
+          {
+            "name": "Plasma jezail",
+            "points": 10
+          },
+          {
+            "name": "Omnissian axe",
+            "points": 10
+          },
+          {
+            "name": "Reductor-ray caster",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tech-priest",
+        "myrmidon-secutor-host",
+        "myrmidon-destructor-host"
+      ],
+      "option": {
+        "id": "mech-ferrite",
+        "kind": "upgrade",
+        "model": [
+          "Tech-Priest",
+          "Secutor Lord",
+          "Destructor Lord"
+        ],
+        "text": "May be fitted with Ferrite plate",
+        "choices": [
+          {
+            "name": "Ferrite plate",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tech-priest",
+        "magos",
+        "arcuitor-magisterium",
+        "magos-on-abeyant"
+      ],
+      "option": {
+        "id": "mech-inversion",
+        "kind": "upgrade",
+        "model": null,
+        "text": "May carry an Inversion field",
+        "choices": [
+          {
+            "name": "Inversion field",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tech-priest",
+        "magos",
+        "myrmidon-secutor-host",
+        "myrmidon-destructor-host"
+      ],
+      "option": {
+        "id": "mech-servo-limbs",
+        "kind": "upgrade",
+        "model": [
+          "Tech-Priest",
+          "Magos",
+          "Secutor Lord",
+          "Destructor Lord"
+        ],
+        "text": "May be fitted with Servo-limb augmentation",
+        "choices": [
+          {
+            "name": "Servo-limb augmentation",
+            "points": 8
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "thallax-cohort"
+      ],
+      "option": {
+        "id": "mech-pulse-gun",
+        "kind": "perModel",
+        "model": "Thallax",
+        "replaces": [
+          "Lightning gun"
+        ],
+        "text": "Any Thallax may exchange their lightning gun for",
+        "choices": [
+          {
+            "name": "Pulse-lightning gun",
+            "points": 8
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "castellax-battle-maniple",
+        "castellax-destructor-maniple"
+      ],
+      "option": {
+        "id": "mech-siege-bolt",
+        "kind": "perModel",
+        "model": "Castellax",
+        "replaces": [
+          "Mauler bolt cannon"
+        ],
+        "text": "Any Castellax may exchange their mauler bolt cannon for",
+        "choices": [
+          {
+            "name": "Siege-bolt cannon",
+            "points": 8
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "castellax-destructor-maniple"
+      ],
+      "option": {
+        "id": "mech-piston-fist",
+        "kind": "perModel",
+        "model": "Castellax",
+        "replaces": [
+          "Shock chargers"
+        ],
+        "text": "Any Castellax may exchange their shock chargers for",
+        "choices": [
+          {
+            "name": "Power-ram piston-fist",
+            "points": 12
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "myrmidon-secutor-host"
+      ],
+      "option": {
+        "id": "mech-halberd",
+        "kind": "perModel",
+        "model": [
+          "Secutor",
+          "Secutor Lord"
+        ],
+        "replaces": [
+          "Power axe"
+        ],
+        "text": "Any Secutor may exchange their power axe for",
+        "choices": [
+          {
+            "name": "Cult shock-halberd",
+            "points": 5
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "castellax-battle-maniple",
+        "castellax-destructor-maniple",
+        "castellax-infernus-maniple",
+        "domitar-battle-maniple",
+        "thanatar-siege-maniple",
+        "vorax-attack-maniple",
+        "vultarax-stratos-squadron",
+        "arlatax-battle-maniple"
+      ],
+      "option": {
+        "id": "mech-coda",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The maniple may carry a Targeting coda",
+        "choices": [
+          {
+            "name": "Targeting coda",
+            "points": 20
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "karacnos-assault-tank",
+        "krios-battle-tank",
+        "krios-venator",
+        "triaros-armoured-conveyor",
+        "mechanicum-termite",
+        "mechanicum-macrocarid-explorator"
+      ],
+      "option": {
+        "id": "mech-cradle",
+        "kind": "upgrade",
+        "model": null,
+        "text": "May carry an Auto-repair cradle",
+        "choices": [
+          {
+            "name": "Auto-repair cradle",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "archmagos",
+        "magos",
+        "arcuitor-magisterium",
+        "magos-on-abeyant",
+        "archmagos-on-abeyant"
+      ],
+      "option": {
+        "id": "mech-null-lattice",
+        "kind": "any",
+        "modelType": "Command",
+        "max": {
+          "fixed": 2
+        },
+        "text": "May take a Null-lattice cage or a Doctrina uplink",
+        "choices": [
+          {
+            "name": "Null-lattice cage",
+            "points": 15
+          },
+          {
+            "name": "Doctrina uplink",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tech-thrall-covenant",
+        "tech-thrall-defence-covenant"
+      ],
+      "option": {
+        "id": "mech-cog-banner",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The covenant may carry a Covenant cog-banner",
+        "choices": [
+          {
+            "name": "Covenant cog-banner",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "thallax-cohort",
+        "ursarax-cohort"
+      ],
+      "option": {
+        "id": "mech-strategos",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Praetorian or Alpha may carry a Strategos engram",
+        "choices": [
+          {
+            "name": "Strategos engram",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "karacnos-assault-tank",
+        "krios-battle-tank",
+        "krios-venator",
+        "triaros-armoured-conveyor"
+      ],
+      "option": {
+        "id": "mech-gyro-lock",
+        "kind": "upgrade",
+        "model": null,
+        "text": "May be fitted with Gyro-lock pylons",
+        "choices": [
+          {
+            "name": "Gyro-lock pylons",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "myrmidon-secutor-host",
+        "myrmidon-destructor-host"
+      ],
+      "option": {
+        "id": "mech-chant-grille",
+        "kind": "upgrade",
+        "model": [
+          "Secutor Lord",
+          "Destructor Lord"
+        ],
+        "text": "The Lord may bear a Piston-chant grille",
+        "choices": [
+          {
+            "name": "Piston-chant grille",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "castellax-battle-maniple",
+        "castellax-destructor-maniple",
+        "domitar-battle-maniple",
+        "thanatar-siege-maniple",
+        "vorax-attack-maniple",
+        "vultarax-stratos-squadron",
+        "arlatax-battle-maniple",
+        "scyllax-guardian-maniple"
+      ],
+      "option": {
+        "id": "mech-hypercog",
+        "kind": "upgrade",
+        "model": null,
+        "text": "May be fitted with a Hypercog coprocessor",
+        "choices": [
+          {
+            "name": "Hypercog coprocessor",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "myrmidon-destructor-host"
+      ],
+      "option": {
+        "id": "mech-grinder-lance",
+        "kind": "perModel",
+        "model": [
+          "Destructor",
+          "Destructor Lord"
+        ],
+        "replaces": [
+          "Shock chargers"
+        ],
+        "text": "Any Destructor or Destructor Lord may exchange their shock chargers for a Siege-grinder lance",
+        "choices": [
+          {
+            "name": "Siege-grinder lance",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "ursarax-cohort"
+      ],
+      "option": {
+        "id": "mech-chem-lobber",
+        "kind": "perModel",
+        "model": "Ursarax",
+        "replaces": [
+          "Volkite incinerator"
+        ],
+        "text": "Any Ursarax may exchange their Volkite incinerator for a Chem-lobber",
+        "choices": [
+          {
+            "name": "Chem-lobber",
+            "points": 5
+          }
+        ]
+      }
+    }
+  ],
+  "modifiers": [
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Ferrite plate",
+      "text": "Ferrite plate: 2+ Save.",
+      "stats": {
+        "SAV": "best:2+"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Inversion field",
+      "text": "Inversion field: 4+ Invulnerable Save.",
+      "stats": {
+        "INV": "best:4+"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Servo-limb augmentation",
+      "text": "Servo-limb augmentation: +1 A.",
+      "stats": {
+        "A": "+1"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Targeting coda",
+      "scope": "unit",
+      "text": "Targeting coda: +1 BS.",
+      "stats": {
+        "BS": "+1"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Auto-repair cradle",
+      "scope": "unit",
+      "text": "Auto-repair cradle: +1 HP.",
+      "stats": {
+        "HP": "+1"
+      }
+    },
+    {
+      "units": [
+        "tech-thrall-covenant",
+        "tech-thrall-defence-covenant"
+      ],
+      "text": "Lobotomised obedience: +1 LD, -1 I.",
+      "stats": {
+        "LD": "+1",
+        "I": "-1"
+      }
+    },
+    {
+      "units": [
+        "castellax-battle-maniple",
+        "castellax-destructor-maniple",
+        "castellax-infernus-maniple"
+      ],
+      "text": "Hardened gunnery logic: +1 BS, -1 I.",
+      "stats": {
+        "BS": "+1",
+        "I": "-1"
+      }
+    },
+    {
+      "units": [
+        "thallax-cohort"
+      ],
+      "text": "Terror-grade augmetics: +1 S, -1 M.",
+      "stats": {
+        "S": "+1",
+        "M": "-1"
+      }
+    },
+    {
+      "units": [
+        "myrmidon-secutor-host",
+        "myrmidon-destructor-host"
+      ],
+      "text": "Cult fervour: +1 A, -1 WP.",
+      "stats": {
+        "A": "+1",
+        "WP": "-1"
+      }
+    },
+    {
+      "units": [
+        "domitar-battle-maniple",
+        "arlatax-battle-maniple"
+      ],
+      "text": "Ponderous war-frames: +1 T, -1 M.",
+      "stats": {
+        "T": "+1",
+        "M": "-1"
+      }
+    },
+    {
+      "units": [
+        "vorax-attack-maniple",
+        "vultarax-stratos-squadron"
+      ],
+      "text": "Hunter-pattern drives: +1 M, -1 T.",
+      "stats": {
+        "M": "+1",
+        "T": "-1"
+      }
+    },
+    {
+      "units": [
+        "karacnos-assault-tank",
+        "krios-battle-tank",
+        "krios-venator"
+      ],
+      "text": "Ordo Reductor targeters: +1 BS, -1 Side armour.",
+      "stats": {
+        "BS": "+1",
+        "SIDE": "-1"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Null-lattice cage",
+      "text": "Null-lattice cage: Null Lattice.",
+      "addRules": [
+        "Null Lattice"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Doctrina uplink",
+      "text": "Doctrina uplink: Wide-Band Command.",
+      "addRules": [
+        "Wide-Band Command"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Covenant cog-banner",
+      "scope": "unit",
+      "text": "Covenant cog-banner: Rally the Covenant.",
+      "addRules": [
+        "Rally the Covenant"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Strategos engram",
+      "scope": "unit",
+      "text": "Strategos engram: Strategos Lock.",
+      "addRules": [
+        "Strategos Lock"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Gyro-lock pylons",
+      "scope": "unit",
+      "text": "Gyro-lock pylons: Gyro-Lock.",
+      "addRules": [
+        "Gyro-Lock"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Piston-chant grille",
+      "text": "Piston-chant grille: War-Chant.",
+      "addRules": [
+        "War-Chant"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Hypercog coprocessor",
+      "text": "Hypercog coprocessor: +1 I, Reflex Subroutine.",
+      "stats": {
+        "I": "+1"
+      },
+      "addRules": [
+        "Reflex Subroutine"
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "name": "Cold Calculus",
+      "text": "Legacy house rule (The Logic Maniples). The maniples share a firing solution. A unit with this rule adds 1 to its Ballistic Skill when it shoots at an enemy unit that another unit with Cold Calculus has already fired at in the same phase."
+    },
+    {
+      "name": "Subtractive Fire",
+      "text": "Legacy house rule (Ordo Reductor Siege Park). Walls and bunkers are only data waiting to be subtracted. Shooting Attacks made by a unit with this rule ignore the benefit of Shrouded (X) and of any cover or Fortification Save the target would otherwise gain."
+    },
+    {
+      "name": "Cult Fervour",
+      "text": "Legacy house rule (The Myrmidax Cult-Host). The cult has long since stopped fearing the flesh. A unit with this rule adds +2 to its Cool for Cool Checks, and once per battle, when it is reduced to half strength or less, it may add +1 to its Attacks until the end of the turn."
+    },
+    {
+      "name": "Vigil Protocol",
+      "text": "Legacy house rule (The Thallax Vigil). The Thallax take station around their master. After both sides have deployed and before the first battle turn, a unit with this rule may make a free move of up to 6\", ending no closer than 9\" to any enemy model. A friendly Magos, Archmagos or Tech-Priest within 3\" of it adds +1 to its Cool."
+    },
+    {
+      "name": "Endless Tithe",
+      "text": "Legacy house rule (The Thrall Press). The forge-world's billions replace what the war consumes. Once per battle, the first Covenant with this rule that is destroyed returns to play at the start of the owner's next turn from Reserves, at half its starting models (rounding up) and with Outflank."
+    },
+    {
+      "name": "Null Lattice",
+      "text": "Legacy house rule. Psychic attacks and Force (X) weapons directed at the bearer or its unit suffer -1 to their Willpower Checks."
+    },
+    {
+      "name": "Wide-Band Command",
+      "text": "Legacy house rule. Cold-Link Command treats the bearer as a commander within 24\" instead of 12\"."
+    },
+    {
+      "name": "Rally the Covenant",
+      "text": "Legacy house rule. While within 6\" of an objective, the unit automatically passes Morale checks."
+    },
+    {
+      "name": "Strategos Lock",
+      "text": "Legacy house rule. The unit adds +1 to its Charge rolls."
+    },
+    {
+      "name": "Gyro-Lock",
+      "text": "Legacy house rule. The vehicle's weapons ignore penalties for firing after moving."
+    },
+    {
+      "name": "War-Chant",
+      "text": "Legacy house rule. Enemy units within 6\" of the bearer suffer -1 Cool."
+    },
+    {
+      "name": "Reflex Subroutine",
+      "text": "Legacy house rule. When the model makes a Reaction, it adds +1 to its Initiative for that Reaction."
+    }
+  ],
+  "rites": [
+    {
+      "name": "The Logic Maniples",
+      "flavor": "Cold arithmetic does not break, and does not ask why.",
+      "roles": [
+        {
+          "units": [
+            "castellax-battle-maniple",
+            "castellax-destructor-maniple"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "castellax-battle-maniple",
+            "castellax-destructor-maniple"
+          ],
+          "text": "The Logic Maniples: Line (1), Cold Calculus.",
+          "addRules": [
+            "Line (1)",
+            "Cold Calculus"
+          ]
+        },
+        {
+          "units": [
+            "castellax-battle-maniple",
+            "castellax-destructor-maniple"
+          ],
+          "text": "Cold Calculus: +1 BS.",
+          "stats": {
+            "BS": "+1"
+          },
+          "condition": "when shooting at a unit another Cold Calculus unit has already fired at this phase"
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "castellax-battle-maniple",
+            "castellax-destructor-maniple",
+            "castellax-infernus-maniple"
+          ],
+          "min": 2,
+          "note": "Bring at least two Castellax Maniples."
+        },
+        {
+          "units": [
+            "magos",
+            "archmagos",
+            "magos-on-abeyant",
+            "archmagos-on-abeyant"
+          ],
+          "min": 1,
+          "note": "A Magos or Archmagos runs the maniples."
+        }
+      ],
+      "forbid": [
+        {
+          "units": [
+            "tech-thrall-covenant",
+            "tech-thrall-defence-covenant",
+            "myrmidon-secutor-host",
+            "myrmidon-destructor-host",
+            "ursarax-cohort"
+          ]
+        }
+      ],
+      "text": "Cold arithmetic does not break, and does not ask why.",
+      "benefits": [
+        "Castellax Battle and Destructor Maniples may fill Troops slots and gain Line (1).",
+        "They gain Cold Calculus: +1 Ballistic Skill against an enemy unit another Cold Calculus unit has already shot at that phase."
+      ],
+      "limitations": [
+        "A Magos or Archmagos and at least two Castellax Maniples are required.",
+        "No Tech-Thrall Covenants, Myrmidon Hosts or Ursarax Cohorts."
+      ]
+    },
+    {
+      "name": "Ordo Reductor Siege Park",
+      "flavor": "Wall, tower and bunker are only data waiting to be subtracted.",
+      "roles": [
+        {
+          "units": [
+            "karacnos-assault-tank",
+            "thanatar-siege-maniple"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "karacnos-assault-tank",
+            "krios-battle-tank",
+            "krios-venator",
+            "thanatar-siege-maniple",
+            "mechanicum-ordinatus-ulator",
+            "mechanicum-ordinatus-sagittar",
+            "mechanicum-ordinatus-aktaeus"
+          ],
+          "text": "Ordo Reductor Siege Park: Subtractive Fire.",
+          "addRules": [
+            "Subtractive Fire"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "karacnos-assault-tank",
+            "krios-venator",
+            "thanatar-siege-maniple"
+          ],
+          "min": 2,
+          "note": "Bring at least two siege units."
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "role": "Recon"
+          }
+        },
+        {
+          "match": {
+            "role": "Fast Attack"
+          }
+        },
+        {
+          "units": [
+            "myrmidon-secutor-host",
+            "myrmidon-destructor-host",
+            "ursarax-cohort"
+          ]
+        }
+      ],
+      "text": "Wall, tower and bunker are only data waiting to be subtracted.",
+      "benefits": [
+        "Karacnos Assault Tanks and Thanatar Siege Maniples may fill Troops slots.",
+        "Karacnos, Krios, Krios Venator, Thanatar and Ordinatus units gain Subtractive Fire: their Shooting Attacks ignore the target's cover and Shrouded."
+      ],
+      "limitations": [
+        "At least two Karacnos, Krios Venator or Thanatar units are required.",
+        "No Recon, no Fast Attack, and no Myrmidon Hosts or Ursarax Cohorts.",
+        "Table-top: units with Subtractive Fire may not be held in Reserves."
+      ]
+    },
+    {
+      "name": "The Myrmidax Cult-Host",
+      "flavor": "The cult remembers flesh, and has decided it was a mistake worth repeating.",
+      "roles": [
+        {
+          "units": [
+            "myrmidon-secutor-host",
+            "myrmidon-destructor-host"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "myrmidon-secutor-host",
+            "myrmidon-destructor-host"
+          ],
+          "text": "The Myrmidax Cult-Host: Line (1), Feel No Pain (6+), Cult Fervour.",
+          "addRules": [
+            "Line (1)",
+            "Feel No Pain (6+)",
+            "Cult Fervour"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "myrmidon-secutor-host",
+            "myrmidon-destructor-host"
+          ],
+          "min": 2,
+          "note": "Bring at least two Myrmidon Hosts."
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "unitType": "Automata"
+          }
+        }
+      ],
+      "text": "The cult remembers flesh, and has decided it was a mistake worth repeating.",
+      "benefits": [
+        "Myrmidon Secutor and Destructor Hosts may fill Troops slots and gain Line (1) and Feel No Pain (6+).",
+        "They gain Cult Fervour: +2 Cool on Cool Checks, and once per battle a host at half strength or less gains +1 Attack for a turn."
+      ],
+      "limitations": [
+        "At least two Myrmidon Hosts are required.",
+        "No Automata units at all."
+      ]
+    },
+    {
+      "name": "The Thallax Vigil",
+      "flavor": "A magos with a dozen Thallax at her back has no need of an escort of friends.",
+      "roles": [
+        {
+          "units": [
+            "thallax-cohort"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "thallax-cohort"
+          ],
+          "text": "The Thallax Vigil: Line (1), Fear (1), Vigil Protocol.",
+          "addRules": [
+            "Line (1)",
+            "Fear (1)",
+            "Vigil Protocol"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "thallax-cohort"
+          ],
+          "min": 2,
+          "note": "Bring at least two Thallax Cohorts."
+        }
+      ],
+      "forbid": [
+        {
+          "units": [
+            "tech-priest",
+            "tech-thrall-covenant",
+            "tech-thrall-defence-covenant",
+            "ursarax-cohort"
+          ]
+        }
+      ],
+      "text": "A magos with a dozen Thallax at her back has no need of an escort of friends.",
+      "benefits": [
+        "Thallax Cohorts may fill Troops slots and gain Line (1) and Fear (1).",
+        "They gain Vigil Protocol: a free 6\" move before the first turn (not within 9\" of the enemy), and a Magos, Archmagos or Tech-Priest within 3\" adds +1 to Cool."
+      ],
+      "limitations": [
+        "At least two Thallax Cohorts are required.",
+        "No Tech-Priests, Tech-Thrall Covenants or Ursarax Cohorts."
+      ]
+    },
+    {
+      "name": "The Thrall Press",
+      "flavor": "The forge-world's billions are an engine too, and can be fed to the war.",
+      "roles": [
+        {
+          "units": [
+            "tech-thrall-covenant",
+            "tech-thrall-defence-covenant"
+          ],
+          "role": "Troops"
+        }
+      ],
+      "modifiers": [
+        {
+          "units": [
+            "tech-thrall-covenant",
+            "tech-thrall-defence-covenant"
+          ],
+          "text": "The Thrall Press: Line (1), Endless Tithe.",
+          "addRules": [
+            "Line (1)",
+            "Endless Tithe"
+          ]
+        }
+      ],
+      "require": [
+        {
+          "units": [
+            "tech-thrall-covenant",
+            "tech-thrall-defence-covenant"
+          ],
+          "min": 2,
+          "note": "Bring at least two Tech-Thrall Covenants."
+        }
+      ],
+      "forbid": [
+        {
+          "match": {
+            "role": "Elites"
+          }
+        },
+        {
+          "match": {
+            "role": "Heavy Assault"
+          }
+        },
+        {
+          "match": {
+            "role": "Lord of War"
+          }
+        }
+      ],
+      "text": "The forge-world's billions are an engine too, and can be fed to the war.",
+      "benefits": [
+        "Tech-Thrall Covenants (both kinds) may fill Troops slots and gain Line (1).",
+        "They gain Endless Tithe: once per battle, the first Covenant destroyed returns from Reserves with Outflank at half its starting models."
+      ],
+      "limitations": [
+        "At least two Tech-Thrall Covenants are required.",
+        "No Elites, Heavy Assault or Lord of War units."
+      ]
+    }
+  ],
+  "armyRules": [
+    {
+      "name": "Cold-Link Command",
+      "text": "Legacy house rule. Automata think only as far as their master's signal reaches. An automata unit within 12\" of a friendly Magos, Archmagos or Arcuitor adds +1 to its Ballistic Skill. Beyond that range, its Initiative counts as 1 lower.",
+      "units": [
+        "castellax-battle-maniple",
+        "castellax-destructor-maniple",
+        "castellax-infernus-maniple",
+        "domitar-battle-maniple",
+        "thanatar-siege-maniple",
+        "vorax-attack-maniple",
+        "vultarax-stratos-squadron",
+        "arlatax-battle-maniple",
+        "scyllax-guardian-maniple",
+        "echidnax-servo-maniple"
+      ],
+      "stats": {
+        "BS": "+1"
+      },
+      "condition": "within 12\" of a friendly Magos, Archmagos or Arcuitor"
+    },
+    {
+      "name": "Cold Logic",
+      "text": "Legacy house rule. The Thallax and the Myrmidax have been purged of fear and doubt. A unit with this rule automatically passes Pinning checks, but it cannot declare Advanced Reactions.",
+      "units": [
+        "thallax-cohort",
+        "myrmidon-secutor-host",
+        "myrmidon-destructor-host",
+        "ursarax-cohort"
+      ]
+    },
+    {
+      "name": "Overclocked Engines",
+      "text": "Legacy house rule. Forge-priests run their war machines past the safe limits. A vehicle with this rule adds +1 to its Movement, but if it Rushes, roll a D6 afterwards: on a 1 it loses a Hull Point.",
+      "match": {
+        "unitType": "Vehicle",
+        "notUnitType": "Ordinatus"
+      },
+      "stats": {
+        "M": "+1"
+      }
+    }
+  ]
 }

@@ -10,10 +10,41 @@
         "D": 1,
         "specialRules": [
           "Template",
-          "Panic (2)"
+          "Panic (2)",
+          "Pinning (1)"
         ],
         "traits": [
           "Flame"
+        ]
+      },
+      {
+        "name": "Drakeblaster",
+        "R": 18,
+        "FP": 1,
+        "RS": 7,
+        "AP": 3,
+        "D": 2,
+        "specialRules": [
+          "Melta (6)",
+          "Limited (3)"
+        ],
+        "traits": [
+          "Melta"
+        ]
+      },
+      {
+        "name": "Nocturne siege-bolter",
+        "R": 24,
+        "FP": 2,
+        "RS": 4,
+        "AP": 5,
+        "D": 1,
+        "specialRules": [
+          "Suppressive (1)",
+          "Heavy (FP)"
+        ],
+        "traits": [
+          "Bolt"
         ]
       }
     ],
@@ -27,7 +58,22 @@
         "D": 1,
         "specialRules": [
           "Breaching (5+)",
-          "Stun (1)"
+          "Impact (SM)"
+        ],
+        "traits": [
+          "Power"
+        ]
+      },
+      {
+        "name": "Hearthguard shield-halberd",
+        "IM": "I",
+        "AM": "A",
+        "SM": "S",
+        "AP": 3,
+        "D": 1,
+        "specialRules": [
+          "Reaping Blow (1)",
+          "Critical Hit (6+)"
         ],
         "traits": [
           "Power"
@@ -39,6 +85,30 @@
     {
       "name": "Ember-banner",
       "text": "Legacy house rule. A banner woven on Nocturne from the cloth of a hearth the Legion swore to defend. Every model in the unit gains +1 Willpower and +1 Intelligence."
+    },
+    {
+      "name": "Forge-blessed bandolier",
+      "text": "Legacy house rule. Fuel canisters slung across the chest, filled to the cap. Gives the model Fuel Reserve."
+    },
+    {
+      "name": "Mantle of the Drake",
+      "text": "Legacy house rule. A cloak of dragon-hide cured on Nocturne's slopes. The model gains +1 Toughness and Drake-Hide Mantle."
+    },
+    {
+      "name": "Interlocked pavises",
+      "text": "Legacy house rule. Heavy shields that lock edge to edge. Every model in the unit gains Pavise Wall."
+    },
+    {
+      "name": "Salvage-crew toolkit",
+      "text": "Legacy house rule. A crew that carries a forge on its back. The vehicle gains Field Mending."
+    },
+    {
+      "name": "Hearth-ram dozer blade",
+      "text": "Legacy house rule. A broad blade of Nocturnean steel. The vehicle gains Hearth-ram Plough."
+    },
+    {
+      "name": "Hearthfire standard",
+      "text": "Legacy house rule. A banner-pole with a steady lamp at its crown. Every model in the unit gains Hearthfire Anchor."
     }
   ],
   "options": [
@@ -184,6 +254,204 @@
           }
         ]
       }
+    },
+    {
+      "match": {
+        "roles": [
+          "High Command",
+          "Command"
+        ],
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "option": {
+        "id": "sal-regalia",
+        "kind": "any",
+        "modelType": "Command",
+        "max": {
+          "fixed": 2
+        },
+        "text": "Hearth regalia: may take up to two items",
+        "choices": [
+          {
+            "name": "Mantle of the Drake",
+            "points": 15
+          },
+          {
+            "name": "Forge-blessed bandolier",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "veteran-tactical-squad",
+        "breacher-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "sal-bandolier",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may wear a Forge-blessed bandolier",
+        "choices": [
+          {
+            "name": "Forge-blessed bandolier",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "breacher-squad",
+        "veteran-breacher-squad",
+        "firedrake-terminator-squad",
+        "sanctifier-squad",
+        "adherents-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "sal-pavise",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The unit may carry Interlocked pavises",
+        "choices": [
+          {
+            "name": "Interlocked pavises",
+            "points": 20
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "assault-squad",
+        "adherents-squad",
+        "sanctifier-squad",
+        "pyroclast-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "sal-hearthfire",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The unit may carry a Hearthfire standard",
+        "choices": [
+          {
+            "name": "Hearthfire standard",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "unitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "option": {
+        "id": "sal-toolkit",
+        "kind": "upgrade",
+        "model": null,
+        "text": "May carry a Salvage-crew toolkit",
+        "choices": [
+          {
+            "name": "Salvage-crew toolkit",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "unitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "option": {
+        "id": "sal-dozer",
+        "kind": "upgrade",
+        "model": null,
+        "text": "May be fitted with a Hearth-ram dozer blade",
+        "choices": [
+          {
+            "name": "Hearth-ram dozer blade",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "sal-drakeblaster",
+        "kind": "perModel",
+        "model": "Legionary",
+        "replaces": [
+          "Bolter"
+        ],
+        "max": 1,
+        "text": "One Legionary may exchange their bolter for",
+        "choices": [
+          {
+            "name": "Drakeblaster",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "assault-squad",
+        "adherents-squad",
+        "sanctifier-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "sal-halberd",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may carry a Hearthguard shield-halberd",
+        "choices": [
+          {
+            "name": "Hearthguard shield-halberd",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "veteran-tactical-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "sal-siege-bolter",
+        "kind": "one",
+        "replaces": [
+          "Bolter"
+        ],
+        "text": "The Sergeant may exchange their bolter for",
+        "choices": [
+          {
+            "name": "Nocturne siege-bolter",
+            "points": 5
+          }
+        ],
+        "modelType": "Sergeant"
+      }
     }
   ],
   "modifiers": [
@@ -255,6 +523,71 @@
         "WP": "+1",
         "IN": "+1"
       }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Forge-blessed bandolier",
+      "text": "Forge-blessed bandolier: Fuel Reserve.",
+      "addRules": [
+        "Fuel Reserve"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Mantle of the Drake",
+      "text": "Mantle of the Drake: +1 T, Drake-Hide Mantle.",
+      "stats": {
+        "T": "+1"
+      },
+      "addRules": [
+        "Drake-Hide Mantle"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Interlocked pavises",
+      "text": "Interlocked pavises: Pavise Wall.",
+      "scope": "unit",
+      "addRules": [
+        "Pavise Wall"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Salvage-crew toolkit",
+      "text": "Salvage-crew toolkit: Field Mending.",
+      "addRules": [
+        "Field Mending"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Hearth-ram dozer blade",
+      "text": "Hearth-ram dozer blade: Hearth-ram Plough.",
+      "addRules": [
+        "Hearth-ram Plough"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Hearthfire standard",
+      "text": "Hearthfire standard: Hearthfire Anchor.",
+      "scope": "unit",
+      "addRules": [
+        "Hearthfire Anchor"
+      ]
     }
   ],
   "rites": [
@@ -263,7 +596,7 @@
       "flavor": "The drakes walk in front, and nothing that burns stays standing.",
       "benefits": [
         "Pyroclast and Firedrake Terminator Squads may fill Troops slots.",
-        "Pyroclast and Firedrake squads gain Forge-Fire: Shooting Attacks made with their flame (Template) weapons may re-roll failed Wound Tests."
+        "Pyroclast and Firedrake squads gain Forge-Fire: Shooting Attacks made with their flame (Template) weapons add 1 to their Wound Tests."
       ],
       "limitations": [
         "At least one Pyroclast or Firedrake squad is required.",
@@ -455,7 +788,7 @@
       "flavor": "The entombed brothers are carried to war so that none of them is ever left behind.",
       "benefits": [
         "Contemptor and Castra Ferrum Dreadnoughts may fill Troops slots.",
-        "They gain Line (1) and Unbowed Elders: once per turn each may re-roll one failed Hit Test."
+        "They gain Line (1) and Unbowed Elders: once per battle each may treat one Hit Test as a roll of 6."
       ],
       "limitations": [
         "At least two Dreadnoughts are required.",
@@ -517,7 +850,7 @@
   "rules": [
     {
       "name": "Forge-Fire",
-      "text": "Legacy house rule (Forge-Fires of Nocturne). A unit with this rule may re-roll failed Wound Tests on Shooting Attacks made with flame (Template) weapons."
+      "text": "Legacy house rule (Forge-Fires of Nocturne). A unit with this rule adds 1 to the Wound Tests of Shooting Attacks made with flame (Template) weapons."
     },
     {
       "name": "Shield Wall",
@@ -529,7 +862,78 @@
     },
     {
       "name": "Unbowed Elders",
-      "text": "Legacy house rule (Procession of the Honoured). Once per turn, a model with this rule may re-roll one failed Hit Test."
+      "text": "Legacy house rule (Procession of the Honoured). Once per battle, a model with this rule may treat one Hit Test as if it had rolled a 6."
+    },
+    {
+      "name": "Fuel Reserve",
+      "text": "Legacy house rule. The unit of a model with this rule ignores the first natural 1 each battle for Overstoked Promethium, and its flame (Template) weapons add 1 to their Wound Tests against units that are Aflame."
+    },
+    {
+      "name": "Drake-Hide Mantle",
+      "text": "Legacy house rule. Damage from Template weapons and weapons with Aflame (X) against a model with this rule is reduced by 1 (to a minimum of 1)."
+    },
+    {
+      "name": "Pavise Wall",
+      "text": "Legacy house rule. A unit with this rule that did not move in its last Movement phase gains Shrouded (5+) against Shooting Attacks."
+    },
+    {
+      "name": "Field Mending",
+      "text": "Legacy house rule. Once per battle, at the start of its controller's turn, a vehicle with this rule may remove one Tactical Status or restore one lost Hull Point."
+    },
+    {
+      "name": "Hearth-ram Plough",
+      "text": "Legacy house rule. A vehicle with this rule ignores movement penalties from barricades and rubble, and adds 1 to the Hits it inflicts when it moves through enemy units."
+    },
+    {
+      "name": "Hearthfire Anchor",
+      "text": "Legacy house rule. The unit of a model with this rule counts as having two additional models when Controlling an Objective, and adds 1 to Cool Checks while it does."
+    }
+  ],
+  "armyRules": [
+    {
+      "name": "Stoic Defenders",
+      "match": {
+        "roles": [
+          "Troops",
+          "Elites",
+          "Support",
+          "Heavy Assault"
+        ],
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "stats": {
+        "CL": "+1"
+      },
+      "condition": "if the unit did not move in its last Movement phase",
+      "text": "Legacy house rule. Salamanders do not give ground. A unit with this rule adds 1 to its Cool if it did not move in its last Movement phase. The price is a slow start: it may not Rush on the first battle turn."
+    },
+    {
+      "name": "Nocturne's Mercy",
+      "match": {
+        "roles": [
+          "High Command",
+          "Command"
+        ],
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "text": "Legacy house rule. A captain who tends his own. Once per battle, a model with this rule may restore one lost Wound to a friendly Infantry model within 6\". The vow of protection costs mobility: the model may not Rush."
+    },
+    {
+      "name": "Overstoked Promethium",
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "veteran-tactical-squad",
+        "pyroclast-squad",
+        "firedrake-terminator-squad",
+        "breacher-squad",
+        "sanctifier-squad",
+        "adherents-squad"
+      ],
+      "optionalUnits": true,
+      "text": "Legacy house rule. Salamander flame weapons burn hot. Template weapons fired by a unit with this rule add 1 to their Panic (X) value. The fuel is unstable: on a natural 1 on any Hit Test with such a weapon, the firing unit suffers 1 Hit from the weapon."
     }
   ]
 }

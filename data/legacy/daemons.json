@@ -1,48 +1,710 @@
 {
   "weapons": {
     "ranged": [
-      { "name": "Fate-spark volley", "R": 18, "FP": 2, "RS": 5, "AP": 5, "D": 1, "specialRules": ["Deflagrate (3)"], "traits": ["Immaterial", "Assault"] }
+      {
+        "name": "Fate-spark volley",
+        "R": 18,
+        "FP": 2,
+        "RS": 5,
+        "AP": 5,
+        "D": 1,
+        "specialRules": [
+          "Deflagrate (3)",
+          "Critical Hit (5+)"
+        ],
+        "traits": [
+          "Immaterial",
+          "Assault"
+        ]
+      },
+      {
+        "name": "Mirrorshard spray",
+        "R": 18,
+        "FP": 3,
+        "RS": 4,
+        "AP": 6,
+        "D": 1,
+        "specialRules": [
+          "Panic (1)",
+          "Precision (6+)"
+        ],
+        "traits": [
+          "Immaterial",
+          "Assault"
+        ]
+      },
+      {
+        "name": "Festering gout",
+        "R": "Template",
+        "FP": 1,
+        "RS": 4,
+        "AP": 5,
+        "D": 1,
+        "specialRules": [
+          "Template",
+          "Aflame (1)",
+          "Phage (T)"
+        ],
+        "traits": [
+          "Flame",
+          "Immaterial"
+        ]
+      }
     ],
     "melee": [
-      { "name": "Barbed lash-tongue", "IM": "I", "AM": "A", "SM": "S", "AP": 4, "D": 1, "specialRules": ["Reaping Blow (1)"], "traits": ["Immaterial"] },
-      { "name": "Bound-ruin blade", "IM": "I", "AM": "A", "SM": "+1", "AP": 2, "D": 2, "specialRules": ["Phage (S)", "Critical Hit (6+)"], "traits": ["Immaterial"] },
-      { "name": "Warp-maw gorger", "IM": "I", "AM": "+1", "SM": "S", "AP": 4, "D": 2, "specialRules": ["Shred (5+)"], "traits": ["Immaterial"] }
+      {
+        "name": "Barbed lash-tongue",
+        "IM": "I",
+        "AM": "A",
+        "SM": "S",
+        "AP": 4,
+        "D": 1,
+        "specialRules": [
+          "Reaping Blow (1)",
+          "Poisoned (5+)"
+        ],
+        "traits": [
+          "Immaterial"
+        ]
+      },
+      {
+        "name": "Bound-ruin blade",
+        "IM": "I",
+        "AM": "A",
+        "SM": "+1",
+        "AP": 2,
+        "D": 2,
+        "specialRules": [
+          "Phage (S)",
+          "Murderous (6+)"
+        ],
+        "traits": [
+          "Immaterial"
+        ]
+      },
+      {
+        "name": "Warp-maw gorger",
+        "IM": "I",
+        "AM": "+1",
+        "SM": "S",
+        "AP": 4,
+        "D": 2,
+        "specialRules": [
+          "Impact (AM)",
+          "Shred (6+)"
+        ],
+        "traits": [
+          "Immaterial"
+        ]
+      },
+      {
+        "name": "Skull-chain flail",
+        "IM": "I",
+        "AM": "A",
+        "SM": "+1",
+        "AP": 3,
+        "D": 1,
+        "specialRules": [
+          "Reaping Blow (2)",
+          "Duellist's Edge (1)"
+        ],
+        "traits": [
+          "Immaterial"
+        ]
+      }
     ]
   },
   "wargear": [
-    { "name": "Warp-brand", "text": "Legacy house rule. The unit has been marked by one of the Powers, a sigil burned into the flesh that will not heal. All models in the unit gain +1 Attack." },
-    { "name": "Ruin-shard crown", "text": "Legacy house rule. A fragment of the Ruinstorm worn as a diadem, bleeding unreality into the air. The bearer's unit gains Fear (1)." }
+    {
+      "name": "Warp-brand",
+      "text": "Legacy house rule. The unit has been marked by one of the Powers, a sigil burned into the flesh that will not heal. All models in the unit gain +1 Attack."
+    },
+    {
+      "name": "Ruin-shard crown",
+      "text": "Legacy house rule. A fragment of the Ruinstorm worn as a diadem, bleeding unreality into the air. The bearer's unit gains Fear (1)."
+    },
+    {
+      "name": "Bloodied skull-rack",
+      "text": "Legacy house rule. A frame of skulls taken from champions, still weeping from the ruin they came from."
+    },
+    {
+      "name": "Chime of stolen hours",
+      "text": "Legacy house rule. A bell whose note drags the surroundings a heartbeat out of step."
+    },
+    {
+      "name": "Canker-urn",
+      "text": "Legacy house rule. A bronze urn that vents a slow, sweet-smelling miasma."
+    },
+    {
+      "name": "Mirror-glass aegis",
+      "text": "Legacy house rule. A hall of mirrors ground into a shield, returning every threat as an unwelcome gift."
+    },
+    {
+      "name": "Lash-gall harness",
+      "text": "Legacy house rule. Barbed rigging cutting into the pack's flanks and driving them into a rage."
+    },
+    {
+      "name": "Hollow idol",
+      "text": "Legacy house rule. An effigy of stolen faces that anchors lesser daemons to the world."
+    },
+    {
+      "name": "Ruin-barbs",
+      "text": "Legacy house rule. Quills of hardened unreality that jut out from the hide at every angle."
+    }
   ],
   "options": [
-    { "units": ["ruinstorm-lesser-daemons"],
-      "option": { "id": "dm-lesser-lash", "kind": "perModel", "model": "Lesser Daemons", "replaces": ["Daemon claws"], "max": 4,
-        "text": "Up to four Lesser Daemons may exchange their claws for", "choices": [ { "name": "Barbed lash-tongue", "points": 2 } ] } },
-    { "units": ["ruinstorm-daemon-brutes"],
-      "option": { "id": "dm-brutes-totem", "kind": "perModel", "model": "Brutes", "max": 1,
-        "text": "One Brute may bear a totem", "choices": [ { "name": "Totem of Dominion", "points": 10 } ] } },
-    { "units": ["ruinstorm-daemon-harbinger"],
-      "option": { "id": "dm-harbinger-blade", "kind": "one", "model": "Harbinger", "replaces": ["Harbinger blade"],
-        "text": "The Harbinger may exchange its blade for", "choices": [ { "name": "Bound-ruin blade", "points": 10 } ] } },
-    { "units": ["ruinstorm-daemon-beasts"],
-      "option": { "id": "dm-beasts-gorger", "kind": "perModel", "model": "Beasts", "replaces": ["Maw & talon"], "max": 3,
-        "text": "Up to three Beasts may exchange their maw and talon for", "choices": [ { "name": "Warp-maw gorger", "points": 5 } ] } },
-    { "units": ["horrors-of-tzeench"],
-      "option": { "id": "dm-horrors-spark", "kind": "perModel", "model": "Pink Horror", "replaces": ["Warpfire"], "max": 3,
-        "text": "Up to three Pink Horrors may exchange their warpfire for", "choices": [ { "name": "Fate-spark volley", "points": 3 } ] } },
-    { "units": ["ruinstorm-lesser-daemons", "ruinstorm-daemon-brutes", "ruinstorm-daemon-beasts", "ruinstorm-daemon-riders", "ruinstorm-daemon-harriers"],
-      "option": { "id": "dm-warp-brand", "kind": "upgrade", "model": null,
-        "text": "The unit may bear the brand of a Power", "choices": [ { "name": "Warp-brand", "points": 20 } ] } },
-    { "units": ["ruinstorm-daemon-sovereign", "ruinstorm-daemon-hierarch", "ruinstorm-daemon-harbinger"],
-      "option": { "id": "dm-ruin-crown", "kind": "upgrade", "model": null,
-        "text": "The commander may wear a crown of unreality", "choices": [ { "name": "Ruin-shard crown", "points": 15 } ] } }
+    {
+      "units": [
+        "ruinstorm-lesser-daemons"
+      ],
+      "option": {
+        "id": "dm-lesser-lash",
+        "kind": "perModel",
+        "model": "Lesser Daemons",
+        "replaces": [
+          "Daemon claws"
+        ],
+        "max": 4,
+        "text": "Up to four Lesser Daemons may exchange their claws for",
+        "choices": [
+          {
+            "name": "Barbed lash-tongue",
+            "points": 2
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "ruinstorm-daemon-brutes"
+      ],
+      "option": {
+        "id": "dm-brutes-totem",
+        "kind": "perModel",
+        "model": "Brutes",
+        "max": 1,
+        "text": "One Brute may bear a totem",
+        "choices": [
+          {
+            "name": "Totem of Dominion",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "ruinstorm-daemon-harbinger"
+      ],
+      "option": {
+        "id": "dm-harbinger-blade",
+        "kind": "one",
+        "model": "Harbinger",
+        "replaces": [
+          "Harbinger blade"
+        ],
+        "text": "The Harbinger may exchange its blade for",
+        "choices": [
+          {
+            "name": "Bound-ruin blade",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "ruinstorm-daemon-beasts"
+      ],
+      "option": {
+        "id": "dm-beasts-gorger",
+        "kind": "perModel",
+        "model": "Beasts",
+        "replaces": [
+          "Maw & talon"
+        ],
+        "max": 3,
+        "text": "Up to three Beasts may exchange their maw and talon for",
+        "choices": [
+          {
+            "name": "Warp-maw gorger",
+            "points": 5
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "horrors-of-tzeench"
+      ],
+      "option": {
+        "id": "dm-horrors-spark",
+        "kind": "perModel",
+        "model": "Pink Horror",
+        "replaces": [
+          "Warpfire"
+        ],
+        "max": 3,
+        "text": "Up to three Pink Horrors may exchange their warpfire for",
+        "choices": [
+          {
+            "name": "Fate-spark volley",
+            "points": 3
+          },
+          {
+            "name": "Mirrorshard spray",
+            "points": 4
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "ruinstorm-lesser-daemons",
+        "ruinstorm-daemon-brutes",
+        "ruinstorm-daemon-beasts",
+        "ruinstorm-daemon-riders",
+        "ruinstorm-daemon-harriers"
+      ],
+      "option": {
+        "id": "dm-warp-brand",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The unit may bear the brand of a Power",
+        "choices": [
+          {
+            "name": "Warp-brand",
+            "points": 20
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "ruinstorm-daemon-sovereign",
+        "ruinstorm-daemon-hierarch",
+        "ruinstorm-daemon-harbinger"
+      ],
+      "option": {
+        "id": "dm-ruin-crown",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The commander may wear a crown of unreality",
+        "choices": [
+          {
+            "name": "Ruin-shard crown",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "ruinstorm-daemon-sovereign",
+        "ruinstorm-daemon-hierarch",
+        "ruinstorm-daemon-harbinger"
+      ],
+      "option": {
+        "id": "dm-cmd-gear",
+        "kind": "any",
+        "text": "The commander may bear tokens of the storm (up to two)",
+        "choices": [
+          {
+            "name": "Bloodied skull-rack",
+            "points": 15
+          },
+          {
+            "name": "Canker-urn",
+            "points": 15
+          },
+          {
+            "name": "Mirror-glass aegis",
+            "points": 20
+          }
+        ],
+        "model": [
+          "Sovereign",
+          "Hierarch",
+          "Harbinger"
+        ],
+        "max": {
+          "fixed": 2
+        }
+      }
+    },
+    {
+      "units": [
+        "ascendant-lord-of-tzeench",
+        "herald-of-tzeench",
+        "lord-of-change"
+      ],
+      "option": {
+        "id": "dm-tz-gear",
+        "kind": "any",
+        "text": "The Tzeentch leader may bear tokens of fate",
+        "choices": [
+          {
+            "name": "Chime of stolen hours",
+            "points": 20
+          },
+          {
+            "name": "Mirror-glass aegis",
+            "points": 20
+          }
+        ],
+        "model": [
+          "Ascendant Lord",
+          "Herald of Tzeench",
+          "Lord of Change"
+        ],
+        "max": {
+          "fixed": 1
+        }
+      }
+    },
+    {
+      "units": [
+        "ruinstorm-daemon-beasts",
+        "ruinstorm-daemon-riders"
+      ],
+      "option": {
+        "id": "dm-pack-harness",
+        "kind": "upgrade",
+        "text": "The pack may wear a harness",
+        "choices": [
+          {
+            "name": "Lash-gall harness",
+            "points": 10
+          }
+        ],
+        "model": null
+      }
+    },
+    {
+      "units": [
+        "ruinstorm-lesser-daemons",
+        "ruinstorm-daemon-swarms",
+        "ruinstorm-daemon-harriers"
+      ],
+      "option": {
+        "id": "dm-idol",
+        "kind": "upgrade",
+        "text": "The unit may carry a hollow idol",
+        "choices": [
+          {
+            "name": "Hollow idol",
+            "points": 10
+          }
+        ],
+        "model": null
+      }
+    },
+    {
+      "units": [
+        "ruinstorm-greater-daemon-beast",
+        "ruinstorm-daemon-behemoth",
+        "ruinstorm-daemon-brutes",
+        "blood-slaughterer"
+      ],
+      "option": {
+        "id": "dm-barbs",
+        "kind": "upgrade",
+        "text": "The beast may sprout ruin-barbs",
+        "choices": [
+          {
+            "name": "Ruin-barbs",
+            "points": 15
+          }
+        ],
+        "model": null
+      }
+    },
+    {
+      "units": [
+        "ruinstorm-daemon-hierarch"
+      ],
+      "option": {
+        "id": "dm-hierarch-flail",
+        "kind": "one",
+        "text": "The Hierarch may exchange its blade for",
+        "choices": [
+          {
+            "name": "Skull-chain flail",
+            "points": 10
+          }
+        ],
+        "model": "Hierarch",
+        "replaces": [
+          "Hierarch blade"
+        ]
+      }
+    },
+    {
+      "units": [
+        "ruinstorm-daemon-harriers"
+      ],
+      "option": {
+        "id": "dm-harrier-gout",
+        "kind": "perModel",
+        "text": "Up to two Harriers may exchange their claws for",
+        "choices": [
+          {
+            "name": "Festering gout",
+            "points": 6
+          }
+        ],
+        "model": "Harriers",
+        "replaces": [
+          "Daemon claws"
+        ],
+        "max": 2
+      }
+    }
   ],
   "modifiers": [
-    { "units": ["ruinstorm-lesser-daemons"], "text": "Flickering imps: +1 I, -1 T.", "stats": { "I": "+1", "T": "-1" } },
-    { "units": ["ruinstorm-daemon-swarms"], "text": "Gnawing mass: +1 A, -1 W.", "stats": { "A": "+1", "W": "-1" } },
-    { "units": ["ruinstorm-daemon-beasts"], "text": "Hunting-pack ferocity: +1 M, -1 WP.", "stats": { "M": "+1", "WP": "-1" } },
-    { "units": ["horrors-of-tzeench"], "text": "Prismatic spite: +1 BS, -1 T.", "stats": { "BS": "+1", "T": "-1" } },
-    { "units": ["ruinstorm-daemon-brutes", "ruinstorm-greater-daemon-beast"], "text": "Raw unreality: +1 S, -1 I.", "stats": { "S": "+1", "I": "-1" } },
-    { "units": ["ruinstorm-lesser-daemons", "ruinstorm-daemon-brutes", "ruinstorm-daemon-beasts", "ruinstorm-daemon-riders", "ruinstorm-daemon-harriers"], "item": "Warp-brand", "scope": "model", "text": "Warp-brand: +1 A.", "stats": { "A": "+1" } }
+    {
+      "units": [
+        "ruinstorm-lesser-daemons"
+      ],
+      "text": "Flickering imps: +1 I, -1 T.",
+      "stats": {
+        "I": "+1",
+        "T": "-1"
+      }
+    },
+    {
+      "units": [
+        "ruinstorm-daemon-swarms"
+      ],
+      "text": "Gnawing mass: +1 A, -1 W.",
+      "stats": {
+        "A": "+1",
+        "W": "-1"
+      }
+    },
+    {
+      "units": [
+        "ruinstorm-daemon-beasts"
+      ],
+      "text": "Hunting-pack ferocity: +1 M, -1 WP.",
+      "stats": {
+        "M": "+1",
+        "WP": "-1"
+      }
+    },
+    {
+      "units": [
+        "horrors-of-tzeench"
+      ],
+      "text": "Prismatic spite: +1 BS, -1 T.",
+      "stats": {
+        "BS": "+1",
+        "T": "-1"
+      }
+    },
+    {
+      "units": [
+        "ruinstorm-daemon-brutes",
+        "ruinstorm-greater-daemon-beast"
+      ],
+      "text": "Raw unreality: +1 S, -1 I.",
+      "stats": {
+        "S": "+1",
+        "I": "-1"
+      }
+    },
+    {
+      "units": [
+        "ruinstorm-lesser-daemons",
+        "ruinstorm-daemon-brutes",
+        "ruinstorm-daemon-beasts",
+        "ruinstorm-daemon-riders",
+        "ruinstorm-daemon-harriers"
+      ],
+      "item": "Warp-brand",
+      "scope": "model",
+      "text": "Warp-brand: +1 A.",
+      "stats": {
+        "A": "+1"
+      }
+    },
+    {
+      "units": [
+        "ruinstorm-daemon-sovereign",
+        "ruinstorm-daemon-hierarch",
+        "ruinstorm-daemon-harbinger"
+      ],
+      "item": "Bloodied skull-rack",
+      "text": "Bloodied skull-rack: Skull Tally.",
+      "addRules": [
+        "Skull Tally"
+      ]
+    },
+    {
+      "units": [
+        "ascendant-lord-of-tzeench",
+        "herald-of-tzeench",
+        "lord-of-change"
+      ],
+      "item": "Chime of stolen hours",
+      "text": "Chime of stolen hours: Slipped Moment.",
+      "addRules": [
+        "Slipped Moment"
+      ]
+    },
+    {
+      "units": [
+        "ruinstorm-daemon-sovereign",
+        "ruinstorm-daemon-hierarch",
+        "ruinstorm-daemon-harbinger"
+      ],
+      "item": "Canker-urn",
+      "text": "Canker-urn: Festering Cloud.",
+      "addRules": [
+        "Festering Cloud"
+      ]
+    },
+    {
+      "units": [
+        "ruinstorm-daemon-sovereign",
+        "ruinstorm-daemon-hierarch",
+        "ruinstorm-daemon-harbinger",
+        "ascendant-lord-of-tzeench",
+        "herald-of-tzeench",
+        "lord-of-change",
+        "ruinstorm-greater-daemon-beast"
+      ],
+      "item": "Mirror-glass aegis",
+      "text": "Mirror-glass aegis: Hall of Mirrors.",
+      "addRules": [
+        "Hall of Mirrors"
+      ]
+    },
+    {
+      "units": [
+        "ruinstorm-daemon-beasts",
+        "ruinstorm-daemon-riders"
+      ],
+      "item": "Lash-gall harness",
+      "text": "Lash-gall harness: Goaded Pack.",
+      "addRules": [
+        "Goaded Pack"
+      ]
+    },
+    {
+      "units": [
+        "ruinstorm-lesser-daemons",
+        "ruinstorm-daemon-swarms",
+        "ruinstorm-daemon-harriers"
+      ],
+      "item": "Hollow idol",
+      "text": "Hollow idol: Anchoring Idol.",
+      "addRules": [
+        "Anchoring Idol"
+      ]
+    },
+    {
+      "units": [
+        "ruinstorm-greater-daemon-beast",
+        "ruinstorm-daemon-behemoth",
+        "ruinstorm-daemon-brutes",
+        "blood-slaughterer"
+      ],
+      "item": "Ruin-barbs",
+      "text": "Ruin-barbs: Barbed Ruin.",
+      "addRules": [
+        "Barbed Ruin"
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "name": "Warp Rift Tide",
+      "text": "Legacy house rule (The Gnashing Tide). A unit with this rule may be placed in Reserves and arrive by Deep Strike. If it is still in Reserve at the start of its controller's second turn, it arrives automatically without a Reserves roll."
+    },
+    {
+      "name": "Threads of Fate",
+      "text": "Legacy house rule (The Pale Banner of Fate). After both sides have deployed and before the first battle turn, up to three friendly units with this rule may each make a free move of up to 6\". None may end that move within 12\" of an enemy model."
+    },
+    {
+      "name": "Skulls for the Throne",
+      "text": "Legacy house rule (The Red Tide of Ka'bandha). A unit with this rule adds 1 to its Charge roll. On a turn it charges, it must charge the closest enemy unit it can reach."
+    },
+    {
+      "name": "Creeping Rot",
+      "text": "Legacy house rule (Rot Unbidden). Enemy models in base contact with a model with this rule subtract 1 from their Initiative."
+    },
+    {
+      "name": "Irresistible Allure",
+      "text": "Legacy house rule (Rapture's Invitation). An enemy unit charged by a unit with this rule subtracts 1 from its Initiative until the end of that Assault phase."
+    },
+    {
+      "name": "Skull Tally",
+      "text": "Legacy house rule. Each time the bearer's unit destroys an enemy Character in combat, the bearer gains +1 Attack until the end of the battle (maximum +2)."
+    },
+    {
+      "name": "Slipped Moment",
+      "text": "Legacy house rule. Once per battle, at the end of its controlling player's turn, the bearer's unit may be removed from the battlefield and placed in Reserve to arrive next turn by Deep Strike."
+    },
+    {
+      "name": "Festering Cloud",
+      "text": "Legacy house rule. Enemy models within 3\" of the bearer subtract 1 from their Toughness."
+    },
+    {
+      "name": "Hall of Mirrors",
+      "text": "Legacy house rule. Enemy Psychic Checks made to target the bearer suffer -1. The first time each battle the bearer suffers an unsaved wound from a Shooting Attack, the shooter's unit suffers one automatic Hit (S3, AP -)."
+    },
+    {
+      "name": "Goaded Pack",
+      "text": "Legacy house rule. A Charge roll of less than 6 made by the unit counts as 6."
+    },
+    {
+      "name": "Anchoring Idol",
+      "text": "Legacy house rule. Once per battle, the unit may treat a failed Morale or Cool Check as passed."
+    },
+    {
+      "name": "Barbed Ruin",
+      "text": "Legacy house rule. An enemy unit that Charges the bearer's unit suffers one automatic Hit (S4, AP -) for each model in base contact."
+    }
+  ],
+  "armyRules": [
+    {
+      "name": "Tethered to the Storm",
+      "text": "Legacy house rule. Ruinstorm daemons are held in the material world by the storm's fury and slip away when it quiets. A Malefic unit gains a 5+ Invulnerable Save if it was worse. At the end of its controlling player's turn, a unit that neither made nor suffered an attack that turn must pass a Cool Check or lose one model.",
+      "match": {
+        "unitType": "Malefic"
+      },
+      "stats": {
+        "INV": "best:5+"
+      }
+    },
+    {
+      "name": "Anchor of the Storm",
+      "text": "Legacy house rule. Greater powers bind the lesser to their will. A friendly Malefic unit within 12\" of a Sovereign, Hierarch, Harbinger, Ascendant Lord or Herald adds 1 to its Cool. If that commander is slain, each such unit must make a Cool Check or gain the Stunned Status.",
+      "units": [
+        "ruinstorm-daemon-sovereign",
+        "ruinstorm-daemon-hierarch",
+        "ruinstorm-daemon-harbinger",
+        "ascendant-lord-of-tzeench",
+        "herald-of-tzeench"
+      ]
+    },
+    {
+      "name": "Shifting Fates",
+      "text": "Legacy house rule. The Changer's servants are never quite where the enemy aimed. Tzeentch units gain a 5+ Invulnerable Save if it was worse, but subtract 1 from their Cool as their attention wanders.",
+      "units": [
+        "ascendant-lord-of-tzeench",
+        "herald-of-tzeench",
+        "lord-of-change",
+        "flamers-of-tzeench",
+        "screamers-of-tzeench",
+        "horrors-of-tzeench"
+      ],
+      "stats": {
+        "INV": "best:5+",
+        "CL": "-1"
+      }
+    }
   ],
   "rites": [
     {
@@ -182,7 +844,7 @@
       "flavor": "Skulls for the throne. All of them. All at once.",
       "benefits": [
         "Ruinstorm Daemon Brutes and Blood Slaughterers may fill Troops slots and gain Line (1).",
-        "They gain Skulls for the Throne: a failed Charge roll may be re-rolled once."
+        "They gain Skulls for the Throne: Charge rolls gain +1."
       ],
       "limitations": [
         "Ka'bandha must be in the army.",
@@ -341,28 +1003,6 @@
           ]
         }
       ]
-    }
-  ],
-  "rules": [
-    {
-      "name": "Warp Rift Tide",
-      "text": "Legacy house rule (The Gnashing Tide). A unit with this rule may be placed in Reserves and arrive by Deep Strike. If it is still in Reserve at the start of its controller's second turn, it arrives automatically without a Reserves roll."
-    },
-    {
-      "name": "Threads of Fate",
-      "text": "Legacy house rule (The Pale Banner of Fate). After both sides have deployed and before the first battle turn, up to three friendly units with this rule may each make a free move of up to 6\". None may end that move within 12\" of an enemy model."
-    },
-    {
-      "name": "Skulls for the Throne",
-      "text": "Legacy house rule (The Red Tide of Ka'bandha). A unit with this rule that fails a Charge may re-roll it once. On a turn it charges, it must charge the closest enemy unit it can reach."
-    },
-    {
-      "name": "Creeping Rot",
-      "text": "Legacy house rule (Rot Unbidden). Enemy models in base contact with a model with this rule subtract 1 from their Initiative."
-    },
-    {
-      "name": "Irresistible Allure",
-      "text": "Legacy house rule (Rapture's Invitation). An enemy unit charged by a unit with this rule subtracts 1 from its Initiative until the end of that Assault phase."
     }
   ]
 }

@@ -1,50 +1,643 @@
 {
   "weapons": {
     "ranged": [
-      { "name": "Warp-lash caster", "R": 18, "FP": 3, "RS": 4, "AP": 5, "D": 1, "specialRules": ["Rending (6+)", "Panic (1)"], "traits": ["Warp"] }
+      {
+        "name": "Warp-lash caster",
+        "R": 18,
+        "FP": 3,
+        "RS": 4,
+        "AP": 5,
+        "D": 1,
+        "specialRules": [
+          "Panic (1)",
+          "Suppressive (1)"
+        ],
+        "traits": [
+          "Warp"
+        ]
+      },
+      {
+        "name": "Hexbolt rifle",
+        "R": 24,
+        "FP": 2,
+        "RS": 4,
+        "AP": 4,
+        "D": 1,
+        "specialRules": [
+          "Stun (1)",
+          "Phage (I)"
+        ],
+        "traits": [
+          "Bolt",
+          "Warp"
+        ]
+      }
     ],
     "melee": [
-      { "name": "Seer's khopesh", "IM": "I", "AM": "+1", "SM": "S", "AP": 3, "D": 1, "specialRules": ["Precision (6+)"], "traits": ["Power"] },
-      { "name": "Reality-shredding talons", "IM": "I", "AM": "+1", "SM": "S", "AP": 5, "D": 1, "specialRules": ["Rending (6+)"], "traits": [] }
+      {
+        "name": "Seer's khopesh",
+        "IM": "I",
+        "AM": "+1",
+        "SM": "S",
+        "AP": 3,
+        "D": 1,
+        "specialRules": [
+          "Precision (6+)",
+          "Duellist's Edge (1)"
+        ],
+        "traits": [
+          "Power"
+        ]
+      },
+      {
+        "name": "Reality-shredding talons",
+        "IM": "I",
+        "AM": "+1",
+        "SM": "S",
+        "AP": 5,
+        "D": 1,
+        "specialRules": [
+          "Critical Hit (5+)",
+          "Shred (6+)"
+        ],
+        "traits": []
+      },
+      {
+        "name": "Cabal null-lance",
+        "IM": -1,
+        "AM": "A",
+        "SM": "+1",
+        "AP": 3,
+        "D": 1,
+        "specialRules": [
+          "Force (S)",
+          "Breaching (5+)"
+        ],
+        "traits": [
+          "Power"
+        ]
+      },
+      {
+        "name": "Fatebinder's sickle",
+        "IM": "I",
+        "AM": "A",
+        "SM": "S",
+        "AP": 3,
+        "D": 1,
+        "specialRules": [
+          "Reaping Blow (1)",
+          "Poisoned (4+)"
+        ],
+        "traits": [
+          "Power"
+        ]
+      }
     ]
   },
   "wargear": [
-    { "name": "Prospero sigil-charm", "text": "Legacy house rule. A tiny glyph-etched amulet, renewed every dawn by a cabal scribe. The model has a 5+ Invulnerable Save if it was worse." },
-    { "name": "Fate-glass", "text": "Legacy house rule. A lens of cut crystal through which a sorcerer glimpses a few seconds of the next minute. The model gains +1 Willpower and +1 Intelligence." },
-    { "name": "Warp-touched banner", "text": "Legacy house rule. A standard whose threads shift colour when no one is looking. Every model in the unit gains +1 Willpower and +1 Intelligence." },
-    { "name": "Warding-sigil engraving", "text": "Legacy house rule. Rune-lines cut into the hull by a Prosperine artisan. The model has a 4+ Invulnerable Save if it was worse." }
+    {
+      "name": "Prospero sigil-charm",
+      "text": "Legacy house rule. A tiny glyph-etched amulet, renewed every dawn by a cabal scribe. The model has a 5+ Invulnerable Save if it was worse."
+    },
+    {
+      "name": "Fate-glass",
+      "text": "Legacy house rule. A lens of cut crystal through which a sorcerer glimpses a few seconds of the next minute. The model gains +1 Willpower and +1 Intelligence."
+    },
+    {
+      "name": "Warp-touched banner",
+      "text": "Legacy house rule. A standard whose threads shift colour when no one is looking. Every model in the unit gains +1 Willpower and +1 Intelligence."
+    },
+    {
+      "name": "Warding-sigil engraving",
+      "text": "Legacy house rule. Rune-lines cut into the hull by a Prosperine artisan. The model has a 4+ Invulnerable Save if it was worse."
+    },
+    {
+      "name": "Aegis of Utterances",
+      "text": "Legacy house rule. A tablet of closely-written wards worn at the breast. Gives the model Spell-Ward."
+    },
+    {
+      "name": "Cabal obelisk-key",
+      "text": "Legacy house rule. A small black prism that fixes a patch of ground in the cabal's foresight. Gives the model Sorcerous Claim."
+    },
+    {
+      "name": "Numerologist's slate",
+      "text": "Legacy house rule. A wax slate scored with firing solutions, carried by the squad's sergeant. Gives the model Calculated Volley."
+    },
+    {
+      "name": "Banner of Shifting Hues",
+      "text": "Legacy house rule. A standard whose colours crawl and never settle. Every model in the unit gains Dizzying Hues."
+    },
+    {
+      "name": "Mirage lacquer",
+      "text": "Legacy house rule. A prismatic coating laid over hull plates by Prosperine artisans. The vehicle gains Mirage Lacquer."
+    },
+    {
+      "name": "Blade-song glyph",
+      "text": "Legacy house rule. A resonant rune cut into the guard of a blademaster's sword. Gives the model Blade-song Rhythm."
+    }
   ],
   "options": [
-    { "units": ["tactical-squad", "despoiler-squad", "breacher-squad", "veteran-tactical-squad", "assault-squad", "veteran-assault-squad", "numerologist-cabal", "ammitara-occult-intercession-cabal"], "optionalUnits": true,
-      "option": { "id": "ts-sergeant-weapon", "kind": "one", "modelType": "Sergeant", "text": "The Sergeant may take a Prospero weapon",
-        "choices": [ { "name": "Seer's khopesh", "points": 10 }, { "name": "Warp-lash caster", "points": 10 } ] } },
-    { "units": ["tactical-squad", "despoiler-squad", "breacher-squad", "veteran-tactical-squad", "assault-squad", "numerologist-cabal", "khenetai-occult-cabal"], "optionalUnits": true,
-      "option": { "id": "ts-sigil-charm", "kind": "upgrade", "modelType": "Sergeant", "text": "The Sergeant may wear a Prospero sigil-charm",
-        "choices": [ { "name": "Prospero sigil-charm", "points": 15 } ] } },
-    { "units": ["prosperine-sorcerer", "librarian", "esoterist", "librarian-in-terminator-armour", "librarian-with-jump-pack", "herald-of-tzeench"], "optionalUnits": true,
-      "option": { "id": "ts-fate-glass", "kind": "upgrade", "modelType": "Command", "text": "May carry a Fate-glass",
-        "choices": [ { "name": "Fate-glass", "points": 15 } ] } },
-    { "units": ["tactical-squad", "despoiler-squad", "breacher-squad", "assault-squad", "numerologist-cabal", "khenetai-occult-cabal"], "optionalUnits": true,
-      "option": { "id": "ts-warp-banner", "kind": "upgrade", "model": null, "text": "The unit may carry a Warp-touched banner",
-        "choices": [ { "name": "Warp-touched banner", "points": 20 } ] } },
-    { "units": ["horrors-of-tzeench"],
-      "option": { "id": "ts-horror-talons", "kind": "perModel", "model": "Pink Horror", "max": 5, "replaces": ["Coruscating grasp"],
-        "text": "Up to five Pink Horrors may exchange their coruscating grasp for", "choices": [ { "name": "Reality-shredding talons", "points": 4 } ] } },
-    { "units": ["contemptor-osiron-dreadnought", "castellax-achea-automata"],
-      "option": { "id": "ts-warding-sigils", "kind": "upgrade", "model": null, "text": "May be etched with Warding sigils",
-        "choices": [ { "name": "Warding-sigil engraving", "points": 15 } ] } }
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "breacher-squad",
+        "veteran-tactical-squad",
+        "assault-squad",
+        "veteran-assault-squad",
+        "numerologist-cabal",
+        "ammitara-occult-intercession-cabal"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "ts-sergeant-weapon",
+        "kind": "one",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may take a Prospero weapon",
+        "choices": [
+          {
+            "name": "Seer's khopesh",
+            "points": 10
+          },
+          {
+            "name": "Warp-lash caster",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "breacher-squad",
+        "veteran-tactical-squad",
+        "assault-squad",
+        "numerologist-cabal",
+        "khenetai-occult-cabal"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "ts-sigil-charm",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may wear a Prospero sigil-charm",
+        "choices": [
+          {
+            "name": "Prospero sigil-charm",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "prosperine-sorcerer",
+        "librarian",
+        "esoterist",
+        "librarian-in-terminator-armour",
+        "librarian-with-jump-pack",
+        "herald-of-tzeench"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "ts-fate-glass",
+        "kind": "upgrade",
+        "modelType": "Command",
+        "text": "May carry a Fate-glass",
+        "choices": [
+          {
+            "name": "Fate-glass",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "breacher-squad",
+        "assault-squad",
+        "numerologist-cabal",
+        "khenetai-occult-cabal"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "ts-warp-banner",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The unit may carry a Warp-touched banner",
+        "choices": [
+          {
+            "name": "Warp-touched banner",
+            "points": 20
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "horrors-of-tzeench"
+      ],
+      "option": {
+        "id": "ts-horror-talons",
+        "kind": "perModel",
+        "model": "Pink Horror",
+        "max": 5,
+        "replaces": [
+          "Coruscating grasp"
+        ],
+        "text": "Up to five Pink Horrors may exchange their coruscating grasp for",
+        "choices": [
+          {
+            "name": "Reality-shredding talons",
+            "points": 4
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "contemptor-osiron-dreadnought",
+        "castellax-achea-automata"
+      ],
+      "option": {
+        "id": "ts-warding-sigils",
+        "kind": "upgrade",
+        "model": null,
+        "text": "May be etched with Warding sigils",
+        "choices": [
+          {
+            "name": "Warding-sigil engraving",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "roles": [
+          "High Command",
+          "Command"
+        ],
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "option": {
+        "id": "ts-regalia",
+        "kind": "any",
+        "modelType": "Command",
+        "max": {
+          "fixed": 2
+        },
+        "text": "Cabal regalia: may take up to two items",
+        "choices": [
+          {
+            "name": "Aegis of Utterances",
+            "points": 15
+          },
+          {
+            "name": "Cabal obelisk-key",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "prosperine-sorcerer",
+        "librarian",
+        "esoterist",
+        "librarian-in-terminator-armour",
+        "librarian-with-jump-pack",
+        "esoterist-with-jump-pack",
+        "esoterist-in-terminator-armour",
+        "herald-of-tzeench"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "ts-null-lance",
+        "kind": "upgrade",
+        "modelType": "Command",
+        "text": "May carry a Cabal null-lance",
+        "choices": [
+          {
+            "name": "Cabal null-lance",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "veteran-tactical-squad",
+        "breacher-squad",
+        "numerologist-cabal",
+        "ammitara-occult-intercession-cabal"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "ts-slate",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may carry a Numerologist's slate",
+        "choices": [
+          {
+            "name": "Numerologist's slate",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "khenetai-occult-cabal",
+        "sekhmet-terminator-cabal"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "ts-glyph",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The leader may bear a Blade-song glyph",
+        "choices": [
+          {
+            "name": "Blade-song glyph",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "khenetai-occult-cabal",
+        "numerologist-cabal",
+        "sekhmet-terminator-cabal"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "ts-hues-banner",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The unit may carry a Banner of Shifting Hues",
+        "choices": [
+          {
+            "name": "Banner of Shifting Hues",
+            "points": 20
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "unitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "option": {
+        "id": "ts-mirage",
+        "kind": "upgrade",
+        "model": null,
+        "text": "May be lacquered with Mirage lacquer",
+        "choices": [
+          {
+            "name": "Mirage lacquer",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "veteran-tactical-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "ts-hexbolt",
+        "kind": "one",
+        "modelType": "Sergeant",
+        "replaces": [
+          "Bolter"
+        ],
+        "text": "The Sergeant may exchange their bolter for",
+        "choices": [
+          {
+            "name": "Hexbolt rifle",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "assault-squad",
+        "veteran-assault-squad",
+        "numerologist-cabal"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "ts-sickle",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may carry a Fatebinder's sickle",
+        "choices": [
+          {
+            "name": "Fatebinder's sickle",
+            "points": 10
+          }
+        ]
+      }
+    }
   ],
   "modifiers": [
-    { "units": ["tactical-squad", "despoiler-squad", "breacher-squad", "veteran-tactical-squad", "assault-squad", "veteran-assault-squad"], "optionalUnits": true, "text": "Dissonant Rubric-lore: +1 IN, -1 CL.", "stats": { "IN": "+1", "CL": "-1" } },
-    { "units": ["khenetai-occult-cabal"], "text": "Khenetai blade-dancers: +1 I, -1 LD.", "stats": { "I": "+1", "LD": "-1" } },
-    { "units": ["sekhmet-terminator-cabal"], "text": "Sekhmet trance-march: +1 WP, -1 M.", "stats": { "WP": "+1", "M": "-1" } },
-    { "units": ["horrors-of-tzeench"], "text": "Mutable horrors: +1 I, -1 CL.", "stats": { "I": "+1", "CL": "-1" } },
-    { "units": ["flamers-of-tzeench"], "text": "Gouts of Change: +1 BS, -1 I.", "stats": { "BS": "+1", "I": "-1" } },
-    { "match": { "unitType": "Command", "notUnitType": "Vehicle" }, "text": "Scholar-sorcerers: +1 WP, -1 A.", "stats": { "WP": "+1", "A": "-1" } },
-    { "units": ["*"], "item": "Prospero sigil-charm", "text": "Prospero sigil-charm: 5+ Invulnerable Save.", "stats": { "INV": "best:5+" } },
-    { "units": ["*"], "item": "Fate-glass", "text": "Fate-glass: +1 WP, +1 IN.", "stats": { "WP": "+1", "IN": "+1" } },
-    { "units": ["*"], "item": "Warp-touched banner", "scope": "unit", "text": "Warp-touched banner: +1 WP, +1 IN.", "stats": { "WP": "+1", "IN": "+1" } },
-    { "units": ["*"], "item": "Warding-sigil engraving", "text": "Warding-sigil engraving: 4+ Invulnerable Save.", "stats": { "INV": "best:4+" } }
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "breacher-squad",
+        "veteran-tactical-squad",
+        "assault-squad",
+        "veteran-assault-squad"
+      ],
+      "optionalUnits": true,
+      "text": "Dissonant Rubric-lore: +1 IN, -1 CL.",
+      "stats": {
+        "IN": "+1",
+        "CL": "-1"
+      }
+    },
+    {
+      "units": [
+        "khenetai-occult-cabal"
+      ],
+      "text": "Khenetai blade-dancers: +1 I, -1 LD.",
+      "stats": {
+        "I": "+1",
+        "LD": "-1"
+      }
+    },
+    {
+      "units": [
+        "sekhmet-terminator-cabal"
+      ],
+      "text": "Sekhmet trance-march: +1 WP, -1 M.",
+      "stats": {
+        "WP": "+1",
+        "M": "-1"
+      }
+    },
+    {
+      "units": [
+        "horrors-of-tzeench"
+      ],
+      "text": "Mutable horrors: +1 I, -1 CL.",
+      "stats": {
+        "I": "+1",
+        "CL": "-1"
+      }
+    },
+    {
+      "units": [
+        "flamers-of-tzeench"
+      ],
+      "text": "Gouts of Change: +1 BS, -1 I.",
+      "stats": {
+        "BS": "+1",
+        "I": "-1"
+      }
+    },
+    {
+      "match": {
+        "unitType": "Command",
+        "notUnitType": "Vehicle"
+      },
+      "text": "Scholar-sorcerers: +1 WP, -1 A.",
+      "stats": {
+        "WP": "+1",
+        "A": "-1"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Prospero sigil-charm",
+      "text": "Prospero sigil-charm: 5+ Invulnerable Save.",
+      "stats": {
+        "INV": "best:5+"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Fate-glass",
+      "text": "Fate-glass: +1 WP, +1 IN.",
+      "stats": {
+        "WP": "+1",
+        "IN": "+1"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Warp-touched banner",
+      "scope": "unit",
+      "text": "Warp-touched banner: +1 WP, +1 IN.",
+      "stats": {
+        "WP": "+1",
+        "IN": "+1"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Warding-sigil engraving",
+      "text": "Warding-sigil engraving: 4+ Invulnerable Save.",
+      "stats": {
+        "INV": "best:4+"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Aegis of Utterances",
+      "text": "Aegis of Utterances: Spell-Ward.",
+      "addRules": [
+        "Spell-Ward"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Cabal obelisk-key",
+      "text": "Cabal obelisk-key: Sorcerous Claim.",
+      "addRules": [
+        "Sorcerous Claim"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Numerologist's slate",
+      "text": "Numerologist's slate: Calculated Volley.",
+      "addRules": [
+        "Calculated Volley"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Banner of Shifting Hues",
+      "text": "Banner of Shifting Hues: Dizzying Hues.",
+      "scope": "unit",
+      "addRules": [
+        "Dizzying Hues"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Mirage lacquer",
+      "text": "Mirage lacquer: Mirage Lacquer.",
+      "addRules": [
+        "Mirage Lacquer"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Blade-song glyph",
+      "text": "Blade-song glyph: Blade-song Rhythm.",
+      "addRules": [
+        "Blade-song Rhythm"
+      ]
+    },
+    {
+      "units": [
+        "horrors-of-tzeench",
+        "flamers-of-tzeench",
+        "screamers-of-tzeench",
+        "herald-of-tzeench"
+      ],
+      "text": "Capricious Warp: Feel No Pain (6+).",
+      "addRules": [
+        "Feel No Pain (6+)"
+      ]
+    }
   ],
   "rules": [
     {
@@ -58,6 +651,30 @@
     {
       "name": "Foresight",
       "text": "Legacy house rule (The Scrying Cabal). After both armies are deployed and before the first turn, each unit with this rule may make one free Set-up Move of up to 6\"."
+    },
+    {
+      "name": "Spell-Ward",
+      "text": "Legacy house rule. Once per battle, a model with this rule may declare that its unit ignores all effects of one enemy psychic attack."
+    },
+    {
+      "name": "Sorcerous Claim",
+      "text": "Legacy house rule. When the unit of a model with this rule is counted for Controlling an Objective, it counts as having two additional models."
+    },
+    {
+      "name": "Calculated Volley",
+      "text": "Legacy house rule. If the unit of a model with this rule remained Stationary, add 1 to the Hit Tests of its Shooting Attacks made with Bolt weapons."
+    },
+    {
+      "name": "Dizzying Hues",
+      "text": "Legacy house rule. An enemy unit that declares a Charge against a unit with this rule subtracts 2 from the Charge roll."
+    },
+    {
+      "name": "Mirage Lacquer",
+      "text": "Legacy house rule. Enemy Shooting Attacks against a vehicle with this rule from more than 18\" subtract 1 from their Hit Tests."
+    },
+    {
+      "name": "Blade-song Rhythm",
+      "text": "Legacy house rule. A model with this rule adds 1 to its Initiative in the first Initiative Step of each Combat."
     }
   ],
   "rites": [
@@ -262,6 +879,54 @@
           }
         }
       ]
+    }
+  ],
+  "armyRules": [
+    {
+      "name": "Weavers of Fate",
+      "match": {
+        "roles": [
+          "Warlord",
+          "High Command",
+          "Command"
+        ],
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "text": "Legacy house rule. Cabal sorcerers read the next heartbeat and lean on it. Once per turn, a model with this rule may add 1 to one Hit Test, Wound Test or Saving Throw made for its unit. If the test fails anyway, the model suffers 1 Wound with no Saves allowed as the warp bites back."
+    },
+    {
+      "name": "Wards of Prospero",
+      "match": {
+        "roles": [
+          "Troops",
+          "Elites",
+          "Recon",
+          "Heavy Assault",
+          "Support"
+        ],
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "stats": {
+        "INV": "best:6+"
+      },
+      "text": "Legacy house rule. Every battle-brother wears a scribed ward under the plate, granting a 6+ Invulnerable Save if it was worse. The wards are brittle: they give no protection against Force weapons or psychic attacks."
+    },
+    {
+      "name": "Capricious Warp",
+      "units": [
+        "horrors-of-tzeench",
+        "flamers-of-tzeench",
+        "screamers-of-tzeench",
+        "herald-of-tzeench"
+      ],
+      "optionalUnits": true,
+      "stats": {
+        "CL": "-1"
+      },
+      "condition": "while more than 12\" from a friendly sorcerer, Herald or Primarch",
+      "text": "Legacy house rule. Warp-spawned allies shrug off blows that would fell flesh, gaining Feel No Pain (6+), but they heed the Cabal only when it stands near. While more than 12\" from a friendly Prosperine Sorcerer, Herald of Tzeench, Ahzek Ahriman, Magistus Amon or Magnus, the unit suffers -1 Cool."
     }
   ]
 }

@@ -1,4 +1,45 @@
 {
+  "armyRules": [
+    {
+      "name": "Red Tide",
+      "text": "Legacy house rule. The Legion fights as a flood, not a line. A unit with this rule adds +1 to its Initiative on a turn it charges. A unit with this rule that neither charged nor fought in combat in its previous turn suffers -1 Cool until it does.",
+      "match": {
+        "notUnitType": "Vehicle"
+      },
+      "stats": {
+        "I": "+1"
+      },
+      "condition": "on a turn the unit charges"
+    },
+    {
+      "name": "Blood-Sworn Duellists",
+      "text": "Legacy house rule. A Character with this rule must accept every Challenge offered to it. Each time it wins a Challenge it gains +1 Attack for the rest of the battle, to a maximum of +2.",
+      "match": {
+        "roles": [
+          "Command",
+          "High Command"
+        ],
+        "notUnitType": "Vehicle"
+      }
+    },
+    {
+      "name": "Deaf to the Guns",
+      "text": "Legacy house rule. A unit with this rule ignores the Pinned and Suppressed Statuses, but its Shooting Attacks against targets more than 12\" away are made at -1 Ballistic Skill.",
+      "match": {
+        "notUnitType": "Vehicle",
+        "roles": [
+          "Troops",
+          "Heavy Assault",
+          "Elites",
+          "Recon"
+        ]
+      },
+      "stats": {
+        "BS": "-1"
+      },
+      "condition": "when shooting at a target more than 12\" away"
+    }
+  ],
   "weapons": {
     "melee": [
       {
@@ -9,10 +50,58 @@
         "AP": 4,
         "D": 1,
         "specialRules": [
-          "Shred (5+)"
+          "Shred (5+)",
+          "Reaping Blow (1)"
         ],
         "traits": [
           "Chain"
+        ]
+      },
+      {
+        "name": "Gorechain flail",
+        "IM": "I",
+        "AM": "A",
+        "SM": "+1",
+        "AP": 4,
+        "D": 1,
+        "specialRules": [
+          "Aflame (1)",
+          "Reaping Blow (1)"
+        ],
+        "traits": [
+          "Chain"
+        ]
+      },
+      {
+        "name": "Pit-arena glaive",
+        "IM": "+1",
+        "AM": "A",
+        "SM": "+1",
+        "AP": 3,
+        "D": 1,
+        "specialRules": [
+          "Duellist's Edge (2)",
+          "Critical Hit (6+)"
+        ],
+        "traits": [
+          "Power"
+        ]
+      }
+    ],
+    "ranged": [
+      {
+        "name": "Nail-driver carbine",
+        "R": 18,
+        "FP": 2,
+        "RS": 4,
+        "AP": 5,
+        "D": 1,
+        "specialRules": [
+          "Suppressive (1)",
+          "Rending (6+)"
+        ],
+        "traits": [
+          "Bolt"
         ]
       }
     ]
@@ -21,6 +110,30 @@
     {
       "name": "Gore-soaked banner",
       "text": "Legacy house rule. A standard stitched from the hides of the last world the company burned. On a turn the unit charges, every model in it gains +1 Attack."
+    },
+    {
+      "name": "Pit-master's goad",
+      "text": "Legacy house rule. A barbed prod and a bellowed name for every man in the squad. Gives the bearer's unit Goad the Pack."
+    },
+    {
+      "name": "Nail-fused torc",
+      "text": "Legacy house rule. A collar of bone-grey nails driven so deep the bearer no longer hears the warp. Gives the bearer Null Nail."
+    },
+    {
+      "name": "Gladiator's scar-plate",
+      "text": "Legacy house rule. Ceramite so battered it is more dent than plate, kept that way on purpose. Gives the bearer Pain Is Fuel."
+    },
+    {
+      "name": "Skull-tithe totem",
+      "text": "Legacy house rule. A pole hung with the skulls of every champion the unit has put down. Gives the unit Skull Tithe."
+    },
+    {
+      "name": "Butcher's prow",
+      "text": "Legacy house rule. A serrated ram bolted across the nose of a hull. Gives the vehicle Killing Prow."
+    },
+    {
+      "name": "Frenzy-cage fittings",
+      "text": "Legacy house rule. Hatch locks and shock-wire grips that keep the passengers quiet until the doors drop. Gives the vehicle Caged Fury."
     }
   ],
   "rules": [
@@ -30,15 +143,39 @@
     },
     {
       "name": "Blood Frenzy",
-      "text": "Legacy house rule (The Berserker Charge). A unit with this rule that fails a Charge may re-roll it once. On a turn it charges, it must charge the closest enemy unit it can reach."
+      "text": "Legacy house rule (The Berserker Charge). A unit with this rule adds +1 to its Charge rolls. On a turn it charges, it must charge the closest enemy unit it can reach."
     },
     {
       "name": "Witch-hunters of Nikaea",
-      "text": "Legacy house rule (Scorn of Nikaea). A model with this rule adds +1 to its Willpower and may re-roll failed Willpower Checks forced by enemy Psychic powers."
+      "text": "Legacy house rule (Scorn of Nikaea). A model with this rule adds +1 to its Willpower, and passes the first Willpower Check forced on it by an enemy Psychic power each turn automatically."
     },
     {
       "name": "The Butcher's Chosen",
       "text": "Legacy house rule (The Butcher's Due). A unit with this rule gains Fear (1). If it destroys an enemy unit in combat, every friendly World Eaters unit within 12\" adds +1 to its Leadership until the end of the next turn."
+    },
+    {
+      "name": "Goad the Pack",
+      "text": "Legacy house rule. Once per battle, at the start of the Charge step, the bearer's unit adds +2 to its Charge roll for one Charge. If that Charge still fails, the bearer suffers 1 Wound with no Saves allowed."
+    },
+    {
+      "name": "Null Nail",
+      "text": "Legacy house rule. The bearer passes Willpower Checks forced by enemy Psychic powers automatically, but friendly Psychic powers cannot target the bearer."
+    },
+    {
+      "name": "Pain Is Fuel",
+      "text": "Legacy house rule. While the bearer has lost at least one Wound it gains Feel No Pain (6+) and +1 Initiative."
+    },
+    {
+      "name": "Skull Tithe",
+      "text": "Legacy house rule. A unit with this rule that destroyed an enemy unit in combat in its previous turn counts as having twice as many models for the purpose of holding an objective."
+    },
+    {
+      "name": "Killing Prow",
+      "text": "Legacy house rule. On a turn this vehicle moved at least 6\" and ended within 1\" of an enemy Infantry unit, that unit suffers D3 Hits at Strength 6, AP 3."
+    },
+    {
+      "name": "Caged Fury",
+      "text": "Legacy house rule. Models that disembark from this vehicle add +2 to their Charge roll that turn, but suffer -1 Cool until the end of the turn."
     }
   ],
   "options": [
@@ -139,6 +276,173 @@
           }
         ]
       }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "assault-squad",
+        "veteran-tactical-squad",
+        "veteran-assault-squad",
+        "breacher-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "we-pit-goad",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may carry a Pit-master's goad",
+        "choices": [
+          {
+            "name": "Pit-master's goad",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "roles": [
+          "Command",
+          "High Command"
+        ],
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "option": {
+        "id": "we-trophies",
+        "kind": "any",
+        "modelType": "Command",
+        "max": {
+          "fixed": 2
+        },
+        "text": "Trophies of the Pit: may take up to two items",
+        "choices": [
+          {
+            "name": "Nail-fused torc",
+            "points": 15
+          },
+          {
+            "name": "Gladiator's scar-plate",
+            "points": 20
+          },
+          {
+            "name": "Pit-arena glaive",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "assault-squad",
+        "inductii-squad",
+        "rampager-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "we-skull-totem",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The unit may carry a Skull-tithe totem",
+        "choices": [
+          {
+            "name": "Skull-tithe totem",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "assault-squad",
+        "veteran-assault-squad",
+        "breacher-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "we-gorechain",
+        "kind": "one",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may take a Gorechain flail",
+        "choices": [
+          {
+            "name": "Gorechain flail",
+            "points": 12
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "inductii-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "we-nail-driver",
+        "kind": "perModel",
+        "model": "Inductii",
+        "max": 2,
+        "replaces": [
+          "Bolt pistol"
+        ],
+        "text": "Up to two Inductii may exchange their bolt pistol for a Nail-driver carbine",
+        "choices": [
+          {
+            "name": "Nail-driver carbine",
+            "points": 3
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "unitType": "Vehicle",
+        "notUnitType": "Flyer",
+        "roles": [
+          "Armour",
+          "Transport",
+          "Heavy Transport"
+        ]
+      },
+      "optionalUnits": true,
+      "option": {
+        "id": "we-prow",
+        "kind": "upgrade",
+        "model": null,
+        "text": "May be fitted with a Butcher's prow",
+        "choices": [
+          {
+            "name": "Butcher's prow",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "unitType": "Vehicle",
+        "notUnitType": "Flyer",
+        "roles": [
+          "Transport",
+          "Heavy Transport"
+        ]
+      },
+      "optionalUnits": true,
+      "option": {
+        "id": "we-cage",
+        "kind": "upgrade",
+        "model": null,
+        "text": "May be fitted with Frenzy-cage fittings",
+        "choices": [
+          {
+            "name": "Frenzy-cage fittings",
+            "points": 10
+          }
+        ]
+      }
     }
   ],
   "modifiers": [
@@ -183,6 +487,72 @@
         "A": "+1"
       },
       "condition": "on a turn the unit charges"
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Pit-master's goad",
+      "text": "Pit-master's goad: Goad the Pack.",
+      "scope": "unit",
+      "addRules": [
+        "Goad the Pack"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Nail-fused torc",
+      "text": "Nail-fused torc: Null Nail.",
+      "scope": "model",
+      "addRules": [
+        "Null Nail"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Gladiator's scar-plate",
+      "text": "Gladiator's scar-plate: Pain Is Fuel.",
+      "scope": "model",
+      "addRules": [
+        "Pain Is Fuel"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Skull-tithe totem",
+      "text": "Skull-tithe totem: Skull Tithe.",
+      "scope": "unit",
+      "addRules": [
+        "Skull Tithe"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Butcher's prow",
+      "text": "Butcher's prow: Killing Prow.",
+      "scope": "unit",
+      "addRules": [
+        "Killing Prow"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Frenzy-cage fittings",
+      "text": "Frenzy-cage fittings: Caged Fury.",
+      "scope": "unit",
+      "addRules": [
+        "Caged Fury"
+      ]
     }
   ],
   "rites": [
@@ -192,7 +562,7 @@
       "text": "Guns are for those who fear to close the distance.",
       "benefits": [
         "Rampager Squads may fill Troops slots.",
-        "Every World Eaters Infantry unit gains Fast (1) and Blood Frenzy: a failed Charge may be re-rolled."
+        "Every World Eaters Infantry unit gains Fast (1) and Blood Frenzy: +1 to Charge rolls."
       ],
       "limitations": [
         "Units with Blood Frenzy must charge the closest enemy unit they can reach.",
@@ -251,7 +621,7 @@
       "flavor": "The Legion was forbidden its witches. It learned to hunt everyone else's.",
       "text": "The Legion was forbidden its witches. It learned to hunt everyone else's.",
       "benefits": [
-        "Every World Eaters unit gains Hatred (Psykers) and Witch-hunters of Nikaea: +1 Willpower, and failed Willpower Checks against enemy powers may be re-rolled."
+        "Every World Eaters unit gains Hatred (Psykers) and Witch-hunters of Nikaea: +1 Willpower, and the first Willpower Check forced by an enemy power each turn is passed automatically."
       ],
       "limitations": [
         "The army may not include any model with the Psyker Trait."

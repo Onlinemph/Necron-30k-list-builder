@@ -9,11 +9,41 @@
         "AP": 4,
         "D": 1,
         "specialRules": [
-          "Rending (6+)",
-          "Psy-Shock"
+          "Psy-Shock",
+          "Precision (5+)"
         ],
         "traits": [
           "Bolt"
+        ]
+      },
+      {
+        "name": "Dirge-carbine",
+        "R": 18,
+        "FP": 2,
+        "RS": 5,
+        "AP": 5,
+        "D": 1,
+        "specialRules": [
+          "Suppressive (1)",
+          "Panic (1)"
+        ],
+        "traits": [
+          "Bolt"
+        ]
+      },
+      {
+        "name": "Blackship harpoon rack",
+        "R": 36,
+        "FP": 2,
+        "RS": 7,
+        "AP": 2,
+        "D": 2,
+        "specialRules": [
+          "Armourbane",
+          "Shock (Stunned)"
+        ],
+        "traits": [
+          "Missile"
         ]
       }
     ],
@@ -26,7 +56,8 @@
         "AP": 3,
         "D": 1,
         "specialRules": [
-          "Breaching (5+)"
+          "Breaching (5+)",
+          "Phage (I)"
         ],
         "traits": [
           "Power"
@@ -40,10 +71,26 @@
         "AP": 2,
         "D": 2,
         "specialRules": [
-          "Critical Hit (5+)"
+          "Critical Hit (5+)",
+          "Duellist's Edge (1)"
         ],
         "traits": [
           "Power"
+        ]
+      },
+      {
+        "name": "Mistress' censure-cord",
+        "IM": "I",
+        "AM": "A",
+        "SM": "S",
+        "AP": 4,
+        "D": 1,
+        "specialRules": [
+          "Poisoned (4+)",
+          "Phage (I)"
+        ],
+        "traits": [
+          "Chain"
         ]
       }
     ]
@@ -60,6 +107,30 @@
     {
       "name": "Null-lattice hull",
       "text": "Legacy house rule. The Acquisitor's hull is lined with a mesh of soulless iron, built for hauling the damned through the Black Ships' corridors. The vehicle gains +1 Front armour value."
+    },
+    {
+      "name": "Soul-dampener collar",
+      "text": "Legacy house rule. A choker of black iron that drinks the warp-light from the air around it."
+    },
+    {
+      "name": "Null-iron rosary",
+      "text": "Legacy house rule. A string of beads cast from the black iron of the Palace dungeons."
+    },
+    {
+      "name": "Hushed bell",
+      "text": "Legacy house rule. A bell with no clapper that, when swung, rings only inside the mind."
+    },
+    {
+      "name": "Verdict-seal manacles",
+      "text": "Legacy house rule. Warded iron cuffs bearing a sentence already pronounced."
+    },
+    {
+      "name": "Cell-lock grapnels",
+      "text": "Legacy house rule. Spring-fed grapnels fired from the Acquisitor's flanks to snare running prey."
+    },
+    {
+      "name": "Revealing lumen",
+      "text": "Legacy house rule. A hard white searchlight that strips cover and shadow from whatever it falls on."
     }
   ],
   "options": [
@@ -87,6 +158,10 @@
           {
             "name": "Sisterhood silence blade",
             "points": 10
+          },
+          {
+            "name": "Mistress' censure-cord",
+            "points": 8
           }
         ]
       }
@@ -108,6 +183,10 @@
           {
             "name": "Null-lance",
             "points": 12
+          },
+          {
+            "name": "Dirge-carbine",
+            "points": 10
           }
         ]
       }
@@ -186,6 +265,106 @@
           }
         ]
       }
+    },
+    {
+      "units": [
+        "knight-centura",
+        "jenetia-krole"
+      ],
+      "option": {
+        "id": "ap-char-gear",
+        "kind": "any",
+        "text": "The Oblivion Knight may carry hunter's trinkets (up to two)",
+        "choices": [
+          {
+            "name": "Soul-dampener collar",
+            "points": 15
+          },
+          {
+            "name": "Null-iron rosary",
+            "points": 10
+          }
+        ],
+        "model": [
+          "Knight-Centura",
+          "Jenetia Krole"
+        ],
+        "max": {
+          "fixed": 2
+        }
+      }
+    },
+    {
+      "units": [
+        "anathema-cadre"
+      ],
+      "option": {
+        "id": "ap-mistress-gear",
+        "kind": "any",
+        "text": "The Null Mistress may carry a ward of office",
+        "choices": [
+          {
+            "name": "Hushed bell",
+            "points": 10
+          },
+          {
+            "name": "Verdict-seal manacles",
+            "points": 10
+          },
+          {
+            "name": "Null-iron rosary",
+            "points": 10
+          }
+        ],
+        "model": "Null Mistress",
+        "max": {
+          "fixed": 1
+        }
+      }
+    },
+    {
+      "units": [
+        "kharon-pattern-acquisitor"
+      ],
+      "option": {
+        "id": "ap-acquisitor-gear",
+        "kind": "any",
+        "text": "The Acquisitor may be fitted with hunting gear",
+        "choices": [
+          {
+            "name": "Cell-lock grapnels",
+            "points": 15
+          },
+          {
+            "name": "Revealing lumen",
+            "points": 10
+          }
+        ],
+        "model": null,
+        "max": {
+          "fixed": 2
+        }
+      }
+    },
+    {
+      "units": [
+        "kharon-pattern-acquisitor"
+      ],
+      "option": {
+        "id": "ap-acquisitor-harpoon",
+        "kind": "one",
+        "text": "The Acquisitor may exchange its Vratine heavy missiles for",
+        "choices": [
+          {
+            "name": "Blackship harpoon rack",
+            "points": 25
+          }
+        ],
+        "model": "Kharon Pattern Acquisitor",
+        "replaces": [
+          "Centreline Mounted Vratine heavy missiles"
+        ]
+      }
     }
   ],
   "modifiers": [
@@ -256,6 +435,143 @@
       "text": "Null-lattice hull: +1 FRONT.",
       "stats": {
         "FRONT": "+1"
+      }
+    },
+    {
+      "units": [
+        "knight-centura",
+        "jenetia-krole"
+      ],
+      "item": "Soul-dampener collar",
+      "text": "Soul-dampener collar: Dampening Pall.",
+      "addRules": [
+        "Dampening Pall"
+      ]
+    },
+    {
+      "units": [
+        "knight-centura",
+        "jenetia-krole",
+        "anathema-cadre"
+      ],
+      "item": "Null-iron rosary",
+      "text": "Null-iron rosary: Rosary of Quiet.",
+      "addRules": [
+        "Feel No Pain (6+)",
+        "Rosary of Quiet"
+      ]
+    },
+    {
+      "units": [
+        "anathema-cadre"
+      ],
+      "item": "Hushed bell",
+      "text": "Hushed bell: Muting Toll.",
+      "addRules": [
+        "Muting Toll"
+      ]
+    },
+    {
+      "units": [
+        "anathema-cadre"
+      ],
+      "item": "Verdict-seal manacles",
+      "text": "Verdict-seal manacles: Seal of Arrest.",
+      "addRules": [
+        "Seal of Arrest"
+      ]
+    },
+    {
+      "units": [
+        "kharon-pattern-acquisitor"
+      ],
+      "item": "Cell-lock grapnels",
+      "text": "Cell-lock grapnels: Snare Volley.",
+      "addRules": [
+        "Snare Volley"
+      ]
+    },
+    {
+      "units": [
+        "kharon-pattern-acquisitor"
+      ],
+      "item": "Revealing lumen",
+      "text": "Revealing lumen: Truth Beam.",
+      "addRules": [
+        "Truth Beam"
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "name": "Silent Hunt",
+      "text": "Legacy house rule (Vow of the Silent Hunt). An enemy Psyker within 12\" of a unit with this rule subtracts 1 from its Willpower while it is there."
+    },
+    {
+      "name": "Oblivion Charge",
+      "text": "Legacy house rule (The Oblivion Knights Ride). A unit with this rule may declare a Charge on the turn it disembarks from a transport. If an enemy Psyker or Malefic unit is within its charge reach, it must charge one."
+    },
+    {
+      "name": "Incorruptible Engines",
+      "text": "Legacy house rule (The Black Ships' Writ). Enemy Psychic powers can't target a model with this rule, and it is unaffected by Corruption and Malefic abilities."
+    },
+    {
+      "name": "Dampening Pall",
+      "text": "Legacy house rule. Enemy Psykers within 12\" of the bearer subtract 1 from their Psychic Checks."
+    },
+    {
+      "name": "Rosary of Quiet",
+      "text": "Legacy house rule. The bearer gains Feel No Pain (6+)."
+    },
+    {
+      "name": "Muting Toll",
+      "text": "Legacy house rule. Once per battle, at the start of the enemy Shooting phase, choose one enemy unit within 18\". It may not use Psychic weapons or Force (X) until the end of the phase."
+    },
+    {
+      "name": "Seal of Arrest",
+      "text": "Legacy house rule. If the bearer's unit wins an Assault with a Psyker or Malefic unit, that unit gains the Stunned Status."
+    },
+    {
+      "name": "Snare Volley",
+      "text": "Legacy house rule. Once per battle, one enemy Infantry unit within 12\" at the start of its controller's Movement phase must pass a Cool Check or gain the Pinned Status."
+    },
+    {
+      "name": "Truth Beam",
+      "text": "Legacy house rule. Enemy units within 24\" of the Acquisitor lose Shrouded (X) and Infiltrate (X) benefits against its Shooting Attacks."
+    }
+  ],
+  "armyRules": [
+    {
+      "name": "Soulless Resolve",
+      "text": "Legacy house rule. The Sisters feel no warp-born dread and give no warmth to it either. Anathema models ignore Fear and add 1 to their Cool, but may not be targeted by friendly Psychic powers or benefit from friendly Feel No Pain-granting abilities.",
+      "units": [
+        "anathema-cadre",
+        "knight-centura",
+        "jenetia-krole"
+      ],
+      "stats": {
+        "CL": "+1"
+      }
+    },
+    {
+      "name": "Quarry Marked",
+      "text": "Legacy house rule. A cadre hunts the gifted by sight. A Null Sister adds 1 to her Hit Tests against units containing a Psyker or Malefic model; against other targets she suffers -1 to Hit when she Shoots at over 12\".",
+      "units": [
+        "anathema-cadre"
+      ],
+      "stats": {
+        "BS": "+1"
+      },
+      "condition": "when targeting a Psyker or Malefic unit"
+    },
+    {
+      "name": "Cell-Block Hold",
+      "text": "Legacy house rule. The Acquisitor is a moving prison and smells like one. Enemy units within 6\" of an Acquisitor subtract 1 from their Cool. Its hold is cramped by cells, so its Capacity is reduced by 2.",
+      "units": [
+        "kharon-pattern-acquisitor"
+      ],
+      "stats": {
+        "CAPACITY": "-2"
       }
     }
   ],
@@ -435,20 +751,6 @@
           ]
         }
       ]
-    }
-  ],
-  "rules": [
-    {
-      "name": "Silent Hunt",
-      "text": "Legacy house rule (Vow of the Silent Hunt). An enemy Psyker within 12\" of a unit with this rule subtracts 1 from its Willpower while it is there."
-    },
-    {
-      "name": "Oblivion Charge",
-      "text": "Legacy house rule (The Oblivion Knights Ride). A unit with this rule may declare a Charge on the turn it disembarks from a transport. If an enemy Psyker or Malefic unit is within its charge reach, it must charge one."
-    },
-    {
-      "name": "Incorruptible Engines",
-      "text": "Legacy house rule (The Black Ships' Writ). Enemy Psychic powers can't target a model with this rule, and it is unaffected by Corruption and Malefic abilities."
     }
   ]
 }

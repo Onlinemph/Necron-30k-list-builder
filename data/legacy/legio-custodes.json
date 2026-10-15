@@ -25,7 +25,37 @@
         "D": 1,
         "specialRules": [
           "Pistol",
-          "Breaching (6+)"
+          "Precision (5+)"
+        ],
+        "traits": [
+          "Assault"
+        ]
+      },
+      {
+        "name": "Lumen-bolt repeater",
+        "R": 30,
+        "FP": 3,
+        "RS": 5,
+        "AP": 3,
+        "D": 1,
+        "specialRules": [
+          "Suppressive (1)",
+          "Pinning (1)"
+        ],
+        "traits": [
+          "Bolt"
+        ]
+      },
+      {
+        "name": "Snare-net projector",
+        "R": 18,
+        "FP": 1,
+        "RS": 5,
+        "AP": 4,
+        "D": 1,
+        "specialRules": [
+          "Blast (3\")",
+          "Stun (2)"
         ],
         "traits": [
           "Assault"
@@ -55,7 +85,9 @@
         "SM": "S",
         "AP": 2,
         "D": 1,
-        "specialRules": [],
+        "specialRules": [
+          "Duellist's Edge (1)"
+        ],
         "traits": [
           "Power"
         ]
@@ -68,7 +100,23 @@
         "AP": 2,
         "D": 2,
         "specialRules": [
-          "Critical Hit (6+)"
+          "Critical Hit (6+)",
+          "Murderous (5+)"
+        ],
+        "traits": [
+          "Power"
+        ]
+      },
+      {
+        "name": "Sunspear pike",
+        "IM": "I",
+        "AM": "A",
+        "SM": "+2",
+        "AP": 2,
+        "D": 1,
+        "specialRules": [
+          "Reaping Blow (1)",
+          "Bypass (6+)"
         ],
         "traits": [
           "Power"
@@ -92,6 +140,34 @@
     {
       "name": "Reliquary plate",
       "text": "Legacy house rule. A sarcophagus-ward of Auramite lined with the names of the Dreadnought's former masters. The model gains +1 Wound."
+    },
+    {
+      "name": "Null-gilt pylon",
+      "text": "Legacy house rule. A null-lattice pylon worn at the shoulder, humming against the warp. The bearer gains +1 Willpower and Warp-Sealed."
+    },
+    {
+      "name": "Oathstone of Reckoning",
+      "text": "Legacy house rule. A fist-sized stone engraved with the names of the fallen, carried by captains who never forget. Gives the model Vengeance Sworn."
+    },
+    {
+      "name": "Banner of the Last Gate",
+      "text": "Legacy house rule. A tall standard that marks where the line will not move. Gives the unit Hold the Gate."
+    },
+    {
+      "name": "Mirror-gold gilding",
+      "text": "Legacy house rule. Polished auramite plating that throws back the light of beams and melta-glare. Gives the vehicle Mirror-Gold Hull and +1 Rear armour."
+    },
+    {
+      "name": "Edict-staff of the Vestarios",
+      "text": "Legacy house rule. A staff of office bearing the Emperor's own seal, obeyed without question. Gives the unit Voice of the Throne."
+    },
+    {
+      "name": "Auric sighting-glass",
+      "text": "Legacy house rule. A lens-and-rangefinder wrought by the Emperor's own artisans. Gives the unit Throne's Eye."
+    },
+    {
+      "name": "Soul-lamp of the Entombed",
+      "text": "Legacy house rule. A lamp lit from the Dreadnought's own fading memory. Gives the model Lamp of Remembrance and Feel No Pain (6+)."
     }
   ],
   "options": [
@@ -192,6 +268,10 @@
           {
             "name": "Cull-bolt carbine",
             "points": 5
+          },
+          {
+            "name": "Snare-net projector",
+            "points": 5
           }
         ]
       }
@@ -268,6 +348,165 @@
           {
             "name": "Reliquary plate",
             "points": 25
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "shield-captain",
+        "tribune"
+      ],
+      "option": {
+        "id": "lc-relics",
+        "kind": "any",
+        "model": [
+          "Shield Captain",
+          "Tribune"
+        ],
+        "max": {
+          "fixed": 2
+        },
+        "text": "May take up to two relics of the Vigil",
+        "choices": [
+          {
+            "name": "Null-gilt pylon",
+            "points": 15
+          },
+          {
+            "name": "Oathstone of Reckoning",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "sentinel-guard-sodality",
+        "custodian-guard-sodality",
+        "adrasite-guard-sodality",
+        "pyrithite-guard-sodality"
+      ],
+      "option": {
+        "id": "lc-last-gate",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The Sodality may carry a Banner of the Last Gate",
+        "choices": [
+          {
+            "name": "Banner of the Last Gate",
+            "points": 20
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "caladius-grav-tank",
+        "pallas-grav-attack",
+        "coronus-grav-carrier"
+      ],
+      "option": {
+        "id": "lc-mirror-gilding",
+        "kind": "upgrade",
+        "model": null,
+        "text": "May be fitted with Mirror-gold gilding",
+        "choices": [
+          {
+            "name": "Mirror-gold gilding",
+            "points": 20
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "adjutorum-sodality"
+      ],
+      "option": {
+        "id": "lc-edict-staff",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Vestarios may bear an Edict-staff",
+        "choices": [
+          {
+            "name": "Edict-staff of the Vestarios",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "sagittarum-guard-sodality"
+      ],
+      "option": {
+        "id": "lc-sighting-glass",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The Sodality may carry Auric sighting-glasses",
+        "choices": [
+          {
+            "name": "Auric sighting-glass",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "contemptor-galatus-dreadnought",
+        "contemptor-achillus-dreadnought"
+      ],
+      "option": {
+        "id": "lc-soul-lamp",
+        "kind": "upgrade",
+        "model": null,
+        "text": "May carry a Soul-lamp of the Entombed",
+        "choices": [
+          {
+            "name": "Soul-lamp of the Entombed",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "sagittarum-guard-sodality"
+      ],
+      "option": {
+        "id": "lc-lumen-repeater",
+        "kind": "perModel",
+        "model": "Sagittarum Guard",
+        "replaces": [
+          "Adrastus bolt caliver"
+        ],
+        "text": "Any Sagittarum Guard may exchange their Adrastus bolt caliver for a Lumen-bolt repeater",
+        "choices": [
+          {
+            "name": "Lumen-bolt repeater",
+            "points": 5
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "adrasite-guard-sodality"
+      ],
+      "option": {
+        "id": "lc-sunspear-pike",
+        "kind": "perModel",
+        "model": "Adrasite Guard",
+        "replaces": [
+          "Adrasite spear"
+        ],
+        "text": "Any Adrasite Guard may exchange their Adrasite spear for a Sunspear pike",
+        "choices": [
+          {
+            "name": "Sunspear pike",
+            "points": 4
           }
         ]
       }
@@ -379,6 +618,92 @@
       "stats": {
         "W": "+1"
       }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Null-gilt pylon",
+      "text": "Null-gilt pylon: +1 WP, Warp-Sealed.",
+      "stats": {
+        "WP": "+1"
+      },
+      "addRules": [
+        "Warp-Sealed"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Oathstone of Reckoning",
+      "text": "Oathstone of Reckoning: Vengeance Sworn, +1 A after a friendly loss.",
+      "stats": {
+        "A": "+1"
+      },
+      "addRules": [
+        "Vengeance Sworn"
+      ],
+      "condition": "after a friendly Custodes model within 6\" was slain this turn"
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Banner of the Last Gate",
+      "scope": "unit",
+      "text": "Banner of the Last Gate: Hold the Gate.",
+      "addRules": [
+        "Hold the Gate"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Mirror-gold gilding",
+      "scope": "unit",
+      "text": "Mirror-gold gilding: Mirror-Gold Hull, +1 REAR.",
+      "stats": {
+        "REAR": "+1"
+      },
+      "addRules": [
+        "Mirror-Gold Hull"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Edict-staff of the Vestarios",
+      "scope": "unit",
+      "text": "Edict-staff of the Vestarios: Voice of the Throne.",
+      "addRules": [
+        "Voice of the Throne"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Auric sighting-glass",
+      "scope": "unit",
+      "text": "Auric sighting-glass: Throne's Eye.",
+      "addRules": [
+        "Throne's Eye"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Soul-lamp of the Entombed",
+      "scope": "unit",
+      "text": "Soul-lamp of the Entombed: Lamp of Remembrance, Feel No Pain (6+).",
+      "addRules": [
+        "Lamp of Remembrance",
+        "Feel No Pain (6+)"
+      ]
     }
   ],
   "rites": [
@@ -578,7 +903,7 @@
       "flavor": "Within each Contemptor sleeps a warrior who knew the Emperor before He was called that.",
       "benefits": [
         "Contemptor-Galatus, Contemptor-Achillus and Telemon Heavy Dreadnoughts may fill Troops slots and gain Line (1).",
-        "They gain Wakened Ancients: once per turn each may re-roll one failed Hit Test."
+        "They gain Wakened Ancients: each adds +1 to its Hit Tests against a unit that destroyed a friendly model earlier this phase."
       ],
       "limitations": [
         "At least two War Engine units are required.",
@@ -642,7 +967,69 @@
     },
     {
       "name": "Wakened Ancients",
-      "text": "Legacy house rule (The Vigil of Ancients). Once per turn, a model with this rule may re-roll one failed Hit Test."
+      "text": "Legacy house rule (The Vigil of Ancients). A model with this rule adds +1 to its Hit Tests against a unit that destroyed a friendly model earlier in the same phase."
+    },
+    {
+      "name": "Warp-Sealed",
+      "text": "Legacy house rule. The first Wound from a psychic attack against this model in each phase is ignored."
+    },
+    {
+      "name": "Vengeance Sworn",
+      "text": "Legacy house rule. After a friendly Custodes model within 6\" of the bearer is destroyed, the bearer gains +1 Attack until the end of the turn."
+    },
+    {
+      "name": "Hold the Gate",
+      "text": "Legacy house rule. While within 3\" of an objective, every model in the unit counts as two models when contesting it, and the unit automatically passes Morale checks, but it may not Rush."
+    },
+    {
+      "name": "Mirror-Gold Hull",
+      "text": "Legacy house rule. Shooting attacks against this vehicle lose Armourbane and Melta (X)."
+    },
+    {
+      "name": "Voice of the Throne",
+      "text": "Legacy house rule. Once per battle, the unit automatically passes one Morale check it is required to make."
+    },
+    {
+      "name": "Throne's Eye",
+      "text": "Legacy house rule. The unit ignores Shrouded (X) on its targets and adds +1 to its Hit Tests against Flyers."
+    },
+    {
+      "name": "Lamp of Remembrance",
+      "text": "Legacy house rule. While an objective is within 12\" of this model, it gains Feel No Pain (5+) instead of the usual 6+."
+    }
+  ],
+  "armyRules": [
+    {
+      "name": "Aurum Discipline",
+      "text": "Legacy house rule. Ten thousand years of drill leave the Custodes unmoved by terror, and unable to yield. A unit with this rule automatically passes Pinning checks, but it may never choose to Fall Back.",
+      "match": {
+        "trait": "Legio Custodes",
+        "notUnitType": "Vehicle"
+      }
+    },
+    {
+      "name": "Peerless Duellist",
+      "text": "Legacy house rule. The Emperor's champions are trained for single combat above all else. In a Challenge the model adds +1 to its Weapon Skill. The price is pride: it may not decline a Challenge offered by an enemy Champion or Paragon.",
+      "units": [
+        "constantin-valdor",
+        "tribune",
+        "shield-captain"
+      ],
+      "stats": {
+        "WS": "+1"
+      },
+      "condition": "in a Challenge"
+    },
+    {
+      "name": "Irreplaceable",
+      "text": "Legacy house rule. There are so few of them that every loss is felt across the host. Custodes models gain +1 Cool, but whenever a Custodes unit is destroyed, every other Custodes unit within 12\" suffers -1 Cool until the end of the next turn.",
+      "match": {
+        "trait": "Legio Custodes",
+        "notUnitType": "Vehicle"
+      },
+      "stats": {
+        "CL": "+1"
+      }
     }
   ]
 }

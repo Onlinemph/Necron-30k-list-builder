@@ -76,6 +76,10 @@ export function applyLegacy(root, out, army) {
     for (const x of [...c.weapons.ranged, ...c.weapons.melee, ...c.wargear, ...Object.values(c.rules).flat()]) official.add(x.name.toLowerCase());
   }
   for (const { file, data } of files) {
+    // 3rd edition has no re-rolls; a house rule shouldn't bring them back
+    const strings = [];
+    (function walk(x) { if (typeof x === 'string') strings.push(x); else if (x && typeof x === 'object') Object.values(x).forEach(walk); })(data);
+    for (const t of strings) if (/re-?roll/i.test(t)) problems.push(`${file.replace(/^.*\/data\//, 'data/')}: re-rolls aren't part of 3rd edition: "${t.slice(0, 80)}"`);
     const own = [...(data.wargear || []), ...(data.rules || []), ...(data.armyRules || []), ...((data.weapons || {}).ranged || []), ...((data.weapons || {}).melee || []), ...(data.rites || []).flatMap((r) => r.rules || [])];
     for (const x of own) if (x.name && official.has(x.name.toLowerCase())) problems.push(`${file.replace(/^.*\/data\//, 'data/')}: "${x.name}" is already an official name; pick another`);
   }

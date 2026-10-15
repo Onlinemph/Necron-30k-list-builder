@@ -1,52 +1,698 @@
 {
   "weapons": {
     "melee": [
-      { "name": "Paired flensing knives", "IM": "+1", "AM": "+1", "SM": "S", "AP": "–", "D": 1, "specialRules": ["Shred (5+)"], "traits": ["Chain"] }
+      {
+        "name": "Paired flensing knives",
+        "IM": "+1",
+        "AM": "+1",
+        "SM": "S",
+        "AP": "–",
+        "D": 1,
+        "specialRules": [
+          "Shred (5+)",
+          "Critical Hit (6+)"
+        ],
+        "traits": [
+          "Chain"
+        ]
+      },
+      {
+        "name": "Hook-chain flail",
+        "IM": "+1",
+        "AM": "A",
+        "SM": "S",
+        "AP": 4,
+        "D": 1,
+        "specialRules": [
+          "Stun (1)",
+          "Reaping Blow (1)"
+        ],
+        "traits": [
+          "Chain"
+        ]
+      },
+      {
+        "name": "Garrote-wire gauntlet",
+        "IM": "+1",
+        "AM": "A",
+        "SM": "S",
+        "AP": "–",
+        "D": 1,
+        "specialRules": [
+          "Precision (5+)",
+          "Shock (Pinned)"
+        ],
+        "traits": []
+      }
     ],
     "ranged": [
-      { "name": "Banshee pistol", "R": 12, "FP": 1, "RS": 4, "AP": 5, "D": 1, "specialRules": ["Pistol", "Pinning (1)"], "traits": ["Assault", "Bolt"] },
-      { "name": "Darkscope bolter", "R": 36, "FP": 1, "RS": 4, "AP": 4, "D": 1, "specialRules": ["Precision (4+)"], "traits": ["Bolt"] }
+      {
+        "name": "Banshee pistol",
+        "R": 12,
+        "FP": 1,
+        "RS": 4,
+        "AP": 5,
+        "D": 1,
+        "specialRules": [
+          "Pistol",
+          "Pinning (1)",
+          "Panic (1)"
+        ],
+        "traits": [
+          "Assault",
+          "Bolt"
+        ]
+      },
+      {
+        "name": "Darkscope bolter",
+        "R": 36,
+        "FP": 1,
+        "RS": 4,
+        "AP": 4,
+        "D": 1,
+        "specialRules": [
+          "Precision (4+)",
+          "Rapid Tracking"
+        ],
+        "traits": [
+          "Bolt"
+        ]
+      },
+      {
+        "name": "Dread-screamer",
+        "R": 18,
+        "FP": 2,
+        "RS": 4,
+        "AP": 5,
+        "D": 1,
+        "specialRules": [
+          "Suppressive (2)",
+          "Panic (1)"
+        ],
+        "traits": [
+          "Sonic"
+        ]
+      }
     ]
   },
   "wargear": [
-    { "name": "Night-mantle", "text": "Legacy house rule. A cloak of dark, light-eating fabric stitched with something that was once a man's hide. The model gains Shrouded (5+)." },
-    { "name": "Gibbet standard", "text": "Legacy house rule. A frame that carries the last enemy officer the unit caught, still in his armour. Every model in the unit gains Hatred (Infantry)." }
+    {
+      "name": "Night-mantle",
+      "text": "Legacy house rule. A cloak of dark, light-eating fabric stitched with something that was once a man's hide. The model gains Shrouded (5+)."
+    },
+    {
+      "name": "Gibbet standard",
+      "text": "Legacy house rule. A frame that carries the last enemy officer the unit caught, still in his armour. Every model in the unit gains Hatred (Infantry)."
+    },
+    {
+      "name": "Siren harness",
+      "text": "Legacy house rule. A scream-tuned jump pack rig that howls on the descent. Gives the unit Howling Dive."
+    },
+    {
+      "name": "Atrocity trophies",
+      "text": "Legacy house rule. A rack of enemy standards, helms and banners. Gives the model Trophy of Terror."
+    },
+    {
+      "name": "Whisper-warded fetish",
+      "text": "Legacy house rule. Knotted hair, bone and a murmured curse against the warp. The model gains +1 Willpower and Hexed Mind."
+    },
+    {
+      "name": "Headsman's chain",
+      "text": "Legacy house rule. A weighted chain hung with the badges of men executed. Gives the model Headsman's Reckoning."
+    },
+    {
+      "name": "Grapnel lines",
+      "text": "Legacy house rule. Wire-line launchers for taking walls and rooftops in a heartbeat. Gives the unit Rooftop Stalkers."
+    },
+    {
+      "name": "Murk-smoke projectors",
+      "text": "Legacy house rule. Vents that pour oily dark behind the hull. Gives the vehicle Murk Shroud."
+    },
+    {
+      "name": "Wailing warsiren",
+      "text": "Legacy house rule. A hull-mounted siren tuned to the pitch of a dying man. Gives the vehicle Dirge of Dread."
+    }
   ],
   "options": [
-    { "units": ["tactical-squad", "despoiler-squad", "veteran-tactical-squad", "assault-squad", "veteran-assault-squad", "night-raptor-squad", "terror-squad"],
-      "option": { "id": "nl-sergeant-blades", "kind": "one", "modelType": "Sergeant", "text": "The Sergeant may take a murderer's weapon",
-        "choices": [ { "name": "Paired flensing knives", "points": 10 }, { "name": "Lightning claw", "points": 10 }, { "name": "Pair of lightning claws", "points": 15 } ] } },
-    { "units": ["terror-squad"],
-      "option": { "id": "nl-headsman-axe", "kind": "one", "modelType": "Sergeant", "text": "The Headsman may take a Headsman's axe",
-        "choices": [ { "name": "Headsman's axe", "points": 15 } ] } },
-    { "units": ["reconnaissance-squad", "scout-squad"],
-      "option": { "id": "nl-darkscope", "kind": "perModel", "model": ["Recon Legionary", "Scout"], "max": 2,
-        "text": "Up to two models may take a Darkscope bolter", "choices": [ { "name": "Darkscope bolter", "points": 10 } ] } },
-    { "units": ["night-raptor-squad", "assault-squad", "veteran-assault-squad"],
-      "option": { "id": "nl-banshee-pistols", "kind": "perModel", "model": ["Night Raptor", "Legionary", "Veteran Legionary"], "max": 4,
-        "text": "Up to four models may carry a Banshee pistol", "choices": [ { "name": "Banshee pistol", "points": 5 } ] } },
-    { "units": ["tactical-squad", "despoiler-squad", "veteran-tactical-squad", "assault-squad", "veteran-assault-squad", "night-raptor-squad", "terror-squad", "reconnaissance-squad", "contekar-terminator-squad"],
-      "option": { "id": "nl-night-mantle", "kind": "upgrade", "modelType": "Sergeant", "text": "The Sergeant may wear a Night-mantle",
-        "choices": [ { "name": "Night-mantle", "points": 10 } ] } },
-    { "units": ["tactical-squad", "despoiler-squad", "assault-squad", "night-raptor-squad", "terror-squad"],
-      "option": { "id": "nl-gibbet-standard", "kind": "upgrade", "model": null, "text": "The unit may carry a Gibbet standard",
-        "choices": [ { "name": "Gibbet standard", "points": 15 } ] } }
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "veteran-tactical-squad",
+        "assault-squad",
+        "veteran-assault-squad",
+        "night-raptor-squad",
+        "terror-squad"
+      ],
+      "option": {
+        "id": "nl-sergeant-blades",
+        "kind": "one",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may take a murderer's weapon",
+        "choices": [
+          {
+            "name": "Paired flensing knives",
+            "points": 10
+          },
+          {
+            "name": "Lightning claw",
+            "points": 10
+          },
+          {
+            "name": "Pair of lightning claws",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "terror-squad"
+      ],
+      "option": {
+        "id": "nl-headsman-axe",
+        "kind": "one",
+        "modelType": "Sergeant",
+        "text": "The Headsman may take a Headsman's axe",
+        "choices": [
+          {
+            "name": "Headsman's axe",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "reconnaissance-squad",
+        "scout-squad"
+      ],
+      "option": {
+        "id": "nl-darkscope",
+        "kind": "perModel",
+        "model": [
+          "Recon Legionary",
+          "Scout"
+        ],
+        "max": 2,
+        "text": "Up to two models may take a Darkscope bolter",
+        "choices": [
+          {
+            "name": "Darkscope bolter",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "night-raptor-squad",
+        "assault-squad",
+        "veteran-assault-squad"
+      ],
+      "option": {
+        "id": "nl-banshee-pistols",
+        "kind": "perModel",
+        "model": [
+          "Night Raptor",
+          "Legionary",
+          "Veteran Legionary"
+        ],
+        "max": 4,
+        "text": "Up to four models may carry a Banshee pistol",
+        "choices": [
+          {
+            "name": "Banshee pistol",
+            "points": 5
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "veteran-tactical-squad",
+        "assault-squad",
+        "veteran-assault-squad",
+        "night-raptor-squad",
+        "terror-squad",
+        "reconnaissance-squad",
+        "contekar-terminator-squad"
+      ],
+      "option": {
+        "id": "nl-night-mantle",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may wear a Night-mantle",
+        "choices": [
+          {
+            "name": "Night-mantle",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "assault-squad",
+        "night-raptor-squad",
+        "terror-squad"
+      ],
+      "option": {
+        "id": "nl-gibbet-standard",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The unit may carry a Gibbet standard",
+        "choices": [
+          {
+            "name": "Gibbet standard",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "night-raptor-squad",
+        "assault-squad",
+        "veteran-assault-squad",
+        "destroyer-assault-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "nl-siren-harness",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may fit a Siren harness",
+        "choices": [
+          {
+            "name": "Siren harness",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "reconnaissance-squad",
+        "scout-squad",
+        "seeker-squad",
+        "night-raptor-squad",
+        "assault-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "nl-grapnels",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The unit may carry Grapnel lines",
+        "choices": [
+          {
+            "name": "Grapnel lines",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "roles": [
+          "Troops",
+          "Elites",
+          "Support",
+          "Heavy Assault",
+          "Recon"
+        ],
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "option": {
+        "id": "nl-headsman-chain",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may wear a Headsman's chain",
+        "choices": [
+          {
+            "name": "Headsman's chain",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "roles": [
+          "Command",
+          "High Command"
+        ],
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "option": {
+        "id": "nl-cabal-reliquary",
+        "kind": "any",
+        "modelType": "Command",
+        "max": {
+          "fixed": 2
+        },
+        "text": "Cabal Reliquary: may take up to two relics",
+        "choices": [
+          {
+            "name": "Atrocity trophies",
+            "points": 15
+          },
+          {
+            "name": "Whisper-warded fetish",
+            "points": 10
+          },
+          {
+            "name": "Headsman's chain",
+            "points": 10
+          },
+          {
+            "name": "Garrote-wire gauntlet",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "roles": [
+          "Armour",
+          "Transport",
+          "Heavy Transport"
+        ],
+        "unitType": "Vehicle",
+        "notUnitType": "Flyer"
+      },
+      "optionalUnits": true,
+      "option": {
+        "id": "nl-vehicle-fittings",
+        "kind": "upgrade",
+        "model": null,
+        "text": "May take a Night Lords vehicle fitting",
+        "choices": [
+          {
+            "name": "Murk-smoke projectors",
+            "points": 10
+          },
+          {
+            "name": "Wailing warsiren",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "terror-squad"
+      ],
+      "option": {
+        "id": "nl-hook-flails",
+        "kind": "perModel",
+        "model": "Executioner",
+        "max": 2,
+        "text": "Up to two models may carry a Hook-chain flail",
+        "choices": [
+          {
+            "name": "Hook-chain flail",
+            "points": 8
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "night-raptor-squad"
+      ],
+      "option": {
+        "id": "nl-hook-flails-raptor",
+        "kind": "perModel",
+        "model": "Night Raptor",
+        "max": 2,
+        "text": "Up to two models may carry a Hook-chain flail",
+        "choices": [
+          {
+            "name": "Hook-chain flail",
+            "points": 8
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "heavy-support-squad",
+        "tactical-support-squad",
+        "tactical-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "nl-dread-screamer",
+        "kind": "perModel",
+        "model": "Legionary",
+        "max": 1,
+        "text": "One model may carry a Dread-screamer",
+        "choices": [
+          {
+            "name": "Dread-screamer",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "reconnaissance-squad",
+        "scout-squad",
+        "seeker-squad",
+        "inductii-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "nl-garrote",
+        "kind": "one",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may take a Garrote-wire gauntlet",
+        "choices": [
+          {
+            "name": "Garrote-wire gauntlet",
+            "points": 10
+          }
+        ]
+      }
+    }
   ],
   "modifiers": [
-    { "units": ["night-raptor-squad"], "text": "Night Raptors strike from above and are hit back: +1 I, -1 T.", "stats": { "I": "+1", "T": "-1" } },
-    { "units": ["terror-squad"], "text": "Terror Squads revel in it and fear it: +1 WS, -1 CL.", "stats": { "WS": "+1", "CL": "-1" } },
-    { "units": ["atramentar-flay-clade"], "text": "The Flay-clade want the knife, not the gun: +1 WS, -1 BS.", "stats": { "WS": "+1", "BS": "-1" } },
-    { "units": ["contekar-terminator-squad"], "text": "Contekar, bitter and unbound: +1 A, -1 LD.", "stats": { "A": "+1", "LD": "-1" } },
-    { "units": ["reconnaissance-squad", "scout-squad"], "text": "Night-eyed stalkers: +1 BS, -1 LD.", "stats": { "BS": "+1", "LD": "-1" } },
-    { "match": { "unitType": "Command", "notUnitType": "Vehicle" }, "text": "Murderers' captains: +1 I, -1 CL.", "stats": { "I": "+1", "CL": "-1" } },
-    { "units": ["*"], "item": "Night-mantle", "text": "Night-mantle: Shrouded (5+).", "addRules": ["Shrouded (5+)"] },
-    { "units": ["*"], "item": "Gibbet standard", "scope": "unit", "text": "Gibbet standard: Hatred (Infantry).", "addRules": ["Hatred (Infantry)"] }
+    {
+      "units": [
+        "night-raptor-squad"
+      ],
+      "text": "Night Raptors strike from above and are hit back: +1 I, -1 T.",
+      "stats": {
+        "I": "+1",
+        "T": "-1"
+      }
+    },
+    {
+      "units": [
+        "terror-squad"
+      ],
+      "text": "Terror Squads revel in it and fear it: +1 WS, -1 CL.",
+      "stats": {
+        "WS": "+1",
+        "CL": "-1"
+      }
+    },
+    {
+      "units": [
+        "atramentar-flay-clade"
+      ],
+      "text": "The Flay-clade want the knife, not the gun: +1 WS, -1 BS.",
+      "stats": {
+        "WS": "+1",
+        "BS": "-1"
+      }
+    },
+    {
+      "units": [
+        "contekar-terminator-squad"
+      ],
+      "text": "Contekar, bitter and unbound: +1 A, -1 LD.",
+      "stats": {
+        "A": "+1",
+        "LD": "-1"
+      }
+    },
+    {
+      "units": [
+        "reconnaissance-squad",
+        "scout-squad"
+      ],
+      "text": "Night-eyed stalkers: +1 BS, -1 LD.",
+      "stats": {
+        "BS": "+1",
+        "LD": "-1"
+      }
+    },
+    {
+      "match": {
+        "unitType": "Command",
+        "notUnitType": "Vehicle"
+      },
+      "text": "Murderers' captains: +1 I, -1 CL.",
+      "stats": {
+        "I": "+1",
+        "CL": "-1"
+      }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Night-mantle",
+      "text": "Night-mantle: Shrouded (5+).",
+      "addRules": [
+        "Shrouded (5+)"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Gibbet standard",
+      "scope": "unit",
+      "text": "Gibbet standard: Hatred (Infantry).",
+      "addRules": [
+        "Hatred (Infantry)"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Siren harness",
+      "text": "Siren harness: Howling Dive.",
+      "scope": "unit",
+      "addRules": [
+        "Howling Dive"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Atrocity trophies",
+      "text": "Atrocity trophies: Trophy of Terror.",
+      "addRules": [
+        "Trophy of Terror"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Whisper-warded fetish",
+      "text": "Whisper-warded fetish: +1 WP, Hexed Mind.",
+      "stats": {
+        "WP": "+1"
+      },
+      "addRules": [
+        "Hexed Mind"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Headsman's chain",
+      "text": "Headsman's chain: Headsman's Reckoning.",
+      "addRules": [
+        "Headsman's Reckoning"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Grapnel lines",
+      "text": "Grapnel lines: Rooftop Stalkers.",
+      "scope": "unit",
+      "addRules": [
+        "Rooftop Stalkers"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Murk-smoke projectors",
+      "text": "Murk-smoke projectors: Murk Shroud.",
+      "scope": "unit",
+      "addRules": [
+        "Murk Shroud"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Wailing warsiren",
+      "text": "Wailing warsiren: Dirge of Dread.",
+      "scope": "unit",
+      "addRules": [
+        "Dirge of Dread"
+      ]
+    }
   ],
   "rules": [
-    {"name": "Silent Knives", "text": "Legacy house rule (Knives in the Dark). The sentry never saw the blade. On the turn a unit with this rule enters play from Reserves, enemy units may not make Reaction Shooting against it."},
-    {"name": "Dread Herald", "text": "Legacy house rule (Dread Procession). Fear walks ahead of them. An enemy unit charged by a unit with this rule reduces its Cool by a further 1 until the end of that Assault phase."},
-    {"name": "Judgement of the Cabal", "text": "Legacy house rule (Cabal of Murder). Before deployment, the controlling player names one enemy unit as the Condemned. Models with this rule may re-roll failed Hit Tests against that unit; if it is destroyed, name another at the start of the next turn."},
-    {"name": "Tithe of Blood", "text": "Legacy house rule (The Headsman's Tithe). When a unit with this rule destroys an enemy unit in combat, every enemy unit within 12\" reduces its Cool by 1 until the end of the turn."}
+    {
+      "name": "Silent Knives",
+      "text": "Legacy house rule (Knives in the Dark). The sentry never saw the blade. On the turn a unit with this rule enters play from Reserves, enemy units may not make Reaction Shooting against it."
+    },
+    {
+      "name": "Dread Herald",
+      "text": "Legacy house rule (Dread Procession). Fear walks ahead of them. An enemy unit charged by a unit with this rule reduces its Cool by a further 1 until the end of that Assault phase."
+    },
+    {
+      "name": "Judgement of the Cabal",
+      "text": "Legacy house rule (Cabal of Murder). Before deployment, the controlling player names one enemy unit as the Condemned. Models with this rule add +1 to Hit Tests against that unit; if it is destroyed, name another at the start of the next turn."
+    },
+    {
+      "name": "Tithe of Blood",
+      "text": "Legacy house rule (The Headsman's Tithe). When a unit with this rule destroys an enemy unit in combat, every enemy unit within 12\" reduces its Cool by 1 until the end of the turn."
+    },
+    {
+      "name": "Howling Dive",
+      "text": "Legacy house rule. The wail of the dive grinds nerves to powder. Enemy Reaction Shooting against a unit with this rule that has just declared a Charge suffers -1 to Hit, and enemy units it charges lose 1 Cool for that Charge."
+    },
+    {
+      "name": "Trophy of Terror",
+      "text": "Legacy house rule. Friendly Night Lords units within 6\" of this model add +1 to their Cool. Enemy units within 6\" of it subtract 1 from their Cool."
+    },
+    {
+      "name": "Hexed Mind",
+      "text": "Legacy house rule. Enemy psychic powers that target this model or its unit suffer -1 to their Psychic Check."
+    },
+    {
+      "name": "Headsman's Reckoning",
+      "text": "Legacy house rule. When this model wins a Challenge, or destroys an enemy Sergeant or Character in combat, every enemy unit within 9\" loses 1 Cool until the start of its controller's next turn."
+    },
+    {
+      "name": "Rooftop Stalkers",
+      "text": "Legacy house rule. A unit with this rule ignores Difficult Terrain while charging, and treats a Charge roll of less than 6 as 6 if the Charge crosses or ends in terrain."
+    },
+    {
+      "name": "Murk Shroud",
+      "text": "Legacy house rule. A vehicle with this rule gains Shrouded (5+) in any turn in which it moved."
+    },
+    {
+      "name": "Dirge of Dread",
+      "text": "Legacy house rule. At the end of this vehicle's Movement phase, each enemy unit within 12\" loses 1 Cool until the end of the turn."
+    }
   ],
   "rites": [
     {
@@ -61,17 +707,55 @@
         "No Armour units and no Heavy Transports."
       ],
       "roles": [
-        {"units": ["night-raptor-squad"], "role": "Troops"}
+        {
+          "units": [
+            "night-raptor-squad"
+          ],
+          "role": "Troops"
+        }
       ],
       "modifiers": [
-        {"units": ["night-raptor-squad"], "text": "Knives in the Dark: Line (1).", "addRules": ["Line (1)"]},
-        {"units": ["night-raptor-squad", "reconnaissance-squad", "scout-squad"], "text": "Knives in the Dark: Silent Knives, Outflank, Shrouded (6+).", "addRules": ["Silent Knives", "Outflank", "Shrouded (6+)"]}
+        {
+          "units": [
+            "night-raptor-squad"
+          ],
+          "text": "Knives in the Dark: Line (1).",
+          "addRules": [
+            "Line (1)"
+          ]
+        },
+        {
+          "units": [
+            "night-raptor-squad",
+            "reconnaissance-squad",
+            "scout-squad"
+          ],
+          "text": "Knives in the Dark: Silent Knives, Outflank, Shrouded (6+).",
+          "addRules": [
+            "Silent Knives",
+            "Outflank",
+            "Shrouded (6+)"
+          ]
+        }
       ],
       "require": [
-        {"units": ["night-raptor-squad"], "min": 1, "note": "Bring at least one Night Raptor Squad."}
+        {
+          "units": [
+            "night-raptor-squad"
+          ],
+          "min": 1,
+          "note": "Bring at least one Night Raptor Squad."
+        }
       ],
       "forbid": [
-        {"match": {"roles": ["Armour", "Heavy Transport"]}}
+        {
+          "match": {
+            "roles": [
+              "Armour",
+              "Heavy Transport"
+            ]
+          }
+        }
       ]
     },
     {
@@ -86,12 +770,39 @@
         "No Armour units and no Support units of any kind."
       ],
       "modifiers": [
-        {"units": ["tactical-squad", "despoiler-squad", "veteran-tactical-squad", "assault-squad", "veteran-assault-squad", "reconnaissance-squad"], "text": "Dread Procession: Fear (1), Dread Herald.", "addRules": ["Fear (1)", "Dread Herald"]}
+        {
+          "units": [
+            "tactical-squad",
+            "despoiler-squad",
+            "veteran-tactical-squad",
+            "assault-squad",
+            "veteran-assault-squad",
+            "reconnaissance-squad"
+          ],
+          "text": "Dread Procession: Fear (1), Dread Herald.",
+          "addRules": [
+            "Fear (1)",
+            "Dread Herald"
+          ]
+        }
       ],
       "forbid": [
-        {"match": {"unitType": "Heavy", "notUnitType": "Vehicle"}},
-        {"match": {"role": "Armour"}},
-        {"match": {"role": "Support"}}
+        {
+          "match": {
+            "unitType": "Heavy",
+            "notUnitType": "Vehicle"
+          }
+        },
+        {
+          "match": {
+            "role": "Armour"
+          }
+        },
+        {
+          "match": {
+            "role": "Support"
+          }
+        }
       ]
     },
     {
@@ -99,23 +810,54 @@
       "flavor": "Curze's trusted few do not take orders. They pass judgement on whoever gave them.",
       "benefits": [
         "Contekar Terminator Squads and Atramentar Flay-clades may fill Troops slots and gain Line (1).",
-        "They gain Judgement of the Cabal: before deployment, name one enemy unit as the Condemned; the Cabal may re-roll failed Hit Tests against it."
+        "They gain Judgement of the Cabal: before deployment, name one enemy unit as the Condemned; the Cabal adds +1 to Hit Tests against it."
       ],
       "limitations": [
         "Konrad Curze or Sevatar must lead the army.",
         "No Armour, Transport or Fast Attack units."
       ],
       "roles": [
-        {"units": ["contekar-terminator-squad", "atramentar-flay-clade"], "role": "Troops"}
+        {
+          "units": [
+            "contekar-terminator-squad",
+            "atramentar-flay-clade"
+          ],
+          "role": "Troops"
+        }
       ],
       "modifiers": [
-        {"units": ["contekar-terminator-squad", "atramentar-flay-clade"], "text": "Cabal of Murder: Line (1), Judgement of the Cabal.", "addRules": ["Line (1)", "Judgement of the Cabal"]}
+        {
+          "units": [
+            "contekar-terminator-squad",
+            "atramentar-flay-clade"
+          ],
+          "text": "Cabal of Murder: Line (1), Judgement of the Cabal.",
+          "addRules": [
+            "Line (1)",
+            "Judgement of the Cabal"
+          ]
+        }
       ],
       "require": [
-        {"units": ["konrad-curze", "sevatar"], "min": 1, "note": "Curze or Sevatar must lead the Cabal."}
+        {
+          "units": [
+            "konrad-curze",
+            "sevatar"
+          ],
+          "min": 1,
+          "note": "Curze or Sevatar must lead the Cabal."
+        }
       ],
       "forbid": [
-        {"match": {"roles": ["Armour", "Transport", "Fast Attack"]}}
+        {
+          "match": {
+            "roles": [
+              "Armour",
+              "Transport",
+              "Fast Attack"
+            ]
+          }
+        }
       ]
     },
     {
@@ -131,17 +873,96 @@
         "No Praetors of any kind and no Lord of War units."
       ],
       "modifiers": [
-        {"units": ["terror-squad"], "text": "The Headsman's Tithe: Fear (1), Tithe of Blood.", "addRules": ["Fear (1)", "Tithe of Blood"]},
-        {"units": ["terror-squad"], "models": ["Headsman"], "text": "The Headsman's Tithe: Headsman +1 A.", "stats": {"A": "+1"}}
+        {
+          "units": [
+            "terror-squad"
+          ],
+          "text": "The Headsman's Tithe: Fear (1), Tithe of Blood.",
+          "addRules": [
+            "Fear (1)",
+            "Tithe of Blood"
+          ]
+        },
+        {
+          "units": [
+            "terror-squad"
+          ],
+          "models": [
+            "Headsman"
+          ],
+          "text": "The Headsman's Tithe: Headsman +1 A.",
+          "stats": {
+            "A": "+1"
+          }
+        }
       ],
       "require": [
-        {"units": ["terror-squad"], "min": 2, "note": "Bring at least two Terror Squads."},
-        {"units": ["konrad-curze", "sevatar"], "min": 1, "note": "Curze or Sevatar must lead the army."}
+        {
+          "units": [
+            "terror-squad"
+          ],
+          "min": 2,
+          "note": "Bring at least two Terror Squads."
+        },
+        {
+          "units": [
+            "konrad-curze",
+            "sevatar"
+          ],
+          "min": 1,
+          "note": "Curze or Sevatar must lead the army."
+        }
       ],
       "forbid": [
-        {"units": ["praetor", "praetor-in-terminator-armour", "mounted-praetor", "praetor-in-saturnine-terminator-armour"]},
-        {"match": {"role": "Lord of War"}}
+        {
+          "units": [
+            "praetor",
+            "praetor-in-terminator-armour",
+            "mounted-praetor",
+            "praetor-in-saturnine-terminator-armour"
+          ]
+        },
+        {
+          "match": {
+            "role": "Lord of War"
+          }
+        }
       ]
+    }
+  ],
+  "armyRules": [
+    {
+      "name": "Prey on the Weak",
+      "match": {
+        "notUnitType": "Vehicle"
+      },
+      "condition": "vs enemy with a Tactical Status: +1 to Hit in the Assault phase",
+      "text": "Legacy house rule. Nostramo breeds predators, not soldiers. A unit with this rule adds +1 to its Hit Tests in the Assault phase against enemy units that have a Tactical Status. In exchange, if it is charged by an enemy unit with no Tactical Status, it fights at -1 Initiative in that combat."
+    },
+    {
+      "name": "Shadows of Nostramo",
+      "match": {
+        "roles": [
+          "Recon",
+          "Fast Attack",
+          "Elites"
+        ],
+        "notUnitType": "Vehicle"
+      },
+      "text": "Legacy house rule. Hunters who live in the dark, and fear the open field. Shooting Attacks made against a unit with this rule from more than 18\" suffer -1 to Hit. In exchange, the unit may not make Reaction Shooting."
+    },
+    {
+      "name": "Doom Foretold",
+      "match": {
+        "roles": [
+          "Warlord",
+          "High Command",
+          "Command"
+        ],
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "text": "Legacy house rule. The Night Haunter's captains speak of judgement as if it were already written. At the start of each Assault phase, one enemy unit within 12\" of a model with this rule loses 1 Cool until the end of the phase. If the model is removed as a casualty, every friendly Night Lords unit within 12\" must make an immediate Morale Check at -1 Leadership."
     }
   ]
 }

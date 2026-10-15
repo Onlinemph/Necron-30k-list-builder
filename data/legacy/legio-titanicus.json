@@ -1,49 +1,652 @@
 {
   "weapons": {
     "ranged": [
-      { "name": "Sear-lance projector", "R": 60, "FP": 1, "RS": 10, "AP": 2, "D": 5, "specialRules": ["Armourbane", "Blast (3\")"], "traits": ["Las", "Strategic"] },
-      { "name": "Rotary vulcan battery", "R": 48, "FP": 8, "RS": 7, "AP": 3, "D": 2, "specialRules": ["Suppressive (2)"], "traits": ["Auto", "Strategic"] },
-      { "name": "Siege-mortar rack", "R": 150, "FP": 1, "RS": 9, "AP": 4, "D": 4, "specialRules": ["Blast (7\")", "Barrage (2)", "Minimum Range (36)"], "traits": ["Strategic"] },
-      { "name": "Titan siege-saw", "R": 6, "FP": 1, "RS": 12, "AP": 2, "D": 8, "specialRules": ["Armourbane"], "traits": ["Strike"] },
-      { "name": "Reactor-fed plasma lance", "R": 82, "FP": 1, "RS": 11, "AP": 2, "D": 7, "specialRules": ["Blast (5\")", "Power Hungry"], "traits": ["Plasma", "Strategic"] }
+      {
+        "name": "Sear-lance projector",
+        "R": 60,
+        "FP": 1,
+        "RS": 10,
+        "AP": 2,
+        "D": 5,
+        "specialRules": [
+          "Armourbane",
+          "Blast (3\")",
+          "Bypass (6+)"
+        ],
+        "traits": [
+          "Las",
+          "Strategic"
+        ]
+      },
+      {
+        "name": "Rotary vulcan battery",
+        "R": 48,
+        "FP": 8,
+        "RS": 7,
+        "AP": 3,
+        "D": 2,
+        "specialRules": [
+          "Suppressive (2)",
+          "Skyfire",
+          "Rapid Tracking"
+        ],
+        "traits": [
+          "Auto",
+          "Strategic"
+        ]
+      },
+      {
+        "name": "Siege-mortar rack",
+        "R": 150,
+        "FP": 1,
+        "RS": 9,
+        "AP": 4,
+        "D": 4,
+        "specialRules": [
+          "Blast (7\")",
+          "Barrage (2)",
+          "Minimum Range (36)",
+          "Pinning (3)"
+        ],
+        "traits": [
+          "Strategic"
+        ]
+      },
+      {
+        "name": "Titan siege-saw",
+        "R": 6,
+        "FP": 1,
+        "RS": 12,
+        "AP": 2,
+        "D": 8,
+        "specialRules": [
+          "Armourbane",
+          "Critical Hit (6+)"
+        ],
+        "traits": [
+          "Strike"
+        ]
+      },
+      {
+        "name": "Reactor-fed plasma lance",
+        "R": 82,
+        "FP": 1,
+        "RS": 11,
+        "AP": 2,
+        "D": 7,
+        "specialRules": [
+          "Blast (5\")",
+          "Power Hungry",
+          "Deflagrate (6)"
+        ],
+        "traits": [
+          "Plasma",
+          "Strategic"
+        ]
+      },
+      {
+        "name": "Legio flak-array",
+        "R": 36,
+        "FP": 6,
+        "RS": 5,
+        "AP": 5,
+        "D": 1,
+        "specialRules": [
+          "Skyfire",
+          "Rapid Tracking",
+          "Suppressive (1)"
+        ],
+        "traits": [
+          "Auto",
+          "Strategic"
+        ]
+      },
+      {
+        "name": "Void-lance pod",
+        "R": 48,
+        "FP": 1,
+        "RS": 9,
+        "AP": 2,
+        "D": 3,
+        "specialRules": [
+          "Melta (12)",
+          "Overload (1)"
+        ],
+        "traits": [
+          "Las",
+          "Strategic"
+        ]
+      }
     ],
-    "melee": []
+    "melee": [
+      {
+        "name": "Secutarii pulse-staff",
+        "IM": "+1",
+        "AM": "A",
+        "SM": "+1",
+        "AP": 3,
+        "D": 1,
+        "specialRules": [
+          "Duellist's Edge (1)",
+          "Precision (6+)"
+        ],
+        "traits": [
+          "Arc"
+        ]
+      }
+    ]
   },
   "wargear": [
-    { "name": "Cold-blooded Princeps", "text": "Legacy house rule. A Princeps who has spent decades listening to the reactor's heartbeat and never once let it rattle him. The Titan's controlling player may re-roll one failed Power Hungry or Overload check each battle." },
-    { "name": "Fire-eater Princeps", "text": "Legacy house rule. A Princeps who fights at the edge of the neural link and lets the engine run hot. Once per battle, at the start of the controlling player's Shooting Phase, the Titan may fire one weapon twice, but must then take a Power Hungry check with a -1 penalty." },
-    { "name": "Overlapping void arrays", "text": "Legacy house rule. Secondary projectors are stitched into the primary lattice, so a collapsing shield is quickly replaced. The first time the Titan's void shields would be reduced to zero in a battle, restore one void shield immediately." },
-    { "name": "Servitor-hardened plates", "text": "Legacy house rule. Hull plates seeded with banked servitor labour that can be called on to slap armour back over a breach. The vehicle gains +1 Hull Point." }
+    {
+      "name": "Cold-blooded Princeps",
+      "text": "Legacy house rule. A Princeps who has spent decades listening to the reactor's heartbeat and never once let it rattle him. Once each battle the Titan's controlling player may treat one failed Power Hungry or Overload check as passed."
+    },
+    {
+      "name": "Fire-eater Princeps",
+      "text": "Legacy house rule. A Princeps who fights at the edge of the neural link and lets the engine run hot. Once per battle, at the start of the controlling player's Shooting Phase, the Titan may fire one weapon twice, but must then take a Power Hungry check with a -1 penalty."
+    },
+    {
+      "name": "Overlapping void arrays",
+      "text": "Legacy house rule. Secondary projectors are stitched into the primary lattice, so a collapsing shield is quickly replaced. The first time the Titan's void shields would be reduced to zero in a battle, restore one void shield immediately."
+    },
+    {
+      "name": "Servitor-hardened plates",
+      "text": "Legacy house rule. Hull plates seeded with banked servitor labour that can be called on to slap armour back over a breach. The vehicle gains +1 Hull Point."
+    },
+    {
+      "name": "Legio Battle-banner",
+      "text": "Legacy house rule. A tattered battle-banner carried on a gantry above the Titan's head, its thread-count of victories read out before every deployment."
+    },
+    {
+      "name": "Ghost-void projector",
+      "text": "Legacy house rule. A masking emitter that smears the Titan's void signature into the dust of the battlefield."
+    },
+    {
+      "name": "Reactor sink baffles",
+      "text": "Legacy house rule. Extra heat baffles bolted around the plasma reactor so it can run harder without cooking the Princeps."
+    },
+    {
+      "name": "Hardened command throne",
+      "text": "Legacy house rule. A rebuilt Princeps throne with gyro-cushioning and a stronger neural cage."
+    },
+    {
+      "name": "Ram-plough",
+      "text": "Legacy house rule. A wedge of reinforced plating that lets a Triaros smash through barricades and tank traps."
+    },
+    {
+      "name": "Pennant of the Void Sentries",
+      "text": "Legacy house rule. A scorched pennant of the void-gate watch, sworn to stand till relieved."
+    },
+    {
+      "name": "Servitor compliance governor",
+      "text": "Legacy house rule. A strict governor on the maniple's cortex that stops it from over-reaching."
+    }
   ],
   "options": [
-    { "units": ["warhound-titan"],
-      "option": { "id": "lt-warhound-arms", "kind": "any", "model": "Warhound Titan",
-        "text": "The Warhound may take hunter-pattern arm weapons", "choices": [ { "name": "Sear-lance projector", "points": 30 }, { "name": "Rotary vulcan battery", "points": 20 } ] } },
-    { "units": ["reaver-titan"],
-      "option": { "id": "lt-reaver-arms", "kind": "any", "model": "Reaver Titan",
-        "text": "The Reaver may take bespoke arm weapons", "choices": [ { "name": "Siege-mortar rack", "points": 30 }, { "name": "Titan siege-saw", "points": 20 } ] } },
-    { "units": ["warbringer-nemesis-titan", "warlord-titan"],
-      "option": { "id": "lt-heavy-arms", "kind": "any", "model": ["Warbringer Nemesis Titan", "Warlord Titan"],
-        "text": "The Titan may take a reactor-fed arm weapon", "choices": [ { "name": "Reactor-fed plasma lance", "points": 40 } ] } },
-    { "units": ["warhound-titan", "reaver-titan", "warbringer-nemesis-titan", "warlord-titan"],
-      "option": { "id": "lt-princeps-temperament", "kind": "one", "model": null,
-        "text": "The Titan's Princeps may have a marked temperament", "choices": [ { "name": "Cold-blooded Princeps", "points": 25 }, { "name": "Fire-eater Princeps", "points": 25 } ] } },
-    { "units": ["reaver-titan", "warbringer-nemesis-titan", "warlord-titan"],
-      "option": { "id": "lt-void-arrays", "kind": "upgrade", "model": null,
-        "text": "The Titan may carry overlapping void arrays", "choices": [ { "name": "Overlapping void arrays", "points": 50 } ] } },
-    { "units": ["triaros-armoured-conveyor"],
-      "option": { "id": "lt-triaros-plates", "kind": "upgrade", "model": null,
-        "text": "The Conveyor may be armoured further", "choices": [ { "name": "Servitor-hardened plates", "points": 15 } ] } },
-    { "units": ["secutarii-cohort"],
-      "option": { "id": "lt-cohort-casters", "kind": "perModel", "model": "Secutarii", "replaces": ["Arc lance"], "max": 3,
-        "text": "Up to three Secutarii may exchange their arc lance for", "choices": [ { "name": "Galvanic caster", "points": 6 } ] } }
+    {
+      "units": [
+        "warhound-titan"
+      ],
+      "option": {
+        "id": "lt-warhound-arms",
+        "kind": "any",
+        "model": "Warhound Titan",
+        "text": "The Warhound may take hunter-pattern arm weapons",
+        "choices": [
+          {
+            "name": "Sear-lance projector",
+            "points": 30
+          },
+          {
+            "name": "Rotary vulcan battery",
+            "points": 20
+          },
+          {
+            "name": "Legio flak-array",
+            "points": 20
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "reaver-titan"
+      ],
+      "option": {
+        "id": "lt-reaver-arms",
+        "kind": "any",
+        "model": "Reaver Titan",
+        "text": "The Reaver may take bespoke arm weapons",
+        "choices": [
+          {
+            "name": "Siege-mortar rack",
+            "points": 30
+          },
+          {
+            "name": "Titan siege-saw",
+            "points": 20
+          },
+          {
+            "name": "Void-lance pod",
+            "points": 25
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "warbringer-nemesis-titan",
+        "warlord-titan"
+      ],
+      "option": {
+        "id": "lt-heavy-arms",
+        "kind": "any",
+        "model": [
+          "Warbringer Nemesis Titan",
+          "Warlord Titan"
+        ],
+        "text": "The Titan may take a reactor-fed arm weapon",
+        "choices": [
+          {
+            "name": "Reactor-fed plasma lance",
+            "points": 40
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "warhound-titan",
+        "reaver-titan",
+        "warbringer-nemesis-titan",
+        "warlord-titan"
+      ],
+      "option": {
+        "id": "lt-princeps-temperament",
+        "kind": "one",
+        "model": null,
+        "text": "The Titan's Princeps may have a marked temperament",
+        "choices": [
+          {
+            "name": "Cold-blooded Princeps",
+            "points": 25
+          },
+          {
+            "name": "Fire-eater Princeps",
+            "points": 25
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "reaver-titan",
+        "warbringer-nemesis-titan",
+        "warlord-titan"
+      ],
+      "option": {
+        "id": "lt-void-arrays",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The Titan may carry overlapping void arrays",
+        "choices": [
+          {
+            "name": "Overlapping void arrays",
+            "points": 50
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "triaros-armoured-conveyor"
+      ],
+      "option": {
+        "id": "lt-triaros-plates",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The Conveyor may be armoured further",
+        "choices": [
+          {
+            "name": "Servitor-hardened plates",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "secutarii-cohort"
+      ],
+      "option": {
+        "id": "lt-cohort-casters",
+        "kind": "perModel",
+        "model": "Secutarii",
+        "replaces": [
+          "Arc lance"
+        ],
+        "max": 3,
+        "text": "Up to three Secutarii may exchange their arc lance for",
+        "choices": [
+          {
+            "name": "Galvanic caster",
+            "points": 6
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "unitType": "Titan"
+      },
+      "option": {
+        "id": "lt-titan-fittings",
+        "kind": "any",
+        "text": "The Titan may carry Legio fittings (up to two)",
+        "choices": [
+          {
+            "name": "Legio Battle-banner",
+            "points": 15
+          },
+          {
+            "name": "Ghost-void projector",
+            "points": 25
+          },
+          {
+            "name": "Reactor sink baffles",
+            "points": 20
+          },
+          {
+            "name": "Hardened command throne",
+            "points": 15
+          }
+        ],
+        "model": null,
+        "max": {
+          "fixed": 2
+        }
+      }
+    },
+    {
+      "units": [
+        "secutarii-cohort"
+      ],
+      "option": {
+        "id": "lt-secutarii-pennant",
+        "kind": "upgrade",
+        "text": "The Secutarii may carry a Pennant",
+        "choices": [
+          {
+            "name": "Pennant of the Void Sentries",
+            "points": 10
+          }
+        ],
+        "modelType": "Sergeant"
+      }
+    },
+    {
+      "units": [
+        "triaros-armoured-conveyor"
+      ],
+      "option": {
+        "id": "lt-triaros-plough",
+        "kind": "upgrade",
+        "text": "The Conveyor may mount a ram-plough",
+        "choices": [
+          {
+            "name": "Ram-plough",
+            "points": 10
+          }
+        ],
+        "model": null
+      }
+    },
+    {
+      "match": {
+        "unitType": "Automata"
+      },
+      "option": {
+        "id": "lt-automata-governor",
+        "kind": "upgrade",
+        "text": "The maniple may be fitted with a governor",
+        "choices": [
+          {
+            "name": "Servitor compliance governor",
+            "points": 10
+          }
+        ],
+        "model": null
+      }
+    },
+    {
+      "units": [
+        "secutarii-axiarch"
+      ],
+      "option": {
+        "id": "lt-axiarch-staff",
+        "kind": "one",
+        "text": "The Axiarch may exchange his arc lance for",
+        "choices": [
+          {
+            "name": "Secutarii pulse-staff",
+            "points": 8
+          }
+        ],
+        "model": "Secutarii Axiarch",
+        "replaces": [
+          "Arc lance"
+        ]
+      }
+    }
   ],
   "modifiers": [
-    { "units": ["secutarii-cohort"], "models": ["Secutarii"], "text": "Void-drilled armsmen: +1 LD, -1 I.", "stats": { "LD": "+1", "I": "-1" } },
-    { "units": ["secutarii-axiarch"], "text": "Tech-bred officer: +1 IN, -1 CL.", "stats": { "IN": "+1", "CL": "-1" } },
-    { "units": ["triaros-armoured-conveyor"], "text": "Ram-prowed hull: +1 FRONT, -2 M.", "stats": { "FRONT": "+1", "M": "-2" } },
-    { "units": ["castellax-battle-maniple", "castellax-destructor-maniple"], "text": "Legio-bonded cortex: +1 BS, -1 I.", "stats": { "BS": "+1", "I": "-1" } },
-    { "units": ["triaros-armoured-conveyor"], "item": "Servitor-hardened plates", "scope": "unit", "text": "Servitor-hardened plates: +1 HP.", "stats": { "HP": "+1" } }
+    {
+      "units": [
+        "secutarii-cohort"
+      ],
+      "models": [
+        "Secutarii"
+      ],
+      "text": "Void-drilled armsmen: +1 LD, -1 I.",
+      "stats": {
+        "LD": "+1",
+        "I": "-1"
+      }
+    },
+    {
+      "units": [
+        "secutarii-axiarch"
+      ],
+      "text": "Tech-bred officer: +1 IN, -1 CL.",
+      "stats": {
+        "IN": "+1",
+        "CL": "-1"
+      }
+    },
+    {
+      "units": [
+        "triaros-armoured-conveyor"
+      ],
+      "text": "Ram-prowed hull: +1 FRONT, -2 M.",
+      "stats": {
+        "FRONT": "+1",
+        "M": "-2"
+      }
+    },
+    {
+      "units": [
+        "castellax-battle-maniple",
+        "castellax-destructor-maniple"
+      ],
+      "text": "Legio-bonded cortex: +1 BS, -1 I.",
+      "stats": {
+        "BS": "+1",
+        "I": "-1"
+      }
+    },
+    {
+      "units": [
+        "triaros-armoured-conveyor"
+      ],
+      "item": "Servitor-hardened plates",
+      "scope": "unit",
+      "text": "Servitor-hardened plates: +1 HP.",
+      "stats": {
+        "HP": "+1"
+      }
+    },
+    {
+      "match": {
+        "unitType": "Titan"
+      },
+      "item": "Legio Battle-banner",
+      "text": "Legio Battle-banner: Banner of Victories.",
+      "addRules": [
+        "Banner of Victories"
+      ]
+    },
+    {
+      "match": {
+        "unitType": "Titan"
+      },
+      "item": "Ghost-void projector",
+      "text": "Ghost-void projector: Void Veil.",
+      "addRules": [
+        "Void Veil"
+      ]
+    },
+    {
+      "match": {
+        "unitType": "Titan"
+      },
+      "item": "Reactor sink baffles",
+      "text": "Reactor sink baffles: Baffled Exhausts.",
+      "addRules": [
+        "Baffled Exhausts"
+      ]
+    },
+    {
+      "match": {
+        "unitType": "Titan"
+      },
+      "item": "Hardened command throne",
+      "text": "Hardened command throne: Unbroken Throne.",
+      "addRules": [
+        "Unbroken Throne"
+      ]
+    },
+    {
+      "units": [
+        "triaros-armoured-conveyor"
+      ],
+      "item": "Ram-plough",
+      "text": "Ram-plough: Ram-Plough.",
+      "stats": {
+        "M": "-1"
+      },
+      "addRules": [
+        "Ram-Plough"
+      ]
+    },
+    {
+      "units": [
+        "secutarii-cohort",
+        "secutarii-axiarch"
+      ],
+      "item": "Pennant of the Void Sentries",
+      "text": "Pennant of the Void Sentries: Gate-Watch Oath.",
+      "addRules": [
+        "Gate-Watch Oath"
+      ]
+    },
+    {
+      "match": {
+        "unitType": "Automata"
+      },
+      "item": "Servitor compliance governor",
+      "text": "Servitor compliance governor: Strict Compliance.",
+      "addRules": [
+        "Strict Compliance"
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "name": "Pack Hunters",
+      "text": "Legacy house rule (The Hunting Pack). A model with this rule gains Outflank. On a turn it arrives from Reserves it may Rush and still fire one weapon at its full Ballistic Skill."
+    },
+    {
+      "name": "Overcharged Reactor",
+      "text": "Legacy house rule (The Reactor Gambit). Once per battle, in its Movement phase, a model with this rule may add 6\" to its Move and still fire all its weapons that turn. It then loses 1 Hull Point with no save of any kind."
+    },
+    {
+      "name": "Void-Wall Guard",
+      "text": "Legacy house rule (The Void-Wall Bastion). When an enemy unit declares a Charge against a friendly Titan, and a unit with this rule is within 6\" of that Titan and within the charger's reach, the charger must charge the nearest such unit instead."
+    },
+    {
+      "name": "Bonded Directive",
+      "text": "Legacy house rule (The Bonded Cybernetica Maniple). A unit with this rule within 12\" of a friendly Titan automatically passes Morale and Cool Checks."
+    },
+    {
+      "name": "Banner of Victories",
+      "text": "Legacy house rule. Friendly Titans and Secutarii within 12\" of the bearer add 1 to their Cool for Morale Checks. The bearer is easy to pick out: enemy models ignore the Shrouded rule against it."
+    },
+    {
+      "name": "Void Veil",
+      "text": "Legacy house rule. Enemy Shooting Attacks made from more than 24\" away against the bearer suffer -1 to Hit."
+    },
+    {
+      "name": "Baffled Exhausts",
+      "text": "Legacy house rule. The bearer adds 1 to the dice result of its Power Hungry and Overload checks. It may not Rush."
+    },
+    {
+      "name": "Unbroken Throne",
+      "text": "Legacy house rule. The first time each battle the bearer would gain the Stunned or Suppressed Status, ignore it."
+    },
+    {
+      "name": "Ram-Plough",
+      "text": "Legacy house rule. The vehicle ignores Dangerous Terrain Tests and counts as having Impact (S) on a successful Charge. It loses 1 Movement."
+    },
+    {
+      "name": "Gate-Watch Oath",
+      "text": "Legacy house rule. The unit ignores the first Pinned Status it would gain in each turn."
+    },
+    {
+      "name": "Strict Compliance",
+      "text": "Legacy house rule. Once per battle the unit may ignore a Stunned or Suppressed Status. The unit may not Rush."
+    }
+  ],
+  "armyRules": [
+    {
+      "name": "Legio Pack-Bond",
+      "text": "Legacy house rule. Titans of a Legio fight as a pack and wither alone. A Titan with another friendly Titan within 12\" adds 1 to its Cool for Checks to avoid Tactical Statuses. A Titan with no friendly Titan within 24\" subtracts 1 from its Cool for those Checks and may not use Overcharged Reactor.",
+      "match": {
+        "unitType": "Titan"
+      },
+      "condition": "when no other friendly Titan is within 24\""
+    },
+    {
+      "name": "Cortex Tether",
+      "text": "Legacy house rule. The Legio's maniples are slaved to a god-engine's cortex. An Automata unit within 12\" of a friendly Titan adds 1 to the Hit Tests of its Shooting Attacks. An Automata unit with no friendly Titan on the battlefield subtracts 1 from its Cool.",
+      "match": {
+        "unitType": "Automata"
+      },
+      "stats": {
+        "BS": "+1"
+      },
+      "condition": "while within 12\" of a friendly Titan"
+    },
+    {
+      "name": "Armsman's Shieldwall",
+      "text": "Legacy house rule. Void-drilled armsmen hold a line but cannot run. Secutarii add 1 to their Cool, but may not Rush.",
+      "units": [
+        "secutarii-cohort",
+        "secutarii-axiarch"
+      ],
+      "stats": {
+        "CL": "+1"
+      }
+    }
   ],
   "rites": [
     {
@@ -305,24 +908,6 @@
           "max": 1
         }
       ]
-    }
-  ],
-  "rules": [
-    {
-      "name": "Pack Hunters",
-      "text": "Legacy house rule (The Hunting Pack). A model with this rule gains Outflank. On a turn it arrives from Reserves it may Rush and still fire one weapon at its full Ballistic Skill."
-    },
-    {
-      "name": "Overcharged Reactor",
-      "text": "Legacy house rule (The Reactor Gambit). Once per battle, in its Movement phase, a model with this rule may add 6\" to its Move and still fire all its weapons that turn. It then loses 1 Hull Point with no save of any kind."
-    },
-    {
-      "name": "Void-Wall Guard",
-      "text": "Legacy house rule (The Void-Wall Bastion). When an enemy unit declares a Charge against a friendly Titan, and a unit with this rule is within 6\" of that Titan and within the charger's reach, the charger must charge the nearest such unit instead."
-    },
-    {
-      "name": "Bonded Directive",
-      "text": "Legacy house rule (The Bonded Cybernetica Maniple). A unit with this rule within 12\" of a friendly Titan automatically passes Morale and Cool Checks."
     }
   ]
 }

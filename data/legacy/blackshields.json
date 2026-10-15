@@ -1,4 +1,44 @@
 {
+  "armyRules": [
+    {
+      "name": "Cut Loose",
+      "text": "Legacy house rule. No Legion command reaches the Blackshields. A unit with this rule ignores the Routed Status, but cannot benefit from Officer of the Line (X) or Warrior Brotherhood.",
+      "match": {
+        "notUnitType": "Vehicle"
+      }
+    },
+    {
+      "name": "Salvage Rights",
+      "text": "Legacy house rule. Once per battle, when a unit with this rule destroys an enemy Vehicle or Character, it gains +1 Ballistic Skill and +1 Attack until the end of its next turn. While looting it cannot Fall Back.",
+      "match": {
+        "notUnitType": "Vehicle",
+        "roles": [
+          "Troops",
+          "Elites",
+          "Heavy Assault",
+          "Support",
+          "Recon"
+        ]
+      }
+    },
+    {
+      "name": "Hired Steel",
+      "text": "Legacy house rule. Contract machines fight better with a paymaster nearby. A unit with this rule gains +1 Ballistic Skill while within 12\" of a friendly Character, and suffers -1 Ballistic Skill while it is not.",
+      "units": [
+        "castellax-battle-maniple",
+        "castellax-destructor-maniple",
+        "domitar-battle-maniple",
+        "vorax-attack-maniple",
+        "thanatar-siege-maniple",
+        "vultarax-stratos-squadron"
+      ],
+      "optionalUnits": true,
+      "stats": {
+        "BS": "+1"
+      },
+      "condition": "while within 12\" of a friendly Character (-1 BS otherwise)"
+    }
+  ],
   "weapons": {
     "ranged": [
       {
@@ -9,7 +49,8 @@
         "AP": "–",
         "D": 1,
         "specialRules": [
-          "Shred (6+)"
+          "Shred (6+)",
+          "Suppressive (1)"
         ],
         "traits": [
           "Assault"
@@ -23,10 +64,42 @@
         "AP": 3,
         "D": 1,
         "specialRules": [
-          "Heavy (D)"
+          "Heavy (D)",
+          "Overload (1)"
         ],
         "traits": [
           "Las"
+        ]
+      },
+      {
+        "name": "Scrapyard hand cannon",
+        "R": 12,
+        "FP": 1,
+        "RS": 5,
+        "AP": 4,
+        "D": 2,
+        "specialRules": [
+          "Pistol",
+          "Melta (6)"
+        ],
+        "traits": [
+          "Assault"
+        ]
+      },
+      {
+        "name": "Ruinstorm flame-casket",
+        "R": "Template",
+        "FP": 1,
+        "RS": 5,
+        "AP": 4,
+        "D": 1,
+        "specialRules": [
+          "Template",
+          "Panic (2)",
+          "Aflame (1)"
+        ],
+        "traits": [
+          "Flame"
         ]
       }
     ],
@@ -39,9 +112,25 @@
         "AP": 4,
         "D": 1,
         "specialRules": [
-          "Breaching (6+)"
+          "Breaching (6+)",
+          "Shock (1)"
         ],
         "traits": []
+      },
+      {
+        "name": "Sell-sword duelling blade",
+        "IM": "+1",
+        "AM": "A",
+        "SM": "S",
+        "AP": 3,
+        "D": 1,
+        "specialRules": [
+          "Duellist's Edge (1)",
+          "Critical Hit (6+)"
+        ],
+        "traits": [
+          "Power"
+        ]
       }
     ]
   },
@@ -57,6 +146,72 @@
     {
       "name": "Hide-and-iron plating",
       "text": "Legacy house rule. Plates riveted straight onto the Brute's warped flesh, so it no longer knows where armour ends. The model gains +1 Wound."
+    },
+    {
+      "name": "Warband totem-pole",
+      "text": "Legacy house rule. A trunk of salvaged ship-timber hung with every banner the warband ever served under. Gives the unit Rally Pole."
+    },
+    {
+      "name": "Contract seal",
+      "text": "Legacy house rule. A wax-and-steel seal naming a mark and a price. Gives the bearer Sealed Contract."
+    },
+    {
+      "name": "Dead-man's stimm-rig",
+      "text": "Legacy house rule. A back-mounted drug cocktail that does not care whether its host is alive. Gives the unit Stimm Surge."
+    },
+    {
+      "name": "Scrap ablative plating",
+      "text": "Legacy house rule. Hull slabs, vault doors and anything else that stops a shell. Gives the vehicle Ablative Scrap."
+    },
+    {
+      "name": "Pit-cannibalised dozer blade",
+      "text": "Legacy house rule. A scoop torn off a mining crawler and welded on at an angle. Gives the vehicle Dozer Plough."
+    },
+    {
+      "name": "Ruin-brand",
+      "text": "Legacy house rule. A glowing sigil seared into the Brutes' hides to keep the warp from turning them inside out. Gives the unit Brand of Ruin."
+    }
+  ],
+  "rules": [
+    {
+      "name": "Nothing Left to Lose",
+      "text": "Legacy house rule (Warband of the Long Exile). A unit with this rule adds +1 to its Cool for Cool Checks, but it may never choose to Fall Back."
+    },
+    {
+      "name": "Contract Hunters",
+      "text": "Legacy house rule (Hired Knives). A unit with this rule gains Outflank, and adds +2 to its Charge roll against an enemy unit that includes a Command or High Command model."
+    },
+    {
+      "name": "Ruin-Touched",
+      "text": "Legacy house rule (Children of the Ruin). A unit with this rule gains Fear (1) and is immune to the effects of enemy Fear. In any turn it can charge, it must charge the closest enemy unit it can reach."
+    },
+    {
+      "name": "Dead Lane Raid",
+      "text": "Legacy house rule (Raiders of the Dead Lanes). A unit with this rule gains Outflank, and must start the battle in Reserve. In the turn it enters play from Reserve, it adds +2 to its Charge roll."
+    },
+    {
+      "name": "Rally Pole",
+      "text": "Legacy house rule. While the bearer's unit is within 3\" of an objective it adds +1 to its Cool for Cool Checks. Once per battle, at the end of its Movement phase, it may remove one Tactical Status from itself."
+    },
+    {
+      "name": "Sealed Contract",
+      "text": "Legacy house rule. At deployment choose one enemy unit. The bearer's unit adds +1 to Hit Tests against it. If that unit is destroyed by anyone else, the bearer suffers -1 Leadership for the rest of the battle."
+    },
+    {
+      "name": "Stimm Surge",
+      "text": "Legacy house rule. Once per battle, at the start of any turn, the unit gains Feel No Pain (5+) until the end of that turn."
+    },
+    {
+      "name": "Ablative Scrap",
+      "text": "Legacy house rule. The first Penetrating Hit this vehicle suffers each battle is treated as a Glancing Hit."
+    },
+    {
+      "name": "Dozer Plough",
+      "text": "Legacy house rule. The vehicle ignores the movement penalty of Difficult Terrain and may move through Barricades as if they were open ground."
+    },
+    {
+      "name": "Brand of Ruin",
+      "text": "Legacy house rule. A unit with this rule adds +2 to Willpower Checks forced by enemy Psychic powers, and cannot be the target of friendly Psychic powers."
     }
   ],
   "options": [
@@ -218,6 +373,170 @@
           }
         ]
       }
+    },
+    {
+      "units": [
+        "despoiler-squad",
+        "tactical-squad",
+        "veteran-despoiler-squad",
+        "assault-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "bs-totem-pole",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The unit may carry a Warband totem-pole",
+        "choices": [
+          {
+            "name": "Warband totem-pole",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "roles": [
+          "Command",
+          "High Command"
+        ],
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "option": {
+        "id": "bs-contract-kit",
+        "kind": "any",
+        "modelType": "Command",
+        "max": {
+          "fixed": 2
+        },
+        "text": "Hired-gun kit: may take up to two items",
+        "choices": [
+          {
+            "name": "Contract seal",
+            "points": 10
+          },
+          {
+            "name": "Sell-sword duelling blade",
+            "points": 15
+          },
+          {
+            "name": "Scrapyard hand cannon",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "despoiler-squad",
+        "tactical-squad",
+        "veteran-despoiler-squad",
+        "veteran-tactical-squad",
+        "assault-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "bs-stimm-rig",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may wear a Dead-man's stimm-rig",
+        "choices": [
+          {
+            "name": "Dead-man's stimm-rig",
+            "points": 12
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "unitType": "Vehicle",
+        "notUnitType": "Flyer",
+        "roles": [
+          "Armour",
+          "Transport",
+          "Heavy Transport"
+        ]
+      },
+      "optionalUnits": true,
+      "option": {
+        "id": "bs-scrap-plating",
+        "kind": "upgrade",
+        "model": null,
+        "text": "May be fitted with Scrap ablative plating",
+        "choices": [
+          {
+            "name": "Scrap ablative plating",
+            "points": 20
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "unitType": "Vehicle",
+        "notUnitType": "Flyer",
+        "roles": [
+          "Armour",
+          "Transport",
+          "Heavy Transport"
+        ]
+      },
+      "optionalUnits": true,
+      "option": {
+        "id": "bs-dozer",
+        "kind": "upgrade",
+        "model": null,
+        "text": "May be fitted with a Pit-cannibalised dozer blade",
+        "choices": [
+          {
+            "name": "Pit-cannibalised dozer blade",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "ruinstorm-daemon-brutes"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "bs-ruin-brand",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The unit may carry the Ruin-brand",
+        "choices": [
+          {
+            "name": "Ruin-brand",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "despoiler-squad",
+        "tactical-squad",
+        "veteran-despoiler-squad",
+        "assault-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "bs-flame-casket",
+        "kind": "perModel",
+        "model": "Legionary",
+        "max": 1,
+        "text": "One Legionary may carry a Ruinstorm flame-casket",
+        "choices": [
+          {
+            "name": "Ruinstorm flame-casket",
+            "points": 12
+          }
+        ]
+      }
     }
   ],
   "modifiers": [
@@ -322,6 +641,72 @@
       "stats": {
         "W": "+1"
       }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Warband totem-pole",
+      "text": "Warband totem-pole: Rally Pole.",
+      "scope": "unit",
+      "addRules": [
+        "Rally Pole"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Contract seal",
+      "text": "Contract seal: Sealed Contract.",
+      "scope": "unit",
+      "addRules": [
+        "Sealed Contract"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Dead-man's stimm-rig",
+      "text": "Dead-man's stimm-rig: Stimm Surge.",
+      "scope": "unit",
+      "addRules": [
+        "Stimm Surge"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Scrap ablative plating",
+      "text": "Scrap ablative plating: Ablative Scrap.",
+      "scope": "unit",
+      "addRules": [
+        "Ablative Scrap"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Pit-cannibalised dozer blade",
+      "text": "Pit-cannibalised dozer blade: Dozer Plough.",
+      "scope": "unit",
+      "addRules": [
+        "Dozer Plough"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Ruin-brand",
+      "text": "Ruin-brand: Brand of Ruin.",
+      "scope": "unit",
+      "addRules": [
+        "Brand of Ruin"
+      ]
     }
   ],
   "rites": [
@@ -330,7 +715,7 @@
       "flavor": "Ten years without a flag teaches you who still stands beside you.",
       "benefits": [
         "Veteran Despoiler Squads may fill Troops slots and gain Line (1).",
-        "Veteran Despoilers gain Nothing Left to Lose: failed Cool Checks may be re-rolled."
+        "Veteran Despoilers gain Nothing Left to Lose: +1 Cool for Cool Checks."
       ],
       "limitations": [
         "At least one Veteran Despoiler Squad is required.",
@@ -389,7 +774,7 @@
       "flavor": "A contract was signed with a forge that no longer answers to Mars.",
       "benefits": [
         "Castellax Battle Maniples may fill Troops slots and gain Line (1).",
-        "Castellax Battle Maniples gain Contract Hunters: Outflank, and failed Charge rolls against a unit that includes a Command or High Command model may be re-rolled."
+        "Castellax Battle Maniples gain Contract Hunters: Outflank, and +2 to Charge rolls against a unit that includes a Command or High Command model."
       ],
       "limitations": [
         "At least one Castellax Battle Maniple is required.",
@@ -501,7 +886,7 @@
       "flavor": "They hit what the Imperium forgot to guard.",
       "benefits": [
         "Mortalis Destroyer Squads and Destroyer Assault Squads may fill Troops slots.",
-        "Attack Bike and Outrider Squadrons gain Outflank and Dead Lane Raid: they may re-roll their Charge roll in the turn they enter play from Reserve."
+        "Attack Bike and Outrider Squadrons gain Outflank and Dead Lane Raid: they add +2 to their Charge roll in the turn they enter play from Reserve."
       ],
       "limitations": [
         "No Heavy Support or Veteran Heavy Support Squads, no Armour and no Heavy Transport units.",
@@ -547,24 +932,6 @@
           ]
         }
       ]
-    }
-  ],
-  "rules": [
-    {
-      "name": "Nothing Left to Lose",
-      "text": "Legacy house rule (Warband of the Long Exile). A unit with this rule may re-roll failed Cool Checks, but it may never choose to Fall Back."
-    },
-    {
-      "name": "Contract Hunters",
-      "text": "Legacy house rule (Hired Knives). A unit with this rule gains Outflank, and may re-roll a failed Charge roll against an enemy unit that includes a Command or High Command model."
-    },
-    {
-      "name": "Ruin-Touched",
-      "text": "Legacy house rule (Children of the Ruin). A unit with this rule gains Fear (1) and is immune to the effects of enemy Fear. In any turn it can charge, it must charge the closest enemy unit it can reach."
-    },
-    {
-      "name": "Dead Lane Raid",
-      "text": "Legacy house rule (Raiders of the Dead Lanes). A unit with this rule gains Outflank, and must start the battle in Reserve. In the turn it enters play from Reserve, it may re-roll its Charge roll."
     }
   ]
 }

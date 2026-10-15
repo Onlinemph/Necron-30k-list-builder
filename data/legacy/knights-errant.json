@@ -1,44 +1,577 @@
 {
   "weapons": {
-    "ranged": [],
+    "ranged": [
+      {
+        "name": "Writ-bolter",
+        "R": 24,
+        "FP": 3,
+        "RS": 6,
+        "AP": 4,
+        "D": 1,
+        "specialRules": [
+          "Precision (6+)",
+          "Pinning (1)"
+        ],
+        "traits": [
+          "Bolt"
+        ]
+      },
+      {
+        "name": "Nullvein needle-pistol",
+        "R": 12,
+        "FP": 1,
+        "RS": 5,
+        "AP": 6,
+        "D": 1,
+        "specialRules": [
+          "Pistol",
+          "Poisoned (4+)"
+        ],
+        "traits": [
+          "Assault"
+        ]
+      }
+    ],
     "melee": [
-      { "name": "Black-lacquer dirk", "IM": "+1", "AM": "A", "SM": "S", "AP": 3, "D": 1, "specialRules": ["Rending (6+)", "Precision (5+)"], "traits": ["Power"] }
+      {
+        "name": "Black-lacquer dirk",
+        "IM": "+1",
+        "AM": "A",
+        "SM": "S",
+        "AP": 3,
+        "D": 1,
+        "specialRules": [
+          "Murderous (6+)",
+          "Precision (5+)"
+        ],
+        "traits": [
+          "Power"
+        ]
+      },
+      {
+        "name": "Hunter-cell reaper blades",
+        "IM": "+1",
+        "AM": "A",
+        "SM": "S",
+        "AP": 3,
+        "D": 2,
+        "specialRules": [
+          "Critical Hit (6+)",
+          "Reaping Blow (1)"
+        ],
+        "traits": [
+          "Power"
+        ]
+      }
     ]
   },
   "wargear": [
-    { "name": "Sigillite's black seal", "text": "Legacy house rule. A wax-and-steel writ carrying Malcador's personal authority, which opens any door and closes most arguments. The bearer gains +1 Willpower and +1 Leadership." },
-    { "name": "Shroud-cloak of the Talons", "text": "Legacy house rule. A cameleoline mantle woven in the Sigillite's own workshops. Enemy units shooting at the bearer from more than 12\" suffer -1 to hit, and the bearer gains +1 Initiative." }
+    {
+      "name": "Sigillite's black seal",
+      "text": "Legacy house rule. A wax-and-steel writ carrying Malcador's personal authority, which opens any door and closes most arguments. The bearer gains +1 Willpower and +1 Leadership."
+    },
+    {
+      "name": "Shroud-cloak of the Talons",
+      "text": "Legacy house rule. A cameleoline mantle woven in the Sigillite's own workshops. Enemy units shooting at the bearer from more than 12\" suffer -1 to hit, and the bearer gains +1 Initiative."
+    },
+    {
+      "name": "Seeker's death-mask",
+      "text": "Legacy house rule. A lacquered faceplate worn by those who hunt oath-breakers, said to still every doubt behind it."
+    },
+    {
+      "name": "Reliquary of Terran ash",
+      "text": "Legacy house rule. A sealed flask of ash gathered from the Palace grounds and kept against the heart."
+    },
+    {
+      "name": "Warding strand",
+      "text": "Legacy house rule. A braid of silvered wire and prayer-tags knotted across the shoulder guards."
+    },
+    {
+      "name": "Quarry lens",
+      "text": "Legacy house rule. An optic tuned to a single writ-signature, scanning for the one face it has been told to find."
+    },
+    {
+      "name": "Spite plating",
+      "text": "Legacy house rule. Plates scavenged from fallen cell-engines, riveted over fresh wounds."
+    },
+    {
+      "name": "Chaff pods",
+      "text": "Legacy house rule. Drop-pods of sheared foil and radiating filament, fired to blind pursuing guns."
+    }
   ],
   "options": [
-    { "units": ["nathaniel-garro"],
-      "option": { "id": "ke-garro-seal", "kind": "upgrade", "model": "Nathaniel Garro",
-        "text": "Garro may carry the Sigillite's own seal", "choices": [ { "name": "Sigillite's black seal", "points": 20 } ] } },
-    { "units": ["nathaniel-garro"],
-      "option": { "id": "ke-garro-dirk", "kind": "upgrade", "model": "Nathaniel Garro",
-        "text": "Garro may carry a black-lacquer dirk as a sidearm", "choices": [ { "name": "Black-lacquer dirk", "points": 10 } ] } },
-    { "units": ["tylos-rubio"],
-      "option": { "id": "ke-rubio-pistol", "kind": "one", "model": "Tylos Rubio", "replaces": ["Bolt pistol"],
-        "text": "Rubio may exchange his bolt pistol for", "choices": [ { "name": "Archeotech pistol", "points": 5 } ] } },
-    { "units": ["nathaniel-garro", "tylos-rubio"],
-      "option": { "id": "ke-shroud-cloak", "kind": "upgrade", "model": ["Nathaniel Garro", "Tylos Rubio"],
-        "text": "The Knight-Errant may be issued a shroud-cloak", "choices": [ { "name": "Shroud-cloak of the Talons", "points": 15 } ] } },
-    { "units": ["domitar-battle-maniple"],
-      "option": { "id": "ke-domitar-pulsar", "kind": "perModel", "model": "Domitar", "replaces": ["Cyclone missile launcher"],
-        "text": "Any Domitar may exchange its cyclone missile launcher for", "choices": [ { "name": "Graviton pulsar", "points": 10 } ] } },
-    { "units": ["vorax-attack-maniple"],
-      "option": { "id": "ke-vorax-incinerator", "kind": "perModel", "model": "Vorax", "replaces": ["Lightning gun"],
-        "text": "Any Vorax may exchange its lightning gun for", "choices": [ { "name": "Volkite incinerator", "points": 4 } ] } },
-    { "units": ["vultarax-stratos-squadron"],
-      "option": { "id": "ke-vultarax-gun", "kind": "one", "model": "Vultarax", "replaces": ["Arc blaster"],
-        "text": "The Vultarax may exchange its arc blaster for", "choices": [ { "name": "Lightning gun", "points": 5 } ] } }
+    {
+      "units": [
+        "nathaniel-garro"
+      ],
+      "option": {
+        "id": "ke-garro-seal",
+        "kind": "upgrade",
+        "model": "Nathaniel Garro",
+        "text": "Garro may carry the Sigillite's own seal",
+        "choices": [
+          {
+            "name": "Sigillite's black seal",
+            "points": 20
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "nathaniel-garro"
+      ],
+      "option": {
+        "id": "ke-garro-dirk",
+        "kind": "upgrade",
+        "model": "Nathaniel Garro",
+        "text": "Garro may carry a black-lacquer dirk as a sidearm",
+        "choices": [
+          {
+            "name": "Black-lacquer dirk",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tylos-rubio"
+      ],
+      "option": {
+        "id": "ke-rubio-pistol",
+        "kind": "one",
+        "model": "Tylos Rubio",
+        "replaces": [
+          "Bolt pistol"
+        ],
+        "text": "Rubio may exchange his bolt pistol for",
+        "choices": [
+          {
+            "name": "Archeotech pistol",
+            "points": 5
+          },
+          {
+            "name": "Nullvein needle-pistol",
+            "points": 8
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "nathaniel-garro",
+        "tylos-rubio"
+      ],
+      "option": {
+        "id": "ke-shroud-cloak",
+        "kind": "upgrade",
+        "model": [
+          "Nathaniel Garro",
+          "Tylos Rubio"
+        ],
+        "text": "The Knight-Errant may be issued a shroud-cloak",
+        "choices": [
+          {
+            "name": "Shroud-cloak of the Talons",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "domitar-battle-maniple"
+      ],
+      "option": {
+        "id": "ke-domitar-pulsar",
+        "kind": "perModel",
+        "model": "Domitar",
+        "replaces": [
+          "Cyclone missile launcher"
+        ],
+        "text": "Any Domitar may exchange its cyclone missile launcher for",
+        "choices": [
+          {
+            "name": "Graviton pulsar",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "vorax-attack-maniple"
+      ],
+      "option": {
+        "id": "ke-vorax-incinerator",
+        "kind": "perModel",
+        "model": "Vorax",
+        "replaces": [
+          "Lightning gun"
+        ],
+        "text": "Any Vorax may exchange its lightning gun for",
+        "choices": [
+          {
+            "name": "Volkite incinerator",
+            "points": 4
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "vultarax-stratos-squadron"
+      ],
+      "option": {
+        "id": "ke-vultarax-gun",
+        "kind": "one",
+        "model": "Vultarax",
+        "replaces": [
+          "Arc blaster"
+        ],
+        "text": "The Vultarax may exchange its arc blaster for",
+        "choices": [
+          {
+            "name": "Lightning gun",
+            "points": 5
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "nathaniel-garro",
+        "tylos-rubio"
+      ],
+      "option": {
+        "id": "ke-char-fittings",
+        "kind": "any",
+        "text": "The Knight-Errant may take up to two items of oath-gear",
+        "choices": [
+          {
+            "name": "Seeker's death-mask",
+            "points": 15
+          },
+          {
+            "name": "Reliquary of Terran ash",
+            "points": 15
+          },
+          {
+            "name": "Warding strand",
+            "points": 10
+          }
+        ],
+        "model": [
+          "Nathaniel Garro",
+          "Tylos Rubio"
+        ],
+        "max": {
+          "fixed": 2
+        }
+      }
+    },
+    {
+      "match": {
+        "unitType": "Automata"
+      },
+      "option": {
+        "id": "ke-cell-fittings",
+        "kind": "any",
+        "text": "The maniple may take cell fittings",
+        "choices": [
+          {
+            "name": "Quarry lens",
+            "points": 15
+          },
+          {
+            "name": "Spite plating",
+            "points": 20
+          }
+        ],
+        "model": null,
+        "max": {
+          "fixed": 1
+        }
+      }
+    },
+    {
+      "units": [
+        "vultarax-stratos-squadron"
+      ],
+      "option": {
+        "id": "ke-vultarax-chaff",
+        "kind": "upgrade",
+        "text": "The squadron may carry chaff pods",
+        "choices": [
+          {
+            "name": "Chaff pods",
+            "points": 10
+          }
+        ],
+        "model": null
+      }
+    },
+    {
+      "units": [
+        "nathaniel-garro",
+        "tylos-rubio"
+      ],
+      "option": {
+        "id": "ke-bolter",
+        "kind": "one",
+        "text": "The Knight-Errant may exchange his Paragon bolter for",
+        "choices": [
+          {
+            "name": "Writ-bolter",
+            "points": 10
+          }
+        ],
+        "model": [
+          "Nathaniel Garro",
+          "Tylos Rubio"
+        ],
+        "replaces": [
+          "Paragon bolter"
+        ]
+      }
+    },
+    {
+      "units": [
+        "nathaniel-garro"
+      ],
+      "option": {
+        "id": "ke-garro-needle",
+        "kind": "one",
+        "text": "Garro may exchange his bolt pistol for",
+        "choices": [
+          {
+            "name": "Nullvein needle-pistol",
+            "points": 8
+          }
+        ],
+        "model": "Nathaniel Garro",
+        "replaces": [
+          "Bolt pistol"
+        ]
+      }
+    },
+    {
+      "units": [
+        "vorax-attack-maniple"
+      ],
+      "option": {
+        "id": "ke-vorax-blades",
+        "kind": "perModel",
+        "text": "Up to two Vorax may exchange their power blades for",
+        "choices": [
+          {
+            "name": "Hunter-cell reaper blades",
+            "points": 8
+          }
+        ],
+        "model": "Vorax",
+        "replaces": [
+          "Pair of power blades"
+        ],
+        "max": 2
+      }
+    }
   ],
   "modifiers": [
-    { "units": ["nathaniel-garro"], "text": "Veteran duellist: +1 WS, -1 BS.", "stats": { "WS": "+1", "BS": "-1" } },
-    { "units": ["tylos-rubio"], "text": "Echoes of fate: +1 IN, -1 S.", "stats": { "IN": "+1", "S": "-1" } },
-    { "units": ["vorax-attack-maniple"], "text": "Hunter-cell frames: +1 M, -1 T.", "stats": { "M": "+1", "T": "-1" } },
-    { "units": ["domitar-battle-maniple"], "text": "Vanguard fire-control: +1 BS, -1 M.", "stats": { "BS": "+1", "M": "-1" } },
-    { "units": ["nathaniel-garro"], "item": "Sigillite's black seal", "scope": "unit", "text": "Sigillite's black seal: +1 WP, +1 LD.", "stats": { "WP": "+1", "LD": "+1" } },
-    { "units": ["nathaniel-garro", "tylos-rubio"], "item": "Shroud-cloak of the Talons", "scope": "unit", "text": "Shroud-cloak of the Talons: +1 I.", "stats": { "I": "+1" } }
+    {
+      "units": [
+        "nathaniel-garro"
+      ],
+      "text": "Veteran duellist: +1 WS, -1 BS.",
+      "stats": {
+        "WS": "+1",
+        "BS": "-1"
+      }
+    },
+    {
+      "units": [
+        "tylos-rubio"
+      ],
+      "text": "Echoes of fate: +1 IN, -1 S.",
+      "stats": {
+        "IN": "+1",
+        "S": "-1"
+      }
+    },
+    {
+      "units": [
+        "vorax-attack-maniple"
+      ],
+      "text": "Hunter-cell frames: +1 M, -1 T.",
+      "stats": {
+        "M": "+1",
+        "T": "-1"
+      }
+    },
+    {
+      "units": [
+        "domitar-battle-maniple"
+      ],
+      "text": "Vanguard fire-control: +1 BS, -1 M.",
+      "stats": {
+        "BS": "+1",
+        "M": "-1"
+      }
+    },
+    {
+      "units": [
+        "nathaniel-garro"
+      ],
+      "item": "Sigillite's black seal",
+      "scope": "unit",
+      "text": "Sigillite's black seal: +1 WP, +1 LD.",
+      "stats": {
+        "WP": "+1",
+        "LD": "+1"
+      }
+    },
+    {
+      "units": [
+        "nathaniel-garro",
+        "tylos-rubio"
+      ],
+      "item": "Shroud-cloak of the Talons",
+      "scope": "unit",
+      "text": "Shroud-cloak of the Talons: +1 I.",
+      "stats": {
+        "I": "+1"
+      }
+    },
+    {
+      "units": [
+        "nathaniel-garro",
+        "tylos-rubio"
+      ],
+      "item": "Seeker's death-mask",
+      "text": "Seeker's death-mask: Unblinking Mask.",
+      "addRules": [
+        "Unblinking Mask"
+      ]
+    },
+    {
+      "units": [
+        "nathaniel-garro",
+        "tylos-rubio"
+      ],
+      "item": "Reliquary of Terran ash",
+      "text": "Reliquary of Terran ash: Ashes of the Oath.",
+      "addRules": [
+        "Feel No Pain (6+)",
+        "Ashes of the Oath"
+      ]
+    },
+    {
+      "units": [
+        "nathaniel-garro",
+        "tylos-rubio"
+      ],
+      "item": "Warding strand",
+      "text": "Warding strand: Strand of Warding.",
+      "addRules": [
+        "Strand of Warding"
+      ]
+    },
+    {
+      "match": {
+        "unitType": "Automata"
+      },
+      "item": "Quarry lens",
+      "text": "Quarry lens: Marked Quarry.",
+      "addRules": [
+        "Marked Quarry"
+      ]
+    },
+    {
+      "match": {
+        "unitType": "Automata"
+      },
+      "item": "Spite plating",
+      "text": "Spite plating: Plated in Spite.",
+      "stats": {
+        "SAV": "best:5+"
+      },
+      "addRules": [
+        "Plated in Spite"
+      ]
+    },
+    {
+      "units": [
+        "vultarax-stratos-squadron"
+      ],
+      "item": "Chaff pods",
+      "text": "Chaff pods: Chaff Veil.",
+      "addRules": [
+        "Chaff Veil"
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "name": "Oath-Bonded",
+      "text": "Legacy house rule (Garro's Company). A unit with this rule within 12\" of Nathaniel Garro or Tylos Rubio automatically passes Morale and Cool Checks."
+    },
+    {
+      "name": "Sealed Orders",
+      "text": "Legacy house rule (The Hunter-Killer Cell). A unit with this rule gains Outflank. On a turn it arrives from Reserves it may Rush and still fire one weapon at its full Ballistic Skill."
+    },
+    {
+      "name": "Unwitnessed",
+      "text": "Legacy house rule (The Unwitnessed Writ). On the first battle turn, enemy units may not target a model with this rule with Shooting Attacks unless it is within 12\" of them."
+    },
+    {
+      "name": "Unblinking Mask",
+      "text": "Legacy house rule. An enemy model in a Challenge with the bearer subtracts 1 from its Focus roll."
+    },
+    {
+      "name": "Ashes of the Oath",
+      "text": "Legacy house rule. The bearer gains Feel No Pain (6+) and ignores Fear."
+    },
+    {
+      "name": "Strand of Warding",
+      "text": "Legacy house rule. Enemy Psychic Checks made to target the bearer or its unit suffer -1."
+    },
+    {
+      "name": "Marked Quarry",
+      "text": "Legacy house rule. Once in each of its controlling player's Shooting phases, the first Shooting Attack the unit makes against an enemy unit adds 1 to its Hit Tests."
+    },
+    {
+      "name": "Plated in Spite",
+      "text": "Legacy house rule. The model gains a 5+ Save if it was worse. A model with this rule slain in combat inflicts one automatic Hit (S4, AP -) on the unit that slew it."
+    },
+    {
+      "name": "Chaff Veil",
+      "text": "Legacy house rule. The first Shooting Attack made against the unit each battle suffers -1 to Hit."
+    }
+  ],
+  "armyRules": [
+    {
+      "name": "Hounded by Fate",
+      "text": "Legacy house rule. The two Knights-Errant march with the weight of what they have seen. Nathaniel Garro and Tylos Rubio add 1 to their Cool, but may only be joined to Automata units from this army and are never counted as part of a Legion for any other friendly rule.",
+      "units": [
+        "nathaniel-garro",
+        "tylos-rubio"
+      ],
+      "stats": {
+        "CL": "+1"
+      }
+    },
+    {
+      "name": "Cold Hunters",
+      "text": "Legacy house rule. The Mechanicum automata of the cell are built for a single purpose, and have no patience for anything else. Automata add 1 to their Ballistic Skill and subtract 1 from their Willpower. They cannot hold or contest objectives unless Nathaniel Garro or Tylos Rubio is within 12\".",
+      "match": {
+        "unitType": "Automata"
+      },
+      "stats": {
+        "BS": "+1",
+        "WP": "-1"
+      }
+    }
   ],
   "rites": [
     {
@@ -215,20 +748,6 @@
           ]
         }
       ]
-    }
-  ],
-  "rules": [
-    {
-      "name": "Oath-Bonded",
-      "text": "Legacy house rule (Garro's Company). A unit with this rule within 12\" of Nathaniel Garro or Tylos Rubio automatically passes Morale and Cool Checks."
-    },
-    {
-      "name": "Sealed Orders",
-      "text": "Legacy house rule (The Hunter-Killer Cell). A unit with this rule gains Outflank. On a turn it arrives from Reserves it may Rush and still fire one weapon at its full Ballistic Skill."
-    },
-    {
-      "name": "Unwitnessed",
-      "text": "Legacy house rule (The Unwitnessed Writ). On the first battle turn, enemy units may not target a model with this rule with Shooting Attacks unless it is within 12\" of them."
     }
   ]
 }

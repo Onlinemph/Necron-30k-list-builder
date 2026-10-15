@@ -1,4 +1,40 @@
 {
+  "armyRules": [
+    {
+      "name": "Last Stand of the Broken Fleets",
+      "text": "Legacy house rule. A unit with this rule at half strength or fewer fights on with a survivor's fury: each model gains +1 Attack. A unit with this rule can never choose to Fall Back.",
+      "match": {
+        "notUnitType": "Vehicle"
+      },
+      "stats": {
+        "A": "+1"
+      },
+      "condition": "while at half strength or fewer"
+    },
+    {
+      "name": "Mixed Banners",
+      "text": "Legacy house rule. A Character with this rule is the glue of the survivors. Friendly units within 6\" add +1 to their Cool. If the Character is removed, every friendly unit within 12\" must pass a Cool Check or gain the Pinned Status.",
+      "units": [
+        "hibou-khan",
+        "alexis-polux",
+        "shadrak-meduson",
+        "saul-tarvitz",
+        "garviel-loken"
+      ],
+      "optionalUnits": true
+    },
+    {
+      "name": "Held Together by Spite",
+      "text": "Legacy house rule. A Dreadnought with this rule gains Feel No Pain (6+), but cannot Rush.",
+      "units": [
+        "contemptor-dreadnought",
+        "castra-ferrum-dreadnought",
+        "deredeo-dreadnought",
+        "leviathan-dreadnought"
+      ],
+      "optionalUnits": true
+    }
+  ],
   "weapons": {
     "ranged": [
       {
@@ -9,10 +45,41 @@
         "AP": 5,
         "D": 1,
         "specialRules": [
-          "Blast (3\")"
+          "Blast (3\")",
+          "Limited (2)"
         ],
         "traits": [
           "Grenade"
+        ]
+      },
+      {
+        "name": "Salvaged rocket tube",
+        "R": 24,
+        "FP": 1,
+        "RS": 6,
+        "AP": 4,
+        "D": 2,
+        "specialRules": [
+          "Armourbane",
+          "Limited (1)"
+        ],
+        "traits": [
+          "Missile"
+        ]
+      },
+      {
+        "name": "Pyre-cast flamer",
+        "R": "Template",
+        "FP": 1,
+        "RS": 4,
+        "AP": 5,
+        "D": 1,
+        "specialRules": [
+          "Template",
+          "Panic (1)"
+        ],
+        "traits": [
+          "Flame"
         ]
       }
     ],
@@ -25,7 +92,23 @@
         "AP": 3,
         "D": 1,
         "specialRules": [
-          "Impact (A)"
+          "Impact (A)",
+          "Reaping Blow (1)"
+        ],
+        "traits": [
+          "Power"
+        ]
+      },
+      {
+        "name": "Survivor's war-pick",
+        "IM": "+1",
+        "AM": "A",
+        "SM": "+1",
+        "AP": 3,
+        "D": 1,
+        "specialRules": [
+          "Critical Hit (5+)",
+          "Reaping Blow (1)"
         ],
         "traits": [
           "Power"
@@ -45,6 +128,72 @@
     {
       "name": "Field-welded plating",
       "text": "Legacy house rule. Hull plates from three different wrecks, welded onto an Ancient who refuses to stay dead. The model gains +1 Wound."
+    },
+    {
+      "name": "Ashes reliquary",
+      "text": "Legacy house rule. A sealed urn of soil from a homeworld that no longer exists. Gives the bearer Ashes Remembered."
+    },
+    {
+      "name": "Cracked void-plate",
+      "text": "Legacy house rule. Armour that once sealed a ship's airlock and has outlasted three owners. Gives the bearer Scar-Hardened."
+    },
+    {
+      "name": "Tithe crate",
+      "text": "Legacy house rule. The last of the squad's ammunition, handed round before the final push. Gives the unit Tithe of Shells."
+    },
+    {
+      "name": "Rally beacon",
+      "text": "Legacy house rule. A hand-cranked lamp whose pattern every survivor of the old fleets still knows. Gives the bearer Rally Flare."
+    },
+    {
+      "name": "Slab-plates",
+      "text": "Legacy house rule. Slabs cut from fallen hulls and bolted over every joint. Gives the model Slab-Plated."
+    },
+    {
+      "name": "Orphaned machine-spirit",
+      "text": "Legacy house rule. A cogitator core that has lost its crew and learned to watch for itself. Gives the model Vigil Spirit."
+    }
+  ],
+  "rules": [
+    {
+      "name": "Muster Call",
+      "text": "Legacy house rule (Broken Banners Reforged). A unit with this rule adds +1 to its Cool for Cool Checks while another friendly Inductii unit is within 12\"."
+    },
+    {
+      "name": "Survivor's Oath",
+      "text": "Legacy house rule (Oath of the Survivors). A unit with this rule adds +1 to its Cool for Cool Checks while it is within 12\" of a friendly Garviel Loken, Saul Tarvitz, Shadrak Meduson, Alexis Polux or Hibou Khan."
+    },
+    {
+      "name": "Dig In",
+      "text": "Legacy house rule (Fortress of the Last Stand). A unit with this rule has Shrouded (6+) against shooting attacks while it has not moved in its own most recent Movement phase."
+    },
+    {
+      "name": "Ancient Resolve",
+      "text": "Legacy house rule (The Ancients Awake). A unit with this rule is immune to Fear and automatically passes Cool Checks. It must be deployed on the table and may not be held in Reserve."
+    },
+    {
+      "name": "Ashes Remembered",
+      "text": "Legacy house rule. Friendly Shattered Legions units within 6\" of the bearer add +1 to their Cool for Cool Checks. Once per battle the bearer's unit may pass a Cool Check automatically."
+    },
+    {
+      "name": "Scar-Hardened",
+      "text": "Legacy house rule. The first Wound the bearer would lose each battle is ignored."
+    },
+    {
+      "name": "Tithe of Shells",
+      "text": "Legacy house rule. Once per battle, in the Shooting phase, a unit with this rule adds 1 to the Firepower of each of its ranged weapons for one Shooting Attack."
+    },
+    {
+      "name": "Rally Flare",
+      "text": "Legacy house rule. Once per battle, at the start of a friendly turn, the bearer's unit and one other friendly unit within 12\" each remove one Tactical Status."
+    },
+    {
+      "name": "Slab-Plated",
+      "text": "Legacy house rule. Unsaved Wounds from weapons with AP 4 or worse inflict 1 less Damage on this model, to a minimum of 1."
+    },
+    {
+      "name": "Vigil Spirit",
+      "text": "Legacy house rule. Once per battle, when an enemy unit ends a move within 12\", this model may make a Shooting Attack against it at -1 Ballistic Skill."
     }
   ],
   "options": [
@@ -170,6 +319,204 @@
           }
         ]
       }
+    },
+    {
+      "match": {
+        "roles": [
+          "Command",
+          "High Command"
+        ],
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "option": {
+        "id": "sl-relics",
+        "kind": "any",
+        "modelType": "Command",
+        "max": {
+          "fixed": 1
+        },
+        "text": "Survivor's relics: may take one item",
+        "choices": [
+          {
+            "name": "Ashes reliquary",
+            "points": 15
+          },
+          {
+            "name": "Survivor's war-pick",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "veteran-tactical-squad",
+        "despoiler-squad",
+        "veteran-despoiler-squad",
+        "veteran-assault-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "sl-void-plate",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may wear Cracked void-plate",
+        "choices": [
+          {
+            "name": "Cracked void-plate",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "veteran-tactical-squad",
+        "despoiler-squad",
+        "veteran-despoiler-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "sl-tithe-crate",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The unit may carry a Tithe crate",
+        "choices": [
+          {
+            "name": "Tithe crate",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "veteran-tactical-squad",
+        "despoiler-squad",
+        "veteran-assault-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "sl-rally-beacon",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may carry a Rally beacon",
+        "choices": [
+          {
+            "name": "Rally beacon",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "contemptor-dreadnought",
+        "castra-ferrum-dreadnought",
+        "deredeo-dreadnought",
+        "leviathan-dreadnought"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "sl-slab-plates",
+        "kind": "upgrade",
+        "model": null,
+        "text": "May be fitted with Slab-plates",
+        "choices": [
+          {
+            "name": "Slab-plates",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "contemptor-dreadnought",
+        "castra-ferrum-dreadnought",
+        "deredeo-dreadnought",
+        "leviathan-dreadnought"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "sl-machine-spirit",
+        "kind": "upgrade",
+        "model": null,
+        "text": "May host an Orphaned machine-spirit",
+        "choices": [
+          {
+            "name": "Orphaned machine-spirit",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "veteran-tactical-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "sl-rocket-tube",
+        "kind": "perModel",
+        "model": [
+          "Legionary",
+          "Veteran Legionary"
+        ],
+        "max": 1,
+        "text": "One Legionary may carry a Salvaged rocket tube",
+        "choices": [
+          {
+            "name": "Salvaged rocket tube",
+            "points": 12
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "veteran-tactical-squad",
+        "despoiler-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "sl-pyre-flamer",
+        "kind": "one",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may take a Pyre-cast flamer",
+        "choices": [
+          {
+            "name": "Pyre-cast flamer",
+            "points": 8
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "veteran-tactical-squad",
+        "veteran-despoiler-squad",
+        "veteran-assault-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "sl-war-pick",
+        "kind": "one",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may take a Survivor's war-pick",
+        "choices": [
+          {
+            "name": "Survivor's war-pick",
+            "points": 10
+          }
+        ]
+      }
     }
   ],
   "modifiers": [
@@ -268,6 +615,72 @@
       "stats": {
         "W": "+1"
       }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Ashes reliquary",
+      "text": "Ashes reliquary: Ashes Remembered.",
+      "scope": "model",
+      "addRules": [
+        "Ashes Remembered"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Cracked void-plate",
+      "text": "Cracked void-plate: Scar-Hardened.",
+      "scope": "model",
+      "addRules": [
+        "Scar-Hardened"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Tithe crate",
+      "text": "Tithe crate: Tithe of Shells.",
+      "scope": "unit",
+      "addRules": [
+        "Tithe of Shells"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Rally beacon",
+      "text": "Rally beacon: Rally Flare.",
+      "scope": "unit",
+      "addRules": [
+        "Rally Flare"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Slab-plates",
+      "text": "Slab-plates: Slab-Plated.",
+      "scope": "unit",
+      "addRules": [
+        "Slab-Plated"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Orphaned machine-spirit",
+      "text": "Orphaned machine-spirit: Vigil Spirit.",
+      "scope": "unit",
+      "addRules": [
+        "Vigil Spirit"
+      ]
     }
   ],
   "rites": [
@@ -276,7 +689,7 @@
       "flavor": "Seven Legions' worth of orphans, one muster call.",
       "benefits": [
         "Inductii Squads of any Legion gain Line (2).",
-        "Inductii gain Muster Call: a failed Cool Check may be re-rolled while another friendly Inductii unit is within 12\"."
+        "Inductii gain Muster Call: +1 Cool for Cool Checks while another friendly Inductii unit is within 12\"."
       ],
       "limitations": [
         "At least two Inductii Squads are required.",
@@ -325,7 +738,7 @@
       "flavor": "Whoever else is dead, somebody has to carry the story out.",
       "benefits": [
         "Every Legion Infantry unit gains +1 Willpower and Hatred (Traitors).",
-        "Those units gain Survivor's Oath: failed Cool Checks may be re-rolled while within 12\" of the army's named survivor."
+        "Those units gain Survivor's Oath: +1 Cool for Cool Checks while within 12\" of the army's named survivor."
       ],
       "limitations": [
         "Garviel Loken, Saul Tarvitz, Shadrak Meduson, Alexis Polux or Hibou Khan must be in the army.",
@@ -489,24 +902,6 @@
           ]
         }
       ]
-    }
-  ],
-  "rules": [
-    {
-      "name": "Muster Call",
-      "text": "Legacy house rule (Broken Banners Reforged). A unit with this rule may re-roll a failed Cool Check while another friendly Inductii unit is within 12\"."
-    },
-    {
-      "name": "Survivor's Oath",
-      "text": "Legacy house rule (Oath of the Survivors). A unit with this rule may re-roll a failed Cool Check while it is within 12\" of a friendly Garviel Loken, Saul Tarvitz, Shadrak Meduson, Alexis Polux or Hibou Khan."
-    },
-    {
-      "name": "Dig In",
-      "text": "Legacy house rule (Fortress of the Last Stand). A unit with this rule has Shrouded (6+) against shooting attacks while it has not moved in its own most recent Movement phase."
-    },
-    {
-      "name": "Ancient Resolve",
-      "text": "Legacy house rule (The Ancients Awake). A unit with this rule is immune to Fear and automatically passes Cool Checks. It must be deployed on the table and may not be held in Reserve."
     }
   ]
 }

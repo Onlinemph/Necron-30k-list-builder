@@ -9,7 +9,23 @@
         "AP": 4,
         "D": 1,
         "specialRules": [
-          "Breaching (6+)"
+          "Breaching (6+)",
+          "Pinning (1)"
+        ],
+        "traits": [
+          "Bolt"
+        ]
+      },
+      {
+        "name": "Reaver suppression carbine",
+        "R": 24,
+        "FP": 3,
+        "RS": 4,
+        "AP": 5,
+        "D": 1,
+        "specialRules": [
+          "Suppressive (1)",
+          "Pinning (1)"
         ],
         "traits": [
           "Bolt"
@@ -25,7 +41,8 @@
         "AP": 3,
         "D": 1,
         "specialRules": [
-          "Critical Hit (5+)"
+          "Critical Hit (5+)",
+          "Duellist's Edge (1)"
         ],
         "traits": [
           "Power"
@@ -39,10 +56,41 @@
         "AP": 4,
         "D": 1,
         "specialRules": [
-          "Shred (6+)"
+          "Shred (6+)",
+          "Impact (AM)"
         ],
         "traits": [
           "Chain"
+        ]
+      },
+      {
+        "name": "Mournival warblade",
+        "IM": "I",
+        "AM": "A",
+        "SM": "+1",
+        "AP": 2,
+        "D": 2,
+        "specialRules": [
+          "Reaping Blow (1)",
+          "Murderous (6+)"
+        ],
+        "traits": [
+          "Power"
+        ]
+      },
+      {
+        "name": "Cthonian breaching-maul",
+        "IM": -1,
+        "AM": "A",
+        "SM": "+2",
+        "AP": 3,
+        "D": 1,
+        "specialRules": [
+          "Impact (SM)",
+          "Aflame (1)"
+        ],
+        "traits": [
+          "Power"
         ]
       }
     ]
@@ -55,6 +103,30 @@
     {
       "name": "Mournival oath-seals",
       "text": "Legacy house rule. Wax and iron seals pressed over the heart of a bodyguard who has sworn to fall before the Warmaster does. The model gains Feel No Pain (6+)."
+    },
+    {
+      "name": "Laurel of the Victors",
+      "text": "Legacy house rule. A circlet of beaten gold awarded after a bloody triumph. Gives the model Victor's Laurel."
+    },
+    {
+      "name": "Pennant of Cthonia",
+      "text": "Legacy house rule. A tattered pennant carried from the Legion's first home. Every model in the unit gains Cthonian Spirit."
+    },
+    {
+      "name": "Chieftain's war-horn",
+      "text": "Legacy house rule. A long ivory horn that carries across a battlefield. Gives the model War-horn Call."
+    },
+    {
+      "name": "Spiked ram-plate",
+      "text": "Legacy house rule. A hooked prow-blade for tearing through barricades and infantry. The vehicle gains Spiked Prow."
+    },
+    {
+      "name": "Death-oath sigil",
+      "text": "Legacy house rule. A rune sworn to avenge any brother who falls beside the bearer. Gives the model Oath of Vengeance."
+    },
+    {
+      "name": "Claim-spike standard",
+      "text": "Legacy house rule. A barbed pole driven into captured ground. Every model in the unit gains Planted Standard."
     }
   ],
   "options": [
@@ -187,6 +259,189 @@
           }
         ]
       }
+    },
+    {
+      "match": {
+        "roles": [
+          "High Command",
+          "Command"
+        ],
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "option": {
+        "id": "soh-regalia",
+        "kind": "any",
+        "modelType": "Command",
+        "max": {
+          "fixed": 2
+        },
+        "text": "Warmaster's regalia: may take up to two items",
+        "choices": [
+          {
+            "name": "Laurel of the Victors",
+            "points": 15
+          },
+          {
+            "name": "Death-oath sigil",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "veteran-tactical-squad",
+        "assault-squad",
+        "veteran-assault-squad",
+        "breacher-squad",
+        "reaver-attack-squad",
+        "reaver-aggressor-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "soh-horn",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may carry a war-horn",
+        "choices": [
+          {
+            "name": "Chieftain's war-horn",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "assault-squad",
+        "reaver-attack-squad",
+        "reaver-aggressor-squad",
+        "chieftain-squad",
+        "justaerin-terminator-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "soh-pennant",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The unit may carry a Pennant of Cthonia",
+        "choices": [
+          {
+            "name": "Pennant of Cthonia",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "breacher-squad",
+        "veteran-tactical-squad",
+        "inductii-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "soh-claim",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The unit may plant a Claim-spike standard",
+        "choices": [
+          {
+            "name": "Claim-spike standard",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "unitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "option": {
+        "id": "soh-ram",
+        "kind": "upgrade",
+        "model": null,
+        "text": "May be fitted with a Spiked ram-plate",
+        "choices": [
+          {
+            "name": "Spiked ram-plate",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "praetor",
+        "centurion",
+        "legion-champion",
+        "praetorian-command-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "soh-mournival-blade",
+        "kind": "upgrade",
+        "modelType": "Command",
+        "text": "May carry a Mournival warblade",
+        "choices": [
+          {
+            "name": "Mournival warblade",
+            "points": 20
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "assault-squad",
+        "veteran-tactical-squad",
+        "breacher-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "soh-maul",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may carry a Cthonian breaching-maul",
+        "choices": [
+          {
+            "name": "Cthonian breaching-maul",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "soh-suppressor",
+        "kind": "perModel",
+        "model": "Legionary",
+        "replaces": [
+          "Bolter"
+        ],
+        "max": 2,
+        "text": "Up to two Legionaries may exchange their bolter for",
+        "choices": [
+          {
+            "name": "Reaver suppression carbine",
+            "points": 5
+          }
+        ]
+      }
     }
   ],
   "modifiers": [
@@ -262,6 +517,68 @@
       "text": "Mournival oath-seals: Feel No Pain (6+).",
       "addRules": [
         "Feel No Pain (6+)"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Laurel of the Victors",
+      "text": "Laurel of the Victors: Victor's Laurel.",
+      "addRules": [
+        "Victor's Laurel"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Pennant of Cthonia",
+      "text": "Pennant of Cthonia: Cthonian Spirit.",
+      "scope": "unit",
+      "addRules": [
+        "Cthonian Spirit"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Chieftain's war-horn",
+      "text": "Chieftain's war-horn: War-horn Call.",
+      "addRules": [
+        "War-horn Call"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Spiked ram-plate",
+      "text": "Spiked ram-plate: Spiked Prow.",
+      "addRules": [
+        "Spiked Prow"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Death-oath sigil",
+      "text": "Death-oath sigil: Oath of Vengeance.",
+      "addRules": [
+        "Oath of Vengeance"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Claim-spike standard",
+      "text": "Claim-spike standard: Planted Standard.",
+      "scope": "unit",
+      "addRules": [
+        "Planted Standard"
       ]
     }
   ],
@@ -529,6 +846,80 @@
     {
       "name": "Sworn to Horus",
       "text": "Legacy house rule (The Warmaster's Favour). A unit with this rule automatically passes Morale and Pinning checks for as long as Horus Lupercal or Horus Ascended is on the battlefield."
+    },
+    {
+      "name": "Victor's Laurel",
+      "text": "Legacy house rule. A unit led by a model with this rule adds 1 to its Charge rolls."
+    },
+    {
+      "name": "Cthonian Spirit",
+      "text": "Legacy house rule. A unit with this rule treats any Charge roll of less than 5 as a 5."
+    },
+    {
+      "name": "War-horn Call",
+      "text": "Legacy house rule. Once per battle, at the start of its Movement phase, the unit of a model with this rule may ignore the Pinned or Suppressed Status."
+    },
+    {
+      "name": "Spiked Prow",
+      "text": "Legacy house rule. When a vehicle with this rule moves through an enemy unit, increase the number of Hits it inflicts by 1."
+    },
+    {
+      "name": "Oath of Vengeance",
+      "text": "Legacy house rule. A model with this rule gains +1 Attack in any Combat in which a friendly model of its unit was removed earlier in the turn."
+    },
+    {
+      "name": "Planted Standard",
+      "text": "Legacy house rule. When the unit of a model with this rule is counted for Controlling an Objective, it counts as having two additional models."
+    }
+  ],
+  "armyRules": [
+    {
+      "name": "Lupercal's Vanguard",
+      "match": {
+        "roles": [
+          "Troops",
+          "Elites",
+          "Heavy Assault",
+          "Fast Attack",
+          "Recon"
+        ],
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "stats": {
+        "CL": "-1"
+      },
+      "condition": "from the third battle turn, until the unit has fought in a Combat",
+      "text": "Legacy house rule. The Sixteenth strike first and strike hard. A unit with this rule adds 1 to its Charge rolls on the turn it arrives from Reserves and on the first battle turn. A host that stalls loses its nerve: from the third battle turn, until it has fought in a Combat, it suffers -1 Cool."
+    },
+    {
+      "name": "Mournival Pride",
+      "match": {
+        "roles": [
+          "Warlord",
+          "High Command",
+          "Command"
+        ],
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "text": "Legacy house rule. Proud captains who fight under the Warmaster's eye add 1 to their Focus Rolls in Challenges. They may never decline a Challenge, and if one is slain, every friendly Sons of Horus unit within 12\" must make a Cool Check or gain the Suppressed Status."
+    },
+    {
+      "name": "Hubris of the Sixteenth",
+      "match": {
+        "roles": [
+          "Troops",
+          "Elites",
+          "Heavy Assault"
+        ],
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "stats": {
+        "IN": "-1"
+      },
+      "text": "Legacy house rule. The Legion has never lost a war and acts like it. A unit with this rule ignores the Pinned Status, but suffers -1 Intelligence for being sure of itself."
     }
   ]
 }

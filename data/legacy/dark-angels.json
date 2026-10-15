@@ -1,4 +1,48 @@
 {
+  "armyRules": [
+    {
+      "name": "Lock-Step of the Deathwing",
+      "text": "Legacy house rule. A Terminator unit with this rule ignores the Pinned Status while within 6\" of another friendly Dark Angels Terminator unit, but cannot Rush on a turn it arrives by Deep Strike.",
+      "match": {
+        "nameIncludes": [
+          "Terminator",
+          "Companion",
+          "Inner Circle",
+          "Knights Cenobium"
+        ]
+      },
+      "optionalUnits": true
+    },
+    {
+      "name": "Ravenwing Strike and Fade",
+      "text": "Legacy house rule. After making a Shooting Attack, a unit with this rule that did not Rush may make a free 3\" move directly away from the nearest enemy unit. If it does, it cannot declare a Charge that turn.",
+      "units": [
+        "outrider-squadron",
+        "scimitar-jetbike-squadron",
+        "seeker-squad",
+        "land-speeder-squadron",
+        "javelin-speeder-squadron"
+      ],
+      "optionalUnits": true
+    },
+    {
+      "name": "The Guilty Secret",
+      "text": "Legacy house rule. A Character with this rule is driven by a secret it will not share. It gains +1 Willpower and +1 Intelligence, but suffers -1 Cool.",
+      "match": {
+        "roles": [
+          "Command",
+          "High Command",
+          "Warlord"
+        ],
+        "notUnitType": "Vehicle"
+      },
+      "stats": {
+        "WP": "+1",
+        "IN": "+1",
+        "CL": "-1"
+      }
+    }
+  ],
   "weapons": {
     "melee": [
       {
@@ -24,7 +68,23 @@
         "AP": 3,
         "D": 1,
         "specialRules": [
-          "Impact (AP)"
+          "Impact (AP)",
+          "Shock (1)"
+        ],
+        "traits": [
+          "Power"
+        ]
+      },
+      {
+        "name": "Preceptor's glaive",
+        "IM": "+1",
+        "AM": "A",
+        "SM": "+1",
+        "AP": 3,
+        "D": 1,
+        "specialRules": [
+          "Reaping Blow (2)",
+          "Murderous (6+)"
         ],
         "traits": [
           "Power"
@@ -40,10 +100,41 @@
         "AP": 4,
         "D": 1,
         "specialRules": [
-          "Precision (4+)"
+          "Precision (4+)",
+          "Suppressive (1)"
         ],
         "traits": [
           "Bolt"
+        ]
+      },
+      {
+        "name": "Caliban fire-carbine",
+        "R": 24,
+        "FP": 2,
+        "RS": 5,
+        "AP": 5,
+        "D": 1,
+        "specialRules": [
+          "Deflagrate (5)"
+        ],
+        "traits": [
+          "Assault"
+        ]
+      },
+      {
+        "name": "Hunter's snare-pistol",
+        "R": 12,
+        "FP": 1,
+        "RS": 5,
+        "AP": "–",
+        "D": 1,
+        "specialRules": [
+          "Pistol",
+          "Stun (1)",
+          "Phage (M)"
+        ],
+        "traits": [
+          "Assault"
         ]
       }
     ]
@@ -56,6 +147,72 @@
     {
       "name": "Ravenwing veil-field",
       "text": "Legacy house rule. A dispersal screen that smears the heat-shadow of riders and scouts across the horizon. The unit gains Shrouded (6+)."
+    },
+    {
+      "name": "Penitent's rosarius",
+      "text": "Legacy house rule. A chained reliquary of the Order, said to turn aside what it cannot explain. Gives the bearer Warding Rosarius."
+    },
+    {
+      "name": "Ravenwing locator-beacon",
+      "text": "Legacy house rule. A strobing transponder that tells the whole wing where the quarry is running. Gives the vehicle Hunter's Mark."
+    },
+    {
+      "name": "Interrogator's brand",
+      "text": "Legacy house rule. A branding iron and a very patient voice. Gives the bearer's unit Confession Drive."
+    },
+    {
+      "name": "Standard of the Long Watch",
+      "text": "Legacy house rule. A black banner that has never been furled while its bearer lives. Gives the unit Long Watch."
+    },
+    {
+      "name": "Reliquary plate",
+      "text": "Legacy house rule. Armour inlaid with the sealed remains of a fallen brother. Gives the bearer's unit Reliquary Ward."
+    },
+    {
+      "name": "Ordnance auto-loader",
+      "text": "Legacy house rule. A rebuilt shell-feed that trades the engine's safety for speed. Gives the vehicle Overcharged Feed."
+    }
+  ],
+  "rules": [
+    {
+      "name": "Deathwing Assault",
+      "text": "Legacy house rule (Oath of the Deathwing). A unit with this rule gains Deep Strike. At least half of the army's units with this rule (rounded up) must start the battle in Reserve."
+    },
+    {
+      "name": "Wings of Night",
+      "text": "Legacy house rule (The Wings Unbroken). A unit with this rule gains Outflank. It may not make a Charge in the first battle turn."
+    },
+    {
+      "name": "Silent Hunt",
+      "text": "Legacy house rule (Secrets Kept in Silence). A unit with this rule gains Infiltrate (6), but may not make a Charge in the first battle turn."
+    },
+    {
+      "name": "Inner Circle Mandate",
+      "text": "Legacy house rule (The Inner Circle Convenes). A unit with this rule adds +1 to its Cool for Cool Checks, and every other friendly Dark Angels unit within 6\" adds +1 to its Leadership."
+    },
+    {
+      "name": "Warding Rosarius",
+      "text": "Legacy house rule. The bearer adds +2 to Willpower Checks forced by enemy Psychic powers and has Feel No Pain (5+) against Wounds caused by Psychic powers."
+    },
+    {
+      "name": "Hunter's Mark",
+      "text": "Legacy house rule. Once per battle, in the Shooting phase, choose one enemy unit within 24\". Friendly Dark Angels units add +1 to Ballistic Skill against it until the end of the phase."
+    },
+    {
+      "name": "Confession Drive",
+      "text": "Legacy house rule. Enemy units in combat with the bearer's unit suffer -1 Leadership for Combat Checks."
+    },
+    {
+      "name": "Long Watch",
+      "text": "Legacy house rule. A unit with this rule that did not move in its last Movement phase counts as having two additional models for the purpose of holding an objective."
+    },
+    {
+      "name": "Reliquary Ward",
+      "text": "Legacy house rule. The bearer's unit has Feel No Pain (6+) while the bearer is alive. If the bearer is removed, models in the unit suffer -1 Cool for the rest of the battle."
+    },
+    {
+      "name": "Overcharged Feed",
+      "text": "Legacy house rule. Once per battle, one weapon on this vehicle may double its Firepower for one Shooting Attack. The vehicle cannot make Shooting Attacks in its next turn."
     }
   ],
   "options": [
@@ -244,6 +401,192 @@
           }
         ]
       }
+    },
+    {
+      "match": {
+        "roles": [
+          "Command",
+          "High Command"
+        ],
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "option": {
+        "id": "da-command-arms",
+        "kind": "any",
+        "modelType": "Command",
+        "max": {
+          "fixed": 2
+        },
+        "text": "Relics of the Order: may take up to two items",
+        "choices": [
+          {
+            "name": "Penitent's rosarius",
+            "points": 15
+          },
+          {
+            "name": "Preceptor's glaive",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "unitType": "Vehicle",
+        "notUnitType": "Flyer",
+        "roles": [
+          "Fast Attack",
+          "Recon"
+        ]
+      },
+      "optionalUnits": true,
+      "option": {
+        "id": "da-locator-beacon",
+        "kind": "upgrade",
+        "model": null,
+        "text": "May be fitted with a Ravenwing locator-beacon",
+        "choices": [
+          {
+            "name": "Ravenwing locator-beacon",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "assault-squad",
+        "seeker-squad",
+        "scout-squad",
+        "veteran-tactical-squad",
+        "veteran-assault-squad",
+        "dreadwing-interemptor-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "da-interrogator-brand",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may carry an Interrogator's brand",
+        "choices": [
+          {
+            "name": "Interrogator's brand",
+            "points": 8
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "despoiler-squad",
+        "assault-squad",
+        "veteran-tactical-squad",
+        "inductii-squad",
+        "seeker-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "da-long-watch",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The unit may carry a Standard of the Long Watch",
+        "choices": [
+          {
+            "name": "Standard of the Long Watch",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "cataphractii-terminator-squad",
+        "tartaros-terminator-squad",
+        "saturnine-terminator-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "da-reliquary-plate",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may wear Reliquary plate",
+        "choices": [
+          {
+            "name": "Reliquary plate",
+            "points": 20
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "unitType": "Vehicle",
+        "notUnitType": "Flyer",
+        "roles": [
+          "Armour"
+        ]
+      },
+      "optionalUnits": true,
+      "option": {
+        "id": "da-auto-loader",
+        "kind": "upgrade",
+        "model": null,
+        "text": "May be fitted with an Ordnance auto-loader",
+        "choices": [
+          {
+            "name": "Ordnance auto-loader",
+            "points": 20
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "seeker-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "da-fire-carbine",
+        "kind": "perModel",
+        "model": "Seeker",
+        "max": 1,
+        "replaces": [
+          "Kraken bolter"
+        ],
+        "text": "One Seeker may exchange their Kraken bolter for a Caliban fire-carbine",
+        "choices": [
+          {
+            "name": "Caliban fire-carbine",
+            "points": 8
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "assault-squad",
+        "seeker-squad",
+        "scout-squad",
+        "veteran-tactical-squad",
+        "veteran-assault-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "da-snare-pistol",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may carry a Hunter's snare-pistol",
+        "choices": [
+          {
+            "name": "Hunter's snare-pistol",
+            "points": 8
+          }
+        ]
+      }
     }
   ],
   "modifiers": [
@@ -322,6 +665,72 @@
       "text": "Ravenwing veil-field: Shrouded (6+).",
       "addRules": [
         "Shrouded (6+)"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Penitent's rosarius",
+      "text": "Penitent's rosarius: Warding Rosarius.",
+      "scope": "model",
+      "addRules": [
+        "Warding Rosarius"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Ravenwing locator-beacon",
+      "text": "Ravenwing locator-beacon: Hunter's Mark.",
+      "scope": "unit",
+      "addRules": [
+        "Hunter's Mark"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Interrogator's brand",
+      "text": "Interrogator's brand: Confession Drive.",
+      "scope": "unit",
+      "addRules": [
+        "Confession Drive"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Standard of the Long Watch",
+      "text": "Standard of the Long Watch: Long Watch.",
+      "scope": "unit",
+      "addRules": [
+        "Long Watch"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Reliquary plate",
+      "text": "Reliquary plate: Reliquary Ward.",
+      "scope": "unit",
+      "addRules": [
+        "Reliquary Ward"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Ordnance auto-loader",
+      "text": "Ordnance auto-loader: Overcharged Feed.",
+      "scope": "unit",
+      "addRules": [
+        "Overcharged Feed"
       ]
     }
   ],
@@ -545,7 +954,7 @@
       "flavor": "When the Order takes the field, nobody else is given the honour of holding it.",
       "benefits": [
         "Inner Circle Knights squads may fill Troops slots and gain Line (1) and +1 Leadership.",
-        "They gain Inner Circle Mandate: failed Cool Checks may be re-rolled, and friendly Dark Angels units within 6\" add +1 to their Leadership."
+        "They gain Inner Circle Mandate: +1 Cool for Cool Checks, and friendly Dark Angels units within 6\" add +1 to their Leadership."
       ],
       "limitations": [
         "At least two Inner Circle Knights squads are required.",
@@ -597,24 +1006,6 @@
           ]
         }
       ]
-    }
-  ],
-  "rules": [
-    {
-      "name": "Deathwing Assault",
-      "text": "Legacy house rule (Oath of the Deathwing). A unit with this rule gains Deep Strike. At least half of the army's units with this rule (rounded up) must start the battle in Reserve."
-    },
-    {
-      "name": "Wings of Night",
-      "text": "Legacy house rule (The Wings Unbroken). A unit with this rule gains Outflank. It may not make a Charge in the first battle turn."
-    },
-    {
-      "name": "Silent Hunt",
-      "text": "Legacy house rule (Secrets Kept in Silence). A unit with this rule gains Infiltrate (6), but may not make a Charge in the first battle turn."
-    },
-    {
-      "name": "Inner Circle Mandate",
-      "text": "Legacy house rule (The Inner Circle Convenes). A unit with this rule may re-roll failed Cool Checks, and every other friendly Dark Angels unit within 6\" adds +1 to its Leadership."
     }
   ]
 }

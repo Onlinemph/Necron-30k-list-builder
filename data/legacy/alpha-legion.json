@@ -1,4 +1,45 @@
 {
+  "armyRules": [
+    {
+      "name": "Faceless Hydra",
+      "text": "Legacy house rule. The Legion is never quite where the enemy thinks it is. A unit with this rule has Shrouded (6+) against Shooting Attacks from more than 18\" away, but suffers -1 Cool while no other friendly Alpha Legion unit is within 12\".",
+      "match": {
+        "notUnitType": "Vehicle"
+      },
+      "stats": {
+        "CL": "-1"
+      },
+      "condition": "while no other friendly Alpha Legion unit is within 12\""
+    },
+    {
+      "name": "Sabotage Cell",
+      "text": "Legacy house rule. Once per battle, at the start of the enemy turn, a unit with this rule may choose an enemy Vehicle within 18\"; that Vehicle gains the Stunned Status. The unit cannot Rush in its own next turn.",
+      "units": [
+        "saboteur",
+        "headhunter-kill-team",
+        "reconnaissance-squad",
+        "scout-squad",
+        "seeker-squad",
+        "mor-deythan-squad"
+      ],
+      "optionalUnits": true
+    },
+    {
+      "name": "Many Masks",
+      "text": "Legacy house rule. Enemy Precision (X) attacks cannot single out a Character with this rule unless it is the only model left in its unit. Trust is a weakness: the Character suffers -1 Leadership.",
+      "match": {
+        "roles": [
+          "Command",
+          "High Command",
+          "Warlord"
+        ],
+        "notUnitType": "Vehicle"
+      },
+      "stats": {
+        "LD": "-1"
+      }
+    }
+  ],
   "weapons": {
     "ranged": [
       {
@@ -10,7 +51,8 @@
         "D": 1,
         "specialRules": [
           "Pistol",
-          "Poisoned (2+)"
+          "Poisoned (2+)",
+          "Phage (T)"
         ],
         "traits": [
           "Needle"
@@ -30,6 +72,37 @@
         ],
         "traits": [
           "Needle"
+        ]
+      },
+      {
+        "name": "Mirage-needle rifle",
+        "R": 30,
+        "FP": 1,
+        "RS": 5,
+        "AP": 4,
+        "D": 1,
+        "specialRules": [
+          "Precision (6+)",
+          "Suppressive (2)"
+        ],
+        "traits": [
+          "Needle"
+        ]
+      },
+      {
+        "name": "Cell-charge satchel",
+        "R": 6,
+        "FP": 1,
+        "RS": 4,
+        "AP": 3,
+        "D": 2,
+        "specialRules": [
+          "Blast (3\")",
+          "Armourbane",
+          "Limited (1)"
+        ],
+        "traits": [
+          "Grenade"
         ]
       }
     ],
@@ -55,7 +128,21 @@
         "AP": "–",
         "D": 1,
         "specialRules": [
-          "Precision (5+)"
+          "Precision (5+)",
+          "Critical Hit (6+)"
+        ],
+        "traits": []
+      },
+      {
+        "name": "Cobra-tongue whip",
+        "IM": "+1",
+        "AM": "A",
+        "SM": "S",
+        "AP": 5,
+        "D": 1,
+        "specialRules": [
+          "Phage (WS)",
+          "Aflame (1)"
         ],
         "traits": []
       }
@@ -73,6 +160,72 @@
     {
       "name": "Sleeper-cell beacon",
       "text": "Legacy house rule. A tiny pulse-caster that lets scattered cells act on a single plan without a word on the vox. Every model in the unit gains +1 Cool and +1 Intelligence."
+    },
+    {
+      "name": "Cell pennant",
+      "text": "Legacy house rule. A scrap of cloth in the cell's private colours, worn by whoever the cell trusts. Gives the unit Cell Swap."
+    },
+    {
+      "name": "Venom-bladder harness",
+      "text": "Legacy house rule. Glands and reservoirs that coat every blade the bearer carries. Gives the bearer Venom Laced."
+    },
+    {
+      "name": "Ghost-signal scrambler",
+      "text": "Legacy house rule. A vox-mimic that fills the enemy's channels with orders that never came. Gives the bearer Signal Ghost."
+    },
+    {
+      "name": "Dead-drop cache",
+      "text": "Legacy house rule. A buried crate of the right ammunition, left exactly where the plan said. Gives the unit Cache Opened."
+    },
+    {
+      "name": "Chameleonic hull-skin",
+      "text": "Legacy house rule. A pigment-shifting coat that is hard to find and harder to hold in a sight. Gives the vehicle Shifting Hull."
+    },
+    {
+      "name": "Mirror-smoke dischargers",
+      "text": "Legacy house rule. Smoke charged with reflective grit so the hull seems to be in three places at once. Gives the vehicle Mirror Smoke."
+    }
+  ],
+  "rules": [
+    {
+      "name": "Cell Network",
+      "text": "Legacy house rule (A Hundred Cells, One Hand). A unit with this rule adds +1 to its Cool for Cool Checks while at least one other friendly unit with Cell Network is within 12\"."
+    },
+    {
+      "name": "Sleeper Strike",
+      "text": "Legacy house rule (The Sleeper Awakens). In its controlling player's first turn, a unit with this rule adds +2 to its Charge rolls. The unit must be deployed on the table using Infiltrate, and may not start in Reserve."
+    },
+    {
+      "name": "Many Heads",
+      "text": "Legacy house rule (The Hydra's Gambit). A unit with this rule gains Outflank. After both armies have deployed, the Alpha Legion player may swap the positions of two units with this rule (both units must be on the table, in the same deployment zone)."
+    },
+    {
+      "name": "Purge Resolve",
+      "text": "Legacy house rule (Dreadwing Purge-Host). A unit with this rule automatically passes Cool Checks while it is within 6\" of at least one other friendly unit with this rule."
+    },
+    {
+      "name": "Cell Swap",
+      "text": "Legacy house rule. Once per battle, at the end of its Movement phase, a unit with this rule that is not in combat may swap places with a friendly Alpha Legion Infantry unit of equal or smaller size within 6\" that is also not in combat."
+    },
+    {
+      "name": "Venom Laced",
+      "text": "Legacy house rule. Melee weapons carried by the bearer gain Poisoned (5+), or the Poisoned (X) value they already have improves by 1."
+    },
+    {
+      "name": "Signal Ghost",
+      "text": "Legacy house rule. Enemy units cannot use Reactions against the bearer's unit while it is more than 12\" away from them."
+    },
+    {
+      "name": "Cache Opened",
+      "text": "Legacy house rule. Once per battle, in the Shooting phase, a unit with this rule's ranged attacks gain Armourbane and +1 Ballistic Skill."
+    },
+    {
+      "name": "Shifting Hull",
+      "text": "Legacy house rule. A vehicle with this rule has Shrouded (6+) against Shooting Attacks from more than 24\" away, or Shrouded (5+) if it did not move in its last Movement phase."
+    },
+    {
+      "name": "Mirror Smoke",
+      "text": "Legacy house rule. Once per battle, at the start of the enemy Shooting phase, the vehicle imposes -1 on all Hit Tests made against it until the start of its next turn. The vehicle cannot make Shooting Attacks in its next turn."
     }
   ],
   "options": [
@@ -225,6 +378,207 @@
           }
         ]
       }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "veteran-tactical-squad",
+        "inductii-squad",
+        "seeker-squad",
+        "mor-deythan-squad",
+        "scout-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "al-cell-pennant",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The unit may carry a Cell pennant",
+        "choices": [
+          {
+            "name": "Cell pennant",
+            "points": 15
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "headhunter-kill-team",
+        "reconnaissance-squad",
+        "mor-deythan-squad",
+        "seeker-squad",
+        "tactical-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "al-venom-harness",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may wear a Venom-bladder harness",
+        "choices": [
+          {
+            "name": "Venom-bladder harness",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "roles": [
+          "Command",
+          "High Command"
+        ],
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "option": {
+        "id": "al-agent-kit",
+        "kind": "any",
+        "modelType": "Command",
+        "max": {
+          "fixed": 2
+        },
+        "text": "Agent's kit: may take up to two items",
+        "choices": [
+          {
+            "name": "Ghost-signal scrambler",
+            "points": 15
+          },
+          {
+            "name": "Cobra-tongue whip",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "veteran-tactical-squad",
+        "reconnaissance-squad",
+        "scout-squad",
+        "seeker-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "al-dead-drop",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may arrange a Dead-drop cache",
+        "choices": [
+          {
+            "name": "Dead-drop cache",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "unitType": "Vehicle",
+        "notUnitType": "Flyer",
+        "roles": [
+          "Armour",
+          "Transport",
+          "Heavy Transport"
+        ]
+      },
+      "optionalUnits": true,
+      "option": {
+        "id": "al-hull-skin",
+        "kind": "upgrade",
+        "model": null,
+        "text": "May be fitted with Chameleonic hull-skin",
+        "choices": [
+          {
+            "name": "Chameleonic hull-skin",
+            "points": 20
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "unitType": "Vehicle",
+        "notUnitType": "Flyer",
+        "roles": [
+          "Armour",
+          "Transport",
+          "Heavy Transport"
+        ]
+      },
+      "optionalUnits": true,
+      "option": {
+        "id": "al-mirror-smoke",
+        "kind": "upgrade",
+        "model": null,
+        "text": "May be fitted with Mirror-smoke dischargers",
+        "choices": [
+          {
+            "name": "Mirror-smoke dischargers",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "seeker-squad",
+        "mor-deythan-squad",
+        "reconnaissance-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "al-mirage-rifle",
+        "kind": "one",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may take a Mirage-needle rifle",
+        "choices": [
+          {
+            "name": "Mirage-needle rifle",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "headhunter-kill-team"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "al-cell-charge",
+        "kind": "perModel",
+        "model": "Headhunter",
+        "max": 2,
+        "text": "Up to two Headhunters may carry a Cell-charge satchel",
+        "choices": [
+          {
+            "name": "Cell-charge satchel",
+            "points": 8
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "saboteur"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "al-saboteur-charge",
+        "kind": "upgrade",
+        "model": "Saboteur",
+        "text": "The Saboteur may carry a Cell-charge satchel",
+        "choices": [
+          {
+            "name": "Cell-charge satchel",
+            "points": 8
+          }
+        ]
+      }
     }
   ],
   "modifiers": [
@@ -315,6 +669,72 @@
         "CL": "+1",
         "IN": "+1"
       }
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Cell pennant",
+      "text": "Cell pennant: Cell Swap.",
+      "scope": "unit",
+      "addRules": [
+        "Cell Swap"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Venom-bladder harness",
+      "text": "Venom-bladder harness: Venom Laced.",
+      "scope": "model",
+      "addRules": [
+        "Venom Laced"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Ghost-signal scrambler",
+      "text": "Ghost-signal scrambler: Signal Ghost.",
+      "scope": "unit",
+      "addRules": [
+        "Signal Ghost"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Dead-drop cache",
+      "text": "Dead-drop cache: Cache Opened.",
+      "scope": "unit",
+      "addRules": [
+        "Cache Opened"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Chameleonic hull-skin",
+      "text": "Chameleonic hull-skin: Shifting Hull.",
+      "scope": "unit",
+      "addRules": [
+        "Shifting Hull"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Mirror-smoke dischargers",
+      "text": "Mirror-smoke dischargers: Mirror Smoke.",
+      "scope": "unit",
+      "addRules": [
+        "Mirror Smoke"
+      ]
     }
   ],
   "rites": [
@@ -323,7 +743,7 @@
       "flavor": "No cell knows the plan. Every cell knows its part.",
       "benefits": [
         "Headhunter Kill Teams, Seeker Squads and Reconnaissance Squads may fill Troops slots and gain Line (1).",
-        "Those units gain Cell Network: a failed Cool Check may be re-rolled while another friendly unit with Cell Network is within 12\"."
+        "Those units gain Cell Network: +1 Cool for Cool Checks while another friendly unit with Cell Network is within 12\"."
       ],
       "limitations": [
         "At least two Headhunter Kill Teams are required.",
@@ -385,7 +805,7 @@
       "flavor": "They were standing beside you before the war began.",
       "benefits": [
         "Tactical, Veteran Tactical and Inductii Squads gain Infiltrate (9).",
-        "Those units gain Sleeper Strike: in the controlling player's first turn they may re-roll failed Charge rolls."
+        "Those units gain Sleeper Strike: in the controlling player's first turn they add +2 to their Charge rolls."
       ],
       "limitations": [
         "No Transport, Heavy Transport or Fast Attack units.",
@@ -535,24 +955,6 @@
           ]
         }
       ]
-    }
-  ],
-  "rules": [
-    {
-      "name": "Cell Network",
-      "text": "Legacy house rule (A Hundred Cells, One Hand). A unit with this rule may re-roll a failed Cool Check while at least one other friendly unit with Cell Network is within 12\"."
-    },
-    {
-      "name": "Sleeper Strike",
-      "text": "Legacy house rule (The Sleeper Awakens). In its controlling player's first turn, a unit with this rule may re-roll failed Charge rolls. The unit must be deployed on the table using Infiltrate, and may not start in Reserve."
-    },
-    {
-      "name": "Many Heads",
-      "text": "Legacy house rule (The Hydra's Gambit). A unit with this rule gains Outflank. After both armies have deployed, the Alpha Legion player may swap the positions of two units with this rule (both units must be on the table, in the same deployment zone)."
-    },
-    {
-      "name": "Purge Resolve",
-      "text": "Legacy house rule (Dreadwing Purge-Host). A unit with this rule automatically passes Cool Checks while it is within 6\" of at least one other friendly unit with this rule."
     }
   ]
 }

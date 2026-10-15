@@ -781,7 +781,7 @@
       "text": "The honoured dead walk ahead of the living.",
       "benefits": [
         "Contemptor and Castra Ferrum Dreadnoughts may fill Troops slots and gain Line (1).",
-        "Every Dreadnought gains +1 Weapon Skill and Honoured Ancient: one re-rolled Hit Test per Combat."
+        "Every Dreadnought gains +1 Weapon Skill and Honoured Ancient: it ignores the Pinned and Suppressed Tactical Statuses and counts as scoring near objectives."
       ],
       "limitations": [
         "At least two Dreadnoughts are required.",
@@ -868,7 +868,7 @@
     },
     {
       "name": "Honoured Ancient",
-      "text": "Legacy house rule (Iron Ancients). A Dreadnought with this rule may re-roll one failed Hit Test in each Combat and counts as a scoring unit while within 3\" of an objective."
+      "text": "Legacy house rule (Iron Ancients). A Dreadnought with this rule is never Pinned or Suppressed and counts as a scoring unit while within 3\" of an objective."
     },
     {
       "name": "Teleport Homer",
@@ -955,7 +955,7 @@
   "armyRules": [
     {
       "name": "Warrior Brotherhood",
-      "text": "Legacy house rule. The bonds of the Legion hold where other armies break. A Legion unit within 6\" of a friendly unit of the same Legion may re-roll a failed Leadership Check for Morale once per turn.",
+      "text": "Legacy house rule. The bonds of the Legion hold where other armies break. A Legion unit within 6\" of a friendly unit of the same Legion adds +1 to its Leadership for Morale Checks.",
       "match": {
         "notUnitType": "Vehicle"
       },

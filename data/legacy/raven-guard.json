@@ -10,7 +10,39 @@
         "D": 1,
         "specialRules": [
           "Precision (5+)",
-          "Rending (6+)"
+          "Pinning (1)"
+        ],
+        "traits": [
+          "Bolt"
+        ]
+      },
+      {
+        "name": "Nightfall needle-pistol",
+        "R": 12,
+        "FP": 1,
+        "RS": 4,
+        "AP": 4,
+        "D": 1,
+        "specialRules": [
+          "Pistol",
+          "Poisoned (4+)",
+          "Breaching (6+)"
+        ],
+        "traits": [
+          "Needle"
+        ]
+      },
+      {
+        "name": "Gloomshot long-rifle",
+        "R": 36,
+        "FP": 1,
+        "RS": 5,
+        "AP": 3,
+        "D": 1,
+        "specialRules": [
+          "Heavy (RS)",
+          "Precision (4+)",
+          "Bypass (6+)"
         ],
         "traits": [
           "Bolt"
@@ -26,7 +58,8 @@
         "AP": 3,
         "D": 1,
         "specialRules": [
-          "Precision (5+)"
+          "Precision (5+)",
+          "Duellist's Edge (1)"
         ],
         "traits": [
           "Power"
@@ -40,11 +73,26 @@
         "AP": 3,
         "D": 1,
         "specialRules": [
-          "Rending (5+)",
-          "Breaching (6+)"
+          "Shred (5+)",
+          "Critical Hit (6+)"
         ],
         "traits": [
           "Power"
+        ]
+      },
+      {
+        "name": "Nevermore wire",
+        "IM": "I",
+        "AM": "A",
+        "SM": "S",
+        "AP": 4,
+        "D": 1,
+        "specialRules": [
+          "Murderous (6+)",
+          "Critical Hit (6+)"
+        ],
+        "traits": [
+          "Chain"
         ]
       }
     ]
@@ -57,6 +105,30 @@
     {
       "name": "Corvid dirge-shroud",
       "text": "Legacy house rule. A tattered mourning-cloak worn over the armour of the Isstvan survivors, hiding the bearer in smoke and sorrow. The model gains Shrouded (6+)."
+    },
+    {
+      "name": "Night-sight visor",
+      "text": "Legacy house rule. A black-lensed visor tuned to the dark between stars. Gives the model Dark Sight."
+    },
+    {
+      "name": "Raptor-pinion harness",
+      "text": "Legacy house rule. A light glide-frame of feathered vanes. Gives the model Pinion Glide."
+    },
+    {
+      "name": "Gloom smoke launchers",
+      "text": "Legacy house rule. Banks of shadow-smoke tubes along the hull. The vehicle gains Gloom Veil."
+    },
+    {
+      "name": "Pathfinder's markers",
+      "text": "Legacy house rule. Hooded beacons left along the approach. Every model in the unit gains Hidden Trail."
+    },
+    {
+      "name": "Dirge banner",
+      "text": "Legacy house rule. A banner of black feathers bearing the names of the dead. Every model in the unit gains Standard of the Dirge."
+    },
+    {
+      "name": "Talon-sheath gauntlets",
+      "text": "Legacy house rule. Spring-loaded blades concealed in the wrists. The model gains +1 Attack on a turn its unit charges, and gains Raven's Strike."
     }
   ],
   "options": [
@@ -208,6 +280,205 @@
           }
         ]
       }
+    },
+    {
+      "match": {
+        "roles": [
+          "High Command",
+          "Command"
+        ],
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "option": {
+        "id": "rg-regalia",
+        "kind": "any",
+        "modelType": "Command",
+        "max": {
+          "fixed": 2
+        },
+        "text": "Shadow-war regalia: may take up to two items",
+        "choices": [
+          {
+            "name": "Night-sight visor",
+            "points": 10
+          },
+          {
+            "name": "Raptor-pinion harness",
+            "points": 20
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "assault-squad",
+        "veteran-assault-squad",
+        "reconnaissance-squad",
+        "scout-squad",
+        "seeker-squad",
+        "mor-deythan-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "rg-markers",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The leader may carry Pathfinder's markers",
+        "choices": [
+          {
+            "name": "Pathfinder's markers",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "assault-squad",
+        "veteran-assault-squad",
+        "dark-fury-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "rg-pinion",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may wear a Raptor-pinion harness",
+        "choices": [
+          {
+            "name": "Raptor-pinion harness",
+            "points": 20
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "dark-fury-squad",
+        "assault-squad",
+        "veteran-assault-squad",
+        "destroyer-assault-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "rg-gauntlets",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may wear Talon-sheath gauntlets",
+        "choices": [
+          {
+            "name": "Talon-sheath gauntlets",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "deliverers-squad",
+        "despoiler-squad",
+        "reconnaissance-squad",
+        "scout-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "rg-dirge-banner",
+        "kind": "upgrade",
+        "model": null,
+        "text": "The unit may carry a Dirge banner",
+        "choices": [
+          {
+            "name": "Dirge banner",
+            "points": 20
+          }
+        ]
+      }
+    },
+    {
+      "match": {
+        "unitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "option": {
+        "id": "rg-gloom",
+        "kind": "upgrade",
+        "model": null,
+        "text": "May be fitted with Gloom smoke launchers",
+        "choices": [
+          {
+            "name": "Gloom smoke launchers",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "tactical-squad",
+        "veteran-tactical-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "rg-needle-pistol",
+        "kind": "one",
+        "modelType": "Sergeant",
+        "replaces": [
+          "Bolt pistol"
+        ],
+        "text": "The Sergeant may exchange their bolt pistol for",
+        "choices": [
+          {
+            "name": "Nightfall needle-pistol",
+            "points": 8
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "mor-deythan-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "rg-long-rifle",
+        "kind": "perModel",
+        "model": "Mor Deythan",
+        "replaces": [
+          "Nemesis bolter"
+        ],
+        "max": 1,
+        "text": "One Mor Deythan may exchange their Nemesis bolter for",
+        "choices": [
+          {
+            "name": "Gloomshot long-rifle",
+            "points": 10
+          }
+        ]
+      }
+    },
+    {
+      "units": [
+        "reconnaissance-squad",
+        "scout-squad",
+        "seeker-squad"
+      ],
+      "optionalUnits": true,
+      "option": {
+        "id": "rg-wire",
+        "kind": "upgrade",
+        "modelType": "Sergeant",
+        "text": "The Sergeant may carry a Nevermore wire",
+        "choices": [
+          {
+            "name": "Nevermore wire",
+            "points": 5
+          }
+        ]
+      }
     }
   ],
   "modifiers": [
@@ -291,6 +562,72 @@
       "addRules": [
         "Shrouded (6+)"
       ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Night-sight visor",
+      "text": "Night-sight visor: Dark Sight.",
+      "addRules": [
+        "Dark Sight"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Raptor-pinion harness",
+      "text": "Raptor-pinion harness: Pinion Glide.",
+      "addRules": [
+        "Pinion Glide"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Gloom smoke launchers",
+      "text": "Gloom smoke launchers: Gloom Veil.",
+      "addRules": [
+        "Gloom Veil"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Pathfinder's markers",
+      "text": "Pathfinder's markers: Hidden Trail.",
+      "scope": "unit",
+      "addRules": [
+        "Hidden Trail"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Dirge banner",
+      "text": "Dirge banner: Standard of the Dirge.",
+      "scope": "unit",
+      "addRules": [
+        "Standard of the Dirge"
+      ]
+    },
+    {
+      "units": [
+        "*"
+      ],
+      "item": "Talon-sheath gauntlets",
+      "text": "Talon-sheath gauntlets: Raven's Strike, +1 A.",
+      "stats": {
+        "A": "+1"
+      },
+      "addRules": [
+        "Raven's Strike"
+      ],
+      "condition": "on a turn the unit charges"
     }
   ],
   "rites": [
@@ -544,6 +881,81 @@
     {
       "name": "Blade in the Dark",
       "text": "Legacy house rule (Knives Among the Stars). After both sides have deployed and before the first battle turn, a unit with this rule may make a free move of up to 6\". It can't end that move within 9\" of an enemy model."
+    },
+    {
+      "name": "Dark Sight",
+      "text": "Legacy house rule. The unit of a model with this rule ignores the first -1 modifier from Shrouded or cover applied to the Hit Tests of its Shooting Attacks."
+    },
+    {
+      "name": "Pinion Glide",
+      "text": "Legacy house rule. The unit of a model with this rule adds 2\" to its Rush distance, and the model ignores difficult terrain."
+    },
+    {
+      "name": "Gloom Veil",
+      "text": "Legacy house rule. Once per battle, at the start of the enemy Shooting phase, a vehicle with this rule may declare that all Shooting Attacks against it this phase are made as Snap Shots."
+    },
+    {
+      "name": "Hidden Trail",
+      "text": "Legacy house rule. A unit with this rule may be placed 3\" further forward when it makes a Set-up Move, and cannot be targeted by Shooting Attacks from more than 24\" on the first battle turn."
+    },
+    {
+      "name": "Standard of the Dirge",
+      "text": "Legacy house rule. A unit with this rule adds 1 to its Cool Checks. Once per battle it may ignore the Routed, Pinned or Suppressed Status."
+    },
+    {
+      "name": "Raven's Strike",
+      "text": "Legacy house rule. A model with this rule that charges strikes before its foes settle: it adds 1 to its Initiative in the first Initiative Step of that Combat."
+    }
+  ],
+  "armyRules": [
+    {
+      "name": "Lightfoot Raiders",
+      "match": {
+        "roles": [
+          "Troops",
+          "Recon",
+          "Elites",
+          "Fast Attack",
+          "Heavy Assault"
+        ],
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "stats": {
+        "CL": "-1"
+      },
+      "condition": "while locked in Combat with a unit that has more models",
+      "text": "Legacy house rule. Raven Guard raiders slip through ground others cannot cross. A unit with this rule adds 2\" to Rush and Set-up Move distances. They are poor at standing toe to toe: while locked in Combat with a unit that has more models, they suffer -1 Cool."
+    },
+    {
+      "name": "Ghost of the Shadow War",
+      "match": {
+        "roles": [
+          "Recon",
+          "Elites",
+          "Fast Attack"
+        ],
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "text": "Legacy house rule. Enemy Shooting Attacks against a unit with this rule from more than 18\" subtract 1 from their Hit Tests. Hunters of the dark see little at distance themselves: the unit subtracts 1 from the Hit Tests of its own Shooting Attacks against targets more than 24\" away."
+    },
+    {
+      "name": "Dirge-Marked Survivors",
+      "match": {
+        "roles": [
+          "Troops",
+          "Elites",
+          "Heavy Assault"
+        ],
+        "notUnitType": "Vehicle"
+      },
+      "optionalUnits": true,
+      "stats": {
+        "INV": "best:6+"
+      },
+      "condition": "while below half its starting models",
+      "text": "Legacy house rule. Isstvan taught the Legion how to die slowly. A unit with this rule has a 6+ Invulnerable Save if it was worse while below half its starting models. Grief drives it: if it lost a model to an enemy unit last turn, it must declare a Charge against that unit if able."
     }
   ]
 }
