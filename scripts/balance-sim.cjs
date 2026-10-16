@@ -1,5 +1,7 @@
 // Monte Carlo balance check for the Legacy house rules.
-//   node scripts/balance-sim.cjs [army-id ...] [--trials N] [--out report.json]
+//   node scripts/balance-sim.cjs [army-id ...] [--trials N] [--out report.json] [--rank]
+// --rank skips the comparisons and instead records every unit's raw numbers at minimum size, official and
+// with Legacy rules on, against the same fixed targets in every army, so units can be ranked across armies.
 //
 // For every unit it rolls dice for three things at minimum size and standard wargear:
 //   damage dealt to a Tactical Squad, a Cataphractii squad and a Predator, at range and in combat;
@@ -20,6 +22,7 @@ const args = process.argv.slice(2);
 const flag = (k, d) => { const i = args.indexOf(k); return i >= 0 ? args.splice(i, 2)[1] : d; };
 const TRIALS = +flag('--trials', 500);
 const OUT = flag('--out', null);
+const RANK = args.includes('--rank') && !!args.splice(args.indexOf('--rank'), 1);
 const load = (f) => { const window = {}; vm.runInNewContext(fs.readFileSync(path.join(root, 'js', f), 'utf8'), { window }); return window; };
 const common = load('data-common.js').ARMY_COMMON;
 const index = load('armies.js').ARMY_INDEX.filter((a) => a.group !== 'Xenos (fan codexes)');
@@ -228,6 +231,27 @@ for (const a of armies) {
   Object.assign(T, { bolter: W('Bolter', 'ranged'), lascannon: W('Lascannon', 'ranged'), axe: W('Power axe', 'melee') });
   const targets = { tac: T.tac, term: T.term, tank: T.tank };
   const meas = (sel) => measure(E, sel, look, Object.assign({}, targets, { bolter: T.bolter, lascannon: T.lascannon, axe: T.axe }));
+  if (RANK) {
+    // fixed yardsticks so every army is measured against the same thing
+    const fixed = {
+      tac: { name: 'Legionary', n: 10, p: { WS: 4, BS: 4, S: 4, T: 4, W: 1, I: 4, A: 1, SAV: '3+' }, rules: [] },
+      term: { name: 'Terminator', n: 5, p: { WS: 4, BS: 4, S: 4, T: 4, W: 2, I: 4, A: 2, SAV: '2+', INV: '4+' }, rules: [] },
+      tank: T.tank, bolter: T.bolter, lascannon: T.lascannon, axe: T.axe,
+    };
+    const units = [];
+    for (const legacy of [false, true]) {
+      E.setArmy({ version: 2, faction: a.id, name: '', pointsLimit: 3000, sequelae: [], config: legacy ? { 'legacy-rules': ['Legacy rules'] } : {}, detachments: [] });
+      for (const u of D.units.filter((x) => !x.ally)) {
+        if (!legacy && u.legacy) continue;
+        const s = E.newSelection(u.id); const pts = E.unitPoints(s);
+        let m; try { m = measure(E, s, look, fixed); } catch (e) { continue; }
+        if (m && pts) units.push({ unit: u.name, role: u.role, legacy, legacyUnit: !!u.legacy, pts, m });
+      }
+    }
+    report.armies[a.id] = { units };
+    process.stderr.write(`[${a.id}] ${units.length} unit measurements\n`);
+    continue;
+  }
   const groups = (D.armyConfig && D.armyConfig.groups) || [];
   const riteGroup = groups.find((g) => g.id === 'legacy-rite-of-war');
   const base = (cfg) => ({ version: 2, faction: a.id, name: '', pointsLimit: 3000, sequelae: [], config: cfg, detachments: [] });
@@ -283,7 +307,7 @@ for (const a of armies) {
 }
 
 // thresholds from the official options: anything past the 99th percentile of their value-per-point gain
-const off = Object.values(report.armies).flatMap((x) => x.official.map((o) => o.gain)).sort((a, b) => a - b);
+const off = Object.values(report.armies).flatMap((x) => (x.official || []).map((o) => o.gain)).sort((a, b) => a - b);
 const pct = (q) => off[Math.min(off.length - 1, Math.floor(q * off.length))];
 report.officialGain = { p50: pct(0.5), p90: pct(0.9), p99: pct(0.99), max: off[off.length - 1] };
 if (OUT) fs.writeFileSync(OUT, JSON.stringify(report, null, 1));
