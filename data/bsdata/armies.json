@@ -1,8 +1,8 @@
 {
  "source": "BSData/horus-heresy-3rd-edition",
  "gameSystemRevision": 55,
- "importedAt": "2026-10-09",
- "sourceCommit": "266a733",
+ "importedAt": "2026-10-17",
+ "sourceCommit": "4ba20a3",
  "armies": [
   {
    "id": "anathema-psykana",
@@ -25,7 +25,7 @@
    "name": "Daemons",
    "group": "Imperium & Traitors",
    "catalogue": "9396-cc24-458d-d358",
-   "units": 36,
+   "units": 42,
    "skipped": []
   },
   {
@@ -49,7 +49,7 @@
    "name": "Legio Custodes",
    "group": "Imperium & Traitors",
    "catalogue": "acc1-f897-a117-9b4a",
-   "units": 34,
+   "units": 36,
    "skipped": [
     "Vindicare Assassin (Clade Operative)",
     "Eversor Assassin (Clade Operative)",
@@ -90,7 +90,7 @@
    "name": "Questoris Familia",
    "group": "Imperium & Traitors",
    "catalogue": "fd9b-d04e-362d-8e5d",
-   "units": 54,
+   "units": 56,
    "skipped": []
   },
   {
@@ -106,7 +106,7 @@
    "name": "Solar Auxilia",
    "group": "Imperium & Traitors",
    "catalogue": "7851-69ac-f701-034e",
-   "units": 80,
+   "units": 85,
    "skipped": [
     "Vindicare Assassin (Clade Operative)",
     "Eversor Assassin (Clade Operative)",
@@ -123,7 +123,7 @@
    "name": "Alpha Legion",
    "group": "Legiones Astartes",
    "catalogue": "8813-5298-c368-ee16",
-   "units": 259,
+   "units": 263,
    "skipped": []
   },
   {
@@ -131,7 +131,7 @@
    "name": "Blackshields",
    "group": "Legiones Astartes",
    "catalogue": "c195-9a6a-a56b-4634",
-   "units": 157,
+   "units": 161,
    "skipped": []
   },
   {
@@ -139,7 +139,7 @@
    "name": "Blood Angels",
    "group": "Legiones Astartes",
    "catalogue": "9cff-ac34-56ca-260f",
-   "units": 168,
+   "units": 172,
    "skipped": []
   },
   {
@@ -147,7 +147,7 @@
    "name": "Dark Angels",
    "group": "Legiones Astartes",
    "catalogue": "0a35-fce3-188c-b3aa",
-   "units": 168,
+   "units": 172,
    "skipped": []
   },
   {
@@ -155,7 +155,7 @@
    "name": "Death Guard",
    "group": "Legiones Astartes",
    "catalogue": "be98-aa9d-64ef-f62c",
-   "units": 162,
+   "units": 166,
    "skipped": []
   },
   {
@@ -163,7 +163,7 @@
    "name": "Emperor's Children",
    "group": "Legiones Astartes",
    "catalogue": "9a22-d01f-ab5c-ec07",
-   "units": 168,
+   "units": 172,
    "skipped": []
   },
   {
@@ -171,7 +171,7 @@
    "name": "Imperial Fists",
    "group": "Legiones Astartes",
    "catalogue": "d186-cffc-0950-f632",
-   "units": 167,
+   "units": 171,
    "skipped": []
   },
   {
@@ -179,7 +179,7 @@
    "name": "Iron Hands",
    "group": "Legiones Astartes",
    "catalogue": "736e-3967-e72b-e3ac",
-   "units": 164,
+   "units": 168,
    "skipped": []
   },
   {
@@ -187,7 +187,7 @@
    "name": "Iron Warriors",
    "group": "Legiones Astartes",
    "catalogue": "21c0-18db-03dd-ae07",
-   "units": 166,
+   "units": 170,
    "skipped": []
   },
   {
@@ -195,7 +195,7 @@
    "name": "Night Lords",
    "group": "Legiones Astartes",
    "catalogue": "486f-b32a-ac87-73dd",
-   "units": 163,
+   "units": 167,
    "skipped": []
   },
   {
@@ -203,7 +203,7 @@
    "name": "Raven Guard",
    "group": "Legiones Astartes",
    "catalogue": "340c-1d4f-1f31-fb70",
-   "units": 162,
+   "units": 166,
    "skipped": []
   },
   {
@@ -211,7 +211,7 @@
    "name": "Salamanders",
    "group": "Legiones Astartes",
    "catalogue": "f148-a6e4-5a8c-3aeb",
-   "units": 163,
+   "units": 167,
    "skipped": []
   },
   {
@@ -219,7 +219,7 @@
    "name": "Shattered Legions",
    "group": "Legiones Astartes",
    "catalogue": "3256-29e9-1d7a-12a7",
-   "units": 260,
+   "units": 264,
    "skipped": []
   },
   {
@@ -227,7 +227,7 @@
    "name": "Sons of Horus",
    "group": "Legiones Astartes",
    "catalogue": "ac06-fcec-b634-5bd9",
-   "units": 171,
+   "units": 175,
    "skipped": []
   },
   {
@@ -235,7 +235,7 @@
    "name": "Space Wolves",
    "group": "Legiones Astartes",
    "catalogue": "d995-cb33-be41-ecf8",
-   "units": 173,
+   "units": 177,
    "skipped": []
   },
   {
@@ -243,7 +243,7 @@
    "name": "Thousand Sons",
    "group": "Legiones Astartes",
    "catalogue": "2496-21e2-1870-e9b8",
-   "units": 171,
+   "units": 175,
    "skipped": []
   },
   {
@@ -251,7 +251,7 @@
    "name": "Ultramarines",
    "group": "Legiones Astartes",
    "catalogue": "656a-07b6-d4fd-57af",
-   "units": 165,
+   "units": 169,
    "skipped": []
   },
   {
@@ -259,7 +259,7 @@
    "name": "White Scars",
    "group": "Legiones Astartes",
    "catalogue": "f7b4-2531-0962-1379",
-   "units": 169,
+   "units": 173,
    "skipped": []
   },
   {
@@ -267,7 +267,7 @@
    "name": "Word Bearers",
    "group": "Legiones Astartes",
    "catalogue": "4935-1832-63f7-91aa",
-   "units": 171,
+   "units": 175,
    "skipped": []
   },
   {
@@ -275,7 +275,7 @@
    "name": "World Eaters",
    "group": "Legiones Astartes",
    "catalogue": "a956-190d-3b47-6258",
-   "units": 165,
+   "units": 169,
    "skipped": []
   }
  ]

@@ -100,11 +100,11 @@
    "rules": [
     {
      "name": "Tank Commander (X)",
-     "text": "\"A Model with this Special Rule allows a number of detachments of tanks equal to the value of X to be included in an Army.\"\n\n\nIf a Model with this Special Rule is selected to fill a High Command or Command Slot in any Detachment, then the Controlling Player may select a number of Auxiliary Detachments equal to the value of X in the specified variant of this Special Rule instead of just one - however, the Detachment selected may only include Armour Slots. If the Model with this Special Rule has the Solar Auxilia Trait, then these Auxiliary Detachments may include Armour Tercio Auxiliary Detachments."
+     "text": "**A Model with this Special Rule allows a number of detachments of tanks equal to the value of X to be included in an Army.**\n\n\nIf a Model with this Special Rule is selected to fill a High Command or Command Slot in any Detachment, then the Controlling Player may select a number of Auxiliary Detachments equal to the value of X in the specified variant of this Special Rule instead of just one - however, the Detachment selected may only include Armour Slots. If the Model with this Special Rule has the Solar Auxilia Trait, then these Auxiliary Detachments may include Armour Tercio Auxiliary Detachments."
     },
     {
      "name": "Armoured Warfare",
-     "text": "\"Models with this Special Rule provide the Auto-repair (4+) Special Rule to nearby Units with the Armour Tercio Trait.\"\nAny Model with the Armour Tercio Trait gains the Auto-repair (4+) Special Rule as long as it is within 18\" of a Friendly Model with this Special Rule."
+     "text": "**Models with this Special Rule provide the Auto-repair (4+) Special Rule to nearby Units with the Armour Tercio Trait.**\n\nAny Model with the Armour Tercio Trait gains the Auto-repair (4+) Special Rule as long as it is within 18\" of a Friendly Model with this Special Rule."
     }
    ]
   },
@@ -608,6 +608,65 @@
    "when": [
     {
      "config": "Cohort Doctrine: Fateweaver Cohort"
+    }
+   ]
+  },
+  {
+   "id": "bs-antemasque-detachment-when",
+   "name": "Antemasque Detachment",
+   "type": "Auxiliary",
+   "source": "army",
+   "page": null,
+   "unlock": "1 Command · 2 Troops · 1 Fast Attack · 1 Heavy Assault · Slots in this detachment may only be filled with Units from the Daemons of Slaanesh Army list · Command Units do not grant additional Auxiliary Detachments",
+   "unlockedBy": null,
+   "slots": [
+    {
+     "role": "Command",
+     "prime": false,
+     "onlyLabel": "Slaanesh only",
+     "only": [
+      "herald-of-slaanesh"
+     ]
+    },
+    {
+     "role": "Troops",
+     "prime": false,
+     "onlyLabel": "Slaanesh only",
+     "only": [
+      "daemonettes"
+     ]
+    },
+    {
+     "role": "Troops",
+     "prime": false,
+     "onlyLabel": "Slaanesh only",
+     "only": [
+      "daemonettes"
+     ]
+    },
+    {
+     "role": "Fast Attack",
+     "prime": false,
+     "onlyLabel": "Slaanesh only",
+     "only": [
+      "slaaneshi-seekers"
+     ]
+    },
+    {
+     "role": "Heavy Assault",
+     "prime": false,
+     "onlyLabel": "Slaanesh only",
+     "only": [
+      "slaaneshi-fiends"
+     ]
+    }
+   ],
+   "requires": [],
+   "restrictions": [],
+   "rules": [],
+   "when": [
+    {
+     "category": "Cohort Doctrine: Sublime Cohort"
     }
    ]
   }

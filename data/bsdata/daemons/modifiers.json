@@ -144,6 +144,31 @@
     "Force Barrier"
    ],
    "removeRules": []
+  },
+  {
+   "id": "ascendant-lord-of-slaanesh-ascendant-lord-of-slaanesh-wings",
+   "text": "Wings: M 12, becomes Infantry (Champion, Malefic, Antigrav).",
+   "source": {
+    "type": "wargear",
+    "name": "Wings"
+   },
+   "appliesTo": {
+    "units": [
+     "ascendant-lord-of-slaanesh"
+    ],
+    "models": [
+     "Ascendant Lord of Slaanesh"
+    ]
+   },
+   "scope": "model",
+   "stats": {
+    "M": "=12"
+   },
+   "addRules": [],
+   "removeRules": [],
+   "addUnitTypes": [
+    "Antigrav"
+   ]
   }
  ]
 }
