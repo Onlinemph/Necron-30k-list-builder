@@ -1,0 +1,158 @@
+<title>Necron Codex Notes</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column, a ledger of findings grouped by what the author needs to do; page refs in a fixed left column. */
+:root {
+  --bg: #f3f5f2;
+  --paper: #fbfcfa;
+  --ink: #1d2420;
+  --muted: #5c6a62;
+  --rule: #d3dbd5;
+  --accent: #1f7a52;      /* gauss green, used sparingly */
+  --accent-soft: #e2efe7;
+  --flag: #8a5a12;
+  --display: "Cormorant SC", "Cormorant Garamond", Georgia, serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111613; --paper: #171d19; --ink: #e3e9e5; --muted: #98a69e; --rule: #2c3630;
+    --accent: #4fc48c; --accent-soft: #1c2b23; --flag: #d6a24a; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111613; --paper: #171d19; --ink: #e3e9e5; --muted: #98a69e; --rule: #2c3630;
+  --accent: #4fc48c; --accent-soft: #1c2b23; --flag: #d6a24a; color-scheme: dark;
+}
+body {
+  background: var(--bg); color: var(--ink);
+  font: 17px/1.6 var(--body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 40px 64px;
+}
+main { max-width: 860px; margin: 0 auto; display: grid; gap: 44px; }
+header { display: grid; gap: 10px; border-bottom: 2px solid var(--ink); padding-bottom: 22px; }
+.eyebrow { font: 500 12px/1.4 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+h1 { font: 700 clamp(34px, 6vw, 52px)/1.05 var(--display); margin: 0; letter-spacing: .01em; text-wrap: balance; }
+.lede { margin: 0; max-width: 65ch; color: var(--muted); }
+.counts { display: flex; flex-wrap: wrap; gap: 8px 20px; font: 400 13px/1.5 var(--mono); color: var(--muted); margin: 4px 0 0; padding: 0; list-style: none; }
+.counts b { color: var(--ink); font-weight: 500; }
+section { display: grid; gap: 14px; }
+h2 { font: 700 26px/1.2 var(--display); margin: 0; letter-spacing: .02em; text-wrap: balance; display: flex; align-items: baseline; gap: 12px; }
+h2 .n { font: 500 13px/1 var(--mono); color: var(--accent); letter-spacing: .05em; }
+.intro { margin: 0; color: var(--muted); max-width: 65ch; }
+.ledger { list-style: none; margin: 0; padding: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 4px; }
+.ledger li { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); gap: 4px 16px; padding: 14px 18px; border-top: 1px solid var(--rule); }
+.ledger li:first-child { border-top: 0; }
+.pg { font: 500 13px/1.7 var(--mono); color: var(--accent); font-variant-numeric: tabular-nums; }
+.item { min-width: 0; display: grid; gap: 4px; }
+.item p { margin: 0; }
+.what { font-weight: 600; }
+.ours { font-size: 15px; color: var(--muted); }
+.ours::before { content: "Builder uses: "; font: 500 11px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--flag); margin-right: 4px; }
+.ask { font-size: 15px; color: var(--muted); }
+.ask::before { content: "Needs: "; font: 500 11px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--flag); margin-right: 4px; }
+q, .nm { font-style: normal; quotes: "\2018" "\2019"; }
+.nm { font-family: var(--mono); font-size: .86em; background: var(--accent-soft); padding: 1px 5px; border-radius: 3px; }
+.typos { columns: 2 280px; column-gap: 32px; list-style: none; margin: 0; padding: 18px; background: var(--paper); border: 1px solid var(--rule); border-radius: 4px; font-size: 15px; }
+.typos li { break-inside: avoid; padding: 5px 0; display: grid; grid-template-columns: 3.2rem minmax(0, 1fr); gap: 10px; border-bottom: 1px dotted var(--rule); }
+.typos .pg { font-size: 12px; line-height: 1.9; }
+footer { font-size: 14px; color: var(--muted); border-top: 1px solid var(--rule); padding-top: 18px; max-width: 65ch; }
+@media (max-width: 520px) {
+  body { font-size: 16px; padding-block: 24px 48px; }
+  .ledger li { grid-template-columns: minmax(0, 1fr); padding: 12px 14px; }
+}
+</style>
+
+<main>
+  <header>
+    <span class="eyebrow">Codex Xenologica – Necrons · v1.4.2 · August 2026</span>
+    <h1>Necron Codex Notes</h1>
+    <p class="lede">Gaps, contradictions and typos found while entering the codex into the 30k list builder, with the call the builder makes on each one so the two can be brought back in line. Page numbers are the PDF's.</p>
+    <ul class="counts">
+      <li><b>6</b> items named but never printed</li>
+      <li><b>10</b> contradictions</li>
+      <li><b>6</b> detachments without unlock text</li>
+      <li><b>4</b> unclear entries</li>
+      <li><b>15</b> typos</li>
+    </ul>
+  </header>
+
+  <section>
+    <h2><span class="n">01</span> Named but never printed</h2>
+    <p class="intro">Each of these appears on a datasheet or in an option, but there's no rule text or weapon profile for it anywhere in the codex. The builder shows the name and flags it as undefined.</p>
+    <ol class="ledger">
+      <li><span class="pg">114–129</span><div class="item"><p class="what"><span class="nm">Dynastic Protocols (X)</span> special rule</p><p>Given to most Dramatis Personae, with Nihilakh, Sautekh and other variants. p.115 and p.121 note that characters can join units with a different version, but the rule itself is never written out.</p><p class="ask">Rule text for each dynasty value.</p></div></li>
+      <li><span class="pg">52, 77</span><div class="item"><p class="what"><span class="nm">Interception Protocols</span> special rule</p><p>Listed on the Sentry Pylon and the Gauss Pylon.</p><p class="ask">Rule text.</p></div></li>
+      <li><span class="pg">38, 62</span><div class="item"><p class="what"><span class="nm">Phase-Tunnel Cutters</span> wargear</p><p>Listed on the Canoptek Tomb Stalker and Canoptek Tomb Sentinel. No profile, and no wargear text.</p><p class="ask">Weapon profile, or wargear text if it isn't a weapon.</p></div></li>
+      <li><span class="pg">28</span><div class="item"><p class="what"><span class="nm">Synaptic Disruptor</span> weapon</p><p>A Hierotek Circle option (+5 points each). There's a Synaptic Disintegrator profile on p.108 but no Disruptor.</p><p class="ask">A profile, or confirmation that it should read Synaptic Disintegrator.</p></div></li>
+      <li><span class="pg">45</span><div class="item"><p class="what"><span class="nm">Transdimensional Beamer</span> weapon</p><p>Canoptek Tomb Crawlers can swap their Twin Gauss Reaper for one for free. No profile.</p><p class="ask">Weapon profile.</p></div></li>
+      <li><span class="pg">78, 100</span><div class="item"><p class="what">Transcendant C'Tan Shard's Power of the C'Tan</p><p>The five named Shards each get a once-per-battle unique Power. The generic Shard's page has none, so the builder assumes it only rolls on the p.100 table.</p><p class="ask">Confirmation that it's meant to have no unique Power.</p></div></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2><span class="n">02</span> Contradictions</h2>
+    <p class="intro">Places where two parts of the codex disagree. The builder had to pick one, so each entry says which.</p>
+    <ol class="ledger">
+      <li><span class="pg">16</span><div class="item"><p class="what">Destroyer Lord in Skorpekh Frame: which claw?</p><p>The Wargear list gives a <span class="nm">Flensing Claw</span>, but both claw options swap out a <span class="nm">Photonic Assault Claw</span>.</p><p class="ours">Photonic Assault Claw, as the options describe.</p></div></li>
+      <li><span class="pg">28</span><div class="item"><p class="what">Hierotek Circle option names a model the unit doesn't have</p><p>One option reads <q>Any Immortal Guardian or Despotek</q>. The unit has Hierotek Guardians, not Immortal Guardians, and the next option on the same page gets it right.</p><p class="ours">Hierotek Guardian or Despotek.</p></div></li>
+      <li><span class="pg">41</span><div class="item"><p class="what">Immortals' weapon is called three different things</p><p>The Wargear list gives a <span class="nm">Gauss Blaster</span>. The option swaps <span class="nm">Gauss Flayers</span> for <span class="nm">Tesla Carbines</span>.</p><p class="ours">Gauss Blaster as standard, with the Tesla Carbine swap.</p></div></li>
+      <li><span class="pg">43, 106</span><div class="item"><p class="what">Canoptek Reanimators' beam</p><p>The datasheet says <span class="nm">Atomisation Beam</span>. The profile on p.106 is <span class="nm">Nanoscarab Atomisation Beam</span>.</p><p class="ours">Treated as the same weapon.</p></div></li>
+      <li><span class="pg">48</span><div class="item"><p class="what">Annihilation Barge: single or twin?</p><p>The Wargear list gives a <span class="nm">Tesla Destructor</span>. The option swaps a <span class="nm">Twin Tesla Destructor</span>.</p><p class="ours">Both spellings kept as printed, and treated as the same weapon.</p></div></li>
+      <li><span class="pg">29</span><div class="item"><p class="what">Cryptothralls' Expendable (1)</p><p>It's printed under Unit Type rather than Special Rules.</p><p class="ours">A special rule.</p></div></li>
+      <li><span class="pg">23</span><div class="item"><p class="what">Plasmancy page opens by naming Geomancy</p><p>The intro reads <q>accessible to models with the Geomancy Trait</q>. The rest of the page says Plasmancy.</p><p class="ours">Plasmancy.</p></div></li>
+      <li><span class="pg">126</span><div class="item"><p class="what">Imotekh's <span class="nm">The Storm Cometh</span> is printed in a Melee table</p><p>Its columns are R/FP/RS/AP/D, and the rule calls it a Shooting Attack.</p><p class="ours">A ranged weapon.</p></div></li>
+      <li><span class="pg">127</span><div class="item"><p class="what">Xun'Bakyr's statline is labelled <q>Imotekh</q></p><p>This looks like it was carried over from the previous page. The numbers themselves are hers.</p><p class="ours">Her name on the profile.</p></div></li>
+      <li><span class="pg">129</span><div class="item"><p class="what">Noctilith Beacon or Beacons</p><p>Szarekh's rule box says <span class="nm">Noctilith Beacon</span>. His Special Rules and Traits say <span class="nm">Noctilith Beacons</span>.</p><p class="ours">Treated as one rule under both names.</p></div></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2><span class="n">03</span> Detachments without unlock text</h2>
+    <p class="intro">The other Auxiliary Detachments say what unlocks them. These go straight from the title to their slots.</p>
+    <ol class="ledger">
+      <li><span class="pg">91</span><div class="item"><p class="what">Ghost Strider Phalanx</p><p>Its only restriction is on its own Fast Attack slots (Tomb Blades only).</p></div></li>
+      <li><span class="pg">92</span><div class="item"><p class="what">Lokhust Phalanx, Skorpekh Phalanx, Ophydian Phalanx</p><p>Each limits its own slots to Destroyer units. It isn't clear whether the Command slot that unlocks them must also hold a Destroyer, the way p.91 says an Auxiliary Detachment can require.</p></div></li>
+      <li><span class="pg">92</span><div class="item"><p class="what">Tomb Vigils, Reclamation Legion</p><p>Only their own War Engine and Elites slots are restricted.</p></div></li>
+      <li><span class="pg">91–92</span><div class="item"><p class="ours">For all six, any filled Command slot, like a core Auxiliary Detachment.</p><p class="ask">The unlock condition for each.</p></div></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2><span class="n">04</span> Unclear entries</h2>
+    <ol class="ledger">
+      <li><span class="pg">18</span><div class="item"><p class="what">Cryptek frame options have no names</p><p>The three frame sub-options on p.18 aren't named.</p><p class="ours">Descriptive labels: Striding (M8), Hovering (Cavalry, M12) and Phasing (M10).</p></div></li>
+      <li><span class="pg">118</span><div class="item"><p class="what">Valgûl's <span class="nm">Eternal Warrior</span> has no value</p><p>Everywhere else it's printed as Eternal Warrior (X).</p><p class="ask">The intended value.</p></div></li>
+      <li><span class="pg">76</span><div class="item"><p class="what">Seraptek Heavy Construct's profile has no T or W columns</p><p>Its profile uses Front and Rear armour with I, A and HP, like a vehicle.</p><p class="ask">Confirmation that it's meant to be an armoured profile.</p></div></li>
+      <li><span class="pg">110</span><div class="item"><p class="what">Cryptotendrils use numbers for AM and SM</p><p>They're printed as 3 and 3. Other melee weapons write A and S or a modifier.</p><p class="ask">Whether these should be fixed values or relative to the model's characteristics.</p></div></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2><span class="n">05</span> Typos</h2>
+    <ul class="typos">
+      <li><span class="pg">17</span><span>additionnal (Royal Wardens)</span></li>
+      <li><span class="pg">34</span><span>additionnal (Pariahs)</span></li>
+      <li><span class="pg">59</span><span>additionnal (Hexmark Destroyers); Trait printed Hyperspace Hunters, plural, where Deathmarks has Hunter</span></li>
+      <li><span class="pg">56</span><span>triger (Night Scythe, Translocation Portal)</span></li>
+      <li><span class="pg">60</span><span>Scarb Swarms</span></li>
+      <li><span class="pg">80</span><span>Doubled full stop at the end of Dread</span></li>
+      <li><span class="pg">86</span><span><q>within 6" of a model with this a Dominion node</q>; succesful (Resurrection Node)</span></li>
+      <li><span class="pg">87–88</span><span>Canoptek factory heading in lowercase on p.88, capitalised on p.87</span></li>
+      <li><span class="pg">94</span><span>Annhihilation Barge; <q>with with</q>; succesful (Awoken Vaults)</span></li>
+      <li><span class="pg">95</span><span>Cult of Annhihlation (heading and contents page)</span></li>
+      <li><span class="pg">97</span><span><q>includes only Models the Hyperspace Hunter Trait</q> (missing <q>with</q>)</span></li>
+      <li><span class="pg">98</span><span>Slumbering Tomb Aeonic Sequela, where the Sequela is listed as Slumbering Tombs</span></li>
+      <li><span class="pg">108–109</span><span>Stray comma after Precision (4+), Synaptic Disintegrator; Overloard (3), Tesseract Drive</span></li>
+      <li><span class="pg">117–119</span><span>Anraky (Lord of the Pyrrhian Eternals); <q>resulton the Perils</q> (Szeras)</span></li>
+      <li><span class="pg">123–125</span><span>Snap Shoots throughout Chronomantic Sight (Toholk); <q>this Models</q>, wether (Imotekh)</span></li>
+    </ul>
+  </section>
+
+  <footer>The builder keeps the codex's wording in its rules text and records each of these in a note on the unit, so anything fixed in a new codex version can be updated in the list builder.</footer>
+</main>
