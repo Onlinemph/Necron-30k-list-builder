@@ -27,9 +27,9 @@
     },
     {
       "name": "Timesplinter Mantle",
-      "page": 116,
-      "text": "",
-      "note": "No rules text is printed for this item on the character page; it is listed only as a Wargear bullet for Orikan the Diviner, alongside the Staff of Tomorrow. Orikan's profile includes a 4+ Invulnerable Save, which this item most likely grants, but the source text does not state this explicitly."
+      "page": 20,
+      "text": "A model with a Timesplinter Mantle has a 4+ invulnerable save and gains the Phase Shift Trait, and all models with the Reanimant Sub-Type in the same Unit gain a 6+ Invulnerable Save and the Phase Shift Trait so long as a Model with a Timesplinter Mantle remains part of the Unit.",
+      "note": "Orikan's page (p.116) lists it without text; the rules are printed on the Chronomancy page (p.20)."
     }
   ]
 }
