@@ -82,9 +82,24 @@
   // core rules text from BSData fills in rules the codexes only name (Bulky, Deep Strike…)
   for (const key of ['specialRules', 'traits', 'reactions', 'gambits']) for (const r of (COMMON.rules || {})[key] || []) addRule(Object.assign({ core: true }, r), 'core');
   for (const w of COMMON.wargear || []) addRule(w, 'core');
+  // optional house rules (Necrons): new rules and wargear, and new text for printed ones (kept as `printed`)
+  const HOUSE = DATA.house || null;
+  const houseRuleIndex = new Map();
+  if (HOUSE) {
+    const put = (r) => { if (r && r.name && r.text) houseRuleIndex.set(norm(r.name), Object.assign({ house: true }, r)); };
+    for (const r of HOUSE.rules || []) put(r);
+    for (const w of HOUSE.wargear || []) put(w);
+    for (const u of HOUSE.units || []) for (const r of u.unitRules || []) {
+      const k = norm(r.name);
+      const p = ruleIndex.get(k);
+      if (!houseRuleIndex.has(k) && (!p || p.text !== r.text)) put(Object.assign({ page: u.page }, r, p ? { printed: p.text } : {}));
+    }
+  }
+  const houseOn = () => !!HOUSE && E.houseOn();
   function findRule(name) {
     // BSData spells it both ways
     const k = norm(name).replace(/\bduelist's\b/, "duellist's");
+    if (houseOn() && houseRuleIndex.has(k)) return houseRuleIndex.get(k);
     if (ruleIndex.has(k)) return ruleIndex.get(k);
     // "Implacable Advance" vs "Implacable Advance (Destroyers)" etc.
     for (const [key, r] of ruleIndex) if (key.startsWith(k) || k.startsWith(key)) return r;
@@ -99,6 +114,9 @@
   const exactIndex = { ranged: new Map(), melee: new Map() };
   for (const kind of ['ranged', 'melee']) for (const w of W[kind] || []) exactIndex[kind].set(String(w.name).trim().toLowerCase(), w);
   const PAIRED = /^(pair of|paired|two|a pair of)\s/i;
+  // "Paired Flensing Claws" shares its loose key with the single "Flensing Claw"; a paired name finds the paired profile
+  const pairedIndex = { ranged: new Map(), melee: new Map() };
+  for (const kind of ['ranged', 'melee']) for (const w of W[kind] || []) if (PAIRED.test(w.name)) pairedIndex[kind].set(wkey(w.name), w);
   // BSData stores some multi-profile weapons one entry per mode ("Plasma burner (Sustained)", "Adrastus bolt
   // caliver - Bolt volley (Primary)"). Where there's no plain entry, gather the modes under the base name so
   // the datasheet shows every profile instead of one, or none.
@@ -139,7 +157,7 @@
     if (!PAIRED.test(String(name).trim())) {
       const raw = String(name).trim().toLowerCase();
       for (const kind of ['ranged', 'melee']) if (r[kind] && PAIRED.test(r[kind].name) && exactIndex[kind].has(raw)) r[kind] = exactIndex[kind].get(raw);
-    }
+    } else for (const kind of ['ranged', 'melee']) if (r[kind] && !PAIRED.test(r[kind].name) && pairedIndex[kind].has(k)) r[kind] = pairedIndex[kind].get(k);
     if (!r.ranged && !r.melee && /^twin(-linked)? /.test(k)) return findWeapons(k.replace(/^twin(-linked)? /, ''));
     if (!r.ranged && !r.melee && !depth) {
       // last resort for the names datasheets use: "Two Sponson Mounted Gravis autocannon batteries",
@@ -155,6 +173,26 @@
       if (bare !== name) return findWeapons(bare, 1);
     }
     return r;
+  }
+
+  /**
+   * A wargear name's profiles for one unit. Under house rules a unit may get a changed profile (kept against the
+   * printed one, as `printed`), and items only the house rules add are found by their own name.
+   */
+  function weaponsFor(name, unitId) {
+    const r = findWeapons(name);
+    if (!houseOn()) return r;
+    const out = { ranged: r.ranged, melee: r.melee };
+    const fits = (w) => (!w.units || w.units.includes(unitId)) && !(w.exceptUnits || []).includes(unitId);
+    const exact = String(name).trim().toLowerCase();
+    for (const kind of ['ranged', 'melee']) {
+      const hw = (HOUSE.weapons && HOUSE.weapons[kind]) || [];
+      const own = hw.find((w) => !w.replaces && fits(w) && w.name.toLowerCase() === exact);
+      if (own) { out[kind] = Object.assign({}, own, { house: true }); continue; }
+      const changed = out[kind] && hw.find((w) => w.replaces === out[kind].name && fits(w));
+      if (changed) out[kind] = Object.assign({}, changed, { house: true, printed: out[kind] });
+    }
+    return out;
   }
 
   // ---------- army state ----------
@@ -241,7 +279,7 @@
     $('#army-name').value = army.name || '';
     $('#points-limit').value = army.pointsLimit;
     const meta = DATA.meta || {};
-    $('#data-version').textContent = `${meta.source || ''} · ${/^\d/.test(meta.version || '') ? 'v' : ''}${meta.version || '?'}`;
+    $('#data-version').textContent = `${meta.source || ''} · ${/^\d/.test(meta.version || '') ? 'v' : ''}${meta.version || '?'}${houseOn() ? ' · House rules' : ''}`;
   }
 
   // ---------- render: sequelae ----------
@@ -296,9 +334,10 @@
       const picked = (army.config[g.id] = army.config[g.id] || []);
       const gmax = E.configMax(g);
       const how = (g.min === gmax ? `choose ${gmax}` : g.min ? `choose ${g.min}–${gmax}` : `up to ${gmax}`) + ((g.maxWhen || []).length && gmax === g.max ? ` (${g.maxWhen.map((x) => `${x.max} with ${E.condText(x.when)}`).join(', ')})` : '');
-      const fs = h(`<fieldset class="cfg-group${g.legacy ? ' legacy' : ''}"><legend>${esc(g.name)} <small class="muted">${how}</small>${g.legacy ? ' <span class="tag house">house rules</span>' : ''}</legend><div class="seq-grid"></div></fieldset>`);
+      const single = g.choices.length === 1 && g.choices[0].name === g.name;
+      const fs = h(`<fieldset class="cfg-group${g.legacy || g.house ? ' legacy' : ''}"><legend>${esc(g.name)} ${single ? '' : `<small class="muted">${how}</small>`}${g.legacy ? ' <span class="tag house">house rules</span>' : ''}</legend><div class="seq-grid"></div></fieldset>`);
       for (const c of g.choices) {
-        const radio = gmax === 1;
+        const radio = gmax === 1 && g.choices.length > 1;
         const blocked = c.unless && !picked.includes(c.name) && c.unless.find((k) => E.condOk(k));
         const el = h(`<label${blocked ? ` class="muted" title="Not with ${esc(E.condText(blocked))}"` : ''}><input type="${radio ? 'radio' : 'checkbox'}" name="cfg-${esc(g.id)}" ${picked.includes(c.name) ? 'checked' : ''} ${blocked ? 'disabled' : ''}> ${esc(c.name)} <button type="button" class="link info small" title="Rules">?</button></label>`);
         $('input', el).addEventListener('click', (e) => {
@@ -315,7 +354,8 @@
   function configLines() {
     const cfg = DATA.armyConfig;
     if (!cfg) return [];
-    const lines = cfg.groups.filter((g) => (army.config[g.id] || []).length).map((g) => `${g.name}: ${army.config[g.id].join(', ')}`);
+    // an on/off switch ("House rules") prints as its name
+    const lines = cfg.groups.filter((g) => (army.config[g.id] || []).length).map((g) => (g.choices.length === 1 && g.choices[0].name === g.name ? g.name : `${g.name}: ${army.config[g.id].join(', ')}`));
     const house = cfg.fixed.filter((r) => r.legacy && E.available(r)).map((r) => r.name);
     if (house.length) lines.push(`Legacy army rules: ${house.join(', ')}`);
     return lines;
@@ -480,7 +520,7 @@
       const taken = u.unique && E.allSelections(army).some((x) => x.sel.unitId === u.id);
       const viaRite = (u.roleWhen || []).find((x) => x.role === slot.role && E.condOk(x.when));
       const alt = !slot.flexible && !slot.advisor && u.role !== slot.role ? ` <small class="muted">(${esc(u.role)}, via ${viaRite ? esc(viaRite.when.config) : 'Sequela'})</small>` : '';
-      const b = h(`<button type="button" data-name="${esc(u.name.toLowerCase())}" ${taken ? 'disabled' : ''}><span>${esc(u.name)}${alt}${u.unique ? ' <small class="muted">(character)</small>' : ''}${u.limit ? ` <small class="muted">${esc(u.limit)}</small>` : ''}${u.legacy ? ' <span class="tag house">legacy</span>' : ''}</span><span class="muted">${startPts(u)}${u.page ? ` · ${esc(pageLabel(u))}` : ''}</span></button>`);
+      const b = h(`<button type="button" data-name="${esc(u.name.toLowerCase())}" ${taken ? 'disabled' : ''}><span>${esc(u.name)}${alt}${u.unique ? ' <small class="muted">(character)</small>' : ''}${u.limit ? ` <small class="muted">${esc(u.limit)}</small>` : ''}${u.legacy ? ' <span class="tag house">legacy</span>' : ''}${houseTag(u)}</span><span class="muted">${startPtsHtml(u)}${u.page ? ` · ${esc(pageLabel(u))}` : ''}</span></button>`);
       b.addEventListener('click', () => {
         slot.unit = E.newSelection(u.id);
         // a detachment that only takes one Partisan / Clan presets the unit's choice
@@ -596,7 +636,7 @@
     box.replaceChildren();
 
     box.append(h(`<div class="ed-head"><h2>${esc(u.name)}</h2><span class="pts">${E.unitPoints(sel)} pts</span></div>`));
-    box.append(h(`<p class="ed-sub">${esc(u.role)} · ${esc(det.name)} · ${esc(u.composition || '')} · base ${startPts(u)}${u.page ? ` · ${esc(pageLabel(u))}` : ''}${u.unique ? ' · Dramatis Personae' : ''}</p>`));
+    box.append(h(`<p class="ed-sub">${esc(u.role)} · ${esc(det.name)} · ${esc(u.composition || '')} · base ${startPtsHtml(u)}${u.page ? ` · ${esc(pageLabel(u))}` : ''}${u.unique ? ' · Dramatis Personae' : ''}${houseTag(u)}</p>`));
 
     const issues = E.unitIssues(sel);
     if (issues.length) {
@@ -612,7 +652,9 @@
       for (const m of sizable) {
         const n = sel.counts[m.name] ?? m.min;
         const max = E.modelMax(u, m);
-        const row = h(`<div class="row"><span>${esc(m.name)}</span>${counter(n, m.min, Math.max(n, max))}<small class="muted">${m.min}–${max} · +${m.costPerExtra} pts each</small></div>`);
+        const pm = printedModel(u, m.name);
+        const was = pm && pm.costPerExtra !== m.costPerExtra ? `<s>+${pm.costPerExtra}</s> ` : '';
+        const row = h(`<div class="row"><span>${esc(m.name)}</span>${counter(n, m.min, Math.max(n, max))}<small class="muted">${m.min}–${max} · ${was}+${m.costPerExtra} pts each</small></div>`);
         bindCounter(row, (v) => { sel.counts[m.name] = v; clampOptions(sel); refresh(); });
         sec.append(row);
       }
@@ -713,11 +755,12 @@
   function optionEl(u, sel, o) {
     const choices = E.choicesFor(o, sel);
     const val = sel.options[o.id];
-    const el = h(`<div class="opt"><div class="txt">${esc(o.text)}</div><div class="choices"></div></div>`);
+    const el = h(`<div class="opt"><div class="txt">${esc(o.text)}${o.house && houseOn() ? ' <span class="tag house">house</span>' : ''}</div><div class="choices"></div></div>`);
     const list = $('.choices', el);
     // per-model prices show the rate and what it comes to at the unit's current size
     const models = E.totalModels(sel);
     const cost = (p, c) => {
+      if (c && c.was != null) return `<s>${c.was ? `+${c.was}` : 'free'}</s> ${p ? `+${p}` : 'free'}`;
       if (c && c.pointsUnknown) return '+? (not printed)';
       const per = (c && c.perUnitModel) || 0;
       if (!per) return p ? `+${p}` : 'free';
@@ -734,8 +777,8 @@
     switch (o.kind) {
       case 'one': {
         const keep = o.replaces && o.replaces.length ? 'Keep ' + o.replaces.join(' & ') : 'None';
-        list.append(radio(name, '', !val, keep, ''));
-        for (const c of choices) list.append(radio(name, c.name, val === c.name, c.name, cost(c.points, c)));
+        list.append(radio(name, '', !val, esc(keep), ''));
+        for (const c of choices) list.append(radio(name, c.name, val === c.name, esc(c.name) + houseChoice(c), cost(c.points, c)));
         if (locked) list.querySelectorAll('input').forEach((i) => { i.disabled = true; });
         list.addEventListener('change', (e) => { sel.options[o.id] = e.target.value || null; refresh(); });
         break;
@@ -743,7 +786,7 @@
       case 'any': {
         const cur = Array.isArray(val) ? val : [];
         for (const c of choices) {
-          const r = h(`<label class="choice"><input type="checkbox" ${cur.includes(c.name) ? 'checked' : ''} ${locked ? 'disabled' : ''}> ${esc(c.name)}<span class="cost">${cost(c.points, c)}</span></label>`);
+          const r = h(`<label class="choice"><input type="checkbox" ${cur.includes(c.name) ? 'checked' : ''} ${locked ? 'disabled' : ''}> ${esc(c.name)}${houseChoice(c)}<span class="cost">${cost(c.points, c)}</span></label>`);
           $('input', r).addEventListener('change', (e) => {
             const s = new Set(Array.isArray(sel.options[o.id]) ? sel.options[o.id] : []);
             if (e.target.checked) s.add(c.name); else s.delete(c.name);
@@ -792,9 +835,11 @@
     return el;
   }
 
-  function radio(name, value, checked, label, cost) {
-    return h(`<label class="choice"><input type="radio" name="${esc(name)}" value="${esc(value)}" ${checked ? 'checked' : ''}> ${esc(label)}<span class="cost">${esc(cost)}</span></label>`);
+  /** A radio choice; labelHtml and costHtml are already escaped. */
+  function radio(name, value, checked, labelHtml, costHtml) {
+    return h(`<label class="choice"><input type="radio" name="${esc(name)}" value="${esc(value)}" ${checked ? 'checked' : ''}> ${labelHtml}<span class="cost">${costHtml}</span></label>`);
   }
+  const houseChoice = (c) => (c.house && houseOn() ? ' <span class="tag house">house</span>' : '');
 
   function isTaken(v) {
     if (v == null || v === false || v === '' || v === 0) return false;
@@ -873,10 +918,10 @@
     return names;
   }
 
-  function weaponTable(names) {
+  function weaponTable(names, unitId) {
     const ranged = [], melee = [], other = [];
     for (const n of names) {
-      const f = findWeapons(n);
+      const f = weaponsFor(n, unitId);
       if (f.ranged) ranged.push(f.ranged);
       if (f.melee) melee.push(f.melee);
       if (!f.ranged && !f.melee) other.push(n);
@@ -885,6 +930,10 @@
     const link = (n) => (findRule(n) ? `<button type="button" class="wrule" data-rule="${esc(n)}">${esc(n)}</button>` : esc(n));
     const sr = (w) => [...(w.specialRules || [])].map(link).join(', ');
     const tr = (w) => [...(w.traits || [])].map(link).join(', ');
+    // a house-rules profile marks each value that differs from the printed one, with the printed value on hover
+    const td = (w, k) => (w.printed && String(w.printed[k]) !== String(w[k]) ? `<td class="mod" title="Printed ${esc(w.printed[k] ?? '–')}">${esc(w[k])}</td>` : `<td>${esc(w[k])}</td>`);
+    const tdList = (w, k, fmt) => (w.printed && (w.printed[k] || []).join() !== (w[k] || []).join() ? `<td class="mod" title="Printed: ${esc((w.printed[k] || []).join(', ') || '–')}">${fmt(w)}</td>` : `<td>${fmt(w)}</td>`);
+    const wname = (w) => `${esc(w.name)}${w.house ? ' <span class="tag house">house</span>' : ''}`;
     let html = '';
     if (ranged.length) {
       html += '<div class="table-wrap"><table class="stats"><thead><tr><th>Ranged</th><th>R</th><th>FP</th><th>RS</th><th>AP</th><th>D</th><th>Special rules</th><th>Traits</th></tr></thead><tbody>';
@@ -892,7 +941,7 @@
         if (w.modes && w.modes.length) {
           html += `<tr><td colspan="6"><strong>${esc(w.name)}</strong></td><td>${sr(w)}</td><td>${tr(w)}</td></tr>`;
           for (const m of w.modes) html += `<tr><td>– ${esc(m.name)}</td><td>${esc(m.R)}</td><td>${esc(m.FP)}</td><td>${esc(m.RS)}</td><td>${esc(m.AP)}</td><td>${esc(m.D)}</td><td>${sr(m)}</td><td>${tr(m)}</td></tr>`;
-        } else html += `<tr><td>${esc(w.name)}</td><td>${esc(w.R)}</td><td>${esc(w.FP)}</td><td>${esc(w.RS)}</td><td>${esc(w.AP)}</td><td>${esc(w.D)}</td><td>${sr(w)}</td><td>${tr(w)}</td></tr>`;
+        } else html += `<tr><td>${wname(w)}</td>${['R', 'FP', 'RS', 'AP', 'D'].map((k) => td(w, k)).join('')}${tdList(w, 'specialRules', sr)}${tdList(w, 'traits', tr)}</tr>`;
       }
       html += '</tbody></table></div>';
     }
@@ -900,7 +949,7 @@
       html += '<div class="table-wrap"><table class="stats"><thead><tr><th>Melee</th><th>IM</th><th>AM</th><th>SM</th><th>AP</th><th>D</th><th>Special rules</th><th>Traits</th></tr></thead><tbody>';
       for (const w of melee) {
         const rows = w.modes && w.modes.length ? w.modes.map((m) => Object.assign({}, m, { name: w.name + ' – ' + m.name })) : [w];
-        for (const m of rows) html += `<tr><td>${esc(m.name)}</td><td>${esc(m.IM)}</td><td>${esc(m.AM)}</td><td>${esc(m.SM)}</td><td>${esc(m.AP)}</td><td>${esc(m.D)}</td><td>${sr(m)}</td><td>${tr(m)}</td></tr>`;
+        for (const m of rows) html += `<tr><td>${wname(m)}</td>${['IM', 'AM', 'SM', 'AP', 'D'].map((k) => td(m, k)).join('')}${tdList(m, 'specialRules', sr)}${tdList(m, 'traits', tr)}</tr>`;
       }
       html += '</tbody></table></div>';
     }
@@ -922,6 +971,8 @@
     const ark = E.arkanaOf(sel);
     const a = ark && (DATA.arkana || []).find((x) => x.name === ark);
     if (a && a.harbinger) add(a.harbinger.name);
+    // under house rules, a rule with new text is marked like a gained one
+    if (houseOn()) for (const n of names) if (houseRuleIndex.has(norm(n)) && houseRuleIndex.get(norm(n)).printed) added.add(n);
     return { names, added, removed };
   }
   function unitRuleNames(u, sel, slot) { return unitRules(u, sel, slot).names; }
@@ -941,17 +992,20 @@
     const traits = [...new Set(eff.flatMap((m) => m.traits))];
     const addedTraits = new Set(eff.flatMap((m) => m.addedTraits));
     sec.insertAdjacentHTML('beforeend', `<p class="muted">Type: ${esc(types.join('; '))}${traits.length ? ' · Traits: ' + traits.map((t) => addedTraits.has(t) ? `<span class="gained">${esc(t)}</span>` : esc(t)).join(', ') : ''}</p>`);
-    if (eff.some((m) => Object.keys(m.changed).length)) sec.insertAdjacentHTML('beforeend', '<p class="muted small-note">Highlighted values are modified by wargear, arkana or Sequelae; hover for the base value.</p>');
+    if (eff.some((m) => Object.keys(m.changed).length)) sec.insertAdjacentHTML('beforeend', `<p class="muted small-note">Highlighted values are modified by wargear, arkana${houseOn() ? ', Sequelae or house rules' : ' or Sequelae'}; hover for the base value.</p>`);
     box.append(sec);
 
     const lo = section('Wargear');
     const ul = h('<ul class="loadout"></ul>');
     for (const r of E.loadout(sel)) {
       const chg = r.changes.map((c) => `<span class="chg">${c.count > 1 ? c.count + '× ' : ''}${esc(c.name)}${c.replaces ? ` <small>(for ${esc(c.replaces)})</small>` : ''}</span>`);
-      ul.append(h(`<li><strong>${r.count}× ${esc(r.model)}</strong>: ${esc(r.base.join(', ') || '—')}${chg.length ? ' · ' + chg.join(', ') : ''}</li>`));
+      // wargear the house rules add to the model's standard kit is marked like an option
+      const pm = printedModel(u, r.model);
+      const base = r.base.map((w) => (pm && !(pm.wargear || []).includes(w) ? `<span class="chg" title="House rules">${esc(w)}</span>` : esc(w)));
+      ul.append(h(`<li><strong>${r.count}× ${esc(r.model)}</strong>: ${base.join(', ') || '—'}${chg.length ? ' · ' + chg.join(', ') : ''}</li>`));
     }
     lo.append(ul);
-    const wt = weaponTable(weaponNamesFor(u, sel));
+    const wt = weaponTable(weaponNamesFor(u, sel), u.id);
     lo.insertAdjacentHTML('beforeend', wt.html);
     if (wt.other.length) lo.append(chips(wt.other));
     box.append(lo);
@@ -982,7 +1036,7 @@
       const k = undefinedNames.has(norm(n)) || coreNames.has(norm(n)) ? norm(n) : undefinedNames.has(wkey(n)) ? wkey(n) : norm(n);
       const tip = r ? 'Show rule' : coreNames.has(k) ? 'Core rule: see the Horus Heresy 3rd edition rulebook' : undefinedNames.has(k) ? 'Not printed in the codex: ' + undefinedNames.get(k) : 'No rules text found';
       const c = h(`<span class="chip ${gained && gained.has(n) ? 'gained ' : ''}${r ? 'rule' : coreNames.has(k) ? 'core' : 'missing'}" title="${esc(tip)}">${esc(n)}${coreNames.has(k) && !r ? ' <small>core</small>' : ''}</span>`);
-      if (r) c.addEventListener('click', () => showText(n, r.text, r.page ? pageLabel(r) : null));
+      if (r) c.addEventListener('click', () => showRule(n, r));
       wrap.append(c);
     }
     return wrap;
@@ -1028,14 +1082,29 @@
     const p = E.unitPoints(E.newSelection(u.id));
     return p || !u.models.every((m) => !m.min) ? `${p} pts` : 'points per model';
   }
-  function showText(title, text, page, extra) {
+  /** Start price with the printed one struck through when house rules change it. */
+  function startPtsHtml(u) {
+    const pu = houseOn() && E.printedUnit(u.id);
+    return pu && pu !== u && pu.basePoints !== u.basePoints ? `<s>${pu.basePoints}</s> ${startPts(u)}` : startPts(u);
+  }
+  /** The printed model of that name, while house rules change its unit. */
+  function printedModel(u, name) {
+    const pu = houseOn() && E.printedUnit(u.id);
+    return pu && pu !== u ? pu.models.find((m) => m.name === name) || null : null;
+  }
+  const houseTag = (u) => (houseOn() && (u.house || u.houseChanged) ? ` <span class="tag house">${u.house ? 'house unit' : 'house'}</span>` : '');
+  function showRule(name, r) {
+    showText(name, r.text, r.page ? pageLabel(r) : null, r.note ? [r.note] : null, r.printed, r.house);
+  }
+  function showText(title, text, page, extra, printed, house) {
     const pl = page == null || page === '' ? '' : /^\d/.test(String(page)) ? `p.${page}` : String(page);
-    const body = h(`<div><h2>${esc(title)}${pl ? ` <small>${esc(pl)}</small>` : ''}</h2><div class="dlg-body-scroll"><p class="rule-text">${esc(text || 'No text.')}</p></div></div>`);
+    const body = h(`<div><h2>${esc(title)}${pl ? ` <small>${esc(pl)}</small>` : ''}${house ? ' <span class="tag house">house rules</span>' : ''}</h2><div class="dlg-body-scroll"><p class="rule-text">${esc(text || 'No text.')}</p></div></div>`);
     if (extra && extra.length) {
       const ul = h('<ul></ul>');
       for (const x of extra) ul.append(h(`<li>${esc(x)}</li>`));
       $('.dlg-body-scroll', body).append(ul);
     }
+    if (printed) $('.dlg-body-scroll', body).append(h(`<div class="printed-text"><p class="muted">Printed text:</p><p class="rule-text"><s>${esc(printed)}</s></p></div>`));
     openDialog(body);
   }
 
@@ -1173,7 +1242,7 @@
           html += `<li><strong>${r.count}× ${esc(r.model)}</strong>: ${esc(r.base.join(', '))}${chg.length ? '; ' + chg.join(', ') : ''}</li>`;
         }
         html += '</ul>';
-        const wt = weaponTable(weaponNamesFor(u, s.unit));
+        const wt = weaponTable(weaponNamesFor(u, s.unit), u.id);
         html += wt.html;
         const rules = unitRuleNames(u, s.unit, s).concat(wt.other);
         const rem = reminders(s.unit, s);
@@ -1222,7 +1291,7 @@
     const b = e.target.closest('.wrule');
     if (!b) return;
     const r = findRule(b.dataset.rule);
-    if (r) showText(b.dataset.rule, r.text, r.page ? pageLabel(r) : null);
+    if (r) showRule(b.dataset.rule, r);
   });
   $('#add-det').addEventListener('change', (e) => {
     const v = e.target.value;

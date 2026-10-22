@@ -199,3 +199,72 @@ profile, rules and traits it shows, and highlights what changed.
                                   // effects are listed as reminders, not applied to the stat line.
 }
 ```
+
+## house-rules.json → `{ "houseRules": { ... } }`  (optional house rules, Necrons)
+
+An overlay on the printed codex. Nothing in the other part files is edited: the build compiles this file into
+`data.house`, and the engine swaps those units, lists, weapons, rules and modifiers in only while the army's
+**House rules** configuration choice is on (`army.config["house-rules"] = ["House rules"]`). The choice is stored
+with the list like any other configuration, so it travels in saved lists, JSON exports and share links, and it
+prints in the roster header and the text export. With it off, the army is the printed codex.
+
+Units and lists keep their ids under house rules, so a list moves between the two without changes. Every value
+that differs from the printed one is shown against it in the app: changed characteristics and weapon values are
+highlighted with the printed value on hover, changed prices show the printed price struck through, rules with
+new text show the printed text struck through in their dialog, and new units, options, list items and weapons
+carry a "house" tag.
+
+```jsonc
+{ "houseRules": {
+  "toggle": { "group": "house-rules", "name": "House rules", "text": "shown under the ? button" },
+
+  // patches to printed units, by id
+  "units": {
+    "hexmark-destroyers": {
+      "basePoints": 100,
+      "models": { "Hexmark Destroyer": {
+        "costPerExtra": 90,
+        "profile": { "BS": 4 },              // only the characteristics that change
+        "addWargear": ["Tesla Arc"],         // added to the model's standard wargear
+        "addSpecialRules": []                // rules of this model type only
+      } },
+      "addSpecialRules": ["Evasion Engrams"],            // unit-wide rule names
+      "addUnitRules": [ { "name": "Evasion Engrams", "text": "..." } ],   // rules printed on the datasheet
+      "unitRules": { "Resurrection Node": "new text" },  // replace the text of a unit rule
+      "options": { "officer": {                          // a printed option, by id
+        "choices": { "Officer of the Line (2)": 25 },    // new price of a choice
+        "excludes": ["voidreaper"]                       // option ids it can't be taken with
+      } },
+      "addOptions": [ Option ],                          // new options (same shape as units.json)
+      "note": "appended to the unit's note",
+      "replace": Unit                                    // or: a whole new entry under the same id
+    }
+  },
+  "newUnits": [ Unit ],        // units only the house rules add; flagged in the checks while they're off
+
+  // shared lists, by id: new prices by item name, and added items
+  "lists": { "nobility-wargear": { "points": { "Resurrection Orb": 25 }, "add": [ { "name", "points" } ] } },
+
+  // weapon profiles. "replaces" names the printed profile it stands in for; "units" limits it to those unit
+  // ids (other units keep the printed one), "exceptUnits" keeps it off those. No "replaces": a new weapon,
+  // found by its own name.
+  "weapons": {
+    "ranged": [ { "name": "Synaptic Disintegrator", "replaces": "Synaptic Disintegrator", "units": ["deathmarks"], "R": 48, ... } ],
+    "melee":  [ { "name": "Voidreaper", "IM": "I", "AM": "+1", ... } ]
+  },
+
+  // rules and wargear text: a name that's printed gets new text (the printed text is kept for display),
+  // a new name adds a rule. "note" shows under the text.
+  "wargear": [ { "name", "text", "note" } ],
+  "rules":   [ { "name", "text" } ],
+
+  // battlefield modifiers (same shape as modifiers.json): replace a printed one by id, or add new ones.
+  // appliesTo may also take "exceptUnits": [ids].
+  "modifiers": { "replace": { "sempiternal-weave": Modifier }, "add": [ Modifier ] }
+} }
+```
+
+The build fails (`--strict`) on an unknown unit, model, characteristic, option, choice, list, list item, weapon or
+modifier id, and on any weapon, wargear or option choice the overlay adds that has no profile or text.
+
+A choice can be limited to one per army with `"oncePerArmy": true`.

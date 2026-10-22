@@ -6,6 +6,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
 import { applyLegacy } from './legacy.mjs';
+import { applyHouse } from './house-rules.mjs';
 const require = createRequire(import.meta.url);
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -87,8 +88,10 @@ const out = {
 const own = opt(join(army.dir, 'codex-notes.json'), { undefinedInCodex: [], weaponAliases: {} });
 if (army.id !== 'necrons') out.coreRules = Object.assign({}, out.coreRules, { undefinedInCodex: own.undefinedInCodex || [], weaponAliases: own.weaponAliases || {} });
 
+let houseSrc = null;
 for (const f of files) {
   const d = read(join(parts, f));
+  if (d.houseRules) houseSrc = d.houseRules;
   if (d.units) out.units.push(...d.units);
   if (d.lists) out.lists.push(...d.lists);
   if (d.arkana) out.arkana.push(...d.arkana);
@@ -140,6 +143,8 @@ out.detachments.push(...(out.forceorg.detachments || []));
 const problems = [];
 // optional house rules (data/legacy/), switched on per list in the army configuration
 if (army.bsdata) problems.push(...applyLegacy(root, out, army));
+// optional house rules for a fan codex (data/parts/house-rules.json), switched on per list; the printed data stays as it is
+if (houseSrc) problems.push(...applyHouse(out, houseSrc));
 const warn = [];
 const ids = new Set();
 const listIds = new Set(out.lists.map((l) => l.id));

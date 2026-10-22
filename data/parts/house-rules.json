@@ -1,0 +1,260 @@
+{
+  "houseRules": {
+    "toggle": {
+      "group": "house-rules",
+      "name": "House rules",
+      "text": "Optional house rules for this army. Points, profiles, rules and wargear that differ from Codex Xenologica – Necrons v1.4.2 are highlighted on each datasheet, with the printed value shown alongside. Switch this off to play from the printed codex."
+    },
+
+    "units": {
+      "hexmark-destroyers": {
+        "basePoints": 100,
+        "models": { "Hexmark Destroyer": { "costPerExtra": 90 } },
+        "note": "House rules: Hardwired for Destruction is read so that a Critical Hit counts as a Wound Test result of 6, and therefore also triggers Breaching (6+)."
+      },
+      "ghost-ark": { "basePoints": 80 },
+      "royal-warden": {
+        "options": { "officer": { "choices": { "Officer of the Line (2)": 25 } } }
+      },
+      "necron-lord": { "basePoints": 55 },
+      "necron-lord-on-barge": { "basePoints": 85 },
+      "night-shroud": { "basePoints": 170 },
+      "canoptek-doom-stalker": { "basePoints": 125 },
+      "necron-warriors": {
+        "basePoints": 90,
+        "models": { "Necron Warrior": { "costPerExtra": 9 } }
+      },
+      "tomb-blades": {
+        "models": { "Tomb Blade": { "profile": { "BS": 4 } } },
+        "addSpecialRules": ["Shrouded (5+)", "Evasion Engrams"],
+        "addUnitRules": [
+          { "name": "Evasion Engrams", "text": "Models in this Unit have the Shrouded (5+) Special Rule. If the Unit moved more than 6\" in its last Movement Phase, this becomes Shrouded (4+)." }
+        ]
+      },
+      "deathmarks": {
+        "addSpecialRules": ["Hunters from Hyperspace"],
+        "addUnitRules": [
+          { "name": "Hunters from Hyperspace", "text": "When this Unit arrives by Deep Strike, select one enemy Unit. Until the end of the battle, Shooting Attacks made by this Unit against that Unit wound on an unmodified 2+ and have the Precision (3+) Special Rule." }
+        ]
+      },
+      "lychguard": {
+        "addSpecialRules": ["Guardian Protocols"],
+        "addUnitRules": [
+          { "name": "Guardian Protocols", "text": "While a Model with the Command Sub-Type and the Reanimant Trait has joined this Unit, each Wound allocated to that Model may instead be allocated to a Lychguard Model in the Unit on a D6 roll of 2+." }
+        ]
+      },
+      "destroyer-lord-skorpekh-frame": {
+        "models": { "Skorpekh Lord": { "profile": { "INV": "5+" } } }
+      },
+      "convergence-of-dominion": {
+        "unitRules": {
+          "Resurrection Node": "Each time a rule, special rule, or reaction calls for any number of Resurrection Tests to be made for a Unit, 1 additional model that was previously removed as a casualty is returned to the unit if at least one model equipped with a Resurrection Node is within 6\" of the Unit. This is treated in all ways as a model being returned to the battlefield with a successful Resurrection Test as part of the same rule or special rule that called for Resurrection Tests to be made for the unit."
+        }
+      },
+      "canoptek-wraiths": { "addSpecialRules": ["Sentinel Protocols"] },
+      "canoptek-spyders": { "addSpecialRules": ["Sentinel Protocols"] },
+      "sentry-pylon": {
+        "addOptions": [
+          {
+            "id": "teleportation-matrix", "kind": "upgrade", "model": null, "replaces": [], "max": null, "requires": null,
+            "text": "This model may have a Teleportation Matrix at +15 points.",
+            "choices": [{ "name": "Teleportation Matrix", "points": 15 }]
+          }
+        ]
+      },
+      "gauss-pylon": {
+        "models": { "Gauss Pylon": { "addWargear": ["Tesla Arc"] } },
+        "addOptions": [
+          {
+            "id": "teleportation-matrix", "kind": "upgrade", "model": null, "replaces": [], "max": null, "requires": null,
+            "text": "This model may have a Teleportation Matrix at +15 points.",
+            "choices": [{ "name": "Teleportation Matrix", "points": 15 }]
+          }
+        ]
+      },
+      "necron-overlord": {
+        "options": { "melee": { "excludes": ["voidreaper"] } },
+        "addOptions": [
+          {
+            "id": "voidreaper", "kind": "one", "model": "Overlord", "replaces": ["Voidblade"], "max": null, "requires": null, "excludes": ["melee"],
+            "text": "Relic (0-1 per army): this model may have its Voidblade exchanged for the Voidreaper at +25 points.",
+            "choices": [{ "name": "Voidreaper", "points": 25, "oncePerArmy": true }]
+          }
+        ]
+      },
+      "necron-overlord-on-barge": {
+        "options": { "melee": { "excludes": ["voidreaper"] } },
+        "addOptions": [
+          {
+            "id": "voidreaper", "kind": "one", "model": "Overlord on Barge", "replaces": ["Voidblade"], "max": null, "requires": null, "excludes": ["melee"],
+            "text": "Relic (0-1 per army): this model may have its Voidblade exchanged for the Voidreaper at +25 points.",
+            "choices": [{ "name": "Voidreaper", "points": 25, "oncePerArmy": true }]
+          }
+        ]
+      },
+      "triarch-praetorians": {
+        "replace": {
+          "id": "triarch-praetorians",
+          "name": "Triarch Praetorians",
+          "role": "Elites",
+          "page": 33,
+          "limit": null,
+          "unique": false,
+          "basePoints": 225,
+          "composition": "5 Praetorians",
+          "models": [
+            {
+              "name": "Praetorian", "min": 5, "max": 10, "costPerExtra": 40,
+              "profile": { "M": 12, "WS": 5, "BS": 5, "S": 5, "T": 5, "W": 2, "I": 3, "A": 3, "LD": 12, "CL": 12, "WP": 8, "IN": 8, "SAV": "3+", "INV": "–" },
+              "wargear": ["Voidblade", "Particle Caster"],
+              "unitType": "Infantry (Antigrav)",
+              "specialRules": []
+            }
+          ],
+          "traits": ["Xenos", "Necron", "Reanimant", "Triarch"],
+          "specialRules": ["Deep Strike", "Reanimation Protocols (5+)", "Vanguard (2)", "Impact (A)", "Judgement from Above", "Judgement Rendered", "Beyond the Dynasties", "Enforcers of the Codes"],
+          "unitRules": [
+            { "name": "Judgement from Above", "text": "This Unit may declare a Charge in the same turn it arrives by Deep Strike. That Charge is a Disordered Charge." },
+            { "name": "Judgement Rendered", "text": "In the Aftermath Step of a Combat in which this Unit made a Charge this turn and has no Routed Models, the controlling player may remove the Unit from the Combat and move it up to 12\", ending more than 1\" from enemy Models. Enemy Units left unengaged may Consolidate." },
+            { "name": "Beyond the Dynasties", "text": "This Unit never benefits from special rules granted by Models with the Nemesor or Phaeron Trait (including the Weapon Skill bonus of the Royal Burial Site Aeonic Sequela), and may only be joined by Triarch Wardens." },
+            { "name": "Enforcers of the Codes", "text": "Friendly Units with the Reanimant Trait within 6\" of this Unit use a Leadership Characteristic of 12. An enemy Model with the Command Sub-Type or the Paragon Type that is locked in combat with this Unit must issue or accept a Challenge if able." }
+          ],
+          "cryptoArkana": false,
+          "fixedArkana": null,
+          "options": [
+            {
+              "id": "rod-swap", "kind": "upgrade", "model": null, "replaces": ["Voidblade", "Particle Caster"], "max": null, "requires": null,
+              "text": "The entire Unit may have its Voidblades and Particle Casters exchanged for Rods of Covenant for free.",
+              "choices": [{ "name": "Rod of Covenant", "points": 0 }]
+            }
+          ],
+          "note": "House rules rework: new profile, points and rules. With Servants of the Ankh, Vanguard (2) becomes Vanguard (3) instead of being gained."
+        }
+      }
+    },
+
+    "newUnits": [
+      {
+        "id": "necron-phaeron",
+        "name": "Necron Phaeron",
+        "role": "Warlord",
+        "page": null,
+        "limit": null,
+        "unique": false,
+        "basePoints": 250,
+        "composition": "1 Phaeron",
+        "models": [
+          {
+            "name": "Phaeron", "min": 1, "max": 1, "costPerExtra": 0,
+            "profile": { "M": 6, "WS": 6, "BS": 5, "S": 6, "T": 6, "W": 6, "I": 4, "A": 5, "LD": 12, "CL": 12, "WP": 10, "IN": 10, "SAV": "2+", "INV": "4+" },
+            "wargear": ["Staff of Light", "Phase Shifter"],
+            "unitType": "Paragon (Command)",
+            "specialRules": []
+          },
+          {
+            "name": "Phaeron on Catacomb Command Barge", "min": 0, "max": 1, "costPerExtra": 0,
+            "profile": { "M": 12, "WS": 6, "BS": 5, "S": 6, "T": 7, "W": 6, "I": 4, "A": 5, "LD": 12, "CL": 12, "WP": 10, "IN": 10, "SAV": "2+", "INV": "4+" },
+            "wargear": ["Staff of Light", "Phase Shifter", "Gauss Cannon"],
+            "unitType": "Cavalry (Antigrav, Command)",
+            "specialRules": ["Bulky (8)", "Command Barge", "Explodes (6+)", "Firing Protocols (2)", "Implacable Advance"]
+          }
+        ],
+        "traits": ["Xenos", "Necron", "Reanimant", "Nemesor", "Phaeron"],
+        "specialRules": ["Eternal Warrior (2)", "Ever-Living (4+)", "My Will Be Done (3)", "Dynastic Mandate", "Word of the Phaeron", "Royal Decree"],
+        "unitRules": [
+          { "name": "Dynastic Mandate", "text": "Once per battle, at the start of the controlling player's turn, every friendly Unit with the Reanimant Trait within 12\" of this Model is treated as the Target of a successful My Will Be Done (3) activation. Choose Line or Vanguard for each Unit." },
+          { "name": "Word of the Phaeron", "text": "Friendly Units with the Reanimant Trait within 12\" of this Model may use this Model's Leadership and Cool Characteristics." },
+          { "name": "Royal Decree", "text": "Gambit. If this Gambit is selected, the enemy Model in the Challenge may not select a Gambit this round." }
+        ],
+        "cryptoArkana": false,
+        "fixedArkana": null,
+        "options": [
+          {
+            "id": "melee", "kind": "one", "model": null, "replaces": ["Staff of Light"], "max": null, "requires": null,
+            "text": "This model may have its Staff of Light exchanged for one item from the Nobility Melee Weapons List or for a Voidscythe at +20 points.",
+            "choices": [{ "list": "nobility-melee" }, { "name": "Voidscythe", "points": 20 }]
+          },
+          {
+            "id": "wargear", "kind": "one", "model": null, "replaces": [], "max": null, "requires": null,
+            "text": "This model may take one item from the Nobility Wargear List.",
+            "choices": [{ "list": "nobility-wargear" }]
+          },
+          {
+            "id": "any-of", "kind": "any", "model": null, "replaces": [], "max": null, "requires": null,
+            "text": "This model may take any of the following:",
+            "choices": [{ "name": "Phylactery", "points": 30 }, { "name": "Translocation Shroud", "points": 60 }]
+          },
+          {
+            "id": "barge", "kind": "swapModel", "model": "Phaeron", "replaces": [], "max": { "fixed": 1 }, "requires": null,
+            "text": "This model may ride a Catacomb Command Barge at +40 points. It becomes Cavalry (Antigrav, Command) with Movement 12 and Toughness 7, and gains Bulky (8), Command Barge, Explodes (6+), Firing Protocols (2), Implacable Advance and a Gauss Cannon.",
+            "choices": [{ "name": "Phaeron on Catacomb Command Barge", "points": 40 }]
+          },
+          {
+            "id": "cannon", "kind": "one", "model": null, "replaces": ["Gauss Cannon"], "max": null, "requires": "barge",
+            "text": "A Phaeron on a Catacomb Command Barge may have its Gauss Cannon exchanged for one item from the Necron Cannons List.",
+            "choices": [{ "list": "necron-cannons" }]
+          }
+        ],
+        "note": "House rules unit. Counts as a Nemesor for the Royal Burial Site Aeonic Sequela and for the number of Aeonic Sequelae an army may take. Goes in the Warlord Detachment and counts towards the 25% Warlord and Lord of War cap."
+      }
+    ],
+
+    "lists": {
+      "nobility-wargear": {
+        "points": { "Resurrection Orb": 25 },
+        "add": [
+          { "name": "Mindshackle Scarabs", "points": 15 },
+          { "name": "Tesseract Labyrinth (generic)", "points": 25 },
+          { "name": "Sempiternal Weave", "points": 20 }
+        ]
+      }
+    },
+
+    "weapons": {
+      "ranged": [
+        { "name": "Synaptic Disintegrator", "replaces": "Synaptic Disintegrator", "units": ["deathmarks"], "R": 48, "FP": 1, "RS": 5, "AP": 4, "D": 1, "specialRules": ["Heavy (FP)", "Poisoned (2+)", "Pinning (1)", "Precision (4+)"], "traits": ["Neuro"], "modes": null },
+        { "name": "Rod of Covenant (house)", "replaces": "Rod of Covenant (Ranged)", "units": ["triarch-praetorians"], "R": 12, "FP": 1, "RS": 6, "AP": 2, "D": 1, "specialRules": [], "traits": ["Assault", "Las"], "modes": null },
+        { "name": "Tesla Arc", "R": 6, "FP": 6, "RS": 5, "AP": "–", "D": 1, "specialRules": ["Tesla (5+)", "Suppressive (0)"], "traits": ["Arc"], "modes": null }
+      ],
+      "melee": [
+        { "name": "Paired Flensing Claws (house)", "replaces": "Pair of Flensing Claws", "units": ["flayed-ones"], "IM": "I", "AM": "+2", "SM": "S", "AP": 4, "D": 1, "specialRules": ["Shred (5+)"], "traits": ["Flensing"], "modes": null },
+        { "name": "Rod of Covenant (house)", "replaces": "Rod of Covenant (Melee)", "units": ["triarch-praetorians"], "IM": "I", "AM": "A", "SM": "+1", "AP": 2, "D": 1, "specialRules": ["Impact (D)"], "traits": ["Power"], "modes": null },
+        { "name": "Tesseract Labyrinth (generic)", "exceptUnits": ["trazyn-the-infinite"], "IM": "+3", "AM": 1, "SM": 6, "AP": 2, "D": 3, "specialRules": ["Exile", "Limited (1)", "Precision (4+)"], "traits": ["Dimensional"], "modes": null },
+        { "name": "Voidreaper", "IM": "I", "AM": "+1", "SM": "+2", "AP": 2, "D": 2, "specialRules": ["Armourbane", "Reaping Blow (2)"], "traits": ["Power"], "modes": null }
+      ]
+    },
+
+    "wargear": [
+      { "name": "Resurrection Orb", "text": "In the controlling player's Movement Phase as the Active Player, when a Model equipped with a Resurrection Orb has been selected, but either before or after it has been moved, the controlling player of that model may activate its Resurrection Orb. When activated, the controlling player makes a number of Resurrection (4+) Tests for that model's Unit equal to the number of models that have been removed as casualties from the Unit over the course of the battle, excluding models that have joined the unit before or after the battle or were assigned to it.\n\nEach Resurrection Orb can only be activated once per battle." },
+      { "name": "Sempiternal Weave", "text": "A model with a Sempiternal Weave gains +1 Toughness and +1 Wound." },
+      { "name": "Phase Shifter", "text": "A model with a Phase Shifter has a 4+ Invulnerable save and gains the Phase Shift Trait.", "note": "Every model with a Phase Shifter has the Phase Shift Trait; the builder adds it to the datasheet of any unit that takes one." },
+      { "name": "Teleportation Matrix", "text": "In the Aftermath Step of any Combat, or at the end of the controlling player's Movement Phase if this model did not move, this model may be removed from the battlefield and placed in Reserves. It arrives by Deep Strike." }
+    ],
+
+    "rules": [
+      { "name": "Resurrection Node", "text": "Each time a rule, special rule, or reaction calls for any number of Resurrection Tests to be made for a Unit, 1 additional model that was previously removed as a casualty is returned to the unit if at least one model equipped with a Resurrection Node is within 6\" of the Unit. This is treated in all ways as a model being returned to the battlefield with a successful Resurrection Test as part of the same rule or special rule that called for Resurrection Tests to be made for the unit." }
+    ],
+
+    "modifiers": {
+      "replace": {
+        "sempiternal-weave": {
+          "id": "sempiternal-weave", "page": null, "text": "A model with a Sempiternal Weave gains +1 Toughness and +1 Wound.",
+          "source": { "type": "wargear", "name": "Sempiternal Weave" }, "appliesTo": {}, "scope": "model",
+          "stats": { "T": "+1", "W": "+1" }, "addRules": [], "removeRules": [], "modifyRules": [], "addTraits": [], "addUnitTypes": [], "condition": null
+        },
+        "servants-of-the-ankh-vanguard": {
+          "id": "servants-of-the-ankh-vanguard", "page": 99, "text": "Units with the Triarch Trait in an Army with this Aeonic Sequela gain the Vanguard (2) Special Rule.",
+          "source": { "type": "sequela", "name": "Servants of the Ankh" }, "appliesTo": { "trait": "Triarch", "exceptUnits": ["triarch-praetorians"] }, "scope": "unit",
+          "stats": {}, "addRules": ["Vanguard (2)"], "removeRules": [], "modifyRules": [], "addTraits": [], "addUnitTypes": [], "condition": null
+        }
+      },
+      "add": [
+        {
+          "id": "servants-of-the-ankh-praetorians", "page": null, "text": "House rules: Triarch Praetorians in an Army with Servants of the Ankh have Vanguard (3) instead of gaining Vanguard (2).",
+          "source": { "type": "sequela", "name": "Servants of the Ankh" }, "appliesTo": { "units": ["triarch-praetorians"] }, "scope": "unit",
+          "stats": {}, "addRules": [], "removeRules": [], "modifyRules": [{ "rule": "Vanguard", "by": 1 }], "addTraits": [], "addUnitTypes": [], "condition": null
+        }
+      ]
+    }
+  }
+}

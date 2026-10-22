@@ -45,7 +45,21 @@
     const listsById = new Map((data.lists || []).map((l) => [l.id, l]));
     const detById = new Map((data.detachments || []).map((d) => [d.id, d]));
 
-    function unit(id) { return unitsById.get(id); }
+    // ---------- optional house rules (data.house): swapped in while the army's "House rules" choice is on ----------
+    // Units and lists keep their ids, so a list moves between the printed codex and the house rules unchanged.
+    // Units only the house rules add stay resolvable when they're off, and are flagged by their `when`.
+    const house = data.house || null;
+    const houseUnits = new Map(((house && house.units) || []).map((u) => [u.id, u]));
+    const houseLists = new Map(((house && house.lists) || []).map((l) => [l.id, l]));
+    let houseOn = false;
+    function unit(id) { return houseUnits.has(id) && (houseOn || !unitsById.has(id)) ? houseUnits.get(id) : unitsById.get(id); }
+    /** The unit as printed, or null for a unit only the house rules add. */
+    function printedUnit(id) { return unitsById.get(id) || null; }
+    function listById(id) { return (houseOn && houseLists.get(id)) || listsById.get(id); }
+    function allUnits() {
+      if (!houseOn) return data.units;
+      return data.units.map((u) => houseUnits.get(u.id) || u).concat([...houseUnits.values()].filter((u) => !unitsById.has(u.id)));
+    }
 
     // ---------- Aeonic Sequelae effects ----------
     const effects = (data.sequelaEffects && data.sequelaEffects.effects) || [];
@@ -55,6 +69,7 @@
     // BSData imports mark options, units and effects "only with X" (when) or "not with X" (unless).
     let ctx = { config: new Set(), units: new Set(), upgrades: new Set(), categories: new Set(), detOf: new Map() };
     function setArmy(army) {
+      houseOn = !!house && Object.values(army.config || {}).flat().includes(house.toggle.name);
       setSequelae(army.sequelae);
       const config = new Set(Object.values(army.config || {}).flat());
       const units = new Set(), upgrades = new Set(), categories = new Set(), detOf = new Map();
@@ -189,19 +204,30 @@
         if (!ark) return [];
         id = listId + ':' + ark;
       }
-      const list = listsById.get(id);
+      const list = listById(id);
       if (!list) return [];
       const items = list.items.slice();
       for (const e of activeEffects('listAdd')) if (e.list === id) items.push(...e.items);
-      return items.map((it) => ({ name: it.name, points: Number(it.points) || 0, from: list.name }));
+      // under house rules, a changed price keeps the printed one (was) and an added item is marked
+      const printed = list !== listsById.get(id) ? listsById.get(id) : null;
+      return items.map((it) => {
+        const p = printed && printed.items.find((x) => x.name === it.name);
+        const was = p && (Number(p.points) || 0) !== (Number(it.points) || 0) ? { was: Number(p.points) || 0 } : {};
+        return Object.assign({ name: it.name, points: Number(it.points) || 0, from: list.name }, was, it.house ? { house: true } : {});
+      });
     }
 
     function choicesFor(opt, sel) {
       const out = [];
       const seen = new Set();
+      // the printed option, when house rules changed this unit: a changed price keeps the printed one (was)
+      const pu = houseOn ? printedUnit(sel.unitId) : null;
+      const po = pu && pu !== unit(sel.unitId) ? (pu.options || []).find((x) => x.id === opt.id) : null;
       for (const c of opt.choices || []) {
+        const pc = po && !c.list ? po.choices.find((x) => x.name === c.name) : null;
         const items = c.list ? resolveList(c.list, sel) : [Object.assign({ name: c.name, points: Number(c.points) || 0, pointsUnknown: !!c.pointsUnknown },
-          c.perUnitModel ? { perUnitModel: Number(c.perUnitModel) } : {})];
+          c.perUnitModel ? { perUnitModel: Number(c.perUnitModel) } : {},
+          pc && (Number(pc.points) || 0) !== (Number(c.points) || 0) ? { was: Number(pc.points) || 0 } : {})];
         for (const it of items) {
           if (seen.has(it.name)) continue;
           seen.add(it.name);
@@ -407,7 +433,9 @@
     }
 
     // ---------- battlefield modifiers ----------
-    const modifiers = (data.modifiers && data.modifiers.modifiers) || [];
+    const printedModifiers = (data.modifiers && data.modifiers.modifiers) || [];
+    const houseModifiers = house ? printedModifiers.map((m) => house.modifiers.replace[m.id] || m).concat(house.modifiers.add) : printedModifiers;
+    const activeModifiers = () => (houseOn ? houseModifiers : printedModifiers);
     const saveNum = (v) => { const m = String(v ?? '').match(/(\d+)\+/); return m ? +m[1] : 99; };
     const ruleBase = (r) => norm(r);
 
@@ -438,6 +466,7 @@
     function modMatches(m, u, model, traits) {
       const a = m.appliesTo || {};
       if (a.units && !a.units.includes(u.id)) return false;
+      if (a.exceptUnits && a.exceptUnits.includes(u.id)) return false;
       if (a.models && !a.models.includes(model.name)) return false;
       if (a.trait && !traits.some((t) => norm(t).includes(norm(a.trait)))) return false;
       if (a.unitType && !String(model.unitType || '').toLowerCase().includes(a.unitType.toLowerCase())) return false;
@@ -470,6 +499,7 @@
         if (left > 0 || !partial.length) groups.push({ model, count: Math.max(left, 0), label: row.model, items });
       }
       // "one model" bonuses (Master Sergeant, Paragon of Battle) split the first group
+      const modifiers = activeModifiers();
       const oneMods = modifiers.filter((m) => m.oneModel && m.source && m.source.type === 'primeAdvantage' && sel.primeAdvantage === m.source.name);
       if (oneMods.length && groups.length) {
         const g = groups.find((x) => x.count > 0) || groups[0];
@@ -554,7 +584,19 @@
             changed.unitType = true;
           }
         }
-        out.push({ name: g.label, model: g.model.name, count: g.count, items: g.items, profile, baseProfile: g.model.profile, changed, rules, added, removed, traits, addedTraits, unitType, reminders });
+        // house rules: anything that differs from the printed model counts as changed, against the printed value
+        const pu = houseOn ? printedUnit(u.id) : null;
+        const pm = pu && pu !== u ? pu.models.find((x) => x.name === g.model.name) : null;
+        if (pm) {
+          for (const k of Object.keys(profile)) if (String(pm.profile[k]) !== String(g.model.profile[k])) changed[k] = true;
+          const printedRules = [...(pu.specialRules || []), ...(pm.specialRules || [])];
+          const ownRules = [...(u.specialRules || []), ...(g.model.specialRules || [])];
+          for (const r of ownRules) if (!printedRules.includes(r) && rules.includes(r) && !added.includes(r)) added.push(r);
+          for (const r of printedRules) if (!ownRules.includes(r) && !removed.includes(r)) removed.push(r);
+          for (const t of u.traits || []) if (!(pu.traits || []).includes(t) && !addedTraits.includes(t)) addedTraits.push(t);
+          if (pm.unitType !== g.model.unitType) changed.unitType = true;
+        }
+        out.push({ name: g.label, model: g.model.name, count: g.count, items: g.items, profile, baseProfile: pm ? pm.profile : g.model.profile, changed, rules, added, removed, traits, addedTraits, unitType, reminders });
       }
       return out;
     }
@@ -951,7 +993,7 @@
       }
       for (const [n, c] of Object.entries(onceTaken)) if (c > 1) issues.push({ level: 'error', msg: `${n} may only be taken once per army (${c} taken).` });
       // wargear list items limited to one per army (e.g. Haemonculus Arcana)
-      const once = new Set((data.lists || []).flatMap((l) => l.items.filter((it) => it.oncePerArmy).map((it) => it.name)));
+      const once = new Set((data.lists || []).map((l) => listById(l.id)).flatMap((l) => l.items.filter((it) => it.oncePerArmy).map((it) => it.name)));
       if (once.size) {
         const taken = {};
         for (const x of sels) for (const r of loadout(x.sel)) for (const c of r.changes) if (once.has(c.name)) taken[c.name] = (taken[c.name] || 0) + c.count;
@@ -1031,7 +1073,7 @@
 
     /** Which units can go in a slot: role match plus the detachment's restrictions. */
     function unitsForSlot(slot, det) {
-      return data.units.filter((u) => {
+      return allUnits().filter((u) => {
         if (!slotAllows(det, slot, u)) return false;
         if ((u.when || u.unless) && !available(u, null, det && baseName(det))) return false;
         if (slot.advisor) return u.cryptoArkana || !!u.fixedArkana;
@@ -1088,6 +1130,7 @@
       eligible, optionMax, perModelUsed, optionCost, unitPoints, loadout, unitIssues, armyIssues, armyPoints,
       allSelections, sequelaAllowance, configMax, setArmy, slotAdder, available, condOk, condText, makeDetachment, detachmentFromDef, unitsForSlot, slotAllows, syncAdvisorSlots,
       hasTrait, arkanaOf, uid, setSequelae, effectiveModels, primeAdvantagesFor, requirementMet, unlocks, optionsOf, modelMax, rolesFor, activeEffects, grantedTraits,
+      printedUnit, allUnits, houseOn: () => houseOn, house,
     };
   }
 

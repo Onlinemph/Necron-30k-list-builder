@@ -88,6 +88,18 @@ Every Primarch gets three Aspects to choose from for free (a different side of h
 
 None of it is official, and lists that don't switch it on are unchanged. Legacy options are marked "Legacy:" in the unit editor, the panel's house-rule groups have a dashed gold border, and the roster prints the switch and the chosen Rite so your opponent knows. The content lives in `data/legacy/` (format in `data/legacy/README.md`); `node scripts/legacy-check.mjs <army>` checks one army's file.
 
+## Necron house rules
+
+The Necrons have their own **House rules** switch in the Army configuration panel. Off (the default), the army is the printed Codex Xenologica v1.4.2. On, it uses the house-rules variant:
+
+- **Price changes** to Hexmark Destroyers, Necron Warriors, the Ghost Ark, Necron Lords, the Night Shroud, the Doom-Stalker, Officer of the Line and the Resurrection Orb.
+- **Stronger Tomb Blades, Deathmarks, Flayed Ones and Lychguard**, plus a 5+ invulnerable save for the Skorpekh Destroyer Lord.
+- **Reworked Triarch Praetorians.**
+- **A new Necron Phaeron** for the Warlord Detachment.
+- **New wargear**: Mindshackle Scarabs, a Tesseract Labyrinth, a reworked Sempiternal Weave, Teleportation Matrices for pylons, and the Voidreaper relic.
+
+Everything that differs from the codex is marked on the datasheet. Changed values are highlighted with the printed value on hover. Changed prices show the printed price struck through, and rules with new text show the printed text in their dialog. New units, options and weapons are tagged "house". The switch is saved with the list and printed in the roster and text export. The changes live in `data/parts/house-rules.json` (format in `data/SCHEMA.md`); the printed part files aren't edited.
+
 ## Force organisation
 
 The Primary Detachment follows the Horus Heresy 3rd edition Crusade chart: 1 High Command, 3 Command (1 Prime), 4 Troops (1 Prime), 4 Transport. Each filled Command slot unlocks one Auxiliary Detachment, and filling High Command unlocks one Apex Detachment. The core Auxiliary, Apex, Warlord and Lord of War Detachments are in the **Add detachment** menu next to the Necron ones, and the core Prime Advantages (Master Sergeant, Combat Veterans, Paragon of Battle, Special Assignment, Logistical Benefit) sit alongside the Necron ones. **Edit slots** on the Primary Detachment is there for rules that change the chart.
