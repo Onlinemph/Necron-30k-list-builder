@@ -1,0 +1,43 @@
+{
+  "grantedPrimeAdvantages": [
+    {
+      "name": "Herald of the Fall",
+      "page": null,
+      "eligible": {
+        "choice": [
+          "Midnight Sorrow"
+        ]
+      },
+      "extraSlot": false,
+      "text": "If a Unit that only includes Models with the Midnight Sorrow Trait is selected to fill a Prime Force Organisation Slot, the following Prime Advantage can be selected: Herald of the Fall. All Models in the Unit gain the Fear (1) Special Rule. When the last Model in the Unit is Removed as a Casualty, every enemy Unit with at least one Model within 12\" of that Model must make a Leadership Check. Any Unit that fails this Check gains the Routed Tactical Status."
+    },
+    {
+      "name": "Death's Promise",
+      "page": null,
+      "eligible": {
+        "choice": [
+          "Dreaming Shadow"
+        ],
+        "unitTypes": [
+          "Infantry",
+          "Cavalry"
+        ]
+      },
+      "extraSlot": false,
+      "text": "If a Unit that only includes Models with the Dreaming Shadow Trait and the Infantry or Cavalry Type is selected to fill a Prime Force Organisation Slot, the following Prime Advantage can be selected: Death's Promise. All Models in the Unit gain the Eternal Warrior (1) Special Rule. If a Model already has a variant of the Eternal Warrior (X) Special Rule, increase its value of X by 1 instead, to a maximum of Eternal Warrior (2)."
+    },
+    {
+      "name": "Prismatic Master",
+      "page": null,
+      "eligible": {
+        "units": [
+          "prismweaver",
+          "voidweaver"
+        ]
+      },
+      "extraSlot": false,
+      "text": "The Model for which this Prime Advantage was selected has its Base Ballistic Skill Characteristic changed to 6, and its Prismatic Cannons (including a Twin Prismatic Cannon) gain the Pinning (1) Special Rule in every mode.",
+      "note": "Must be selected for the Prime Slot of the Weaver Constellation Apex Detachment."
+    }
+  ]
+}

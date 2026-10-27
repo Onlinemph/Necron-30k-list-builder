@@ -1,0 +1,43 @@
+{
+  "armyConfig": {
+    "fixed": [
+      {
+        "name": "The Great Dance",
+        "text": "The Harlequins fight as they perform: a blur of colour that is never quite where the blow lands, darting in to kill and flipping away before the foe can answer.\n\nRising Crescendo: A Unit that only includes Models with this Special Rule and the Infantry Type may have a Charge declared for it in a turn in which it Rushed. It may not make Volley Attacks as part of that Charge.\n\nExit, Pursued: A Unit that only includes Models with this Special Rule may always have the Disengage aftermath option selected for it in Step 4 of the Resolution Sub-Phase of the Assault Phase, regardless of which Player won the Combat. When such a Unit makes a Disengage move, its Models may move through enemy Models, but must end that move more than 1\" away from all enemy Models.\n\nHowever, a Unit that only includes Models with this Special Rule that has lost a Combat must have either the Disengage or the Fall Back aftermath option selected for it if it is able to. The Harlequins do not stand and grind against a foe that has taken their measure.",
+        "kind": "rule",
+        "source": "Harlequin Tactica"
+      },
+      {
+        "name": "Additional Reaction Point",
+        "text": "If an Army's Primary Detachment is from the Harlequin Army List, the Controlling Player gains one additional Reaction Point if that Detachment contains any Models with the Masque Leader Trait.",
+        "kind": "rule",
+        "source": "Harlequin Army List"
+      },
+      {
+        "name": "Shadow Dance",
+        "text": "The players dissolve into fragments of light as the guns open up, and are somewhere else entirely by the time the smoke clears.\n\nTrigger: The Reactive Player may declare a Shadow Dance Advanced Reaction at the start of Step 3 of the Shooting Attack sequence of a Shooting Attack made by the Active Player that targets a Unit which only includes Models with the Harlequin Trait and either a Holo-suit or a Holo-field.\n\nCost: The Reactive Player must spend 1 point of their Reaction Allotment to declare a Shadow Dance Advanced Reaction, this cost paid as soon as the declaration is made.\n\nTarget: The Target Unit is always the Unit whose Shooting Attack triggered the Reaction. The Reacting Unit is always the Unit that was the target of the Shooting Attack that triggered the Reaction.\n\nProcess:\n1. All Models in the Reacting Unit gain the Shrouded (5+) Special Rule against attacks made as part of this Shooting Attack. Models in the Reacting Unit that already have a variant of the Shrouded (X) Special Rule instead improve its value by 1 (Shrouded (5+) becomes Shrouded (4+), and so on), to a maximum of Shrouded (3+).\n2. Once the Shooting Attack has been resolved, if the Reacting Unit is not Locked in Combat, each Model in the Reacting Unit may be moved a number of inches up to its Initiative Characteristic (or up to 6\" for a Model with the Vehicle Type). Each Model must end this move further from the Target Unit than it began it, in Unit Coherency, and more than 1\" away from any enemy Model.",
+        "kind": "Reaction",
+        "source": "Advanced Reaction"
+      },
+      {
+        "name": "The Laughing God's Riposte",
+        "text": "The charge meets nothing but a ripple of laughter, and then the blades are already falling.\n\nTrigger: The Reactive Player may declare The Laughing God's Riposte Advanced Reaction at the end of Step 3 of the Charge process of any Charge declared by the Active Player that targets a Unit which only includes Models with the Harlequin Trait and either the Infantry or the Cavalry Type.\n\nCost: The Reactive Player must spend 1 point of their Reaction Allotment to declare The Laughing God's Riposte Advanced Reaction, this cost paid as soon as the declaration is made.\n\nTarget: The Target Unit is always the Unit whose Charge triggered the Reaction. The Reacting Unit is always the Unit that was declared as the target of the Charge that triggered this Reaction.\n\nProcess:\n1. Once this Reaction is declared, the Reacting Unit may not make Volley Attacks as part of this Charge.\n2. If the Charge is successful, then until the end of the Assault Phase no Model in the Target Unit may claim a bonus from any Special Rule that requires a successful Charge to have been made (such as Impact (X) or Lightning Blows), and all Models in the Reacting Unit gain a +1 modifier to their Combat Initiative.",
+        "kind": "Reaction",
+        "source": "Advanced Reaction"
+      },
+      {
+        "name": "Cegorach's Jest",
+        "text": "When selecting a Gambit, the Controlling Player of a Model with the Harlequin Trait can select Cegorach's Jest instead of any others available to that Model. This Gambit can only be selected after the Opposing Player has selected a Gambit for their Model in the same Focus Step.\n\nIf this Gambit is selected, the Controlling Player gains a +1 modifier to the Focus Roll. If the Controlling Player then wins the Focus Roll, the Gambit selected for the opposing Model has no effect for the remainder of that round of the Challenge.",
+        "kind": "Gambit",
+        "source": "Gambits"
+      },
+      {
+        "name": "Webway Strike",
+        "text": "If a Unit with the Harlequin Trait is selected to fill a Prime Force Organisation Slot in a Detachment, the Webway Strike Prime Advantage may be selected:\n\nThe Unit for which this Prime Advantage was selected, and any Model with the Transport Sub-Type it begins the battle Embarked upon, gains the Deep Strike Special Rule. A Deep Strike made by that Unit, or by the Transport carrying it, does not count towards the limit of one Unit attempting a Deep Strike in a given Player Turn.",
+        "kind": "Prime Advantage",
+        "source": "Prime Advantage"
+      }
+    ],
+    "groups": []
+  }
+}

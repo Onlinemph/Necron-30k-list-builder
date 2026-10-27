@@ -1,0 +1,439 @@
+{
+  "detachments": [
+    {
+      "id": "frenzied-revel",
+      "name": "Frenzied Revel",
+      "type": "Auxiliary",
+      "page": null,
+      "unlock": "When a model with the Frozen Stars Trait is selected to fill a Command Slot, then the Player may add a Frenzied Revel to the Army instead of the options available in the Crusade Force Organization Chart.",
+      "unlockedBy": {
+        "commandTrait": "Frozen Stars"
+      },
+      "slots": [
+        {
+          "role": "Troops",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Troops",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Troops",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Transport",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "Only Units with the Frozen Stars Trait may be selected to fill Slots in this Detachment."
+      ],
+      "rules": [],
+      "slotRules": [
+        {
+          "roles": null,
+          "trait": "Frozen Stars"
+        }
+      ],
+      "note": "A Frozen Stars troupe let off the leash."
+    },
+    {
+      "id": "chorus-of-lament",
+      "name": "Chorus of Lament",
+      "type": "Auxiliary",
+      "page": null,
+      "unlock": "When a model with the Midnight Sorrow Trait is selected to fill a Command Slot, then the Player may add a Chorus of Lament to the Army instead of the options available in the Crusade Force Organization Chart.",
+      "unlockedBy": {
+        "commandTrait": "Midnight Sorrow"
+      },
+      "slots": [
+        {
+          "role": "Support",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Support",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Support",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Troops",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "Only Units with the Midnight Sorrow Trait may be selected to fill Slots in this Detachment."
+      ],
+      "rules": [],
+      "slotRules": [
+        {
+          "roles": null,
+          "trait": "Midnight Sorrow"
+        }
+      ],
+      "note": "The Death Jesters of the Midnight Sorrow and the troupe they mourn for."
+    },
+    {
+      "id": "hall-of-illusions",
+      "name": "Hall of Illusions",
+      "type": "Auxiliary",
+      "page": null,
+      "unlock": "When a model with the Veiled Path Trait is selected to fill a Command Slot, then the Player may add a Hall of Illusions to the Army instead of the options available in the Crusade Force Organization Chart.",
+      "unlockedBy": {
+        "commandTrait": "Veiled Path"
+      },
+      "slots": [
+        {
+          "role": "Recon",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Recon",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Troops",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Transport",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "Only Units with the Veiled Path Trait may be selected to fill Slots in this Detachment."
+      ],
+      "rules": [],
+      "slotRules": [
+        {
+          "roles": null,
+          "trait": "Veiled Path"
+        }
+      ],
+      "note": "Mimes and players of the Veiled Path, never where they seem to be."
+    },
+    {
+      "id": "silent-procession",
+      "name": "Silent Procession",
+      "type": "Auxiliary",
+      "page": null,
+      "unlock": "When a model with the Silent Shroud Trait is selected to fill a Command Slot, then the Player may add a Silent Procession to the Army instead of the options available in the Crusade Force Organization Chart.",
+      "unlockedBy": {
+        "commandTrait": "Silent Shroud"
+      },
+      "slots": [
+        {
+          "role": "Recon",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Recon",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Recon",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Troops",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "Only Units with the Silent Shroud Trait may be selected to fill Slots in this Detachment."
+      ],
+      "rules": [],
+      "slotRules": [
+        {
+          "roles": null,
+          "trait": "Silent Shroud"
+        }
+      ],
+      "note": "A wordless column of Mimes and players."
+    },
+    {
+      "id": "skyborne-host",
+      "name": "Skyborne Host",
+      "type": "Auxiliary",
+      "page": null,
+      "unlock": "When a model with the Soaring Spite Trait is selected to fill a Command Slot, then the Player may add a Skyborne Host to the Army instead of the options available in the Crusade Force Organization Chart.",
+      "unlockedBy": {
+        "commandTrait": "Soaring Spite"
+      },
+      "slots": [
+        {
+          "role": "Fast Attack",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Fast Attack",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Fast Attack",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Transport",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "Only Units with the Soaring Spite Trait may be selected to fill Slots in this Detachment."
+      ],
+      "rules": [],
+      "slotRules": [
+        {
+          "roles": null,
+          "trait": "Soaring Spite"
+        }
+      ],
+      "note": "Skyweavers and Voidweavers of the Soaring Spite."
+    },
+    {
+      "id": "masque-of-the-dead",
+      "name": "Masque of the Dead",
+      "type": "Auxiliary",
+      "page": null,
+      "unlock": "When a model with the Dreaming Shadow Trait is selected to fill a Command Slot, then the Player may add a Masque of the Dead to the Army instead of the options available in the Crusade Force Organization Chart.",
+      "unlockedBy": {
+        "commandTrait": "Dreaming Shadow"
+      },
+      "slots": [
+        {
+          "role": "Retinue",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Troops",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Troops",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Heavy Transport",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "Only Units with the Dreaming Shadow Trait may be selected to fill Slots in this Detachment."
+      ],
+      "rules": [],
+      "slotRules": [
+        {
+          "roles": null,
+          "trait": "Dreaming Shadow"
+        }
+      ],
+      "note": "The Dreaming Shadow perform for the dead, and bring their whole company."
+    },
+    {
+      "id": "webway-raiders",
+      "name": "Webway Raiders",
+      "type": "Auxiliary",
+      "page": null,
+      "unlock": null,
+      "unlockedBy": null,
+      "slots": [
+        {
+          "role": "Troops",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Troops",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Transport",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Transport",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [],
+      "rules": [],
+      "slotRules": []
+    },
+    {
+      "id": "weaver-squadron",
+      "name": "Weaver Squadron",
+      "type": "Auxiliary",
+      "page": null,
+      "unlock": null,
+      "unlockedBy": null,
+      "slots": [
+        {
+          "role": "Fast Attack",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Fast Attack",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Armour",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Heavy Transport",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [],
+      "rules": [],
+      "slotRules": []
+    },
+    {
+      "id": "the-lonely-path",
+      "name": "The Lonely Path",
+      "type": "Auxiliary",
+      "page": null,
+      "unlock": null,
+      "unlockedBy": null,
+      "slots": [
+        {
+          "role": "Elites",
+          "prime": true,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "Only a Solitaire may be selected to fill the Slot in this Detachment."
+      ],
+      "rules": [],
+      "slotRules": [
+        {
+          "roles": null,
+          "units": [
+            "solitaire"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "the-great-masque",
+      "name": "The Great Masque",
+      "type": "Apex",
+      "page": null,
+      "unlock": null,
+      "unlockedBy": null,
+      "slots": [
+        {
+          "role": "Command",
+          "prime": true,
+          "flexible": false
+        },
+        {
+          "role": "Retinue",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Troops",
+          "prime": true,
+          "flexible": false
+        },
+        {
+          "role": "Troops",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "Only Units with the Harlequin Trait may be selected to fill Slots in this Detachment."
+      ],
+      "rules": [],
+      "slotRules": [
+        {
+          "roles": null,
+          "trait": "Harlequin"
+        }
+      ]
+    },
+    {
+      "id": "weaver-constellation",
+      "name": "Weaver Constellation",
+      "type": "Apex",
+      "page": null,
+      "unlock": null,
+      "unlockedBy": null,
+      "slots": [
+        {
+          "role": "Armour",
+          "prime": true,
+          "flexible": false
+        },
+        {
+          "role": "Armour",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Fast Attack",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Fast Attack",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "Only Prismweavers and Voidweavers may be selected to fill Slots in this Detachment.",
+        "The following Prime Advantage must be selected for the Model selected to fill the Prime Slot in this Detachment: Prismatic Master: The Model for which this Prime Advantage was selected has its Base Ballistic Skill Characteristic changed to 6, and its Prismatic Cannons (including a Twin Prismatic Cannon) gain the Pinning (1) Special Rule in every mode."
+      ],
+      "rules": [],
+      "slotRules": [
+        {
+          "roles": null,
+          "units": [
+            "prismweaver",
+            "voidweaver"
+          ]
+        }
+      ]
+    }
+  ]
+}

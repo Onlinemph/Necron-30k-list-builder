@@ -1,0 +1,427 @@
+{
+  "units": [
+    {
+      "id": "skyweavers",
+      "name": "Skyweavers",
+      "role": "Fast Attack",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 130,
+      "composition": "2 Skyweavers",
+      "models": [
+        {
+          "name": "Skyweaver",
+          "min": 2,
+          "max": 6,
+          "costPerExtra": 65,
+          "profile": {
+            "M": 18,
+            "WS": 6,
+            "BS": 5,
+            "S": 3,
+            "T": 4,
+            "W": 3,
+            "I": 7,
+            "A": 3,
+            "LD": 9,
+            "CL": 9,
+            "WP": 8,
+            "IN": 8,
+            "SAV": "4+",
+            "INV": "4+"
+          },
+          "wargear": [
+            "Harlequin's Blade",
+            "Shuriken Cannon",
+            "Star Bolas",
+            "Holo-suit"
+          ],
+          "unitType": "Cavalry (Antigrav, Light)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Harlequin",
+        "Jink"
+      ],
+      "specialRules": [
+        "Bulky (3)",
+        "Deep Strike",
+        "Outflank",
+        "Fast (2)",
+        "Firing Protocols (2)",
+        "Implacable Advance",
+        "Dodge (4+)",
+        "The Great Dance"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": true,
+      "options": [
+        {
+          "id": "cannon",
+          "text": "Any Model in this Unit may have its Shuriken Cannon exchanged for a Haywire Cannon for +5 points per Model.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [
+            "Shuriken Cannon"
+          ],
+          "choices": [
+            {
+              "name": "Haywire Cannon",
+              "points": 5
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "bolas",
+          "text": "Any Model in this Unit may have its Star Bolas exchanged for a Zephyrglaive for free.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [
+            "Star Bolas"
+          ],
+          "choices": [
+            {
+              "name": "Zephyrglaive",
+              "points": 0
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "voidweaver",
+      "name": "Voidweaver",
+      "role": "Fast Attack",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 105,
+      "composition": "1 Voidweaver",
+      "models": [
+        {
+          "name": "Voidweaver",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 18,
+            "BS": 5,
+            "FRONT": 11,
+            "SIDE": 11,
+            "REAR": 10,
+            "HP": 4,
+            "CAPACITY": "–"
+          },
+          "wargear": [
+            "Centreline mounted Haywire Cannon",
+            "2 Hull (front) mounted Shuriken Cannons",
+            "Holo-field",
+            "Mirage Launchers"
+          ],
+          "unitType": "Vehicle (Antigrav, Rapid)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Harlequin",
+        "Jink"
+      ],
+      "specialRules": [
+        "Deep Strike"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": true,
+      "options": [
+        {
+          "id": "prismatic-swap",
+          "text": "May have its Haywire Cannon exchanged for a Centreline mounted Prismatic Cannon for +10 points.",
+          "kind": "upgrade",
+          "model": null,
+          "replaces": [
+            "Centreline mounted Haywire Cannon"
+          ],
+          "choices": [
+            {
+              "name": "Centreline mounted Prismatic Cannon",
+              "points": 10
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "starweaver",
+      "name": "Starweaver",
+      "role": "Transport",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 60,
+      "composition": "1 Starweaver",
+      "models": [
+        {
+          "name": "Starweaver",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 18,
+            "BS": 5,
+            "FRONT": 10,
+            "SIDE": 10,
+            "REAR": 10,
+            "HP": 3,
+            "CAPACITY": 6
+          },
+          "wargear": [
+            "2 Hull (front) mounted Shuriken Cannons",
+            "Holo-field",
+            "Mirage Launchers"
+          ],
+          "unitType": "Vehicle (Antigrav, Rapid, Transport)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Harlequin",
+        "Jink"
+      ],
+      "specialRules": [
+        "Assault Vehicle",
+        "Deep Strike",
+        "Light Transport",
+        "Firing Deck (front, left, right, 6)"
+      ],
+      "unitRules": [
+        {
+          "name": "Access Points",
+          "text": "The entire hull of the Starweaver is counted as an Access Point."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": true,
+      "options": [],
+      "note": null
+    },
+    {
+      "id": "webweaver",
+      "name": "Webweaver",
+      "role": "Heavy Transport",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 140,
+      "composition": "1 Webweaver",
+      "models": [
+        {
+          "name": "Webweaver",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 16,
+            "BS": 5,
+            "FRONT": 12,
+            "SIDE": 11,
+            "REAR": 10,
+            "HP": 6,
+            "CAPACITY": 12
+          },
+          "wargear": [
+            "Turret mounted Prismatic Cannon",
+            "2 Hull (front) mounted Shuriken Cannons",
+            "Holo-field",
+            "Mirage Launchers"
+          ],
+          "unitType": "Vehicle (Antigrav, Transport)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Harlequin",
+        "Jink"
+      ],
+      "specialRules": [
+        "Assault Vehicle",
+        "Deep Strike",
+        "Firing Deck (front, left, right, 12)"
+      ],
+      "unitRules": [
+        {
+          "name": "Access Points",
+          "text": "The entire hull of the Webweaver is counted as an Access Point."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": true,
+      "options": [
+        {
+          "id": "prismatic-swap",
+          "text": "May have its Prismatic Cannon exchanged for a Turret mounted Haywire Cannon for free.",
+          "kind": "upgrade",
+          "model": null,
+          "replaces": [
+            "Turret mounted Prismatic Cannon"
+          ],
+          "choices": [
+            {
+              "name": "Turret mounted Haywire Cannon",
+              "points": 0
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "A larger cousin of the Starweaver, built to carry a whole troupe and its leaders through the webway. Written for this army list."
+    },
+    {
+      "id": "prismweaver",
+      "name": "Prismweaver",
+      "role": "Armour",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 170,
+      "composition": "1 Prismweaver",
+      "models": [
+        {
+          "name": "Prismweaver",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 16,
+            "BS": 5,
+            "FRONT": 12,
+            "SIDE": 11,
+            "REAR": 10,
+            "HP": 5,
+            "CAPACITY": "–"
+          },
+          "wargear": [
+            "Turret mounted Twin Prismatic Cannon",
+            "2 Hull (front) mounted Shuriken Cannons",
+            "Holo-field",
+            "Mirage Launchers"
+          ],
+          "unitType": "Vehicle (Antigrav)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Harlequin",
+        "Jink"
+      ],
+      "specialRules": [
+        "Deep Strike"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": true,
+      "options": [
+        {
+          "id": "shuriken-swap",
+          "text": "May have both of its Shuriken Cannons exchanged for 2 Hull (front) mounted Haywire Cannons for +10 points.",
+          "kind": "upgrade",
+          "model": null,
+          "replaces": [
+            "2 Hull (front) mounted Shuriken Cannons"
+          ],
+          "choices": [
+            {
+              "name": "2 Hull (front) mounted Haywire Cannons",
+              "points": 10
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "A Harlequin battle-skimmer built around a twin prismatic cannon. Written for this army list."
+    },
+    {
+      "id": "dreamweaver",
+      "name": "Dreamweaver",
+      "role": "Lord of War",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 500,
+      "composition": "1 Dreamweaver",
+      "models": [
+        {
+          "name": "Dreamweaver",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 14,
+            "BS": 5,
+            "FRONT": 13,
+            "SIDE": 12,
+            "REAR": 11,
+            "HP": 12,
+            "CAPACITY": 16
+          },
+          "wargear": [
+            "Turret mounted Prismatic Destructor",
+            "2 Sponson mounted Prismatic Cannons",
+            "4 Hull (front) mounted Shuriken Cannons",
+            "Holo-field",
+            "Mirage Launchers"
+          ],
+          "unitType": "Vehicle (Antigrav, Super-Heavy, Transport)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Harlequin",
+        "Jink"
+      ],
+      "specialRules": [
+        "Assault Vehicle",
+        "Deep Strike",
+        "Firing Deck (front, left, right, 16)"
+      ],
+      "unitRules": [
+        {
+          "name": "Access Points",
+          "text": "The entire hull of the Dreamweaver is counted as an Access Point."
+        },
+        {
+          "name": "Theatre of the Laughing God",
+          "text": "A Unit that Disembarks from the Dreamweaver in the same turn that the Dreamweaver arrived on the Battlefield by Deep Strike may have a Charge declared for it in that turn."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": true,
+      "options": [],
+      "note": "The great stage-ship of a masque, carrying its players and their most terrible weapons into battle. Written for this army list."
+    }
+  ]
+}

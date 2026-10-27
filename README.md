@@ -6,6 +6,7 @@ An army list builder for the Horus Heresy 3rd edition. Pick the army at the top 
 - **Necrons**: *Codex Xenologica – Necrons*, v1.4.2 (August 2026)
 - **Orks**: *Xenos Forces of the Age of Darkness – Orks, 3rd Edition Rules* by Always Strikes First (October 2025)
 - **Drukhari**: *Codex Xenologica – Drukhari*, v1.13 (March 2026)
+- **Harlequins**: a house army list written for this builder in the style of the Xenologica codexes (see below)
 
 Each army remembers its own current list, and saved lists and share links switch to the right army automatically.
 
@@ -42,6 +43,12 @@ Every Ork unit picks its Great Clan (Bad Moons, Blood Axes, Deathskulls, Evil Su
 ## Drukhari
 
 Units pick their Partisan (Kabals, Cults or Covens) where the codex leaves it open, and units with [Combat Drugs] must pick a drug, whose +1 shows on the statline. The Kabal Archon can buy the drugs as an upgrade. The Court of the Archon and Cult Beast Pack are built from a menu of models with a total size limit (and one Beastmaster per four models), and Haemonculus Arcana items are once per army. The eleven Drukhari detachments are in the Add detachment menu; their slots were read from the icons, since the codex has no icon legend. Power From Pain's tiers show as situational reminders.
+
+## Harlequins
+
+There's no fan codex for Harlequins, so this one is written for the builder (`data/harlequins/`, design notes in `data/harlequins/NOTES.md`). It's built like the Xenologica armies: every unit picks its Masque (Frozen Stars, Midnight Sorrow, Veiled Path, Silent Shroud, Soaring Spite or Dreaming Shadow), each Masque has a Tactica with a cost plus a Gambit, Advanced Reaction or Prime Advantage, and each has an Auxiliary Detachment unlocked by a Command model of that Masque. Auxiliary and Apex Detachments share one Masque; the Solitaire has none. The army rules (The Great Dance Tactica with Rising Crescendo, Shadow Dance, The Laughing God's Riposte, Cegorach's Jest, Webway Strike) show in the Army configuration panel.
+
+A Harlequin is priced to be worth about what a Custodian is, but in its own way: T3 and a 6+ armour save, made up for by holo-suit invulnerable saves, Dodge in combat, high Initiative and speed. The weapons follow the real Harlequin's Kiss, Caress and Embrace, converted to HH3 rules.
 
 ## BSData armies
 
@@ -108,7 +115,7 @@ Rules from the core rulebook (Bulky, Deep Strike, Eternal Warrior…) show BSDat
 
 ## Data
 
-Necrons: 70 units, 136 weapon profiles, 21 detachments and 12 Aeonic Sequelae in `data/parts/*.json`. Orks: 52 units, 87 weapon profiles, 5 detachments and 7 clans in `data/orks/`. Drukhari: 53 units, 103 weapon profiles and 11 detachments in `data/drukhari/`. The schema is in `data/SCHEMA.md` (army differences in `data/orks/NOTES.md` and `data/drukhari/NOTES.md`), and the per-page source text is in `source/`.
+Necrons: 70 units, 136 weapon profiles, 21 detachments and 12 Aeonic Sequelae in `data/parts/*.json`. Orks: 52 units, 87 weapon profiles, 5 detachments and 7 clans in `data/orks/`. Drukhari: 53 units, 103 weapon profiles and 11 detachments in `data/drukhari/`. Harlequins: 17 units, 22 weapon profiles, 11 detachments and 6 Masques in `data/harlequins/`. The schema is in `data/SCHEMA.md` (army differences in `data/orks/NOTES.md`, `data/drukhari/NOTES.md` and `data/harlequins/NOTES.md`), and the per-page source text is in `source/`.
 
 To add another army, put its parts in `data/<army>/parts/`, add an entry to `ARMIES` in `scripts/build-data.mjs`, and load `js/data-<army>.js` in `index.html`.
 

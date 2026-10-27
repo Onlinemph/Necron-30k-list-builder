@@ -1,0 +1,92 @@
+{
+  "specialRules": [
+    {
+      "name": "The Great Dance",
+      "page": null,
+      "text": "The Harlequins fight as they perform: a blur of colour that is never quite where the blow lands, darting in to kill and flipping away before the foe can answer.\n\nRising Crescendo: A Unit that only includes Models with this Special Rule and the Infantry Type may have a Charge declared for it in a turn in which it Rushed. It may not make Volley Attacks as part of that Charge.\n\nExit, Pursued: A Unit that only includes Models with this Special Rule may always have the Disengage aftermath option selected for it in Step 4 of the Resolution Sub-Phase of the Assault Phase, regardless of which Player won the Combat. When such a Unit makes a Disengage move, its Models may move through enemy Models, but must end that move more than 1\" away from all enemy Models.\n\nHowever, a Unit that only includes Models with this Special Rule that has lost a Combat must have either the Disengage or the Fall Back aftermath option selected for it if it is able to. The Harlequins do not stand and grind against a foe that has taken their measure."
+    },
+    {
+      "name": "Dodge (X)",
+      "page": null,
+      "text": "A Model with the Dodge (X) Special Rule has an Invulnerable Save equal to the value in brackets associated with the specific variant of this Special Rule against Wounds inflicted by Attacks that were made in any of the following situations:\n• The Attack was made during the Assault Phase,\n• The Attack was made as part of a Reaction."
+    },
+    {
+      "name": "Phase Field (X)",
+      "page": null,
+      "text": "The phase field of a Harlequin's Caress lets the wearer's hand pass through armour and energy fields alike.\n\nWhen making Wound Tests for Hits that have the Phase Field (X) Special Rule, if the result of the Dice rolled is equal to or greater than the value of X attached to the specific variant of this Special Rule, then Invulnerable Saving Throws may not be made against that wound."
+    },
+    {
+      "name": "Veil of Tears",
+      "page": null,
+      "text": "The Shadowseer weaves the Laughing God's illusions around the players, so that the foe fires upon phantoms and empty air.\n\nWhen an enemy Unit declares a Shooting Attack targeting a Unit that includes a Model with this Special Rule, and the closest Model in the attacking Unit is more than 12\" from the Target Unit, the Controlling Player of the attacking Unit must make a Willpower Check for it. If the Check is failed, all attacks made as part of that Shooting Attack must be made as Snap Shots. Units that include any Models with the Psyker Trait, and attacks made with a Weapon that has any variant of the Precision (X) Special Rule, ignore this Special Rule."
+    },
+    {
+      "name": "Firing Deck (X)",
+      "page": null,
+      "text": "In the Shooting Phase, a Unit that is Embarked on a Transport Model that has this Special Rule can be selected to make a Shooting Attack, even though it is not on the Battlefield. A number of Embarked Models up to the value noted in the specific variant of the Firing Deck (X) Special Rule may attack as part of that Shooting Attack, and the Shooting Attack must target an Enemy Unit which is in one of the Facings of the Transport noted in the specific variant of the Firing Deck (X) Special Rule. Models making Attacks as part of that Shooting Attack count as having moved if the Transport moved in the preceding Movement Phase and as Stationary if it did not, but must make Attacks as Snap Shots if the Transport moved a number of inches higher than half its Movement Characteristic in the preceding Movement Phase. Ranges are measured from the Hull of the Transport. Reactions made against the Attack that would Target the Unit Target the Transport it is Embarked on instead."
+    },
+    {
+      "name": "Additional Reaction Point",
+      "page": null,
+      "text": "If an Army's Primary Detachment is from the Harlequin Army List, the Controlling Player gains one additional Reaction Point if that Detachment contains any Models with the Masque Leader Trait."
+    }
+  ],
+  "reactions": [
+    {
+      "name": "Shadow Dance",
+      "page": null,
+      "text": "The players dissolve into fragments of light as the guns open up, and are somewhere else entirely by the time the smoke clears.\n\nTrigger: The Reactive Player may declare a Shadow Dance Advanced Reaction at the start of Step 3 of the Shooting Attack sequence of a Shooting Attack made by the Active Player that targets a Unit which only includes Models with the Harlequin Trait and either a Holo-suit or a Holo-field.\n\nCost: The Reactive Player must spend 1 point of their Reaction Allotment to declare a Shadow Dance Advanced Reaction, this cost paid as soon as the declaration is made.\n\nTarget: The Target Unit is always the Unit whose Shooting Attack triggered the Reaction. The Reacting Unit is always the Unit that was the target of the Shooting Attack that triggered the Reaction.\n\nProcess:\n1. All Models in the Reacting Unit gain the Shrouded (5+) Special Rule against attacks made as part of this Shooting Attack. Models in the Reacting Unit that already have a variant of the Shrouded (X) Special Rule instead improve its value by 1 (Shrouded (5+) becomes Shrouded (4+), and so on), to a maximum of Shrouded (3+).\n2. Once the Shooting Attack has been resolved, if the Reacting Unit is not Locked in Combat, each Model in the Reacting Unit may be moved a number of inches up to its Initiative Characteristic (or up to 6\" for a Model with the Vehicle Type). Each Model must end this move further from the Target Unit than it began it, in Unit Coherency, and more than 1\" away from any enemy Model."
+    },
+    {
+      "name": "The Laughing God's Riposte",
+      "page": null,
+      "text": "The charge meets nothing but a ripple of laughter, and then the blades are already falling.\n\nTrigger: The Reactive Player may declare The Laughing God's Riposte Advanced Reaction at the end of Step 3 of the Charge process of any Charge declared by the Active Player that targets a Unit which only includes Models with the Harlequin Trait and either the Infantry or the Cavalry Type.\n\nCost: The Reactive Player must spend 1 point of their Reaction Allotment to declare The Laughing God's Riposte Advanced Reaction, this cost paid as soon as the declaration is made.\n\nTarget: The Target Unit is always the Unit whose Charge triggered the Reaction. The Reacting Unit is always the Unit that was declared as the target of the Charge that triggered this Reaction.\n\nProcess:\n1. Once this Reaction is declared, the Reacting Unit may not make Volley Attacks as part of this Charge.\n2. If the Charge is successful, then until the end of the Assault Phase no Model in the Target Unit may claim a bonus from any Special Rule that requires a successful Charge to have been made (such as Impact (X) or Lightning Blows), and all Models in the Reacting Unit gain a +1 modifier to their Combat Initiative."
+    }
+  ],
+  "gambits": [
+    {
+      "name": "Cegorach's Jest",
+      "page": null,
+      "text": "When selecting a Gambit, the Controlling Player of a Model with the Harlequin Trait can select Cegorach's Jest instead of any others available to that Model. This Gambit can only be selected after the Opposing Player has selected a Gambit for their Model in the same Focus Step.\n\nIf this Gambit is selected, the Controlling Player gains a +1 modifier to the Focus Roll. If the Controlling Player then wins the Focus Roll, the Gambit selected for the opposing Model has no effect for the remainder of that round of the Challenge."
+    }
+  ],
+  "primeAdvantages": [
+    {
+      "name": "Webway Strike",
+      "page": null,
+      "text": "If a Unit with the Harlequin Trait is selected to fill a Prime Force Organisation Slot in a Detachment, the Webway Strike Prime Advantage may be selected:\n\nThe Unit for which this Prime Advantage was selected, and any Model with the Transport Sub-Type it begins the battle Embarked upon, gains the Deep Strike Special Rule. A Deep Strike made by that Unit, or by the Transport carrying it, does not count towards the limit of one Unit attempting a Deep Strike in a given Player Turn."
+    }
+  ],
+  "traits": [
+    {
+      "name": "Xenos",
+      "page": null,
+      "text": "The 'Xenos' trait replaces the Allegiance Trait for Xenos factions. An army that includes models with the Xenos Trait may still include models with either the Loyalist or Traitor Trait, but not the other."
+    },
+    {
+      "name": "Harlequin",
+      "page": null,
+      "text": "The 'Harlequin' Trait indicates Units that can be selected as part of a Harlequin army."
+    },
+    {
+      "name": "[Masque]",
+      "page": null,
+      "text": "Every Harlequin belongs to a Masque, a travelling company of players with its own repertoire and its own way of war. If a Unit has the [Masque] Trait listed instead of a specific Masque, one of the following Traits must be selected for it during Army creation: Frozen Stars, Midnight Sorrow, Veiled Path, Silent Shroud, Soaring Spite, Dreaming Shadow. Every Unit in an Auxiliary or Apex Detachment must have the same Masque Trait; Units without a Masque Trait (such as a Solitaire) are ignored for this restriction. The Primary Detachment may include Units from several Masques."
+    },
+    {
+      "name": "Masque Leader",
+      "page": null,
+      "text": "The Great Harlequins choreograph the whole performance, and the Masque answers their cues with uncanny speed. The Masque Leader Trait has no effect on its own, but is referred to by other Rules and Special Rules."
+    },
+    {
+      "name": "Jink",
+      "page": null,
+      "text": "Aeldari jetbikes and grav-skimmers are exceptionally fast and agile, and can weave through firestorms that would leave any other pilots flat-footed. The Jink Trait has no effect on its own, but is referred to by other Rules and Special Rules."
+    },
+    {
+      "name": "Psyker",
+      "page": null,
+      "text": "A Model with this Trait is a psyker. Rules that affect psykers affect it, and it may suffer Perils of the Warp when a Rule or Special Rule, such as Force (X), instructs it to."
+    }
+  ]
+}

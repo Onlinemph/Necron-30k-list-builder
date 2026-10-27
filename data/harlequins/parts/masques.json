@@ -1,0 +1,114 @@
+{
+  "arkana": [
+    {
+      "name": "Frozen Stars",
+      "page": null,
+      "harbinger": {
+        "name": "Frozen Stars",
+        "text": "The Masque of the Frozen Stars performs the most violent of the Laughing God's tales, and its players fight in a howling, hysterical frenzy that few audiences survive.\n\nAll Models with the Frozen Stars Trait are subject to the following Special Rules:\n\nHysterical Fury\nModels with the Frozen Stars Trait that do not have the Vehicle Type gain the Impact (S) Special Rule. However, a Unit that only includes Models with the Frozen Stars Trait that is within 12\" of any enemy Unit at the start of its Controlling Player's Charge Sub-Phase must declare a Charge if it is able to do so.\n\nFrozen Stars Gambit\nHysterical Onslaught\nWhen selecting a Gambit, the Controlling Player of a Model with the Frozen Stars Trait can select Hysterical Onslaught instead of any others available to that Model. If this Gambit is selected, the Model's Attacks Characteristic is modified by +2 for the duration of the following Strike Step. However, for each unmodified Hit Test result of 1 rolled for this Model's attacks in that Strike Step, the Model suffers a wound with an AP of 4 and a Damage of 1, allocated at the end of the Strike Step."
+      },
+      "wargear": [],
+      "gambits": [
+        {
+          "name": "Hysterical Onslaught",
+          "text": "When selecting a Gambit, the Controlling Player of a Model with the Frozen Stars Trait can select Hysterical Onslaught instead of any others available to that Model. If this Gambit is selected, the Model's Attacks Characteristic is modified by +2 for the duration of the following Strike Step. However, for each unmodified Hit Test result of 1 rolled for this Model's attacks in that Strike Step, the Model suffers a wound with an AP of 4 and a Damage of 1, allocated at the end of the Strike Step."
+        }
+      ],
+      "reactions": []
+    },
+    {
+      "name": "Midnight Sorrow",
+      "page": null,
+      "harbinger": {
+        "name": "Midnight Sorrow",
+        "text": "The Midnight Sorrow perform the Fall of the Aeldari, and carry its grief onto every battlefield. They do not flee from a fate they have already danced a thousand times.\n\nAll Models with the Midnight Sorrow Trait are subject to the following Special Rules:\n\nSorrow Unbowed\nWhenever a Unit that only includes Models with the Midnight Sorrow Trait would gain the Routed Tactical Status, it gains the Pinned Tactical Status instead. However, such a Unit may never have the Disengage or Fall Back aftermath options selected for it through The Great Dance Special Rule, and is not required to select them when it loses a Combat.\n\nMidnight Sorrow Prime Advantage\nIf a Unit that only includes Models with the Midnight Sorrow Trait is selected to fill a Prime Force Organisation Slot, the following Prime Advantage can be selected:\n\nHerald of the Fall\nAll Models in the Unit gain the Fear (1) Special Rule. When the last Model in the Unit is Removed as a Casualty, every enemy Unit with at least one Model within 12\" of that Model must make a Leadership Check. Any Unit that fails this Check gains the Routed Tactical Status."
+      },
+      "wargear": [],
+      "gambits": [],
+      "reactions": []
+    },
+    {
+      "name": "Veiled Path",
+      "page": null,
+      "harbinger": {
+        "name": "Veiled Path",
+        "text": "Masters of deception and misdirection, the players of the Veiled Path are never quite where the foe's guns are aimed.\n\nAll Models with the Veiled Path Trait are subject to the following Special Rules:\n\nCegorach's Veil\nModels with the Veiled Path Trait and a Holo-suit have the Shrouded (5+) Special Rule or, if they already have a variant of the Shrouded (X) Special Rule, improve its value by 1, to a maximum of Shrouded (4+). However, a Unit that includes any Models with the Veiled Path Trait that made a Shooting Attack in its Controlling Player's last Shooting Phase loses this benefit until the start of its Controlling Player's next turn.\n\nVeiled Path Gambit\nHall of Mirrors\nWhen selecting a Gambit, the Controlling Player of a Model with the Veiled Path Trait can select Hall of Mirrors instead of any others available to that Model. If this Gambit is selected, then in the following Strike Step, Hit Tests made for the opposing Model are only successful on a result of 5+, and Hit Tests made for this Model are only successful on a result of 4+, regardless of the Weapon Skill Characteristics of the Models involved."
+      },
+      "wargear": [],
+      "gambits": [
+        {
+          "name": "Hall of Mirrors",
+          "text": "When selecting a Gambit, the Controlling Player of a Model with the Veiled Path Trait can select Hall of Mirrors instead of any others available to that Model. If this Gambit is selected, then in the following Strike Step, Hit Tests made for the opposing Model are only successful on a result of 5+, and Hit Tests made for this Model are only successful on a result of 4+, regardless of the Weapon Skill Characteristics of the Models involved."
+        }
+      ],
+      "reactions": []
+    },
+    {
+      "name": "Silent Shroud",
+      "page": null,
+      "harbinger": {
+        "name": "Silent Shroud",
+        "text": "The Silent Shroud never speak, on stage or off. Their wordless performances leave audiences mute with dread long after the players have gone.\n\nAll Models with the Silent Shroud Trait are subject to the following Special Rules:\n\nMute Dread\nModels with the Silent Shroud Trait gain the Fear (1) Special Rule. If such a Model already has a variant of the Fear (X) Special Rule, increase its value of X by 1 instead, to a maximum of Fear (2). However, Models without the Silent Shroud Trait may never join a Unit that includes Models with the Silent Shroud Trait, and Models with the Silent Shroud Trait may never join a Unit that includes Models without it.\n\nSilent Shroud Advanced Reaction\nThe Controlling Player of any Units that only include Models with the Silent Shroud Trait can spend Reaction Points to make the following Advanced Reaction:\n\nThe Silent Scream\nTrigger: The Reactive Player may declare The Silent Scream Advanced Reaction at the end of Step 3 of the Charge process of any Charge declared by the Active Player that targets a Unit which only includes Models with the Silent Shroud Trait.\n\nCost: The Reactive Player must spend 1 point of their Reaction Allotment to declare The Silent Scream Advanced Reaction, this cost paid as soon as the declaration is made.\n\nTarget: The Target Unit is always the Unit whose Charge triggered the Reaction. The Reacting Unit is always the Unit that was declared as the target of the Charge that triggered this Reaction.\n\nProcess:\n1. Once this Reaction is declared, the Active Player must make a Leadership Check for the Target Unit, applying the negative modifier of the Reacting Unit's highest variant of the Fear (X) Special Rule even if it would not otherwise apply.\n2. If the Check is failed, the Charge fails, no Charge Move is made, and the Target Unit gains the Pinned Tactical Status. If the Check is passed, the Charge proceeds as normal."
+      },
+      "wargear": [],
+      "gambits": [],
+      "reactions": [
+        {
+          "name": "The Silent Scream",
+          "text": "Trigger: The Reactive Player may declare The Silent Scream Advanced Reaction at the end of Step 3 of the Charge process of any Charge declared by the Active Player that targets a Unit which only includes Models with the Silent Shroud Trait.\n\nCost: The Reactive Player must spend 1 point of their Reaction Allotment to declare The Silent Scream Advanced Reaction, this cost paid as soon as the declaration is made.\n\nTarget: The Target Unit is always the Unit whose Charge triggered the Reaction. The Reacting Unit is always the Unit that was declared as the target of the Charge that triggered this Reaction.\n\nProcess:\n1. Once this Reaction is declared, the Active Player must make a Leadership Check for the Target Unit, applying the negative modifier of the Reacting Unit's highest variant of the Fear (X) Special Rule even if it would not otherwise apply.\n2. If the Check is failed, the Charge fails, no Charge Move is made, and the Target Unit gains the Pinned Tactical Status. If the Check is passed, the Charge proceeds as normal."
+        }
+      ]
+    },
+    {
+      "name": "Soaring Spite",
+      "page": null,
+      "harbinger": {
+        "name": "Soaring Spite",
+        "text": "The Soaring Spite are famed for the speed of their Skyweavers and grav-skimmers, and for the contempt they show any foe who cannot keep pace.\n\nAll Models with the Soaring Spite Trait are subject to the following Special Rules:\n\nLords of the Upper Air\nModels with the Soaring Spite Trait and the Jink Trait modify their Movement Characteristic by +2. However, a Unit that includes any Models with the Soaring Spite Trait that Rushed in its Controlling Player's last Movement Phase may not Control or Contest Objectives until the start of its Controlling Player's next turn.\n\nSoaring Spite Advanced Reaction\nThe Controlling Player of any Units that only include Models with the Soaring Spite and Jink Traits can spend Reaction Points to make the following Advanced Reaction:\n\nSpite of the Skies\nTrigger: The Reactive Player may declare a Spite of the Skies Advanced Reaction in Step 2 of the Move Sub-Phase process, if an enemy Unit ends a move within 12\" and Line of Sight of a Unit under the Reactive Player's control that only includes Models with the Soaring Spite and Jink Traits.\n\nCost: The Reactive Player must spend 1 point of their Reaction Allotment to declare a Spite of the Skies Advanced Reaction, this cost paid as soon as the declaration is made.\n\nTarget: The Target Unit is always the Unit whose move triggered the Reaction. Once the cost has been paid, the Reactive Player must select one Unit under their control that only includes Models with the Soaring Spite and Jink Traits, is within 12\" and has Line of Sight to the Target Unit. That Unit is the Reacting Unit.\n\nProcess:\n1. Once the Target Unit has finished its move, the Reacting Unit makes a Shooting Attack targeting the Target Unit. All attacks made as part of this Shooting Attack are made as Snap Shots.\n2. Once the Shooting Attack has been resolved, each Model in the Reacting Unit may be moved up to 6\", but may not end this move within 1\" of any enemy Model."
+      },
+      "wargear": [],
+      "gambits": [],
+      "reactions": [
+        {
+          "name": "Spite of the Skies",
+          "text": "Trigger: The Reactive Player may declare a Spite of the Skies Advanced Reaction in Step 2 of the Move Sub-Phase process, if an enemy Unit ends a move within 12\" and Line of Sight of a Unit under the Reactive Player's control that only includes Models with the Soaring Spite and Jink Traits.\n\nCost: The Reactive Player must spend 1 point of their Reaction Allotment to declare a Spite of the Skies Advanced Reaction, this cost paid as soon as the declaration is made.\n\nTarget: The Target Unit is always the Unit whose move triggered the Reaction. Once the cost has been paid, the Reactive Player must select one Unit under their control that only includes Models with the Soaring Spite and Jink Traits, is within 12\" and has Line of Sight to the Target Unit. That Unit is the Reacting Unit.\n\nProcess:\n1. Once the Target Unit has finished its move, the Reacting Unit makes a Shooting Attack targeting the Target Unit. All attacks made as part of this Shooting Attack are made as Snap Shots.\n2. Once the Shooting Attack has been resolved, each Model in the Reacting Unit may be moved up to 6\", but may not end this move within 1\" of any enemy Model."
+        }
+      ]
+    },
+    {
+      "name": "Dreaming Shadow",
+      "page": null,
+      "harbinger": {
+        "name": "Dreaming Shadow",
+        "text": "The Dreaming Shadow are haunted by the souls of the Aeldari dead, and perform their tales as though already among them. They fight on long after other players would have fallen.\n\nAll Models with the Dreaming Shadow Trait are subject to the following Special Rules:\n\nEmbrace the End\nModels with the Dreaming Shadow Trait that do not have the Vehicle Type gain the Feel No Pain (6+) Special Rule. While a Unit that only includes Models with the Dreaming Shadow Trait has fewer than half of its starting number of Models, its Models modify their Attacks Characteristic by +1. However, Models with the Dreaming Shadow Trait modify their Cool Characteristic by -1.\n\nDreaming Shadow Prime Advantage\nIf a Unit that only includes Models with the Dreaming Shadow Trait and the Infantry or Cavalry Type is selected to fill a Prime Force Organisation Slot, the following Prime Advantage can be selected:\n\nDeath's Promise\nAll Models in the Unit gain the Eternal Warrior (1) Special Rule. If a Model already has a variant of the Eternal Warrior (X) Special Rule, increase its value of X by 1 instead, to a maximum of Eternal Warrior (2)."
+      },
+      "wargear": [],
+      "gambits": [],
+      "reactions": []
+    }
+  ],
+  "gambits": [
+    {
+      "name": "Hysterical Onslaught",
+      "page": null,
+      "text": "Frozen Stars Gambit. When selecting a Gambit, the Controlling Player of a Model with the Frozen Stars Trait can select Hysterical Onslaught instead of any others available to that Model. If this Gambit is selected, the Model's Attacks Characteristic is modified by +2 for the duration of the following Strike Step. However, for each unmodified Hit Test result of 1 rolled for this Model's attacks in that Strike Step, the Model suffers a wound with an AP of 4 and a Damage of 1, allocated at the end of the Strike Step."
+    },
+    {
+      "name": "Hall of Mirrors",
+      "page": null,
+      "text": "Veiled Path Gambit. When selecting a Gambit, the Controlling Player of a Model with the Veiled Path Trait can select Hall of Mirrors instead of any others available to that Model. If this Gambit is selected, then in the following Strike Step, Hit Tests made for the opposing Model are only successful on a result of 5+, and Hit Tests made for this Model are only successful on a result of 4+, regardless of the Weapon Skill Characteristics of the Models involved."
+    }
+  ],
+  "reactions": [
+    {
+      "name": "The Silent Scream",
+      "page": null,
+      "text": "Silent Shroud Advanced Reaction.\n\nTrigger: The Reactive Player may declare The Silent Scream Advanced Reaction at the end of Step 3 of the Charge process of any Charge declared by the Active Player that targets a Unit which only includes Models with the Silent Shroud Trait.\n\nCost: The Reactive Player must spend 1 point of their Reaction Allotment to declare The Silent Scream Advanced Reaction, this cost paid as soon as the declaration is made.\n\nTarget: The Target Unit is always the Unit whose Charge triggered the Reaction. The Reacting Unit is always the Unit that was declared as the target of the Charge that triggered this Reaction.\n\nProcess:\n1. Once this Reaction is declared, the Active Player must make a Leadership Check for the Target Unit, applying the negative modifier of the Reacting Unit's highest variant of the Fear (X) Special Rule even if it would not otherwise apply.\n2. If the Check is failed, the Charge fails, no Charge Move is made, and the Target Unit gains the Pinned Tactical Status. If the Check is passed, the Charge proceeds as normal."
+    },
+    {
+      "name": "Spite of the Skies",
+      "page": null,
+      "text": "Soaring Spite Advanced Reaction.\n\nTrigger: The Reactive Player may declare a Spite of the Skies Advanced Reaction in Step 2 of the Move Sub-Phase process, if an enemy Unit ends a move within 12\" and Line of Sight of a Unit under the Reactive Player's control that only includes Models with the Soaring Spite and Jink Traits.\n\nCost: The Reactive Player must spend 1 point of their Reaction Allotment to declare a Spite of the Skies Advanced Reaction, this cost paid as soon as the declaration is made.\n\nTarget: The Target Unit is always the Unit whose move triggered the Reaction. Once the cost has been paid, the Reactive Player must select one Unit under their control that only includes Models with the Soaring Spite and Jink Traits, is within 12\" and has Line of Sight to the Target Unit. That Unit is the Reacting Unit.\n\nProcess:\n1. Once the Target Unit has finished its move, the Reacting Unit makes a Shooting Attack targeting the Target Unit. All attacks made as part of this Shooting Attack are made as Snap Shots.\n2. Once the Shooting Attack has been resolved, each Model in the Reacting Unit may be moved up to 6\", but may not end this move within 1\" of any enemy Model."
+    }
+  ]
+}

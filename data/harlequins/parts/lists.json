@@ -1,0 +1,122 @@
+{
+  "lists": [
+    {
+      "id": "harlequin-melee",
+      "name": "Harlequin Melee Weapons List",
+      "page": null,
+      "items": [
+        {
+          "name": "Harlequin's Caress",
+          "points": 5
+        },
+        {
+          "name": "Harlequin's Embrace",
+          "points": 5
+        },
+        {
+          "name": "Harlequin's Kiss",
+          "points": 5
+        }
+      ]
+    },
+    {
+      "id": "harlequin-pistols",
+      "name": "Harlequin Pistols List",
+      "page": null,
+      "items": [
+        {
+          "name": "Shuriken Pistol",
+          "points": 0
+        },
+        {
+          "name": "Neuro Disruptor",
+          "points": 10
+        },
+        {
+          "name": "Fusion Pistol",
+          "points": 10
+        }
+      ]
+    },
+    {
+      "id": "masque-leader-weapons",
+      "name": "Masque Leader Weapons List",
+      "page": null,
+      "items": [
+        {
+          "name": "Harlequin's Caress",
+          "points": 10
+        },
+        {
+          "name": "Harlequin's Embrace",
+          "points": 10
+        },
+        {
+          "name": "Harlequin's Kiss",
+          "points": 10
+        },
+        {
+          "name": "Power Sword",
+          "points": 5
+        },
+        {
+          "name": "The Twilight Blade",
+          "points": 25,
+          "oncePerArmy": true
+        }
+      ]
+    },
+    {
+      "id": "masque-leader-pistols",
+      "name": "Masque Leader Pistols List",
+      "page": null,
+      "items": [
+        {
+          "name": "Shuriken Pistol",
+          "points": 0
+        },
+        {
+          "name": "Neuro Disruptor",
+          "points": 10
+        },
+        {
+          "name": "Fusion Pistol",
+          "points": 10
+        },
+        {
+          "name": "Crescendo",
+          "points": 15,
+          "oncePerArmy": true
+        }
+      ]
+    },
+    {
+      "id": "enigmas-of-the-black-library",
+      "name": "Enigmas of the Black Library",
+      "page": null,
+      "note": "Each item may be selected only once per army.",
+      "items": [
+        {
+          "name": "Cegorach's Rose",
+          "points": 20,
+          "oncePerArmy": true
+        },
+        {
+          "name": "The Laughing God's Eye",
+          "points": 15,
+          "oncePerArmy": true
+        },
+        {
+          "name": "The Mask of Secrets",
+          "points": 20,
+          "oncePerArmy": true
+        },
+        {
+          "name": "Starmist Raiment",
+          "points": 25,
+          "oncePerArmy": true
+        }
+      ]
+    }
+  ]
+}

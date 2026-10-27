@@ -1,0 +1,1165 @@
+{
+  "units": [
+    {
+      "id": "vaelith-duskmirror",
+      "name": "Vaelith Duskmirror, the Laughing Lord",
+      "role": "Warlord",
+      "page": null,
+      "limit": null,
+      "unique": true,
+      "basePoints": 375,
+      "composition": "1 Vaelith",
+      "models": [
+        {
+          "name": "Vaelith",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 9,
+            "WS": 8,
+            "BS": 7,
+            "S": 4,
+            "T": 3,
+            "W": 6,
+            "I": 10,
+            "A": 6,
+            "LD": 10,
+            "CL": 10,
+            "WP": 10,
+            "IN": 9,
+            "SAV": "5+",
+            "INV": "4+"
+          },
+          "wargear": [
+            "The Rhapsody",
+            "Fusion Pistol",
+            "Holo-suit",
+            "Domino Field",
+            "Flip Belt",
+            "Plasma Grenades"
+          ],
+          "unitType": "Paragon (Command, Unique)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Harlequin",
+        "Masque Leader"
+      ],
+      "specialRules": [
+        "Eternal Warrior (1)",
+        "Fast (2)",
+        "Dodge (2+)",
+        "The Great Dance",
+        "Lord of the Masque",
+        "The Endless Encore"
+      ],
+      "unitRules": [
+        {
+          "name": "Lord of the Masque",
+          "text": "Once per Player Turn, when the Controlling Player declares an Advanced Reaction from the Harlequin Army List for a Unit that has at least one Model within 12\" of Vaelith (including Vaelith's own Unit), that Advanced Reaction costs no points from their Reaction Allotment. This does not allow a Unit to make more than one Reaction in the same Player Turn."
+        },
+        {
+          "name": "The Endless Encore",
+          "text": "The first time in a battle that Vaelith would be Removed as a Casualty, roll a Dice. On a result of 4+, he is not Removed as a Casualty; instead he is removed from the Battlefield and placed in Reserves with 1 Wound remaining. He may enter play from Reserves as normal in a later turn, using the Deep Strike Special Rule even though he does not have it. If he was part of a Unit, the rest of that Unit remains on the Battlefield."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": true,
+      "options": [],
+      "note": "An original character written for this army list. The Great Harlequin who has led more masques than any living player can remember; he takes the Masque Trait of the army he leads."
+    },
+    {
+      "id": "great-harlequin",
+      "name": "Great Harlequin",
+      "role": "High Command",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 150,
+      "composition": "1 Great Harlequin",
+      "models": [
+        {
+          "name": "Great Harlequin",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 8,
+            "WS": 7,
+            "BS": 6,
+            "S": 3,
+            "T": 3,
+            "W": 4,
+            "I": 9,
+            "A": 6,
+            "LD": 10,
+            "CL": 10,
+            "WP": 9,
+            "IN": 9,
+            "SAV": "6+",
+            "INV": "4+"
+          },
+          "wargear": [
+            "Harlequin's Blade",
+            "Shuriken Pistol",
+            "Holo-suit",
+            "Flip Belt",
+            "Plasma Grenades"
+          ],
+          "unitType": "Infantry (Command, Light)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Harlequin",
+        "Masque Leader"
+      ],
+      "specialRules": [
+        "Fast (2)",
+        "Dodge (3+)",
+        "The Great Dance",
+        "Choreographer",
+        "Master of the Performance"
+      ],
+      "unitRules": [
+        {
+          "name": "Choreographer",
+          "text": "If a Model with this Special Rule has joined a Unit, all Models in that Unit gain the Lightning Blows Special Rule."
+        },
+        {
+          "name": "Master of the Performance",
+          "text": "Once per battle, at the start of any Phase, the Controlling Player of a Model with this Special Rule may gain one additional Reaction Point. If that point has not been spent by the end of that Phase, it is lost."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": true,
+      "options": [
+        {
+          "id": "melee",
+          "text": "May have its Harlequin's Blade exchanged for an item from the Masque Leader Weapons List.",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Harlequin's Blade"
+          ],
+          "choices": [
+            {
+              "list": "masque-leader-weapons"
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "pistol",
+          "text": "May have its Shuriken Pistol exchanged for an item from the Masque Leader Pistols List.",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Shuriken Pistol"
+          ],
+          "choices": [
+            {
+              "list": "masque-leader-pistols"
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "domino-field",
+          "text": "May have a Domino Field selected for it for +15 points.",
+          "kind": "upgrade",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Domino Field",
+              "points": 15
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "enigma",
+          "text": "May have one item from the Enigmas of the Black Library selected for it.",
+          "kind": "one",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "list": "enigmas-of-the-black-library"
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "sylandri-veilwalker",
+      "name": "Sylandri Veilwalker",
+      "role": "High Command",
+      "page": null,
+      "limit": null,
+      "unique": true,
+      "basePoints": 180,
+      "composition": "1 Sylandri",
+      "models": [
+        {
+          "name": "Sylandri",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 8,
+            "WS": 6,
+            "BS": 6,
+            "S": 3,
+            "T": 3,
+            "W": 4,
+            "I": 8,
+            "A": 4,
+            "LD": 10,
+            "CL": 10,
+            "WP": 11,
+            "IN": 10,
+            "SAV": "6+",
+            "INV": "4+"
+          },
+          "wargear": [
+            "Miststave",
+            "Shuriken Pistol",
+            "Hallucinogen Grenade Launcher",
+            "Holo-suit",
+            "Flip Belt",
+            "Plasma Grenades"
+          ],
+          "unitType": "Infantry (Command, Light, Unique)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Harlequin",
+        "Psyker"
+      ],
+      "specialRules": [
+        "Fast (2)",
+        "Dodge (3+)",
+        "The Great Dance",
+        "Veil of Tears",
+        "Mistress of the Veiled Path",
+        "Path Through Shadows"
+      ],
+      "unitRules": [
+        {
+          "name": "Mistress of the Veiled Path",
+          "text": "Sylandri's Veil of Tears applies to Shooting Attacks whose closest attacking Model is more than 6\" from the Target Unit (instead of 12\"), and the Willpower Check it calls for is made with a -1 modifier."
+        },
+        {
+          "name": "Path Through Shadows",
+          "text": "Once per battle, at the start of her Controlling Player's Movement Phase, Sylandri and any Unit she has joined may be removed from the Battlefield and set up again anywhere wholly within 18\" of their previous position and more than 6\" from any enemy Model. They count as having moved, and may not Rush or have a Charge declared for them in the same turn. They may not do so while Locked in Combat or Embarked."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "fixedChoice": "Veiled Path",
+      "options": [],
+      "note": "Shadowseer of the Veiled Path. Her rules here are written for this army list."
+    },
+    {
+      "id": "troupe-master",
+      "name": "Troupe Master",
+      "role": "Command",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 100,
+      "composition": "1 Troupe Master",
+      "models": [
+        {
+          "name": "Troupe Master",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 8,
+            "WS": 7,
+            "BS": 6,
+            "S": 3,
+            "T": 3,
+            "W": 3,
+            "I": 8,
+            "A": 4,
+            "LD": 9,
+            "CL": 9,
+            "WP": 8,
+            "IN": 8,
+            "SAV": "6+",
+            "INV": "4+"
+          },
+          "wargear": [
+            "Harlequin's Blade",
+            "Shuriken Pistol",
+            "Holo-suit",
+            "Flip Belt",
+            "Plasma Grenades"
+          ],
+          "unitType": "Infantry (Command, Light)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Harlequin"
+      ],
+      "specialRules": [
+        "Fast (2)",
+        "Dodge (3+)",
+        "The Great Dance",
+        "Choreographer"
+      ],
+      "unitRules": [
+        {
+          "name": "Choreographer",
+          "text": "If a Model with this Special Rule has joined a Unit, all Models in that Unit gain the Lightning Blows Special Rule."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": true,
+      "options": [
+        {
+          "id": "melee",
+          "text": "May have its Harlequin's Blade exchanged for an item from the Masque Leader Weapons List.",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Harlequin's Blade"
+          ],
+          "choices": [
+            {
+              "list": "masque-leader-weapons"
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "pistol",
+          "text": "May have its Shuriken Pistol exchanged for an item from the Masque Leader Pistols List.",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Shuriken Pistol"
+          ],
+          "choices": [
+            {
+              "list": "masque-leader-pistols"
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "domino-field",
+          "text": "May have a Domino Field selected for it for +15 points.",
+          "kind": "upgrade",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Domino Field",
+              "points": 15
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "enigma",
+          "text": "May have one item from the Enigmas of the Black Library selected for it.",
+          "kind": "one",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "list": "enigmas-of-the-black-library"
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "troupe-master-skyweaver",
+      "name": "Troupe Master on Skyweaver",
+      "role": "Command",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 150,
+      "composition": "1 Skyweaver Troupe Master",
+      "models": [
+        {
+          "name": "Skyweaver Troupe Master",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 18,
+            "WS": 7,
+            "BS": 6,
+            "S": 3,
+            "T": 4,
+            "W": 4,
+            "I": 8,
+            "A": 4,
+            "LD": 9,
+            "CL": 9,
+            "WP": 8,
+            "IN": 8,
+            "SAV": "4+",
+            "INV": "4+"
+          },
+          "wargear": [
+            "Harlequin's Blade",
+            "Shuriken Cannon",
+            "Star Bolas",
+            "Holo-suit"
+          ],
+          "unitType": "Cavalry (Antigrav, Command, Light)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Harlequin",
+        "Jink"
+      ],
+      "specialRules": [
+        "Bulky (3)",
+        "Deep Strike",
+        "Outflank",
+        "Fast (2)",
+        "Firing Protocols (2)",
+        "Implacable Advance",
+        "Dodge (4+)",
+        "The Great Dance",
+        "Choreographer"
+      ],
+      "unitRules": [
+        {
+          "name": "Choreographer",
+          "text": "If a Model with this Special Rule has joined a Unit, all Models in that Unit gain the Lightning Blows Special Rule."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": true,
+      "options": [
+        {
+          "id": "melee",
+          "text": "May have its Harlequin's Blade exchanged for an item from the Masque Leader Weapons List.",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Harlequin's Blade"
+          ],
+          "choices": [
+            {
+              "list": "masque-leader-weapons"
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "cannon",
+          "text": "May have its Shuriken Cannon exchanged for a Haywire Cannon for +5 points.",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Shuriken Cannon"
+          ],
+          "choices": [
+            {
+              "name": "Haywire Cannon",
+              "points": 5
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "bolas",
+          "text": "May have its Star Bolas exchanged for a Zephyrglaive for free.",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Star Bolas"
+          ],
+          "choices": [
+            {
+              "name": "Zephyrglaive",
+              "points": 0
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "enigma",
+          "text": "May have one item from the Enigmas of the Black Library selected for it.",
+          "kind": "one",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "list": "enigmas-of-the-black-library"
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "shadowseer",
+      "name": "Shadowseer",
+      "role": "Command",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 110,
+      "composition": "1 Shadowseer",
+      "models": [
+        {
+          "name": "Shadowseer",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 8,
+            "WS": 6,
+            "BS": 6,
+            "S": 3,
+            "T": 3,
+            "W": 3,
+            "I": 8,
+            "A": 3,
+            "LD": 9,
+            "CL": 9,
+            "WP": 10,
+            "IN": 9,
+            "SAV": "6+",
+            "INV": "4+"
+          },
+          "wargear": [
+            "Miststave",
+            "Shuriken Pistol",
+            "Hallucinogen Grenade Launcher",
+            "Holo-suit",
+            "Flip Belt",
+            "Plasma Grenades"
+          ],
+          "unitType": "Infantry (Command, Light)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Harlequin",
+        "Psyker"
+      ],
+      "specialRules": [
+        "Fast (2)",
+        "Dodge (3+)",
+        "The Great Dance",
+        "Veil of Tears"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": true,
+      "options": [
+        {
+          "id": "pistol",
+          "text": "May have its Shuriken Pistol exchanged for an item from the Harlequin Pistols List.",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Shuriken Pistol"
+          ],
+          "choices": [
+            {
+              "list": "harlequin-pistols"
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "enigma",
+          "text": "May have one item from the Enigmas of the Black Library selected for it.",
+          "kind": "one",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "list": "enigmas-of-the-black-library"
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "masque-court",
+      "name": "Masque Court",
+      "role": "Retinue",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 135,
+      "composition": "3 Court Players",
+      "models": [
+        {
+          "name": "Court Player",
+          "min": 3,
+          "max": 8,
+          "costPerExtra": 45,
+          "profile": {
+            "M": 8,
+            "WS": 7,
+            "BS": 5,
+            "S": 3,
+            "T": 3,
+            "W": 2,
+            "I": 8,
+            "A": 4,
+            "LD": 9,
+            "CL": 10,
+            "WP": 8,
+            "IN": 8,
+            "SAV": "6+",
+            "INV": "4+"
+          },
+          "wargear": [
+            "Harlequin's Blade",
+            "Shuriken Pistol",
+            "Holo-suit",
+            "Flip Belt",
+            "Plasma Grenades"
+          ],
+          "unitType": "Infantry (Champion, Light)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Harlequin"
+      ],
+      "specialRules": [
+        "Fast (2)",
+        "Dodge (3+)",
+        "The Great Dance",
+        "Honour Guard of the Masque"
+      ],
+      "unitRules": [
+        {
+          "name": "Honour Guard of the Masque",
+          "text": "When an enemy Model issues a Challenge to a Unit that includes Models with this Special Rule and a Model with the Command Sub-Type that has joined it, the Controlling Player may have a Model with this Special Rule Accept the Challenge in place of that Model. A Model that does so gains a +1 modifier to its Focus Rolls for the duration of that Challenge."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": true,
+      "options": [
+        {
+          "id": "melee",
+          "text": "Any Model in this Unit may have its Harlequin's Blade exchanged for an item from the Harlequin Melee Weapons List.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [
+            "Harlequin's Blade"
+          ],
+          "choices": [
+            {
+              "list": "harlequin-melee"
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "pistol",
+          "text": "Any Model in this Unit may have its Shuriken Pistol exchanged for an item from the Harlequin Pistols List.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [
+            "Shuriken Pistol"
+          ],
+          "choices": [
+            {
+              "list": "harlequin-pistols"
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "solitaire",
+      "name": "Solitaire",
+      "role": "Elites",
+      "page": null,
+      "limit": "0-1",
+      "unique": false,
+      "basePoints": 190,
+      "composition": "1 Solitaire",
+      "models": [
+        {
+          "name": "Solitaire",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 12,
+            "WS": 8,
+            "BS": 6,
+            "S": 4,
+            "T": 3,
+            "W": 4,
+            "I": 10,
+            "A": 7,
+            "LD": 10,
+            "CL": 10,
+            "WP": 9,
+            "IN": 8,
+            "SAV": "6+",
+            "INV": "4+"
+          },
+          "wargear": [
+            "Harlequin's Kiss",
+            "Harlequin's Caress",
+            "Holo-suit",
+            "Flip Belt",
+            "Plasma Grenades"
+          ],
+          "unitType": "Infantry (Champion, Light)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Harlequin"
+      ],
+      "specialRules": [
+        "Fast (3)",
+        "Dodge (2+)",
+        "Shrouded (4+)",
+        "Fear (1)",
+        "Heedless",
+        "Vanguard (2)",
+        "The Great Dance",
+        "The Lonely Path",
+        "Blitz",
+        "Impossible Form",
+        "Twin Blades"
+      ],
+      "unitRules": [
+        {
+          "name": "The Lonely Path",
+          "text": "The Solitaire walks the Path of Damnation alone, and even other Harlequins keep their distance. A Model with this Special Rule may never join a Unit, and no Model may join its Unit. It has no Masque Trait: it is not affected by any Masque's Special Rules, and it is ignored when checking that every Unit in a Detachment shares one Masque."
+        },
+        {
+          "name": "Blitz",
+          "text": "Once per battle, at the start of its Controlling Player's Movement Phase, the Solitaire may Blitz. Until the end of that turn it modifies its Movement Characteristic by +2D6 (roll once when the Blitz is declared) and its Attacks Characteristic by +3."
+        },
+        {
+          "name": "Impossible Form",
+          "text": "The Solitaire has the Shrouded (4+) Special Rule, and its Characteristics other than Wounds can never be reduced below their Base Values by enemy Rules or Special Rules."
+        },
+        {
+          "name": "Twin Blades",
+          "text": "When the Solitaire makes Melee Attacks, its Controlling Player may split its Attacks between its Harlequin's Kiss and its Harlequin's Caress, declaring how many Attacks are made with each before any Hit Tests are made."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "options": [
+        {
+          "id": "enigma",
+          "text": "May have one item from the Enigmas of the Black Library selected for it.",
+          "kind": "one",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "list": "enigmas-of-the-black-library"
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "A Solitaire has no Masque, so it never picks one and it can sit in any Masque's Detachment."
+    },
+    {
+      "id": "harlequin-troupe",
+      "name": "Harlequin Troupe",
+      "role": "Troops",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 190,
+      "composition": "4 Players and 1 Lead Player",
+      "models": [
+        {
+          "name": "Player",
+          "min": 4,
+          "max": 11,
+          "costPerExtra": 36,
+          "profile": {
+            "M": 8,
+            "WS": 6,
+            "BS": 5,
+            "S": 3,
+            "T": 3,
+            "W": 2,
+            "I": 7,
+            "A": 4,
+            "LD": 9,
+            "CL": 9,
+            "WP": 8,
+            "IN": 8,
+            "SAV": "6+",
+            "INV": "4+"
+          },
+          "wargear": [
+            "Harlequin's Blade",
+            "Shuriken Pistol",
+            "Holo-suit",
+            "Flip Belt",
+            "Plasma Grenades"
+          ],
+          "unitType": "Infantry (Light)",
+          "specialRules": []
+        },
+        {
+          "name": "Lead Player",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 8,
+            "WS": 6,
+            "BS": 5,
+            "S": 3,
+            "T": 3,
+            "W": 2,
+            "I": 7,
+            "A": 5,
+            "LD": 10,
+            "CL": 9,
+            "WP": 8,
+            "IN": 8,
+            "SAV": "6+",
+            "INV": "4+"
+          },
+          "wargear": [
+            "Harlequin's Blade",
+            "Shuriken Pistol",
+            "Holo-suit",
+            "Flip Belt",
+            "Plasma Grenades"
+          ],
+          "unitType": "Infantry (Light, Sergeant)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Harlequin"
+      ],
+      "specialRules": [
+        "Fast (2)",
+        "Dodge (3+)",
+        "Vanguard (2)",
+        "The Great Dance"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": true,
+      "options": [
+        {
+          "id": "melee",
+          "text": "Any Model in this Unit may have its Harlequin's Blade exchanged for an item from the Harlequin Melee Weapons List.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [
+            "Harlequin's Blade"
+          ],
+          "choices": [
+            {
+              "list": "harlequin-melee"
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "pistol",
+          "text": "For every 5 Models in this Unit, up to two Models may have their Shuriken Pistol exchanged for an item from the Harlequin Pistols List.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [
+            "Shuriken Pistol"
+          ],
+          "choices": [
+            {
+              "list": "harlequin-pistols"
+            }
+          ],
+          "max": {
+            "per": 5,
+            "count": 2
+          },
+          "requires": null
+        },
+        {
+          "id": "lead-sword",
+          "text": "The Lead Player may have its Harlequin's Blade exchanged for a Power Sword for +5 points.",
+          "kind": "one",
+          "model": "Lead Player",
+          "replaces": [
+            "Harlequin's Blade"
+          ],
+          "choices": [
+            {
+              "name": "Power Sword",
+              "points": 5
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "id": "mimes",
+      "name": "Mimes",
+      "role": "Recon",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 100,
+      "composition": "4 Mimes and 1 Lead Mime",
+      "models": [
+        {
+          "name": "Mime",
+          "min": 4,
+          "max": 9,
+          "costPerExtra": 20,
+          "profile": {
+            "M": 8,
+            "WS": 5,
+            "BS": 5,
+            "S": 3,
+            "T": 3,
+            "W": 1,
+            "I": 7,
+            "A": 2,
+            "LD": 8,
+            "CL": 9,
+            "WP": 9,
+            "IN": 8,
+            "SAV": "6+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Mime's Blade",
+            "Shuriken Pistol",
+            "Flip Belt",
+            "Plasma Grenades"
+          ],
+          "unitType": "Infantry (Light, Skirmish)",
+          "specialRules": []
+        },
+        {
+          "name": "Lead Mime",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 8,
+            "WS": 5,
+            "BS": 5,
+            "S": 3,
+            "T": 3,
+            "W": 1,
+            "I": 7,
+            "A": 3,
+            "LD": 9,
+            "CL": 9,
+            "WP": 9,
+            "IN": 8,
+            "SAV": "6+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Mime's Blade",
+            "Shuriken Pistol",
+            "Flip Belt",
+            "Plasma Grenades"
+          ],
+          "unitType": "Infantry (Light, Sergeant, Skirmish)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Harlequin"
+      ],
+      "specialRules": [
+        "Infiltrate (9)",
+        "Shrouded (4+)",
+        "Fast (2)",
+        "Dodge (4+)",
+        "Fear (1)",
+        "Vanguard (1)",
+        "The Great Dance"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": true,
+      "options": [
+        {
+          "id": "neuro",
+          "text": "For every 5 Models in this Unit, one Model may have its Shuriken Pistol exchanged for a Neuro Disruptor for +5 points.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [
+            "Shuriken Pistol"
+          ],
+          "choices": [
+            {
+              "name": "Neuro Disruptor",
+              "points": 5
+            }
+          ],
+          "max": {
+            "per": 5,
+            "count": 1
+          },
+          "requires": null
+        }
+      ],
+      "note": "Silent infiltrators from the oldest Harlequin repertoire. They wear no holo-suit, and rely on never being seen."
+    },
+    {
+      "id": "death-jester",
+      "name": "Death Jester",
+      "role": "Support",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 110,
+      "composition": "1 Death Jester",
+      "models": [
+        {
+          "name": "Death Jester",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 8,
+            "WS": 6,
+            "BS": 7,
+            "S": 3,
+            "T": 3,
+            "W": 3,
+            "I": 7,
+            "A": 3,
+            "LD": 10,
+            "CL": 10,
+            "WP": 9,
+            "IN": 8,
+            "SAV": "6+",
+            "INV": "4+"
+          },
+          "wargear": [
+            "Shrieker Cannon",
+            "Harlequin's Blade",
+            "Holo-suit",
+            "Flip Belt",
+            "Plasma Grenades"
+          ],
+          "unitType": "Infantry (Champion, Light)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Harlequin"
+      ],
+      "specialRules": [
+        "Fast (2)",
+        "Dodge (3+)",
+        "The Great Dance",
+        "Death is Not Enough",
+        "Cruel Amusement"
+      ],
+      "unitRules": [
+        {
+          "name": "Death is Not Enough",
+          "text": "If a Shooting Attack made by a Model with this Special Rule causes one or more Models in the Target Unit to be Removed as Casualties, that Unit must make a Leadership Check with a -2 modifier in the Morale Sub-Phase of the same Player Turn. If the Check is failed, the Unit gains the Routed Tactical Status."
+        },
+        {
+          "name": "Cruel Amusement",
+          "text": "Each time a Model with this Special Rule makes a Shooting Attack, its Controlling Player chooses one of the following for its Shrieker Cannon until that Shooting Attack has been resolved:\n• The Shrieker Cannon gains the Precision (5+) Special Rule.\n• Cover Saves may not be taken against wounds inflicted by the Shrieker Cannon.\n• The Firepower Characteristic of the Shrieker Cannon's Shrieker profile is modified by +1."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": true,
+      "options": [
+        {
+          "id": "enigma",
+          "text": "May have one item from the Enigmas of the Black Library selected for it.",
+          "kind": "one",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "list": "enigmas-of-the-black-library"
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": null
+    }
+  ]
+}
