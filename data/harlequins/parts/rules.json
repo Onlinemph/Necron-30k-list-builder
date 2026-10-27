@@ -3,7 +3,7 @@
     {
       "name": "The Great Dance",
       "page": null,
-      "text": "The Harlequins fight as they perform: a blur of colour that is never quite where the blow lands, darting in to kill and flipping away before the foe can answer.\n\nRising Crescendo: A Unit that only includes Models with this Special Rule and the Infantry Type may have a Charge declared for it in a turn in which it Rushed. It may not make Volley Attacks as part of that Charge.\n\nExit, Pursued: A Unit that only includes Models with this Special Rule may always have the Disengage aftermath option selected for it in Step 4 of the Resolution Sub-Phase of the Assault Phase, regardless of which Player won the Combat. When such a Unit makes a Disengage move, its Models may move through enemy Models, but must end that move more than 1\" away from all enemy Models.\n\nHowever, a Unit that only includes Models with this Special Rule that has lost a Combat must have either the Disengage or the Fall Back aftermath option selected for it if it is able to. The Harlequins do not stand and grind against a foe that has taken their measure."
+      "text": "The Harlequins fight as they perform: a blur of colour that is never quite where the blow lands, darting in to kill and flipping away before the foe can answer.\n\nRising Crescendo: From the second battle turn onwards, a Unit that only includes Models with this Special Rule and the Infantry Type may have a Charge declared for it in a turn in which it Rushed. It may not make Volley Attacks as part of that Charge.\n\nExit, Pursued: A Unit that only includes Models with this Special Rule may always have the Disengage aftermath option selected for it in Step 4 of the Resolution Sub-Phase of the Assault Phase, regardless of which Player won the Combat. When such a Unit makes a Disengage move, its Models may move through enemy Models, but must end that move more than 1\" away from all enemy Models.\n\nHowever, a Unit that only includes Models with this Special Rule that has lost a Combat must have either the Disengage or the Fall Back aftermath option selected for it if it is able to. The Harlequins do not stand and grind against a foe that has taken their measure."
     },
     {
       "name": "Dodge (X)",
@@ -14,6 +14,26 @@
       "name": "Phase Field (X)",
       "page": null,
       "text": "The phase field of a Harlequin's Caress lets the wearer's hand pass through armour and energy fields alike.\n\nWhen making Wound Tests for Hits that have the Phase Field (X) Special Rule, if the result of the Dice rolled is equal to or greater than the value of X attached to the specific variant of this Special Rule, then Invulnerable Saving Throws may not be made against that wound."
+    },
+    {
+      "page": null,
+      "name": "Kiss of Death",
+      "text": "The Harlequin's Kiss drives a hair-thin monofilament wire into its victim, where it uncoils and lashes about, reducing bone and organ to pulp.\n\nWhen a Model makes Melee Attacks with a Weapon that has this Special Rule, one of its Attacks is a Kiss of Death Attack, which is rolled separately. A Kiss of Death Attack is resolved at Strength 6, AP 2 and Damage 2, and has the Murderous (6+) Special Rule."
+    },
+    {
+      "page": null,
+      "name": "Embrace of Death",
+      "text": "The Harlequin's Embrace looses a cloud of monofilament wire the instant before its wearer strikes, binding and slicing the foe.\n\nWhen a Unit that includes a Model equipped with a Weapon that has this Special Rule makes a successful Charge, that Model inflicts D3 automatic Hits on one enemy Unit it is in base contact with, at the start of the Fight Sub-Phase and before any Initiative Step is resolved. These Hits are resolved at Strength 6, AP 4 and Damage 1, and are allocated as though they were Melee Attacks."
+    },
+    {
+      "page": null,
+      "name": "Hallucinogenic",
+      "text": "If a Unit fails the Cool Check called for by the Pinning (X) Special Rule of a Weapon that has this Special Rule, then in addition to gaining the Pinned Tactical Status, it suffers one wound with an AP of 2 and a Damage of 1, against which Cover Saves may not be taken. Its Controlling Player allocates that wound."
+    },
+    {
+      "page": null,
+      "name": "Quickfire",
+      "text": "A Model making a Shooting Attack with a Weapon that has this Special Rule makes a number of attacks with it equal to its Attacks Characteristic, instead of the Weapon's Firepower Characteristic. All of these attacks must target the same Unit."
     },
     {
       "name": "Veil of Tears",

@@ -11,8 +11,8 @@ differ through those rather than through statlines alone. Rules come with a cost
 Heedless). The Harlequins get the same set:
 
 - **Traits**: Xenos (replaces Allegiance, as in the other fan codexes), Harlequin, [Masque], Masque Leader, Jink, Psyker.
-- **Tactica, The Great Dance**: Rising Crescendo (charge after a Rush, the Harlequin army rule from 7th to 9th edition),
-  and Disengage from any combat. The cost: a Harlequin unit that loses a combat must leave it.
+- **Tactica, The Great Dance**: Rising Crescendo (Run and Charge from the second turn, the 7th edition rule) and Disengage
+  from any combat (the 2nd edition "flip out of combat"). The cost: a Harlequin unit that loses a combat must leave it.
 - **Advanced Reactions**: Shadow Dance (shooting) and The Laughing God's Riposte (charges).
 - **Gambit**: Cegorach's Jest. **Prime Advantage**: Webway Strike. **Additional Reaction Point** with a Masque Leader in
   the Primary Detachment, as the Drukhari get one for Rulers of the Dark City.
@@ -34,59 +34,74 @@ Heedless). The Harlequins get the same set:
 - **Detachments unlocked by a Command model of the right Masque**, like the Kabalite Strike Force: one Auxiliary per
   Masque, three open Auxiliaries, and two Apex Detachments (The Great Masque; Weaver Constellation with a required
   Prime Advantage, like the Drukhari Titan Hunters). Auxiliary and Apex Detachments share one Masque
-  (`sameInDetachment`, as for Ork clans); the Solitaire has no Masque and is ignored.
-- **Wargear lists** with once-per-army relics (the Enigmas of the Black Library), like the Haemonculus Arcana.
+  (`sameInDetachment`, as for Ork clans); the Solitaire has none.
+- **Wargear lists** with once-per-army relics, the Enigmas of the Black Library, like the Haemonculus Arcana.
 - **Every Force Organisation role a Harlequin army plausibly fills**, filled with invented-but-plausible units where the
-  40k range has none, as the Drukhari codex does with the Rampage, Demilune or Raven Lord: the Webweaver, Prismweaver,
-  Dreamweaver, Masque Court, Troupe Master on Skyweaver and Mimes (a Rogue Trader-era role) are written for this list.
-  So are Vaelith Duskmirror and the rules for Sylandri Veilwalker.
+  Games Workshop range has none, as the Drukhari codex does with the Rampage, Demilune or Raven Lord: the Webweaver,
+  Prismweaver, Dreamweaver, Masque Court and Troupe Master on Skyweaver are written for this list, Mimes are a Rogue
+  Trader-era role, and so are Vaelith Duskmirror and the rules for Sylandri Veilwalker.
 
 ## Individually as strong as Custodes, in their own way
 
 Harlequins are priced so a model is worth about what a Custodian is, but they get there differently. Custodes are T5,
-2+ armour and Eternal Warrior; Harlequins are T3 with a 6+ armour save, and rely on a 4+ invulnerable holo-suit,
-Dodge (3+) in combat and against Reactions, Initiative 7 to 10 so they strike first, M8 with flip belts and Rising
-Crescendo, and the Shadow Dance and Veil of Tears to avoid being shot at all.
+2+ armour and Eternal Warrior. Harlequins are T3 with a 6+ armour save, and rely on a 4+ invulnerable holo-suit,
+Dodge (3+) in combat and against Reactions, Initiative 7 to 10 so they strike first, five attacks a Player (the 10th
+edition blade), M8 with flip belts and Rising Crescendo, and Shadow Dance and Veil of Tears to avoid being shot at all.
 
-Checked with `scripts/balance-sim.cjs --rank` against Legio Custodes (extended in a scratch copy to model Dodge and
-Phase Field). Value per 100 points, summed over shooting and melee against Legionaries, Terminators and a Predator, and
-durability against bolters, lascannons and power axes:
+Checked with `scripts/balance-sim.cjs --rank` against Legio Custodes, in a scratch copy that also models Dodge, Phase
+Field, the Kiss of Death attack and the Embrace's charge hits. Value per 100 points, summed over shooting and melee
+against Legionaries, Terminators and a Predator, and durability against bolters, lascannons and power axes:
 
-| Unit | Points | Value / 100 pts | Notes |
-| --- | --- | --- | --- |
-| Custodian Guard (6) | 270 | 6.26 | |
-| Harlequin Troupe (5), Caresses | 215 | 6.06 | melee about equal per point; per point, a sixth as tough against bolters and 1.7 times as tough against lascannons |
-| Harlequin Troupe (5), blades | 190 | 4.07 | the cheap loadout; struggles against 3+ armour |
-| Constantin Valdor | 400 | 2.93 | |
-| Vaelith Duskmirror | 375 | 2.88 | |
-| Tribune | 250 | 3.10 | |
-| Solitaire | 190 | 3.66 | before Blitz |
+| Unit | Points | Value / 100 pts |
+| --- | --- | --- |
+| Custodian Guard (6) | 270 | 6.26 |
+| Harlequin Troupe (5), Caresses | 200 | 5.63 |
+| Harlequin Troupe (5), Kisses | 200 | 5.58 |
+| Harlequin Troupe (5), blades | 175 | 4.75 |
+| Constantin Valdor | 400 | 2.93 |
+| Vaelith Duskmirror | 400 | 3.07 |
+| Tribune | 250 | 3.10 |
+| Solitaire, before Blitz | 175 | 2.87 |
+| Shield Captain | 175 | 2.61 |
+| Troupe Master, Caress | 120 | 2.51 |
 
-The sim can't see speed, Reactions, Rising Crescendo, Veil of Tears or Fear, which are where Harlequins earn the rest.
+Per point, a Troupe is about a fifth as tough as Custodian Guard against bolters and 1.8 times as tough against
+lascannons. The sim can't see speed, Reactions, Rising Crescendo, Veil of Tears or Fear, which is why Troupes sit about
+10% under the Custodian Guard on paper.
 
-## Weapons and where they come from
+## Weapons and wargear, and where they come from
 
-The weapons follow the real Harlequin wargear, converted to HH3 terms:
+Most of the rules come from the BattleScribe data for older editions: `BSData/wh40k-7th-edition`
+(`Harlequins - Codex.cat`, the 2015 codex) and `BSData/wh40k-2nd-edition` (`Codex - Eldar (Harlequins).cat`), with later
+editions from search results (Wahapedia's 8th and 10th edition datasheets, the Warhammer Community article on the 2022
+weapons). Each item is converted to HH3 terms:
 
-- **Harlequin's Blade**: the basic sword, many attacks and little AP (9th edition: like a chainsword; 10th: AP-1 with
-  Devastating Wounds), so AP 4 with Breaching (6+).
-- **Harlequin's Kiss**: a tube on the forearm whose monofilament wire uncoils inside the victim. Rending in 4th edition,
-  an instant-death Kiss of Death attack in 7th, D3 or D2 damage in 8th and 9th: here S+1, AP 3, D 2, Rending (6+) and
-  Murderous (6+).
-- **Harlequin's Caress**: a wrist-mounted phase field that lets the hand pass through armour (9th edition's Oblivion's
-  Caress ignores invulnerable saves): S+2, AP 2, Phase Field (6+), a rule written like the Necron Æon Breach (X).
-- **Harlequin's Embrace**: throws a cloud of monofilament wire as the wearer charges (8th edition AP-3, 9th edition
-  mortal wounds on the charge): S+1, AP 3, Impact (AM), Rending (6+).
-- **Shuriken Pistol** (AP 5, Breaching (6+), for bladestorm), **Neuro Disruptor** (a psycho-crystalline pistol that
-  shuts down the nervous system: Poisoned (3+), Pinning), **Fusion Pistol** (a short-ranged meltagun).
-- **Shrieker Cannon**: a single bio-toxin round that makes the victim burst (Deflagrate), or a shuriken burst. The Death
-  Jester keeps Death is Not Enough (7th edition: Leadership at -2 after a casualty) and Cruel Amusement (10th edition).
-- **Hallucinogen Grenade Launcher** (Panic), **Miststave** (Force), **Star Bolas** and **Zephyrglaive** (Skyweavers),
-  **Prismatic Cannon** with the 10th-edition dispersed pulse and focused lances, **Haywire Cannon**.
-- **Holo-suit** 4+ invulnerable (8th edition on), **Flip Belt**, **Domino Field** (a finer holo-field), **Holo-field**
-  invulnerable save for vehicles (8th edition gave the Voidweaver a 4+), **Mirage Launchers**.
+| Item | Source rule | Here |
+| --- | --- | --- |
+| Harlequin's Blade | 10th: many attacks, AP-1, Devastating Wounds | AP 4, Breaching (6+) |
+| Harlequin's Kiss | 7th: one Kiss of Death attack at S6 AP2, Instant Death on a 6 to wound; 2nd: a hit kills on a failed save | Kiss of Death: one attack at S6 AP2 D2 with Murderous (6+) |
+| Harlequin's Caress | 7th: Caress of Death, a 6 to hit wounds automatically at AP2; 9th: ignores invulnerable saves | Rending (6+) with Breaching (6+), so those hits are AP2, and Phase Field (6+) |
+| Harlequin's Embrace | 7th: Embrace of Death, D3 Hammer of Wrath hits at S6 | Embrace of Death: D3 automatic S6 hits on the charge |
+| Shrieker Cannon | 7th: S1 AP5 Poisoned (2+), Pinning, Bio-explosive (a slain model bursts: S5 AP4 hits); or S6 Assault 3 | Poisoned (2+), Pinning (1), Deflagrate (5); or FP 3 shuriken |
+| Neuro Disruptor | 7th: 12" S1 AP2 Pistol, Fleshbane | RS 1, AP 2, Poisoned (2+) |
+| Fusion Pistol | 7th: 6" S8 AP1 Pistol, Melta | RS 8, AP 2, D 3, Melta (6) |
+| Hallucinogen Grenade Launcher | 7th: S1 Blast, Hallucinogenic (a failed Pinning test also costs a wound, no saves) | Blast, Pinning (1), Hallucinogenic |
+| Miststave | 7th: S+2 AP-, Concussive, Fleshbane | S+2, Poisoned (2+) |
+| Star Bolas | 7th: 12" S6 AP2 Blast, One Use Only | Blast, Limited (1) |
+| Zephyrglaive | 7th: S+1 and AP2 on the charge, else S User AP3; 10th: D2 | Impact (SM), AP 3, D 2 |
+| Haywire Cannon | 7th: 24" S4 AP4 Heavy 1 Blast, Haywire | Blast, Shock (Stunned), Armourbane |
+| Prismatic Cannon | 7th: Dispersed (S3 large blast), Focussed (S5 AP3 blast), Lance (S7 AP2) | three modes, RS 4/6/8 |
+| Shuriken weapons | Bladestorm: a 6 to wound is AP2 | Breaching (6+) |
+| Holo-suit | 2nd: -1 to hit and -1 WS in combat; 7th: 5++; 8th on: 4++ | 4++, with Dodge (3+) for the 2nd edition close-combat penalty |
+| Flip Belt | 7th: ignores difficult terrain when moving and charging | Move Through Cover, moves over models and terrain |
+| Holo-fields | 2nd: -1 to hit while moving; 7th: 5++ unless immobilised; 8th: 4++ | 5++, 4++ after a fast move |
+| Solitaire | 7th: Impossible Form 3++, Blitz (Xd6" over everything, Attacks 10), Path of Damnation; 2nd: immune to psychology | 3+ invulnerable, Blitz as in 7th, ignores Fear |
+| Death Jester | 7th: Death is Not Enough (Morale at -2 after a casualty); 10th: Cruel Amusement | both |
 
-Research sources: the Warhammer Community article on the 2022 Kiss, Caress and Embrace rework, the Wahapedia 8th and
-10th edition Harlequin datasheets, 7th edition codex reviews (From The Fang, 2015), and the Warhammer 40k fandom wiki
-pages for the Kiss and Caress. Profiles were read through search results, so treat edition details as a guide, not a
-transcription.
+The relics are the 7th edition Enigmas of the Black Library: Cegorach's Rose (a Kiss with Shred, master-crafted), The
+Storied Sword (S+1 AP3, master-crafted), Crescendo (a Quickfire shuriken pistol), The Laughing God's Eye (Adamantium
+Will nearby, here +1 Willpower within 12"), The Mask of Secrets (Fearless, -2 Leadership nearby, here Fear (2)) and
+Starmist Raiment (3++ after running). "Master-crafted" is Duellist's Edge (1).
+
+Stats are scaled up from the older editions to put Harlequins on the Custodes power level the army is meant for; the
+relative order holds (a 7th edition Player is WS5 I6 A2, a Troupe Master WS6 I7 A3, a Solitaire WS9 I10 A6).

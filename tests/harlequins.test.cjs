@@ -53,17 +53,33 @@ test('Masque rules change the datasheet', () => {
   assert.ok(vp.reminders.some((r) => /Shrouded \(5\+\)/.test(r.text)));
 });
 
-test('wargear: holo-fields are invulnerable saves, Starmist Raiment improves the holo-suit', () => {
+test('wargear: holo-fields, the Solitaire\'s Impossible Form and the Enigmas', () => {
   assert.equal(E.effectiveModels(sel('voidweaver'))[0].profile.INV, '5+');
+  assert.equal(E.effectiveModels(sel('solitaire'))[0].profile.INV, '3+');
   const s = sel('great-harlequin');
   s.options.enigma = 'Starmist Raiment';
-  assert.equal(E.effectiveModels(s)[0].profile.INV, '3+');
+  // only after a Rush, as in 7th edition, so it's a reminder
+  assert.equal(E.effectiveModels(s)[0].profile.INV, '4+');
+  assert.ok(E.effectiveModels(s)[0].reminders.some((r) => /Starmist Raiment/.test(r.text)));
+  s.options.enigma = 'The Mask of Secrets';
+  assert.ok(rules(s).includes('Fear (2)'));
+});
+
+test('relic weapons replace the leader\'s blade and are once per army', () => {
+  const s = sel('great-harlequin');
+  s.options.melee = "Cegorach's Rose";
+  assert.equal(E.unitPoints(s), 160 + 20);
+  const items = E.effectiveModels(s)[0].items;
+  assert.ok(items.includes("Cegorach's Rose") && !items.includes("Harlequin's Blade"));
+  const det = E.makeDetachment('primary', 'P', [{ role: 'Command' }, { role: 'Command' }]);
+  for (const slot of det.slots) { slot.unit = sel('troupe-master'); slot.unit.options.melee = 'The Storied Sword'; }
+  assert.ok(E.armyIssues(army([det])).some((i) => /The Storied Sword may only be taken once/.test(i.msg)));
 });
 
 test('special weapons swap the Harlequin\'s Blade and cost 5 points a model', () => {
   const s = sel('harlequin-troupe');
   s.options.melee = { "Harlequin's Caress": 5 };
-  assert.equal(E.unitPoints(s), 190 + 25);
+  assert.equal(E.unitPoints(s), 175 + 25);
   const players = E.effectiveModels(s).find((m) => m.model === 'Player');
   assert.ok(players.items.includes("Harlequin's Caress"));
   assert.ok(!players.items.includes("Harlequin's Blade"));

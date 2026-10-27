@@ -268,7 +268,7 @@
     {
       "id": "starmist-raiment",
       "page": null,
-      "text": "The Model with Starmist Raiment has a 3+ Invulnerable Save.",
+      "text": "If the Model with Starmist Raiment Rushed in its Controlling Player's last Movement Phase, it has a 3+ Invulnerable Save until the start of that Player's next turn.",
       "source": {
         "type": "wargear",
         "name": "Starmist Raiment"
@@ -283,43 +283,7 @@
       "modifyRules": [],
       "addTraits": [],
       "addUnitTypes": [],
-      "condition": null
-    },
-    {
-      "id": "laughing-gods-eye",
-      "page": null,
-      "text": "All attacks made by the Model with The Laughing God's Eye gain the Precision (5+) Special Rule.",
-      "source": {
-        "type": "wargear",
-        "name": "The Laughing God's Eye"
-      },
-      "appliesTo": {},
-      "scope": "model",
-      "stats": {},
-      "addRules": [],
-      "removeRules": [],
-      "modifyRules": [],
-      "addTraits": [],
-      "addUnitTypes": [],
-      "condition": "on every attack it makes, in Shooting Attacks and in Combat"
-    },
-    {
-      "id": "cegorachs-rose",
-      "page": null,
-      "text": "All Melee Weapons of the Model with Cegorach's Rose gain the Shred (5+) Special Rule.",
-      "source": {
-        "type": "wargear",
-        "name": "Cegorach's Rose"
-      },
-      "appliesTo": {},
-      "scope": "model",
-      "stats": {},
-      "addRules": [],
-      "removeRules": [],
-      "modifyRules": [],
-      "addTraits": [],
-      "addUnitTypes": [],
-      "condition": "on its Melee Weapons"
+      "condition": "if it Rushed in its last Movement Phase"
     },
     {
       "id": "herald-of-the-fall",
@@ -398,6 +362,26 @@
       "scope": "unit",
       "stats": {
         "BS": "=6"
+      },
+      "addRules": [],
+      "removeRules": [],
+      "modifyRules": [],
+      "addTraits": [],
+      "addUnitTypes": [],
+      "condition": null
+    },
+    {
+      "id": "laughing-gods-eye",
+      "page": null,
+      "text": "All friendly Units with at least one Model within 12\" of the Model with The Laughing God's Eye modify their Willpower Characteristic by +1.",
+      "source": {
+        "type": "wargear",
+        "name": "The Laughing God's Eye"
+      },
+      "appliesTo": {},
+      "scope": "unit",
+      "stats": {
+        "WP": "+1"
       },
       "addRules": [],
       "removeRules": [],

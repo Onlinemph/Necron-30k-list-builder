@@ -26,7 +26,7 @@
    "page": null,
    "limit": null,
    "unique": true,
-   "basePoints": 375,
+   "basePoints": 400,
    "composition": "1 Vaelith",
    "models": [
     {
@@ -42,7 +42,7 @@
       "T": 3,
       "W": 6,
       "I": 10,
-      "A": 6,
+      "A": 8,
       "LD": 10,
       "CL": 10,
       "WP": 10,
@@ -98,7 +98,7 @@
    "page": null,
    "limit": null,
    "unique": false,
-   "basePoints": 150,
+   "basePoints": 160,
    "composition": "1 Great Harlequin",
    "models": [
     {
@@ -114,7 +114,7 @@
       "T": 3,
       "W": 4,
       "I": 9,
-      "A": 6,
+      "A": 7,
       "LD": 10,
       "CL": 10,
       "WP": 9,
@@ -246,7 +246,7 @@
       "T": 3,
       "W": 4,
       "I": 8,
-      "A": 4,
+      "A": 5,
       "LD": 10,
       "CL": 10,
       "WP": 11,
@@ -302,7 +302,7 @@
    "page": null,
    "limit": null,
    "unique": false,
-   "basePoints": 100,
+   "basePoints": 110,
    "composition": "1 Troupe Master",
    "models": [
     {
@@ -318,7 +318,7 @@
       "T": 3,
       "W": 3,
       "I": 8,
-      "A": 4,
+      "A": 6,
       "LD": 9,
       "CL": 9,
       "WP": 8,
@@ -428,7 +428,7 @@
    "page": null,
    "limit": null,
    "unique": false,
-   "basePoints": 150,
+   "basePoints": 155,
    "composition": "1 Skyweaver Troupe Master",
    "models": [
     {
@@ -444,7 +444,7 @@
       "T": 4,
       "W": 4,
       "I": 8,
-      "A": 4,
+      "A": 5,
       "LD": 9,
       "CL": 9,
       "WP": 8,
@@ -578,7 +578,7 @@
       "T": 3,
       "W": 3,
       "I": 8,
-      "A": 3,
+      "A": 4,
       "LD": 9,
       "CL": 9,
       "WP": 10,
@@ -670,7 +670,7 @@
       "T": 3,
       "W": 2,
       "I": 8,
-      "A": 4,
+      "A": 5,
       "LD": 9,
       "CL": 10,
       "WP": 8,
@@ -751,7 +751,7 @@
    "page": null,
    "limit": "0-1",
    "unique": false,
-   "basePoints": 190,
+   "basePoints": 175,
    "composition": "1 Solitaire",
    "models": [
     {
@@ -767,13 +767,13 @@
       "T": 3,
       "W": 4,
       "I": 10,
-      "A": 7,
+      "A": 8,
       "LD": 10,
       "CL": 10,
       "WP": 9,
       "IN": 8,
       "SAV": "6+",
-      "INV": "4+"
+      "INV": "3+"
      },
      "wargear": [
       "Harlequin's Kiss",
@@ -793,7 +793,6 @@
    "specialRules": [
     "Fast (3)",
     "Dodge (2+)",
-    "Shrouded (4+)",
     "Fear (1)",
     "Heedless",
     "Vanguard (2)",
@@ -806,15 +805,15 @@
    "unitRules": [
     {
      "name": "The Lonely Path",
-     "text": "The Solitaire walks the Path of Damnation alone, and even other Harlequins keep their distance. A Model with this Special Rule may never join a Unit, and no Model may join its Unit. It has no Masque Trait: it is not affected by any Masque's Special Rules, and it is ignored when checking that every Unit in a Detachment shares one Masque."
+     "text": "The Solitaire walks the Path of Damnation alone, and even other Harlequins keep their distance. A Model with this Special Rule may never join a Unit, and no Model may join its Unit. It is not affected by the Fear (X) Special Rule. It has no Masque Trait: it is not affected by any Masque's Special Rules, and it is ignored when checking that every Unit in a Detachment shares one Masque."
     },
     {
      "name": "Blitz",
-     "text": "Once per battle, at the start of its Controlling Player's Movement Phase, the Solitaire may Blitz. Until the end of that turn it modifies its Movement Characteristic by +2D6 (roll once when the Blitz is declared) and its Attacks Characteristic by +3."
+     "text": "Once per battle, at the start of its Controlling Player's Movement Phase, the Solitaire may Blitz instead of moving normally. Roll a number of Dice equal to the current battle turn number: the Solitaire may move up to that total in inches, passing over other Models and Terrain as though they were open ground, but may not end the move on top of another Model or in Impassable Terrain. Until the end of that turn, its Attacks Characteristic becomes 10."
     },
     {
      "name": "Impossible Form",
-     "text": "The Solitaire has the Shrouded (4+) Special Rule, and its Characteristics other than Wounds can never be reduced below their Base Values by enemy Rules or Special Rules."
+     "text": "The Solitaire moves faster than the eye can follow. It has a 3+ Invulnerable Save, which is already included in its profile, and its Characteristics other than Wounds can never be reduced below their Base Values by enemy Rules or Special Rules."
     },
     {
      "name": "Twin Blades",
@@ -848,14 +847,14 @@
    "page": null,
    "limit": null,
    "unique": false,
-   "basePoints": 190,
+   "basePoints": 175,
    "composition": "4 Players and 1 Lead Player",
    "models": [
     {
      "name": "Player",
      "min": 4,
      "max": 11,
-     "costPerExtra": 36,
+     "costPerExtra": 35,
      "profile": {
       "M": 8,
       "WS": 6,
@@ -864,7 +863,7 @@
       "T": 3,
       "W": 2,
       "I": 7,
-      "A": 4,
+      "A": 5,
       "LD": 9,
       "CL": 9,
       "WP": 8,
@@ -895,7 +894,7 @@
       "T": 3,
       "W": 2,
       "I": 7,
-      "A": 5,
+      "A": 6,
       "LD": 10,
       "CL": 9,
       "WP": 8,
@@ -1119,7 +1118,7 @@
       "T": 3,
       "W": 3,
       "I": 7,
-      "A": 3,
+      "A": 4,
       "LD": 10,
       "CL": 10,
       "WP": 9,
@@ -1203,7 +1202,7 @@
       "T": 4,
       "W": 3,
       "I": 7,
-      "A": 3,
+      "A": 4,
       "LD": 9,
       "CL": 9,
       "WP": 8,
@@ -1665,8 +1664,13 @@
      "points": 5
     },
     {
-     "name": "The Twilight Blade",
-     "points": 25,
+     "name": "The Storied Sword",
+     "points": 20,
+     "oncePerArmy": true
+    },
+    {
+     "name": "Cegorach's Rose",
+     "points": 20,
      "oncePerArmy": true
     }
    ]
@@ -1699,13 +1703,8 @@
    "id": "enigmas-of-the-black-library",
    "name": "Enigmas of the Black Library",
    "page": null,
-   "note": "Each item may be selected only once per army.",
+   "note": "Each item may be selected only once per army. Cegorach's Rose, The Storied Sword and Crescendo are weapons, found in the Masque Leader lists, and are also once per army.",
    "items": [
-    {
-     "name": "Cegorach's Rose",
-     "points": 20,
-     "oncePerArmy": true
-    },
     {
      "name": "The Laughing God's Eye",
      "points": 15,
@@ -1718,7 +1717,7 @@
     },
     {
      "name": "Starmist Raiment",
-     "points": 25,
+     "points": 15,
      "oncePerArmy": true
     }
    ]
@@ -1837,13 +1836,12 @@
     "page": null,
     "R": 12,
     "FP": 1,
-    "RS": 4,
-    "AP": 3,
+    "RS": 1,
+    "AP": 2,
     "D": 1,
     "specialRules": [
      "Pistol",
-     "Poisoned (3+)",
-     "Pinning (1)"
+     "Poisoned (2+)"
     ],
     "traits": [
      "Assault"
@@ -1872,13 +1870,14 @@
     "name": "Crescendo",
     "page": null,
     "R": 12,
-    "FP": 2,
-    "RS": 5,
-    "AP": 4,
+    "FP": 1,
+    "RS": 4,
+    "AP": 5,
     "D": 1,
     "specialRules": [
      "Pistol",
-     "Breaching (5+)"
+     "Breaching (6+)",
+     "Quickfire"
     ],
     "traits": [
      "Assault",
@@ -1906,11 +1905,12 @@
     "name": "Haywire Cannon",
     "page": null,
     "R": 24,
-    "FP": 2,
-    "RS": 5,
+    "FP": 1,
+    "RS": 4,
     "AP": 4,
     "D": 1,
     "specialRules": [
+     "Blast (3\")",
      "Armourbane",
      "Shock (Stunned)"
     ],
@@ -1924,11 +1924,12 @@
     "page": null,
     "R": 12,
     "FP": 1,
-    "RS": 7,
-    "AP": 3,
+    "RS": 6,
+    "AP": 2,
     "D": 1,
     "specialRules": [
-     "Blast (3\")"
+     "Blast (3\")",
+     "Limited (1)"
     ],
     "traits": [
      "Assault"
@@ -1952,10 +1953,12 @@
       "name": "Shrieker",
       "R": 24,
       "FP": 1,
-      "RS": 6,
-      "AP": 4,
-      "D": 2,
+      "RS": 1,
+      "AP": 5,
+      "D": 1,
       "specialRules": [
+       "Poisoned (2+)",
+       "Pinning (1)",
        "Deflagrate (5)"
       ],
       "traits": [
@@ -1988,7 +1991,8 @@
     "D": 0,
     "specialRules": [
      "Blast (3\")",
-     "Panic (2)"
+     "Pinning (1)",
+     "Hallucinogenic"
     ],
     "traits": [
      "Assault"
@@ -2009,10 +2013,10 @@
     ],
     "modes": [
      {
-      "name": "Dispersed Pulse",
+      "name": "Dispersed",
       "R": 24,
       "FP": 1,
-      "RS": 6,
+      "RS": 4,
       "AP": 4,
       "D": 1,
       "specialRules": [
@@ -2023,12 +2027,26 @@
       ]
      },
      {
-      "name": "Focused Lances",
-      "R": 36,
+      "name": "Focussed",
+      "R": 24,
       "FP": 1,
-      "RS": 9,
+      "RS": 6,
+      "AP": 3,
+      "D": 1,
+      "specialRules": [
+       "Blast (3\")"
+      ],
+      "traits": [
+       "Las"
+      ]
+     },
+     {
+      "name": "Lance",
+      "R": 24,
+      "FP": 1,
+      "RS": 8,
       "AP": 2,
-      "D": 3,
+      "D": 2,
       "specialRules": [
        "Armourbane"
       ],
@@ -2052,10 +2070,10 @@
     ],
     "modes": [
      {
-      "name": "Dispersed Pulse",
+      "name": "Dispersed",
       "R": 24,
       "FP": 2,
-      "RS": 6,
+      "RS": 4,
       "AP": 4,
       "D": 1,
       "specialRules": [
@@ -2066,12 +2084,26 @@
       ]
      },
      {
-      "name": "Focused Lances",
-      "R": 36,
+      "name": "Focussed",
+      "R": 24,
       "FP": 2,
-      "RS": 9,
+      "RS": 6,
+      "AP": 3,
+      "D": 1,
+      "specialRules": [
+       "Blast (3\")"
+      ],
+      "traits": [
+       "Las"
+      ]
+     },
+     {
+      "name": "Lance",
+      "R": 24,
+      "FP": 2,
+      "RS": 8,
       "AP": 2,
-      "D": 3,
+      "D": 2,
       "specialRules": [
        "Armourbane"
       ],
@@ -2147,12 +2179,12 @@
     "page": null,
     "IM": "I",
     "AM": "A",
-    "SM": "+1",
-    "AP": 3,
-    "D": 2,
+    "SM": "S",
+    "AP": 4,
+    "D": 1,
     "specialRules": [
-     "Rending (6+)",
-     "Murderous (6+)"
+     "Breaching (6+)",
+     "Kiss of Death"
     ],
     "traits": [
      "Monofilament"
@@ -2164,10 +2196,12 @@
     "page": null,
     "IM": "I",
     "AM": "A",
-    "SM": "+2",
-    "AP": 2,
+    "SM": "S",
+    "AP": 3,
     "D": 1,
     "specialRules": [
+     "Rending (6+)",
+     "Breaching (6+)",
      "Phase Field (6+)"
     ],
     "traits": [],
@@ -2182,8 +2216,7 @@
     "AP": 3,
     "D": 1,
     "specialRules": [
-     "Impact (AM)",
-     "Rending (6+)"
+     "Embrace of Death"
     ],
     "traits": [
      "Monofilament"
@@ -2226,15 +2259,13 @@
     "page": null,
     "IM": "I",
     "AM": "A",
-    "SM": "+1",
-    "AP": 4,
+    "SM": "+2",
+    "AP": "–",
     "D": 1,
     "specialRules": [
-     "Force (D)"
+     "Poisoned (2+)"
     ],
-    "traits": [
-     "Psychic"
-    ],
+    "traits": [],
     "modes": null
    },
    {
@@ -2242,27 +2273,11 @@
     "page": null,
     "IM": "I",
     "AM": "A",
-    "SM": "+2",
+    "SM": "S",
     "AP": 3,
     "D": 2,
     "specialRules": [
      "Impact (SM)"
-    ],
-    "traits": [
-     "Power"
-    ],
-    "modes": null
-   },
-   {
-    "name": "The Twilight Blade",
-    "page": null,
-    "IM": "+1",
-    "AM": "A",
-    "SM": "+1",
-    "AP": 2,
-    "D": 2,
-    "specialRules": [
-     "Duellist's Edge (1)"
     ],
     "traits": [
      "Power"
@@ -2283,6 +2298,41 @@
     ],
     "traits": [
      "Power"
+    ],
+    "modes": null
+   },
+   {
+    "name": "The Storied Sword",
+    "page": null,
+    "IM": "I",
+    "AM": "A",
+    "SM": "+1",
+    "AP": 3,
+    "D": 2,
+    "specialRules": [
+     "Duellist's Edge (1)",
+     "Breaching (6+)"
+    ],
+    "traits": [
+     "Power"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Cegorach's Rose",
+    "page": null,
+    "IM": "I",
+    "AM": "A",
+    "SM": "S",
+    "AP": 4,
+    "D": 1,
+    "specialRules": [
+     "Kiss of Death",
+     "Shred (5+)",
+     "Duellist's Edge (1)"
+    ],
+    "traits": [
+     "Monofilament"
     ],
     "modes": null
    }
@@ -2320,24 +2370,19 @@
    "text": "Once per battle, at the start of any Shooting Phase, the Controlling Player of a Model with Mirage Launchers may fire them. Until the end of that Phase, the Model and any Unit Embarked upon it gain the Shrouded (4+) Special Rule or, if they already have a variant of the Shrouded (X) Special Rule, improve its value by 1, to a maximum of Shrouded (3+)."
   },
   {
-   "name": "Cegorach's Rose",
-   "page": null,
-   "text": "Enigma of the Black Library. A crystal bloom whose scent drives the bearer's enemies to distraction. All Melee Weapons of the Model with Cegorach's Rose gain the Shred (5+) Special Rule. In addition, enemy Models engaged in a Challenge with the bearer have a -1 modifier to their Focus Rolls."
-  },
-  {
    "name": "The Laughing God's Eye",
    "page": null,
-   "text": "Enigma of the Black Library. A gem that lets its bearer glimpse the threads of fate. All attacks made by the Model with The Laughing God's Eye, in Shooting Attacks and in Combat, gain the Precision (5+) Special Rule. In addition, once per battle, the bearer's Controlling Player may re-roll one Focus Roll made for it."
+   "text": "Enigma of the Black Library. A gem through which the bearer glimpses the threads of fate, and guards those around it from the warp. All friendly Units with at least one Model within 12\" of the Model with The Laughing God's Eye modify their Willpower Characteristic by +1."
   },
   {
    "name": "The Mask of Secrets",
    "page": null,
-   "text": "Enigma of the Black Library. A mask that shows each foe the face of their own death. The Model with The Mask of Secrets gains the Fear (2) Special Rule."
+   "text": "Enigma of the Black Library. A mask that shows each foe the face of their own death. The Model with The Mask of Secrets gains the Fear (2) Special Rule, and automatically passes any Leadership or Cool Check it is called upon to make."
   },
   {
    "name": "Starmist Raiment",
    "page": null,
-   "text": "Enigma of the Black Library. A holo-suit woven from the light of a dying star. The Model with Starmist Raiment has a 3+ Invulnerable Save."
+   "text": "Enigma of the Black Library. A holo-suit woven from the light of a dying star, which blazes brightest as its wearer runs. If the Model with Starmist Raiment Rushed in its Controlling Player's last Movement Phase, it has a 3+ Invulnerable Save until the start of that Player's next turn."
   }
  ],
  "rules": {
@@ -2345,7 +2390,7 @@
    {
     "name": "The Great Dance",
     "page": null,
-    "text": "The Harlequins fight as they perform: a blur of colour that is never quite where the blow lands, darting in to kill and flipping away before the foe can answer.\n\nRising Crescendo: A Unit that only includes Models with this Special Rule and the Infantry Type may have a Charge declared for it in a turn in which it Rushed. It may not make Volley Attacks as part of that Charge.\n\nExit, Pursued: A Unit that only includes Models with this Special Rule may always have the Disengage aftermath option selected for it in Step 4 of the Resolution Sub-Phase of the Assault Phase, regardless of which Player won the Combat. When such a Unit makes a Disengage move, its Models may move through enemy Models, but must end that move more than 1\" away from all enemy Models.\n\nHowever, a Unit that only includes Models with this Special Rule that has lost a Combat must have either the Disengage or the Fall Back aftermath option selected for it if it is able to. The Harlequins do not stand and grind against a foe that has taken their measure."
+    "text": "The Harlequins fight as they perform: a blur of colour that is never quite where the blow lands, darting in to kill and flipping away before the foe can answer.\n\nRising Crescendo: From the second battle turn onwards, a Unit that only includes Models with this Special Rule and the Infantry Type may have a Charge declared for it in a turn in which it Rushed. It may not make Volley Attacks as part of that Charge.\n\nExit, Pursued: A Unit that only includes Models with this Special Rule may always have the Disengage aftermath option selected for it in Step 4 of the Resolution Sub-Phase of the Assault Phase, regardless of which Player won the Combat. When such a Unit makes a Disengage move, its Models may move through enemy Models, but must end that move more than 1\" away from all enemy Models.\n\nHowever, a Unit that only includes Models with this Special Rule that has lost a Combat must have either the Disengage or the Fall Back aftermath option selected for it if it is able to. The Harlequins do not stand and grind against a foe that has taken their measure."
    },
    {
     "name": "Dodge (X)",
@@ -2356,6 +2401,26 @@
     "name": "Phase Field (X)",
     "page": null,
     "text": "The phase field of a Harlequin's Caress lets the wearer's hand pass through armour and energy fields alike.\n\nWhen making Wound Tests for Hits that have the Phase Field (X) Special Rule, if the result of the Dice rolled is equal to or greater than the value of X attached to the specific variant of this Special Rule, then Invulnerable Saving Throws may not be made against that wound."
+   },
+   {
+    "page": null,
+    "name": "Kiss of Death",
+    "text": "The Harlequin's Kiss drives a hair-thin monofilament wire into its victim, where it uncoils and lashes about, reducing bone and organ to pulp.\n\nWhen a Model makes Melee Attacks with a Weapon that has this Special Rule, one of its Attacks is a Kiss of Death Attack, which is rolled separately. A Kiss of Death Attack is resolved at Strength 6, AP 2 and Damage 2, and has the Murderous (6+) Special Rule."
+   },
+   {
+    "page": null,
+    "name": "Embrace of Death",
+    "text": "The Harlequin's Embrace looses a cloud of monofilament wire the instant before its wearer strikes, binding and slicing the foe.\n\nWhen a Unit that includes a Model equipped with a Weapon that has this Special Rule makes a successful Charge, that Model inflicts D3 automatic Hits on one enemy Unit it is in base contact with, at the start of the Fight Sub-Phase and before any Initiative Step is resolved. These Hits are resolved at Strength 6, AP 4 and Damage 1, and are allocated as though they were Melee Attacks."
+   },
+   {
+    "page": null,
+    "name": "Hallucinogenic",
+    "text": "If a Unit fails the Cool Check called for by the Pinning (X) Special Rule of a Weapon that has this Special Rule, then in addition to gaining the Pinned Tactical Status, it suffers one wound with an AP of 2 and a Damage of 1, against which Cover Saves may not be taken. Its Controlling Player allocates that wound."
+   },
+   {
+    "page": null,
+    "name": "Quickfire",
+    "text": "A Model making a Shooting Attack with a Weapon that has this Special Rule makes a number of attacks with it equal to its Attacks Characteristic, instead of the Weapon's Firepower Characteristic. All of these attacks must target the same Unit."
    },
    {
     "name": "Veil of Tears",
@@ -3792,7 +3857,7 @@
    {
     "id": "starmist-raiment",
     "page": null,
-    "text": "The Model with Starmist Raiment has a 3+ Invulnerable Save.",
+    "text": "If the Model with Starmist Raiment Rushed in its Controlling Player's last Movement Phase, it has a 3+ Invulnerable Save until the start of that Player's next turn.",
     "source": {
      "type": "wargear",
      "name": "Starmist Raiment"
@@ -3807,43 +3872,7 @@
     "modifyRules": [],
     "addTraits": [],
     "addUnitTypes": [],
-    "condition": null
-   },
-   {
-    "id": "laughing-gods-eye",
-    "page": null,
-    "text": "All attacks made by the Model with The Laughing God's Eye gain the Precision (5+) Special Rule.",
-    "source": {
-     "type": "wargear",
-     "name": "The Laughing God's Eye"
-    },
-    "appliesTo": {},
-    "scope": "model",
-    "stats": {},
-    "addRules": [],
-    "removeRules": [],
-    "modifyRules": [],
-    "addTraits": [],
-    "addUnitTypes": [],
-    "condition": "on every attack it makes, in Shooting Attacks and in Combat"
-   },
-   {
-    "id": "cegorachs-rose",
-    "page": null,
-    "text": "All Melee Weapons of the Model with Cegorach's Rose gain the Shred (5+) Special Rule.",
-    "source": {
-     "type": "wargear",
-     "name": "Cegorach's Rose"
-    },
-    "appliesTo": {},
-    "scope": "model",
-    "stats": {},
-    "addRules": [],
-    "removeRules": [],
-    "modifyRules": [],
-    "addTraits": [],
-    "addUnitTypes": [],
-    "condition": "on its Melee Weapons"
+    "condition": "if it Rushed in its last Movement Phase"
    },
    {
     "id": "herald-of-the-fall",
@@ -3929,6 +3958,26 @@
     "addTraits": [],
     "addUnitTypes": [],
     "condition": null
+   },
+   {
+    "id": "laughing-gods-eye",
+    "page": null,
+    "text": "All friendly Units with at least one Model within 12\" of the Model with The Laughing God's Eye modify their Willpower Characteristic by +1.",
+    "source": {
+     "type": "wargear",
+     "name": "The Laughing God's Eye"
+    },
+    "appliesTo": {},
+    "scope": "unit",
+    "stats": {
+     "WP": "+1"
+    },
+    "addRules": [],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": null
    }
   ]
  },
@@ -3936,7 +3985,7 @@
   "fixed": [
    {
     "name": "The Great Dance",
-    "text": "The Harlequins fight as they perform: a blur of colour that is never quite where the blow lands, darting in to kill and flipping away before the foe can answer.\n\nRising Crescendo: A Unit that only includes Models with this Special Rule and the Infantry Type may have a Charge declared for it in a turn in which it Rushed. It may not make Volley Attacks as part of that Charge.\n\nExit, Pursued: A Unit that only includes Models with this Special Rule may always have the Disengage aftermath option selected for it in Step 4 of the Resolution Sub-Phase of the Assault Phase, regardless of which Player won the Combat. When such a Unit makes a Disengage move, its Models may move through enemy Models, but must end that move more than 1\" away from all enemy Models.\n\nHowever, a Unit that only includes Models with this Special Rule that has lost a Combat must have either the Disengage or the Fall Back aftermath option selected for it if it is able to. The Harlequins do not stand and grind against a foe that has taken their measure.",
+    "text": "The Harlequins fight as they perform: a blur of colour that is never quite where the blow lands, darting in to kill and flipping away before the foe can answer.\n\nRising Crescendo: From the second battle turn onwards, a Unit that only includes Models with this Special Rule and the Infantry Type may have a Charge declared for it in a turn in which it Rushed. It may not make Volley Attacks as part of that Charge.\n\nExit, Pursued: A Unit that only includes Models with this Special Rule may always have the Disengage aftermath option selected for it in Step 4 of the Resolution Sub-Phase of the Assault Phase, regardless of which Player won the Combat. When such a Unit makes a Disengage move, its Models may move through enemy Models, but must end that move more than 1\" away from all enemy Models.\n\nHowever, a Unit that only includes Models with this Special Rule that has lost a Combat must have either the Disengage or the Fall Back aftermath option selected for it if it is able to. The Harlequins do not stand and grind against a foe that has taken their measure.",
     "kind": "rule",
     "source": "Harlequin Tactica"
    },

@@ -60,8 +60,13 @@
           "points": 5
         },
         {
-          "name": "The Twilight Blade",
-          "points": 25,
+          "name": "The Storied Sword",
+          "points": 20,
+          "oncePerArmy": true
+        },
+        {
+          "name": "Cegorach's Rose",
+          "points": 20,
           "oncePerArmy": true
         }
       ]
@@ -94,13 +99,8 @@
       "id": "enigmas-of-the-black-library",
       "name": "Enigmas of the Black Library",
       "page": null,
-      "note": "Each item may be selected only once per army.",
+      "note": "Each item may be selected only once per army. Cegorach's Rose, The Storied Sword and Crescendo are weapons, found in the Masque Leader lists, and are also once per army.",
       "items": [
-        {
-          "name": "Cegorach's Rose",
-          "points": 20,
-          "oncePerArmy": true
-        },
         {
           "name": "The Laughing God's Eye",
           "points": 15,
@@ -113,7 +113,7 @@
         },
         {
           "name": "Starmist Raiment",
-          "points": 25,
+          "points": 15,
           "oncePerArmy": true
         }
       ]

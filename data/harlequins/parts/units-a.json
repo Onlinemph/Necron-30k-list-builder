@@ -7,7 +7,7 @@
       "page": null,
       "limit": null,
       "unique": true,
-      "basePoints": 375,
+      "basePoints": 400,
       "composition": "1 Vaelith",
       "models": [
         {
@@ -23,7 +23,7 @@
             "T": 3,
             "W": 6,
             "I": 10,
-            "A": 6,
+            "A": 8,
             "LD": 10,
             "CL": 10,
             "WP": 10,
@@ -79,7 +79,7 @@
       "page": null,
       "limit": null,
       "unique": false,
-      "basePoints": 150,
+      "basePoints": 160,
       "composition": "1 Great Harlequin",
       "models": [
         {
@@ -95,7 +95,7 @@
             "T": 3,
             "W": 4,
             "I": 9,
-            "A": 6,
+            "A": 7,
             "LD": 10,
             "CL": 10,
             "WP": 9,
@@ -227,7 +227,7 @@
             "T": 3,
             "W": 4,
             "I": 8,
-            "A": 4,
+            "A": 5,
             "LD": 10,
             "CL": 10,
             "WP": 11,
@@ -283,7 +283,7 @@
       "page": null,
       "limit": null,
       "unique": false,
-      "basePoints": 100,
+      "basePoints": 110,
       "composition": "1 Troupe Master",
       "models": [
         {
@@ -299,7 +299,7 @@
             "T": 3,
             "W": 3,
             "I": 8,
-            "A": 4,
+            "A": 6,
             "LD": 9,
             "CL": 9,
             "WP": 8,
@@ -409,7 +409,7 @@
       "page": null,
       "limit": null,
       "unique": false,
-      "basePoints": 150,
+      "basePoints": 155,
       "composition": "1 Skyweaver Troupe Master",
       "models": [
         {
@@ -425,7 +425,7 @@
             "T": 4,
             "W": 4,
             "I": 8,
-            "A": 4,
+            "A": 5,
             "LD": 9,
             "CL": 9,
             "WP": 8,
@@ -559,7 +559,7 @@
             "T": 3,
             "W": 3,
             "I": 8,
-            "A": 3,
+            "A": 4,
             "LD": 9,
             "CL": 9,
             "WP": 10,
@@ -651,7 +651,7 @@
             "T": 3,
             "W": 2,
             "I": 8,
-            "A": 4,
+            "A": 5,
             "LD": 9,
             "CL": 10,
             "WP": 8,
@@ -732,7 +732,7 @@
       "page": null,
       "limit": "0-1",
       "unique": false,
-      "basePoints": 190,
+      "basePoints": 175,
       "composition": "1 Solitaire",
       "models": [
         {
@@ -748,13 +748,13 @@
             "T": 3,
             "W": 4,
             "I": 10,
-            "A": 7,
+            "A": 8,
             "LD": 10,
             "CL": 10,
             "WP": 9,
             "IN": 8,
             "SAV": "6+",
-            "INV": "4+"
+            "INV": "3+"
           },
           "wargear": [
             "Harlequin's Kiss",
@@ -774,7 +774,6 @@
       "specialRules": [
         "Fast (3)",
         "Dodge (2+)",
-        "Shrouded (4+)",
         "Fear (1)",
         "Heedless",
         "Vanguard (2)",
@@ -787,15 +786,15 @@
       "unitRules": [
         {
           "name": "The Lonely Path",
-          "text": "The Solitaire walks the Path of Damnation alone, and even other Harlequins keep their distance. A Model with this Special Rule may never join a Unit, and no Model may join its Unit. It has no Masque Trait: it is not affected by any Masque's Special Rules, and it is ignored when checking that every Unit in a Detachment shares one Masque."
+          "text": "The Solitaire walks the Path of Damnation alone, and even other Harlequins keep their distance. A Model with this Special Rule may never join a Unit, and no Model may join its Unit. It is not affected by the Fear (X) Special Rule. It has no Masque Trait: it is not affected by any Masque's Special Rules, and it is ignored when checking that every Unit in a Detachment shares one Masque."
         },
         {
           "name": "Blitz",
-          "text": "Once per battle, at the start of its Controlling Player's Movement Phase, the Solitaire may Blitz. Until the end of that turn it modifies its Movement Characteristic by +2D6 (roll once when the Blitz is declared) and its Attacks Characteristic by +3."
+          "text": "Once per battle, at the start of its Controlling Player's Movement Phase, the Solitaire may Blitz instead of moving normally. Roll a number of Dice equal to the current battle turn number: the Solitaire may move up to that total in inches, passing over other Models and Terrain as though they were open ground, but may not end the move on top of another Model or in Impassable Terrain. Until the end of that turn, its Attacks Characteristic becomes 10."
         },
         {
           "name": "Impossible Form",
-          "text": "The Solitaire has the Shrouded (4+) Special Rule, and its Characteristics other than Wounds can never be reduced below their Base Values by enemy Rules or Special Rules."
+          "text": "The Solitaire moves faster than the eye can follow. It has a 3+ Invulnerable Save, which is already included in its profile, and its Characteristics other than Wounds can never be reduced below their Base Values by enemy Rules or Special Rules."
         },
         {
           "name": "Twin Blades",
@@ -829,14 +828,14 @@
       "page": null,
       "limit": null,
       "unique": false,
-      "basePoints": 190,
+      "basePoints": 175,
       "composition": "4 Players and 1 Lead Player",
       "models": [
         {
           "name": "Player",
           "min": 4,
           "max": 11,
-          "costPerExtra": 36,
+          "costPerExtra": 35,
           "profile": {
             "M": 8,
             "WS": 6,
@@ -845,7 +844,7 @@
             "T": 3,
             "W": 2,
             "I": 7,
-            "A": 4,
+            "A": 5,
             "LD": 9,
             "CL": 9,
             "WP": 8,
@@ -876,7 +875,7 @@
             "T": 3,
             "W": 2,
             "I": 7,
-            "A": 5,
+            "A": 6,
             "LD": 10,
             "CL": 9,
             "WP": 8,
@@ -1100,7 +1099,7 @@
             "T": 3,
             "W": 3,
             "I": 7,
-            "A": 3,
+            "A": 4,
             "LD": 10,
             "CL": 10,
             "WP": 9,
