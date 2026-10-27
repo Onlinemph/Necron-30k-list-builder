@@ -115,7 +115,7 @@ Rules from the core rulebook (Bulky, Deep Strike, Eternal Warrior…) show BSDat
 
 ## Data
 
-Necrons: 70 units, 136 weapon profiles, 21 detachments and 12 Aeonic Sequelae in `data/parts/*.json`. Orks: 52 units, 87 weapon profiles, 5 detachments and 7 clans in `data/orks/`. Drukhari: 53 units, 103 weapon profiles and 11 detachments in `data/drukhari/`. Harlequins: 17 units, 23 weapon profiles, 11 detachments and 6 Masques in `data/harlequins/`. The schema is in `data/SCHEMA.md` (army differences in `data/orks/NOTES.md`, `data/drukhari/NOTES.md` and `data/harlequins/NOTES.md`), and the per-page source text is in `source/`.
+Necrons: 70 units, 136 weapon profiles, 21 detachments and 12 Aeonic Sequelae in `data/parts/*.json`. Orks: 52 units, 87 weapon profiles, 5 detachments and 7 clans in `data/orks/`. Drukhari: 53 units, 103 weapon profiles and 11 detachments in `data/drukhari/`. Harlequins: 18 units, 26 weapon profiles, 11 detachments and 6 Masques in `data/harlequins/`. The schema is in `data/SCHEMA.md` (army differences in `data/orks/NOTES.md`, `data/drukhari/NOTES.md` and `data/harlequins/NOTES.md`), and the per-page source text is in `source/`.
 
 To add another army, put its parts in `data/<army>/parts/`, add an entry to `ARMIES` in `scripts/build-data.mjs`, and load `js/data-<army>.js` in `index.html`.
 

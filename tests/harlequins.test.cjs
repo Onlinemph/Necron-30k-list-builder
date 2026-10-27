@@ -152,3 +152,19 @@ test('the army rules panel repeats the rules text word for word', () => {
   const all = [...data.rules.specialRules, ...data.rules.reactions, ...data.rules.gambits, ...data.rules.primeAdvantages];
   for (const f of data.armyConfig.fixed) assert.equal(f.text, all.find((r) => r.name === f.name).text, f.name);
 });
+
+test('Harlequin Wraithlord: up to two heavy weapons, and the Masque of the Dead\'s War Engine slot', () => {
+  const s = sel('harlequin-wraithlord', 'Dreaming Shadow');
+  s.options['heavy-weapons'] = { 'Shuriken Cannon': 1, 'Prismatic Cannon': 1 };
+  assert.equal(E.unitPoints(s), 170 + 10 + 20);
+  assert.deepEqual(errs(s), []);
+  s.options['heavy-weapons'] = { 'Shuriken Cannon': 3 };
+  assert.ok(errs(s).some((i) => /too many/.test(i.msg)));
+  const m = E.effectiveModels(sel('harlequin-wraithlord', 'Dreaming Shadow'))[0];
+  assert.equal(m.profile.INV, '5+');
+  assert.ok(m.rules.includes('Feel No Pain (6+)'));
+  assert.ok(!rules(sel('harlequin-wraithlord', 'Veiled Path')).includes('Shrouded (5+)'));
+  const det = E.detachmentFromDef('masque-of-the-dead');
+  const slot = det.slots.find((x) => x.role === 'War Engine');
+  assert.deepEqual(E.unitsForSlot(slot, det).map((u) => u.id), ['harlequin-wraithlord']);
+});

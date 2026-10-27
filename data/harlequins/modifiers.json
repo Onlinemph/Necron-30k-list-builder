@@ -45,7 +45,8 @@
           "webweaver",
           "prismweaver",
           "dreamweaver",
-          "mimes"
+          "mimes",
+          "harlequin-wraithlord"
         ]
       },
       "scope": "unit",
