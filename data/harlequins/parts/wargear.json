@@ -1,0 +1,49 @@
+{
+  "wargear": [
+    {
+      "name": "Holo-suit",
+      "page": null,
+      "text": "A holo-suit breaks its wearer's outline into a storm of shifting colour, so that blows and shots meet a cloud of fragments instead of a body. A Model with a Holo-suit has a 4+ Invulnerable Save. This is already included in the Invulnerable Save Characteristic of every Model that has a Holo-suit as standard wargear."
+    },
+    {
+      "name": "Flip Belt",
+      "page": null,
+      "text": "A small anti-grav generator keyed to its wearer's thoughts, letting them leap, tumble and somersault across the battlefield. A Model with a Flip Belt has the Move Through Cover Special Rule. In addition, when a Unit that only includes Models with Flip Belts Moves, Rushes, makes a Charge Move or makes a Disengage move, its Models may move over other Models and Terrain as though they had the Antigrav Sub-Type, but must end the move at least 1\" away from any Model that is not part of the same Unit."
+    },
+    {
+      "name": "Plasma Grenades",
+      "page": null,
+      "text": "When making Volley Attacks during Step 4 of the Charge Procedure with a Unit that includes at least one Model with Plasma Grenades, the Controlling Player may choose to make a single attack with a Plasma Grenade instead of making a normal Shooting Attack using the following profile:\nR 6, FP 1, RS 4, AP 4, D 1, Special Rules: Blast (3\"), Traits: Assault."
+    },
+    {
+      "name": "Domino Field",
+      "page": null,
+      "text": "A more sophisticated holo-field that shatters its wearer into a cascade of fragments, making them very hard to hit. A Model with a Domino Field has the Shrouded (5+) Special Rule."
+    },
+    {
+      "name": "Holo-field",
+      "page": null,
+      "text": "A Harlequin vehicle's holo-field smears its silhouette into a blur of light. A Model with a Holo-field has a 5+ Invulnerable Save. If the Model moved more than half of its Movement Characteristic in its Controlling Player's last Movement Phase, it has a 4+ Invulnerable Save instead."
+    },
+    {
+      "name": "Mirage Launchers",
+      "page": null,
+      "text": "Once per battle, at the start of any Shooting Phase, the Controlling Player of a Model with Mirage Launchers may fire them. Until the end of that Phase, the Model and any Unit Embarked upon it gain the Shrouded (4+) Special Rule or, if they already have a variant of the Shrouded (X) Special Rule, improve its value by 1, to a maximum of Shrouded (3+)."
+    },
+    {
+      "name": "The Laughing God's Eye",
+      "page": null,
+      "text": "Enigma of the Black Library. A gem through which the bearer glimpses the threads of fate, and guards those around it from the warp. All friendly Units with at least one Model within 12\" of the Model with The Laughing God's Eye modify their Willpower Characteristic by +1."
+    },
+    {
+      "name": "The Mask of Secrets",
+      "page": null,
+      "text": "Enigma of the Black Library. A mask that shows each foe the face of their own death. The Model with The Mask of Secrets gains the Fear (2) Special Rule, and automatically passes any Leadership or Cool Check it is called upon to make."
+    },
+    {
+      "name": "Starmist Raiment",
+      "page": null,
+      "text": "Enigma of the Black Library. A holo-suit woven from the light of a dying star, which blazes brightest as its wearer runs. If the Model with Starmist Raiment Rushed in its Controlling Player's last Movement Phase, it has a 3+ Invulnerable Save until the start of that Player's next turn."
+    }
+  ]
+}

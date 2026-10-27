@@ -40,6 +40,14 @@ const ARMIES = [
       { name: 'Painbringer', stat: 'T' }, { name: 'Serpentin', stat: 'WS' }, { name: 'Splintermind', stat: 'CL' },
     ],
   },
+  {
+    id: 'harlequins', dir: join(root, 'data', 'harlequins'), parts: join(root, 'data', 'harlequins', 'parts'),
+    // written for this builder rather than transcribed; see data/harlequins/NOTES.md
+    meta: { name: 'Harlequins', source: 'Harlequins (house army list, Horus Heresy 3rd edition)', version: '1.0', date: 'October 2026',
+      choice: { label: 'Masque', options: ['Frozen Stars', 'Midnight Sorrow', 'Veiled Path', 'Silent Shroud', 'Soaring Spite', 'Dreaming Shadow'],
+        sameInDetachment: {} } },
+    files: { granted: 'granted-prime-advantages.json', modifiers: 'modifiers.json' },
+  },
 ];
 
 for (const a of ARMIES) a.group = 'Xenos (fan codexes)';
