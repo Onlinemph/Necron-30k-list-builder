@@ -236,7 +236,7 @@
           "flexible": false
         },
         {
-          "role": "Troops",
+          "role": "War Engine",
           "prime": false,
           "flexible": false
         },
@@ -256,7 +256,7 @@
           "trait": "Dreaming Shadow"
         }
       ],
-      "note": "The Dreaming Shadow perform for the dead, and bring their whole company."
+      "note": "The Dreaming Shadow perform for the dead, and bring their whole company, the wraith-constructs included."
     },
     {
       "id": "webway-raiders",

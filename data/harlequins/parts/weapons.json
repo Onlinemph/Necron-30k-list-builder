@@ -73,6 +73,22 @@
       "modes": null
     },
     {
+      "name": "Shuriken Catapult",
+      "page": null,
+      "R": 12,
+      "FP": 2,
+      "RS": 4,
+      "AP": 5,
+      "D": 1,
+      "specialRules": [
+        "Breaching (6+)"
+      ],
+      "traits": [
+        "Shuriken"
+      ],
+      "modes": null
+    },
+    {
       "name": "Shuriken Cannon",
       "page": null,
       "R": 24,
@@ -520,6 +536,36 @@
       ],
       "traits": [
         "Monofilament"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Wraithbone Fists",
+      "page": null,
+      "IM": "I",
+      "AM": "A",
+      "SM": "+1",
+      "AP": 3,
+      "D": 2,
+      "specialRules": [
+        "Armourbane"
+      ],
+      "traits": [],
+      "modes": null
+    },
+    {
+      "name": "Wraithsword",
+      "page": null,
+      "IM": "I",
+      "AM": "A",
+      "SM": "S",
+      "AP": 2,
+      "D": 3,
+      "specialRules": [
+        "Reaping Blow (2)"
+      ],
+      "traits": [
+        "Power"
       ],
       "modes": null
     }

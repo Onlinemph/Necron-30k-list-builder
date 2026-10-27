@@ -39,7 +39,9 @@ Heedless). The Harlequins get the same set:
 - **Every Force Organisation role a Harlequin army plausibly fills**, filled with invented-but-plausible units where the
   Games Workshop range has none, as the Drukhari codex does with the Rampage, Demilune or Raven Lord: the Webweaver,
   Prismweaver, Dreamweaver, Masque Court and Troupe Master on Skyweaver are written for this list, Mimes are a Rogue
-  Trader-era role, and so are Vaelith Duskmirror and the rules for Sylandri Veilwalker.
+  Trader-era role, and so are Vaelith Duskmirror and the rules for Sylandri Veilwalker. The Harlequin Wraithlord is the
+  dreadnought from the 1988 Rogue Trader Harlequin list (the model that became the Wraithlord), with rules written here;
+  it fills the War Engine role, and the Dreaming Shadow's Masque of the Dead has a slot for one.
 
 ## Individually as strong as Custodes, in their own way
 
@@ -64,6 +66,8 @@ against Legionaries, Terminators and a Predator, and durability against bolters,
 | Solitaire, before Blitz | 175 | 2.87 |
 | Shield Captain | 175 | 2.61 |
 | Troupe Master, Caress | 120 | 2.51 |
+| Contemptor-Galatus Dreadnought | 225 | 5.80 |
+| Harlequin Wraithlord, Wraithsword | 180 | 5.74 |
 
 Per point, a Troupe is about a fifth as tough as Custodian Guard against bolters and 1.8 times as tough against
 lascannons. The sim can't see speed, Reactions, Rising Crescendo, Veil of Tears or Fear, which is why Troupes sit about

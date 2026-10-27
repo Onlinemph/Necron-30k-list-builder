@@ -99,6 +99,116 @@
       "note": null
     },
     {
+      "id": "harlequin-wraithlord",
+      "name": "Harlequin Wraithlord",
+      "role": "War Engine",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 170,
+      "composition": "1 Wraithlord",
+      "models": [
+        {
+          "name": "Wraithlord",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 8,
+            "WS": 5,
+            "BS": 5,
+            "S": 8,
+            "T": 7,
+            "W": 7,
+            "I": 4,
+            "A": 4,
+            "LD": 10,
+            "CL": 12,
+            "WP": 8,
+            "IN": 5,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Wraithbone Fists",
+            "2 Shuriken Catapults",
+            "Holo-field"
+          ],
+          "unitType": "Walker",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Harlequin"
+      ],
+      "specialRules": [
+        "Bulky (6)",
+        "Implacable Advance",
+        "Wraith-construct",
+        "Wraithsight"
+      ],
+      "unitRules": [
+        {
+          "name": "Wraith-construct",
+          "text": "A wraithbone shell animated by the spirit of a dead Aeldari, painted in the colours of the masque it marches with. A Model with this Special Rule is not affected by the Fear (X) Special Rule and never gains the Pinned or Routed Tactical Status."
+        },
+        {
+          "name": "Wraithsight",
+          "text": "The spirit within sees the battlefield only dimly without a psyker to guide it. At the start of its Controlling Player's turn, unless a Model with this Special Rule is within 12\" of a friendly Model with the Psyker Trait (such as a Shadowseer), roll a Dice. On a result of 1, it gains the Stunned Tactical Status."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": true,
+      "options": [
+        {
+          "id": "heavy-weapons",
+          "text": "May have up to two of the following selected for it: Shuriken Cannon +10 points each, Haywire Cannon +10 points each, Prismatic Cannon +20 points each.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [],
+          "perWeapon": true,
+          "choices": [
+            {
+              "name": "Shuriken Cannon",
+              "points": 10
+            },
+            {
+              "name": "Haywire Cannon",
+              "points": 10
+            },
+            {
+              "name": "Prismatic Cannon",
+              "points": 20
+            }
+          ],
+          "max": {
+            "fixed": 2
+          },
+          "requires": null
+        },
+        {
+          "id": "wraithsword",
+          "text": "May have its Wraithbone Fists exchanged for a Wraithsword for +10 points.",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Wraithbone Fists"
+          ],
+          "choices": [
+            {
+              "name": "Wraithsword",
+              "points": 10
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "The 1988 Rogue Trader Harlequin list included a dreadnought, the model that later became the Wraithlord; its rules here are written for this army list."
+    },
+    {
       "id": "voidweaver",
       "name": "Voidweaver",
       "role": "Fast Attack",
