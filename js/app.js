@@ -16,9 +16,10 @@
     // ?army= reaches an unfinished army for testing; the picker and "last used" only offer finished ones
     return pick(fromLink) || pick(new URLSearchParams(location.search).get('army')) || (listed(last) ? last : null) || 'necrons';
   })();
+  // data files are fetched at this build's version, so a new deploy isn't hidden behind cached copies
   const loadScript = (src) => new Promise((ok, fail) => {
     const el = document.createElement('script');
-    el.src = src;
+    el.src = window.ARMY_BUILD ? `${src}?v=${window.ARMY_BUILD}` : src;
     el.onload = ok;
     el.onerror = () => fail(new Error(`Couldn't load ${src}`));
     document.head.append(el);

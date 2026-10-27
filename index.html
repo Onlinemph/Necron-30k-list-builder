@@ -81,8 +81,25 @@
 
   <div id="roster" class="roster" hidden></div>
 
-  <script src="js/armies.js"></script>
-  <script src="js/engine.js"></script>
-  <script src="js/app.js"></script>
+  <!-- The army index is small, so it's fetched fresh on every visit; the app and its data are fetched at that build's
+       version (window.ARMY_BUILD). A new deploy then shows on the next load, not after cached copies expire. -->
+  <script>
+    (function () {
+      function add(src, onload) {
+        var s = document.createElement('script');
+        s.src = src;
+        s.async = false;
+        if (onload) s.onload = onload;
+        document.body.appendChild(s);
+        return s;
+      }
+      function app() {
+        var v = window.ARMY_BUILD ? '?v=' + window.ARMY_BUILD : '';
+        add('js/engine.js' + v);
+        add('js/app.js' + v);
+      }
+      add('js/armies.js?t=' + Date.now(), app).onerror = function () { add('js/armies.js', app); };
+    })();
+  </script>
 </body>
 </html>
