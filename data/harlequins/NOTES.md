@@ -50,29 +50,37 @@ Harlequins are priced so a model is worth about what a Custodian is, but they ge
 that turns to Shrouded (5+) against shooting after a Rush, Initiative 7 to 10 so they strike first, five attacks a Player (the 10th
 edition blade), M8 with flip belts and Rising Crescendo, and Shadow Dance and Veil of Tears to avoid being shot at all.
 
-Checked with `scripts/balance-sim.cjs --rank` against Legio Custodes, in a scratch copy that also models Dodge and
-Bypass. It can't see the holo-suit's Shrouded after a Rush. Value per 100 points, summed over shooting and melee against Legionaries, Terminators and a Predator, and
+In combat they also have Dodge (X), a Damage Mitigation Test taken after the Saving Throw, so it stacks with the
+invulnerable save: against a power weapon a Player saves on 4+ and then dodges on 4+, so a quarter of the wounds get
+through. Dodge is 4+ on Players, the Court and the foot characters, 3+ on the Solitaire and Vaelith Duskmirror, and 5+
+on Skyweavers and Mimes (who have no holo-suit, so for them it is the only roll).
+
+Checked with `scripts/balance-sim.cjs --rank` against Legio Custodes, in a scratch copy that also models Dodge (as a
+Damage Mitigation Test in combat, one per wound, so it doesn't add to Feel No Pain) and Bypass. It can't see the
+holo-suit's Shrouded after a Rush. Value per 100 points, summed over shooting and melee against Legionaries, Terminators and a Predator, and
 durability against bolters, lascannons and power axes:
 
 | Unit | Points | Value / 100 pts |
 | --- | --- | --- |
 | Custodian Guard (6) | 270 | 5.96 |
-| Harlequin Troupe (5), Caresses | 185 | 5.46 |
-| Harlequin Troupe (5), Embraces | 185 | 5.42, before the charge bonus |
-| Harlequin Troupe (5), Kisses | 185 | 5.10 |
-| Harlequin Troupe (5), blades | 160 | 3.68, before Reaping Blow |
+| Harlequin Troupe (5), Caresses | 195 | 5.56 |
+| Harlequin Troupe (5), Embraces | 195 | 5.52, before the charge bonus |
+| Harlequin Troupe (5), Kisses | 195 | 5.21 |
+| Harlequin Troupe (5), blades | 170 | 3.89, before Reaping Blow |
 | Constantin Valdor | 400 | 2.78 |
-| Vaelith Duskmirror | 400 | 2.70 |
+| Vaelith Duskmirror | 400 | 2.85 |
 | Tribune | 250 | 2.92 |
-| Solitaire, before Blitz | 175 | 2.56 |
+| Solitaire, before Blitz | 190 | 2.78 |
 | Shield Captain | 175 | 2.43 |
-| Troupe Master, Caress | 120 | 2.32 |
-| Contemptor-Galatus Dreadnought | 225 | 5.80 |
-| Harlequin Wraithlord, Wraithsword | 180 | 5.74 |
+| Troupe Master, Caress | 125 | 2.41 |
+| Contemptor-Galatus Dreadnought | 225 | 5.61 |
+| Harlequin Wraithlord, Wraithsword | 180 | 5.54 |
 
-Per point, a Troupe is about a fifth as tough as Custodian Guard against bolters and 1.8 times as tough against
-lascannons. The sim can't see speed, Reactions, Rising Crescendo, the Shrouded after a Rush, Veil of Tears, Fear, Impact or
-Reaping Blow, which is why Troupes sit about 10% under the Custodian Guard on paper.
+Per point, a Troupe is about a fifth as tough as Custodian Guard against bolters, 1.8 times as tough against
+lascannons and 1.6 times as tough against power axes. Stacking Dodge roughly doubled a Harlequin's toughness in combat, so Players went up 2 points
+a model, Court Players 3, the foot characters 5 points each and the Solitaire 15 (its 3++ and Dodge (3+) let one wound
+in nine through). The sim can't see speed, Reactions, Rising Crescendo, the Shrouded after a Rush, Veil of Tears, Fear, Impact or
+Reaping Blow, which is why Troupes sit about 7% under the Custodian Guard on paper.
 
 ## Weapons and wargear, and where they come from
 
@@ -103,7 +111,7 @@ of role rather than a bigger number.
 | Star Bolas | 7th: S6 AP2 Blast, One Use Only | Blast, Pinning (2), Limited (1) | entangles |
 | Haywire Cannon | 7th: S4 AP4 Blast, Haywire | Blast, Shock (Stunned), Armourbane | |
 | Prismatic Cannon | 7th: Dispersed, Focussed, Lance | three modes; the lance has Armourbane and Armour-breaker (5+) | |
-| Holo-suit | 2nd: -1 to hit and -1 WS in combat; 7th: 5++; 8th on: 4++ | 4++, and Shrouded (5+) against shooting after a Rush (or +1 to an existing Shrouded, to 4+ at best) | |
+| Holo-suit | 2nd: -1 to hit and -1 WS in combat; 7th: 5++; 8th on: 4++ | 4++, and Shrouded (5+) against shooting after a Rush (or +1 to an existing Shrouded, to 4+ at best); in combat the Dodge roll comes on top | |
 | Flip Belt | 7th: ignores difficult terrain when moving and charging | Move Through Cover, moves over models and terrain | |
 | Holo-fields | 2nd: -1 to hit while moving; 7th: 5++ unless immobilised; 8th: 4++ | 5++, 4++ after a fast move | |
 | Solitaire | 7th: Impossible Form 3++, Blitz (Xd6" over everything, Attacks 10), Path of Damnation; 2nd: immune to psychology | 3+ invulnerable, Blitz as in 7th, ignores Fear | |

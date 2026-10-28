@@ -68,7 +68,7 @@ test('wargear: holo-fields, the Solitaire\'s Impossible Form and the Enigmas', (
 test('relic weapons replace the leader\'s blade and are once per army', () => {
   const s = sel('great-harlequin');
   s.options.melee = "Cegorach's Rose";
-  assert.equal(E.unitPoints(s), 160 + 20);
+  assert.equal(E.unitPoints(s), 165 + 20);
   const items = E.effectiveModels(s)[0].items;
   assert.ok(items.includes("Cegorach's Rose") && !items.includes("Harlequin's Blade"));
   const det = E.makeDetachment('primary', 'P', [{ role: 'Command' }, { role: 'Command' }]);
@@ -79,7 +79,7 @@ test('relic weapons replace the leader\'s blade and are once per army', () => {
 test('special weapons swap the Harlequin\'s Blade and cost 5 points a model', () => {
   const s = sel('harlequin-troupe');
   s.options.melee = { "Harlequin's Caress": 5 };
-  assert.equal(E.unitPoints(s), 160 + 25);
+  assert.equal(E.unitPoints(s), 170 + 25);
   const players = E.effectiveModels(s).find((m) => m.model === 'Player');
   assert.ok(players.items.includes("Harlequin's Caress"));
   assert.ok(!players.items.includes("Harlequin's Blade"));
@@ -179,12 +179,17 @@ test('every Harlequin weapon rule is one that real HH3 weapons use', () => {
   }
 });
 
-test('holo-suits give Shrouded after a Rush; Dodge only where it beats the invulnerable save', () => {
+test('holo-suits give Shrouded after a Rush; Dodge is a Damage Mitigation Test on top of the invulnerable save', () => {
   const t = E.effectiveModels(sel('harlequin-troupe'))[0];
-  assert.ok(!t.rules.some((r) => /^Dodge/.test(r)));
+  assert.ok(t.rules.includes('Dodge (4+)'));
   assert.ok(t.reminders.some((r) => /Rushed/.test(r.text) && /Shrouded \(5\+\)/.test(r.text)));
   assert.ok(rules(sel('vaelith-duskmirror')).includes('Dodge (3+)'));
+  assert.ok(rules(sel('solitaire')).includes('Dodge (3+)'));
   assert.ok(rules(sel('mimes')).includes('Dodge (5+)'));
+  assert.ok(rules(sel('skyweavers')).includes('Dodge (5+)'));
+  const dodge = data.rules.specialRules.find((r) => r.name === 'Dodge (X)');
+  assert.match(dodge.text, /Damage Mitigation Test/);
+  assert.match(dodge.text, /in addition to a Saving Throw, including an Invulnerable Save/);
   // vehicles have holo-fields, not holo-suits
   assert.ok(!E.effectiveModels(sel('starweaver'))[0].reminders.some((r) => /Rushed/.test(r.text)));
 });

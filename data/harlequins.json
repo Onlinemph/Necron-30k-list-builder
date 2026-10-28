@@ -98,7 +98,7 @@
    "page": null,
    "limit": null,
    "unique": false,
-   "basePoints": 160,
+   "basePoints": 165,
    "composition": "1 Great Harlequin",
    "models": [
     {
@@ -140,6 +140,7 @@
    ],
    "specialRules": [
     "Fast (2)",
+    "Dodge (4+)",
     "The Great Dance",
     "Choreographer",
     "Master of the Performance"
@@ -229,7 +230,7 @@
    "page": null,
    "limit": null,
    "unique": true,
-   "basePoints": 180,
+   "basePoints": 185,
    "composition": "1 Sylandri",
    "models": [
     {
@@ -272,6 +273,7 @@
    ],
    "specialRules": [
     "Fast (2)",
+    "Dodge (4+)",
     "The Great Dance",
     "Veil of Tears",
     "Mistress of the Veiled Path",
@@ -300,7 +302,7 @@
    "page": null,
    "limit": null,
    "unique": false,
-   "basePoints": 110,
+   "basePoints": 115,
    "composition": "1 Troupe Master",
    "models": [
     {
@@ -341,6 +343,7 @@
    ],
    "specialRules": [
     "Fast (2)",
+    "Dodge (4+)",
     "The Great Dance",
     "Choreographer"
    ],
@@ -469,6 +472,7 @@
     "Deep Strike",
     "Outflank",
     "Fast (2)",
+    "Dodge (5+)",
     "Firing Protocols (2)",
     "Implacable Advance",
     "The Great Dance",
@@ -558,7 +562,7 @@
    "page": null,
    "limit": null,
    "unique": false,
-   "basePoints": 110,
+   "basePoints": 115,
    "composition": "1 Shadowseer",
    "models": [
     {
@@ -601,6 +605,7 @@
    ],
    "specialRules": [
     "Fast (2)",
+    "Dodge (4+)",
     "The Great Dance",
     "Veil of Tears"
    ],
@@ -649,14 +654,14 @@
    "page": null,
    "limit": null,
    "unique": false,
-   "basePoints": 135,
+   "basePoints": 145,
    "composition": "3 Court Players",
    "models": [
     {
      "name": "Court Player",
      "min": 3,
      "max": 8,
-     "costPerExtra": 45,
+     "costPerExtra": 48,
      "profile": {
       "M": 8,
       "WS": 7,
@@ -690,6 +695,7 @@
    ],
    "specialRules": [
     "Fast (2)",
+    "Dodge (4+)",
     "The Great Dance",
     "Honour Guard of the Masque"
    ],
@@ -745,7 +751,7 @@
    "page": null,
    "limit": "0-1",
    "unique": false,
-   "basePoints": 175,
+   "basePoints": 190,
    "composition": "1 Solitaire",
    "models": [
     {
@@ -786,6 +792,7 @@
    ],
    "specialRules": [
     "Fast (3)",
+    "Dodge (3+)",
     "Fear (1)",
     "Heedless",
     "Vanguard (2)",
@@ -840,14 +847,14 @@
    "page": null,
    "limit": null,
    "unique": false,
-   "basePoints": 160,
+   "basePoints": 170,
    "composition": "4 Players and 1 Lead Player",
    "models": [
     {
      "name": "Player",
      "min": 4,
      "max": 11,
-     "costPerExtra": 32,
+     "costPerExtra": 34,
      "profile": {
       "M": 8,
       "WS": 6,
@@ -912,6 +919,7 @@
    ],
    "specialRules": [
     "Fast (2)",
+    "Dodge (4+)",
     "Vanguard (2)",
     "The Great Dance"
    ],
@@ -1094,7 +1102,7 @@
    "page": null,
    "limit": null,
    "unique": false,
-   "basePoints": 110,
+   "basePoints": 115,
    "composition": "1 Death Jester",
    "models": [
     {
@@ -1135,6 +1143,7 @@
    ],
    "specialRules": [
     "Fast (2)",
+    "Dodge (4+)",
     "The Great Dance",
     "Death is Not Enough",
     "Cruel Amusement"
@@ -1221,6 +1230,7 @@
     "Deep Strike",
     "Outflank",
     "Fast (2)",
+    "Dodge (5+)",
     "Firing Protocols (2)",
     "Implacable Advance",
     "The Great Dance"
@@ -2545,7 +2555,7 @@
    {
     "name": "Dodge (X)",
     "page": null,
-    "text": "A Model with the Dodge (X) Special Rule has an Invulnerable Save equal to the value in brackets associated with the specific variant of this Special Rule against Wounds inflicted by Attacks that were made in any of the following situations:\n• The Attack was made during the Assault Phase,\n• The Attack was made as part of a Reaction."
+    "text": "\"Dodge (X) is a Damage Mitigation Test that may be taken in addition to a Saving Throw.\"\n\nA Model with the Dodge (X) Special Rule gains a Dodge Damage Mitigation Test that may be used to discard Wounds allocated to the Model that were inflicted by Attacks made in either of the following situations:\n• The Attack was made during the Assault Phase,\n• The Attack was made as part of a Reaction.\n\nA Damage Mitigation Test may be made after and in addition to a Saving Throw, including an Invulnerable Save. The Target Number for a Dodge Damage Mitigation Test is the value of X attached to the specific variant of the Special Rule."
    },
    {
     "name": "Veil of Tears",
