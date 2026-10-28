@@ -8,7 +8,7 @@
     {
       "name": "Dodge (X)",
       "page": null,
-      "text": "A Model with the Dodge (X) Special Rule has an Invulnerable Save equal to the value in brackets associated with the specific variant of this Special Rule against Wounds inflicted by Attacks that were made in any of the following situations:\n• The Attack was made during the Assault Phase,\n• The Attack was made as part of a Reaction."
+      "text": "\"Dodge (X) is a Damage Mitigation Test that may be taken in addition to a Saving Throw.\"\n\nA Model with the Dodge (X) Special Rule gains a Dodge Damage Mitigation Test that may be used to discard Wounds allocated to the Model that were inflicted by Attacks made in either of the following situations:\n• The Attack was made during the Assault Phase,\n• The Attack was made as part of a Reaction.\n\nA Damage Mitigation Test may be made after and in addition to a Saving Throw, including an Invulnerable Save. The Target Number for a Dodge Damage Mitigation Test is the value of X attached to the specific variant of the Special Rule."
     },
     {
       "name": "Veil of Tears",
