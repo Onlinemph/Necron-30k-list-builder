@@ -51,9 +51,15 @@ that turns to Shrouded (5+) against shooting after a Rush, Initiative 7 to 10 so
 edition blade), M8 with flip belts and Rising Crescendo, and Shadow Dance and Veil of Tears to avoid being shot at all.
 
 In combat they also have Dodge (X), a Damage Mitigation Test taken after the Saving Throw, so it stacks with the
-invulnerable save: against a power weapon a Player saves on 4+ and then dodges on 4+, so a quarter of the wounds get
-through. Dodge is 4+ on Players, the Court and the foot characters, 3+ on the Solitaire and Vaelith Duskmirror, and 5+
-on Skyweavers and Mimes (who have no holo-suit, so for them it is the only roll).
+invulnerable save. Dodge is 6+ on Players, Court Players and Skyweavers, 5+ on the characters and Mimes (who have no
+holo-suit, so for them it is the only roll), and 4+ on the Solitaire and Vaelith Duskmirror.
+
+Dodge is kept low on the rank and file because striking first already does most of their work in combat: a Troupe at I7
+kills nine of ten Tactical Marines before they swing, Dodge or not, so Dodge only matters against what survives that,
+which is Terminators, Dreadnoughts and Primarchs. At Dodge (4+) none of the 307 Legion units in the builder wiped a
+Troupe in six rounds of combat in the sim, which left a Legion player no answer in combat at any price. At Dodge (6+)
+eight do and seventeen take it to half strength or less; for Custodian Guard it is 23 and 32. Shooting is the other way
+round: a Tactical Squad does 4.5 wounds a turn to a Troupe and 0.7 to Custodian Guard.
 
 Checked with `scripts/balance-sim.cjs --rank` against Legio Custodes, in a scratch copy that also models Dodge (as a
 Damage Mitigation Test in combat, one per wound, so it doesn't add to Feel No Pain) and Bypass. It can't see the
@@ -63,23 +69,23 @@ durability against bolters, lascannons and power axes:
 | Unit | Points | Value / 100 pts |
 | --- | --- | --- |
 | Custodian Guard (6) | 270 | 5.96 |
-| Harlequin Troupe (5), Caresses | 195 | 5.56 |
-| Harlequin Troupe (5), Embraces | 195 | 5.52, before the charge bonus |
-| Harlequin Troupe (5), Kisses | 195 | 5.21 |
-| Harlequin Troupe (5), blades | 170 | 3.89, before Reaping Blow |
+| Harlequin Troupe (5), Caresses | 185 | 5.55 |
+| Harlequin Troupe (5), Embraces | 185 | 5.50, before the charge bonus |
+| Harlequin Troupe (5), Kisses | 185 | 5.19 |
+| Harlequin Troupe (5), blades | 160 | 3.78, before Reaping Blow |
 | Constantin Valdor | 400 | 2.78 |
-| Vaelith Duskmirror | 400 | 2.85 |
+| Vaelith Duskmirror | 400 | 2.75 |
 | Tribune | 250 | 2.92 |
-| Solitaire, before Blitz | 190 | 2.78 |
+| Solitaire, before Blitz | 190 | 2.59 |
 | Shield Captain | 175 | 2.43 |
-| Troupe Master, Caress | 125 | 2.41 |
+| Troupe Master, Caress | 125 | 2.33 |
 | Contemptor-Galatus Dreadnought | 225 | 5.61 |
 | Harlequin Wraithlord, Wraithsword | 180 | 5.54 |
 
-Per point, a Troupe is about a fifth as tough as Custodian Guard against bolters, 1.8 times as tough against
-lascannons and 1.6 times as tough against power axes. Stacking Dodge roughly doubled a Harlequin's toughness in combat, so Players went up 2 points
-a model, Court Players 3, the foot characters 5 points each and the Solitaire 15 (its 3++ and Dodge (3+) let one wound
-in nine through). The sim can't see speed, Reactions, Rising Crescendo, the Shrouded after a Rush, Veil of Tears, Fear, Impact or
+Per point, a Troupe is about a fifth as tough as Custodian Guard against bolters, twice as tough against
+lascannons and 1.1 times as tough against power axes. Dodge (5+) on top of a 4++ cuts the wounds a character takes in
+combat by a third, and the Solitaire's 3++ and Dodge (4+) let one wound in six through, so the foot characters cost 5
+points more than they would without Dodge and the Solitaire 15. The sim can't see speed, Reactions, Rising Crescendo, the Shrouded after a Rush, Veil of Tears, Fear, Impact or
 Reaping Blow, which is why Troupes sit about 7% under the Custodian Guard on paper.
 
 ## Weapons and wargear, and where they come from
