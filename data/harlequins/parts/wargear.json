@@ -3,7 +3,7 @@
     {
       "name": "Holo-suit",
       "page": null,
-      "text": "A holo-suit breaks its wearer's outline into a storm of shifting colour, so that blows and shots meet a cloud of fragments instead of a body. A Model with a Holo-suit has a 4+ Invulnerable Save. This is already included in the Invulnerable Save Characteristic of every Model that has a Holo-suit as standard wargear."
+      "text": "A holo-suit breaks its wearer's outline into a storm of shifting colour, so that blows and shots meet a cloud of fragments instead of a body, and the faster the wearer moves the wilder the storm. A Model with a Holo-suit has a 4+ Invulnerable Save. This is already included in the Invulnerable Save Characteristic of every Model that has a Holo-suit as standard wargear.\n\nIn addition, if the Model Rushed in its Controlling Player's last Movement Phase, it has the Shrouded (5+) Special Rule until the start of that Player's next turn or, if it already has a variant of the Shrouded (X) Special Rule, it improves that value by 1 instead, to a maximum of Shrouded (4+)."
     },
     {
       "name": "Flip Belt",

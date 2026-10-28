@@ -70,7 +70,7 @@
    "specialRules": [
     "Eternal Warrior (1)",
     "Fast (2)",
-    "Dodge (2+)",
+    "Dodge (3+)",
     "The Great Dance",
     "Lord of the Masque",
     "The Endless Encore"
@@ -140,7 +140,6 @@
    ],
    "specialRules": [
     "Fast (2)",
-    "Dodge (3+)",
     "The Great Dance",
     "Choreographer",
     "Master of the Performance"
@@ -273,7 +272,6 @@
    ],
    "specialRules": [
     "Fast (2)",
-    "Dodge (3+)",
     "The Great Dance",
     "Veil of Tears",
     "Mistress of the Veiled Path",
@@ -343,7 +341,6 @@
    ],
    "specialRules": [
     "Fast (2)",
-    "Dodge (3+)",
     "The Great Dance",
     "Choreographer"
    ],
@@ -474,7 +471,6 @@
     "Fast (2)",
     "Firing Protocols (2)",
     "Implacable Advance",
-    "Dodge (4+)",
     "The Great Dance",
     "Choreographer"
    ],
@@ -605,7 +601,6 @@
    ],
    "specialRules": [
     "Fast (2)",
-    "Dodge (3+)",
     "The Great Dance",
     "Veil of Tears"
    ],
@@ -695,7 +690,6 @@
    ],
    "specialRules": [
     "Fast (2)",
-    "Dodge (3+)",
     "The Great Dance",
     "Honour Guard of the Masque"
    ],
@@ -792,7 +786,6 @@
    ],
    "specialRules": [
     "Fast (3)",
-    "Dodge (2+)",
     "Fear (1)",
     "Heedless",
     "Vanguard (2)",
@@ -919,7 +912,6 @@
    ],
    "specialRules": [
     "Fast (2)",
-    "Dodge (3+)",
     "Vanguard (2)",
     "The Great Dance"
    ],
@@ -1062,7 +1054,7 @@
     "Infiltrate (9)",
     "Shrouded (4+)",
     "Fast (2)",
-    "Dodge (4+)",
+    "Dodge (5+)",
     "Fear (1)",
     "Vanguard (1)",
     "The Great Dance"
@@ -1143,7 +1135,6 @@
    ],
    "specialRules": [
     "Fast (2)",
-    "Dodge (3+)",
     "The Great Dance",
     "Death is Not Enough",
     "Cruel Amusement"
@@ -1232,7 +1223,6 @@
     "Fast (2)",
     "Firing Protocols (2)",
     "Implacable Advance",
-    "Dodge (4+)",
     "The Great Dance"
    ],
    "unitRules": [],
@@ -2502,7 +2492,7 @@
   {
    "name": "Holo-suit",
    "page": null,
-   "text": "A holo-suit breaks its wearer's outline into a storm of shifting colour, so that blows and shots meet a cloud of fragments instead of a body. A Model with a Holo-suit has a 4+ Invulnerable Save. This is already included in the Invulnerable Save Characteristic of every Model that has a Holo-suit as standard wargear."
+   "text": "A holo-suit breaks its wearer's outline into a storm of shifting colour, so that blows and shots meet a cloud of fragments instead of a body, and the faster the wearer moves the wilder the storm. A Model with a Holo-suit has a 4+ Invulnerable Save. This is already included in the Invulnerable Save Characteristic of every Model that has a Holo-suit as standard wargear.\n\nIn addition, if the Model Rushed in its Controlling Player's last Movement Phase, it has the Shrouded (5+) Special Rule until the start of that Player's next turn or, if it already has a variant of the Shrouded (X) Special Rule, it improves that value by 1 instead, to a maximum of Shrouded (4+)."
   },
   {
    "name": "Flip Belt",
@@ -4114,6 +4104,26 @@
     "addTraits": [],
     "addUnitTypes": [],
     "condition": null
+   },
+   {
+    "id": "holo-suit-rush",
+    "page": null,
+    "text": "If the Model Rushed in its Controlling Player's last Movement Phase, it has the Shrouded (5+) Special Rule until the start of that Player's next turn or, if it already has a variant of the Shrouded (X) Special Rule, it improves that value by 1 instead, to a maximum of Shrouded (4+).",
+    "source": {
+     "type": "wargear",
+     "name": "Holo-suit"
+    },
+    "appliesTo": {},
+    "scope": "model",
+    "stats": {},
+    "addRules": [
+     "Shrouded (5+)"
+    ],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": "if it Rushed in its last Movement Phase, until the start of its next turn"
    }
   ]
  },

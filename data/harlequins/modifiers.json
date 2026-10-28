@@ -390,6 +390,26 @@
       "addTraits": [],
       "addUnitTypes": [],
       "condition": null
+    },
+    {
+      "id": "holo-suit-rush",
+      "page": null,
+      "text": "If the Model Rushed in its Controlling Player's last Movement Phase, it has the Shrouded (5+) Special Rule until the start of that Player's next turn or, if it already has a variant of the Shrouded (X) Special Rule, it improves that value by 1 instead, to a maximum of Shrouded (4+).",
+      "source": {
+        "type": "wargear",
+        "name": "Holo-suit"
+      },
+      "appliesTo": {},
+      "scope": "model",
+      "stats": {},
+      "addRules": [
+        "Shrouded (5+)"
+      ],
+      "removeRules": [],
+      "modifyRules": [],
+      "addTraits": [],
+      "addUnitTypes": [],
+      "condition": "if it Rushed in its last Movement Phase, until the start of its next turn"
     }
   ]
 }
