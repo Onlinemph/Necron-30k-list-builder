@@ -46,33 +46,33 @@ Heedless). The Harlequins get the same set:
 ## Individually as strong as Custodes, in their own way
 
 Harlequins are priced so a model is worth about what a Custodian is, but they get there differently. Custodes are T5,
-2+ armour and Eternal Warrior. Harlequins are T3 with a 6+ armour save, and rely on a 4+ invulnerable holo-suit,
-Dodge (3+) in combat and against Reactions, Initiative 7 to 10 so they strike first, five attacks a Player (the 10th
+2+ armour and Eternal Warrior. Harlequins are T3 with a 6+ armour save, and rely on a 4+ invulnerable holo-suit
+that turns to Shrouded (5+) against shooting after a Rush, Initiative 7 to 10 so they strike first, five attacks a Player (the 10th
 edition blade), M8 with flip belts and Rising Crescendo, and Shadow Dance and Veil of Tears to avoid being shot at all.
 
 Checked with `scripts/balance-sim.cjs --rank` against Legio Custodes, in a scratch copy that also models Dodge and
-Bypass. Value per 100 points, summed over shooting and melee against Legionaries, Terminators and a Predator, and
+Bypass. It can't see the holo-suit's Shrouded after a Rush. Value per 100 points, summed over shooting and melee against Legionaries, Terminators and a Predator, and
 durability against bolters, lascannons and power axes:
 
 | Unit | Points | Value / 100 pts |
 | --- | --- | --- |
 | Custodian Guard (6) | 270 | 5.96 |
-| Harlequin Troupe (5), Caresses | 185 | 5.67 |
-| Harlequin Troupe (5), Embraces | 185 | 5.63, before the charge bonus |
-| Harlequin Troupe (5), Kisses | 185 | 5.31 |
-| Harlequin Troupe (5), blades | 160 | 3.92, before Reaping Blow |
+| Harlequin Troupe (5), Caresses | 185 | 5.46 |
+| Harlequin Troupe (5), Embraces | 185 | 5.42, before the charge bonus |
+| Harlequin Troupe (5), Kisses | 185 | 5.10 |
+| Harlequin Troupe (5), blades | 160 | 3.68, before Reaping Blow |
 | Constantin Valdor | 400 | 2.78 |
-| Vaelith Duskmirror | 400 | 2.89 |
+| Vaelith Duskmirror | 400 | 2.70 |
 | Tribune | 250 | 2.92 |
-| Solitaire, before Blitz | 175 | 2.85 |
+| Solitaire, before Blitz | 175 | 2.56 |
 | Shield Captain | 175 | 2.43 |
-| Troupe Master, Caress | 120 | 2.42 |
+| Troupe Master, Caress | 120 | 2.32 |
 | Contemptor-Galatus Dreadnought | 225 | 5.80 |
 | Harlequin Wraithlord, Wraithsword | 180 | 5.74 |
 
 Per point, a Troupe is about a fifth as tough as Custodian Guard against bolters and 1.8 times as tough against
-lascannons. The sim can't see speed, Reactions, Rising Crescendo, Veil of Tears, Fear, Impact or Reaping Blow, which is
-why Troupes sit 5 to 10% under the Custodian Guard on paper.
+lascannons. The sim can't see speed, Reactions, Rising Crescendo, the Shrouded after a Rush, Veil of Tears, Fear, Impact or
+Reaping Blow, which is why Troupes sit about 10% under the Custodian Guard on paper.
 
 ## Weapons and wargear, and where they come from
 
@@ -103,7 +103,7 @@ of role rather than a bigger number.
 | Star Bolas | 7th: S6 AP2 Blast, One Use Only | Blast, Pinning (2), Limited (1) | entangles |
 | Haywire Cannon | 7th: S4 AP4 Blast, Haywire | Blast, Shock (Stunned), Armourbane | |
 | Prismatic Cannon | 7th: Dispersed, Focussed, Lance | three modes; the lance has Armourbane and Armour-breaker (5+) | |
-| Holo-suit | 2nd: -1 to hit and -1 WS in combat; 7th: 5++; 8th on: 4++ | 4++, with Dodge (3+) for the 2nd edition close-combat penalty | |
+| Holo-suit | 2nd: -1 to hit and -1 WS in combat; 7th: 5++; 8th on: 4++ | 4++, and Shrouded (5+) against shooting after a Rush (or +1 to an existing Shrouded, to 4+ at best) | |
 | Flip Belt | 7th: ignores difficult terrain when moving and charging | Move Through Cover, moves over models and terrain | |
 | Holo-fields | 2nd: -1 to hit while moving; 7th: 5++ unless immobilised; 8th: 4++ | 5++, 4++ after a fast move | |
 | Solitaire | 7th: Impossible Form 3++, Blitz (Xd6" over everything, Attacks 10), Path of Damnation; 2nd: immune to psychology | 3+ invulnerable, Blitz as in 7th, ignores Fear | |

@@ -51,7 +51,7 @@
       "specialRules": [
         "Eternal Warrior (1)",
         "Fast (2)",
-        "Dodge (2+)",
+        "Dodge (3+)",
         "The Great Dance",
         "Lord of the Masque",
         "The Endless Encore"
@@ -121,7 +121,6 @@
       ],
       "specialRules": [
         "Fast (2)",
-        "Dodge (3+)",
         "The Great Dance",
         "Choreographer",
         "Master of the Performance"
@@ -254,7 +253,6 @@
       ],
       "specialRules": [
         "Fast (2)",
-        "Dodge (3+)",
         "The Great Dance",
         "Veil of Tears",
         "Mistress of the Veiled Path",
@@ -324,7 +322,6 @@
       ],
       "specialRules": [
         "Fast (2)",
-        "Dodge (3+)",
         "The Great Dance",
         "Choreographer"
       ],
@@ -455,7 +452,6 @@
         "Fast (2)",
         "Firing Protocols (2)",
         "Implacable Advance",
-        "Dodge (4+)",
         "The Great Dance",
         "Choreographer"
       ],
@@ -586,7 +582,6 @@
       ],
       "specialRules": [
         "Fast (2)",
-        "Dodge (3+)",
         "The Great Dance",
         "Veil of Tears"
       ],
@@ -676,7 +671,6 @@
       ],
       "specialRules": [
         "Fast (2)",
-        "Dodge (3+)",
         "The Great Dance",
         "Honour Guard of the Masque"
       ],
@@ -773,7 +767,6 @@
       ],
       "specialRules": [
         "Fast (3)",
-        "Dodge (2+)",
         "Fear (1)",
         "Heedless",
         "Vanguard (2)",
@@ -900,7 +893,6 @@
       ],
       "specialRules": [
         "Fast (2)",
-        "Dodge (3+)",
         "Vanguard (2)",
         "The Great Dance"
       ],
@@ -1043,7 +1035,7 @@
         "Infiltrate (9)",
         "Shrouded (4+)",
         "Fast (2)",
-        "Dodge (4+)",
+        "Dodge (5+)",
         "Fear (1)",
         "Vanguard (1)",
         "The Great Dance"
@@ -1124,7 +1116,6 @@
       ],
       "specialRules": [
         "Fast (2)",
-        "Dodge (3+)",
         "The Great Dance",
         "Death is Not Enough",
         "Cruel Amusement"

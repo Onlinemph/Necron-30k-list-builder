@@ -178,3 +178,13 @@ test('every Harlequin weapon rule is one that real HH3 weapons use', () => {
     for (const r of w.specialRules || []) assert.ok(hh3.has(base(r)), `${w.name}: ${r} isn't an HH3 weapon rule`);
   }
 });
+
+test('holo-suits give Shrouded after a Rush; Dodge only where it beats the invulnerable save', () => {
+  const t = E.effectiveModels(sel('harlequin-troupe'))[0];
+  assert.ok(!t.rules.some((r) => /^Dodge/.test(r)));
+  assert.ok(t.reminders.some((r) => /Rushed/.test(r.text) && /Shrouded \(5\+\)/.test(r.text)));
+  assert.ok(rules(sel('vaelith-duskmirror')).includes('Dodge (3+)'));
+  assert.ok(rules(sel('mimes')).includes('Dodge (5+)'));
+  // vehicles have holo-fields, not holo-suits
+  assert.ok(!E.effectiveModels(sel('starweaver'))[0].reminders.some((r) => /Rushed/.test(r.text)));
+});
