@@ -79,7 +79,7 @@ test('relic weapons replace the leader\'s blade and are once per army', () => {
 test('special weapons swap the Harlequin\'s Blade and cost 5 points a model', () => {
   const s = sel('harlequin-troupe');
   s.options.melee = { "Harlequin's Caress": 5 };
-  assert.equal(E.unitPoints(s), 175 + 25);
+  assert.equal(E.unitPoints(s), 160 + 25);
   const players = E.effectiveModels(s).find((m) => m.model === 'Player');
   assert.ok(players.items.includes("Harlequin's Caress"));
   assert.ok(!players.items.includes("Harlequin's Blade"));
@@ -167,4 +167,14 @@ test('Harlequin Wraithlord: up to two heavy weapons, and the Masque of the Dead\
   const det = E.detachmentFromDef('masque-of-the-dead');
   const slot = det.slots.find((x) => x.role === 'War Engine');
   assert.deepEqual(E.unitsForSlot(slot, det).map((u) => u.id), ['harlequin-wraithlord']);
+});
+
+test('every Harlequin weapon rule is one that real HH3 weapons use', () => {
+  const common = require('../data/bsdata/common.json');
+  const base = (r) => String(r).replace(/\s*\(.*\)\s*$/, '').replace(/[’]/g, "'").trim();
+  const flat = (ws) => ws.flatMap((w) => (w.modes && w.modes.length ? w.modes : [w]));
+  const hh3 = new Set(flat([...common.weapons.ranged, ...common.weapons.melee]).flatMap((w) => (w.specialRules || []).map(base)));
+  for (const w of flat([...data.weapons.ranged, ...data.weapons.melee])) {
+    for (const r of w.specialRules || []) assert.ok(hh3.has(base(r)), `${w.name}: ${r} isn't an HH3 weapon rule`);
+  }
 });

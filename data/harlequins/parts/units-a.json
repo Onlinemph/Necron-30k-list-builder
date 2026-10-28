@@ -828,14 +828,14 @@
       "page": null,
       "limit": null,
       "unique": false,
-      "basePoints": 175,
+      "basePoints": 160,
       "composition": "4 Players and 1 Lead Player",
       "models": [
         {
           "name": "Player",
           "min": 4,
           "max": 11,
-          "costPerExtra": 35,
+          "costPerExtra": 32,
           "profile": {
             "M": 8,
             "WS": 6,
