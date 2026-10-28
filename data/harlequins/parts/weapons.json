@@ -28,7 +28,8 @@
       "D": 1,
       "specialRules": [
         "Pistol",
-        "Poisoned (2+)"
+        "Poisoned (3+)",
+        "Psy-Shock"
       ],
       "traits": [
         "Assault"
@@ -57,14 +58,13 @@
       "name": "Crescendo",
       "page": null,
       "R": 12,
-      "FP": 1,
+      "FP": 3,
       "RS": 4,
       "AP": 5,
       "D": 1,
       "specialRules": [
         "Pistol",
-        "Breaching (6+)",
-        "Quickfire"
+        "Breaching (5+)"
       ],
       "traits": [
         "Assault",
@@ -97,7 +97,8 @@
       "AP": 5,
       "D": 1,
       "specialRules": [
-        "Breaching (6+)"
+        "Breaching (6+)",
+        "Suppressive (1)"
       ],
       "traits": [
         "Shuriken"
@@ -128,10 +129,11 @@
       "R": 12,
       "FP": 1,
       "RS": 6,
-      "AP": 2,
+      "AP": 3,
       "D": 1,
       "specialRules": [
         "Blast (3\")",
+        "Pinning (2)",
         "Limited (1)"
       ],
       "traits": [
@@ -194,8 +196,8 @@
       "D": 0,
       "specialRules": [
         "Blast (3\")",
-        "Pinning (1)",
-        "Hallucinogenic"
+        "Panic (1)",
+        "Stun (1)"
       ],
       "traits": [
         "Assault"
@@ -251,7 +253,8 @@
           "AP": 2,
           "D": 2,
           "specialRules": [
-            "Armourbane"
+            "Armourbane",
+            "Armour-breaker (5+)"
           ],
           "traits": [
             "Las"
@@ -308,7 +311,8 @@
           "AP": 2,
           "D": 2,
           "specialRules": [
-            "Armourbane"
+            "Armourbane",
+            "Armour-breaker (5+)"
           ],
           "traits": [
             "Las"
@@ -366,13 +370,13 @@
     {
       "name": "Harlequin's Blade",
       "page": null,
-      "IM": "I",
+      "IM": "+1",
       "AM": "A",
       "SM": "S",
       "AP": 4,
       "D": 1,
       "specialRules": [
-        "Breaching (6+)"
+        "Reaping Blow (1)"
       ],
       "traits": [],
       "modes": null
@@ -383,11 +387,11 @@
       "IM": "I",
       "AM": "A",
       "SM": "S",
-      "AP": 4,
-      "D": 1,
+      "AP": 3,
+      "D": 2,
       "specialRules": [
-        "Breaching (6+)",
-        "Kiss of Death"
+        "Poisoned (4+)",
+        "Shred (6+)"
       ],
       "traits": [
         "Monofilament"
@@ -399,13 +403,11 @@
       "page": null,
       "IM": "I",
       "AM": "A",
-      "SM": "S",
+      "SM": "+1",
       "AP": 3,
       "D": 1,
       "specialRules": [
-        "Rending (6+)",
-        "Breaching (6+)",
-        "Phase Field (6+)"
+        "Bypass (6+)"
       ],
       "traits": [],
       "modes": null
@@ -419,7 +421,8 @@
       "AP": 3,
       "D": 1,
       "specialRules": [
-        "Embrace of Death"
+        "Impact (AM)",
+        "Impact (SM)"
       ],
       "traits": [
         "Monofilament"
@@ -445,14 +448,13 @@
     {
       "name": "Mime's Blade",
       "page": null,
-      "IM": "I",
+      "IM": "+1",
       "AM": "A",
       "SM": "S",
       "AP": 4,
       "D": 1,
       "specialRules": [
-        "Precision (5+)",
-        "Breaching (6+)"
+        "Precision (4+)"
       ],
       "traits": [],
       "modes": null
@@ -462,21 +464,24 @@
       "page": null,
       "IM": "I",
       "AM": "A",
-      "SM": "+2",
-      "AP": "–",
+      "SM": "+1",
+      "AP": 4,
       "D": 1,
       "specialRules": [
-        "Poisoned (2+)"
+        "Force (D)",
+        "Aflame (2)"
       ],
-      "traits": [],
+      "traits": [
+        "Psychic"
+      ],
       "modes": null
     },
     {
       "name": "Zephyrglaive",
       "page": null,
-      "IM": "I",
+      "IM": "+1",
       "AM": "A",
-      "SM": "S",
+      "SM": "+1",
       "AP": 3,
       "D": 2,
       "specialRules": [
@@ -508,13 +513,12 @@
       "name": "The Storied Sword",
       "page": null,
       "IM": "I",
-      "AM": "A",
+      "AM": "+1",
       "SM": "+1",
       "AP": 3,
       "D": 2,
       "specialRules": [
-        "Duellist's Edge (1)",
-        "Breaching (6+)"
+        "Duellist's Edge (1)"
       ],
       "traits": [
         "Power"
@@ -527,10 +531,10 @@
       "IM": "I",
       "AM": "A",
       "SM": "S",
-      "AP": 4,
-      "D": 1,
+      "AP": 3,
+      "D": 2,
       "specialRules": [
-        "Kiss of Death",
+        "Poisoned (3+)",
         "Shred (5+)",
         "Duellist's Edge (1)"
       ],

@@ -11,31 +11,6 @@
       "text": "A Model with the Dodge (X) Special Rule has an Invulnerable Save equal to the value in brackets associated with the specific variant of this Special Rule against Wounds inflicted by Attacks that were made in any of the following situations:\n• The Attack was made during the Assault Phase,\n• The Attack was made as part of a Reaction."
     },
     {
-      "name": "Phase Field (X)",
-      "page": null,
-      "text": "The phase field of a Harlequin's Caress lets the wearer's hand pass through armour and energy fields alike.\n\nWhen making Wound Tests for Hits that have the Phase Field (X) Special Rule, if the result of the Dice rolled is equal to or greater than the value of X attached to the specific variant of this Special Rule, then Invulnerable Saving Throws may not be made against that wound."
-    },
-    {
-      "page": null,
-      "name": "Kiss of Death",
-      "text": "The Harlequin's Kiss drives a hair-thin monofilament wire into its victim, where it uncoils and lashes about, reducing bone and organ to pulp.\n\nWhen a Model makes Melee Attacks with a Weapon that has this Special Rule, one of its Attacks is a Kiss of Death Attack, which is rolled separately. A Kiss of Death Attack is resolved at Strength 6, AP 2 and Damage 2, and has the Murderous (6+) Special Rule."
-    },
-    {
-      "page": null,
-      "name": "Embrace of Death",
-      "text": "The Harlequin's Embrace looses a cloud of monofilament wire the instant before its wearer strikes, binding and slicing the foe.\n\nWhen a Unit that includes a Model equipped with a Weapon that has this Special Rule makes a successful Charge, that Model inflicts D3 automatic Hits on one enemy Unit it is in base contact with, at the start of the Fight Sub-Phase and before any Initiative Step is resolved. These Hits are resolved at Strength 6, AP 4 and Damage 1, and are allocated as though they were Melee Attacks."
-    },
-    {
-      "page": null,
-      "name": "Hallucinogenic",
-      "text": "If a Unit fails the Cool Check called for by the Pinning (X) Special Rule of a Weapon that has this Special Rule, then in addition to gaining the Pinned Tactical Status, it suffers one wound with an AP of 2 and a Damage of 1, against which Cover Saves may not be taken. Its Controlling Player allocates that wound."
-    },
-    {
-      "page": null,
-      "name": "Quickfire",
-      "text": "A Model making a Shooting Attack with a Weapon that has this Special Rule makes a number of attacks with it equal to its Attacks Characteristic, instead of the Weapon's Firepower Characteristic. All of these attacks must target the same Unit."
-    },
-    {
       "name": "Veil of Tears",
       "page": null,
       "text": "The Shadowseer weaves the Laughing God's illusions around the players, so that the foe fires upon phantoms and empty air.\n\nWhen an enemy Unit declares a Shooting Attack targeting a Unit that includes a Model with this Special Rule, and the closest Model in the attacking Unit is more than 12\" from the Target Unit, the Controlling Player of the attacking Unit must make a Willpower Check for it. If the Check is failed, all attacks made as part of that Shooting Attack must be made as Snap Shots. Units that include any Models with the Psyker Trait, and attacks made with a Weapon that has any variant of the Precision (X) Special Rule, ignore this Special Rule."

@@ -847,14 +847,14 @@
    "page": null,
    "limit": null,
    "unique": false,
-   "basePoints": 175,
+   "basePoints": 160,
    "composition": "4 Players and 1 Lead Player",
    "models": [
     {
      "name": "Player",
      "min": 4,
      "max": 11,
-     "costPerExtra": 35,
+     "costPerExtra": 32,
      "profile": {
       "M": 8,
       "WS": 6,
@@ -1951,7 +1951,8 @@
     "D": 1,
     "specialRules": [
      "Pistol",
-     "Poisoned (2+)"
+     "Poisoned (3+)",
+     "Psy-Shock"
     ],
     "traits": [
      "Assault"
@@ -1980,14 +1981,13 @@
     "name": "Crescendo",
     "page": null,
     "R": 12,
-    "FP": 1,
+    "FP": 3,
     "RS": 4,
     "AP": 5,
     "D": 1,
     "specialRules": [
      "Pistol",
-     "Breaching (6+)",
-     "Quickfire"
+     "Breaching (5+)"
     ],
     "traits": [
      "Assault",
@@ -2020,7 +2020,8 @@
     "AP": 5,
     "D": 1,
     "specialRules": [
-     "Breaching (6+)"
+     "Breaching (6+)",
+     "Suppressive (1)"
     ],
     "traits": [
      "Shuriken"
@@ -2051,10 +2052,11 @@
     "R": 12,
     "FP": 1,
     "RS": 6,
-    "AP": 2,
+    "AP": 3,
     "D": 1,
     "specialRules": [
      "Blast (3\")",
+     "Pinning (2)",
      "Limited (1)"
     ],
     "traits": [
@@ -2117,8 +2119,8 @@
     "D": 0,
     "specialRules": [
      "Blast (3\")",
-     "Pinning (1)",
-     "Hallucinogenic"
+     "Panic (1)",
+     "Stun (1)"
     ],
     "traits": [
      "Assault"
@@ -2174,7 +2176,8 @@
       "AP": 2,
       "D": 2,
       "specialRules": [
-       "Armourbane"
+       "Armourbane",
+       "Armour-breaker (5+)"
       ],
       "traits": [
        "Las"
@@ -2231,7 +2234,8 @@
       "AP": 2,
       "D": 2,
       "specialRules": [
-       "Armourbane"
+       "Armourbane",
+       "Armour-breaker (5+)"
       ],
       "traits": [
        "Las"
@@ -2289,13 +2293,13 @@
    {
     "name": "Harlequin's Blade",
     "page": null,
-    "IM": "I",
+    "IM": "+1",
     "AM": "A",
     "SM": "S",
     "AP": 4,
     "D": 1,
     "specialRules": [
-     "Breaching (6+)"
+     "Reaping Blow (1)"
     ],
     "traits": [],
     "modes": null
@@ -2306,11 +2310,11 @@
     "IM": "I",
     "AM": "A",
     "SM": "S",
-    "AP": 4,
-    "D": 1,
+    "AP": 3,
+    "D": 2,
     "specialRules": [
-     "Breaching (6+)",
-     "Kiss of Death"
+     "Poisoned (4+)",
+     "Shred (6+)"
     ],
     "traits": [
      "Monofilament"
@@ -2322,13 +2326,11 @@
     "page": null,
     "IM": "I",
     "AM": "A",
-    "SM": "S",
+    "SM": "+1",
     "AP": 3,
     "D": 1,
     "specialRules": [
-     "Rending (6+)",
-     "Breaching (6+)",
-     "Phase Field (6+)"
+     "Bypass (6+)"
     ],
     "traits": [],
     "modes": null
@@ -2342,7 +2344,8 @@
     "AP": 3,
     "D": 1,
     "specialRules": [
-     "Embrace of Death"
+     "Impact (AM)",
+     "Impact (SM)"
     ],
     "traits": [
      "Monofilament"
@@ -2368,14 +2371,13 @@
    {
     "name": "Mime's Blade",
     "page": null,
-    "IM": "I",
+    "IM": "+1",
     "AM": "A",
     "SM": "S",
     "AP": 4,
     "D": 1,
     "specialRules": [
-     "Precision (5+)",
-     "Breaching (6+)"
+     "Precision (4+)"
     ],
     "traits": [],
     "modes": null
@@ -2385,21 +2387,24 @@
     "page": null,
     "IM": "I",
     "AM": "A",
-    "SM": "+2",
-    "AP": "–",
+    "SM": "+1",
+    "AP": 4,
     "D": 1,
     "specialRules": [
-     "Poisoned (2+)"
+     "Force (D)",
+     "Aflame (2)"
     ],
-    "traits": [],
+    "traits": [
+     "Psychic"
+    ],
     "modes": null
    },
    {
     "name": "Zephyrglaive",
     "page": null,
-    "IM": "I",
+    "IM": "+1",
     "AM": "A",
-    "SM": "S",
+    "SM": "+1",
     "AP": 3,
     "D": 2,
     "specialRules": [
@@ -2431,13 +2436,12 @@
     "name": "The Storied Sword",
     "page": null,
     "IM": "I",
-    "AM": "A",
+    "AM": "+1",
     "SM": "+1",
     "AP": 3,
     "D": 2,
     "specialRules": [
-     "Duellist's Edge (1)",
-     "Breaching (6+)"
+     "Duellist's Edge (1)"
     ],
     "traits": [
      "Power"
@@ -2450,10 +2454,10 @@
     "IM": "I",
     "AM": "A",
     "SM": "S",
-    "AP": 4,
-    "D": 1,
+    "AP": 3,
+    "D": 2,
     "specialRules": [
-     "Kiss of Death",
+     "Poisoned (3+)",
      "Shred (5+)",
      "Duellist's Edge (1)"
     ],
@@ -2552,31 +2556,6 @@
     "name": "Dodge (X)",
     "page": null,
     "text": "A Model with the Dodge (X) Special Rule has an Invulnerable Save equal to the value in brackets associated with the specific variant of this Special Rule against Wounds inflicted by Attacks that were made in any of the following situations:\n• The Attack was made during the Assault Phase,\n• The Attack was made as part of a Reaction."
-   },
-   {
-    "name": "Phase Field (X)",
-    "page": null,
-    "text": "The phase field of a Harlequin's Caress lets the wearer's hand pass through armour and energy fields alike.\n\nWhen making Wound Tests for Hits that have the Phase Field (X) Special Rule, if the result of the Dice rolled is equal to or greater than the value of X attached to the specific variant of this Special Rule, then Invulnerable Saving Throws may not be made against that wound."
-   },
-   {
-    "page": null,
-    "name": "Kiss of Death",
-    "text": "The Harlequin's Kiss drives a hair-thin monofilament wire into its victim, where it uncoils and lashes about, reducing bone and organ to pulp.\n\nWhen a Model makes Melee Attacks with a Weapon that has this Special Rule, one of its Attacks is a Kiss of Death Attack, which is rolled separately. A Kiss of Death Attack is resolved at Strength 6, AP 2 and Damage 2, and has the Murderous (6+) Special Rule."
-   },
-   {
-    "page": null,
-    "name": "Embrace of Death",
-    "text": "The Harlequin's Embrace looses a cloud of monofilament wire the instant before its wearer strikes, binding and slicing the foe.\n\nWhen a Unit that includes a Model equipped with a Weapon that has this Special Rule makes a successful Charge, that Model inflicts D3 automatic Hits on one enemy Unit it is in base contact with, at the start of the Fight Sub-Phase and before any Initiative Step is resolved. These Hits are resolved at Strength 6, AP 4 and Damage 1, and are allocated as though they were Melee Attacks."
-   },
-   {
-    "page": null,
-    "name": "Hallucinogenic",
-    "text": "If a Unit fails the Cool Check called for by the Pinning (X) Special Rule of a Weapon that has this Special Rule, then in addition to gaining the Pinned Tactical Status, it suffers one wound with an AP of 2 and a Damage of 1, against which Cover Saves may not be taken. Its Controlling Player allocates that wound."
-   },
-   {
-    "page": null,
-    "name": "Quickfire",
-    "text": "A Model making a Shooting Attack with a Weapon that has this Special Rule makes a number of attacks with it equal to its Attacks Characteristic, instead of the Weapon's Firepower Characteristic. All of these attacks must target the same Unit."
    },
    {
     "name": "Veil of Tears",
