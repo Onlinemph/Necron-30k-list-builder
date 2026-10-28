@@ -79,7 +79,7 @@ test('relic weapons replace the leader\'s blade and are once per army', () => {
 test('special weapons swap the Harlequin\'s Blade and cost 5 points a model', () => {
   const s = sel('harlequin-troupe');
   s.options.melee = { "Harlequin's Caress": 5 };
-  assert.equal(E.unitPoints(s), 170 + 25);
+  assert.equal(E.unitPoints(s), 160 + 25);
   const players = E.effectiveModels(s).find((m) => m.model === 'Player');
   assert.ok(players.items.includes("Harlequin's Caress"));
   assert.ok(!players.items.includes("Harlequin's Blade"));
@@ -181,12 +181,13 @@ test('every Harlequin weapon rule is one that real HH3 weapons use', () => {
 
 test('holo-suits give Shrouded after a Rush; Dodge is a Damage Mitigation Test on top of the invulnerable save', () => {
   const t = E.effectiveModels(sel('harlequin-troupe'))[0];
-  assert.ok(t.rules.includes('Dodge (4+)'));
+  assert.ok(t.rules.includes('Dodge (6+)'));
   assert.ok(t.reminders.some((r) => /Rushed/.test(r.text) && /Shrouded \(5\+\)/.test(r.text)));
-  assert.ok(rules(sel('vaelith-duskmirror')).includes('Dodge (3+)'));
-  assert.ok(rules(sel('solitaire')).includes('Dodge (3+)'));
+  assert.ok(rules(sel('vaelith-duskmirror')).includes('Dodge (4+)'));
+  assert.ok(rules(sel('solitaire')).includes('Dodge (4+)'));
+  assert.ok(rules(sel('troupe-master')).includes('Dodge (5+)'));
   assert.ok(rules(sel('mimes')).includes('Dodge (5+)'));
-  assert.ok(rules(sel('skyweavers')).includes('Dodge (5+)'));
+  assert.ok(rules(sel('skyweavers')).includes('Dodge (6+)'));
   const dodge = data.rules.specialRules.find((r) => r.name === 'Dodge (X)');
   assert.match(dodge.text, /Damage Mitigation Test/);
   assert.match(dodge.text, /in addition to a Saving Throw, including an Invulnerable Save/);
