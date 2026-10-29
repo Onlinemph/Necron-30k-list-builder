@@ -2552,6 +2552,324 @@
     "Wraith-construct",
     "Wraithsight"
    ]
+  },
+  {
+   "page": null,
+   "limit": null,
+   "unique": false,
+   "traits": [
+    "Xenos",
+    "Harlequin",
+    "Psyker"
+   ],
+   "unitRules": [
+    {
+     "name": "Thrown Voice",
+     "text": "The Ventriloquist speaks in the voices of the enemy's own officers. Once in each enemy Player Turn, when an enemy Unit with at least one Model within 18\" of the Ventriloquist declares a Reaction or Advanced Reaction, the Ventriloquist's Controlling Player may force that Unit to make an Intelligence Check. If the Check is failed, the Reaction is cancelled, but the Reaction Point spent on it is not returned."
+    },
+    {
+     "name": "Come Closer",
+     "text": "Once in each of its Controlling Player's turns, at the start of the Movement Phase, the Ventriloquist may call to one enemy Unit with at least one Model within 12\" of it. That Unit must make a Willpower Check. If the Check is failed, its Controlling Player must move it D6\" directly towards the Ventriloquist, following the normal Rules for Movement but stopping 1\" away from any Model."
+    },
+    {
+     "name": "Puppet Strings",
+     "text": "The Mannequin is a wraithbone puppet that moves only as the Ventriloquist's wires move it. If the Ventriloquist is Removed as a Casualty, the Mannequin is Removed as a Casualty at the same time. The Mannequin is not affected by the Fear (X) Special Rule."
+    }
+   ],
+   "cryptoArkana": false,
+   "fixedArkana": null,
+   "factionChoice": true,
+   "fixedChoice": null,
+   "options": [
+    {
+     "id": "psychic-disciplines",
+     "text": "Psychic Disciplines (up to one).",
+     "kind": "any",
+     "model": null,
+     "replaces": [],
+     "choices": [
+      {
+       "name": "Telepathy",
+       "points": 10
+      },
+      {
+       "name": "Divination",
+       "points": 20
+      },
+      {
+       "name": "Thaumaturgy",
+       "points": 0
+      }
+     ],
+     "max": {
+      "fixed": 1
+     },
+     "requires": null
+    }
+   ],
+   "note": "Written for this list: a puppeteer psyker and the wraithbone mannequin that fights for him.",
+   "id": "the-ventriloquist",
+   "name": "The Ventriloquist",
+   "role": "Support",
+   "basePoints": 135,
+   "composition": "1 Ventriloquist and 1 Mannequin",
+   "models": [
+    {
+     "name": "Ventriloquist",
+     "min": 1,
+     "max": 1,
+     "costPerExtra": 0,
+     "profile": {
+      "M": 8,
+      "WS": 6,
+      "BS": 6,
+      "S": 3,
+      "T": 3,
+      "W": 3,
+      "I": 8,
+      "A": 3,
+      "LD": 10,
+      "CL": 10,
+      "WP": 10,
+      "IN": 10,
+      "SAV": "6+",
+      "INV": "4+"
+     },
+     "wargear": [
+      "Harlequin's Blade",
+      "Shuriken Pistol",
+      "Holo-suit",
+      "Flip Belt",
+      "Plasma Grenades",
+      "Haywire grenades"
+     ],
+     "unitType": "Infantry (Light)",
+     "specialRules": []
+    },
+    {
+     "name": "Mannequin",
+     "min": 1,
+     "max": 1,
+     "costPerExtra": 0,
+     "profile": {
+      "M": 8,
+      "WS": 6,
+      "BS": "–",
+      "S": 5,
+      "T": 5,
+      "W": 3,
+      "I": 8,
+      "A": 4,
+      "LD": 10,
+      "CL": 12,
+      "WP": "–",
+      "IN": "–",
+      "SAV": "4+",
+      "INV": "–"
+     },
+     "wargear": [
+      "Wraithbone Fists"
+     ],
+     "unitType": "Infantry (Light)",
+     "specialRules": []
+    }
+   ],
+   "specialRules": [
+    "Fast (2)",
+    "Dodge (5+)",
+    "The Great Dance",
+    "Thrown Voice",
+    "Come Closer",
+    "Puppet Strings"
+   ]
+  },
+  {
+   "page": null,
+   "limit": null,
+   "unique": false,
+   "traits": [
+    "Xenos",
+    "Harlequin"
+   ],
+   "unitRules": [
+    {
+     "name": "Wraith-construct",
+     "text": "A wraithbone shell animated by the spirit of a dead Aeldari, painted in the colours of the masque it marches with. A Model with this Special Rule is not affected by the Fear (X) Special Rule and never gains the Pinned or Routed Tactical Status."
+    },
+    {
+     "name": "Wraithsight",
+     "text": "The spirit within sees the battlefield only dimly without a psyker to guide it. At the start of its Controlling Player's turn, unless a Model with this Special Rule is within 12\" of a friendly Model with the Psyker Trait (such as a Shadowseer), roll a Dice. On a result of 1, it gains the Stunned Tactical Status."
+    }
+   ],
+   "cryptoArkana": false,
+   "fixedArkana": null,
+   "factionChoice": true,
+   "fixedChoice": null,
+   "options": [
+    {
+     "id": "arms",
+     "text": "May exchange its Ghostglaive and Scattershield for one of the following:",
+     "kind": "one",
+     "model": null,
+     "replaces": [
+      "Ghostglaive",
+      "Scattershield"
+     ],
+     "choices": [
+      {
+       "name": "2 Heavy Wraithcannons",
+       "points": 0
+      },
+      {
+       "name": "Suncannon",
+       "points": 0
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "shoulder",
+     "text": "May take one or two Shoulder mounted Shuriken Cannons for +10 points each.",
+     "kind": "one",
+     "model": null,
+     "replaces": [],
+     "choices": [
+      {
+       "name": "Shoulder mounted Shuriken Cannon",
+       "points": 10
+      },
+      {
+       "name": "2 Shoulder mounted Shuriken Cannons",
+       "points": 20
+      }
+     ],
+     "max": null,
+     "requires": null
+    }
+   ],
+   "note": "A wraithknight in motley, the largest of the wraith-constructs that march with the masques. Written for this list.",
+   "id": "harlequin-wraithknight",
+   "name": "Harlequin Wraithknight",
+   "role": "Lord of War",
+   "basePoints": 450,
+   "composition": "1 Wraithknight",
+   "models": [
+    {
+     "name": "Wraithknight",
+     "min": 1,
+     "max": 1,
+     "costPerExtra": 0,
+     "profile": {
+      "M": 14,
+      "WS": 5,
+      "BS": 5,
+      "S": 9,
+      "FRONT": 12,
+      "REAR": 10,
+      "I": 6,
+      "A": 4,
+      "HP": 10
+     },
+     "wargear": [
+      "Ghostglaive",
+      "Scattershield",
+      "Holo-field"
+     ],
+     "unitType": "Vehicle (Knight)",
+     "specialRules": []
+    }
+   ],
+   "specialRules": [
+    "Explodes (6+)",
+    "Fast (2)",
+    "The Great Dance",
+    "Wraith-construct",
+    "Wraithsight"
+   ]
+  },
+  {
+   "page": null,
+   "limit": null,
+   "unique": true,
+   "traits": [
+    "Xenos",
+    "Harlequin"
+   ],
+   "unitRules": [
+    {
+     "name": "The Final Act",
+     "text": "The Laughing God never walks onto the stage: in the last act he takes the place of the player who plays him. This Model is not deployed at the start of the battle. From the second battle turn onwards, at the start of its Controlling Player's Movement Phase, its Controlling Player may select one friendly Great Harlequin or Troupe Master on the battlefield that is not Embarked. That Model is removed from play (it does not count as destroyed) and this Model is set up in its place, joining the same Unit if that Model had joined one. If no such Model is on the battlefield at the start of the fourth battle turn, this Model may instead be set up wholly within its Controlling Player's deployment zone at the start of that Movement Phase."
+    },
+    {
+     "name": "The Last Laugh",
+     "text": "Once per battle, at the start of any Phase, this Model may be removed and set up again anywhere within 24\" of where it was and more than 1\" from all enemy Models. If it was Locked in Combat, it no longer is, and it may not be Charged in the same Phase. The god was never there."
+    },
+    {
+     "name": "Master of the Revels",
+     "text": "While this Model is on the battlefield, its Controlling Player gains one additional Reaction Point in each enemy Player Turn."
+    }
+   ],
+   "cryptoArkana": false,
+   "fixedArkana": null,
+   "factionChoice": true,
+   "fixedChoice": null,
+   "options": [],
+   "note": "Cegorach hides from Slaanesh and has never manifested; this is the Great Harlequin who plays him, taken over by the god for one performance. Written for this list.",
+   "id": "avatar-of-cegorach",
+   "name": "Avatar of Cegorach",
+   "role": "Warlord",
+   "basePoints": 425,
+   "composition": "1 Avatar of Cegorach",
+   "when": [
+    {
+     "unit": "great-harlequin"
+    },
+    {
+     "unit": "troupe-master"
+    }
+   ],
+   "models": [
+    {
+     "name": "Avatar of Cegorach",
+     "min": 1,
+     "max": 1,
+     "costPerExtra": 0,
+     "profile": {
+      "M": 9,
+      "WS": 9,
+      "BS": 7,
+      "S": 5,
+      "T": 5,
+      "W": 6,
+      "I": 10,
+      "A": 6,
+      "LD": 12,
+      "CL": 12,
+      "WP": 12,
+      "IN": 12,
+      "SAV": "5+",
+      "INV": "4+"
+     },
+     "wargear": [
+      "The Final Jest",
+      "Shuriken Pistol",
+      "Holo-suit",
+      "Flip Belt"
+     ],
+     "unitType": "Paragon (Unique)",
+     "specialRules": []
+    }
+   ],
+   "specialRules": [
+    "Fast (3)",
+    "Dodge (5+)",
+    "Fear (2)",
+    "The Great Dance",
+    "The Final Act",
+    "The Last Laugh",
+    "Master of the Revels"
+   ]
   }
  ],
  "lists": [
@@ -3179,6 +3497,38 @@
      "Armourbane",
      "Skyfire"
     ]
+   },
+   {
+    "page": null,
+    "traits": [],
+    "modes": null,
+    "name": "Heavy Wraithcannon",
+    "R": 36,
+    "FP": 1,
+    "RS": 10,
+    "AP": 2,
+    "D": 4,
+    "specialRules": [
+     "Armourbane",
+     "Heavy (D)"
+    ]
+   },
+   {
+    "page": null,
+    "traits": [
+     "Plasma"
+    ],
+    "modes": null,
+    "name": "Suncannon",
+    "R": 48,
+    "FP": 2,
+    "RS": 7,
+    "AP": 3,
+    "D": 2,
+    "specialRules": [
+     "Blast (5\")",
+     "Breaching (5+)"
+    ]
    }
   ],
   "melee": [
@@ -3415,6 +3765,35 @@
     "specialRules": [
      "Shred (6+)"
     ]
+   },
+   {
+    "page": null,
+    "traits": [],
+    "modes": null,
+    "name": "Ghostglaive",
+    "IM": "I",
+    "AM": "A",
+    "SM": "+2",
+    "AP": 2,
+    "D": 3,
+    "specialRules": [
+     "Reaping Blow (2)"
+    ]
+   },
+   {
+    "page": null,
+    "traits": [],
+    "modes": null,
+    "name": "The Final Jest",
+    "IM": "+1",
+    "AM": "A",
+    "SM": "+2",
+    "AP": 2,
+    "D": 2,
+    "specialRules": [
+     "Bypass (6+)",
+     "Duellist's Edge (2)"
+    ]
    }
   ]
  },
@@ -3468,6 +3847,11 @@
    "name": "Forceshield",
    "page": null,
    "text": "A wraithbone shield that projects a field of force. A Model with a Forceshield has a 4+ Invulnerable Save."
+  },
+  {
+   "name": "Scattershield",
+   "page": null,
+   "text": "A vast shield that scatters light and shot alike. A Model with a Scattershield has a 4+ Invulnerable Save against Shooting Attacks."
   }
  ],
  "rules": {
@@ -4679,7 +5063,9 @@
       "starweaver",
       "webweaver",
       "prismweaver",
-      "dreamweaver"
+      "dreamweaver",
+      "harlequin-wraithknight",
+      "starshrike"
      ]
     },
     "scope": "unit",
@@ -4710,7 +5096,10 @@
       "prismweaver",
       "dreamweaver",
       "mimes",
-      "harlequin-wraithlord"
+      "harlequin-wraithlord",
+      "harlequin-wraithknight",
+      "starshrike",
+      "wraith-dancers"
      ]
     },
     "scope": "unit",
@@ -4805,7 +5194,9 @@
       "starweaver",
       "webweaver",
       "prismweaver",
-      "dreamweaver"
+      "dreamweaver",
+      "harlequin-wraithknight",
+      "starshrike"
      ]
     },
     "scope": "unit",
@@ -4836,7 +5227,9 @@
       "starweaver",
       "webweaver",
       "prismweaver",
-      "dreamweaver"
+      "dreamweaver",
+      "harlequin-wraithknight",
+      "starshrike"
      ]
     },
     "scope": "unit",
@@ -5094,6 +5487,26 @@
     "addTraits": [],
     "addUnitTypes": [],
     "condition": null
+   },
+   {
+    "id": "scattershield",
+    "page": null,
+    "text": "A Model with a Scattershield has a 4+ Invulnerable Save against Shooting Attacks.",
+    "source": {
+     "type": "wargear",
+     "name": "Scattershield"
+    },
+    "appliesTo": {},
+    "scope": "model",
+    "stats": {
+     "INV": "best:4+"
+    },
+    "addRules": [],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": "against Shooting Attacks"
    }
   ]
  },

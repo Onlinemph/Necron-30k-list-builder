@@ -398,6 +398,38 @@
         "Armourbane",
         "Skyfire"
       ]
+    },
+    {
+      "page": null,
+      "traits": [],
+      "modes": null,
+      "name": "Heavy Wraithcannon",
+      "R": 36,
+      "FP": 1,
+      "RS": 10,
+      "AP": 2,
+      "D": 4,
+      "specialRules": [
+        "Armourbane",
+        "Heavy (D)"
+      ]
+    },
+    {
+      "page": null,
+      "traits": [
+        "Plasma"
+      ],
+      "modes": null,
+      "name": "Suncannon",
+      "R": 48,
+      "FP": 2,
+      "RS": 7,
+      "AP": 3,
+      "D": 2,
+      "specialRules": [
+        "Blast (5\")",
+        "Breaching (5+)"
+      ]
     }
   ],
   "melee": [
@@ -633,6 +665,35 @@
       "D": 2,
       "specialRules": [
         "Shred (6+)"
+      ]
+    },
+    {
+      "page": null,
+      "traits": [],
+      "modes": null,
+      "name": "Ghostglaive",
+      "IM": "I",
+      "AM": "A",
+      "SM": "+2",
+      "AP": 2,
+      "D": 3,
+      "specialRules": [
+        "Reaping Blow (2)"
+      ]
+    },
+    {
+      "page": null,
+      "traits": [],
+      "modes": null,
+      "name": "The Final Jest",
+      "IM": "+1",
+      "AM": "A",
+      "SM": "+2",
+      "AP": 2,
+      "D": 2,
+      "specialRules": [
+        "Bypass (6+)",
+        "Duellist's Edge (2)"
       ]
     }
   ]
