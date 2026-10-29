@@ -35,7 +35,8 @@
             "Harlequin's Blade",
             "Shuriken Cannon",
             "Star Bolas",
-            "Holo-suit"
+            "Holo-suit",
+            "Mirage Launchers"
           ],
           "unitType": "Cavalry (Antigrav, Light)",
           "specialRules": []
@@ -221,8 +222,8 @@
         {
           "name": "Voidweaver",
           "min": 1,
-          "max": 1,
-          "costPerExtra": 0,
+          "max": 3,
+          "costPerExtra": 105,
           "profile": {
             "M": 18,
             "BS": 5,
@@ -257,8 +258,8 @@
       "options": [
         {
           "id": "prismatic-swap",
-          "text": "May have its Haywire Cannon exchanged for a Centreline mounted Prismatic Cannon for +10 points.",
-          "kind": "upgrade",
+          "text": "Any Voidweaver may have its Haywire Cannon exchanged for a Centreline mounted Prismatic Cannon for +10 points per model.",
+          "kind": "perModel",
           "model": null,
           "replaces": [
             "Centreline mounted Haywire Cannon"

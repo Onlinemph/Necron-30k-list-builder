@@ -37,7 +37,8 @@
             "Holo-suit",
             "Domino Field",
             "Flip Belt",
-            "Plasma Grenades"
+            "Plasma Grenades",
+            "Haywire grenades"
           ],
           "unitType": "Paragon (Command, Unique)",
           "specialRules": []
@@ -108,7 +109,8 @@
             "Shuriken Pistol",
             "Holo-suit",
             "Flip Belt",
-            "Plasma Grenades"
+            "Plasma Grenades",
+            "Haywire grenades"
           ],
           "unitType": "Infantry (Command, Light)",
           "specialRules": []
@@ -241,7 +243,8 @@
             "Hallucinogen Grenade Launcher",
             "Holo-suit",
             "Flip Belt",
-            "Plasma Grenades"
+            "Plasma Grenades",
+            "Haywire grenades"
           ],
           "unitType": "Infantry (Command, Light, Unique)",
           "specialRules": []
@@ -273,7 +276,33 @@
       "cryptoArkana": false,
       "fixedArkana": null,
       "fixedChoice": "Veiled Path",
-      "options": [],
+      "options": [
+        {
+          "id": "psychic-disciplines",
+          "text": "Psychic Disciplines (up to two), in addition to the Phantasmancy of Veil of Tears.",
+          "kind": "any",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Telepathy",
+              "points": 10
+            },
+            {
+              "name": "Divination",
+              "points": 20
+            },
+            {
+              "name": "Thaumaturgy",
+              "points": 0
+            }
+          ],
+          "max": {
+            "fixed": 2
+          },
+          "requires": null
+        }
+      ],
       "note": "Shadowseer of the Veiled Path. Her rules here are written for this army list."
     },
     {
@@ -312,7 +341,8 @@
             "Shuriken Pistol",
             "Holo-suit",
             "Flip Belt",
-            "Plasma Grenades"
+            "Plasma Grenades",
+            "Haywire grenades"
           ],
           "unitType": "Infantry (Command, Light)",
           "specialRules": []
@@ -437,7 +467,8 @@
             "Harlequin's Blade",
             "Shuriken Cannon",
             "Star Bolas",
-            "Holo-suit"
+            "Holo-suit",
+            "Mirage Launchers"
           ],
           "unitType": "Cavalry (Antigrav, Command, Light)",
           "specialRules": []
@@ -573,7 +604,8 @@
             "Hallucinogen Grenade Launcher",
             "Holo-suit",
             "Flip Belt",
-            "Plasma Grenades"
+            "Plasma Grenades",
+            "Haywire grenades"
           ],
           "unitType": "Infantry (Command, Light)",
           "specialRules": []
@@ -597,7 +629,7 @@
       "options": [
         {
           "id": "pistol",
-          "text": "May have its Shuriken Pistol exchanged for an item from the Harlequin Pistols List.",
+          "text": "May have its Shuriken Pistol exchanged for an item from the Masque Leader Pistols List.",
           "kind": "one",
           "model": null,
           "replaces": [
@@ -605,7 +637,7 @@
           ],
           "choices": [
             {
-              "list": "harlequin-pistols"
+              "list": "masque-leader-pistols"
             }
           ],
           "max": null,
@@ -623,6 +655,31 @@
             }
           ],
           "max": null,
+          "requires": null
+        },
+        {
+          "id": "psychic-disciplines",
+          "text": "Psychic Disciplines (up to one), in addition to the Phantasmancy of Veil of Tears.",
+          "kind": "any",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Telepathy",
+              "points": 10
+            },
+            {
+              "name": "Divination",
+              "points": 20
+            },
+            {
+              "name": "Thaumaturgy",
+              "points": 0
+            }
+          ],
+          "max": {
+            "fixed": 1
+          },
           "requires": null
         }
       ],
@@ -784,7 +841,8 @@
             "Harlequin's Caress",
             "Holo-suit",
             "Flip Belt",
-            "Plasma Grenades"
+            "Plasma Grenades",
+            "Haywire grenades"
           ],
           "unitType": "Infantry (Champion, Light)",
           "specialRules": []
@@ -827,6 +885,23 @@
       "cryptoArkana": false,
       "fixedArkana": null,
       "options": [
+        {
+          "id": "rose",
+          "text": "May have its Harlequin's Kiss exchanged for Cegorach's Rose for +20 points.",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Harlequin's Kiss"
+          ],
+          "choices": [
+            {
+              "name": "Cegorach's Rose",
+              "points": 20
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
         {
           "id": "enigma",
           "text": "May have one item from the Enigmas of the Black Library selected for it.",
@@ -991,8 +1066,8 @@
           "requires": null
         },
         {
-          "id": "lead-sword",
-          "text": "The Lead Player may have its Harlequin's Blade exchanged for a Power Sword for +5 points.",
+          "id": "lead-weapon",
+          "text": "The Lead Player may have its Harlequin's Blade exchanged for an item from the Lead Player Weapons List.",
           "kind": "one",
           "model": "Lead Player",
           "replaces": [
@@ -1000,8 +1075,38 @@
           ],
           "choices": [
             {
-              "name": "Power Sword",
-              "points": 5
+              "list": "lead-player-weapons"
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "lead-pistol",
+          "text": "The Lead Player may have its Shuriken Pistol exchanged for Crescendo for +15 points.",
+          "kind": "one",
+          "model": "Lead Player",
+          "replaces": [
+            "Shuriken Pistol"
+          ],
+          "choices": [
+            {
+              "name": "Crescendo",
+              "points": 15
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "lead-enigma",
+          "text": "The Lead Player may have one item from the Enigmas of the Black Library selected for it.",
+          "kind": "one",
+          "model": "Lead Player",
+          "replaces": [],
+          "choices": [
+            {
+              "list": "enigmas-of-the-black-library"
             }
           ],
           "max": null,
@@ -1158,7 +1263,8 @@
             "Harlequin's Blade",
             "Holo-suit",
             "Flip Belt",
-            "Plasma Grenades"
+            "Plasma Grenades",
+            "Haywire grenades"
           ],
           "unitType": "Infantry (Champion, Light)",
           "specialRules": []

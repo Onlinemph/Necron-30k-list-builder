@@ -73,6 +73,23 @@
       "modes": null
     },
     {
+      "name": "Haywire grenades",
+      "page": null,
+      "R": 8,
+      "FP": 1,
+      "RS": 4,
+      "AP": "–",
+      "D": 1,
+      "specialRules": [
+        "Shock (Stunned)"
+      ],
+      "traits": [
+        "Haywire",
+        "Assault"
+      ],
+      "modes": null
+    },
+    {
       "name": "Shuriken Catapult",
       "page": null,
       "R": 12,
@@ -371,13 +388,12 @@
       "name": "Harlequin's Blade",
       "page": null,
       "IM": "+1",
-      "AM": "A",
+      "AM": "+1",
       "SM": "S",
-      "AP": 4,
+      "AP": 5,
       "D": 1,
       "specialRules": [
-        "Breaching (6+)",
-        "Reaping Blow (1)"
+        "Breaching (6+)"
       ],
       "traits": [],
       "modes": null
@@ -386,13 +402,12 @@
       "name": "Harlequin's Kiss",
       "page": null,
       "IM": "I",
-      "AM": "A",
+      "AM": "-1",
       "SM": "S",
       "AP": 4,
-      "D": 2,
+      "D": 3,
       "specialRules": [
-        "Rending (5+)",
-        "Shred (5+)"
+        "Rending (5+)"
       ],
       "traits": [
         "Monofilament"
@@ -402,7 +417,7 @@
     {
       "name": "Harlequin's Caress",
       "page": null,
-      "IM": "I",
+      "IM": "-1",
       "AM": "A",
       "SM": "S",
       "AP": "–",
@@ -450,7 +465,7 @@
     {
       "name": "Mime's Blade",
       "page": null,
-      "IM": "+1",
+      "IM": "+2",
       "AM": "A",
       "SM": "S",
       "AP": 4,
@@ -465,9 +480,9 @@
     {
       "name": "Miststave",
       "page": null,
-      "IM": "I",
+      "IM": "-1",
       "AM": "A",
-      "SM": "+1",
+      "SM": "+2",
       "AP": 4,
       "D": 1,
       "specialRules": [
@@ -532,13 +547,12 @@
       "name": "Cegorach's Rose",
       "page": null,
       "IM": "I",
-      "AM": "A",
+      "AM": "-1",
       "SM": "S",
       "AP": 3,
-      "D": 2,
+      "D": 3,
       "specialRules": [
         "Rending (4+)",
-        "Shred (5+)",
         "Duellist's Edge (1)"
       ],
       "traits": [
