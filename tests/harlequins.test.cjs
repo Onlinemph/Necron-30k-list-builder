@@ -292,3 +292,44 @@ test('Wraith-dancers take any Masque, fill Heavy Assault, and a Forceshield give
   const det = E.detachmentFromDef('masque-of-the-dead');
   assert.ok(det.slots.some((x) => x.role === 'Heavy Assault'));
 });
+
+test('the Avatar of Cegorach needs a Great Harlequin or Troupe Master to play him, and is a Warlord at Initiative 10', () => {
+  const u = data.units.find((x) => x.id === 'avatar-of-cegorach');
+  assert.equal(u.role, 'Warlord');
+  assert.ok(u.unique);
+  const a = sel('avatar-of-cegorach');
+  assert.equal(E.effectiveModels(a)[0].profile.I, 10);
+  const W = E.makeDetachment('warlord', 'W', [{ role: 'Warlord' }]);
+  W.slots[0].unit = a;
+  const P = E.makeDetachment('primary', 'P', [{ role: 'High Command' }, { role: 'Command' }]);
+  const issues = () => E.armyIssues(army([P, W])).filter((i) => i.level === 'error' && /Avatar/.test(i.msg));
+  assert.ok(issues().some((i) => /needs Great Harlequin or Troupe Master/.test(i.msg)));
+  P.slots[1].unit = sel('troupe-master');
+  assert.deepEqual(issues(), []);
+});
+
+test('the Harlequin Wraithknight is a Lord of War Knight that Masque rules for infantry pass over', () => {
+  const u = data.units.find((x) => x.id === 'harlequin-wraithknight');
+  assert.equal(u.role, 'Lord of War');
+  for (const m of ['Frozen Stars', 'Dreaming Shadow', 'Veiled Path']) {
+    const k = E.effectiveModels(sel('harlequin-wraithknight', m))[0];
+    assert.match(k.unitType, /Knight/);
+    assert.ok(!k.rules.some((r) => /^(Impact|Feel No Pain|Shrouded)/.test(r)), m);
+  }
+  const k = sel('harlequin-wraithknight');
+  k.options.arms = '2 Heavy Wraithcannons';
+  k.options.shoulder = '2 Shoulder mounted Shuriken Cannons';
+  assert.equal(E.unitPoints(k), 450 + 20);
+  const items = E.effectiveModels(k)[0].items;
+  assert.ok(items.includes('2 Heavy Wraithcannons') && !items.includes('Ghostglaive') && !items.includes('Scattershield'));
+});
+
+test('the Ventriloquist is a psyker with a Mannequin, and takes one Psychic Discipline', () => {
+  const v = sel('the-ventriloquist');
+  const models = E.effectiveModels(v);
+  assert.deepEqual(models.map((m) => m.model), ['Ventriloquist', 'Mannequin']);
+  assert.ok(models.find((m) => m.model === 'Mannequin').items.includes('Wraithbone Fists'));
+  assert.ok(models[0].traits.includes('Psyker'));
+  v.options['psychic-disciplines'] = ['Telepathy', 'Divination'];
+  assert.ok(errs(v).some((i) => /at most 1/.test(i.msg)));
+});

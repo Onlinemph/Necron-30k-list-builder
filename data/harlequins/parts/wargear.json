@@ -49,6 +49,11 @@
       "name": "Forceshield",
       "page": null,
       "text": "A wraithbone shield that projects a field of force. A Model with a Forceshield has a 4+ Invulnerable Save."
+    },
+    {
+      "name": "Scattershield",
+      "page": null,
+      "text": "A vast shield that scatters light and shot alike. A Model with a Scattershield has a 4+ Invulnerable Save against Shooting Attacks."
     }
   ]
 }

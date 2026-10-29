@@ -134,6 +134,36 @@ score like the Death Jester and Mimes, because what they do (auras, Precision, d
 sim. In combat every one of them loses to Leman Russ, and the number of the 307 Legion units that wipe them within six
 rounds is 33 for the Revel Troupe, 19 for Deathmask Players and 48 for Wraith-dancers.
 
+## The Ventriloquist, the Wraithknight and the Avatar of Cegorach
+
+All three are written for this list.
+
+The Ventriloquist (Support, 135) is a puppeteer psyker and the wraithbone Mannequin that fights for him (S5 T5 W3,
+wraithbone fists), with up to one Psychic Discipline. It plays with HH3's Reactions, which nothing else does: once in
+each enemy turn, an enemy unit within 18" that declares a Reaction must pass an Intelligence Check or lose it, Reaction
+Point and all (Thrown Voice). Once a turn it can call an enemy unit within 12" D6" closer on a failed Willpower Check (Come
+Closer), which sets up Rising Crescendo charges. If the Ventriloquist dies, the Mannequin falls with him.
+
+The Harlequin Wraithknight (Lord of War, 450) is built like an HH3 Knight (Vehicle (Knight), 10 Hull Points) but trades
+armour for speed: M14, I6, Front 12 and Rear 10 against a Questoris's M12, I4 and 13/11, a holo-field instead of
+Auto-Repair, and The Great Dance. It carries a Ghostglaive (S+2, AP 2, D 3, Reaping Blow (2)) and Scattershield (4++
+against shooting), or two Heavy Wraithcannons (S10, D 4, Armourbane), or a Suncannon (Blast (5"), Breaching (5+)), and up
+to two shoulder shuriken cannons. Value per 100 points: 4.44 with the glaive, 3.70 with wraithcannons and 3.27 with the
+Suncannon, against 3.00 for a Knight Questoris and 4.87 for a Cerastus Castigator.
+
+The Avatar of Cegorach (Warlord, 425) keeps the lore intact: Cegorach hides from Slaanesh and has never manifested, so
+this is the Great Harlequin who plays him in the final act, taken over by the god for one performance. It isn't
+deployed; from the second turn it replaces a friendly Great Harlequin or Troupe Master on the battlefield (the army must
+include one), and it brings an extra Reaction Point in each enemy turn and a once-per-battle 24" vanishing act. Its
+profile is WS9 S5 T5 W6 I10 A6 with a 4++ and Dodge (5+), and The Final Jest (S+2, AP 2, D 2, Bypass (6+), Duellist's
+Edge (2)). The first version had a 3++, Eternal Warrior (1) and seven attacks; then only 1 of the 307 Legion units could
+wipe it in combat and Leman Russ lost with the Avatar on 82%. Now 9 can, and against Russ it's a draw after six rounds
+(the Avatar on 21%, Russ on 1%). Its value per 100 points is low (2.13 at 450) because its Reaction Point, vanishing act
+and choice of entry aren't in the sim; the 425 points sit between that and its strength in combat.
+
+A Wraithknight and the Avatar together cost 875, over the 25% that Warlord and Lord of War units may take of a
+3,000-point army.
+
 ## Weapons and wargear, and where they come from
 
 Most of the rules come from the BattleScribe data for older editions: `BSData/wh40k-7th-edition`

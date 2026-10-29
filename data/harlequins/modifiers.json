@@ -15,7 +15,9 @@
           "starweaver",
           "webweaver",
           "prismweaver",
-          "dreamweaver"
+          "dreamweaver",
+          "harlequin-wraithknight",
+          "starshrike"
         ]
       },
       "scope": "unit",
@@ -46,7 +48,10 @@
           "prismweaver",
           "dreamweaver",
           "mimes",
-          "harlequin-wraithlord"
+          "harlequin-wraithlord",
+          "harlequin-wraithknight",
+          "starshrike",
+          "wraith-dancers"
         ]
       },
       "scope": "unit",
@@ -141,7 +146,9 @@
           "starweaver",
           "webweaver",
           "prismweaver",
-          "dreamweaver"
+          "dreamweaver",
+          "harlequin-wraithknight",
+          "starshrike"
         ]
       },
       "scope": "unit",
@@ -172,7 +179,9 @@
           "starweaver",
           "webweaver",
           "prismweaver",
-          "dreamweaver"
+          "dreamweaver",
+          "harlequin-wraithknight",
+          "starshrike"
         ]
       },
       "scope": "unit",
@@ -430,6 +439,26 @@
       "addTraits": [],
       "addUnitTypes": [],
       "condition": null
+    },
+    {
+      "id": "scattershield",
+      "page": null,
+      "text": "A Model with a Scattershield has a 4+ Invulnerable Save against Shooting Attacks.",
+      "source": {
+        "type": "wargear",
+        "name": "Scattershield"
+      },
+      "appliesTo": {},
+      "scope": "model",
+      "stats": {
+        "INV": "best:4+"
+      },
+      "addRules": [],
+      "removeRules": [],
+      "modifyRules": [],
+      "addTraits": [],
+      "addUnitTypes": [],
+      "condition": "against Shooting Attacks"
     }
   ]
 }
