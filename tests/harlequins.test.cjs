@@ -76,16 +76,16 @@ test('relic weapons replace the leader\'s blade and are once per army', () => {
   assert.ok(E.armyIssues(army([det])).some((i) => /The Storied Sword may only be taken once/.test(i.msg)));
 });
 
-test('any Player may take a Kiss or Embrace, one in five a Caress, from one blade each', () => {
+test('any Player may take a Kiss (free) or Embrace, one in five a Caress, from one blade each', () => {
   const k = sel('harlequin-troupe');
   k.options.melee = { "Harlequin's Kiss": 5 };
-  assert.equal(E.unitPoints(k), 160 + 25);
+  assert.equal(E.unitPoints(k), 160);
   // five swaps on four Players and a Lead Player: the fifth goes to the Lead Player
   assert.deepEqual(E.effectiveModels(k).map((m) => [m.model, m.count, m.items.includes("Harlequin's Kiss")]), [['Player', 4, true], ['Lead Player', 1, true]]);
   const s = sel('harlequin-troupe');
   s.options.caress = { "Harlequin's Caress": 1 };
   s.options.melee = { "Harlequin's Kiss": 4 };
-  assert.equal(E.unitPoints(s), 160 + 10 + 20);
+  assert.equal(E.unitPoints(s), 160 + 10);
   assert.deepEqual(errs(s), []);
   const carried = E.effectiveModels(s).flatMap((m) => Array(m.count).fill(m.items.filter((i) => /^Harlequin's/.test(i)).join()));
   assert.deepEqual(carried.sort(), ["Harlequin's Caress", "Harlequin's Kiss", "Harlequin's Kiss", "Harlequin's Kiss", "Harlequin's Kiss"]);
@@ -206,4 +206,41 @@ test('holo-suits give Shrouded after a Rush; Dodge is a Damage Mitigation Test o
   assert.match(dodge.text, /in addition to a Saving Throw, including an Invulnerable Save/);
   // vehicles have holo-fields, not holo-suits
   assert.ok(!E.effectiveModels(sel('starweaver'))[0].reminders.some((r) => /Rushed/.test(r.text)));
+});
+
+test('each Player weapon has its own stat shape, not just its own rule', () => {
+  const w = (n) => data.weapons.melee.find((x) => x.name === n);
+  const shape = (n) => [w(n).IM, w(n).AM, w(n).SM, String(w(n).AP), w(n).D].join(' ');
+  const shapes = ["Harlequin's Blade", "Harlequin's Kiss", "Harlequin's Caress", "Harlequin's Embrace"].map(shape);
+  assert.equal(new Set(shapes).size, 4, shapes.join(' / '));
+  assert.equal(w("Harlequin's Blade").AM, '+1');
+  assert.equal(w("Harlequin's Kiss").D, 3);
+  assert.equal(w("Harlequin's Caress").IM, '-1');
+});
+
+test('the 7th edition options: Lead Player relics, the Solitaire\'s Rose, Shadowseer disciplines, Voidweaver squadrons', () => {
+  const t = sel('harlequin-troupe');
+  t.options['lead-weapon'] = "Cegorach's Rose";
+  t.options['lead-pistol'] = 'Crescendo';
+  assert.equal(E.unitPoints(t), 160 + 20 + 15);
+  const lead = E.effectiveModels(t).find((m) => m.model === 'Lead Player');
+  assert.ok(lead.items.includes("Cegorach's Rose") && lead.items.includes('Crescendo') && !lead.items.includes("Harlequin's Blade"));
+  // the Rose is once per army, whoever carries it
+  const s = sel('solitaire');
+  s.options.rose = "Cegorach's Rose";
+  assert.ok(E.effectiveModels(s)[0].items.includes("Cegorach's Rose"));
+  const det = E.makeDetachment('primary', 'P', [{ role: 'Troops' }, { role: 'Elites' }]);
+  det.slots[0].unit = t; det.slots[1].unit = s;
+  assert.ok(E.armyIssues(army([det])).some((i) => /Cegorach's Rose may only be taken once/.test(i.msg)));
+  const ss = sel('shadowseer');
+  ss.options['psychic-disciplines'] = ['Telepathy', 'Divination'];
+  assert.ok(errs(ss).some((i) => /at most 1/.test(i.msg)));
+  const sy = sel('sylandri-veilwalker');
+  sy.options['psychic-disciplines'] = ['Telepathy', 'Divination'];
+  assert.deepEqual(errs(sy), []);
+  const v = sel('voidweaver');
+  v.counts = { Voidweaver: 3 };
+  assert.equal(E.unitPoints(v), 105 * 3);
+  for (const id of ['troupe-master', 'shadowseer', 'death-jester', 'solitaire']) assert.ok(E.effectiveModels(sel(id))[0].items.includes('Haywire grenades'), id);
+  assert.ok(E.effectiveModels(sel('skyweavers'))[0].items.includes('Mirage Launchers'));
 });

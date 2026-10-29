@@ -56,7 +56,8 @@
       "Holo-suit",
       "Domino Field",
       "Flip Belt",
-      "Plasma Grenades"
+      "Plasma Grenades",
+      "Haywire grenades"
      ],
      "unitType": "Paragon (Command, Unique)",
      "specialRules": []
@@ -127,7 +128,8 @@
       "Shuriken Pistol",
       "Holo-suit",
       "Flip Belt",
-      "Plasma Grenades"
+      "Plasma Grenades",
+      "Haywire grenades"
      ],
      "unitType": "Infantry (Command, Light)",
      "specialRules": []
@@ -260,7 +262,8 @@
       "Hallucinogen Grenade Launcher",
       "Holo-suit",
       "Flip Belt",
-      "Plasma Grenades"
+      "Plasma Grenades",
+      "Haywire grenades"
      ],
      "unitType": "Infantry (Command, Light, Unique)",
      "specialRules": []
@@ -292,7 +295,33 @@
    "cryptoArkana": false,
    "fixedArkana": null,
    "fixedChoice": "Veiled Path",
-   "options": [],
+   "options": [
+    {
+     "id": "psychic-disciplines",
+     "text": "Psychic Disciplines (up to two), in addition to the Phantasmancy of Veil of Tears.",
+     "kind": "any",
+     "model": null,
+     "replaces": [],
+     "choices": [
+      {
+       "name": "Telepathy",
+       "points": 10
+      },
+      {
+       "name": "Divination",
+       "points": 20
+      },
+      {
+       "name": "Thaumaturgy",
+       "points": 0
+      }
+     ],
+     "max": {
+      "fixed": 2
+     },
+     "requires": null
+    }
+   ],
    "note": "Shadowseer of the Veiled Path. Her rules here are written for this army list."
   },
   {
@@ -331,7 +360,8 @@
       "Shuriken Pistol",
       "Holo-suit",
       "Flip Belt",
-      "Plasma Grenades"
+      "Plasma Grenades",
+      "Haywire grenades"
      ],
      "unitType": "Infantry (Command, Light)",
      "specialRules": []
@@ -456,7 +486,8 @@
       "Harlequin's Blade",
       "Shuriken Cannon",
       "Star Bolas",
-      "Holo-suit"
+      "Holo-suit",
+      "Mirage Launchers"
      ],
      "unitType": "Cavalry (Antigrav, Command, Light)",
      "specialRules": []
@@ -592,7 +623,8 @@
       "Hallucinogen Grenade Launcher",
       "Holo-suit",
       "Flip Belt",
-      "Plasma Grenades"
+      "Plasma Grenades",
+      "Haywire grenades"
      ],
      "unitType": "Infantry (Command, Light)",
      "specialRules": []
@@ -616,7 +648,7 @@
    "options": [
     {
      "id": "pistol",
-     "text": "May have its Shuriken Pistol exchanged for an item from the Harlequin Pistols List.",
+     "text": "May have its Shuriken Pistol exchanged for an item from the Masque Leader Pistols List.",
      "kind": "one",
      "model": null,
      "replaces": [
@@ -624,7 +656,7 @@
      ],
      "choices": [
       {
-       "list": "harlequin-pistols"
+       "list": "masque-leader-pistols"
       }
      ],
      "max": null,
@@ -642,6 +674,31 @@
       }
      ],
      "max": null,
+     "requires": null
+    },
+    {
+     "id": "psychic-disciplines",
+     "text": "Psychic Disciplines (up to one), in addition to the Phantasmancy of Veil of Tears.",
+     "kind": "any",
+     "model": null,
+     "replaces": [],
+     "choices": [
+      {
+       "name": "Telepathy",
+       "points": 10
+      },
+      {
+       "name": "Divination",
+       "points": 20
+      },
+      {
+       "name": "Thaumaturgy",
+       "points": 0
+      }
+     ],
+     "max": {
+      "fixed": 1
+     },
      "requires": null
     }
    ],
@@ -803,7 +860,8 @@
       "Harlequin's Caress",
       "Holo-suit",
       "Flip Belt",
-      "Plasma Grenades"
+      "Plasma Grenades",
+      "Haywire grenades"
      ],
      "unitType": "Infantry (Champion, Light)",
      "specialRules": []
@@ -846,6 +904,23 @@
    "cryptoArkana": false,
    "fixedArkana": null,
    "options": [
+    {
+     "id": "rose",
+     "text": "May have its Harlequin's Kiss exchanged for Cegorach's Rose for +20 points.",
+     "kind": "one",
+     "model": null,
+     "replaces": [
+      "Harlequin's Kiss"
+     ],
+     "choices": [
+      {
+       "name": "Cegorach's Rose",
+       "points": 20
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
     {
      "id": "enigma",
      "text": "May have one item from the Enigmas of the Black Library selected for it.",
@@ -1010,8 +1085,8 @@
      "requires": null
     },
     {
-     "id": "lead-sword",
-     "text": "The Lead Player may have its Harlequin's Blade exchanged for a Power Sword for +5 points.",
+     "id": "lead-weapon",
+     "text": "The Lead Player may have its Harlequin's Blade exchanged for an item from the Lead Player Weapons List.",
      "kind": "one",
      "model": "Lead Player",
      "replaces": [
@@ -1019,8 +1094,38 @@
      ],
      "choices": [
       {
-       "name": "Power Sword",
-       "points": 5
+       "list": "lead-player-weapons"
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "lead-pistol",
+     "text": "The Lead Player may have its Shuriken Pistol exchanged for Crescendo for +15 points.",
+     "kind": "one",
+     "model": "Lead Player",
+     "replaces": [
+      "Shuriken Pistol"
+     ],
+     "choices": [
+      {
+       "name": "Crescendo",
+       "points": 15
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "lead-enigma",
+     "text": "The Lead Player may have one item from the Enigmas of the Black Library selected for it.",
+     "kind": "one",
+     "model": "Lead Player",
+     "replaces": [],
+     "choices": [
+      {
+       "list": "enigmas-of-the-black-library"
       }
      ],
      "max": null,
@@ -1177,7 +1282,8 @@
       "Harlequin's Blade",
       "Holo-suit",
       "Flip Belt",
-      "Plasma Grenades"
+      "Plasma Grenades",
+      "Haywire grenades"
      ],
      "unitType": "Infantry (Champion, Light)",
      "specialRules": []
@@ -1260,7 +1366,8 @@
       "Harlequin's Blade",
       "Shuriken Cannon",
       "Star Bolas",
-      "Holo-suit"
+      "Holo-suit",
+      "Mirage Launchers"
      ],
      "unitType": "Cavalry (Antigrav, Light)",
      "specialRules": []
@@ -1446,8 +1553,8 @@
     {
      "name": "Voidweaver",
      "min": 1,
-     "max": 1,
-     "costPerExtra": 0,
+     "max": 3,
+     "costPerExtra": 105,
      "profile": {
       "M": 18,
       "BS": 5,
@@ -1482,8 +1589,8 @@
    "options": [
     {
      "id": "prismatic-swap",
-     "text": "May have its Haywire Cannon exchanged for a Centreline mounted Prismatic Cannon for +10 points.",
-     "kind": "upgrade",
+     "text": "Any Voidweaver may have its Haywire Cannon exchanged for a Centreline mounted Prismatic Cannon for +10 points per model.",
+     "kind": "perModel",
      "model": null,
      "replaces": [
       "Centreline mounted Haywire Cannon"
@@ -1771,7 +1878,7 @@
     },
     {
      "name": "Harlequin's Kiss",
-     "points": 5
+     "points": 0
     }
    ]
   },
@@ -1809,8 +1916,29 @@
     },
     {
      "name": "Harlequin's Kiss",
+     "points": 0
+    },
+    {
+     "name": "Power Sword",
      "points": 5
     },
+    {
+     "name": "The Storied Sword",
+     "points": 20,
+     "oncePerArmy": true
+    },
+    {
+     "name": "Cegorach's Rose",
+     "points": 20,
+     "oncePerArmy": true
+    }
+   ]
+  },
+  {
+   "id": "lead-player-weapons",
+   "name": "Lead Player Weapons List",
+   "page": null,
+   "items": [
     {
      "name": "Power Sword",
      "points": 5
@@ -2034,6 +2162,23 @@
     "traits": [
      "Assault",
      "Shuriken"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Haywire grenades",
+    "page": null,
+    "R": 8,
+    "FP": 1,
+    "RS": 4,
+    "AP": "–",
+    "D": 1,
+    "specialRules": [
+     "Shock (Stunned)"
+    ],
+    "traits": [
+     "Haywire",
+     "Assault"
     ],
     "modes": null
    },
@@ -2336,13 +2481,12 @@
     "name": "Harlequin's Blade",
     "page": null,
     "IM": "+1",
-    "AM": "A",
+    "AM": "+1",
     "SM": "S",
-    "AP": 4,
+    "AP": 5,
     "D": 1,
     "specialRules": [
-     "Breaching (6+)",
-     "Reaping Blow (1)"
+     "Breaching (6+)"
     ],
     "traits": [],
     "modes": null
@@ -2351,13 +2495,12 @@
     "name": "Harlequin's Kiss",
     "page": null,
     "IM": "I",
-    "AM": "A",
+    "AM": "-1",
     "SM": "S",
     "AP": 4,
-    "D": 2,
+    "D": 3,
     "specialRules": [
-     "Rending (5+)",
-     "Shred (5+)"
+     "Rending (5+)"
     ],
     "traits": [
      "Monofilament"
@@ -2367,7 +2510,7 @@
    {
     "name": "Harlequin's Caress",
     "page": null,
-    "IM": "I",
+    "IM": "-1",
     "AM": "A",
     "SM": "S",
     "AP": "–",
@@ -2415,7 +2558,7 @@
    {
     "name": "Mime's Blade",
     "page": null,
-    "IM": "+1",
+    "IM": "+2",
     "AM": "A",
     "SM": "S",
     "AP": 4,
@@ -2430,9 +2573,9 @@
    {
     "name": "Miststave",
     "page": null,
-    "IM": "I",
+    "IM": "-1",
     "AM": "A",
-    "SM": "+1",
+    "SM": "+2",
     "AP": 4,
     "D": 1,
     "specialRules": [
@@ -2497,13 +2640,12 @@
     "name": "Cegorach's Rose",
     "page": null,
     "IM": "I",
-    "AM": "A",
+    "AM": "-1",
     "SM": "S",
     "AP": 3,
-    "D": 2,
+    "D": 3,
     "specialRules": [
      "Rending (4+)",
-     "Shred (5+)",
      "Duellist's Edge (1)"
     ],
     "traits": [
