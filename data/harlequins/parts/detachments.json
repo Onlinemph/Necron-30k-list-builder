@@ -26,6 +26,11 @@
           "flexible": false
         },
         {
+          "role": "Heavy Assault",
+          "prime": false,
+          "flexible": false
+        },
+        {
           "role": "Transport",
           "prime": false,
           "flexible": false
@@ -155,6 +160,11 @@
           "flexible": false
         },
         {
+          "role": "Elites",
+          "prime": false,
+          "flexible": false
+        },
+        {
           "role": "Troops",
           "prime": false,
           "flexible": false
@@ -237,6 +247,11 @@
         },
         {
           "role": "War Engine",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Heavy Assault",
           "prime": false,
           "flexible": false
         },

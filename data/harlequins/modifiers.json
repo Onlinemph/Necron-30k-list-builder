@@ -410,6 +410,26 @@
       "addTraits": [],
       "addUnitTypes": [],
       "condition": "if it Rushed in its last Movement Phase, until the start of its next turn"
+    },
+    {
+      "id": "forceshield",
+      "page": null,
+      "text": "A Model with a Forceshield has a 4+ Invulnerable Save.",
+      "source": {
+        "type": "wargear",
+        "name": "Forceshield"
+      },
+      "appliesTo": {},
+      "scope": "model",
+      "stats": {
+        "INV": "best:4+"
+      },
+      "addRules": [],
+      "removeRules": [],
+      "modifyRules": [],
+      "addTraits": [],
+      "addUnitTypes": [],
+      "condition": null
     }
   ]
 }

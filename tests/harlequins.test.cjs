@@ -252,3 +252,43 @@ test('Rising Crescendo covers Paragons, so Vaelith can Rush and charge with the 
   assert.match(vaelith.models[0].unitType, /^Paragon/);
   assert.ok(vaelith.specialRules.includes('The Great Dance'));
 });
+
+test('each Masque has its own unit, locked to it, that fits that Masque\'s Auxiliary Detachment', () => {
+  const own = { 'revel-troupe': ['Frozen Stars', 'frenzied-revel', 'Heavy Assault'], tragedians: ['Midnight Sorrow', 'chorus-of-lament', 'Support'], phantasms: ['Veiled Path', 'hall-of-illusions', 'Recon'], 'the-unspeaking': ['Silent Shroud', 'silent-procession', 'Elites'], starshrike: ['Soaring Spite', 'skyborne-host', 'Fast Attack'], 'deathmask-players': ['Dreaming Shadow', 'masque-of-the-dead', 'Troops'] };
+  for (const [id, [masque, detId, role]] of Object.entries(own)) {
+    const s = E.newSelection(id);
+    assert.equal(s.arkana, undefined, `${id} has no Masque choice`);
+    assert.ok(E.effectiveModels(s)[0].traits.includes(masque), `${id} is ${masque}`);
+    assert.deepEqual(errs(s), [], id);
+    const det = E.detachmentFromDef(detId);
+    det.slots.find((x) => x.role === role).unit = s;
+    const issues = E.armyIssues(army([E.makeDetachment('primary', 'P', [{ role: 'High Command' }, { role: 'Command' }]), det]));
+    assert.ok(!issues.some((i) => i.level === 'error' && new RegExp(det.name).test(i.msg)), `${id} in ${det.name}: ` + issues.map((i) => i.msg).join('; '));
+  }
+});
+
+test('Masque units carry their Masque\'s rules: Revel Troupe Impact without Dodge, Deathmask Eternal Warrior, Starshrike speed', () => {
+  const r = rules(E.newSelection('revel-troupe'));
+  assert.ok(r.includes('Impact (S)') && !r.some((x) => /^Dodge/.test(x)));
+  const d = E.newSelection('deathmask-players');
+  assert.ok(rules(d).includes('Eternal Warrior (1)') && rules(d).includes('Feel No Pain (6+)'));
+  d.primeAdvantage = "Death's Promise";
+  assert.ok(rules(d).includes('Eternal Warrior (2)'));
+  const s = E.effectiveModels(E.newSelection('starshrike'))[0];
+  assert.match(s.unitType, /Flyer/);
+  assert.equal(s.profile.M, 24);
+  // Phantasms are illusions: no weapons at all
+  const p = E.effectiveModels(E.newSelection('phantasms'))[0];
+  assert.ok(!p.items.some((i) => data.weapons.melee.concat(data.weapons.ranged).some((w) => w.name === i)));
+});
+
+test('Wraith-dancers take any Masque, fill Heavy Assault, and a Forceshield gives a 4+ invulnerable save', () => {
+  const w = sel('wraith-dancers', 'Dreaming Shadow');
+  assert.equal(data.units.find((u) => u.id === 'wraith-dancers').role, 'Heavy Assault');
+  assert.equal(E.effectiveModels(w)[0].profile.INV, '–');
+  w.options.forceshield = { Forceshield: 3 };
+  assert.equal(E.unitPoints(w), 165 + 30);
+  assert.ok(E.effectiveModels(w).every((m) => m.profile.INV === '4+'));
+  const det = E.detachmentFromDef('masque-of-the-dead');
+  assert.ok(det.slots.some((x) => x.role === 'Heavy Assault'));
+});

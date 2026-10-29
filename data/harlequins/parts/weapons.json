@@ -381,6 +381,23 @@
           ]
         }
       ]
+    },
+    {
+      "page": null,
+      "traits": [
+        "Las"
+      ],
+      "modes": null,
+      "name": "Starshrike Lance",
+      "R": 24,
+      "FP": 2,
+      "RS": 7,
+      "AP": 2,
+      "D": 2,
+      "specialRules": [
+        "Armourbane",
+        "Skyfire"
+      ]
     }
   ],
   "melee": [
@@ -589,6 +606,34 @@
         "Power"
       ],
       "modes": null
+    },
+    {
+      "page": null,
+      "traits": [],
+      "modes": null,
+      "name": "Ghostswords",
+      "IM": "I",
+      "AM": "+1",
+      "SM": "+1",
+      "AP": 3,
+      "D": 1,
+      "specialRules": [
+        "Breaching (5+)"
+      ]
+    },
+    {
+      "page": null,
+      "traits": [],
+      "modes": null,
+      "name": "Ghostaxe",
+      "IM": "-1",
+      "AM": "-1",
+      "SM": "+2",
+      "AP": 2,
+      "D": 2,
+      "specialRules": [
+        "Shred (6+)"
+      ]
     }
   ]
 }

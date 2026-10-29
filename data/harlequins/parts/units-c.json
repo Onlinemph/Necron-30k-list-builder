@@ -1,0 +1,692 @@
+{
+  "units": [
+    {
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "traits": [
+        "Xenos",
+        "Harlequin"
+      ],
+      "unitRules": [
+        {
+          "name": "Unbridled Revel",
+          "text": "The Frozen Stars' bloodiest performers do not dodge: they hurl themselves at the foe and keep killing until the stage is clear. In the Fight Sub-Phase of an Assault Phase in which this Unit made a successful Charge, its Models modify their Attacks Characteristic by +1. However, this Unit may never have the Disengage aftermath option selected for it through The Great Dance unless it lost the Combat."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": false,
+      "fixedChoice": "Frozen Stars",
+      "options": [
+        {
+          "id": "lead-weapon",
+          "text": "The Lead Reveller may have its Harlequin's Embrace exchanged for an item from the Lead Player Weapons List.",
+          "kind": "one",
+          "model": "Lead Reveller",
+          "replaces": [
+            "Harlequin's Embrace"
+          ],
+          "choices": [
+            {
+              "list": "lead-player-weapons"
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "pistol",
+          "text": "For every 5 Models in this Unit, up to two Models may have their Shuriken Pistol exchanged for an item from the Harlequin Pistols List.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [
+            "Shuriken Pistol"
+          ],
+          "choices": [
+            {
+              "list": "harlequin-pistols"
+            }
+          ],
+          "max": {
+            "per": 5,
+            "count": 2
+          },
+          "requires": null
+        }
+      ],
+      "note": "Frozen Stars only. Written for this list: the masque of the most violent tales fields a troupe that has given up dodging.",
+      "id": "revel-troupe",
+      "name": "Revel Troupe",
+      "role": "Heavy Assault",
+      "basePoints": 220,
+      "composition": "4 Revellers and 1 Lead Reveller",
+      "models": [
+        {
+          "name": "Reveller",
+          "min": 4,
+          "max": 9,
+          "costPerExtra": 44,
+          "profile": {
+            "M": 8,
+            "WS": 6,
+            "BS": 4,
+            "S": 3,
+            "T": 3,
+            "W": 2,
+            "I": 7,
+            "A": 5,
+            "LD": 9,
+            "CL": 8,
+            "WP": 7,
+            "IN": 7,
+            "SAV": "6+",
+            "INV": "4+"
+          },
+          "wargear": [
+            "Harlequin's Embrace",
+            "Shuriken Pistol",
+            "Holo-suit",
+            "Flip Belt",
+            "Plasma Grenades"
+          ],
+          "unitType": "Infantry (Light)",
+          "specialRules": []
+        },
+        {
+          "name": "Lead Reveller",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 8,
+            "WS": 6,
+            "BS": 4,
+            "S": 3,
+            "T": 3,
+            "W": 2,
+            "I": 7,
+            "A": 6,
+            "LD": 10,
+            "CL": 8,
+            "WP": 7,
+            "IN": 7,
+            "SAV": "6+",
+            "INV": "4+"
+          },
+          "wargear": [
+            "Harlequin's Embrace",
+            "Shuriken Pistol",
+            "Holo-suit",
+            "Flip Belt",
+            "Plasma Grenades"
+          ],
+          "unitType": "Infantry (Light, Sergeant)",
+          "specialRules": []
+        }
+      ],
+      "specialRules": [
+        "Fast (2)",
+        "Vanguard (2)",
+        "The Great Dance",
+        "Unbridled Revel"
+      ]
+    },
+    {
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "traits": [
+        "Xenos",
+        "Harlequin"
+      ],
+      "unitRules": [
+        {
+          "name": "Dirge of the Fall",
+          "text": "The chorus of the Midnight Sorrow sings the fall of a race, and those who hear it lose heart. Enemy Units with at least one Model within 12\" of this Unit modify the Leadership Characteristic of their Models by -1. In addition, an enemy Unit with the Routed Tactical Status that has any Models within 12\" of this Unit may not remove that Status."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": false,
+      "fixedChoice": "Midnight Sorrow",
+      "options": [],
+      "note": "Midnight Sorrow only. Written for this list: the chorus that performs the Fall of the Aeldari.",
+      "id": "tragedians",
+      "name": "Tragedians",
+      "role": "Support",
+      "basePoints": 105,
+      "composition": "2 Tragedians and 1 Lead Tragedian",
+      "models": [
+        {
+          "name": "Tragedian",
+          "min": 2,
+          "max": 5,
+          "costPerExtra": 32,
+          "profile": {
+            "M": 8,
+            "WS": 5,
+            "BS": 5,
+            "S": 3,
+            "T": 3,
+            "W": 2,
+            "I": 7,
+            "A": 3,
+            "LD": 10,
+            "CL": 10,
+            "WP": 9,
+            "IN": 8,
+            "SAV": "6+",
+            "INV": "4+"
+          },
+          "wargear": [
+            "Hallucinogen Grenade Launcher",
+            "Harlequin's Blade",
+            "Holo-suit",
+            "Flip Belt",
+            "Plasma Grenades"
+          ],
+          "unitType": "Infantry (Light)",
+          "specialRules": []
+        },
+        {
+          "name": "Lead Tragedian",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 8,
+            "WS": 5,
+            "BS": 5,
+            "S": 3,
+            "T": 3,
+            "W": 2,
+            "I": 7,
+            "A": 4,
+            "LD": 10,
+            "CL": 10,
+            "WP": 9,
+            "IN": 8,
+            "SAV": "6+",
+            "INV": "4+"
+          },
+          "wargear": [
+            "Hallucinogen Grenade Launcher",
+            "Harlequin's Blade",
+            "Holo-suit",
+            "Flip Belt",
+            "Plasma Grenades"
+          ],
+          "unitType": "Infantry (Light, Sergeant)",
+          "specialRules": []
+        }
+      ],
+      "specialRules": [
+        "Fast (2)",
+        "Dodge (6+)",
+        "The Great Dance",
+        "Dirge of the Fall"
+      ]
+    },
+    {
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "traits": [
+        "Xenos",
+        "Harlequin"
+      ],
+      "unitRules": [
+        {
+          "name": "Figments",
+          "text": "Phantasms are illusions woven by the Veiled Path's Shadowseers, players who are not there. Models in this Unit may not make attacks of any kind, may not Control or Contest Objectives, may not be joined by other Models, and are not counted when an enemy scores Victory Points for destroying Units. At the start of its Controlling Player's turn, if this Unit has fewer Models than it began the battle with and has at least one Model within 24\" of a friendly Model with the Psyker Trait, return one Model that was Removed as a Casualty to the Unit, placed in Unit Coherency and more than 1\" from all enemy Models."
+        },
+        {
+          "name": "Lure of the Veil",
+          "text": "When an enemy Unit declares a Shooting Attack or a Charge targeting a friendly Unit with the Veiled Path Trait (other than this Unit) that has any Models within 6\" of this Unit, it must make an Intelligence Check. If the Check is failed, the Shooting Attack or Charge must target this Unit instead if this Unit is a legal target; otherwise it continues as declared. An enemy Unit makes at most one such Check in each Phase."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": false,
+      "fixedChoice": "Veiled Path",
+      "options": [],
+      "note": "Veiled Path only. Written for this list: decoys projected by the masque of deception.",
+      "id": "phantasms",
+      "name": "Phantasms",
+      "role": "Recon",
+      "basePoints": 60,
+      "composition": "5 Phantasms",
+      "models": [
+        {
+          "name": "Phantasm",
+          "min": 5,
+          "max": 10,
+          "costPerExtra": 12,
+          "profile": {
+            "M": 8,
+            "WS": "–",
+            "BS": "–",
+            "S": "–",
+            "T": 3,
+            "W": 1,
+            "I": 7,
+            "A": "–",
+            "LD": 10,
+            "CL": 10,
+            "WP": 8,
+            "IN": 8,
+            "SAV": "–",
+            "INV": "4+"
+          },
+          "wargear": [
+            "Holo-suit"
+          ],
+          "unitType": "Infantry (Light, Skirmish)",
+          "specialRules": []
+        }
+      ],
+      "specialRules": [
+        "Infiltrate (9)",
+        "Fast (2)",
+        "The Great Dance",
+        "Figments",
+        "Lure of the Veil"
+      ]
+    },
+    {
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "traits": [
+        "Xenos",
+        "Harlequin"
+      ],
+      "unitRules": [
+        {
+          "name": "Silence the Voice",
+          "text": "The Unspeaking kill those who give orders first, and a unit that loses its voice forgets what it was doing. If an attack made by a Model in this Unit destroys an enemy Model with the Command, Champion or Sergeant Sub-Type, that Model's Unit gains the Stunned Tactical Status."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": false,
+      "fixedChoice": "Silent Shroud",
+      "options": [],
+      "note": "Silent Shroud only. Written for this list: the elite mimes of the masque that never speaks.",
+      "id": "the-unspeaking",
+      "name": "The Unspeaking",
+      "role": "Elites",
+      "basePoints": 120,
+      "composition": "3 of the Unspeaking",
+      "models": [
+        {
+          "name": "Unspeaking",
+          "min": 3,
+          "max": 6,
+          "costPerExtra": 40,
+          "profile": {
+            "M": 8,
+            "WS": 7,
+            "BS": 5,
+            "S": 3,
+            "T": 3,
+            "W": 2,
+            "I": 8,
+            "A": 4,
+            "LD": 10,
+            "CL": 10,
+            "WP": 9,
+            "IN": 9,
+            "SAV": "6+",
+            "INV": "4+"
+          },
+          "wargear": [
+            "Mime's Blade",
+            "Neuro Disruptor",
+            "Holo-suit",
+            "Flip Belt",
+            "Plasma Grenades"
+          ],
+          "unitType": "Infantry (Light, Skirmish)",
+          "specialRules": []
+        }
+      ],
+      "specialRules": [
+        "Infiltrate (9)",
+        "Fast (2)",
+        "Dodge (5+)",
+        "Fear (1)",
+        "The Great Dance",
+        "Silence the Voice"
+      ]
+    },
+    {
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "traits": [
+        "Xenos",
+        "Harlequin",
+        "Jink"
+      ],
+      "unitRules": [
+        {
+          "name": "Laughing Pass",
+          "text": "The Soaring Spite fly low enough to be heard laughing. Once in each of its Controlling Player's Movement Phases, after this Model moves, its Controlling Player may select one enemy Unit that it moved over during that move. That Unit must make a Cool Check; if the Check is failed, it gains the Pinned Tactical Status."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": false,
+      "fixedChoice": "Soaring Spite",
+      "options": [],
+      "note": "Soaring Spite only. Written for this list: a webway fighter, the army's only Flyer.",
+      "id": "starshrike",
+      "name": "Starshrike",
+      "role": "Fast Attack",
+      "basePoints": 130,
+      "composition": "1 Starshrike",
+      "models": [
+        {
+          "name": "Starshrike",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 22,
+            "BS": 5,
+            "FRONT": 10,
+            "SIDE": 10,
+            "REAR": 10,
+            "HP": 4,
+            "CAPACITY": "–"
+          },
+          "wargear": [
+            "Centreline mounted Starshrike Lance",
+            "2 Hull (front) mounted Shuriken Cannons",
+            "Holo-field",
+            "Mirage Launchers"
+          ],
+          "unitType": "Vehicle (Flyer)",
+          "specialRules": []
+        }
+      ],
+      "specialRules": [
+        "Laughing Pass"
+      ]
+    },
+    {
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "traits": [
+        "Xenos",
+        "Harlequin"
+      ],
+      "unitRules": [
+        {
+          "name": "Already Dead",
+          "text": "Each of these players has died once on the stage of the Dreaming Shadow and returned to finish the tale. Models in this Unit have the Eternal Warrior (1) Special Rule, which is already included in their Special Rules, and are not affected by the Fear (X) Special Rule."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": false,
+      "fixedChoice": "Dreaming Shadow",
+      "options": [
+        {
+          "id": "melee",
+          "text": "Any Model in this Unit may have its Harlequin's Blade exchanged for an item from the Harlequin Melee Weapons List.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [
+            "Harlequin's Blade"
+          ],
+          "choices": [
+            {
+              "list": "harlequin-melee"
+            }
+          ],
+          "max": {
+            "shared": "blade"
+          },
+          "requires": null
+        },
+        {
+          "id": "caress",
+          "text": "For every 5 Models in this Unit, one Model may have its Harlequin's Blade exchanged for a Harlequin's Caress for +10 points.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [
+            "Harlequin's Blade"
+          ],
+          "choices": [
+            {
+              "name": "Harlequin's Caress",
+              "points": 10
+            }
+          ],
+          "max": {
+            "per": 5,
+            "count": 1,
+            "shared": "blade"
+          },
+          "requires": null
+        },
+        {
+          "id": "pistol",
+          "text": "For every 5 Models in this Unit, up to two Models may have their Shuriken Pistol exchanged for an item from the Harlequin Pistols List.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [
+            "Shuriken Pistol"
+          ],
+          "choices": [
+            {
+              "list": "harlequin-pistols"
+            }
+          ],
+          "max": {
+            "per": 5,
+            "count": 2
+          },
+          "requires": null
+        },
+        {
+          "id": "lead-weapon",
+          "text": "The Lead Player may have its Harlequin's Blade exchanged for an item from the Lead Player Weapons List.",
+          "kind": "one",
+          "model": "Lead Player",
+          "replaces": [
+            "Harlequin's Blade"
+          ],
+          "choices": [
+            {
+              "list": "lead-player-weapons"
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "Dreaming Shadow only. Written for this list: players of the masque haunted by the dead, who have died once already.",
+      "id": "deathmask-players",
+      "name": "Deathmask Players",
+      "role": "Troops",
+      "basePoints": 175,
+      "composition": "4 Deathmask Players and 1 Lead Player",
+      "models": [
+        {
+          "name": "Deathmask Player",
+          "min": 4,
+          "max": 11,
+          "costPerExtra": 35,
+          "profile": {
+            "M": 8,
+            "WS": 6,
+            "BS": 5,
+            "S": 3,
+            "T": 3,
+            "W": 2,
+            "I": 6,
+            "A": 5,
+            "LD": 10,
+            "CL": 10,
+            "WP": 9,
+            "IN": 8,
+            "SAV": "6+",
+            "INV": "4+"
+          },
+          "wargear": [
+            "Harlequin's Blade",
+            "Shuriken Pistol",
+            "Holo-suit",
+            "Flip Belt",
+            "Plasma Grenades"
+          ],
+          "unitType": "Infantry (Light)",
+          "specialRules": []
+        },
+        {
+          "name": "Lead Player",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 8,
+            "WS": 6,
+            "BS": 5,
+            "S": 3,
+            "T": 3,
+            "W": 2,
+            "I": 6,
+            "A": 6,
+            "LD": 10,
+            "CL": 10,
+            "WP": 9,
+            "IN": 8,
+            "SAV": "6+",
+            "INV": "4+"
+          },
+          "wargear": [
+            "Harlequin's Blade",
+            "Shuriken Pistol",
+            "Holo-suit",
+            "Flip Belt",
+            "Plasma Grenades"
+          ],
+          "unitType": "Infantry (Light, Sergeant)",
+          "specialRules": []
+        }
+      ],
+      "specialRules": [
+        "Fast (2)",
+        "Dodge (6+)",
+        "Vanguard (2)",
+        "The Great Dance",
+        "Eternal Warrior (1)",
+        "Already Dead"
+      ]
+    },
+    {
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "traits": [
+        "Xenos",
+        "Harlequin"
+      ],
+      "unitRules": [
+        {
+          "name": "Wraith-construct",
+          "text": "A wraithbone shell animated by the spirit of a dead Aeldari, painted in the colours of the masque it marches with. A Model with this Special Rule is not affected by the Fear (X) Special Rule and never gains the Pinned or Routed Tactical Status."
+        },
+        {
+          "name": "Wraithsight",
+          "text": "The spirit within sees the battlefield only dimly without a psyker to guide it. At the start of its Controlling Player's turn, unless a Model with this Special Rule is within 12\" of a friendly Model with the Psyker Trait (such as a Shadowseer), roll a Dice. On a result of 1, it gains the Stunned Tactical Status."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": true,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "ghostaxe",
+          "text": "Any Model in this Unit may have its Ghostswords exchanged for a Ghostaxe for free.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [
+            "Ghostswords"
+          ],
+          "choices": [
+            {
+              "name": "Ghostaxe",
+              "points": 0
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "forceshield",
+          "text": "Any Model in this Unit may have a Forceshield for +10 points per Model.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Forceshield",
+              "points": 10
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "Wraithblades in Harlequin death masks: the spirits of dead players, still dancing. Written for this list; they follow on from the Rogue Trader dreadnought that became the Wraithlord.",
+      "id": "wraith-dancers",
+      "name": "Wraith-dancers",
+      "role": "Heavy Assault",
+      "basePoints": 165,
+      "composition": "3 Wraith-dancers",
+      "models": [
+        {
+          "name": "Wraith-dancer",
+          "min": 3,
+          "max": 6,
+          "costPerExtra": 55,
+          "profile": {
+            "M": 7,
+            "WS": 5,
+            "BS": 4,
+            "S": 6,
+            "T": 6,
+            "W": 3,
+            "I": 5,
+            "A": 3,
+            "LD": 10,
+            "CL": 12,
+            "WP": 7,
+            "IN": 5,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Ghostswords"
+          ],
+          "unitType": "Infantry (Heavy)",
+          "specialRules": []
+        }
+      ],
+      "specialRules": [
+        "Bulky (2)",
+        "Fast (1)",
+        "The Great Dance",
+        "Wraith-construct",
+        "Wraithsight"
+      ]
+    }
+  ]
+}
