@@ -44,6 +44,11 @@
       "name": "Starmist Raiment",
       "page": null,
       "text": "Enigma of the Black Library. A holo-suit woven from the light of a dying star, which blazes brightest as its wearer runs. If the Model with Starmist Raiment Rushed in its Controlling Player's last Movement Phase, it has a 3+ Invulnerable Save until the start of that Player's next turn."
+    },
+    {
+      "name": "Forceshield",
+      "page": null,
+      "text": "A wraithbone shield that projects a field of force. A Model with a Forceshield has a 4+ Invulnerable Save."
     }
   ]
 }

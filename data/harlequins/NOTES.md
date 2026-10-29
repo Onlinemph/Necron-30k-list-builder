@@ -43,6 +43,8 @@ Heedless). The Harlequins get the same set:
   Trader-era role, and so are Vaelith Duskmirror and the rules for Sylandri Veilwalker. The Harlequin Wraithlord is the
   dreadnought from the 1988 Rogue Trader Harlequin list (the model that became the Wraithlord), with rules written here;
   it fills the War Engine role, and the Dreaming Shadow's Masque of the Dead has a slot for one.
+- **One unit of its own for each Masque**, as HH3 Legions have theirs (Rampagers, Terror Squads), plus Wraith-dancers
+  for the Heavy Assault role. See "Masque units and Wraith-dancers" below.
 
 ## Individually as strong as Custodes, in their own way
 
@@ -108,6 +110,29 @@ Leman Russ beats every loadout except a Troupe with one Caress, which is a draw 
 Troupe at 17%); the old five-Caress Troupe beat him with 28% left. The hardest loadouts to beat (a Caress, alone or with
 four Kisses) are still easier than that old Troupe, at 3 and 11. Shooting is the answer to Harlequins: a Tactical Squad does 4.5 wounds a turn to a
 Troupe and 0.7 to Custodian Guard.
+
+## Masque units and Wraith-dancers
+
+Each Masque has a unit only it can field, locked to that Masque (`fixedChoice`, as for Ork clan units), so the Masque a
+list picks changes what it can take as well as its Tactica. Each fits its Masque's Auxiliary Detachment: Frenzied Revel
+gained a Heavy Assault slot, Silent Procession an Elites slot and Masque of the Dead a Heavy Assault slot (for
+Wraith-dancers). All are written for this list.
+
+| Unit | Masque | Role | Idea | Points |
+| --- | --- | --- | --- | --- |
+| Revel Troupe | Frozen Stars | Heavy Assault | Embrace-armed players who have given up dodging: no Dodge, +1 Attack in a turn they charged, and they won't Disengage from a combat they're winning | 220 for 5 |
+| Tragedians | Midnight Sorrow | Support | The chorus of the Fall, with hallucinogen launchers: -1 Leadership to enemies within 12", and Routed enemies near them stay Routed | 105 for 3 |
+| Phantasms | Veiled Path | Recon | Illusions a Shadowseer projects. They can't attack or hold objectives; a foe aiming at a nearby Veiled Path unit must pass an Intelligence Check or hit the Phantasms instead, and they come back one a turn near a psyker | 60 for 5 |
+| The Unspeaking | Silent Shroud | Elites | Elite Mimes with Infiltrate, Fear (2), Mime's Blades and neuro disruptors; killing a sergeant, champion or commander Stuns his unit | 120 for 3 |
+| Starshrike | Soaring Spite | Fast Attack | A webway fighter, the army's only Flyer: a Starshrike Lance (Armourbane, Skyfire) and two shuriken cannons, and enemies it flies over may be Pinned | 130 |
+| Deathmask Players | Dreaming Shadow | Troops | Players who have died once already: Eternal Warrior (1) on top of the Masque's Feel No Pain (6+), immune to Fear; Death's Promise takes them to Eternal Warrior (2) | 175 for 5 |
+| Wraith-dancers | any | Heavy Assault | Wraithblades in Harlequin death masks, still dancing: T6 W3 3+, The Great Dance, Ghostswords or Ghostaxes, optional Forceshields (4++) | 165 for 3 |
+
+Against Custodian Guard (6.56 per 100 points), in the same sim: the Revel Troupe scores 91%, Deathmask Players 82%,
+Wraith-dancers 87% (90% with Ghostaxes). The Unspeaking (66%), Tragedians (54%), Starshrike (60%) and Phantasms (46%)
+score like the Death Jester and Mimes, because what they do (auras, Precision, decoying, a Flyer's evasion) isn't in the
+sim. In combat every one of them loses to Leman Russ, and the number of the 307 Legion units that wipe them within six
+rounds is 33 for the Revel Troupe, 19 for Deathmask Players and 48 for Wraith-dancers.
 
 ## Weapons and wargear, and where they come from
 
