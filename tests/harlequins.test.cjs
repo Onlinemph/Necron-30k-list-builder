@@ -244,3 +244,11 @@ test('the 7th edition options: Lead Player relics, the Solitaire\'s Rose, Shadow
   for (const id of ['troupe-master', 'shadowseer', 'death-jester', 'solitaire']) assert.ok(E.effectiveModels(sel(id))[0].items.includes('Haywire grenades'), id);
   assert.ok(E.effectiveModels(sel('skyweavers'))[0].items.includes('Mirage Launchers'));
 });
+
+test('Rising Crescendo covers Paragons, so Vaelith can Rush and charge with the Masque Court', () => {
+  const dance = data.rules.specialRules.find((r) => r.name === 'The Great Dance');
+  assert.match(dance.text, /Rising Crescendo: [^\n]*the Infantry or Paragon Type may have a Charge declared/);
+  const vaelith = data.units.find((u) => u.id === 'vaelith-duskmirror');
+  assert.match(vaelith.models[0].unitType, /^Paragon/);
+  assert.ok(vaelith.specialRules.includes('The Great Dance'));
+});

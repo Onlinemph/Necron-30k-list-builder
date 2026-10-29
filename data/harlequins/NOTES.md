@@ -11,7 +11,8 @@ differ through those rather than through statlines alone. Rules come with a cost
 Heedless). The Harlequins get the same set:
 
 - **Traits**: Xenos (replaces Allegiance, as in the other fan codexes), Harlequin, [Masque], Masque Leader, Jink, Psyker.
-- **Tactica, The Great Dance**: Rising Crescendo (Run and Charge from the second turn, the 7th edition rule) and Disengage
+- **Tactica, The Great Dance**: Rising Crescendo (Rush and Charge from the second turn, the 7th edition rule; Infantry
+  and Paragons, so Vaelith Duskmirror can lead the Masque Court without slowing it) and Disengage
   from any combat (the 2nd edition "flip out of combat"). The cost: a Harlequin unit that loses a combat must leave it.
 - **Advanced Reactions**: Shadow Dance (shooting) and The Laughing God's Riposte (charges).
 - **Gambit**: Cegorach's Jest. **Prime Advantage**: Webway Strike. **Additional Reaction Point** with a Masque Leader in
