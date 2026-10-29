@@ -703,7 +703,30 @@
               "list": "harlequin-melee"
             }
           ],
-          "max": null,
+          "max": {
+            "shared": "blade"
+          },
+          "requires": null
+        },
+        {
+          "id": "caress",
+          "text": "For every 3 Models in this Unit, one Model may have its Harlequin's Blade exchanged for a Harlequin's Caress for +10 points.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [
+            "Harlequin's Blade"
+          ],
+          "choices": [
+            {
+              "name": "Harlequin's Caress",
+              "points": 10
+            }
+          ],
+          "max": {
+            "per": 3,
+            "count": 1,
+            "shared": "blade"
+          },
           "requires": null
         },
         {
@@ -732,7 +755,7 @@
       "page": null,
       "limit": "0-1",
       "unique": false,
-      "basePoints": 190,
+      "basePoints": 180,
       "composition": "1 Solitaire",
       "models": [
         {
@@ -773,7 +796,7 @@
       ],
       "specialRules": [
         "Fast (3)",
-        "Dodge (4+)",
+        "Dodge (5+)",
         "Fear (1)",
         "Heedless",
         "Vanguard (2)",
@@ -922,7 +945,30 @@
               "list": "harlequin-melee"
             }
           ],
-          "max": null,
+          "max": {
+            "shared": "blade"
+          },
+          "requires": null
+        },
+        {
+          "id": "caress",
+          "text": "For every 5 Models in this Unit, one Model may have its Harlequin's Blade exchanged for a Harlequin's Caress for +10 points.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [
+            "Harlequin's Blade"
+          ],
+          "choices": [
+            {
+              "name": "Harlequin's Caress",
+              "points": 10
+            }
+          ],
+          "max": {
+            "per": 5,
+            "count": 1,
+            "shared": "blade"
+          },
           "requires": null
         },
         {
@@ -971,14 +1017,14 @@
       "page": null,
       "limit": null,
       "unique": false,
-      "basePoints": 100,
+      "basePoints": 110,
       "composition": "4 Mimes and 1 Lead Mime",
       "models": [
         {
           "name": "Mime",
           "min": 4,
           "max": 9,
-          "costPerExtra": 20,
+          "costPerExtra": 22,
           "profile": {
             "M": 8,
             "WS": 5,
@@ -1083,7 +1129,7 @@
       "page": null,
       "limit": null,
       "unique": false,
-      "basePoints": 115,
+      "basePoints": 125,
       "composition": "1 Death Jester",
       "models": [
         {

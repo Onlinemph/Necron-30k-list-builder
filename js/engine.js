@@ -387,11 +387,22 @@
           if (rows) for (const r of rows) r.changes.push({ name, count: r.count, replaces: rep });
           else row.changes.push({ name, count: n, replaces: rep });
         };
+        // per-model swaps with no model named fill the first row, then spill onto other rows still carrying
+        // what they replace (a Troupe's Lead Player), so two swaps of the same weapon never overfill a row
+        const spill = (name, n) => {
+          if (!rep || o.model || o.models) return push(name, n);
+          const swapped = (r) => r.changes.filter((c) => c.replaces && o.replaces.some((w) => c.replaces.split(' & ').includes(w))).reduce((t, c) => t + c.count, 0);
+          for (const r of [row, ...out.filter((x) => x !== row && o.replaces.some((w) => x.base.includes(w)))]) {
+            const k = Math.min(n, Math.max(0, r.count - swapped(r)));
+            if (k > 0) { r.changes.push({ name, count: k, replaces: rep }); n -= k; }
+          }
+          if (n > 0) row.changes.push({ name, count: n, replaces: rep });
+        };
         switch (o.kind) {
           case 'one': push(val, 1); break;
           case 'upgrade': push(choicesFor(o, sel)[0]?.name || o.text, 1); break;
           case 'any': for (const n of val) push(n, 1); break;
-          case 'perModel': for (const [n, c] of Object.entries(val)) if (c > 0) push(n, c); break;
+          case 'perModel': for (const [n, c] of Object.entries(val)) if (c > 0) spill(n, c); break;
           default: break;
         }
       }

@@ -6,12 +6,8 @@
       "page": null,
       "items": [
         {
-          "name": "Harlequin's Caress",
-          "points": 5
-        },
-        {
           "name": "Harlequin's Embrace",
-          "points": 5
+          "points": 10
         },
         {
           "name": "Harlequin's Kiss",
@@ -34,7 +30,7 @@
         },
         {
           "name": "Fusion Pistol",
-          "points": 10
+          "points": 15
         }
       ]
     },
@@ -45,7 +41,7 @@
       "items": [
         {
           "name": "Harlequin's Caress",
-          "points": 10
+          "points": 15
         },
         {
           "name": "Harlequin's Embrace",
@@ -53,7 +49,7 @@
         },
         {
           "name": "Harlequin's Kiss",
-          "points": 10
+          "points": 5
         },
         {
           "name": "Power Sword",
@@ -86,7 +82,7 @@
         },
         {
           "name": "Fusion Pistol",
-          "points": 10
+          "points": 15
         },
         {
           "name": "Crescendo",

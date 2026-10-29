@@ -51,42 +51,61 @@ that turns to Shrouded (5+) against shooting after a Rush, Initiative 7 to 10 so
 edition blade), M8 with flip belts and Rising Crescendo, and Shadow Dance and Veil of Tears to avoid being shot at all.
 
 In combat they also have Dodge (X), a Damage Mitigation Test taken after the Saving Throw, so it stacks with the
-invulnerable save. Dodge is 6+ on Players, Court Players and Skyweavers, 5+ on the characters and Mimes (who have no
-holo-suit, so for them it is the only roll), and 4+ on the Solitaire and Vaelith Duskmirror.
+invulnerable save. Dodge is 6+ on Players, Court Players and Skyweavers, 5+ on the characters, the Solitaire and Mimes
+(who have no holo-suit, so for them it is the only roll), and 4+ on Vaelith Duskmirror.
 
 Dodge is kept low on the rank and file because striking first already does most of their work in combat: a Troupe at I7
-kills nine of ten Tactical Marines before they swing, Dodge or not, so Dodge only matters against what survives that,
-which is Terminators, Dreadnoughts and Primarchs. At Dodge (4+) none of the 307 Legion units in the builder wiped a
-Troupe in six rounds of combat in the sim, which left a Legion player no answer in combat at any price. At Dodge (6+)
-eight do and seventeen take it to half strength or less; for Custodian Guard it is 23 and 32. Shooting is the other way
-round: a Tactical Squad does 4.5 wounds a turn to a Troupe and 0.7 to Custodian Guard.
+kills most of a Tactical Squad before it swings, so Dodge only matters against what survives that, which is
+Terminators, Dreadnoughts and Primarchs. At Dodge (4+) none of the 307 Legion units in the builder wiped a Troupe in six
+rounds of combat in the sim, which left a Legion player no answer in combat at any price.
 
 Checked with `scripts/balance-sim.cjs --rank` against Legio Custodes, in a scratch copy that also models Dodge (as a
-Damage Mitigation Test in combat, one per wound, so it doesn't add to Feel No Pain) and Bypass. It can't see the
-holo-suit's Shrouded after a Rush. Value per 100 points, summed over shooting and melee against Legionaries, Terminators and a Predator, and
-durability against bolters, lascannons and power axes:
+Damage Mitigation Test in combat, one per wound, so it doesn't add to Feel No Pain), Bypass, Eternal Warrior (X), Reaping
+Blow (outnumbering counts Bulky models as several), Impact (AM) on half the rounds (the ones after a charge), and a
+Rending or Critical Hit counting as a 6 for Breaching, Shred and Bypass. It can't see the holo-suit's Shrouded after a
+Rush, Phage, Precision or Fear. Value per 100 points, summed over shooting and melee against Legionaries, Terminators and
+a Predator, and durability against bolters, lascannons and power axes:
 
 | Unit | Points | Value / 100 pts |
 | --- | --- | --- |
-| Custodian Guard (6) | 270 | 5.96 |
-| Harlequin Troupe (5), Caresses | 185 | 5.55 |
-| Harlequin Troupe (5), Embraces | 185 | 5.50, before the charge bonus |
-| Harlequin Troupe (5), Kisses | 185 | 5.19 |
-| Harlequin Troupe (5), blades | 160 | 3.78, before Reaping Blow |
-| Constantin Valdor | 400 | 2.78 |
+| Custodian Guard (6) | 270 | 6.56 |
+| Harlequin Troupe (5), blades | 160 | 5.39 |
+| Harlequin Troupe (5), a Caress | 170 | 5.66 |
+| Harlequin Troupe (5), a Caress and four Kisses | 190 | 5.76 |
+| Harlequin Troupe (5), a Caress and four Embraces | 210 | 5.74 |
+| Harlequin Troupe (5), Kisses | 185 | 5.40 |
+| Harlequin Troupe (5), Embraces | 210 | 5.41 |
+| Constantin Valdor | 400 | 2.91 |
 | Vaelith Duskmirror | 400 | 2.75 |
-| Tribune | 250 | 2.92 |
-| Solitaire, before Blitz | 190 | 2.59 |
+| Tribune | 250 | 3.05 |
+| Solitaire, before Blitz | 180 | 2.70 |
 | Shield Captain | 175 | 2.43 |
-| Troupe Master, Caress | 125 | 2.33 |
-| Contemptor-Galatus Dreadnought | 225 | 5.61 |
-| Harlequin Wraithlord, Wraithsword | 180 | 5.54 |
+| Troupe Master, Caress | 130 | 2.66 |
+| Troupe Master, Cegorach's Rose / The Storied Sword | 135 | 2.92 / 3.05 |
+| Contemptor-Galatus Dreadnought | 225 | 5.94 |
+| Harlequin Wraithlord, Wraithsword | 180 | 5.95 |
 
-Per point, a Troupe is about a fifth as tough as Custodian Guard against bolters, twice as tough against
-lascannons and 1.1 times as tough against power axes. Dodge (5+) on top of a 4++ cuts the wounds a character takes in
-combat by a third, and the Solitaire's 3++ and Dodge (4+) let one wound in six through, so the foot characters cost 5
-points more than they would without Dodge and the Solitaire 15. The sim can't see speed, Reactions, Rising Crescendo, the Shrouded after a Rush, Veil of Tears, Fear, Impact or
-Reaping Blow, which is why Troupes sit about 7% under the Custodian Guard on paper.
+Per point, a Troupe is about a quarter as tough as Custodian Guard against bolters, twice as tough against lascannons
+and a quarter tougher against power axes. The sim can't see speed, Reactions, Rising Crescendo, the Shrouded after a
+Rush or Veil of Tears, which is why Troupes sit 12 to 18% under the Custodian Guard on paper.
+
+In combat, the number of the 307 Legion units in the builder that wipe each loadout within six rounds, and that take it
+to half strength or less:
+
+| Unit | Wipe it | Half or less |
+| --- | --- | --- |
+| Troupe, blades | 27 | 44 |
+| Troupe, a Caress | 9 | 20 |
+| Troupe, Kisses | 8 | 17 |
+| Troupe, Embraces | 29 | 57 |
+| Troupe, a Caress and four Kisses | 2 | 9 |
+| Troupe, a Caress and four Embraces | 10 | 21 |
+| Custodian Guard | 17 | 23 |
+| Solitaire | 56 | 77 |
+
+The hardest loadout to beat in combat (a Caress and four Kisses, built to kill big things) is about where the old
+five-Caress Troupe was, at 3 and 11. Shooting is the answer to Harlequins: a Tactical Squad does 4.5 wounds a turn to a
+Troupe and 0.7 to Custodian Guard.
 
 ## Weapons and wargear, and where they come from
 
@@ -95,23 +114,32 @@ Most of the rules come from the BattleScribe data for older editions: `BSData/wh
 editions from search results (Wahapedia's 8th and 10th edition datasheets, the Warhammer Community article on the 2022
 weapons). Each item is converted to HH3 terms:
 
-Every weapon uses only rules that real HH3 weapons use (a test checks this against the BSData HH3 weapons), and each
-has its own shape: different Initiative, Attacks and Strength modifiers and one or two rules, so a loadout is a choice
-of role rather than a bigger number.
+Every weapon uses only rules that real HH3 weapons use (a test checks this against the BSData HH3 weapons). A Player
+carries one of four melee weapons, and each does one job well.
+
+The blade is free and fast: it strikes first, whirls when outnumbered and finds a gap on a 6 to wound. The Embrace
+(10 points) is for power-armoured infantry; its wire cloud gives an extra attack on the charge and another when
+outnumbered, so five Players with Embraces wipe a ten-man squad in a round. The Kiss (5 points) is for Dreadnoughts,
+monsters and Custodians. Its wire works from inside, so a 5+ to hit wounds whatever the Toughness, and every wound
+against Toughness 4 or more does 3 Damage; at AP 4 it's wasted on line troops, and Eternal Warrior blunts it against a
+Primarch. The Caress (10 points) is for anything armoured. It has no AP, because the phase field doesn't cut, but a 6 to
+hit wounds automatically and, counting as a 6, ignores every save and Damage Mitigation Test: the Rending (6+) and
+Bypass (6+) pairing of the Callidus phase sword. Only one Player in five may take one, because with a Caress on every
+Player a Troupe killed Leman Russ in two rounds.
 
 | Item | Source rule | Here | Role |
 | --- | --- | --- | --- |
-| Harlequin's Blade | 10th: many attacks, AP-1 | I+1, AP 4, Reaping Blow (1) | strikes first, whirls when outnumbered; the cheap anti-horde default |
-| Harlequin's Kiss | 2nd: a hit kills on a failed save, no use against vehicles; 7th: Instant Death on a 6; 8th–9th: D3, D2 | AP 3, D 2, Poisoned (4+), Shred (6+) | the wire works from inside, so Toughness doesn't matter: for Custodians, monsters and Primarchs, never vehicles |
-| Harlequin's Caress | 7th: a 6 to hit wounds at AP2; 9th: ignores invulnerable saves | S+1, AP 3, Bypass (6+) | phase field: a 6 to wound ignores every save, as on the Callidus phase sword; for Terminators and characters |
-| Harlequin's Embrace | 7th: D3 Hammer of Wrath hits at S6; 8th: AP-3; 9th: mortal wounds on the charge | S+1, AP 3, Impact (AM), Impact (SM) | the wire cloud on the charge: S5 and an extra attack; for power-armoured infantry |
+| Harlequin's Blade | 10th: many attacks, AP-1 | I+1, AP 4, Breaching (6+), Reaping Blow (1) | free; strikes first, whirls when outnumbered |
+| Harlequin's Kiss | 2nd: a hit kills on a failed save, no use against vehicles; 7th: Instant Death on a 6; 8th–9th: D3, D2 | AP 4, D 2, Rending (5+), Shred (5+) | the wire works from inside: for Dreadnoughts, monsters and Custodians, never vehicles |
+| Harlequin's Caress | 7th: a 6 to hit wounds at AP2; 9th: ignores invulnerable saves | AP –, Rending (6+), Bypass (6+); one Player in five | phase field: a 6 to hit passes through everything; for Terminators, Custodes and characters |
+| Harlequin's Embrace | 7th: D3 Hammer of Wrath hits at S6; 8th: AP-3; 9th: mortal wounds on the charge | S+1, AP 3, Impact (AM), Reaping Blow (1) | the wire cloud: an extra attack on the charge and another when outnumbered; for power-armoured infantry |
 | Power Sword | 10th: Lead Player and Troupe Master option | the HH3 power sword | |
-| Mime's Blade | Rogue Trader Mimes, silent killers | I+1, AP 4, Precision (4+) | picks out sergeants and specialists |
+| Mime's Blade | Rogue Trader Mimes, silent killers | I+1, AP 4, Precision (4+), Rending (6+) | picks out sergeants and specialists |
 | Miststave | 7th: S+2 Concussive, Fleshbane; 8th: D3 | S+1, AP 4, Force (D), Aflame (2) | the Shadowseer's visions break the foe's nerve in combat |
 | Zephyrglaive | 7th: S+1 and AP2 on the charge; 10th: S6 AP-2 D2 | I+1, S+1, AP 3, D 2, Impact (SM) | the Skyweaver's lance |
-| Shuriken weapons | Bladestorm: a 6 to wound is AP2 | Breaching (6+); the cannon also Suppressive (1) | |
-| Neuro Disruptor | 7th: S1 AP2 Pistol, Fleshbane; lore: scrambles the nervous system | RS 1, AP 2, Poisoned (3+), Psy-Shock | kills infantry and burns out psykers |
-| Fusion Pistol | 7th: 6" S8 AP1 Pistol, Melta | RS 8, AP 2, D 3, Melta (6) | |
+| Shuriken weapons | Bladestorm: a 6 to wound is AP2 (9th: AP-3) | Breaching (5+); the cannon also Suppressive (1) | twice a bolter's kills against power armour |
+| Neuro Disruptor | 7th: S1 AP2 Pistol, Fleshbane; lore: scrambles the nervous system | RS 1, AP 2, Poisoned (3+), Phage (I) | a wounded unit loses 1 Initiative for the battle, so the Troupe strikes first against faster foes |
+| Fusion Pistol | 7th: 6" S8 AP1 Pistol, Melta | RS 8, AP 2, D 3, Melta (6) | 15 points |
 | Shrieker Cannon | 7th: S1 Poisoned (2+), Pinning, Bio-explosive; or S6 Assault 3 | Poisoned (2+), Pinning (1), Deflagrate (5) (the victim bursts); or FP 3 shuriken | |
 | Hallucinogen Grenade Launcher | 7th: S1 Blast, Hallucinogenic | Blast, Panic (1), Stun (1) | the foe flees or freezes |
 | Star Bolas | 7th: S6 AP2 Blast, One Use Only | Blast, Pinning (2), Limited (1) | entangles |
@@ -123,11 +151,11 @@ of role rather than a bigger number.
 | Solitaire | 7th: Impossible Form 3++, Blitz (Xd6" over everything, Attacks 10), Path of Damnation; 2nd: immune to psychology | 3+ invulnerable, Blitz as in 7th, ignores Fear | |
 | Death Jester | 7th: Death is Not Enough (Morale at -2 after a casualty); 10th: Cruel Amusement | both | |
 
-The relics are the 7th edition Enigmas of the Black Library: Cegorach's Rose (a finer Kiss: Poisoned (3+), Shred (5+),
-master-crafted), The Storied Sword (S+1 AP3, master-crafted, with an extra attack), Crescendo (a Quickfire shuriken
-pistol, here three shots with Breaching (5+)), The Laughing God's Eye (Adamantium Will nearby, here +1 Willpower within
-12"), The Mask of Secrets (Fearless, -2 Leadership nearby, here Fear (2)) and Starmist Raiment (3++ after running).
-"Master-crafted" is Duellist's Edge (1).
+The relics are the 7th edition Enigmas of the Black Library: Cegorach's Rose (a finer Kiss: AP 3, Rending (4+), Shred
+(5+), master-crafted), The Storied Sword (S+1, AP 2, D 2 and an extra attack, master-crafted), Crescendo (a Quickfire
+shuriken pistol, here three shots with Breaching (4+)), The Laughing God's Eye (Adamantium Will nearby, here +1
+Willpower within 12"), The Mask of Secrets (Fearless, -2 Leadership nearby, here Fear (2)) and Starmist Raiment (3++
+after running). "Master-crafted" is Duellist's Edge (1).
 
 Stats are scaled up from the older editions to put Harlequins on the Custodes power level the army is meant for; the
 relative order holds (a 7th edition Player is WS5 I6 A2, a Troupe Master WS6 I7 A3, a Solitaire WS9 I10 A6).
