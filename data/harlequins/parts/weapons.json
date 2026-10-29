@@ -10,7 +10,7 @@
       "D": 1,
       "specialRules": [
         "Pistol",
-        "Breaching (6+)"
+        "Breaching (5+)"
       ],
       "traits": [
         "Assault",
@@ -29,7 +29,7 @@
       "specialRules": [
         "Pistol",
         "Poisoned (3+)",
-        "Psy-Shock"
+        "Phage (I)"
       ],
       "traits": [
         "Assault"
@@ -64,7 +64,7 @@
       "D": 1,
       "specialRules": [
         "Pistol",
-        "Breaching (5+)"
+        "Breaching (4+)"
       ],
       "traits": [
         "Assault",
@@ -81,7 +81,7 @@
       "AP": 5,
       "D": 1,
       "specialRules": [
-        "Breaching (6+)"
+        "Breaching (5+)"
       ],
       "traits": [
         "Shuriken"
@@ -97,7 +97,7 @@
       "AP": 5,
       "D": 1,
       "specialRules": [
-        "Breaching (6+)",
+        "Breaching (5+)",
         "Suppressive (1)"
       ],
       "traits": [
@@ -178,7 +178,7 @@
           "AP": 5,
           "D": 1,
           "specialRules": [
-            "Breaching (6+)"
+            "Breaching (5+)"
           ],
           "traits": [
             "Shuriken"
@@ -376,6 +376,7 @@
       "AP": 4,
       "D": 1,
       "specialRules": [
+        "Breaching (6+)",
         "Reaping Blow (1)"
       ],
       "traits": [],
@@ -387,11 +388,11 @@
       "IM": "I",
       "AM": "A",
       "SM": "S",
-      "AP": 3,
+      "AP": 4,
       "D": 2,
       "specialRules": [
-        "Poisoned (4+)",
-        "Shred (6+)"
+        "Rending (5+)",
+        "Shred (5+)"
       ],
       "traits": [
         "Monofilament"
@@ -403,10 +404,11 @@
       "page": null,
       "IM": "I",
       "AM": "A",
-      "SM": "+1",
-      "AP": 3,
+      "SM": "S",
+      "AP": "–",
       "D": 1,
       "specialRules": [
+        "Rending (6+)",
         "Bypass (6+)"
       ],
       "traits": [],
@@ -422,7 +424,7 @@
       "D": 1,
       "specialRules": [
         "Impact (AM)",
-        "Impact (SM)"
+        "Reaping Blow (1)"
       ],
       "traits": [
         "Monofilament"
@@ -454,7 +456,8 @@
       "AP": 4,
       "D": 1,
       "specialRules": [
-        "Precision (4+)"
+        "Precision (4+)",
+        "Rending (6+)"
       ],
       "traits": [],
       "modes": null
@@ -515,7 +518,7 @@
       "IM": "I",
       "AM": "+1",
       "SM": "+1",
-      "AP": 3,
+      "AP": 2,
       "D": 2,
       "specialRules": [
         "Duellist's Edge (1)"
@@ -534,7 +537,7 @@
       "AP": 3,
       "D": 2,
       "specialRules": [
-        "Poisoned (3+)",
+        "Rending (4+)",
         "Shred (5+)",
         "Duellist's Edge (1)"
       ],

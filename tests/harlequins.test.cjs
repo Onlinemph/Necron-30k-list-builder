@@ -76,15 +76,28 @@ test('relic weapons replace the leader\'s blade and are once per army', () => {
   assert.ok(E.armyIssues(army([det])).some((i) => /The Storied Sword may only be taken once/.test(i.msg)));
 });
 
-test('special weapons swap the Harlequin\'s Blade and cost 5 points a model', () => {
+test('any Player may take a Kiss or Embrace, one in five a Caress, from one blade each', () => {
+  const k = sel('harlequin-troupe');
+  k.options.melee = { "Harlequin's Kiss": 5 };
+  assert.equal(E.unitPoints(k), 160 + 25);
+  // five swaps on four Players and a Lead Player: the fifth goes to the Lead Player
+  assert.deepEqual(E.effectiveModels(k).map((m) => [m.model, m.count, m.items.includes("Harlequin's Kiss")]), [['Player', 4, true], ['Lead Player', 1, true]]);
   const s = sel('harlequin-troupe');
-  s.options.melee = { "Harlequin's Caress": 5 };
-  assert.equal(E.unitPoints(s), 160 + 25);
-  const players = E.effectiveModels(s).find((m) => m.model === 'Player');
-  assert.ok(players.items.includes("Harlequin's Caress"));
-  assert.ok(!players.items.includes("Harlequin's Blade"));
-  s.options.pistol = { 'Fusion Pistol': 3 };
+  s.options.caress = { "Harlequin's Caress": 1 };
+  s.options.melee = { "Harlequin's Kiss": 4 };
+  assert.equal(E.unitPoints(s), 160 + 10 + 20);
+  assert.deepEqual(errs(s), []);
+  const carried = E.effectiveModels(s).flatMap((m) => Array(m.count).fill(m.items.filter((i) => /^Harlequin's/.test(i)).join()));
+  assert.deepEqual(carried.sort(), ["Harlequin's Caress", "Harlequin's Kiss", "Harlequin's Kiss", "Harlequin's Kiss", "Harlequin's Kiss"]);
+  s.options.caress = { "Harlequin's Caress": 2 };
+  s.options.melee = {};
   assert.ok(errs(s).some((i) => /too many models/.test(i.msg)));
+  s.options.caress = { "Harlequin's Caress": 1 };
+  s.options.melee = { "Harlequin's Embrace": 5 };
+  assert.ok(errs(s).some((i) => /more upgrades than models/.test(i.msg)));
+  const p = sel('harlequin-troupe');
+  p.options.pistol = { 'Fusion Pistol': 3 };
+  assert.ok(errs(p).some((i) => /too many models/.test(i.msg)));
 });
 
 test('every unit in an Auxiliary Detachment shares one Masque; the Solitaire is ignored', () => {
@@ -184,7 +197,7 @@ test('holo-suits give Shrouded after a Rush; Dodge is a Damage Mitigation Test o
   assert.ok(t.rules.includes('Dodge (6+)'));
   assert.ok(t.reminders.some((r) => /Rushed/.test(r.text) && /Shrouded \(5\+\)/.test(r.text)));
   assert.ok(rules(sel('vaelith-duskmirror')).includes('Dodge (4+)'));
-  assert.ok(rules(sel('solitaire')).includes('Dodge (4+)'));
+  assert.ok(rules(sel('solitaire')).includes('Dodge (5+)'));
   assert.ok(rules(sel('troupe-master')).includes('Dodge (5+)'));
   assert.ok(rules(sel('mimes')).includes('Dodge (5+)'));
   assert.ok(rules(sel('skyweavers')).includes('Dodge (6+)'));
