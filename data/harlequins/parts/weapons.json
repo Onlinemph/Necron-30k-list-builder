@@ -430,6 +430,23 @@
         "Blast (5\")",
         "Breaching (5+)"
       ]
+    },
+    {
+      "name": "Echoing Laughter",
+      "page": null,
+      "R": 12,
+      "FP": 2,
+      "RS": 4,
+      "AP": "–",
+      "D": 1,
+      "specialRules": [
+        "Panic (1)",
+        "Stun (1)"
+      ],
+      "traits": [
+        "Assault"
+      ],
+      "modes": null
     }
   ],
   "melee": [
@@ -694,6 +711,38 @@
       "specialRules": [
         "Bypass (6+)",
         "Duellist's Edge (2)"
+      ]
+    },
+    {
+      "page": null,
+      "traits": [],
+      "modes": null,
+      "name": "Mirthful Talons",
+      "IM": "+1",
+      "AM": "A",
+      "SM": "+1",
+      "AP": 2,
+      "D": 2,
+      "specialRules": [
+        "Rending (6+)",
+        "Aflame (2)"
+      ]
+    },
+    {
+      "page": null,
+      "traits": [
+        "Psychic"
+      ],
+      "modes": null,
+      "name": "Blade of Unwritten Names",
+      "IM": "+1",
+      "AM": "A",
+      "SM": "+1",
+      "AP": 2,
+      "D": 2,
+      "specialRules": [
+        "Force (D)",
+        "Duellist's Edge (1)"
       ]
     }
   ]

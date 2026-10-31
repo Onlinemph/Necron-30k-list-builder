@@ -333,3 +333,40 @@ test('the Ventriloquist is a psyker with a Mannequin, and takes one Psychic Disc
   v.options['psychic-disciplines'] = ['Telepathy', 'Divination'];
   assert.ok(errs(v).some((i) => /at most 1/.test(i.msg)));
 });
+
+test('the Black Librarian serves no Masque, unlocks the Hidden Archive and the Archive relics', () => {
+  const lib = E.newSelection('black-librarian');
+  assert.equal(lib.arkana, undefined);
+  assert.ok(E.effectiveModels(lib)[0].traits.includes('Psyker'));
+  assert.equal(data.units.find((u) => u.id === 'black-librarian').limit, '0-1');
+  const expand = (defs) => defs.flatMap((d) => Array.from({ length: d.count ?? 1 }, (_, i) => ({ role: d.role, prime: i < (d.prime || 0) })));
+  const primary = E.makeDetachment('primary', 'P', expand(data.forceorg.primary.slots));
+  const tm = sel('troupe-master');
+  primary.slots.find((s) => s.role === 'Command').unit = tm;
+  const archive = E.detachmentFromDef('the-hidden-archive');
+  archive.slots.find((s) => s.role === 'Elites').unit = E.newSelection('echoes-of-the-laughing-god');
+  archive.slots.find((s) => s.role === 'Troops').unit = sel('harlequin-troupe', 'Veiled Path');
+  const a = army([primary, archive]);
+  E.setArmy(a);
+  assert.ok(E.armyIssues(a).some((i) => /Hidden Archive needs a Black Librarian/.test(i.msg)));
+  assert.ok(!E.optionsOf(tm).some((o) => o.id === 'archive'));
+  primary.slots.find((s) => s.role === 'High Command').unit = lib;
+  E.setArmy(a);
+  assert.deepEqual(E.armyIssues(a).filter((i) => i.level === 'error').map((i) => i.msg), []);
+  assert.ok(E.optionsOf(tm).some((o) => o.id === 'archive') && E.optionsOf(tm).some((o) => o.id === 'archive-blade'));
+  tm.options.archive = "The Laughing God's Key";
+  tm.options['archive-blade'] = 'Blade of Unwritten Names';
+  assert.equal(E.unitPoints(tm), 115 + 15 + 25);
+});
+
+test('Echoes of the Laughing God: 90 points a model, a 4+ (not 3+) invulnerable save, no Masque and not daemons', () => {
+  const u = data.units.find((x) => x.id === 'echoes-of-the-laughing-god');
+  assert.equal(u.models[0].costPerExtra, 90);
+  assert.equal(u.basePoints, 270);
+  const e = E.newSelection('echoes-of-the-laughing-god');
+  const m = E.effectiveModels(e)[0];
+  assert.equal(m.profile.INV, '4+');
+  assert.equal(e.arkana, undefined);
+  assert.ok(m.rules.includes('Formless') && m.rules.includes('Hatred (Malefic)'));
+  assert.ok(!/Malefic/.test(m.unitType));
+});

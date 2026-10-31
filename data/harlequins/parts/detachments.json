@@ -449,6 +449,52 @@
           ]
         }
       ]
+    },
+    {
+      "id": "the-hidden-archive",
+      "name": "The Hidden Archive",
+      "type": "Auxiliary",
+      "page": null,
+      "unlock": null,
+      "unlockedBy": {
+        "commandUnit": [
+          "black-librarian"
+        ],
+        "slotRole": "High Command"
+      },
+      "slots": [
+        {
+          "role": "Elites",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Elites",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Command",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Troops",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "This Detachment may only be selected if a Black Librarian fills the High Command Slot of the army's Crusade Primary Detachment.",
+        "Only Units with the Harlequin Trait may be selected to fill Slots in this Detachment."
+      ],
+      "rules": [],
+      "slotRules": [
+        {
+          "roles": null,
+          "trait": "Harlequin"
+        }
+      ]
     }
   ]
 }

@@ -134,6 +134,29 @@
           "oncePerArmy": true
         }
       ]
+    },
+    {
+      "id": "archive-of-the-black-library",
+      "name": "Archive of the Black Library",
+      "page": null,
+      "note": "Only while a Black Librarian is in the army. Each item may be selected only once per army.",
+      "items": [
+        {
+          "name": "The Laughing God's Key",
+          "points": 15,
+          "oncePerArmy": true
+        },
+        {
+          "name": "The Tome of Unmaking",
+          "points": 20,
+          "oncePerArmy": true
+        },
+        {
+          "name": "The Mirror of Truth",
+          "points": 15,
+          "oncePerArmy": true
+        }
+      ]
     }
   ]
 }

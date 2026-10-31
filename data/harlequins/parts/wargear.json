@@ -54,6 +54,21 @@
       "name": "Scattershield",
       "page": null,
       "text": "A vast shield that scatters light and shot alike. A Model with a Scattershield has a 4+ Invulnerable Save against Shooting Attacks."
+    },
+    {
+      "page": null,
+      "name": "The Laughing God's Key",
+      "text": "A key to a door in the webway that only the Library knows. The bearer's Unit, and any Model with the Transport Sub-Type it begins the battle Embarked upon, gains the Deep Strike Special Rule, as though the Webway Strike Prime Advantage had been selected for it."
+    },
+    {
+      "page": null,
+      "name": "The Tome of Unmaking",
+      "text": "Once per battle, when an enemy Model within 24\" of the bearer successfully manifests a Psychic Power or uses a Psychic Weapon, the bearer may open the Tome. That Psychic Power or attack has no effect."
+    },
+    {
+      "page": null,
+      "name": "The Mirror of Truth",
+      "text": "Enemy Units with any Models within 12\" of the bearer may not benefit from any variant of the Shrouded (X) Special Rule."
     }
   ]
 }
