@@ -70,7 +70,27 @@
       "cryptoArkana": false,
       "fixedArkana": null,
       "factionChoice": true,
-      "options": [],
+      "options": [
+        {
+          "id": "archive",
+          "text": "While a Black Librarian is in the army, may have one item from the Archive of the Black Library selected for it.",
+          "kind": "one",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "list": "archive-of-the-black-library"
+            }
+          ],
+          "max": null,
+          "requires": null,
+          "when": [
+            {
+              "unit": "black-librarian"
+            }
+          ]
+        }
+      ],
       "note": "An original character written for this army list. The Great Harlequin who has led more masques than any living player can remember; he takes the Masque Trait of the army he leads."
     },
     {
@@ -202,6 +222,48 @@
           ],
           "max": null,
           "requires": null
+        },
+        {
+          "id": "archive",
+          "text": "While a Black Librarian is in the army, may have one item from the Archive of the Black Library selected for it.",
+          "kind": "one",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "list": "archive-of-the-black-library"
+            }
+          ],
+          "max": null,
+          "requires": null,
+          "when": [
+            {
+              "unit": "black-librarian"
+            }
+          ]
+        },
+        {
+          "id": "archive-blade",
+          "text": "While a Black Librarian is in the army, may have its Harlequin's Blade exchanged for the Blade of Unwritten Names for +25 points.",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Harlequin's Blade"
+          ],
+          "choices": [
+            {
+              "name": "Blade of Unwritten Names",
+              "points": 25,
+              "oncePerArmy": true
+            }
+          ],
+          "max": null,
+          "requires": null,
+          "when": [
+            {
+              "unit": "black-librarian"
+            }
+          ]
         }
       ],
       "note": null
@@ -301,6 +363,25 @@
             "fixed": 2
           },
           "requires": null
+        },
+        {
+          "id": "archive",
+          "text": "While a Black Librarian is in the army, may have one item from the Archive of the Black Library selected for it.",
+          "kind": "one",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "list": "archive-of-the-black-library"
+            }
+          ],
+          "max": null,
+          "requires": null,
+          "when": [
+            {
+              "unit": "black-librarian"
+            }
+          ]
         }
       ],
       "note": "Shadowseer of the Veiled Path. Her rules here are written for this army list."
@@ -428,6 +509,48 @@
           ],
           "max": null,
           "requires": null
+        },
+        {
+          "id": "archive",
+          "text": "While a Black Librarian is in the army, may have one item from the Archive of the Black Library selected for it.",
+          "kind": "one",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "list": "archive-of-the-black-library"
+            }
+          ],
+          "max": null,
+          "requires": null,
+          "when": [
+            {
+              "unit": "black-librarian"
+            }
+          ]
+        },
+        {
+          "id": "archive-blade",
+          "text": "While a Black Librarian is in the army, may have its Harlequin's Blade exchanged for the Blade of Unwritten Names for +25 points.",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Harlequin's Blade"
+          ],
+          "choices": [
+            {
+              "name": "Blade of Unwritten Names",
+              "points": 25,
+              "oncePerArmy": true
+            }
+          ],
+          "max": null,
+          "requires": null,
+          "when": [
+            {
+              "unit": "black-librarian"
+            }
+          ]
         }
       ],
       "note": null
@@ -563,6 +686,48 @@
           ],
           "max": null,
           "requires": null
+        },
+        {
+          "id": "archive",
+          "text": "While a Black Librarian is in the army, may have one item from the Archive of the Black Library selected for it.",
+          "kind": "one",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "list": "archive-of-the-black-library"
+            }
+          ],
+          "max": null,
+          "requires": null,
+          "when": [
+            {
+              "unit": "black-librarian"
+            }
+          ]
+        },
+        {
+          "id": "archive-blade",
+          "text": "While a Black Librarian is in the army, may have its Harlequin's Blade exchanged for the Blade of Unwritten Names for +25 points.",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Harlequin's Blade"
+          ],
+          "choices": [
+            {
+              "name": "Blade of Unwritten Names",
+              "points": 25,
+              "oncePerArmy": true
+            }
+          ],
+          "max": null,
+          "requires": null,
+          "when": [
+            {
+              "unit": "black-librarian"
+            }
+          ]
         }
       ],
       "note": null
@@ -681,6 +846,25 @@
             "fixed": 1
           },
           "requires": null
+        },
+        {
+          "id": "archive",
+          "text": "While a Black Librarian is in the army, may have one item from the Archive of the Black Library selected for it.",
+          "kind": "one",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "list": "archive-of-the-black-library"
+            }
+          ],
+          "max": null,
+          "requires": null,
+          "when": [
+            {
+              "unit": "black-librarian"
+            }
+          ]
         }
       ],
       "note": null

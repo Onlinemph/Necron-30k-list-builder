@@ -164,6 +164,38 @@ and choice of entry aren't in the sim; the 425 points sit between that and its s
 A Wraithknight and the Avatar together cost 875, over the 25% that Warlord and Lord of War units may take of a
 3,000-point army.
 
+## The Black Library
+
+The Black Library is Cegorach's webway archive of everything known about the Ruinous Powers, guarded by the Harlequins,
+and the Heresy is when Chaos breaks into the open. It gives the army its anti-Chaos tools, built on two HH3 rules:
+Hatred (X), and the Malefic Sub-Type, under which a daemonic unit that would gain a Tactical Status takes D3 wounds
+instead (so the Harlequins' Panic, Stun and Pinning weapons already hurt daemons). All of it is written for this list.
+
+The Black Librarian (High Command, 0-1, 140) is a seer-scholar psyker with up to two Psychic Disciplines who serves the
+Library rather than a masque (no Masque Trait, like the Solitaire). True Name, once per battle: Harlequin attacks ignore
+the Invulnerable Saves of one Malefic or Psyker unit for a phase. It anchors the Echoes and returns one slain Echo once
+per battle, and while it's in the army the Masque Leaders may take the Archive relics.
+
+The Echoes of the Laughing God (Elites, 3 to 5 at 90 points each) are fragments of a hidden god's laughter. There's no
+canon for lesser entities of Cegorach; these are the parts of him that watch over his library. They aren't daemons:
+where a Malefic unit takes wounds from Tactical Statuses, the Echoes can never gain one at all (Formless). They have
+Hatred (Malefic), Fear (2), T5 W3 with a 4+ invulnerable save and no armour, Mirthful Talons (I+1, S+1, AP 2, D 2,
+Rending (6+), Aflame (2)) and Echoing Laughter (Panic (1), Stun (1)). More than 18" from a Black Librarian they lose
+Formless and drop to a 5+ invulnerable save.
+
+The Archive of the Black Library (once per army each, only with a Black Librarian) holds the Laughing God's Key (the
+bearer's unit gains Deep Strike, as Webway Strike), the Tome of Unmaking (cancels one enemy psychic power), the Mirror
+of Truth (enemy units within 12" lose Shrouded) and the Blade of Unwritten Names (I+1, S+1, AP 2, D 2, Force (D)).
+
+The Hidden Archive (Auxiliary) has two Elites, a Command and a Troops slot, for any Harlequin units; it needs a Black
+Librarian in the Crusade Primary Detachment's High Command slot.
+
+The Echoes were asked for as a strong unit at about 90 points a model, without a 3+ invulnerable save. The first
+version (W4, A5) beat Leman Russ with 58% left, and only 1 of the 307 Legion units could wipe a unit of three in
+combat. At W3 and A4 they're a match for six Custodians, as their points say: 12 Legion units can wipe them (15 for
+Custodian Guard), and Russ beats them with 35% left. Their value per 100 points is 4.93, 75% of Custodian Guard's,
+because Formless, Hatred, Fear, their speed and the Librarian's revival aren't in the sim.
+
 ## Weapons and wargear, and where they come from
 
 Most of the rules come from the BattleScribe data for older editions: `BSData/wh40k-7th-edition`

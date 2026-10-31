@@ -1,0 +1,214 @@
+{
+  "units": [
+    {
+      "page": null,
+      "limit": "0-1",
+      "unique": false,
+      "traits": [
+        "Xenos",
+        "Harlequin",
+        "Psyker"
+      ],
+      "unitRules": [
+        {
+          "name": "Keeper of the Archive",
+          "text": "The Black Librarians tend Cegorach's library of everything known about the Ruinous Powers, and serve the Library rather than any masque. It has no Masque Trait: it is not affected by any Masque's Special Rules, and it is ignored when checking that every Unit in a Detachment shares one Masque. While a Black Librarian is in the army, Masque Leaders may take items from the Archive of the Black Library, and the Echoes of the Laughing God are anchored to it. Once per battle, at the start of its Controlling Player's turn, the Black Librarian may return one Echo of the Laughing God that was Removed as a Casualty to a friendly Echoes of the Laughing God Unit within 18\" of it, with all its Wounds, placed in Unit Coherency and more than 1\" from all enemy Models."
+        },
+        {
+          "name": "True Name",
+          "text": "Knowing a thing's true name is how you unmake it. Once per battle, at the start of any Phase, the Black Librarian may name one enemy Unit within 18\" that includes any Models with the Malefic Sub-Type or the Psyker Trait. Until the end of that Phase, attacks made by Models with the Harlequin Trait against that Unit ignore Invulnerable Saves."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": false,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "psychic-disciplines",
+          "text": "Psychic Disciplines (up to two).",
+          "kind": "any",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Telepathy",
+              "points": 10
+            },
+            {
+              "name": "Divination",
+              "points": 20
+            },
+            {
+              "name": "Thaumaturgy",
+              "points": 0
+            }
+          ],
+          "max": {
+            "fixed": 2
+          },
+          "requires": null
+        },
+        {
+          "id": "pistol",
+          "text": "May have its Shuriken Pistol exchanged for an item from the Masque Leader Pistols List.",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Shuriken Pistol"
+          ],
+          "choices": [
+            {
+              "list": "masque-leader-pistols"
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "enigma",
+          "text": "May have one item from the Enigmas of the Black Library selected for it.",
+          "kind": "one",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "list": "enigmas-of-the-black-library"
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "archive",
+          "text": "May have one item from the Archive of the Black Library selected for it.",
+          "kind": "one",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "list": "archive-of-the-black-library"
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "Written for this list: the keepers of the Black Library take to the field as the Heresy lets Chaos loose.",
+      "id": "black-librarian",
+      "name": "Black Librarian",
+      "role": "High Command",
+      "basePoints": 140,
+      "composition": "1 Black Librarian",
+      "models": [
+        {
+          "name": "Black Librarian",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 8,
+            "WS": 6,
+            "BS": 6,
+            "S": 3,
+            "T": 3,
+            "W": 4,
+            "I": 8,
+            "A": 4,
+            "LD": 10,
+            "CL": 10,
+            "WP": 11,
+            "IN": 11,
+            "SAV": "6+",
+            "INV": "4+"
+          },
+          "wargear": [
+            "Miststave",
+            "Shuriken Pistol",
+            "Holo-suit",
+            "Flip Belt",
+            "Plasma Grenades",
+            "Haywire grenades"
+          ],
+          "unitType": "Infantry (Command, Light)",
+          "specialRules": []
+        }
+      ],
+      "specialRules": [
+        "Fast (2)",
+        "Dodge (5+)",
+        "The Great Dance",
+        "Keeper of the Archive",
+        "True Name"
+      ]
+    },
+    {
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "traits": [
+        "Xenos",
+        "Harlequin"
+      ],
+      "unitRules": [
+        {
+          "name": "Formless",
+          "text": "The Echoes are fragments of Cegorach's laughter given shape in the Black Library, and laughter does not flinch. A Unit that only includes Models with this Special Rule can never gain any Tactical Status. They are not daemons: they do not have the Malefic Sub-Type. They have no Masque Trait: they are not affected by any Masque's Special Rules, and they are ignored when checking that every Unit in a Detachment shares one Masque."
+        },
+        {
+          "name": "Anchored to the Archive",
+          "text": "The Echoes hold their shape only near a keeper of the Library. While a Unit with this Special Rule has no Model within 18\" of a friendly Black Librarian, it loses the Formless Special Rule and its Models have a 5+ Invulnerable Save instead of 4+."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": false,
+      "fixedChoice": null,
+      "options": [],
+      "note": "Written for this list: there is no canon for lesser entities of Cegorach. These are the parts of a hidden god that watch over his library, and that remember why he hides from Slaanesh.",
+      "id": "echoes-of-the-laughing-god",
+      "name": "Echoes of the Laughing God",
+      "role": "Elites",
+      "basePoints": 270,
+      "composition": "3 Echoes of the Laughing God",
+      "models": [
+        {
+          "name": "Echo",
+          "min": 3,
+          "max": 5,
+          "costPerExtra": 90,
+          "profile": {
+            "M": 10,
+            "WS": 7,
+            "BS": 5,
+            "S": 5,
+            "T": 5,
+            "W": 3,
+            "I": 9,
+            "A": 4,
+            "LD": 12,
+            "CL": 12,
+            "WP": 10,
+            "IN": 8,
+            "SAV": "–",
+            "INV": "4+"
+          },
+          "wargear": [
+            "Mirthful Talons",
+            "Echoing Laughter"
+          ],
+          "unitType": "Infantry (Light)",
+          "specialRules": []
+        }
+      ],
+      "specialRules": [
+        "Fast (2)",
+        "Fear (2)",
+        "Hatred (Malefic)",
+        "The Great Dance",
+        "Formless",
+        "Anchored to the Archive"
+      ]
+    }
+  ]
+}
