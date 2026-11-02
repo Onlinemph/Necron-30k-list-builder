@@ -436,7 +436,7 @@
     const bad = s.unit && E.unitIssues(s.unit).some((i) => i.level === 'error');
     const label = det.kind === 'free' ? (u ? u.role : 'Any unit') : s.advisor ? 'Advisor' : s.flexible ? 'Flexible' : s.logisticOf ? `${s.role} (Logistical)` : s.onlyLabel ? `${s.role} (${s.onlyLabel.replace(/\s+only$/i, '')})` : s.role;
     const el = h(`<li class="slot ${active === s.uid ? 'active' : ''}">
-      <span class="role">${s.prime ? '<span class="prime" title="Prime slot">★</span>' : ''}${s.flexible ? '<span class="flex">◇</span>' : ''}${esc(label)}</span>
+      <span class="role">${E.primeSlot(det, s) ? '<span class="prime" title="Prime slot">★</span>' : ''}${s.flexible ? '<span class="flex">◇</span>' : ''}${esc(label)}</span>
       <span class="name ${u ? '' : 'empty'}">${u ? esc(u.name) + (bad ? ' <span class="bad" title="Has problems">⚠</span>' : '') + (s.unit.primeAdvantage ? ` <small>· ${esc(s.unit.primeAdvantage)}</small>` : '') : '+ add unit'}</span>
       <span class="pts">${u ? E.unitPoints(s.unit) : ''}</span>
     </li>`);
@@ -690,7 +690,7 @@
     }
 
     // prime
-    if (slot.prime || sel.primeAdvantage) {
+    if (E.primeSlot(det, slot) || sel.primeAdvantage) {
       const sec = section('Prime Advantage');
       const advs = primeAdvantages(u, det, sel, slot);
       const s = h(`<select><option value="">None</option>${advs.map((a) => `<option value="${esc(a.name)}" ${sel.primeAdvantage === a.name ? 'selected' : ''}>${esc(a.label)}</option>`).join('')}</select>`);
@@ -1124,7 +1124,7 @@
       for (const s of units) {
         const u = E.unit(s.unit.unitId);
         const extras = [];
-        if (s.prime) extras.push('Prime' + (s.unit.primeAdvantage ? ': ' + s.unit.primeAdvantage : ''));
+        if (E.primeSlot(d, s)) extras.push('Prime' + (s.unit.primeAdvantage ? ': ' + s.unit.primeAdvantage : ''));
         const ark = E.arkanaOf(s.unit);
         if (ark) extras.push(ark);
         lines.push(`[${d.kind === 'free' ? u.role : s.advisor ? 'Command (Advisor)' : s.flexible ? 'Flexible' : s.role}] ${u.name}${extras.length ? ' (' + extras.join(', ') + ')' : ''} — ${E.unitPoints(s.unit)} pts`);
@@ -1235,7 +1235,7 @@
       for (const s of units) {
         const u = E.unit(s.unit.unitId);
         const ark = E.arkanaOf(s.unit);
-        html += `<div class="r-unit"><h3><span>${esc(u.name)} <small class="muted">${esc(d.kind === 'free' ? u.role : s.flexible ? 'Flexible' : s.role)}${s.prime ? ' · Prime' + (s.unit.primeAdvantage ? ': ' + esc(s.unit.primeAdvantage) : '') : ''}${ark ? ' · ' + esc(ark) : ''}</small></span><span>${E.unitPoints(s.unit)} pts</span></h3>`;
+        html += `<div class="r-unit"><h3><span>${esc(u.name)} <small class="muted">${esc(d.kind === 'free' ? u.role : s.flexible ? 'Flexible' : s.role)}${E.primeSlot(d, s) ? ' · Prime' + (s.unit.primeAdvantage ? ': ' + esc(s.unit.primeAdvantage) : '') : ''}${ark ? ' · ' + esc(ark) : ''}</small></span><span>${E.unitPoints(s.unit)} pts</span></h3>`;
         html += profileTable(u, s.unit, s);
         html += '<ul class="loadout">';
         for (const r of E.loadout(s.unit)) {

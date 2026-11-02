@@ -363,3 +363,16 @@ test('Master Sergeant boosts one model; Combat Veterans the whole unit', () => {
   assert.equal(r.length, 1);
   assert.equal(r[0].profile.WP, r[0].baseProfile.WP + 1);
 });
+
+test('Illuminor Szeras makes every Troops slot in his detachment Prime, with Mechanical Augmentation', () => {
+  const a = armyWith([['Command', 'illuminor-szeras'], ['Troops', 'necron-warriors'], ['Troops', 'immortals']]);
+  const [, w, i] = a.detachments[0].slots;
+  assert.ok(E.primeSlot(a.detachments[0], w));
+  assert.equal(E.armyIssues(a).filter((x) => /must take the Mechanical Augmentation/.test(x.msg)).length, 2);
+  w.unit.primeAdvantage = 'Mechanical Augmentation';
+  i.unit.primeAdvantage = 'Mechanical Augmentation';
+  assert.deepEqual(E.armyIssues(a).filter((x) => /Mechanical Augmentation|Prime slot/.test(x.msg)), []);
+  // without Szeras, Troops slots are only Prime as printed
+  const b = armyWith([['Command', 'trazyn-the-infinite'], ['Troops', 'necron-warriors']]);
+  assert.ok(!E.primeSlot(b.detachments[0], b.detachments[0].slots[1]));
+});

@@ -830,13 +830,17 @@
           if (!slotAllows(d, s, u, s.unit)) {
             issues.push({ level: 'error', msg: `${u.name} doesn't meet ${d.name}'s restrictions for its ${s.flexible ? 'flexible' : s.role} slot.` });
           }
+          const forced = forcedPrime(d, s);
+          if (forced && s.unit.primeAdvantage !== forced.advantage) {
+            issues.push({ level: 'error', msg: `${u.name} must take the ${forced.advantage} Prime Advantage (${forced.by}).` });
+          }
           if (s.flexible && s.exclude && s.exclude.includes(u.role)) {
             issues.push({ level: 'error', msg: `${u.name} can't fill the flexible slot in ${d.name}.` });
           }
           if (s.advisor && !(u.cryptoArkana || u.fixedArkana)) {
             issues.push({ level: 'error', msg: `Dynastic Advisors slots take only [Crypto-Arkana] units; ${u.name} isn't one.` });
           }
-          if (s.unit.primeAdvantage && !s.prime) {
+          if (s.unit.primeAdvantage && !primeSlot(d, s)) {
             issues.push({ level: 'warn', msg: `${u.name} has a Prime Advantage but isn't in a Prime slot.` });
           }
           if (s.unit.primeAdvantage === 'Engrammatic Soldiers') {
@@ -1015,6 +1019,17 @@
       return issues;
     }
 
+    /**
+     * Slots a unit in the detachment makes Prime, with the advantage they must take: Illuminor Szeras's
+     * Mechanical Augmentation turns every Troops slot in his detachment into a Prime slot.
+     */
+    function forcedPrime(d, s) {
+      if (s.role !== 'Troops') return null;
+      const by = d.slots.find((x) => x.unit && ((unit(x.unit.unitId) || {}).unitRules || []).some((r) => r.name === 'Mechanical Augmentation'));
+      return by ? { advantage: 'Mechanical Augmentation', by: unit(by.unit.unitId).name } : null;
+    }
+    function primeSlot(d, s) { return !!(s.prime || forcedPrime(d, s)); }
+
     /** How many Auxiliary/Apex Detachments the Crusade Primary Detachment unlocks. */
     function unlocks(army) {
       const primary = dets(army).find((d) => d.kind === 'primary');
@@ -1141,7 +1156,7 @@
       eligible, optionMax, perModelUsed, optionCost, unitPoints, loadout, unitIssues, armyIssues, armyPoints,
       allSelections, sequelaAllowance, configMax, setArmy, slotAdder, available, condOk, condText, makeDetachment, detachmentFromDef, unitsForSlot, slotAllows, syncAdvisorSlots,
       hasTrait, arkanaOf, uid, setSequelae, effectiveModels, primeAdvantagesFor, requirementMet, unlocks, optionsOf, modelMax, rolesFor, activeEffects, grantedTraits,
-      printedUnit, allUnits, houseOn: () => houseOn, house,
+      printedUnit, allUnits, houseOn: () => houseOn, house, primeSlot,
     };
   }
 
