@@ -21,6 +21,50 @@
     "Shieldwall!"
    ],
    "removeRules": []
+  },
+  {
+   "id": "hykanatoi-proconsul-delegate-hykanatoi-proconsul-delegate-one-sentinel-warblade-and-one-praesidium-shield-gambit",
+   "text": "One sentinel warblade and one praesidium shield: gains Shieldwall!.",
+   "source": {
+    "type": "wargear",
+    "name": "One sentinel warblade and one praesidium shield"
+   },
+   "appliesTo": {
+    "models": [
+     "Hykanatoi Proconsul-Delegate"
+    ],
+    "units": [
+     "hykanatoi-proconsul-delegate"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Shieldwall!"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "hykanatoi-proconsul-delegate-hykanatoi-proconsul-delegate-one-sentinel-warblade-and-one-praesidium-shield",
+   "text": "One sentinel warblade and one praesidium shield: INV 5+.",
+   "source": {
+    "type": "wargear",
+    "name": "One sentinel warblade and one praesidium shield"
+   },
+   "appliesTo": {
+    "units": [
+     "hykanatoi-proconsul-delegate"
+    ],
+    "models": [
+     "Hykanatoi Proconsul-Delegate"
+    ]
+   },
+   "scope": "model",
+   "stats": {
+    "INV": "=5+"
+   },
+   "addRules": [],
+   "removeRules": []
   }
  ]
 }

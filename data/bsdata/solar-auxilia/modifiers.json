@@ -95,6 +95,31 @@
    "removeRules": []
   },
   {
+   "id": "legatine-command-section-legate-marshall-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Warpshield.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "models": [
+     "Legate Marshall"
+    ],
+    "units": [
+     "legatine-command-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Warpshield"
+   ],
+   "removeRules": []
+  },
+  {
    "id": "lasrifle-section-cohort-doctrine-iron-pattern-cohort",
    "text": "Cohort Doctrine: Iron Pattern Cohort: gains Expendable (1).",
    "source": {
@@ -481,7 +506,7 @@
   },
   {
    "id": "armoured-command-section-cohort-doctrine-fateweaver-cohort",
-   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean.",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean, gains the Psyker trait.",
    "source": {
     "type": "when",
     "when": {
@@ -499,7 +524,10 @@
    "addRules": [
     "Servants of the Empyrean"
    ],
-   "removeRules": []
+   "removeRules": [],
+   "addTraits": [
+    "Psyker"
+   ]
   },
   {
    "id": "veletaris-storm-section-cohort-doctrine-oblitum-pattern-cohort",
@@ -1872,7 +1900,7 @@
   },
   {
    "id": "artillery-command-section-cohort-doctrine-fateweaver-cohort",
-   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean.",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean, gains the Psyker trait.",
    "source": {
     "type": "when",
     "when": {
@@ -1890,7 +1918,10 @@
    "addRules": [
     "Servants of the Empyrean"
    ],
-   "removeRules": []
+   "removeRules": [],
+   "addTraits": [
+    "Psyker"
+   ]
   },
   {
    "id": "aurox-transport-cohort-doctrine-oblitum-pattern-cohort",
@@ -3855,6 +3886,50 @@
    "stats": {},
    "addRules": [
     "Convocators"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "exalted-section-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Convocators.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "exalted-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Convocators"
+   ],
+   "removeRules": []
+  },
+  {
+   "id": "exalted-section-cohort-doctrine-fateweaver-cohort",
+   "text": "Cohort Doctrine: Fateweaver Cohort: gains Servants of the Empyrean.",
+   "source": {
+    "type": "when",
+    "when": {
+     "config": "Cohort Doctrine: Fateweaver Cohort"
+    },
+    "name": "Cohort Doctrine: Fateweaver Cohort"
+   },
+   "appliesTo": {
+    "units": [
+     "exalted-section"
+    ]
+   },
+   "scope": "model",
+   "stats": {},
+   "addRules": [
+    "Servants of the Empyrean"
    ],
    "removeRules": []
   }

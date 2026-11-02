@@ -239,7 +239,7 @@
      },
      {
       "name": "Cohort Doctrine: Oblitum Pattern Cohort",
-      "text": "Psycho-Conditioned: *Models with this Special Rule ignore negative Leadership modifiers, but must make Willpower Checks in order to make Reactions or Score Objectives.*\n\n\nModels with this Special Rule may never have negative modifiers applied to their Leadership Characteristic.\n\n\nIn Addition, when a Unit entirely composed of Models with this Special Rule is selected to score an Objective Marker or is declared as the Reacting Unit for a Reaction, a Willpower Check must first be made for that Unit before any Victory Points are Scored or Reaction Allotment is expended. If the Willpower Check is successful, then the Objective Marker is scored or the Reaction proceeds as normal respectively, but if the Willpower Check is unsuccessful, that Unit immediately gains the Stunned Status, preventing the Unit from scoring the Objective or proceeding with the Reaction - if the Controlling Player has other Units eligible to score that Objective Marker, those Units may still do so.",
+      "text": "Psycho-Conditioned: *Models with this Special Rule ignore negative Leadership modifiers, but must make Willpower Checks in order to make Reactions or Score Objectives.*\n\n\nModels with this Special Rule may never have negative modifiers applied to their Leadership Characteristic.\n\n\nIn Addition, when a Unit that includes any Models with this Special Rule is selected to score an Objective Marker or is declared as the Reacting Unit for a Reaction, a Willpower Check must first be made for that Unit before any Victory Points are Scored or Reaction Allotment is expended. If the Willpower Check is successful, then the Objective Marker is scored or the Reaction proceeds as normal respectively, but if the Willpower Check is unsuccessful, that Unit immediately gains the Stunned Status, preventing the Unit from scoring the Objective or proceeding with the Reaction - if the Controlling Player has other Units eligible to score that Objective Marker, those Units may still do so.",
       "unless": [
        {
         "config": "Traitor"
@@ -249,6 +249,15 @@
      {
       "name": "Cohort Doctrine: Fateweaver Cohort",
       "text": "Servants of the Empyrean: All Models with this Special Rule gain the following\n\n\n- The Tzeench Trait\n- The Traitor Trait\n- A 6+ invulnerable Saving Throw against wounds inflicted by Perils of the Warp or a Weapon with the Psychic Trait\n\n\nIf a Model with this Special Rule has the Command Sub-Type they also gain the Psyker Trait and the Fateweaving Psychic Discipline. They may not be given any other Psychic Discipline.\n\n\nNote that due to the Rules associated with the Tzeench Trait, a Model with both the Tzeench and Psyker Traits gain the Fateweaver Psychic Discipline and maynot be given any other Psychic Discipline",
+      "unless": [
+       {
+        "config": "Loyalist"
+       }
+      ]
+     },
+     {
+      "name": "Cohort Doctrine: Sublime Host",
+      "text": "Fast (1): **A Unit that only includes Models with the Fast (X) Special Rule gain a bonus to Rush and Charge Moves.**\n\nWhen the Player controlling a Unit that is composed entirely of Models with the Fast (X) Special Rule elects to have that Unit Rush, add the value of X attached to the specific variant of Fast (X) to the distance the Unit can move. Likewise, when a Unit composed entirely of Models with the Fast (X) Special Rule is required to make a Charge Move, add the value of X attached to the specific variant of the Fast (X) Special Rule as a positive modifier to the Charge Roll. In any situation where a Unit includes Models with two or more variants of the Fast (X) Special Rule, the lowest possible modifier is used.\n\nDisciples of Pain: All Models with this Special Rule gain the following\n\n\n- The Saanesh Trait.\n- The Fast (1) Special Rule.\n\n\nIf a Model with this Special Rule has the Command Sub-Type they also gain the Psyker Trait and the Enraptura Psychic Discipline. They may not be given any other Psychic Diciplines.",
       "unless": [
        {
         "config": "Loyalist"

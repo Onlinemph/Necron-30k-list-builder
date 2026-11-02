@@ -30,7 +30,7 @@
   },
   {
    "name": "Prefect",
-   "text": "All Models in the Unit selected to fill a Prime Slot with thisd Prime Advantage modify their Base Wounds Characteristic by +1 and gain the Officer of the Line (2) Special Rule\n\nOfficer of the Line (2): \"Models with this Special Rule allow more Auxiliary Detachments to be included in an Army.\"\nIf a Model with this Special Rule is selected to fill a Command Slot in any Detachment in the Crusade Force Organization Chart, then the Controlling Player may select a number of Auxiliary Detachments equal to the value of X in the specific variant of this Special Rule instead of just one.",
+   "text": "This Prime Advantage may only be selected for a Prime Slot used to select a Shield Captain Unit. All Models in the Unit selected to fill a Prime Slot with this Prime Advantage modify their Base Wounds Characteristic by +1 and gain the Officer of the Line (2) Special Rule\n\nOfficer of the Line (2): **Models with this Special Rule allow more Auxiliary Detachments to be included in an Army.**\n\nIf a Model with this Special Rule is selected to fill a Command Slot in any Detachment in the Crusade Force Organization Chart, then the Controlling Player may select a number of Auxiliary Detachments equal to the value of X in the specific variant of this Special Rule instead of just one.",
    "eligible": {
     "any": {
      "roles": [],

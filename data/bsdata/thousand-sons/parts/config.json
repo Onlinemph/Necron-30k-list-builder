@@ -3,7 +3,7 @@
   "fixed": [
    {
     "name": "Cult Arcana",
-    "text": "\"All Models with the Thousand Sons Trait are Psykers and have a higher Willpower Characteristic than shown on their profile.\"\nModels with this special rule gain a bonus of +1 Base Willpower Characteristic and gain the Psyker Trait",
+    "text": "**All Models with the Thousand Sons Trait are Psykers and have a higher Willpower Characteristic than shown on their profile.**\n\nModels with this special rule gain a bonus of +1 Base Willpower Characteristic and gain the Psyker Trait",
     "kind": "rule",
     "source": "Legion Tactica"
    },
