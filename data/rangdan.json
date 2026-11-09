@@ -368,7 +368,7 @@
    "page": null,
    "limit": null,
    "unique": false,
-   "basePoints": 225,
+   "basePoints": 240,
    "composition": "3 Rangda Hunters",
    "models": [
     {
@@ -439,7 +439,8 @@
     "Prey Instinct",
     "Fear (1)",
     "Horror of the Taken",
-    "Bulky (3)"
+    "Bulky (3)",
+    "Vanguard (3)"
    ],
    "unitRules": [],
    "cryptoArkana": false,
@@ -605,7 +606,7 @@
    "page": null,
    "limit": null,
    "unique": false,
-   "basePoints": 210,
+   "basePoints": 220,
    "composition": "3 Mimics",
    "models": [
     {
@@ -648,6 +649,7 @@
     "Horror of the Taken",
     "Bulky (3)",
     "Infiltrate (9)",
+    "Vanguard (2)",
     "Stolen Voices"
    ],
    "unitRules": [
@@ -1118,7 +1120,7 @@
    "page": null,
    "limit": null,
    "unique": false,
-   "basePoints": 285,
+   "basePoints": 300,
    "composition": "3 Court Hunters",
    "models": [
     {
@@ -1161,6 +1163,7 @@
     "Fear (1)",
     "Horror of the Taken",
     "Bulky (3)",
+    "Vanguard (3)",
     "Sworn to the Hunt"
    ],
    "unitRules": [
@@ -1231,7 +1234,7 @@
    "page": null,
    "limit": null,
    "unique": false,
-   "basePoints": 60,
+   "basePoints": 70,
    "composition": "20 Thralls",
    "models": [
     {
@@ -1271,6 +1274,7 @@
    ],
    "specialRules": [
     "Neural Collars",
+    "Line (1)",
     "Expendable (2)"
    ],
    "unitRules": [],
@@ -1308,7 +1312,7 @@
    "page": null,
    "limit": null,
    "unique": false,
-   "basePoints": 55,
+   "basePoints": 60,
    "composition": "10 Collared Auxiliaries",
    "models": [
     {
@@ -1347,7 +1351,8 @@
     "Thrall"
    ],
    "specialRules": [
-    "Neural Collars"
+    "Neural Collars",
+    "Line (1)"
    ],
    "unitRules": [],
    "cryptoArkana": false,
@@ -4754,7 +4759,7 @@
     ]
    },
    "extraSlot": false,
-   "text": "If a Unit that only includes Models with the Thrall Trait is selected to fill a Prime Troops Slot, the following Prime Advantage can be selected: Collared Legion. The Unit gains the Line (1) Special Rule, and for the Neural Collars Special Rule it counts as being within 12\" of a friendly Rangdan Model while any of its Models is within 18\" of one."
+   "text": "If a Unit that only includes Models with the Thrall Trait is selected to fill a Prime Troops Slot, the following Prime Advantage can be selected: Collared Legion. The Unit increases the value of its Line (X) Special Rule by 1, and for the Neural Collars Special Rule it counts as being within 12\" of a friendly Rangdan Model while any of its Models is within 18\" of one."
   },
   {
    "name": "Collar-bombs",
@@ -4884,6 +4889,52 @@
     ],
     "removeRules": [],
     "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "collared-legion-line",
+    "page": null,
+    "text": "The Unit increases the value of its Line (X) Special Rule by 1.",
+    "source": {
+     "type": "primeAdvantage",
+     "name": "Collared Legion"
+    },
+    "appliesTo": {},
+    "scope": "unit",
+    "stats": {},
+    "addRules": [],
+    "removeRules": [],
+    "modifyRules": [
+     {
+      "rule": "Line",
+      "by": 1
+     }
+    ],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "apex-predators-fear",
+    "page": null,
+    "text": "All Models in the Unit increase the value of their Fear (X) Special Rule by 1, to a maximum of Fear (3).",
+    "source": {
+     "type": "primeAdvantage",
+     "name": "Apex Predators"
+    },
+    "appliesTo": {},
+    "scope": "unit",
+    "stats": {},
+    "addRules": [],
+    "removeRules": [],
+    "modifyRules": [
+     {
+      "rule": "Fear",
+      "by": 1
+     }
+    ],
     "addTraits": [],
     "addUnitTypes": [],
     "condition": null

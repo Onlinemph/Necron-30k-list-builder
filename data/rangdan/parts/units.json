@@ -351,7 +351,7 @@
       "page": null,
       "limit": null,
       "unique": false,
-      "basePoints": 225,
+      "basePoints": 240,
       "composition": "3 Rangda Hunters",
       "models": [
         {
@@ -422,7 +422,8 @@
         "Prey Instinct",
         "Fear (1)",
         "Horror of the Taken",
-        "Bulky (3)"
+        "Bulky (3)",
+        "Vanguard (3)"
       ],
       "unitRules": [],
       "cryptoArkana": false,
@@ -588,7 +589,7 @@
       "page": null,
       "limit": null,
       "unique": false,
-      "basePoints": 210,
+      "basePoints": 220,
       "composition": "3 Mimics",
       "models": [
         {
@@ -631,6 +632,7 @@
         "Horror of the Taken",
         "Bulky (3)",
         "Infiltrate (9)",
+        "Vanguard (2)",
         "Stolen Voices"
       ],
       "unitRules": [
@@ -1101,7 +1103,7 @@
       "page": null,
       "limit": null,
       "unique": false,
-      "basePoints": 285,
+      "basePoints": 300,
       "composition": "3 Court Hunters",
       "models": [
         {
@@ -1144,6 +1146,7 @@
         "Fear (1)",
         "Horror of the Taken",
         "Bulky (3)",
+        "Vanguard (3)",
         "Sworn to the Hunt"
       ],
       "unitRules": [
@@ -1214,7 +1217,7 @@
       "page": null,
       "limit": null,
       "unique": false,
-      "basePoints": 60,
+      "basePoints": 70,
       "composition": "20 Thralls",
       "models": [
         {
@@ -1254,6 +1257,7 @@
       ],
       "specialRules": [
         "Neural Collars",
+        "Line (1)",
         "Expendable (2)"
       ],
       "unitRules": [],
@@ -1291,7 +1295,7 @@
       "page": null,
       "limit": null,
       "unique": false,
-      "basePoints": 55,
+      "basePoints": 60,
       "composition": "10 Collared Auxiliaries",
       "models": [
         {
@@ -1330,7 +1334,8 @@
         "Thrall"
       ],
       "specialRules": [
-        "Neural Collars"
+        "Neural Collars",
+        "Line (1)"
       ],
       "unitRules": [],
       "cryptoArkana": false,

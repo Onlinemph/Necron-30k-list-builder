@@ -23,7 +23,7 @@
         ]
       },
       "extraSlot": false,
-      "text": "If a Unit that only includes Models with the Thrall Trait is selected to fill a Prime Troops Slot, the following Prime Advantage can be selected: Collared Legion. The Unit gains the Line (1) Special Rule, and for the Neural Collars Special Rule it counts as being within 12\" of a friendly Rangdan Model while any of its Models is within 18\" of one."
+      "text": "If a Unit that only includes Models with the Thrall Trait is selected to fill a Prime Troops Slot, the following Prime Advantage can be selected: Collared Legion. The Unit increases the value of its Line (X) Special Rule by 1, and for the Neural Collars Special Rule it counts as being within 12\" of a friendly Rangdan Model while any of its Models is within 18\" of one."
     },
     {
       "name": "Collar-bombs",

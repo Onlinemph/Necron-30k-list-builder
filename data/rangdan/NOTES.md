@@ -106,7 +106,7 @@ in through Command slots and Auxiliary Detachments:
 
 The core Warlord Detachment fills with a War-moon Regent, a Hunt-Court and a Brood-ship.
 
-Prime Advantages: Apex Predators (Rangda infantry, Fear +1), Collared Legion (Thrall Troops, Line (1) and an 18"
+Prime Advantages: Apex Predators (Rangda infantry, Fear +1), Collared Legion (Thrall Troops, Line +1 and an 18"
 collar), Sated Gestalt (Slaugth with Carrion Feast regain two wounds), Collar-bombs (Iron Chain).
 
 There is no Fortification: no army in the data has one and no HH3 chart has a slot for it.
@@ -120,18 +120,18 @@ There is no Fortification: no army in the data has one and no HH3 chart has a sl
 | Hunt-Sovereign | High Command | 265 | Paragon, WS 7, W6 T6, Sovereign's Glaive, one War-moon Strike a battle |
 | Rangda Huntmaster | Command | 160 | WS 6, spine glaive, shroud-field |
 | Collar-Wright | Command | 140 | WS 6; Overloads twice a turn; 18" collar range |
-| Hunt-Court | Retinue | 95 a model | Court Hunters with shroud-fields and blasters; +1 A while a Sovereign, Regent or Ithrakk leads them |
-| Hunt-Pack | Elites | 75 a model | M9 WS5 S5 T5 W4 I6 A4, 3+/5++, spine glaive (AP 3, D 2, Breaching 5+) |
+| Hunt-Court | Retinue | 300 for 3, +95 | Vanguard (3). Court Hunters with shroud-fields and blasters; +1 A while a Sovereign, Regent or Ithrakk leads them |
+| Hunt-Pack | Elites | 240 for 3, +75 | Vanguard (3). M9 WS5 S5 T5 W4 I6 A4, 3+/5++, spine glaive (AP 3, D 2, Breaching 5+) |
 | Shadow Lancers | Support | 85 a model | Shadow lances (S9 AP2 D2 Armourbane) |
-| Mimics | Recon | 70 a model | Infiltrate (9); Stolen Voices gives their shooting Panic (1) |
+| Mimics | Recon | 220 for 3, +70 | Vanguard (2). Infiltrate (9); Stolen Voices gives their shooting Panic (1) |
 | Tendril Skiffs | Fast Attack | 85 each | Small jellyfish skimmers |
 | Shadow Kite | Fast Attack | 105 | Flyer with two shadow lances |
 | Iron Medusa | Armour | 160 | Shadow cannon (Blast, Deflagrate, Suppressive) |
 | Tendril Barge | Transport | 85 | Capacity 12 (four Rangda), Assault Vehicle |
 | Brood-ship | Heavy Transport | 160 | Capacity 20 (six Rangda or a herd), Assault Vehicle |
 | Spine-Leviathan | Lord of War | 620 | Super-heavy skimmer |
-| Thrall Cohort | Troops | 60 for 20, +3 | Imperial Army, Expendable (2); cheap bodies, the millions of slaves the canon describes |
-| Collared Auxilia | Troops | 55 for 10, +5 | Solar Auxilia in void armour |
+| Thrall Cohort | Troops | 70 for 20, +3 | Line (1), Expendable (2). Imperial Army; cheap bodies, the millions of slaves the canon describes |
+| Collared Auxilia | Troops | 60 for 10, +5 | Line (1). Solar Auxilia in void armour |
 | The Broken | Troops | 90 for 10, +9 | 0-1. Collared Legionaries: Heedless, and enemy infantry fighting them gain Hatred (Thrall) |
 | Marshal Casimir Vehl | Command | 85 | Unique, Iron Chain. Collared units within 12" of him count as near a Rangda; once a battle two Thrall units' shooting gains Pinning (1) |
 | Collared Ogryns | Heavy Assault | 95 for 3, +30 | The obvious thing to Overload |
@@ -168,6 +168,29 @@ Every captured Imperial weapon is copied from BSData's HH3 profile when the data
 Option prices come from the sim: a Severing Maul is worth about 25 points a model before counting its Initiative
 penalty and its melee anti-tank, which the yardstick overweights, hence +20 and one per three.
 
+## How the Rangdan score
+
+HH3 scores objectives. **Line (X)** adds X Victory Points every time a unit scores an objective and helps it claim
+one; a Tactical Squad has Line (2). **Vanguard (X)** caps a unit at 1 VP for holding, but scores X VP when it wipes
+out an enemy unit that is controlling or contesting an objective, or breaks one in combat (it Falls Back or is
+Massacred) that started the Assault Phase within 3" of an objective; Custodian Guard have Vanguard (2), Aquilon and
+Venatari Vanguard (3). A unit with any Tactical Status can't control or contest an objective at all.
+
+The two halves of the army score differently:
+
+- **The Thralls hold.** Thrall Cohorts and Collared Auxilia have Line (1), like a Lasrifle Section, and Collared
+  Legion raises one Prime Troops unit to Line (2), like a Tactical Squad. Expendable (2) on the Cohort cuts what the
+  enemy scores for killing them. The Broken are Heedless and never hold.
+- **The Rangda hunt.** Hunt-Packs and the Hunt-Court have Vanguard (3) and the Mimics Vanguard (2). They never hold
+  ground; they score by taking whatever stands on it.
+- **The Cry decides which.** A Pinned unit can't hold or contest, so pinning a squad on an objective stops it
+  scoring. Breaking a unit in combat near an objective scores Vanguard whether or not it was Pinned, but wiping one out
+  only scores if it was still holding, which a Pinned unit isn't. Every turn the Rangdan player chooses between
+  pinning the enemy off an objective and leaving them on it to be killed for points.
+
+Line and Vanguard are per-unit rules, so their cost sits on the unit's base, not on each model: +10 on a Cohort, +5 on
+the Auxilia, +15 on a Hunt-Pack or Hunt-Court and +10 on the Mimics. The sim measures neither.
+
 ## Calibration
 
 Measured with the balance sim (`scripts/balance-sim.cjs`, extended for Deflagrate, Worm Gestalt and Prey Instinct)
@@ -182,15 +205,15 @@ statuses, so the Hunting Cry, Horror of the Taken and the war-moons are priced b
 | War-moon Regent | 475 | 5.63 | Horus Lupercal 5.83 at 530, Constantin Valdor 4.31 at 400 |
 | Hunt-Sovereign | 265 | 5.82 | Tribune 4.73; the sim fires the one-shot War-moon Strike every turn, so this reads high |
 | Ithrakk | 295 | 5.01 | The same body as the Sovereign at Silent Choir BS, plus the First Voice |
-| Hunt-Court | 285 | 7.24 | Hunt-Pack 6.84; Sworn to the Hunt isn't measured |
-| Hunt-Pack | 225 | 6.84 (7.16 with blasters) | Custodian Guard 8.73, Aquilon 7.99, Legion Veterans 5.70 |
+| Hunt-Court | 300 | 6.88 | Hunt-Pack; Sworn to the Hunt and Vanguard aren't measured |
+| Hunt-Pack | 240 | 6.41 (6.76 with blasters) | Custodian Guard 8.73, Aquilon 7.99, Legion Veterans 5.70; Vanguard isn't measured |
 | Shadow Lancers | 255 | 5.80 | anti-tank about 1.3 per 100 pts vs Predator 1.55, Venatari 1.17 |
-| Mimics | 210 | 5.31 | Venatari 6.25 |
+| Mimics | 220 | 5.07 | Venatari 6.25 |
 | Rangda Huntmaster | 160 | 4.87 | Shield Captain 4.02 |
 | Collar-Wright | 140 | 3.89 | Shield Captain 4.02 |
 | The Broken | 90 | 9.12 | Tactical Squad 8.32 at 100; Heedless and the lost Line (2) aren't measured |
-| Thrall Cohort | 60 | 9.56 | Collared Auxilia 9.18 (an Auxiliary is worth about 1.75 Thralls: a 4+ save holds against bolters, a 5+ doesn't), Lasrifle Section 9.91, Levy Troop 4.67 |
-| Collared Auxilia | 55 | 9.18 | Lasrifle Section 9.91 |
+| Thrall Cohort | 70 | 8.19 | Collared Auxilia 9.18 (an Auxiliary is worth about 1.75 Thralls: a 4+ save holds against bolters, a 5+ doesn't), Lasrifle Section 9.91, Levy Troop 4.67 |
+| Collared Auxilia | 60 | 8.42 | Lasrifle Section 9.91 (also Line (1)) |
 | Thrall Basilisk | 115 | 11.77 | Basilisk 11.26 at 120 |
 | Thrall Armour | 130 | 11.19 | Militia Leman Russ 11.16 |
 | Thrall Knight | 400 | 6.00 | priced like a Questoris Paladin (410) less the collars |
