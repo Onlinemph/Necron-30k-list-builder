@@ -64,7 +64,7 @@
       "options": [
         {
           "id": "cannon",
-          "text": "Any Model in this Unit may have its Shuriken Cannon exchanged for a Haywire Cannon for +5 points per Model.",
+          "text": "Any Model in this Unit may have its Shuriken Cannon exchanged for a Haywire Cannon for +5 points or a Prismatic Lance for +10 points per Model.",
           "kind": "perModel",
           "model": null,
           "replaces": [
@@ -74,6 +74,10 @@
             {
               "name": "Haywire Cannon",
               "points": 5
+            },
+            {
+              "name": "Prismatic Lance",
+              "points": 10
             }
           ],
           "max": null,
@@ -258,7 +262,7 @@
       "options": [
         {
           "id": "prismatic-swap",
-          "text": "Any Voidweaver may have its Haywire Cannon exchanged for a Centreline mounted Prismatic Cannon for +10 points per model.",
+          "text": "Any Voidweaver may have its Haywire Cannon exchanged for a Centreline mounted Prismatic Cannon for +15 points per model.",
           "kind": "perModel",
           "model": null,
           "replaces": [
@@ -267,7 +271,7 @@
           "choices": [
             {
               "name": "Centreline mounted Prismatic Cannon",
-              "points": 10
+              "points": 15
             }
           ],
           "max": null,
@@ -339,7 +343,7 @@
       "page": null,
       "limit": null,
       "unique": false,
-      "basePoints": 140,
+      "basePoints": 145,
       "composition": "1 Webweaver",
       "models": [
         {
@@ -413,7 +417,7 @@
       "page": null,
       "limit": null,
       "unique": false,
-      "basePoints": 170,
+      "basePoints": 180,
       "composition": "1 Prismweaver",
       "models": [
         {

@@ -266,12 +266,12 @@
           "name": "Lance",
           "R": 24,
           "FP": 1,
-          "RS": 8,
+          "RS": 9,
           "AP": 2,
           "D": 2,
           "specialRules": [
             "Armourbane",
-            "Armour-breaker (5+)"
+            "Armour-breaker (4+)"
           ],
           "traits": [
             "Las"
@@ -324,18 +324,35 @@
           "name": "Lance",
           "R": 24,
           "FP": 2,
-          "RS": 8,
+          "RS": 9,
           "AP": 2,
           "D": 2,
           "specialRules": [
             "Armourbane",
-            "Armour-breaker (5+)"
+            "Armour-breaker (4+)"
           ],
           "traits": [
             "Las"
           ]
         }
       ]
+    },
+    {
+      "name": "Prismatic Lance",
+      "page": null,
+      "R": 24,
+      "FP": 1,
+      "RS": 9,
+      "AP": 2,
+      "D": 2,
+      "specialRules": [
+        "Armourbane",
+        "Armour-breaker (4+)"
+      ],
+      "traits": [
+        "Las"
+      ],
+      "modes": null
     },
     {
       "name": "Prismatic Destructor",
@@ -391,7 +408,7 @@
       "name": "Starshrike Lance",
       "R": 24,
       "FP": 2,
-      "RS": 7,
+      "RS": 8,
       "AP": 2,
       "D": 2,
       "specialRules": [

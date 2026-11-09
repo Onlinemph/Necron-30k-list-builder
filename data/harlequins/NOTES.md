@@ -124,7 +124,7 @@ Wraith-dancers). All are written for this list.
 | Tragedians | Midnight Sorrow | Support | The chorus of the Fall, with hallucinogen launchers: -1 Leadership to enemies within 12", and Routed enemies near them stay Routed | 105 for 3 |
 | Phantasms | Veiled Path | Recon | Illusions a Shadowseer projects. They can't attack or hold objectives; a foe aiming at a nearby Veiled Path unit must pass an Intelligence Check or hit the Phantasms instead, and they come back one a turn near a psyker | 60 for 5 |
 | The Unspeaking | Silent Shroud | Elites | Elite Mimes with Infiltrate, Fear (2), Mime's Blades and neuro disruptors; killing a sergeant, champion or commander Stuns his unit | 120 for 3 |
-| Starshrike | Soaring Spite | Fast Attack | A webway fighter, the army's only Flyer: a Starshrike Lance (Armourbane, Skyfire) and two shuriken cannons, and enemies it flies over may be Pinned | 130 |
+| Starshrike | Soaring Spite | Fast Attack | A webway fighter, the army's only Flyer: a Starshrike Lance (S8, Armourbane, Skyfire) and two shuriken cannons, and enemies it flies over may be Pinned | 130 |
 | Deathmask Players | Dreaming Shadow | Troops | Players who have died once already: Eternal Warrior (1) on top of the Masque's Feel No Pain (6+), immune to Fear; Death's Promise takes them to Eternal Warrior (2) | 175 for 5 |
 | Wraith-dancers | any | Heavy Assault | Wraithblades in Harlequin death masks, still dancing: T6 W3 3+, The Great Dance, Ghostswords or Ghostaxes, optional Forceshields (4++) | 165 for 3 |
 
@@ -196,6 +196,22 @@ combat. At W3 and A4 they're a match for six Custodians, as their points say: 12
 Custodian Guard), and Russ beats them with 35% left. Their value per 100 points is 4.93, 75% of Custodian Guard's,
 because Formless, Hatred, Fear, their speed and the Librarian's revival aren't in the sim.
 
+## Anti-tank
+
+Measured with every gun a unit carries firing, the average of each army's five best anti-tank options removed this
+many Hull Points per 100 points a turn (Predator / Land Raider / Knight): a Legion 3.85 / 1.81 / 2.88, Drukhari
+3.73 / 1.94 / 2.83, Necrons 2.24 / 1.19 / 1.66, Custodes 1.98 / 0.87 / 1.29, Orks 1.51 / 0.33 / 0.99, and the Harlequins
+last at 1.41 / 0.48 / 0.93. Their only long-range anti-tank was the prismatic cannon's lance, which at S8 pierced AV14
+only on a 6; the Starshrike Lance (S7) couldn't hurt AV14 at all; haywire cannons (S4) stun vehicles but never damage
+them in HH3; and fusion pistols reach 6". Their real anti-tank is in combat: Wraithlord fists, the Wraithknight,
+Ghostaxes.
+
+So the prismatic lance is S9 with Armour-breaker (4+), the Starshrike Lance S8, and Skyweavers may swap a shuriken
+cannon for a Prismatic Lance (+10): two of them remove 2.8 Hull Points a turn from a Predator at M18, a fast tank hunter
+like the Drukhari Scourges. The Prismweaver went to 180 points, the Webweaver to 145 and the Voidweaver's prismatic
+cannon to +15, to keep them at 88 to 94% of Custodian Guard's value per point. The Harlequins now remove 1.75 / 0.76 /
+1.16, between the Orks and the Custodes: still a melee army first, but one that can threaten armour at range.
+
 ## Weapons and wargear, and where they come from
 
 Most of the rules come from the BattleScribe data for older editions: `BSData/wh40k-7th-edition`
@@ -233,8 +249,9 @@ one, because with a Caress on every Player a Troupe killed Leman Russ in two rou
 | Shrieker Cannon | 7th: S1 Poisoned (2+), Pinning, Bio-explosive; or S6 Assault 3 | Poisoned (2+), Pinning (1), Deflagrate (5) (the victim bursts); or FP 3 shuriken | |
 | Hallucinogen Grenade Launcher | 7th: S1 Blast, Hallucinogenic | Blast, Panic (1), Stun (1) | the foe flees or freezes |
 | Star Bolas | 7th: S6 AP2 Blast, One Use Only | Blast, Pinning (2), Limited (1) | entangles |
-| Haywire Cannon | 7th: S4 AP4 Blast, Haywire | Blast, Shock (Stunned), Armourbane | |
-| Prismatic Cannon | 7th: Dispersed, Focussed, Lance | three modes; the lance has Armourbane and Armour-breaker (5+) | |
+| Haywire Cannon | 7th: S4 AP4 Blast, Haywire | Blast, Shock (Stunned), Armourbane | stuns vehicles; at S4 it can't damage armour in HH3 |
+| Prismatic Cannon | 7th: Dispersed, Focussed, Lance | three modes; the lance is S9 with Armourbane and Armour-breaker (4+) | the army's long-range anti-tank |
+| Prismatic Lance | written for this list | R 24, S9, AP 2, D 2, Armourbane, Armour-breaker (4+) | a lance-only prismatic cannon: a Skyweaver's tank-hunting swap for its shuriken cannon (+10) |
 | Holo-suit | 2nd: -1 to hit and -1 WS in combat; 7th: 5++; 8th on: 4++ | 4++, and Shrouded (5+) against shooting after a Rush (or +1 to an existing Shrouded, to 4+ at best); in combat the Dodge roll comes on top | |
 | Flip Belt | 7th: ignores difficult terrain when moving and charging | Move Through Cover, moves over models and terrain | |
 | Holo-fields | 2nd: -1 to hit while moving; 7th: 5++ unless immobilised; 8th: 4++ | 5++, 4++ after a fast move | |

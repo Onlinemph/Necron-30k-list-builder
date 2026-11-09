@@ -370,3 +370,23 @@ test('Echoes of the Laughing God: 90 points a model, a 4+ (not 3+) invulnerable 
   assert.ok(m.rules.includes('Formless') && m.rules.includes('Hatred (Malefic)'));
   assert.ok(!/Malefic/.test(m.unitType));
 });
+
+test('anti-tank: the prismatic lance is S9 with Armour-breaker (4+), the Starshrike Lance S8, and Skyweavers can take a Prismatic Lance', () => {
+  for (const n of ['Prismatic Cannon', 'Twin Prismatic Cannon']) {
+    const lance = data.weapons.ranged.find((w) => w.name === n).modes.find((m) => m.name === 'Lance');
+    assert.equal(lance.RS, 9);
+    assert.ok(lance.specialRules.includes('Armour-breaker (4+)') && lance.specialRules.includes('Armourbane'));
+  }
+  assert.equal(data.weapons.ranged.find((w) => w.name === 'Starshrike Lance').RS, 8);
+  const s = sel('skyweavers', 'Soaring Spite');
+  s.counts = { Skyweaver: 3 };
+  s.options.cannon = { 'Prismatic Lance': 2, 'Haywire Cannon': 1 };
+  assert.equal(E.unitPoints(s), 130 + 65 + 20 + 5);
+  assert.deepEqual(errs(s), []);
+  assert.ok(E.effectiveModels(s).some((m) => m.count === 2 && m.items.includes('Prismatic Lance') && !m.items.includes('Shuriken Cannon')));
+  s.options.cannon = { 'Prismatic Lance': 3, 'Haywire Cannon': 1 };
+  assert.ok(errs(s).some((i) => /too many models/.test(i.msg)));
+  const tm = sel('troupe-master-skyweaver', 'Soaring Spite');
+  tm.options.cannon = 'Prismatic Lance';
+  assert.equal(E.unitPoints(tm), 155 + 10);
+});

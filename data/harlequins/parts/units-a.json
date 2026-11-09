@@ -641,7 +641,7 @@
         },
         {
           "id": "cannon",
-          "text": "May have its Shuriken Cannon exchanged for a Haywire Cannon for +5 points.",
+          "text": "May have its Shuriken Cannon exchanged for a Haywire Cannon for +5 points or a Prismatic Lance for +10 points.",
           "kind": "one",
           "model": null,
           "replaces": [
@@ -651,6 +651,10 @@
             {
               "name": "Haywire Cannon",
               "points": 5
+            },
+            {
+              "name": "Prismatic Lance",
+              "points": 10
             }
           ],
           "max": null,
