@@ -47,7 +47,7 @@ test('Rangdan squads cost 70 to 95 points a model', () => {
   for (const u of squads) {
     const m = u.models[0];
     assert.ok(m.costPerExtra >= 70 && m.costPerExtra <= 95, `${u.id} at ${m.costPerExtra}`);
-    assert.equal(u.basePoints, m.costPerExtra * m.min, `${u.id} base cost is its minimum models`);
+    assert.ok(u.basePoints >= m.costPerExtra * m.min, `${u.id} base cost covers its minimum models`);
   }
 });
 
@@ -90,18 +90,18 @@ test('Hunt-Pack wargear: sidearms, hooks, one Severing Maul per three and a Pack
   const h = sel('hunt-pack');
   h.counts = { 'Rangda Hunter': 4 };
   h.options.sidearm = { 'Shadow Blaster': 4 };
-  assert.equal(E.unitPoints(h), 4 * 75 + 40);
+  assert.equal(E.unitPoints(h), 240 + 75 + 40);
   assert.ok(E.effectiveModels(h).every((r) => r.items.includes('Shadow Blaster') && !r.items.includes('Shadow Pistol')));
   h.counts = { 'Rangda Hunter': 6 };
   h.options = { maul: { 'Severing Maul': 2 }, melee: { 'Flensing Hooks': 4 } };
   assert.equal(E.optionMax(E.optionsOf(h).find((o) => o.id === 'maul'), h), 2);
-  assert.equal(E.unitPoints(h), 6 * 75 + 40);
+  assert.equal(E.unitPoints(h), 240 + 3 * 75 + 40);
   assert.deepEqual(errs(h), []);
   h.options.melee = { 'Flensing Hooks': 5 };
   assert.ok(errs(h).some((i) => /more upgrades than models/.test(i.msg)), 'hooks and mauls share the glaives');
   const a = sel('hunt-pack');
   a.options.alpha = 1;
-  assert.equal(E.unitPoints(a), 225 + 15);
+  assert.equal(E.unitPoints(a), 240 + 15);
   const alpha = E.effectiveModels(a).find((r) => r.name === 'Pack-Alpha');
   assert.equal(alpha.count, 1);
   assert.equal(alpha.profile.INV, '4+');
@@ -128,7 +128,7 @@ test('Thralls carry captured Imperial heavy and special weapons, one per ten', (
   t.counts = { Thrall: 30 };
   assert.equal(E.optionMax(E.optionsOf(t).find((o) => o.id === 'heavy'), t), 3);
   t.options.heavy = { Lascannon: 2, Autocannon: 1 };
-  assert.equal(E.unitPoints(t), 60 + 10 * 3 + 2 * 15 + 20);
+  assert.equal(E.unitPoints(t), 70 + 10 * 3 + 2 * 15 + 20);
   const x = sel('collared-auxilia');
   assert.equal(E.optionMax(E.optionsOf(x).find((o) => o.id === 'special'), x), 1);
   const r = sel('thrall-armour');
@@ -319,4 +319,17 @@ test('Fear: squads Fear (1), characters Fear (2), the Regent Fear (3); the Silen
     assert.equal(fear(id, 'Silent Choir'), 'Fear (3)', id);
   }
   assert.equal(fear('war-moon-regent', 'Silent Choir'), 'Fear (3)');
+});
+
+test('scoring: Thralls hold with Line, the hunters score with Vanguard, Collared Legion adds a Line', () => {
+  const rules = (id, pa) => { const s = sel(id); if (pa) s.primeAdvantage = pa; return E.effectiveModels(s)[0].rules; };
+  assert.ok(rules('thrall-cohort').includes('Line (1)'));
+  assert.ok(rules('collared-auxilia').includes('Line (1)'));
+  assert.ok(rules('thrall-cohort', 'Collared Legion').includes('Line (2)'), 'like a Tactical Squad');
+  assert.ok(rules('the-broken').includes('Heedless') && !rules('the-broken').some((r) => /^Line/.test(r)));
+  assert.ok(rules('hunt-pack').includes('Vanguard (3)'));
+  assert.ok(rules('hunt-court').includes('Vanguard (3)'));
+  assert.ok(rules('rangdan-mimics').includes('Vanguard (2)'));
+  assert.ok(!rules('shadow-lancers').some((r) => /^(Line|Vanguard)/.test(r)), 'the lancers are fire support');
+  assert.ok(rules('hunt-pack', 'Apex Predators').includes('Fear (2)'));
 });

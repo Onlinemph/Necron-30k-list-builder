@@ -101,6 +101,52 @@
       "condition": null
     },
     {
+      "id": "collared-legion-line",
+      "page": null,
+      "text": "The Unit increases the value of its Line (X) Special Rule by 1.",
+      "source": {
+        "type": "primeAdvantage",
+        "name": "Collared Legion"
+      },
+      "appliesTo": {},
+      "scope": "unit",
+      "stats": {},
+      "addRules": [],
+      "removeRules": [],
+      "modifyRules": [
+        {
+          "rule": "Line",
+          "by": 1
+        }
+      ],
+      "addTraits": [],
+      "addUnitTypes": [],
+      "condition": null
+    },
+    {
+      "id": "apex-predators-fear",
+      "page": null,
+      "text": "All Models in the Unit increase the value of their Fear (X) Special Rule by 1, to a maximum of Fear (3).",
+      "source": {
+        "type": "primeAdvantage",
+        "name": "Apex Predators"
+      },
+      "appliesTo": {},
+      "scope": "unit",
+      "stats": {},
+      "addRules": [],
+      "removeRules": [],
+      "modifyRules": [
+        {
+          "rule": "Fear",
+          "by": 1
+        }
+      ],
+      "addTraits": [],
+      "addUnitTypes": [],
+      "condition": null
+    },
+    {
       "id": "burning-sky-initiative",
       "page": null,
       "text": "Models with the Rangda Trait and the Burning Sky Trait reduce their Initiative by 1.",
