@@ -72,7 +72,7 @@
       "page": null,
       "limit": null,
       "unique": false,
-      "basePoints": 160,
+      "basePoints": 155,
       "composition": "1 Huntmaster",
       "models": [
         {
@@ -82,7 +82,7 @@
           "costPerExtra": 0,
           "profile": {
             "M": 9,
-            "WS": 7,
+            "WS": 6,
             "BS": 5,
             "S": 5,
             "T": 5,
@@ -148,7 +148,7 @@
       "page": null,
       "limit": null,
       "unique": false,
-      "basePoints": 130,
+      "basePoints": 135,
       "composition": "1 Collar-Wright",
       "models": [
         {
@@ -158,7 +158,7 @@
           "costPerExtra": 0,
           "profile": {
             "M": 9,
-            "WS": 5,
+            "WS": 6,
             "BS": 5,
             "S": 5,
             "T": 5,
@@ -212,17 +212,17 @@
       "page": null,
       "limit": null,
       "unique": false,
-      "basePoints": 225,
+      "basePoints": 210,
       "composition": "3 Rangda Hunters",
       "models": [
         {
           "name": "Rangda Hunter",
           "min": 3,
           "max": 6,
-          "costPerExtra": 75,
+          "costPerExtra": 70,
           "profile": {
             "M": 9,
-            "WS": 6,
+            "WS": 5,
             "BS": 4,
             "S": 5,
             "T": 5,
@@ -296,7 +296,7 @@
           "costPerExtra": 85,
           "profile": {
             "M": 9,
-            "WS": 6,
+            "WS": 5,
             "BS": 5,
             "S": 5,
             "T": 5,
@@ -352,7 +352,7 @@
           "costPerExtra": 70,
           "profile": {
             "M": 9,
-            "WS": 6,
+            "WS": 5,
             "BS": 5,
             "S": 5,
             "T": 5,

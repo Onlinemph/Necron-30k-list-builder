@@ -61,10 +61,10 @@ collar), Sated Gestalt (Slaugth with Carrion Feast regain two wounds).
 
 | Unit | Role | Points | Notes |
 | --- | --- | --- | --- |
-| Hunt-Sovereign | High Command | 260 | Paragon, W6 T6, Sovereign's Glaive, one War-moon Strike a battle |
-| Rangda Huntmaster | Command | 160 | Spine glaive, shroud-field |
-| Collar-Wright | Command | 130 | Overloads twice a turn; 18" collar range |
-| Hunt-Pack | Elites | 75 a model | M9 WS6 S5 T5 W4 I6 A4, 3+/5++, spine glaive (AP 3, D 2, Breaching 5+) |
+| Hunt-Sovereign | High Command | 260 | Paragon, WS 7, W6 T6, Sovereign's Glaive, one War-moon Strike a battle |
+| Rangda Huntmaster | Command | 155 | WS 6, spine glaive, shroud-field |
+| Collar-Wright | Command | 135 | WS 6; Overloads twice a turn; 18" collar range |
+| Hunt-Pack | Elites | 70 a model | M9 WS5 S5 T5 W4 I6 A4, 3+/5++, spine glaive (AP 3, D 2, Breaching 5+) |
 | Shadow Lancers | Support | 85 a model | Shadow lances (S9 AP2 D2 Armourbane) |
 | Mimics | Recon | 70 a model | Infiltrate (9); Stolen Voices gives their shooting Panic (1) |
 | Tendril Skiffs | Fast Attack | 85 each | Small jellyfish skimmers |
@@ -86,7 +86,7 @@ as value per 100 points against the Legio Custodes medians, the same yardstick a
 
 | Unit | Points | Value | Benchmark |
 | --- | --- | --- | --- |
-| Hunt-Pack | 225 | 4.70 (5.30 with blasters) | Custodian Guard 6.60, Legion Veterans 4.74, Echoes 4.93 |
+| Hunt-Pack | 210 | 5.04 (5.63 with blasters); about 4.8 counting WS 5+ enemies | Custodian Guard 6.60, Legion Veterans 4.74, Echoes 4.93 |
 | Shadow Lancers | 255 | 4.92 | anti-tank 1.29 per 100 pts vs Predator 1.50, Venatari 1.16 |
 | Mimics | 210 | 4.48 | Venatari 5.83 |
 | Hunt-Sovereign | 260 | 4.22 | Tribune 3.04; the sim fires the one-shot War-moon Strike every turn, so this reads high |
@@ -97,6 +97,12 @@ as value per 100 points against the Legio Custodes medians, the same yardstick a
 | Spine-Leviathan | 620 | 2.77 | Fellblade 2.60, same caveat |
 | Slaugth Kindred | 135 | 3.42 | Sons of Horus median 3.52; Phage and Carrion Feast aren't measured |
 | Harvester | 200 | 4.02 | Contemptor 3.44 |
+
+Weapon Skill runs 5 in the ranks, 6 for Command characters and 7 for the Hunt-Sovereign. The sim's yardsticks are all WS 4,
+which WS 5 and WS 6 both hit on 3+, so the change from WS 6 shows only against WS 5+ enemies (Custodes, characters),
+where a WS 5 Rangda hits on 4+ instead of 3+. Counting a third of melee targets as WS 5+, that costs a Hunt-Pack about
+4% of its value (75 to 70 a model, since half its value is melee) and Shadow Lancers and Mimics about 1%, too little to
+move them off 85 and 70. The Huntmaster (WS 7 to 6) dropped 5 points and the Collar-Wright (WS 5 to 6) gained 5.
 
 Prey Instinct adds about 0.3–0.5 when it applies. Before it, a Hunt-Pack kills about five Legionaries a round in
 combat and takes 24 power-axe attacks per model to kill. A Tactical Squad does about half a wound back to it each

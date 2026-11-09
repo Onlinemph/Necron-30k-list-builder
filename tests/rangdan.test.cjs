@@ -27,6 +27,13 @@ test('every unit starts at its base cost with no errors, and every option resolv
   }
 });
 
+test('Rangdan Weapon Skill: 5 in the ranks, 6 for Command, 7 for High Command', () => {
+  const ws = (id) => unit(id).models[0].profile.WS;
+  for (const id of ['hunt-pack', 'shadow-lancers', 'rangdan-mimics']) assert.equal(ws(id), 5, id);
+  for (const id of ['rangda-huntmaster', 'collar-wright']) assert.equal(ws(id), 6, id);
+  assert.equal(ws('hunt-sovereign'), 7);
+});
+
 test('Rangdan squads cost 70 to 90 points a model', () => {
   const squads = data.units.filter((u) => has(u, 'Rangda') && u.models.some((m) => m.max > 1 && /Infantry/.test(m.unitType)));
   assert.deepEqual(squads.map((u) => u.id).sort(), ['hunt-pack', 'rangdan-mimics', 'shadow-lancers']);
@@ -74,7 +81,7 @@ test('Shadow Blaster swaps cost 10 points a model; the Kindred get one Necrotic 
   const h = sel('hunt-pack');
   h.counts = { 'Rangda Hunter': 4 };
   h.options.blaster = { 'Shadow Blaster': 4 };
-  assert.equal(E.unitPoints(h), 4 * 75 + 40);
+  assert.equal(E.unitPoints(h), 4 * 70 + 40);
   assert.ok(E.effectiveModels(h).every((r) => r.items.includes('Shadow Blaster') && !r.items.includes('Shadow Pistol')));
   const k = sel('slaugth-kindred');
   k.counts = { Slaugth: 6 };
