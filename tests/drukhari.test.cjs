@@ -88,3 +88,22 @@ test('Kabalite Strike Force needs a Kabals Command unit and takes only Kabals', 
   assert.ok(ids.includes('kabalite-trueborn'));
   assert.ok(!ids.includes('cult-bloodbrides'));
 });
+
+test('swapping some of a counted weapon replaces only those: Ravager dark lances, Raider and Talos', () => {
+  const items = (s) => E.effectiveModels(s).flatMap((m) => m.items);
+  const opt = (s, re) => E.optionsOf(s).find((o) => re.test(o.text)).id;
+  const r = sel('ravager');
+  r.options[opt(r, /Dark Lance/)] = { 'Dark Lance': 1 };
+  assert.deepEqual(items(r).sort(), ['2 Hull (front) mounted Plasma-Disintegrator Cannons', 'Dark Lance']);
+  r.options[opt(r, /Dark Lance/)] = { 'Dark Lance': 3 };
+  assert.deepEqual(items(r), ['3 Dark Lances']);
+  assert.equal(E.unitPoints(r), 110 + 15);
+  // the option names the weapon without its mount; the Raider's cannon still goes
+  const raider = sel('raider');
+  raider.options[opt(raider, /Dark Lance/)] = true;
+  assert.deepEqual(items(raider), ['Dark Lance']);
+  const t = sel('talos-pain-engines');
+  const swap = E.optionsOf(t).find((o) => (o.replaces || []).includes('Macro-Scalpel'));
+  t.options[swap.id] = { [E.choicesFor(swap, t)[0].name]: 1 };
+  assert.ok(items(t).includes('Macro-Scalpel') && !items(t).includes('2 Macro-Scalpels'));
+});
