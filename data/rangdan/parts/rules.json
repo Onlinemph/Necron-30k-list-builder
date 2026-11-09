@@ -8,7 +8,7 @@
     {
       "name": "Horror of the Taken",
       "page": null,
-      "text": "Everyone who fought the Rangda saw it happen at least once: a squad that did not die but was carried off, and came back wearing collars.\n\nWhen a Unit that includes any Models with this Special Rule destroys an enemy Unit in combat (the last Model of that Unit is Removed as a Casualty by its Melee Attacks), every other enemy Unit with any Model within 12\" of the destroyed Unit's last Model must make a Leadership Check. Any Unit that fails gains the Routed Tactical Status."
+      "text": "Everyone who fought the Rangda saw it happen at least once: a squad that did not die but was carried off, and came back wearing collars.\n\nWhen a Unit that includes any Models with this Special Rule destroys an enemy Unit in combat (the last Model of that Unit is Removed as a Casualty by its Melee Attacks), every other enemy Unit with any Model within 6\" of the destroyed Unit's last Model must make a Leadership Check. Any Unit that fails gains the Routed Tactical Status."
     },
     {
       "name": "Neural Collars",

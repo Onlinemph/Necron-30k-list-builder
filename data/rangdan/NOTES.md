@@ -41,11 +41,12 @@ losing a unit to the Rangda in combat can rout its neighbours, and The Broken pu
 
 Three halves that play differently:
 
-- **The Rangda** are few and terrifying: 70–95 points a model, Fear (2), **Prey Instinct** (+1 to Wound Tests,
+- **The Rangda** are few and terrifying: 70–95 points a model, Fear (1) in the squads and Fear (2) on their officers,
+  **Prey Instinct** (+1 to Wound Tests,
   shooting and melee, against a unit with any Tactical Status), the **Horror of the Taken** (when they destroy a unit
-  in combat, every enemy unit within 12" takes a Leadership Check or is Routed) and a **Hunting Cry** each: R12, FP 2,
-  S 3, AP –, D 1, Assault, Pinning (2). Pinning triggers on any wound, saved or not, and with Fear (2) at that range a
-  Legion squad passes its Cool Check on 4 or less. A unit either kills or screams, never both in one Shooting Attack.
+  in combat, every enemy unit within 6" takes a Leadership Check or is Routed) and a **Hunting Cry** each: R12, FP 2,
+  S 3, AP –, D 1, Assault, Pinning (2). Pinning triggers on any wound, saved or not, and with a squad's Fear (1) at
+  that range a Legion squad passes its Cool Check on 4 or less. A unit either kills or screams, never both in one Shooting Attack.
   Only officers and the Hunt-Court have shroud-fields (a 4+ invulnerable save); the rank and file have a 5+.
 - **The Thralls** are captured Imperial Army, Solar Auxilia, Ogryns, armour, a Basilisk, a Questoris Knight and The
   Broken, with their own HH3 wargear and **Neural Collars**: they automatically pass Leadership and Cool Checks within
@@ -81,7 +82,7 @@ characters are locked to theirs. Auxiliary and Apex Detachments share one war-mo
 
 | War-moon | Tactica (benefit / cost) | Extra | Auxiliary Detachment (needs a Command model of the moon) |
 | --- | --- | --- | --- |
-| Silent Choir | Rangda Fear +1, to Fear (3) / Rangda BS -1 | Reaction: The Choir Answers (a charging unit tests Cool or is Pinned and its charge fails) | The Choir's Hunt: 2 Elites, 2 Recon |
+| Silent Choir | Rangda Fear +1 (squads to Fear (2), officers to Fear (3)) / Rangda BS -1 | Reaction: The Choir Answers (a charging unit tests Cool or is Pinned and its charge fails) | The Choir's Hunt: 2 Elites, 2 Recon |
 | Iron Chain | Thrall collars reach 18"; Overloaded units also get +1 WS / Overload costs D3+1 wounds | Prime Advantage: Collar-bombs (detonate a Prime Thrall infantry unit: D6 S6 AP4 hits on every enemy unit within 3") | The Chained Host: 3 Troops, 2 Heavy Assault, Support |
 | Long Hunt | Rangda infantry Fast (2) / must charge a visible enemy within 12" if able | Gambit: Throat-Hunter (Breaching (4+), +1 Focus against a target with a status) | The Running Pack: 2 Elites, 2 Fast Attack, Transport |
 | Burning Sky | Shadow weapons +6" range; War-moon Strikes scatter half / Rangda Initiative -1 | Reaction: Moonfall (once per battle, an orbital strike on a unit arriving from Reserves within 18") | The Sky-Burners: 2 Support, 2 Armour, Fast Attack |
@@ -214,4 +215,23 @@ of its value when the ranks dropped from WS 6.
 Prey Instinct adds about 0.3–0.5 when it applies. Before it, a Hunt-Pack kills about five Legionaries a round in
 combat and takes 36 power-axe attacks per model to kill. A Tactical Squad hits it on 5+ and does about a third of a
 wound back each round, so three Rangda wipe a ten-man squad in two rounds, and the Horror of the Taken then tests
-every squad within 12".
+every squad within 6".
+
+### The terror check
+
+Fear (2) on every squad plus the Hunting Cry's Pinning (2) was tested against real HH3 Cool and Leadership values
+(statuses as described in reviews of the core book: a Pinned unit can't Move or Charge, a unit with any status can't
+score objectives and fights at Initiative 1, and each status is tested off with Cool at the end of the unit's own turn,
+with Fear applying). With Fear (2) a Tactical Squad hit by one 3-Rangda Cry was Pinned 71% of the time, shook it off
+only 28% of the time each turn (about three and a half turns pinned), and the Horror of the Taken routed 72% of Legion
+squads within 12"; Militia never recovered. Pinning only modifies the first test, so lowering it to (1) only moved the
+first number to 65%. Fear modifies the first test, the recovery test and the rout test, so it was the lever.
+
+Now squads have Fear (1) and the Horror reaches 6". Against a Tactical Squad: Pinned 65% of the time by one Cry,
+recovering 42% of the time each turn, and only units within 6" test for rout, at 58%. Custodian Guard are Pinned
+21% of the time and recover 83%. A squad led by an officer still projects Fear (2), so the strongest version of the
+loop needs a character.
+
+In melee, statuses barely matter: a 3-Rangda Hunt-Pack wipes a Tactical or Assault Squad in about two rounds either
+way without losing a model, beats Cataphractii with fists 69% of the time (80% when they're Pinned), and loses to
+six Custodian Guard three times in four.

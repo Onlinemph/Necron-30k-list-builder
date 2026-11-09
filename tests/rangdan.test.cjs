@@ -79,7 +79,7 @@ test('the army rules use modifiers and statuses, never re-rolls', () => {
 test('Rangda carry Prey Instinct, Fear, the Horror of the Taken and a Hunting Cry; Slaugth carry Worm Gestalt, which fire ignores', () => {
   for (const u of data.units.filter((x) => has(x, 'Rangda') && x.models[0].profile.T != null)) {
     const r = rules(sel(u.id));
-    assert.ok(r.includes('Prey Instinct') && r.includes('Horror of the Taken') && r.some((x) => /^Fear \((2|3)\)$/.test(x)), u.id);
+    assert.ok(r.includes('Prey Instinct') && r.includes('Horror of the Taken') && r.some((x) => /^Fear \((1|2|3)\)$/.test(x)), u.id);
     assert.ok(E.effectiveModels(sel(u.id)).every((m) => m.items.includes('Hunting Cry')), `${u.id} screams`);
   }
   for (const u of data.units.filter((x) => has(x, 'Slaugth') && x.models[0].profile.T != null)) assert.ok(rules(sel(u.id)).includes('Worm Gestalt'), u.id);
@@ -232,13 +232,13 @@ test('the Hunting Cry pins: Pinning (2), and Ithrakk\'s screams further and hard
   assert.deepEqual(cry.specialRules, ['Pinning (2)']);
   assert.ok(!data.weapons.ranged.some((w) => w.name === 'Shadow Shrieker'), 'the cry replaced the Shrieker');
   assert.match(unit('ithrakk-the-first-voice').unitRules.find((r) => r.name === 'The First Voice').text, /18".*Pinning \(3\)/);
-  assert.match(data.rules.specialRules.find((r) => r.name === 'Horror of the Taken').text, /within 12".*Leadership Check.*Routed/s);
+  assert.match(data.rules.specialRules.find((r) => r.name === 'Horror of the Taken').text, /within 6".*Leadership Check.*Routed/s);
 });
 
 test('war-moon Tacticas change the statline: Silent Choir Fear and BS, Long Hunt Fast (2), Burning Sky Initiative', () => {
   const m = (id, w) => E.effectiveModels(sel(id, w))[0];
   const choir = m('hunt-pack', 'Silent Choir');
-  assert.ok(choir.rules.includes('Fear (3)'));
+  assert.ok(choir.rules.includes('Fear (2)'));
   assert.equal(choir.profile.BS, 3);
   assert.ok(m('hunt-pack', 'Long Hunt').rules.includes('Fast (2)'));
   assert.equal(m('hunt-pack', 'Burning Sky').profile.I, 5);
@@ -306,4 +306,17 @@ test('the army panel lists the gambits, reactions and the Additional Reaction Po
   for (const n of ['Horror of the Taken', 'Additional Reaction Point', 'Living Shields', 'The Hunt Closes', "Hunter's Stare", 'Feast of Memories']) assert.ok(names.includes(n), n);
   for (const n of ['The Choir Answers', 'Moonfall']) assert.ok(data.rules.reactions.some((r) => r.name === n), n);
   assert.ok(data.rules.gambits.some((g) => g.name === 'Throat-Hunter'));
+});
+
+test('Fear: squads Fear (1), characters Fear (2), the Regent Fear (3); the Silent Choir adds one, to Fear (3)', () => {
+  const fear = (id, w) => E.effectiveModels(sel(id, w))[0].rules.find((r) => /^Fear/.test(r));
+  for (const id of ['hunt-pack', 'shadow-lancers', 'rangdan-mimics', 'hunt-court']) {
+    assert.equal(fear(id), 'Fear (1)', id);
+    assert.equal(fear(id, 'Silent Choir'), 'Fear (2)', id);
+  }
+  for (const id of ['hunt-sovereign', 'rangda-huntmaster', 'collar-wright']) {
+    assert.equal(fear(id), 'Fear (2)', id);
+    assert.equal(fear(id, 'Silent Choir'), 'Fear (3)', id);
+  }
+  assert.equal(fear('war-moon-regent', 'Silent Choir'), 'Fear (3)');
 });
