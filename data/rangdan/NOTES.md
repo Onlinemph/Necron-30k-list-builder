@@ -121,12 +121,18 @@ There is no Fortification: no army in the data has one and no HH3 chart has a sl
 | Rangda Huntmaster | Command | 160 | WS 6, spine glaive, shroud-field |
 | Collar-Wright | Command | 140 | WS 6; Overloads twice a turn; 18" collar range |
 | Hunt-Court | Retinue | 300 for 3, +95 | Vanguard (3). Court Hunters with shroud-fields and blasters; +1 A while a Sovereign, Regent or Ithrakk leads them |
-| Hunt-Pack | Elites | 240 for 3, +75 | Vanguard (3). M9 WS5 S5 T5 W4 I6 A4, 3+/5++, spine glaive (AP 3, D 2, Breaching 5+) |
-| Shadow Lancers | Support | 85 a model | Shadow lances (S9 AP2 D2 Armourbane) |
-| Mimics | Recon | 220 for 3, +70 | Vanguard (2). Infiltrate (9); Stolen Voices gives their shooting Panic (1) |
+| Hunt-Pack | Elites | 240 for 3, +75 | 3–9 models, Vanguard (3). M9 WS5 S5 T5 W4 I6 A4, 3+/5++, spine glaive (AP 3, D 2, Breaching 5+) |
+| Skyhunters | Fast Attack | 250 for 3, +80 | 3–6 models, Vanguard (2). Hunters on grav-harnesses: M14, Antigrav, Deep Strike |
+| Ironhide Hunters | Heavy Assault | 330 for 3, +105 | 3–6 models, Vanguard (3). War-plate: M7 T6 I5, 2+/5++, great glaive (S+1 AP2 D2) and shadow blaster |
+| Hunt-Hounds | Fast Attack | 75 for 5, +15 | 5–10 beasts. M12 W2 A3, Fast (2), Heedless; no Hunting Cry, and they don't count as Rangda for collars |
+| Shroud-Weaver | Command | 130 | WS 6. Its Shroud Projector gives the unit it joins a 4+ invulnerable save against shooting |
+| Moon-callers | Support | 70 a model | 1–3 models with a Moon-caller Array: R72 S8 AP3 Blast (3"), Barrage, Pinning (1) |
+| Spine-Stalker | War Engine | 210 | A Rangdan walker: T7 W7 3+/5++, stalker talons, shadow lance (or cannon) and flails; fills the Medusa Shoal's new War Engine slot |
+| Shadow Lancers | Support | 85 a model | 3–6 models. Shadow lances (S9 AP2 D2 Armourbane) |
+| Mimics | Recon | 220 for 3, +70 | 3–6 models, Vanguard (2). Infiltrate (9); Stolen Voices gives their shooting Panic (1) |
 | Tendril Skiffs | Fast Attack | 85 each | Small jellyfish skimmers |
-| Shadow Kite | Fast Attack | 105 | Flyer with two shadow lances |
-| Iron Medusa | Armour | 160 | Shadow cannon (Blast, Deflagrate, Suppressive) |
+| Shadow Kite | Fast Attack | 105 each | 1–2 flyers with two shadow lances each |
+| Iron Medusa | Armour | 160 each | Squadrons of 1–3. Shadow cannon (Blast, Deflagrate, Suppressive) |
 | Tendril Barge | Transport | 85 | Capacity 12 (four Rangda), Assault Vehicle |
 | Brood-ship | Heavy Transport | 160 | Capacity 20 (six Rangda or a herd), Assault Vehicle |
 | Spine-Leviathan | Lord of War | 620 | Super-heavy skimmer |
@@ -151,7 +157,12 @@ There is no Fortification: no army in the data has one and no HH3 chart has a sl
 
 | Who | Options |
 | --- | --- |
-| Every Rangda on foot | A Hunting Cry as well as their weapons |
+| Every Rangda on foot | A Hunting Cry as well as their weapons (not the hounds or the Spine-Stalker) |
+| Every Rangda squad | An Alpha (A+1, LD 11, shroud-field) for +15: Pack-Alpha, Sky-Alpha, Ironhide-Alpha, Lance-Alpha, Mimic-Alpha |
+| Skyhunters | As the Hunt-Pack: sidearms, Flensing Hooks, one Severing Maul per three |
+| Ironhide Hunters | One Severing Maul per three in place of the great glaive, +15 |
+| Collar-Wright, Shroud-Weaver | Hunting Weapons or a Severing Maul, sidearms, the Fang, a Relic |
+| Tendril Barge, Brood-ship | Shadow blasters for the flails (+5), or a lance array for the Brood-ship's cannon (+25) |
 | Hunt-Pack | Rangdan Sidearms (Shadow Pistol, Shadow Blaster +10); Flensing Hooks (A+1, AP 3, D 1) for any model; one Severing Maul (S+3, AP 2, D 2, I-2) per three, +20; a Pack-Alpha (A5, shroud-field) +15 |
 | Huntmaster, Collar-Wright | Sidearms; the Huntmaster also takes Hunting Weapons or a Severing Maul; the Fang of the First Xenocide +25; one Relic of the Hunt |
 | Hunt-Sovereign | The Fang +20; one Relic of the Hunt |
@@ -181,7 +192,7 @@ The two halves of the army score differently:
 - **The Thralls hold.** Thrall Cohorts and Collared Auxilia have Line (1), like a Lasrifle Section, and Collared
   Legion raises one Prime Troops unit to Line (2), like a Tactical Squad. Expendable (2) on the Cohort cuts what the
   enemy scores for killing them. The Broken are Heedless and never hold.
-- **The Rangda hunt.** Hunt-Packs and the Hunt-Court have Vanguard (3) and the Mimics Vanguard (2). They never hold
+- **The Rangda hunt.** Hunt-Packs, Ironhide Hunters and the Hunt-Court have Vanguard (3), and Skyhunters and Mimics Vanguard (2). They never hold
   ground; they score by taking whatever stands on it.
 - **The Cry decides which.** A Pinned unit can't hold or contest, so pinning a squad on an objective stops it
   scoring. Breaking a unit in combat near an objective scores Vanguard whether or not it was Pinned, but wiping one out
@@ -226,6 +237,12 @@ statuses, so the Hunting Cry, Horror of the Taken and the war-moons are priced b
 | Slaugth Kindred | 135 | 3.98 | Sons of Horus median 4.60; Phage and Carrion Feast aren't measured |
 | The Hollow Choir | 180 | 3.25 | Dream-Eater 3.20 at 135; Stolen Memories isn't measured |
 | Harvester | 200 | 5.01 | Contemptor 4.06 |
+| Skyhunters | 250 | 6.15 | Hunt-Pack 6.41 with the same body; speed and Deep Strike aren't measured |
+| Ironhide Hunters | 330 | 8.02 | Aquilon 7.99 |
+| Hunt-Hounds | 75 | 5.16 | Assault Squad 4.69; Heedless isn't measured |
+| Shroud-Weaver | 130 | 4.16 | Shield Captain 4.02; the Shroud Projector isn't measured |
+| Moon-callers | 70 a model | 4.77 | indirect Pinning fire; Barrage isn't measured |
+| Spine-Stalker | 210 | 7.05 | Contemptor 4.06 (unarmed in the sim), Contemptor-Achillus 10.23 |
 | Charnel Barge | 65 | 9.19 | Rhino 9.51 |
 
 The army's median is 6.00 against 5.84 for Custodes, 4.60 for the Sons of Horus and 5.51 for the Solar Auxilia.

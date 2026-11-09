@@ -41,12 +41,12 @@ test('Rangdan Weapon Skill: 5 in the ranks, 6 for Command, 7 for High Command', 
   assert.equal(ws('hunt-sovereign'), 7);
 });
 
-test('Rangdan squads cost 70 to 95 points a model', () => {
-  const squads = data.units.filter((u) => has(u, 'Rangda') && u.models.some((m) => m.max > 1 && /Infantry/.test(m.unitType)));
-  assert.deepEqual(squads.map((u) => u.id).sort(), ['hunt-court', 'hunt-pack', 'rangdan-mimics', 'shadow-lancers']);
+test('Rangdan squads cost 70 to 105 points a model; the hounds are beasts, not Rangda', () => {
+  const squads = data.units.filter((u) => has(u, 'Rangda') && !u.specialRules.includes('Beasts of the Hunt') && u.models.some((m) => m.max > 1 && /Infantry/.test(m.unitType)));
+  assert.deepEqual(squads.map((u) => u.id).sort(), ['hunt-court', 'hunt-pack', 'ironhide-hunters', 'moon-callers', 'rangdan-mimics', 'shadow-lancers', 'skyhunters']);
   for (const u of squads) {
     const m = u.models[0];
-    assert.ok(m.costPerExtra >= 70 && m.costPerExtra <= 95, `${u.id} at ${m.costPerExtra}`);
+    assert.ok(m.costPerExtra >= 70 && m.costPerExtra <= 105, `${u.id} at ${m.costPerExtra}`);
     assert.ok(u.basePoints >= m.costPerExtra * m.min, `${u.id} base cost covers its minimum models`);
   }
 });
@@ -77,7 +77,7 @@ test('the army rules use modifiers and statuses, never re-rolls', () => {
 });
 
 test('Rangda carry Prey Instinct, Fear, the Horror of the Taken and a Hunting Cry; Slaugth carry Worm Gestalt, which fire ignores', () => {
-  for (const u of data.units.filter((x) => has(x, 'Rangda') && x.models[0].profile.T != null)) {
+  for (const u of data.units.filter((x) => has(x, 'Rangda') && x.models[0].profile.T != null && !['hunt-hounds', 'spine-stalker'].includes(x.id))) {
     const r = rules(sel(u.id));
     assert.ok(r.includes('Prey Instinct') && r.includes('Horror of the Taken') && r.some((x) => /^Fear \((1|2|3)\)$/.test(x)), u.id);
     assert.ok(E.effectiveModels(sel(u.id)).every((m) => m.items.includes('Hunting Cry')), `${u.id} screams`);
@@ -149,7 +149,7 @@ test('transports: a Tendril Barge carries four Rangda, Thrall Carriers only Thra
   assert.deepEqual(ids('the-herd'), ['thrall-carrier']);
   assert.deepEqual(ids('the-carrion-court'), ['charnel-barge']);
   const shoal = E.detachmentFromDef('medusa-shoal');
-  assert.deepEqual(E.unitsForSlot(shoal.slots.find((s) => s.role === 'Fast Attack'), shoal).map((u) => u.id).sort(), ['shadow-kite', 'tendril-skiffs']);
+  assert.deepEqual(E.unitsForSlot(shoal.slots.find((s) => s.role === 'Fast Attack'), shoal).map((u) => u.id).sort(), ['hunt-hounds', 'shadow-kite', 'skyhunters', 'tendril-skiffs']);
   assert.match(E.effectiveModels(sel('shadow-kite'))[0].unitType, /Flyer/);
 });
 
@@ -332,4 +332,31 @@ test('scoring: Thralls hold with Line, the hunters score with Vanguard, Collared
   assert.ok(rules('rangdan-mimics').includes('Vanguard (2)'));
   assert.ok(!rules('shadow-lancers').some((r) => /^(Line|Vanguard)/.test(r)), 'the lancers are fire support');
   assert.ok(rules('hunt-pack', 'Apex Predators').includes('Fear (2)'));
+});
+
+test('the new Rangda: Skyhunters jump, Ironhides wear plate, hounds are Heedless beasts, the Spine-Stalker fills the Shoal\'s War Engine slot', () => {
+  const m = (id, w) => E.effectiveModels(sel(id, w))[0];
+  const sky = m('skyhunters');
+  assert.match(sky.unitType, /Antigrav/);
+  assert.equal(sky.profile.M, 14);
+  assert.ok(sky.rules.includes('Deep Strike') && sky.rules.includes('Vanguard (2)'));
+  const iron = m('ironhide-hunters');
+  assert.match(iron.unitType, /Heavy/);
+  assert.deepEqual([iron.profile.T, iron.profile.SAV], [6, '2+']);
+  assert.ok(iron.rules.includes('Vanguard (3)'));
+  const hound = m('hunt-hounds', 'Long Hunt');
+  assert.ok(hound.rules.includes('Heedless') && !hound.items.includes('Hunting Cry'));
+  assert.equal(hound.rules.filter((r) => /^Fast/.test(r)).length, 1, 'the Long Hunt doesn\'t stack a second Fast');
+  assert.equal(m('hunt-hounds', 'Silent Choir').profile.BS, 0);
+  assert.ok(!m('spine-stalker').items.includes('Hunting Cry'));
+  const shoal = E.detachmentFromDef('medusa-shoal');
+  assert.deepEqual(E.unitsForSlot(shoal.slots.find((s) => s.role === 'War Engine'), shoal).map((u) => u.id), ['spine-stalker']);
+  for (const [id, model] of [['shadow-lancers', 'Lance-Alpha'], ['rangdan-mimics', 'Mimic-Alpha'], ['skyhunters', 'Sky-Alpha'], ['ironhide-hunters', 'Ironhide-Alpha']]) {
+    const s = sel(id);
+    s.options.alpha = 1;
+    const a = E.effectiveModels(s).find((r) => r.name === model);
+    assert.ok(a && a.count === 1 && a.profile.INV === '4+', `${id} alpha`);
+    assert.equal(E.unitPoints(s), unit(id).basePoints + 15, id);
+  }
+  assert.equal(unit('hunt-pack').models[0].max, 9);
 });

@@ -36,6 +36,21 @@
       "text": "Robes woven from the skins of the eaten, which the worms beneath can slide through and out of. The bearer has the Shrouded (5+) Special Rule."
     },
     {
+      "name": "Grav-harness",
+      "page": null,
+      "text": "A spined harness that floats its wearer above the ground and throws it across a battlefield in long, silent bounds. Already included in the Movement Characteristic and the Antigrav Sub-Type of every Model that has one."
+    },
+    {
+      "name": "Ironhide Plate",
+      "page": null,
+      "text": "War-plate grown over a Rangda's hide like a second skeleton. Already included in the Toughness, Initiative and Save Characteristics of every Model that wears it."
+    },
+    {
+      "name": "Shroud Projector",
+      "page": null,
+      "text": "A larger shroud-field, cast over everyone near its bearer. While the bearer has joined a Unit, every Model in that Unit has a 4+ Invulnerable Save against Shooting Attacks."
+    },
+    {
       "name": "Neural Collar",
       "page": null,
       "text": "A band of cold xenos metal sunk into the spine. It carries its masters' will straight into the nerves, and burns through them on command. See the Neural Collars Special Rule."

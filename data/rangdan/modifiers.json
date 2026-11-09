@@ -22,7 +22,8 @@
           "thrall-basilisk",
           "thrall-knight",
           "charnel-barge",
-          "war-moon-regent"
+          "war-moon-regent",
+          "hunt-hounds"
         ]
       },
       "scope": "unit",
@@ -86,7 +87,8 @@
           "thrall-carrier",
           "thrall-basilisk",
           "thrall-knight",
-          "charnel-barge"
+          "charnel-barge",
+          "hunt-hounds"
         ]
       },
       "scope": "unit",
