@@ -25,10 +25,6 @@
           "points": 0
         },
         {
-          "name": "Shadow Shrieker",
-          "points": 0
-        },
-        {
           "name": "Shadow Blaster",
           "points": 10
         }
@@ -86,6 +82,33 @@
         {
           "name": "Autocannon",
           "points": 20
+        }
+      ]
+    },
+    {
+      "id": "gun-team-weapons",
+      "name": "Gun-team Weapons",
+      "page": null,
+      "items": [
+        {
+          "name": "Heavy bolter",
+          "points": 0
+        },
+        {
+          "name": "Heavy stubber",
+          "points": 0
+        },
+        {
+          "name": "Missile launcher",
+          "points": 5
+        },
+        {
+          "name": "Lascannon",
+          "points": 10
+        },
+        {
+          "name": "Autocannon",
+          "points": 15
         }
       ]
     },

@@ -73,6 +73,11 @@
           "flexible": false
         },
         {
+          "role": "Support",
+          "prime": false,
+          "flexible": false
+        },
+        {
           "role": "Armour",
           "prime": false,
           "flexible": false
@@ -167,7 +172,7 @@
         }
       ],
       "restrictions": [
-        "This Detachment may only be selected if a Slaugth Dream-Eater fills a Command Slot in the army.",
+        "This Detachment may only be selected if a Slaugth Dream-Eater or the Hollow Choir fills a Command Slot in the army.",
         "Only Units with the Slaugth Trait may be selected to fill Slots in this Detachment."
       ],
       "rules": [],
@@ -179,7 +184,8 @@
       ],
       "unlockedBy": {
         "commandUnit": [
-          "slaugth-dream-eater"
+          "slaugth-dream-eater",
+          "the-hollow-choir"
         ],
         "slotRole": "Command"
       },
@@ -224,6 +230,311 @@
         }
       ],
       "note": "The Hunt-Sovereign's own pack."
+    },
+    {
+      "id": "the-collared-host",
+      "name": "The Collared Host",
+      "type": "Apex",
+      "page": null,
+      "unlock": null,
+      "slots": [
+        {
+          "role": "Troops",
+          "prime": true,
+          "flexible": false
+        },
+        {
+          "role": "Troops",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Armour",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "Only Units with the Thrall Trait may be selected to fill Slots in this Detachment."
+      ],
+      "rules": [],
+      "slotRules": [
+        {
+          "roles": null,
+          "trait": "Thrall"
+        }
+      ],
+      "note": "A whole captured regiment, marched in front of the hunt."
+    },
+    {
+      "id": "shoal-of-iron",
+      "name": "Shoal of Iron",
+      "type": "Apex",
+      "page": null,
+      "unlock": null,
+      "slots": [
+        {
+          "role": "Armour",
+          "prime": true,
+          "flexible": false
+        },
+        {
+          "role": "Armour",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Fast Attack",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "Only Units with the Rangda Trait may be selected to fill Slots in this Detachment."
+      ],
+      "rules": [],
+      "slotRules": [
+        {
+          "roles": null,
+          "trait": "Rangda"
+        }
+      ],
+      "note": "Iron Medusas drifting in line, the Kites above them."
+    },
+    {
+      "id": "the-great-feast",
+      "name": "The Great Feast",
+      "type": "Apex",
+      "page": null,
+      "unlock": null,
+      "slots": [
+        {
+          "role": "Elites",
+          "prime": true,
+          "flexible": false
+        },
+        {
+          "role": "Elites",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "War Engine",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "This Detachment may only be selected if a Slaugth Dream-Eater or the Hollow Choir fills a Command Slot in the army.",
+        "Only Units with the Slaugth Trait may be selected to fill Slots in this Detachment."
+      ],
+      "rules": [],
+      "slotRules": [
+        {
+          "roles": null,
+          "trait": "Slaugth"
+        }
+      ],
+      "unlockedBy": {
+        "commandUnit": [
+          "slaugth-dream-eater",
+          "the-hollow-choir"
+        ],
+        "slotRole": "Command"
+      },
+      "note": "When the Slaugth come in numbers, the hunt has already ended."
+    },
+    {
+      "id": "the-choirs-hunt",
+      "name": "The Choir's Hunt",
+      "type": "Auxiliary",
+      "page": null,
+      "unlock": "When a model with the Silent Choir Trait is selected to fill a Command Slot, then the Player may add The Choir's Hunt to the Army instead of the options available in the Crusade Force Organization Chart.",
+      "slots": [
+        {
+          "role": "Elites",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Elites",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Recon",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Recon",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "Only Units with the Silent Choir Trait may be selected to fill Slots in this Detachment."
+      ],
+      "rules": [],
+      "slotRules": [
+        {
+          "roles": null,
+          "trait": "Silent Choir"
+        }
+      ],
+      "unlockedBy": {
+        "commandTrait": "Silent Choir"
+      },
+      "note": "The Silent Choir's screaming hunters and the Mimics that walk ahead of them."
+    },
+    {
+      "id": "the-chained-host",
+      "name": "The Chained Host",
+      "type": "Auxiliary",
+      "page": null,
+      "unlock": "When a model with the Iron Chain Trait is selected to fill a Command Slot, then the Player may add The Chained Host to the Army instead of the options available in the Crusade Force Organization Chart.",
+      "slots": [
+        {
+          "role": "Troops",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Troops",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Troops",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Heavy Assault",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Heavy Assault",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Support",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "Only Units with the Iron Chain Trait may be selected to fill Slots in this Detachment."
+      ],
+      "rules": [],
+      "slotRules": [
+        {
+          "roles": null,
+          "trait": "Iron Chain"
+        }
+      ],
+      "unlockedBy": {
+        "commandTrait": "Iron Chain"
+      },
+      "note": "The Iron Chain's endless herd."
+    },
+    {
+      "id": "the-running-pack",
+      "name": "The Running Pack",
+      "type": "Auxiliary",
+      "page": null,
+      "unlock": "When a model with the Long Hunt Trait is selected to fill a Command Slot, then the Player may add The Running Pack to the Army instead of the options available in the Crusade Force Organization Chart.",
+      "slots": [
+        {
+          "role": "Elites",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Elites",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Fast Attack",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Fast Attack",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Transport",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "Only Units with the Long Hunt Trait may be selected to fill Slots in this Detachment."
+      ],
+      "rules": [],
+      "slotRules": [
+        {
+          "roles": null,
+          "trait": "Long Hunt"
+        }
+      ],
+      "unlockedBy": {
+        "commandTrait": "Long Hunt"
+      },
+      "note": "The Long Hunt at full speed."
+    },
+    {
+      "id": "the-sky-burners",
+      "name": "The Sky-Burners",
+      "type": "Auxiliary",
+      "page": null,
+      "unlock": "When a model with the Burning Sky Trait is selected to fill a Command Slot, then the Player may add The Sky-Burners to the Army instead of the options available in the Crusade Force Organization Chart.",
+      "slots": [
+        {
+          "role": "Support",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Support",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Armour",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Armour",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Fast Attack",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "Only Units with the Burning Sky Trait may be selected to fill Slots in this Detachment."
+      ],
+      "rules": [],
+      "slotRules": [
+        {
+          "roles": null,
+          "trait": "Burning Sky"
+        }
+      ],
+      "unlockedBy": {
+        "commandTrait": "Burning Sky"
+      },
+      "note": "The Burning Sky's lancers and gun-ships, with the moon overhead."
     }
   ]
 }

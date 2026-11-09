@@ -26,13 +26,29 @@
       "text": "If a Unit that only includes Models with the Thrall Trait is selected to fill a Prime Troops Slot, the following Prime Advantage can be selected: Collared Legion. The Unit gains the Line (1) Special Rule, and for the Neural Collars Special Rule it counts as being within 12\" of a friendly Rangdan Model while any of its Models is within 18\" of one."
     },
     {
+      "name": "Collar-bombs",
+      "page": null,
+      "eligible": {
+        "choice": [
+          "Iron Chain"
+        ],
+        "trait": "Thrall",
+        "unitTypes": [
+          "Infantry"
+        ]
+      },
+      "extraSlot": false,
+      "text": "If a Unit with the Iron Chain Trait, the Thrall Trait and the Infantry Type is selected to fill a Prime Force Organisation Slot, the following Prime Advantage can be selected: Collar-bombs. Once per battle, at the start of any Phase, if any enemy Unit is within 3\" of this Unit, the Controlling Player may detonate its collars: every Model in this Unit is Removed as a Casualty, and every enemy Unit with any Model within 3\" of it suffers D6 Hits at Strength 6, AP 4, Damage 1."
+    },
+    {
       "name": "Sated Gestalt",
       "page": null,
       "eligible": {
         "units": [
           "slaugth-dream-eater",
           "slaugth-kindred",
-          "slaugth-harvester"
+          "slaugth-harvester",
+          "the-hollow-choir"
         ]
       },
       "extraSlot": false,

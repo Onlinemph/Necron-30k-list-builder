@@ -1,0 +1,85 @@
+{
+  "gambits": [
+    {
+      "name": "Throat-Hunter",
+      "page": null,
+      "text": "When selecting a Gambit, the Controlling Player of a Model with the Long Hunt Trait can select Throat-Hunter instead of any others available to that Model.\n\nIf this Gambit is selected, the Model's Melee Attacks in this round of the Challenge gain the Breaching (4+) Special Rule, and if the opposing Model has any Tactical Status, the Controlling Player gains a +1 modifier to the Focus Roll."
+    }
+  ],
+  "reactions": [
+    {
+      "name": "The Choir Answers",
+      "page": null,
+      "text": "The charge comes in, and is met by the screams of the charging squad's own dead.\n\nTrigger: The Reactive Player may declare The Choir Answers Advanced Reaction when an enemy Unit declares a Charge targeting a friendly Unit with the Silent Choir Trait.\n\nCost: 1 Reaction Point.\n\nEffect: The charging Unit must make a Cool Check, applying any Fear (X) modifiers. If the Check is failed, it gains the Pinned Tactical Status and the Charge fails."
+    },
+    {
+      "name": "Moonfall",
+      "page": null,
+      "text": "The Burning Sky watches the ground beneath its hunters, and anything that arrives there uninvited is struck from orbit.\n\nTrigger: The Reactive Player may declare a Moonfall Advanced Reaction once per battle, when an enemy Unit is placed on the battlefield from Reserves within 18\" of a friendly Model with the Burning Sky Trait and the Command or Paragon Sub-Type or Type.\n\nCost: 1 Reaction Point.\n\nEffect: Resolve one Shooting Attack against the Target Unit with the following profile, as if fired by the Reacting Model: R Unlimited, FP 1, RS 8, AP 3, D 1, Blast (3\"), Pinning (1). The Blast Marker does not scatter."
+    }
+  ],
+  "arkana": [
+    {
+      "name": "Silent Choir",
+      "page": null,
+      "wargear": [],
+      "gambits": [],
+      "reactions": [
+        {
+          "name": "The Choir Answers",
+          "page": null,
+          "text": "The charge comes in, and is met by the screams of the charging squad's own dead.\n\nTrigger: The Reactive Player may declare The Choir Answers Advanced Reaction when an enemy Unit declares a Charge targeting a friendly Unit with the Silent Choir Trait.\n\nCost: 1 Reaction Point.\n\nEffect: The charging Unit must make a Cool Check, applying any Fear (X) modifiers. If the Check is failed, it gains the Pinned Tactical Status and the Charge fails."
+        }
+      ],
+      "harbinger": {
+        "name": "Silent Choir",
+        "text": "The war-moon whose hunters speak only in stolen voices. Its Rangda go into battle wearing the screams of everything they have killed, and its thralls have forgotten their own.\n\nTactica: Models with the Rangda Trait and the Silent Choir Trait increase the value of their Fear (X) Special Rule by 1, to a maximum of Fear (3).\n\nCost: Models with the Rangda Trait and the Silent Choir Trait reduce their Ballistic Skill by 1. Its hunters are voices, not marksmen.\n\nAdvanced Reaction: The Choir Answers."
+      }
+    },
+    {
+      "name": "Iron Chain",
+      "page": null,
+      "wargear": [],
+      "gambits": [],
+      "reactions": [],
+      "harbinger": {
+        "name": "Iron Chain",
+        "text": "The war-moon that took the most worlds and fields the most thralls; its collars are the oldest and the cruellest.\n\nTactica: Units with the Neural Collars Special Rule and the Iron Chain Trait count as being within 12\" of a friendly Rangdan Model while any of their Models is within 18\" of one. When such a Unit is Overloaded with the Collar-master Special Rule, its Models also gain a modifier of +1 to their Weapon Skill until the end of the Phase.\n\nCost: A Unit with the Iron Chain Trait that is Overloaded suffers D3+1 wounds at the end of the Phase instead of D3.\n\nPrime Advantage: Collar-bombs."
+      }
+    },
+    {
+      "name": "Long Hunt",
+      "page": null,
+      "wargear": [],
+      "gambits": [
+        {
+          "name": "Throat-Hunter",
+          "page": null,
+          "text": "When selecting a Gambit, the Controlling Player of a Model with the Long Hunt Trait can select Throat-Hunter instead of any others available to that Model.\n\nIf this Gambit is selected, the Model's Melee Attacks in this round of the Challenge gain the Breaching (4+) Special Rule, and if the opposing Model has any Tactical Status, the Controlling Player gains a +1 modifier to the Focus Roll."
+        }
+      ],
+      "reactions": [],
+      "harbinger": {
+        "name": "Long Hunt",
+        "text": "The war-moon that drifts furthest ahead of the others, whose hunters run their prey down across whole continents.\n\nTactica: Models with the Rangda Trait, the Long Hunt Trait and the Infantry or Paragon Type have the Fast (2) Special Rule.\n\nCost: If a Unit with the Long Hunt Trait ends its Movement Phase within 12\" of an enemy Unit it can see, a Charge must be declared for it in that turn if it is able to declare one.\n\nGambit: Throat-Hunter."
+      }
+    },
+    {
+      "name": "Burning Sky",
+      "page": null,
+      "wargear": [],
+      "gambits": [],
+      "reactions": [
+        {
+          "name": "Moonfall",
+          "page": null,
+          "text": "The Burning Sky watches the ground beneath its hunters, and anything that arrives there uninvited is struck from orbit.\n\nTrigger: The Reactive Player may declare a Moonfall Advanced Reaction once per battle, when an enemy Unit is placed on the battlefield from Reserves within 18\" of a friendly Model with the Burning Sky Trait and the Command or Paragon Sub-Type or Type.\n\nCost: 1 Reaction Point.\n\nEffect: Resolve one Shooting Attack against the Target Unit with the following profile, as if fired by the Reacting Model: R Unlimited, FP 1, RS 8, AP 3, D 1, Blast (3\"), Pinning (1). The Blast Marker does not scatter."
+        }
+      ],
+      "harbinger": {
+        "name": "Burning Sky",
+        "text": "The war-moon that hangs lowest over its battles, its guns always aimed at the ground.\n\nTactica: Weapons with the Shadow Trait used by Models with the Burning Sky Trait have their Range increased by 6\" (Unlimited and Template ranges are unchanged), and War-moon Strikes and Barrages they fire scatter half the rolled distance.\n\nCost: Models with the Rangda Trait and the Burning Sky Trait reduce their Initiative by 1.\n\nAdvanced Reaction: Moonfall."
+      }
+    }
+  ]
+}

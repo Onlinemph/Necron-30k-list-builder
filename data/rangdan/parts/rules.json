@@ -6,6 +6,11 @@
       "text": "The Rangda are hunters before they are anything else, and they go for whatever is already wounded, pinned or running.\n\nWhen a Model with this Special Rule makes a Wound Test for a Shooting Attack or a Melee Attack against a Target Unit that has one or more of the Pinned, Suppressed, Stunned or Routed Tactical Statuses, it gains a bonus of +1 to that Wound Test."
     },
     {
+      "name": "Horror of the Taken",
+      "page": null,
+      "text": "Everyone who fought the Rangda saw it happen at least once: a squad that did not die but was carried off, and came back wearing collars.\n\nWhen a Unit that includes any Models with this Special Rule destroys an enemy Unit in combat (the last Model of that Unit is Removed as a Casualty by its Melee Attacks), every other enemy Unit with any Model within 12\" of the destroyed Unit's last Model must make a Leadership Check. Any Unit that fails gains the Routed Tactical Status."
+    },
+    {
       "name": "Neural Collars",
       "page": null,
       "text": "Every thrall wears a collar that carries its masters' will into its nerves, so that it marches into fire without a sound.\n\nWhile any Model in a Unit that only includes Models with this Special Rule is within 12\" of a friendly Model with the Rangda Trait, that Unit automatically passes any Leadership Check or Cool Check it is required to make.\n\nWhile no Model in the Unit is within 12\" of a friendly Model with the Rangda Trait, the Leadership and Cool Characteristics of its Models become 5, and no Reactions may be declared for the Unit."
@@ -31,9 +36,25 @@
       "name": "Living Shields",
       "page": null,
       "text": "The masters have never stood in front of their own herd. When the guns turn on them, the collars drag the thralls into the line of fire.\n\nTrigger: The Reactive Player may declare a Living Shields Advanced Reaction at the start of Step 3 of the Shooting Attack sequence, when an enemy Unit targets a friendly Unit that only includes Models with the Rangda Trait and is not a Vehicle, and a friendly Unit with the Neural Collars Special Rule has any Model within 3\" of the target.\n\nCost: 1 Reaction Point.\n\nEffect: The Unit with the Neural Collars Special Rule becomes the target of the Shooting Attack instead, even if it would not normally be a legal target, as long as at least one of its Models is within range of at least one of the attacking Unit's Weapons. Weapons that cannot reach it may not make attacks. A Unit may only be selected for this Reaction once per Player Turn."
+    },
+    {
+      "name": "The Hunt Closes",
+      "page": null,
+      "text": "Prey that stumbles is prey that dies. A Rangdan hunt-pack moves the moment its quarry falters.\n\nTrigger: The Reactive Player may declare The Hunt Closes Advanced Reaction when an enemy Unit with one or more Tactical Statuses ends a move in the Movement Phase within 12\" of a friendly Unit that only includes Models with the Rangda Trait and the Infantry or Paragon Type.\n\nCost: 1 Reaction Point.\n\nEffect: The Reacting Unit may move up to its Movement Characteristic. It must end that move closer to the Target Unit and may not end it within 1\" of any enemy Model."
     }
   ],
-  "gambits": [],
+  "gambits": [
+    {
+      "name": "Hunter's Stare",
+      "page": null,
+      "text": "When selecting a Gambit, the Controlling Player of a Model with the Rangda Trait can select Hunter's Stare instead of any others available to that Model.\n\nIf this Gambit is selected, the opposing Model must make a Cool Check, applying any Fear (X) modifiers. If the Check is failed, the Controlling Player of the Model that selected Hunter's Stare gains a +2 modifier to the Focus Roll for this round of the Challenge."
+    },
+    {
+      "name": "Feast of Memories",
+      "page": null,
+      "text": "When selecting a Gambit, the Controlling Player of a Model with the Slaugth Trait can select Feast of Memories instead of any others available to that Model.\n\nIf this Gambit is selected and the opposing Model is Removed as a Casualty in this round of the Challenge, the Model that selected Feast of Memories regains all of its lost Wounds and gains one Special Rule of the opposing Model (chosen by its Controlling Player; not a Type, Sub-Type or Trait) for the rest of the battle. It has eaten the memory of how to fight that way."
+    }
+  ],
   "primeAdvantages": [],
   "traits": [
     {
