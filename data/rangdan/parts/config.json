@@ -1,0 +1,43 @@
+{
+  "armyConfig": {
+    "fixed": [
+      {
+        "name": "Prey Instinct",
+        "text": "The Rangda are hunters before they are anything else, and they go for whatever is already wounded, pinned or running.\n\nWhen a Model with this Special Rule makes a Wound Test for a Shooting Attack or a Melee Attack against a Target Unit that has one or more of the Pinned, Suppressed, Stunned or Routed Tactical Statuses, it gains a bonus of +1 to that Wound Test.",
+        "kind": "rule",
+        "source": "Rangda Tactica"
+      },
+      {
+        "name": "Neural Collars",
+        "text": "Every thrall wears a collar that carries its masters' will into its nerves, so that it marches into fire without a sound.\n\nWhile any Model in a Unit that only includes Models with this Special Rule is within 12\" of a friendly Model with the Rangda Trait, that Unit automatically passes any Leadership Check or Cool Check it is required to make.\n\nWhile no Model in the Unit is within 12\" of a friendly Model with the Rangda Trait, the Leadership and Cool Characteristics of its Models become 5, and no Reactions may be declared for the Unit.",
+        "kind": "rule",
+        "source": "Thralls"
+      },
+      {
+        "name": "Collar-master",
+        "text": "A Rangdan officer can drive a collar past what the body wearing it can take.\n\nOnce per Player Turn, at the start of the Fight Sub-Phase, the Controlling Player of a Model with this Special Rule that is on the battlefield may select one friendly Unit with the Neural Collars Special Rule that has any Model within 12\" of it. Until the end of that Phase, all Models in the selected Unit gain a modifier of +1 to their Strength and Attacks Characteristics. At the end of that Phase, the selected Unit suffers D3 wounds, allocated by its Controlling Player, against which no Saving Throws or Damage Mitigation Tests may be taken.",
+        "kind": "rule",
+        "source": "Rangdan characters"
+      },
+      {
+        "name": "Living Shields",
+        "text": "The masters have never stood in front of their own herd. When the guns turn on them, the collars drag the thralls into the line of fire.\n\nTrigger: The Reactive Player may declare a Living Shields Advanced Reaction at the start of Step 3 of the Shooting Attack sequence, when an enemy Unit targets a friendly Unit that only includes Models with the Rangda Trait and is not a Vehicle, and a friendly Unit with the Neural Collars Special Rule has any Model within 3\" of the target.\n\nCost: 1 Reaction Point.\n\nEffect: The Unit with the Neural Collars Special Rule becomes the target of the Shooting Attack instead, even if it would not normally be a legal target, as long as at least one of its Models is within range of at least one of the attacking Unit's Weapons. Weapons that cannot reach it may not make attacks. A Unit may only be selected for this Reaction once per Player Turn.",
+        "kind": "Reaction",
+        "source": "Advanced Reaction"
+      },
+      {
+        "name": "Worm Gestalt",
+        "text": "A Slaugth is thousands of sentient worms in a skin of mucus. Bolts and blades pass through a body that simply closes up behind them; fire is another matter.\n\nModels with this Special Rule have the Feel No Pain (5+) Special Rule. This Damage Mitigation Test may not be taken against wounds inflicted by any Weapon with the Flame Trait or the Aflame (X) Special Rule.",
+        "kind": "rule",
+        "source": "Slaugth"
+      },
+      {
+        "name": "Carrion Feast",
+        "text": "The Slaugth eat the dead as they fight, and the worms that make them up grow fat on it.\n\nEach time a Model with this Special Rule Removes an enemy Model as a Casualty with a Melee Attack, it regains one lost Wound (or Hull Point). A Model cannot regain more Wounds or Hull Points than its starting value.",
+        "kind": "rule",
+        "source": "Slaugth"
+      }
+    ],
+    "groups": []
+  }
+}

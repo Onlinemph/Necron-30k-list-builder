@@ -1,0 +1,214 @@
+{
+  "detachments": [
+    {
+      "id": "the-hunt",
+      "name": "The Hunt",
+      "type": "Auxiliary",
+      "page": null,
+      "unlock": null,
+      "slots": [
+        {
+          "role": "Elites",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Elites",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Recon",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Support",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "Only Units with the Rangda Trait may be selected to fill Slots in this Detachment."
+      ],
+      "rules": [],
+      "slotRules": [
+        {
+          "roles": null,
+          "trait": "Rangda"
+        }
+      ],
+      "note": "A hunt-pack and its outriders. The Rangda never take Troops slots: holding ground is what the herd is for."
+    },
+    {
+      "id": "the-herd",
+      "name": "The Herd",
+      "type": "Auxiliary",
+      "page": null,
+      "unlock": null,
+      "slots": [
+        {
+          "role": "Troops",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Troops",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Troops",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Heavy Assault",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Armour",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "Only Units with the Thrall Trait may be selected to fill Slots in this Detachment."
+      ],
+      "rules": [],
+      "slotRules": [
+        {
+          "roles": null,
+          "trait": "Thrall"
+        }
+      ]
+    },
+    {
+      "id": "medusa-shoal",
+      "name": "Medusa Shoal",
+      "type": "Auxiliary",
+      "page": null,
+      "unlock": null,
+      "slots": [
+        {
+          "role": "Fast Attack",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Fast Attack",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Armour",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Armour",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "Only Units with the Rangda Trait may be selected to fill Slots in this Detachment."
+      ],
+      "rules": [],
+      "slotRules": [
+        {
+          "roles": null,
+          "trait": "Rangda"
+        }
+      ]
+    },
+    {
+      "id": "the-carrion-court",
+      "name": "The Carrion Court",
+      "type": "Auxiliary",
+      "page": null,
+      "unlock": null,
+      "slots": [
+        {
+          "role": "Elites",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Elites",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Fast Attack",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "War Engine",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "This Detachment may only be selected if a Slaugth Dream-Eater fills a Command Slot in the army.",
+        "Only Units with the Slaugth Trait may be selected to fill Slots in this Detachment."
+      ],
+      "rules": [],
+      "slotRules": [
+        {
+          "roles": null,
+          "trait": "Slaugth"
+        }
+      ],
+      "unlockedBy": {
+        "commandUnit": [
+          "slaugth-dream-eater"
+        ],
+        "slotRole": "Command"
+      },
+      "note": "The Slaugth that follow the hunt."
+    },
+    {
+      "id": "the-sovereigns-hunt",
+      "name": "The Sovereign's Hunt",
+      "type": "Apex",
+      "page": null,
+      "unlock": null,
+      "slots": [
+        {
+          "role": "Elites",
+          "prime": true,
+          "flexible": false
+        },
+        {
+          "role": "Elites",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Elites",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Recon",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "Only Units with the Rangda Trait may be selected to fill Slots in this Detachment."
+      ],
+      "rules": [],
+      "slotRules": [
+        {
+          "roles": null,
+          "trait": "Rangda"
+        }
+      ],
+      "note": "The Hunt-Sovereign's own pack."
+    }
+  ]
+}

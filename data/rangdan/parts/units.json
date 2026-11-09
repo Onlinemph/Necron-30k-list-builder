@@ -1,0 +1,1033 @@
+{
+  "units": [
+    {
+      "id": "hunt-sovereign",
+      "name": "Hunt-Sovereign",
+      "role": "High Command",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 260,
+      "composition": "1 Hunt-Sovereign",
+      "models": [
+        {
+          "name": "Hunt-Sovereign",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 9,
+            "WS": 7,
+            "BS": 5,
+            "S": 6,
+            "T": 6,
+            "W": 6,
+            "I": 7,
+            "A": 5,
+            "LD": 11,
+            "CL": 11,
+            "WP": 10,
+            "IN": 10,
+            "SAV": "3+",
+            "INV": "4+"
+          },
+          "wargear": [
+            "Sovereign's Glaive",
+            "Shadow Blaster",
+            "War-moon Strike",
+            "Shroud-field"
+          ],
+          "unitType": "Paragon",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Rangda"
+      ],
+      "specialRules": [
+        "Prey Instinct",
+        "Fear (2)",
+        "Bulky (4)",
+        "Collar-master",
+        "Herald of the War-moon"
+      ],
+      "unitRules": [
+        {
+          "name": "Herald of the War-moon",
+          "text": "Somewhere above the battle, one of the Rangdan war-moons is listening for this voice. The War-moon Strike may be fired in place of the Hunt-Sovereign's other Weapons in a Shooting Attack, even if the Hunt-Sovereign is Locked in Combat or is not in line of sight of the target, and its Blast Marker scatters as normal for a Barrage weapon."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": false,
+      "fixedChoice": null,
+      "options": [],
+      "note": "A hunt-lord of the Rangda, one of the tall vulpine masters the Imperium spent three Xenocides trying to erase. Written for this list."
+    },
+    {
+      "id": "rangda-huntmaster",
+      "name": "Rangda Huntmaster",
+      "role": "Command",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 160,
+      "composition": "1 Huntmaster",
+      "models": [
+        {
+          "name": "Huntmaster",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 9,
+            "WS": 7,
+            "BS": 5,
+            "S": 5,
+            "T": 5,
+            "W": 5,
+            "I": 7,
+            "A": 5,
+            "LD": 11,
+            "CL": 10,
+            "WP": 9,
+            "IN": 8,
+            "SAV": "3+",
+            "INV": "4+"
+          },
+          "wargear": [
+            "Spine Glaive",
+            "Shadow Pistol",
+            "Shroud-field"
+          ],
+          "unitType": "Infantry (Command)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Rangda"
+      ],
+      "specialRules": [
+        "Prey Instinct",
+        "Fear (2)",
+        "Bulky (3)",
+        "Collar-master"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": false,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "blaster",
+          "text": "May exchange its Shadow Pistol for a Shadow Blaster for +10 points.",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Shadow Pistol"
+          ],
+          "choices": [
+            {
+              "name": "Shadow Blaster",
+              "points": 10
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "The officer who leads a hunt-pack in the field. Written for this list."
+    },
+    {
+      "id": "collar-wright",
+      "name": "Collar-Wright",
+      "role": "Command",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 130,
+      "composition": "1 Collar-Wright",
+      "models": [
+        {
+          "name": "Collar-Wright",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 9,
+            "WS": 5,
+            "BS": 5,
+            "S": 5,
+            "T": 5,
+            "W": 4,
+            "I": 6,
+            "A": 3,
+            "LD": 10,
+            "CL": 10,
+            "WP": 9,
+            "IN": 8,
+            "SAV": "3+",
+            "INV": "4+"
+          },
+          "wargear": [
+            "Spine Glaive",
+            "Shadow Pistol",
+            "Shroud-field"
+          ],
+          "unitType": "Infantry (Command)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Rangda"
+      ],
+      "specialRules": [
+        "Prey Instinct",
+        "Fear (2)",
+        "Bulky (3)",
+        "Collar-master",
+        "Master of Collars"
+      ],
+      "unitRules": [
+        {
+          "name": "Master of Collars",
+          "text": "The Collar-Wright fits the collars and knows every one by its signal. A Model with this Special Rule may use the Collar-master Special Rule twice in each Player Turn, selecting a different Unit each time, and may select a Unit with any Model within 18\" of it. In addition, Units with the Neural Collars Special Rule that have any Model within 18\" of a Collar-Wright count as being within 12\" of a friendly Rangdan Model."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": false,
+      "fixedChoice": null,
+      "options": [],
+      "note": "The Rangda who keeps the herd. Written for this list."
+    },
+    {
+      "id": "hunt-pack",
+      "name": "Hunt-Pack",
+      "role": "Elites",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 225,
+      "composition": "3 Rangda Hunters",
+      "models": [
+        {
+          "name": "Rangda Hunter",
+          "min": 3,
+          "max": 6,
+          "costPerExtra": 75,
+          "profile": {
+            "M": 9,
+            "WS": 6,
+            "BS": 4,
+            "S": 5,
+            "T": 5,
+            "W": 4,
+            "I": 6,
+            "A": 4,
+            "LD": 10,
+            "CL": 10,
+            "WP": 9,
+            "IN": 8,
+            "SAV": "3+",
+            "INV": "5+"
+          },
+          "wargear": [
+            "Spine Glaive",
+            "Shadow Pistol"
+          ],
+          "unitType": "Infantry",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Rangda"
+      ],
+      "specialRules": [
+        "Prey Instinct",
+        "Fear (2)",
+        "Bulky (3)"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": false,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "blaster",
+          "text": "Any Model may exchange its Shadow Pistol for a Shadow Blaster for +10 points per Model.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [
+            "Shadow Pistol"
+          ],
+          "choices": [
+            {
+              "name": "Shadow Blaster",
+              "points": 10
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "The Rangda as the Dark Angels remembered them: towering, quick and hard to put down. Written for this list."
+    },
+    {
+      "id": "shadow-lancers",
+      "name": "Shadow Lancers",
+      "role": "Support",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 255,
+      "composition": "3 Shadow Lancers",
+      "models": [
+        {
+          "name": "Shadow Lancer",
+          "min": 3,
+          "max": 5,
+          "costPerExtra": 85,
+          "profile": {
+            "M": 9,
+            "WS": 6,
+            "BS": 5,
+            "S": 5,
+            "T": 5,
+            "W": 4,
+            "I": 6,
+            "A": 3,
+            "LD": 10,
+            "CL": 10,
+            "WP": 9,
+            "IN": 8,
+            "SAV": "3+",
+            "INV": "5+"
+          },
+          "wargear": [
+            "Shadow Lance",
+            "Rangda Claws"
+          ],
+          "unitType": "Infantry",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Rangda"
+      ],
+      "specialRules": [
+        "Prey Instinct",
+        "Fear (2)",
+        "Bulky (3)"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": false,
+      "fixedChoice": null,
+      "options": [],
+      "note": "Rangda carrying the heavy shadow weapons that unmake tanks. Written for this list."
+    },
+    {
+      "id": "rangdan-mimics",
+      "name": "Mimics",
+      "role": "Recon",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 210,
+      "composition": "3 Mimics",
+      "models": [
+        {
+          "name": "Mimic",
+          "min": 3,
+          "max": 5,
+          "costPerExtra": 70,
+          "profile": {
+            "M": 9,
+            "WS": 6,
+            "BS": 5,
+            "S": 5,
+            "T": 5,
+            "W": 3,
+            "I": 7,
+            "A": 3,
+            "LD": 10,
+            "CL": 10,
+            "WP": 9,
+            "IN": 8,
+            "SAV": "4+",
+            "INV": "5+"
+          },
+          "wargear": [
+            "Shadow Blaster",
+            "Rangda Claws"
+          ],
+          "unitType": "Infantry (Skirmish)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Rangda"
+      ],
+      "specialRules": [
+        "Prey Instinct",
+        "Fear (2)",
+        "Bulky (3)",
+        "Infiltrate (9)",
+        "Stolen Voices"
+      ],
+      "unitRules": [
+        {
+          "name": "Stolen Voices",
+          "text": "The Mimics speak with the voices of the dead: a sergeant calling the retreat, a brother screaming for help from the wrong direction. Shooting Attacks made by a Unit that only includes Models with this Special Rule gain the Panic (1) Special Rule."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": false,
+      "fixedChoice": null,
+      "options": [],
+      "note": "Canon credits the Rangda with mimicry and never says what it was. These are the hunters who use it. Written for this list."
+    },
+    {
+      "id": "tendril-skiffs",
+      "name": "Tendril Skiffs",
+      "role": "Fast Attack",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 85,
+      "composition": "1 Tendril Skiff",
+      "models": [
+        {
+          "name": "Tendril Skiff",
+          "min": 1,
+          "max": 3,
+          "costPerExtra": 85,
+          "profile": {
+            "M": 16,
+            "BS": 4,
+            "FRONT": 11,
+            "SIDE": 11,
+            "REAR": 10,
+            "HP": 3,
+            "CAPACITY": "–"
+          },
+          "wargear": [
+            "Shadow Blaster",
+            "Tendril Flails",
+            "Medusa Shroud"
+          ],
+          "unitType": "Vehicle (Antigrav, Rapid)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Rangda"
+      ],
+      "specialRules": [
+        "Deep Strike"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": false,
+      "fixedChoice": null,
+      "options": [],
+      "note": "A small iron jellyfish, all spines and trailing metal tendrils, the same shape as the Rangdan warships. Written for this list."
+    },
+    {
+      "id": "iron-medusa",
+      "name": "Iron Medusa",
+      "role": "Armour",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 160,
+      "composition": "1 Iron Medusa",
+      "models": [
+        {
+          "name": "Iron Medusa",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 10,
+            "BS": 4,
+            "FRONT": 13,
+            "SIDE": 12,
+            "REAR": 11,
+            "HP": 6,
+            "CAPACITY": "–"
+          },
+          "wargear": [
+            "Turret Mounted Shadow Cannon",
+            "2 Hull Mounted Tendril Flails",
+            "Medusa Shroud"
+          ],
+          "unitType": "Vehicle (Antigrav)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Rangda"
+      ],
+      "specialRules": [],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": false,
+      "fixedChoice": null,
+      "options": [],
+      "note": "The Rangdan battle tank: a floating iron bell trailing a curtain of flails. Written for this list."
+    },
+    {
+      "id": "spine-leviathan",
+      "name": "Spine-Leviathan",
+      "role": "Lord of War",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 620,
+      "composition": "1 Spine-Leviathan",
+      "models": [
+        {
+          "name": "Spine-Leviathan",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 10,
+            "BS": 4,
+            "FRONT": 14,
+            "SIDE": 13,
+            "REAR": 12,
+            "HP": 14,
+            "CAPACITY": "–"
+          },
+          "wargear": [
+            "Centreline Mounted Shadow Annihilator",
+            "2 Sponson Mounted Shadow Cannons",
+            "4 Hull Mounted Tendril Flails",
+            "Medusa Shroud"
+          ],
+          "unitType": "Vehicle (Super-heavy, Antigrav)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Rangda"
+      ],
+      "specialRules": [
+        "Explodes (5+)"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": false,
+      "fixedChoice": null,
+      "options": [],
+      "note": "A war-moon's lander, as big as a Fellblade. Written for this list."
+    },
+    {
+      "id": "thrall-cohort",
+      "name": "Thrall Cohort",
+      "role": "Troops",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 120,
+      "composition": "20 Thralls",
+      "models": [
+        {
+          "name": "Thrall",
+          "min": 20,
+          "max": 40,
+          "costPerExtra": 6,
+          "profile": {
+            "M": 6,
+            "WS": 3,
+            "BS": 3,
+            "S": 3,
+            "T": 3,
+            "W": 1,
+            "I": 3,
+            "A": 1,
+            "LD": 6,
+            "CL": 6,
+            "WP": 5,
+            "IN": 5,
+            "SAV": "5+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Lasrifle",
+            "Bayonet",
+            "Frag grenades",
+            "Neural Collar"
+          ],
+          "unitType": "Infantry",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Thrall"
+      ],
+      "specialRules": [
+        "Neural Collars",
+        "Expendable (2)"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": false,
+      "fixedChoice": null,
+      "options": [],
+      "note": "Imperial Army troops taken on a Rangdan-tainted world, still in their old uniforms. Uses Imperial Army models."
+    },
+    {
+      "id": "collared-auxilia",
+      "name": "Collared Auxilia",
+      "role": "Troops",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 55,
+      "composition": "10 Collared Auxiliaries",
+      "models": [
+        {
+          "name": "Collared Auxiliary",
+          "min": 10,
+          "max": 20,
+          "costPerExtra": 5,
+          "profile": {
+            "M": 6,
+            "WS": 3,
+            "BS": 3,
+            "S": 3,
+            "T": 3,
+            "W": 1,
+            "I": 3,
+            "A": 1,
+            "LD": 6,
+            "CL": 6,
+            "WP": 6,
+            "IN": 6,
+            "SAV": "4+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Lasrifle",
+            "Frag grenades",
+            "Krak grenades",
+            "Neural Collar"
+          ],
+          "unitType": "Infantry",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Thrall"
+      ],
+      "specialRules": [
+        "Neural Collars"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": false,
+      "fixedChoice": null,
+      "options": [],
+      "note": "Captured Solar Auxilia in their void armour. Uses Solar Auxilia models."
+    },
+    {
+      "id": "collared-ogryns",
+      "name": "Collared Ogryns",
+      "role": "Heavy Assault",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 95,
+      "composition": "3 Collared Ogryns",
+      "models": [
+        {
+          "name": "Collared Ogryn",
+          "min": 3,
+          "max": 9,
+          "costPerExtra": 30,
+          "profile": {
+            "M": 7,
+            "WS": 3,
+            "BS": 2,
+            "S": 5,
+            "T": 5,
+            "W": 4,
+            "I": 2,
+            "A": 3,
+            "LD": 7,
+            "CL": 8,
+            "WP": 6,
+            "IN": 3,
+            "SAV": "5+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Collar-goaded Maul",
+            "Neural Collar"
+          ],
+          "unitType": "Infantry",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Thrall"
+      ],
+      "specialRules": [
+        "Neural Collars",
+        "Bulky (4)",
+        "Impact (A)",
+        "Heedless"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": false,
+      "fixedChoice": null,
+      "options": [],
+      "note": "Captured abhumans, the herd's favourite thing to overload. Uses Ogryn models."
+    },
+    {
+      "id": "thrall-armour",
+      "name": "Thrall Armour",
+      "role": "Armour",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 130,
+      "composition": "1 Thrall Leman Russ",
+      "models": [
+        {
+          "name": "Thrall Leman Russ",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 10,
+            "BS": 3,
+            "FRONT": 14,
+            "SIDE": 13,
+            "REAR": 10,
+            "HP": 6,
+            "CAPACITY": "–"
+          },
+          "wargear": [
+            "Turret Mounted Battlecannon",
+            "Hull (Front) Mounted Heavy bolter",
+            "Smoke Launchers"
+          ],
+          "unitType": "Vehicle",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Thrall"
+      ],
+      "specialRules": [
+        "Neural Collars"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": false,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "hull",
+          "text": "May exchange its Hull (Front) Mounted Heavy bolter for one of the following:",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Hull (Front) Mounted Heavy bolter"
+          ],
+          "choices": [
+            {
+              "name": "Hull (Front) Mounted Lascannon",
+              "points": 5
+            },
+            {
+              "name": "Hull (Front) Mounted Heavy flamer",
+              "points": 0
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "A captured Leman Russ with a collared crew. Neural Collars still applies: with no Rangda within 12\" its crew may not declare Reactions."
+    },
+    {
+      "id": "slaugth-dream-eater",
+      "name": "Slaugth Dream-Eater",
+      "role": "Command",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 135,
+      "composition": "1 Dream-Eater",
+      "models": [
+        {
+          "name": "Dream-Eater",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 6,
+            "WS": 5,
+            "BS": 4,
+            "S": 5,
+            "T": 5,
+            "W": 5,
+            "I": 4,
+            "A": 4,
+            "LD": 10,
+            "CL": 10,
+            "WP": 10,
+            "IN": 10,
+            "SAV": "4+",
+            "INV": "5+"
+          },
+          "wargear": [
+            "Nerve-lash",
+            "Necrotic Projector"
+          ],
+          "unitType": "Infantry (Command)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Slaugth"
+      ],
+      "specialRules": [
+        "Worm Gestalt",
+        "Carrion Feast",
+        "Fear (1)",
+        "Dream Eater"
+      ],
+      "unitRules": [
+        {
+          "name": "Dream Eater",
+          "text": "The Slaugth eat brains for the memories in them. When a Model with this Special Rule Removes an enemy Model with the Command Sub-Type as a Casualty in a Challenge, it regains all of its lost Wounds."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": false,
+      "fixedChoice": null,
+      "options": [],
+      "note": "Canon places the Slaugth at Rangda during the Xenocides and says nothing more about why. Here they follow the hunts and eat the dead. Taking a Dream-Eater in a Command slot unlocks the Carrion Court. Written for this list."
+    },
+    {
+      "id": "slaugth-kindred",
+      "name": "Slaugth Kindred",
+      "role": "Elites",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 135,
+      "composition": "3 Slaugth",
+      "models": [
+        {
+          "name": "Slaugth",
+          "min": 3,
+          "max": 6,
+          "costPerExtra": 45,
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 4,
+            "S": 5,
+            "T": 5,
+            "W": 3,
+            "I": 3,
+            "A": 3,
+            "LD": 9,
+            "CL": 9,
+            "WP": 9,
+            "IN": 9,
+            "SAV": "4+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Worm-grasp",
+            "Necrotic Projector"
+          ],
+          "unitType": "Infantry",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Slaugth"
+      ],
+      "specialRules": [
+        "Worm Gestalt",
+        "Carrion Feast",
+        "Bulky (2)"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": false,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "spewer",
+          "text": "For every three Models in the Unit, one may exchange its Necrotic Projector for a Necrotic Spewer for +5 points.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [
+            "Necrotic Projector"
+          ],
+          "choices": [
+            {
+              "name": "Necrotic Spewer",
+              "points": 5
+            }
+          ],
+          "max": {
+            "per": 3,
+            "count": 1
+          },
+          "requires": null
+        }
+      ],
+      "note": "Three-metre shapes of writhing worms in robes. Written for this list."
+    },
+    {
+      "id": "vassal-swarm",
+      "name": "Vassal Swarm",
+      "role": "Fast Attack",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 45,
+      "composition": "3 Vassals",
+      "models": [
+        {
+          "name": "Vassal",
+          "min": 3,
+          "max": 9,
+          "costPerExtra": 15,
+          "profile": {
+            "M": 12,
+            "WS": 3,
+            "BS": 3,
+            "S": 3,
+            "T": 4,
+            "W": 1,
+            "I": 4,
+            "A": 1,
+            "LD": 8,
+            "CL": 8,
+            "WP": 6,
+            "IN": 4,
+            "SAV": "5+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Vassal Spines"
+          ],
+          "unitType": "Infantry (Antigrav, Light)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Slaugth"
+      ],
+      "specialRules": [
+        "Worm Gestalt"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": false,
+      "fixedChoice": null,
+      "options": [],
+      "note": "Floating flesh constructs the Slaugth grow and send ahead of them. Written for this list."
+    },
+    {
+      "id": "slaugth-harvester",
+      "name": "Harvester",
+      "role": "War Engine",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 200,
+      "composition": "1 Harvester",
+      "models": [
+        {
+          "name": "Harvester",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 7,
+            "WS": 4,
+            "BS": 3,
+            "S": 7,
+            "T": 7,
+            "W": 8,
+            "I": 3,
+            "A": 4,
+            "LD": 10,
+            "CL": 10,
+            "WP": 7,
+            "IN": 4,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Harvester Claws",
+            "2 Necrotic Projectors"
+          ],
+          "unitType": "Walker",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Slaugth"
+      ],
+      "specialRules": [
+        "Worm Gestalt",
+        "Carrion Feast",
+        "Bulky (6)"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": false,
+      "fixedChoice": null,
+      "options": [],
+      "note": "A vehicle-sized mass of flesh and metal that gathers the dead. Written for this list."
+    }
+  ]
+}
