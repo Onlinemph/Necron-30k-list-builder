@@ -27,6 +27,19 @@
     return k.replace(/s$/, '');
   };
 
+  // the count on a wargear item ("3 Hull (front) mounted Plasma-Disintegrator Cannons", "Two Macro-Scalpels")
+  const COUNT_WORDS = { two: 2, three: 3, four: 4 };
+  const itemCount = (w) => {
+    const m = String(w).match(/^(\d+)\s*x?\s+|^(two|three|four)\s+/i);
+    return m ? (m[1] ? +m[1] : COUNT_WORDS[m[2].toLowerCase()]) : 1;
+  };
+  // the same item with another count: 1 drops the count and the plural, more adds both
+  const withCount = (w, n) => {
+    const rest = String(w).replace(/^(\d+\s*x?|two|three|four)\s+/i, '');
+    if (n === 1) return /[^s]s$/.test(rest) ? rest.slice(0, -1) : rest;
+    return `${n} ${/s$/.test(rest) ? rest : rest + 's'}`;
+  };
+
   let uidCounter = 0;
   function uid(prefix) {
     uidCounter += 1;
@@ -384,8 +397,8 @@
           if (rows && !rows.length) rows = null;
         }
         const push = (name, n) => {
-          if (rows) for (const r of rows) r.changes.push({ name, count: r.count, replaces: rep });
-          else row.changes.push({ name, count: n, replaces: rep });
+          if (rows) for (const r of rows) r.changes.push({ name, count: r.count, replaces: rep, kind: o.kind });
+          else row.changes.push({ name, count: n, replaces: rep, kind: o.kind });
         };
         // per-model swaps with no model named fill the first row, then spill onto other rows still carrying
         // what they replace (a Troupe's Lead Player), so two swaps of the same weapon never overfill a row
@@ -394,9 +407,9 @@
           const swapped = (r) => r.changes.filter((c) => c.replaces && o.replaces.some((w) => c.replaces.split(' & ').includes(w))).reduce((t, c) => t + c.count, 0);
           for (const r of [row, ...out.filter((x) => x !== row && o.replaces.some((w) => x.base.includes(w)))]) {
             const k = Math.min(n, Math.max(0, r.count - swapped(r)));
-            if (k > 0) { r.changes.push({ name, count: k, replaces: rep }); n -= k; }
+            if (k > 0) { r.changes.push({ name, count: k, replaces: rep, kind: o.kind }); n -= k; }
           }
-          if (n > 0) row.changes.push({ name, count: n, replaces: rep });
+          if (n > 0) row.changes.push({ name, count: n, replaces: rep, kind: o.kind });
         };
         switch (o.kind) {
           case 'one': push(val, 1); break;
@@ -499,12 +512,34 @@
         const model = u.models.find((m) => m.name === row.model);
         const fullChanges = row.changes.filter((c) => c.count >= row.count);
         const partial = row.changes.filter((c) => c.count < row.count);
-        const replaced = new Set(fullChanges.filter((c) => c.replaces).flatMap((c) => c.replaces.split(' & ')));
-        const items = row.base.filter((w) => !replaced.has(w)).concat(fullChanges.map((c) => c.name));
+        // a replaced item matches its wargear exactly, or failing that by weapon name: "Plasma-Disintegrator Cannon"
+        // swaps out "Hull (front) mounted Plasma-Disintegrator Cannon". A per-model swap on a single model ("any
+        // Plasma-Disintegrator Cannon may be exchanged") takes out one weapon per swap, from a counted item like
+        // "3 Hull (front) mounted Plasma-Disintegrator Cannons" or from separate ones, and the new item carries the count.
+        let items = row.base.slice();
+        const added = [];
+        for (const c of fullChanges) {
+          const counted = c.kind === 'perModel' && row.count === 1;
+          for (const r of c.replaces ? c.replaces.split(' & ') : []) {
+            const same = items.some((w) => w === r) ? (w) => w === r : (w) => wkey(w) === wkey(r);
+            if (!counted) { items = items.filter((w) => !same(w)); continue; }
+            // each swap takes out what the option names: one cannon, or both of "Two bolt pistols"
+            let left = c.count * itemCount(r);
+            for (let i = 0; i < items.length && left > 0;) {
+              if (!same(items[i])) { i++; continue; }
+              const n = itemCount(items[i]);
+              if (n > left) { items[i] = withCount(items[i], n - left); left = 0; } else { items.splice(i, 1); left -= n; }
+            }
+          }
+          // two of a combined item ("Synaptic Obliterator and 1 Co-Axial Exile Projector") read "2 x ...", not a plural
+          added.push(!counted || c.count === 1 ? c.name : / and /.test(c.name) ? `${c.count} x ${c.name}` : withCount(c.name, c.count * itemCount(c.name)));
+        }
+        items.push(...added);
         let left = row.count;
         for (const p of partial) {
-          const pr = new Set(p.replaces ? p.replaces.split(' & ') : []);
-          groups.push({ model, count: p.count, label: `${row.model} with ${p.name}`, items: items.filter((w) => !pr.has(w)).concat(p.name) });
+          const pr = p.replaces ? p.replaces.split(' & ') : [];
+          const swapped = (w) => pr.includes(w) || pr.some((r) => wkey(r) === wkey(w));
+          groups.push({ model, count: p.count, label: `${row.model} with ${p.name}`, items: items.filter((w) => !swapped(w)).concat(p.name) });
           left -= p.count;
         }
         if (left > 0 || !partial.length) groups.push({ model, count: Math.max(left, 0), label: row.model, items });

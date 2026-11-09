@@ -376,3 +376,18 @@ test('Illuminor Szeras makes every Troops slot in his detachment Prime, with Mec
   const b = armyWith([['Command', 'trazyn-the-infinite'], ['Troops', 'necron-warriors']]);
   assert.ok(!E.primeSlot(b.detachments[0], b.detachments[0].slots[1]));
 });
+
+test('a one-off swap still replaces the whole item; a pair swapped per model replaces the pair', () => {
+  const fs = require('fs'); const vm = require('vm');
+  const load = (id) => { const w = {}; vm.runInNewContext(fs.readFileSync(require('path').join(__dirname, '..', 'js', `data-${id}.js`), 'utf8'), { window: w }); return w.ARMY_DATA[id]; };
+  const H = createEngine(load('harlequins'));
+  const p = H.newSelection('prismweaver'); if (p.arkana === null) p.arkana = 'Frozen Stars';
+  p.options['shuriken-swap'] = true;
+  const pItems = H.effectiveModels(p)[0].items;
+  assert.ok(pItems.includes('2 Hull (front) mounted Haywire Cannons') && !pItems.some((i) => /Shuriken Cannon/.test(i)));
+  const A = createEngine(load('anathema-psykana'));
+  const v = A.newSelection(A.data.units.find((u) => u.name === 'Knight Vestal Covenant').id);
+  v.options['vestal-pistols'] = { 'Two Needle Pistols': 1 };
+  const vItems = A.effectiveModels(v).flatMap((m) => m.items);
+  assert.ok(vItems.includes('Two Needle Pistols') && !vItems.some((i) => /bolt pistol/i.test(i)));
+});
