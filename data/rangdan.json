@@ -297,14 +297,14 @@
    "page": null,
    "limit": null,
    "unique": false,
-   "basePoints": 255,
+   "basePoints": 240,
    "composition": "3 Shadow Lancers",
    "models": [
     {
      "name": "Shadow Lancer",
      "min": 3,
      "max": 5,
-     "costPerExtra": 85,
+     "costPerExtra": 80,
      "profile": {
       "M": 9,
       "WS": 5,
@@ -353,14 +353,14 @@
    "page": null,
    "limit": null,
    "unique": false,
-   "basePoints": 210,
+   "basePoints": 195,
    "composition": "3 Mimics",
    "models": [
     {
      "name": "Mimic",
      "min": 3,
      "max": 5,
-     "costPerExtra": 70,
+     "costPerExtra": 65,
      "profile": {
       "M": 9,
       "WS": 5,

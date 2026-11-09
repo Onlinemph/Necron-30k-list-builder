@@ -53,7 +53,7 @@ A Harlequin is priced to be worth about what a Custodian is, but in its own way:
 
 ## Rangdan
 
-The Rangda never had rules or models, so this army is written for the builder too (`data/rangdan/`, design notes and the canon it draws on in `data/rangdan/NOTES.md`). It has three halves. The Rangda are a few towering vulpine hunters at 70–90 points a model, with Fear (2) and Prey Instinct (+1 to wound any unit that has a Tactical Status). The Thralls are captured Imperial Army and Solar Auxilia with their own wargear and neural collars, and Rangdan characters can overload a unit's collars for a Fight Sub-Phase. The Slaugth follow the hunt and eat the dead, with Feel No Pain that fire ignores. Every Troops unit is a Thrall, the Carrion Court detachment needs a Slaugth Dream-Eater in a Command slot, and none of the rules use re-rolls.
+The Rangda never had rules or models, so this army is written for the builder too (`data/rangdan/`, design notes and the canon it draws on in `data/rangdan/NOTES.md`). It has three halves. The Rangda are a few towering vulpine hunters at 65–80 points a model, with Fear (2) and Prey Instinct (+1 to wound any unit that has a Tactical Status). The Thralls are captured Imperial Army and Solar Auxilia with their own wargear and neural collars, and Rangdan characters can overload a unit's collars for a Fight Sub-Phase. The Slaugth follow the hunt and eat the dead, with Feel No Pain that fire ignores. Every Troops unit is a Thrall, the Carrion Court detachment needs a Slaugth Dream-Eater in a Command slot, and none of the rules use re-rolls.
 
 ## BSData armies
 

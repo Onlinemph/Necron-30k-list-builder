@@ -34,12 +34,12 @@ test('Rangdan Weapon Skill: 5 in the ranks, 6 for Command, 7 for High Command', 
   assert.equal(ws('hunt-sovereign'), 7);
 });
 
-test('Rangdan squads cost 70 to 90 points a model', () => {
+test('Rangdan squads cost 65 to 80 points a model', () => {
   const squads = data.units.filter((u) => has(u, 'Rangda') && u.models.some((m) => m.max > 1 && /Infantry/.test(m.unitType)));
   assert.deepEqual(squads.map((u) => u.id).sort(), ['hunt-pack', 'rangdan-mimics', 'shadow-lancers']);
   for (const u of squads) {
     const m = u.models[0];
-    assert.ok(m.costPerExtra >= 70 && m.costPerExtra <= 90, `${u.id} at ${m.costPerExtra}`);
+    assert.ok(m.costPerExtra >= 65 && m.costPerExtra <= 80, `${u.id} at ${m.costPerExtra}`);
     assert.equal(u.basePoints, m.costPerExtra * m.min, `${u.id} base cost is its minimum models`);
   }
 });
