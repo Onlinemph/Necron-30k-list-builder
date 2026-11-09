@@ -52,11 +52,12 @@ test('every Troops unit is a Thrall: the Rangda never hold ground themselves', (
 
 test('Thralls are captured Imperial troops with Imperial wargear and Neural Collars', () => {
   for (const u of data.units.filter((x) => has(x, 'Thrall'))) assert.ok(u.specialRules.includes('Neural Collars'), u.id);
-  for (const name of ['Lasrifle', 'Battlecannon', 'Heavy bolter', 'Lascannon', 'Bayonet', 'Krak grenades']) {
-    const mine = [...data.weapons.ranged, ...data.weapons.melee].find((w) => w.name === name);
-    const theirs = [...common.weapons.ranged, ...common.weapons.melee].find((w) => w.name === name);
-    for (const k of ['R', 'FP', 'RS', 'IM', 'AM', 'SM', 'AP', 'D']) assert.equal(String(mine[k]), String(theirs[k]), `${name} ${k}`);
-  }
+  // every weapon that shares a name with a BSData profile is that profile, modes included
+  const theirs = new Map([...common.weapons.ranged, ...common.weapons.melee].map((w) => [w.name, w]));
+  const shared = [...data.weapons.ranged, ...data.weapons.melee].filter((w) => theirs.has(w.name));
+  assert.ok(shared.length >= 15, `${shared.length} Imperial profiles`);
+  const stats = (w) => JSON.stringify(['R', 'FP', 'RS', 'IM', 'AM', 'SM', 'AP', 'D', 'specialRules'].map((k) => w[k]).concat([(w.modes || []).map(stats)]));
+  for (const w of shared) assert.equal(stats(w), stats(theirs.get(w.name)), w.name);
 });
 
 test('the army rules use modifiers and statuses, never re-rolls', () => {
@@ -73,16 +74,78 @@ test('Rangda carry Prey Instinct and Fear (2); Slaugth carry Worm Gestalt, which
     const r = rules(sel(u.id));
     assert.ok(r.includes('Prey Instinct') && r.includes('Fear (2)'), u.id);
   }
-  for (const u of data.units.filter((x) => has(x, 'Slaugth'))) assert.ok(rules(sel(u.id)).includes('Worm Gestalt'), u.id);
+  for (const u of data.units.filter((x) => has(x, 'Slaugth') && x.models[0].profile.T != null)) assert.ok(rules(sel(u.id)).includes('Worm Gestalt'), u.id);
   assert.match(data.rules.specialRules.find((r) => r.name === 'Worm Gestalt').text, /Feel No Pain \(5\+\).*Flame Trait or the Aflame/s);
 });
 
-test('Shadow Blaster swaps cost 10 points a model; the Kindred get one Necrotic Spewer per three', () => {
+test('Hunt-Pack wargear: sidearms, hooks, one Severing Maul per three and a Pack-Alpha', () => {
   const h = sel('hunt-pack');
   h.counts = { 'Rangda Hunter': 4 };
-  h.options.blaster = { 'Shadow Blaster': 4 };
+  h.options.sidearm = { 'Shadow Blaster': 4 };
   assert.equal(E.unitPoints(h), 4 * 70 + 40);
   assert.ok(E.effectiveModels(h).every((r) => r.items.includes('Shadow Blaster') && !r.items.includes('Shadow Pistol')));
+  h.counts = { 'Rangda Hunter': 6 };
+  h.options = { maul: { 'Severing Maul': 2 }, melee: { 'Flensing Hooks': 4 } };
+  assert.equal(E.optionMax(E.optionsOf(h).find((o) => o.id === 'maul'), h), 2);
+  assert.equal(E.unitPoints(h), 6 * 70 + 40);
+  assert.deepEqual(errs(h), []);
+  h.options.melee = { 'Flensing Hooks': 5 };
+  assert.ok(errs(h).some((i) => /more upgrades than models/.test(i.msg)), 'hooks and mauls share the glaives');
+  const a = sel('hunt-pack');
+  a.options.alpha = 1;
+  assert.equal(E.unitPoints(a), 210 + 15);
+  const alpha = E.effectiveModels(a).find((r) => r.name === 'Pack-Alpha');
+  assert.equal(alpha.count, 1);
+  assert.equal(alpha.profile.INV, '4+');
+  assert.ok(alpha.items.includes('Shroud-field'));
+});
+
+test('Relics of the Hunt and the Fang are once per army', () => {
+  const m = sel('rangda-huntmaster');
+  const c = sel('collar-wright');
+  for (const s of [m, c]) { s.options.fang = 'Fang of the First Xenocide'; s.options.relic = 'Dread-mask'; }
+  const det = E.makeDetachment('primary', 'P', [{ role: 'Command' }, { role: 'Command' }]);
+  det.slots[0].unit = m;
+  det.slots[1].unit = c;
+  const msgs = E.armyIssues(army([det])).map((i) => i.msg);
+  assert.ok(msgs.some((x) => /Fang of the First Xenocide may only be taken once/.test(x)));
+  assert.ok(msgs.some((x) => /Dread-mask may only be taken once/.test(x)));
+  c.options = { relic: 'Skin-thief Cloak' };
+  assert.ok(!E.armyIssues(army([det])).some((i) => /once per army/.test(i.msg)));
+  assert.equal(E.unitPoints(m), 155 + 25 + 10);
+});
+
+test('Thralls carry captured Imperial heavy and special weapons, one per ten', () => {
+  const t = sel('thrall-cohort');
+  t.counts = { Thrall: 30 };
+  assert.equal(E.optionMax(E.optionsOf(t).find((o) => o.id === 'heavy'), t), 3);
+  t.options.heavy = { Lascannon: 2, Autocannon: 1 };
+  assert.equal(E.unitPoints(t), 120 + 10 * 6 + 2 * 15 + 20);
+  const x = sel('collared-auxilia');
+  assert.equal(E.optionMax(E.optionsOf(x).find((o) => o.id === 'special'), x), 1);
+  const r = sel('thrall-armour');
+  r.options.turret = 'Turret Mounted Demolisher cannon';
+  r.options.sponsons = 'Two Sponson Mounted Lascannons';
+  assert.equal(E.unitPoints(r), 130 + 15 + 25);
+  assert.ok(E.effectiveModels(r)[0].items.includes('Turret Mounted Demolisher cannon'));
+});
+
+test('transports: a Tendril Barge carries four Rangda, Thrall Carriers only Thralls without Bulky, and each goes in its own detachments', () => {
+  const cap = (id) => unit(id).models[0].profile.CAPACITY;
+  assert.ok(cap('tendril-barge') >= 4 * 3, 'four Bulky (3) Rangda');
+  assert.ok(!unit('tendril-barge').specialRules.includes('Light Transport'), 'Light Transport would bar Bulky Rangda');
+  assert.ok(unit('thrall-carrier').specialRules.includes('Light Transport'));
+  assert.ok(cap('charnel-barge') >= 4 * 2, 'four Bulky (2) Kindred');
+  const ids = (detId) => { const d = E.detachmentFromDef(detId); return E.unitsForSlot(d.slots.find((s) => s.role === 'Transport'), d).map((u) => u.id); };
+  assert.deepEqual(ids('the-hunt'), ['tendril-barge']);
+  assert.deepEqual(ids('the-herd'), ['thrall-carrier']);
+  assert.deepEqual(ids('the-carrion-court'), ['charnel-barge']);
+  const shoal = E.detachmentFromDef('medusa-shoal');
+  assert.deepEqual(E.unitsForSlot(shoal.slots.find((s) => s.role === 'Fast Attack'), shoal).map((u) => u.id).sort(), ['shadow-kite', 'tendril-skiffs']);
+  assert.match(E.effectiveModels(sel('shadow-kite'))[0].unitType, /Flyer/);
+});
+
+test('the Kindred get one Necrotic Spewer per three', () => {
   const k = sel('slaugth-kindred');
   k.counts = { Slaugth: 6 };
   const o = E.optionsOf(k).find((x) => x.id === 'spewer');

@@ -26,6 +26,11 @@
           "role": "Support",
           "prime": false,
           "flexible": false
+        },
+        {
+          "role": "Transport",
+          "prime": false,
+          "flexible": false
         }
       ],
       "restrictions": [
@@ -69,6 +74,11 @@
         },
         {
           "role": "Armour",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Transport",
           "prime": false,
           "flexible": false
         }
@@ -147,6 +157,11 @@
         },
         {
           "role": "War Engine",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Transport",
           "prime": false,
           "flexible": false
         }

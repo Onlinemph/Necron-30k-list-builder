@@ -70,14 +70,41 @@ collar), Sated Gestalt (Slaugth with Carrion Feast regain two wounds).
 | Tendril Skiffs | Fast Attack | 85 each | Small jellyfish skimmers |
 | Iron Medusa | Armour | 160 | Shadow cannon (Blast, Deflagrate, Suppressive) |
 | Spine-Leviathan | Lord of War | 620 | Super-heavy skimmer |
+| Tendril Barge | Transport | 85 | Capacity 12 (four Rangda), Assault Vehicle |
+| Shadow Kite | Fast Attack | 105 | Flyer with two shadow lances |
 | Thrall Cohort | Troops | 120 for 20, +6 | Imperial Army, Expendable (2) |
 | Collared Auxilia | Troops | 55 for 10, +5 | Solar Auxilia in void armour |
 | Collared Ogryns | Heavy Assault | 95 for 3, +30 | The obvious thing to Overload |
 | Thrall Armour | Armour | 130 | A captured Leman Russ, priced like the Militia one |
+| Thrall Carrier | Transport | 50 | A captured Aurox; Light Transport, so no Ogryns |
 | Slaugth Dream-Eater | Command | 135 | Unlocks the Carrion Court; heals fully on killing a character in a Challenge |
 | Slaugth Kindred | Elites | 45 a model | W3 T5 4+ with Feel No Pain (5+) |
 | Vassal Swarm | Fast Attack | 15 a model | Floating constructs whose spines pin |
 | Harvester | War Engine | 200 | Walker that heals by eating infantry |
+| Charnel Barge | Transport | 65 | Capacity 8 (four Kindred); regains a Hull Point on a 5+ each turn |
+
+The Hunt, The Herd and The Carrion Court each have a Transport slot, which takes only that half's transport.
+
+### Wargear
+
+| Who | Options |
+| --- | --- |
+| Hunt-Pack | Rangdan Sidearms (Shadow Pistol, Shadow Shrieker +0, Shadow Blaster +10); Flensing Hooks (A+1, AP 3, D 1) for any model; one Severing Maul (S+3, AP 2, D 2, I-2) per three, +20; a Pack-Alpha (A5, shroud-field) +15 |
+| Huntmaster, Collar-Wright | Sidearms; the Huntmaster also takes Hunting Weapons or a Severing Maul; the Fang of the First Xenocide +25; one Relic of the Hunt |
+| Hunt-Sovereign | The Fang +20; one Relic of the Hunt |
+| Relics of the Hunt (once per army) | Skin-thief Cloak (Shrouded 5+) 15, Dread-mask (Fear +1) 10, War-moon Beacon (a War-moon Strike, or a second one for the Hunt-Sovereign) 25, Collar-key of Advex-Mors (18" Overload that costs D3-1 wounds) 10 |
+| Shadow Lancers | Shadow Caster (R30 FP2 S6 AP3 Blast 3", Suppressive) in place of the lance |
+| Tendril Skiffs, Iron Medusa, Spine-Leviathan | Shadow lances or lance arrays in place of blasters and cannons |
+| Thrall Cohort | One Captured Heavy Weapon per ten (heavy stubber, heavy bolter 5, missile launcher 10, lascannon 15, autocannon 20) |
+| Collared Auxilia | One Captured Special Weapon per ten (flamer, volkite charger 5, meltagun 15) |
+| Thrall Armour | Demolisher or Executioner turret, hull lascannon or heavy flamer, sponson heavy bolters or lascannons, pintle stubber, hunter-killer |
+| Slaugth | Necrotic Spewers for the Dream-Eater (+10), one Kindred in three (+10) and the Harvester (+15); one Nerve-lash per three Kindred; Corpse-cloak (Shrouded 5+) for the Dream-Eater |
+
+Every captured Imperial weapon is copied from BSData's HH3 profile when the data is generated, so it can't drift.
+The Shadow Shrieker (R12 FP2 S4 AP5, Suppressive) does less damage than a pistol and is free: it's there to put
+Suppressed markers down for Prey Instinct. Option prices come from the sim: a Severing Maul is worth about 25 points
+a model before counting its Initiative penalty and its melee anti-tank, which the yardstick overweights, hence +20 and
+one per three.
 
 ## Calibration
 
@@ -102,6 +129,10 @@ elite target and a WS 5 power-axe attacker, so Weapon Skill above 4 shows up in 
 | Spine-Leviathan | 620 | 3.42 | Fellblade 3.22, same caveat |
 | Slaugth Kindred | 135 | 3.98 | Sons of Horus median 4.60; Phage and Carrion Feast aren't measured |
 | Harvester | 200 | 5.01 | Contemptor 4.06 |
+| Shadow Kite | 105 | 6.98 | Xiphon 8.49; the 5+ invulnerable against shooting isn't measured |
+| Tendril Barge | 85 | 7.35 | Rhino 9.51; Assault Vehicle and the shroud aren't measured |
+| Thrall Carrier | 50 | 10.2 | Aurox 9.56 |
+| Charnel Barge | 65 | 9.19 | Rhino 9.51 |
 
 The army's median is 5.93 against 5.84 for Custodes, 4.60 for the Sons of Horus and 5.51 for the Solar Auxilia.
 

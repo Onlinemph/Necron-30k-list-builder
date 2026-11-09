@@ -11,6 +11,31 @@
       "text": "The great Rangdan machines trail the same bent shadow as their officers. A Model with a Medusa Shroud has a 5+ Invulnerable Save against Shooting Attacks."
     },
     {
+      "name": "Skin-thief Cloak",
+      "page": null,
+      "text": "A cloak sewn from the hide of something the Rangda hunted and could not stop admiring; it drinks the light around it. Relic of the Hunt: once per army. The bearer has the Shrouded (5+) Special Rule."
+    },
+    {
+      "name": "Dread-mask",
+      "page": null,
+      "text": "The skull of the first Imperial commander its wearer killed, worn where the enemy can see it. Relic of the Hunt: once per army. The bearer increases the value of its Fear (X) Special Rule by 1, to a maximum of Fear (3)."
+    },
+    {
+      "name": "War-moon Beacon",
+      "page": null,
+      "text": "A shard of a war-moon's targeting array, still listening for its masters. Relic of the Hunt: once per army. The bearer may fire a War-moon Strike as if it had the Herald of the War-moon Special Rule. If the bearer is a Hunt-Sovereign, its War-moon Strike has Limited (2) instead of Limited (1)."
+    },
+    {
+      "name": "Collar-key of Advex-Mors",
+      "page": null,
+      "text": "The master key to the collars fitted on the first world the Rangda took. Relic of the Hunt: once per army. The bearer may use the Collar-master Special Rule on a Unit with any Model within 18\" of it, and a Unit it Overloads suffers D3-1 wounds at the end of the Phase instead of D3."
+    },
+    {
+      "name": "Corpse-cloak",
+      "page": null,
+      "text": "Robes woven from the skins of the eaten, which the worms beneath can slide through and out of. The bearer has the Shrouded (5+) Special Rule."
+    },
+    {
       "name": "Neural Collar",
       "page": null,
       "text": "A band of cold xenos metal sunk into the spine. It carries its masters' will straight into the nerves, and burns through them on command. See the Neural Collars Special Rule."

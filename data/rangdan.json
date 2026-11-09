@@ -73,7 +73,40 @@
    "fixedArkana": null,
    "factionChoice": false,
    "fixedChoice": null,
-   "options": [],
+   "options": [
+    {
+     "id": "fang",
+     "text": "May exchange its Sovereign's Glaive for the Fang of the First Xenocide for +20 points.",
+     "kind": "one",
+     "model": null,
+     "replaces": [
+      "Sovereign's Glaive"
+     ],
+     "choices": [
+      {
+       "name": "Fang of the First Xenocide",
+       "points": 20,
+       "oncePerArmy": true
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "relic",
+     "text": "May have one item from the Relics of the Hunt selected for it.",
+     "kind": "one",
+     "model": null,
+     "replaces": [],
+     "choices": [
+      {
+       "list": "relics-of-the-hunt"
+      }
+     ],
+     "max": null,
+     "requires": null
+    }
+   ],
    "note": "A hunt-lord of the Rangda, one of the tall vulpine masters the Imperium spent three Xenocides trying to erase. Written for this list."
   },
   {
@@ -133,8 +166,28 @@
    "fixedChoice": null,
    "options": [
     {
-     "id": "blaster",
-     "text": "May exchange its Shadow Pistol for a Shadow Blaster for +10 points.",
+     "id": "melee",
+     "text": "May exchange its Spine Glaive for an item from the Rangdan Hunting Weapons list, or for a Severing Maul for +20 points.",
+     "kind": "one",
+     "model": null,
+     "replaces": [
+      "Spine Glaive"
+     ],
+     "choices": [
+      {
+       "list": "rangdan-hunting-weapons"
+      },
+      {
+       "name": "Severing Maul",
+       "points": 20
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "sidearm",
+     "text": "May exchange its Shadow Pistol for an item from the Rangdan Sidearms list.",
      "kind": "one",
      "model": null,
      "replaces": [
@@ -142,8 +195,39 @@
      ],
      "choices": [
       {
-       "name": "Shadow Blaster",
-       "points": 10
+       "list": "rangdan-sidearms"
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "fang",
+     "text": "May exchange its Spine Glaive for the Fang of the First Xenocide for +25 points.",
+     "kind": "one",
+     "model": null,
+     "replaces": [
+      "Spine Glaive"
+     ],
+     "choices": [
+      {
+       "name": "Fang of the First Xenocide",
+       "points": 25,
+       "oncePerArmy": true
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "relic",
+     "text": "May have one item from the Relics of the Hunt selected for it.",
+     "kind": "one",
+     "model": null,
+     "replaces": [],
+     "choices": [
+      {
+       "list": "relics-of-the-hunt"
       }
      ],
      "max": null,
@@ -213,7 +297,56 @@
    "fixedArkana": null,
    "factionChoice": false,
    "fixedChoice": null,
-   "options": [],
+   "options": [
+    {
+     "id": "sidearm",
+     "text": "May exchange its Shadow Pistol for an item from the Rangdan Sidearms list.",
+     "kind": "one",
+     "model": null,
+     "replaces": [
+      "Shadow Pistol"
+     ],
+     "choices": [
+      {
+       "list": "rangdan-sidearms"
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "fang",
+     "text": "May exchange its Spine Glaive for the Fang of the First Xenocide for +25 points.",
+     "kind": "one",
+     "model": null,
+     "replaces": [
+      "Spine Glaive"
+     ],
+     "choices": [
+      {
+       "name": "Fang of the First Xenocide",
+       "points": 25,
+       "oncePerArmy": true
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "relic",
+     "text": "May have one item from the Relics of the Hunt selected for it.",
+     "kind": "one",
+     "model": null,
+     "replaces": [],
+     "choices": [
+      {
+       "list": "relics-of-the-hunt"
+      }
+     ],
+     "max": null,
+     "requires": null
+    }
+   ],
    "note": "The Rangda who keeps the herd. Written for this list."
   },
   {
@@ -253,6 +386,35 @@
      ],
      "unitType": "Infantry",
      "specialRules": []
+    },
+    {
+     "name": "Pack-Alpha",
+     "min": 0,
+     "max": 1,
+     "costPerExtra": 0,
+     "profile": {
+      "M": 9,
+      "WS": 5,
+      "BS": 4,
+      "S": 5,
+      "T": 5,
+      "W": 4,
+      "I": 6,
+      "A": 5,
+      "LD": 11,
+      "CL": 10,
+      "WP": 9,
+      "IN": 8,
+      "SAV": "3+",
+      "INV": "4+"
+     },
+     "wargear": [
+      "Spine Glaive",
+      "Shadow Pistol",
+      "Shroud-field"
+     ],
+     "unitType": "Infantry (Sergeant)",
+     "specialRules": []
     }
    ],
    "traits": [
@@ -271,8 +433,64 @@
    "fixedChoice": null,
    "options": [
     {
-     "id": "blaster",
-     "text": "Any Model may exchange its Shadow Pistol for a Shadow Blaster for +10 points per Model.",
+     "id": "alpha",
+     "text": "One Rangda Hunter may be upgraded to a Pack-Alpha for +15 points.",
+     "kind": "swapModel",
+     "model": "Rangda Hunter",
+     "replaces": [],
+     "choices": [
+      {
+       "name": "Pack-Alpha",
+       "points": 15
+      }
+     ],
+     "max": {
+      "fixed": 1
+     },
+     "requires": null
+    },
+    {
+     "id": "melee",
+     "text": "Any Model may exchange its Spine Glaive for an item from the Rangdan Hunting Weapons list.",
+     "kind": "perModel",
+     "model": null,
+     "replaces": [
+      "Spine Glaive"
+     ],
+     "choices": [
+      {
+       "list": "rangdan-hunting-weapons"
+      }
+     ],
+     "max": {
+      "shared": "glaive"
+     },
+     "requires": null
+    },
+    {
+     "id": "maul",
+     "text": "For every three Models in the Unit, one may exchange its Spine Glaive for a Severing Maul for +20 points.",
+     "kind": "perModel",
+     "model": null,
+     "replaces": [
+      "Spine Glaive"
+     ],
+     "choices": [
+      {
+       "name": "Severing Maul",
+       "points": 20
+      }
+     ],
+     "max": {
+      "per": 3,
+      "count": 1,
+      "shared": "glaive"
+     },
+     "requires": null
+    },
+    {
+     "id": "sidearm",
+     "text": "Any Model may exchange its Shadow Pistol for an item from the Rangdan Sidearms list.",
      "kind": "perModel",
      "model": null,
      "replaces": [
@@ -280,8 +498,7 @@
      ],
      "choices": [
       {
-       "name": "Shadow Blaster",
-       "points": 10
+       "list": "rangdan-sidearms"
       }
      ],
      "max": null,
@@ -343,8 +560,26 @@
    "fixedArkana": null,
    "factionChoice": false,
    "fixedChoice": null,
-   "options": [],
-   "note": "Rangda carrying the heavy shadow weapons that unmake tanks. Written for this list."
+   "options": [
+    {
+     "id": "caster",
+     "text": "Any Model may exchange its Shadow Lance for a Shadow Caster.",
+     "kind": "perModel",
+     "model": null,
+     "replaces": [
+      "Shadow Lance"
+     ],
+     "choices": [
+      {
+       "name": "Shadow Caster",
+       "points": 0
+      }
+     ],
+     "max": null,
+     "requires": null
+    }
+   ],
+   "note": "Rangda carrying the heavy shadow weapons that unmake tanks. The Shadow Caster trades the lance for a burst that pins infantry. Written for this list."
   },
   {
    "id": "rangdan-mimics",
@@ -454,7 +689,25 @@
    "fixedArkana": null,
    "factionChoice": false,
    "fixedChoice": null,
-   "options": [],
+   "options": [
+    {
+     "id": "lance",
+     "text": "Any Tendril Skiff may exchange its Shadow Blaster for a Shadow Lance for +10 points.",
+     "kind": "perModel",
+     "model": null,
+     "replaces": [
+      "Shadow Blaster"
+     ],
+     "choices": [
+      {
+       "name": "Shadow Lance",
+       "points": 10
+      }
+     ],
+     "max": null,
+     "requires": null
+    }
+   ],
    "note": "A small iron jellyfish, all spines and trailing metal tendrils, the same shape as the Rangdan warships. Written for this list."
   },
   {
@@ -500,7 +753,42 @@
    "fixedArkana": null,
    "factionChoice": false,
    "fixedChoice": null,
-   "options": [],
+   "options": [
+    {
+     "id": "turret",
+     "text": "May exchange its Turret Mounted Shadow Cannon for a Turret Mounted Shadow Lance Array for +25 points.",
+     "kind": "one",
+     "model": null,
+     "replaces": [
+      "Turret Mounted Shadow Cannon"
+     ],
+     "choices": [
+      {
+       "name": "Turret Mounted Shadow Lance Array",
+       "points": 25
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "hull",
+     "text": "May exchange its 2 Hull Mounted Tendril Flails for 2 Hull Mounted Shadow Blasters for +5 points.",
+     "kind": "one",
+     "model": null,
+     "replaces": [
+      "2 Hull Mounted Tendril Flails"
+     ],
+     "choices": [
+      {
+       "name": "2 Hull Mounted Shadow Blasters",
+       "points": 5
+      }
+     ],
+     "max": null,
+     "requires": null
+    }
+   ],
    "note": "The Rangdan battle tank: a floating iron bell trailing a curtain of flails. Written for this list."
   },
   {
@@ -549,8 +837,120 @@
    "fixedArkana": null,
    "factionChoice": false,
    "fixedChoice": null,
-   "options": [],
+   "options": [
+    {
+     "id": "sponsons",
+     "text": "May exchange its 2 Sponson Mounted Shadow Cannons for 2 Sponson Mounted Shadow Lance Arrays for +15 points.",
+     "kind": "one",
+     "model": null,
+     "replaces": [
+      "2 Sponson Mounted Shadow Cannons"
+     ],
+     "choices": [
+      {
+       "name": "2 Sponson Mounted Shadow Lance Arrays",
+       "points": 15
+      }
+     ],
+     "max": null,
+     "requires": null
+    }
+   ],
    "note": "A war-moon's lander, as big as a Fellblade. Written for this list."
+  },
+  {
+   "id": "tendril-barge",
+   "name": "Tendril Barge",
+   "role": "Transport",
+   "page": null,
+   "limit": null,
+   "unique": false,
+   "basePoints": 85,
+   "composition": "1 Tendril Barge",
+   "models": [
+    {
+     "name": "Tendril Barge",
+     "min": 1,
+     "max": 1,
+     "costPerExtra": 0,
+     "profile": {
+      "M": 14,
+      "BS": 4,
+      "FRONT": 11,
+      "SIDE": 11,
+      "REAR": 10,
+      "HP": 4,
+      "CAPACITY": 12
+     },
+     "wargear": [
+      "Shadow Blaster",
+      "2 Hull Mounted Tendril Flails",
+      "Medusa Shroud"
+     ],
+     "unitType": "Vehicle (Antigrav, Transport)",
+     "specialRules": []
+    }
+   ],
+   "traits": [
+    "Xenos",
+    "Rangda"
+   ],
+   "specialRules": [
+    "Assault Vehicle"
+   ],
+   "unitRules": [],
+   "cryptoArkana": false,
+   "fixedArkana": null,
+   "factionChoice": false,
+   "fixedChoice": null,
+   "options": [],
+   "note": "A hunting barge with room for four Rangda, who drop from its tendrils straight into a charge. Written for this list."
+  },
+  {
+   "id": "shadow-kite",
+   "name": "Shadow Kite",
+   "role": "Fast Attack",
+   "page": null,
+   "limit": null,
+   "unique": false,
+   "basePoints": 105,
+   "composition": "1 Shadow Kite",
+   "models": [
+    {
+     "name": "Shadow Kite",
+     "min": 1,
+     "max": 1,
+     "costPerExtra": 0,
+     "profile": {
+      "M": 20,
+      "BS": 4,
+      "FRONT": 11,
+      "SIDE": 11,
+      "REAR": 11,
+      "HP": 4,
+      "CAPACITY": "–"
+     },
+     "wargear": [
+      "2 Hull Mounted Shadow Lances",
+      "Shadow Blaster",
+      "Medusa Shroud"
+     ],
+     "unitType": "Vehicle (Flyer)",
+     "specialRules": []
+    }
+   ],
+   "traits": [
+    "Xenos",
+    "Rangda"
+   ],
+   "specialRules": [],
+   "unitRules": [],
+   "cryptoArkana": false,
+   "fixedArkana": null,
+   "factionChoice": false,
+   "fixedChoice": null,
+   "options": [],
+   "note": "A flat ray of black iron trailing two spines; the Rangdan answer to an interceptor. Written for this list."
   },
   {
    "id": "thrall-cohort",
@@ -606,7 +1006,27 @@
    "fixedArkana": null,
    "factionChoice": false,
    "fixedChoice": null,
-   "options": [],
+   "options": [
+    {
+     "id": "heavy",
+     "text": "For every 10 Models in the Unit, one may exchange its Lasrifle for an item from the Captured Heavy Weapons list.",
+     "kind": "perModel",
+     "model": null,
+     "replaces": [
+      "Lasrifle"
+     ],
+     "choices": [
+      {
+       "list": "captured-heavy-weapons"
+      }
+     ],
+     "max": {
+      "per": 10,
+      "count": 1
+     },
+     "requires": null
+    }
+   ],
    "note": "Imperial Army troops taken on a Rangdan-tainted world, still in their old uniforms. Uses Imperial Army models."
   },
   {
@@ -662,7 +1082,27 @@
    "fixedArkana": null,
    "factionChoice": false,
    "fixedChoice": null,
-   "options": [],
+   "options": [
+    {
+     "id": "special",
+     "text": "For every 10 Models in the Unit, one may exchange its Lasrifle for an item from the Captured Special Weapons list.",
+     "kind": "perModel",
+     "model": null,
+     "replaces": [
+      "Lasrifle"
+     ],
+     "choices": [
+      {
+       "list": "captured-special-weapons"
+      }
+     ],
+     "max": {
+      "per": 10,
+      "count": 1
+     },
+     "requires": null
+    }
+   ],
    "note": "Captured Solar Auxilia in their void armour. Uses Solar Auxilia models."
   },
   {
@@ -769,6 +1209,27 @@
    "fixedChoice": null,
    "options": [
     {
+     "id": "turret",
+     "text": "May exchange its Turret Mounted Battlecannon for one of the following:",
+     "kind": "one",
+     "model": null,
+     "replaces": [
+      "Turret Mounted Battlecannon"
+     ],
+     "choices": [
+      {
+       "name": "Turret Mounted Demolisher cannon",
+       "points": 15
+      },
+      {
+       "name": "Turret Mounted Executioner plasma destroyer",
+       "points": 10
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
      "id": "hull",
      "text": "May exchange its Hull (Front) Mounted Heavy bolter for one of the following:",
      "kind": "one",
@@ -788,9 +1249,94 @@
      ],
      "max": null,
      "requires": null
+    },
+    {
+     "id": "sponsons",
+     "text": "May take one of the following pairs of sponson weapons:",
+     "kind": "one",
+     "model": null,
+     "replaces": [],
+     "choices": [
+      {
+       "name": "Two Sponson Mounted Heavy bolters",
+       "points": 15
+      },
+      {
+       "name": "Two Sponson Mounted Lascannons",
+       "points": 25
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "extras",
+     "text": "May take any of the following:",
+     "kind": "any",
+     "model": null,
+     "replaces": [],
+     "choices": [
+      {
+       "name": "Pintle Mounted Heavy stubber",
+       "points": 5
+      },
+      {
+       "name": "Hull Mounted Hunter-killer missile",
+       "points": 5
+      }
+     ],
+     "max": null,
+     "requires": null
     }
    ],
    "note": "A captured Leman Russ with a collared crew. Neural Collars still applies: with no Rangda within 12\" its crew may not declare Reactions."
+  },
+  {
+   "id": "thrall-carrier",
+   "name": "Thrall Carrier",
+   "role": "Transport",
+   "page": null,
+   "limit": null,
+   "unique": false,
+   "basePoints": 50,
+   "composition": "1 Thrall Carrier",
+   "models": [
+    {
+     "name": "Thrall Carrier",
+     "min": 1,
+     "max": 1,
+     "costPerExtra": 0,
+     "profile": {
+      "M": 12,
+      "BS": 3,
+      "FRONT": 12,
+      "SIDE": 11,
+      "REAR": 10,
+      "HP": 4,
+      "CAPACITY": 10
+     },
+     "wargear": [
+      "Pintle Mounted Heavy stubber"
+     ],
+     "unitType": "Vehicle (Rapid, Transport)",
+     "specialRules": []
+    }
+   ],
+   "traits": [
+    "Xenos",
+    "Thrall"
+   ],
+   "specialRules": [
+    "Neural Collars",
+    "Light Transport"
+   ],
+   "unitRules": [],
+   "cryptoArkana": false,
+   "fixedArkana": null,
+   "factionChoice": false,
+   "fixedChoice": null,
+   "options": [],
+   "note": "A captured Aurox with a collared driver. Uses Solar Auxilia models."
   },
   {
    "id": "slaugth-dream-eater",
@@ -851,7 +1397,40 @@
    "fixedArkana": null,
    "factionChoice": false,
    "fixedChoice": null,
-   "options": [],
+   "options": [
+    {
+     "id": "spewer",
+     "text": "May exchange its Necrotic Projector for a Necrotic Spewer for +10 points.",
+     "kind": "one",
+     "model": null,
+     "replaces": [
+      "Necrotic Projector"
+     ],
+     "choices": [
+      {
+       "name": "Necrotic Spewer",
+       "points": 10
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "cloak",
+     "text": "May take a Corpse-cloak for +10 points.",
+     "kind": "upgrade",
+     "model": null,
+     "replaces": [],
+     "choices": [
+      {
+       "name": "Corpse-cloak",
+       "points": 10
+      }
+     ],
+     "max": null,
+     "requires": null
+    }
+   ],
    "note": "Canon places the Slaugth at Rangda during the Xenocides and says nothing more about why. Here they follow the hunts and eat the dead. Taking a Dream-Eater in a Command slot unlocks the Carrion Court. Written for this list."
   },
   {
@@ -910,7 +1489,7 @@
    "options": [
     {
      "id": "spewer",
-     "text": "For every three Models in the Unit, one may exchange its Necrotic Projector for a Necrotic Spewer for +5 points.",
+     "text": "For every three Models in the Unit, one may exchange its Necrotic Projector for a Necrotic Spewer for +10 points.",
      "kind": "perModel",
      "model": null,
      "replaces": [
@@ -919,6 +1498,26 @@
      "choices": [
       {
        "name": "Necrotic Spewer",
+       "points": 10
+      }
+     ],
+     "max": {
+      "per": 3,
+      "count": 1
+     },
+     "requires": null
+    },
+    {
+     "id": "lash",
+     "text": "For every three Models in the Unit, one may exchange its Worm-grasp for a Nerve-lash for +5 points.",
+     "kind": "perModel",
+     "model": null,
+     "replaces": [
+      "Worm-grasp"
+     ],
+     "choices": [
+      {
+       "name": "Nerve-lash",
        "points": 5
       }
      ],
@@ -1037,11 +1636,189 @@
    "fixedArkana": null,
    "factionChoice": false,
    "fixedChoice": null,
-   "options": [],
+   "options": [
+    {
+     "id": "spewers",
+     "text": "May exchange its 2 Necrotic Projectors for 2 Necrotic Spewers for +15 points.",
+     "kind": "one",
+     "model": null,
+     "replaces": [
+      "2 Necrotic Projectors"
+     ],
+     "choices": [
+      {
+       "name": "2 Necrotic Spewers",
+       "points": 15
+      }
+     ],
+     "max": null,
+     "requires": null
+    }
+   ],
    "note": "A vehicle-sized mass of flesh and metal that gathers the dead. Written for this list."
+  },
+  {
+   "id": "charnel-barge",
+   "name": "Charnel Barge",
+   "role": "Transport",
+   "page": null,
+   "limit": null,
+   "unique": false,
+   "basePoints": 65,
+   "composition": "1 Charnel Barge",
+   "models": [
+    {
+     "name": "Charnel Barge",
+     "min": 1,
+     "max": 1,
+     "costPerExtra": 0,
+     "profile": {
+      "M": 12,
+      "BS": 3,
+      "FRONT": 11,
+      "SIDE": 11,
+      "REAR": 10,
+      "HP": 4,
+      "CAPACITY": 8
+     },
+     "wargear": [
+      "Necrotic Spewer"
+     ],
+     "unitType": "Vehicle (Antigrav, Transport)",
+     "specialRules": []
+    }
+   ],
+   "traits": [
+    "Xenos",
+    "Slaugth"
+   ],
+   "specialRules": [
+    "Living Hull"
+   ],
+   "unitRules": [
+    {
+     "name": "Living Hull",
+     "text": "The barge is grown, not built, and it closes its own wounds. At the start of its Controlling Player's turn, roll a Dice for a Model with this Special Rule that has lost any Hull Points: on a 5+ it regains one lost Hull Point."
+    }
+   ],
+   "cryptoArkana": false,
+   "fixedArkana": null,
+   "factionChoice": false,
+   "fixedChoice": null,
+   "options": [],
+   "note": "A floating hull of flesh over a metal frame that carries the Kindred to the dead. Written for this list."
   }
  ],
- "lists": [],
+ "lists": [
+  {
+   "id": "rangdan-hunting-weapons",
+   "name": "Rangdan Hunting Weapons",
+   "page": null,
+   "items": [
+    {
+     "name": "Spine Glaive",
+     "points": 0
+    },
+    {
+     "name": "Flensing Hooks",
+     "points": 0
+    }
+   ]
+  },
+  {
+   "id": "rangdan-sidearms",
+   "name": "Rangdan Sidearms",
+   "page": null,
+   "items": [
+    {
+     "name": "Shadow Pistol",
+     "points": 0
+    },
+    {
+     "name": "Shadow Shrieker",
+     "points": 0
+    },
+    {
+     "name": "Shadow Blaster",
+     "points": 10
+    }
+   ]
+  },
+  {
+   "id": "relics-of-the-hunt",
+   "name": "Relics of the Hunt",
+   "page": null,
+   "note": "Each item may be selected only once per army. The Fang of the First Xenocide is a weapon and is also once per army.",
+   "items": [
+    {
+     "name": "Skin-thief Cloak",
+     "points": 15,
+     "oncePerArmy": true
+    },
+    {
+     "name": "Dread-mask",
+     "points": 10,
+     "oncePerArmy": true
+    },
+    {
+     "name": "War-moon Beacon",
+     "points": 25,
+     "oncePerArmy": true
+    },
+    {
+     "name": "Collar-key of Advex-Mors",
+     "points": 10,
+     "oncePerArmy": true
+    }
+   ]
+  },
+  {
+   "id": "captured-heavy-weapons",
+   "name": "Captured Heavy Weapons",
+   "page": null,
+   "items": [
+    {
+     "name": "Heavy stubber",
+     "points": 5
+    },
+    {
+     "name": "Heavy bolter",
+     "points": 5
+    },
+    {
+     "name": "Missile launcher",
+     "points": 10
+    },
+    {
+     "name": "Lascannon",
+     "points": 15
+    },
+    {
+     "name": "Autocannon",
+     "points": 20
+    }
+   ]
+  },
+  {
+   "id": "captured-special-weapons",
+   "name": "Captured Special Weapons",
+   "page": null,
+   "items": [
+    {
+     "name": "Flamer",
+     "points": 5
+    },
+    {
+     "name": "Volkite charger",
+     "points": 5
+    },
+    {
+     "name": "Meltagun",
+     "points": 15
+    }
+   ]
+  }
+ ],
  "arkana": [],
  "weapons": {
   "ranged": [
@@ -1222,29 +1999,75 @@
     "modes": null
    },
    {
-    "name": "Lasrifle",
+    "name": "Shadow Shrieker",
+    "page": null,
+    "R": 12,
+    "FP": 2,
+    "RS": 4,
+    "AP": 5,
+    "D": 1,
+    "specialRules": [
+     "Suppressive (1)"
+    ],
+    "traits": [
+     "Assault",
+     "Shadow"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Shadow Caster",
     "page": null,
     "R": 30,
-    "FP": 1,
-    "RS": 3,
-    "AP": 6,
+    "FP": 2,
+    "RS": 6,
+    "AP": 3,
     "D": 1,
+    "specialRules": [
+     "Blast (3\")",
+     "Suppressive (1)"
+    ],
+    "traits": [
+     "Shadow"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Shadow Lance Array",
+    "page": null,
+    "R": 24,
+    "FP": 2,
+    "RS": 9,
+    "AP": 2,
+    "D": 2,
+    "specialRules": [
+     "Armourbane",
+     "Shock (Stunned)"
+    ],
+    "traits": [
+     "Shadow"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Lasrifle",
+    "page": null,
     "specialRules": [
      "Heavy (FP)"
     ],
     "traits": [
      "Las"
     ],
-    "modes": null
+    "modes": null,
+    "R": 30,
+    "FP": 1,
+    "RS": 3,
+    "AP": 6,
+    "D": 1
    },
    {
     "name": "Laspistol",
     "page": null,
-    "R": 12,
-    "FP": 1,
-    "RS": 3,
-    "AP": "–",
-    "D": 1,
     "specialRules": [
      "Pistol"
     ],
@@ -1252,48 +2075,137 @@
      "Assault",
      "Las"
     ],
-    "modes": null
+    "modes": null,
+    "R": 12,
+    "FP": 1,
+    "RS": 3,
+    "AP": "–",
+    "D": 1
    },
    {
     "name": "Frag grenades",
     "page": null,
-    "R": 6,
-    "FP": 1,
-    "RS": 3,
-    "AP": 6,
-    "D": 1,
     "specialRules": [
      "Blast (3\")"
     ],
     "traits": [
      "Assault"
     ],
-    "modes": null
+    "modes": null,
+    "R": 6,
+    "FP": 1,
+    "RS": 3,
+    "AP": 6,
+    "D": 1
    },
    {
     "name": "Heavy bolter",
     "page": null,
-    "R": 36,
-    "FP": 3,
-    "RS": 5,
-    "AP": 4,
-    "D": 1,
     "specialRules": [
      "Heavy (FP)"
     ],
     "traits": [
      "Bolt"
     ],
-    "modes": null
+    "modes": null,
+    "R": 36,
+    "FP": 3,
+    "RS": 5,
+    "AP": 4,
+    "D": 1
+   },
+   {
+    "name": "Heavy stubber",
+    "page": null,
+    "specialRules": [],
+    "traits": [
+     "Auto"
+    ],
+    "modes": null,
+    "R": 36,
+    "FP": 3,
+    "RS": 4,
+    "AP": 6,
+    "D": 1
+   },
+   {
+    "name": "Autocannon",
+    "page": null,
+    "specialRules": [
+     "Breaching (6+)",
+     "Heavy (FP)"
+    ],
+    "traits": [
+     "Auto"
+    ],
+    "modes": null,
+    "R": 48,
+    "FP": 2,
+    "RS": 7,
+    "AP": 4,
+    "D": 2
+   },
+   {
+    "name": "Missile launcher",
+    "page": null,
+    "specialRules": [],
+    "traits": [],
+    "modes": [
+     {
+      "name": "Missile launcher (Flak)",
+      "page": null,
+      "specialRules": [
+       "Heavy (D)",
+       "Skyfire"
+      ],
+      "traits": [
+       "Missile"
+      ],
+      "modes": null,
+      "R": 48,
+      "FP": 1,
+      "RS": 8,
+      "AP": 4,
+      "D": 1
+     },
+     {
+      "name": "Missile launcher (Krak)",
+      "page": null,
+      "specialRules": [
+       "Heavy (D)"
+      ],
+      "traits": [
+       "Missile"
+      ],
+      "modes": null,
+      "R": 48,
+      "FP": 1,
+      "RS": 8,
+      "AP": 3,
+      "D": 1
+     },
+     {
+      "name": "Missile launcher (Frag)",
+      "page": null,
+      "specialRules": [
+       "Heavy (RS)",
+       "Blast (3\")"
+      ],
+      "traits": [
+       "Missile"
+      ],
+      "modes": null,
+      "R": 48,
+      "FP": 1,
+      "RS": 4,
+      "AP": 6,
+      "D": 1
+     }
+    ]
    },
    {
     "name": "Lascannon",
     "page": null,
-    "R": 48,
-    "FP": 1,
-    "RS": 9,
-    "AP": 2,
-    "D": 1,
     "specialRules": [
      "Heavy (D)",
      "Armourbane"
@@ -1301,16 +2213,16 @@
     "traits": [
      "Las"
     ],
-    "modes": null
+    "modes": null,
+    "R": 48,
+    "FP": 1,
+    "RS": 9,
+    "AP": 2,
+    "D": 1
    },
    {
-    "name": "Heavy flamer",
+    "name": "Flamer",
     "page": null,
-    "R": "Template",
-    "FP": 1,
-    "RS": 5,
-    "AP": 4,
-    "D": 1,
     "specialRules": [
      "Template",
      "Panic (1)"
@@ -1318,16 +2230,66 @@
     "traits": [
      "Flame"
     ],
-    "modes": null
+    "modes": null,
+    "R": "Template",
+    "FP": 1,
+    "RS": 4,
+    "AP": 5,
+    "D": 1
+   },
+   {
+    "name": "Heavy flamer",
+    "page": null,
+    "specialRules": [
+     "Template",
+     "Panic (1)"
+    ],
+    "traits": [
+     "Flame"
+    ],
+    "modes": null,
+    "R": "Template",
+    "FP": 1,
+    "RS": 5,
+    "AP": 4,
+    "D": 1
+   },
+   {
+    "name": "Meltagun",
+    "page": null,
+    "specialRules": [
+     "Melta (6)"
+    ],
+    "traits": [
+     "Melta"
+    ],
+    "modes": null,
+    "R": 12,
+    "FP": 1,
+    "RS": 8,
+    "AP": 2,
+    "D": 3
+   },
+   {
+    "name": "Volkite charger",
+    "page": null,
+    "specialRules": [
+     "Deflagrate (5)"
+    ],
+    "traits": [
+     "Assault",
+     "Volkite"
+    ],
+    "modes": null,
+    "R": 15,
+    "FP": 2,
+    "RS": 5,
+    "AP": 5,
+    "D": 1
    },
    {
     "name": "Battlecannon",
     "page": null,
-    "R": 48,
-    "FP": 1,
-    "RS": 8,
-    "AP": 4,
-    "D": 2,
     "specialRules": [
      "Heavy (AP)",
      "Blast (3\")",
@@ -1336,7 +2298,89 @@
     "traits": [
      "Auto"
     ],
-    "modes": null
+    "modes": null,
+    "R": 48,
+    "FP": 1,
+    "RS": 8,
+    "AP": 4,
+    "D": 2
+   },
+   {
+    "name": "Demolisher cannon",
+    "page": null,
+    "specialRules": [
+     "Blast (3\")",
+     "Breaching (5+)",
+     "Ordnance (D)",
+     "Stun (1)"
+    ],
+    "traits": [],
+    "modes": null,
+    "R": 24,
+    "FP": 1,
+    "RS": 12,
+    "AP": 3,
+    "D": 3
+   },
+   {
+    "name": "Executioner plasma destroyer",
+    "page": null,
+    "specialRules": [],
+    "traits": [],
+    "modes": [
+     {
+      "name": "Executioner plasma destroyer (Sustained)",
+      "page": null,
+      "specialRules": [
+       "Blast (5\")",
+       "Breaching (5+)"
+      ],
+      "traits": [
+       "Plasma"
+      ],
+      "modes": null,
+      "R": 36,
+      "FP": 1,
+      "RS": 8,
+      "AP": 4,
+      "D": 1
+     },
+     {
+      "name": "Executioner plasma destroyer (Maximal)",
+      "page": null,
+      "specialRules": [
+       "Blast (5\")",
+       "Breaching (4+)",
+       "Overload (1)"
+      ],
+      "traits": [
+       "Plasma"
+      ],
+      "modes": null,
+      "R": 36,
+      "FP": 1,
+      "RS": 8,
+      "AP": 4,
+      "D": 2
+     }
+    ]
+   },
+   {
+    "name": "Hunter-killer missile",
+    "page": null,
+    "specialRules": [
+     "Armourbane",
+     "Limited (1)"
+    ],
+    "traits": [
+     "Missile"
+    ],
+    "modes": null,
+    "R": 48,
+    "FP": 1,
+    "RS": 9,
+    "AP": 3,
+    "D": 3
    }
   ],
   "melee": [
@@ -1448,32 +2492,78 @@
     "modes": null
    },
    {
-    "name": "Bayonet",
+    "name": "Flensing Hooks",
     "page": null,
     "IM": "I",
-    "AM": "A",
+    "AM": "+1",
     "SM": "S",
-    "AP": 5,
+    "AP": 3,
     "D": 1,
-    "specialRules": [],
+    "specialRules": [
+     "Shred (6+)"
+    ],
     "traits": [
-     "Bayonet"
+     "Shadow"
     ],
     "modes": null
    },
    {
+    "name": "Severing Maul",
+    "page": null,
+    "IM": -2,
+    "AM": "A",
+    "SM": "+3",
+    "AP": 2,
+    "D": 2,
+    "specialRules": [],
+    "traits": [
+     "Shadow"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Fang of the First Xenocide",
+    "page": null,
+    "IM": "+1",
+    "AM": "+1",
+    "SM": "+1",
+    "AP": 2,
+    "D": 2,
+    "specialRules": [
+     "Breaching (4+)"
+    ],
+    "traits": [
+     "Shadow"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Bayonet",
+    "page": null,
+    "specialRules": [],
+    "traits": [
+     "Bayonet"
+    ],
+    "modes": null,
+    "IM": "I",
+    "AM": "A",
+    "SM": "S",
+    "AP": 5,
+    "D": 1
+   },
+   {
     "name": "Krak grenades",
     "page": null,
-    "IM": -3,
-    "AM": 1,
-    "SM": 6,
-    "AP": 4,
-    "D": 2,
     "specialRules": [
      "Detonation"
     ],
     "traits": [],
-    "modes": null
+    "modes": null,
+    "IM": -3,
+    "AM": 1,
+    "SM": 6,
+    "AP": 4,
+    "D": 2
    }
   ]
  },
@@ -1487,6 +2577,31 @@
    "name": "Medusa Shroud",
    "page": null,
    "text": "The great Rangdan machines trail the same bent shadow as their officers. A Model with a Medusa Shroud has a 5+ Invulnerable Save against Shooting Attacks."
+  },
+  {
+   "name": "Skin-thief Cloak",
+   "page": null,
+   "text": "A cloak sewn from the hide of something the Rangda hunted and could not stop admiring; it drinks the light around it. Relic of the Hunt: once per army. The bearer has the Shrouded (5+) Special Rule."
+  },
+  {
+   "name": "Dread-mask",
+   "page": null,
+   "text": "The skull of the first Imperial commander its wearer killed, worn where the enemy can see it. Relic of the Hunt: once per army. The bearer increases the value of its Fear (X) Special Rule by 1, to a maximum of Fear (3)."
+  },
+  {
+   "name": "War-moon Beacon",
+   "page": null,
+   "text": "A shard of a war-moon's targeting array, still listening for its masters. Relic of the Hunt: once per army. The bearer may fire a War-moon Strike as if it had the Herald of the War-moon Special Rule. If the bearer is a Hunt-Sovereign, its War-moon Strike has Limited (2) instead of Limited (1)."
+  },
+  {
+   "name": "Collar-key of Advex-Mors",
+   "page": null,
+   "text": "The master key to the collars fitted on the first world the Rangda took. Relic of the Hunt: once per army. The bearer may use the Collar-master Special Rule on a Unit with any Model within 18\" of it, and a Unit it Overloads suffers D3-1 wounds at the end of the Phase instead of D3."
+  },
+  {
+   "name": "Corpse-cloak",
+   "page": null,
+   "text": "Robes woven from the skins of the eaten, which the worms beneath can slide through and out of. The bearer has the Shrouded (5+) Special Rule."
   },
   {
    "name": "Neural Collar",
@@ -1583,6 +2698,11 @@
      "role": "Support",
      "prime": false,
      "flexible": false
+    },
+    {
+     "role": "Transport",
+     "prime": false,
+     "flexible": false
     }
    ],
    "restrictions": [
@@ -1626,6 +2746,11 @@
     },
     {
      "role": "Armour",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Transport",
      "prime": false,
      "flexible": false
     }
@@ -1704,6 +2829,11 @@
     },
     {
      "role": "War Engine",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Transport",
      "prime": false,
      "flexible": false
     }
