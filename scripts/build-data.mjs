@@ -49,6 +49,13 @@ const ARMIES = [
         sameInDetachment: {} } },
     files: { granted: 'granted-prime-advantages.json', modifiers: 'modifiers.json' },
   },
+  {
+    id: 'rangdan', dir: join(root, 'data', 'rangdan'), parts: join(root, 'data', 'rangdan', 'parts'),
+    // written for this builder rather than transcribed; see data/rangdan/NOTES.md
+    meta: { name: 'Rangdan', source: 'Rangdan (house army list, Horus Heresy 3rd edition)', version: '1.0', date: 'November 2026',
+      choice: { label: '', options: [] } },
+    files: { granted: 'granted-prime-advantages.json', modifiers: 'modifiers.json' },
+  },
 ];
 
 for (const a of ARMIES) a.group = 'Xenos (fan codexes)';

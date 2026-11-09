@@ -1,0 +1,19 @@
+{
+  "wargear": [
+    {
+      "name": "Shroud-field",
+      "page": null,
+      "text": "A Rangdan officer walks inside a hum of bent light and wrong-coloured shadow, and shots that should strike it slide away. A Model with a Shroud-field has a 4+ Invulnerable Save. This is already included in the Invulnerable Save Characteristic of every Model that has a Shroud-field as standard wargear."
+    },
+    {
+      "name": "Medusa Shroud",
+      "page": null,
+      "text": "The great Rangdan machines trail the same bent shadow as their officers. A Model with a Medusa Shroud has a 5+ Invulnerable Save against Shooting Attacks."
+    },
+    {
+      "name": "Neural Collar",
+      "page": null,
+      "text": "A band of cold xenos metal sunk into the spine. It carries its masters' will straight into the nerves, and burns through them on command. See the Neural Collars Special Rule."
+    }
+  ]
+}

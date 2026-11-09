@@ -1,0 +1,60 @@
+{
+  "specialRules": [
+    {
+      "name": "Prey Instinct",
+      "page": null,
+      "text": "The Rangda are hunters before they are anything else, and they go for whatever is already wounded, pinned or running.\n\nWhen a Model with this Special Rule makes a Wound Test for a Shooting Attack or a Melee Attack against a Target Unit that has one or more of the Pinned, Suppressed, Stunned or Routed Tactical Statuses, it gains a bonus of +1 to that Wound Test."
+    },
+    {
+      "name": "Neural Collars",
+      "page": null,
+      "text": "Every thrall wears a collar that carries its masters' will into its nerves, so that it marches into fire without a sound.\n\nWhile any Model in a Unit that only includes Models with this Special Rule is within 12\" of a friendly Model with the Rangda Trait, that Unit automatically passes any Leadership Check or Cool Check it is required to make.\n\nWhile no Model in the Unit is within 12\" of a friendly Model with the Rangda Trait, the Leadership and Cool Characteristics of its Models become 5, and no Reactions may be declared for the Unit."
+    },
+    {
+      "name": "Collar-master",
+      "page": null,
+      "text": "A Rangdan officer can drive a collar past what the body wearing it can take.\n\nOnce per Player Turn, at the start of the Fight Sub-Phase, the Controlling Player of a Model with this Special Rule that is on the battlefield may select one friendly Unit with the Neural Collars Special Rule that has any Model within 12\" of it. Until the end of that Phase, all Models in the selected Unit gain a modifier of +1 to their Strength and Attacks Characteristics. At the end of that Phase, the selected Unit suffers D3 wounds, allocated by its Controlling Player, against which no Saving Throws or Damage Mitigation Tests may be taken."
+    },
+    {
+      "name": "Worm Gestalt",
+      "page": null,
+      "text": "A Slaugth is thousands of sentient worms in a skin of mucus. Bolts and blades pass through a body that simply closes up behind them; fire is another matter.\n\nModels with this Special Rule have the Feel No Pain (5+) Special Rule. This Damage Mitigation Test may not be taken against wounds inflicted by any Weapon with the Flame Trait or the Aflame (X) Special Rule."
+    },
+    {
+      "name": "Carrion Feast",
+      "page": null,
+      "text": "The Slaugth eat the dead as they fight, and the worms that make them up grow fat on it.\n\nEach time a Model with this Special Rule Removes an enemy Model as a Casualty with a Melee Attack, it regains one lost Wound (or Hull Point). A Model cannot regain more Wounds or Hull Points than its starting value."
+    }
+  ],
+  "reactions": [
+    {
+      "name": "Living Shields",
+      "page": null,
+      "text": "The masters have never stood in front of their own herd. When the guns turn on them, the collars drag the thralls into the line of fire.\n\nTrigger: The Reactive Player may declare a Living Shields Advanced Reaction at the start of Step 3 of the Shooting Attack sequence, when an enemy Unit targets a friendly Unit that only includes Models with the Rangda Trait and is not a Vehicle, and a friendly Unit with the Neural Collars Special Rule has any Model within 3\" of the target.\n\nCost: 1 Reaction Point.\n\nEffect: The Unit with the Neural Collars Special Rule becomes the target of the Shooting Attack instead, even if it would not normally be a legal target, as long as at least one of its Models is within range of at least one of the attacking Unit's Weapons. Weapons that cannot reach it may not make attacks. A Unit may only be selected for this Reaction once per Player Turn."
+    }
+  ],
+  "gambits": [],
+  "primeAdvantages": [],
+  "traits": [
+    {
+      "name": "Xenos",
+      "page": null,
+      "text": "The 'Xenos' trait replaces the Allegiance Trait for Xenos factions. An army that includes models with the Xenos Trait may still include models with either the Loyalist or Traitor Trait, but not the other."
+    },
+    {
+      "name": "Rangda",
+      "page": null,
+      "text": "The Rangda themselves: tall, lithe, vaguely vulpine hunters out of the Halo Stars. Rules that refer to Rangdan Models refer to Models with this Trait."
+    },
+    {
+      "name": "Thrall",
+      "page": null,
+      "text": "Imperial soldiers taken from conquered worlds and fitted with neural collars. They keep their own wargear and fight their former allies with it. Models with this Trait also have the Xenos Trait: they fight for their masters now."
+    },
+    {
+      "name": "Slaugth",
+      "page": null,
+      "text": "The carrion-worms that follow the Rangdan hunts. Slaugth Models are not Rangda: they do not count as friendly Rangdan Models for the Neural Collars Special Rule and do not have the Prey Instinct Special Rule."
+    }
+  ]
+}

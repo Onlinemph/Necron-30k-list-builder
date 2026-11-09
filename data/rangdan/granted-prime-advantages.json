@@ -1,0 +1,42 @@
+{
+  "grantedPrimeAdvantages": [
+    {
+      "name": "Apex Predators",
+      "page": null,
+      "eligible": {
+        "trait": "Rangda",
+        "unitTypes": [
+          "Infantry",
+          "Paragon"
+        ]
+      },
+      "extraSlot": false,
+      "text": "If a Unit that only includes Models with the Rangda Trait and the Infantry or Paragon Type is selected to fill a Prime Force Organisation Slot, the following Prime Advantage can be selected: Apex Predators. All Models in the Unit increase the value of their Fear (X) Special Rule by 1, to a maximum of Fear (3)."
+    },
+    {
+      "name": "Collared Legion",
+      "page": null,
+      "eligible": {
+        "trait": "Thrall",
+        "roles": [
+          "Troops"
+        ]
+      },
+      "extraSlot": false,
+      "text": "If a Unit that only includes Models with the Thrall Trait is selected to fill a Prime Troops Slot, the following Prime Advantage can be selected: Collared Legion. The Unit gains the Line (1) Special Rule, and for the Neural Collars Special Rule it counts as being within 12\" of a friendly Rangdan Model while any of its Models is within 18\" of one."
+    },
+    {
+      "name": "Sated Gestalt",
+      "page": null,
+      "eligible": {
+        "units": [
+          "slaugth-dream-eater",
+          "slaugth-kindred",
+          "slaugth-harvester"
+        ]
+      },
+      "extraSlot": false,
+      "text": "If a Unit that only includes Models with the Slaugth Trait and the Carrion Feast Special Rule is selected to fill a Prime Force Organisation Slot, the following Prime Advantage can be selected: Sated Gestalt. Models in the Unit regain two lost Wounds, instead of one, each time the Carrion Feast Special Rule is triggered."
+    }
+  ]
+}
