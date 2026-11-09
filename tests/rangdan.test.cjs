@@ -128,7 +128,7 @@ test('Thralls carry captured Imperial heavy and special weapons, one per ten', (
   t.counts = { Thrall: 30 };
   assert.equal(E.optionMax(E.optionsOf(t).find((o) => o.id === 'heavy'), t), 3);
   t.options.heavy = { Lascannon: 2, Autocannon: 1 };
-  assert.equal(E.unitPoints(t), 120 + 10 * 6 + 2 * 15 + 20);
+  assert.equal(E.unitPoints(t), 60 + 10 * 3 + 2 * 15 + 20);
   const x = sel('collared-auxilia');
   assert.equal(E.optionMax(E.optionsOf(x).find((o) => o.id === 'special'), x), 1);
   const r = sel('thrall-armour');

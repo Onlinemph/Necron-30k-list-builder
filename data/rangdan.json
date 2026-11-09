@@ -1231,14 +1231,14 @@
    "page": null,
    "limit": null,
    "unique": false,
-   "basePoints": 120,
+   "basePoints": 60,
    "composition": "20 Thralls",
    "models": [
     {
      "name": "Thrall",
      "min": 20,
      "max": 40,
-     "costPerExtra": 6,
+     "costPerExtra": 3,
      "profile": {
       "M": 6,
       "WS": 3,

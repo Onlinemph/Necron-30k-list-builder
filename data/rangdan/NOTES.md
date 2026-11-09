@@ -129,7 +129,7 @@ There is no Fortification: no army in the data has one and no HH3 chart has a sl
 | Tendril Barge | Transport | 85 | Capacity 12 (four Rangda), Assault Vehicle |
 | Brood-ship | Heavy Transport | 160 | Capacity 20 (six Rangda or a herd), Assault Vehicle |
 | Spine-Leviathan | Lord of War | 620 | Super-heavy skimmer |
-| Thrall Cohort | Troops | 120 for 20, +6 | Imperial Army, Expendable (2) |
+| Thrall Cohort | Troops | 60 for 20, +3 | Imperial Army, Expendable (2); cheap bodies, the millions of slaves the canon describes |
 | Collared Auxilia | Troops | 55 for 10, +5 | Solar Auxilia in void armour |
 | The Broken | Troops | 90 for 10, +9 | 0-1. Collared Legionaries: Heedless, and enemy infantry fighting them gain Hatred (Thrall) |
 | Marshal Casimir Vehl | Command | 85 | Unique, Iron Chain. Collared units within 12" of him count as near a Rangda; once a battle two Thrall units' shooting gains Pinning (1) |
@@ -188,7 +188,7 @@ statuses, so the Hunting Cry, Horror of the Taken and the war-moons are priced b
 | Rangda Huntmaster | 160 | 4.87 | Shield Captain 4.02 |
 | Collar-Wright | 140 | 3.89 | Shield Captain 4.02 |
 | The Broken | 90 | 9.12 | Tactical Squad 8.32 at 100; Heedless and the lost Line (2) aren't measured |
-| Thrall Cohort | 120 | 4.78 | Levy Troop 4.67 |
+| Thrall Cohort | 60 | 9.56 | Collared Auxilia 9.18 (an Auxiliary is worth about 1.75 Thralls: a 4+ save holds against bolters, a 5+ doesn't), Lasrifle Section 9.91, Levy Troop 4.67 |
 | Collared Auxilia | 55 | 9.18 | Lasrifle Section 9.91 |
 | Thrall Basilisk | 115 | 11.77 | Basilisk 11.26 at 120 |
 | Thrall Armour | 130 | 11.19 | Militia Leman Russ 11.16 |
@@ -204,7 +204,7 @@ statuses, so the Hunting Cry, Horror of the Taken and the war-moons are priced b
 | Harvester | 200 | 5.01 | Contemptor 4.06 |
 | Charnel Barge | 65 | 9.19 | Rhino 9.51 |
 
-The army's median is 5.82 against 5.84 for Custodes, 4.60 for the Sons of Horus and 5.51 for the Solar Auxilia.
+The army's median is 6.00 against 5.84 for Custodes, 4.60 for the Sons of Horus and 5.51 for the Solar Auxilia.
 
 Weapon Skill runs 5 in the ranks, 6 for Command characters, 7 for High Command and 8 for the Regent. Against WS 4
 Legionaries, WS 5 and WS 6 make no difference: either hits on 3+ and is hit on 5+. Against WS 5 elites and
