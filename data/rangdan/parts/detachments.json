@@ -86,6 +86,11 @@
           "role": "Transport",
           "prime": false,
           "flexible": false
+        },
+        {
+          "role": "Heavy Transport",
+          "prime": false,
+          "flexible": false
         }
       ],
       "restrictions": [

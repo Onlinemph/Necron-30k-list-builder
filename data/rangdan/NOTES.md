@@ -95,7 +95,7 @@ in through Command slots and Auxiliary Detachments:
 | Detachment | Type | Slots | Takes |
 | --- | --- | --- | --- |
 | The Hunt | Auxiliary | 2 Elites, Recon, Support, Transport | Rangda |
-| The Herd | Auxiliary | 3 Troops, Heavy Assault, Support, Armour, Transport | Thralls |
+| The Herd | Auxiliary | 3 Troops, Heavy Assault, Support, Armour, Transport, Heavy Transport | Thralls |
 | Medusa Shoal | Auxiliary | 2 Fast Attack, 2 Armour | Rangda |
 | The Carrion Court | Auxiliary, needs a Dream-Eater or the Hollow Choir in a Command slot | 2 Elites, Fast Attack, War Engine, Transport | Slaugth |
 | The Sovereign's Hunt | Apex | Elites (Prime), 2 Elites, Recon | Rangda |
@@ -133,8 +133,11 @@ There is no Fortification: no army in the data has one and no HH3 chart has a sl
 | Tendril Skiffs | Fast Attack | 85 each | Small jellyfish skimmers |
 | Shadow Kite | Fast Attack | 105 each | 1–2 flyers with two shadow lances each |
 | Iron Medusa | Armour | 160 each | Squadrons of 1–3. Shadow cannon (Blast, Deflagrate, Suppressive) |
-| Tendril Barge | Transport | 85 | Capacity 12 (four Rangda), Assault Vehicle |
-| Brood-ship | Heavy Transport | 160 | Capacity 20 (six Rangda or a herd), Assault Vehicle |
+| Tendril Barge | Transport | 110 | 12/12/10, HP 5, capacity 12 (four Rangda), Assault Vehicle, Firing Point (2) |
+| Spine-pod | Transport | 115 | A drop pod from a war-moon: Deep Strike, Drop Transport (four Rangda or a Spine-Stalker) |
+| Collar-Ark | Transport | 105 | Carries 12 and its Collar Beacon keeps every Thrall within 12" (or aboard) obedient; shadow cannon |
+| Medusa Drop-ship | Fast Attack | 210 | Flyer transport for five Rangda: Assault Vehicle, Firing Point (2), lance array and two blasters |
+| Brood-ship | Heavy Transport | 190 | 13/13/11, HP 8, capacity 20 (six Rangda or a herd), Assault Vehicle, Firing Point (3) |
 | Spine-Leviathan | Lord of War | 620 | Super-heavy skimmer |
 | Thrall Cohort | Troops | 70 for 20, +3 | Line (1), Expendable (2). Imperial Army; cheap bodies, the millions of slaves the canon describes |
 | Collared Auxilia | Troops | 60 for 10, +5 | Line (1). Solar Auxilia in void armour |
@@ -144,14 +147,17 @@ There is no Fortification: no army in the data has one and no HH3 chart has a sl
 | Thrall Gun-teams | Support | 20 a team | Two gunners a model, heavy bolters or a Gun-team Weapon |
 | Thrall Basilisk | Support | 115 | A captured Basilisk |
 | Thrall Armour | Armour | 130 | A captured Leman Russ, priced like the Militia one |
-| Thrall Carrier | Transport | 50 | A captured Aurox; Light Transport, so no Ogryns |
+| Thrall Malcador | Armour | 165 | A captured Malcador with the Militia profile; lascannon sponsons +15 |
+| Thrall Dracosan | Heavy Transport | 135 | A captured Dracosan (capacity 22) with the Solar Auxilia profile |
+| Thrall Carrier | Transport | 50 | A captured Aurox; Light Transport, so no Ogryns; heavy bolter or multi-laser +5 |
 | Thrall Knight | Lord of War | 400 | A Questoris with a collared pilot; thermal cannon +15 |
 | Slaugth Dream-Eater | Command | 135 | Unlocks the Carrion Court; heals fully on killing a character in a Challenge |
 | The Hollow Choir | Command | 180 | Unique. Heals on any character kill; once a battle names an enemy Advanced Reaction that can't be used that turn |
 | Slaugth Kindred | Elites | 45 a model | W3 T5 4+ with Feel No Pain (5+) |
 | Vassal Swarm | Fast Attack | 15 a model | Floating constructs whose spines pin |
 | Harvester | War Engine | 200 | Walker that heals by eating infantry |
-| Charnel Barge | Transport | 65 | Capacity 8 (four Kindred); regains a Hull Point on a 5+ each turn |
+| Charnel Barge | Transport | 80 | 12/11/10, HP 5, capacity 10 (five Kindred), Assault Vehicle; regains a Hull Point on a 5+ each turn |
+| Slaugth Ambush-craft | Fast Attack | 105 | The canon's ambush void-craft: a flyer with Outflank, two necrotic cannons (R24 S6 AP4, Phage) and a spewer; Living Hull |
 
 ### Wargear
 
@@ -229,10 +235,10 @@ statuses, so the Hunting Cry, Horror of the Taken and the war-moons are priced b
 | Thrall Armour | 130 | 11.19 | Militia Leman Russ 11.16 |
 | Thrall Knight | 400 | 6.00 | priced like a Questoris Paladin (410) less the collars |
 | Iron Medusa | 160 | 9.12 | Leman Russ Strike 10.26; the 5+ invulnerable against shooting isn't measured |
-| Brood-ship | 160 | 9.20 | Dracosan 11.14 at 140; Assault Vehicle and the shroud aren't measured |
+| Brood-ship | 190 | 8.01 | Coronus Grav-Carrier 11.46 at 180, Dracosan 11.14; capacity, Assault Vehicle and Firing Point aren't measured |
 | Spine-Leviathan | 620 | 3.42 | Fellblade 3.22, same caveat |
 | Shadow Kite | 105 | 6.97 | Xiphon 8.49; the 5+ invulnerable against shooting isn't measured |
-| Tendril Barge | 85 | 7.35 | Rhino 9.51; Assault Vehicle and the shroud aren't measured |
+| Tendril Barge | 110 | 13.41 | Rhino 9.51 at 60; at 12 side armour it's immune to bolters like a Rhino, and it has guns |
 | Thrall Carrier | 50 | 10.19 | Aurox 9.56 |
 | Slaugth Kindred | 135 | 3.98 | Sons of Horus median 4.60; Phage and Carrion Feast aren't measured |
 | The Hollow Choir | 180 | 3.25 | Dream-Eater 3.20 at 135; Stolen Memories isn't measured |
@@ -243,7 +249,17 @@ statuses, so the Hunting Cry, Horror of the Taken and the war-moons are priced b
 | Shroud-Weaver | 130 | 4.16 | Shield Captain 4.02; the Shroud Projector isn't measured |
 | Moon-callers | 70 a model | 4.77 | indirect Pinning fire; Barrage isn't measured |
 | Spine-Stalker | 210 | 7.05 | Contemptor 4.06 (unarmed in the sim), Contemptor-Achillus 10.23 |
-| Charnel Barge | 65 | 9.19 | Rhino 9.51 |
+| Charnel Barge | 80 | 8.29 | Rhino 9.51 |
+| Collar-Ark | 105 | 13.59 | Rhino 9.51; the Collar Beacon isn't measured |
+| Spine-pod | 115 | 11.53 | Dreadclaw 11.53 at 115 |
+| Medusa Drop-ship | 210 | 8.39 | Storm Eagle 7.70 at 200 |
+| Thrall Dracosan | 135 | 11.59 | Dracosan 11.14 at 140 |
+| Thrall Malcador | 165 | 8.98 | Militia Malcador 8.70 at 170 |
+| Slaugth Ambush-craft | 105 | 13.94 | Thunderbolt 13.27 at 120 |
+
+The transports were the army's weak point: the Barge and Charnel Barge had 11 armour and 4 Hull Points (a Rhino has
+12/11/10 and 5), the Brood-ship sat below a Coronus, and none could fire out. They now match or beat their Imperial
+counterparts and the Rangdan ones carry Firing Point, so a squad aboard can still use its Hunting Cries.
 
 The army's median is 6.00 against 5.84 for Custodes, 4.60 for the Sons of Horus and 5.51 for the Solar Auxilia.
 

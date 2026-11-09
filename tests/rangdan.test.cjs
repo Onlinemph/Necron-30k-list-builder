@@ -145,11 +145,11 @@ test('transports: a Tendril Barge carries four Rangda, Thrall Carriers only Thra
   assert.ok(unit('thrall-carrier').specialRules.includes('Light Transport'));
   assert.ok(cap('charnel-barge') >= 4 * 2, 'four Bulky (2) Kindred');
   const ids = (detId) => { const d = E.detachmentFromDef(detId); return E.unitsForSlot(d.slots.find((s) => s.role === 'Transport'), d).map((u) => u.id); };
-  assert.deepEqual(ids('the-hunt'), ['tendril-barge']);
+  assert.deepEqual(ids('the-hunt').sort(), ['collar-ark', 'spine-pod', 'tendril-barge']);
   assert.deepEqual(ids('the-herd'), ['thrall-carrier']);
   assert.deepEqual(ids('the-carrion-court'), ['charnel-barge']);
   const shoal = E.detachmentFromDef('medusa-shoal');
-  assert.deepEqual(E.unitsForSlot(shoal.slots.find((s) => s.role === 'Fast Attack'), shoal).map((u) => u.id).sort(), ['hunt-hounds', 'shadow-kite', 'skyhunters', 'tendril-skiffs']);
+  assert.deepEqual(E.unitsForSlot(shoal.slots.find((s) => s.role === 'Fast Attack'), shoal).map((u) => u.id).sort(), ['hunt-hounds', 'medusa-drop-ship', 'shadow-kite', 'skyhunters', 'tendril-skiffs']);
   assert.match(E.effectiveModels(sel('shadow-kite'))[0].unitType, /Flyer/);
 });
 
@@ -166,7 +166,7 @@ test('The Hunt takes only Rangda and The Herd only Thralls', () => {
   const ids = (det, role) => E.unitsForSlot(det.slots.find((s) => s.role === role), det).map((u) => u.id);
   assert.deepEqual(ids(hunt, 'Elites'), ['hunt-pack']);
   assert.deepEqual(ids(herd, 'Troops').sort(), ['collared-auxilia', 'the-broken', 'thrall-cohort']);
-  assert.deepEqual(ids(herd, 'Armour'), ['thrall-armour']);
+  assert.deepEqual(ids(herd, 'Armour').sort(), ['thrall-armour', 'thrall-malcador']);
   const shoal = E.detachmentFromDef('medusa-shoal');
   assert.deepEqual(ids(shoal, 'Armour'), ['iron-medusa']);
 });
@@ -273,7 +273,7 @@ test('each war-moon\'s Auxiliary Detachment needs a Command model of that moon a
 
 test('the Warlord Detachment fills with a War-moon Regent, a Hunt-Court and a Brood-ship', () => {
   const w = E.makeDetachment('warlord', 'Warlord', [{ role: 'Warlord' }, { role: 'Retinue' }, { role: 'Heavy Transport' }]);
-  assert.deepEqual(w.slots.map((s) => E.unitsForSlot(s).map((u) => u.id)), [['war-moon-regent'], ['hunt-court'], ['brood-ship']]);
+  assert.deepEqual(w.slots.map((s) => E.unitsForSlot(s).map((u) => u.id).sort()), [['war-moon-regent'], ['hunt-court'], ['brood-ship', 'thrall-dracosan']]);
   assert.equal(unit('war-moon-regent').limit, '0-1');
   assert.ok(unit('brood-ship').models[0].profile.CAPACITY >= 6 * 3, 'six Bulky (3) Rangda');
 });
@@ -359,4 +359,29 @@ test('the new Rangda: Skyhunters jump, Ironhides wear plate, hounds are Heedless
     assert.equal(E.unitPoints(s), unit(id).basePoints + 15, id);
   }
   assert.equal(unit('hunt-pack').models[0].max, 9);
+});
+
+test('transports: Rangda ones are tougher than a Rhino and fire out with Firing Point; new vehicles fill the Herd and the Slaugth', () => {
+  const p = (id) => unit(id).models[0].profile;
+  const r = (id) => unit(id).specialRules;
+  for (const id of ['tendril-barge', 'collar-ark']) {
+    assert.ok(p(id).FRONT >= 12 && p(id).SIDE >= 12 && p(id).HP >= 5, `${id} beats a Rhino's armour`);
+  }
+  assert.ok(r('tendril-barge').includes('Firing Point (2)') && r('tendril-barge').includes('Assault Vehicle'));
+  assert.ok(r('brood-ship').includes('Firing Point (3)'));
+  assert.deepEqual([p('brood-ship').FRONT, p('brood-ship').HP], [13, 8], 'Coronus-level hull');
+  assert.ok(r('charnel-barge').includes('Assault Vehicle') && p('charnel-barge').CAPACITY >= 10);
+  assert.ok(r('medusa-drop-ship').includes('Assault Vehicle') && /Flyer/.test(unit('medusa-drop-ship').models[0].unitType));
+  assert.ok(p('medusa-drop-ship').CAPACITY >= 5 * 3, 'five Bulky (3) Rangda');
+  assert.ok(r('spine-pod').includes('Drop Transport') && r('spine-pod').includes('Deep Strike'));
+  assert.match(unit('collar-ark').unitRules.find((x) => x.name === 'Collar Beacon').text, /Neural Collars.*within 12"/s);
+  // the captured hulls keep their Solar Auxilia / Militia profiles
+  const bs = (army, name) => { const u = require('../data/bsdata/' + army + '/parts/units.json'); return (Array.isArray(u) ? u : u.units).find((x) => x.name === name).models[0].profile; };
+  for (const k of ['FRONT', 'SIDE', 'REAR', 'HP', 'CAPACITY']) assert.equal(p('thrall-dracosan')[k], bs('solar-auxilia', 'Dracosan Armoured Transport')[k], `Dracosan ${k}`);
+  for (const k of ['FRONT', 'SIDE', 'REAR', 'HP']) assert.equal(p('thrall-malcador')[k], bs('imperialis-militia', 'Militia Malcador Heavy Tank')[k], `Malcador ${k}`);
+  const herd = E.detachmentFromDef('the-herd');
+  assert.deepEqual(E.unitsForSlot(herd.slots.find((s) => s.role === 'Heavy Transport'), herd).map((u) => u.id), ['thrall-dracosan']);
+  const court = E.detachmentFromDef('the-carrion-court');
+  assert.ok(E.unitsForSlot(court.slots.find((s) => s.role === 'Fast Attack'), court).some((u) => u.id === 'ambush-craft'));
+  assert.ok(r('ambush-craft').includes('Outflank'));
 });

@@ -143,6 +143,22 @@
       "modes": null
     },
     {
+      "name": "Necrotic Cannon",
+      "page": null,
+      "R": 24,
+      "FP": 3,
+      "RS": 6,
+      "AP": 4,
+      "D": 1,
+      "specialRules": [
+        "Phage (T)"
+      ],
+      "traits": [
+        "Necrotic"
+      ],
+      "modes": null
+    },
+    {
       "name": "Necrotic Spewer",
       "page": null,
       "R": "Template",
@@ -594,6 +610,39 @@
       "RS": 9,
       "AP": 3,
       "D": 3
+    },
+    {
+      "name": "Multi-laser",
+      "page": null,
+      "specialRules": [
+        "Suppressive (1)"
+      ],
+      "traits": [
+        "Las"
+      ],
+      "modes": null,
+      "R": 36,
+      "FP": 3,
+      "RS": 6,
+      "AP": 6,
+      "D": 1
+    },
+    {
+      "name": "Twin lascannon",
+      "page": null,
+      "specialRules": [
+        "Heavy (D)",
+        "Armourbane"
+      ],
+      "traits": [
+        "Las"
+      ],
+      "modes": null,
+      "R": 48,
+      "FP": 2,
+      "RS": 9,
+      "AP": 2,
+      "D": 1
     },
     {
       "name": "Bolter",
