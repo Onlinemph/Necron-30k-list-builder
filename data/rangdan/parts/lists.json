@@ -1,0 +1,135 @@
+{
+  "lists": [
+    {
+      "id": "rangdan-hunting-weapons",
+      "name": "Rangdan Hunting Weapons",
+      "page": null,
+      "items": [
+        {
+          "name": "Spine Glaive",
+          "points": 0
+        },
+        {
+          "name": "Flensing Hooks",
+          "points": 0
+        }
+      ]
+    },
+    {
+      "id": "rangdan-sidearms",
+      "name": "Rangdan Sidearms",
+      "page": null,
+      "items": [
+        {
+          "name": "Shadow Pistol",
+          "points": 0
+        },
+        {
+          "name": "Shadow Blaster",
+          "points": 10
+        }
+      ]
+    },
+    {
+      "id": "relics-of-the-hunt",
+      "name": "Relics of the Hunt",
+      "page": null,
+      "note": "Each item may be selected only once per army. The Fang of the First Xenocide is a weapon and is also once per army.",
+      "items": [
+        {
+          "name": "Skin-thief Cloak",
+          "points": 15,
+          "oncePerArmy": true
+        },
+        {
+          "name": "Dread-mask",
+          "points": 10,
+          "oncePerArmy": true
+        },
+        {
+          "name": "War-moon Beacon",
+          "points": 25,
+          "oncePerArmy": true
+        },
+        {
+          "name": "Collar-key of Advex-Mors",
+          "points": 10,
+          "oncePerArmy": true
+        }
+      ]
+    },
+    {
+      "id": "captured-heavy-weapons",
+      "name": "Captured Heavy Weapons",
+      "page": null,
+      "items": [
+        {
+          "name": "Heavy stubber",
+          "points": 5
+        },
+        {
+          "name": "Heavy bolter",
+          "points": 5
+        },
+        {
+          "name": "Missile launcher",
+          "points": 10
+        },
+        {
+          "name": "Lascannon",
+          "points": 15
+        },
+        {
+          "name": "Autocannon",
+          "points": 20
+        }
+      ]
+    },
+    {
+      "id": "gun-team-weapons",
+      "name": "Gun-team Weapons",
+      "page": null,
+      "items": [
+        {
+          "name": "Heavy bolter",
+          "points": 0
+        },
+        {
+          "name": "Heavy stubber",
+          "points": 0
+        },
+        {
+          "name": "Missile launcher",
+          "points": 5
+        },
+        {
+          "name": "Lascannon",
+          "points": 10
+        },
+        {
+          "name": "Autocannon",
+          "points": 15
+        }
+      ]
+    },
+    {
+      "id": "captured-special-weapons",
+      "name": "Captured Special Weapons",
+      "page": null,
+      "items": [
+        {
+          "name": "Flamer",
+          "points": 5
+        },
+        {
+          "name": "Volkite charger",
+          "points": 5
+        },
+        {
+          "name": "Meltagun",
+          "points": 15
+        }
+      ]
+    }
+  ]
+}

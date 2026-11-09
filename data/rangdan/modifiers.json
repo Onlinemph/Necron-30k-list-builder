@@ -1,0 +1,139 @@
+{
+  "modifiers": [
+    {
+      "id": "silent-choir-fear",
+      "page": null,
+      "text": "Models with the Rangda Trait and the Silent Choir Trait increase the value of their Fear (X) Special Rule by 1, to a maximum of Fear (3), and reduce their Ballistic Skill by 1.",
+      "source": {
+        "type": "arkana",
+        "name": "Silent Choir"
+      },
+      "appliesTo": {
+        "trait": "Rangda",
+        "exceptUnits": [
+          "tendril-skiffs",
+          "iron-medusa",
+          "spine-leviathan",
+          "tendril-barge",
+          "shadow-kite",
+          "brood-ship",
+          "thrall-armour",
+          "thrall-carrier",
+          "thrall-basilisk",
+          "thrall-knight",
+          "charnel-barge",
+          "war-moon-regent"
+        ]
+      },
+      "scope": "unit",
+      "stats": {
+        "BS": "-1"
+      },
+      "addRules": [],
+      "removeRules": [],
+      "modifyRules": [
+        {
+          "rule": "Fear",
+          "by": 1
+        }
+      ],
+      "addTraits": [],
+      "addUnitTypes": [],
+      "condition": null
+    },
+    {
+      "id": "silent-choir-regent",
+      "page": null,
+      "text": "A War-moon Regent's Fear (3) is already the most a Silent Choir model can have; it still reduces its Ballistic Skill by 1.",
+      "source": {
+        "type": "arkana",
+        "name": "Silent Choir"
+      },
+      "appliesTo": {
+        "units": [
+          "war-moon-regent"
+        ]
+      },
+      "scope": "unit",
+      "stats": {
+        "BS": "-1"
+      },
+      "addRules": [],
+      "removeRules": [],
+      "modifyRules": [],
+      "addTraits": [],
+      "addUnitTypes": [],
+      "condition": null
+    },
+    {
+      "id": "long-hunt-fast",
+      "page": null,
+      "text": "Models with the Rangda Trait, the Long Hunt Trait and the Infantry or Paragon Type have the Fast (2) Special Rule.",
+      "source": {
+        "type": "arkana",
+        "name": "Long Hunt"
+      },
+      "appliesTo": {
+        "trait": "Rangda",
+        "exceptUnits": [
+          "tendril-skiffs",
+          "iron-medusa",
+          "spine-leviathan",
+          "tendril-barge",
+          "shadow-kite",
+          "brood-ship",
+          "thrall-armour",
+          "thrall-carrier",
+          "thrall-basilisk",
+          "thrall-knight",
+          "charnel-barge"
+        ]
+      },
+      "scope": "unit",
+      "stats": {},
+      "addRules": [
+        "Fast (2)"
+      ],
+      "removeRules": [],
+      "modifyRules": [],
+      "addTraits": [],
+      "addUnitTypes": [],
+      "condition": null
+    },
+    {
+      "id": "burning-sky-initiative",
+      "page": null,
+      "text": "Models with the Rangda Trait and the Burning Sky Trait reduce their Initiative by 1.",
+      "source": {
+        "type": "arkana",
+        "name": "Burning Sky"
+      },
+      "appliesTo": {
+        "trait": "Rangda",
+        "exceptUnits": [
+          "tendril-skiffs",
+          "iron-medusa",
+          "spine-leviathan",
+          "tendril-barge",
+          "shadow-kite",
+          "brood-ship",
+          "thrall-armour",
+          "thrall-carrier",
+          "thrall-basilisk",
+          "thrall-knight",
+          "charnel-barge"
+        ]
+      },
+      "scope": "unit",
+      "stats": {
+        "I": "-1"
+      },
+      "addRules": [],
+      "removeRules": [],
+      "modifyRules": [],
+      "addTraits": [],
+      "addUnitTypes": [],
+      "condition": null
+    }
+  ]
+}

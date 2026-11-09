@@ -3,11 +3,17 @@
   "id": "rangdan",
   "name": "Rangdan",
   "source": "Rangdan (house army list, Horus Heresy 3rd edition)",
-  "version": "1.0",
+  "version": "1.1",
   "date": "November 2026",
   "choice": {
-   "label": "",
-   "options": []
+   "label": "War-moon",
+   "options": [
+    "Silent Choir",
+    "Iron Chain",
+    "Long Hunt",
+    "Burning Sky"
+   ],
+   "sameInDetachment": {}
   }
  },
  "units": [
@@ -18,7 +24,7 @@
    "page": null,
    "limit": null,
    "unique": false,
-   "basePoints": 260,
+   "basePoints": 265,
    "composition": "1 Hunt-Sovereign",
    "models": [
     {
@@ -46,7 +52,8 @@
       "Sovereign's Glaive",
       "Shadow Blaster",
       "War-moon Strike",
-      "Shroud-field"
+      "Shroud-field",
+      "Hunting Cry"
      ],
      "unitType": "Paragon",
      "specialRules": []
@@ -59,6 +66,7 @@
    "specialRules": [
     "Prey Instinct",
     "Fear (2)",
+    "Horror of the Taken",
     "Bulky (4)",
     "Collar-master",
     "Herald of the War-moon"
@@ -71,9 +79,42 @@
    ],
    "cryptoArkana": false,
    "fixedArkana": null,
-   "factionChoice": false,
+   "factionChoice": true,
    "fixedChoice": null,
-   "options": [],
+   "options": [
+    {
+     "id": "fang",
+     "text": "May exchange its Sovereign's Glaive for the Fang of the First Xenocide for +20 points.",
+     "kind": "one",
+     "model": null,
+     "replaces": [
+      "Sovereign's Glaive"
+     ],
+     "choices": [
+      {
+       "name": "Fang of the First Xenocide",
+       "points": 20,
+       "oncePerArmy": true
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "relic",
+     "text": "May have one item from the Relics of the Hunt selected for it.",
+     "kind": "one",
+     "model": null,
+     "replaces": [],
+     "choices": [
+      {
+       "list": "relics-of-the-hunt"
+      }
+     ],
+     "max": null,
+     "requires": null
+    }
+   ],
    "note": "A hunt-lord of the Rangda, one of the tall vulpine masters the Imperium spent three Xenocides trying to erase. Written for this list."
   },
   {
@@ -93,7 +134,7 @@
      "costPerExtra": 0,
      "profile": {
       "M": 9,
-      "WS": 7,
+      "WS": 6,
       "BS": 5,
       "S": 5,
       "T": 5,
@@ -110,7 +151,8 @@
      "wargear": [
       "Spine Glaive",
       "Shadow Pistol",
-      "Shroud-field"
+      "Shroud-field",
+      "Hunting Cry"
      ],
      "unitType": "Infantry (Command)",
      "specialRules": []
@@ -123,18 +165,39 @@
    "specialRules": [
     "Prey Instinct",
     "Fear (2)",
+    "Horror of the Taken",
     "Bulky (3)",
     "Collar-master"
    ],
    "unitRules": [],
    "cryptoArkana": false,
    "fixedArkana": null,
-   "factionChoice": false,
+   "factionChoice": true,
    "fixedChoice": null,
    "options": [
     {
-     "id": "blaster",
-     "text": "May exchange its Shadow Pistol for a Shadow Blaster for +10 points.",
+     "id": "melee",
+     "text": "May exchange its Spine Glaive for an item from the Rangdan Hunting Weapons list, or for a Severing Maul for +20 points.",
+     "kind": "one",
+     "model": null,
+     "replaces": [
+      "Spine Glaive"
+     ],
+     "choices": [
+      {
+       "list": "rangdan-hunting-weapons"
+      },
+      {
+       "name": "Severing Maul",
+       "points": 20
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "sidearm",
+     "text": "May exchange its Shadow Pistol for an item from the Rangdan Sidearms list.",
      "kind": "one",
      "model": null,
      "replaces": [
@@ -142,8 +205,39 @@
      ],
      "choices": [
       {
-       "name": "Shadow Blaster",
-       "points": 10
+       "list": "rangdan-sidearms"
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "fang",
+     "text": "May exchange its Spine Glaive for the Fang of the First Xenocide for +25 points.",
+     "kind": "one",
+     "model": null,
+     "replaces": [
+      "Spine Glaive"
+     ],
+     "choices": [
+      {
+       "name": "Fang of the First Xenocide",
+       "points": 25,
+       "oncePerArmy": true
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "relic",
+     "text": "May have one item from the Relics of the Hunt selected for it.",
+     "kind": "one",
+     "model": null,
+     "replaces": [],
+     "choices": [
+      {
+       "list": "relics-of-the-hunt"
       }
      ],
      "max": null,
@@ -159,7 +253,7 @@
    "page": null,
    "limit": null,
    "unique": false,
-   "basePoints": 130,
+   "basePoints": 140,
    "composition": "1 Collar-Wright",
    "models": [
     {
@@ -169,7 +263,7 @@
      "costPerExtra": 0,
      "profile": {
       "M": 9,
-      "WS": 5,
+      "WS": 6,
       "BS": 5,
       "S": 5,
       "T": 5,
@@ -186,7 +280,8 @@
      "wargear": [
       "Spine Glaive",
       "Shadow Pistol",
-      "Shroud-field"
+      "Shroud-field",
+      "Hunting Cry"
      ],
      "unitType": "Infantry (Command)",
      "specialRules": []
@@ -199,6 +294,7 @@
    "specialRules": [
     "Prey Instinct",
     "Fear (2)",
+    "Horror of the Taken",
     "Bulky (3)",
     "Collar-master",
     "Master of Collars"
@@ -211,9 +307,58 @@
    ],
    "cryptoArkana": false,
    "fixedArkana": null,
-   "factionChoice": false,
+   "factionChoice": true,
    "fixedChoice": null,
-   "options": [],
+   "options": [
+    {
+     "id": "sidearm",
+     "text": "May exchange its Shadow Pistol for an item from the Rangdan Sidearms list.",
+     "kind": "one",
+     "model": null,
+     "replaces": [
+      "Shadow Pistol"
+     ],
+     "choices": [
+      {
+       "list": "rangdan-sidearms"
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "fang",
+     "text": "May exchange its Spine Glaive for the Fang of the First Xenocide for +25 points.",
+     "kind": "one",
+     "model": null,
+     "replaces": [
+      "Spine Glaive"
+     ],
+     "choices": [
+      {
+       "name": "Fang of the First Xenocide",
+       "points": 25,
+       "oncePerArmy": true
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "relic",
+     "text": "May have one item from the Relics of the Hunt selected for it.",
+     "kind": "one",
+     "model": null,
+     "replaces": [],
+     "choices": [
+      {
+       "list": "relics-of-the-hunt"
+      }
+     ],
+     "max": null,
+     "requires": null
+    }
+   ],
    "note": "The Rangda who keeps the herd. Written for this list."
   },
   {
@@ -233,7 +378,7 @@
      "costPerExtra": 75,
      "profile": {
       "M": 9,
-      "WS": 6,
+      "WS": 5,
       "BS": 4,
       "S": 5,
       "T": 5,
@@ -249,9 +394,40 @@
      },
      "wargear": [
       "Spine Glaive",
-      "Shadow Pistol"
+      "Shadow Pistol",
+      "Hunting Cry"
      ],
      "unitType": "Infantry",
+     "specialRules": []
+    },
+    {
+     "name": "Pack-Alpha",
+     "min": 0,
+     "max": 1,
+     "costPerExtra": 0,
+     "profile": {
+      "M": 9,
+      "WS": 5,
+      "BS": 4,
+      "S": 5,
+      "T": 5,
+      "W": 4,
+      "I": 6,
+      "A": 5,
+      "LD": 11,
+      "CL": 10,
+      "WP": 9,
+      "IN": 8,
+      "SAV": "3+",
+      "INV": "4+"
+     },
+     "wargear": [
+      "Spine Glaive",
+      "Shadow Pistol",
+      "Shroud-field",
+      "Hunting Cry"
+     ],
+     "unitType": "Infantry (Sergeant)",
      "specialRules": []
     }
    ],
@@ -261,18 +437,75 @@
    ],
    "specialRules": [
     "Prey Instinct",
-    "Fear (2)",
+    "Fear (1)",
+    "Horror of the Taken",
     "Bulky (3)"
    ],
    "unitRules": [],
    "cryptoArkana": false,
    "fixedArkana": null,
-   "factionChoice": false,
+   "factionChoice": true,
    "fixedChoice": null,
    "options": [
     {
-     "id": "blaster",
-     "text": "Any Model may exchange its Shadow Pistol for a Shadow Blaster for +10 points per Model.",
+     "id": "alpha",
+     "text": "One Rangda Hunter may be upgraded to a Pack-Alpha for +15 points.",
+     "kind": "swapModel",
+     "model": "Rangda Hunter",
+     "replaces": [],
+     "choices": [
+      {
+       "name": "Pack-Alpha",
+       "points": 15
+      }
+     ],
+     "max": {
+      "fixed": 1
+     },
+     "requires": null
+    },
+    {
+     "id": "melee",
+     "text": "Any Model may exchange its Spine Glaive for an item from the Rangdan Hunting Weapons list.",
+     "kind": "perModel",
+     "model": null,
+     "replaces": [
+      "Spine Glaive"
+     ],
+     "choices": [
+      {
+       "list": "rangdan-hunting-weapons"
+      }
+     ],
+     "max": {
+      "shared": "glaive"
+     },
+     "requires": null
+    },
+    {
+     "id": "maul",
+     "text": "For every three Models in the Unit, one may exchange its Spine Glaive for a Severing Maul for +20 points.",
+     "kind": "perModel",
+     "model": null,
+     "replaces": [
+      "Spine Glaive"
+     ],
+     "choices": [
+      {
+       "name": "Severing Maul",
+       "points": 20
+      }
+     ],
+     "max": {
+      "per": 3,
+      "count": 1,
+      "shared": "glaive"
+     },
+     "requires": null
+    },
+    {
+     "id": "sidearm",
+     "text": "Any Model may exchange its Shadow Pistol for an item from the Rangdan Sidearms list.",
      "kind": "perModel",
      "model": null,
      "replaces": [
@@ -280,8 +513,7 @@
      ],
      "choices": [
       {
-       "name": "Shadow Blaster",
-       "points": 10
+       "list": "rangdan-sidearms"
       }
      ],
      "max": null,
@@ -307,7 +539,7 @@
      "costPerExtra": 85,
      "profile": {
       "M": 9,
-      "WS": 6,
+      "WS": 5,
       "BS": 5,
       "S": 5,
       "T": 5,
@@ -323,7 +555,8 @@
      },
      "wargear": [
       "Shadow Lance",
-      "Rangda Claws"
+      "Rangda Claws",
+      "Hunting Cry"
      ],
      "unitType": "Infantry",
      "specialRules": []
@@ -335,16 +568,35 @@
    ],
    "specialRules": [
     "Prey Instinct",
-    "Fear (2)",
+    "Fear (1)",
+    "Horror of the Taken",
     "Bulky (3)"
    ],
    "unitRules": [],
    "cryptoArkana": false,
    "fixedArkana": null,
-   "factionChoice": false,
+   "factionChoice": true,
    "fixedChoice": null,
-   "options": [],
-   "note": "Rangda carrying the heavy shadow weapons that unmake tanks. Written for this list."
+   "options": [
+    {
+     "id": "caster",
+     "text": "Any Model may exchange its Shadow Lance for a Shadow Caster.",
+     "kind": "perModel",
+     "model": null,
+     "replaces": [
+      "Shadow Lance"
+     ],
+     "choices": [
+      {
+       "name": "Shadow Caster",
+       "points": 0
+      }
+     ],
+     "max": null,
+     "requires": null
+    }
+   ],
+   "note": "Rangda carrying the heavy shadow weapons that unmake tanks. The Shadow Caster trades the lance for a burst that pins infantry. Written for this list."
   },
   {
    "id": "rangdan-mimics",
@@ -363,7 +615,7 @@
      "costPerExtra": 70,
      "profile": {
       "M": 9,
-      "WS": 6,
+      "WS": 5,
       "BS": 5,
       "S": 5,
       "T": 5,
@@ -379,7 +631,8 @@
      },
      "wargear": [
       "Shadow Blaster",
-      "Rangda Claws"
+      "Rangda Claws",
+      "Hunting Cry"
      ],
      "unitType": "Infantry (Skirmish)",
      "specialRules": []
@@ -391,7 +644,8 @@
    ],
    "specialRules": [
     "Prey Instinct",
-    "Fear (2)",
+    "Fear (1)",
+    "Horror of the Taken",
     "Bulky (3)",
     "Infiltrate (9)",
     "Stolen Voices"
@@ -404,7 +658,7 @@
    ],
    "cryptoArkana": false,
    "fixedArkana": null,
-   "factionChoice": false,
+   "factionChoice": true,
    "fixedChoice": null,
    "options": [],
    "note": "Canon credits the Rangda with mimicry and never says what it was. These are the hunters who use it. Written for this list."
@@ -452,9 +706,27 @@
    "unitRules": [],
    "cryptoArkana": false,
    "fixedArkana": null,
-   "factionChoice": false,
+   "factionChoice": true,
    "fixedChoice": null,
-   "options": [],
+   "options": [
+    {
+     "id": "lance",
+     "text": "Any Tendril Skiff may exchange its Shadow Blaster for a Shadow Lance for +10 points.",
+     "kind": "perModel",
+     "model": null,
+     "replaces": [
+      "Shadow Blaster"
+     ],
+     "choices": [
+      {
+       "name": "Shadow Lance",
+       "points": 10
+      }
+     ],
+     "max": null,
+     "requires": null
+    }
+   ],
    "note": "A small iron jellyfish, all spines and trailing metal tendrils, the same shape as the Rangdan warships. Written for this list."
   },
   {
@@ -498,9 +770,44 @@
    "unitRules": [],
    "cryptoArkana": false,
    "fixedArkana": null,
-   "factionChoice": false,
+   "factionChoice": true,
    "fixedChoice": null,
-   "options": [],
+   "options": [
+    {
+     "id": "turret",
+     "text": "May exchange its Turret Mounted Shadow Cannon for a Turret Mounted Shadow Lance Array for +25 points.",
+     "kind": "one",
+     "model": null,
+     "replaces": [
+      "Turret Mounted Shadow Cannon"
+     ],
+     "choices": [
+      {
+       "name": "Turret Mounted Shadow Lance Array",
+       "points": 25
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "hull",
+     "text": "May exchange its 2 Hull Mounted Tendril Flails for 2 Hull Mounted Shadow Blasters for +5 points.",
+     "kind": "one",
+     "model": null,
+     "replaces": [
+      "2 Hull Mounted Tendril Flails"
+     ],
+     "choices": [
+      {
+       "name": "2 Hull Mounted Shadow Blasters",
+       "points": 5
+      }
+     ],
+     "max": null,
+     "requires": null
+    }
+   ],
    "note": "The Rangdan battle tank: a floating iron bell trailing a curtain of flails. Written for this list."
   },
   {
@@ -547,10 +854,375 @@
    "unitRules": [],
    "cryptoArkana": false,
    "fixedArkana": null,
-   "factionChoice": false,
+   "factionChoice": true,
+   "fixedChoice": null,
+   "options": [
+    {
+     "id": "sponsons",
+     "text": "May exchange its 2 Sponson Mounted Shadow Cannons for 2 Sponson Mounted Shadow Lance Arrays for +15 points.",
+     "kind": "one",
+     "model": null,
+     "replaces": [
+      "2 Sponson Mounted Shadow Cannons"
+     ],
+     "choices": [
+      {
+       "name": "2 Sponson Mounted Shadow Lance Arrays",
+       "points": 15
+      }
+     ],
+     "max": null,
+     "requires": null
+    }
+   ],
+   "note": "A war-moon's lander, as big as a Fellblade. Written for this list."
+  },
+  {
+   "id": "tendril-barge",
+   "name": "Tendril Barge",
+   "role": "Transport",
+   "page": null,
+   "limit": null,
+   "unique": false,
+   "basePoints": 85,
+   "composition": "1 Tendril Barge",
+   "models": [
+    {
+     "name": "Tendril Barge",
+     "min": 1,
+     "max": 1,
+     "costPerExtra": 0,
+     "profile": {
+      "M": 14,
+      "BS": 4,
+      "FRONT": 11,
+      "SIDE": 11,
+      "REAR": 10,
+      "HP": 4,
+      "CAPACITY": 12
+     },
+     "wargear": [
+      "Shadow Blaster",
+      "2 Hull Mounted Tendril Flails",
+      "Medusa Shroud"
+     ],
+     "unitType": "Vehicle (Antigrav, Transport)",
+     "specialRules": []
+    }
+   ],
+   "traits": [
+    "Xenos",
+    "Rangda"
+   ],
+   "specialRules": [
+    "Assault Vehicle"
+   ],
+   "unitRules": [],
+   "cryptoArkana": false,
+   "fixedArkana": null,
+   "factionChoice": true,
    "fixedChoice": null,
    "options": [],
-   "note": "A war-moon's lander, as big as a Fellblade. Written for this list."
+   "note": "A hunting barge with room for four Rangda, who drop from its tendrils straight into a charge. Written for this list."
+  },
+  {
+   "id": "shadow-kite",
+   "name": "Shadow Kite",
+   "role": "Fast Attack",
+   "page": null,
+   "limit": null,
+   "unique": false,
+   "basePoints": 105,
+   "composition": "1 Shadow Kite",
+   "models": [
+    {
+     "name": "Shadow Kite",
+     "min": 1,
+     "max": 1,
+     "costPerExtra": 0,
+     "profile": {
+      "M": 20,
+      "BS": 4,
+      "FRONT": 11,
+      "SIDE": 11,
+      "REAR": 11,
+      "HP": 4,
+      "CAPACITY": "–"
+     },
+     "wargear": [
+      "2 Hull Mounted Shadow Lances",
+      "Shadow Blaster",
+      "Medusa Shroud"
+     ],
+     "unitType": "Vehicle (Flyer)",
+     "specialRules": []
+    }
+   ],
+   "traits": [
+    "Xenos",
+    "Rangda"
+   ],
+   "specialRules": [],
+   "unitRules": [],
+   "cryptoArkana": false,
+   "fixedArkana": null,
+   "factionChoice": true,
+   "fixedChoice": null,
+   "options": [],
+   "note": "A flat ray of black iron trailing two spines; the Rangdan answer to an interceptor. Written for this list."
+  },
+  {
+   "id": "war-moon-regent",
+   "name": "War-moon Regent",
+   "role": "Warlord",
+   "page": null,
+   "limit": "0-1",
+   "unique": false,
+   "basePoints": 475,
+   "composition": "1 War-moon Regent",
+   "models": [
+    {
+     "name": "War-moon Regent",
+     "min": 1,
+     "max": 1,
+     "costPerExtra": 0,
+     "profile": {
+      "M": 9,
+      "WS": 8,
+      "BS": 6,
+      "S": 6,
+      "T": 6,
+      "W": 8,
+      "I": 7,
+      "A": 6,
+      "LD": 12,
+      "CL": 12,
+      "WP": 11,
+      "IN": 11,
+      "SAV": "3+",
+      "INV": "4+"
+     },
+     "wargear": [
+      "Regent's Glaive",
+      "Shadow Blaster",
+      "War-moon Barrage",
+      "Shroud-field",
+      "Hunting Cry"
+     ],
+     "unitType": "Paragon",
+     "specialRules": []
+    }
+   ],
+   "traits": [
+    "Xenos",
+    "Rangda"
+   ],
+   "specialRules": [
+    "Prey Instinct",
+    "Fear (3)",
+    "Horror of the Taken",
+    "Bulky (6)",
+    "Eternal Warrior (1)",
+    "Collar-master",
+    "Voice of the War-moon"
+   ],
+   "unitRules": [
+    {
+     "name": "Voice of the War-moon",
+     "text": "A Regent rules a war-moon, and the moon answers every time it speaks. The War-moon Barrage may be fired in place of the Regent's other Weapons in every Shooting Attack it makes, even if the Regent is Locked in Combat or is not in line of sight of the target, and its Blast Marker scatters as normal for a Barrage weapon."
+    }
+   ],
+   "cryptoArkana": false,
+   "fixedArkana": null,
+   "factionChoice": true,
+   "fixedChoice": null,
+   "options": [],
+   "note": "The master of a war-moon, come down to see a world taken in person. A Primarch-level threat. Written for this list."
+  },
+  {
+   "id": "ithrakk-the-first-voice",
+   "name": "Ithrakk, the First Voice",
+   "role": "High Command",
+   "page": null,
+   "limit": null,
+   "unique": true,
+   "basePoints": 295,
+   "composition": "1 Ithrakk",
+   "models": [
+    {
+     "name": "Ithrakk",
+     "min": 1,
+     "max": 1,
+     "costPerExtra": 0,
+     "profile": {
+      "M": 9,
+      "WS": 7,
+      "BS": 5,
+      "S": 6,
+      "T": 6,
+      "W": 6,
+      "I": 8,
+      "A": 5,
+      "LD": 12,
+      "CL": 11,
+      "WP": 10,
+      "IN": 10,
+      "SAV": "3+",
+      "INV": "4+"
+     },
+     "wargear": [
+      "Sovereign's Glaive",
+      "Shadow Blaster",
+      "War-moon Strike",
+      "Shroud-field",
+      "Hunting Cry"
+     ],
+     "unitType": "Paragon (Unique)",
+     "specialRules": []
+    }
+   ],
+   "traits": [
+    "Xenos",
+    "Rangda"
+   ],
+   "specialRules": [
+    "Prey Instinct",
+    "Fear (2)",
+    "Horror of the Taken",
+    "Bulky (4)",
+    "Collar-master",
+    "Herald of the War-moon",
+    "The First Voice"
+   ],
+   "unitRules": [
+    {
+     "name": "Herald of the War-moon",
+     "text": "Somewhere above the battle, one of the Rangdan war-moons is listening for this voice. The War-moon Strike may be fired in place of the Hunt-Sovereign's other Weapons in a Shooting Attack, even if the Hunt-Sovereign is Locked in Combat or is not in line of sight of the target, and its Blast Marker scatters as normal for a Barrage weapon."
+    },
+    {
+     "name": "The First Voice",
+     "text": "Ithrakk came through at Advex-Mors before anyone knew what the Rangda were, and spoke to the garrison in their commander's voice for a week. Ithrakk's Hunting Cry has a range of 18\" and the Pinning (3) Special Rule instead of Pinning (2)."
+    }
+   ],
+   "cryptoArkana": false,
+   "fixedArkana": null,
+   "factionChoice": false,
+   "fixedChoice": "Silent Choir",
+   "options": [],
+   "note": "The first Rangda the Imperium met, at Advex-Mors. Silent Choir. Written for this list."
+  },
+  {
+   "id": "hunt-court",
+   "name": "Hunt-Court",
+   "role": "Retinue",
+   "page": null,
+   "limit": null,
+   "unique": false,
+   "basePoints": 285,
+   "composition": "3 Court Hunters",
+   "models": [
+    {
+     "name": "Court Hunter",
+     "min": 3,
+     "max": 5,
+     "costPerExtra": 95,
+     "profile": {
+      "M": 9,
+      "WS": 5,
+      "BS": 5,
+      "S": 5,
+      "T": 5,
+      "W": 4,
+      "I": 6,
+      "A": 4,
+      "LD": 10,
+      "CL": 10,
+      "WP": 9,
+      "IN": 8,
+      "SAV": "3+",
+      "INV": "4+"
+     },
+     "wargear": [
+      "Spine Glaive",
+      "Shadow Blaster",
+      "Shroud-field",
+      "Hunting Cry"
+     ],
+     "unitType": "Infantry",
+     "specialRules": []
+    }
+   ],
+   "traits": [
+    "Xenos",
+    "Rangda"
+   ],
+   "specialRules": [
+    "Prey Instinct",
+    "Fear (1)",
+    "Horror of the Taken",
+    "Bulky (3)",
+    "Sworn to the Hunt"
+   ],
+   "unitRules": [
+    {
+     "name": "Sworn to the Hunt",
+     "text": "While a friendly Hunt-Sovereign, War-moon Regent or Ithrakk has joined a Unit with this Special Rule, all Models in the Unit gain a modifier of +1 to their Attacks Characteristic."
+    }
+   ],
+   "cryptoArkana": false,
+   "fixedArkana": null,
+   "factionChoice": true,
+   "fixedChoice": null,
+   "options": [],
+   "note": "The hunters who walk beside a Sovereign, shroud-fields and all. Written for this list."
+  },
+  {
+   "id": "brood-ship",
+   "name": "Brood-ship",
+   "role": "Heavy Transport",
+   "page": null,
+   "limit": null,
+   "unique": false,
+   "basePoints": 160,
+   "composition": "1 Brood-ship",
+   "models": [
+    {
+     "name": "Brood-ship",
+     "min": 1,
+     "max": 1,
+     "costPerExtra": 0,
+     "profile": {
+      "M": 12,
+      "BS": 4,
+      "FRONT": 12,
+      "SIDE": 12,
+      "REAR": 11,
+      "HP": 7,
+      "CAPACITY": 20
+     },
+     "wargear": [
+      "Turret Mounted Shadow Cannon",
+      "4 Hull Mounted Tendril Flails",
+      "Medusa Shroud"
+     ],
+     "unitType": "Vehicle (Antigrav, Transport)",
+     "specialRules": []
+    }
+   ],
+   "traits": [
+    "Xenos",
+    "Rangda"
+   ],
+   "specialRules": [
+    "Assault Vehicle"
+   ],
+   "unitRules": [],
+   "cryptoArkana": false,
+   "fixedArkana": null,
+   "factionChoice": true,
+   "fixedChoice": null,
+   "options": [],
+   "note": "The big iron jellyfish that carries a hunt, or a herd, down from orbit. Written for this list."
   },
   {
    "id": "thrall-cohort",
@@ -559,14 +1231,14 @@
    "page": null,
    "limit": null,
    "unique": false,
-   "basePoints": 120,
+   "basePoints": 60,
    "composition": "20 Thralls",
    "models": [
     {
      "name": "Thrall",
      "min": 20,
      "max": 40,
-     "costPerExtra": 6,
+     "costPerExtra": 3,
      "profile": {
       "M": 6,
       "WS": 3,
@@ -604,9 +1276,29 @@
    "unitRules": [],
    "cryptoArkana": false,
    "fixedArkana": null,
-   "factionChoice": false,
+   "factionChoice": true,
    "fixedChoice": null,
-   "options": [],
+   "options": [
+    {
+     "id": "heavy",
+     "text": "For every 10 Models in the Unit, one may exchange its Lasrifle for an item from the Captured Heavy Weapons list.",
+     "kind": "perModel",
+     "model": null,
+     "replaces": [
+      "Lasrifle"
+     ],
+     "choices": [
+      {
+       "list": "captured-heavy-weapons"
+      }
+     ],
+     "max": {
+      "per": 10,
+      "count": 1
+     },
+     "requires": null
+    }
+   ],
    "note": "Imperial Army troops taken on a Rangdan-tainted world, still in their old uniforms. Uses Imperial Army models."
   },
   {
@@ -660,9 +1352,29 @@
    "unitRules": [],
    "cryptoArkana": false,
    "fixedArkana": null,
-   "factionChoice": false,
+   "factionChoice": true,
    "fixedChoice": null,
-   "options": [],
+   "options": [
+    {
+     "id": "special",
+     "text": "For every 10 Models in the Unit, one may exchange its Lasrifle for an item from the Captured Special Weapons list.",
+     "kind": "perModel",
+     "model": null,
+     "replaces": [
+      "Lasrifle"
+     ],
+     "choices": [
+      {
+       "list": "captured-special-weapons"
+      }
+     ],
+     "max": {
+      "per": 10,
+      "count": 1
+     },
+     "requires": null
+    }
+   ],
    "note": "Captured Solar Auxilia in their void armour. Uses Solar Auxilia models."
   },
   {
@@ -717,7 +1429,7 @@
    "unitRules": [],
    "cryptoArkana": false,
    "fixedArkana": null,
-   "factionChoice": false,
+   "factionChoice": true,
    "fixedChoice": null,
    "options": [],
    "note": "Captured abhumans, the herd's favourite thing to overload. Uses Ogryn models."
@@ -765,9 +1477,30 @@
    "unitRules": [],
    "cryptoArkana": false,
    "fixedArkana": null,
-   "factionChoice": false,
+   "factionChoice": true,
    "fixedChoice": null,
    "options": [
+    {
+     "id": "turret",
+     "text": "May exchange its Turret Mounted Battlecannon for one of the following:",
+     "kind": "one",
+     "model": null,
+     "replaces": [
+      "Turret Mounted Battlecannon"
+     ],
+     "choices": [
+      {
+       "name": "Turret Mounted Demolisher cannon",
+       "points": 15
+      },
+      {
+       "name": "Turret Mounted Executioner plasma destroyer",
+       "points": 10
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
     {
      "id": "hull",
      "text": "May exchange its Hull (Front) Mounted Heavy bolter for one of the following:",
@@ -788,9 +1521,413 @@
      ],
      "max": null,
      "requires": null
+    },
+    {
+     "id": "sponsons",
+     "text": "May take one of the following pairs of sponson weapons:",
+     "kind": "one",
+     "model": null,
+     "replaces": [],
+     "choices": [
+      {
+       "name": "Two Sponson Mounted Heavy bolters",
+       "points": 15
+      },
+      {
+       "name": "Two Sponson Mounted Lascannons",
+       "points": 25
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "extras",
+     "text": "May take any of the following:",
+     "kind": "any",
+     "model": null,
+     "replaces": [],
+     "choices": [
+      {
+       "name": "Pintle Mounted Heavy stubber",
+       "points": 5
+      },
+      {
+       "name": "Hull Mounted Hunter-killer missile",
+       "points": 5
+      }
+     ],
+     "max": null,
+     "requires": null
     }
    ],
    "note": "A captured Leman Russ with a collared crew. Neural Collars still applies: with no Rangda within 12\" its crew may not declare Reactions."
+  },
+  {
+   "id": "thrall-carrier",
+   "name": "Thrall Carrier",
+   "role": "Transport",
+   "page": null,
+   "limit": null,
+   "unique": false,
+   "basePoints": 50,
+   "composition": "1 Thrall Carrier",
+   "models": [
+    {
+     "name": "Thrall Carrier",
+     "min": 1,
+     "max": 1,
+     "costPerExtra": 0,
+     "profile": {
+      "M": 12,
+      "BS": 3,
+      "FRONT": 12,
+      "SIDE": 11,
+      "REAR": 10,
+      "HP": 4,
+      "CAPACITY": 10
+     },
+     "wargear": [
+      "Pintle Mounted Heavy stubber"
+     ],
+     "unitType": "Vehicle (Rapid, Transport)",
+     "specialRules": []
+    }
+   ],
+   "traits": [
+    "Xenos",
+    "Thrall"
+   ],
+   "specialRules": [
+    "Neural Collars",
+    "Light Transport"
+   ],
+   "unitRules": [],
+   "cryptoArkana": false,
+   "fixedArkana": null,
+   "factionChoice": true,
+   "fixedChoice": null,
+   "options": [],
+   "note": "A captured Aurox with a collared driver. Uses Solar Auxilia models."
+  },
+  {
+   "id": "the-broken",
+   "name": "The Broken",
+   "role": "Troops",
+   "page": null,
+   "limit": "0-1",
+   "unique": false,
+   "basePoints": 90,
+   "composition": "10 Broken Legionaries",
+   "models": [
+    {
+     "name": "Broken Legionary",
+     "min": 10,
+     "max": 20,
+     "costPerExtra": 9,
+     "profile": {
+      "M": 7,
+      "WS": 4,
+      "BS": 4,
+      "S": 4,
+      "T": 4,
+      "W": 1,
+      "I": 4,
+      "A": 1,
+      "LD": 7,
+      "CL": 7,
+      "WP": 7,
+      "IN": 7,
+      "SAV": "3+",
+      "INV": "–"
+     },
+     "wargear": [
+      "Bolter",
+      "Bolt pistol",
+      "Frag grenades",
+      "Krak grenades",
+      "Neural Collar"
+     ],
+     "unitType": "Infantry",
+     "specialRules": []
+    }
+   ],
+   "traits": [
+    "Xenos",
+    "Thrall"
+   ],
+   "specialRules": [
+    "Neural Collars",
+    "Heedless",
+    "Still in There"
+   ],
+   "unitRules": [
+    {
+     "name": "Still in There",
+     "text": "They know their brothers' names, and sometimes they say them. Enemy Models with the Infantry Type that are Locked in Combat with a Unit with this Special Rule gain the Hatred (Thrall) Special Rule in that Combat."
+    }
+   ],
+   "cryptoArkana": false,
+   "fixedArkana": null,
+   "factionChoice": true,
+   "fixedChoice": null,
+   "options": [],
+   "note": "Collared Legionaries: the reason the Xenocide records are sealed. Uses Legion models in their own colours. Written for this list."
+  },
+  {
+   "id": "marshal-casimir-vehl",
+   "name": "Marshal Casimir Vehl",
+   "role": "Command",
+   "page": null,
+   "limit": null,
+   "unique": true,
+   "basePoints": 85,
+   "composition": "1 Casimir Vehl",
+   "models": [
+    {
+     "name": "Casimir Vehl",
+     "min": 1,
+     "max": 1,
+     "costPerExtra": 0,
+     "profile": {
+      "M": 6,
+      "WS": 4,
+      "BS": 4,
+      "S": 3,
+      "T": 3,
+      "W": 3,
+      "I": 4,
+      "A": 3,
+      "LD": 9,
+      "CL": 8,
+      "WP": 7,
+      "IN": 8,
+      "SAV": "3+",
+      "INV": "5+"
+     },
+     "wargear": [
+      "Power sword",
+      "Laspistol",
+      "Neural Collar"
+     ],
+     "unitType": "Infantry (Command, Unique)",
+     "specialRules": []
+    }
+   ],
+   "traits": [
+    "Xenos",
+    "Thrall"
+   ],
+   "specialRules": [
+    "Neural Collars",
+    "The Marshal's Collar",
+    "Orders in His Old Voice"
+   ],
+   "unitRules": [
+    {
+     "name": "The Marshal's Collar",
+     "text": "Vehl's collar is wired to every collar under his old command. Units with the Neural Collars Special Rule that have any Model within 12\" of Casimir Vehl count as being within 12\" of a friendly Rangdan Model. Vehl himself does not."
+    },
+    {
+     "name": "Orders in His Old Voice",
+     "text": "Once per battle, at the start of its Controlling Player's Shooting Phase, Vehl may select up to two friendly Units with the Thrall Trait that have any Model within 12\" of him. Until the end of that Phase, Shooting Attacks made by those Units gain the Pinning (1) Special Rule."
+    }
+   ],
+   "cryptoArkana": false,
+   "fixedArkana": null,
+   "factionChoice": false,
+   "fixedChoice": "Iron Chain",
+   "options": [],
+   "note": "An Imperial Army marshal taken with his whole regiment, who still gives orders in his own voice. Iron Chain. Written for this list."
+  },
+  {
+   "id": "thrall-gun-teams",
+   "name": "Thrall Gun-teams",
+   "role": "Support",
+   "page": null,
+   "limit": null,
+   "unique": false,
+   "basePoints": 40,
+   "composition": "2 Thrall Gun-teams",
+   "models": [
+    {
+     "name": "Thrall Gun-team",
+     "min": 2,
+     "max": 6,
+     "costPerExtra": 20,
+     "profile": {
+      "M": 5,
+      "WS": 3,
+      "BS": 3,
+      "S": 3,
+      "T": 3,
+      "W": 2,
+      "I": 3,
+      "A": 2,
+      "LD": 6,
+      "CL": 6,
+      "WP": 5,
+      "IN": 5,
+      "SAV": "5+",
+      "INV": "–"
+     },
+     "wargear": [
+      "Heavy bolter",
+      "Neural Collar"
+     ],
+     "unitType": "Infantry",
+     "specialRules": []
+    }
+   ],
+   "traits": [
+    "Xenos",
+    "Thrall"
+   ],
+   "specialRules": [
+    "Neural Collars",
+    "Bulky (2)"
+   ],
+   "unitRules": [],
+   "cryptoArkana": false,
+   "fixedArkana": null,
+   "factionChoice": true,
+   "fixedChoice": null,
+   "options": [
+    {
+     "id": "gun",
+     "text": "Any Thrall Gun-team may exchange its Heavy bolter for an item from the Gun-team Weapons list.",
+     "kind": "perModel",
+     "model": null,
+     "replaces": [
+      "Heavy bolter"
+     ],
+     "choices": [
+      {
+       "list": "gun-team-weapons"
+      }
+     ],
+     "max": null,
+     "requires": null
+    }
+   ],
+   "note": "Captured heavy weapon crews, two collared gunners to a model. Uses Imperial Army models."
+  },
+  {
+   "id": "thrall-basilisk",
+   "name": "Thrall Basilisk",
+   "role": "Support",
+   "page": null,
+   "limit": null,
+   "unique": false,
+   "basePoints": 115,
+   "composition": "1 Thrall Basilisk",
+   "models": [
+    {
+     "name": "Thrall Basilisk",
+     "min": 1,
+     "max": 1,
+     "costPerExtra": 0,
+     "profile": {
+      "M": 10,
+      "BS": 3,
+      "FRONT": 12,
+      "SIDE": 12,
+      "REAR": 10,
+      "HP": 5,
+      "CAPACITY": "–"
+     },
+     "wargear": [
+      "Centreline Mounted Earthshaker cannon",
+      "Smoke Launchers"
+     ],
+     "unitType": "Vehicle",
+     "specialRules": []
+    }
+   ],
+   "traits": [
+    "Xenos",
+    "Thrall"
+   ],
+   "specialRules": [
+    "Neural Collars"
+   ],
+   "unitRules": [],
+   "cryptoArkana": false,
+   "fixedArkana": null,
+   "factionChoice": true,
+   "fixedChoice": null,
+   "options": [],
+   "note": "A captured Basilisk with a collared crew. Uses Solar Auxilia models."
+  },
+  {
+   "id": "thrall-knight",
+   "name": "Thrall Knight",
+   "role": "Lord of War",
+   "page": null,
+   "limit": null,
+   "unique": false,
+   "basePoints": 400,
+   "composition": "1 Thrall Knight",
+   "models": [
+    {
+     "name": "Thrall Knight",
+     "min": 1,
+     "max": 1,
+     "costPerExtra": 0,
+     "profile": {
+      "M": 12,
+      "WS": 4,
+      "BS": 4,
+      "S": 8,
+      "FRONT": 13,
+      "REAR": 11,
+      "I": 4,
+      "A": 4,
+      "HP": 10
+     },
+     "wargear": [
+      "Rapid-fire battle cannon",
+      "Reaper chainsword",
+      "Hull (Front) Mounted Heavy stubber",
+      "Ion Shield"
+     ],
+     "unitType": "Vehicle (Knight)",
+     "specialRules": []
+    }
+   ],
+   "traits": [
+    "Xenos",
+    "Thrall"
+   ],
+   "specialRules": [
+    "Neural Collars",
+    "Explodes (6+)"
+   ],
+   "unitRules": [],
+   "cryptoArkana": false,
+   "fixedArkana": null,
+   "factionChoice": true,
+   "fixedChoice": null,
+   "options": [
+    {
+     "id": "gun",
+     "text": "May exchange its Rapid-fire battle cannon for a Thermal cannon for +15 points.",
+     "kind": "one",
+     "model": null,
+     "replaces": [
+      "Rapid-fire battle cannon"
+     ],
+     "choices": [
+      {
+       "name": "Thermal cannon",
+       "points": 15
+      }
+     ],
+     "max": null,
+     "requires": null
+    }
+   ],
+   "note": "A Questoris Knight whose pilot was collared inside the Throne Mechanicum. Neural Collars applies to its Reactions. Uses Questoris models."
   },
   {
    "id": "slaugth-dream-eater",
@@ -851,7 +1988,40 @@
    "fixedArkana": null,
    "factionChoice": false,
    "fixedChoice": null,
-   "options": [],
+   "options": [
+    {
+     "id": "spewer",
+     "text": "May exchange its Necrotic Projector for a Necrotic Spewer for +10 points.",
+     "kind": "one",
+     "model": null,
+     "replaces": [
+      "Necrotic Projector"
+     ],
+     "choices": [
+      {
+       "name": "Necrotic Spewer",
+       "points": 10
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "cloak",
+     "text": "May take a Corpse-cloak for +10 points.",
+     "kind": "upgrade",
+     "model": null,
+     "replaces": [],
+     "choices": [
+      {
+       "name": "Corpse-cloak",
+       "points": 10
+      }
+     ],
+     "max": null,
+     "requires": null
+    }
+   ],
    "note": "Canon places the Slaugth at Rangda during the Xenocides and says nothing more about why. Here they follow the hunts and eat the dead. Taking a Dream-Eater in a Command slot unlocks the Carrion Court. Written for this list."
   },
   {
@@ -910,7 +2080,7 @@
    "options": [
     {
      "id": "spewer",
-     "text": "For every three Models in the Unit, one may exchange its Necrotic Projector for a Necrotic Spewer for +5 points.",
+     "text": "For every three Models in the Unit, one may exchange its Necrotic Projector for a Necrotic Spewer for +10 points.",
      "kind": "perModel",
      "model": null,
      "replaces": [
@@ -919,6 +2089,26 @@
      "choices": [
       {
        "name": "Necrotic Spewer",
+       "points": 10
+      }
+     ],
+     "max": {
+      "per": 3,
+      "count": 1
+     },
+     "requires": null
+    },
+    {
+     "id": "lash",
+     "text": "For every three Models in the Unit, one may exchange its Worm-grasp for a Nerve-lash for +5 points.",
+     "kind": "perModel",
+     "model": null,
+     "replaces": [
+      "Worm-grasp"
+     ],
+     "choices": [
+      {
+       "name": "Nerve-lash",
        "points": 5
       }
      ],
@@ -1037,12 +2227,343 @@
    "fixedArkana": null,
    "factionChoice": false,
    "fixedChoice": null,
-   "options": [],
+   "options": [
+    {
+     "id": "spewers",
+     "text": "May exchange its 2 Necrotic Projectors for 2 Necrotic Spewers for +15 points.",
+     "kind": "one",
+     "model": null,
+     "replaces": [
+      "2 Necrotic Projectors"
+     ],
+     "choices": [
+      {
+       "name": "2 Necrotic Spewers",
+       "points": 15
+      }
+     ],
+     "max": null,
+     "requires": null
+    }
+   ],
    "note": "A vehicle-sized mass of flesh and metal that gathers the dead. Written for this list."
+  },
+  {
+   "id": "charnel-barge",
+   "name": "Charnel Barge",
+   "role": "Transport",
+   "page": null,
+   "limit": null,
+   "unique": false,
+   "basePoints": 65,
+   "composition": "1 Charnel Barge",
+   "models": [
+    {
+     "name": "Charnel Barge",
+     "min": 1,
+     "max": 1,
+     "costPerExtra": 0,
+     "profile": {
+      "M": 12,
+      "BS": 3,
+      "FRONT": 11,
+      "SIDE": 11,
+      "REAR": 10,
+      "HP": 4,
+      "CAPACITY": 8
+     },
+     "wargear": [
+      "Necrotic Spewer"
+     ],
+     "unitType": "Vehicle (Antigrav, Transport)",
+     "specialRules": []
+    }
+   ],
+   "traits": [
+    "Xenos",
+    "Slaugth"
+   ],
+   "specialRules": [
+    "Living Hull"
+   ],
+   "unitRules": [
+    {
+     "name": "Living Hull",
+     "text": "The barge is grown, not built, and it closes its own wounds. At the start of its Controlling Player's turn, roll a Dice for a Model with this Special Rule that has lost any Hull Points: on a 5+ it regains one lost Hull Point."
+    }
+   ],
+   "cryptoArkana": false,
+   "fixedArkana": null,
+   "factionChoice": false,
+   "fixedChoice": null,
+   "options": [],
+   "note": "A floating hull of flesh over a metal frame that carries the Kindred to the dead. Written for this list."
+  },
+  {
+   "id": "the-hollow-choir",
+   "name": "The Hollow Choir",
+   "role": "Command",
+   "page": null,
+   "limit": null,
+   "unique": true,
+   "basePoints": 180,
+   "composition": "1 Hollow Choir",
+   "models": [
+    {
+     "name": "The Hollow Choir",
+     "min": 1,
+     "max": 1,
+     "costPerExtra": 0,
+     "profile": {
+      "M": 6,
+      "WS": 5,
+      "BS": 4,
+      "S": 5,
+      "T": 5,
+      "W": 6,
+      "I": 4,
+      "A": 4,
+      "LD": 10,
+      "CL": 10,
+      "WP": 11,
+      "IN": 11,
+      "SAV": "4+",
+      "INV": "5+"
+     },
+     "wargear": [
+      "Nerve-lash",
+      "Necrotic Spewer"
+     ],
+     "unitType": "Infantry (Command, Unique)",
+     "specialRules": []
+    }
+   ],
+   "traits": [
+    "Xenos",
+    "Slaugth"
+   ],
+   "specialRules": [
+    "Worm Gestalt",
+    "Carrion Feast",
+    "Fear (2)",
+    "Feast of Minds",
+    "Stolen Memories"
+   ],
+   "unitRules": [
+    {
+     "name": "Feast of Minds",
+     "text": "When a Model with this Special Rule Removes an enemy Model with the Command Sub-Type as a Casualty, in a Challenge or not, it regains all of its lost Wounds."
+    },
+    {
+     "name": "Stolen Memories",
+     "text": "The Choir has eaten the minds of Dark Angels, and remembers how Legions fight. Once per battle, at the start of the opposing Player's turn, its Controlling Player may name one Advanced Reaction. That Reaction may not be declared until the end of the battle turn."
+    }
+   ],
+   "cryptoArkana": false,
+   "fixedArkana": null,
+   "factionChoice": false,
+   "fixedChoice": null,
+   "options": [],
+   "note": "A Slaugth elder that speaks in a chorus of Dark Angel voices. Unlocks the Carrion Court like a Dream-Eater. Written for this list."
   }
  ],
- "lists": [],
- "arkana": [],
+ "lists": [
+  {
+   "id": "rangdan-hunting-weapons",
+   "name": "Rangdan Hunting Weapons",
+   "page": null,
+   "items": [
+    {
+     "name": "Spine Glaive",
+     "points": 0
+    },
+    {
+     "name": "Flensing Hooks",
+     "points": 0
+    }
+   ]
+  },
+  {
+   "id": "rangdan-sidearms",
+   "name": "Rangdan Sidearms",
+   "page": null,
+   "items": [
+    {
+     "name": "Shadow Pistol",
+     "points": 0
+    },
+    {
+     "name": "Shadow Blaster",
+     "points": 10
+    }
+   ]
+  },
+  {
+   "id": "relics-of-the-hunt",
+   "name": "Relics of the Hunt",
+   "page": null,
+   "note": "Each item may be selected only once per army. The Fang of the First Xenocide is a weapon and is also once per army.",
+   "items": [
+    {
+     "name": "Skin-thief Cloak",
+     "points": 15,
+     "oncePerArmy": true
+    },
+    {
+     "name": "Dread-mask",
+     "points": 10,
+     "oncePerArmy": true
+    },
+    {
+     "name": "War-moon Beacon",
+     "points": 25,
+     "oncePerArmy": true
+    },
+    {
+     "name": "Collar-key of Advex-Mors",
+     "points": 10,
+     "oncePerArmy": true
+    }
+   ]
+  },
+  {
+   "id": "captured-heavy-weapons",
+   "name": "Captured Heavy Weapons",
+   "page": null,
+   "items": [
+    {
+     "name": "Heavy stubber",
+     "points": 5
+    },
+    {
+     "name": "Heavy bolter",
+     "points": 5
+    },
+    {
+     "name": "Missile launcher",
+     "points": 10
+    },
+    {
+     "name": "Lascannon",
+     "points": 15
+    },
+    {
+     "name": "Autocannon",
+     "points": 20
+    }
+   ]
+  },
+  {
+   "id": "gun-team-weapons",
+   "name": "Gun-team Weapons",
+   "page": null,
+   "items": [
+    {
+     "name": "Heavy bolter",
+     "points": 0
+    },
+    {
+     "name": "Heavy stubber",
+     "points": 0
+    },
+    {
+     "name": "Missile launcher",
+     "points": 5
+    },
+    {
+     "name": "Lascannon",
+     "points": 10
+    },
+    {
+     "name": "Autocannon",
+     "points": 15
+    }
+   ]
+  },
+  {
+   "id": "captured-special-weapons",
+   "name": "Captured Special Weapons",
+   "page": null,
+   "items": [
+    {
+     "name": "Flamer",
+     "points": 5
+    },
+    {
+     "name": "Volkite charger",
+     "points": 5
+    },
+    {
+     "name": "Meltagun",
+     "points": 15
+    }
+   ]
+  }
+ ],
+ "arkana": [
+  {
+   "name": "Silent Choir",
+   "page": null,
+   "wargear": [],
+   "gambits": [],
+   "reactions": [
+    {
+     "name": "The Choir Answers",
+     "page": null,
+     "text": "The charge comes in, and is met by the screams of the charging squad's own dead.\n\nTrigger: The Reactive Player may declare The Choir Answers Advanced Reaction when an enemy Unit declares a Charge targeting a friendly Unit with the Silent Choir Trait.\n\nCost: 1 Reaction Point.\n\nEffect: The charging Unit must make a Cool Check, applying any Fear (X) modifiers. If the Check is failed, it gains the Pinned Tactical Status and the Charge fails."
+    }
+   ],
+   "harbinger": {
+    "name": "Silent Choir",
+    "text": "The war-moon whose hunters speak only in stolen voices. Its Rangda go into battle wearing the screams of everything they have killed, and its thralls have forgotten their own.\n\nTactica: Models with the Rangda Trait and the Silent Choir Trait increase the value of their Fear (X) Special Rule by 1, to a maximum of Fear (3).\n\nCost: Models with the Rangda Trait and the Silent Choir Trait reduce their Ballistic Skill by 1. Its hunters are voices, not marksmen.\n\nAdvanced Reaction: The Choir Answers."
+   }
+  },
+  {
+   "name": "Iron Chain",
+   "page": null,
+   "wargear": [],
+   "gambits": [],
+   "reactions": [],
+   "harbinger": {
+    "name": "Iron Chain",
+    "text": "The war-moon that took the most worlds and fields the most thralls; its collars are the oldest and the cruellest.\n\nTactica: Units with the Neural Collars Special Rule and the Iron Chain Trait count as being within 12\" of a friendly Rangdan Model while any of their Models is within 18\" of one. When such a Unit is Overloaded with the Collar-master Special Rule, its Models also gain a modifier of +1 to their Weapon Skill until the end of the Phase.\n\nCost: A Unit with the Iron Chain Trait that is Overloaded suffers D3+1 wounds at the end of the Phase instead of D3.\n\nPrime Advantage: Collar-bombs."
+   }
+  },
+  {
+   "name": "Long Hunt",
+   "page": null,
+   "wargear": [],
+   "gambits": [
+    {
+     "name": "Throat-Hunter",
+     "page": null,
+     "text": "When selecting a Gambit, the Controlling Player of a Model with the Long Hunt Trait can select Throat-Hunter instead of any others available to that Model.\n\nIf this Gambit is selected, the Model's Melee Attacks in this round of the Challenge gain the Breaching (4+) Special Rule, and if the opposing Model has any Tactical Status, the Controlling Player gains a +1 modifier to the Focus Roll."
+    }
+   ],
+   "reactions": [],
+   "harbinger": {
+    "name": "Long Hunt",
+    "text": "The war-moon that drifts furthest ahead of the others, whose hunters run their prey down across whole continents.\n\nTactica: Models with the Rangda Trait, the Long Hunt Trait and the Infantry or Paragon Type have the Fast (2) Special Rule.\n\nCost: If a Unit with the Long Hunt Trait ends its Movement Phase within 12\" of an enemy Unit it can see, a Charge must be declared for it in that turn if it is able to declare one.\n\nGambit: Throat-Hunter."
+   }
+  },
+  {
+   "name": "Burning Sky",
+   "page": null,
+   "wargear": [],
+   "gambits": [],
+   "reactions": [
+    {
+     "name": "Moonfall",
+     "page": null,
+     "text": "The Burning Sky watches the ground beneath its hunters, and anything that arrives there uninvited is struck from orbit.\n\nTrigger: The Reactive Player may declare a Moonfall Advanced Reaction once per battle, when an enemy Unit is placed on the battlefield from Reserves within 18\" of a friendly Model with the Burning Sky Trait and the Command or Paragon Sub-Type or Type.\n\nCost: 1 Reaction Point.\n\nEffect: Resolve one Shooting Attack against the Target Unit with the following profile, as if fired by the Reacting Model: R Unlimited, FP 1, RS 8, AP 3, D 1, Blast (3\"), Pinning (1). The Blast Marker does not scatter."
+    }
+   ],
+   "harbinger": {
+    "name": "Burning Sky",
+    "text": "The war-moon that hangs lowest over its battles, its guns always aimed at the ground.\n\nTactica: Weapons with the Shadow Trait used by Models with the Burning Sky Trait have their Range increased by 6\" (Unlimited and Template ranges are unchanged), and War-moon Strikes and Barrages they fire scatter half the rolled distance.\n\nCost: Models with the Rangda Trait and the Burning Sky Trait reduce their Initiative by 1.\n\nAdvanced Reaction: Moonfall."
+   }
+  }
+ ],
  "weapons": {
   "ranged": [
    {
@@ -1222,48 +2743,15 @@
     "modes": null
    },
    {
-    "name": "Lasrifle",
-    "page": null,
-    "R": 30,
-    "FP": 1,
-    "RS": 3,
-    "AP": 6,
-    "D": 1,
-    "specialRules": [
-     "Heavy (FP)"
-    ],
-    "traits": [
-     "Las"
-    ],
-    "modes": null
-   },
-   {
-    "name": "Laspistol",
+    "name": "Hunting Cry",
     "page": null,
     "R": 12,
-    "FP": 1,
+    "FP": 2,
     "RS": 3,
     "AP": "–",
     "D": 1,
     "specialRules": [
-     "Pistol"
-    ],
-    "traits": [
-     "Assault",
-     "Las"
-    ],
-    "modes": null
-   },
-   {
-    "name": "Frag grenades",
-    "page": null,
-    "R": 6,
-    "FP": 1,
-    "RS": 3,
-    "AP": 6,
-    "D": 1,
-    "specialRules": [
-     "Blast (3\")"
+     "Pinning (2)"
     ],
     "traits": [
      "Assault"
@@ -1271,29 +2759,214 @@
     "modes": null
    },
    {
+    "name": "War-moon Barrage",
+    "page": null,
+    "R": 96,
+    "FP": 1,
+    "RS": 10,
+    "AP": 2,
+    "D": 2,
+    "specialRules": [
+     "Blast (5\")",
+     "Barrage (1)",
+     "Suppressive (2)"
+    ],
+    "traits": [
+     "Shadow"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Shadow Caster",
+    "page": null,
+    "R": 30,
+    "FP": 2,
+    "RS": 6,
+    "AP": 3,
+    "D": 1,
+    "specialRules": [
+     "Blast (3\")",
+     "Suppressive (1)"
+    ],
+    "traits": [
+     "Shadow"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Shadow Lance Array",
+    "page": null,
+    "R": 24,
+    "FP": 2,
+    "RS": 9,
+    "AP": 2,
+    "D": 2,
+    "specialRules": [
+     "Armourbane",
+     "Shock (Stunned)"
+    ],
+    "traits": [
+     "Shadow"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Lasrifle",
+    "page": null,
+    "specialRules": [
+     "Heavy (FP)"
+    ],
+    "traits": [
+     "Las"
+    ],
+    "modes": null,
+    "R": 30,
+    "FP": 1,
+    "RS": 3,
+    "AP": 6,
+    "D": 1
+   },
+   {
+    "name": "Laspistol",
+    "page": null,
+    "specialRules": [
+     "Pistol"
+    ],
+    "traits": [
+     "Assault",
+     "Las"
+    ],
+    "modes": null,
+    "R": 12,
+    "FP": 1,
+    "RS": 3,
+    "AP": "–",
+    "D": 1
+   },
+   {
+    "name": "Frag grenades",
+    "page": null,
+    "specialRules": [
+     "Blast (3\")"
+    ],
+    "traits": [
+     "Assault"
+    ],
+    "modes": null,
+    "R": 6,
+    "FP": 1,
+    "RS": 3,
+    "AP": 6,
+    "D": 1
+   },
+   {
     "name": "Heavy bolter",
     "page": null,
-    "R": 36,
-    "FP": 3,
-    "RS": 5,
-    "AP": 4,
-    "D": 1,
     "specialRules": [
      "Heavy (FP)"
     ],
     "traits": [
      "Bolt"
     ],
-    "modes": null
+    "modes": null,
+    "R": 36,
+    "FP": 3,
+    "RS": 5,
+    "AP": 4,
+    "D": 1
+   },
+   {
+    "name": "Heavy stubber",
+    "page": null,
+    "specialRules": [],
+    "traits": [
+     "Auto"
+    ],
+    "modes": null,
+    "R": 36,
+    "FP": 3,
+    "RS": 4,
+    "AP": 6,
+    "D": 1
+   },
+   {
+    "name": "Autocannon",
+    "page": null,
+    "specialRules": [
+     "Breaching (6+)",
+     "Heavy (FP)"
+    ],
+    "traits": [
+     "Auto"
+    ],
+    "modes": null,
+    "R": 48,
+    "FP": 2,
+    "RS": 7,
+    "AP": 4,
+    "D": 2
+   },
+   {
+    "name": "Missile launcher",
+    "page": null,
+    "specialRules": [],
+    "traits": [],
+    "modes": [
+     {
+      "name": "Missile launcher (Flak)",
+      "page": null,
+      "specialRules": [
+       "Heavy (D)",
+       "Skyfire"
+      ],
+      "traits": [
+       "Missile"
+      ],
+      "modes": null,
+      "R": 48,
+      "FP": 1,
+      "RS": 8,
+      "AP": 4,
+      "D": 1
+     },
+     {
+      "name": "Missile launcher (Krak)",
+      "page": null,
+      "specialRules": [
+       "Heavy (D)"
+      ],
+      "traits": [
+       "Missile"
+      ],
+      "modes": null,
+      "R": 48,
+      "FP": 1,
+      "RS": 8,
+      "AP": 3,
+      "D": 1
+     },
+     {
+      "name": "Missile launcher (Frag)",
+      "page": null,
+      "specialRules": [
+       "Heavy (RS)",
+       "Blast (3\")"
+      ],
+      "traits": [
+       "Missile"
+      ],
+      "modes": null,
+      "R": 48,
+      "FP": 1,
+      "RS": 4,
+      "AP": 6,
+      "D": 1
+     }
+    ]
    },
    {
     "name": "Lascannon",
     "page": null,
-    "R": 48,
-    "FP": 1,
-    "RS": 9,
-    "AP": 2,
-    "D": 1,
     "specialRules": [
      "Heavy (D)",
      "Armourbane"
@@ -1301,16 +2974,16 @@
     "traits": [
      "Las"
     ],
-    "modes": null
+    "modes": null,
+    "R": 48,
+    "FP": 1,
+    "RS": 9,
+    "AP": 2,
+    "D": 1
    },
    {
-    "name": "Heavy flamer",
+    "name": "Flamer",
     "page": null,
-    "R": "Template",
-    "FP": 1,
-    "RS": 5,
-    "AP": 4,
-    "D": 1,
     "specialRules": [
      "Template",
      "Panic (1)"
@@ -1318,16 +2991,66 @@
     "traits": [
      "Flame"
     ],
-    "modes": null
+    "modes": null,
+    "R": "Template",
+    "FP": 1,
+    "RS": 4,
+    "AP": 5,
+    "D": 1
+   },
+   {
+    "name": "Heavy flamer",
+    "page": null,
+    "specialRules": [
+     "Template",
+     "Panic (1)"
+    ],
+    "traits": [
+     "Flame"
+    ],
+    "modes": null,
+    "R": "Template",
+    "FP": 1,
+    "RS": 5,
+    "AP": 4,
+    "D": 1
+   },
+   {
+    "name": "Meltagun",
+    "page": null,
+    "specialRules": [
+     "Melta (6)"
+    ],
+    "traits": [
+     "Melta"
+    ],
+    "modes": null,
+    "R": 12,
+    "FP": 1,
+    "RS": 8,
+    "AP": 2,
+    "D": 3
+   },
+   {
+    "name": "Volkite charger",
+    "page": null,
+    "specialRules": [
+     "Deflagrate (5)"
+    ],
+    "traits": [
+     "Assault",
+     "Volkite"
+    ],
+    "modes": null,
+    "R": 15,
+    "FP": 2,
+    "RS": 5,
+    "AP": 5,
+    "D": 1
    },
    {
     "name": "Battlecannon",
     "page": null,
-    "R": 48,
-    "FP": 1,
-    "RS": 8,
-    "AP": 4,
-    "D": 2,
     "specialRules": [
      "Heavy (AP)",
      "Blast (3\")",
@@ -1336,7 +3059,174 @@
     "traits": [
      "Auto"
     ],
-    "modes": null
+    "modes": null,
+    "R": 48,
+    "FP": 1,
+    "RS": 8,
+    "AP": 4,
+    "D": 2
+   },
+   {
+    "name": "Demolisher cannon",
+    "page": null,
+    "specialRules": [
+     "Blast (3\")",
+     "Breaching (5+)",
+     "Ordnance (D)",
+     "Stun (1)"
+    ],
+    "traits": [],
+    "modes": null,
+    "R": 24,
+    "FP": 1,
+    "RS": 12,
+    "AP": 3,
+    "D": 3
+   },
+   {
+    "name": "Executioner plasma destroyer",
+    "page": null,
+    "specialRules": [],
+    "traits": [],
+    "modes": [
+     {
+      "name": "Executioner plasma destroyer (Sustained)",
+      "page": null,
+      "specialRules": [
+       "Blast (5\")",
+       "Breaching (5+)"
+      ],
+      "traits": [
+       "Plasma"
+      ],
+      "modes": null,
+      "R": 36,
+      "FP": 1,
+      "RS": 8,
+      "AP": 4,
+      "D": 1
+     },
+     {
+      "name": "Executioner plasma destroyer (Maximal)",
+      "page": null,
+      "specialRules": [
+       "Blast (5\")",
+       "Breaching (4+)",
+       "Overload (1)"
+      ],
+      "traits": [
+       "Plasma"
+      ],
+      "modes": null,
+      "R": 36,
+      "FP": 1,
+      "RS": 8,
+      "AP": 4,
+      "D": 2
+     }
+    ]
+   },
+   {
+    "name": "Hunter-killer missile",
+    "page": null,
+    "specialRules": [
+     "Armourbane",
+     "Limited (1)"
+    ],
+    "traits": [
+     "Missile"
+    ],
+    "modes": null,
+    "R": 48,
+    "FP": 1,
+    "RS": 9,
+    "AP": 3,
+    "D": 3
+   },
+   {
+    "name": "Bolter",
+    "page": null,
+    "specialRules": [],
+    "traits": [
+     "Bolt"
+    ],
+    "modes": null,
+    "R": 24,
+    "FP": 2,
+    "RS": 4,
+    "AP": 5,
+    "D": 1
+   },
+   {
+    "name": "Bolt pistol",
+    "page": null,
+    "specialRules": [
+     "Pistol"
+    ],
+    "traits": [
+     "Assault",
+     "Bolt"
+    ],
+    "modes": null,
+    "R": 12,
+    "FP": 1,
+    "RS": 4,
+    "AP": 5,
+    "D": 1
+   },
+   {
+    "name": "Earthshaker cannon",
+    "page": null,
+    "specialRules": [
+     "Ordnance (RS)",
+     "Blast (5\")",
+     "Barrage (2)",
+     "Breaching (6+)",
+     "Pinning (1)"
+    ],
+    "traits": [],
+    "modes": null,
+    "R": 240,
+    "FP": 1,
+    "RS": 5,
+    "AP": 4,
+    "D": 2
+   },
+   {
+    "name": "Rapid-fire battle cannon",
+    "page": null,
+    "specialRules": [
+     "Heavy (FP & AP)",
+     "Blast (3\")",
+     "Pinning (1)"
+    ],
+    "traits": [
+     "Auto"
+    ],
+    "modes": null,
+    "R": 48,
+    "FP": 1,
+    "RS": 8,
+    "AP": 4,
+    "D": 2
+   },
+   {
+    "name": "Thermal cannon",
+    "page": null,
+    "specialRules": [
+     "Heavy (RS)",
+     "Blast (3\")",
+     "Melta (12)"
+    ],
+    "traits": [
+     "Melta"
+    ],
+    "modes": null,
+    "R": 36,
+    "FP": 1,
+    "RS": 10,
+    "AP": 2,
+    "D": 6
    }
   ],
   "melee": [
@@ -1448,32 +3338,127 @@
     "modes": null
    },
    {
-    "name": "Bayonet",
+    "name": "Flensing Hooks",
     "page": null,
     "IM": "I",
-    "AM": "A",
+    "AM": "+1",
     "SM": "S",
-    "AP": 5,
+    "AP": 3,
     "D": 1,
-    "specialRules": [],
+    "specialRules": [
+     "Shred (6+)"
+    ],
     "traits": [
-     "Bayonet"
+     "Shadow"
     ],
     "modes": null
    },
    {
+    "name": "Severing Maul",
+    "page": null,
+    "IM": -2,
+    "AM": "A",
+    "SM": "+3",
+    "AP": 2,
+    "D": 2,
+    "specialRules": [],
+    "traits": [
+     "Shadow"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Fang of the First Xenocide",
+    "page": null,
+    "IM": "+1",
+    "AM": "+1",
+    "SM": "+1",
+    "AP": 2,
+    "D": 2,
+    "specialRules": [
+     "Breaching (4+)"
+    ],
+    "traits": [
+     "Shadow"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Regent's Glaive",
+    "page": null,
+    "IM": "+1",
+    "AM": "+1",
+    "SM": "+2",
+    "AP": 2,
+    "D": 3,
+    "specialRules": [
+     "Breaching (4+)"
+    ],
+    "traits": [
+     "Shadow"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Bayonet",
+    "page": null,
+    "specialRules": [],
+    "traits": [
+     "Bayonet"
+    ],
+    "modes": null,
+    "IM": "I",
+    "AM": "A",
+    "SM": "S",
+    "AP": 5,
+    "D": 1
+   },
+   {
+    "name": "Reaper chainsword",
+    "page": null,
+    "specialRules": [
+     "Reaping Blow (2)",
+     "Shred (4+)"
+    ],
+    "traits": [
+     "Chain"
+    ],
+    "modes": null,
+    "IM": -1,
+    "AM": "A",
+    "SM": "+2",
+    "AP": 2,
+    "D": 3
+   },
+   {
+    "name": "Power sword",
+    "page": null,
+    "specialRules": [
+     "Breaching (6+)"
+    ],
+    "traits": [
+     "Power"
+    ],
+    "modes": null,
+    "IM": "I",
+    "AM": "A",
+    "SM": "S",
+    "AP": 3,
+    "D": 1
+   },
+   {
     "name": "Krak grenades",
     "page": null,
-    "IM": -3,
-    "AM": 1,
-    "SM": 6,
-    "AP": 4,
-    "D": 2,
     "specialRules": [
      "Detonation"
     ],
     "traits": [],
-    "modes": null
+    "modes": null,
+    "IM": -3,
+    "AM": 1,
+    "SM": 6,
+    "AP": 4,
+    "D": 2
    }
   ]
  },
@@ -1489,6 +3474,31 @@
    "text": "The great Rangdan machines trail the same bent shadow as their officers. A Model with a Medusa Shroud has a 5+ Invulnerable Save against Shooting Attacks."
   },
   {
+   "name": "Skin-thief Cloak",
+   "page": null,
+   "text": "A cloak sewn from the hide of something the Rangda hunted and could not stop admiring; it drinks the light around it. Relic of the Hunt: once per army. The bearer has the Shrouded (5+) Special Rule."
+  },
+  {
+   "name": "Dread-mask",
+   "page": null,
+   "text": "The skull of the first Imperial commander its wearer killed, worn where the enemy can see it. Relic of the Hunt: once per army. The bearer increases the value of its Fear (X) Special Rule by 1, to a maximum of Fear (3)."
+  },
+  {
+   "name": "War-moon Beacon",
+   "page": null,
+   "text": "A shard of a war-moon's targeting array, still listening for its masters. Relic of the Hunt: once per army. The bearer may fire a War-moon Strike as if it had the Herald of the War-moon Special Rule. If the bearer is a Hunt-Sovereign, its War-moon Strike has Limited (2) instead of Limited (1)."
+  },
+  {
+   "name": "Collar-key of Advex-Mors",
+   "page": null,
+   "text": "The master key to the collars fitted on the first world the Rangda took. Relic of the Hunt: once per army. The bearer may use the Collar-master Special Rule on a Unit with any Model within 18\" of it, and a Unit it Overloads suffers D3-1 wounds at the end of the Phase instead of D3."
+  },
+  {
+   "name": "Corpse-cloak",
+   "page": null,
+   "text": "Robes woven from the skins of the eaten, which the worms beneath can slide through and out of. The bearer has the Shrouded (5+) Special Rule."
+  },
+  {
    "name": "Neural Collar",
    "page": null,
    "text": "A band of cold xenos metal sunk into the spine. It carries its masters' will straight into the nerves, and burns through them on command. See the Neural Collars Special Rule."
@@ -1500,6 +3510,11 @@
     "name": "Prey Instinct",
     "page": null,
     "text": "The Rangda are hunters before they are anything else, and they go for whatever is already wounded, pinned or running.\n\nWhen a Model with this Special Rule makes a Wound Test for a Shooting Attack or a Melee Attack against a Target Unit that has one or more of the Pinned, Suppressed, Stunned or Routed Tactical Statuses, it gains a bonus of +1 to that Wound Test."
+   },
+   {
+    "name": "Horror of the Taken",
+    "page": null,
+    "text": "Everyone who fought the Rangda saw it happen at least once: a squad that did not die but was carried off, and came back wearing collars.\n\nWhen a Unit that includes any Models with this Special Rule destroys an enemy Unit in combat (the last Model of that Unit is Removed as a Casualty by its Melee Attacks), every other enemy Unit with any Model within 6\" of the destroyed Unit's last Model must make a Leadership Check. Any Unit that fails gains the Routed Tactical Status."
    },
    {
     "name": "Neural Collars",
@@ -1524,12 +3539,43 @@
   ],
   "reactions": [
    {
+    "name": "The Choir Answers",
+    "page": null,
+    "text": "The charge comes in, and is met by the screams of the charging squad's own dead.\n\nTrigger: The Reactive Player may declare The Choir Answers Advanced Reaction when an enemy Unit declares a Charge targeting a friendly Unit with the Silent Choir Trait.\n\nCost: 1 Reaction Point.\n\nEffect: The charging Unit must make a Cool Check, applying any Fear (X) modifiers. If the Check is failed, it gains the Pinned Tactical Status and the Charge fails."
+   },
+   {
+    "name": "Moonfall",
+    "page": null,
+    "text": "The Burning Sky watches the ground beneath its hunters, and anything that arrives there uninvited is struck from orbit.\n\nTrigger: The Reactive Player may declare a Moonfall Advanced Reaction once per battle, when an enemy Unit is placed on the battlefield from Reserves within 18\" of a friendly Model with the Burning Sky Trait and the Command or Paragon Sub-Type or Type.\n\nCost: 1 Reaction Point.\n\nEffect: Resolve one Shooting Attack against the Target Unit with the following profile, as if fired by the Reacting Model: R Unlimited, FP 1, RS 8, AP 3, D 1, Blast (3\"), Pinning (1). The Blast Marker does not scatter."
+   },
+   {
     "name": "Living Shields",
     "page": null,
     "text": "The masters have never stood in front of their own herd. When the guns turn on them, the collars drag the thralls into the line of fire.\n\nTrigger: The Reactive Player may declare a Living Shields Advanced Reaction at the start of Step 3 of the Shooting Attack sequence, when an enemy Unit targets a friendly Unit that only includes Models with the Rangda Trait and is not a Vehicle, and a friendly Unit with the Neural Collars Special Rule has any Model within 3\" of the target.\n\nCost: 1 Reaction Point.\n\nEffect: The Unit with the Neural Collars Special Rule becomes the target of the Shooting Attack instead, even if it would not normally be a legal target, as long as at least one of its Models is within range of at least one of the attacking Unit's Weapons. Weapons that cannot reach it may not make attacks. A Unit may only be selected for this Reaction once per Player Turn."
+   },
+   {
+    "name": "The Hunt Closes",
+    "page": null,
+    "text": "Prey that stumbles is prey that dies. A Rangdan hunt-pack moves the moment its quarry falters.\n\nTrigger: The Reactive Player may declare The Hunt Closes Advanced Reaction when an enemy Unit with one or more Tactical Statuses ends a move in the Movement Phase within 12\" of a friendly Unit that only includes Models with the Rangda Trait and the Infantry or Paragon Type.\n\nCost: 1 Reaction Point.\n\nEffect: The Reacting Unit may move up to its Movement Characteristic. It must end that move closer to the Target Unit and may not end it within 1\" of any enemy Model."
    }
   ],
-  "gambits": [],
+  "gambits": [
+   {
+    "name": "Throat-Hunter",
+    "page": null,
+    "text": "When selecting a Gambit, the Controlling Player of a Model with the Long Hunt Trait can select Throat-Hunter instead of any others available to that Model.\n\nIf this Gambit is selected, the Model's Melee Attacks in this round of the Challenge gain the Breaching (4+) Special Rule, and if the opposing Model has any Tactical Status, the Controlling Player gains a +1 modifier to the Focus Roll."
+   },
+   {
+    "name": "Hunter's Stare",
+    "page": null,
+    "text": "When selecting a Gambit, the Controlling Player of a Model with the Rangda Trait can select Hunter's Stare instead of any others available to that Model.\n\nIf this Gambit is selected, the opposing Model must make a Cool Check, applying any Fear (X) modifiers. If the Check is failed, the Controlling Player of the Model that selected Hunter's Stare gains a +2 modifier to the Focus Roll for this round of the Challenge."
+   },
+   {
+    "name": "Feast of Memories",
+    "page": null,
+    "text": "When selecting a Gambit, the Controlling Player of a Model with the Slaugth Trait can select Feast of Memories instead of any others available to that Model.\n\nIf this Gambit is selected and the opposing Model is Removed as a Casualty in this round of the Challenge, the Model that selected Feast of Memories regains all of its lost Wounds and gains one Special Rule of the opposing Model (chosen by its Controlling Player; not a Type, Sub-Type or Trait) for the rest of the battle. It has eaten the memory of how to fight that way."
+   }
+  ],
   "primeAdvantages": [],
   "traits": [
    {
@@ -1583,6 +3629,11 @@
      "role": "Support",
      "prime": false,
      "flexible": false
+    },
+    {
+     "role": "Transport",
+     "prime": false,
+     "flexible": false
     }
    ],
    "restrictions": [
@@ -1625,7 +3676,17 @@
      "flexible": false
     },
     {
+     "role": "Support",
+     "prime": false,
+     "flexible": false
+    },
+    {
      "role": "Armour",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Transport",
      "prime": false,
      "flexible": false
     }
@@ -1706,10 +3767,15 @@
      "role": "War Engine",
      "prime": false,
      "flexible": false
+    },
+    {
+     "role": "Transport",
+     "prime": false,
+     "flexible": false
     }
    ],
    "restrictions": [
-    "This Detachment may only be selected if a Slaugth Dream-Eater fills a Command Slot in the army.",
+    "This Detachment may only be selected if a Slaugth Dream-Eater or the Hollow Choir fills a Command Slot in the army.",
     "Only Units with the Slaugth Trait may be selected to fill Slots in this Detachment."
    ],
    "rules": [],
@@ -1721,7 +3787,8 @@
    ],
    "unlockedBy": {
     "commandUnit": [
-     "slaugth-dream-eater"
+     "slaugth-dream-eater",
+     "the-hollow-choir"
     ],
     "slotRole": "Command"
    },
@@ -1766,6 +3833,311 @@
     }
    ],
    "note": "The Hunt-Sovereign's own pack."
+  },
+  {
+   "id": "the-collared-host",
+   "name": "The Collared Host",
+   "type": "Apex",
+   "page": null,
+   "unlock": null,
+   "slots": [
+    {
+     "role": "Troops",
+     "prime": true,
+     "flexible": false
+    },
+    {
+     "role": "Troops",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Armour",
+     "prime": false,
+     "flexible": false
+    }
+   ],
+   "restrictions": [
+    "Only Units with the Thrall Trait may be selected to fill Slots in this Detachment."
+   ],
+   "rules": [],
+   "slotRules": [
+    {
+     "roles": null,
+     "trait": "Thrall"
+    }
+   ],
+   "note": "A whole captured regiment, marched in front of the hunt."
+  },
+  {
+   "id": "shoal-of-iron",
+   "name": "Shoal of Iron",
+   "type": "Apex",
+   "page": null,
+   "unlock": null,
+   "slots": [
+    {
+     "role": "Armour",
+     "prime": true,
+     "flexible": false
+    },
+    {
+     "role": "Armour",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Fast Attack",
+     "prime": false,
+     "flexible": false
+    }
+   ],
+   "restrictions": [
+    "Only Units with the Rangda Trait may be selected to fill Slots in this Detachment."
+   ],
+   "rules": [],
+   "slotRules": [
+    {
+     "roles": null,
+     "trait": "Rangda"
+    }
+   ],
+   "note": "Iron Medusas drifting in line, the Kites above them."
+  },
+  {
+   "id": "the-great-feast",
+   "name": "The Great Feast",
+   "type": "Apex",
+   "page": null,
+   "unlock": null,
+   "slots": [
+    {
+     "role": "Elites",
+     "prime": true,
+     "flexible": false
+    },
+    {
+     "role": "Elites",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "War Engine",
+     "prime": false,
+     "flexible": false
+    }
+   ],
+   "restrictions": [
+    "This Detachment may only be selected if a Slaugth Dream-Eater or the Hollow Choir fills a Command Slot in the army.",
+    "Only Units with the Slaugth Trait may be selected to fill Slots in this Detachment."
+   ],
+   "rules": [],
+   "slotRules": [
+    {
+     "roles": null,
+     "trait": "Slaugth"
+    }
+   ],
+   "unlockedBy": {
+    "commandUnit": [
+     "slaugth-dream-eater",
+     "the-hollow-choir"
+    ],
+    "slotRole": "Command"
+   },
+   "note": "When the Slaugth come in numbers, the hunt has already ended."
+  },
+  {
+   "id": "the-choirs-hunt",
+   "name": "The Choir's Hunt",
+   "type": "Auxiliary",
+   "page": null,
+   "unlock": "When a model with the Silent Choir Trait is selected to fill a Command Slot, then the Player may add The Choir's Hunt to the Army instead of the options available in the Crusade Force Organization Chart.",
+   "slots": [
+    {
+     "role": "Elites",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Elites",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Recon",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Recon",
+     "prime": false,
+     "flexible": false
+    }
+   ],
+   "restrictions": [
+    "Only Units with the Silent Choir Trait may be selected to fill Slots in this Detachment."
+   ],
+   "rules": [],
+   "slotRules": [
+    {
+     "roles": null,
+     "trait": "Silent Choir"
+    }
+   ],
+   "unlockedBy": {
+    "commandTrait": "Silent Choir"
+   },
+   "note": "The Silent Choir's screaming hunters and the Mimics that walk ahead of them."
+  },
+  {
+   "id": "the-chained-host",
+   "name": "The Chained Host",
+   "type": "Auxiliary",
+   "page": null,
+   "unlock": "When a model with the Iron Chain Trait is selected to fill a Command Slot, then the Player may add The Chained Host to the Army instead of the options available in the Crusade Force Organization Chart.",
+   "slots": [
+    {
+     "role": "Troops",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Troops",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Troops",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Heavy Assault",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Heavy Assault",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Support",
+     "prime": false,
+     "flexible": false
+    }
+   ],
+   "restrictions": [
+    "Only Units with the Iron Chain Trait may be selected to fill Slots in this Detachment."
+   ],
+   "rules": [],
+   "slotRules": [
+    {
+     "roles": null,
+     "trait": "Iron Chain"
+    }
+   ],
+   "unlockedBy": {
+    "commandTrait": "Iron Chain"
+   },
+   "note": "The Iron Chain's endless herd."
+  },
+  {
+   "id": "the-running-pack",
+   "name": "The Running Pack",
+   "type": "Auxiliary",
+   "page": null,
+   "unlock": "When a model with the Long Hunt Trait is selected to fill a Command Slot, then the Player may add The Running Pack to the Army instead of the options available in the Crusade Force Organization Chart.",
+   "slots": [
+    {
+     "role": "Elites",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Elites",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Fast Attack",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Fast Attack",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Transport",
+     "prime": false,
+     "flexible": false
+    }
+   ],
+   "restrictions": [
+    "Only Units with the Long Hunt Trait may be selected to fill Slots in this Detachment."
+   ],
+   "rules": [],
+   "slotRules": [
+    {
+     "roles": null,
+     "trait": "Long Hunt"
+    }
+   ],
+   "unlockedBy": {
+    "commandTrait": "Long Hunt"
+   },
+   "note": "The Long Hunt at full speed."
+  },
+  {
+   "id": "the-sky-burners",
+   "name": "The Sky-Burners",
+   "type": "Auxiliary",
+   "page": null,
+   "unlock": "When a model with the Burning Sky Trait is selected to fill a Command Slot, then the Player may add The Sky-Burners to the Army instead of the options available in the Crusade Force Organization Chart.",
+   "slots": [
+    {
+     "role": "Support",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Support",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Armour",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Armour",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Fast Attack",
+     "prime": false,
+     "flexible": false
+    }
+   ],
+   "restrictions": [
+    "Only Units with the Burning Sky Trait may be selected to fill Slots in this Detachment."
+   ],
+   "rules": [],
+   "slotRules": [
+    {
+     "roles": null,
+     "trait": "Burning Sky"
+    }
+   ],
+   "unlockedBy": {
+    "commandTrait": "Burning Sky"
+   },
+   "note": "The Burning Sky's lancers and gun-ships, with the moon overhead."
   },
   {
    "id": "core-armoured-fist",
@@ -2385,13 +4757,29 @@
    "text": "If a Unit that only includes Models with the Thrall Trait is selected to fill a Prime Troops Slot, the following Prime Advantage can be selected: Collared Legion. The Unit gains the Line (1) Special Rule, and for the Neural Collars Special Rule it counts as being within 12\" of a friendly Rangdan Model while any of its Models is within 18\" of one."
   },
   {
+   "name": "Collar-bombs",
+   "page": null,
+   "eligible": {
+    "choice": [
+     "Iron Chain"
+    ],
+    "trait": "Thrall",
+    "unitTypes": [
+     "Infantry"
+    ]
+   },
+   "extraSlot": false,
+   "text": "If a Unit with the Iron Chain Trait, the Thrall Trait and the Infantry Type is selected to fill a Prime Force Organisation Slot, the following Prime Advantage can be selected: Collar-bombs. Once per battle, at the start of any Phase, if any enemy Unit is within 3\" of this Unit, the Controlling Player may detonate its collars: every Model in this Unit is Removed as a Casualty, and every enemy Unit with any Model within 3\" of it suffers D6 Hits at Strength 6, AP 4, Damage 1."
+  },
+  {
    "name": "Sated Gestalt",
    "page": null,
    "eligible": {
     "units": [
      "slaugth-dream-eater",
      "slaugth-kindred",
-     "slaugth-harvester"
+     "slaugth-harvester",
+     "the-hollow-choir"
     ]
    },
    "extraSlot": false,
@@ -2399,7 +4787,143 @@
   }
  ],
  "modifiers": {
-  "modifiers": []
+  "modifiers": [
+   {
+    "id": "silent-choir-fear",
+    "page": null,
+    "text": "Models with the Rangda Trait and the Silent Choir Trait increase the value of their Fear (X) Special Rule by 1, to a maximum of Fear (3), and reduce their Ballistic Skill by 1.",
+    "source": {
+     "type": "arkana",
+     "name": "Silent Choir"
+    },
+    "appliesTo": {
+     "trait": "Rangda",
+     "exceptUnits": [
+      "tendril-skiffs",
+      "iron-medusa",
+      "spine-leviathan",
+      "tendril-barge",
+      "shadow-kite",
+      "brood-ship",
+      "thrall-armour",
+      "thrall-carrier",
+      "thrall-basilisk",
+      "thrall-knight",
+      "charnel-barge",
+      "war-moon-regent"
+     ]
+    },
+    "scope": "unit",
+    "stats": {
+     "BS": "-1"
+    },
+    "addRules": [],
+    "removeRules": [],
+    "modifyRules": [
+     {
+      "rule": "Fear",
+      "by": 1
+     }
+    ],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "silent-choir-regent",
+    "page": null,
+    "text": "A War-moon Regent's Fear (3) is already the most a Silent Choir model can have; it still reduces its Ballistic Skill by 1.",
+    "source": {
+     "type": "arkana",
+     "name": "Silent Choir"
+    },
+    "appliesTo": {
+     "units": [
+      "war-moon-regent"
+     ]
+    },
+    "scope": "unit",
+    "stats": {
+     "BS": "-1"
+    },
+    "addRules": [],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "long-hunt-fast",
+    "page": null,
+    "text": "Models with the Rangda Trait, the Long Hunt Trait and the Infantry or Paragon Type have the Fast (2) Special Rule.",
+    "source": {
+     "type": "arkana",
+     "name": "Long Hunt"
+    },
+    "appliesTo": {
+     "trait": "Rangda",
+     "exceptUnits": [
+      "tendril-skiffs",
+      "iron-medusa",
+      "spine-leviathan",
+      "tendril-barge",
+      "shadow-kite",
+      "brood-ship",
+      "thrall-armour",
+      "thrall-carrier",
+      "thrall-basilisk",
+      "thrall-knight",
+      "charnel-barge"
+     ]
+    },
+    "scope": "unit",
+    "stats": {},
+    "addRules": [
+     "Fast (2)"
+    ],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": null
+   },
+   {
+    "id": "burning-sky-initiative",
+    "page": null,
+    "text": "Models with the Rangda Trait and the Burning Sky Trait reduce their Initiative by 1.",
+    "source": {
+     "type": "arkana",
+     "name": "Burning Sky"
+    },
+    "appliesTo": {
+     "trait": "Rangda",
+     "exceptUnits": [
+      "tendril-skiffs",
+      "iron-medusa",
+      "spine-leviathan",
+      "tendril-barge",
+      "shadow-kite",
+      "brood-ship",
+      "thrall-armour",
+      "thrall-carrier",
+      "thrall-basilisk",
+      "thrall-knight",
+      "charnel-barge"
+     ]
+    },
+    "scope": "unit",
+    "stats": {
+     "I": "-1"
+    },
+    "addRules": [],
+    "removeRules": [],
+    "modifyRules": [],
+    "addTraits": [],
+    "addUnitTypes": [],
+    "condition": null
+   }
+  ]
  },
  "armyConfig": {
   "fixed": [
@@ -2422,10 +4946,40 @@
     "source": "Rangdan characters"
    },
    {
+    "name": "Horror of the Taken",
+    "text": "Everyone who fought the Rangda saw it happen at least once: a squad that did not die but was carried off, and came back wearing collars.\n\nWhen a Unit that includes any Models with this Special Rule destroys an enemy Unit in combat (the last Model of that Unit is Removed as a Casualty by its Melee Attacks), every other enemy Unit with any Model within 6\" of the destroyed Unit's last Model must make a Leadership Check. Any Unit that fails gains the Routed Tactical Status.",
+    "kind": "rule",
+    "source": "Rangda Tactica"
+   },
+   {
+    "name": "Additional Reaction Point",
+    "text": "If an Army's Primary Detachment is from the Rangdan Army List, the Controlling Player gains one additional Reaction Point if that Detachment's High Command or Warlord Slot is filled by a Model with the Rangda Trait.",
+    "kind": "rule",
+    "source": "Rangdan Army List"
+   },
+   {
     "name": "Living Shields",
     "text": "The masters have never stood in front of their own herd. When the guns turn on them, the collars drag the thralls into the line of fire.\n\nTrigger: The Reactive Player may declare a Living Shields Advanced Reaction at the start of Step 3 of the Shooting Attack sequence, when an enemy Unit targets a friendly Unit that only includes Models with the Rangda Trait and is not a Vehicle, and a friendly Unit with the Neural Collars Special Rule has any Model within 3\" of the target.\n\nCost: 1 Reaction Point.\n\nEffect: The Unit with the Neural Collars Special Rule becomes the target of the Shooting Attack instead, even if it would not normally be a legal target, as long as at least one of its Models is within range of at least one of the attacking Unit's Weapons. Weapons that cannot reach it may not make attacks. A Unit may only be selected for this Reaction once per Player Turn.",
     "kind": "Reaction",
     "source": "Advanced Reaction"
+   },
+   {
+    "name": "The Hunt Closes",
+    "text": "Prey that stumbles is prey that dies. A Rangdan hunt-pack moves the moment its quarry falters.\n\nTrigger: The Reactive Player may declare The Hunt Closes Advanced Reaction when an enemy Unit with one or more Tactical Statuses ends a move in the Movement Phase within 12\" of a friendly Unit that only includes Models with the Rangda Trait and the Infantry or Paragon Type.\n\nCost: 1 Reaction Point.\n\nEffect: The Reacting Unit may move up to its Movement Characteristic. It must end that move closer to the Target Unit and may not end it within 1\" of any enemy Model.",
+    "kind": "Reaction",
+    "source": "Advanced Reaction"
+   },
+   {
+    "name": "Hunter's Stare",
+    "text": "When selecting a Gambit, the Controlling Player of a Model with the Rangda Trait can select Hunter's Stare instead of any others available to that Model.\n\nIf this Gambit is selected, the opposing Model must make a Cool Check, applying any Fear (X) modifiers. If the Check is failed, the Controlling Player of the Model that selected Hunter's Stare gains a +2 modifier to the Focus Roll for this round of the Challenge.",
+    "kind": "Gambit",
+    "source": "Gambits"
+   },
+   {
+    "name": "Feast of Memories",
+    "text": "When selecting a Gambit, the Controlling Player of a Model with the Slaugth Trait can select Feast of Memories instead of any others available to that Model.\n\nIf this Gambit is selected and the opposing Model is Removed as a Casualty in this round of the Challenge, the Model that selected Feast of Memories regains all of its lost Wounds and gains one Special Rule of the opposing Model (chosen by its Controlling Player; not a Type, Sub-Type or Trait) for the rest of the battle. It has eaten the memory of how to fight that way.",
+    "kind": "Gambit",
+    "source": "Gambits"
    },
    {
     "name": "Worm Gestalt",
