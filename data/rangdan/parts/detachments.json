@@ -125,6 +125,11 @@
           "role": "Armour",
           "prime": false,
           "flexible": false
+        },
+        {
+          "role": "War Engine",
+          "prime": false,
+          "flexible": false
         }
       ],
       "restrictions": [

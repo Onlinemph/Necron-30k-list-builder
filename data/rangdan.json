@@ -311,6 +311,26 @@
    "fixedChoice": null,
    "options": [
     {
+     "id": "melee",
+     "text": "May exchange its Spine Glaive for an item from the Rangdan Hunting Weapons list, or for a Severing Maul for +20 points.",
+     "kind": "one",
+     "model": null,
+     "replaces": [
+      "Spine Glaive"
+     ],
+     "choices": [
+      {
+       "list": "rangdan-hunting-weapons"
+      },
+      {
+       "name": "Severing Maul",
+       "points": 20
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
      "id": "sidearm",
      "text": "May exchange its Shadow Pistol for an item from the Rangdan Sidearms list.",
      "kind": "one",
@@ -374,7 +394,7 @@
     {
      "name": "Rangda Hunter",
      "min": 3,
-     "max": 6,
+     "max": 9,
      "costPerExtra": 75,
      "profile": {
       "M": 9,
@@ -536,7 +556,7 @@
     {
      "name": "Shadow Lancer",
      "min": 3,
-     "max": 5,
+     "max": 6,
      "costPerExtra": 85,
      "profile": {
       "M": 9,
@@ -561,6 +581,36 @@
      ],
      "unitType": "Infantry",
      "specialRules": []
+    },
+    {
+     "name": "Lance-Alpha",
+     "min": 0,
+     "max": 1,
+     "costPerExtra": 0,
+     "profile": {
+      "M": 9,
+      "WS": 5,
+      "BS": 5,
+      "S": 5,
+      "T": 5,
+      "W": 4,
+      "I": 6,
+      "A": 4,
+      "LD": 11,
+      "CL": 10,
+      "WP": 9,
+      "IN": 8,
+      "SAV": "3+",
+      "INV": "4+"
+     },
+     "wargear": [
+      "Shadow Lance",
+      "Rangda Claws",
+      "Shroud-field",
+      "Hunting Cry"
+     ],
+     "unitType": "Infantry (Sergeant)",
+     "specialRules": []
     }
    ],
    "traits": [
@@ -579,6 +629,23 @@
    "factionChoice": true,
    "fixedChoice": null,
    "options": [
+    {
+     "id": "alpha",
+     "text": "One Shadow Lancer may be upgraded to a Lance-Alpha for +15 points.",
+     "kind": "swapModel",
+     "model": "Shadow Lancer",
+     "replaces": [],
+     "choices": [
+      {
+       "name": "Lance-Alpha",
+       "points": 15
+      }
+     ],
+     "max": {
+      "fixed": 1
+     },
+     "requires": null
+    },
     {
      "id": "caster",
      "text": "Any Model may exchange its Shadow Lance for a Shadow Caster.",
@@ -612,7 +679,7 @@
     {
      "name": "Mimic",
      "min": 3,
-     "max": 5,
+     "max": 6,
      "costPerExtra": 70,
      "profile": {
       "M": 9,
@@ -636,6 +703,36 @@
       "Hunting Cry"
      ],
      "unitType": "Infantry (Skirmish)",
+     "specialRules": []
+    },
+    {
+     "name": "Mimic-Alpha",
+     "min": 0,
+     "max": 1,
+     "costPerExtra": 0,
+     "profile": {
+      "M": 9,
+      "WS": 5,
+      "BS": 5,
+      "S": 5,
+      "T": 5,
+      "W": 3,
+      "I": 7,
+      "A": 4,
+      "LD": 11,
+      "CL": 10,
+      "WP": 9,
+      "IN": 8,
+      "SAV": "4+",
+      "INV": "4+"
+     },
+     "wargear": [
+      "Shadow Blaster",
+      "Rangda Claws",
+      "Shroud-field",
+      "Hunting Cry"
+     ],
+     "unitType": "Infantry (Skirmish, Sergeant)",
      "specialRules": []
     }
    ],
@@ -662,7 +759,25 @@
    "fixedArkana": null,
    "factionChoice": true,
    "fixedChoice": null,
-   "options": [],
+   "options": [
+    {
+     "id": "alpha",
+     "text": "One Mimic may be upgraded to a Mimic-Alpha for +15 points.",
+     "kind": "swapModel",
+     "model": "Mimic",
+     "replaces": [],
+     "choices": [
+      {
+       "name": "Mimic-Alpha",
+       "points": 15
+      }
+     ],
+     "max": {
+      "fixed": 1
+     },
+     "requires": null
+    }
+   ],
    "note": "Canon credits the Rangda with mimicry and never says what it was. These are the hunters who use it. Written for this list."
   },
   {
@@ -744,8 +859,8 @@
     {
      "name": "Iron Medusa",
      "min": 1,
-     "max": 1,
-     "costPerExtra": 0,
+     "max": 3,
+     "costPerExtra": 160,
      "profile": {
       "M": 10,
       "BS": 4,
@@ -924,7 +1039,25 @@
    "fixedArkana": null,
    "factionChoice": true,
    "fixedChoice": null,
-   "options": [],
+   "options": [
+    {
+     "id": "hull",
+     "text": "May exchange its 2 Hull Mounted Tendril Flails for 2 Hull Mounted Shadow Blasters for +5 points.",
+     "kind": "one",
+     "model": null,
+     "replaces": [
+      "2 Hull Mounted Tendril Flails"
+     ],
+     "choices": [
+      {
+       "name": "2 Hull Mounted Shadow Blasters",
+       "points": 5
+      }
+     ],
+     "max": null,
+     "requires": null
+    }
+   ],
    "note": "A hunting barge with room for four Rangda, who drop from its tendrils straight into a charge. Written for this list."
   },
   {
@@ -940,8 +1073,8 @@
     {
      "name": "Shadow Kite",
      "min": 1,
-     "max": 1,
-     "costPerExtra": 0,
+     "max": 2,
+     "costPerExtra": 105,
      "profile": {
       "M": 20,
       "BS": 4,
@@ -1224,8 +1357,646 @@
    "fixedArkana": null,
    "factionChoice": true,
    "fixedChoice": null,
-   "options": [],
+   "options": [
+    {
+     "id": "turret",
+     "text": "May exchange its Turret Mounted Shadow Cannon for a Turret Mounted Shadow Lance Array for +25 points.",
+     "kind": "one",
+     "model": null,
+     "replaces": [
+      "Turret Mounted Shadow Cannon"
+     ],
+     "choices": [
+      {
+       "name": "Turret Mounted Shadow Lance Array",
+       "points": 25
+      }
+     ],
+     "max": null,
+     "requires": null
+    }
+   ],
    "note": "The big iron jellyfish that carries a hunt, or a herd, down from orbit. Written for this list."
+  },
+  {
+   "id": "skyhunters",
+   "name": "Skyhunters",
+   "role": "Fast Attack",
+   "page": null,
+   "limit": null,
+   "unique": false,
+   "basePoints": 250,
+   "composition": "3 Skyhunters",
+   "models": [
+    {
+     "name": "Skyhunter",
+     "min": 3,
+     "max": 6,
+     "costPerExtra": 80,
+     "profile": {
+      "M": 14,
+      "WS": 5,
+      "BS": 4,
+      "S": 5,
+      "T": 5,
+      "W": 4,
+      "I": 6,
+      "A": 4,
+      "LD": 10,
+      "CL": 10,
+      "WP": 9,
+      "IN": 8,
+      "SAV": "3+",
+      "INV": "5+"
+     },
+     "wargear": [
+      "Spine Glaive",
+      "Shadow Pistol",
+      "Grav-harness",
+      "Hunting Cry"
+     ],
+     "unitType": "Infantry (Antigrav)",
+     "specialRules": []
+    },
+    {
+     "name": "Sky-Alpha",
+     "min": 0,
+     "max": 1,
+     "costPerExtra": 0,
+     "profile": {
+      "M": 14,
+      "WS": 5,
+      "BS": 4,
+      "S": 5,
+      "T": 5,
+      "W": 4,
+      "I": 6,
+      "A": 5,
+      "LD": 11,
+      "CL": 10,
+      "WP": 9,
+      "IN": 8,
+      "SAV": "3+",
+      "INV": "4+"
+     },
+     "wargear": [
+      "Spine Glaive",
+      "Shadow Pistol",
+      "Grav-harness",
+      "Shroud-field",
+      "Hunting Cry"
+     ],
+     "unitType": "Infantry (Antigrav, Sergeant)",
+     "specialRules": []
+    }
+   ],
+   "traits": [
+    "Xenos",
+    "Rangda"
+   ],
+   "specialRules": [
+    "Prey Instinct",
+    "Fear (1)",
+    "Horror of the Taken",
+    "Bulky (3)",
+    "Deep Strike",
+    "Vanguard (2)"
+   ],
+   "unitRules": [],
+   "cryptoArkana": false,
+   "fixedArkana": null,
+   "factionChoice": true,
+   "fixedChoice": null,
+   "options": [
+    {
+     "id": "alpha",
+     "text": "One Skyhunter may be upgraded to a Sky-Alpha for +15 points.",
+     "kind": "swapModel",
+     "model": "Skyhunter",
+     "replaces": [],
+     "choices": [
+      {
+       "name": "Sky-Alpha",
+       "points": 15
+      }
+     ],
+     "max": {
+      "fixed": 1
+     },
+     "requires": null
+    },
+    {
+     "id": "melee",
+     "text": "Any Model may exchange its Spine Glaive for an item from the Rangdan Hunting Weapons list.",
+     "kind": "perModel",
+     "model": null,
+     "replaces": [
+      "Spine Glaive"
+     ],
+     "choices": [
+      {
+       "list": "rangdan-hunting-weapons"
+      }
+     ],
+     "max": {
+      "shared": "glaive"
+     },
+     "requires": null
+    },
+    {
+     "id": "maul",
+     "text": "For every three Models in the Unit, one may exchange its Spine Glaive for a Severing Maul for +20 points.",
+     "kind": "perModel",
+     "model": null,
+     "replaces": [
+      "Spine Glaive"
+     ],
+     "choices": [
+      {
+       "name": "Severing Maul",
+       "points": 20
+      }
+     ],
+     "max": {
+      "per": 3,
+      "count": 1,
+      "shared": "glaive"
+     },
+     "requires": null
+    },
+    {
+     "id": "sidearm",
+     "text": "Any Model may exchange its Shadow Pistol for an item from the Rangdan Sidearms list.",
+     "kind": "perModel",
+     "model": null,
+     "replaces": [
+      "Shadow Pistol"
+     ],
+     "choices": [
+      {
+       "list": "rangdan-sidearms"
+      }
+     ],
+     "max": null,
+     "requires": null
+    }
+   ],
+   "note": "Rangda on grav-harnesses who drop out of the sky onto whatever the Cry has pinned. Written for this list."
+  },
+  {
+   "id": "ironhide-hunters",
+   "name": "Ironhide Hunters",
+   "role": "Heavy Assault",
+   "page": null,
+   "limit": null,
+   "unique": false,
+   "basePoints": 330,
+   "composition": "3 Ironhide Hunters",
+   "models": [
+    {
+     "name": "Ironhide Hunter",
+     "min": 3,
+     "max": 6,
+     "costPerExtra": 105,
+     "profile": {
+      "M": 7,
+      "WS": 5,
+      "BS": 4,
+      "S": 5,
+      "T": 6,
+      "W": 4,
+      "I": 5,
+      "A": 4,
+      "LD": 10,
+      "CL": 10,
+      "WP": 9,
+      "IN": 8,
+      "SAV": "2+",
+      "INV": "5+"
+     },
+     "wargear": [
+      "Great Glaive",
+      "Shadow Blaster",
+      "Ironhide Plate",
+      "Hunting Cry"
+     ],
+     "unitType": "Infantry (Heavy)",
+     "specialRules": []
+    },
+    {
+     "name": "Ironhide-Alpha",
+     "min": 0,
+     "max": 1,
+     "costPerExtra": 0,
+     "profile": {
+      "M": 7,
+      "WS": 5,
+      "BS": 4,
+      "S": 5,
+      "T": 6,
+      "W": 4,
+      "I": 5,
+      "A": 5,
+      "LD": 11,
+      "CL": 10,
+      "WP": 9,
+      "IN": 8,
+      "SAV": "2+",
+      "INV": "4+"
+     },
+     "wargear": [
+      "Great Glaive",
+      "Shadow Blaster",
+      "Ironhide Plate",
+      "Shroud-field",
+      "Hunting Cry"
+     ],
+     "unitType": "Infantry (Heavy, Sergeant)",
+     "specialRules": []
+    }
+   ],
+   "traits": [
+    "Xenos",
+    "Rangda"
+   ],
+   "specialRules": [
+    "Prey Instinct",
+    "Fear (1)",
+    "Horror of the Taken",
+    "Bulky (4)",
+    "Vanguard (3)"
+   ],
+   "unitRules": [],
+   "cryptoArkana": false,
+   "fixedArkana": null,
+   "factionChoice": true,
+   "fixedChoice": null,
+   "options": [
+    {
+     "id": "alpha",
+     "text": "One Ironhide Hunter may be upgraded to an Ironhide-Alpha for +15 points.",
+     "kind": "swapModel",
+     "model": "Ironhide Hunter",
+     "replaces": [],
+     "choices": [
+      {
+       "name": "Ironhide-Alpha",
+       "points": 15
+      }
+     ],
+     "max": {
+      "fixed": 1
+     },
+     "requires": null
+    },
+    {
+     "id": "maul",
+     "text": "For every three Models in the Unit, one may exchange its Great Glaive for a Severing Maul for +15 points.",
+     "kind": "perModel",
+     "model": null,
+     "replaces": [
+      "Great Glaive"
+     ],
+     "choices": [
+      {
+       "name": "Severing Maul",
+       "points": 15
+      }
+     ],
+     "max": {
+      "per": 3,
+      "count": 1
+     },
+     "requires": null
+    }
+   ],
+   "note": "Rangda in grown war-plate, the hunt's answer to Terminators. Written for this list."
+  },
+  {
+   "id": "hunt-hounds",
+   "name": "Hunt-Hounds",
+   "role": "Fast Attack",
+   "page": null,
+   "limit": null,
+   "unique": false,
+   "basePoints": 75,
+   "composition": "5 Hunt-Hounds",
+   "models": [
+    {
+     "name": "Hunt-Hound",
+     "min": 5,
+     "max": 10,
+     "costPerExtra": 15,
+     "profile": {
+      "M": 12,
+      "WS": 4,
+      "BS": 0,
+      "S": 4,
+      "T": 4,
+      "W": 2,
+      "I": 5,
+      "A": 3,
+      "LD": 7,
+      "CL": 7,
+      "WP": 4,
+      "IN": 2,
+      "SAV": "5+",
+      "INV": "–"
+     },
+     "wargear": [
+      "Hound Fangs"
+     ],
+     "unitType": "Infantry (Light)",
+     "specialRules": []
+    }
+   ],
+   "traits": [
+    "Xenos",
+    "Rangda"
+   ],
+   "specialRules": [
+    "Prey Instinct",
+    "Fear (1)",
+    "Fast (2)",
+    "Heedless",
+    "Beasts of the Hunt"
+   ],
+   "unitRules": [
+    {
+     "name": "Beasts of the Hunt",
+     "text": "Long-legged hunting beasts from the Rangda's own worlds, loosed ahead of the hunt. Models with this Special Rule do not count as Rangdan Models for the Neural Collars, Collar-master or Living Shields Special Rules, and are not affected by the Long Hunt or Silent Choir Tacticas."
+    }
+   ],
+   "cryptoArkana": false,
+   "fixedArkana": null,
+   "factionChoice": true,
+   "fixedChoice": null,
+   "options": [],
+   "note": "The Rangda's hunting beasts. Heedless, like Fenrisian wolves: they run prey down, they don't hold ground. Written for this list."
+  },
+  {
+   "id": "shroud-weaver",
+   "name": "Shroud-Weaver",
+   "role": "Command",
+   "page": null,
+   "limit": null,
+   "unique": false,
+   "basePoints": 130,
+   "composition": "1 Shroud-Weaver",
+   "models": [
+    {
+     "name": "Shroud-Weaver",
+     "min": 1,
+     "max": 1,
+     "costPerExtra": 0,
+     "profile": {
+      "M": 9,
+      "WS": 6,
+      "BS": 5,
+      "S": 5,
+      "T": 5,
+      "W": 4,
+      "I": 6,
+      "A": 3,
+      "LD": 10,
+      "CL": 10,
+      "WP": 9,
+      "IN": 8,
+      "SAV": "3+",
+      "INV": "4+"
+     },
+     "wargear": [
+      "Spine Glaive",
+      "Shadow Pistol",
+      "Shroud Projector",
+      "Shroud-field",
+      "Hunting Cry"
+     ],
+     "unitType": "Infantry (Command)",
+     "specialRules": []
+    }
+   ],
+   "traits": [
+    "Xenos",
+    "Rangda"
+   ],
+   "specialRules": [
+    "Prey Instinct",
+    "Fear (2)",
+    "Horror of the Taken",
+    "Bulky (3)",
+    "Collar-master"
+   ],
+   "unitRules": [],
+   "cryptoArkana": false,
+   "fixedArkana": null,
+   "factionChoice": true,
+   "fixedChoice": null,
+   "options": [
+    {
+     "id": "melee",
+     "text": "May exchange its Spine Glaive for an item from the Rangdan Hunting Weapons list, or for a Severing Maul for +20 points.",
+     "kind": "one",
+     "model": null,
+     "replaces": [
+      "Spine Glaive"
+     ],
+     "choices": [
+      {
+       "list": "rangdan-hunting-weapons"
+      },
+      {
+       "name": "Severing Maul",
+       "points": 20
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "sidearm",
+     "text": "May exchange its Shadow Pistol for an item from the Rangdan Sidearms list.",
+     "kind": "one",
+     "model": null,
+     "replaces": [
+      "Shadow Pistol"
+     ],
+     "choices": [
+      {
+       "list": "rangdan-sidearms"
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "fang",
+     "text": "May exchange its Spine Glaive for the Fang of the First Xenocide for +25 points.",
+     "kind": "one",
+     "model": null,
+     "replaces": [
+      "Spine Glaive"
+     ],
+     "choices": [
+      {
+       "name": "Fang of the First Xenocide",
+       "points": 25,
+       "oncePerArmy": true
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "relic",
+     "text": "May have one item from the Relics of the Hunt selected for it.",
+     "kind": "one",
+     "model": null,
+     "replaces": [],
+     "choices": [
+      {
+       "list": "relics-of-the-hunt"
+      }
+     ],
+     "max": null,
+     "requires": null
+    }
+   ],
+   "note": "The Rangda who tends the shroud-fields, and spreads one over the pack it walks with. Written for this list."
+  },
+  {
+   "id": "moon-callers",
+   "name": "Moon-callers",
+   "role": "Support",
+   "page": null,
+   "limit": null,
+   "unique": false,
+   "basePoints": 70,
+   "composition": "1 Moon-caller",
+   "models": [
+    {
+     "name": "Moon-caller",
+     "min": 1,
+     "max": 3,
+     "costPerExtra": 70,
+     "profile": {
+      "M": 9,
+      "WS": 5,
+      "BS": 5,
+      "S": 5,
+      "T": 5,
+      "W": 4,
+      "I": 6,
+      "A": 3,
+      "LD": 10,
+      "CL": 10,
+      "WP": 9,
+      "IN": 8,
+      "SAV": "4+",
+      "INV": "5+"
+     },
+     "wargear": [
+      "Moon-caller Array",
+      "Rangda Claws",
+      "Hunting Cry"
+     ],
+     "unitType": "Infantry",
+     "specialRules": []
+    }
+   ],
+   "traits": [
+    "Xenos",
+    "Rangda"
+   ],
+   "specialRules": [
+    "Prey Instinct",
+    "Fear (1)",
+    "Horror of the Taken",
+    "Bulky (3)"
+   ],
+   "unitRules": [],
+   "cryptoArkana": false,
+   "fixedArkana": null,
+   "factionChoice": true,
+   "fixedChoice": null,
+   "options": [],
+   "note": "Rangda carrying a piece of a war-moon's targeting array, calling small strikes down from orbit. Burning Sky moon-callers reach 78\". Written for this list."
+  },
+  {
+   "id": "spine-stalker",
+   "name": "Spine-Stalker",
+   "role": "War Engine",
+   "page": null,
+   "limit": null,
+   "unique": false,
+   "basePoints": 210,
+   "composition": "1 Spine-Stalker",
+   "models": [
+    {
+     "name": "Spine-Stalker",
+     "min": 1,
+     "max": 1,
+     "costPerExtra": 0,
+     "profile": {
+      "M": 8,
+      "WS": 5,
+      "BS": 4,
+      "S": 7,
+      "T": 7,
+      "W": 7,
+      "I": 5,
+      "A": 4,
+      "LD": 10,
+      "CL": 10,
+      "WP": 8,
+      "IN": 7,
+      "SAV": "3+",
+      "INV": "5+"
+     },
+     "wargear": [
+      "Stalker Talons",
+      "Shadow Lance",
+      "Tendril Flails"
+     ],
+     "unitType": "Walker",
+     "specialRules": []
+    }
+   ],
+   "traits": [
+    "Xenos",
+    "Rangda"
+   ],
+   "specialRules": [
+    "Prey Instinct",
+    "Fear (2)",
+    "Horror of the Taken",
+    "Bulky (6)"
+   ],
+   "unitRules": [],
+   "cryptoArkana": false,
+   "fixedArkana": null,
+   "factionChoice": true,
+   "fixedChoice": null,
+   "options": [
+    {
+     "id": "gun",
+     "text": "May exchange its Shadow Lance for a Shadow Cannon.",
+     "kind": "one",
+     "model": null,
+     "replaces": [
+      "Shadow Lance"
+     ],
+     "choices": [
+      {
+       "name": "Shadow Cannon",
+       "points": 0
+      }
+     ],
+     "max": null,
+     "requires": null
+    }
+   ],
+   "note": "A tall iron walker on spined legs, trailing tendrils, ridden by a Rangda hunt-lord too old to run. Written for this list."
   },
   {
    "id": "thrall-cohort",
@@ -2764,6 +3535,24 @@
     "modes": null
    },
    {
+    "name": "Moon-caller Array",
+    "page": null,
+    "R": 72,
+    "FP": 1,
+    "RS": 8,
+    "AP": 3,
+    "D": 1,
+    "specialRules": [
+     "Blast (3\")",
+     "Barrage (1)",
+     "Pinning (1)"
+    ],
+    "traits": [
+     "Shadow"
+    ],
+    "modes": null
+   },
+   {
     "name": "War-moon Barrage",
     "page": null,
     "R": 96,
@@ -3389,6 +4178,52 @@
     "modes": null
    },
    {
+    "name": "Great Glaive",
+    "page": null,
+    "IM": "I",
+    "AM": "A",
+    "SM": "+1",
+    "AP": 2,
+    "D": 2,
+    "specialRules": [
+     "Breaching (5+)"
+    ],
+    "traits": [
+     "Shadow"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Hound Fangs",
+    "page": null,
+    "IM": "I",
+    "AM": "A",
+    "SM": "S",
+    "AP": 5,
+    "D": 1,
+    "specialRules": [
+     "Shred (6+)"
+    ],
+    "traits": [],
+    "modes": null
+   },
+   {
+    "name": "Stalker Talons",
+    "page": null,
+    "IM": "I",
+    "AM": "A",
+    "SM": "+1",
+    "AP": 2,
+    "D": 2,
+    "specialRules": [
+     "Reaping Blow (1)"
+    ],
+    "traits": [
+     "Shadow"
+    ],
+    "modes": null
+   },
+   {
     "name": "Regent's Glaive",
     "page": null,
     "IM": "+1",
@@ -3502,6 +4337,21 @@
    "name": "Corpse-cloak",
    "page": null,
    "text": "Robes woven from the skins of the eaten, which the worms beneath can slide through and out of. The bearer has the Shrouded (5+) Special Rule."
+  },
+  {
+   "name": "Grav-harness",
+   "page": null,
+   "text": "A spined harness that floats its wearer above the ground and throws it across a battlefield in long, silent bounds. Already included in the Movement Characteristic and the Antigrav Sub-Type of every Model that has one."
+  },
+  {
+   "name": "Ironhide Plate",
+   "page": null,
+   "text": "War-plate grown over a Rangda's hide like a second skeleton. Already included in the Toughness, Initiative and Save Characteristics of every Model that wears it."
+  },
+  {
+   "name": "Shroud Projector",
+   "page": null,
+   "text": "A larger shroud-field, cast over everyone near its bearer. While the bearer has joined a Unit, every Model in that Unit has a 4+ Invulnerable Save against Shooting Attacks."
   },
   {
    "name": "Neural Collar",
@@ -3731,6 +4581,11 @@
     },
     {
      "role": "Armour",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "War Engine",
      "prime": false,
      "flexible": false
     }
@@ -4815,7 +5670,8 @@
       "thrall-basilisk",
       "thrall-knight",
       "charnel-barge",
-      "war-moon-regent"
+      "war-moon-regent",
+      "hunt-hounds"
      ]
     },
     "scope": "unit",
@@ -4879,7 +5735,8 @@
       "thrall-carrier",
       "thrall-basilisk",
       "thrall-knight",
-      "charnel-barge"
+      "charnel-barge",
+      "hunt-hounds"
      ]
     },
     "scope": "unit",

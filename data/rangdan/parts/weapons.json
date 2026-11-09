@@ -193,6 +193,24 @@
       "modes": null
     },
     {
+      "name": "Moon-caller Array",
+      "page": null,
+      "R": 72,
+      "FP": 1,
+      "RS": 8,
+      "AP": 3,
+      "D": 1,
+      "specialRules": [
+        "Blast (3\")",
+        "Barrage (1)",
+        "Pinning (1)"
+      ],
+      "traits": [
+        "Shadow"
+      ],
+      "modes": null
+    },
+    {
       "name": "War-moon Barrage",
       "page": null,
       "R": 96,
@@ -811,6 +829,52 @@
       "D": 2,
       "specialRules": [
         "Breaching (4+)"
+      ],
+      "traits": [
+        "Shadow"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Great Glaive",
+      "page": null,
+      "IM": "I",
+      "AM": "A",
+      "SM": "+1",
+      "AP": 2,
+      "D": 2,
+      "specialRules": [
+        "Breaching (5+)"
+      ],
+      "traits": [
+        "Shadow"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Hound Fangs",
+      "page": null,
+      "IM": "I",
+      "AM": "A",
+      "SM": "S",
+      "AP": 5,
+      "D": 1,
+      "specialRules": [
+        "Shred (6+)"
+      ],
+      "traits": [],
+      "modes": null
+    },
+    {
+      "name": "Stalker Talons",
+      "page": null,
+      "IM": "I",
+      "AM": "A",
+      "SM": "+1",
+      "AP": 2,
+      "D": 2,
+      "specialRules": [
+        "Reaping Blow (1)"
       ],
       "traits": [
         "Shadow"
