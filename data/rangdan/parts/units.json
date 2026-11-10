@@ -84,6 +84,27 @@
           "requires": null
         },
         {
+          "id": "gun",
+          "text": "May exchange its Shadow Blaster for one of the following:",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Shadow Blaster"
+          ],
+          "choices": [
+            {
+              "name": "Shadow Scourer",
+              "points": 0
+            },
+            {
+              "name": "Shadow Lance",
+              "points": 5
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
           "id": "relic",
           "text": "May have one item from the Relics of the Hunt selected for it.",
           "kind": "one",
@@ -520,7 +541,29 @@
               "list": "rangdan-sidearms"
             }
           ],
-          "max": null,
+          "max": {
+            "shared": "pistol"
+          },
+          "requires": null
+        },
+        {
+          "id": "heavy",
+          "text": "For every three Models in the Unit, one may exchange its Shadow Pistol for an item from the Rangdan Heavy Weapons list.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [
+            "Shadow Pistol"
+          ],
+          "choices": [
+            {
+              "list": "rangdan-heavy-weapons"
+            }
+          ],
+          "max": {
+            "per": 3,
+            "count": 1,
+            "shared": "pistol"
+          },
           "requires": null
         }
       ],
@@ -758,6 +801,40 @@
           "max": {
             "fixed": 1
           },
+          "requires": null
+        },
+        {
+          "id": "gun",
+          "text": "Any Model may exchange its Shadow Blaster for a Shadow Scourer.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [
+            "Shadow Blaster"
+          ],
+          "choices": [
+            {
+              "name": "Shadow Scourer",
+              "points": 0
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "claws",
+          "text": "Any Model may exchange its Rangda Claws for Flensing Hooks for +15 points per Model.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [
+            "Rangda Claws"
+          ],
+          "choices": [
+            {
+              "name": "Flensing Hooks",
+              "points": 15
+            }
+          ],
+          "max": null,
           "requires": null
         }
       ],
@@ -1171,7 +1248,25 @@
       "fixedArkana": null,
       "factionChoice": true,
       "fixedChoice": null,
-      "options": [],
+      "options": [
+        {
+          "id": "guns",
+          "text": "Any Shadow Kite may exchange its 2 Hull Mounted Shadow Lances for 2 Hull Mounted Shadow Cannons.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [
+            "2 Hull Mounted Shadow Lances"
+          ],
+          "choices": [
+            {
+              "name": "2 Hull Mounted Shadow Cannons",
+              "points": 0
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
       "note": "A flat ray of black iron trailing two spines; the Rangdan answer to an interceptor. Written for this list."
     },
     {
@@ -1239,7 +1334,43 @@
       "fixedArkana": null,
       "factionChoice": true,
       "fixedChoice": null,
-      "options": [],
+      "options": [
+        {
+          "id": "gun",
+          "text": "May exchange its Shadow Blaster for one of the following:",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Shadow Blaster"
+          ],
+          "choices": [
+            {
+              "name": "Shadow Scourer",
+              "points": 0
+            },
+            {
+              "name": "Shadow Lance",
+              "points": 5
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "relic",
+          "text": "May have one item from the Relics of the Hunt selected for it.",
+          "kind": "one",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "list": "relics-of-the-hunt"
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
       "note": "The master of a war-moon, come down to see a world taken in person. A Primarch-level threat. Written for this list."
     },
     {
@@ -1377,7 +1508,90 @@
       "fixedArkana": null,
       "factionChoice": true,
       "fixedChoice": null,
-      "options": [],
+      "options": [
+        {
+          "id": "melee",
+          "text": "Any Model may exchange its Spine Glaive for an item from the Rangdan Hunting Weapons list.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [
+            "Spine Glaive"
+          ],
+          "choices": [
+            {
+              "list": "rangdan-hunting-weapons"
+            }
+          ],
+          "max": {
+            "shared": "glaive"
+          },
+          "requires": null
+        },
+        {
+          "id": "maul",
+          "text": "For every three Models in the Unit, one may exchange its Spine Glaive for a Severing Maul for +20 points.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [
+            "Spine Glaive"
+          ],
+          "choices": [
+            {
+              "name": "Severing Maul",
+              "points": 20
+            }
+          ],
+          "max": {
+            "per": 3,
+            "count": 1,
+            "shared": "glaive"
+          },
+          "requires": null
+        },
+        {
+          "id": "gun",
+          "text": "For every three Models in the Unit, one may exchange its Shadow Blaster for one of the following:",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [
+            "Shadow Blaster"
+          ],
+          "choices": [
+            {
+              "name": "Shadow Scourer",
+              "points": 0
+            },
+            {
+              "name": "Shadow Caster",
+              "points": 0
+            },
+            {
+              "name": "Shadow Lance",
+              "points": 10
+            }
+          ],
+          "max": {
+            "per": 3,
+            "count": 1
+          },
+          "requires": null
+        },
+        {
+          "id": "standard",
+          "text": "One Model may carry a Court Standard for +15 points.",
+          "kind": "upgrade",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Court Standard",
+              "points": 15
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
       "note": "The hunters who walk beside a Sovereign, shroud-fields and all. Written for this list."
     },
     {
@@ -1493,7 +1707,25 @@
       "fixedArkana": null,
       "factionChoice": true,
       "fixedChoice": null,
-      "options": [],
+      "options": [
+        {
+          "id": "gun",
+          "text": "May exchange its Centreline Mounted Shadow Lance Array for a Centreline Mounted Shadow Cannon.",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Centreline Mounted Shadow Lance Array"
+          ],
+          "choices": [
+            {
+              "name": "Centreline Mounted Shadow Cannon",
+              "points": 0
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
       "note": "A flying jellyfish with a hunt inside it: five Rangda dropped wherever the war-moon points. Written for this list."
     },
     {
@@ -1592,7 +1824,25 @@
       "fixedArkana": null,
       "factionChoice": true,
       "fixedChoice": null,
-      "options": [],
+      "options": [
+        {
+          "id": "turret",
+          "text": "May exchange its Turret Mounted Shadow Cannon for a Turret Mounted Shadow Lance Array for +15 points.",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Turret Mounted Shadow Cannon"
+          ],
+          "choices": [
+            {
+              "name": "Turret Mounted Shadow Lance Array",
+              "points": 15
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
       "note": "A Rangdan herding vessel: it carries a Thrall squad and keeps every collar around it obedient. Written for this list."
     },
     {
@@ -1754,7 +2004,29 @@
               "list": "rangdan-sidearms"
             }
           ],
-          "max": null,
+          "max": {
+            "shared": "pistol"
+          },
+          "requires": null
+        },
+        {
+          "id": "heavy",
+          "text": "For every three Models in the Unit, one may exchange its Shadow Pistol for an item from the Rangdan Heavy Weapons list.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [
+            "Shadow Pistol"
+          ],
+          "choices": [
+            {
+              "list": "rangdan-heavy-weapons"
+            }
+          ],
+          "max": {
+            "per": 3,
+            "count": 1,
+            "shared": "pistol"
+          },
           "requires": null
         }
       ],
@@ -1882,7 +2154,67 @@
           ],
           "max": {
             "per": 3,
-            "count": 1
+            "count": 1,
+            "shared": "great"
+          },
+          "requires": null
+        },
+        {
+          "id": "talons",
+          "text": "Any Model may exchange its Great Glaive for Ironhide Talons.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [
+            "Great Glaive"
+          ],
+          "choices": [
+            {
+              "name": "Ironhide Talons",
+              "points": 0
+            }
+          ],
+          "max": {
+            "shared": "great"
+          },
+          "requires": null
+        },
+        {
+          "id": "gun",
+          "text": "Any Model may exchange its Shadow Blaster for a Shadow Scourer; for every three Models, one may take a Shadow Lance instead for +15 points.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [
+            "Shadow Blaster"
+          ],
+          "choices": [
+            {
+              "name": "Shadow Scourer",
+              "points": 0
+            }
+          ],
+          "max": {
+            "shared": "blaster"
+          },
+          "requires": null
+        },
+        {
+          "id": "lance",
+          "text": "For every three Models in the Unit, one may exchange its Shadow Blaster for a Shadow Lance for +15 points.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [
+            "Shadow Blaster"
+          ],
+          "choices": [
+            {
+              "name": "Shadow Lance",
+              "points": 15
+            }
+          ],
+          "max": {
+            "per": 3,
+            "count": 1,
+            "shared": "blaster"
           },
           "requires": null
         }
@@ -1925,6 +2257,33 @@
           ],
           "unitType": "Infantry (Light)",
           "specialRules": []
+        },
+        {
+          "name": "Pack-Leader Hound",
+          "min": 0,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 12,
+            "WS": 5,
+            "BS": 0,
+            "S": 5,
+            "T": 4,
+            "W": 3,
+            "I": 5,
+            "A": 4,
+            "LD": 8,
+            "CL": 8,
+            "WP": 4,
+            "IN": 2,
+            "SAV": "5+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Hound Fangs"
+          ],
+          "unitType": "Infantry (Light, Sergeant)",
+          "specialRules": []
         }
       ],
       "traits": [
@@ -1948,7 +2307,25 @@
       "fixedArkana": null,
       "factionChoice": true,
       "fixedChoice": null,
-      "options": [],
+      "options": [
+        {
+          "id": "leader",
+          "text": "One Hunt-Hound may be upgraded to a Pack-Leader Hound for +10 points.",
+          "kind": "swapModel",
+          "model": "Hunt-Hound",
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Pack-Leader Hound",
+              "points": 10
+            }
+          ],
+          "max": {
+            "fixed": 1
+          },
+          "requires": null
+        }
+      ],
       "note": "The Rangda's hunting beasts. Heedless, like Fenrisian wolves: they run prey down, they don't hold ground. Written for this list."
     },
     {
@@ -2136,7 +2513,25 @@
       "fixedArkana": null,
       "factionChoice": true,
       "fixedChoice": null,
-      "options": [],
+      "options": [
+        {
+          "id": "array",
+          "text": "Any Model may exchange its Moon-caller Array for a Moon-caller Lance for +20 points per Model.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [
+            "Moon-caller Array"
+          ],
+          "choices": [
+            {
+              "name": "Moon-caller Lance",
+              "points": 20
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
       "note": "Rangda carrying a piece of a war-moon's targeting array, calling small strikes down from orbit. Burning Sky moon-callers reach 78\". Written for this list."
     },
     {
@@ -2207,6 +2602,23 @@
             {
               "name": "Shadow Cannon",
               "points": 0
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "flails",
+          "text": "May exchange its Tendril Flails for a Shadow Blaster for +5 points.",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Tendril Flails"
+          ],
+          "choices": [
+            {
+              "name": "Shadow Blaster",
+              "points": 5
             }
           ],
           "max": null,
@@ -3151,6 +3563,37 @@
           ],
           "max": null,
           "requires": null
+        },
+        {
+          "id": "scythe",
+          "text": "May exchange its Nerve-lash for a Marrow Scythe for +20 points.",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Nerve-lash"
+          ],
+          "choices": [
+            {
+              "name": "Marrow Scythe",
+              "points": 20
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "relic",
+          "text": "May have one item from the Relics of the Feast selected for it.",
+          "kind": "one",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "list": "relics-of-the-feast"
+            }
+          ],
+          "max": null,
+          "requires": null
         }
       ],
       "note": "Canon places the Slaugth at Rangda during the Xenocides and says nothing more about why. Here they follow the hunts and eat the dead. Taking a Dream-Eater in a Command slot unlocks the Carrion Court. Written for this list."
@@ -3191,6 +3634,34 @@
             "Necrotic Projector"
           ],
           "unitType": "Infantry",
+          "specialRules": []
+        },
+        {
+          "name": "Slaugth Elder",
+          "min": 0,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 6,
+            "WS": 5,
+            "BS": 4,
+            "S": 5,
+            "T": 5,
+            "W": 4,
+            "I": 3,
+            "A": 4,
+            "LD": 10,
+            "CL": 10,
+            "WP": 10,
+            "IN": 10,
+            "SAV": "4+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Worm-grasp",
+            "Necrotic Projector"
+          ],
+          "unitType": "Infantry (Sergeant)",
           "specialRules": []
         }
       ],
@@ -3246,6 +3717,43 @@
           "max": {
             "per": 3,
             "count": 1
+          },
+          "requires": null
+        },
+        {
+          "id": "cannon",
+          "text": "For every three Models in the Unit, one may exchange its Necrotic Projector for a Necrotic Cannon for +10 points.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [
+            "Necrotic Projector"
+          ],
+          "choices": [
+            {
+              "name": "Necrotic Cannon",
+              "points": 10
+            }
+          ],
+          "max": {
+            "per": 3,
+            "count": 1
+          },
+          "requires": null
+        },
+        {
+          "id": "elder",
+          "text": "One Slaugth may be upgraded to a Slaugth Elder for +15 points.",
+          "kind": "swapModel",
+          "model": "Slaugth",
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Slaugth Elder",
+              "points": 15
+            }
+          ],
+          "max": {
+            "fixed": 1
           },
           "requires": null
         }
@@ -3375,6 +3883,23 @@
           ],
           "max": null,
           "requires": null
+        },
+        {
+          "id": "flail",
+          "text": "May exchange its Harvester Claws for a Corpse-flail.",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Harvester Claws"
+          ],
+          "choices": [
+            {
+              "name": "Corpse-flail",
+              "points": 0
+            }
+          ],
+          "max": null,
+          "requires": null
         }
       ],
       "note": "A vehicle-sized mass of flesh and metal that gathers the dead. Written for this list."
@@ -3481,7 +4006,25 @@
       "fixedArkana": null,
       "factionChoice": false,
       "fixedChoice": null,
-      "options": [],
+      "options": [
+        {
+          "id": "gun",
+          "text": "May exchange its Necrotic Spewer for a Necrotic Cannon.",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Necrotic Spewer"
+          ],
+          "choices": [
+            {
+              "name": "Necrotic Cannon",
+              "points": 0
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
       "note": "A floating hull of flesh over a metal frame that carries the Kindred to the dead, and opens to let them feed. Written for this list."
     },
     {
@@ -3550,6 +4093,523 @@
       "fixedChoice": null,
       "options": [],
       "note": "A Slaugth elder that speaks in a chorus of Dark Angel voices. Unlocks the Carrion Court like a Dream-Eater. Written for this list."
+    },
+    {
+      "id": "the-ridden",
+      "name": "The Ridden",
+      "role": "Heavy Assault",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 90,
+      "composition": "10 Ridden",
+      "models": [
+        {
+          "name": "Ridden",
+          "min": 10,
+          "max": 30,
+          "costPerExtra": 9,
+          "profile": {
+            "M": 5,
+            "WS": 3,
+            "BS": 1,
+            "S": 4,
+            "T": 4,
+            "W": 1,
+            "I": 2,
+            "A": 2,
+            "LD": 10,
+            "CL": 10,
+            "WP": 2,
+            "IN": 1,
+            "SAV": "6+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Grasping Dead"
+          ],
+          "unitType": "Infantry",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Slaugth"
+      ],
+      "specialRules": [
+        "Worm Gestalt",
+        "Already Dead",
+        "Expendable (2)"
+      ],
+      "unitRules": [
+        {
+          "name": "Already Dead",
+          "text": "The bodies are empty; the worms inside them feel nothing. A Unit that only includes Models with this Special Rule can never gain the Pinned, Suppressed or Routed Tactical Statuses."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": false,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "blades",
+          "text": "Any Model may exchange its Grasping Dead for Rusted Blades for +1 point per Model.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [
+            "Grasping Dead"
+          ],
+          "choices": [
+            {
+              "name": "Rusted Blades",
+              "points": 1
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "The dead of the last battle, filled with Slaugth worms and walked back into the next one. Written for this list."
+    },
+    {
+      "id": "corpse-shepherd",
+      "name": "Corpse-Shepherd",
+      "role": "Command",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 120,
+      "composition": "1 Corpse-Shepherd",
+      "models": [
+        {
+          "name": "Corpse-Shepherd",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 4,
+            "S": 5,
+            "T": 5,
+            "W": 5,
+            "I": 3,
+            "A": 3,
+            "LD": 10,
+            "CL": 10,
+            "WP": 10,
+            "IN": 10,
+            "SAV": "4+",
+            "INV": "5+"
+          },
+          "wargear": [
+            "Nerve-lash",
+            "Necrotic Projector"
+          ],
+          "unitType": "Infantry (Command)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Slaugth"
+      ],
+      "specialRules": [
+        "Worm Gestalt",
+        "Carrion Feast",
+        "Fear (1)",
+        "Shepherd of the Ridden"
+      ],
+      "unitRules": [
+        {
+          "name": "Shepherd of the Ridden",
+          "text": "The Shepherd seeds the dead with its own worms and drives them like a herd. Friendly Units of the Ridden with any Model within 12\" of a Model with this Special Rule gain a modifier of +1 to their Weapon Skill and Attacks. Once per battle, at the start of its Controlling Player's turn, the Shepherd may return up to D6 Models Removed as Casualties to a friendly Unit of the Ridden within 12\", placed in coherency and not within 1\" of an enemy Model."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": false,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "spewer",
+          "text": "May exchange its Necrotic Projector for a Necrotic Spewer for +10 points.",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Necrotic Projector"
+          ],
+          "choices": [
+            {
+              "name": "Necrotic Spewer",
+              "points": 10
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "cloak",
+          "text": "May take a Corpse-cloak for +10 points.",
+          "kind": "upgrade",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Corpse-cloak",
+              "points": 10
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "scythe",
+          "text": "May exchange its Nerve-lash for a Marrow Scythe for +20 points.",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Nerve-lash"
+          ],
+          "choices": [
+            {
+              "name": "Marrow Scythe",
+              "points": 20
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "relic",
+          "text": "May have one item from the Relics of the Feast selected for it.",
+          "kind": "one",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "list": "relics-of-the-feast"
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "The Slaugth that walks among the Ridden. Taking one in a Command slot unlocks the Ossuary. Written for this list."
+    },
+    {
+      "id": "gorger-kindred",
+      "name": "Gorger Kindred",
+      "role": "Heavy Assault",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 195,
+      "composition": "3 Gorgers",
+      "models": [
+        {
+          "name": "Gorger",
+          "min": 3,
+          "max": 6,
+          "costPerExtra": 65,
+          "profile": {
+            "M": 5,
+            "WS": 4,
+            "BS": 3,
+            "S": 6,
+            "T": 6,
+            "W": 4,
+            "I": 2,
+            "A": 4,
+            "LD": 9,
+            "CL": 9,
+            "WP": 9,
+            "IN": 7,
+            "SAV": "4+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Gorging Maw"
+          ],
+          "unitType": "Infantry",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Slaugth"
+      ],
+      "specialRules": [
+        "Worm Gestalt",
+        "Carrion Feast",
+        "Bulky (3)",
+        "Fear (1)"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": false,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "bile",
+          "text": "Any Model may take a Necrotic Spewer (bile-sacs) for +10 points per Model.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Necrotic Spewer",
+              "points": 10
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "Slaugth swollen from too many feasts, slow and enormous. Carrion Feast keeps them standing. Written for this list."
+    },
+    {
+      "id": "rot-casters",
+      "name": "Rot-Casters",
+      "role": "Support",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 135,
+      "composition": "3 Rot-Casters",
+      "models": [
+        {
+          "name": "Rot-Caster",
+          "min": 3,
+          "max": 6,
+          "costPerExtra": 45,
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 4,
+            "S": 5,
+            "T": 5,
+            "W": 3,
+            "I": 3,
+            "A": 2,
+            "LD": 9,
+            "CL": 9,
+            "WP": 9,
+            "IN": 9,
+            "SAV": "4+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Necrotic Cannon",
+            "Worm-grasp"
+          ],
+          "unitType": "Infantry",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Slaugth"
+      ],
+      "specialRules": [
+        "Worm Gestalt",
+        "Carrion Feast",
+        "Bulky (2)"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": false,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "mortar",
+          "text": "Any Model may exchange its Necrotic Cannon for a Rot-mortar.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [
+            "Necrotic Cannon"
+          ],
+          "choices": [
+            {
+              "name": "Rot-mortar",
+              "points": 0
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "Slaugth carrying necrotic cannons that rot the Toughness out of whatever they hit, so the Rangda can finish it. Written for this list."
+    },
+    {
+      "id": "skin-wearers",
+      "name": "Skin-Wearers",
+      "role": "Recon",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 135,
+      "composition": "3 Skin-Wearers",
+      "models": [
+        {
+          "name": "Skin-Wearer",
+          "min": 3,
+          "max": 6,
+          "costPerExtra": 45,
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 4,
+            "S": 5,
+            "T": 5,
+            "W": 3,
+            "I": 4,
+            "A": 3,
+            "LD": 9,
+            "CL": 9,
+            "WP": 9,
+            "IN": 10,
+            "SAV": "5+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Nerve-lash",
+            "Necrotic Projector"
+          ],
+          "unitType": "Infantry (Skirmish)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Slaugth"
+      ],
+      "specialRules": [
+        "Worm Gestalt",
+        "Carrion Feast",
+        "Infiltrate (9)",
+        "Borrowed Faces"
+      ],
+      "unitRules": [
+        {
+          "name": "Borrowed Faces",
+          "text": "They wear the skins, and the memories, of the people they ate. Shooting Attacks that target a Unit with this Special Rule from more than 12\" away are made as Snap Shots."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": false,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "stolen",
+          "text": "For every three Models in the Unit, one may exchange its Necrotic Projector for one of the following: they carry their victims' guns.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [
+            "Necrotic Projector"
+          ],
+          "choices": [
+            {
+              "name": "Flamer",
+              "points": 10
+            },
+            {
+              "name": "Volkite charger",
+              "points": 5
+            },
+            {
+              "name": "Meltagun",
+              "points": 25
+            }
+          ],
+          "max": {
+            "per": 3,
+            "count": 1
+          },
+          "requires": null
+        }
+      ],
+      "note": "The Slaugth that walked into the Amaranthine Syndicate wearing its members. Written for this list."
+    },
+    {
+      "id": "ossuary-colossus",
+      "name": "Ossuary Colossus",
+      "role": "Lord of War",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 420,
+      "composition": "1 Ossuary Colossus",
+      "models": [
+        {
+          "name": "Ossuary Colossus",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 7,
+            "WS": 4,
+            "BS": 3,
+            "S": 9,
+            "T": 8,
+            "W": 12,
+            "I": 2,
+            "A": 5,
+            "LD": 10,
+            "CL": 10,
+            "WP": 8,
+            "IN": 4,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Colossus Claws",
+            "2 Necrotic Cannons",
+            "Necrotic Spewer"
+          ],
+          "unitType": "Walker (Heavy)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Slaugth"
+      ],
+      "specialRules": [
+        "Worm Gestalt",
+        "Carrion Feast",
+        "Bulky (10)",
+        "Fear (2)"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": false,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "guns",
+          "text": "May exchange its 2 Necrotic Cannons for 2 Rot-mortars.",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "2 Necrotic Cannons"
+          ],
+          "choices": [
+            {
+              "name": "2 Rot-mortars",
+              "points": 0
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "Bone, metal and a great knot of worms the size of a Knight. The Slaugth build one when a war has fed them well. Written for this list."
     }
   ]
 }

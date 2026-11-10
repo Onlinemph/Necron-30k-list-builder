@@ -399,3 +399,104 @@ test('tanks: the Grave-Bell is a Kratos-class heavy tank, and the lance-array Me
   m.options.turret = 'Turret Mounted Shadow Lance Array';
   assert.equal(E.unitPoints(m), 160 + 15);
 });
+
+test('the Slaugth: the Ridden can\'t be pinned or routed, a Corpse-Shepherd unlocks the Ossuary, and the Ossuary Colossus is their Lord of War', () => {
+  const r = unit('the-ridden');
+  assert.equal(r.role, 'Heavy Assault');
+  assert.ok(r.specialRules.includes('Already Dead') && r.specialRules.includes('Worm Gestalt') && r.specialRules.includes('Expendable (2)'));
+  assert.match(r.unitRules.find((x) => x.name === 'Already Dead').text, /never gain the Pinned, Suppressed or Routed/);
+  assert.deepEqual(errs(sel('the-ridden')), [], 'Slaugth pick no war-moon');
+  for (const id of ['gorger-kindred', 'rot-casters', 'skin-wearers', 'ossuary-colossus']) assert.ok(unit(id).specialRules.includes('Carrion Feast'), id);
+  assert.ok(unit('skin-wearers').specialRules.includes('Infiltrate (9)'));
+  assert.ok(unit('rot-casters').models[0].wargear.includes('Necrotic Cannon'));
+  assert.equal(unit('ossuary-colossus').role, 'Lord of War');
+  const primary = E.makeDetachment('primary', 'P', [{ role: 'Command' }]);
+  const oss = E.detachmentFromDef('the-ossuary');
+  const a = army([primary, oss]);
+  primary.slots[0].unit = sel('slaugth-dream-eater');
+  assert.ok(E.armyIssues(a).some((i) => /The Ossuary needs a Corpse-Shepherd in a Command slot/.test(i.msg)));
+  primary.slots[0].unit = sel('corpse-shepherd');
+  assert.ok(!E.armyIssues(a).some((i) => /The Ossuary needs/.test(i.msg)));
+  const ids = (role) => E.unitsForSlot(oss.slots.find((s) => s.role === role), oss).map((u) => u.id).sort();
+  assert.deepEqual(ids('Heavy Assault'), ['gorger-kindred', 'the-ridden']);
+  assert.deepEqual(ids('Support'), ['rot-casters']);
+  assert.deepEqual(ids('Recon'), ['skin-wearers']);
+  assert.ok(data.units.filter((u) => has(u, 'Slaugth')).length >= 13);
+});
+
+test('no weapon carries Breaching on top of AP 2, where it would do nothing', () => {
+  for (const w of [...data.weapons.ranged, ...data.weapons.melee]) {
+    const ap = parseInt(w.AP, 10);
+    assert.ok(!(ap <= 2 && (w.specialRules || []).some((r) => /^Breaching/.test(r))), w.name);
+  }
+  assert.match(data.rules.gambits.find((g) => g.name === 'Throat-Hunter').text, /Shred \(6\+\) if they already have AP 2/);
+});
+
+test('Rangda heavy weapons: one per three takes a Scourer, Caster or Lance, sharing the sidearm slot', () => {
+  const h = sel('hunt-pack');
+  h.counts = { 'Rangda Hunter': 6 };
+  h.options = { heavy: { 'Shadow Lance': 2 }, sidearm: { 'Shadow Blaster': 4 } };
+  assert.equal(E.unitPoints(h), 240 + 3 * 75 + 2 * 15 + 4 * 10);
+  assert.deepEqual(errs(h), []);
+  h.options.sidearm = { 'Shadow Blaster': 5 };
+  assert.ok(errs(h).length, 'heavy weapons and blasters share the pistols');
+  h.options = { heavy: { 'Shadow Scourer': 3 } };
+  assert.ok(errs(h).length, 'only one per three');
+  const c = sel('hunt-court');
+  c.options = { gun: { 'Shadow Lance': 1 }, standard: true };
+  assert.equal(E.unitPoints(c), 300 + 10 + 15);
+  assert.ok(E.effectiveModels(c).every((r) => r.rules.includes('Fear (2)')), 'the Court Standard raises the unit\'s Fear');
+  const iron = sel('ironhide-hunters');
+  iron.options = { maul: { 'Severing Maul': 1 }, talons: { 'Ironhide Talons': 2 } };
+  assert.deepEqual(errs(iron), []);
+  iron.options.talons = { 'Ironhide Talons': 3 };
+  assert.ok(errs(iron).length, 'talons and mauls share the great glaives');
+  const mc = sel('moon-callers');
+  mc.options.array = { 'Moon-caller Lance': 1 };
+  assert.equal(E.unitPoints(mc), 70 + 20);
+  const sov = sel('hunt-sovereign');
+  sov.options.gun = 'Shadow Scourer';
+  assert.equal(E.unitPoints(sov), 265);
+  assert.ok(E.effectiveModels(sov)[0].items.includes('Shadow Scourer'));
+});
+
+test('new squad leaders: a Pack-Leader Hound and a Slaugth Elder', () => {
+  const h = sel('hunt-hounds');
+  h.options.leader = 1;
+  assert.equal(E.unitPoints(h), 75 + 10);
+  assert.equal(E.effectiveModels(h).find((r) => r.name === 'Pack-Leader Hound').profile.A, 4);
+  const k = sel('slaugth-kindred');
+  k.options.elder = 1;
+  assert.equal(E.unitPoints(k), 135 + 15);
+  assert.equal(E.effectiveModels(k).find((r) => r.name === 'Slaugth Elder').profile.W, 4);
+});
+
+test('Slaugth wargear: Marrow Scythes, Relics of the Feast once per army, stolen guns one per three', () => {
+  const de = sel('slaugth-dream-eater');
+  de.options = { scythe: 'Marrow Scythe', relic: 'Crown of Worms' };
+  assert.equal(E.unitPoints(de), 135 + 20 + 15);
+  const cs = sel('corpse-shepherd');
+  cs.options = { relic: 'Crown of Worms', cloak: true };
+  assert.ok(E.effectiveModels(cs)[0].rules.includes('Shrouded (5+)'));
+  const det = E.makeDetachment('primary', 'P', [{ role: 'Command' }, { role: 'Command' }]);
+  det.slots[0].unit = de;
+  det.slots[1].unit = cs;
+  assert.ok(E.armyIssues(army([det])).some((i) => /Crown of Worms may only be taken once/.test(i.msg)));
+  cs.options.relic = 'Bone-Pipes';
+  assert.ok(!E.armyIssues(army([det])).some((i) => /once per army/.test(i.msg)));
+  const sw = sel('skin-wearers');
+  sw.options.stolen = { Meltagun: 1 };
+  assert.equal(E.unitPoints(sw), 135 + 25);
+  assert.deepEqual(errs(sw), []);
+  sw.options.stolen = { Meltagun: 2 };
+  assert.ok(errs(sw).length, 'one stolen gun per three');
+  const g = sel('gorger-kindred');
+  g.options.bile = { 'Necrotic Spewer': 3 };
+  assert.equal(E.unitPoints(g), 195 + 30);
+  assert.ok(E.effectiveModels(g).every((r) => r.items.includes('Necrotic Spewer')));
+  const rc = sel('rot-casters');
+  rc.options.mortar = { 'Rot-mortar': 3 };
+  assert.equal(E.unitPoints(rc), 135);
+  const mortar = data.weapons.ranged.find((w) => w.name === 'Rot-mortar');
+  assert.ok(mortar.specialRules.includes('Barrage (1)') && mortar.R > 24, 'the mortar trades punch for indirect range');
+});

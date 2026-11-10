@@ -202,6 +202,58 @@
       "note": "The Slaugth that follow the hunt."
     },
     {
+      "id": "the-ossuary",
+      "name": "The Ossuary",
+      "type": "Auxiliary",
+      "page": null,
+      "unlock": null,
+      "slots": [
+        {
+          "role": "Heavy Assault",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Heavy Assault",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Support",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Recon",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Transport",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "This Detachment may only be selected if a Corpse-Shepherd fills a Command Slot in the army.",
+        "Only Units with the Slaugth Trait may be selected to fill Slots in this Detachment."
+      ],
+      "rules": [],
+      "slotRules": [
+        {
+          "roles": null,
+          "trait": "Slaugth"
+        }
+      ],
+      "unlockedBy": {
+        "commandUnit": [
+          "corpse-shepherd"
+        ],
+        "slotRole": "Command"
+      },
+      "note": "The Slaugth's dead and the things that walk among them."
+    },
+    {
       "id": "the-sovereigns-hunt",
       "name": "The Sovereign's Hunt",
       "type": "Apex",

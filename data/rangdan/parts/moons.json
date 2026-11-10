@@ -3,7 +3,7 @@
     {
       "name": "Throat-Hunter",
       "page": null,
-      "text": "When selecting a Gambit, the Controlling Player of a Model with the Long Hunt Trait can select Throat-Hunter instead of any others available to that Model.\n\nIf this Gambit is selected, the Model's Melee Attacks in this round of the Challenge gain the Breaching (4+) Special Rule, and if the opposing Model has any Tactical Status, the Controlling Player gains a +1 modifier to the Focus Roll."
+      "text": "When selecting a Gambit, the Controlling Player of a Model with the Long Hunt Trait can select Throat-Hunter instead of any others available to that Model.\n\nIf this Gambit is selected, the Model's Melee Attacks in this round of the Challenge gain the Breaching (4+) Special Rule (or Shred (6+) if they already have AP 2), and if the opposing Model has any Tactical Status, the Controlling Player gains a +1 modifier to the Focus Roll."
     }
   ],
   "reactions": [
@@ -55,7 +55,7 @@
         {
           "name": "Throat-Hunter",
           "page": null,
-          "text": "When selecting a Gambit, the Controlling Player of a Model with the Long Hunt Trait can select Throat-Hunter instead of any others available to that Model.\n\nIf this Gambit is selected, the Model's Melee Attacks in this round of the Challenge gain the Breaching (4+) Special Rule, and if the opposing Model has any Tactical Status, the Controlling Player gains a +1 modifier to the Focus Roll."
+          "text": "When selecting a Gambit, the Controlling Player of a Model with the Long Hunt Trait can select Throat-Hunter instead of any others available to that Model.\n\nIf this Gambit is selected, the Model's Melee Attacks in this round of the Challenge gain the Breaching (4+) Special Rule (or Shred (6+) if they already have AP 2), and if the opposing Model has any Tactical Status, the Controlling Player gains a +1 modifier to the Focus Roll."
         }
       ],
       "reactions": [],

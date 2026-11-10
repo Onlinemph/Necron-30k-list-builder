@@ -86,6 +86,48 @@
       ]
     },
     {
+      "id": "rangdan-heavy-weapons",
+      "name": "Rangdan Heavy Weapons",
+      "page": null,
+      "items": [
+        {
+          "name": "Shadow Scourer",
+          "points": 10
+        },
+        {
+          "name": "Shadow Caster",
+          "points": 10
+        },
+        {
+          "name": "Shadow Lance",
+          "points": 15
+        }
+      ]
+    },
+    {
+      "id": "relics-of-the-feast",
+      "name": "Relics of the Feast",
+      "page": null,
+      "note": "Slaugth characters only. Each item may be selected only once per army.",
+      "items": [
+        {
+          "name": "Memory-Jar",
+          "points": 20,
+          "oncePerArmy": true
+        },
+        {
+          "name": "Crown of Worms",
+          "points": 15,
+          "oncePerArmy": true
+        },
+        {
+          "name": "Bone-Pipes",
+          "points": 10,
+          "oncePerArmy": true
+        }
+      ]
+    },
+    {
       "id": "gun-team-weapons",
       "name": "Gun-team Weapons",
       "page": null,

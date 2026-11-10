@@ -84,7 +84,7 @@ characters are locked to theirs. Auxiliary and Apex Detachments share one war-mo
 | --- | --- | --- | --- |
 | Silent Choir | Rangda Fear +1 (squads to Fear (2), officers to Fear (3)) / Rangda BS -1 | Reaction: The Choir Answers (a charging unit tests Cool or is Pinned and its charge fails) | The Choir's Hunt: 2 Elites, 2 Recon |
 | Iron Chain | Thrall collars reach 18"; Overloaded units also get +1 WS / Overload costs D3+1 wounds | Prime Advantage: Collar-bombs (detonate a Prime Thrall infantry unit: D6 S6 AP4 hits on every enemy unit within 3") | The Chained Host: 3 Troops, 2 Heavy Assault, Support |
-| Long Hunt | Rangda infantry Fast (2) / must charge a visible enemy within 12" if able | Gambit: Throat-Hunter (Breaching (4+), +1 Focus against a target with a status) | The Running Pack: 2 Elites, 2 Fast Attack, Transport |
+| Long Hunt | Rangda infantry Fast (2) / must charge a visible enemy within 12" if able | Gambit: Throat-Hunter (Breaching (4+), or Shred (6+) on a weapon already AP 2; +1 Focus against a target with a status) | The Running Pack: 2 Elites, 2 Fast Attack, Transport |
 | Burning Sky | Shadow weapons +6" range; War-moon Strikes scatter half / Rangda Initiative -1 | Reaction: Moonfall (once per battle, an orbital strike on a unit arriving from Reserves within 18") | The Sky-Burners: 2 Support, 2 Armour, Fast Attack |
 
 ### Force organisation
@@ -98,6 +98,7 @@ in through Command slots and Auxiliary Detachments:
 | The Herd | Auxiliary | 3 Troops, Heavy Assault, Support, Armour, Transport, Heavy Transport | Thralls |
 | Medusa Shoal | Auxiliary | 2 Fast Attack, 2 Armour | Rangda |
 | The Carrion Court | Auxiliary, needs a Dream-Eater or the Hollow Choir in a Command slot | 2 Elites, Fast Attack, War Engine, Transport | Slaugth |
+| The Ossuary | Auxiliary, needs a Corpse-Shepherd in a Command slot | 2 Heavy Assault, Support, Recon, Transport | Slaugth |
 | The Sovereign's Hunt | Apex | Elites (Prime), 2 Elites, Recon | Rangda |
 | The Collared Host | Apex | Troops (Prime), Troops, Armour | Thralls |
 | Shoal of Iron | Apex | Armour (Prime), Armour, Fast Attack | Rangda |
@@ -158,6 +159,12 @@ There is no Fortification: no army in the data has one and no HH3 chart has a sl
 | Vassal Swarm | Fast Attack | 15 a model | Floating constructs whose spines pin |
 | Harvester | War Engine | 200 | Walker that heals by eating infantry |
 | Charnel Barge | Transport | 80 | 12/11/10, HP 5, capacity 10 (five Kindred), Assault Vehicle; regains a Hull Point on a 5+ each turn |
+| The Ridden | Heavy Assault | 90 for 10, +9 | 10–30 worm-filled corpses: Already Dead (never Pinned, Suppressed or Routed), Worm Gestalt, Expendable (2) |
+| Corpse-Shepherd | Command | 120 | Ridden within 12" get +1 WS and A; once a battle it raises D6 fallen Ridden. Unlocks the Ossuary |
+| Gorger Kindred | Heavy Assault | 195 for 3, +65 | Bloated feeders: T6 W4, gorging maws (AP3 D2 Shred 5+); Carrion Feast keeps them up |
+| Rot-Casters | Support | 135 for 3, +45 | Necrotic cannons (R24 S6 AP4, Phage (T)) |
+| Skin-Wearers | Recon | 135 for 3, +45 | Infiltrate (9); Borrowed Faces makes shooting at them from beyond 12" Snap Shots |
+| Ossuary Colossus | Lord of War | 420 | A Walker (Heavy) of bone and worms: T8 W12 3+, Feel No Pain (5+), claws (S+1 AP2 D3 Reaping Blow 2), necrotic cannons and a spewer |
 | Slaugth Ambush-craft | Fast Attack | 105 | The canon's ambush void-craft: a flyer with Outflank, two necrotic cannons (R24 S6 AP4, Phage) and a spewer; Living Hull |
 
 ### Wargear
@@ -165,26 +172,41 @@ There is no Fortification: no army in the data has one and no HH3 chart has a sl
 | Who | Options |
 | --- | --- |
 | Every Rangda on foot | A Hunting Cry as well as their weapons (not the hounds or the Spine-Stalker) |
-| Every Rangda squad | An Alpha (A+1, LD 11, shroud-field) for +15: Pack-Alpha, Sky-Alpha, Ironhide-Alpha, Lance-Alpha, Mimic-Alpha |
-| Skyhunters | As the Hunt-Pack: sidearms, Flensing Hooks, one Severing Maul per three |
-| Ironhide Hunters | One Severing Maul per three in place of the great glaive, +15 |
-| Collar-Wright, Shroud-Weaver | Hunting Weapons or a Severing Maul, sidearms, the Fang, a Relic |
-| Tendril Barge, Brood-ship | Shadow blasters for the flails (+5), or a lance array for the Brood-ship's cannon (+25) |
-| Hunt-Pack | Rangdan Sidearms (Shadow Pistol, Shadow Blaster +10); Flensing Hooks (A+1, AP 3, D 1) for any model; one Severing Maul (S+3, AP 2, D 2, I-2) per three, +20; a Pack-Alpha (A5, shroud-field) +15 |
-| Huntmaster, Collar-Wright | Sidearms; the Huntmaster also takes Hunting Weapons or a Severing Maul; the Fang of the First Xenocide +25; one Relic of the Hunt |
-| Hunt-Sovereign | The Fang +20; one Relic of the Hunt |
+| Every Rangda squad | An Alpha (A+1, LD 11, shroud-field) for +15: Pack-Alpha, Sky-Alpha, Ironhide-Alpha, Lance-Alpha, Mimic-Alpha. The hounds get a Pack-Leader Hound (WS 5, S 5, W 3, A 4) for +10 |
+| Rangdan Heavy Weapons | Shadow Scourer (Template S5 AP4, Deflagrate (4), Panic (1)) 10, Shadow Caster 10, Shadow Lance 15 |
+| Hunt-Pack | Rangdan Sidearms (Shadow Pistol, Shadow Blaster +10); one model in three trades its pistol for a Rangdan Heavy Weapon instead; Flensing Hooks (A+1, AP 3, D 1) for any model; one Severing Maul (S+3, AP 2, D 2, I-2) per three, +20; a Pack-Alpha +15 |
+| Skyhunters | As the Hunt-Pack, heavy weapons included |
+| Hunt-Court | Flensing Hooks for any model; one Severing Maul per three (+20); one blaster in three for a Scourer, a Caster or a Lance (+10); a Court Standard (+1 Fear for the whole unit, to Fear (2)) for +15 |
+| Ironhide Hunters | One Severing Maul per three (+15) or Ironhide Talons (A+2, AP 3, D 1, Shred (5+)) for any model, in place of the great glaive; Shadow Scourers for the blasters, or one Shadow Lance per three (+15) |
+| Mimics | Shadow Scourers for the blasters; Flensing Hooks for the claws, +15 a model |
+| Moon-callers | Moon-caller Lance (R72 S9 AP2 D2, Armourbane, Barrage (1)) for the array, +20 a model |
+| Hunt-Sovereign, War-moon Regent | A Shadow Scourer for the blaster, or a Shadow Lance for +5; one Relic of the Hunt; the Sovereign also takes the Fang (+20) |
+| Huntmaster, Collar-Wright, Shroud-Weaver | Hunting Weapons or a Severing Maul (+20), sidearms, the Fang of the First Xenocide (+25), one Relic of the Hunt |
 | Relics of the Hunt (once per army) | Skin-thief Cloak (Shrouded 5+) 15, Dread-mask (Fear +1) 10, War-moon Beacon (a War-moon Strike, or a second one for the Hunt-Sovereign) 25, Collar-key of Advex-Mors (18" Overload that costs D3-1 wounds) 10 |
 | Shadow Lancers | Shadow Caster (R30 FP2 S6 AP3 Blast 3", Suppressive) in place of the lance |
-| Tendril Skiffs, Iron Medusa, Spine-Leviathan | Shadow lances or lance arrays in place of blasters and cannons |
+| Spine-Stalker | A shadow cannon for the lance; a shadow blaster for the flails (+5) |
+| Rangdan vehicles | Lances for the Skiffs' blasters (+10); a lance array for the cannon on the Iron Medusa (+15), Collar-Ark (+15) and Brood-ship (+25); sponson lances on the Grave-Bell (+10) and lance arrays on the Spine-Leviathan (+15); shadow cannons for the Shadow Kite's lances or the Drop-ship's array; blasters for the Barge's and Brood-ship's flails (+5) |
 | Thrall Cohort | One Captured Heavy Weapon per ten (heavy stubber, heavy bolter 5, missile launcher 10, lascannon 15, autocannon 20) |
 | Thrall Gun-teams | Heavy bolter or heavy stubber, missile launcher +5, lascannon +10, autocannon +15 |
 | Collared Auxilia | One Captured Special Weapon per ten (flamer, volkite charger 5, meltagun 15) |
 | Thrall Armour | Demolisher or Executioner turret, hull lascannon or heavy flamer, sponson heavy bolters or lascannons, pintle stubber, hunter-killer |
-| Slaugth | Necrotic Spewers for the Dream-Eater (+10), one Kindred in three (+10) and the Harvester (+15); one Nerve-lash per three Kindred; Corpse-cloak (Shrouded 5+) for the Dream-Eater |
+| Dream-Eater, Corpse-Shepherd | Necrotic Spewer (+10), Corpse-cloak (Shrouded 5+, +10), Marrow Scythe (I-1, S+1, AP 2, D 2, Phage (T)) for the nerve-lash (+20), one Relic of the Feast |
+| Relics of the Feast (once per army) | Memory-Jar (one free Advanced Reaction a battle) 20, Crown of Worms (Worm Gestalt gives Feel No Pain (4+)) 15, Bone-Pipes (Shepherd of the Ridden reaches 18", and Ridden within 12" gain Fear (1)) 10 |
+| Slaugth Kindred | One in three takes a Necrotic Spewer or a Necrotic Cannon (+10 each); one Nerve-lash per three (+5); a Slaugth Elder (WS 5, W 4, A 4) for +15 |
+| Gorger Kindred | Bile-sacs: a Necrotic Spewer for any model, +10 a model |
+| Rot-Casters, Ossuary Colossus | Rot-mortars (R48 FP2 S6 AP4, Blast (3"), Barrage (1), Phage (T)) for the necrotic cannons |
+| Skin-Wearers | One in three carries a stolen Imperial gun for its projector: flamer +10, volkite charger +5, meltagun +25 |
+| The Ridden | Rusted Blades (AP 5, Breaching (6+)) for the grasping dead, +1 a model |
+| Harvester, Charnel Barge | Spewers for the Harvester's projectors (+15) and a Corpse-flail (I-1, A+1, S+1, AP 3, Reaping Blow (2), Shred (6+)) for its claws; a necrotic cannon for the Barge's spewer |
 
 Every captured Imperial weapon is copied from BSData's HH3 profile when the data is generated, so it can't drift.
 Option prices come from the sim: a Severing Maul is worth about 25 points a model before counting its Initiative
-penalty and its melee anti-tank, which the yardstick overweights, hence +20 and one per three.
+penalty and its melee anti-tank, which the yardstick overweights, hence +20 and one per three. The heavy weapons
+break even on the yardstick at their prices. A Marrow Scythe makes a Dream-Eater about as good a fighter per point as
+a Collar-Wright with a maul, so it costs the same +20. The stolen meltagun is dearer on Skin-Wearers (+25) than on the
+Auxilia (+15) because it's one gun in three models, not one in ten. Ironhide Talons and the Rot-mortar score below
+what they replace: the yardstick fights Legionaries, not hordes, and can't see indirect fire, which is what they're for.
+No AP 2 weapon carries Breaching, since it would do nothing there.
 
 ## How the Rangdan score
 
@@ -258,6 +280,12 @@ statuses, so the Hunting Cry, Horror of the Taken and the war-moons are priced b
 | Thrall Malcador | 165 | 8.98 | Militia Malcador 8.70 at 170 |
 | Slaugth Ambush-craft | 105 | 13.94 | Thunderbolt 13.27 at 120 |
 | Grave-Bell | 300 | 6.77 | Kratos Assault Tank 6.36 at 280: far more anti-tank (3.34 to 1.36), less armour, plus the shroud the sim doesn't count |
+| The Ridden | 90 | 5.28 | Levy Troop 4.67; Already Dead isn't measured |
+| Gorger Kindred | 195 | 6.66 | Charonite Ogryns 12.19 at 120, Ogryn Brutes 3.72 |
+| Rot-Casters | 135 | 5.09 | Phage isn't measured |
+| Skin-Wearers | 135 | 4.09 | Seeker Squad 4.19; Borrowed Faces isn't measured |
+| Ossuary Colossus | 420 | 4.65 | Telemon 3.96 at 360, Knight Styrix 5.29 at 455 |
+| Corpse-Shepherd | 120 | 2.85 | Dream-Eater 3.21; its aura isn't measured |
 | Iron Medusa with lance array | 175 | 9.99 | Sicaran Venator 10.59 at 170 |
 
 The transports were the army's weak point: the Barge and Charnel Barge had 11 armour and 4 Hull Points (a Rhino has
