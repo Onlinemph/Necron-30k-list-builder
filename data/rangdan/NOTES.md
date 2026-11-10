@@ -42,8 +42,8 @@ losing a unit to the Rangda in combat can rout its neighbours, and The Broken pu
 Three halves that play differently:
 
 - **The Rangda** are few and terrifying: 70–95 points a model, Fear (1) in the squads and Fear (2) on their officers,
-  **Prey Instinct** (+1 to Wound Tests,
-  shooting and melee, against a unit with any Tactical Status), the **Horror of the Taken** (when they destroy a unit
+  **Prey Instinct** (shooting and melee against a unit with Tactical Statuses gain Critical Hit (6+) for one status,
+  (5+) for two and (4+) for three or more), the **Horror of the Taken** (when they destroy a unit
   in combat, every enemy unit within 6" takes a Leadership Check or is Routed) and a **Hunting Cry** each: R12, FP 2,
   S 3, AP –, D 1, Assault, Pinning (2). Pinning triggers on any wound, saved or not, and with a squad's Fear (1) at
   that range a Legion squad passes its Cool Check on 4 or less. A unit either kills or screams, never both in one Shooting Attack.
@@ -90,7 +90,7 @@ The Broken are Thralls too, so they also fill the Herd, the Collared Host and th
 a war-moon, and can take Collared Legion or Collar-bombs.
 
 The loop: Hunting Cries and thrall battlecannons pin, shadow cannons suppress, Mimics panic, Fear makes every one of
-those checks harder to pass, Prey Instinct turns each marker into easier wounds, and each squad the Rangda wipe out in
+those checks harder to pass, Prey Instinct turns each marker into more critical hits, and each squad the Rangda wipe out in
 combat can rout the units around it.
 
 Every rule is a modifier, a status or a standard HH3 rule. There are no re-rolls, and nothing the opponent has to
@@ -335,7 +335,23 @@ Legionaries, WS 5 and WS 6 make no difference: either hits on 3+ and is hit on 5
 characters, a WS 5 Rangda hits on 4+ instead of 3+ and is hit on 4+ instead of 5+, which cost a Hunt-Pack about 10%
 of its value when the ranks dropped from WS 6.
 
-Prey Instinct adds about 0.3–0.5 when it applies. Before it, a Hunt-Pack kills about five Legionaries a round in
+Prey Instinct used to be +1 to wound, which did nothing for any weapon that already wounded Legionaries on 2+: the
+Ironhides' great glaives, the officers' glaives, blasters, lances, mauls and the Spine-Stalker. It's now a Critical
+Hit that grows with the target's statuses. A critical hit wounds automatically, adds 1 Damage and counts as a 6, so it
+also sets off the Breaching (5+) on most Rangdan weapons. With the sim, a Hunt-Pack in combat:
+
+| Target's statuses | Legionaries killed | Wounds on Terminators |
+| --- | --- | --- |
+| none | 5.4 | 3.3 |
+| one (old +1 to wound) | 6.7 | 3.8 |
+| one (Critical Hit 6+) | 6.1 | 4.5 |
+| two (Critical Hit 5+) | 6.8 | 5.9 |
+| three or more (Critical Hit 4+) | 7.4 | 7.2 |
+
+Against one status it's worth about what the old rule was, and every Rangdan unit now gains something: an Ironhide
+squad, a Sovereign or a Spine-Stalker 5–7%, shooting at Terminators 40–70%. Against two or three it's the reward for
+stacking Hunting Cries, suppression, Shock and Fear on one unit. The sim prices units without Prey Instinct, since
+it depends on the table, so no points moved. Before it, a Hunt-Pack kills about five Legionaries a round in
 combat and takes 36 power-axe attacks per model to kill. A Tactical Squad hits it on 5+ and does about a third of a
 wound back each round, so three Rangda wipe a ten-man squad in two rounds, and the Horror of the Taken then tests
 every squad within 6".

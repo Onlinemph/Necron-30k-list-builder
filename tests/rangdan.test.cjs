@@ -72,8 +72,15 @@ test('the army rules use modifiers and statuses, never re-rolls', () => {
     ...data.units.flatMap((u) => u.unitRules || [])].map((r) => r.text);
   for (const t of texts) assert.doesNotMatch(t, /re-?roll/i);
   const prey = data.rules.specialRules.find((r) => r.name === 'Prey Instinct').text;
-  assert.match(prey, /\+1 to that Wound Test/);
+  assert.match(prey, /Critical Hit \(X\).*7 minus the number of those Tactical Statuses.*minimum of 4/s);
   assert.match(prey, /Pinned, Suppressed, Stunned or Routed/);
+});
+
+test('Prey Instinct scales with the target\'s statuses as a Critical Hit, so it works on weapons that already wound on 2+', () => {
+  const prey = data.rules.specialRules.find((r) => r.name === 'Prey Instinct').text;
+  assert.match(prey, /Critical Hit \(6\+\) against a Unit with one, \(5\+\) against a Unit with two, and \(4\+\) against a Unit with three or more/);
+  assert.doesNotMatch(prey, /\+1 to/);
+  assert.match(prey, /Template weapons, gain nothing/);
 });
 
 test('Rangda carry Prey Instinct, Fear, the Horror of the Taken and a Hunting Cry; Slaugth carry Worm Gestalt, which fire ignores', () => {

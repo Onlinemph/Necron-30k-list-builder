@@ -7313,7 +7313,7 @@
    {
     "name": "Prey Instinct",
     "page": null,
-    "text": "The Rangda are hunters before they are anything else, and they go for whatever is already wounded, pinned or running.\n\nWhen a Model with this Special Rule makes a Wound Test for a Shooting Attack or a Melee Attack against a Target Unit that has one or more of the Pinned, Suppressed, Stunned or Routed Tactical Statuses, it gains a bonus of +1 to that Wound Test."
+    "text": "The Rangda are hunters before they are anything else, and the more their quarry falters, the surer the kill.\n\nWhen a Model with this Special Rule makes a Shooting Attack or a Melee Attack against a Target Unit that has one or more of the Pinned, Suppressed, Stunned or Routed Tactical Statuses, that attack gains the Critical Hit (X) Special Rule, where X is 7 minus the number of those Tactical Statuses the Target Unit has, to a minimum of 4: Critical Hit (6+) against a Unit with one, (5+) against a Unit with two, and (4+) against a Unit with three or more. If the weapon already has a Critical Hit (X) Special Rule, use whichever value is lower. Attacks that make no Hit Test, such as Template weapons, gain nothing."
    },
    {
     "name": "Horror of the Taken",
@@ -8987,7 +8987,7 @@
   "fixed": [
    {
     "name": "Prey Instinct",
-    "text": "The Rangda are hunters before they are anything else, and they go for whatever is already wounded, pinned or running.\n\nWhen a Model with this Special Rule makes a Wound Test for a Shooting Attack or a Melee Attack against a Target Unit that has one or more of the Pinned, Suppressed, Stunned or Routed Tactical Statuses, it gains a bonus of +1 to that Wound Test.",
+    "text": "The Rangda are hunters before they are anything else, and the more their quarry falters, the surer the kill.\n\nWhen a Model with this Special Rule makes a Shooting Attack or a Melee Attack against a Target Unit that has one or more of the Pinned, Suppressed, Stunned or Routed Tactical Statuses, that attack gains the Critical Hit (X) Special Rule, where X is 7 minus the number of those Tactical Statuses the Target Unit has, to a minimum of 4: Critical Hit (6+) against a Unit with one, (5+) against a Unit with two, and (4+) against a Unit with three or more. If the weapon already has a Critical Hit (X) Special Rule, use whichever value is lower. Attacks that make no Hit Test, such as Template weapons, gain nothing.",
     "kind": "rule",
     "source": "Rangda Tactica"
    },
