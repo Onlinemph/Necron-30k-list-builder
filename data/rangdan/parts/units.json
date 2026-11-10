@@ -3158,9 +3158,9 @@
       "name": "The Broken",
       "role": "Troops",
       "page": null,
-      "limit": "0-1",
+      "limit": null,
       "unique": false,
-      "basePoints": 90,
+      "basePoints": 95,
       "composition": "10 Broken Legionaries",
       "models": [
         {
@@ -3197,12 +3197,13 @@
       ],
       "traits": [
         "Xenos",
-        "Thrall"
+        "Thrall",
+        "Broken"
       ],
       "specialRules": [
         "Neural Collars",
-        "Heedless",
-        "Still in There"
+        "Still in There",
+        "Line (1)"
       ],
       "unitRules": [
         {
@@ -3214,8 +3215,719 @@
       "fixedArkana": null,
       "factionChoice": true,
       "fixedChoice": null,
-      "options": [],
-      "note": "Collared Legionaries: the reason the Xenocide records are sealed. Uses Legion models in their own colours. Written for this list."
+      "options": [
+        {
+          "id": "special",
+          "text": "For every ten Models in the Unit, one may exchange its Bolter for an item from the Captured Special Weapons list.",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [
+            "Bolter"
+          ],
+          "choices": [
+            {
+              "list": "captured-special-weapons"
+            }
+          ],
+          "max": {
+            "per": 10,
+            "count": 1
+          },
+          "requires": null
+        },
+        {
+          "id": "power",
+          "text": "One Model may exchange its Bolter for one of the following:",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Bolter"
+          ],
+          "choices": [
+            {
+              "name": "Power sword",
+              "points": 10
+            },
+            {
+              "name": "Power axe",
+              "points": 10
+            },
+            {
+              "name": "Power fist",
+              "points": 15
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "Collared Legionaries: the reason the Xenocide records are sealed. The Legion's Tactical Squad, collared; it holds ground like the rest of the herd. Uses Legion models in their own colours. Written for this list."
+    },
+    {
+      "id": "broken-centurion",
+      "name": "Broken Centurion",
+      "role": "Command",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 85,
+      "composition": "1 Broken Centurion",
+      "models": [
+        {
+          "name": "Broken Centurion",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 7,
+            "WS": 5,
+            "BS": 5,
+            "S": 4,
+            "T": 4,
+            "W": 3,
+            "I": 5,
+            "A": 4,
+            "LD": 9,
+            "CL": 8,
+            "WP": 8,
+            "IN": 8,
+            "SAV": "2+",
+            "INV": "5+"
+          },
+          "wargear": [
+            "Power sword",
+            "Bolt pistol",
+            "Frag grenades",
+            "Krak grenades",
+            "Neural Collar"
+          ],
+          "unitType": "Infantry (Command)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Thrall",
+        "Broken"
+      ],
+      "specialRules": [
+        "Neural Collars",
+        "Still in There",
+        "The Old Command"
+      ],
+      "unitRules": [
+        {
+          "name": "Still in There",
+          "text": "They know their brothers' names, and sometimes they say them. Enemy Models with the Infantry Type that are Locked in Combat with a Unit with this Special Rule gain the Hatred (Thrall) Special Rule in that Combat."
+        },
+        {
+          "name": "The Old Command",
+          "text": "The Rangda wire a captured officer's collar to every collar in his old company, and the company still follows him. Units with the Broken Trait that have any Model within 12\" of a friendly Broken Centurion count as being within 12\" of a friendly Rangdan Model for the Neural Collars Special Rule. The Broken Centurion's own Unit does not."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": true,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "melee",
+          "text": "May exchange its Power sword for one of the following:",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Power sword"
+          ],
+          "choices": [
+            {
+              "name": "Power axe",
+              "points": 0
+            },
+            {
+              "name": "Lightning claw",
+              "points": 0
+            },
+            {
+              "name": "Power fist",
+              "points": 5
+            },
+            {
+              "name": "Thunder hammer",
+              "points": 5
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "pistol",
+          "text": "May exchange its Bolt pistol for one of the following:",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Bolt pistol"
+          ],
+          "choices": [
+            {
+              "name": "Plasma pistol",
+              "points": 5
+            },
+            {
+              "name": "Volkite serpenta",
+              "points": 5
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "A Legion Centurion taken alive. Unlocks the Broken Legion Detachment. Written for this list."
+    },
+    {
+      "id": "broken-assault-squad",
+      "name": "Broken Assault Squad",
+      "role": "Troops",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 125,
+      "composition": "10 Broken Assault Legionaries",
+      "models": [
+        {
+          "name": "Broken Assault Legionary",
+          "min": 10,
+          "max": 20,
+          "costPerExtra": 11,
+          "profile": {
+            "M": 12,
+            "WS": 4,
+            "BS": 4,
+            "S": 4,
+            "T": 4,
+            "W": 1,
+            "I": 4,
+            "A": 2,
+            "LD": 7,
+            "CL": 7,
+            "WP": 7,
+            "IN": 7,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Chainsword",
+            "Bolt pistol",
+            "Frag grenades",
+            "Krak grenades",
+            "Neural Collar"
+          ],
+          "unitType": "Infantry (Antigrav)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Thrall",
+        "Broken"
+      ],
+      "specialRules": [
+        "Neural Collars",
+        "Still in There",
+        "Bulky (2)",
+        "Deep Strike",
+        "Vanguard (2)"
+      ],
+      "unitRules": [
+        {
+          "name": "Still in There",
+          "text": "They know their brothers' names, and sometimes they say them. Enemy Models with the Infantry Type that are Locked in Combat with a Unit with this Special Rule gain the Hatred (Thrall) Special Rule in that Combat."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": true,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "melee",
+          "text": "For every five Models in the Unit, one may exchange its Chainsword for one of the following:",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [
+            "Chainsword"
+          ],
+          "choices": [
+            {
+              "name": "Power sword",
+              "points": 10
+            },
+            {
+              "name": "Power axe",
+              "points": 10
+            }
+          ],
+          "max": {
+            "per": 5,
+            "count": 1
+          },
+          "requires": null
+        },
+        {
+          "id": "pistol",
+          "text": "Any Model may exchange its Bolt pistol for one of the following:",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [
+            "Bolt pistol"
+          ],
+          "choices": [
+            {
+              "name": "Plasma pistol",
+              "points": 5
+            },
+            {
+              "name": "Volkite serpenta",
+              "points": 5
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "Jump-packed Legionaries the Rangda drop ahead of the hunt like hounds. Written for this list."
+    },
+    {
+      "id": "broken-heavy-support-squad",
+      "name": "Broken Heavy Support Squad",
+      "role": "Support",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 90,
+      "composition": "5 Broken Heavy Support Legionaries",
+      "models": [
+        {
+          "name": "Broken Heavy Support Legionary",
+          "min": 5,
+          "max": 10,
+          "costPerExtra": 18,
+          "profile": {
+            "M": 7,
+            "WS": 4,
+            "BS": 4,
+            "S": 4,
+            "T": 4,
+            "W": 1,
+            "I": 4,
+            "A": 1,
+            "LD": 7,
+            "CL": 7,
+            "WP": 7,
+            "IN": 7,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Heavy bolter",
+            "Bolt pistol",
+            "Frag grenades",
+            "Krak grenades",
+            "Neural Collar"
+          ],
+          "unitType": "Infantry",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Thrall",
+        "Broken"
+      ],
+      "specialRules": [
+        "Neural Collars",
+        "Still in There",
+        "Support Unit (1)"
+      ],
+      "unitRules": [
+        {
+          "name": "Still in There",
+          "text": "They know their brothers' names, and sometimes they say them. Enemy Models with the Infantry Type that are Locked in Combat with a Unit with this Special Rule gain the Hatred (Thrall) Special Rule in that Combat."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": true,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "heavy",
+          "text": "The whole Unit may exchange its Heavy bolters for one of the following, paying the cost for every Model in the Unit: Heavy flamer, Autocannon (+10), Missile launcher (+5), Multi-melta (+15), Plasma cannon (+10), Volkite culverin (+5) or Lascannon (+15).",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Heavy bolter"
+          ],
+          "choices": [
+            {
+              "name": "Heavy flamer",
+              "points": 0,
+              "perUnitModel": 0
+            },
+            {
+              "name": "Autocannon",
+              "points": 0,
+              "perUnitModel": 10
+            },
+            {
+              "name": "Missile launcher",
+              "points": 0,
+              "perUnitModel": 5
+            },
+            {
+              "name": "Multi-melta",
+              "points": 0,
+              "perUnitModel": 15
+            },
+            {
+              "name": "Plasma cannon",
+              "points": 0,
+              "perUnitModel": 10
+            },
+            {
+              "name": "Volkite culverin",
+              "points": 0,
+              "perUnitModel": 5
+            },
+            {
+              "name": "Lascannon",
+              "points": 0,
+              "perUnitModel": 15
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "A Legion heavy weapons squad, still firing in drill. Written for this list."
+    },
+    {
+      "id": "broken-terminators",
+      "name": "Broken Terminators",
+      "role": "Heavy Assault",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 200,
+      "composition": "5 Broken Terminators",
+      "models": [
+        {
+          "name": "Broken Terminator",
+          "min": 5,
+          "max": 10,
+          "costPerExtra": 40,
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 4,
+            "S": 4,
+            "T": 5,
+            "W": 2,
+            "I": 4,
+            "A": 2,
+            "LD": 8,
+            "CL": 8,
+            "WP": 7,
+            "IN": 7,
+            "SAV": "2+",
+            "INV": "4+"
+          },
+          "wargear": [
+            "Combi-bolter",
+            "Power fist",
+            "Neural Collar"
+          ],
+          "unitType": "Infantry (Heavy)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Thrall",
+        "Broken"
+      ],
+      "specialRules": [
+        "Neural Collars",
+        "Still in There",
+        "Bulky (2)",
+        "Implacable Advance",
+        "Vanguard (3)",
+        "Slow and Purposeful"
+      ],
+      "unitRules": [
+        {
+          "name": "Still in There",
+          "text": "They know their brothers' names, and sometimes they say them. Enemy Models with the Infantry Type that are Locked in Combat with a Unit with this Special Rule gain the Hatred (Thrall) Special Rule in that Combat."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": true,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "melee",
+          "text": "Any Model may exchange its Power fist for one of the following:",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [
+            "Power fist"
+          ],
+          "choices": [
+            {
+              "name": "Chainfist",
+              "points": 0
+            },
+            {
+              "name": "Thunder hammer",
+              "points": 0
+            },
+            {
+              "name": "Lightning claw",
+              "points": 0
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "heavy",
+          "text": "For every five Models in the Unit, one may exchange its Combi-bolter for one of the following:",
+          "kind": "perModel",
+          "model": null,
+          "replaces": [
+            "Combi-bolter"
+          ],
+          "choices": [
+            {
+              "name": "Heavy flamer",
+              "points": 0
+            },
+            {
+              "name": "Reaper autocannon",
+              "points": 10
+            }
+          ],
+          "max": {
+            "per": 5,
+            "count": 1
+          },
+          "requires": null
+        }
+      ],
+      "note": "Cataphractii Terminators cut out of a boarding action and collared inside their plate. Written for this list."
+    },
+    {
+      "id": "collared-contemptor",
+      "name": "Collared Contemptor",
+      "role": "War Engine",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 155,
+      "composition": "1 Collared Contemptor",
+      "models": [
+        {
+          "name": "Collared Contemptor",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 8,
+            "WS": 4,
+            "BS": 4,
+            "S": 7,
+            "T": 7,
+            "W": 6,
+            "I": 4,
+            "A": 4,
+            "LD": 12,
+            "CL": 10,
+            "WP": 7,
+            "IN": 5,
+            "SAV": "2+",
+            "INV": "5+"
+          },
+          "wargear": [
+            "Kheres assault cannon",
+            "Gravis power fist",
+            "Combi-bolter",
+            "Neural Collar"
+          ],
+          "unitType": "Walker",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Thrall",
+        "Broken"
+      ],
+      "specialRules": [
+        "Neural Collars",
+        "Still in There",
+        "Bulky (6)",
+        "Explodes (5+)",
+        "Implacable Advance",
+        "Smokescreen"
+      ],
+      "unitRules": [
+        {
+          "name": "Still in There",
+          "text": "They know their brothers' names, and sometimes they say them. Enemy Models with the Infantry Type that are Locked in Combat with a Unit with this Special Rule gain the Hatred (Thrall) Special Rule in that Combat."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": true,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "gun",
+          "text": "May exchange its Kheres assault cannon for one of the following:",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Kheres assault cannon"
+          ],
+          "choices": [
+            {
+              "name": "Twin lascannon",
+              "points": 0
+            },
+            {
+              "name": "Gravis melta cannon",
+              "points": 0
+            },
+            {
+              "name": "Gravis plasma cannon",
+              "points": 0
+            },
+            {
+              "name": "Gravis autocannon",
+              "points": 0
+            },
+            {
+              "name": "Gravis bolt cannon",
+              "points": 0
+            },
+            {
+              "name": "Conversion beam cannon",
+              "points": 5
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "fist",
+          "text": "May exchange its Gravis power fist for a Gravis chainfist.",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Gravis power fist"
+          ],
+          "choices": [
+            {
+              "name": "Gravis chainfist",
+              "points": 0
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "havoc",
+          "text": "May take a Havoc launcher for +5 points.",
+          "kind": "upgrade",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Havoc launcher",
+              "points": 5
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "A Legion Dreadnought whose entombed pilot the Rangda reached through the sarcophagus and collared. Uses a Contemptor model; the combi-bolter is the fist's in-built weapon. Written for this list."
+    },
+    {
+      "id": "broken-rhino",
+      "name": "Broken Rhino",
+      "role": "Transport",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 55,
+      "composition": "1 Broken Rhino",
+      "models": [
+        {
+          "name": "Broken Rhino",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 12,
+            "BS": 4,
+            "FRONT": 12,
+            "SIDE": 11,
+            "REAR": 10,
+            "HP": 5,
+            "CAPACITY": 12
+          },
+          "wargear": [
+            "Pintle Mounted Bolter"
+          ],
+          "unitType": "Vehicle (Transport)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Thrall",
+        "Broken"
+      ],
+      "specialRules": [
+        "Neural Collars",
+        "Auto-Repair (4+)",
+        "Light Transport",
+        "Smokescreen"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": true,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "hk",
+          "text": "May take a Hull (Front) Mounted Hunter-killer missile for +5 points.",
+          "kind": "upgrade",
+          "model": null,
+          "replaces": [],
+          "choices": [
+            {
+              "name": "Hull (Front) Mounted Hunter-killer missile",
+              "points": 5
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "The Broken's own Rhinos, driven by collared crews. Light Transport, like the Legion's. Written for this list."
     },
     {
       "id": "marshal-casimir-vehl",
