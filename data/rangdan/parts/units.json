@@ -984,7 +984,7 @@
       "page": null,
       "limit": null,
       "unique": false,
-      "basePoints": 85,
+      "basePoints": 110,
       "composition": "1 Tendril Barge",
       "models": [
         {
@@ -995,10 +995,10 @@
           "profile": {
             "M": 14,
             "BS": 4,
-            "FRONT": 11,
-            "SIDE": 11,
+            "FRONT": 12,
+            "SIDE": 12,
             "REAR": 10,
-            "HP": 4,
+            "HP": 5,
             "CAPACITY": 12
           },
           "wargear": [
@@ -1015,7 +1015,8 @@
         "Rangda"
       ],
       "specialRules": [
-        "Assault Vehicle"
+        "Assault Vehicle",
+        "Firing Point (2)"
       ],
       "unitRules": [],
       "cryptoArkana": false,
@@ -1302,7 +1303,7 @@
       "page": null,
       "limit": null,
       "unique": false,
-      "basePoints": 160,
+      "basePoints": 190,
       "composition": "1 Brood-ship",
       "models": [
         {
@@ -1313,10 +1314,10 @@
           "profile": {
             "M": 12,
             "BS": 4,
-            "FRONT": 12,
-            "SIDE": 12,
+            "FRONT": 13,
+            "SIDE": 13,
             "REAR": 11,
-            "HP": 7,
+            "HP": 8,
             "CAPACITY": 20
           },
           "wargear": [
@@ -1333,7 +1334,8 @@
         "Rangda"
       ],
       "specialRules": [
-        "Assault Vehicle"
+        "Assault Vehicle",
+        "Firing Point (3)"
       ],
       "unitRules": [],
       "cryptoArkana": false,
@@ -1360,6 +1362,154 @@
         }
       ],
       "note": "The big iron jellyfish that carries a hunt, or a herd, down from orbit. Written for this list."
+    },
+    {
+      "id": "medusa-drop-ship",
+      "name": "Medusa Drop-ship",
+      "role": "Fast Attack",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 210,
+      "composition": "1 Medusa Drop-ship",
+      "models": [
+        {
+          "name": "Medusa Drop-ship",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 18,
+            "BS": 4,
+            "FRONT": 12,
+            "SIDE": 12,
+            "REAR": 12,
+            "HP": 6,
+            "CAPACITY": 16
+          },
+          "wargear": [
+            "Centreline Mounted Shadow Lance Array",
+            "2 Hull Mounted Shadow Blasters",
+            "Medusa Shroud"
+          ],
+          "unitType": "Vehicle (Stable, Transport, Flyer)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Rangda"
+      ],
+      "specialRules": [
+        "Assault Vehicle",
+        "Firing Point (2)"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": true,
+      "fixedChoice": null,
+      "options": [],
+      "note": "A flying jellyfish with a hunt inside it: five Rangda dropped wherever the war-moon points. Written for this list."
+    },
+    {
+      "id": "spine-pod",
+      "name": "Spine-pod",
+      "role": "Transport",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 115,
+      "composition": "1 Spine-pod",
+      "models": [
+        {
+          "name": "Spine-pod",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 15,
+            "BS": 4,
+            "FRONT": 12,
+            "SIDE": 12,
+            "REAR": 12,
+            "HP": 5,
+            "CAPACITY": 12
+          },
+          "wargear": [
+            "Medusa Shroud"
+          ],
+          "unitType": "Vehicle (Flyer, Transport)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Rangda"
+      ],
+      "specialRules": [
+        "Drop Transport",
+        "Deep Strike"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": true,
+      "fixedChoice": null,
+      "options": [],
+      "note": "A spined seed fired down from a war-moon with four Rangda or a Spine-Stalker inside. Written for this list."
+    },
+    {
+      "id": "collar-ark",
+      "name": "Collar-Ark",
+      "role": "Transport",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 105,
+      "composition": "1 Collar-Ark",
+      "models": [
+        {
+          "name": "Collar-Ark",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 12,
+            "BS": 4,
+            "FRONT": 12,
+            "SIDE": 12,
+            "REAR": 10,
+            "HP": 5,
+            "CAPACITY": 12
+          },
+          "wargear": [
+            "Turret Mounted Shadow Cannon",
+            "Medusa Shroud"
+          ],
+          "unitType": "Vehicle (Antigrav, Transport)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Rangda"
+      ],
+      "specialRules": [
+        "Collar Beacon"
+      ],
+      "unitRules": [
+        {
+          "name": "Collar Beacon",
+          "text": "The Ark carries the herd and broadcasts the collar signal over it. Units with the Neural Collars Special Rule that have any Model within 12\" of a Model with this Special Rule, or are Embarked on it, count as being within 12\" of a friendly Rangdan Model."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": true,
+      "fixedChoice": null,
+      "options": [],
+      "note": "A Rangdan herding vessel: it carries a Thrall squad and keeps every collar around it obedient. Written for this list."
     },
     {
       "id": "skyhunters",
@@ -2366,8 +2516,146 @@
       "fixedArkana": null,
       "factionChoice": true,
       "fixedChoice": null,
-      "options": [],
+      "options": [
+        {
+          "id": "hull",
+          "text": "May exchange its Pintle Mounted Heavy stubber for one of the following:",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Pintle Mounted Heavy stubber"
+          ],
+          "choices": [
+            {
+              "name": "Pintle Mounted Heavy bolter",
+              "points": 5
+            },
+            {
+              "name": "Pintle Mounted Multi-laser",
+              "points": 5
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
       "note": "A captured Aurox with a collared driver. Uses Solar Auxilia models."
+    },
+    {
+      "id": "thrall-dracosan",
+      "name": "Thrall Dracosan",
+      "role": "Heavy Transport",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 135,
+      "composition": "1 Thrall Dracosan",
+      "models": [
+        {
+          "name": "Thrall Dracosan",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 12,
+            "BS": 3,
+            "FRONT": 13,
+            "SIDE": 13,
+            "REAR": 11,
+            "HP": 7,
+            "CAPACITY": 22
+          },
+          "wargear": [
+            "Hull (Front) Mounted Twin lascannon"
+          ],
+          "unitType": "Vehicle (Transport)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Thrall"
+      ],
+      "specialRules": [
+        "Neural Collars",
+        "Light Transport",
+        "Access points"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": true,
+      "fixedChoice": null,
+      "options": [],
+      "note": "A captured Dracosan big enough for a whole Thrall Cohort. Uses Solar Auxilia models."
+    },
+    {
+      "id": "thrall-malcador",
+      "name": "Thrall Malcador",
+      "role": "Armour",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 165,
+      "composition": "1 Thrall Malcador",
+      "models": [
+        {
+          "name": "Thrall Malcador",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 12,
+            "BS": 3,
+            "FRONT": 13,
+            "SIDE": 13,
+            "REAR": 11,
+            "HP": 7,
+            "CAPACITY": "–"
+          },
+          "wargear": [
+            "Hull (Front) Mounted Battlecannon",
+            "Hull (Front) Mounted Heavy bolter",
+            "Two Sponson Mounted Multi-lasers",
+            "Smoke Launchers"
+          ],
+          "unitType": "Vehicle",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Thrall"
+      ],
+      "specialRules": [
+        "Neural Collars",
+        "Independent Fire"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": true,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "sponsons",
+          "text": "May exchange its Two Sponson Mounted Multi-lasers for Two Sponson Mounted Lascannons for +15 points.",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Two Sponson Mounted Multi-lasers"
+          ],
+          "choices": [
+            {
+              "name": "Two Sponson Mounted Lascannons",
+              "points": 15
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "A captured Malcador with a collared crew. Uses Imperial Army models."
     },
     {
       "id": "the-broken",
@@ -3008,13 +3296,66 @@
       "note": "A vehicle-sized mass of flesh and metal that gathers the dead. Written for this list."
     },
     {
+      "id": "ambush-craft",
+      "name": "Slaugth Ambush-craft",
+      "role": "Fast Attack",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 105,
+      "composition": "1 Ambush-craft",
+      "models": [
+        {
+          "name": "Ambush-craft",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 20,
+            "BS": 4,
+            "FRONT": 12,
+            "SIDE": 12,
+            "REAR": 11,
+            "HP": 5,
+            "CAPACITY": "–"
+          },
+          "wargear": [
+            "2 Hull Mounted Necrotic Cannons",
+            "Necrotic Spewer"
+          ],
+          "unitType": "Vehicle (Flyer)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Slaugth"
+      ],
+      "specialRules": [
+        "Living Hull",
+        "Outflank"
+      ],
+      "unitRules": [
+        {
+          "name": "Living Hull",
+          "text": "The craft is grown, not built, and it closes its own wounds. At the start of its Controlling Player's turn, roll a Dice for a Model with this Special Rule that has lost any Hull Points: on a 5+ it regains one lost Hull Point."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": false,
+      "fixedChoice": null,
+      "options": [],
+      "note": "The Slaugth void-craft that struck from ambush at Rangda: a ribbed flesh hull that comes in low from the board edge. Written for this list."
+    },
+    {
       "id": "charnel-barge",
       "name": "Charnel Barge",
       "role": "Transport",
       "page": null,
       "limit": null,
       "unique": false,
-      "basePoints": 65,
+      "basePoints": 80,
       "composition": "1 Charnel Barge",
       "models": [
         {
@@ -3025,11 +3366,11 @@
           "profile": {
             "M": 12,
             "BS": 3,
-            "FRONT": 11,
+            "FRONT": 12,
             "SIDE": 11,
             "REAR": 10,
-            "HP": 4,
-            "CAPACITY": 8
+            "HP": 5,
+            "CAPACITY": 10
           },
           "wargear": [
             "Necrotic Spewer"
@@ -3043,6 +3384,7 @@
         "Slaugth"
       ],
       "specialRules": [
+        "Assault Vehicle",
         "Living Hull"
       ],
       "unitRules": [
@@ -3056,7 +3398,7 @@
       "factionChoice": false,
       "fixedChoice": null,
       "options": [],
-      "note": "A floating hull of flesh over a metal frame that carries the Kindred to the dead. Written for this list."
+      "note": "A floating hull of flesh over a metal frame that carries the Kindred to the dead, and opens to let them feed. Written for this list."
     },
     {
       "id": "the-hollow-choir",
