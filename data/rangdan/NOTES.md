@@ -132,7 +132,8 @@ There is no Fortification: no army in the data has one and no HH3 chart has a sl
 | Mimics | Recon | 220 for 3, +70 | 3–6 models, Vanguard (2). Infiltrate (9); Stolen Voices gives their shooting Panic (1) |
 | Tendril Skiffs | Fast Attack | 85 each | Small jellyfish skimmers |
 | Shadow Kite | Fast Attack | 105 each | 1–2 flyers with two shadow lances each |
-| Iron Medusa | Armour | 160 each | Squadrons of 1–3. Shadow cannon (Blast, Deflagrate, Suppressive) |
+| Iron Medusa | Armour | 160 each | Squadrons of 1–3. Shadow cannon (Blast, Deflagrate, Suppressive), or a lance array for +15 as a tank hunter |
+| Grave-Bell | Armour | 300 | The Rangdan heavy tank: 14/13/12, HP 9, antigrav, shroud; shadow annihilator turret, sponson blasters (lances +10) and flails |
 | Tendril Barge | Transport | 110 | 12/12/10, HP 5, capacity 12 (four Rangda), Assault Vehicle, Firing Point (2) |
 | Spine-pod | Transport | 115 | A drop pod from a war-moon: Deep Strike, Drop Transport (four Rangda or a Spine-Stalker) |
 | Collar-Ark | Transport | 105 | Carries 12 and its Collar Beacon keeps every Thrall within 12" (or aboard) obedient; shadow cannon |
@@ -256,6 +257,8 @@ statuses, so the Hunting Cry, Horror of the Taken and the war-moons are priced b
 | Thrall Dracosan | 135 | 11.59 | Dracosan 11.14 at 140 |
 | Thrall Malcador | 165 | 8.98 | Militia Malcador 8.70 at 170 |
 | Slaugth Ambush-craft | 105 | 13.94 | Thunderbolt 13.27 at 120 |
+| Grave-Bell | 300 | 6.77 | Kratos Assault Tank 6.36 at 280: far more anti-tank (3.34 to 1.36), less armour, plus the shroud the sim doesn't count |
+| Iron Medusa with lance array | 175 | 9.99 | Sicaran Venator 10.59 at 170 |
 
 The transports were the army's weak point: the Barge and Charnel Barge had 11 armour and 4 Hull Points (a Rhino has
 12/11/10 and 5), the Brood-ship sat below a Coronus, and none could fire out. They now match or beat their Imperial

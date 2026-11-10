@@ -168,7 +168,7 @@ test('The Hunt takes only Rangda and The Herd only Thralls', () => {
   assert.deepEqual(ids(herd, 'Troops').sort(), ['collared-auxilia', 'the-broken', 'thrall-cohort']);
   assert.deepEqual(ids(herd, 'Armour').sort(), ['thrall-armour', 'thrall-malcador']);
   const shoal = E.detachmentFromDef('medusa-shoal');
-  assert.deepEqual(ids(shoal, 'Armour'), ['iron-medusa']);
+  assert.deepEqual(ids(shoal, 'Armour').sort(), ['grave-bell', 'iron-medusa']);
 });
 
 test('the Carrion Court needs a Dream-Eater or the Hollow Choir in a Command slot and takes only Slaugth', () => {
@@ -384,4 +384,18 @@ test('transports: Rangda ones are tougher than a Rhino and fire out with Firing 
   const court = E.detachmentFromDef('the-carrion-court');
   assert.ok(E.unitsForSlot(court.slots.find((s) => s.role === 'Fast Attack'), court).some((u) => u.id === 'ambush-craft'));
   assert.ok(r('ambush-craft').includes('Outflank'));
+});
+
+test('tanks: the Grave-Bell is a Kratos-class heavy tank, and the lance-array Medusa is a cheaper tank hunter', () => {
+  const g = unit('grave-bell');
+  assert.equal(g.role, 'Armour');
+  const p = g.models[0].profile;
+  assert.deepEqual([p.FRONT, p.SIDE, p.REAR, p.HP], [14, 13, 12, 9]);
+  assert.ok(g.models[0].wargear.includes('Turret Mounted Shadow Annihilator') && g.models[0].wargear.includes('Medusa Shroud'));
+  const s = sel('grave-bell');
+  s.options.sponsons = '2 Sponson Mounted Shadow Lances';
+  assert.equal(E.unitPoints(s), 300 + 10);
+  const m = sel('iron-medusa');
+  m.options.turret = 'Turret Mounted Shadow Lance Array';
+  assert.equal(E.unitPoints(m), 160 + 15);
 });

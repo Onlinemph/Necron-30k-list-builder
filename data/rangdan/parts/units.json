@@ -875,7 +875,7 @@
       "options": [
         {
           "id": "turret",
-          "text": "May exchange its Turret Mounted Shadow Cannon for a Turret Mounted Shadow Lance Array for +25 points.",
+          "text": "May exchange its Turret Mounted Shadow Cannon for a Turret Mounted Shadow Lance Array for +15 points.",
           "kind": "one",
           "model": null,
           "replaces": [
@@ -884,7 +884,7 @@
           "choices": [
             {
               "name": "Turret Mounted Shadow Lance Array",
-              "points": 25
+              "points": 15
             }
           ],
           "max": null,
@@ -909,6 +909,90 @@
         }
       ],
       "note": "The Rangdan battle tank: a floating iron bell trailing a curtain of flails. Written for this list."
+    },
+    {
+      "id": "grave-bell",
+      "name": "Grave-Bell",
+      "role": "Armour",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 300,
+      "composition": "1 Grave-Bell",
+      "models": [
+        {
+          "name": "Grave-Bell",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 10,
+            "BS": 4,
+            "FRONT": 14,
+            "SIDE": 13,
+            "REAR": 12,
+            "HP": 9,
+            "CAPACITY": "–"
+          },
+          "wargear": [
+            "Turret Mounted Shadow Annihilator",
+            "2 Sponson Mounted Shadow Blasters",
+            "2 Hull Mounted Tendril Flails",
+            "Medusa Shroud"
+          ],
+          "unitType": "Vehicle (Antigrav)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Rangda"
+      ],
+      "specialRules": [
+        "Explodes (6+)"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": true,
+      "fixedChoice": null,
+      "options": [
+        {
+          "id": "turret",
+          "text": "May exchange its Turret Mounted Shadow Annihilator for a Turret Mounted Shadow Cannon.",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "Turret Mounted Shadow Annihilator"
+          ],
+          "choices": [
+            {
+              "name": "Turret Mounted Shadow Cannon",
+              "points": 0
+            }
+          ],
+          "max": null,
+          "requires": null
+        },
+        {
+          "id": "sponsons",
+          "text": "May exchange its 2 Sponson Mounted Shadow Blasters for 2 Sponson Mounted Shadow Lances for +10 points.",
+          "kind": "one",
+          "model": null,
+          "replaces": [
+            "2 Sponson Mounted Shadow Blasters"
+          ],
+          "choices": [
+            {
+              "name": "2 Sponson Mounted Shadow Lances",
+              "points": 10
+            }
+          ],
+          "max": null,
+          "requires": null
+        }
+      ],
+      "note": "The Rangdan heavy tank: a great iron bell with a shadow annihilator in its crown, the hunt's answer to a Kratos. Written for this list."
     },
     {
       "id": "spine-leviathan",
