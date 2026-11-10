@@ -209,6 +209,59 @@
       "modes": null
     },
     {
+      "name": "Shadow Scourer",
+      "page": null,
+      "R": "Template",
+      "FP": 1,
+      "RS": 5,
+      "AP": 4,
+      "D": 1,
+      "specialRules": [
+        "Template",
+        "Deflagrate (4)",
+        "Panic (1)"
+      ],
+      "traits": [
+        "Shadow"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Moon-caller Lance",
+      "page": null,
+      "R": 72,
+      "FP": 1,
+      "RS": 9,
+      "AP": 2,
+      "D": 2,
+      "specialRules": [
+        "Armourbane",
+        "Barrage (1)"
+      ],
+      "traits": [
+        "Shadow"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Rot-mortar",
+      "page": null,
+      "R": 48,
+      "FP": 2,
+      "RS": 6,
+      "AP": 4,
+      "D": 1,
+      "specialRules": [
+        "Blast (3\")",
+        "Barrage (1)",
+        "Phage (T)"
+      ],
+      "traits": [
+        "Necrotic"
+      ],
+      "modes": null
+    },
+    {
       "name": "Moon-caller Array",
       "page": null,
       "R": 72,
@@ -755,9 +808,7 @@
       "SM": "+1",
       "AP": 2,
       "D": 2,
-      "specialRules": [
-        "Breaching (5+)"
-      ],
+      "specialRules": [],
       "traits": [
         "Shadow"
       ],
@@ -838,6 +889,69 @@
         "Shred (6+)"
       ],
       "traits": [],
+      "modes": null
+    },
+    {
+      "name": "Rusted Blades",
+      "page": null,
+      "IM": "I",
+      "AM": "A",
+      "SM": "S",
+      "AP": 5,
+      "D": 1,
+      "specialRules": [
+        "Breaching (6+)"
+      ],
+      "traits": [],
+      "modes": null
+    },
+    {
+      "name": "Ironhide Talons",
+      "page": null,
+      "IM": "I",
+      "AM": "+2",
+      "SM": "S",
+      "AP": 3,
+      "D": 1,
+      "specialRules": [
+        "Shred (5+)"
+      ],
+      "traits": [
+        "Shadow"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Marrow Scythe",
+      "page": null,
+      "IM": "-1",
+      "AM": "A",
+      "SM": "+1",
+      "AP": 2,
+      "D": 2,
+      "specialRules": [
+        "Phage (T)"
+      ],
+      "traits": [
+        "Necrotic"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Corpse-flail",
+      "page": null,
+      "IM": -1,
+      "AM": "+1",
+      "SM": "+1",
+      "AP": 3,
+      "D": 1,
+      "specialRules": [
+        "Reaping Blow (2)",
+        "Shred (6+)"
+      ],
+      "traits": [
+        "Necrotic"
+      ],
       "modes": null
     },
     {
@@ -922,9 +1036,7 @@
       "SM": "+1",
       "AP": 2,
       "D": 2,
-      "specialRules": [
-        "Breaching (4+)"
-      ],
+      "specialRules": [],
       "traits": [
         "Shadow"
       ],
@@ -938,9 +1050,7 @@
       "SM": "+1",
       "AP": 2,
       "D": 2,
-      "specialRules": [
-        "Breaching (5+)"
-      ],
+      "specialRules": [],
       "traits": [
         "Shadow"
       ],
@@ -984,9 +1094,7 @@
       "SM": "+2",
       "AP": 2,
       "D": 3,
-      "specialRules": [
-        "Breaching (4+)"
-      ],
+      "specialRules": [],
       "traits": [
         "Shadow"
       ],

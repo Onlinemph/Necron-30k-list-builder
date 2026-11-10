@@ -31,6 +31,26 @@
       "text": "The master key to the collars fitted on the first world the Rangda took. Relic of the Hunt: once per army. The bearer may use the Collar-master Special Rule on a Unit with any Model within 18\" of it, and a Unit it Overloads suffers D3-1 wounds at the end of the Phase instead of D3."
     },
     {
+      "name": "Court Standard",
+      "page": null,
+      "text": "A pole hung with the skulls and stolen armour of the Rangda's greatest kills. All Models in a Unit that includes a Model with a Court Standard increase the value of their Fear (X) Special Rule by 1, to a maximum of Fear (3)."
+    },
+    {
+      "name": "Memory-Jar",
+      "page": null,
+      "text": "A sealed jar of the brain-matter of a dead Legion officer, still full of everything its owner knew. Relic of the Feast: once per army. Once per battle, its Controlling Player may declare one Advanced Reaction without spending any Reaction Points."
+    },
+    {
+      "name": "Crown of Worms",
+      "page": null,
+      "text": "A writhing circlet of the oldest worms in the gestalt. Relic of the Feast: once per army. The bearer's Worm Gestalt gives Feel No Pain (4+) instead of (5+); fire still ignores it."
+    },
+    {
+      "name": "Bone-Pipes",
+      "page": null,
+      "text": "Pipes cut from Astartes femurs, whose notes the Ridden follow. Relic of the Feast: once per army. The bearer's Shepherd of the Ridden Special Rule, if it has one, reaches 18\" instead of 12\", and friendly Units of the Ridden within 12\" of the bearer gain the Fear (1) Special Rule."
+    },
+    {
       "name": "Corpse-cloak",
       "page": null,
       "text": "Robes woven from the skins of the eaten, which the worms beneath can slide through and out of. The bearer has the Shrouded (5+) Special Rule."

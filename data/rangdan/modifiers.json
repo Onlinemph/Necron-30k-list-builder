@@ -163,6 +163,69 @@
       "condition": null
     },
     {
+      "id": "court-standard-fear",
+      "page": null,
+      "text": "A Court Standard raises the Fear (X) of every Model in its Unit by 1, to a maximum of Fear (3).",
+      "source": {
+        "type": "wargear",
+        "name": "Court Standard"
+      },
+      "appliesTo": {},
+      "scope": "unit",
+      "stats": {},
+      "addRules": [],
+      "removeRules": [],
+      "modifyRules": [
+        {
+          "rule": "Fear",
+          "by": 1
+        }
+      ],
+      "addTraits": [],
+      "addUnitTypes": [],
+      "condition": null
+    },
+    {
+      "id": "skin-thief-cloak",
+      "page": null,
+      "text": "The bearer has the Shrouded (5+) Special Rule.",
+      "source": {
+        "type": "wargear",
+        "name": "Skin-thief Cloak"
+      },
+      "appliesTo": {},
+      "scope": "model",
+      "stats": {},
+      "addRules": [
+        "Shrouded (5+)"
+      ],
+      "removeRules": [],
+      "modifyRules": [],
+      "addTraits": [],
+      "addUnitTypes": [],
+      "condition": null
+    },
+    {
+      "id": "corpse-cloak",
+      "page": null,
+      "text": "The bearer has the Shrouded (5+) Special Rule.",
+      "source": {
+        "type": "wargear",
+        "name": "Corpse-cloak"
+      },
+      "appliesTo": {},
+      "scope": "model",
+      "stats": {},
+      "addRules": [
+        "Shrouded (5+)"
+      ],
+      "removeRules": [],
+      "modifyRules": [],
+      "addTraits": [],
+      "addUnitTypes": [],
+      "condition": null
+    },
+    {
       "id": "burning-sky-initiative",
       "page": null,
       "text": "Models with the Rangda Trait and the Burning Sky Trait reduce their Initiative by 1.",
