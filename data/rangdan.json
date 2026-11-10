@@ -1618,7 +1618,7 @@
    "page": null,
    "limit": null,
    "unique": false,
-   "basePoints": 190,
+   "basePoints": 205,
    "composition": "1 Brood-ship",
    "models": [
     {
@@ -1633,7 +1633,7 @@
       "SIDE": 13,
       "REAR": 11,
       "HP": 8,
-      "CAPACITY": 20
+      "CAPACITY": 30
      },
      "wargear": [
       "Turret Mounted Shadow Cannon",

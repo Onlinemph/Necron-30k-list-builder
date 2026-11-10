@@ -139,7 +139,7 @@ There is no Fortification: no army in the data has one and no HH3 chart has a sl
 | Spine-pod | Transport | 115 | A drop pod from a war-moon: Deep Strike, Drop Transport (four Rangda or a Spine-Stalker) |
 | Collar-Ark | Transport | 105 | Carries 12 and its Collar Beacon keeps every Thrall within 12" (or aboard) obedient; shadow cannon |
 | Medusa Drop-ship | Fast Attack | 210 | Flyer transport for five Rangda: Assault Vehicle, Firing Point (2), lance array and two blasters |
-| Brood-ship | Heavy Transport | 190 | 13/13/11, HP 8, capacity 20 (six Rangda or a herd), Assault Vehicle, Firing Point (3) |
+| Brood-ship | Heavy Transport | 205 | 13/13/11, HP 8, capacity 30 (a full nine-model Hunt-Pack and its Huntmaster, or a herd), Assault Vehicle, Firing Point (3) |
 | Spine-Leviathan | Lord of War | 620 | Super-heavy skimmer |
 | Thrall Cohort | Troops | 70 for 20, +3 | Line (1), Expendable (2). Imperial Army; cheap bodies, the millions of slaves the canon describes |
 | Collared Auxilia | Troops | 60 for 10, +5 | Line (1). Solar Auxilia in void armour |
@@ -258,7 +258,7 @@ statuses, so the Hunting Cry, Horror of the Taken and the war-moons are priced b
 | Thrall Armour | 130 | 11.19 | Militia Leman Russ 11.16 |
 | Thrall Knight | 400 | 6.00 | priced like a Questoris Paladin (410) less the collars |
 | Iron Medusa | 160 | 9.12 | Leman Russ Strike 10.26; the 5+ invulnerable against shooting isn't measured |
-| Brood-ship | 190 | 8.01 | Coronus Grav-Carrier 11.46 at 180, Dracosan 11.14; capacity, Assault Vehicle and Firing Point aren't measured |
+| Brood-ship | 205 | 7.42 | Coronus Grav-Carrier 11.46 at 180, Dracosan 11.14; capacity, Assault Vehicle and Firing Point aren't measured. Capacity went from 20 to 30 for +15 so a full Hunt-Pack fits |
 | Spine-Leviathan | 620 | 3.42 | Fellblade 3.22, same caveat |
 | Shadow Kite | 105 | 6.97 | Xiphon 8.49; the 5+ invulnerable against shooting isn't measured |
 | Tendril Barge | 110 | 13.41 | Rhino 9.51 at 60; at 12 side armour it's immune to bolters like a Rhino, and it has guns |

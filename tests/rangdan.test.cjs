@@ -275,7 +275,8 @@ test('the Warlord Detachment fills with a War-moon Regent, a Hunt-Court and a Br
   const w = E.makeDetachment('warlord', 'Warlord', [{ role: 'Warlord' }, { role: 'Retinue' }, { role: 'Heavy Transport' }]);
   assert.deepEqual(w.slots.map((s) => E.unitsForSlot(s).map((u) => u.id).sort()), [['war-moon-regent'], ['hunt-court'], ['brood-ship', 'thrall-dracosan']]);
   assert.equal(unit('war-moon-regent').limit, '0-1');
-  assert.ok(unit('brood-ship').models[0].profile.CAPACITY >= 6 * 3, 'six Bulky (3) Rangda');
+  assert.equal(unit('brood-ship').models[0].profile.CAPACITY, 9 * 3 + 3, 'a full Hunt-Pack of nine Bulky (3) Rangda and a Huntmaster');
+  assert.equal(unit('brood-ship').basePoints, 205);
 });
 
 test('named characters are unique, and the Hollow Choir unlocks the Carrion Court', () => {
