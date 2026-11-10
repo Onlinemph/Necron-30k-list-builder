@@ -146,7 +146,7 @@ test('transports: a Tendril Barge carries four Rangda, Thrall Carriers only Thra
   assert.ok(cap('charnel-barge') >= 4 * 2, 'four Bulky (2) Kindred');
   const ids = (detId) => { const d = E.detachmentFromDef(detId); return E.unitsForSlot(d.slots.find((s) => s.role === 'Transport'), d).map((u) => u.id); };
   assert.deepEqual(ids('the-hunt').sort(), ['collar-ark', 'spine-pod', 'tendril-barge']);
-  assert.deepEqual(ids('the-herd'), ['thrall-carrier']);
+  assert.deepEqual(ids('the-herd').sort(), ['broken-rhino', 'thrall-carrier']);
   assert.deepEqual(ids('the-carrion-court'), ['charnel-barge']);
   const shoal = E.detachmentFromDef('medusa-shoal');
   assert.deepEqual(E.unitsForSlot(shoal.slots.find((s) => s.role === 'Fast Attack'), shoal).map((u) => u.id).sort(), ['hunt-hounds', 'medusa-drop-ship', 'shadow-kite', 'skyhunters', 'tendril-skiffs']);
@@ -165,7 +165,7 @@ test('The Hunt takes only Rangda and The Herd only Thralls', () => {
   const herd = E.detachmentFromDef('the-herd');
   const ids = (det, role) => E.unitsForSlot(det.slots.find((s) => s.role === role), det).map((u) => u.id);
   assert.deepEqual(ids(hunt, 'Elites'), ['hunt-pack']);
-  assert.deepEqual(ids(herd, 'Troops').sort(), ['collared-auxilia', 'the-broken', 'thrall-cohort']);
+  assert.deepEqual(ids(herd, 'Troops').sort(), ['broken-assault-squad', 'collared-auxilia', 'the-broken', 'thrall-cohort']);
   assert.deepEqual(ids(herd, 'Armour').sort(), ['thrall-armour', 'thrall-malcador']);
   const shoal = E.detachmentFromDef('medusa-shoal');
   assert.deepEqual(ids(shoal, 'Armour').sort(), ['grave-bell', 'iron-medusa']);
@@ -275,7 +275,8 @@ test('the Warlord Detachment fills with a War-moon Regent, a Hunt-Court and a Br
   const w = E.makeDetachment('warlord', 'Warlord', [{ role: 'Warlord' }, { role: 'Retinue' }, { role: 'Heavy Transport' }]);
   assert.deepEqual(w.slots.map((s) => E.unitsForSlot(s).map((u) => u.id).sort()), [['war-moon-regent'], ['hunt-court'], ['brood-ship', 'thrall-dracosan']]);
   assert.equal(unit('war-moon-regent').limit, '0-1');
-  assert.ok(unit('brood-ship').models[0].profile.CAPACITY >= 6 * 3, 'six Bulky (3) Rangda');
+  assert.equal(unit('brood-ship').models[0].profile.CAPACITY, 9 * 3 + 3, 'a full Hunt-Pack of nine Bulky (3) Rangda and a Huntmaster');
+  assert.equal(unit('brood-ship').basePoints, 205);
 });
 
 test('named characters are unique, and the Hollow Choir unlocks the Carrion Court', () => {
@@ -285,12 +286,56 @@ test('named characters are unique, and the Hollow Choir unlocks the Carrion Cour
   assert.ok(!E.armyIssues(army([primary, E.detachmentFromDef('the-carrion-court')])).some((i) => /Carrion Court needs/.test(i.msg)));
 });
 
-test('The Broken: collared Legionaries, 0-1, Heedless, with their brothers\' Hatred against them', () => {
-  const b = unit('the-broken');
-  assert.equal(b.limit, '0-1');
-  assert.ok(b.specialRules.includes('Heedless') && b.specialRules.includes('Neural Collars'));
-  assert.match(b.unitRules.find((r) => r.name === 'Still in There').text, /Hatred \(Thrall\)/);
-  assert.deepEqual(b.models[0].wargear.slice(0, 2), ['Bolter', 'Bolt pistol']);
+test('The Broken Legion: collared Legion units with BSData statlines, no longer 0-1, with their brothers\' Hatred against them', () => {
+  const legion = require('../data/bsdata/blackshields/parts/units.json');
+  const lu = (id, name) => (legion.units || legion).find((u) => u.id === id).models.find((m) => m.name === name).profile;
+  const pairs = [['the-broken', 'tactical-squad', 'Legionary'], ['broken-centurion', 'centurion', 'Centurion'], ['broken-assault-squad', 'assault-squad', 'Legionary'],
+    ['broken-heavy-support-squad', 'heavy-support-squad', 'Legionary'], ['broken-terminators', 'cataphractii-terminator-squad', 'Cataphractii Terminator'],
+    ['collared-contemptor', 'contemptor-dreadnought', 'Contemptor Dreadnought'], ['broken-rhino', 'rhino', 'Rhino']];
+  for (const [id, lid, name] of pairs) {
+    const u = unit(id);
+    assert.deepEqual(u.models[0].profile, lu(lid, name), `${id} has the Legion ${name} statline`);
+    assert.ok(has(u, 'Broken') && has(u, 'Thrall') && u.specialRules.includes('Neural Collars'), id);
+    if (u.models[0].profile.T != null) assert.match(u.unitRules.find((r) => r.name === 'Still in There').text, /Hatred \(Thrall\)/, id);
+    assert.deepEqual(errs(sel(id)), [], id);
+  }
+  assert.equal(unit('the-broken').limit, null);
+  assert.ok(!unit('the-broken').specialRules.includes('Heedless'), 'Heedless would stop a whole Broken detachment from scoring');
+  assert.deepEqual(unit('the-broken').models[0].wargear.slice(0, 2), ['Bolter', 'Bolt pistol']);
+  // priced at the Legion's cost for the same loadout, less about 10% for the collars
+  const cost = (id) => unit(id).basePoints;
+  assert.deepEqual(['the-broken', 'broken-assault-squad', 'broken-heavy-support-squad', 'broken-terminators', 'collared-contemptor', 'broken-centurion', 'broken-rhino'].map(cost), [95, 125, 90, 200, 155, 85, 55]);
+  const c = sel('collared-contemptor');
+  assert.deepEqual(E.effectiveModels(c)[0].items.filter((w) => !/Collar/.test(w)), ['Kheres assault cannon', 'Gravis power fist', 'Combi-bolter']);
+  c.options = { gun: 'Twin lascannon', havoc: true };
+  assert.equal(E.unitPoints(c), 155 + 5);
+  const h = sel('broken-heavy-support-squad');
+  h.options.heavy = 'Lascannon';
+  assert.equal(E.unitPoints(h), 90 + 5 * 15, 'heavy weapons cost per model, as in the Legion');
+  assert.ok(E.effectiveModels(h).every((r) => r.items.includes('Lascannon') && !r.items.includes('Heavy bolter')), 'the whole squad swaps');
+  const t = sel('broken-terminators');
+  t.options = { heavy: { 'Reaper autocannon': 1 }, melee: { Chainfist: 5 } };
+  assert.equal(E.unitPoints(t), 200 + 10);
+  t.options.heavy = { 'Reaper autocannon': 2 };
+  assert.ok(errs(t).length, 'one heavy weapon per five');
+});
+
+test('a Broken Centurion unlocks the Broken Legion, which takes only Broken units, and keeps his company collared away from the Rangda', () => {
+  const primary = E.makeDetachment('primary', 'P', [{ role: 'Command' }]);
+  const bl = E.detachmentFromDef('the-broken-legion');
+  const a = army([primary, bl]);
+  primary.slots[0].unit = sel('collar-wright');
+  assert.ok(E.armyIssues(a).some((i) => /The Broken Legion needs a Broken Centurion in a Command slot/.test(i.msg)));
+  primary.slots[0].unit = sel('broken-centurion');
+  assert.ok(!E.armyIssues(a).some((i) => /The Broken Legion needs/.test(i.msg)));
+  const ids = (role) => E.unitsForSlot(bl.slots.find((s) => s.role === role), bl).map((u) => u.id).sort();
+  assert.deepEqual(ids('Troops'), ['broken-assault-squad', 'the-broken']);
+  assert.deepEqual(ids('Heavy Assault'), ['broken-terminators']);
+  assert.deepEqual(ids('Support'), ['broken-heavy-support-squad']);
+  assert.deepEqual(ids('War Engine'), ['collared-contemptor']);
+  assert.deepEqual(ids('Transport'), ['broken-rhino']);
+  assert.match(unit('broken-centurion').unitRules.find((r) => r.name === 'The Old Command').text, /Broken Trait.*within 12" of a friendly Rangdan Model/s);
+  assert.equal(data.units.filter((u) => has(u, 'Broken')).length, 7);
 });
 
 test('Collar-bombs goes only to Iron Chain Thrall infantry in a Prime slot', () => {
@@ -326,7 +371,8 @@ test('scoring: Thralls hold with Line, the hunters score with Vanguard, Collared
   assert.ok(rules('thrall-cohort').includes('Line (1)'));
   assert.ok(rules('collared-auxilia').includes('Line (1)'));
   assert.ok(rules('thrall-cohort', 'Collared Legion').includes('Line (2)'), 'like a Tactical Squad');
-  assert.ok(rules('the-broken').includes('Heedless') && !rules('the-broken').some((r) => /^Line/.test(r)));
+  assert.ok(rules('the-broken').includes('Line (1)') && !rules('the-broken').includes('Heedless'), 'the Broken hold ground like the herd');
+  assert.ok(rules('broken-terminators').includes('Vanguard (3)'), 'other Broken keep their Legion scoring rules');
   assert.ok(rules('hunt-pack').includes('Vanguard (3)'));
   assert.ok(rules('hunt-court').includes('Vanguard (3)'));
   assert.ok(rules('rangdan-mimics').includes('Vanguard (2)'));

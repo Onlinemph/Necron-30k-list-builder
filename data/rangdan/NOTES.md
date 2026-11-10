@@ -48,13 +48,46 @@ Three halves that play differently:
   S 3, AP –, D 1, Assault, Pinning (2). Pinning triggers on any wound, saved or not, and with a squad's Fear (1) at
   that range a Legion squad passes its Cool Check on 4 or less. A unit either kills or screams, never both in one Shooting Attack.
   Only officers and the Hunt-Court have shroud-fields (a 4+ invulnerable save); the rank and file have a 5+.
-- **The Thralls** are captured Imperial Army, Solar Auxilia, Ogryns, armour, a Basilisk, a Questoris Knight and The
-  Broken, with their own HH3 wargear and **Neural Collars**: they automatically pass Leadership and Cool Checks within
+- **The Thralls** are captured Imperial Army, Solar Auxilia, Ogryns, armour, a Basilisk, a Questoris Knight and the
+  Broken Legion (below), with their own HH3 wargear and **Neural Collars**: they automatically pass Leadership and Cool Checks within
   12" of a Rangda, and fall to LD 5 with no Reactions outside it. Rangdan characters can **Overload** a collared unit
   once a turn (Collar-master): +1 Strength and Attacks for a Fight Sub-Phase, then D3 wounds with no saves.
 - **The Slaugth** follow the hunt and eat the dead. **Worm Gestalt** gives Feel No Pain (5+) that fire ignores (the
   Flame Trait or Aflame), **Carrion Feast** gives back a wound for each enemy model killed in melee, and their
   weapons carry Phage (T), which softens a unit for the Rangda to finish.
+
+### The Broken Legion
+
+The Broken are collared Legionaries, and they're why the Xenocide records are sealed. They were one 0-1 squad; now
+they're a captured Legion company with its own detachment:
+
+| Unit | Role | Points | Legion original |
+| --- | --- | --- | --- |
+| Broken Centurion | Command | 85 | Centurion with a power sword (90). The Old Command: Broken units within 12" of him count as near a Rangda for their collars. Unlocks the Broken Legion |
+| The Broken | Troops | 95 for 10, +9 | Tactical Squad (100). Line (1), not the Legion's Line (2); a captured special weapon per ten, one power weapon |
+| Broken Assault Squad | Troops | 125 for 10, +11 | Assault Squad (140). Jump packs, Deep Strike, Vanguard (2) |
+| Broken Heavy Support Squad | Support | 90 for 5, +18 | Heavy Support Squad (100). The whole squad swaps its heavy bolters, paying per model as the Legion does |
+| Broken Terminators | Heavy Assault | 200 for 5, +40 | Cataphractii with combi-bolters and power fists (225). Vanguard (3) |
+| Collared Contemptor | War Engine | 155 | Contemptor with a kheres assault cannon and a gravis power fist (170) |
+| Broken Rhino | Transport | 55 | Rhino (60). Light Transport |
+
+Every statline is copied from BSData's Legion unit (Blackshields, so no Legion-specific changes) when the data is
+generated, and a test checks they still match. The Broken keep their Legion unit rules (Line, Vanguard, Bulky,
+Deep Strike) but not Legion-wide ones (the Legion Tactica, Fury of the Legion, Officer of the Line), and they gain
+Neural Collars and **Still in There**: enemy infantry fighting them gain Hatred (Thrall), because they know their
+brothers' names. Each costs the Legion price for the same loadout less about 10%. The sim puts them 5 to 18% above
+their Legion originals per point, which pays for the Legion rules they lose, the Hatred they hand the enemy and a
+collar that drops them to LD 5 with no Reactions away from a Rangda or their Centurion.
+
+The Broken used to be Heedless, which means they couldn't hold or contest objectives at all. That was fine for one
+0-1 squad, but it would make a whole Broken detachment a trap, so they hold ground with Line (1) like the herd.
+
+| Detachment | Type | Slots | Takes |
+| --- | --- | --- | --- |
+| The Broken Legion | Auxiliary, needs a Broken Centurion in a Command slot | 2 Troops, Heavy Assault, Support, War Engine, Transport | Broken |
+
+The Broken are Thralls too, so they also fill the Herd, the Collared Host and the Crusade chart's Troops slots, pick
+a war-moon, and can take Collared Legion or Collar-bombs.
 
 The loop: Hunting Cries and thrall battlecannons pin, shadow cannons suppress, Mimics panic, Fear makes every one of
 those checks harder to pass, Prey Instinct turns each marker into easier wounds, and each squad the Rangda wipe out in
@@ -99,6 +132,7 @@ in through Command slots and Auxiliary Detachments:
 | Medusa Shoal | Auxiliary | 2 Fast Attack, 2 Armour | Rangda |
 | The Carrion Court | Auxiliary, needs a Dream-Eater or the Hollow Choir in a Command slot | 2 Elites, Fast Attack, War Engine, Transport | Slaugth |
 | The Ossuary | Auxiliary, needs a Corpse-Shepherd in a Command slot | 2 Heavy Assault, Support, Recon, Transport | Slaugth |
+| The Broken Legion | Auxiliary, needs a Broken Centurion in a Command slot | 2 Troops, Heavy Assault, Support, War Engine, Transport | Broken |
 | The Sovereign's Hunt | Apex | Elites (Prime), 2 Elites, Recon | Rangda |
 | The Collared Host | Apex | Troops (Prime), Troops, Armour | Thralls |
 | Shoal of Iron | Apex | Armour (Prime), Armour, Fast Attack | Rangda |
@@ -139,11 +173,11 @@ There is no Fortification: no army in the data has one and no HH3 chart has a sl
 | Spine-pod | Transport | 115 | A drop pod from a war-moon: Deep Strike, Drop Transport (four Rangda or a Spine-Stalker) |
 | Collar-Ark | Transport | 105 | Carries 12 and its Collar Beacon keeps every Thrall within 12" (or aboard) obedient; shadow cannon |
 | Medusa Drop-ship | Fast Attack | 210 | Flyer transport for five Rangda: Assault Vehicle, Firing Point (2), lance array and two blasters |
-| Brood-ship | Heavy Transport | 190 | 13/13/11, HP 8, capacity 20 (six Rangda or a herd), Assault Vehicle, Firing Point (3) |
+| Brood-ship | Heavy Transport | 205 | 13/13/11, HP 8, capacity 30 (a full nine-model Hunt-Pack and its Huntmaster, or a herd), Assault Vehicle, Firing Point (3) |
 | Spine-Leviathan | Lord of War | 620 | Super-heavy skimmer |
 | Thrall Cohort | Troops | 70 for 20, +3 | Line (1), Expendable (2). Imperial Army; cheap bodies, the millions of slaves the canon describes |
 | Collared Auxilia | Troops | 60 for 10, +5 | Line (1). Solar Auxilia in void armour |
-| The Broken | Troops | 90 for 10, +9 | 0-1. Collared Legionaries: Heedless, and enemy infantry fighting them gain Hatred (Thrall) |
+| The Broken | Troops | 95 for 10, +9 | Collared Legionaries with Line (1); enemy infantry fighting them gain Hatred (Thrall). The rest of the Broken Legion is listed above |
 | Marshal Casimir Vehl | Command | 85 | Unique, Iron Chain. Collared units within 12" of him count as near a Rangda; once a battle two Thrall units' shooting gains Pinning (1) |
 | Collared Ogryns | Heavy Assault | 95 for 3, +30 | The obvious thing to Overload |
 | Thrall Gun-teams | Support | 20 a team | Two gunners a model, heavy bolters or a Gun-team Weapon |
@@ -251,14 +285,16 @@ statuses, so the Hunting Cry, Horror of the Taken and the war-moons are priced b
 | Mimics | 220 | 5.07 | Venatari 6.25 |
 | Rangda Huntmaster | 160 | 4.87 | Shield Captain 4.02 |
 | Collar-Wright | 140 | 3.89 | Shield Captain 4.02 |
-| The Broken | 90 | 9.12 | Tactical Squad 8.32 at 100; Heedless and the lost Line (2) aren't measured |
+| The Broken | 95 | 8.76 | Tactical Squad 8.32 at 100; the Legion's Line (2) and Fury of the Legion aren't measured |
+| Broken Terminators | 200 | 9.89 | Cataphractii with the same wargear 8.79 at 225 |
+| Collared Contemptor | 155 | 10.06 | Contemptor with the same wargear 9.17 at 170 |
 | Thrall Cohort | 70 | 8.19 | Collared Auxilia 9.18 (an Auxiliary is worth about 1.75 Thralls: a 4+ save holds against bolters, a 5+ doesn't), Lasrifle Section 9.91, Levy Troop 4.67 |
 | Collared Auxilia | 60 | 8.42 | Lasrifle Section 9.91 (also Line (1)) |
 | Thrall Basilisk | 115 | 11.77 | Basilisk 11.26 at 120 |
 | Thrall Armour | 130 | 11.19 | Militia Leman Russ 11.16 |
 | Thrall Knight | 400 | 6.00 | priced like a Questoris Paladin (410) less the collars |
 | Iron Medusa | 160 | 9.12 | Leman Russ Strike 10.26; the 5+ invulnerable against shooting isn't measured |
-| Brood-ship | 190 | 8.01 | Coronus Grav-Carrier 11.46 at 180, Dracosan 11.14; capacity, Assault Vehicle and Firing Point aren't measured |
+| Brood-ship | 205 | 7.42 | Coronus Grav-Carrier 11.46 at 180, Dracosan 11.14; capacity, Assault Vehicle and Firing Point aren't measured. Capacity went from 20 to 30 for +15 so a full Hunt-Pack fits |
 | Spine-Leviathan | 620 | 3.42 | Fellblade 3.22, same caveat |
 | Shadow Kite | 105 | 6.97 | Xiphon 8.49; the 5+ invulnerable against shooting isn't measured |
 | Tendril Barge | 110 | 13.41 | Rhino 9.51 at 60; at 12 side armour it's immune to bolters like a Rhino, and it has guns |

@@ -254,6 +254,63 @@
       "note": "The Slaugth's dead and the things that walk among them."
     },
     {
+      "id": "the-broken-legion",
+      "name": "The Broken Legion",
+      "type": "Auxiliary",
+      "page": null,
+      "unlock": null,
+      "slots": [
+        {
+          "role": "Troops",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Troops",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Heavy Assault",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Support",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "War Engine",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Transport",
+          "prime": false,
+          "flexible": false
+        }
+      ],
+      "restrictions": [
+        "This Detachment may only be selected if a Broken Centurion fills a Command Slot in the army.",
+        "Only Units with the Broken Trait may be selected to fill Slots in this Detachment."
+      ],
+      "rules": [],
+      "slotRules": [
+        {
+          "roles": null,
+          "trait": "Broken"
+        }
+      ],
+      "unlockedBy": {
+        "commandUnit": [
+          "broken-centurion"
+        ],
+        "slotRole": "Command"
+      },
+      "note": "A captured Legion company, marching under its own Centurion."
+    },
+    {
       "id": "the-sovereigns-hunt",
       "name": "The Sovereign's Hunt",
       "type": "Apex",

@@ -781,6 +781,367 @@
       "RS": 10,
       "AP": 2,
       "D": 6
+    },
+    {
+      "name": "Plasma pistol",
+      "page": null,
+      "specialRules": [],
+      "traits": [],
+      "modes": [
+        {
+          "name": "Plasma pistol (Sustained)",
+          "page": null,
+          "specialRules": [
+            "Pistol",
+            "Breaching (6+)"
+          ],
+          "traits": [
+            "Assault",
+            "Plasma"
+          ],
+          "modes": null,
+          "R": 12,
+          "FP": 1,
+          "RS": 6,
+          "AP": 4,
+          "D": 1
+        },
+        {
+          "name": "Plasma pistol (Maximal)",
+          "page": null,
+          "specialRules": [
+            "Pistol",
+            "Breaching (5+)",
+            "Overload (1)"
+          ],
+          "traits": [
+            "Assault",
+            "Plasma"
+          ],
+          "modes": null,
+          "R": 12,
+          "FP": 1,
+          "RS": 7,
+          "AP": 4,
+          "D": 1
+        }
+      ]
+    },
+    {
+      "name": "Volkite serpenta",
+      "page": null,
+      "specialRules": [
+        "Pistol",
+        "Deflagrate (5)"
+      ],
+      "traits": [
+        "Assault",
+        "Volkite"
+      ],
+      "modes": null,
+      "R": 10,
+      "FP": 2,
+      "RS": 5,
+      "AP": 5,
+      "D": 1
+    },
+    {
+      "name": "Combi-bolter",
+      "page": null,
+      "specialRules": [],
+      "traits": [
+        "Bolt"
+      ],
+      "modes": null,
+      "R": 24,
+      "FP": 4,
+      "RS": 4,
+      "AP": 5,
+      "D": 1
+    },
+    {
+      "name": "Reaper autocannon",
+      "page": null,
+      "specialRules": [
+        "Breaching (6+)",
+        "Heavy (FP)"
+      ],
+      "traits": [
+        "Auto"
+      ],
+      "modes": null,
+      "R": 36,
+      "FP": 2,
+      "RS": 6,
+      "AP": 4,
+      "D": 2
+    },
+    {
+      "name": "Multi-melta",
+      "page": null,
+      "specialRules": [
+        "Heavy (RS)",
+        "Melta (8)"
+      ],
+      "traits": [
+        "Melta"
+      ],
+      "modes": null,
+      "R": 24,
+      "FP": 1,
+      "RS": 8,
+      "AP": 2,
+      "D": 3
+    },
+    {
+      "name": "Plasma cannon",
+      "page": null,
+      "specialRules": [],
+      "traits": [],
+      "modes": [
+        {
+          "name": "Plasma cannon (Maximal)",
+          "page": null,
+          "specialRules": [
+            "Heavy (RS)",
+            "Blast (3\")",
+            "Breaching (5+)",
+            "Overload (2)"
+          ],
+          "traits": [
+            "Plasma"
+          ],
+          "modes": null,
+          "R": 36,
+          "FP": 1,
+          "RS": 6,
+          "AP": 4,
+          "D": 1
+        },
+        {
+          "name": "Plasma cannon (Sustained)",
+          "page": null,
+          "specialRules": [
+            "Heavy (RS)",
+            "Blast (3\")",
+            "Breaching (6+)"
+          ],
+          "traits": [
+            "Plasma"
+          ],
+          "modes": null,
+          "R": 36,
+          "FP": 1,
+          "RS": 6,
+          "AP": 4,
+          "D": 1
+        }
+      ]
+    },
+    {
+      "name": "Volkite culverin",
+      "page": null,
+      "specialRules": [
+        "Heavy (FP)",
+        "Deflagrate (6)"
+      ],
+      "traits": [
+        "Volkite"
+      ],
+      "modes": null,
+      "R": 45,
+      "FP": 3,
+      "RS": 6,
+      "AP": 5,
+      "D": 1
+    },
+    {
+      "name": "Kheres assault cannon",
+      "page": null,
+      "specialRules": [
+        "Breaching (6+)",
+        "Heavy (FP)"
+      ],
+      "traits": [
+        "Auto"
+      ],
+      "modes": null,
+      "R": 24,
+      "FP": 5,
+      "RS": 6,
+      "AP": 4,
+      "D": 1
+    },
+    {
+      "name": "Gravis bolt cannon",
+      "page": null,
+      "specialRules": [
+        "Heavy (FP)"
+      ],
+      "traits": [
+        "Bolt"
+      ],
+      "modes": null,
+      "R": 36,
+      "FP": 6,
+      "RS": 5,
+      "AP": 4,
+      "D": 2
+    },
+    {
+      "name": "Gravis melta cannon",
+      "page": null,
+      "specialRules": [
+        "Heavy (RS)",
+        "Melta (8)"
+      ],
+      "traits": [
+        "Melta"
+      ],
+      "modes": null,
+      "R": 24,
+      "FP": 1,
+      "RS": 9,
+      "AP": 2,
+      "D": 4
+    },
+    {
+      "name": "Gravis autocannon",
+      "page": null,
+      "specialRules": [
+        "Breaching (6+)",
+        "Heavy (FP)"
+      ],
+      "traits": [
+        "Auto"
+      ],
+      "modes": null,
+      "R": 48,
+      "FP": 3,
+      "RS": 8,
+      "AP": 4,
+      "D": 2
+    },
+    {
+      "name": "Gravis plasma cannon",
+      "page": null,
+      "specialRules": [],
+      "traits": [],
+      "modes": [
+        {
+          "name": "Gravis plasma cannon (Maximal)",
+          "page": null,
+          "specialRules": [
+            "Heavy (RS)",
+            "Blast (5\")",
+            "Breaching (5+)",
+            "Overload (1)"
+          ],
+          "traits": [
+            "Plasma"
+          ],
+          "modes": null,
+          "R": 36,
+          "FP": 1,
+          "RS": 7,
+          "AP": 4,
+          "D": 2
+        },
+        {
+          "name": "Gravis plasma cannon (Sustained)",
+          "page": null,
+          "specialRules": [
+            "Heavy (RS)",
+            "Blast (5\")",
+            "Breaching (6+)"
+          ],
+          "traits": [
+            "Plasma"
+          ],
+          "modes": null,
+          "R": 36,
+          "FP": 1,
+          "RS": 7,
+          "AP": 4,
+          "D": 1
+        }
+      ]
+    },
+    {
+      "name": "Conversion beam cannon",
+      "page": null,
+      "specialRules": [],
+      "traits": [],
+      "modes": [
+        {
+          "name": "Conversion beam cannon (Long)",
+          "page": null,
+          "specialRules": [
+            "Heavy (RS)",
+            "Blast (3\")"
+          ],
+          "traits": [
+            "Conversion"
+          ],
+          "modes": null,
+          "R": ">30-45",
+          "FP": 1,
+          "RS": 8,
+          "AP": 2,
+          "D": 3
+        },
+        {
+          "name": "Conversion beam cannon (Short)",
+          "page": null,
+          "specialRules": [
+            "Heavy (RS)",
+            "Blast (3\")"
+          ],
+          "traits": [
+            "Conversion"
+          ],
+          "modes": null,
+          "R": "<15",
+          "FP": 1,
+          "RS": 6,
+          "AP": 4,
+          "D": 1
+        },
+        {
+          "name": "Conversion beam cannon (Medium)",
+          "page": null,
+          "specialRules": [
+            "Heavy (RS)",
+            "Blast (3\")"
+          ],
+          "traits": [
+            "Conversion"
+          ],
+          "modes": null,
+          "R": "15-30",
+          "FP": 1,
+          "RS": 7,
+          "AP": 3,
+          "D": 2
+        }
+      ]
+    },
+    {
+      "name": "Havoc launcher",
+      "page": null,
+      "specialRules": [
+        "Blast (3\")",
+        "Stun (1)"
+      ],
+      "traits": [
+        "Missile"
+      ],
+      "modes": null,
+      "R": 48,
+      "FP": 1,
+      "RS": 5,
+      "AP": 5,
+      "D": 1
     }
   ],
   "melee": [
@@ -1160,6 +1521,131 @@
       "SM": 6,
       "AP": 4,
       "D": 2
+    },
+    {
+      "name": "Chainsword",
+      "page": null,
+      "specialRules": [
+        "Shred (6+)"
+      ],
+      "traits": [
+        "Chain"
+      ],
+      "modes": null,
+      "IM": "I",
+      "AM": "A",
+      "SM": "S",
+      "AP": 5,
+      "D": 1
+    },
+    {
+      "name": "Power axe",
+      "page": null,
+      "specialRules": [
+        "Breaching (5+)"
+      ],
+      "traits": [
+        "Power"
+      ],
+      "modes": null,
+      "IM": -1,
+      "AM": "A",
+      "SM": "+1",
+      "AP": 3,
+      "D": 1
+    },
+    {
+      "name": "Power fist",
+      "page": null,
+      "specialRules": [],
+      "traits": [
+        "Power"
+      ],
+      "modes": null,
+      "IM": -3,
+      "AM": "A",
+      "SM": "+4",
+      "AP": 2,
+      "D": 2
+    },
+    {
+      "name": "Thunder hammer",
+      "page": null,
+      "specialRules": [],
+      "traits": [
+        "Power"
+      ],
+      "modes": null,
+      "IM": -2,
+      "AM": "A",
+      "SM": "+3",
+      "AP": 2,
+      "D": 2
+    },
+    {
+      "name": "Chainfist",
+      "page": null,
+      "specialRules": [
+        "Armourbane",
+        "Shred (6+)"
+      ],
+      "traits": [
+        "Chain"
+      ],
+      "modes": null,
+      "IM": -3,
+      "AM": -1,
+      "SM": "+6",
+      "AP": 2,
+      "D": 2
+    },
+    {
+      "name": "Lightning claw",
+      "page": null,
+      "specialRules": [
+        "Rending (6+)",
+        "Breaching (6+)"
+      ],
+      "traits": [
+        "Power"
+      ],
+      "modes": null,
+      "IM": "I",
+      "AM": "A",
+      "SM": "S",
+      "AP": 3,
+      "D": 1
+    },
+    {
+      "name": "Gravis power fist",
+      "page": null,
+      "specialRules": [],
+      "traits": [
+        "Power"
+      ],
+      "modes": null,
+      "IM": "I",
+      "AM": "A",
+      "SM": "+3",
+      "AP": 2,
+      "D": 3
+    },
+    {
+      "name": "Gravis chainfist",
+      "page": null,
+      "specialRules": [
+        "Armourbane",
+        "Shred (6+)"
+      ],
+      "traits": [
+        "Chain"
+      ],
+      "modes": null,
+      "IM": -1,
+      "AM": "A",
+      "SM": "+4",
+      "AP": 2,
+      "D": 3
     }
   ]
 }
