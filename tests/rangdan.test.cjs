@@ -399,3 +399,27 @@ test('tanks: the Grave-Bell is a Kratos-class heavy tank, and the lance-array Me
   m.options.turret = 'Turret Mounted Shadow Lance Array';
   assert.equal(E.unitPoints(m), 160 + 15);
 });
+
+test('the Slaugth: the Ridden can\'t be pinned or routed, a Corpse-Shepherd unlocks the Ossuary, and the Ossuary Colossus is their Lord of War', () => {
+  const r = unit('the-ridden');
+  assert.equal(r.role, 'Heavy Assault');
+  assert.ok(r.specialRules.includes('Already Dead') && r.specialRules.includes('Worm Gestalt') && r.specialRules.includes('Expendable (2)'));
+  assert.match(r.unitRules.find((x) => x.name === 'Already Dead').text, /never gain the Pinned, Suppressed or Routed/);
+  assert.deepEqual(errs(sel('the-ridden')), [], 'Slaugth pick no war-moon');
+  for (const id of ['gorger-kindred', 'rot-casters', 'skin-wearers', 'ossuary-colossus']) assert.ok(unit(id).specialRules.includes('Carrion Feast'), id);
+  assert.ok(unit('skin-wearers').specialRules.includes('Infiltrate (9)'));
+  assert.ok(unit('rot-casters').models[0].wargear.includes('Necrotic Cannon'));
+  assert.equal(unit('ossuary-colossus').role, 'Lord of War');
+  const primary = E.makeDetachment('primary', 'P', [{ role: 'Command' }]);
+  const oss = E.detachmentFromDef('the-ossuary');
+  const a = army([primary, oss]);
+  primary.slots[0].unit = sel('slaugth-dream-eater');
+  assert.ok(E.armyIssues(a).some((i) => /The Ossuary needs a Corpse-Shepherd in a Command slot/.test(i.msg)));
+  primary.slots[0].unit = sel('corpse-shepherd');
+  assert.ok(!E.armyIssues(a).some((i) => /The Ossuary needs/.test(i.msg)));
+  const ids = (role) => E.unitsForSlot(oss.slots.find((s) => s.role === role), oss).map((u) => u.id).sort();
+  assert.deepEqual(ids('Heavy Assault'), ['gorger-kindred', 'the-ridden']);
+  assert.deepEqual(ids('Support'), ['rot-casters']);
+  assert.deepEqual(ids('Recon'), ['skin-wearers']);
+  assert.ok(data.units.filter((u) => has(u, 'Slaugth')).length >= 13);
+});

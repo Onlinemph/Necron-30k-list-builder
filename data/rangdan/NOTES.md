@@ -98,6 +98,7 @@ in through Command slots and Auxiliary Detachments:
 | The Herd | Auxiliary | 3 Troops, Heavy Assault, Support, Armour, Transport, Heavy Transport | Thralls |
 | Medusa Shoal | Auxiliary | 2 Fast Attack, 2 Armour | Rangda |
 | The Carrion Court | Auxiliary, needs a Dream-Eater or the Hollow Choir in a Command slot | 2 Elites, Fast Attack, War Engine, Transport | Slaugth |
+| The Ossuary | Auxiliary, needs a Corpse-Shepherd in a Command slot | 2 Heavy Assault, Support, Recon, Transport | Slaugth |
 | The Sovereign's Hunt | Apex | Elites (Prime), 2 Elites, Recon | Rangda |
 | The Collared Host | Apex | Troops (Prime), Troops, Armour | Thralls |
 | Shoal of Iron | Apex | Armour (Prime), Armour, Fast Attack | Rangda |
@@ -158,6 +159,12 @@ There is no Fortification: no army in the data has one and no HH3 chart has a sl
 | Vassal Swarm | Fast Attack | 15 a model | Floating constructs whose spines pin |
 | Harvester | War Engine | 200 | Walker that heals by eating infantry |
 | Charnel Barge | Transport | 80 | 12/11/10, HP 5, capacity 10 (five Kindred), Assault Vehicle; regains a Hull Point on a 5+ each turn |
+| The Ridden | Heavy Assault | 90 for 10, +9 | 10–30 worm-filled corpses: Already Dead (never Pinned, Suppressed or Routed), Worm Gestalt, Expendable (2) |
+| Corpse-Shepherd | Command | 120 | Ridden within 12" get +1 WS and A; once a battle it raises D6 fallen Ridden. Unlocks the Ossuary |
+| Gorger Kindred | Heavy Assault | 195 for 3, +65 | Bloated feeders: T6 W4, gorging maws (AP3 D2 Shred 5+); Carrion Feast keeps them up |
+| Rot-Casters | Support | 135 for 3, +45 | Necrotic cannons (R24 S6 AP4, Phage (T)) |
+| Skin-Wearers | Recon | 135 for 3, +45 | Infiltrate (9); Borrowed Faces makes shooting at them from beyond 12" Snap Shots |
+| Ossuary Colossus | Lord of War | 420 | A Walker (Heavy) of bone and worms: T8 W12 3+, Feel No Pain (5+), claws (S+1 AP2 D3 Reaping Blow 2), necrotic cannons and a spewer |
 | Slaugth Ambush-craft | Fast Attack | 105 | The canon's ambush void-craft: a flyer with Outflank, two necrotic cannons (R24 S6 AP4, Phage) and a spewer; Living Hull |
 
 ### Wargear
@@ -258,6 +265,12 @@ statuses, so the Hunting Cry, Horror of the Taken and the war-moons are priced b
 | Thrall Malcador | 165 | 8.98 | Militia Malcador 8.70 at 170 |
 | Slaugth Ambush-craft | 105 | 13.94 | Thunderbolt 13.27 at 120 |
 | Grave-Bell | 300 | 6.77 | Kratos Assault Tank 6.36 at 280: far more anti-tank (3.34 to 1.36), less armour, plus the shroud the sim doesn't count |
+| The Ridden | 90 | 5.28 | Levy Troop 4.67; Already Dead isn't measured |
+| Gorger Kindred | 195 | 6.66 | Charonite Ogryns 12.19 at 120, Ogryn Brutes 3.72 |
+| Rot-Casters | 135 | 5.09 | Phage isn't measured |
+| Skin-Wearers | 135 | 4.09 | Seeker Squad 4.19; Borrowed Faces isn't measured |
+| Ossuary Colossus | 420 | 4.65 | Telemon 3.96 at 360, Knight Styrix 5.29 at 455 |
+| Corpse-Shepherd | 120 | 2.85 | Dream-Eater 3.21; its aura isn't measured |
 | Iron Medusa with lance array | 175 | 9.99 | Sicaran Venator 10.59 at 170 |
 
 The transports were the army's weak point: the Barge and Charnel Barge had 11 armour and 4 Hull Points (a Rhino has

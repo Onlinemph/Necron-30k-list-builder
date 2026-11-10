@@ -3550,6 +3550,360 @@
       "fixedChoice": null,
       "options": [],
       "note": "A Slaugth elder that speaks in a chorus of Dark Angel voices. Unlocks the Carrion Court like a Dream-Eater. Written for this list."
+    },
+    {
+      "id": "the-ridden",
+      "name": "The Ridden",
+      "role": "Heavy Assault",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 90,
+      "composition": "10 Ridden",
+      "models": [
+        {
+          "name": "Ridden",
+          "min": 10,
+          "max": 30,
+          "costPerExtra": 9,
+          "profile": {
+            "M": 5,
+            "WS": 3,
+            "BS": 1,
+            "S": 4,
+            "T": 4,
+            "W": 1,
+            "I": 2,
+            "A": 2,
+            "LD": 10,
+            "CL": 10,
+            "WP": 2,
+            "IN": 1,
+            "SAV": "6+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Grasping Dead"
+          ],
+          "unitType": "Infantry",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Slaugth"
+      ],
+      "specialRules": [
+        "Worm Gestalt",
+        "Already Dead",
+        "Expendable (2)"
+      ],
+      "unitRules": [
+        {
+          "name": "Already Dead",
+          "text": "The bodies are empty; the worms inside them feel nothing. A Unit that only includes Models with this Special Rule can never gain the Pinned, Suppressed or Routed Tactical Statuses."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": false,
+      "fixedChoice": null,
+      "options": [],
+      "note": "The dead of the last battle, filled with Slaugth worms and walked back into the next one. Written for this list."
+    },
+    {
+      "id": "corpse-shepherd",
+      "name": "Corpse-Shepherd",
+      "role": "Command",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 120,
+      "composition": "1 Corpse-Shepherd",
+      "models": [
+        {
+          "name": "Corpse-Shepherd",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 4,
+            "S": 5,
+            "T": 5,
+            "W": 5,
+            "I": 3,
+            "A": 3,
+            "LD": 10,
+            "CL": 10,
+            "WP": 10,
+            "IN": 10,
+            "SAV": "4+",
+            "INV": "5+"
+          },
+          "wargear": [
+            "Nerve-lash",
+            "Necrotic Projector"
+          ],
+          "unitType": "Infantry (Command)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Slaugth"
+      ],
+      "specialRules": [
+        "Worm Gestalt",
+        "Carrion Feast",
+        "Fear (1)",
+        "Shepherd of the Ridden"
+      ],
+      "unitRules": [
+        {
+          "name": "Shepherd of the Ridden",
+          "text": "The Shepherd seeds the dead with its own worms and drives them like a herd. Friendly Units of the Ridden with any Model within 12\" of a Model with this Special Rule gain a modifier of +1 to their Weapon Skill and Attacks. Once per battle, at the start of its Controlling Player's turn, the Shepherd may return up to D6 Models Removed as Casualties to a friendly Unit of the Ridden within 12\", placed in coherency and not within 1\" of an enemy Model."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": false,
+      "fixedChoice": null,
+      "options": [],
+      "note": "The Slaugth that walks among the Ridden. Taking one in a Command slot unlocks the Ossuary. Written for this list."
+    },
+    {
+      "id": "gorger-kindred",
+      "name": "Gorger Kindred",
+      "role": "Heavy Assault",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 195,
+      "composition": "3 Gorgers",
+      "models": [
+        {
+          "name": "Gorger",
+          "min": 3,
+          "max": 6,
+          "costPerExtra": 65,
+          "profile": {
+            "M": 5,
+            "WS": 4,
+            "BS": 3,
+            "S": 6,
+            "T": 6,
+            "W": 4,
+            "I": 2,
+            "A": 4,
+            "LD": 9,
+            "CL": 9,
+            "WP": 9,
+            "IN": 7,
+            "SAV": "4+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Gorging Maw"
+          ],
+          "unitType": "Infantry",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Slaugth"
+      ],
+      "specialRules": [
+        "Worm Gestalt",
+        "Carrion Feast",
+        "Bulky (3)",
+        "Fear (1)"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": false,
+      "fixedChoice": null,
+      "options": [],
+      "note": "Slaugth swollen from too many feasts, slow and enormous. Carrion Feast keeps them standing. Written for this list."
+    },
+    {
+      "id": "rot-casters",
+      "name": "Rot-Casters",
+      "role": "Support",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 135,
+      "composition": "3 Rot-Casters",
+      "models": [
+        {
+          "name": "Rot-Caster",
+          "min": 3,
+          "max": 6,
+          "costPerExtra": 45,
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 4,
+            "S": 5,
+            "T": 5,
+            "W": 3,
+            "I": 3,
+            "A": 2,
+            "LD": 9,
+            "CL": 9,
+            "WP": 9,
+            "IN": 9,
+            "SAV": "4+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Necrotic Cannon",
+            "Worm-grasp"
+          ],
+          "unitType": "Infantry",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Slaugth"
+      ],
+      "specialRules": [
+        "Worm Gestalt",
+        "Carrion Feast",
+        "Bulky (2)"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": false,
+      "fixedChoice": null,
+      "options": [],
+      "note": "Slaugth carrying necrotic cannons that rot the Toughness out of whatever they hit, so the Rangda can finish it. Written for this list."
+    },
+    {
+      "id": "skin-wearers",
+      "name": "Skin-Wearers",
+      "role": "Recon",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 135,
+      "composition": "3 Skin-Wearers",
+      "models": [
+        {
+          "name": "Skin-Wearer",
+          "min": 3,
+          "max": 6,
+          "costPerExtra": 45,
+          "profile": {
+            "M": 6,
+            "WS": 4,
+            "BS": 4,
+            "S": 5,
+            "T": 5,
+            "W": 3,
+            "I": 4,
+            "A": 3,
+            "LD": 9,
+            "CL": 9,
+            "WP": 9,
+            "IN": 10,
+            "SAV": "5+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Nerve-lash",
+            "Necrotic Projector"
+          ],
+          "unitType": "Infantry (Skirmish)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Slaugth"
+      ],
+      "specialRules": [
+        "Worm Gestalt",
+        "Carrion Feast",
+        "Infiltrate (9)",
+        "Borrowed Faces"
+      ],
+      "unitRules": [
+        {
+          "name": "Borrowed Faces",
+          "text": "They wear the skins, and the memories, of the people they ate. Shooting Attacks that target a Unit with this Special Rule from more than 12\" away are made as Snap Shots."
+        }
+      ],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": false,
+      "fixedChoice": null,
+      "options": [],
+      "note": "The Slaugth that walked into the Amaranthine Syndicate wearing its members. Written for this list."
+    },
+    {
+      "id": "ossuary-colossus",
+      "name": "Ossuary Colossus",
+      "role": "Lord of War",
+      "page": null,
+      "limit": null,
+      "unique": false,
+      "basePoints": 420,
+      "composition": "1 Ossuary Colossus",
+      "models": [
+        {
+          "name": "Ossuary Colossus",
+          "min": 1,
+          "max": 1,
+          "costPerExtra": 0,
+          "profile": {
+            "M": 7,
+            "WS": 4,
+            "BS": 3,
+            "S": 9,
+            "T": 8,
+            "W": 12,
+            "I": 2,
+            "A": 5,
+            "LD": 10,
+            "CL": 10,
+            "WP": 8,
+            "IN": 4,
+            "SAV": "3+",
+            "INV": "–"
+          },
+          "wargear": [
+            "Colossus Claws",
+            "2 Necrotic Cannons",
+            "Necrotic Spewer"
+          ],
+          "unitType": "Walker (Heavy)",
+          "specialRules": []
+        }
+      ],
+      "traits": [
+        "Xenos",
+        "Slaugth"
+      ],
+      "specialRules": [
+        "Worm Gestalt",
+        "Carrion Feast",
+        "Bulky (10)",
+        "Fear (2)"
+      ],
+      "unitRules": [],
+      "cryptoArkana": false,
+      "fixedArkana": null,
+      "factionChoice": false,
+      "fixedChoice": null,
+      "options": [],
+      "note": "Bone, metal and a great knot of worms the size of a Knight. The Slaugth build one when a war has fed them well. Written for this list."
     }
   ]
 }

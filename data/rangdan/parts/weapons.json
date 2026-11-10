@@ -827,6 +827,52 @@
       "modes": null
     },
     {
+      "name": "Grasping Dead",
+      "page": null,
+      "IM": "I",
+      "AM": "A",
+      "SM": "S",
+      "AP": "–",
+      "D": 1,
+      "specialRules": [
+        "Shred (6+)"
+      ],
+      "traits": [],
+      "modes": null
+    },
+    {
+      "name": "Gorging Maw",
+      "page": null,
+      "IM": -1,
+      "AM": "A",
+      "SM": "S",
+      "AP": 3,
+      "D": 2,
+      "specialRules": [
+        "Shred (5+)"
+      ],
+      "traits": [
+        "Necrotic"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Colossus Claws",
+      "page": null,
+      "IM": "I",
+      "AM": "A",
+      "SM": "+1",
+      "AP": 2,
+      "D": 3,
+      "specialRules": [
+        "Reaping Blow (2)"
+      ],
+      "traits": [
+        "Necrotic"
+      ],
+      "modes": null
+    },
+    {
       "name": "Collar-goaded Maul",
       "page": null,
       "IM": -1,
