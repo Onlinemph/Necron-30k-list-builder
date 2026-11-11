@@ -42,8 +42,8 @@ losing a unit to the Rangda in combat can rout its neighbours, and The Broken pu
 Three halves that play differently:
 
 - **The Rangda** are few and terrifying: 70–95 points a model, Fear (1) in the squads and Fear (2) on their officers,
-  **Prey Instinct** (+1 to Wound Tests,
-  shooting and melee, against a unit with any Tactical Status), the **Horror of the Taken** (when they destroy a unit
+  **Prey Instinct** (shooting and melee against a unit with Tactical Statuses gain Critical Hit (6+) for one status,
+  (5+) for two and (4+) for three or more), the **Horror of the Taken** (when they destroy a unit
   in combat, every enemy unit within 6" takes a Leadership Check or is Routed) and a **Hunting Cry** each: R12, FP 2,
   S 3, AP –, D 1, Assault, Pinning (2). Pinning triggers on any wound, saved or not, and with a squad's Fear (1) at
   that range a Legion squad passes its Cool Check on 4 or less. A unit either kills or screams, never both in one Shooting Attack.
@@ -70,6 +70,9 @@ they're a captured Legion company with its own detachment:
 | Broken Terminators | Heavy Assault | 200 for 5, +40 | Cataphractii with combi-bolters and power fists (225). Vanguard (3) |
 | Collared Contemptor | War Engine | 155 | Contemptor with a kheres assault cannon and a gravis power fist (170) |
 | Broken Rhino | Transport | 55 | Rhino (60). Light Transport |
+| Broken Veterans | Elites | 75 for 5, +13 | Veteran Tactical Squad (85). Line (1); any model takes a special weapon or heavy bolter |
+| Broken Predator | Armour | 90 | Predator with heavy bolter sponsons (100). Twin lascannon, flamestorm or executioner turret; lascannon sponsons +20 |
+| Broken Land Raider | Heavy Transport | 240 | Land Raider Carrier (265). Not a Light Transport, so it carries Broken Terminators |
 
 Every statline is copied from BSData's Legion unit (Blackshields, so no Legion-specific changes) when the data is
 generated, and a test checks they still match. The Broken keep their Legion unit rules (Line, Vanguard, Bulky,
@@ -84,13 +87,13 @@ The Broken used to be Heedless, which means they couldn't hold or contest object
 
 | Detachment | Type | Slots | Takes |
 | --- | --- | --- | --- |
-| The Broken Legion | Auxiliary, needs a Broken Centurion in a Command slot | 2 Troops, Heavy Assault, Support, War Engine, Transport | Broken |
+| The Broken Legion | Auxiliary, needs a Broken Centurion in a Command slot | 2 Troops, Elites, Heavy Assault, Support, War Engine, Armour, Transport | Broken |
 
 The Broken are Thralls too, so they also fill the Herd, the Collared Host and the Crusade chart's Troops slots, pick
 a war-moon, and can take Collared Legion or Collar-bombs.
 
 The loop: Hunting Cries and thrall battlecannons pin, shadow cannons suppress, Mimics panic, Fear makes every one of
-those checks harder to pass, Prey Instinct turns each marker into easier wounds, and each squad the Rangda wipe out in
+those checks harder to pass, Prey Instinct turns each marker into more critical hits, and each squad the Rangda wipe out in
 combat can rout the units around it.
 
 Every rule is a modifier, a status or a standard HH3 rule. There are no re-rolls, and nothing the opponent has to
@@ -128,11 +131,11 @@ in through Command slots and Auxiliary Detachments:
 | Detachment | Type | Slots | Takes |
 | --- | --- | --- | --- |
 | The Hunt | Auxiliary | 2 Elites, Recon, Support, Transport | Rangda |
-| The Herd | Auxiliary | 3 Troops, Heavy Assault, Support, Armour, Transport, Heavy Transport | Thralls |
+| The Herd | Auxiliary | 3 Troops, Heavy Assault, Support, Recon, Armour, Transport, Heavy Transport | Thralls |
 | Medusa Shoal | Auxiliary | 2 Fast Attack, 2 Armour | Rangda |
 | The Carrion Court | Auxiliary, needs a Dream-Eater or the Hollow Choir in a Command slot | 2 Elites, Fast Attack, War Engine, Transport | Slaugth |
 | The Ossuary | Auxiliary, needs a Corpse-Shepherd in a Command slot | 2 Heavy Assault, Support, Recon, Transport | Slaugth |
-| The Broken Legion | Auxiliary, needs a Broken Centurion in a Command slot | 2 Troops, Heavy Assault, Support, War Engine, Transport | Broken |
+| The Broken Legion | Auxiliary, needs a Broken Centurion in a Command slot | 2 Troops, Elites, Heavy Assault, Support, War Engine, Armour, Transport | Broken |
 | The Sovereign's Hunt | Apex | Elites (Prime), 2 Elites, Recon | Rangda |
 | The Collared Host | Apex | Troops (Prime), Troops, Armour | Thralls |
 | Shoal of Iron | Apex | Armour (Prime), Armour, Fast Attack | Rangda |
@@ -165,6 +168,8 @@ There is no Fortification: no army in the data has one and no HH3 chart has a sl
 | Spine-Stalker | War Engine | 210 | A Rangdan walker: T7 W7 3+/5++, stalker talons, shadow lance (or cannon) and flails; fills the Medusa Shoal's new War Engine slot |
 | Shadow Lancers | Support | 85 a model | 3–6 models. Shadow lances (S9 AP2 D2 Armourbane) |
 | Mimics | Recon | 220 for 3, +70 | 3–6 models, Vanguard (2). Infiltrate (9); Stolen Voices gives their shooting Panic (1) |
+| Needle-Hunters | Elites | 210 for 3, +70 | 3–6 snipers, Infiltrate (9). Needle lances (R36 S6 AP3 D2, Precision (5+), Pinning (1), Breaching (5+)) pick out officers and pin the squad around them |
+| Rangda Trackers | Recon | 230 for 3, +75 | 3–6 models, M10 W3 4+, Outflank, Fast (2), Vanguard (2), spine glaives. On the Scent: their Hunting Cry reaches 18" |
 | Tendril Skiffs | Fast Attack | 85 each | Small jellyfish skimmers |
 | Shadow Kite | Fast Attack | 105 each | 1–2 flyers with two shadow lances each |
 | Iron Medusa | Armour | 160 each | Squadrons of 1–3. Shadow cannon (Blast, Deflagrate, Suppressive), or a lance array for +15 as a tank hunter |
@@ -186,12 +191,14 @@ There is no Fortification: no army in the data has one and no HH3 chart has a sl
 | Thrall Malcador | Armour | 165 | A captured Malcador with the Militia profile; lascannon sponsons +15 |
 | Thrall Dracosan | Heavy Transport | 135 | A captured Dracosan (capacity 22) with the Solar Auxilia profile |
 | Thrall Carrier | Transport | 50 | A captured Aurox; Light Transport, so no Ogryns; heavy bolter or multi-laser +5 |
+| Thrall Sentinels | Recon | 30 for 2, +15 | Captured Solar Auxilia Hermes light sentinels: Outflank, multi-lasers or grenade launchers (+5) |
 | Thrall Knight | Lord of War | 400 | A Questoris with a collared pilot; thermal cannon +15 |
 | Slaugth Dream-Eater | Command | 135 | Unlocks the Carrion Court; heals fully on killing a character in a Challenge |
 | The Hollow Choir | Command | 180 | Unique. Heals on any character kill; once a battle names an enemy Advanced Reaction that can't be used that turn |
 | Slaugth Kindred | Elites | 45 a model | W3 T5 4+ with Feel No Pain (5+) |
+| Mind-Eaters | Elites | 165 for 3, +55 | WS5 Slaugth with memory-spikes and a mind-lash (R18 Pinning (1), Panic (1)); Fear (1); an enemy unit fighting them can't declare Reactions |
 | Vassal Swarm | Fast Attack | 15 a model | Floating constructs whose spines pin |
-| Harvester | War Engine | 200 | Walker that heals by eating infantry |
+| Harvester | War Engine | 200 | Walker that heals by eating infantry; AP2 claws |
 | Charnel Barge | Transport | 80 | 12/11/10, HP 5, capacity 10 (five Kindred), Assault Vehicle; regains a Hull Point on a 5+ each turn |
 | The Ridden | Heavy Assault | 90 for 10, +9 | 10–30 worm-filled corpses: Already Dead (never Pinned, Suppressed or Routed), Worm Gestalt, Expendable (2) |
 | Corpse-Shepherd | Command | 120 | Ridden within 12" get +1 WS and A; once a battle it raises D6 fallen Ridden. Unlocks the Ossuary |
@@ -301,7 +308,14 @@ statuses, so the Hunting Cry, Horror of the Taken and the war-moons are priced b
 | Thrall Carrier | 50 | 10.19 | Aurox 9.56 |
 | Slaugth Kindred | 135 | 3.98 | Sons of Horus median 4.60; Phage and Carrion Feast aren't measured |
 | The Hollow Choir | 180 | 3.25 | Dream-Eater 3.20 at 135; Stolen Memories isn't measured |
-| Harvester | 200 | 5.01 | Contemptor 4.06 |
+| Harvester | 200 | 5.49 | AP3 claws left it losing points-matched fights to every elite (net −13 per 100 points); AP2 makes it +26, near a Legion Contemptor's +32 |
+| Needle-Hunters | 210 | 5.12 | Mimics 5.01; Precision and Pinning aren't measured |
+| Rangda Trackers | 230 | 6.00 | Hunt-Pack 6.37; with claws instead of glaives they scored 3.72 and couldn't finish what they pinned |
+| Mind-Eaters | 165 | 5.45 | Gorger Kindred 6.73; Eaters of Memory and the mind-lash's statuses aren't measured |
+| Broken Veterans | 75 | 7.40 | Veteran Tactical Squad with bolters about 6.5 at 85 |
+| Broken Predator | 90 | 18.33 | Predator 16.50 at 100 (the yardstick rates every Predator highly) |
+| Broken Land Raider | 240 | 7.15 | Land Raider Carrier 6.47 at 265 |
+| Thrall Sentinels | 30 | 9.29 | Hermes Light Sentinels 8.71 at 32 |
 | Skyhunters | 250 | 6.15 | Hunt-Pack 6.41 with the same body; speed and Deep Strike aren't measured |
 | Ironhide Hunters | 330 | 8.02 | Aquilon 7.99 |
 | Hunt-Hounds | 75 | 5.16 | Assault Squad 4.69; Heedless isn't measured |
@@ -335,7 +349,23 @@ Legionaries, WS 5 and WS 6 make no difference: either hits on 3+ and is hit on 5
 characters, a WS 5 Rangda hits on 4+ instead of 3+ and is hit on 4+ instead of 5+, which cost a Hunt-Pack about 10%
 of its value when the ranks dropped from WS 6.
 
-Prey Instinct adds about 0.3–0.5 when it applies. Before it, a Hunt-Pack kills about five Legionaries a round in
+Prey Instinct used to be +1 to wound, which did nothing for any weapon that already wounded Legionaries on 2+: the
+Ironhides' great glaives, the officers' glaives, blasters, lances, mauls and the Spine-Stalker. It's now a Critical
+Hit that grows with the target's statuses. A critical hit wounds automatically, adds 1 Damage and counts as a 6, so it
+also sets off the Breaching (5+) on most Rangdan weapons. With the sim, a Hunt-Pack in combat:
+
+| Target's statuses | Legionaries killed | Wounds on Terminators |
+| --- | --- | --- |
+| none | 5.4 | 3.3 |
+| one (old +1 to wound) | 6.7 | 3.8 |
+| one (Critical Hit 6+) | 6.1 | 4.5 |
+| two (Critical Hit 5+) | 6.8 | 5.9 |
+| three or more (Critical Hit 4+) | 7.4 | 7.2 |
+
+Against one status it's worth about what the old rule was, and every Rangdan unit now gains something: an Ironhide
+squad, a Sovereign or a Spine-Stalker 5–7%, shooting at Terminators 40–70%. Against two or three it's the reward for
+stacking Hunting Cries, suppression, Shock and Fear on one unit. The sim prices units without Prey Instinct, since
+it depends on the table, so no points moved. Before it, a Hunt-Pack kills about five Legionaries a round in
 combat and takes 36 power-axe attacks per model to kill. A Tactical Squad hits it on 5+ and does about a third of a
 wound back each round, so three Rangda wipe a ten-man squad in two rounds, and the Horror of the Taken then tests
 every squad within 6".

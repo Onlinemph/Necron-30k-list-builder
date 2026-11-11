@@ -858,6 +858,246 @@
    "note": "Canon credits the Rangda with mimicry and never says what it was. These are the hunters who use it. Written for this list."
   },
   {
+   "id": "needle-hunters",
+   "name": "Needle-Hunters",
+   "role": "Elites",
+   "page": null,
+   "limit": null,
+   "unique": false,
+   "basePoints": 210,
+   "composition": "3 Needle-Hunters",
+   "models": [
+    {
+     "name": "Needle-Hunter",
+     "min": 3,
+     "max": 6,
+     "costPerExtra": 70,
+     "profile": {
+      "M": 9,
+      "WS": 5,
+      "BS": 5,
+      "S": 5,
+      "T": 5,
+      "W": 4,
+      "I": 6,
+      "A": 4,
+      "LD": 10,
+      "CL": 10,
+      "WP": 9,
+      "IN": 8,
+      "SAV": "4+",
+      "INV": "5+"
+     },
+     "wargear": [
+      "Needle Lance",
+      "Rangda Claws",
+      "Hunting Cry"
+     ],
+     "unitType": "Infantry",
+     "specialRules": []
+    },
+    {
+     "name": "Needle-Alpha",
+     "min": 0,
+     "max": 1,
+     "costPerExtra": 0,
+     "profile": {
+      "M": 9,
+      "WS": 5,
+      "BS": 5,
+      "S": 5,
+      "T": 5,
+      "W": 4,
+      "I": 6,
+      "A": 5,
+      "LD": 11,
+      "CL": 10,
+      "WP": 9,
+      "IN": 8,
+      "SAV": "4+",
+      "INV": "4+"
+     },
+     "wargear": [
+      "Needle Lance",
+      "Rangda Claws",
+      "Shroud-field",
+      "Hunting Cry"
+     ],
+     "unitType": "Infantry (Sergeant)",
+     "specialRules": []
+    }
+   ],
+   "traits": [
+    "Xenos",
+    "Rangda"
+   ],
+   "specialRules": [
+    "Prey Instinct",
+    "Fear (1)",
+    "Horror of the Taken",
+    "Bulky (3)",
+    "Infiltrate (9)"
+   ],
+   "unitRules": [],
+   "cryptoArkana": false,
+   "fixedArkana": null,
+   "factionChoice": true,
+   "fixedChoice": null,
+   "options": [
+    {
+     "id": "alpha",
+     "text": "One Needle-Hunter may be upgraded to a Needle-Alpha for +15 points.",
+     "kind": "swapModel",
+     "model": "Needle-Hunter",
+     "replaces": [],
+     "choices": [
+      {
+       "name": "Needle-Alpha",
+       "points": 15
+      }
+     ],
+     "max": {
+      "fixed": 1
+     },
+     "requires": null
+    }
+   ],
+   "note": "Rangda who hunt from a distance, picking out officers with long needle-lances and pinning the squad around them so the pack can close. Written for this list."
+  },
+  {
+   "id": "rangda-trackers",
+   "name": "Rangda Trackers",
+   "role": "Recon",
+   "page": null,
+   "limit": null,
+   "unique": false,
+   "basePoints": 230,
+   "composition": "3 Trackers",
+   "models": [
+    {
+     "name": "Tracker",
+     "min": 3,
+     "max": 6,
+     "costPerExtra": 75,
+     "profile": {
+      "M": 10,
+      "WS": 5,
+      "BS": 4,
+      "S": 5,
+      "T": 5,
+      "W": 3,
+      "I": 6,
+      "A": 4,
+      "LD": 10,
+      "CL": 10,
+      "WP": 9,
+      "IN": 8,
+      "SAV": "4+",
+      "INV": "5+"
+     },
+     "wargear": [
+      "Spine Glaive",
+      "Shadow Pistol",
+      "Hunting Cry"
+     ],
+     "unitType": "Infantry (Skirmish)",
+     "specialRules": []
+    },
+    {
+     "name": "Tracker-Alpha",
+     "min": 0,
+     "max": 1,
+     "costPerExtra": 0,
+     "profile": {
+      "M": 10,
+      "WS": 5,
+      "BS": 4,
+      "S": 5,
+      "T": 5,
+      "W": 3,
+      "I": 6,
+      "A": 5,
+      "LD": 11,
+      "CL": 10,
+      "WP": 9,
+      "IN": 8,
+      "SAV": "4+",
+      "INV": "4+"
+     },
+     "wargear": [
+      "Spine Glaive",
+      "Shadow Pistol",
+      "Shroud-field",
+      "Hunting Cry"
+     ],
+     "unitType": "Infantry (Skirmish, Sergeant)",
+     "specialRules": []
+    }
+   ],
+   "traits": [
+    "Xenos",
+    "Rangda"
+   ],
+   "specialRules": [
+    "Prey Instinct",
+    "Fear (1)",
+    "Horror of the Taken",
+    "Bulky (3)",
+    "Outflank",
+    "Fast (2)",
+    "Vanguard (2)",
+    "On the Scent"
+   ],
+   "unitRules": [
+    {
+     "name": "On the Scent",
+     "text": "Trackers run ahead of the hunt and call it after them. The Hunting Cry of a Model with this Special Rule has a range of 18\" instead of 12\"."
+    }
+   ],
+   "cryptoArkana": false,
+   "fixedArkana": null,
+   "factionChoice": true,
+   "fixedChoice": null,
+   "options": [
+    {
+     "id": "alpha",
+     "text": "One Tracker may be upgraded to a Tracker-Alpha for +15 points.",
+     "kind": "swapModel",
+     "model": "Tracker",
+     "replaces": [],
+     "choices": [
+      {
+       "name": "Tracker-Alpha",
+       "points": 15
+      }
+     ],
+     "max": {
+      "fixed": 1
+     },
+     "requires": null
+    },
+    {
+     "id": "sidearm",
+     "text": "Any Model may exchange its Shadow Pistol for an item from the Rangdan Sidearms list.",
+     "kind": "perModel",
+     "model": null,
+     "replaces": [
+      "Shadow Pistol"
+     ],
+     "choices": [
+      {
+       "list": "rangdan-sidearms"
+      }
+     ],
+     "max": {
+      "shared": "pistol"
+     },
+     "requires": null
+    }
+   ],
+   "note": "Light, fast Rangda who come in from the flanks and start the screaming before the pack arrives. Written for this list."
+  },
+  {
    "id": "tendril-skiffs",
    "name": "Tendril Skiffs",
    "role": "Fast Attack",
@@ -3947,6 +4187,343 @@
    "note": "The Broken's own Rhinos, driven by collared crews. Light Transport, like the Legion's. Written for this list."
   },
   {
+   "id": "broken-veterans",
+   "name": "Broken Veterans",
+   "role": "Elites",
+   "page": null,
+   "limit": null,
+   "unique": false,
+   "basePoints": 75,
+   "composition": "5 Broken Veterans",
+   "models": [
+    {
+     "name": "Broken Veteran",
+     "min": 5,
+     "max": 10,
+     "costPerExtra": 13,
+     "profile": {
+      "M": 7,
+      "WS": 4,
+      "BS": 5,
+      "S": 4,
+      "T": 4,
+      "W": 2,
+      "I": 4,
+      "A": 2,
+      "LD": 8,
+      "CL": 8,
+      "WP": 7,
+      "IN": 7,
+      "SAV": "3+",
+      "INV": "–"
+     },
+     "wargear": [
+      "Bolter",
+      "Bolt pistol",
+      "Frag grenades",
+      "Krak grenades",
+      "Neural Collar"
+     ],
+     "unitType": "Infantry",
+     "specialRules": []
+    }
+   ],
+   "traits": [
+    "Xenos",
+    "Thrall",
+    "Broken"
+   ],
+   "specialRules": [
+    "Neural Collars",
+    "Still in There",
+    "Line (1)"
+   ],
+   "unitRules": [
+    {
+     "name": "Still in There",
+     "text": "They know their brothers' names, and sometimes they say them. Enemy Models with the Infantry Type that are Locked in Combat with a Unit with this Special Rule gain the Hatred (Thrall) Special Rule in that Combat."
+    }
+   ],
+   "cryptoArkana": false,
+   "fixedArkana": null,
+   "factionChoice": true,
+   "fixedChoice": null,
+   "options": [
+    {
+     "id": "special",
+     "text": "Any Model may exchange its Bolter for one of the following:",
+     "kind": "perModel",
+     "model": null,
+     "replaces": [
+      "Bolter"
+     ],
+     "choices": [
+      {
+       "name": "Flamer",
+       "points": 5
+      },
+      {
+       "name": "Volkite charger",
+       "points": 5
+      },
+      {
+       "name": "Plasma gun",
+       "points": 10
+      },
+      {
+       "name": "Heavy bolter",
+       "points": 10
+      },
+      {
+       "name": "Meltagun",
+       "points": 15
+      }
+     ],
+     "max": null,
+     "requires": null
+    }
+   ],
+   "note": "A Legion Veteran Tactical Squad, collared. They still shoot like veterans. Written for this list."
+  },
+  {
+   "id": "broken-predator",
+   "name": "Broken Predator",
+   "role": "Armour",
+   "page": null,
+   "limit": null,
+   "unique": false,
+   "basePoints": 90,
+   "composition": "1 Broken Predator",
+   "models": [
+    {
+     "name": "Broken Predator",
+     "min": 1,
+     "max": 1,
+     "costPerExtra": 0,
+     "profile": {
+      "M": 12,
+      "BS": 4,
+      "FRONT": 13,
+      "SIDE": 12,
+      "REAR": 10,
+      "HP": 5,
+      "CAPACITY": "–"
+     },
+     "wargear": [
+      "Turret Mounted Predator cannon",
+      "Two Sponson Mounted Heavy bolters"
+     ],
+     "unitType": "Vehicle",
+     "specialRules": []
+    }
+   ],
+   "traits": [
+    "Xenos",
+    "Thrall",
+    "Broken"
+   ],
+   "specialRules": [
+    "Neural Collars",
+    "Smokescreen"
+   ],
+   "unitRules": [],
+   "cryptoArkana": false,
+   "fixedArkana": null,
+   "factionChoice": true,
+   "fixedChoice": null,
+   "options": [
+    {
+     "id": "turret",
+     "text": "May exchange its Turret Mounted Predator cannon for one of the following:",
+     "kind": "one",
+     "model": null,
+     "replaces": [
+      "Turret Mounted Predator cannon"
+     ],
+     "choices": [
+      {
+       "name": "Turret Mounted Twin lascannon",
+       "points": 10
+      },
+      {
+       "name": "Turret Mounted Flamestorm cannon",
+       "points": 0
+      },
+      {
+       "name": "Turret Mounted Executioner plasma destroyer",
+       "points": 25
+      }
+     ],
+     "max": null,
+     "requires": null
+    },
+    {
+     "id": "sponsons",
+     "text": "May exchange its Two Sponson Mounted Heavy bolters for Two Sponson Mounted Lascannons for +20 points.",
+     "kind": "one",
+     "model": null,
+     "replaces": [
+      "Two Sponson Mounted Heavy bolters"
+     ],
+     "choices": [
+      {
+       "name": "Two Sponson Mounted Lascannons",
+       "points": 20
+      }
+     ],
+     "max": null,
+     "requires": null
+    }
+   ],
+   "note": "A Legion Predator with a collared crew. Written for this list."
+  },
+  {
+   "id": "broken-land-raider",
+   "name": "Broken Land Raider",
+   "role": "Heavy Transport",
+   "page": null,
+   "limit": null,
+   "unique": false,
+   "basePoints": 240,
+   "composition": "1 Broken Land Raider",
+   "models": [
+    {
+     "name": "Broken Land Raider",
+     "min": 1,
+     "max": 1,
+     "costPerExtra": 0,
+     "profile": {
+      "M": 10,
+      "BS": 4,
+      "FRONT": 14,
+      "SIDE": 14,
+      "REAR": 14,
+      "HP": 8,
+      "CAPACITY": 12
+     },
+     "wargear": [
+      "Two Sponson Mounted Twin lascannons",
+      "Hull (Front) Mounted Twin heavy bolter"
+     ],
+     "unitType": "Vehicle (Transport)",
+     "specialRules": []
+    }
+   ],
+   "traits": [
+    "Xenos",
+    "Thrall",
+    "Broken"
+   ],
+   "specialRules": [
+    "Neural Collars",
+    "Auto-Repair (5+)",
+    "Assault Vehicle",
+    "Smokescreen"
+   ],
+   "unitRules": [],
+   "cryptoArkana": false,
+   "fixedArkana": null,
+   "factionChoice": true,
+   "fixedChoice": null,
+   "options": [
+    {
+     "id": "hull",
+     "text": "May exchange its Hull (Front) Mounted Twin heavy bolter for a Hull (Front) Mounted Twin lascannon for +10 points.",
+     "kind": "one",
+     "model": null,
+     "replaces": [
+      "Hull (Front) Mounted Twin heavy bolter"
+     ],
+     "choices": [
+      {
+       "name": "Hull (Front) Mounted Twin lascannon",
+       "points": 10
+      }
+     ],
+     "max": null,
+     "requires": null
+    }
+   ],
+   "note": "A Land Raider Carrier taken with its crew. It can carry Broken Terminators, which a Rhino can't. Written for this list."
+  },
+  {
+   "id": "thrall-sentinels",
+   "name": "Thrall Sentinels",
+   "role": "Recon",
+   "page": null,
+   "limit": null,
+   "unique": false,
+   "basePoints": 30,
+   "composition": "2 Thrall Sentinels",
+   "models": [
+    {
+     "name": "Thrall Sentinel",
+     "min": 2,
+     "max": 6,
+     "costPerExtra": 15,
+     "profile": {
+      "M": 10,
+      "WS": 3,
+      "BS": 3,
+      "S": 5,
+      "T": 5,
+      "W": 2,
+      "I": 3,
+      "A": 1,
+      "LD": 7,
+      "CL": 8,
+      "WP": 6,
+      "IN": 6,
+      "SAV": "4+",
+      "INV": "–"
+     },
+     "wargear": [
+      "Multi-laser",
+      "Frag grenades",
+      "Krak grenades"
+     ],
+     "unitType": "Cavalry (Light)",
+     "specialRules": []
+    }
+   ],
+   "traits": [
+    "Xenos",
+    "Thrall"
+   ],
+   "specialRules": [
+    "Neural Collars",
+    "Bulky (2)",
+    "Implacable Advance",
+    "Move Through Cover",
+    "Outflank"
+   ],
+   "unitRules": [],
+   "cryptoArkana": false,
+   "fixedArkana": null,
+   "factionChoice": true,
+   "fixedChoice": null,
+   "options": [
+    {
+     "id": "gun",
+     "text": "Any Model may exchange its Multi-laser for a Hermes grenade launcher for +5 points.",
+     "kind": "perModel",
+     "model": null,
+     "replaces": [
+      "Multi-laser"
+     ],
+     "choices": [
+      {
+       "name": "Hermes grenade launcher",
+       "points": 5
+      }
+     ],
+     "max": null,
+     "requires": null
+    }
+   ],
+   "note": "Captured Solar Auxilia Hermes light sentinels, their pilots collared in the cockpit. Uses Hermes models."
+  },
+  {
    "id": "marshal-casimir-vehl",
    "name": "Marshal Casimir Vehl",
    "role": "Command",
@@ -5339,6 +5916,69 @@
     }
    ],
    "note": "Bone, metal and a great knot of worms the size of a Knight. The Slaugth build one when a war has fed them well. Written for this list."
+  },
+  {
+   "id": "mind-eaters",
+   "name": "Mind-Eaters",
+   "role": "Elites",
+   "page": null,
+   "limit": null,
+   "unique": false,
+   "basePoints": 165,
+   "composition": "3 Mind-Eaters",
+   "models": [
+    {
+     "name": "Mind-Eater",
+     "min": 3,
+     "max": 6,
+     "costPerExtra": 55,
+     "profile": {
+      "M": 6,
+      "WS": 5,
+      "BS": 4,
+      "S": 5,
+      "T": 5,
+      "W": 3,
+      "I": 4,
+      "A": 3,
+      "LD": 10,
+      "CL": 10,
+      "WP": 11,
+      "IN": 10,
+      "SAV": "4+",
+      "INV": "–"
+     },
+     "wargear": [
+      "Memory-Spike",
+      "Mind-Lash"
+     ],
+     "unitType": "Infantry",
+     "specialRules": []
+    }
+   ],
+   "traits": [
+    "Xenos",
+    "Slaugth"
+   ],
+   "specialRules": [
+    "Worm Gestalt",
+    "Carrion Feast",
+    "Bulky (2)",
+    "Fear (1)",
+    "Eaters of Memory"
+   ],
+   "unitRules": [
+    {
+     "name": "Eaters of Memory",
+     "text": "The Slaugth eat brains to take what their owners knew, and these ones go for the officers' first. An enemy Unit that is Locked in Combat with a Unit with this Special Rule cannot declare Reactions."
+    }
+   ],
+   "cryptoArkana": false,
+   "fixedArkana": null,
+   "factionChoice": false,
+   "fixedChoice": null,
+   "options": [],
+   "note": "Slaugth who feed on minds rather than meat, lashing at the enemy's thoughts from range and then eating them. Written for this list."
   }
  ],
  "lists": [
@@ -5805,6 +6445,41 @@
     ],
     "traits": [
      "Shadow"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Needle Lance",
+    "page": null,
+    "R": 36,
+    "FP": 1,
+    "RS": 6,
+    "AP": 3,
+    "D": 2,
+    "specialRules": [
+     "Precision (5+)",
+     "Pinning (1)",
+     "Breaching (5+)"
+    ],
+    "traits": [
+     "Shadow"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Mind-Lash",
+    "page": null,
+    "R": 18,
+    "FP": 2,
+    "RS": 4,
+    "AP": 4,
+    "D": 1,
+    "specialRules": [
+     "Pinning (1)",
+     "Panic (1)"
+    ],
+    "traits": [
+     "Necrotic"
     ],
     "modes": null
    },
@@ -6724,6 +7399,130 @@
     "RS": 5,
     "AP": 5,
     "D": 1
+   },
+   {
+    "name": "Plasma gun",
+    "page": null,
+    "specialRules": [],
+    "traits": [],
+    "modes": [
+     {
+      "name": "Plasma gun (Maximal)",
+      "page": null,
+      "specialRules": [
+       "Breaching (5+)",
+       "Overload (1)"
+      ],
+      "traits": [
+       "Plasma"
+      ],
+      "modes": null,
+      "R": 24,
+      "FP": 2,
+      "RS": 7,
+      "AP": 4,
+      "D": 1
+     },
+     {
+      "name": "Plasma gun (Sustained)",
+      "page": null,
+      "specialRules": [
+       "Breaching (6+)"
+      ],
+      "traits": [
+       "Plasma"
+      ],
+      "modes": null,
+      "R": 24,
+      "FP": 2,
+      "RS": 6,
+      "AP": 4,
+      "D": 1
+     }
+    ]
+   },
+   {
+    "name": "Predator cannon",
+    "page": null,
+    "specialRules": [
+     "Breaching (6+)",
+     "Heavy (FP)"
+    ],
+    "traits": [
+     "Auto"
+    ],
+    "modes": null,
+    "R": 48,
+    "FP": 3,
+    "RS": 8,
+    "AP": 4,
+    "D": 2
+   },
+   {
+    "name": "Flamestorm cannon",
+    "page": null,
+    "specialRules": [
+     "Template",
+     "Panic (2)"
+    ],
+    "traits": [
+     "Flame"
+    ],
+    "modes": null,
+    "R": "Template",
+    "FP": 1,
+    "RS": 6,
+    "AP": 4,
+    "D": 2
+   },
+   {
+    "name": "Twin heavy bolter",
+    "page": null,
+    "specialRules": [],
+    "traits": [
+     "Bolt"
+    ],
+    "modes": null,
+    "R": 36,
+    "FP": 6,
+    "RS": 5,
+    "AP": 4,
+    "D": 1
+   },
+   {
+    "name": "Hermes grenade launcher",
+    "page": null,
+    "specialRules": [],
+    "traits": [],
+    "modes": [
+     {
+      "name": "Krak",
+      "page": null,
+      "specialRules": [],
+      "traits": [],
+      "modes": null,
+      "R": 18,
+      "FP": 2,
+      "RS": 7,
+      "AP": 4,
+      "D": 2
+     },
+     {
+      "name": "Frag",
+      "page": null,
+      "specialRules": [
+       "Blast (3\")",
+       "Stun (1)"
+      ],
+      "traits": [],
+      "modes": null,
+      "R": 18,
+      "FP": 1,
+      "RS": 3,
+      "AP": 6,
+      "D": 1
+     }
+    ]
    }
   ],
   "melee": [
@@ -6810,10 +7609,26 @@
     "IM": "I",
     "AM": "A",
     "SM": "+1",
-    "AP": 3,
+    "AP": 2,
     "D": 2,
     "specialRules": [
      "Reaping Blow (1)"
+    ],
+    "traits": [
+     "Necrotic"
+    ],
+    "modes": null
+   },
+   {
+    "name": "Memory-Spike",
+    "page": null,
+    "IM": "+1",
+    "AM": "A",
+    "SM": "S",
+    "AP": 3,
+    "D": 1,
+    "specialRules": [
+     "Breaching (5+)"
     ],
     "traits": [
      "Necrotic"
@@ -7313,7 +8128,7 @@
    {
     "name": "Prey Instinct",
     "page": null,
-    "text": "The Rangda are hunters before they are anything else, and they go for whatever is already wounded, pinned or running.\n\nWhen a Model with this Special Rule makes a Wound Test for a Shooting Attack or a Melee Attack against a Target Unit that has one or more of the Pinned, Suppressed, Stunned or Routed Tactical Statuses, it gains a bonus of +1 to that Wound Test."
+    "text": "The Rangda are hunters before they are anything else, and the more their quarry falters, the surer the kill.\n\nWhen a Model with this Special Rule makes a Shooting Attack or a Melee Attack against a Target Unit that has one or more of the Pinned, Suppressed, Stunned or Routed Tactical Statuses, that attack gains the Critical Hit (X) Special Rule, where X is 7 minus the number of those Tactical Statuses the Target Unit has, to a minimum of 4: Critical Hit (6+) against a Unit with one, (5+) against a Unit with two, and (4+) against a Unit with three or more. If the weapon already has a Critical Hit (X) Special Rule, use whichever value is lower. Attacks that make no Hit Test, such as Template weapons, gain nothing."
    },
    {
     "name": "Horror of the Taken",
@@ -7481,6 +8296,11 @@
     },
     {
      "role": "Support",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Recon",
      "prime": false,
      "flexible": false
     },
@@ -7678,6 +8498,11 @@
      "flexible": false
     },
     {
+     "role": "Elites",
+     "prime": false,
+     "flexible": false
+    },
+    {
      "role": "Heavy Assault",
      "prime": false,
      "flexible": false
@@ -7689,6 +8514,11 @@
     },
     {
      "role": "War Engine",
+     "prime": false,
+     "flexible": false
+    },
+    {
+     "role": "Armour",
      "prime": false,
      "flexible": false
     },
@@ -8737,6 +9567,8 @@
       "thrall-dracosan",
       "thrall-malcador",
       "broken-rhino",
+      "broken-predator",
+      "broken-land-raider",
       "thrall-basilisk",
       "thrall-knight",
       "ambush-craft",
@@ -8811,11 +9643,14 @@
       "thrall-dracosan",
       "thrall-malcador",
       "broken-rhino",
+      "broken-predator",
+      "broken-land-raider",
       "thrall-basilisk",
       "thrall-knight",
       "ambush-craft",
       "charnel-barge",
-      "hunt-hounds"
+      "hunt-hounds",
+      "rangda-trackers"
      ]
     },
     "scope": "unit",
@@ -8964,6 +9799,8 @@
       "thrall-dracosan",
       "thrall-malcador",
       "broken-rhino",
+      "broken-predator",
+      "broken-land-raider",
       "thrall-basilisk",
       "thrall-knight",
       "ambush-craft",
@@ -8987,7 +9824,7 @@
   "fixed": [
    {
     "name": "Prey Instinct",
-    "text": "The Rangda are hunters before they are anything else, and they go for whatever is already wounded, pinned or running.\n\nWhen a Model with this Special Rule makes a Wound Test for a Shooting Attack or a Melee Attack against a Target Unit that has one or more of the Pinned, Suppressed, Stunned or Routed Tactical Statuses, it gains a bonus of +1 to that Wound Test.",
+    "text": "The Rangda are hunters before they are anything else, and the more their quarry falters, the surer the kill.\n\nWhen a Model with this Special Rule makes a Shooting Attack or a Melee Attack against a Target Unit that has one or more of the Pinned, Suppressed, Stunned or Routed Tactical Statuses, that attack gains the Critical Hit (X) Special Rule, where X is 7 minus the number of those Tactical Statuses the Target Unit has, to a minimum of 4: Critical Hit (6+) against a Unit with one, (5+) against a Unit with two, and (4+) against a Unit with three or more. If the weapon already has a Critical Hit (X) Special Rule, use whichever value is lower. Attacks that make no Hit Test, such as Template weapons, gain nothing.",
     "kind": "rule",
     "source": "Rangda Tactica"
    },

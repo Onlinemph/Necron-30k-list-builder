@@ -227,6 +227,41 @@
       "modes": null
     },
     {
+      "name": "Needle Lance",
+      "page": null,
+      "R": 36,
+      "FP": 1,
+      "RS": 6,
+      "AP": 3,
+      "D": 2,
+      "specialRules": [
+        "Precision (5+)",
+        "Pinning (1)",
+        "Breaching (5+)"
+      ],
+      "traits": [
+        "Shadow"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Mind-Lash",
+      "page": null,
+      "R": 18,
+      "FP": 2,
+      "RS": 4,
+      "AP": 4,
+      "D": 1,
+      "specialRules": [
+        "Pinning (1)",
+        "Panic (1)"
+      ],
+      "traits": [
+        "Necrotic"
+      ],
+      "modes": null
+    },
+    {
       "name": "Moon-caller Lance",
       "page": null,
       "R": 72,
@@ -1142,6 +1177,130 @@
       "RS": 5,
       "AP": 5,
       "D": 1
+    },
+    {
+      "name": "Plasma gun",
+      "page": null,
+      "specialRules": [],
+      "traits": [],
+      "modes": [
+        {
+          "name": "Plasma gun (Maximal)",
+          "page": null,
+          "specialRules": [
+            "Breaching (5+)",
+            "Overload (1)"
+          ],
+          "traits": [
+            "Plasma"
+          ],
+          "modes": null,
+          "R": 24,
+          "FP": 2,
+          "RS": 7,
+          "AP": 4,
+          "D": 1
+        },
+        {
+          "name": "Plasma gun (Sustained)",
+          "page": null,
+          "specialRules": [
+            "Breaching (6+)"
+          ],
+          "traits": [
+            "Plasma"
+          ],
+          "modes": null,
+          "R": 24,
+          "FP": 2,
+          "RS": 6,
+          "AP": 4,
+          "D": 1
+        }
+      ]
+    },
+    {
+      "name": "Predator cannon",
+      "page": null,
+      "specialRules": [
+        "Breaching (6+)",
+        "Heavy (FP)"
+      ],
+      "traits": [
+        "Auto"
+      ],
+      "modes": null,
+      "R": 48,
+      "FP": 3,
+      "RS": 8,
+      "AP": 4,
+      "D": 2
+    },
+    {
+      "name": "Flamestorm cannon",
+      "page": null,
+      "specialRules": [
+        "Template",
+        "Panic (2)"
+      ],
+      "traits": [
+        "Flame"
+      ],
+      "modes": null,
+      "R": "Template",
+      "FP": 1,
+      "RS": 6,
+      "AP": 4,
+      "D": 2
+    },
+    {
+      "name": "Twin heavy bolter",
+      "page": null,
+      "specialRules": [],
+      "traits": [
+        "Bolt"
+      ],
+      "modes": null,
+      "R": 36,
+      "FP": 6,
+      "RS": 5,
+      "AP": 4,
+      "D": 1
+    },
+    {
+      "name": "Hermes grenade launcher",
+      "page": null,
+      "specialRules": [],
+      "traits": [],
+      "modes": [
+        {
+          "name": "Krak",
+          "page": null,
+          "specialRules": [],
+          "traits": [],
+          "modes": null,
+          "R": 18,
+          "FP": 2,
+          "RS": 7,
+          "AP": 4,
+          "D": 2
+        },
+        {
+          "name": "Frag",
+          "page": null,
+          "specialRules": [
+            "Blast (3\")",
+            "Stun (1)"
+          ],
+          "traits": [],
+          "modes": null,
+          "R": 18,
+          "FP": 1,
+          "RS": 3,
+          "AP": 6,
+          "D": 1
+        }
+      ]
     }
   ],
   "melee": [
@@ -1228,10 +1387,26 @@
       "IM": "I",
       "AM": "A",
       "SM": "+1",
-      "AP": 3,
+      "AP": 2,
       "D": 2,
       "specialRules": [
         "Reaping Blow (1)"
+      ],
+      "traits": [
+        "Necrotic"
+      ],
+      "modes": null
+    },
+    {
+      "name": "Memory-Spike",
+      "page": null,
+      "IM": "+1",
+      "AM": "A",
+      "SM": "S",
+      "AP": 3,
+      "D": 1,
+      "specialRules": [
+        "Breaching (5+)"
       ],
       "traits": [
         "Necrotic"

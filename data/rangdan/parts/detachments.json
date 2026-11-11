@@ -78,6 +78,11 @@
           "flexible": false
         },
         {
+          "role": "Recon",
+          "prime": false,
+          "flexible": false
+        },
+        {
           "role": "Armour",
           "prime": false,
           "flexible": false
@@ -271,6 +276,11 @@
           "flexible": false
         },
         {
+          "role": "Elites",
+          "prime": false,
+          "flexible": false
+        },
+        {
           "role": "Heavy Assault",
           "prime": false,
           "flexible": false
@@ -282,6 +292,11 @@
         },
         {
           "role": "War Engine",
+          "prime": false,
+          "flexible": false
+        },
+        {
+          "role": "Armour",
           "prime": false,
           "flexible": false
         },
