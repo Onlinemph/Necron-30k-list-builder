@@ -30,14 +30,17 @@ const armies = args.length ? index.filter((a) => args.includes(a.id)) : index;
 
 // ---------- dice ----------
 let seed = 12345;
-const rnd = () => { seed = (seed * 1103515245 + 12345) & 0x7fffffff; return seed / 0x80000000; };
+// mulberry32. The obvious LCG, (seed * 1103515245 + 12345) & 0x7fffffff, doesn't work in JavaScript: the product
+// passes 2^53, gets rounded before the mask, and the "random" stream falls into a loop of 10,466 numbers whatever the seed.
+const rnd = () => { seed = (seed + 0x6D2B79F5) | 0; let t = Math.imul(seed ^ (seed >>> 15), 1 | seed); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
 const d6 = () => 1 + Math.floor(rnd() * 6);
 const num = (v, d = 0) => { const n = parseInt(String(v), 10); return Number.isNaN(n) ? d : n; };
 const save = (v) => { const m = String(v ?? '').match(/(\d)\+/); return m ? +m[1] : 7; };
 const xOf = (rules, name) => { for (const r of rules || []) { const m = String(r).match(new RegExp(`^${name}\\s*\\((\\d+)\\+?\\)`, 'i')); if (m) return +m[1]; } return null; };
 const hasRule = (rules, name) => (rules || []).some((r) => new RegExp(`^${name}\\b`, 'i').test(String(r)));
 const hitNeed = (bs) => (bs >= 6 ? 2 : bs <= 0 ? 7 : 7 - bs);
-const meleeNeed = (ws, def) => (ws > def ? 3 : def > 2 * ws ? 5 : 4);
+// HH3 melee hit chart: 2+ against half your WS or less, 3+ against lower, 4+ equal, 5+ higher, 6+ double or more
+const meleeNeed = (ws, def) => (ws >= 2 * def ? 2 : ws > def ? 3 : ws === def ? 4 : 2 * ws <= def ? 6 : 5);
 const woundNeed = (s, t) => { const d = s - t; return d >= 2 ? 2 : d === 1 ? 3 : d === 0 ? 4 : d === -1 ? 5 : d >= -3 ? 6 : 7; };
 const rel = (v, base) => { const s = String(v); if (s === 'I' || s === 'A' || s === 'S') return base; if (/^[+-]\d+$/.test(s)) return base + +s; return num(v, base); };
 

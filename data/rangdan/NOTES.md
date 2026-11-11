@@ -342,7 +342,16 @@ The transports were the army's weak point: the Barge and Charnel Barge had 11 ar
 12/11/10 and 5), the Brood-ship sat below a Coronus, and none could fire out. They now match or beat their Imperial
 counterparts and the Rangdan ones carry Firing Point, so a squad aboard can still use its Hunting Cries.
 
-The army's median is 6.00 against 5.84 for Custodes, 4.60 for the Sons of Horus and 5.51 for the Solar Auxilia.
+The army's median is 6.24 against 5.99 for Custodes, 5.26 for the Solar Auxilia, 4.82 for the Militia and 4.64 for the
+Sons of Horus.
+
+The sim's random number generator was broken until November 2026. The usual LCG, `(seed * 1103515245 + 12345) &
+0x7fffffff`, overflows what a JavaScript number holds exactly, so the dice fell into a loop of 10,466 rolls whatever the
+seed. Re-measured with a working generator (mulberry32), the army median didn't move and the Custodes median rose from
+5.84 to 5.99. No unit moved more than 8 places in percentile against the reference armies: many-dice infantry rose up
+to 7% (as Lasrifle Sections did) and transports fell up to 7% (as the Imperial ones did). The melee fights moved by 4
+net points at most. So no prices changed. The per-unit numbers in the table above are the original measurements and
+sit within a few percent of the new ones.
 
 Weapon Skill runs 5 in the ranks, 6 for Command characters, 7 for High Command and 8 for the Regent. Against WS 4
 Legionaries, WS 5 and WS 6 make no difference: either hits on 3+ and is hit on 5+. Against WS 5 elites and
