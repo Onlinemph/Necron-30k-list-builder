@@ -26,6 +26,8 @@
           "thrall-dracosan",
           "thrall-malcador",
           "broken-rhino",
+          "broken-predator",
+          "broken-land-raider",
           "thrall-basilisk",
           "thrall-knight",
           "ambush-craft",
@@ -100,11 +102,14 @@
           "thrall-dracosan",
           "thrall-malcador",
           "broken-rhino",
+          "broken-predator",
+          "broken-land-raider",
           "thrall-basilisk",
           "thrall-knight",
           "ambush-craft",
           "charnel-barge",
-          "hunt-hounds"
+          "hunt-hounds",
+          "rangda-trackers"
         ]
       },
       "scope": "unit",
@@ -253,6 +258,8 @@
           "thrall-dracosan",
           "thrall-malcador",
           "broken-rhino",
+          "broken-predator",
+          "broken-land-raider",
           "thrall-basilisk",
           "thrall-knight",
           "ambush-craft",

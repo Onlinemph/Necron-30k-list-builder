@@ -43,7 +43,7 @@ test('Rangdan Weapon Skill: 5 in the ranks, 6 for Command, 7 for High Command', 
 
 test('Rangdan squads cost 70 to 105 points a model; the hounds are beasts, not Rangda', () => {
   const squads = data.units.filter((u) => has(u, 'Rangda') && !u.specialRules.includes('Beasts of the Hunt') && u.models.some((m) => m.max > 1 && /Infantry/.test(m.unitType)));
-  assert.deepEqual(squads.map((u) => u.id).sort(), ['hunt-court', 'hunt-pack', 'ironhide-hunters', 'moon-callers', 'rangdan-mimics', 'shadow-lancers', 'skyhunters']);
+  assert.deepEqual(squads.map((u) => u.id).sort(), ['hunt-court', 'hunt-pack', 'ironhide-hunters', 'moon-callers', 'needle-hunters', 'rangda-trackers', 'rangdan-mimics', 'shadow-lancers', 'skyhunters']);
   for (const u of squads) {
     const m = u.models[0];
     assert.ok(m.costPerExtra >= 70 && m.costPerExtra <= 105, `${u.id} at ${m.costPerExtra}`);
@@ -171,9 +171,9 @@ test('The Hunt takes only Rangda and The Herd only Thralls', () => {
   const hunt = E.detachmentFromDef('the-hunt');
   const herd = E.detachmentFromDef('the-herd');
   const ids = (det, role) => E.unitsForSlot(det.slots.find((s) => s.role === role), det).map((u) => u.id);
-  assert.deepEqual(ids(hunt, 'Elites'), ['hunt-pack']);
+  assert.deepEqual(ids(hunt, 'Elites').sort(), ['hunt-pack', 'needle-hunters']);
   assert.deepEqual(ids(herd, 'Troops').sort(), ['broken-assault-squad', 'collared-auxilia', 'the-broken', 'thrall-cohort']);
-  assert.deepEqual(ids(herd, 'Armour').sort(), ['thrall-armour', 'thrall-malcador']);
+  assert.deepEqual(ids(herd, 'Armour').sort(), ['broken-predator', 'thrall-armour', 'thrall-malcador']);
   const shoal = E.detachmentFromDef('medusa-shoal');
   assert.deepEqual(ids(shoal, 'Armour').sort(), ['grave-bell', 'iron-medusa']);
 });
@@ -187,7 +187,7 @@ test('the Carrion Court needs a Dream-Eater or the Hollow Choir in a Command slo
   primary.slots[1].unit = sel('slaugth-dream-eater');
   assert.ok(!E.armyIssues(a).some((i) => /Carrion Court needs/.test(i.msg)));
   const elites = court.slots.find((s) => s.role === 'Elites');
-  assert.deepEqual(E.unitsForSlot(elites, court).map((u) => u.id), ['slaugth-kindred']);
+  assert.deepEqual(E.unitsForSlot(elites, court).map((u) => u.id).sort(), ['mind-eaters', 'slaugth-kindred']);
   elites.unit = sel('hunt-pack');
   assert.ok(E.armyIssues(a).some((i) => /The Carrion Court's restrictions/.test(i.msg)));
 });
@@ -280,7 +280,7 @@ test('each war-moon\'s Auxiliary Detachment needs a Command model of that moon a
 
 test('the Warlord Detachment fills with a War-moon Regent, a Hunt-Court and a Brood-ship', () => {
   const w = E.makeDetachment('warlord', 'Warlord', [{ role: 'Warlord' }, { role: 'Retinue' }, { role: 'Heavy Transport' }]);
-  assert.deepEqual(w.slots.map((s) => E.unitsForSlot(s).map((u) => u.id).sort()), [['war-moon-regent'], ['hunt-court'], ['brood-ship', 'thrall-dracosan']]);
+  assert.deepEqual(w.slots.map((s) => E.unitsForSlot(s).map((u) => u.id).sort()), [['war-moon-regent'], ['hunt-court'], ['broken-land-raider', 'brood-ship', 'thrall-dracosan']]);
   assert.equal(unit('war-moon-regent').limit, '0-1');
   assert.equal(unit('brood-ship').models[0].profile.CAPACITY, 9 * 3 + 3, 'a full Hunt-Pack of nine Bulky (3) Rangda and a Huntmaster');
   assert.equal(unit('brood-ship').basePoints, 205);
@@ -342,7 +342,7 @@ test('a Broken Centurion unlocks the Broken Legion, which takes only Broken unit
   assert.deepEqual(ids('War Engine'), ['collared-contemptor']);
   assert.deepEqual(ids('Transport'), ['broken-rhino']);
   assert.match(unit('broken-centurion').unitRules.find((r) => r.name === 'The Old Command').text, /Broken Trait.*within 12" of a friendly Rangdan Model/s);
-  assert.equal(data.units.filter((u) => has(u, 'Broken')).length, 7);
+  assert.equal(data.units.filter((u) => has(u, 'Broken')).length, 10);
 });
 
 test('Collar-bombs goes only to Iron Chain Thrall infantry in a Prime slot', () => {
@@ -433,7 +433,7 @@ test('transports: Rangda ones are tougher than a Rhino and fire out with Firing 
   for (const k of ['FRONT', 'SIDE', 'REAR', 'HP', 'CAPACITY']) assert.equal(p('thrall-dracosan')[k], bs('solar-auxilia', 'Dracosan Armoured Transport')[k], `Dracosan ${k}`);
   for (const k of ['FRONT', 'SIDE', 'REAR', 'HP']) assert.equal(p('thrall-malcador')[k], bs('imperialis-militia', 'Militia Malcador Heavy Tank')[k], `Malcador ${k}`);
   const herd = E.detachmentFromDef('the-herd');
-  assert.deepEqual(E.unitsForSlot(herd.slots.find((s) => s.role === 'Heavy Transport'), herd).map((u) => u.id), ['thrall-dracosan']);
+  assert.deepEqual(E.unitsForSlot(herd.slots.find((s) => s.role === 'Heavy Transport'), herd).map((u) => u.id).sort(), ['broken-land-raider', 'thrall-dracosan']);
   const court = E.detachmentFromDef('the-carrion-court');
   assert.ok(E.unitsForSlot(court.slots.find((s) => s.role === 'Fast Attack'), court).some((u) => u.id === 'ambush-craft'));
   assert.ok(r('ambush-craft').includes('Outflank'));
@@ -552,4 +552,35 @@ test('Slaugth wargear: Marrow Scythes, Relics of the Feast once per army, stolen
   assert.equal(E.unitPoints(rc), 135);
   const mortar = data.weapons.ranged.find((w) => w.name === 'Rot-mortar');
   assert.ok(mortar.specialRules.includes('Barrage (1)') && mortar.R > 24, 'the mortar trades punch for indirect range');
+});
+
+test('the thin slots are filled: every Rangda and Slaugth Elites and Recon slot has a choice, and the Harvester bites', () => {
+  const ids = (detId, role) => { const d = E.detachmentFromDef(detId); return E.unitsForSlot(d.slots.find((x) => x.role === role), d).map((u) => u.id).sort(); };
+  for (const det of ['the-hunt', 'the-sovereigns-hunt']) {
+    assert.deepEqual(ids(det, 'Elites'), ['hunt-pack', 'needle-hunters'], det);
+    assert.deepEqual(ids(det, 'Recon'), ['rangda-trackers', 'rangdan-mimics'], det);
+  }
+  // the war-moon Auxiliaries take any unit on that moon, Thralls included
+  for (const id of ['hunt-pack', 'needle-hunters']) assert.ok(ids('the-choirs-hunt', 'Elites').includes(id));
+  for (const id of ['rangda-trackers', 'rangdan-mimics']) assert.ok(ids('the-choirs-hunt', 'Recon').includes(id));
+  for (const det of ['the-carrion-court', 'the-great-feast']) assert.deepEqual(ids(det, 'Elites'), ['mind-eaters', 'slaugth-kindred'], det);
+  assert.deepEqual(ids('the-herd', 'Recon'), ['thrall-sentinels']);
+  assert.deepEqual(ids('the-broken-legion', 'Elites'), ['broken-veterans']);
+  assert.deepEqual(ids('the-broken-legion', 'Armour'), ['broken-predator']);
+  // the Needle-Hunters pick out officers and pin; the Trackers scream from 18"
+  const lance = data.weapons.ranged.find((w) => w.name === 'Needle Lance');
+  assert.ok(lance.specialRules.includes('Precision (5+)') && lance.specialRules.includes('Pinning (1)'));
+  assert.match(unit('rangda-trackers').unitRules.find((r) => r.name === 'On the Scent').text, /range of 18"/);
+  const t = sel('rangda-trackers', 'Long Hunt');
+  assert.equal(E.effectiveModels(t)[0].rules.filter((r) => /^Fast/.test(r)).length, 1, 'Long Hunt does not stack a second Fast (2)');
+  assert.match(unit('mind-eaters').unitRules.find((r) => r.name === 'Eaters of Memory').text, /cannot declare Reactions/);
+  assert.equal(data.weapons.melee.find((w) => w.name === 'Harvester Claws').AP, 2);
+  // captured units copy BSData statlines exactly
+  const bs = (army, id, name) => { const src = require(`../data/bsdata/${army}/parts/units.json`); return (src.units || src).find((u) => u.id === id).models.find((m) => m.name === name).profile; };
+  assert.deepEqual(unit('broken-veterans').models[0].profile, bs('blackshields', 'veteran-tactical-squad', 'Veteran Legionary'));
+  assert.deepEqual(unit('broken-predator').models[0].profile, bs('blackshields', 'predator', 'Predator'));
+  assert.deepEqual(unit('broken-land-raider').models[0].profile, bs('blackshields', 'land-raider-carrier', 'Land Raider Carrier'));
+  assert.deepEqual(unit('thrall-sentinels').models[0].profile, bs('solar-auxilia', 'hermes-light-sentinel-squadron', 'Hermes Light Sentinel'));
+  assert.ok(!unit('broken-land-raider').specialRules.includes('Light Transport'), 'it carries Broken Terminators');
+  assert.deepEqual(['needle-hunters', 'rangda-trackers', 'mind-eaters', 'broken-veterans', 'broken-predator', 'broken-land-raider', 'thrall-sentinels'].map((id) => unit(id).basePoints), [210, 230, 165, 75, 90, 240, 30]);
 });
