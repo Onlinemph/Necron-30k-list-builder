@@ -3,6 +3,7 @@
 // Shooting Attacks and Strike Groups in combat. Rule wording follows the HH3 texts in data/bsdata/common.json.
 const { num, save, xOf, argOf, has, rel, hitNeedBS, hitNeedWS, woundNeed } = require('./rules.cjs');
 const core = require('./core.cjs');
+const legions = require('./legions.cjs');
 
 const STATUSES = ['Pinned', 'Suppressed', 'Stunned', 'Routed'];
 
@@ -110,10 +111,14 @@ function resolveGroup(g, target, ctx) {
       // ---- wound ----
       if (!autoWound) {
         wroll = dice.d6();
-        let need = woundNeed(g.S, num(victim.p.T, 4) + (target.buff?.tough || 0));
+        // The Gorgon's Scales (Iron Hands): -1 Strength to wound them with shooting
+        const sPen = !g.melee && legions.is(target, 'Iron Hands') ? 1 : 0;
+        let need = woundNeed(g.S - sPen, num(victim.p.T, 4) + (target.buff?.tough || 0));
         if (ctx.hatred) need = Math.max(2, need - 1);
         const ok = (need <= 6 && wroll >= need) || (poison && wroll >= poison);
         if (!ok) continue;
+        // Promethean Endurance (Salamanders): an unmodified 1 or 2 never wounds them
+        if (wroll <= 2 && legions.is(target, 'Salamanders')) continue;
         // Anathema: Immaterial weapons wound only on a 5+ (INFERRED from the rule's summary line)
         if (immaterial && has(victim.rules, 'Anathema') && wroll < 5) continue;
       }
@@ -161,7 +166,7 @@ function rangedGroup(model, w, target, opts) {
   let S = num(w.RS, 4), AP = num(w.AP, 7), D = Math.max(1, num(w.D, 1));
   let BS = num(model.p.BS, 4);
   const heavy = argOf(rules, 'Heavy'), ord = argOf(rules, 'Ordnance');
-  if (stationary && heavy) { if (heavy === 'FP') FP += 1; else if (heavy === 'S') S += 1; else if (heavy === 'D') D += 1; else if (heavy === 'AP') AP = Math.max(2, AP - 1); else if (heavy === 'BS') BS += 1; }
+  if ((stationary || opts.heavyOK) && heavy) { if (heavy === 'FP') FP += 1; else if (heavy === 'S') S += 1; else if (heavy === 'D') D += 1; else if (heavy === 'AP') AP = Math.max(2, AP - 1); else if (heavy === 'BS') BS += 1; }
   if (stationary && ord) { if (ord === 'FP') FP *= 2; else if (ord === 'S') S *= 2; else if (ord === 'D') D *= 2; else if (ord === 'AP') AP = 2; }
   const aliveN = target.models.filter((m) => m.wounds > 0).length;
   const vehicleTarget = target.models.some((m) => m.wounds > 0 && m.vehicle);
@@ -221,12 +226,14 @@ function expectedGroup(g, target, ctx = {}) {
     const vinv = Math.min(save(t.p.INV), !g.melee && (t.items || []).includes('Medusa Shroud') ? 5 : 7);
     return g.attacks * pHit * p * Math.min(g.D, num(t.p.HP, 1)) * (shr <= 6 ? (shr - 1) / 6 : 1) * (vinv <= 6 ? (vinv - 1) / 6 : 1);
   }
-  const need = woundNeed(g.S, num(t.p.T, 4) + (target.buff?.tough || 0));
+  const need = woundNeed(g.S - (!g.melee && legions.is(target, 'Iron Hands') ? 1 : 0), num(t.p.T, 4) + (target.buff?.tough || 0));
   const breach = xOf(g.rules, 'Breaching'), poison = xOf(g.rules, 'Poisoned');
   const arm = save(t.p.SAV), inv = save(t.p.INV);
+  const sal = legions.is(target, 'Salamanders');
   let e = 0;
   for (let r = 1; r <= 6; r++) {
     if (!((need <= 6 && r >= need) || (poison && r >= poison))) continue;
+    if (sal && r <= 2) continue;
     const ap = breach && r >= breach ? 2 : g.AP;
     let sv = Math.min(ap <= arm ? 7 : arm, inv);
     if (ctx.coverSave && !g.melee) sv = Math.min(sv, ctx.coverSave);

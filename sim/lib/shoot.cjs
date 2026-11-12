@@ -10,6 +10,7 @@ const { gap } = require('./table.cjs');
 const { alive, addStatus, check } = require('./checks.cjs');
 const core = require('./core.cjs');
 const psychic = require('./psychic.cjs');
+const legions = require('./legions.cjs');
 
 /** The Critical Hit that Prey Instinct grants against a unit with Tactical Statuses (Rangdan rule). */
 function preyCrit(shooter, target) {
@@ -40,7 +41,8 @@ function shootingAttack(state, shooter, target, opts = {}) {
   }
   // a unit with any Tactical Status never counts as Stationary (SHEET)
   const stationary = !!shooter.turn.stationary && !shooter.statuses.size;
-  const snap = opts.snap || shooter.cond?.has('Stupefied') || core.snapOnly(shooter) || (shooter.turn.rushed && /Light|Rapid/.test(shooter.unitType)) || (/Flyer/.test(target.unitType) && !has(shooter.rules, 'Skyfire'));
+  // Shadow Walkers (Raven Guard): shots from 18" or more away are Snap Shots
+  const snap = opts.snap || (legions.is(target, 'Raven Guard') && gap(shooter, target) >= 18) || shooter.cond?.has('Stupefied') || core.snapOnly(shooter) || (shooter.turn.rushed && /Light|Rapid/.test(shooter.unitType)) || (/Flyer/.test(target.unitType) && !has(shooter.rules, 'Skyfire'));
   const exclude = (w) => psychic.blockedPsychic(w, target) || (opts.defensiveOnly && !core.isDefensive(w)) || (opts.assaultOnly && !(w.traits || []).includes('Assault') && !has(shooter.rules, 'Implacable Advance')) || (opts.assaultOnly && has(shooter.rules, 'Implacable Advance') && (has(w.specialRules, 'Heavy') || has(w.specialRules, 'Ordnance')));
   const plan = planVolley(shooter, target, state, { stationary, snap, exclude, models: opts.models, fpBonus: opts.fpBonus, losOK: react?.losOK ? true : undefined });
   if (!plan.picks.length) {
@@ -67,15 +69,20 @@ function shootingAttack(state, shooter, target, opts = {}) {
   const ctx = { dice: state.dice, preyCrit: preyCrit(shooter, target), coverSave: plan.coverSave, range: plan.range, precisionMin: react?.ctx.precisionMin,
     onKill: (m, u) => state.onCasualty && state.onCasualty(m, u, shooter) };
   const parts = [];
+  // Fire Discipline (Imperial Fists): +1 to hit for Bolt or Auto Fire Groups of more than five dice
+  const fireDiscipline = legions.is(shooter, 'Imperial Fists');
   for (const [name, picks] of groups) {
+    const groupDice = fireDiscipline ? picks.reduce((t, p) => t + rangedGroup(p.model, p.weapon, target, { stationary, snap }).attacks, 0) : 0;
+    const disciplined = fireDiscipline && groupDice > 5 && (picks[0].weapon.traits || []).some((t) => /^(Bolt|Auto)$/.test(t));
     let hits = 0, wounds = 0, dmg = 0, k = 0, unsaved = 0;
     for (const p of picks) {
       if (target.destroyed || !alive(target).length) break;
       let w = p.weapon;
       if (has(w.specialRules, 'Force')) w = forceCheck(state, shooter, p.model, w);
       if (has(w.specialRules, 'Limited')) { shooter.limitedUsed = shooter.limitedUsed || {}; shooter.limitedUsed[w.name] = (shooter.limitedUsed[w.name] || 0) + 1; }
-      const g = rangedGroup(p.model, w, target, { stationary, snap, fpBonus: opts.fpBonus });
+      const g = rangedGroup(p.model, w, target, { stationary, snap, fpBonus: opts.fpBonus, heavyOK: !!shooter.turn.heavyOK && !shooter.statuses.size });
       g.from = shooter;
+      if (disciplined && g.hitNeed != null) g.hitNeed = Math.max(2, g.hitNeed - 1);
       // Overload (X), raised by 1 for Spite of the Gorgon and Bitter Fury (fpBonus); templates roll FP dice for it
       g.overload = (xOf(w.specialRules, 'Overload') || 0) + (opts.fpBonus ? 1 : 0);
       // Glorious Martyrdom: one model soaks this Fire Group (and any it splits into)
@@ -90,7 +97,9 @@ function shootingAttack(state, shooter, target, opts = {}) {
       vehicleStatuses.push(...r.vehicleStatuses);
       const rules = w.specialRules || [];
       // SHEET: Pinning and Panic trigger on a wound, Suppressive and Stun on a hit
-      if (r.wounds > 0) for (const t of ['Pinning', 'Panic']) { const x = xOf(rules, t); if (x != null) triggers[t] = Math.max(triggers[t] ?? -1, x); }
+      // Blood of Fire (Salamanders): Panic from Flame weapons doesn't touch them
+      const flameVsSal = (w.traits || []).includes('Flame') && legions.is(target, 'Salamanders');
+      if (r.wounds > 0) for (const t of ['Pinning', 'Panic']) { const x = xOf(rules, t); if (x != null && !(t === 'Panic' && flameVsSal)) triggers[t] = Math.max(triggers[t] ?? -1, x); }
       if (r.hits > 0) for (const t of ['Suppressive', 'Stun']) { const x = xOf(rules, t); if (x != null) triggers[t] = Math.max(triggers[t] ?? -1, x); }
       if (r.shockRolls > 0 && target.models.some((m) => m.wounds > 0 && (m.vehicle || /Walker/.test(m.unitType)))) {
         const s = argOf(rules, 'Shock'); if (s) for (const st of s.split(/,\s*/)) shock.add(st);
@@ -164,7 +173,9 @@ function moraleSubPhase(state) {
     if (u.statuses.has(status)) continue;
     const key = status === 'Routed' ? 'LD' : 'CL';
     const heavy = key === 'CL' && alive(u).every((m) => /Heavy/.test(m.unitType)) ? 1 : 0;
-    const pass = check(state, u, key, p.x - heavy, `${p.type === 'Casualties' ? 'Panic Check for casualties' : `${p.type} (${p.x})`}`);
+    // The Bitter End (Iron Warriors): the weapon rule's penalty is ignored
+    const x = legions.is(u, 'Iron Warriors') && p.type !== 'Casualties' ? 0 : p.x;
+    const pass = check(state, u, key, x - heavy, `${p.type === 'Casualties' ? 'Panic Check for casualties' : `${p.type} (${p.x})`}`);
     if (!pass) addStatus(state, u, status, p.type === 'Casualties' ? 'heavy casualties' : p.type);
   }
 }

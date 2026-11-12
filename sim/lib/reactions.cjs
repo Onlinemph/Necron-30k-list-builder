@@ -14,6 +14,7 @@ const { meleeGroup, expectedGroup, rangedGroup, resolveGroup } = require('./atta
 const { gap, dist, lineOfSight, W, H } = require('./table.cjs');
 const { alive, passChance, check, addStatus, collarState } = require('./checks.cjs');
 const ai = require('./ai.cjs');
+const legions = require('./legions.cjs');
 const core = require('./core.cjs');
 
 // ---------- which side has which reactions ----------
@@ -60,7 +61,9 @@ const available = (state, side, name) => state.reactionSet?.[side]?.has(name) &&
 
 /** Pay for a reaction and mark the reacting unit. */
 function spend(state, side, name, unit) {
-  state.reactionsLeft[side]--;
+  // Tactical Flexibility (Ultramarines): one reaction a turn costs nothing
+  if (unit && legions.is(unit, 'Ultramarines') && state.umFlex && !state.umFlex[side]) { state.umFlex[side] = true; state.log(`    (Tactical Flexibility: no Reaction Point spent)`); }
+  else state.reactionsLeft[side]--;
   if (unit) unit.reacted = true;
   if (ONCE_PER_BATTLE.has(name)) state.usedOnce[side].add(name);
   state.reactionCount[side][name] = (state.reactionCount[side][name] || 0) + 1;
@@ -72,7 +75,8 @@ function choose(state, side, options, phase) {
   const ok = options.filter((o) => o && o.value > 0 && available(state, side, o.name) && (!o.unit || (canReact(o.unit, o.inCombat) && collarState(state, o.unit) !== 'far')));
   if (!ok.length) return null;
   const best = ok.reduce((b, o) => (o.value > b.value ? o : b), ok[0]);
-  if (!ai.worthReacting(state, side, best.value, phase)) return null;
+  const free = best.unit && legions.is(best.unit, 'Ultramarines') && state.umFlex && !state.umFlex[side];
+  if (!(free ? best.value > 3 : ai.worthReacting(state, side, best.value, phase))) return null;
   if (!best.deferred) spend(state, side, best.name, best.unit);
   return best;
 }
@@ -294,7 +298,7 @@ function onMoved(state, mover) {
   };
   for (const u of state.units) {
     if (u.side !== side || !canReact(u) || u.lockedWith.size || u.statuses.has('Pinned')) continue;
-    const g = gap(u, mover);
+    const g = gap(u, mover) + legions.rangePenalty(mover);
     const los = g <= 12 && lineOfSight(state.table, u, mover);
     // Reposition (Core): up to Initiative, if within 12" and in sight
     if (los) { const I = num(alive(u)[0]?.p.I, 0); if (I > 0) moveOption('Reposition', u, I); }

@@ -5,6 +5,7 @@ const { num, xOf, has } = require('./rules.cjs');
 const { rangedGroup, expectedGroup } = require('./attack.cjs');
 const { gap, lineOfSight, inCover } = require('./table.cjs');
 const core = require('./core.cjs');
+const legions = require('./legions.cjs');
 
 const rangeOf = (w, m) => {
   if (has(w.specialRules, 'Template') || String(w.R).toLowerCase() === 'template') return core.TEMPLATE_RANGE;
@@ -31,7 +32,8 @@ const valuePerWound = (u) => {
  * opts: { stationary, snap, bsMod, coverSave, losOK }
  */
 function planVolley(shooter, target, state, opts = {}) {
-  const d = gap(shooter, target);
+  // Lies and Obfuscation (Alpha Legion): they count as 2" further away
+  const d = gap(shooter, target) + legions.rangePenalty(target);
   const los = opts.losOK ?? lineOfSight(state.table, shooter, target);
   const coverSave = opts.coverSave !== undefined ? opts.coverSave : (!opts.ignoreCover ? core.coverSave(target, inCover(state.table, shooter, target)) : null);
   const picks = [];

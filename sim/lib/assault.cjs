@@ -13,7 +13,22 @@ const { alive, check, addStatus, passChance } = require('./checks.cjs');
 const { moveUnit, fallBack } = require('./move.cjs');
 const ai = require('./ai.cjs');
 const core = require('./core.cjs');
-const { canReact, meleeMods, lockInto } = require('./reactions.cjs');
+const { canReact, meleeMods: buffMods, lockInto } = require('./reactions.cjs');
+const legions = require('./legions.cjs');
+/**
+ * Melee modifiers for a unit: reaction and condition buffs, plus Legion Tacticas: Violence Incarnate (World Eaters,
+ * +1 A) and Encarmine Fury (Blood Angels, +1 S) on a turn they charged; A Talent for Murder (Night Lords, +1 WS)
+ * against units with a Tactical Status.
+ */
+function meleeMods(u) {
+  const m = Object.assign({ attacks: 0, str: 0, ws: 0 }, buffMods(u) || {});
+  if (u.turn?.charged && legions.is(u, 'World Eaters')) m.attacks += 1;
+  if (u.turn?.charged && legions.is(u, 'Blood Angels')) m.str += 1;
+  if (legions.is(u, 'Night Lords') && [...u.lockedWith].some((e) => !e.destroyed && e.statuses.size)) m.ws += 1;
+  return m;
+}
+// Death Dealers (Sons of Horus): Volleys at full Ballistic Skill
+const volleySnap = (u) => !has(u.rules, 'Firestorm') && !legions.is(u, 'Sons of Horus');
 
 // ---------- Charge Sub-Phase ----------
 /** Make a charge from u at t. Returns true if the units end Locked in Combat. */
@@ -38,7 +53,8 @@ function chargeSteps(state, u, t, disordered) {
   if (u.destroyed || t.destroyed) return false;
   if (!disordered) {
     const s = core.setupMove(u) + (u.cond?.has('Lost to the Nails') ? 1 : 0);
-    if (s >= gap(u, t)) { lockInto(state, u, t, `reaches ${t.name} with its Set-up Move`); return true; }
+    // Lies and Obfuscation: an Alpha Legion target counts as 2" further away
+    if (s >= gap(u, t) + legions.rangePenalty(t)) { lockInto(state, u, t, `reaches ${t.name} with its Set-up Move`); return true; }
     moveUnit(state, u, t, s, { charging: true, target: t });
   }
   if (at(3.5) === 'locked') return true; // Perfect Counter
@@ -47,18 +63,18 @@ function chargeSteps(state, u, t, disordered) {
   at(4);
   const warpath = psychic.onChargeStep4(state, u, t);
   const before = alive(t).length;
-  if (!disordered && !warpath && alive(u).some((m) => m.ranged.length)) shootingAttack(state, u, t, { snap: !has(u.rules, 'Firestorm'), assaultOnly: true, volley: true, label: 'volleys' });
+  if (!disordered && !warpath && alive(u).some((m) => m.ranged.length)) shootingAttack(state, u, t, { snap: volleySnap(u), assaultOnly: true, volley: true, label: 'volleys' });
   if (t.destroyed) return false;
   ctx.volleyKills = before - alive(t).length;
   if (pick?.replacesVolley) pick.apply(ctx);
-  else if (!pick?.noVolley && alive(t).some((m) => m.ranged.length)) shootingAttack(state, t, u, { snap: !has(t.rules, 'Firestorm'), assaultOnly: true, volley: true, label: 'volleys' });
+  else if (!pick?.noVolley && alive(t).some((m) => m.ranged.length)) shootingAttack(state, t, u, { snap: volleySnap(t), assaultOnly: true, volley: true, label: 'volleys' });
   if (u.destroyed || t.destroyed) return false;
   // end of Step 4: Evade, Better Part of Valour, Furious Charge
   const r4 = at(4.5);
   if (r4 === 'fail' || t.destroyed || u.destroyed) return false;
   if (r4 === 'locked') return true;
   // Step 5: Charge Roll (2D6, keep the highest, plus Fast)
-  const need = gap(u, t);
+  const need = gap(u, t) + legions.rangePenalty(t);
   const roll = core.chargeRoll(u, state.dice);
   if (roll >= need) { lockInto(state, u, t, `charge roll ${roll} (needed ${need.toFixed(1)}")`); return true; }
   state.log(`    charge roll ${roll} (needed ${need.toFixed(1)}"): the charge fails`);
@@ -110,7 +126,8 @@ function combats(state) {
 }
 const modelCount = (units) => units.reduce((t, u) => t + alive(u).reduce((s, m) => s + (/Walker|Paragon/.test(m.unitType) ? num(m.p.W, 1) : xOf(m.rules, 'Bulky') || 1), 0), 0);
 const canChallenge = (m) => /Command|Champion|Paragon/.test(m.unitType) && !m.vehicle;
-const combatInitiative = (unit, m, w) => (unit.statuses.size && core.status.anyFightsAtI1 ? 1 : rel(w.IM, num(m.p.I, 1)));
+// Flawless Execution (Emperor's Children): +1 Combat Initiative on a turn they charged
+const combatInitiative = (unit, m, w) => (unit.statuses.size && core.status.anyFightsAtI1 ? 1 : rel(w.IM, num(m.p.I, 1)) + (unit.turn?.charged && legions.is(unit, "Emperor's Children") ? 1 : 0));
 function bestWeapon(m, target) {
   let best = m.melee.find((w) => target.vehicle || !has(w.specialRules, 'Detonation')) || m.melee[0], bv = -1;
   for (const w of m.melee) {
@@ -131,7 +148,7 @@ function strikeProfile(x, y, ex, ey, opts = {}) {
   const tgt = { models: [y.m], statuses: y.u.statuses, vehicle: false, name: y.m.name, buff: gambitBuff(y, ey) };
   let w = bestWeapon(x.m, tgt);
   if (ex.extraRules) w = Object.assign({}, w, { specialRules: [...(w.specialRules || []), ...ex.extraRules(w)] });
-  const mods = Object.assign({ attacks: 0, str: 0, ws: 0 }, meleeMods(x.u) || {});
+  const mods = meleeMods(x.u);
   mods.attacks += (ex.attacks || 0) + (opts.focusWinner ? 1 : 0) + (ex.attacksD3 ? (opts.d3 ? opts.d3() : 2) : 0);
   mods.str += ex.str || 0; mods.ws += ex.ws || 0;
   if (ex.matchOpp) mods.ws += Math.min(0, num(y.m.p.WS, 4) - num(x.m.p.WS, 4));
@@ -315,7 +332,9 @@ function resolve(state, c, tally) {
     return;
   }
   // Combat Resolution: models removed, Glory, outnumbering, standards (SHEET, CONFIRMED for the standards)
-  const score = [0, 1].map((s) => tally.kills[s] + tally.glory[s] + live[s].reduce((t, u) => t + (hasItem(u, /^Vexilla/i) ? 1 : 0) + (hasItem(u, /^Legion standard/i) ? 2 : 0), 0));
+  // Unwavering Conviction (Word Bearers): +1 if any of their models are in the combat
+  const score = [0, 1].map((s) => tally.kills[s] + tally.glory[s] + live[s].reduce((t, u) => t + (hasItem(u, /^Vexilla/i) ? 1 : 0) + (hasItem(u, /^Legion standard/i) ? 2 : 0), 0)
+    + (live[s].some((u) => legions.is(u, 'Word Bearers')) ? 1 : 0));
   const mc = [modelCount(live[0]), modelCount(live[1])];
   if (mc[0] > mc[1]) score[0] += core.outnumberBonus; else if (mc[1] > mc[0]) score[1] += core.outnumberBonus;
   state.log(`    combat resolution ${score[0]}–${score[1]}`);
@@ -356,7 +375,7 @@ function resolve(state, c, tally) {
         const d = core.pursueDistance(p, state.dice);
         if (d >= gap(p, u)) lockInto(state, p, u, `pursues ${d}" and catches it`);
         else { moveUnit(state, p, u, d, { charging: true, target: u }); state.log(`    ${p.name} pursues ${d}" but ${u.name} gets away`); }
-      } else shootingAttack(state, p, u, { snap: true, assaultOnly: true, volley: true, label: 'guns down' });
+      } else shootingAttack(state, p, u, { snap: volleySnap(p), assaultOnly: true, volley: true, label: 'guns down' });
     }
     if (state.onBrokeFromCombat) state.onBrokeFromCombat(u, winners, nearObjective);
   }

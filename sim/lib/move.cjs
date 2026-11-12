@@ -8,6 +8,7 @@ const { footprint } = require('./army.cjs');
 const { inArea, EDGE } = require('./mission.cjs');
 const ai = require('./ai.cjs');
 const core = require('./core.cjs');
+const legions = require('./legions.cjs');
 
 const enemiesOf = (state, u) => state.units.filter((e) => e.side !== u.side && !e.destroyed && e.arrived && !e.embarkedIn);
 const ignoresTerrain = (u) => alive(u).every((m) => /Antigrav|Flyer|Super-[Hh]eavy|Knight|Titan|Jump/.test(m.unitType)) || has(u.rules, 'Move Through Cover');
@@ -21,7 +22,8 @@ function moveUnit(state, u, to, budget, opts = {}) {
   // Tectonic Instability: this turn's Sector counts as Difficult Terrain (MISSION)
   const quake = state.tectonic && state.mission.sectors.find((s) => s.id === state.tectonic);
   const inQuake = quake && [0, 0.5, 1].some((f) => inArea(quake.area, { x: u.x + (to.x - u.x) * f, y: u.y + (to.y - u.y) * f }));
-  const crossesDifficult = !ignoresTerrain(u) && (inQuake || state.table.pieces.some((r) => r.difficult && segThrough(u, to, r)));
+  // Remorseless Advance (Death Guard): difficult terrain doesn't slow them
+  const crossesDifficult = !ignoresTerrain(u) && !legions.is(u, 'Death Guard') && (inQuake || state.table.pieces.some((r) => r.difficult && segThrough(u, to, r)));
   const b = Math.max(0, budget - (crossesDifficult ? core.DIFFICULT_PENALTY : 0));
   const blockers = opts.charging ? state.units.filter((x) => x !== u && !x.destroyed && x.arrived && !x.embarkedIn && x !== opts.target).map((x) => ({ x: x.x, y: x.y, r: x.r + (x.side !== u.side ? 1 : 0) }))
     : state.units.filter((x) => x !== u && !x.destroyed && x.arrived && !x.embarkedIn).map((x) => ({ x: x.x, y: x.y, r: x.r + (x.side !== u.side ? 1 : 0) }));
@@ -143,6 +145,8 @@ function moveSubPhase(state, side) {
     u.turn.moved = true;
     // a move no longer than the unit's Movement isn't a Rush, whatever was planned
     if (d.kind === 'rush' && moved > M + 0.25) u.turn.rushed = true; else if (d.kind === 'rush') d.kind = 'move';
+    // Remorseless Advance (Death Guard): Heavy weapons still count after a move of 4" or less that wasn't a Rush
+    if (!u.turn.rushed && moved <= 4 && legions.is(u, 'Death Guard')) u.turn.heavyOK = true;
     if (moved >= 0.25) state.log(`  ${u.name} ${d.kind === 'rush' ? 'Rushes' : 'moves'} ${moved.toFixed(1)}" to (${u.x.toFixed(0)}, ${u.y.toFixed(0)})`);
     // Reposition (core Reaction): an enemy unit within 12" and in sight may move up to its Initiative
     if (moved >= 0.25 && state.onEnemyMoved) state.onEnemyMoved(u);

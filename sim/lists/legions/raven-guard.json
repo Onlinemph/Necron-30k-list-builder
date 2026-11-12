@@ -1,0 +1,308 @@
+{
+ "version": 2,
+ "faction": "raven-guard",
+ "name": "Raven Guard",
+ "pointsLimit": 3000,
+ "sequelae": [],
+ "config": {
+  "allegiance": [
+   "Loyalist"
+  ]
+ },
+ "detachments": [
+  {
+   "kind": "primary",
+   "name": "Crusade Primary Detachment",
+   "slots": [
+    {
+     "role": "High Command",
+     "unit": {
+      "unitId": "praetor",
+      "counts": {
+       "Praetor": 1
+      },
+      "options": {
+       "praetor-options": [
+        "Power fist",
+        "Volkite serpenta"
+       ]
+      }
+     }
+    },
+    {
+     "role": "Command",
+     "prime": true,
+     "unit": {
+      "unitId": "centurion",
+      "counts": {
+       "Centurion": 1
+      },
+      "options": {
+       "centurion-options": [
+        "Power sword",
+        "Bolt pistol"
+       ]
+      }
+     }
+    },
+    {
+     "role": "Command",
+     "unit": {
+      "unitId": "centurion",
+      "counts": {
+       "Centurion": 1
+      },
+      "options": {
+       "centurion-options": [
+        "Power sword",
+        "Bolt pistol"
+       ]
+      }
+     }
+    },
+    {
+     "role": "Command",
+     "unit": {
+      "unitId": "centurion",
+      "counts": {
+       "Centurion": 1
+      },
+      "options": {
+       "centurion-options": [
+        "Power fist",
+        "Bolt pistol"
+       ]
+      }
+     }
+    },
+    {
+     "role": "Troops",
+     "prime": true,
+     "unit": {
+      "unitId": "tactical-squad",
+      "counts": {
+       "Legionary": 19,
+       "Sergeant": 1
+      }
+     }
+    },
+    {
+     "role": "Troops",
+     "unit": {
+      "unitId": "tactical-squad",
+      "counts": {
+       "Legionary": 10,
+       "Sergeant": 1
+      }
+     }
+    },
+    {
+     "role": "Troops",
+     "unit": {
+      "unitId": "tactical-squad",
+      "counts": {
+       "Legionary": 9,
+       "Sergeant": 1
+      }
+     }
+    },
+    {
+     "role": "Troops",
+     "unit": {
+      "unitId": "tactical-squad",
+      "counts": {
+       "Legionary": 9,
+       "Sergeant": 1
+      }
+     }
+    },
+    {
+     "role": "Transport",
+     "unit": {
+      "unitId": "rhino",
+      "counts": {
+       "Rhino": 1
+      },
+      "options": {
+       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+      }
+     }
+    },
+    {
+     "role": "Transport",
+     "unit": {
+      "unitId": "rhino",
+      "counts": {
+       "Rhino": 1
+      },
+      "options": {
+       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+      }
+     }
+    },
+    {
+     "role": "Transport",
+     "unit": {
+      "unitId": "rhino",
+      "counts": {
+       "Rhino": 1
+      },
+      "options": {
+       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+      }
+     }
+    },
+    {
+     "role": "Transport"
+    }
+   ]
+  },
+  {
+   "kind": "apex",
+   "name": "Army Vanguard",
+   "slots": [
+    {
+     "role": "Elites",
+     "prime": true,
+     "unit": {
+      "unitId": "mor-deythan-squad",
+      "counts": {
+       "Mor Deythan": 9,
+       "Mor Deythan Shade": 1
+      }
+     }
+    },
+    {
+     "role": "Elites",
+     "unit": {
+      "unitId": "dark-fury-squad",
+      "counts": {
+       "Dark Fury": 9,
+       "Chooser of the Slain": 1
+      }
+     }
+    },
+    {
+     "role": "Elites"
+    }
+   ],
+   "defId": "core-army-vanguard"
+  },
+  {
+   "kind": "auxiliary",
+   "name": "Tactical Support",
+   "slots": [
+    {
+     "role": "Troops"
+    },
+    {
+     "role": "Troops"
+    },
+    {
+     "role": "Support",
+     "unit": {
+      "unitId": "heavy-support-squad",
+      "counts": {
+       "Sergeant": 1,
+       "Legionary": 8
+      },
+      "options": {
+       "unit-legion-heavy-weapons-list": "Lascannon"
+      }
+     }
+    },
+    {
+     "role": "Support",
+     "unit": {
+      "unitId": "heavy-support-squad",
+      "counts": {
+       "Sergeant": 1,
+       "Legionary": 7
+      },
+      "options": {
+       "unit-legion-heavy-weapons-list": "Lascannon"
+      }
+     }
+    }
+   ],
+   "defId": "core-tactical-support"
+  },
+  {
+   "kind": "auxiliary",
+   "name": "Armoured Support",
+   "slots": [
+    {
+     "role": "Armour",
+     "unit": {
+      "unitId": "predator",
+      "counts": {
+       "Predator": 1
+      },
+      "options": {
+       "predator-legion-sponson-weapons": "Lascannon",
+       "predator-turret": "Twin lascannon"
+      }
+     }
+    },
+    {
+     "role": "Armour",
+     "unit": {
+      "unitId": "predator",
+      "counts": {
+       "Predator": 1
+      },
+      "options": {
+       "predator-legion-sponson-weapons": "Heavy Bolters"
+      }
+     }
+    },
+    {
+     "role": "Armour",
+     "unit": {
+      "unitId": "predator",
+      "counts": {
+       "Predator": 1
+      },
+      "options": {
+       "predator-legion-sponson-weapons": "Lascannon",
+       "predator-turret": "Twin lascannon"
+      }
+     }
+    },
+    {
+     "role": "Armour",
+     "unit": {
+      "unitId": "predator",
+      "counts": {
+       "Predator": 1
+      },
+      "options": {
+       "predator-legion-sponson-weapons": "Heavy Bolters"
+      }
+     }
+    }
+   ],
+   "defId": "core-armoured-support"
+  },
+  {
+   "kind": "auxiliary",
+   "name": "Heavy Support",
+   "slots": [
+    {
+     "role": "War Engine",
+     "unit": {
+      "unitId": "contemptor-dreadnought",
+      "counts": {
+       "Contemptor Dreadnought": 1
+      },
+      "options": {
+       "unit-1-weapon-option-1": "Kheres assault cannon",
+       "unit-2-weapon-option-2": "Gravis power fist with in-built ranged weapon"
+      }
+     }
+    }
+   ],
+   "defId": "core-heavy-support"
+  }
+ ]
+}

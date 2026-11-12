@@ -6,6 +6,7 @@
 // ASSUMPTION: nothing available settles this, so it's a best guess.
 
 const { num, xOf, has } = require('./rules.cjs');
+const legions = require('./legions.cjs');
 
 module.exports = {
   // ---------- battle ----------
@@ -79,7 +80,9 @@ module.exports = {
     const m = unit.models.find((x) => x.wounds > 0);
     const M = num(m?.p.M, 6), I = num(m?.p.I, 3);
     const v = /Heavy/.test(unit.unitType) ? M : M + I;
-    return v >= 20 ? 6 : v >= 14 ? 5 : v >= 12 ? 4 : v >= 10 ? 3 : v >= 7 ? 2 : 1;
+    const s = v >= 20 ? 6 : v >= 14 ? 5 : v >= 12 ? 4 : v >= 10 ? 3 : v >= 7 ? 2 : 1;
+    // The Hunter's Strike (Space Wolves): +2", to a maximum of 6"
+    return legions.is(unit, 'Space Wolves') ? Math.min(6, s + 2) : s;
   },
   // CONFIRMED: the Charge Roll is 2D6 keeping the highest, plus Fast (X)
   chargeRoll: (unit, dice) => Math.max(dice.d6(), dice.d6()) + Math.min(...unit.models.filter((m) => m.wounds > 0).map((m) => xOf(m.rules, 'Fast') || 0)),

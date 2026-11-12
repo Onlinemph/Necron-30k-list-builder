@@ -124,8 +124,11 @@ function buildUnit(armyId, list, slot, detachment, side) {
       for (const w of found.ranged) ranged.push(Object.assign({}, w, { count: n }));
       for (const w of found.melee) melee.push(w);
     }
-    const p = r.profile;
+    let p = r.profile;
     const vehicle = isVehicleProfile(p);
+    // Swift of Action (White Scars): +2 Movement for non-vehicles (taken every turn); Cult Arcana (Thousand Sons): +1 WP
+    if (armyId === 'white-scars' && !vehicle && num(p.M, 0) >= 1) p = Object.assign({}, p, { M: num(p.M, 0) + 2 });
+    if (armyId === 'thousand-sons' && !vehicle && p.WP != null) p = Object.assign({}, p, { WP: num(p.WP, 7) + 1 });
     const traits = [...new Set([...(r.traits || []), ...(def.traits || []), ...(LEGION_TRAIT[armyId] ? [LEGION_TRAIT[armyId]] : [])])];
     // every model can fight with a basic close combat profile; grenades that only hurt vehicles don't count
     if (!vehicle && p.WS != null && !melee.some((w) => !has(w.specialRules, 'Detonation'))) melee.push(CCW);
@@ -148,7 +151,7 @@ function buildUnit(armyId, list, slot, detachment, side) {
     vehicle: models.every((m) => m.vehicle), capacity, passengers: [], embarkedIn: null,
     x: 0, y: 0, r: 0, statuses: new Set(), lockedWith: new Set(), reserve: null, arrived: true, destroyed: false,
     // a Psyker has the Trait, or a Psychic Discipline taken as wargear
-    warlord: false, psyker: has(rules, 'Psyker') || unitTraits.includes('Psyker') || rows.some((r) => r.items.some((i) => DISCIPLINES.test(i))),
+    warlord: false, psyker: armyId === 'thousand-sons' || has(rules, 'Psyker') || unitTraits.includes('Psyker') || rows.some((r) => r.items.some((i) => DISCIPLINES.test(i))),
     turn: {},
   };
   unit.r = footprint(unit);

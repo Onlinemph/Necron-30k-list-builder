@@ -9,6 +9,7 @@ const { dist, gap, lineOfSight, inCover, inside, W, H } = require('./table.cjs')
 const { alive, passChance, canHold } = require('./checks.cjs');
 const core = require('./core.cjs');
 const scoring = require('./scoring.cjs');
+const legions = require('./legions.cjs');
 
 const VP_WORTH = 45;          // points of value per Victory Point
 const BANDS = [0, 3, 6, 9, 12, 15, 18, 24, 30, 36, 48, 72];
@@ -60,7 +61,7 @@ function chargeChance(u, need) {
 }
 /** Chance this unit, standing at `pos`, makes a charge into `t` this turn (after its Set-up Move). */
 function chargeOdds(u, pos, t) {
-  const g = Math.max(0, Math.hypot(pos.x - t.x, pos.y - t.y) - u.r - t.r);
+  const g = Math.max(0, Math.hypot(pos.x - t.x, pos.y - t.y) - u.r - t.r) + legions.rangePenalty(t);
   if (g > core.CHARGE_DECLARE_RANGE) return 0;
   const left = g - (u.turn.disordered || u.statuses.size ? 0 : core.setupMove(u));
   return left <= 0 ? 1 : chargeChance(u, left);
@@ -190,7 +191,7 @@ function chooseTarget(state, u, opts = {}) {
   let best = null;
   for (const e of state.units) {
     if (e.side === u.side || e.destroyed || !e.arrived || e.embarkedIn || e.lockedWith.size) continue;
-    const plan = planVolley(u, e, state, { stationary: !!u.turn.stationary && !u.statuses.size, snap: opts.snap || core.snapOnly(u) });
+    const plan = planVolley(u, e, state, { stationary: !!u.turn.stationary && !u.statuses.size, snap: opts.snap || core.snapOnly(u) || (legions.is(e, 'Raven Guard') && gap(u, e) >= 18) });
     if (!plan.picks.length) continue;
     let v = plan.expectedPts + statusValue(state, u, e, plan);
     // Destroy the Enemy: finishing a unit scores its Kill Points

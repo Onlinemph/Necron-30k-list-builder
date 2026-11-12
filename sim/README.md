@@ -16,6 +16,19 @@ A list is a JSON file saved from the builder, or a share link. By default each b
 the first battle to stderr; `--out file.json` saves the summary (win rates overall and per mission, VP, points
 destroyed per unit, reactions used).
 
+A round robin plays every list against every other and summarises it:
+
+```
+node sim/tournament.cjs sim/lists/legions/*.json --battles 24 --workers 4 --out tournament.json
+node sim/report.cjs tournament.json
+```
+
+The report gives standings with a Bradley-Terry rating (an Elo-like number that accounts for who each list
+played), results by mission Archetype, the most one-sided matchups and the units that earned their points.
+`sim/lists/legions/` has one list per Legion, made by `sim/lists/legions/make.cjs`: the same core (Praetor, three
+Centurions, Tactical Squads, Rhinos, lascannon Heavy Support, four Predators, a Contemptor where a slot is left)
+plus two or three of the Legion's own units, legal in the builder and filled to just under 3000 points.
+
 From code:
 
 ```js
@@ -97,6 +110,15 @@ collared unit in combat), Horror of the Taken, Worm Gestalt, Carrion Feast, the 
 Profiles, rules and wargear come from the builder's own engine, so Legion rules, war-moons and wargear options
 apply exactly as they do in the app.
 
+### Legion Tacticas
+
+Each Legion's Tactica (from the Legion Tactica or base Rite of War text in its army data) applies to units made
+only of that Legion's models (`lib/legions.cjs`): The Angel of Death, Flawless Execution, The Bitter End, Swift of
+Action, The Hunter's Strike, Fire Discipline, A Talent for Murder, Encarmine Fury, The Gorgon's Scales, Violence
+Incarnate, Tactical Flexibility, Remorseless Advance, Cult Arcana, Death Dealers, Unwavering Conviction,
+Promethean Endurance and Blood of Fire, Shadow Walkers, and Lies and Obfuscation. The Legion's Advanced Reaction is
+listed under Reactions; Legion gambits aren't played yet.
+
 ### Reactions
 
 Each enemy Player Turn a side has a Reaction Allotment, and each unit reacts at most once per Player Turn. At every
@@ -176,6 +198,7 @@ Four sources, marked in the code:
 | Engaged models | every model in a locked unit fights (no 2" engagement or pile-in geometry) |
 | Vehicle saves | vehicles take Invulnerable Saves against Penetrating and Glancing Hits, but not Cover Saves |
 | Collar-master | the AI overloads a collared unit of five or more models that is in combat |
+| Swift of Action | the White Scars always take the +2 Movement, so it counts in the enemy turn too |
 | Morale after a charge | checks from Overwatch are taken straight after the charge |
 | Disgraced | removed like other statuses, with a Cool Check |
 | Perils names | Ætheric Feedback for the wounds, Warp Rupture for Stunned (Psy-Shock forces Warp Rupture) |
@@ -208,4 +231,7 @@ Reactions made in answer to a reaction (a Return Fire against an Overwatch, say)
 | `lib/gambits.cjs` | gambits for challenges |
 | `lib/ai.cjs` | the decisions: moves, targets, charges, reactions |
 | `lib/core.cjs` | every core-rule number and assumption in one place |
+| `lib/legions.cjs` | the Legion Tacticas and where each applies |
+| `tournament.cjs` | round robin between many lists, in parallel workers |
+| `report.cjs` | standings, ratings and unit efficiency from a tournament |
 | `lists/` | sample lists: two Rangdan (`rangdan.json`, the original mixed list, and `rangdan-iron-wall.json`), Sons of Horus at 2585 and 3000 points, an Ork Weirdboy mob |

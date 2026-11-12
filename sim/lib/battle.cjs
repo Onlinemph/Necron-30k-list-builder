@@ -230,6 +230,7 @@ function playerTurn(state, side) {
   state.log(`\nBattle Turn ${state.round}, ${state.armies[side].name}`);
   // turn flags (moved, charged, disembarked) belong to one Player Turn; a unit may react once per Player Turn
   for (const u of state.units) { u.turn = {}; u.reacted = false; }
+  state.umFlex = [false, false];
   const master = state.units.some((u) => u.side === 1 - side && !u.destroyed && (u.traits || []).includes('Master of the Legion'));
   state.reactionsLeft[1 - side] = core.reactionAllotment(state.armies[1 - side].pointsLimit, master);
   // ---- Movement Phase ----

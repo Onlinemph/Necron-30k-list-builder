@@ -3,6 +3,7 @@
 const { num, xOf, has, p2d6AtMost } = require('./rules.cjs');
 const { dist } = require('./table.cjs');
 const core = require('./core.cjs');
+const legions = require('./legions.cjs');
 
 const alive = (u) => u.models.filter((m) => m.wounds > 0);
 const isMalefic = (u) => alive(u).length > 0 && alive(u).every((m) => /Malefic/.test(m.unitType));
@@ -47,6 +48,18 @@ function collarState(state, unit) {
 /** Leadership or Cool for a check, with Neural Collars' 5 when the masters are out of reach. */
 const checkValue = (state, unit, key) => (['LD', 'CL'].includes(key) && collarState(state, unit) === 'far' ? 5 : charOf(unit, key));
 
+/** The value a check must roll under: the characteristic less Fear and penalties (a negative penalty is a bonus). */
+function modifiedValue(state, unit, key, penalty) {
+  const base = checkValue(state, unit, key);
+  let fear = isMalefic(unit) ? 0 : fearOn(state, unit);
+  const da = legions.is(unit, 'Dark Angels');
+  // The Angel of Death: Fear takes off at most 1, and Leadership never drops below 6
+  if (da) fear = Math.min(fear, 1);
+  let v = base - fear - Math.max(0, penalty) + (penalty < 0 ? -penalty : 0);
+  if (da && key === 'LD') v = Math.max(v, Math.min(6, base));
+  return v;
+}
+
 /** Make a Characteristic Check: 2D6, pass at or under the modified value (CONFIRMED). */
 function check(state, unit, key, penalty = 0, why = '') {
   // Neural Collars: near a Rangda model, Leadership and Cool Checks pass automatically
@@ -54,8 +67,7 @@ function check(state, unit, key, penalty = 0, why = '') {
     if (state.log && why) state.log(`    ${unit.name} ${key} check (${why}): passed automatically (Neural Collars)`);
     return true;
   }
-  const malefic = isMalefic(unit);
-  const value = checkValue(state, unit, key) - (malefic ? 0 : fearOn(state, unit) + Math.max(0, penalty)) + (penalty < 0 ? -penalty : 0);
+  const value = modifiedValue(state, unit, key, penalty);
   const roll = state.dice.twoD6();
   const pass = roll <= value;
   if (state.log && why) state.log(`    ${unit.name} ${key} check${why ? ` (${why})` : ''}: rolled ${roll} against ${value}, ${pass ? 'passed' : 'failed'}`);
@@ -64,8 +76,7 @@ function check(state, unit, key, penalty = 0, why = '') {
 /** Chance to pass, for the AI. */
 function passChance(state, unit, key, penalty = 0) {
   if (['LD', 'CL'].includes(key) && collarState(state, unit) === 'near') return 1;
-  const value = checkValue(state, unit, key) - (isMalefic(unit) ? 0 : fearOn(state, unit) + penalty);
-  return p2d6AtMost(value);
+  return p2d6AtMost(modifiedValue(state, unit, key, penalty));
 }
 
 /** Units that never gain statuses (CONFIRMED): Automata, Flyers, Fortifications, Titans. */

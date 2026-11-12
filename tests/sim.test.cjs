@@ -311,3 +311,38 @@ test('the Iron Wall list loads and plays', () => {
   assert.ok(r.vp[0] + r.vp[1] > 0);
   assert.equal(r.units[0].length, 17);
 });
+
+test('Legion Tacticas', () => {
+  const legions = require('../sim/lib/legions.cjs');
+  const core = require('../sim/lib/core.cjs');
+  const { planVolley } = require('../sim/lib/fire.cjs');
+  const { passChance } = require('../sim/lib/checks.cjs');
+  const tac = (l) => unit(l, 'tactical-squad', {}, 1);
+  assert.equal(legions.legionOf(tac('sons-of-horus')), 'Sons of Horus');
+  // The Hunter's Strike: +2" Set-up Move
+  assert.equal(core.setupMove(tac('space-wolves')), core.setupMove(tac('ultramarines')) + 2);
+  // Promethean Endurance: an S8 hit wounds T4 on 3+ instead of 2+; The Gorgon's Scales: S4 shooting needs 5+
+  const g8 = { attacks: 60, S: 8, AP: 7, D: 1, hitNeed: null, rules: [], melee: false };
+  assert.ok(Math.abs(expectedGroup(g8, tac('salamanders')) / expectedGroup(g8, tac('ultramarines')) - 4 / 5) < 1e-9);
+  const g4 = Object.assign({}, g8, { S: 4 });
+  assert.ok(Math.abs(expectedGroup(g4, tac('iron-hands')) / expectedGroup(g4, tac('ultramarines')) - 2 / 3) < 1e-9);
+  assert.equal(expectedGroup(Object.assign({}, g4, { melee: true }), tac('iron-hands')), expectedGroup(Object.assign({}, g4, { melee: true }), tac('ultramarines')));
+  // Lies and Obfuscation: a 24" gun can't reach an Alpha Legion unit 23" away
+  const shooter = unit('ultramarines', 'heavy-support-squad', { options: { 'unit-legion-heavy-weapons-list': 'Lascannon' } }, 0);
+  const at = (t) => { shooter.x = 0; shooter.y = 0; t.x = shooter.r + t.r + 47; t.y = 0; return planVolley(shooter, t, { table: { pieces: [] } }, { losOK: true }).picks.length; };
+  assert.ok(at(tac('ultramarines')) > 0);
+  assert.equal(at(tac('alpha-legion')), 0);
+  // The Angel of Death: Fear takes off at most 1
+  const fearful = { units: [], log: () => {} };
+  const da = tac('dark-angels'), um = tac('ultramarines');
+  const scary = unit('rangdan', 'hunt-sovereign', { arkana: 'Silent Choir' }, 0);
+  for (const u of [da, um]) { u.x = 0; u.y = 0; }
+  scary.x = 5; scary.y = 0; fearful.units = [da, um, scary];
+  assert.ok(passChance(fearful, da, 'CL') > passChance(fearful, um, 'CL'));
+  // Swift of Action: +2 Movement; Cult Arcana: every unit a Psyker with +1 Willpower
+  assert.equal(+tac('white-scars').models[0].p.M, +tac('ultramarines').models[0].p.M + 2);
+  const ts = tac('thousand-sons');
+  assert.equal(ts.psyker, true);
+  const raw = require('../sim/lib/army.cjs').loadArmyData('thousand-sons').D.units.find((u) => u.id === 'tactical-squad').models[0].profile;
+  assert.equal(+ts.models[0].p.WP, +raw.WP + 1);
+});
