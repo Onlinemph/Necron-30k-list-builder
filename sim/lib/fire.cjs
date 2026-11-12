@@ -28,7 +28,7 @@ const valuePerWound = (u) => {
 function planVolley(shooter, target, state, opts = {}) {
   const d = gap(shooter, target);
   const los = opts.losOK ?? lineOfSight(state.table, shooter, target);
-  const coverSave = opts.coverSave !== undefined ? opts.coverSave : (!opts.ignoreCover && inCover(state.table, shooter, target) ? core.coverSave(target) : null);
+  const coverSave = opts.coverSave !== undefined ? opts.coverSave : (!opts.ignoreCover ? core.coverSave(target, inCover(state.table, shooter, target)) : null);
   const picks = [];
   let exp = 0;
   for (const m of shooter.models) {

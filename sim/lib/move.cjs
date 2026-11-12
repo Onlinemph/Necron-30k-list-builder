@@ -3,7 +3,7 @@
 // for Routed units in the Rout Sub-Phase.
 const { num, xOf, has } = require('./rules.cjs');
 const { dist, gap, inside, lineOfSight, moveToward, W, H } = require('./table.cjs');
-const { alive } = require('./checks.cjs');
+const { alive, check, addStatus } = require('./checks.cjs');
 const { footprint } = require('./army.cjs');
 const ai = require('./ai.cjs');
 const core = require('./core.cjs');
@@ -43,8 +43,9 @@ function reservesSubPhase(state, side) {
       u.turn.arrivedDeep = true;
       u.turn.noCharge = true;
     } else if (u.reserve === 'outflank') {
+      // SHEET: an outflanking unit may charge; models embarked in it may not
       placeOutflank(state, u);
-      u.turn.noCharge = !inZone(state, u);
+      for (const p of u.passengers) p.turn.noCharge = true;
     } else {
       placeFromEdge(state, u);
     }
@@ -118,6 +119,7 @@ function moveSubPhase(state, side) {
     const budget = d.kind === 'rush' ? M + core.rushBonus(u) + Math.min(...alive(u).map((m) => xOf(m.rules, 'Fast') || 0)) : M;
     const moved = moveUnit(state, u, d.to, budget);
     u.turn.stationary = moved < 0.25;
+    u.turn.moved = true;
     // a move no longer than the unit's Movement isn't a Rush, whatever was planned
     if (d.kind === 'rush' && moved > M + 0.25) u.turn.rushed = true; else if (d.kind === 'rush') d.kind = 'move';
     if (moved >= 0.25) state.log(`  ${u.name} ${d.kind === 'rush' ? 'Rushes' : 'moves'} ${moved.toFixed(1)}" to (${u.x.toFixed(0)}, ${u.y.toFixed(0)})`);
@@ -171,9 +173,10 @@ function fallBack(state, u) {
   u.ignoresTerrain = false;
   const dist2edge = u.side === 0 ? u.y - u.r : H - u.y - u.r;
   state.log(`  ${u.name} falls back ${d}"`);
-  if (dist2edge <= 0.6 && Math.abs(before - u.y) + 0.5 >= Math.abs(before - edgeY) - u.r - 0.5) {
-    state.log(`  ${u.name} flees the battlefield`);
-    if (state.onFled) state.onFled(u);
+  // SHEET: reaching the table edge, it tests Leadership: a fail removes it, a pass leaves it Suppressed
+  if (dist2edge <= 0.6) {
+    if (check(state, u, 'LD', 0, 'at the table edge')) addStatus(state, u, 'Suppressed', 'rallied at the table edge');
+    else { state.log(`  ${u.name} flees the battlefield`); if (state.onFled) state.onFled(u); }
   }
   return d;
 }

@@ -1,66 +1,68 @@
 'use strict';
-// The Assault Phase: Charge Sub-Phase (the five-step charge with Overwatch and Volleys), Challenge Sub-Phase
-// (Focus Roll and Strike Step), Fight Sub-Phase (Initiative Steps) and Resolution Sub-Phase (Panic Checks,
-// Fall Back, Pursue).
-const { num, xOf, argOf, has, rel, hitNeedWS } = require('./rules.cjs');
+// The Assault Phase: Charge Sub-Phase (the five-step charge), Challenge Sub-Phase (rounds of Face-Off, Focus
+// Roll and Strike, then Glory), Fight Sub-Phase (Initiative Steps) and Resolution Sub-Phase (Combat Resolution,
+// Panic Checks and the aftermath: Fall Back, Pursue, Gun Down, Disengage, Hold, Consolidate).
+// Procedure from the HH3 rule texts in the repo and the How to Play quick reference (SHEET in core.cjs).
+const { num, xOf, argOf, has, rel } = require('./rules.cjs');
 const { resolveGroup, meleeGroup, expectedGroup } = require('./attack.cjs');
-const { shootingAttack, preyCrit, forceCheck } = require('./shoot.cjs');
+const { shootingAttack, moraleSubPhase, preyCrit, forceCheck, vehicleDamage } = require('./shoot.cjs');
 const gambits = require('./gambits.cjs');
 const psychic = require('./psychic.cjs');
-const { gap, dist } = require('./table.cjs');
-const { alive, check, addStatus, charOf } = require('./checks.cjs');
+const { gap, dist, lineOfSight } = require('./table.cjs');
+const { alive, check, addStatus, passChance } = require('./checks.cjs');
 const { moveUnit, fallBack } = require('./move.cjs');
 const ai = require('./ai.cjs');
 const core = require('./core.cjs');
-const { canReact, meleeMods } = require('./reactions.cjs');
+const { canReact, meleeMods, lockInto } = require('./reactions.cjs');
 
 // ---------- Charge Sub-Phase ----------
 /** Make a charge from u at t. Returns true if the units end Locked in Combat. */
 function charge(state, u, t) {
-  state.log(`  ${u.name} declares a charge at ${t.name} (${gap(u, t).toFixed(1)}" away${u.turn.disordered ? ', Disordered' : ''})`);
+  // SHEET: a unit with any Tactical Status, or that disembarked, makes a Disordered Charge: no Set-up Move, no Volley
+  const disordered = !!u.turn.disordered || u.statuses.size > 0;
+  state.log(`  ${u.name} declares a charge at ${t.name} (${gap(u, t).toFixed(1)}" away${disordered ? ', Disordered' : ''})`);
+  const locked = chargeSteps(state, u, t, disordered);
+  // ASSUMPTION: checks from a reaction's Shooting Attack (Overwatch) are taken straight after the charge
+  if (state.pendingMorale.length) moraleSubPhase(state);
+  return locked;
+}
+function chargeSteps(state, u, t, disordered) {
   // the target's reaction, if any, and the step of the charge it happens in (reactions.cjs)
   const pick = state.reactions ? state.reactions.onCharge(state, u, t) : null;
   const ctx = { volleyKills: 0 };
   const at = (step) => (pick && pick.step === step ? pick.apply(ctx) : undefined);
-  // Step 2: Overwatch, The Choir Answers, Twisted Desire
+  // Step 2: The Choir Answers, Twisted Desire
   if (at(2) === 'fail' || u.destroyed || t.destroyed) return false;
-  // Step 3: Spite of the Gorgon, Selfless Burden; then the Set-up Move (skipped by a Disordered Charge)
+  // Step 3: Spite of the Gorgon, Selfless Burden; then the Set-up Move. Reaching base contact completes the charge
   at(3);
   if (u.destroyed || t.destroyed) return false;
-  if (!u.turn.disordered) {
-    const g = gap(u, t);
-    const step = Math.min(core.setupMove(u) + (u.cond?.has('Lost to the Nails') ? 1 : 0), Math.max(0, g - 1));
-    if (step > 0) moveUnit(state, u, t, step, { charging: true, target: t });
+  if (!disordered) {
+    const s = core.setupMove(u) + (u.cond?.has('Lost to the Nails') ? 1 : 0);
+    if (s >= gap(u, t)) { lockInto(state, u, t, `reaches ${t.name} with its Set-up Move`); return true; }
+    moveUnit(state, u, t, s, { charging: true, target: t });
   }
   if (at(3.5) === 'locked') return true; // Perfect Counter
-  // Step 4: Shieldwall!; Volley Attacks (Snap Shots, Assault weapons only): the charger, then the target
+  // Step 4: Shieldwall!, Warpath; Volley Attacks (Snap Shots, Assault weapons only, never statuses): the charger,
+  // then the target, whose Overwatch replaces its Volley with a normal Shooting Attack
   at(4);
   const warpath = psychic.onChargeStep4(state, u, t);
   const before = alive(t).length;
-  if (!warpath && alive(u).some((m) => m.ranged.length)) shootingAttack(state, u, t, { snap: !has(u.rules, 'Firestorm'), assaultOnly: true, label: 'volleys' });
+  if (!disordered && !warpath && alive(u).some((m) => m.ranged.length)) shootingAttack(state, u, t, { snap: !has(u.rules, 'Firestorm'), assaultOnly: true, volley: true, label: 'volleys' });
   if (t.destroyed) return false;
   ctx.volleyKills = before - alive(t).length;
-  if (!pick?.noVolley && !t.statuses.has('Routed') && alive(t).some((m) => m.ranged.length)) shootingAttack(state, t, u, { snap: !has(t.rules, 'Firestorm'), assaultOnly: true, label: 'volleys' });
-  if (u.destroyed) return false;
+  if (pick?.replacesVolley) pick.apply(ctx);
+  else if (!pick?.noVolley && alive(t).some((m) => m.ranged.length)) shootingAttack(state, t, u, { snap: !has(t.rules, 'Firestorm'), assaultOnly: true, volley: true, label: 'volleys' });
+  if (u.destroyed || t.destroyed) return false;
   // end of Step 4: Evade, Better Part of Valour, Furious Charge
   const r4 = at(4.5);
-  if (r4 === 'fail' || t.destroyed) return false;
+  if (r4 === 'fail' || t.destroyed || u.destroyed) return false;
   if (r4 === 'locked') return true;
-  // Step 5: Charge Roll (2D6, discard the lowest, plus Fast)
+  // Step 5: Charge Roll (2D6, keep the highest, plus Fast)
   const need = gap(u, t);
   const roll = core.chargeRoll(u, state.dice);
-  if (roll >= need) {
-    // charge move into base contact
-    const d = dist(u, t) || 1;
-    const k = (u.r + t.r) / d;
-    u.x = t.x + (u.x - t.x) * k; u.y = t.y + (u.y - t.y) * k;
-    u.lockedWith.add(t); t.lockedWith.add(u);
-    u.turn.charged = true;
-    state.log(`    charge roll ${roll} (needed ${need.toFixed(1)}"): ${u.name} is Locked in Combat with ${t.name}`);
-    return true;
-  }
+  if (roll >= need) { lockInto(state, u, t, `charge roll ${roll} (needed ${need.toFixed(1)}")`); return true; }
   state.log(`    charge roll ${roll} (needed ${need.toFixed(1)}"): the charge fails`);
-  // a failed Charge Roll forces a Cool Check (CONFIRMED); the status is an ASSUMPTION
+  // a failed charge forces a Cool Check (CONFIRMED); failing gives Stunned (SHEET)
   if (!check(state, u, 'CL', 0, 'failed charge')) addStatus(state, u, core.failedChargeStatus, 'failed charge');
   return false;
 }
@@ -68,7 +70,8 @@ function charge(state, u, t) {
 function chargeSubPhase(state, side) {
   const units = state.units.filter((u) => u.side === side && !u.destroyed && u.arrived && !u.embarkedIn && !u.lockedWith.size);
   // the most dangerous chargers go first
-  units.sort((a, b) => ai.meleeValue(state, b, state.units.filter((e) => e.side !== side && !e.destroyed)) - ai.meleeValue(state, a, state.units.filter((e) => e.side !== side && !e.destroyed)));
+  const foes = state.units.filter((e) => e.side !== side && !e.destroyed);
+  units.sort((a, b) => ai.meleeValue(state, b, foes) - ai.meleeValue(state, a, foes));
   for (const u of units) {
     if (u.destroyed || u.lockedWith.size) continue;
     // Lost to the Nails: must charge the closest enemy within 12", or the condition ends (CONFIRMED)
@@ -101,7 +104,7 @@ function combats(state) {
   return out;
 }
 const modelCount = (units) => units.reduce((t, u) => t + alive(u).reduce((s, m) => s + (/Walker|Paragon/.test(m.unitType) ? num(m.p.W, 1) : xOf(m.rules, 'Bulky') || 1), 0), 0);
-const canChallenge = (m) => /Command|Champion|Paragon/.test(m.unitType);
+const canChallenge = (m) => /Command|Champion|Paragon/.test(m.unitType) && !m.vehicle;
 const combatInitiative = (unit, m, w) => (unit.statuses.size && core.status.anyFightsAtI1 ? 1 : rel(w.IM, num(m.p.I, 1)));
 function bestWeapon(m, target) {
   let best = m.melee.find((w) => target.vehicle || !has(w.specialRules, 'Detonation')) || m.melee[0], bv = -1;
@@ -112,89 +115,152 @@ function bestWeapon(m, target) {
   }
   return best;
 }
+const hasItem = (u, re) => alive(u).some((m) => (m.items || []).some((i) => re.test(i)));
+const hatredAgainst = (a, b) => { const x = argOf(a.rules, 'Hatred'); return !!x && ((b.traits || []).includes(x) || new RegExp(x).test(b.unitType)); };
 
 // ---------- Challenge Sub-Phase ----------
-function challenge(state, c, crp) {
-  const active = state.active;
-  const mine = c[active].flatMap((u) => alive(u).filter(canChallenge).map((m) => ({ u, m })));
-  const theirs = c[1 - active].flatMap((u) => alive(u).filter(canChallenge).map((m) => ({ u, m })));
-  if (!mine.length || !theirs.length) return;
-  // the challenger with the best duel against whoever is most likely to accept
-  let best = null;
-  for (const a of mine) for (const b of theirs) {
-    const v = ai.duelEV(a.m, b.m) / Math.max(1, b.m.wounds) - ai.duelEV(b.m, a.m) / Math.max(1, a.m.wounds);
-    if (!best || v > best.v) best = { a, b, v };
-  }
-  if (!best || best.v <= 0.1) return;
-  // the opponent accepts with their best duellist, or refuses (the refuser is Disgraced and sits this fight out: ASSUMPTION)
-  let acc = null;
-  for (const b of theirs) { const v = ai.duelEV(b.m, best.a.m) / Math.max(1, best.a.m.wounds) - ai.duelEV(best.a.m, b.m) / Math.max(1, b.m.wounds); if (!acc || v > acc.v) acc = { b, v }; }
-  // Warrior Pride (Sons of Horus): refuse a lesser challenger without becoming Disgraced
-  if (acc.v < 0 && state.reactions && state.reactions.warriorPride(state, best.a, theirs, 1 - active, acc.v)) return;
-  if (acc.v < -0.6) {
-    acc.b.m.disgraced = true;
-    state.log(`    ${best.a.m.name} issues a challenge; ${acc.b.m.name} refuses and is Disgraced`);
-    return;
-  }
-  const A = best.a, B = acc.b;
-  state.log(`    ${A.m.name} challenges, ${B.m.name} accepts`);
-  // Focus Roll: D6 + Combat Initiative - wounds lost - 1 if Heavy (+ Outside Support: ASSUMPTION +1 per 5 friendly models, max 2)
-  const wA = bestWeapon(A.m, { models: [B.m], vehicle: false }), wB = bestWeapon(B.m, { models: [A.m], vehicle: false });
-  const support = (side) => Math.min(2, Math.floor(modelCount(c[side]) / 5));
-  // Face-Off: each duellist may pick a Gambit (gambits.cjs)
-  const fx = new Map();
-  for (const [me, opp] of [[A, B], [B, A]]) {
-    const duel = (e) => duelWith(me, opp, e, {}) - duelWith(opp, me, {}, e);
-    const g = gambits.choose(state, me, opp, duel);
-    if (!g) { fx.set(me, {}); continue; }
-    state.log(`      ${me.m.name} picks the ${g.name} Gambit`);
-    fx.set(me, Object.assign({ name: g.name }, g.make(state, me, opp)));
-  }
-  const focus = (x, w, side) => state.dice.d6() + combatInitiative(x.u, x.m, w) - (x.m.maxWounds - x.m.wounds) - (/Heavy/.test(x.m.unitType) ? 1 : 0) + support(side) + (xOf(w.specialRules, "Duellist's Edge") || 0) + (fx.get(x).focus || 0);
-  let fa = focus(A, wA, active), fb = focus(B, wB, 1 - active);
-  while (fa === fb) { fa = focus(A, wA, active); fb = focus(B, wB, 1 - active); }
-  const order = fa > fb ? [A, B] : [B, A];
-  const before = [A.m.wounds, B.m.wounds];
-  for (const [x, y] of [[order[0], order[1]], [order[1], order[0]]]) {
-    if (x.m.wounds <= 0 || y.m.wounds <= 0) continue;
-    const ex = fx.get(x), ey = fx.get(y);
-    const tgt = { models: [y.m], statuses: y.u.statuses, vehicle: false, name: y.m.name, buff: gambitBuff(y, ey) };
-    let w = gambitWeapon(bestWeapon(x.m, tgt), ex);
-    if (has(w.specialRules, 'Force')) w = forceCheck(state, x.u, x.m, w);
-    const mods = Object.assign({}, meleeMods(x.u) || {}); mods.attacks = (mods.attacks || 0) + (ex.attacks || 0);
-    const g = meleeGroup(x.m, w, tgt, { charged: x.u.turn.charged, mods });
-    const r = resolveGroup(g, tgt, { dice: state.dice, preyCrit: preyCrit(x.u, y.u), hatred: hatredAgainst(x.u, y.u), onKill: (m) => state.onCasualty && state.onCasualty(m, y.u, x.u) });
-    crp[x.u.side] += r.damage;
-    if (y.m.wounds <= 0 && ex.onKill) ex.onKill(state, x, y);
-  }
-  A.m.inChallenge = B.m.inChallenge = true;
-  state.log(`      ${A.m.name} ${before[0]}→${A.m.wounds} wounds, ${B.m.name} ${before[1]}→${B.m.wounds} wounds`);
-  for (const u of [A.u, B.u]) if (state.afterDamage) state.afterDamage(u);
+// a duellist's strike, with its gambit's effects (expected: D3 counts as 2)
+function strikeProfile(x, y, ex, ey, opts = {}) {
+  const tgt = { models: [y.m], statuses: y.u.statuses, vehicle: false, name: y.m.name, buff: gambitBuff(y, ey) };
+  let w = bestWeapon(x.m, tgt);
+  if (ex.extraRules) w = Object.assign({}, w, { specialRules: [...(w.specialRules || []), ...ex.extraRules(w)] });
+  const mods = Object.assign({ attacks: 0, str: 0, ws: 0 }, meleeMods(x.u) || {});
+  mods.attacks += (ex.attacks || 0) + (opts.focusWinner ? 1 : 0) + (ex.attacksD3 ? (opts.d3 ? opts.d3() : 2) : 0);
+  mods.str += ex.str || 0; mods.ws += ex.ws || 0;
+  if (ex.matchOpp) mods.ws += Math.min(0, num(y.m.p.WS, 4) - num(x.m.p.WS, 4));
+  return { tgt, w, mods, finish: (g) => {
+    if (ex.single) g.attacks = 1;
+    if (ex.matchOpp) g.attacks = Math.min(g.attacks, Math.max(1, num(y.m.p.A, 1)));
+    if (ex.dmg) g.D += ex.dmg;
+    if (ex.dmgCap1) g.D = 1;
+    return g;
+  } };
 }
-// a gambit's effects on a duellist's weapon and on the opponent's Toughness
-const gambitWeapon = (w, e) => (e && e.extraRules ? Object.assign({}, w, { specialRules: [...(w.specialRules || []), ...e.extraRules(w)] }) : w);
 function gambitBuff(x, e) {
   if (!e || (!e.tough && !e.toughSet)) return x.u.buff;
   const b = Object.assign({ tough: 0, fnp: 7, shrouded: 7, ew: 0, attacks: 0, str: 0, ws: 0 }, x.u.buff || {});
   b.tough += e.toughSet ? Math.max(0, e.toughSet - num(x.m.p.T, 4)) : e.tough;
   return b;
 }
-/** Expected wounds `me` deals `opp` in one Strike Step with these gambit effects (for choosing a gambit). */
-function duelWith(me, opp, eMe, eOpp) {
-  const tgt = { models: [opp.m], vehicle: false, buff: gambitBuff(opp, eOpp) };
-  let best = 0;
-  for (const w0 of me.m.melee) {
-    const w = gambitWeapon(w0, eMe);
-    best = Math.max(best, expectedGroup(meleeGroup(me.m, w, tgt, { mods: { attacks: eMe.attacks || 0 } }), tgt));
-  }
-  return Math.min(best, opp.m.wounds);
+/** Expected wounds `x` deals `y` in one Strike Step with these gambit effects. */
+function duelWith(x, y, ex, ey) {
+  const s = strikeProfile(x, y, ex, ey);
+  const g = s.finish(meleeGroup(x.m, s.w, s.tgt, { mods: s.mods }));
+  return Math.min(expectedGroup(g, s.tgt), y.m.wounds);
 }
-const hatredAgainst = (a, b) => { const x = argOf(a.rules, 'Hatred'); return !!x && ((b.traits || []).includes(x) || new RegExp(x).test(b.unitType)); };
+const duelEdge = (a, b) => duelWith(a, b, {}, {}) / Math.max(1, b.m.wounds) - duelWith(b, a, {}, {}) / Math.max(1, a.m.wounds);
+
+/** Pick the best challenger against the best acceptor. */
+function bestPairing(ours, theirs) {
+  let best = null;
+  for (const a of ours) {
+    // they'll accept with whoever does best against this challenger
+    let acc = null;
+    for (const b of theirs) { const v = duelEdge(b, a); if (!acc || v > acc.v) acc = { b, v }; }
+    const v = -acc.v;
+    if (!best || v > best.v) best = { a, b: acc.b, v, accV: acc.v };
+  }
+  return best;
+}
+
+function challenge(state, c, tally) {
+  const active = state.active;
+  const elig = (side) => c[side].filter((u) => !u.destroyed && !u.statuses.has('Routed')).flatMap((u) => alive(u).filter(canChallenge).map((m) => ({ u, m })));
+  const mine = elig(active), theirs = elig(1 - active);
+  if (!mine.length || !theirs.length) return;
+  let side = active, pair = bestPairing(mine, theirs);
+  // the Active Player declares first; if they don't, the Reactive Player may make a Heroic Intervention (SHEET)
+  if (!pair || pair.v <= 0.1) {
+    const hp = bestPairing(theirs, mine);
+    if (!hp || hp.v <= 0.1 || !state.reactions?.heroicIntervention(state, 1 - active, hp.a.u, hp.v)) return;
+    side = 1 - active; pair = hp;
+  }
+  const defenders = side === active ? theirs : mine;
+  const A = pair.a;
+  // Warrior Pride (Sons of Horus): refuse a lesser challenger without becoming Disgraced
+  if (side === active && pair.accV < 0 && state.reactions?.warriorPride(state, A, defenders, 1 - side, pair.accV)) return;
+  // refusing: the challenger's player picks a model to become Disgraced (SHEET)
+  if (pair.accV < -0.6) {
+    const victim = defenders.reduce((b, d) => (num(d.m.p.WS, 4) > num(b.m.p.WS, 4) ? d : b), defenders[0]);
+    state.log(`    ${A.m.name} issues a challenge; it is refused and ${victim.m.name} is Disgraced`);
+    victim.m.disgraced = true;
+    addStatus(state, victim.u, 'Disgraced', 'refused a challenge');
+    return;
+  }
+  duel(state, A, pair.b, side, tally);
+}
+
+/** A challenge: rounds of Face-Off, Focus Roll and Strike until someone falls or the advantage holder stops. */
+function duel(state, A, B, challengerSide, tally) {
+  state.log(`    ${A.m.name} challenges, ${B.m.name} accepts`);
+  A.m.inChallenge = B.m.inChallenge = true;
+  const inflicted = new Map([[A, 0], [B, 0]]);
+  const effects = new Map([[A, {}], [B, {}]]);
+  const guard = new Map([[A, 0], [B, 0]]);
+  let testFoe = null;
+  const support = (x) => core.focusSupport(alive(x.u).length - 1 + (hasItem(x.u, /^Legion standard/i) ? 6 : 0));
+  for (let round = 1; round <= 5; round++) {
+    // Face-Off: each picks a gambit (the side with Challenge Advantage first; it makes no difference to the AI)
+    for (const [me, opp] of [[A, B], [B, A]]) {
+      const g = gambits.choose(state, me, opp, (e) => duelWith(me, opp, e, {}) - duelWith(opp, me, {}, e), { moreRounds: round < 5 });
+      const e = g ? Object.assign({ name: g.name }, g.make(state, me, opp)) : {};
+      effects.set(me, e);
+      if (g) state.log(`      ${me.m.name} picks ${g.name}`);
+    }
+    // Focus Roll: D6 + Combat Initiative - wounds lost, -1 Heavy, +1 Light, +1 Shield or Company Standard,
+    // + Outside Support, + gambits; the winner gets +1 Attack and Challenge Advantage
+    const focus = (x) => {
+      const e = effects.get(x);
+      const w = bestWeapon(x.m, { models: [x === A ? B.m : A.m], vehicle: false });
+      let d = state.dice.d6();
+      if (e.focusDice) { const d2 = state.dice.d6(); d = e.focusDice === 'high' ? Math.max(d, d2) : Math.min(d, d2); }
+      return d + combatInitiative(x.u, x.m, w) - (x.m.maxWounds - x.m.wounds) - (/Heavy/.test(x.m.unitType) ? 1 : 0) + (/Light/.test(x.m.unitType) ? 1 : 0)
+        + ((x.m.traits || []).includes('Shield') || hasItem(x.u, /Company Standard/i) ? 1 : 0) + support(x) + (xOf(w.specialRules, "Duellist's Edge") || 0)
+        + (e.focus || 0) + guard.get(x);
+    };
+    let fa = focus(A), fb = focus(B);
+    while (fa === fb) { fa = focus(A); fb = focus(B); }
+    const winner = fa > fb ? A : B;
+    const adv = testFoe || winner;
+    testFoe = null;
+    guard.set(A, 0); guard.set(B, 0);
+    // Strike: the side with Challenge Advantage first
+    for (const [x, y] of [[adv, adv === A ? B : A], [adv === A ? B : A, adv]]) {
+      if (x.m.wounds <= 0 || y.m.wounds <= 0) continue;
+      const ex = effects.get(x), ey = effects.get(y);
+      const s = strikeProfile(x, y, ex, ey, { focusWinner: x === winner, d3: () => state.dice.d3() });
+      let w = s.w;
+      if (has(w.specialRules, 'Force')) w = forceCheck(state, x.u, x.m, w);
+      const g = s.finish(meleeGroup(x.m, w, s.tgt, { charged: x.u.turn.charged, mods: s.mods }));
+      const before = y.m.wounds;
+      const r = resolveGroup(g, s.tgt, { dice: state.dice, preyCrit: preyCrit(x.u, y.u), hatred: hatredAgainst(x.u, y.u), onKill: (m) => state.onCasualty && state.onCasualty(m, y.u, x.u) });
+      inflicted.set(x, inflicted.get(x) + (before - y.m.wounds));
+      tally.kills[x.u.side] += r.kills;
+      if (ey.guardUp) guard.set(y, guard.get(y) + Math.max(0, g.attacks - r.hits));
+      if (y.m.wounds <= 0 && ex.onKill) ex.onKill(state, x, y);
+    }
+    if (effects.get(A).testFoe) testFoe = A; else if (effects.get(B).testFoe) testFoe = B;
+    if (A.m.wounds <= 0 || B.m.wounds <= 0) break;
+    // the side with Challenge Advantage decides whether to fight another round
+    const other = adv === A ? B : A;
+    if (duelEdge(adv, other) <= 0.05) break;
+  }
+  // Glory: the duellist who inflicted the most wounds scores them, or the slain enemy's full Wounds (SHEET)
+  const [ia, ib] = [inflicted.get(A), inflicted.get(B)];
+  if (ia !== ib) {
+    const [win, lose] = ia > ib ? [A, B] : [B, A];
+    const glory = lose.m.wounds <= 0 ? lose.m.maxWounds : inflicted.get(win);
+    tally.glory[win.u.side] += glory + (effects.get(win).crpIfWin || 0);
+    state.log(`      ${win.m.name} wins the challenge: ${glory} Glory`);
+  }
+  state.log(`      ${A.m.name} ${A.m.wounds}/${A.m.maxWounds} wounds, ${B.m.name} ${B.m.wounds}/${B.m.maxWounds} wounds`);
+  for (const u of [A.u, B.u]) if (state.afterDamage) state.afterDamage(u);
+}
 
 // ---------- Fight Sub-Phase ----------
 function fight(state, c) {
-  const crp = [0, 0];
-  challenge(state, c, crp);
+  const tally = { kills: [0, 0], glory: [0, 0] };
+  challenge(state, c, tally);
   // each unit attacks the locked enemy unit it hurts most
   const strikers = [];
   for (const side of [0, 1]) for (const u of c[side]) {
@@ -203,7 +269,7 @@ function fight(state, c) {
     if (!foes.length) continue;
     const t = foes.reduce((b, e) => (ai.meleeEV(state, u, e) > ai.meleeEV(state, u, b) ? e : b), foes[0]);
     for (const m of alive(u)) {
-      if (m.inChallenge || m.disgraced || m.vehicle || !m.melee.length) continue;
+      if (m.inChallenge || m.vehicle || !m.melee.length) continue;
       const w = bestWeapon(m, t);
       strikers.push({ u, m, t, w, step: combatInitiative(u, m, w) + (u.turn.charged && argOf(w.specialRules, 'Impact') === 'IM' ? 1 : 0) });
     }
@@ -220,50 +286,93 @@ function fight(state, c) {
       if (has(w.specialRules, 'Force')) w = forceCheck(state, s.u, s.m, w);
       const g = meleeGroup(s.m, w, t, { charged: s.u.turn.charged, outnumbered: outnumbered(s.u.side), mods: meleeMods(s.u) });
       const r = resolveGroup(g, t, { dice: state.dice, preyCrit: preyCrit(s.u, t), hatred: hatredAgainst(s.u, t), onKill: (m) => state.onCasualty && state.onCasualty(m, t, s.u) });
-      crp[s.u.side] += r.damage;
-      for (const st of r.vehicleStatuses) addStatus(state, t, st, 'Vehicle Damage');
-      s.hit = (s.hit || 0) + r.damage;
+      tally.kills[s.u.side] += r.kills;
+      for (const st of r.vehicleStatuses) vehicleDamage(state, t, st);
     }
     for (const side of [0, 1]) for (const u of c[side]) if (state.afterDamage) state.afterDamage(u);
   }
-  for (const side of [0, 1]) for (const u of c[side]) for (const m of u.models) { m.inChallenge = false; m.disgraced = false; }
-  return crp;
+  for (const side of [0, 1]) for (const u of c[side]) for (const m of u.models) m.inChallenge = false;
+  return tally;
 }
 
 // ---------- Resolution Sub-Phase ----------
-function resolve(state, c, crp) {
+function resolve(state, c, tally) {
   const live = [c[0].filter((u) => !u.destroyed), c[1].filter((u) => !u.destroyed)];
-  if (!live[0].length || !live[1].length) { for (const s of [0, 1]) for (const u of live[s]) unlock(u); return; }
-  const score = [crp[0], crp[1]];
+  // Massacre: the enemy is wiped out; the winners Consolidate (SHEET)
+  if (!live[0].length || !live[1].length) {
+    for (const s of [0, 1]) for (const u of live[s]) { unlock(u); consolidate(state, u); }
+    return;
+  }
+  // Combat Resolution: models removed, Glory, outnumbering, standards (SHEET, CONFIRMED for the standards)
+  const score = [0, 1].map((s) => tally.kills[s] + tally.glory[s] + live[s].reduce((t, u) => t + (hasItem(u, /^Vexilla/i) ? 1 : 0) + (hasItem(u, /^Legion standard/i) ? 2 : 0), 0));
   const mc = [modelCount(live[0]), modelCount(live[1])];
   if (mc[0] > mc[1]) score[0] += core.outnumberBonus; else if (mc[1] > mc[0]) score[1] += core.outnumberBonus;
   state.log(`    combat resolution ${score[0]}–${score[1]}`);
-  if (score[0] === score[1]) return;
+  if (score[0] === score[1]) return; // a draw: everyone Holds
   const w = score[0] > score[1] ? 0 : 1, l = 1 - w;
   const diff = Math.abs(score[0] - score[1]);
+  const winners = live[w];
   for (const u of live[l]) {
     if (u.destroyed) continue;
-    const pass = check(state, u, 'LD', diff, 'Panic Check, lost the combat');
-    if (pass) continue;
-    if (!addStatus(state, u, 'Routed', 'lost the combat') && !u.statuses.has('Routed')) continue;
-    // the loser Falls Back; a winner may Pursue and catch it (Massacred: ASSUMPTION)
-    const nearObjective = state.table.objectives.some((o) => Math.hypot(o.x - u.x, o.y - u.y) - u.r <= core.CONTROL_RANGE);
-    const pursuers = live[w].filter((x) => !x.destroyed && !has(x.rules, 'Slow and Purposeful') && !x.vehicle);
-    unlock(u);
-    const fled = fallBack(state, u);
-    if (u.destroyed) continue;
-    const p = pursuers[0];
-    if (p) {
-      const pr = core.pursueDistance(p, state.dice);
-      if (pr >= fled) {
-        state.log(`    ${p.name} pursues (${pr}") and cuts ${u.name} down`);
-        for (const m of u.models) if (m.wounds > 0) { m.wounds = 0; if (state.onCasualty) state.onCasualty(m, u, p); }
-        if (state.afterDamage) state.afterDamage(u);
-      } else state.log(`    ${p.name} pursues (${pr}") but ${u.name} gets away`);
+    const foes = [...u.lockedWith].filter((e) => !e.destroyed);
+    if (check(state, u, 'LD', diff, 'Panic Check, lost the combat')) {
+      // passed: Hold, or Disengage with a normal move away if the next round looks bad (SHEET; not while Pinned)
+      const give = foes.reduce((t, e) => t + ai.meleeEV(state, u, e), 0), take = foes.reduce((t, e) => t + ai.meleeEV(state, e, u), 0);
+      if (!u.statuses.has('Pinned') && take > 1.5 * give + 5) disengage(state, u, foes);
+      continue;
     }
-    if (state.onBrokeFromCombat) state.onBrokeFromCombat(u, live[w], nearObjective);
+    // failed: Routed, and it Falls Back
+    addStatus(state, u, 'Routed', 'lost the combat');
+    const nearObjective = state.table.objectives.some((o) => Math.hypot(o.x - u.x, o.y - u.y) - u.r <= core.CONTROL_RANGE);
+    unlock(u);
+    fallBack(state, u);
+    if (u.destroyed) continue;
+    // the winners' aftermath: Pursue (D6 + I; reaching it is a successful charge) or Gun Down (a Volley)
+    const free = foes.filter((p) => !p.destroyed && !p.lockedWith.size && !p.vehicle && !p.statuses.has('Pinned') && !p.statuses.has('Routed'));
+    let best = null;
+    for (const p of free) {
+      const I = num(alive(p)[0]?.p.I, 3);
+      const reach = Math.max(0, Math.min(1, (I + 6 - gap(p, u) + 1) / 6));
+      const pursue = reach * (ai.meleeEV(state, p, u) + (u.heldObjective ? ai.VP_WORTH * 0.5 : 0));
+      const gun = require('./fire.cjs').planVolley(p, u, state, { snap: true, exclude: (x) => !(x.traits || []).includes('Assault') }).expectedPts;
+      if (!best || Math.max(pursue, gun) > best.v) best = { p, v: Math.max(pursue, gun), kind: pursue >= gun ? 'pursue' : 'gun' };
+    }
+    if (best && best.v > 1) {
+      const p = best.p;
+      if (best.kind === 'pursue') {
+        const d = core.pursueDistance(p, state.dice);
+        if (d >= gap(p, u)) lockInto(state, p, u, `pursues ${d}" and catches it`);
+        else { moveUnit(state, p, u, d, { charging: true, target: u }); state.log(`    ${p.name} pursues ${d}" but ${u.name} gets away`); }
+      } else shootingAttack(state, p, u, { snap: true, assaultOnly: true, volley: true, label: 'guns down' });
+    }
+    if (state.onBrokeFromCombat) state.onBrokeFromCombat(u, winners, nearObjective);
   }
-  for (const s of [0, 1]) for (const u of c[s]) if (!u.destroyed && ![...u.lockedWith].some((e) => !e.destroyed)) unlock(u);
+  // winners with nobody left to fight Consolidate
+  for (const s of [0, 1]) for (const u of c[s]) if (!u.destroyed && u.lockedWith.size && ![...u.lockedWith].some((e) => !e.destroyed)) { unlock(u); consolidate(state, u); }
+  for (const u of winners) if (!u.destroyed && !u.lockedWith.size && !u.consolidated) consolidate(state, u);
+  for (const s of [0, 1]) for (const u of c[s]) u.consolidated = false;
+}
+/** Consolidate: move up to base Initiative, ignoring difficult terrain (SHEET). */
+function consolidate(state, u) {
+  if (u.consolidated || u.destroyed) return;
+  u.consolidated = true;
+  const I = num(alive(u)[0]?.p.I, 0);
+  if (I <= 0) return;
+  let best = { p: { x: u.x, y: u.y }, s: ai.positionScore(state, u, { x: u.x, y: u.y }) };
+  for (const p of ai.candidates(state, u, I)) {
+    if (state.units.some((e) => e.side !== u.side && !e.destroyed && e.arrived && !e.embarkedIn && Math.hypot(e.x - p.x, e.y - p.y) < e.r + u.r + 1)) continue;
+    const s = ai.positionScore(state, u, p);
+    if (s > best.s + 0.5) best = { p, s };
+  }
+  if (best.p.x !== u.x || best.p.y !== u.y) { moveUnit(state, u, best.p, I); state.log(`    ${u.name} consolidates to (${u.x.toFixed(0)}, ${u.y.toFixed(0)})`); }
+}
+/** Disengage: a normal move away from the combat (SHEET). */
+function disengage(state, u, foes) {
+  unlock(u);
+  const cx = foes.reduce((t, e) => t + e.x, 0) / foes.length, cy = foes.reduce((t, e) => t + e.y, 0) / foes.length;
+  const away = { x: u.x + (u.x - cx) * 10, y: u.y + (u.y - cy) * 10 };
+  moveUnit(state, u, away, ai.moveOf(u));
+  state.log(`    ${u.name} disengages to (${u.x.toFixed(0)}, ${u.y.toFixed(0)})`);
 }
 function unlock(u) {
   for (const e of u.lockedWith) e.lockedWith.delete(u);
@@ -274,11 +383,11 @@ function assaultPhase(state, side) {
   chargeSubPhase(state, side);
   for (const c of combats(state)) {
     state.log(`  Combat: ${c[0].map((u) => u.name).join(', ')} vs ${c[1].map((u) => u.name).join(', ')}`);
-    let crp = fight(state, c);
+    let tally = fight(state, c);
     // Vengeance of the First Legion: the combat is fought again and only the second round's points count
-    if (state.reactions && state.reactions.vengeance(state, c, crp)) { state.log('    the combat is fought a second time'); crp = fight(state, c); }
-    resolve(state, c, crp);
+    if (state.reactions && state.reactions.vengeance(state, c, [tally.kills[0] + tally.glory[0], tally.kills[1] + tally.glory[1]])) { state.log('    the combat is fought a second time'); tally = fight(state, c); }
+    resolve(state, c, tally);
   }
 }
 
-module.exports = { assaultPhase, charge, chargeSubPhase, combats, fight, resolve, canReact, unlock };
+module.exports = { assaultPhase, charge, chargeSubPhase, combats, fight, resolve, canReact, unlock, duelWith };

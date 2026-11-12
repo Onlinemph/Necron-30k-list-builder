@@ -125,7 +125,7 @@ function buildUnit(armyId, list, slot, detachment, side) {
     if (!vehicle && p.WS != null && !melee.some((w) => !has(w.specialRules, 'Detonation'))) melee.push(CCW);
     for (let i = 0; i < r.count; i++) {
       models.push({
-        name: r.name, p, rules: r.rules || [], unitType: r.unitType || '', vehicle, traits,
+        name: r.name, p, rules: r.rules || [], unitType: r.unitType || '', vehicle, traits, items: r.items || [],
         wounds: vehicle ? num(p.HP, 1) : num(p.W, 1), maxWounds: vehicle ? num(p.HP, 1) : num(p.W, 1),
         ranged, melee, sergeant: /Sergeant|Command|Champion|Alpha/.test(r.unitType || '') || /Alpha|Sergeant|Champion|Exemplar|Prefector|Headsman|Huntmaster/.test(r.name),
       });

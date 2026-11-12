@@ -5,13 +5,15 @@
 
 const W = 72, H = 48;
 
-// terrain kinds: what each blocks or gives
+// terrain kinds: what each blocks or gives. SHEET: Light terrain 6+ cover; Medium 5+ cover and sight through
+// at most 3" of it; Heavy 4+ cover and blocks sight; Difficult -2" of movement. Which piece is which density is
+// the simulator's choice.
 const KINDS = {
-  ruin: { blocksLoS: true, cover: true, difficult: true, impassable: false },
-  building: { blocksLoS: true, cover: true, difficult: false, impassable: true },
-  wood: { blocksLoS: false, cover: true, difficult: true, impassable: false },
-  crater: { blocksLoS: false, cover: true, difficult: true, impassable: false },
-  barricade: { blocksLoS: false, cover: true, difficult: false, impassable: false },
+  ruin: { density: 'heavy', coverSave: 4, blocksLoS: true, cover: true, difficult: true, impassable: false },
+  building: { density: 'heavy', coverSave: 4, blocksLoS: true, cover: true, difficult: false, impassable: true },
+  wood: { density: 'medium', coverSave: 5, blocksLoS: false, losDepth: 3, cover: true, difficult: true, impassable: false },
+  crater: { density: 'light', coverSave: 6, blocksLoS: false, cover: true, difficult: true, impassable: false },
+  barricade: { density: 'medium', coverSave: 5, blocksLoS: false, cover: true, difficult: false, impassable: false },
 };
 
 /** A point-symmetric layout of terrain, so neither side gets a better table. */
@@ -38,6 +40,17 @@ const dist = (a, b) => Math.hypot(a.x - b.x, a.y - b.y);
 const gap = (a, b) => Math.max(0, dist(a, b) - a.r - b.r);
 const inside = (p, r) => p.x >= r.x && p.x <= r.x + r.w && p.y >= r.y && p.y <= r.y + r.h;
 
+/** How far (in inches) the segment p-q runs inside rectangle r. */
+function segInside(p, q, r) {
+  let t0 = 0, t1 = 1;
+  const dx = q.x - p.x, dy = q.y - p.y;
+  for (const [pp, qq] of [[-dx, p.x - r.x], [dx, r.x + r.w - p.x], [-dy, p.y - r.y], [dy, r.y + r.h - p.y]]) {
+    if (pp === 0) { if (qq < 0) return 0; continue; }
+    const t = qq / pp;
+    if (pp < 0) { if (t > t1) return 0; if (t > t0) t0 = t; } else { if (t < t0) return 0; if (t < t1) t1 = t; }
+  }
+  return t1 > t0 ? (t1 - t0) * Math.hypot(dx, dy) : 0;
+}
 /** Does the segment p-q pass through rectangle r? (Liang-Barsky clipping) */
 function segHitsRect(p, q, r) {
   let t0 = 0, t1 = 1;
@@ -63,13 +76,22 @@ function lineOfSight(table, a, b) {
   const tall = (u) => u.r >= 2.5 && u.vehicle;
   return lines.some(([oa, ob]) => {
     const p = { x: a.x + nx * oa, y: a.y + ny * oa }, q = { x: b.x + nx * ob, y: b.y + ny * ob };
-    return !table.pieces.some((r) => r.blocksLoS && !(tall(a) && tall(b) && r.kind === 'ruin') && !inside(a, r) && !inside(b, r) && segHitsRect(p, q, r));
+    return !table.pieces.some((r) => {
+      if (inside(a, r) || inside(b, r)) return false;
+      if (r.blocksLoS) return !(tall(a) && tall(b) && r.kind === 'ruin') && segHitsRect(p, q, r);
+      // Medium terrain: units see up to 3" into or through it
+      return r.losDepth != null && !(tall(a) || tall(b)) && segInside(p, q, r) > r.losDepth;
+    });
   });
 }
-/** Is unit b in cover from unit a: standing in cover terrain, or seen through it? */
+/** The best cover save unit b has against unit a (standing in cover terrain, or seen through it), or null. */
 function inCover(table, a, b) {
-  if (table.pieces.some((r) => r.cover && inside(b, r))) return true;
-  return table.pieces.some((r) => r.cover && !r.blocksLoS && !inside(a, r) && segHitsRect(a, b, r));
+  let best = null;
+  for (const r of table.pieces) {
+    if (!r.cover) continue;
+    if (inside(b, r) || (!r.blocksLoS && !inside(a, r) && segHitsRect(a, b, r))) best = best == null ? r.coverSave : Math.min(best, r.coverSave);
+  }
+  return best;
 }
 
 /**
@@ -99,4 +121,4 @@ function moveToward(table, unit, target, budget, blockers = []) {
   return Math.hypot(unit.x - start.x, unit.y - start.y);
 }
 
-module.exports = { W, H, KINDS, makeTable, dist, gap, inside, segHitsRect, lineOfSight, inCover, moveToward };
+module.exports = { W, H, KINDS, makeTable, dist, gap, inside, segHitsRect, segInside, lineOfSight, inCover, moveToward };

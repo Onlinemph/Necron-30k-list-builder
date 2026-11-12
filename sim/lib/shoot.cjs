@@ -38,9 +38,11 @@ function shootingAttack(state, shooter, target, opts = {}) {
     }
     target = react.target;
   }
-  const snap = opts.snap || shooter.cond?.has('Stupefied') || shooter.statuses.has('Suppressed') || (shooter.turn.rushed && /Light|Rapid/.test(shooter.unitType)) || (/Flyer/.test(target.unitType) && !has(shooter.rules, 'Skyfire'));
+  // a unit with any Tactical Status never counts as Stationary (SHEET)
+  const stationary = !!shooter.turn.stationary && !shooter.statuses.size;
+  const snap = opts.snap || shooter.cond?.has('Stupefied') || core.snapOnly(shooter) || (shooter.turn.rushed && /Light|Rapid/.test(shooter.unitType)) || (/Flyer/.test(target.unitType) && !has(shooter.rules, 'Skyfire'));
   const exclude = (w) => psychic.blockedPsychic(w, target) || (opts.defensiveOnly && !core.isDefensive(w)) || (opts.assaultOnly && !(w.traits || []).includes('Assault') && !has(shooter.rules, 'Implacable Advance')) || (opts.assaultOnly && has(shooter.rules, 'Implacable Advance') && (has(w.specialRules, 'Heavy') || has(w.specialRules, 'Ordnance')));
-  const plan = planVolley(shooter, target, state, { stationary: !!shooter.turn.stationary, snap, exclude, models: opts.models, fpBonus: opts.fpBonus, losOK: react?.losOK ? true : undefined });
+  const plan = planVolley(shooter, target, state, { stationary, snap, exclude, models: opts.models, fpBonus: opts.fpBonus, losOK: react?.losOK ? true : undefined });
   if (!plan.picks.length) {
     if (react) { for (const f of react.after) f(); state.reactions.clearBuffs(state, 'attack'); }
     return { damage: 0, kills: 0, pts: 0, target };
@@ -72,7 +74,7 @@ function shootingAttack(state, shooter, target, opts = {}) {
       let w = p.weapon;
       if (has(w.specialRules, 'Force')) w = forceCheck(state, shooter, p.model, w);
       if (has(w.specialRules, 'Limited')) { shooter.limitedUsed = shooter.limitedUsed || {}; shooter.limitedUsed[w.name] = (shooter.limitedUsed[w.name] || 0) + 1; }
-      const g = rangedGroup(p.model, w, target, { stationary: !!shooter.turn.stationary, snap, fpBonus: opts.fpBonus });
+      const g = rangedGroup(p.model, w, target, { stationary, snap, fpBonus: opts.fpBonus });
       g.from = shooter;
       // Overload (X), raised by 1 for Spite of the Gorgon and Bitter Fury (fpBonus); templates roll FP dice for it
       g.overload = (xOf(w.specialRules, 'Overload') || 0) + (opts.fpBonus ? 1 : 0);
@@ -87,8 +89,9 @@ function shootingAttack(state, shooter, target, opts = {}) {
       psychic.afterWounds(state, w, target, r.wounds);
       vehicleStatuses.push(...r.vehicleStatuses);
       const rules = w.specialRules || [];
-      if (r.wounds > 0) { const x = xOf(rules, 'Pinning'); if (x != null) triggers.Pinning = Math.max(triggers.Pinning ?? -1, x); }
-      if (r.hits > 0) for (const t of ['Suppressive', 'Stun', 'Panic']) { const x = xOf(rules, t); if (x != null) triggers[t] = Math.max(triggers[t] ?? -1, x); }
+      // SHEET: Pinning and Panic trigger on a wound, Suppressive and Stun on a hit
+      if (r.wounds > 0) for (const t of ['Pinning', 'Panic']) { const x = xOf(rules, t); if (x != null) triggers[t] = Math.max(triggers[t] ?? -1, x); }
+      if (r.hits > 0) for (const t of ['Suppressive', 'Stun']) { const x = xOf(rules, t); if (x != null) triggers[t] = Math.max(triggers[t] ?? -1, x); }
       if (r.shockRolls > 0 && target.models.some((m) => m.wounds > 0 && (m.vehicle || /Walker/.test(m.unitType)))) {
         const s = argOf(rules, 'Shock'); if (s) for (const st of s.split(/,\s*/)) shock.add(st);
       }
@@ -105,14 +108,18 @@ function shootingAttack(state, shooter, target, opts = {}) {
   }
   // reactions resolved just before Step 11 (Bitter Fury, Retribution Strike)
   if (react) for (const f of react.beforeStep11) f();
-  // Step 11: statuses from Shock and Glancing Hits on vehicles
-  for (const st of shock) addStatus(state, target, st, 'Shock');
-  for (const st of vehicleStatuses) addStatus(state, target, st, 'Vehicle Damage');
+  // Step 11: statuses from Shock and Glancing Hits on vehicles; Volley Attacks never inflict statuses (SHEET)
+  if (!opts.volley) {
+    for (const st of shock) addStatus(state, target, st, 'Shock');
+    for (const st of vehicleStatuses) vehicleDamage(state, target, st);
+  }
   if (phage.size) { target.phage = target.phage || new Set(); for (const ph of phage) target.phage.add(ph); }
   // markers for the Morale Sub-Phase
   const morale = state.pendingMorale;
-  for (const [t, x] of Object.entries(triggers)) if (x != null && !target.destroyed) morale.push({ unit: target, type: t, x, from: shooter.name });
-  if (!target.destroyed && startModels > 1 && kills / startModels >= core.panicCasualtyFraction) morale.push({ unit: target, type: 'Casualties', x: 0, from: shooter.name });
+  if (!opts.volley) {
+    for (const [t, x] of Object.entries(triggers)) if (x != null && !target.destroyed) morale.push({ unit: target, type: t, x, from: shooter.name });
+    if (!target.destroyed && startModels > 1 && kills / startModels >= core.panicCasualtyFraction) morale.push({ unit: target, type: 'Casualties', x: 0, from: shooter.name });
+  }
   const pts = damage * vpw;
   state.log(`  ${shooter.name} ${label} at ${target.name}${snap ? ' (Snap Shots)' : ''}: ${parts.join('; ') || 'no hits'}${target.destroyed ? ' — destroyed' : ''}`);
   if (state.afterDamage) state.afterDamage(target);
@@ -126,6 +133,18 @@ function shootingAttack(state, shooter, target, opts = {}) {
     if (state.afterDamage) state.afterDamage(shooter);
   }
   return { damage, kills, pts, target };
+}
+
+/** A Vehicle Damage Table result: the status, or a Hull Point if the vehicle already has it (SHEET). */
+function vehicleDamage(state, target, st) {
+  if (target.destroyed) return;
+  if (!target.statuses.has(st)) { addStatus(state, target, st, 'Vehicle Damage'); return; }
+  const v = target.models.find((m) => m.wounds > 0 && m.vehicle);
+  if (!v) return;
+  v.wounds -= 1;
+  state.log(`    ${target.name} is already ${st}: loses a Hull Point instead`);
+  if (v.wounds <= 0 && state.onCasualty) state.onCasualty(v, target, null);
+  if (state.afterDamage) state.afterDamage(target);
 }
 
 /** Resolve every marker left by this phase's Shooting Attacks (the Morale Sub-Phase). */
@@ -150,4 +169,4 @@ function moraleSubPhase(state) {
   }
 }
 
-module.exports = { shootingAttack, moraleSubPhase, preyCrit, forceCheck, perils };
+module.exports = { shootingAttack, moraleSubPhase, vehicleDamage, preyCrit, forceCheck, perils };

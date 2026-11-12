@@ -47,6 +47,7 @@ function resolveGroup(g, target, ctx) {
   const precision = xOf(rules, 'Precision');
   let crit = xOf(rules, 'Critical Hit');
   if (ctx.preyCrit) crit = crit ? Math.min(crit, ctx.preyCrit) : ctx.preyCrit;
+  if (g.bsCrit) crit = crit ? Math.min(crit, g.bsCrit) : g.bsCrit;
   const melta = xOf(rules, 'Melta');
   const inMelta = melta != null && ctx.range != null && ctx.range <= melta;
   const bane = has(rules, 'Armourbane') || inMelta;
@@ -161,9 +162,13 @@ function rangedGroup(model, w, target, opts) {
   if (stationary && ord) { if (ord === 'FP') FP *= 2; else if (ord === 'S') S *= 2; else if (ord === 'D') D *= 2; else if (ord === 'AP') AP = 2; }
   const aliveN = target.models.filter((m) => m.wounds > 0).length;
   const vehicleTarget = target.models.some((m) => m.wounds > 0 && m.vehicle);
-  let attacks = FP, hitNeed = hitNeedBS(BS + (opts.bsMod || 0)), blastN = 0;
+  const bs = BS + (opts.bsMod || 0);
+  let attacks = FP, hitNeed = hitNeedBS(bs), blastN = 0;
   const snap = !!opts.snap;
-  if (snap) hitNeed = Math.max(hitNeed, core.SNAP_HIT);
+  // Snap Shots use their own column of the Hit Test table; BS 6+ scores Critical Hits, BS 10+ always does
+  const bsCrit = snap ? null : core.bsCrit(bs);
+  if (snap) hitNeed = core.snapHit(bs);
+  else if (bsCrit === 1) hitNeed = 1;
   if (has(rules, 'Template')) {
     // a flame template catches several models of a packed unit
     attacks = FP * Math.min(aliveN, vehicleTarget ? 1 : 4);
@@ -173,7 +178,7 @@ function rangedGroup(model, w, target, opts) {
     const blast = xOf(rules, 'Blast');
     if (blast) blastN = Math.min(aliveN, vehicleTarget ? 1 : blast >= 5 ? 5 : 3);
   }
-  return { weapon: w, attacks, blastN, S, AP, D, hitNeed, snap, rules, melee: false, attackerModel: model, weaponTraits: w.traits || [] };
+  return { weapon: w, attacks, blastN, S, AP, D, hitNeed, bsCrit: hitNeed == null ? null : bsCrit, snap, rules, melee: false, attackerModel: model, weaponTraits: w.traits || [] };
 }
 
 /** A model's melee attacks with a weapon (Impact on the charge, Reaping Blow when outnumbered). */
@@ -187,9 +192,12 @@ function meleeGroup(model, w, target, opts) {
     for (const x of imps) { if (x === 'A' || x === 'AM') A += 1; else if (x === 'S' || x === 'SM') S += 1; else if (x === 'WS') ws += 1; }
   }
   if (opts.mods) { A += opts.mods.attacks || 0; S += opts.mods.str || 0; ws += opts.mods.ws || 0; }
+  // Disgraced: the model's Weapon Skill is halved (SHEET)
+  if (model.disgraced) ws = Math.floor(ws / 2);
   const reap = Math.max(xOf(model.rules, 'Reaping Blow') || 0, xOf(rules, 'Reaping Blow') || 0);
   if (reap && opts.outnumbered) A += reap;
-  const defWS = num((target.models.find((m) => m.wounds > 0) || target.models[0]).p.WS, 4) + (target.buff?.ws || 0);
+  const def = target.models.find((m) => m.wounds > 0) || target.models[0];
+  const defWS = Math.floor((num(def.p.WS, 4) + (target.buff?.ws || 0)) / (def.disgraced ? 2 : 1));
   return { weapon: w, attacks: A, S, AP: num(w.AP, 7), D: Math.max(1, num(w.D, 1)), hitNeed: hitNeedWS(ws, defWS), rules, melee: true, attackerModel: model, weaponTraits: w.traits || [] };
 }
 
@@ -197,7 +205,12 @@ function meleeGroup(model, w, target, opts) {
 function expectedGroup(g, target, ctx = {}) {
   const t = target.models.find((m) => m.wounds > 0);
   if (!t) return 0;
-  const pHit = (g.hitNeed == null ? 1 : Math.max(0, (7 - g.hitNeed) / 6)) * (g.blastN || 1);
+  const pHit = (g.hitNeed == null ? 1 : Math.max(0, (7 - Math.max(1, g.hitNeed)) / 6)) * (g.blastN || 1);
+  // share of hits that are Critical Hits (they wound automatically with +1 Damage)
+  let crit = xOf(g.rules, 'Critical Hit');
+  if (ctx.preyCrit) crit = crit ? Math.min(crit, ctx.preyCrit) : ctx.preyCrit;
+  if (g.bsCrit) crit = crit ? Math.min(crit, g.bsCrit) : g.bsCrit;
+  const pCrit = g.hitNeed == null || !crit ? 0 : Math.min(1, (7 - Math.max(crit, g.hitNeed)) / (7 - Math.max(1, g.hitNeed)));
   if (t.vehicle) {
     const av = num(t.p.SIDE ?? t.p.FRONT, 10);
     let p = 0; for (let r = 1; r <= 6; r++) if (g.S + r > av || (has(g.rules, 'Armourbane') && g.S + r >= av)) p += 1 / 6; else if (g.S + r === av) p += 0.5 / 6;
@@ -217,8 +230,14 @@ function expectedGroup(g, target, ctx = {}) {
   }
   const fnp = Math.min(xOf(t.rules, 'Feel No Pain') || 7, target.buff?.fnp || 7, has(t.rules, 'Worm Gestalt') ? 5 : 7, !g.melee ? Math.min(xOf(t.rules, 'Shrouded') || 7, target.buff?.shrouded || 7) : 7);
   const ew = Math.max(xOf(t.rules, 'Eternal Warrior') || 0, target.buff?.ew || 0);
-  const d = Math.min(num(t.p.W, 1), ew ? Math.max(1, g.D - ew) : g.D);
-  return g.attacks * pHit * e * (fnp <= 6 ? (fnp - 1) / 6 : 1) * d;
+  const dmg = (x) => Math.min(num(t.p.W, 1), ew ? Math.max(1, x - ew) : x);
+  // a Critical Hit skips the Wound Test (its natural roll counts as the wound roll for Breaching)
+  const apC = breach && breach <= 6 ? 2 : g.AP;
+  let svC = Math.min(apC <= arm ? 7 : arm, inv);
+  if (ctx.coverSave && !g.melee) svC = Math.min(svC, ctx.coverSave);
+  const eC = svC <= 6 ? (svC - 1) / 6 : 1;
+  const mit = fnp <= 6 ? (fnp - 1) / 6 : 1;
+  return g.attacks * pHit * ((1 - pCrit) * e * dmg(g.D) + pCrit * eC * dmg(g.D + 1)) * mit;
 }
 
 module.exports = { STATUSES, resolveGroup, rangedGroup, meleeGroup, expectedGroup, pickModel, armourFacing };

@@ -39,10 +39,11 @@ function runBattle(listA, listB, opts = {}) {
     const w = state.units.find((u) => u.side === s && /Warlord/.test(u.role)) || state.units.find((u) => u.side === s && /High Command/.test(u.role));
     if (w) w.warlord = true;
   }
-  // roll off: the winner deploys first and takes the first turn
-  const first = dice.d6() >= 4 ? 0 : 1;
-  state.log(`Battle: ${armies[0].name} (bottom) vs ${armies[1].name} (top). ${armies[first].name} deploys first and goes first.`);
+  // roll off: the winner deploys first and takes the first turn, unless the other player Seizes the Initiative
+  let first = dice.d6() >= 4 ? 0 : 1;
+  state.log(`Battle: ${armies[0].name} (bottom) vs ${armies[1].name} (top). ${armies[first].name} deploys first.`);
   deploy(state, first); deploy(state, 1 - first);
+  if (dice.d6() >= core.SEIZE_ON) { first = 1 - first; state.log(`${armies[first].name} Seizes the Initiative and goes first.`); }
   for (let round = 1; round <= mission.turns; round++) {
     state.round = round; state.turnsLeft = mission.turns - round + 1;
     for (const side of [first, 1 - first]) {
@@ -185,7 +186,8 @@ function playerTurn(state, side) {
   state.log(`\nBattle Turn ${state.round}, ${state.armies[side].name}`);
   // turn flags (moved, charged, disembarked) belong to one Player Turn; a unit may react once per Player Turn
   for (const u of state.units) { u.turn = {}; u.reacted = false; }
-  state.reactionsLeft[1 - side] = core.reactionAllotment(state.armies[1 - side].pointsLimit);
+  const master = state.units.some((u) => u.side === 1 - side && !u.destroyed && (u.traits || []).includes('Master of the Legion'));
+  state.reactionsLeft[1 - side] = core.reactionAllotment(state.armies[1 - side].pointsLimit, master);
   // ---- Movement Phase ----
   reservesSubPhase(state, side);
   moveSubPhase(state, side);
@@ -207,10 +209,11 @@ function playerTurn(state, side) {
 function shootingPhase(state, side) {
   const units = state.units.filter((u) => u.side === side && !u.destroyed && u.arrived && !u.embarkedIn && !u.lockedWith.size);
   for (const u of units) {
-    if (u.destroyed || u.statuses.has('Stunned') || u.statuses.has('Routed')) continue;
+    // SHEET: units that Rushed, are locked in combat or embarked can't shoot; statuses only force Snap Shots
+    if (u.destroyed) continue;
     if (u.turn.rushed && !/Light|Rapid/.test(u.unitType)) continue;
     if (!alive(u).some((m) => m.ranged.length)) continue;
-    const t = ai.chooseTarget(state, u);
+    const t = ai.chooseTarget(state, u, { snap: core.snapOnly(u) });
     if (!t) continue;
     for (const e of state.units) if (!e.destroyed) e.heldObjective = canHold(e) && state.table.objectives.some((o) => Math.hypot(o.x - e.x, o.y - e.y) - e.r <= core.CONTROL_RANGE);
     // the target may react: Return Fire, Smokescreen, Living Shields and the rest (reactions.cjs)
@@ -248,7 +251,9 @@ function statusesSubPhase(state, side) {
       continue;
     }
     for (const s of [...u.statuses]) {
-      if (check(state, u, s === 'Routed' ? 'LD' : 'CL', 0, `to remove ${s}`)) u.statuses.delete(s);
+      if (!check(state, u, s === 'Routed' ? 'LD' : 'CL', 0, `to remove ${s}`)) continue;
+      u.statuses.delete(s);
+      if (s === 'Disgraced') for (const m of u.models) m.disgraced = false;
     }
   }
 }

@@ -15,14 +15,14 @@ const BANDS = [0, 3, 6, 9, 12, 15, 18, 24, 30, 36, 48, 72];
 // ---------- precomputed matchups ----------
 /** Expected points a unit deals with its guns to another, by range band (ignoring Line of Sight and cover). */
 function shootTable(state, a, b) {
-  const key = `${a.uid}>${b.uid}:${alive(a).length}:${alive(b).length}:${a.statuses.has('Suppressed') ? 1 : 0}`;
+  const key = `${a.uid}>${b.uid}:${alive(a).length}:${alive(b).length}:${core.snapOnly(a) ? 1 : 0}`;
   const c = state.cache.shoot;
   if (c.has(key)) return c.get(key);
   const out = BANDS.map((d) => {
     const fake = { x: 0, y: 0, r: 0 };
     const tgt = Object.assign(Object.create(Object.getPrototypeOf(b)), b, { x: d, y: 0, r: 0 });
     const src = Object.assign(Object.create(Object.getPrototypeOf(a)), a, fake);
-    return planVolley(src, tgt, state, { losOK: true, coverSave: null, stationary: true, snap: a.statuses.has('Suppressed') }).expectedPts;
+    return planVolley(src, tgt, state, { losOK: true, coverSave: null, stationary: !a.statuses.size, snap: core.snapOnly(a) }).expectedPts;
   });
   c.set(key, out);
   return out;
@@ -61,7 +61,7 @@ function chargeChance(u, need) {
 function chargeOdds(u, pos, t) {
   const g = Math.max(0, Math.hypot(pos.x - t.x, pos.y - t.y) - u.r - t.r);
   if (g > core.CHARGE_DECLARE_RANGE) return 0;
-  const left = g - (u.turn.disordered ? 0 : core.setupMove(u));
+  const left = g - (u.turn.disordered || u.statuses.size ? 0 : core.setupMove(u));
   return left <= 0 ? 1 : chargeChance(u, left);
 }
 const canCharge = (u) => !u.vehicle && !u.statuses.has('Pinned') && !u.statuses.has('Routed') && alive(u).some((m) => m.melee.length && !m.vehicle) && !/Flyer/.test(u.unitType);
@@ -191,7 +191,7 @@ function chooseTarget(state, u, opts = {}) {
   let best = null;
   for (const e of state.units) {
     if (e.side === u.side || e.destroyed || !e.arrived || e.embarkedIn || e.lockedWith.size) continue;
-    const plan = planVolley(u, e, state, { stationary: !!u.turn.stationary, snap: opts.snap || u.statuses.has('Suppressed') });
+    const plan = planVolley(u, e, state, { stationary: !!u.turn.stationary && !u.statuses.size, snap: opts.snap || core.snapOnly(u) });
     if (!plan.picks.length) continue;
     const v = plan.expectedPts + statusValue(state, u, e, plan);
     if (!best || v > best.v) best = { target: e, v };
@@ -207,7 +207,8 @@ function chooseCharge(state, u) {
   for (const e of state.units) {
     if (e.side === u.side || e.destroyed || !e.arrived || e.embarkedIn || /Flyer/.test(e.unitType)) continue;
     const odds = chargeOdds(u, u, e);
-    if (odds <= 0) continue;
+    // SHEET: the target must be within 12" and in Line of Sight
+    if (odds <= 0 || !lineOfSight(state.table, u, e)) continue;
     const gain = meleeEV(state, u, e) * 1.6 - meleeEV(state, e, u) * 1.0;
     // Overwatch and volleys cost something on the way in
     const incoming = evAt(shootTable(state, e, u), gap(u, e)) * 0.35;
@@ -221,12 +222,31 @@ function chooseCharge(state, u) {
 }
 
 // ---------- reactions ----------
-/** Decide whether a reaction is worth one point of the allotment, given what is left this turn. */
-const worthReacting = (state, side, value) => {
+/**
+ * Decide whether a reaction is worth one point of the allotment, given what is left this turn. Before the
+ * Assault Phase the last point is kept for a charge reaction (Overwatch and the like) when enemy assault units
+ * are close enough to charge.
+ */
+const worthReacting = (state, side, value, phase) => {
   const left = state.reactionsLeft[side];
   if (left <= 0) return false;
-  return value >= (left >= 3 ? 8 : left === 2 ? 14 : 22);
+  let bar = left >= 3 ? 8 : left === 2 ? 14 : 22;
+  if (left === 1 && phase !== 'assault') bar = Math.max(bar, keepForCharges(state, side));
+  return value >= bar;
 };
+/** What the last reaction point is likely worth against this turn's charges. */
+function keepForCharges(state, side) {
+  let best = 0;
+  for (const e of state.units) {
+    if (e.side === side || e.destroyed || !e.arrived || e.embarkedIn || !canCharge(e) || e.turn.rushed || e.turn.noCharge) continue;
+    const reach = (e.turn.moved ? 0 : moveOf(e)) + core.setupMove(e) + 6;
+    for (const u of state.units) {
+      if (u.side !== side || u.destroyed || !u.arrived || u.embarkedIn || u.reacted || gap(e, u) > reach) continue;
+      best = Math.max(best, meleeEV(state, e, u) * 0.4);
+    }
+  }
+  return best;
+}
 
 // ---------- challenges ----------
 /** Expected wounds a model inflicts on another in one Strike Step. */

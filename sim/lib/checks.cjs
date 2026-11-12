@@ -13,7 +13,8 @@ function charOf(unit, key) {
   if (!a.length) return 0;
   const leaders = a.filter((m) => /Command|Sergeant|Paragon|Champion/.test(m.unitType) || m.sergeant);
   const pool = leaders.length ? leaders : a;
-  const v = Math.max(...pool.map((m) => num(m.p[key], 7)));
+  // Disgraced: the model's Leadership is halved (SHEET)
+  const v = Math.max(...pool.map((m) => Math.floor(num(m.p[key], 7) / (m.disgraced && key === 'LD' ? 2 : 1))));
   // Lost to the Nails: Leadership, Cool and Willpower count as 10 (CONFIRMED)
   return unit.cond?.has('Lost to the Nails') && ['LD', 'CL', 'WP'].includes(key) ? Math.max(10, v) : v;
 }

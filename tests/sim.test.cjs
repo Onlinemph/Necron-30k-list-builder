@@ -152,7 +152,8 @@ test('reactions: each side gets the Core, generic, Legion and army reactions', (
 test('gambits: Rangda, Long Hunt and Slaugth models get their own', () => {
   const names = (u) => gambits.available(u.models[0]).map((g) => g.name);
   assert.ok(names(unit('rangdan', 'hunt-pack', { arkana: 'Iron Chain' })).includes("Hunter's Stare"));
-  assert.ok(!names(unit('sons-of-horus', 'tactical-squad')).length);
+  const core7 = ['Seize the Initiative', 'Flurry of Blows', 'Test the Foe', 'Guard Up', 'Taunt and Bait', 'Grandstand', 'Finishing Blow'];
+  assert.deepEqual(names(unit('sons-of-horus', 'tactical-squad')), core7);
   const th = gambits.GAMBITS.find((g) => g.name === 'Throat-Hunter').make(null, {}, { u: { statuses: new Set(['Pinned']) } });
   assert.deepEqual(th.extraRules({ AP: 3 }), ['Breaching (4+)']);
   assert.deepEqual(th.extraRules({ AP: 2 }), ['Shred (6+)']);
@@ -170,4 +171,31 @@ test('a full battle runs, is repeatable by seed, and uses reactions and psychic 
   assert.ok(used.length >= 3, used.join());
   const orks = runBattle(path.join(LISTS, 'orks-weirdboys.json'), b, { seed: 1 });
   assert.ok(orks.vp.every((v) => v >= 0));
+});
+
+test('quick reference tables: snap shots, BS Critical Hits, Set-up Move, allotment, vehicle damage, Perils', () => {
+  const core = require('../sim/lib/core.cjs');
+  assert.deepEqual([10, 9, 8, 7, 6, 5, 4, 3, 2, 1].map(core.snapHit), [2, 3, 4, 4, 4, 5, 5, 6, 6, 7]);
+  assert.deepEqual([10, 9, 8, 7, 6, 5].map(core.bsCrit), [1, 3, 4, 5, 6, null]);
+  const su = (M, I, type = 'Infantry') => core.setupMove({ unitType: type, models: [{ wounds: 1, p: { M, I } }] });
+  assert.deepEqual([su(3, 3), su(5, 4), su(7, 4), su(8, 5), su(12, 4), su(14, 7), su(6, 4, 'Infantry (Heavy)')], [1, 2, 3, 4, 5, 6, 1]);
+  assert.deepEqual([core.reactionAllotment(1500), core.reactionAllotment(3000), core.reactionAllotment(3000, true), core.reactionAllotment(4000)], [1, 2, 3, 3]);
+  // a Glancing result the vehicle already has costs a Hull Point
+  const { vehicleDamage } = require('../sim/lib/shoot.cjs');
+  const pred = unit('sons-of-horus', 'predator', {}, 1);
+  const st = quietState(createDice(1));
+  vehicleDamage(st, pred, 'Pinned');
+  assert.ok(pred.statuses.has('Pinned'));
+  const hp = pred.models[0].wounds;
+  vehicleDamage(st, pred, 'Pinned');
+  assert.equal(pred.models[0].wounds, hp - 1);
+  // Perils: a 1 or 6 is 13 - WP wounds (Invulnerable Saves only), 2-5 Stunned
+  assert.deepEqual(core.perils(scripted([1]), 8), { result: 'Ætheric Feedback', wounds: 5, invulnOnly: true });
+  assert.equal(core.perils(scripted([3]), 8).status, 'Stunned');
+  // BS 7 hits on 2+ and crits on 5+; BS 4 snap shots need 5s
+  const bs7 = { p: { BS: 7 } }, w = { FP: 1, RS: 4, AP: 7, D: 1, specialRules: [], traits: [] };
+  const t = unit('sons-of-horus', 'tactical-squad', {}, 1);
+  const g7 = rangedGroup(bs7, w, t, {});
+  assert.deepEqual([g7.hitNeed, g7.bsCrit], [2, 5]);
+  assert.equal(rangedGroup({ p: { BS: 4 } }, w, t, { snap: true }).hitNeed, 5);
 });

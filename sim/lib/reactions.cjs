@@ -34,7 +34,7 @@ const ONCE_PER_BATTLE = new Set(['Moonfall', 'Perfect Counter', 'Spite of the Go
 function setup(state) {
   const { loadArmyData } = require('./army.cjs');
   state.reactionSet = [0, 1].map((side) => {
-    const set = new Set(['Reposition', 'Return Fire', 'Overwatch', ...GENERIC]);
+    const set = new Set(['Reposition', 'Intercept', 'Return Fire', 'Overwatch', 'Heroic Intervention', ...GENERIC]);
     const ids = new Set(state.units.filter((u) => u.side === side).map((u) => u.armyId));
     for (const id of ids) {
       for (const n of ARMY_REACTIONS[id] || []) set.add(n);
@@ -52,8 +52,10 @@ function setup(state) {
 const allTrait = (u, t) => alive(u).length > 0 && alive(u).every((m) => (m.traits || []).includes(t));
 const mostTrait = (u, t) => { const a = alive(u); return a.filter((m) => (m.traits || []).includes(t)).length * 2 > a.length; };
 const isVeh = (u) => alive(u).some((m) => m.vehicle);
-const canReact = (u) => !u.destroyed && u.arrived && !u.embarkedIn && !u.reacted && !u.statuses.has('Stunned') && !u.statuses.has('Routed')
-  && !u.cond?.has('Stupefied') && !alive(u).every((m) => /Automata|Flyer|Fortification/.test(m.unitType));
+// SHEET: a unit can't react while Stunned, Routed, in combat or if it has already reacted this turn (reactions
+// that are made in combat by definition pass inCombatOK)
+const canReact = (u, inCombatOK = false) => !u.destroyed && u.arrived && !u.embarkedIn && !u.reacted && !u.statuses.has('Stunned') && !u.statuses.has('Routed')
+  && (inCombatOK || !u.lockedWith.size) && !u.cond?.has('Stupefied') && !alive(u).every((m) => /Automata|Flyer|Fortification/.test(m.unitType));
 const available = (state, side, name) => state.reactionSet?.[side]?.has(name) && !(ONCE_PER_BATTLE.has(name) && state.usedOnce[side].has(name));
 
 /** Pay for a reaction and mark the reacting unit. */
@@ -64,12 +66,12 @@ function spend(state, side, name, unit) {
   state.reactionCount[side][name] = (state.reactionCount[side][name] || 0) + 1;
 }
 /** Pick the best option worth a reaction point, pay for it, and return it (the caller applies it). */
-function choose(state, side, options) {
+function choose(state, side, options, phase) {
   if (state.reactionsLeft[side] <= 0) return null;
-  const ok = options.filter((o) => o && o.value > 0 && available(state, side, o.name) && (!o.unit || canReact(o.unit)));
+  const ok = options.filter((o) => o && o.value > 0 && available(state, side, o.name) && (!o.unit || canReact(o.unit, o.inCombat)));
   if (!ok.length) return null;
   const best = ok.reduce((b, o) => (o.value > b.value ? o : b), ok[0]);
-  if (!ai.worthReacting(state, side, best.value)) return null;
+  if (!ai.worthReacting(state, side, best.value, phase)) return null;
   if (!best.deferred) spend(state, side, best.name, best.unit);
   return best;
 }
@@ -162,10 +164,10 @@ function onShot(state, shooter, target) {
   const base = incoming(state, shooter, target);
   const opts = [];
   const self = canReact(target) ? target : null;
-  // Return Fire (Core): the target shoots back with Snap Shots, with the models it had when the attack began
-  if (self && !target.lockedWith.size) {
-    const v = planVolley(target, shooter, state, { snap: true, exclude: (w) => target.vehicle && !core.isDefensive(w) }).expectedPts;
-    opts.push({ name: 'Return Fire', unit: target, value: v, apply: () => out.after.push(() => withModels(before, () => shoot(state, target, shooter, { snap: true, reaction: true, defensiveOnly: target.vehicle, models: before, label: 'Returns Fire' }))) });
+  // Return Fire (Core, SHEET): before Step 11 (casualties still in place) the target makes a Shooting Attack back
+  if (self) {
+    const v = planVolley(target, shooter, state, { snap: core.snapOnly(target) }).expectedPts;
+    opts.push({ name: 'Return Fire', unit: target, value: v, apply: () => out.beforeStep11.push(() => withModels(before, () => shoot(state, target, shooter, { reaction: true, models: before, label: 'Returns Fire' }))) });
   }
   if (self) {
     const buffOpt = (name, fx, mult, until, extra = 0) => ({ name, unit: target, value: (base - incoming(state, shooter, target, fx)) * mult + extra, apply: () => addBuff(target, fx, until) });
@@ -318,10 +320,14 @@ function onMoved(state, mover) {
 const MOONFALL = { name: 'Moonfall', base: 'Moonfall', R: 999, FP: 1, RS: 8, AP: 3, D: 1, specialRules: ['Blast (3")', 'Pinning (1)'], traits: [] };
 function onArrive(state, arrival) {
   const side = 1 - arrival.side;
-  if (!available(state, side, 'Moonfall') || state.reactionsLeft[side] <= 0) return;
+  if (state.reactionsLeft[side] <= 0) return;
   const opts = [];
   for (const u of state.units) {
     if (u.side !== side || !canReact(u)) continue;
+    // Intercept (Core, SHEET): Snap Shots at a unit arriving from Reserves; Vehicles use Defensive weapons
+    const iv = planVolley(u, arrival, state, { snap: true, exclude: (w) => u.vehicle && !core.isDefensive(w) }).expectedPts;
+    if (iv > 0) opts.push({ name: 'Intercept', unit: u, value: iv, apply: () => shoot(state, u, arrival, { snap: true, reaction: true, defensiveOnly: u.vehicle, label: 'Intercepts' }) });
+    if (!available(state, side, 'Moonfall')) continue;
     const m = alive(u).find((x) => (x.traits || []).includes('Burning Sky') && /Command|Paragon/.test(x.unitType));
     if (!m || gap(u, arrival) > 18) continue;
     const g = rangedGroup(m, MOONFALL, arrival, {});
@@ -329,7 +335,7 @@ function onArrive(state, arrival) {
     opts.push({ name: 'Moonfall', unit: u, value: v, apply: () => {
       const r = resolveGroup(Object.assign(g, { from: u }), arrival, { dice: state.dice, onKill: (x) => state.onCasualty && state.onCasualty(x, arrival, u) });
       state.log(`    Moonfall strikes ${arrival.name}: ${r.hits} hits, ${r.unsaved} unsaved, ${r.kills} killed`);
-      for (const st of r.vehicleStatuses) addStatus(state, arrival, st, 'Vehicle Damage');
+      for (const st of r.vehicleStatuses) require('./shoot.cjs').vehicleDamage(state, arrival, st);
       if (r.wounds > 0 && !arrival.destroyed) state.pendingMorale.push({ unit: arrival, type: 'Pinning', x: 1, from: 'Moonfall' });
       if (state.afterDamage) state.afterDamage(arrival);
     } });
@@ -354,9 +360,15 @@ function onCharge(state, u, t) {
   const hurt = ai.meleeEV(state, u, t);
   const back = ai.meleeEV(state, t, u);
   const opts = [];
-  // Overwatch (Core): Snap Shots at the charger
-  opts.push({ name: 'Overwatch', unit: t, step: 2, value: planVolley(t, u, state, { snap: true, exclude: (w) => t.vehicle && !core.isDefensive(w) }).expectedPts,
-    apply: () => { shoot(state, t, u, { snap: true, reaction: true, defensiveOnly: t.vehicle, label: 'fires Overwatch' }); } });
+  // Overwatch (Core, SHEET): a normal Shooting Attack at the charger instead of the target's Volley, so it's only
+  // paid for if the charge gets to Step 4
+  opts.push({ name: 'Overwatch', unit: t, step: 'volley', replacesVolley: true, deferred: true,
+    value: planVolley(t, u, state, { snap: core.snapOnly(t) }).expectedPts - planVolley(t, u, state, { snap: true, exclude: (w) => !(w.traits || []).includes('Assault') }).expectedPts,
+    apply: () => {
+      if (state.reactionsLeft[side] <= 0 || !canReact(t)) return;
+      spend(state, side, 'Overwatch', t); say(state, side, 'Overwatch', t);
+      shoot(state, t, u, { reaction: true, label: 'fires Overwatch' });
+    } });
   // The Choir Answers (Rangdan): the charger tests Cool with Fear; failing, it is Pinned and the charge fails
   if ((t.traits || []).includes('Silent Choir')) {
     const p = 1 - passChance(state, u, 'CL', 0);
@@ -416,7 +428,7 @@ function onCharge(state, u, t) {
         return reactionCharge(state, t, u, 'Furious Charge') ? 'locked' : undefined;
       } });
   }
-  const pick = choose(state, side, opts);
+  const pick = choose(state, side, opts, 'assault');
   if (pick && !pick.deferred) say(state, side, pick.name, pick.unit);
   return pick;
 }
@@ -426,16 +438,24 @@ function onCharge(state, u, t) {
 function vengeance(state, c, crp) {
   const side = 1 - state.active;
   if (!available(state, side, 'Vengeance of the First Legion') || state.reactionsLeft[side] <= 0) return null;
-  const da = c[side].find((u) => !u.destroyed && canReact(u) && allTrait(u, 'Dark Angels'));
+  const da = c[side].find((u) => !u.destroyed && canReact(u, true) && allTrait(u, 'Dark Angels'));
   if (!da) return null;
   const mine = c[side].filter((u) => !u.destroyed), theirs = c[1 - side].filter((u) => !u.destroyed);
   if (!theirs.length) return null;
   const give = mine.reduce((t, u) => t + Math.max(0, ...theirs.map((e) => ai.meleeEV(state, u, e))), 0);
   const take = theirs.reduce((t, e) => t + Math.max(0, ...mine.map((u) => ai.meleeEV(state, e, u))), 0);
   const losing = crp[side] < crp[1 - side] ? 25 : 0;
-  const pick = choose(state, side, [{ name: 'Vengeance of the First Legion', unit: da, value: give - take + losing }]);
+  const pick = choose(state, side, [{ name: 'Vengeance of the First Legion', unit: da, inCombat: true, value: give - take + losing }], 'assault');
   if (!pick) return null;
   say(state, side, pick.name, da);
+  return true;
+}
+/** Heroic Intervention (Core, SHEET): if the Active Player declares no challenge, the Reactive Player may. */
+function heroicIntervention(state, side, unit, edge) {
+  if (!available(state, side, 'Heroic Intervention') || state.reactionsLeft[side] <= 0 || !canReact(unit, true)) return false;
+  const pick = choose(state, side, [{ name: 'Heroic Intervention', unit, inCombat: true, value: edge * 25 }], 'assault');
+  if (!pick) return false;
+  say(state, side, 'Heroic Intervention', unit);
   return true;
 }
 /** Warrior Pride: a challenger with lower base WS than every eligible Son of Horus may be refused without disgrace. */
@@ -445,11 +465,11 @@ function warriorPride(state, challenger, candidates, side, duelValue) {
   const elig = candidates.filter((b) => allTrait(b.u, 'Sons of Horus'));
   if (!elig.length || !elig.every((b) => num(b.m.p.WS, 4) > ws)) return false;
   const unit = elig[0].u;
-  if (!canReact(unit)) return false;
-  const pick = choose(state, side, [{ name: 'Warrior Pride', unit, value: duelValue < 0 ? 12 - duelValue * 10 : 0 }]);
+  if (!canReact(unit, true)) return false;
+  const pick = choose(state, side, [{ name: 'Warrior Pride', unit, inCombat: true, value: duelValue < 0 ? 12 - duelValue * 10 : 0 }], 'assault');
   if (!pick) return false;
   say(state, side, 'Warrior Pride', unit, ': the challenge is refused without disgrace');
   return true;
 }
 
-module.exports = { setup, onShot, onMoved, onArrive, onCharge, vengeance, warriorPride, addBuff, clearBuffs, addCondition, refresh, meleeMods, canReact, allTrait, mostTrait, lockInto, LEGION_REACTIONS, ONCE_PER_BATTLE };
+module.exports = { setup, onShot, onMoved, onArrive, onCharge, vengeance, warriorPride, heroicIntervention, addBuff, clearBuffs, addCondition, refresh, meleeMods, canReact, allTrait, mostTrait, lockInto, LEGION_REACTIONS, ONCE_PER_BATTLE };

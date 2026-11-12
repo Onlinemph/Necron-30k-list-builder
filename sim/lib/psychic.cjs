@@ -7,10 +7,11 @@
 // double is Perils of the Warp; Fear (X) lowers Willpower; Psy-Shock inflicts Warp Rupture on a Psyker or Malefic
 // unit it wounds; Anathema ignores Psychic damage and Perils, and is only wounded by Psychic or Immaterial weapons
 // on a 5+; Titans and Ordinatus ignore Psychic Weapons, Powers and Reactions.
-// ASSUMPTION: a Manifestation Check is the same Willpower Check (a double is Perils); the Perils table (core.cjs).
+// SHEET: Perils is a D6 table (core.cjs): 13 minus WP wounds with only Invulnerable Saves, or Stunned.
+// ASSUMPTION: a Manifestation Check is the same Willpower Check (a double is Perils).
 // The core rulebook's Disciplines (Biomancy, Pyromancy, ...) aren't in the repo, so their Powers and Psychic
 // Reactions aren't simulated; their Psychic Weapons are.
-const { num, xOf, argOf, has } = require('./rules.cjs');
+const { num, xOf, argOf, has, save } = require('./rules.cjs');
 const { gap, lineOfSight } = require('./table.cjs');
 const { alive, fearOn, isMalefic, addStatus } = require('./checks.cjs');
 const core = require('./core.cjs');
@@ -40,16 +41,19 @@ function willpowerCheck(state, unit, model, why) {
   return { pass, double: a === b };
 }
 
-/** Perils of the Warp on a unit (the model is the one that suffers Ætheric Feedback). */
+/** Perils of the Warp on a unit (the model is the one that suffers the wounds). */
 function perils(state, unit, model, forced) {
-  const p = forced ? { result: forced, status: 'Stunned' } : core.perils(state.dice);
-  state.log(`    ${unit.name}: Perils of the Warp (${p.result})`);
+  const m = model || alive(unit).find((x) => (x.traits || []).includes('Psyker')) || alive(unit)[0];
+  const p = forced ? { result: forced, status: 'Stunned' } : core.perils(state.dice, num(m?.p.WP, 7));
   state.powerCount[unit.side].Perils = (state.powerCount[unit.side].Perils || 0) + 1;
-  const m = model || alive(unit)[0];
   if (p.wounds && m && !anathema(m)) {
-    m.wounds = Math.max(0, m.wounds - p.wounds);
+    // each wound may be stopped by an Invulnerable Save, and nothing else
+    const inv = save(m.p.INV);
+    let taken = 0;
+    for (let i = 0; i < p.wounds && m.wounds > 0; i++) if (!(inv <= 6 && state.dice.d6() >= inv)) { m.wounds--; taken++; }
+    state.log(`    ${unit.name}: Perils of the Warp (${p.result}): ${p.wounds} wounds, ${taken} not saved`);
     if (m.wounds === 0 && state.onCasualty) state.onCasualty(m, unit, null);
-  }
+  } else state.log(`    ${unit.name}: Perils of the Warp (${p.result})`);
   if (p.status && !alive(unit).every(anathema)) addStatus(state, unit, p.status, 'Perils of the Warp');
   if (state.afterDamage) state.afterDamage(unit);
 }
