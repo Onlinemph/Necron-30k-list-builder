@@ -346,3 +346,16 @@ test('Legion Tacticas', () => {
   const raw = require('../sim/lib/army.cjs').loadArmyData('thousand-sons').D.units.find((u) => u.id === 'tactical-squad').models[0].profile;
   assert.equal(+ts.models[0].p.WP, +raw.WP + 1);
 });
+
+test('units whose default weapons live in their options still get armed', () => {
+  const names = (u) => new Set(u.models.flatMap((m) => [...m.melee, ...m.ranged].map((w) => w.name)));
+  const varagyr = names(unit('space-wolves', 'varagyr-wolf-guard-terminators'));
+  assert.ok(varagyr.has('Frost axe') && varagyr.has('Combi-bolter'), [...varagyr].join());
+  assert.ok(names(unit('world-eaters', 'red-butchers')).has('Butcher power axes'));
+  assert.ok(names(unit('space-wolves', 'grey-slayer-pack')).has('Fenrisian axe'));
+  const gorgon = unit('iron-hands', 'gorgon-terminator-squad');
+  assert.ok(gorgon.models.every((m) => m.melee.some((w) => w.name !== 'Close combat weapon')));
+  // a weapon the player chose is kept as chosen
+  const chosen = names(unit('sons-of-horus', 'justaerin-terminator-squad', { options: { 'justaerin-options': { 'Power fist': 5 } } }));
+  assert.ok(chosen.has('Power fist') && !chosen.has('Power sword'));
+});

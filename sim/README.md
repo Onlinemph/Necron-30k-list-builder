@@ -199,6 +199,7 @@ Four sources, marked in the code:
 | Vehicle saves | vehicles take Invulnerable Saves against Penetrating and Glancing Hits, but not Cover Saves |
 | Collar-master | the AI overloads a collared unit of five or more models that is in combat |
 | Swift of Action | the White Scars always take the +2 Movement, so it counts in the enemy turn too |
+| Unchosen weapons | where a list leaves a weapon option unset, a model takes the default its exchange option names, or the cheapest melee weapon (and gun, where two may be taken) from its weapon group. Some units' data lists their default weapons only inside options, so without this they would fight unarmed |
 | Morale after a charge | checks from Overwatch are taken straight after the charge |
 | Disgraced | removed like other statuses, with a Cool Check |
 | Perils names | Ætheric Feedback for the wounds, Warp Rupture for Stunned (Psy-Shock forces Warp Rupture) |

@@ -109,6 +109,36 @@ function buildUnit(armyId, list, slot, detachment, side) {
   if (!def) throw new Error(`Unknown unit ${sel.unitId} in ${armyId}`);
   const s = Object.assign({ options: {}, counts: {} }, sel);
   const rows = E.effectiveModels(s, slot).filter((r) => r.count > 0);
+  // Some units' default weapons appear only as the first choice of an exchange option ("May exchange frost axe
+  // with..."), so a model whose options weren't touched would carry nothing. Give such a model the default its
+  // unset exchange options name, and where it still has no weapon at all, the cheapest choices of its "choose N"
+  // weapon groups.
+  const opts = E.optionsOf(s);
+  for (const r of rows) {
+    const armed = (items) => items.some((i) => { const f = resolveItem(weapons, i); return f.ranged.length || f.melee.some((w) => !has(w.specialRules, 'Detonation')); });
+    const hasMelee = (items) => items.some((i) => resolveItem(weapons, i).melee.some((w) => !has(w.specialRules, 'Detonation')));
+    for (const o of opts) {
+      if (o.model && o.model !== r.name) continue;
+      if (s.options[o.id] && Object.keys(s.options[o.id]).length) continue;
+      const m = String(o.text || '').match(/(?:exchange|replace|have their)\s+(?:their\s+|its\s+|the\s+)?(.+?)\s+(?:for|with|exchanged)\b/i);
+      const choices = E.choicesFor(o, s);
+      if (m) {
+        const def = choices.find((c) => c.name.toLowerCase() === m[1].toLowerCase());
+        const f = def && resolveItem(weapons, def.name);
+        if (f && (f.ranged.length || f.melee.length) && !r.items.includes(def.name)) r.items = [...r.items, def.name];
+      } else if (/choose|up to/i.test(o.text || '') && (!armed(r.items) || !hasMelee(r.items))) {
+        // a weapon group: the cheapest melee weapon, and the cheapest gun too where two may be taken
+        const n = +((String(o.text || '').match(/(?:choose|up to) (\d+)/i) || [])[1] || 1);
+        const byCost = [...choices].sort((a, b) => (a.points || 0) - (b.points || 0));
+        const melee = byCost.find((c) => resolveItem(weapons, c.name).melee.some((w) => !has(w.specialRules, 'Detonation')));
+        const gun = byCost.find((c) => resolveItem(weapons, c.name).ranged.length);
+        const picks = [];
+        if (melee && !hasMelee(r.items)) picks.push(melee.name);
+        if (gun && n >= 2 && !r.items.some((i) => resolveItem(weapons, i).ranged.length)) picks.push(gun.name);
+        r.items = [...r.items, ...picks];
+      }
+    }
+  }
   // Thin the Ranks: does the unit's Prime Advantage improve any model's characteristics?
   let primeStats = false;
   if (slot.prime && s.primeAdvantage) {
@@ -163,7 +193,8 @@ function footprint(unit) {
   if (!alive.length) return 0;
   const br = baseRadius(alive[0].unitType, alive[0].rules, alive[0].p);
   if (alive.length === 1) return br;
-  return Math.sqrt(alive.length) * (br + 0.5) * 1.05;
+  // models packed about half an inch apart, as a unit deploys
+  return Math.sqrt(alive.length) * (br + 0.3) * 1.05;
 }
 
 /** Every unit in a list, one side of the battle. */

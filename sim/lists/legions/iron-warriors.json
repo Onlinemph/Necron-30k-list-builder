@@ -171,11 +171,11 @@
       },
       "options": {
        "siege-master-options": [
-        "Combi-bolter",
-        "Combi-flamer"
+        "Power fist",
+        "Combi-bolter"
        ],
        "tyrant-options": {
-        "Combi-bolter": 4
+        "Power fist": 4
        }
       }
      }

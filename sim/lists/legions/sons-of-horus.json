@@ -91,7 +91,7 @@
      "unit": {
       "unitId": "tactical-squad",
       "counts": {
-       "Legionary": 18,
+       "Legionary": 19,
        "Sergeant": 1
       }
      }
@@ -101,7 +101,7 @@
      "unit": {
       "unitId": "tactical-squad",
       "counts": {
-       "Legionary": 17,
+       "Legionary": 19,
        "Sergeant": 1
       }
      }
@@ -111,7 +111,7 @@
      "unit": {
       "unitId": "tactical-squad",
       "counts": {
-       "Legionary": 17,
+       "Legionary": 19,
        "Sergeant": 1
       }
      }
@@ -171,7 +171,7 @@
       },
       "options": {
        "justaerin-options": {
-        "Heavy flamer": 5
+        "Power sword": 5
        }
       }
      }
@@ -200,10 +200,10 @@
       "options": {
        "reaver-chieftain-options": [
         "Chainaxe",
-        "Chainsword"
+        "Bolt pistol"
        ],
        "reaver-options": {
-        "Flamer": 4
+        "Chainaxe": 4
        }
       }
      }

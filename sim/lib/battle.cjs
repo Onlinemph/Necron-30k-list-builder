@@ -201,7 +201,7 @@ function deploy(state, side) {
     u.facing = Math.atan2(towards.y - (u.y || H / 2), towards.x - (u.x || W / 2));
     const inf = xOf(u.rules, 'Infiltrate');
     const cands = [];
-    for (let x = 1 + u.r; x <= W - u.r - 1; x += 3) for (let y = 1 + u.r; y <= H - u.r - 1; y += 2.5) {
+    for (let x = 1 + u.r; x <= W - u.r - 1; x += 2) for (let y = 1 + u.r; y <= H - u.r - 1; y += 2) {
       const p = { x, y };
       if (fits(z, p, u.r)) cands.push(p);
       // Infiltrate (X): anywhere outside the enemy zone, X" from enemies (CONFIRMED)

@@ -57,14 +57,26 @@ const APEX = { Elites: 'core-army-vanguard', Retinue: 'core-combat-retinue', Com
 function build(id) {
   const D = load(id);
   const E = createEngine(D);
+  const { weapons } = require(R + 'sim/lib/army.cjs').loadArmyData(id);
+  const { resolveItem } = require(R + 'sim/lib/army.cjs');
+  const isMelee = (n) => resolveItem(weapons, n).melee.some((w) => !(w.specialRules || []).some((r) => /^Detonation/.test(r)));
+  const isGun = (n) => resolveItem(weapons, n).ranged.length > 0;
   const mk = ([role, uid, options = {}, counts = {}]) => {
     if (!D.units.find((u) => u.id === uid)) return null;
     const s = E.newSelection(uid); Object.assign(s.options, options); Object.assign(s.counts, counts);
     for (const o of E.optionsOf(s)) {
       if (!o.required || s.options[o.id]) continue;
       const c = E.choicesFor(o, s); const n = E.modelCounts(s)[o.model] || 1;
-      const many = (o.max && o.max.fixed) || 1;
-      if (c.length) s.options[o.id] = o.kind === 'perModel' ? { [c[0].name]: n } : o.kind === 'any' ? c.slice(0, many).map((x) => x.name) : c[0].name;
+      const many = (o.max && o.max.fixed) || +((String(o.text || '').match(/choose (\d+)/i) || [])[1] || 1);
+      if (!c.length) continue;
+      // a weapon group: the cheapest melee weapon and, where two are taken, the cheapest gun
+      const byCost = [...c].sort((a, b) => (a.points || 0) - (b.points || 0));
+      const melee = byCost.find((x) => isMelee(x.name)), gun = byCost.find((x) => isGun(x.name));
+      const weaponPick = melee ? (many >= 2 && gun ? [melee.name, gun.name] : [melee.name]) : null;
+      // the builder allows one pick per model in these groups, so each model takes the melee weapon
+      if (o.kind === 'perModel') s.options[o.id] = { [weaponPick ? weaponPick[0] : c[0].name]: n };
+      else if (o.kind === 'any') s.options[o.id] = weaponPick || c.slice(0, many).map((x) => x.name);
+      else s.options[o.id] = weaponPick ? weaponPick[0] : c[0].name;
     }
     return { role, s };
   };
