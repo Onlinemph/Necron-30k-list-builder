@@ -120,7 +120,8 @@ function buildUnit(armyId, list, slot, detachment, side) {
     for (const o of opts) {
       if (o.model && o.model !== r.name) continue;
       if (s.options[o.id] && Object.keys(s.options[o.id]).length) continue;
-      const m = String(o.text || '').match(/(?:exchange|replace|have their)\s+(?:their\s+|its\s+|the\s+)?(.+?)\s+(?:for|with|exchanged)\b/i);
+      const t = String(o.text || '');
+      const m = t.match(/have (?:its|their)\s+(.+?)\s+(?:replaced|exchanged)\b/i) || t.match(/(?:exchange|replace)\s+(?:their\s+|its\s+|the\s+)?(.+?)\s+(?:for|with)\b/i);
       const choices = E.choicesFor(o, s);
       if (m) {
         const def = choices.find((c) => c.name.toLowerCase() === m[1].toLowerCase());

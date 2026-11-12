@@ -2,6 +2,8 @@
 'use strict';
 // Round robin: every list plays every other list, N battles per pairing, on random Core Missions.
 //   node sim/tournament.cjs <list> <list> ... [--battles 24] [--seed 1] [--workers 4] [--out results.json]
+//                            [--only "<list name>"] [--merge earlier.json]
+// --only plays just the pairings with that list; --merge starts from an earlier result and replaces those pairings.
 // Pairings run in parallel worker processes. The output JSON has, for each pairing, wins, draws and VP; for each
 // list, results by Archetype and per-unit points destroyed and lost.
 const path = require('path');
@@ -43,13 +45,15 @@ if (process.argv[2] === '--worker') {
 
 // ---------- main: hands pairings to workers and collects the results ----------
 function parse(argv) {
-  const o = { battles: 24, seed: 1, workers: 4, out: 'tournament.json', lists: [] };
+  const o = { battles: 24, seed: 1, workers: 4, out: 'tournament.json', lists: [], only: null, merge: null };
   for (let i = 0; i < argv.length; i++) {
     const x = argv[i];
     if (x === '--battles') o.battles = +argv[++i];
     else if (x === '--seed') o.seed = +argv[++i];
     else if (x === '--workers') o.workers = +argv[++i];
     else if (x === '--out') o.out = argv[++i];
+    else if (x === '--only') o.only = argv[++i];
+    else if (x === '--merge') o.merge = argv[++i];
     else o.lists.push(path.resolve(x));
   }
   return o;
@@ -58,8 +62,16 @@ function main() {
   const o = parse(process.argv.slice(2));
   const names = o.lists.map((f) => JSON.parse(fs.readFileSync(f, 'utf8')).name || path.basename(f, '.json'));
   const jobs = [];
-  for (let i = 0; i < o.lists.length; i++) for (let j = i + 1; j < o.lists.length; j++) jobs.push({ id: jobs.length, i, j, a: o.lists[i], b: o.lists[j], battles: o.battles, seed: o.seed + 1000 * jobs.length });
+  let k = 0;
+  for (let i = 0; i < o.lists.length; i++) for (let j = i + 1; j < o.lists.length; j++, k++) {
+    if (o.only && names[i] !== o.only && names[j] !== o.only) continue;
+    jobs.push({ id: jobs.length, i, j, a: o.lists[i], b: o.lists[j], battles: o.battles, seed: o.seed + 1000 * k });
+  }
   const results = [];
+  if (o.merge) {
+    const old = JSON.parse(fs.readFileSync(o.merge, 'utf8'));
+    for (const p of old.pairings) if (!jobs.some((jb) => jb.i === p.i && jb.j === p.j)) results.push(p);
+  }
   let next = 0, done = 0;
   const t0 = Date.now();
   const save = () => fs.writeFileSync(o.out, JSON.stringify({ names, lists: o.lists, battles: o.battles, pairings: results }, null, 1));
