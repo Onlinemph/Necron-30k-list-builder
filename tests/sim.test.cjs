@@ -72,3 +72,102 @@ test('table geometry: symmetric terrain, edge-to-edge ranges and blocked sight l
   assert.equal(lineOfSight(wall, { x: 5, y: 20, r: 1 }, { x: 30, y: 20, r: 1 }), false);
   assert.equal(lineOfSight({ pieces: [] }, { x: 5, y: 20, r: 1 }, { x: 30, y: 20, r: 1 }), true);
 });
+
+// ---------- rules added with the full battle loop ----------
+const path = require('path');
+const { xOf } = require('../sim/lib/rules.cjs');
+const { runBattle } = require('../sim/lib/battle.cjs');
+const reactions = require('../sim/lib/reactions.cjs');
+const psychic = require('../sim/lib/psychic.cjs');
+const gambits = require('../sim/lib/gambits.cjs');
+const LISTS = path.join(__dirname, '..', 'sim', 'lists');
+/** Dice that roll a script of results, then fall back to a seeded generator. */
+const scripted = (rolls, seed = 1) => { const d = createDice(seed); return Object.assign({}, d, { d6: () => (rolls.length ? rolls.shift() : d.d6()) }); };
+const quietState = (dice) => ({ dice, units: [], log: () => {}, powerCount: [{}, {}], onCasualty: () => {}, afterDamage: () => {} });
+
+test('Blast (X") parses and makes one Hit Test per shot, hitting every model under the marker', () => {
+  assert.equal(xOf(['Blast (3")'], 'Blast'), 3);
+  assert.equal(xOf(['Blast (5")'], 'Blast'), 5);
+  assert.equal(xOf(['Breaching (5+)'], 'Breaching'), 5);
+  const dice = createDice(4);
+  const shooter = unit('sons-of-horus', 'tactical-squad', {}, 0).models[0];
+  const w = { name: 'Test blast', FP: 1, RS: 4, AP: 7, D: 1, specialRules: ['Blast (3")'], traits: [] };
+  const counts = new Map();
+  for (let i = 0; i < 400; i++) {
+    const t = unit('sons-of-horus', 'tactical-squad', {}, 1);
+    const g = rangedGroup(shooter, w, t, {});
+    assert.equal(g.attacks, 1); assert.equal(g.blastN, 3);
+    const h = resolveGroup(g, t, { dice }).hits;
+    counts.set(h, (counts.get(h) || 0) + 1);
+  }
+  assert.deepEqual([...counts.keys()].sort(), [0, 3]);
+});
+
+test('Overload (X) makes Misfires on low Hit Tests; Anathema ignores Psychic Weapons', () => {
+  const dice = createDice(9);
+  const shooter = unit('sons-of-horus', 'tactical-squad', {}, 0).models[0];
+  const t = unit('sons-of-horus', 'tactical-squad', {}, 1);
+  const g = rangedGroup(shooter, { name: 'x', FP: 600, RS: 4, AP: 7, D: 1, specialRules: [], traits: [] }, t, {});
+  g.overload = 1; g.attacks = 600;
+  const target = { models: Array.from({ length: 600 }, () => ({ wounds: 99, maxWounds: 99, p: { T: 4, SAV: '3+' }, rules: [] })), statuses: new Set() };
+  const r = resolveGroup(g, target, { dice });
+  assert.ok(Math.abs(r.misfires - 100) < 30, `${r.misfires}`);
+  const nulls = { models: [{ wounds: 1, maxWounds: 1, p: { T: 3, SAV: '–' }, rules: ['Anathema'] }], statuses: new Set() };
+  const psy = { attacks: 50, S: 10, AP: 2, D: 3, hitNeed: 2, rules: [], melee: false, weaponTraits: ['Psychic'] };
+  assert.equal(resolveGroup(psy, nulls, { dice }).damage, 0);
+});
+
+test('Force (X) doubles the value on a passed Willpower Check, and a double is Perils of the Warp', () => {
+  const sorc = unit('thousand-sons', 'prosperine-sorcerer');
+  assert.equal(sorc.psyker, true);
+  const m = sorc.models[0];
+  const staff = m.melee.find((w) => /Force/.test((w.specialRules || []).join()));
+  // rolls 2 and 3: passes, no double
+  const w = psychic.forceCheck(quietState(scripted([2, 3])), sorc, m, staff);
+  assert.equal(+w.D, 2 * +staff.D);
+  // rolls 6 and 6: fails and suffers Perils
+  const st = quietState(scripted([6, 6, 1, 2]));
+  const w2 = psychic.forceCheck(st, sorc, m, staff);
+  assert.equal(w2, staff);
+  assert.equal(st.powerCount[sorc.side].Perils, 1);
+});
+
+test('reactions: each side gets the Core, generic, Legion and army reactions', () => {
+  const st = { units: [unit('sons-of-horus', 'tactical-squad', {}, 0), unit('rangdan', 'hunt-pack', { arkana: 'Iron Chain' }, 1)] };
+  reactions.setup(st);
+  for (const n of ['Reposition', 'Return Fire', 'Overwatch', 'Smokescreen', 'Warrior Pride']) assert.ok(st.reactionSet[0].has(n), n);
+  for (const n of ['The Choir Answers', 'Living Shields', 'The Hunt Closes', 'Moonfall']) assert.ok(st.reactionSet[1].has(n), n);
+  assert.ok(!st.reactionSet[1].has('Warrior Pride'));
+  assert.ok(st.units[0].models.every((m) => m.traits.includes('Sons of Horus')));
+  // buffs from reactions stack and wear off with their phase
+  const u = st.units[0];
+  reactions.addBuff(u, { tough: 1 }, 'phase'); reactions.addBuff(u, { shrouded: 5 }, 'attack');
+  assert.deepEqual([u.buff.tough, u.buff.shrouded], [1, 5]);
+  reactions.clearBuffs(st, 'attack');
+  assert.deepEqual([u.buff.tough, u.buff.shrouded], [1, 7]);
+  reactions.clearBuffs(st, 'phase');
+  assert.equal(u.buff, null);
+});
+
+test('gambits: Rangda, Long Hunt and Slaugth models get their own', () => {
+  const names = (u) => gambits.available(u.models[0]).map((g) => g.name);
+  assert.ok(names(unit('rangdan', 'hunt-pack', { arkana: 'Iron Chain' })).includes("Hunter's Stare"));
+  assert.ok(!names(unit('sons-of-horus', 'tactical-squad')).length);
+  const th = gambits.GAMBITS.find((g) => g.name === 'Throat-Hunter').make(null, {}, { u: { statuses: new Set(['Pinned']) } });
+  assert.deepEqual(th.extraRules({ AP: 3 }), ['Breaching (4+)']);
+  assert.deepEqual(th.extraRules({ AP: 2 }), ['Shred (6+)']);
+  assert.equal(th.focus, 1);
+});
+
+test('a full battle runs, is repeatable by seed, and uses reactions and psychic powers', () => {
+  const a = path.join(LISTS, 'rangdan.json'), b = path.join(LISTS, 'sons-of-horus.json');
+  const r1 = runBattle(a, b, { seed: 7, log: true });
+  const r2 = runBattle(a, b, { seed: 7, log: true });
+  assert.deepEqual(r1.vp, r2.vp);
+  assert.equal(r1.log.length, r2.log.length);
+  assert.ok(r1.log.some((l) => /Battle Turn 5/.test(l)));
+  const used = [...Object.keys(r1.reactions[0]), ...Object.keys(r1.reactions[1])];
+  assert.ok(used.length >= 3, used.join());
+  const orks = runBattle(path.join(LISTS, 'orks-weirdboys.json'), b, { seed: 1 });
+  assert.ok(orks.vp.every((v) => v >= 0));
+});

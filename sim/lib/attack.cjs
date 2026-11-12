@@ -2,6 +2,7 @@
 // Attack resolution: Hit Tests, Wound Tests or Armour Penetration, saves, Damage Mitigation and damage, for both
 // Shooting Attacks and Strike Groups in combat. Rule wording follows the HH3 texts in data/bsdata/common.json.
 const { num, save, xOf, argOf, has, rel, hitNeedBS, hitNeedWS, woundNeed } = require('./rules.cjs');
+const core = require('./core.cjs');
 
 const STATUSES = ['Pinned', 'Suppressed', 'Stunned', 'Routed'];
 
@@ -40,69 +41,99 @@ function armourFacing(target, from) {
 function resolveGroup(g, target, ctx) {
   const { dice } = ctx;
   const rules = g.rules || [];
-  const out = { hits: 0, wounds: 0, unsaved: 0, damage: 0, kills: 0, killed: [], shockRolls: 0, precisionHits: 0 };
+  const out = { hits: 0, wounds: 0, unsaved: 0, damage: 0, kills: 0, killed: [], shockRolls: 0, precisionHits: 0, vehicleStatuses: [], misfires: 0 };
+  const psychic = (g.weaponTraits || []).includes('Psychic'), immaterial = (g.weaponTraits || []).includes('Immaterial');
   const rend = xOf(rules, 'Rending'), breach = xOf(rules, 'Breaching'), shred = xOf(rules, 'Shred'), poison = xOf(rules, 'Poisoned');
   const precision = xOf(rules, 'Precision');
   let crit = xOf(rules, 'Critical Hit');
   if (ctx.preyCrit) crit = crit ? Math.min(crit, ctx.preyCrit) : ctx.preyCrit;
-  const bane = has(rules, 'Armourbane');
+  const melta = xOf(rules, 'Melta');
+  const inMelta = melta != null && ctx.range != null && ctx.range <= melta;
+  const bane = has(rules, 'Armourbane') || inMelta;
+  const murderous = xOf(rules, 'Murderous'), bypass = xOf(rules, 'Bypass');
   const vehicleTarget = target.models.some((m) => m.wounds > 0 && m.vehicle);
   for (let i = 0; i < g.attacks; i++) {
     const t = target.models.find((m) => m.wounds > 0);
     if (!t) break;
+    // Glorious Martyrdom: once the chosen model falls, the rest of the Fire Group is discarded
+    if (ctx.martyr && ctx.martyr.wounds <= 0) break;
     // ---- hit ----
     let nat = 6;
     if (g.hitNeed != null) {
       nat = dice.d6();
-      if (nat < g.hitNeed && !(g.snap && nat === 6)) continue;
+      // Overload (X): an unmodified Hit Test of X or less is a Misfire, hit or miss (CONFIRMED)
+      if (g.overload && nat <= g.overload) out.misfires++;
+      if (nat < g.hitNeed) continue;
     }
-    out.hits++;
-    if (nat >= 5) out.shockRolls++;
-    const isPrecision = precision && nat >= precision && g.hitNeed != null;
-    if (isPrecision) out.precisionHits++;
-    const victim = pickModel(target, isPrecision);
-    if (!victim) break;
-    let autoWound = false, extraD = 0, wroll = 6;
-    if (g.hitNeed != null && crit && nat >= crit) { autoWound = true; extraD = 1; } else if (g.hitNeed != null && rend && nat >= rend && !victim.vehicle) autoWound = true;
-    // ---- vehicles: Armour Penetration ----
-    if (victim.vehicle) {
-      const av = armourFacing(target, g.from || target);
-      const pen = g.S + dice.d6();
-      let pens = pen > av || (bane && pen >= av);
-      const glance = !pens && pen === av;
-      if (!pens && !glance) continue;
+    // Blast (X): one Hit Test, and every model under the marker takes a hit (CONFIRMED); a miss scatters away
+    // (ASSUMPTION: a scattered marker hits nothing)
+    for (let rep = 0; rep < (g.blastN || 1); rep++) {
+      if (ctx.martyr && ctx.martyr.wounds <= 0) break;
+      out.hits++;
+      if (nat >= 5) out.shockRolls++;
+      const isPrecision = precision && nat >= Math.max(precision, ctx.precisionMin || 0) && g.hitNeed != null;
+      if (isPrecision) out.precisionHits++;
+      const victim = ctx.martyr && ctx.martyr.wounds > 0 ? ctx.martyr : pickModel(target, isPrecision);
+      if (!victim) break;
+      // Anathema: Psychic Weapons have no effect on the model (CONFIRMED)
+      if (psychic && has(victim.rules, 'Anathema')) continue;
+      let autoWound = false, extraD = 0, wroll = 6;
+      if (g.hitNeed != null && crit && nat >= crit) { autoWound = true; extraD = 1; } else if (g.hitNeed != null && rend && nat >= rend && !victim.vehicle) autoWound = true;
+      // ---- vehicles: Armour Penetration ----
+      if (victim.vehicle) {
+        const av = armourFacing(target, g.from || target);
+        const pen = g.S + dice.d6();
+        const pens = pen > av || (bane && pen >= av);
+        const glance = !pens && pen === av;
+        if (!pens && !glance) continue;
+        out.wounds++;
+        const shr = Math.min(ctx.shrouded || 7, target.buff?.shrouded || 7, xOf(victim.rules, 'Shrouded') || 7);
+        if (!g.melee && shr <= 6 && dice.d6() >= shr) continue;
+        out.unsaved++;
+        if (pens) {
+          // a Penetrating Hit removes Hull Points equal to its Damage (doubled by Melta in range)
+          applyDamage(victim, Math.max(1, (g.D + extraD) * (inMelta ? 2 : 1)), target, out, ctx);
+        } else if (/Super-[Hh]eavy|Flyer/.test(victim.unitType)) {
+          // Super-Heavy and Flyer: no roll on the Vehicle Damage Table, the model loses a single Hull Point
+          applyDamage(victim, 1 + (has(victim.rules, 'Third-Line') ? 1 : 0), target, out, ctx);
+        } else {
+          // a Glancing Hit rolls on the Vehicle Damage Table (resolved at the end of the attack)
+          out.vehicleStatuses.push(core.vehicleDamage(dice));
+          if (has(victim.rules, 'Third-Line')) applyDamage(victim, 1, target, out, ctx);
+        }
+        continue;
+      }
+      // ---- wound ----
+      if (!autoWound) {
+        wroll = dice.d6();
+        let need = woundNeed(g.S, num(victim.p.T, 4) + (target.buff?.tough || 0));
+        if (ctx.hatred) need = Math.max(2, need - 1);
+        const ok = (need <= 6 && wroll >= need) || (poison && wroll >= poison);
+        if (!ok) continue;
+        // Anathema: Immaterial weapons wound only on a 5+ (INFERRED from the rule's summary line)
+        if (immaterial && has(victim.rules, 'Anathema') && wroll < 5) continue;
+      }
       out.wounds++;
-      const dmg = pens ? Math.max(1, g.D + extraD) : 1;
-      // penetrating hits use the weapon's Damage; a glancing hit costs one Hull Point
-      applyDamage(victim, dmg, target, out, ctx);
+      let ap = g.AP;
+      if (breach && wroll >= breach) ap = 2;
+      if (shred && wroll >= shred) extraD += 1;
+      const through = bypass && wroll >= bypass;
+      // ---- save: the best of Armour, Invulnerable and Cover ----
+      if (!through) {
+        const arm = save(victim.p.SAV), inv = save(victim.p.INV);
+        let best = Math.min(ap <= arm ? 7 : arm, inv);
+        if (ctx.coverSave && !g.melee) best = Math.min(best, ctx.coverSave);
+        if (best <= 6 && dice.d6() >= best) continue;
+        // ---- damage mitigation: Feel No Pain, Shrouded against shooting ----
+        const fnp = Math.min(xOf(victim.rules, 'Feel No Pain') || 7, target.buff?.fnp || 7, psychic ? xOf(victim.rules, 'Adamantium Will') || 7 : 7, has(victim.rules, 'Worm Gestalt') && !(g.weaponTraits || []).includes('Flame') && !has(rules, 'Aflame') ? 5 : 7,
+          !g.melee ? Math.min(xOf(victim.rules, 'Shrouded') || 7, ctx.shrouded || 7, target.buff?.shrouded || 7) : 7);
+        if (fnp <= 6 && dice.d6() >= fnp) continue;
+      }
       out.unsaved++;
-      continue;
+      const ew = murderous && wroll >= murderous ? 0 : Math.max(xOf(victim.rules, 'Eternal Warrior') || 0, target.buff?.ew || 0);
+      const dmg = ew ? Math.max(1, g.D + extraD - ew) : g.D + extraD;
+      applyDamage(victim, dmg, target, out, ctx);
     }
-    // ---- wound ----
-    if (!autoWound) {
-      wroll = dice.d6();
-      let need = woundNeed(g.S, num(victim.p.T, 4));
-      if (ctx.hatred) need = Math.max(2, need - 1);
-      const ok = (need <= 6 && wroll >= need) || (poison && wroll >= poison);
-      if (!ok) continue;
-    }
-    out.wounds++;
-    let ap = g.AP;
-    if (breach && wroll >= breach) ap = 2;
-    if (shred && wroll >= shred) extraD += 1;
-    // ---- save ----
-    const arm = save(victim.p.SAV), inv = save(victim.p.INV);
-    let best = Math.min(ap <= arm ? 7 : arm, inv);
-    if (ctx.coverSave && !g.melee) best = Math.min(best, ctx.coverSave);
-    if (best <= 6 && dice.d6() >= best) continue;
-    // ---- damage mitigation: Feel No Pain, Shrouded against shooting ----
-    const fnp = Math.min(xOf(victim.rules, 'Feel No Pain') || 7, has(victim.rules, 'Worm Gestalt') && !(g.weaponTraits || []).includes('Flame') && !has(rules, 'Aflame') ? 5 : 7,
-      !g.melee ? (xOf(victim.rules, 'Shrouded') || 7) : 7);
-    if (fnp <= 6 && dice.d6() >= fnp) continue;
-    out.unsaved++;
-    const ew = xOf(victim.rules, 'Eternal Warrior');
-    const dmg = ew ? Math.max(1, g.D + extraD - ew) : g.D + extraD;
-    applyDamage(victim, dmg, target, out, ctx);
   }
   return out;
 }
@@ -122,7 +153,7 @@ function applyDamage(model, dmg, unit, out, ctx) {
 function rangedGroup(model, w, target, opts) {
   const rules = w.specialRules || [];
   const stationary = opts.stationary;
-  let FP = num(w.FP, 1) * (w.count || 1);
+  let FP = (num(w.FP, 1) + (opts.fpBonus || 0)) * (w.count || 1);
   let S = num(w.RS, 4), AP = num(w.AP, 7), D = Math.max(1, num(w.D, 1));
   let BS = num(model.p.BS, 4);
   const heavy = argOf(rules, 'Heavy'), ord = argOf(rules, 'Ordnance');
@@ -130,23 +161,24 @@ function rangedGroup(model, w, target, opts) {
   if (stationary && ord) { if (ord === 'FP') FP *= 2; else if (ord === 'S') S *= 2; else if (ord === 'D') D *= 2; else if (ord === 'AP') AP = 2; }
   const aliveN = target.models.filter((m) => m.wounds > 0).length;
   const vehicleTarget = target.models.some((m) => m.wounds > 0 && m.vehicle);
-  let attacks = FP, hitNeed = hitNeedBS(BS + (opts.bsMod || 0));
+  let attacks = FP, hitNeed = hitNeedBS(BS + (opts.bsMod || 0)), blastN = 0;
   const snap = !!opts.snap;
-  if (snap) hitNeed = 6;
+  if (snap) hitNeed = Math.max(hitNeed, core.SNAP_HIT);
   if (has(rules, 'Template')) {
     // a flame template catches several models of a packed unit
     attacks = FP * Math.min(aliveN, vehicleTarget ? 1 : 4);
     hitNeed = null;
   } else {
+    // ASSUMPTION: a 3" marker covers 3 models of a packed unit, a 5" marker 5; a vehicle is one model
     const blast = xOf(rules, 'Blast');
-    if (blast) attacks = FP * Math.min(aliveN, vehicleTarget ? 1 : blast >= 5 ? 5 : 3);
+    if (blast) blastN = Math.min(aliveN, vehicleTarget ? 1 : blast >= 5 ? 5 : 3);
   }
-  return { weapon: w, attacks, S, AP, D, hitNeed, snap, rules, melee: false, attackerModel: model, weaponTraits: w.traits || [] };
+  return { weapon: w, attacks, blastN, S, AP, D, hitNeed, snap, rules, melee: false, attackerModel: model, weaponTraits: w.traits || [] };
 }
 
 /** A model's melee attacks with a weapon (Impact on the charge, Reaping Blow when outnumbered). */
 function meleeGroup(model, w, target, opts) {
-  const rules = [...(w.specialRules || [])];
+  const rules = w.specialRules || [];
   let A = Math.max(1, rel(w.AM, num(model.p.A, 1)));
   let S = rel(w.SM, num(model.p.S, 4));
   let ws = num(model.p.WS, 4);
@@ -154,9 +186,10 @@ function meleeGroup(model, w, target, opts) {
     const imps = [argOf(model.rules, 'Impact'), argOf(rules, 'Impact')].filter(Boolean);
     for (const x of imps) { if (x === 'A' || x === 'AM') A += 1; else if (x === 'S' || x === 'SM') S += 1; else if (x === 'WS') ws += 1; }
   }
+  if (opts.mods) { A += opts.mods.attacks || 0; S += opts.mods.str || 0; ws += opts.mods.ws || 0; }
   const reap = Math.max(xOf(model.rules, 'Reaping Blow') || 0, xOf(rules, 'Reaping Blow') || 0);
   if (reap && opts.outnumbered) A += reap;
-  const defWS = num((target.models.find((m) => m.wounds > 0) || target.models[0]).p.WS, 4);
+  const defWS = num((target.models.find((m) => m.wounds > 0) || target.models[0]).p.WS, 4) + (target.buff?.ws || 0);
   return { weapon: w, attacks: A, S, AP: num(w.AP, 7), D: Math.max(1, num(w.D, 1)), hitNeed: hitNeedWS(ws, defWS), rules, melee: true, attackerModel: model, weaponTraits: w.traits || [] };
 }
 
@@ -164,13 +197,14 @@ function meleeGroup(model, w, target, opts) {
 function expectedGroup(g, target, ctx = {}) {
   const t = target.models.find((m) => m.wounds > 0);
   if (!t) return 0;
-  const pHit = g.hitNeed == null ? 1 : Math.max(0, (7 - g.hitNeed) / 6);
+  const pHit = (g.hitNeed == null ? 1 : Math.max(0, (7 - g.hitNeed) / 6)) * (g.blastN || 1);
   if (t.vehicle) {
     const av = num(t.p.SIDE ?? t.p.FRONT, 10);
     let p = 0; for (let r = 1; r <= 6; r++) if (g.S + r > av || (has(g.rules, 'Armourbane') && g.S + r >= av)) p += 1 / 6; else if (g.S + r === av) p += 0.5 / 6;
-    return g.attacks * pHit * p * Math.min(g.D, num(t.p.HP, 1));
+    const shr = g.melee ? 7 : Math.min(xOf(t.rules, 'Shrouded') || 7, target.buff?.shrouded || 7);
+    return g.attacks * pHit * p * Math.min(g.D, num(t.p.HP, 1)) * (shr <= 6 ? (shr - 1) / 6 : 1);
   }
-  const need = woundNeed(g.S, num(t.p.T, 4));
+  const need = woundNeed(g.S, num(t.p.T, 4) + (target.buff?.tough || 0));
   const breach = xOf(g.rules, 'Breaching'), poison = xOf(g.rules, 'Poisoned');
   const arm = save(t.p.SAV), inv = save(t.p.INV);
   let e = 0;
@@ -181,8 +215,8 @@ function expectedGroup(g, target, ctx = {}) {
     if (ctx.coverSave && !g.melee) sv = Math.min(sv, ctx.coverSave);
     e += (1 / 6) * (sv <= 6 ? (sv - 1) / 6 : 1);
   }
-  const fnp = Math.min(xOf(t.rules, 'Feel No Pain') || 7, has(t.rules, 'Worm Gestalt') ? 5 : 7, !g.melee ? (xOf(t.rules, 'Shrouded') || 7) : 7);
-  const ew = xOf(t.rules, 'Eternal Warrior');
+  const fnp = Math.min(xOf(t.rules, 'Feel No Pain') || 7, target.buff?.fnp || 7, has(t.rules, 'Worm Gestalt') ? 5 : 7, !g.melee ? Math.min(xOf(t.rules, 'Shrouded') || 7, target.buff?.shrouded || 7) : 7);
+  const ew = Math.max(xOf(t.rules, 'Eternal Warrior') || 0, target.buff?.ew || 0);
   const d = Math.min(num(t.p.W, 1), ew ? Math.max(1, g.D - ew) : g.D);
   return g.attacks * pHit * e * (fnp <= 6 ? (fnp - 1) / 6 : 1) * d;
 }

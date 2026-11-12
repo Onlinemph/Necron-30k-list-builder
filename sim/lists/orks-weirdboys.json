@@ -1,0 +1,155 @@
+{
+ "version": 2,
+ "faction": "orks",
+ "name": "Weirdboy test mob",
+ "pointsLimit": 3000,
+ "sequelae": [],
+ "config": {},
+ "detachments": [
+  {
+   "kind": "primary",
+   "name": "Primary",
+   "slots": [
+    {
+     "role": "High Command",
+     "unit": {
+      "unitId": "ork-warboss",
+      "counts": {
+       "Warboss": 1,
+       "Warboss on Warbike": 0
+      },
+      "options": {}
+     }
+    },
+    {
+     "role": "Elites",
+     "unit": {
+      "unitId": "weirdboy",
+      "counts": {
+       "Weirdboy": 1
+      },
+      "options": {}
+     }
+    },
+    {
+     "role": "Elites",
+     "unit": {
+      "unitId": "weirdboy",
+      "counts": {
+       "Weirdboy": 1
+      },
+      "options": {}
+     }
+    },
+    {
+     "role": "Troops",
+     "unit": {
+      "unitId": "slugga-boyz-mob",
+      "counts": {
+       "Slugga Boy": 10,
+       "Slugga Nob": 0
+      },
+      "options": {}
+     }
+    },
+    {
+     "role": "Troops",
+     "unit": {
+      "unitId": "slugga-boyz-mob",
+      "counts": {
+       "Slugga Boy": 10,
+       "Slugga Nob": 0
+      },
+      "options": {}
+     }
+    },
+    {
+     "role": "Troops",
+     "unit": {
+      "unitId": "slugga-boyz-mob",
+      "counts": {
+       "Slugga Boy": 10,
+       "Slugga Nob": 0
+      },
+      "options": {}
+     }
+    },
+    {
+     "role": "Troops",
+     "unit": {
+      "unitId": "shoota-boyz-mob",
+      "counts": {
+       "Shoota Boy": 10,
+       "Shoota Nob": 0
+      },
+      "options": {}
+     }
+    },
+    {
+     "role": "Elites",
+     "unit": {
+      "unitId": "nobz-mob",
+      "counts": {
+       "Nob": 3
+      },
+      "options": {}
+     }
+    },
+    {
+     "role": "Transport",
+     "unit": {
+      "unitId": "trukk",
+      "counts": {
+       "Trukk": 1,
+       "'Ard Case Trukk": 0
+      },
+      "options": {
+       "pintle": "Pintle Mounted big shoota"
+      }
+     }
+    },
+    {
+     "role": "Transport",
+     "unit": {
+      "unitId": "trukk",
+      "counts": {
+       "Trukk": 1,
+       "'Ard Case Trukk": 0
+      },
+      "options": {
+       "pintle": "Pintle Mounted big shoota"
+      }
+     }
+    },
+    {
+     "role": "War Engine",
+     "unit": {
+      "unitId": "deff-dread",
+      "counts": {
+       "Deff Dread": 1
+      },
+      "options": {
+       "deff-dread-klaws": "Paired dread klaws",
+       "deff-dread-ranged-weapons-paired": {
+        "Big shoota": 1
+       },
+       "deff-dread-ranged-weapons-triple": {
+        "Big shoota": 1
+       }
+      }
+     }
+    },
+    {
+     "role": "Heavy Assault",
+     "unit": {
+      "unitId": "meganobz-mob",
+      "counts": {
+       "Meganob": 3
+      },
+      "options": {}
+     }
+    }
+   ]
+  }
+ ]
+}

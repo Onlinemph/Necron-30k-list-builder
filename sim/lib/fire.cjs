@@ -12,8 +12,7 @@ const rangeOf = (w) => (has(w.specialRules, 'Template') || String(w.R).toLowerCa
 function fireLimit(model) {
   const fp = xOf(model.rules, 'Firing Protocols');
   if (fp) return fp;
-  if (model.vehicle) return core.VEHICLE_WEAPONS_PER_ATTACK(model);
-  return 1;
+  return core.weaponsPerModel(model);
 }
 
 /** Value of a point of damage on a unit: its points spread over its wounds, so killing elite models is worth more. */
@@ -29,7 +28,7 @@ const valuePerWound = (u) => {
 function planVolley(shooter, target, state, opts = {}) {
   const d = gap(shooter, target);
   const los = opts.losOK ?? lineOfSight(state.table, shooter, target);
-  const coverSave = opts.coverSave ?? (inCover(state.table, shooter, target) ? core.COVER_SAVE : null);
+  const coverSave = opts.coverSave !== undefined ? opts.coverSave : (!opts.ignoreCover && inCover(state.table, shooter, target) ? core.coverSave(target) : null);
   const picks = [];
   let exp = 0;
   for (const m of shooter.models) {

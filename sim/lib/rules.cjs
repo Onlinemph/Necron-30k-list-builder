@@ -4,23 +4,42 @@
 const num = (v, d = 0) => { const n = parseInt(String(v), 10); return Number.isNaN(n) ? d : n; };
 /** "3+" -> 3; anything without a target number -> 7 (no save). */
 const save = (v) => { const m = String(v ?? '').match(/(\d)\+/); return m ? +m[1] : 7; };
+// Rule lookups run millions of times in a battle, so the patterns are compiled once and the answers are
+// remembered per rule list (rule lists are shared, never edited, so this is safe).
+const patterns = new Map();
+const pattern = (kind, name) => {
+  const k = kind + name;
+  let re = patterns.get(k);
+  if (!re) {
+    re = kind === 'x' ? new RegExp(`^${name}\\s*\\((\\d+)\\+?"?\\)`, 'i') : kind === 'a' ? new RegExp(`^${name}\\s*\\(([^)]*)\\)`, 'i') : new RegExp(`^${name}(\\b|\\s|\\(|$)`, 'i');
+    patterns.set(k, re);
+  }
+  return re;
+};
+const memo = new WeakMap();
+function lookup(rules, kind, name, compute) {
+  if (!rules) return compute();
+  let m = memo.get(rules);
+  if (!m) { m = new Map(); memo.set(rules, m); }
+  const k = kind + name;
+  if (m.has(k)) return m.get(k);
+  const v = compute();
+  m.set(k, v);
+  return v;
+}
 /** The X of a rule like "Pinning (2)" or "Breaching (5+)" in a list of rule strings, or null. */
-const xOf = (rules, name) => {
-  for (const r of rules || []) {
-    const m = String(r).match(new RegExp(`^${name}\\s*\\((\\d+)\\+?\\)`, 'i'));
-    if (m) return +m[1];
-  }
+const xOf = (rules, name) => lookup(rules, 'x', name, () => {
+  const re = pattern('x', name);
+  for (const r of rules || []) { const m = String(r).match(re); if (m) return +m[1]; }
   return null;
-};
+});
 /** The raw X text ("Stunned", "T", "AM"), for rules whose value isn't a number. */
-const argOf = (rules, name) => {
-  for (const r of rules || []) {
-    const m = String(r).match(new RegExp(`^${name}\\s*\\(([^)]*)\\)`, 'i'));
-    if (m) return m[1].trim();
-  }
+const argOf = (rules, name) => lookup(rules, 'a', name, () => {
+  const re = pattern('a', name);
+  for (const r of rules || []) { const m = String(r).match(re); if (m) return m[1].trim(); }
   return null;
-};
-const has = (rules, name) => (rules || []).some((r) => new RegExp(`^${name}(\\b|\\s|\\(|$)`, 'i').test(String(r)));
+});
+const has = (rules, name) => lookup(rules, 'h', name, () => { const re = pattern('h', name); return (rules || []).some((r) => re.test(String(r))); });
 
 // relative characteristics on weapons: "I", "A", "S" mean the model's own value, "+1"/"-2" modify it
 const rel = (v, base) => {

@@ -1,0 +1,245 @@
+{
+ "version": 2,
+ "faction": "sons-of-horus",
+ "name": "Sons of Horus test list",
+ "pointsLimit": 3000,
+ "sequelae": [],
+ "config": {},
+ "detachments": [
+  {
+   "kind": "primary",
+   "name": "Crusade Primary Detachment",
+   "slots": [
+    {
+     "role": "High Command",
+     "unit": {
+      "unitId": "praetor",
+      "counts": {
+       "Praetor": 1
+      },
+      "options": {
+       "praetor-options": [
+        "Power fist",
+        "Volkite serpenta"
+       ]
+      }
+     }
+    },
+    {
+     "role": "Command",
+     "unit": {
+      "unitId": "centurion",
+      "counts": {
+       "Centurion": 1
+      },
+      "options": {
+       "centurion-options": [
+        "Power sword",
+        "Bolt pistol"
+       ]
+      }
+     }
+    },
+    {
+     "role": "Troops",
+     "unit": {
+      "unitId": "tactical-squad",
+      "counts": {
+       "Legionary": 19,
+       "Sergeant": 1
+      },
+      "options": {}
+     }
+    },
+    {
+     "role": "Troops",
+     "unit": {
+      "unitId": "tactical-squad",
+      "counts": {
+       "Legionary": 9,
+       "Sergeant": 1
+      },
+      "options": {}
+     }
+    },
+    {
+     "role": "Troops",
+     "unit": {
+      "unitId": "assault-squad",
+      "counts": {
+       "Legionary": 9,
+       "Sergeant": 1
+      },
+      "options": {
+       "legionary-pistol": {
+        "Bolt pistol": 9
+       }
+      }
+     }
+    },
+    {
+     "role": "Transport",
+     "unit": {
+      "unitId": "rhino",
+      "counts": {
+       "Rhino": 1
+      },
+      "options": {
+       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+      }
+     }
+    },
+    {
+     "role": "Transport",
+     "unit": {
+      "unitId": "rhino",
+      "counts": {
+       "Rhino": 1
+      },
+      "options": {
+       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+      }
+     }
+    },
+    {
+     "role": "Heavy Assault",
+     "unit": {
+      "unitId": "cataphractii-terminator-squad",
+      "counts": {
+       "Cataphractii Terminator": 4,
+       "Cataphractii Terminator Sergeant": 1
+      },
+      "options": {
+       "cataphractii-terminator-options": {
+        "Power fist": 4
+       },
+       "cataphractii-terminator-sergeant-options": [
+        "Power fist",
+        "Combi-bolter"
+       ]
+      }
+     }
+    },
+    {
+     "role": "Elites",
+     "unit": {
+      "unitId": "justaerin-terminator-squad",
+      "counts": {
+       "Justaerin": 5
+      },
+      "options": {
+       "justaerin-options": {
+        "Power axe": 5
+       }
+      }
+     }
+    },
+    {
+     "role": "Support",
+     "unit": {
+      "unitId": "heavy-support-squad",
+      "counts": {
+       "Sergeant": 1,
+       "Legionary": 4
+      },
+      "options": {
+       "unit-legion-heavy-weapons-list": "Lascannon"
+      }
+     }
+    },
+    {
+     "role": "Armour",
+     "unit": {
+      "unitId": "predator",
+      "counts": {
+       "Predator": 1
+      },
+      "options": {
+       "predator-legion-sponson-weapons": "Heavy Bolters"
+      }
+     }
+    },
+    {
+     "role": "Armour",
+     "unit": {
+      "unitId": "predator",
+      "counts": {
+       "Predator": 1
+      },
+      "options": {
+       "predator-legion-sponson-weapons": "Lascannon",
+       "predator-turret": "Twin lascannon"
+      }
+     }
+    },
+    {
+     "role": "Heavy Assault",
+     "unit": {
+      "unitId": "reaver-attack-squad",
+      "counts": {
+       "Reaver Chieftain": 1,
+       "Reaver": 9
+      },
+      "options": {
+       "reaver-chieftain-options": [
+        "Power fist",
+        "Bolt pistol"
+       ],
+       "reaver-options": {
+        "Chainaxe": 9
+       }
+      }
+     }
+    },
+    {
+     "role": "Troops",
+     "unit": {
+      "unitId": "tactical-squad",
+      "counts": {
+       "Legionary": 19,
+       "Sergeant": 1
+      },
+      "options": {}
+     }
+    },
+    {
+     "role": "Support",
+     "unit": {
+      "unitId": "heavy-support-squad",
+      "counts": {
+       "Sergeant": 1,
+       "Legionary": 4
+      },
+      "options": {}
+     }
+    },
+    {
+     "role": "War Engine",
+     "unit": {
+      "unitId": "contemptor-dreadnought",
+      "counts": {
+       "Contemptor Dreadnought": 1
+      },
+      "options": {
+       "unit-1-weapon-option-1": "Kheres assault cannon",
+       "unit-2-weapon-option-2": "Gravis power fist with in-built ranged weapon"
+      }
+     }
+    },
+    {
+     "role": "War Engine",
+     "unit": {
+      "unitId": "contemptor-dreadnought",
+      "counts": {
+       "Contemptor Dreadnought": 1
+      },
+      "options": {
+       "unit-1-weapon-option-1": "Gravis melta cannon",
+       "unit-2-weapon-option-2": "Gravis chainfist with in-built ranged weapon"
+      }
+     }
+    }
+   ]
+  }
+ ]
+}

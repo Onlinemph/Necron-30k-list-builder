@@ -9,6 +9,14 @@ const { createEngine, wkey } = require('../../js/engine.js');
 const { num, xOf, has } = require('./rules.cjs');
 
 const ROOT = path.join(__dirname, '..', '..');
+// BSData Legion lists don't carry the Legion's Trait on each unit, so the army id supplies it
+const LEGION_TRAIT = {
+  'dark-angels': 'Dark Angels', 'emperors-children': "Emperor's Children", 'iron-warriors': 'Iron Warriors', 'white-scars': 'White Scars',
+  'space-wolves': 'Space Wolves', 'imperial-fists': 'Imperial Fists', 'night-lords': 'Night Lords', 'blood-angels': 'Blood Angels',
+  'iron-hands': 'Iron Hands', 'world-eaters': 'World Eaters', 'ultramarines': 'Ultramarines', 'death-guard': 'Death Guard',
+  'thousand-sons': 'Thousand Sons', 'sons-of-horus': 'Sons of Horus', 'word-bearers': 'Word Bearers', 'salamanders': 'Salamanders',
+  'raven-guard': 'Raven Guard', 'alpha-legion': 'Alpha Legion',
+};
 const cache = new Map();
 function loadArmyData(id) {
   if (cache.has(id)) return cache.get(id);
@@ -33,9 +41,10 @@ function readList(src) {
 
 // ---------- weapons ----------
 function weaponIndex(D, common) {
-  const idx = { ranged: new Map(), melee: new Map() };
+  const idx = { ranged: new Map(), melee: new Map(), exactMelee: new Map() };
   for (const kind of ['ranged', 'melee']) {
     for (const w of [...(D.weapons[kind] || []), ...(common.weapons[kind] || [])]) {
+      if (kind === 'melee' && !idx.exactMelee.has(w.name.toLowerCase())) idx.exactMelee.set(w.name.toLowerCase(), w);
       for (const key of [w.name.toLowerCase(), wkey(w.name), wkey(w.name.replace(/\s*\(.*\)\s*$/, ''))]) {
         if (!idx[kind].has(key)) idx[kind].set(key, w);
       }
@@ -55,16 +64,19 @@ const modesOf = (w) => (w.modes && w.modes.length ? w.modes.map((m) => Object.as
 function resolveItem(weapons, item) {
   const out = { ranged: [], melee: [] };
   const look = (name) => {
-    for (const kind of ['ranged', 'melee']) {
-      const w = weapons[kind].get(name.toLowerCase()) || weapons[kind].get(wkey(name)) || weapons[kind].get(wkey(name).replace(/^twin(-linked)? /, ''));
-      if (w) out[kind].push(...modesOf(w));
-    }
+    const r = weapons.ranged.get(name.toLowerCase()) || weapons.ranged.get(wkey(name)) || weapons.ranged.get(wkey(name).replace(/^twin(-linked)? /, ''));
+    if (r) out.ranged.push(...modesOf(r));
+    // an item that is a gun only counts as a melee weapon if a melee profile has exactly its name
+    // (so a "Bolter" doesn't pick up "Bolter with Bayonet")
+    const m = r ? weapons.exactMelee.get(name.toLowerCase()) : weapons.melee.get(name.toLowerCase()) || weapons.melee.get(wkey(name)) || weapons.melee.get(wkey(name).replace(/^twin(-linked)? /, ''));
+    if (m) out.melee.push(...modesOf(m));
   };
   look(item);
   // a paired item ("Eternity Blade and Praesidium Shield", "Bolter and bolt pistol") is looked up part by part
   if (!out.ranged.length && !out.melee.length && / and /i.test(item)) for (const part of item.split(/ and /i)) look(part);
   return out;
 }
+const DISCIPLINES = /^(Biomancy|Divination|Pyromancy|Telekinesis|Telepathy|Thaumaturgy|Anathemata|Malignant|Navis Astrologis|Fateweaving|Stormcalling|Runecasting|Power of the Waaagh!)$/;
 const CCW = { name: 'Close combat weapon', base: 'Close combat weapon', IM: 'I', AM: 'A', SM: 'S', AP: '–', D: 1, specialRules: [], traits: [] };
 
 // ---------- footprint ----------
@@ -108,25 +120,29 @@ function buildUnit(armyId, list, slot, detachment, side) {
     }
     const p = r.profile;
     const vehicle = isVehicleProfile(p);
-    if (!vehicle && p.WS != null && !melee.length) melee.push(CCW);
+    const traits = [...new Set([...(r.traits || []), ...(def.traits || []), ...(LEGION_TRAIT[armyId] ? [LEGION_TRAIT[armyId]] : [])])];
+    // every model can fight with a basic close combat profile; grenades that only hurt vehicles don't count
+    if (!vehicle && p.WS != null && !melee.some((w) => !has(w.specialRules, 'Detonation'))) melee.push(CCW);
     for (let i = 0; i < r.count; i++) {
       models.push({
-        name: r.name, p, rules: r.rules || [], unitType: r.unitType || '', vehicle,
+        name: r.name, p, rules: r.rules || [], unitType: r.unitType || '', vehicle, traits,
         wounds: vehicle ? num(p.HP, 1) : num(p.W, 1), maxWounds: vehicle ? num(p.HP, 1) : num(p.W, 1),
         ranged, melee, sergeant: /Sergeant|Command|Champion|Alpha/.test(r.unitType || '') || /Alpha|Sergeant|Champion|Exemplar|Prefector|Headsman|Huntmaster/.test(r.name),
       });
     }
   }
   const rules = [...new Set(models.flatMap((m) => m.rules))];
+  const unitTraits = [...new Set(models.flatMap((m) => m.traits))];
   const unitType = models[0] ? models[0].unitType : '';
   const capacity = models.reduce((t, m) => t + num(m.p.CAPACITY, 0), 0);
   const unit = {
     uid: nextUnit++, side, armyId, id: def.id, name: def.name, role: slot.role || def.role, pts: E.unitPoints(s, slot),
-    traits: rows[0] ? rows[0].traits || def.traits || [] : def.traits || [], rules, unitType, models,
+    traits: unitTraits, legion: LEGION_TRAIT[armyId] || null, rules, unitType, models,
     prime: !!slot.prime, primeAdvantage: sel.primeAdvantage || null, detachment: detachment.name,
     vehicle: models.every((m) => m.vehicle), capacity, passengers: [], embarkedIn: null,
     x: 0, y: 0, r: 0, statuses: new Set(), lockedWith: new Set(), reserve: null, arrived: true, destroyed: false,
-    warlord: false, psyker: has(rules, 'Psyker') || (rows[0] && (rows[0].traits || []).includes('Psyker')),
+    // a Psyker has the Trait, or a Psychic Discipline taken as wargear
+    warlord: false, psyker: has(rules, 'Psyker') || unitTraits.includes('Psyker') || rows.some((r) => r.items.some((i) => DISCIPLINES.test(i))),
     turn: {},
   };
   unit.r = footprint(unit);
@@ -159,4 +175,4 @@ const alive = (u) => u.models.filter((m) => m.wounds > 0);
 const isDestroyed = (u) => !u.models.some((m) => m.wounds > 0);
 const unitPointsLeft = (u) => u.pts * (alive(u).length / u.models.length);
 
-module.exports = { loadArmyData, readList, buildArmy, buildUnit, footprint, alive, isDestroyed, unitPointsLeft, resolveItem, itemCount, CCW };
+module.exports = { LEGION_TRAIT, loadArmyData, readList, buildArmy, buildUnit, footprint, alive, isDestroyed, unitPointsLeft, resolveItem, itemCount, CCW };

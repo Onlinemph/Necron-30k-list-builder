@@ -88,7 +88,8 @@ function moveToward(table, unit, target, budget, blockers = []) {
     const nx = x + ux * step, ny = y + uy * step;
     const p = { x: nx, y: ny };
     if (table.pieces.some((r) => r.impassable && inside(p, r))) break;
-    if (blockers.some((b) => Math.hypot(b.x - nx, b.y - ny) < b.r + unit.r - 0.01)) break;
+    // a unit may slide past or away from what it touches, but not push further into it
+    if (blockers.some((b) => { const dn = Math.hypot(b.x - nx, b.y - ny); return dn < b.r + unit.r - 0.01 && dn < Math.hypot(b.x - x, b.y - y) - 0.01; })) break;
     const cost = table.pieces.some((r) => r.difficult && inside(p, r)) && !unit.ignoresTerrain ? 2 * step : step;
     if (used + cost > budget + 1e-9) break;
     used += cost; travelled += step; x = nx; y = ny;

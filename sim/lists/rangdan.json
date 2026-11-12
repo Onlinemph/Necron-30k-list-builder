@@ -1,0 +1,266 @@
+{
+ "version": 2,
+ "faction": "rangdan",
+ "name": "The Silent Choir Descends",
+ "pointsLimit": 3000,
+ "sequelae": [],
+ "config": {},
+ "detachments": [
+  {
+   "kind": "primary",
+   "name": "Crusade Primary Detachment",
+   "slots": [
+    {
+     "role": "High Command",
+     "unit": {
+      "unitId": "hunt-sovereign",
+      "counts": {
+       "Hunt-Sovereign": 1
+      },
+      "arkana": "Silent Choir"
+     }
+    },
+    {
+     "role": "Command",
+     "prime": true,
+     "unit": {
+      "unitId": "collar-wright",
+      "counts": {
+       "Collar-Wright": 1
+      },
+      "arkana": "Iron Chain"
+     }
+    },
+    {
+     "role": "Command",
+     "unit": {
+      "unitId": "rangda-huntmaster",
+      "counts": {
+       "Huntmaster": 1
+      },
+      "arkana": "Silent Choir"
+     }
+    },
+    {
+     "role": "Command",
+     "unit": {
+      "unitId": "slaugth-dream-eater",
+      "counts": {
+       "Dream-Eater": 1
+      }
+     }
+    },
+    {
+     "role": "Troops",
+     "prime": true,
+     "unit": {
+      "unitId": "thrall-cohort",
+      "counts": {
+       "Thrall": 40
+      },
+      "options": {
+       "heavy": {
+        "Autocannon": 2
+       }
+      },
+      "arkana": "Iron Chain",
+      "primeAdvantage": "Collared Legion"
+     }
+    },
+    {
+     "role": "Troops",
+     "unit": {
+      "unitId": "collared-auxilia",
+      "counts": {
+       "Collared Auxiliary": 20
+      },
+      "arkana": "Iron Chain"
+     }
+    },
+    {
+     "role": "Troops",
+     "unit": {
+      "unitId": "thrall-cohort",
+      "counts": {
+       "Thrall": 20
+      },
+      "arkana": "Iron Chain"
+     }
+    },
+    {
+     "role": "Troops"
+    },
+    {
+     "role": "Transport",
+     "unit": {
+      "unitId": "tendril-barge",
+      "counts": {
+       "Tendril Barge": 1
+      },
+      "arkana": "Silent Choir"
+     }
+    },
+    {
+     "role": "Transport"
+    },
+    {
+     "role": "Transport"
+    },
+    {
+     "role": "Transport"
+    }
+   ]
+  },
+  {
+   "kind": "auxiliary",
+   "name": "The Choir's Hunt",
+   "slots": [
+    {
+     "role": "Elites",
+     "unit": {
+      "unitId": "hunt-pack",
+      "counts": {
+       "Rangda Hunter": 5
+      },
+      "options": {
+       "sidearm": {
+        "Shadow Blaster": 2
+       }
+      },
+      "arkana": "Silent Choir"
+     }
+    },
+    {
+     "role": "Elites",
+     "unit": {
+      "unitId": "hunt-pack",
+      "counts": {
+       "Rangda Hunter": 3,
+       "Pack-Alpha": 0
+      },
+      "arkana": "Silent Choir"
+     }
+    },
+    {
+     "role": "Recon",
+     "unit": {
+      "unitId": "rangdan-mimics",
+      "counts": {
+       "Mimic": 3,
+       "Mimic-Alpha": 0
+      },
+      "arkana": "Silent Choir"
+     }
+    },
+    {
+     "role": "Recon"
+    }
+   ],
+   "defId": "the-choirs-hunt"
+  },
+  {
+   "kind": "auxiliary",
+   "name": "The Carrion Court",
+   "slots": [
+    {
+     "role": "Elites",
+     "unit": {
+      "unitId": "slaugth-kindred",
+      "counts": {
+       "Slaugth": 3
+      }
+     }
+    },
+    {
+     "role": "Elites"
+    },
+    {
+     "role": "Fast Attack"
+    },
+    {
+     "role": "War Engine",
+     "unit": {
+      "unitId": "slaugth-harvester",
+      "counts": {
+       "Harvester": 1
+      }
+     }
+    },
+    {
+     "role": "Transport",
+     "unit": {
+      "unitId": "charnel-barge",
+      "counts": {
+       "Charnel Barge": 1
+      }
+     }
+    }
+   ],
+   "defId": "the-carrion-court"
+  },
+  {
+   "kind": "auxiliary",
+   "name": "The Hunt",
+   "slots": [
+    {
+     "role": "Elites"
+    },
+    {
+     "role": "Elites"
+    },
+    {
+     "role": "Recon"
+    },
+    {
+     "role": "Support",
+     "unit": {
+      "unitId": "shadow-lancers",
+      "counts": {
+       "Shadow Lancer": 3,
+       "Lance-Alpha": 0
+      },
+      "arkana": "Burning Sky"
+     }
+    },
+    {
+     "role": "Transport"
+    }
+   ],
+   "defId": "the-hunt"
+  },
+  {
+   "kind": "apex",
+   "name": "Shoal of Iron",
+   "slots": [
+    {
+     "role": "Armour",
+     "prime": true,
+     "unit": {
+      "unitId": "iron-medusa",
+      "counts": {
+       "Iron Medusa": 1
+      },
+      "options": {
+       "turret": "Turret Mounted Shadow Lance Array"
+      },
+      "arkana": "Burning Sky"
+     }
+    },
+    {
+     "role": "Armour"
+    },
+    {
+     "role": "Fast Attack",
+     "unit": {
+      "unitId": "shadow-kite",
+      "counts": {
+       "Shadow Kite": 1
+      },
+      "arkana": "Burning Sky"
+     }
+    }
+   ],
+   "defId": "shoal-of-iron"
+  }
+ ]
+}
