@@ -80,7 +80,12 @@ function chargeSubPhase(state, side) {
       if (near.length && ai.canCharge(u)) { charge(state, u, near[0]); continue; }
       if (!near.length) { u.cond.delete('Lost to the Nails'); require('./reactions.cjs').refresh(u); }
     }
-    const t = ai.chooseCharge(state, u);
+    let t = ai.chooseCharge(state, u);
+    // Long Hunt war-moon: within 12" of an enemy it can see, it must charge if it can
+    if (!t && ai.canCharge(u) && !u.turn.rushed && !u.turn.noCharge && alive(u).every((m) => (m.traits || []).includes('Long Hunt'))) {
+      const near = state.units.filter((e) => e.side !== side && !e.destroyed && e.arrived && !e.embarkedIn && !/Flyer/.test(e.unitType) && gap(u, e) <= 12 && lineOfSight(state.table, u, e)).sort((a, b) => gap(u, a) - gap(u, b));
+      if (near.length) { t = near[0]; state.log(`  ${u.name} must charge (Long Hunt)`); }
+    }
     if (t) charge(state, u, t);
   }
 }
@@ -115,6 +120,8 @@ function bestWeapon(m, target) {
   }
   return best;
 }
+/** Carrion Feast (Rangdan): a wound back for each enemy model removed with a melee attack. */
+const carrionFeast = (m, kills) => { if (kills && m.wounds > 0 && has(m.rules, 'Carrion Feast')) m.wounds = Math.min(m.maxWounds, m.wounds + kills); };
 const hasItem = (u, re) => alive(u).some((m) => (m.items || []).some((i) => re.test(i)));
 const hatredAgainst = (a, b) => { const x = argOf(a.rules, 'Hatred'); return !!x && ((b.traits || []).includes(x) || new RegExp(x).test(b.unitType)); };
 
@@ -236,6 +243,7 @@ function duel(state, A, B, challengerSide, tally) {
       const r = resolveGroup(g, s.tgt, { dice: state.dice, preyCrit: preyCrit(x.u, y.u), hatred: hatredAgainst(x.u, y.u), onKill: (m) => state.onCasualty && state.onCasualty(m, y.u, x.u) });
       inflicted.set(x, inflicted.get(x) + (before - y.m.wounds));
       tally.kills[x.u.side] += r.kills;
+      carrionFeast(x.m, r.kills);
       if (ey.guardUp) guard.set(y, guard.get(y) + Math.max(0, g.attacks - r.hits));
       if (y.m.wounds <= 0 && ex.onKill) ex.onKill(state, x, y);
     }
@@ -289,6 +297,7 @@ function fight(state, c) {
       const g = meleeGroup(s.m, w, t, { charged: s.u.turn.charged, outnumbered: outnumbered(s.u.side), mods: meleeMods(s.u) });
       const r = resolveGroup(g, t, { dice: state.dice, preyCrit: preyCrit(s.u, t), hatred: hatredAgainst(s.u, t), onKill: (m) => state.onCasualty && state.onCasualty(m, t, s.u) });
       tally.kills[s.u.side] += r.kills;
+      carrionFeast(s.m, r.kills);
       for (const st of r.vehicleStatuses) vehicleDamage(state, t, st);
     }
     for (const side of [0, 1]) for (const u of c[side]) if (state.afterDamage) state.afterDamage(u);
@@ -391,8 +400,43 @@ function unlock(u) {
   u.lockedWith.clear();
 }
 
+/**
+ * Collar-master (Rangdan): at the start of the Fight Sub-Phase each master may overload a collared unit within 12"
+ * that is in combat: +1 Strength and Attacks (Iron Chain: +1 WS too) for the phase, then D3 wounds (Iron Chain
+ * D3+1) with no saves. The AI overloads units of five or more models.
+ */
+function collarMasters(state) {
+  const chosen = [];
+  for (const m of state.units) {
+    if (m.destroyed || !m.arrived || m.embarkedIn || !alive(m).some((x) => has(x.rules, 'Collar-master'))) continue;
+    const reach = alive(m).some((x) => (x.items || []).includes('Collar-key of Advex-Mors')) ? 18 : 12;
+    const pick = state.units.filter((u) => u.side === m.side && !u.destroyed && u.lockedWith.size && !chosen.includes(u) && alive(u).length >= 5
+      && alive(u).every((x) => has(x.rules, 'Neural Collars')) && gap(m, u) <= reach).sort((a, b) => alive(b).length - alive(a).length)[0];
+    if (!pick) continue;
+    const iron = alive(pick).every((x) => (x.traits || []).includes('Iron Chain'));
+    require('./reactions.cjs').addBuff(pick, { str: 1, attacks: 1, ws: iron ? 1 : 0 }, 'phase');
+    pick.overloaded = iron ? 'iron' : 'plain';
+    chosen.push(pick);
+    state.log(`  ${m.name} overloads ${pick.name}'s collars (Collar-master)`);
+  }
+  return chosen;
+}
+function overloadCost(state, units) {
+  for (const u of units) {
+    if (u.destroyed) continue;
+    const n = state.dice.d3() + (u.overloaded === 'iron' ? 1 : 0);
+    u.overloaded = null;
+    let lost = 0;
+    for (let i = 0; i < n; i++) { const m = alive(u).find((x) => x.wounds < x.maxWounds) || alive(u)[0]; if (!m) break; m.wounds--; lost++; if (m.wounds <= 0 && state.onCasualty) state.onCasualty(m, u, null); }
+    state.log(`    ${u.name}'s collars burn out: ${lost} wounds`);
+    if (state.afterDamage) state.afterDamage(u);
+  }
+}
+
 function assaultPhase(state, side) {
   chargeSubPhase(state, side);
+  const overloaded = collarMasters(state);
+  state.inFight = true;
   for (const c of combats(state)) {
     state.log(`  Combat: ${c[0].map((u) => u.name).join(', ')} vs ${c[1].map((u) => u.name).join(', ')}`);
     let tally = fight(state, c);
@@ -400,6 +444,8 @@ function assaultPhase(state, side) {
     if (state.reactions && state.reactions.vengeance(state, c, [tally.kills[0] + tally.glory[0], tally.kills[1] + tally.glory[1]])) { state.log('    the combat is fought a second time'); tally = fight(state, c); }
     resolve(state, c, tally);
   }
+  state.inFight = false;
+  overloadCost(state, overloaded);
 }
 
 module.exports = { assaultPhase, charge, chargeSubPhase, combats, fight, resolve, canReact, unlock, duelWith };

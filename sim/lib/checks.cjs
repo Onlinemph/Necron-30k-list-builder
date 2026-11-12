@@ -31,10 +31,31 @@ function fearOn(state, unit) {
   return f;
 }
 
+/**
+ * Neural Collars (Rangdan): a unit made only of collared models is 'near' while any friendly Rangda model is within
+ * 12" (18" for the Iron Chain war-moon), otherwise 'far'; null for anyone else.
+ */
+function collarState(state, unit) {
+  const a = alive(unit);
+  if (!a.length || !a.every((m) => has(m.rules, 'Neural Collars'))) return null;
+  // Iron Chain war-moon and the Collared Legion Prime Advantage: the masters reach 18"
+  const reach = a.every((m) => (m.traits || []).includes('Iron Chain')) || unit.primeAdvantage === 'Collared Legion' ? 18 : 12;
+  const near = state.units.some((r) => r.side === unit.side && r !== unit && !r.destroyed && r.arrived && !r.embarkedIn
+    && alive(r).some((m) => (m.traits || []).includes('Rangda')) && dist(r, unit) - r.r - unit.r <= reach);
+  return near ? 'near' : 'far';
+}
+/** Leadership or Cool for a check, with Neural Collars' 5 when the masters are out of reach. */
+const checkValue = (state, unit, key) => (['LD', 'CL'].includes(key) && collarState(state, unit) === 'far' ? 5 : charOf(unit, key));
+
 /** Make a Characteristic Check: 2D6, pass at or under the modified value (CONFIRMED). */
 function check(state, unit, key, penalty = 0, why = '') {
+  // Neural Collars: near a Rangda model, Leadership and Cool Checks pass automatically
+  if (['LD', 'CL'].includes(key) && collarState(state, unit) === 'near') {
+    if (state.log && why) state.log(`    ${unit.name} ${key} check (${why}): passed automatically (Neural Collars)`);
+    return true;
+  }
   const malefic = isMalefic(unit);
-  const value = charOf(unit, key) - (malefic ? 0 : fearOn(state, unit) + Math.max(0, penalty)) + (penalty < 0 ? -penalty : 0);
+  const value = checkValue(state, unit, key) - (malefic ? 0 : fearOn(state, unit) + Math.max(0, penalty)) + (penalty < 0 ? -penalty : 0);
   const roll = state.dice.twoD6();
   const pass = roll <= value;
   if (state.log && why) state.log(`    ${unit.name} ${key} check${why ? ` (${why})` : ''}: rolled ${roll} against ${value}, ${pass ? 'passed' : 'failed'}`);
@@ -42,7 +63,8 @@ function check(state, unit, key, penalty = 0, why = '') {
 }
 /** Chance to pass, for the AI. */
 function passChance(state, unit, key, penalty = 0) {
-  const value = charOf(unit, key) - (isMalefic(unit) ? 0 : fearOn(state, unit) + penalty);
+  if (['LD', 'CL'].includes(key) && collarState(state, unit) === 'near') return 1;
+  const value = checkValue(state, unit, key) - (isMalefic(unit) ? 0 : fearOn(state, unit) + penalty);
   return p2d6AtMost(value);
 }
 
@@ -104,4 +126,4 @@ function canHold(unit) {
   return !has(unit.rules, 'Heedless');
 }
 
-module.exports = { alive, charOf, fearOn, check, passChance, addStatus, statusCheck, statusImmune, canHold, isMalefic };
+module.exports = { alive, charOf, fearOn, collarState, check, passChance, addStatus, statusCheck, statusImmune, canHold, isMalefic };

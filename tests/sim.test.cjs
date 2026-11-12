@@ -273,3 +273,41 @@ test('each Archetype plays through', () => {
     assert.ok(r.vp[0] + r.vp[1] > 0, m);
   }
 });
+
+test('Rangdan rules: Neural Collars, Medusa Shroud, Burning Sky range', () => {
+  const { check, passChance, collarState } = require('../sim/lib/checks.cjs');
+  const { planVolley } = require('../sim/lib/fire.cjs');
+  const thralls = unit('rangdan', 'thrall-cohort', { arkana: 'Silent Choir' }, 0);
+  const hunters = unit('rangdan', 'hunt-pack', { arkana: 'Silent Choir' }, 0);
+  thralls.x = 10; thralls.y = 10; hunters.x = 20; hunters.y = 10;
+  const st = { units: [thralls, hunters], dice: createDice(1), log: () => {} };
+  // near a Rangda model: Leadership and Cool Checks always pass, even at -10
+  assert.equal(collarState(st, thralls), 'near');
+  for (let i = 0; i < 20; i++) assert.equal(check(st, thralls, 'LD', 10), true);
+  // out of reach (12" for Silent Choir thralls): Leadership and Cool become 5
+  hunters.x = 40;
+  assert.equal(collarState(st, thralls), 'far');
+  assert.ok(Math.abs(passChance(st, thralls, 'CL') - 10 / 36) < 1e-9);
+  // the Iron Chain war-moon reaches 18"
+  const iron = unit('rangdan', 'thrall-cohort', { arkana: 'Iron Chain' }, 0);
+  iron.x = 10; iron.y = 10; hunters.x = 10 + iron.r + hunters.r + 15;
+  assert.equal(collarState({ units: [iron, hunters] }, iron), 'near');
+  // Medusa Shroud: an Iron Medusa saves glancing and penetrating hits from shooting on a 5+
+  const medusa = unit('rangdan', 'iron-medusa', { arkana: 'Iron Chain' }, 1);
+  const g = { attacks: 1, S: 20, AP: 2, D: 1, hitNeed: null, rules: [], melee: false, from: { x: 0, y: -10 } };
+  const s1 = expectedGroup(g, medusa), s2 = expectedGroup(Object.assign({}, g, { melee: true }), medusa);
+  assert.ok(Math.abs(s1 / s2 - 4 / 6) < 1e-9);
+  // Burning Sky: Rangda weapons reach 6" further
+  const lancersBS = unit('rangdan', 'shadow-lancers', { arkana: 'Burning Sky' }, 0);
+  const lancersIC = unit('rangdan', 'shadow-lancers', { arkana: 'Iron Chain' }, 0);
+  const target = unit('sons-of-horus', 'tactical-squad', {}, 1);
+  const at = (u) => { u.x = 0; u.y = 0; target.x = u.r + target.r + 27; target.y = 0; return planVolley(u, target, { table: { pieces: [] } }, { losOK: true }).picks.length; };
+  assert.equal(at(lancersIC), 0);
+  assert.ok(at(lancersBS) > 0);
+});
+
+test('the Iron Wall list loads and plays', () => {
+  const r = runBattle(path.join(LISTS, 'rangdan-iron-wall.json'), path.join(LISTS, 'sons-of-horus-3000.json'), { seed: 2, mission: 'crucial-supplies' });
+  assert.ok(r.vp[0] + r.vp[1] > 0);
+  assert.equal(r.units[0].length, 17);
+});

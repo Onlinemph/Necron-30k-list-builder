@@ -88,6 +88,9 @@ function resolveGroup(g, target, ctx) {
         const glance = !pens && pen === av;
         if (!pens && !glance) continue;
         out.wounds++;
+        // a vehicle's Invulnerable Save, including the Medusa Shroud's 5+ against shooting (Rangdan wargear)
+        const vinv = Math.min(save(victim.p.INV), !g.melee && (victim.items || []).includes('Medusa Shroud') ? 5 : 7);
+        if (vinv <= 6 && dice.d6() >= vinv) continue;
         const shr = Math.min(ctx.shrouded || 7, target.buff?.shrouded || 7, xOf(victim.rules, 'Shrouded') || 7);
         if (!g.melee && shr <= 6 && dice.d6() >= shr) continue;
         out.unsaved++;
@@ -215,7 +218,8 @@ function expectedGroup(g, target, ctx = {}) {
     const av = num(t.p.SIDE ?? t.p.FRONT, 10);
     let p = 0; for (let r = 1; r <= 6; r++) if (g.S + r > av || (has(g.rules, 'Armourbane') && g.S + r >= av)) p += 1 / 6; else if (g.S + r === av) p += 0.5 / 6;
     const shr = g.melee ? 7 : Math.min(xOf(t.rules, 'Shrouded') || 7, target.buff?.shrouded || 7);
-    return g.attacks * pHit * p * Math.min(g.D, num(t.p.HP, 1)) * (shr <= 6 ? (shr - 1) / 6 : 1);
+    const vinv = Math.min(save(t.p.INV), !g.melee && (t.items || []).includes('Medusa Shroud') ? 5 : 7);
+    return g.attacks * pHit * p * Math.min(g.D, num(t.p.HP, 1)) * (shr <= 6 ? (shr - 1) / 6 : 1) * (vinv <= 6 ? (vinv - 1) / 6 : 1);
   }
   const need = woundNeed(g.S, num(t.p.T, 4) + (target.buff?.tough || 0));
   const breach = xOf(g.rules, 'Breaching'), poison = xOf(g.rules, 'Poisoned');

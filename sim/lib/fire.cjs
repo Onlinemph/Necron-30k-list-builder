@@ -6,7 +6,12 @@ const { rangedGroup, expectedGroup } = require('./attack.cjs');
 const { gap, lineOfSight, inCover } = require('./table.cjs');
 const core = require('./core.cjs');
 
-const rangeOf = (w) => (has(w.specialRules, 'Template') || String(w.R).toLowerCase() === 'template' ? core.TEMPLATE_RANGE : num(w.R, 0));
+const rangeOf = (w, m) => {
+  if (has(w.specialRules, 'Template') || String(w.R).toLowerCase() === 'template') return core.TEMPLATE_RANGE;
+  // Burning Sky war-moon: Rangda weapons reach 6" further (Unlimited and Template ranges unchanged)
+  const bonus = m && m.traits && m.traits.includes('Burning Sky') && m.traits.includes('Rangda') ? 6 : 0;
+  return num(w.R, 0) + bonus;
+};
 
 /** How many weapons a model may fire in one Shooting Attack. */
 function fireLimit(model) {
@@ -34,7 +39,7 @@ function planVolley(shooter, target, state, opts = {}) {
   for (const m of shooter.models) {
     if (m.wounds <= 0 || !m.ranged.length) continue;
     const usable = m.ranged.filter((w) => {
-      if (d > rangeOf(w)) return false;
+      if (d > rangeOf(w, m)) return false;
       if (!los && !has(w.specialRules, 'Barrage')) return false;
       if (has(w.specialRules, 'Limited') && (shooter.limitedUsed?.[w.name] || 0) >= xOf(w.specialRules, 'Limited')) return false;
       if (opts.exclude && opts.exclude(w)) return false;

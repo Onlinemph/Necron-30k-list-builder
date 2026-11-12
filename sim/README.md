@@ -89,7 +89,11 @@ Weapon and unit rules handled: Rending, Breaching, Shred, Poisoned, Precision, C
 Murderous, Bypass, Deflagrate, Phage, Shock, Blast (one Hit Test, every model under the marker hit), Template,
 Barrage, Heavy, Ordnance, Limited, Overload (Misfire Groups), Force, Psy-Shock, Impact, Reaping Blow, Hatred,
 Eternal Warrior, Feel No Pain, Shrouded, Fear, Explodes, Malefic, Anathema, Adamantium Will, Vanguard, Line,
-Support Unit, Expendable, Infiltrate, Deep Strike, Outflank, Firestorm, Skyfire, Prey Instinct and Worm Gestalt.
+Support Unit, Expendable, Infiltrate, Deep Strike, Outflank, Firestorm, Skyfire, and the Rangdan army rules:
+Prey Instinct, Neural Collars (automatic Leadership and Cool passes within 12" of a Rangda model, 18" for Iron
+Chain or Collared Legion; Leadership and Cool 5 and no reactions out of reach), Collar-master (overloading a
+collared unit in combat), Horror of the Taken, Worm Gestalt, Carrion Feast, the Medusa Shroud, and the war-moons
+(Burning Sky's +6" range and Long Hunt's forced charge; the builder applies their profile changes).
 Profiles, rules and wargear come from the builder's own engine, so Legion rules, war-moons and wargear options
 apply exactly as they do in the app.
 
@@ -170,6 +174,8 @@ Four sources, marked in the code:
 | Master of the Legion | its extra Reaction Point only while it's on the battlefield |
 | Blast markers | a 3" marker covers 3 models of a packed unit, a 5" marker 5; a missed Blast scatters away harmlessly |
 | Engaged models | every model in a locked unit fights (no 2" engagement or pile-in geometry) |
+| Vehicle saves | vehicles take Invulnerable Saves against Penetrating and Glancing Hits, but not Cover Saves |
+| Collar-master | the AI overloads a collared unit of five or more models that is in combat |
 | Morale after a charge | checks from Overwatch are taken straight after the charge |
 | Disgraced | removed like other statuses, with a Cool Check |
 | Perils names | Ætheric Feedback for the wounds, Warp Rupture for Stunned (Psy-Shock forces Warp Rupture) |
@@ -202,4 +208,4 @@ Reactions made in answer to a reaction (a Return Fire against an Overwatch, say)
 | `lib/gambits.cjs` | gambits for challenges |
 | `lib/ai.cjs` | the decisions: moves, targets, charges, reactions |
 | `lib/core.cjs` | every core-rule number and assumption in one place |
-| `lists/` | sample lists (Rangdan, Sons of Horus, an Ork Weirdboy mob) |
+| `lists/` | sample lists: two Rangdan (`rangdan.json`, the original mixed list, and `rangdan-iron-wall.json`), Sons of Horus at 2585 and 3000 points, an Ork Weirdboy mob |

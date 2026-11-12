@@ -12,7 +12,7 @@ const { num, xOf, has } = require('./rules.cjs');
 const { planVolley, valuePerWound } = require('./fire.cjs');
 const { meleeGroup, expectedGroup, rangedGroup, resolveGroup } = require('./attack.cjs');
 const { gap, dist, lineOfSight, W, H } = require('./table.cjs');
-const { alive, passChance, check, addStatus } = require('./checks.cjs');
+const { alive, passChance, check, addStatus, collarState } = require('./checks.cjs');
 const ai = require('./ai.cjs');
 const core = require('./core.cjs');
 
@@ -68,7 +68,8 @@ function spend(state, side, name, unit) {
 /** Pick the best option worth a reaction point, pay for it, and return it (the caller applies it). */
 function choose(state, side, options, phase) {
   if (state.reactionsLeft[side] <= 0) return null;
-  const ok = options.filter((o) => o && o.value > 0 && available(state, side, o.name) && (!o.unit || canReact(o.unit, o.inCombat)));
+  // Neural Collars: a collared unit out of its masters' reach can't react
+  const ok = options.filter((o) => o && o.value > 0 && available(state, side, o.name) && (!o.unit || (canReact(o.unit, o.inCombat) && collarState(state, o.unit) !== 'far')));
   if (!ok.length) return null;
   const best = ok.reduce((b, o) => (o.value > b.value ? o : b), ok[0]);
   if (!ai.worthReacting(state, side, best.value, phase)) return null;

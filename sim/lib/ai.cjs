@@ -29,7 +29,7 @@ function shootTable(state, a, b) {
   return out;
 }
 const evAt = (table, d) => { let v = 0; for (let i = BANDS.length - 1; i >= 0; i--) if (d <= BANDS[i]) v = table[i]; return v; };
-const maxRange = (u) => Math.max(0, ...alive(u).flatMap((m) => m.ranged.map(rangeOf)));
+const maxRange = (u) => Math.max(0, ...alive(u).flatMap((m) => m.ranged.map((w) => rangeOf(w, m))));
 
 /** Expected points a unit deals in one round of combat against another. */
 function meleeEV(state, a, b) {

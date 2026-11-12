@@ -147,6 +147,13 @@ function destroyed(state, unit, by, fled = false) {
   }
   unit.passengers = [];
   unlock(unit);
+  // Horror of the Taken (Rangdan): destroying a unit in combat forces Leadership Checks on its friends within 6"
+  if (state.inFight && by && by.side !== unit.side && alive(by).some((m) => has(m.rules, 'Horror of the Taken'))) {
+    for (const o of state.units) {
+      if (o.side !== unit.side || o === unit || o.destroyed || !o.arrived || o.embarkedIn || gap(o, unit) > 6) continue;
+      if (!check(state, o, 'LD', 0, 'Horror of the Taken')) addStatus(state, o, 'Routed', 'Horror of the Taken');
+    }
+  }
   // Kill Points, Thin the Ranks, First Strike, Vanguard (scoring.cjs)
   scoring.onDestroyed(state, unit, by && by.side !== unit.side ? by : null);
 }

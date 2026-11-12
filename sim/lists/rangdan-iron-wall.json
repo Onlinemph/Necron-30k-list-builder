@@ -1,0 +1,284 @@
+{
+ "version": 2,
+ "faction": "rangdan",
+ "name": "The Iron Wall",
+ "pointsLimit": 3000,
+ "sequelae": [],
+ "config": {},
+ "detachments": [
+  {
+   "kind": "primary",
+   "name": "Crusade Primary Detachment",
+   "slots": [
+    {
+     "role": "High Command",
+     "unit": {
+      "unitId": "hunt-sovereign",
+      "counts": {
+       "Hunt-Sovereign": 1
+      },
+      "arkana": "Iron Chain"
+     }
+    },
+    {
+     "role": "Command",
+     "prime": true
+    },
+    {
+     "role": "Command",
+     "unit": {
+      "unitId": "broken-centurion",
+      "counts": {
+       "Broken Centurion": 1
+      },
+      "arkana": "Iron Chain"
+     }
+    },
+    {
+     "role": "Command",
+     "unit": {
+      "unitId": "rangda-huntmaster",
+      "counts": {
+       "Huntmaster": 1
+      },
+      "arkana": "Burning Sky"
+     }
+    },
+    {
+     "role": "Troops",
+     "prime": true,
+     "unit": {
+      "unitId": "thrall-cohort",
+      "counts": {
+       "Thrall": 40
+      },
+      "options": {
+       "heavy": {
+        "Autocannon": 2
+       }
+      },
+      "arkana": "Iron Chain",
+      "primeAdvantage": "Collared Legion"
+     }
+    },
+    {
+     "role": "Troops",
+     "unit": {
+      "unitId": "thrall-cohort",
+      "counts": {
+       "Thrall": 40
+      },
+      "options": {
+       "heavy": {
+        "Autocannon": 2
+       }
+      },
+      "arkana": "Iron Chain"
+     }
+    },
+    {
+     "role": "Troops",
+     "unit": {
+      "unitId": "thrall-cohort",
+      "counts": {
+       "Thrall": 40
+      },
+      "arkana": "Iron Chain"
+     }
+    },
+    {
+     "role": "Troops",
+     "unit": {
+      "unitId": "collared-auxilia",
+      "counts": {
+       "Collared Auxiliary": 20
+      },
+      "arkana": "Iron Chain"
+     }
+    },
+    {
+     "role": "Transport"
+    },
+    {
+     "role": "Transport"
+    },
+    {
+     "role": "Transport"
+    },
+    {
+     "role": "Transport"
+    }
+   ]
+  },
+  {
+   "kind": "auxiliary",
+   "name": "The Sky-Burners",
+   "slots": [
+    {
+     "role": "Support",
+     "unit": {
+      "unitId": "shadow-lancers",
+      "counts": {
+       "Shadow Lancer": 3,
+       "Lance-Alpha": 0
+      },
+      "arkana": "Burning Sky"
+     }
+    },
+    {
+     "role": "Support",
+     "unit": {
+      "unitId": "moon-callers",
+      "counts": {
+       "Moon-caller": 3
+      },
+      "options": {
+       "array": {
+        "Moon-caller Lance": 3
+       }
+      },
+      "arkana": "Burning Sky"
+     }
+    },
+    {
+     "role": "Armour",
+     "unit": {
+      "unitId": "iron-medusa",
+      "counts": {
+       "Iron Medusa": 2
+      },
+      "options": {
+       "turret": "Turret Mounted Shadow Lance Array"
+      },
+      "arkana": "Burning Sky"
+     }
+    },
+    {
+     "role": "Armour"
+    },
+    {
+     "role": "Fast Attack",
+     "unit": {
+      "unitId": "shadow-kite",
+      "counts": {
+       "Shadow Kite": 1
+      },
+      "arkana": "Burning Sky"
+     }
+    }
+   ],
+   "defId": "the-sky-burners"
+  },
+  {
+   "kind": "auxiliary",
+   "name": "The Broken Legion",
+   "slots": [
+    {
+     "role": "Troops",
+     "unit": {
+      "unitId": "the-broken",
+      "counts": {
+       "Broken Legionary": 10
+      },
+      "options": {
+       "special": {
+        "Meltagun": 1
+       }
+      },
+      "arkana": "Iron Chain"
+     }
+    },
+    {
+     "role": "Troops"
+    },
+    {
+     "role": "Elites"
+    },
+    {
+     "role": "Heavy Assault"
+    },
+    {
+     "role": "Support",
+     "unit": {
+      "unitId": "broken-heavy-support-squad",
+      "counts": {
+       "Broken Heavy Support Legionary": 5
+      },
+      "options": {
+       "heavy": "Lascannon"
+      },
+      "arkana": "Iron Chain"
+     }
+    },
+    {
+     "role": "War Engine",
+     "unit": {
+      "unitId": "collared-contemptor",
+      "counts": {
+       "Collared Contemptor": 1
+      },
+      "options": {
+       "gun": "Twin lascannon"
+      },
+      "arkana": "Iron Chain"
+     }
+    },
+    {
+     "role": "Armour",
+     "unit": {
+      "unitId": "broken-predator",
+      "counts": {
+       "Broken Predator": 1
+      },
+      "options": {
+       "turret": "Turret Mounted Twin lascannon",
+       "sponsons": "Two Sponson Mounted Lascannons"
+      },
+      "arkana": "Iron Chain"
+     }
+    },
+    {
+     "role": "Transport"
+    }
+   ],
+   "defId": "the-broken-legion"
+  },
+  {
+   "kind": "apex",
+   "name": "Shoal of Iron",
+   "slots": [
+    {
+     "role": "Armour",
+     "prime": true,
+     "unit": {
+      "unitId": "iron-medusa",
+      "counts": {
+       "Iron Medusa": 1
+      },
+      "options": {
+       "turret": "Turret Mounted Shadow Lance Array"
+      },
+      "arkana": "Burning Sky"
+     }
+    },
+    {
+     "role": "Armour",
+     "unit": {
+      "unitId": "iron-medusa",
+      "counts": {
+       "Iron Medusa": 1
+      },
+      "options": {
+       "turret": "Turret Mounted Shadow Lance Array"
+      },
+      "arkana": "Burning Sky"
+     }
+    },
+    {
+     "role": "Fast Attack"
+    }
+   ],
+   "defId": "shoal-of-iron"
+  }
+ ]
+}
