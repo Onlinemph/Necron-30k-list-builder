@@ -1,11 +1,13 @@
 'use strict';
-// One battle between two lists, turn by turn: deployment, then each Battle Turn's Player Turns with their
-// Start, Movement, Shooting, Assault and End Phases, reactions from the other side, objective scoring and
-// secondary objectives. Returns the result and a readable log.
+// One battle between two lists, following the Core Mission Sequence of the Core Mission Pack: Imperium at War
+// (MISSION): select the mission, prepare the battlefield, deploy objectives, select the Deployment Map, declare
+// Reserves, deploy, play five Battle Turns (a sixth on a 4+), and decide the victor. Each Player Turn has its
+// Start, Movement, Shooting, Assault and End Phases, with reactions from the other side. Returns the result and a
+// readable log.
 const { num, xOf, has } = require('./rules.cjs');
 const { createDice } = require('./dice.cjs');
 const { makeTable, gap, dist, inside, lineOfSight, W, H } = require('./table.cjs');
-const { setupMission, zone } = require('./mission.cjs');
+const { setupMission, rollMission, fits, touches } = require('./mission.cjs');
 const { buildArmy, footprint } = require('./army.cjs');
 const { alive, check, addStatus, canHold, charOf } = require('./checks.cjs');
 const { shootingAttack, moraleSubPhase } = require('./shoot.cjs');
@@ -15,49 +17,81 @@ const ai = require('./ai.cjs');
 const core = require('./core.cjs');
 const reactions = require('./reactions.cjs');
 const psychic = require('./psychic.cjs');
+const scoring = require('./scoring.cjs');
 
+/**
+ * opts: { seed, log, mission: id | 'random', deployment: id | 'random', variant: 'escalation' | 'hammerblow' }
+ */
 function runBattle(listA, listB, opts = {}) {
   const dice = createDice(opts.seed ?? 1);
-  const table = makeTable(dice, opts.table);
-  const mission = setupMission(opts.mission || 'standard', table);
+  // 1. Select Core Mission (a D3 for the Archetype, a D3 for the Mission, unless one is given)
+  const missionId = !opts.mission || opts.mission === 'random' ? rollMission(dice) : opts.mission;
+  // 3. Prepare the Battlefield (Supply Road: no terrain in Sector 3)
+  const table = makeTable(dice, { forbid: missionId === 'secure-the-highway' ? [{ x: 0, y: 20, w: W, h: 8 }] : [] });
+  // 4-5. Deploy Objectives, select the Deployment Map
+  const mission = setupMission(dice, table, { mission: missionId, deployment: opts.deployment, variant: opts.variant });
+  // 2. Select Armies
   const armies = [buildArmy(listA, 0), buildArmy(listB, 1)];
   const lines = [];
   const state = {
     dice, table, mission, armies, units: [...armies[0].units, ...armies[1].units],
     round: 0, active: 0, turnsLeft: mission.turns, vp: [0, 0], pendingMorale: [],
     cache: { shoot: new Map(), melee: new Map() }, reactionsLeft: [0, 0], vpLog: [],
+    zoneOf: [null, null], zoneName: [null, null], destroyedUnits: [], firstStrike: [false, false], vanguardScored: new Set(), tectonic: null,
     log: opts.log ? (s) => lines.push(s) : () => {},
   };
   hooks(state);
   reactions.setup(state);
   state.reactions = reactions;
   psychic.setup(state);
-  // nothing is on the table until it's deployed
   for (const u of state.units) u.arrived = false;
-  // warlords: each side's High Command (or Warlord) choice
-  for (const s of [0, 1]) {
-    const w = state.units.find((u) => u.side === s && /Warlord/.test(u.role)) || state.units.find((u) => u.side === s && /High Command/.test(u.role));
-    if (w) w.warlord = true;
-  }
-  // roll off: the winner deploys first and takes the first turn, unless the other player Seizes the Initiative
-  let first = dice.d6() >= 4 ? 0 : 1;
-  state.log(`Battle: ${armies[0].name} (bottom) vs ${armies[1].name} (top). ${armies[first].name} deploys first.`);
-  deploy(state, first); deploy(state, 1 - first);
+  // 7. Deploy Armies: the loser of the roll-off picks Deployment Zone A or B; the winner deploys first in the other
+  // and takes the first Player Turn
+  const winner = dice.d6() >= 4 ? 0 : 1, loser = 1 - winner;
+  const pick = chooseZone(state, loser);
+  state.zoneName[loser] = pick; state.zoneName[winner] = pick === 'A' ? 'B' : 'A';
+  state.zoneOf = state.zoneName.map((n) => mission.zones[n]);
+  state.log(`Mission: ${mission.name} (${mission.archetype}${mission.primary !== 'destroy' ? `, ${mission.variant}` : ''}) on ${mission.deployment}. ${armies[0].name} in Zone ${state.zoneName[0]}, ${armies[1].name} in Zone ${state.zoneName[1]}.`);
+  if (table.objectives.length) state.log(`Objective Markers: ${table.objectives.map((o) => `(${o.x.toFixed(0)}, ${o.y.toFixed(0)})${o.value ? ` worth ${o.value}` : ''}`).join(', ')}`);
+  deploy(state, winner); deploy(state, loser);
+  // 8. Play: Seize the Initiative, then five Battle Turns, and a sixth if the first player rolls a 4+
+  let first = winner;
   if (dice.d6() >= core.SEIZE_ON) { first = 1 - first; state.log(`${armies[first].name} Seizes the Initiative and goes first.`); }
-  for (let round = 1; round <= mission.turns; round++) {
-    state.round = round; state.turnsLeft = mission.turns - round + 1;
+  let turns = mission.turns;
+  for (let round = 1; round <= turns; round++) {
+    state.round = round; state.turnsLeft = Math.max(1, mission.turns - round + 1);
+    if (mission.has('Tectonic Instability')) tectonic(state);
     for (const side of [first, 1 - first]) {
       if (!state.units.some((u) => u.side === side && !u.destroyed)) continue;
       playerTurn(state, side);
     }
+    if (round === mission.turns && turns === mission.turns && dice.d6() >= 4) { turns++; state.log(`\nThe battle goes on: Battle Turn ${turns} is played.`); }
   }
+  // 9. Decide Victor
   const res = finish(state, lines);
   res.first = first;
+  res.mission = mission.id; res.deployment = mission.deploymentId; res.turns = turns;
   return res;
+}
+
+/** The roll-off loser's choice of zone: the one nearer the objectives that matter. */
+function chooseZone(state, side) {
+  const m = state.mission;
+  const near = (z) => state.table.objectives.reduce((t, o) => t + (o.value || 2) * Math.max(0, 1 - Math.hypot(o.x - m.centroids[z].x, o.y - m.centroids[z].y) / 40), 0);
+  return near('B') > near('A') + 0.01 ? 'B' : 'A';
+}
+
+/** Tectonic Instability: at the start of each Battle Turn a D6 picks a Sector that is Difficult Terrain this turn. */
+function tectonic(state) {
+  let r;
+  do r = state.dice.d6(); while (r <= 4 && r === state.tectonic);
+  state.tectonic = r <= 4 ? r : null;
+  state.log(`\nTectonic Instability: ${state.tectonic ? `Sector ${state.tectonic} is Difficult Terrain this turn` : 'the ground is still'}`);
 }
 
 // ---------- hooks used by the phases ----------
 function hooks(state) {
+  state.award = (side, vp, why) => award(state, side, vp, why);
   state.onCasualty = (m, unit, by) => {
     const ppm = unit.pts / unit.models.length;
     unit.stats = unit.stats || { killed: 0, lost: 0 }; unit.stats.lost += ppm;
@@ -72,18 +106,20 @@ function hooks(state) {
     for (const m of unit.models) if (m.wounds > 0) { m.wounds = 0; state.onCasualty(m, unit, null); }
     destroyed(state, unit, unit.lastHitBy, true);
   };
-  // reactions to an enemy ending a move (Reposition, The Hunt Closes, ...) and to arrivals from Reserves (Moonfall)
+  // reactions to an enemy ending a move (Reposition, The Hunt Closes, ...) and to arrivals from Reserves
   state.onEnemyMoved = (mover) => reactions.onMoved(state, mover);
   state.onArrive = (unit) => reactions.onArrive(state, unit);
-  // Vanguard: breaking a unit that was near an objective
+  // Vanguard (X): breaking a unit that was near an objective, once per objective per Player Turn (CONFIRMED)
   state.onBrokeFromCombat = (unit, winners, nearObjective) => {
     if (!nearObjective) return;
-    const v = winners.map((w) => xOf(w.rules, 'Vanguard') || 0).reduce((a, b) => Math.max(a, b), 0);
-    if (v) award(state, winners[0].side, v, `Vanguard: ${unit.name} broken near an objective`);
+    const v = Math.max(0, ...winners.filter((w) => alive(w).filter((m) => xOf(m.rules, 'Vanguard') != null).length * 2 > alive(w).length).map((w) => Math.max(...alive(w).map((m) => xOf(m.rules, 'Vanguard') || 0))));
+    const key = `${state.round}:${state.active}:${nearObjective}`;
+    if (v && !state.vanguardScored.has(key)) { state.vanguardScored.add(key); award(state, winners[0].side, v, `Vanguard: ${unit.name} broken near an objective`); }
   };
 }
 
 function award(state, side, vp, why) {
+  if (!vp) return;
   state.vp[side] += vp;
   state.vpLog.push({ round: state.round, side, vp, why });
   state.log(`    +${vp} VP to ${state.armies[side].name}: ${why}`);
@@ -111,35 +147,36 @@ function destroyed(state, unit, by, fled = false) {
   }
   unit.passengers = [];
   unlock(unit);
-  if (!by || by.side === unit.side) return;
-  const side = by.side;
-  // secondaries (names CONFIRMED, values ASSUMPTION)
-  const exp = Math.max(0, ...unit.models.map((m) => xOf(m.rules, 'Expendable') || 0));
-  const pay = (v) => Math.max(1, v - exp);
-  if (unit.warlord) award(state, side, pay(core.secondaries.slayTheWarlord), `Slay the Warlord (${unit.name})`);
-  if (/Lord of War|Warlord/.test(unit.role)) award(state, side, pay(core.secondaries.giantKiller), `Giant Killer (${unit.name})`);
-  if (state.round === 1 && !state.firstStrike?.[side]) { state.firstStrike = state.firstStrike || {}; state.firstStrike[side] = true; award(state, side, pay(core.secondaries.firstStrike), `First Strike (${unit.name})`); }
-  // Vanguard (X): killing the last model of a unit holding or contesting an objective (CONFIRMED)
-  const v = xOf(by.rules, 'Vanguard');
-  if (v && unit.heldObjective) award(state, side, pay(v), `Vanguard: destroyed ${unit.name} on an objective`);
+  // Kill Points, Thin the Ranks, First Strike, Vanguard (scoring.cjs)
+  scoring.onDestroyed(state, unit, by && by.side !== unit.side ? by : null);
+}
+
+/** Which objective (if any) a unit is controlling or contesting: within 3" and able to (for Vanguard). */
+function markHeld(state) {
+  for (const u of state.units) {
+    if (u.destroyed) continue;
+    const o = canHold(u) && state.table.objectives.find((x) => Math.hypot(x.x - u.x, x.y - u.y) - u.r <= scoring.CONTROL_RANGE);
+    u.heldObjective = o ? o.id + 1 : null;
+  }
 }
 
 // ---------- deployment ----------
 function deploy(state, side) {
   const units = state.units.filter((u) => u.side === side);
-  const z = zone(state.mission, side);
+  const z = state.zoneOf[side], ez = state.zoneOf[1 - side];
+  const towards = state.mission.centroids[state.zoneName[1 - side]];
   // embark: an Infantry or Paragon unit rides in a transport that fits it
   for (const t of units.filter((u) => u.capacity > 0)) {
     let room = t.capacity;
     const light = has(t.rules, 'Light Transport');
-    const fits = (u) => !u.vehicle && !u.embarkedIn && !u.passengers.length && u !== t && alive(u).every((m) => /Infantry|Paragon/.test(m.unitType) && (!light || !(xOf(m.rules, 'Bulky') > 1)))
+    const ok = (u) => !u.vehicle && !u.embarkedIn && !u.passengers.length && u !== t && alive(u).every((m) => /Infantry|Paragon/.test(m.unitType) && (!light || !(xOf(m.rules, 'Bulky') > 1)))
       && alive(u).reduce((s, m) => s + (xOf(m.rules, 'Bulky') || 1), 0) <= room
       && !alive(u).some((m) => m.ranged.some((w) => has(w.specialRules, 'Heavy') || has(w.specialRules, 'Ordnance')));
-    const cand = units.filter(fits).sort((a, b) => ai.meleeValue(state, b, state.units.filter((e) => e.side !== side)) - ai.meleeValue(state, a, state.units.filter((e) => e.side !== side)));
+    const cand = units.filter(ok).sort((a, b) => ai.meleeValue(state, b, state.units.filter((e) => e.side !== side)) - ai.meleeValue(state, a, state.units.filter((e) => e.side !== side)));
     const p = cand[0];
     if (p) { t.passengers.push(p); p.embarkedIn = t; room -= alive(p).reduce((s, m) => s + (xOf(m.rules, 'Bulky') || 1), 0); }
   }
-  // reserves: assault units that can Deep Strike or Outflank wait to strike where it hurts
+  // 6. Declare Mission Reserves: assault units that can Deep Strike or Outflank wait to strike where it hurts
   const enemies = state.units.filter((e) => e.side !== side);
   for (const u of units) {
     if (u.embarkedIn) continue;
@@ -149,34 +186,34 @@ function deploy(state, side) {
     else if (has(u.rules, 'Outflank') && assault) u.reserve = 'outflank';
     if (u.reserve) { u.arrived = false; for (const p of u.passengers) p.arrived = false; }
   }
-  // place the rest: transports and big models first, then infantry
+  // place the rest in the zone (never within 2" of the enemy, nor in Impassable Terrain): big models first.
+  // A unit with nowhere to stand goes into Reserves (MISSION).
   const toPlace = units.filter((u) => !u.reserve && !u.embarkedIn).sort((a, b) => b.r - a.r);
+  const placedNow = [];
   for (const u of toPlace) {
-    u.facing = side === 0 ? Math.PI / 2 : -Math.PI / 2;
+    u.facing = Math.atan2(towards.y - (u.y || H / 2), towards.x - (u.x || W / 2));
     const inf = xOf(u.rules, 'Infiltrate');
     const cands = [];
-    for (let x = u.r + 1; x <= W - u.r - 1; x += 3) for (let y = z.y0 + u.r + 0.5; y <= z.y1 - u.r - 0.5; y += 2.5) cands.push({ x, y });
-    if (inf) {
+    for (let x = 1 + u.r; x <= W - u.r - 1; x += 3) for (let y = 1 + u.r; y <= H - u.r - 1; y += 2.5) {
+      const p = { x, y };
+      if (fits(z, p, u.r)) cands.push(p);
       // Infiltrate (X): anywhere outside the enemy zone, X" from enemies (CONFIRMED)
-      const ez = zone(state.mission, 1 - side);
-      for (let x = u.r + 1; x <= W - u.r - 1; x += 3) for (let y = u.r + 1; y <= H - u.r - 1; y += 3) {
-        if (y + u.r >= ez.y0 && y - u.r <= ez.y1) continue;
-        if (state.units.some((e) => e.side !== side && e.arrived && !e.reserve && !e.embarkedIn && e.x && Math.hypot(e.x - x, e.y - y) - e.r - u.r < inf)) continue;
-        cands.push({ x, y });
-      }
+      else if (inf && !touches(ez, p, u.r) && !state.units.some((e) => e.side !== side && e.placed && !e.embarkedIn && Math.hypot(e.x - x, e.y - y) - e.r - u.r < inf)) cands.push(p);
     }
     let best = null;
     for (const p of cands) {
       if (state.table.pieces.some((r) => r.impassable && inside(p, r))) continue;
-      if (state.units.some((o) => o !== u && o.placed && !o.embarkedIn && Math.hypot(o.x - p.x, o.y - p.y) < o.r + u.r + 0.5)) continue;
+      if (state.units.some((o) => o !== u && o.placed && !o.embarkedIn && Math.hypot(o.x - p.x, o.y - p.y) < o.r + u.r + (o.side !== side ? 2 : 0.5))) continue;
       const s = ai.positionScore(state, u, p, { cautious: 1.2 });
       if (!best || s > best.s) best = { p, s };
     }
-    const p = best ? best.p : { x: W / 2, y: (z.y0 + z.y1) / 2 };
-    u.x = p.x; u.y = p.y; u.placed = true; u.arrived = true;
+    if (!best) { u.reserve = 'edge'; for (const q of u.passengers) q.arrived = false; continue; }
+    u.x = best.p.x; u.y = best.p.y; u.placed = true; u.arrived = true;
+    u.facing = Math.atan2(towards.y - u.y, towards.x - u.x);
     for (const q of u.passengers) { q.x = u.x; q.y = u.y; q.arrived = true; }
+    placedNow.push(u);
   }
-  state.log(`${state.armies[side].name} deploys: ${toPlace.map((u) => `${u.name}${u.passengers.length ? ` (carrying ${u.passengers.map((p) => p.name).join(', ')})` : ''}`).join(', ')}${units.some((u) => u.reserve) ? `; in Reserves: ${units.filter((u) => u.reserve).map((u) => `${u.name} (${u.reserve})`).join(', ')}` : ''}`);
+  state.log(`${state.armies[side].name} deploys: ${placedNow.map((u) => `${u.name}${u.passengers.length ? ` (carrying ${u.passengers.map((p) => p.name).join(', ')})` : ''}`).join(', ')}${units.some((u) => u.reserve) ? `; in Reserves: ${units.filter((u) => u.reserve).map((u) => `${u.name} (${u.reserve})`).join(', ')}` : ''}`);
 }
 
 // ---------- a Player Turn ----------
@@ -197,13 +234,13 @@ function playerTurn(state, side) {
   moraleSubPhase(state);
   reactions.clearBuffs(state, 'phase');
   // ---- Assault Phase ----
-  for (const u of state.units) if (!u.destroyed) u.heldObjective = canHold(u) && state.table.objectives.some((o) => Math.hypot(o.x - u.x, o.y - u.y) - u.r <= core.CONTROL_RANGE);
+  markHeld(state);
   assaultPhase(state, side);
   reactions.clearBuffs(state, 'phase');
   // ---- End Phase ----
   effectsSubPhase(state, side);
   statusesSubPhase(state, side);
-  if (state.round >= core.SCORE_FROM_TURN) victorySubPhase(state, side);
+  scoring.victorySubPhase(state, side);
 }
 
 function shootingPhase(state, side) {
@@ -215,7 +252,7 @@ function shootingPhase(state, side) {
     if (!alive(u).some((m) => m.ranged.length)) continue;
     const t = ai.chooseTarget(state, u, { snap: core.snapOnly(u) });
     if (!t) continue;
-    for (const e of state.units) if (!e.destroyed) e.heldObjective = canHold(e) && state.table.objectives.some((o) => Math.hypot(o.x - e.x, o.y - e.y) - e.r <= core.CONTROL_RANGE);
+    markHeld(state);
     // the target may react: Return Fire, Smokescreen, Living Shields and the rest (reactions.cjs)
     shootingAttack(state, u, t, { phaseAttack: true });
   }
@@ -258,32 +295,10 @@ function statusesSubPhase(state, side) {
   }
 }
 
-/** Victory Sub-Phase: the Active Player scores each objective they control. */
-function victorySubPhase(state, side) {
-  for (const o of state.table.objectives) {
-    const ts = [0, 0], units = [[], []];
-    for (const u of state.units) {
-      if (!canHold(u)) continue;
-      if (Math.hypot(o.x - u.x, o.y - u.y) - u.r > core.CONTROL_RANGE) continue;
-      ts[u.side] += alive(u).reduce((t, m) => t + core.tacticalStrength(m), 0);
-      units[u.side].push(u);
-    }
-    if (ts[side] <= ts[1 - side]) continue;
-    // Line (X) adds X; a Vanguard unit scores at most 1; Support Unit (X) caps at X (CONFIRMED)
-    const majority = (u, name) => { const a = alive(u); return a.filter((m) => xOf(m.rules, name) != null).length * 2 > a.length; };
-    const holders = units[side];
-    let vp = o.value + Math.max(0, ...holders.filter((u) => majority(u, 'Line')).map((u) => Math.max(...alive(u).map((m) => xOf(m.rules, 'Line') || 0))));
-    if (holders.every((u) => majority(u, 'Vanguard'))) vp = Math.min(vp, 1);
-    const sup = holders.filter((u) => majority(u, 'Support Unit')).map((u) => Math.max(...alive(u).map((m) => xOf(m.rules, 'Support Unit') || 0)));
-    if (sup.length && sup.length === holders.length) vp = Math.min(vp, Math.max(...sup));
-    award(state, side, vp, `holds the objective at (${o.x.toFixed(0)}, ${o.y.toFixed(0)}) with ${holders.map((u) => u.name).join(', ')}`);
-  }
-}
-
 function finish(state, lines) {
-  // Last Man Standing: the side with more units left on the battlefield
-  const left = [0, 1].map((s) => state.units.filter((u) => u.side === s && !u.destroyed && (u.arrived || u.embarkedIn)).length);
-  if (left[0] !== left[1]) award(state, left[0] > left[1] ? 0 : 1, core.secondaries.lastManStanding, 'Last Man Standing');
+  // Hammerblow scoring, units left in Reserves, and the Secondary Objectives (scoring.cjs)
+  state.log('\nEnd of the battle');
+  scoring.endOfBattle(state);
   const winner = state.vp[0] === state.vp[1] ? null : state.vp[0] > state.vp[1] ? 0 : 1;
   state.log(`\nResult: ${state.armies[0].name} ${state.vp[0]} – ${state.vp[1]} ${state.armies[1].name}${winner === null ? ' (draw)' : `, ${state.armies[winner].name} wins`}`);
   const pointsKilled = [0, 1].map((s) => state.units.filter((u) => u.side !== s).reduce((t, u) => t + (u.stats?.lost || 0), 0));

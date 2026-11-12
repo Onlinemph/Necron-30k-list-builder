@@ -109,6 +109,12 @@ function buildUnit(armyId, list, slot, detachment, side) {
   if (!def) throw new Error(`Unknown unit ${sel.unitId} in ${armyId}`);
   const s = Object.assign({ options: {}, counts: {} }, sel);
   const rows = E.effectiveModels(s, slot).filter((r) => r.count > 0);
+  // Thin the Ranks: does the unit's Prime Advantage improve any model's characteristics?
+  let primeStats = false;
+  if (slot.prime && s.primeAdvantage) {
+    const plain = E.effectiveModels(Object.assign({}, s, { primeAdvantage: null }), slot).filter((r) => r.count > 0);
+    primeStats = rows.some((r, i) => plain[i] && JSON.stringify(r.profile) !== JSON.stringify(plain[i].profile));
+  }
   const models = [];
   for (const r of rows) {
     const ranged = [], melee = [];
@@ -138,7 +144,7 @@ function buildUnit(armyId, list, slot, detachment, side) {
   const unit = {
     uid: nextUnit++, side, armyId, id: def.id, name: def.name, role: slot.role || def.role, pts: E.unitPoints(s, slot),
     traits: unitTraits, legion: LEGION_TRAIT[armyId] || null, rules, unitType, models,
-    prime: !!slot.prime, primeAdvantage: sel.primeAdvantage || null, detachment: detachment.name,
+    prime: !!slot.prime, primeAdvantage: sel.primeAdvantage || null, primeStats, detachment: detachment.name,
     vehicle: models.every((m) => m.vehicle), capacity, passengers: [], embarkedIn: null,
     x: 0, y: 0, r: 0, statuses: new Set(), lockedWith: new Set(), reserve: null, arrived: true, destroyed: false,
     // a Psyker has the Trait, or a Psychic Discipline taken as wargear

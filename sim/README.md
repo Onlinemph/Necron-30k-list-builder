@@ -6,12 +6,15 @@ abstract and the rules are only as good as the texts in this repo (see "What's a
 
 ```
 node sim/run.cjs sim/lists/rangdan.json sim/lists/sons-of-horus.json --battles 100
-node sim/run.cjs my-list.json "https://…#a=…" --battles 50 --seed 7 --log 2> battle.txt
+node sim/run.cjs my-list.json "https://…#a=…" --battles 50 --mission high-ground --variant hammerblow
+node sim/run.cjs a.json b.json --battles 1 --mission no-quarter --deployment tip-of-the-spear --log 2> battle.txt
 ```
 
-A list is a JSON file saved from the builder, or a share link. Each battle gets a fresh table, and the two armies
-swap deployment zones and the first turn every other battle. `--log` writes a readable play-by-play of the first
-battle to stderr; `--out file.json` saves the summary (win rates, VP, points destroyed per unit, reactions used).
+A list is a JSON file saved from the builder, or a share link. By default each battle rolls its own Core Mission
+(a D3 for the Archetype, a D3 for the Mission) and Deployment Map (a D6), like a pick-up game; `--mission` and
+`--deployment` fix them. The two lists swap sides every other battle. `--log` writes a readable play-by-play of
+the first battle to stderr; `--out file.json` saves the summary (win rates overall and per mission, VP, points
+destroyed per unit, reactions used).
 
 From code:
 
@@ -21,22 +24,50 @@ const r = runBattle(listA, listB, { seed: 3, log: true });
 // r.winner (0, 1 or null), r.vp, r.pointsKilled, r.units, r.vpLog, r.reactions, r.powers, r.log
 ```
 
+## Missions
+
+The nine Core Missions of the Core Mission Pack: Imperium at War, on its six Deployment Maps (Search and Destroy,
+Hammer and Anvil, Dawn of War, Flanking Strike, Determined Push, Tip of the Spear):
+
+| Archetype | Missions | Primary Objective |
+|---|---|---|
+| Resupply | `crucial-supplies`, `hidden-caches`, `unknown-munitions` | Claim Supplies: control Objective Markers |
+| Annihilation | `no-quarter`, `cut-off-the-head`, `thin-the-ranks` | Destroy the Enemy: Kill Points (points / 100, rounded) |
+| Conquest | `high-ground`, `shattered-earth`, `secure-the-highway` | Seize Ground: control Sectors |
+
+Claim Supplies and Seize Ground score each turn from Battle Turn 2 (Escalation) or once at the end
+(`--variant hammerblow`). A unit controls an Objective Marker with a model within 3"; when both sides have a unit
+there, the single unit with the higher Tactical Strength (models within 3", plus Line (X) per model) controls it.
+A Sector goes to the side with more models in it, plus Line (X) where the Sector touches its own zone and
+Vanguard (X) where it touches the enemy's. Units that are Stunned, Suppressed, Pinned, Routed, Locked in Combat,
+Embarked, Automata or Heedless can't control anything; vehicles and Cavalry can. Line adds to a marker's VP,
+Vanguard caps it at 1 (and scores for breaking units on objectives), Support Unit caps it, Expendable takes VP off
+what the opponent scores for the unit.
+
+Every mission has Slay the Warlord (X, or X+1 for High Command), Giant Killer, Breakthrough and First Strike at its
+own values, Reserves (3+, automatic from turn 4; units still in Reserves at the end count as destroyed) and Seize
+the Initiative. Mission rules: Hidden Caches (markers scatter 3" when scored), Unknown Munitions (D3 values per
+player), No Quarter (a VP as an aftermath option), Cut Off the Head (2 VP for slaying a model in a challenge),
+Thin the Ranks (bonus Kill Points), Tectonic Instability (a Sector turns difficult each turn and is worth 5) and
+Supply Road (no terrain on the highway, vehicles get +2" along it). Five Battle Turns, then a sixth on a 4+.
+
+The battlefield follows the pack's suggestion, laid out point-symmetrically: two 8" and four 6" zones of Area
+Terrain (Light, 6+ cover, or Medium, 5+ cover and sight through at most 3"), and six 4" Terrain Features
+(Impassable and blocking sight, or ruins counted as Medium Area Terrain). Units are circles sized from their
+models' bases. Ranges are edge to edge, and line of sight is three sight lines between the circles.
+
 ## What it plays
-
-The table is 72" × 48" with point-symmetric terrain: ruins and buildings are Heavy (4+ cover, block sight),
-woods and barricades Medium (5+ cover; woods block sight through more than 3"), craters Light (6+ cover); ruins,
-woods and craters are difficult and buildings impassable. Units are circles sized
-from their models' bases. Ranges are edge to edge, and line of sight is three sight lines between the circles.
-
-The mission has five objectives (3 VP in the centre, 2 VP on the diagonals, 1 VP on the flanks), 12" deployment
-zones and five Battle Turns. Secondaries: Slay the Warlord, First Strike, Giant Killer and Last Man Standing.
 
 Each Player Turn runs the HH3 phases in order:
 
-- **Before the battle:** roll-off, deployment, and Seize the Initiative on a 6.
-- **Movement:** Reserves on a 3+ (Deep Strike from turn 2, one per turn; Outflank from the side edges; Flyers),
+- **Before the battle:** the Core Mission Sequence: mission, terrain, Objective Markers, Deployment Map; the
+  roll-off loser picks a zone, the winner deploys first and goes first (Seize the Initiative on a 6); units with
+  nowhere to stand go into Reserves.
+- **Movement:** Reserves on a 3+, automatic from turn 4 (from the edge of your own zone; Deep Strike from turn 2,
+  one per turn; Outflank from any edge outside the enemy zone and 7" from the enemy; Flyers),
   moving, Rushing, embarking and disembarking (Disordered unless from an Assault Vehicle), and Fall Back Moves
-  for Routed units (D6 + I; at the table edge a Leadership check, removed on a fail, Suppressed on a pass).
+  for Routed units (D6 + I towards their own zone's edge; there a Leadership check, removed on a fail, Suppressed
+  on a pass).
 - **Shooting:** one weapon per model (two Pistols, Firing Protocols (X), Walkers and Vehicles fire everything),
   Fire Groups, the Hit Test table (Critical Hits from BS 6, the Snap Shot column), Wound Tests or Armour
   Penetration, the best of Armour, Invulnerable and Cover saves, Feel No Pain and Shrouded, the Vehicle Damage
@@ -118,7 +149,7 @@ going in. It doesn't plan more than one turn ahead and doesn't coordinate units.
 
 ## Where the rules come from
 
-Three sources, marked in `lib/core.cjs`:
+Four sources, marked in the code:
 
 - CONFIRMED: the HH3 rule texts in this repo (data/bsdata/common.json and the army data), for weapon and unit
   special rules, reactions, Psychic Weapons and wargear.
@@ -126,16 +157,15 @@ Three sources, marked in `lib/core.cjs`:
   sequence, the Hit Test tables, statuses, the Set-up Move, challenges, core gambits, Combat Resolution and its
   aftermath, the Reaction Allotment, Core Reactions, the Vehicle Damage Table, Perils and terrain. It's a
   summary, so details it leaves out are still guesses.
-- ASSUMPTION: what neither settles. These are the ones left:
+- MISSION: the Core Mission Pack: Imperium at War (the missions, Deployment Maps, objective control, Kill Points,
+  Sectors, secondaries, Reserves, battle length and terrain).
+- ASSUMPTION: what none of them settles. These are the ones left:
 
 | Rule | Assumption |
 |---|---|
-| Battle length | 5 Battle Turns, scoring from turn 2 |
-| Mission | 5 objectives (3/2/2/1/1 VP), held within 3"; Tactical Strength 1 per model plus Line (X) |
-| Who holds objectives | not vehicles, Heedless, Automata, or Cavalry without Strike and Fade |
-| Secondaries | Slay the Warlord 3, First Strike 1, Giant Killer 2, Last Man Standing 1 |
-| Reserves | everything arrives by turn 4 |
-| Cover | Cavalry can't claim it; which terrain piece is which density |
+| Objective Markers | placed at random where the mission allows (players placing them for advantage isn't modelled); the roll-off loser picks the zone nearer the valuable markers |
+| Controlling | a unit's models within 3" of a marker are the share of its footprint in range; in Seize Ground all of a unit's models count in the Sector holding its centre |
+| Terrain | Medium Area Terrain is difficult, Light isn't; no Heavy Area Terrain; Cavalry can't claim cover |
 | Vehicles' Defensive weapons (Intercept) | Strength 6 or less |
 | Master of the Legion | its extra Reaction Point only while it's on the battlefield |
 | Blast markers | a 3" marker covers 3 models of a packed unit, a 5" marker 5; a missed Blast scatters away harmlessly |
@@ -143,10 +173,11 @@ Three sources, marked in `lib/core.cjs`:
 | Morale after a charge | checks from Overwatch are taken straight after the charge |
 | Disgraced | removed like other statuses, with a Cool Check |
 | Perils names | Ætheric Feedback for the wounds, Warp Rupture for Stunned (Psy-Shock forces Warp Rupture) |
+| Thin the Ranks | a Prime unit counts as improved when its Prime Advantage changes its profile |
 | Take Cover | belongs to the Imperialis Militia and Solar Auxilia |
 | Furious Charge | the text makes the "Target Unit" Lost to the Nails; read as the reacting World Eaters unit |
 | Anathema | Immaterial weapons wound only on a 5+ (from the rule's summary line; its full text is cut short) |
-| Not simulated | Death or Glory (vehicles don't move through units here), Dangerous terrain, coherency |
+| Not simulated | Death or Glory (vehicles don't move through units here), Dangerous terrain, coherency, characters joining units |
 
 Reactions made in answer to a reaction (a Return Fire against an Overwatch, say) aren't allowed.
 
@@ -158,7 +189,8 @@ Reactions made in answer to a reaction (a Return Fire against an Overwatch, say)
 | `lib/battle.cjs` | the battle loop: deployment, Player Turns, scoring, secondaries |
 | `lib/army.cjs` | loads lists through the builder's engine into units and models |
 | `lib/table.cjs` | the table, terrain, distances, line of sight and movement |
-| `lib/mission.cjs` | objectives and deployment zones |
+| `lib/mission.cjs` | the nine Core Missions, Deployment Maps, Sectors and Objective Marker set-up |
+| `lib/scoring.cjs` | controlling markers and Sectors, Kill Points, secondaries and the scoring mission rules |
 | `lib/move.cjs` | Reserves, moving, Rushing, transports, Fall Back |
 | `lib/shoot.cjs` | Shooting Attacks and the Morale Sub-Phase |
 | `lib/assault.cjs` | charges, challenges, fights and Combat Resolution |

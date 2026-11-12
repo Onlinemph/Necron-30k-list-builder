@@ -252,6 +252,8 @@ function duel(state, A, B, challengerSide, tally) {
     const glory = lose.m.wounds <= 0 ? lose.m.maxWounds : inflicted.get(win);
     tally.glory[win.u.side] += glory + (effects.get(win).crpIfWin || 0);
     state.log(`      ${win.m.name} wins the challenge: ${glory} Glory`);
+    // Cut Off the Head (MISSION): winning a challenge by slaying the enemy model scores 2 VP
+    if (lose.m.wounds <= 0 && state.mission?.has('Cut Off the Head')) state.award(win.u.side, 2, `Cut Off the Head (${lose.m.name})`);
   }
   state.log(`      ${A.m.name} ${A.m.wounds}/${A.m.maxWounds} wounds, ${B.m.name} ${B.m.wounds}/${B.m.maxWounds} wounds`);
   for (const u of [A.u, B.u]) if (state.afterDamage) state.afterDamage(u);
@@ -298,9 +300,9 @@ function fight(state, c) {
 // ---------- Resolution Sub-Phase ----------
 function resolve(state, c, tally) {
   const live = [c[0].filter((u) => !u.destroyed), c[1].filter((u) => !u.destroyed)];
-  // Massacre: the enemy is wiped out; the winners Consolidate (SHEET)
+  // Massacre: the enemy is wiped out; the winners Consolidate (SHEET), or take No Quarter (MISSION)
   if (!live[0].length || !live[1].length) {
-    for (const s of [0, 1]) for (const u of live[s]) { unlock(u); consolidate(state, u); }
+    for (const s of [0, 1]) for (const u of live[s]) { unlock(u); if (!noQuarter(state, u)) consolidate(state, u); }
     return;
   }
   // Combat Resolution: models removed, Glory, outnumbering, standards (SHEET, CONFIRMED for the standards)
@@ -323,7 +325,7 @@ function resolve(state, c, tally) {
     }
     // failed: Routed, and it Falls Back
     addStatus(state, u, 'Routed', 'lost the combat');
-    const nearObjective = state.table.objectives.some((o) => Math.hypot(o.x - u.x, o.y - u.y) - u.r <= core.CONTROL_RANGE);
+    const nearObjective = u.heldObjective || null;
     unlock(u);
     fallBack(state, u);
     if (u.destroyed) continue;
@@ -337,7 +339,9 @@ function resolve(state, c, tally) {
       const gun = require('./fire.cjs').planVolley(p, u, state, { snap: true, exclude: (x) => !(x.traits || []).includes('Assault') }).expectedPts;
       if (!best || Math.max(pursue, gun) > best.v) best = { p, v: Math.max(pursue, gun), kind: pursue >= gun ? 'pursue' : 'gun' };
     }
-    if (best && best.v > 1) {
+    // No Quarter (MISSION): a Victory Point instead, when it's worth more than the chase
+    const nq = state.mission?.has('No Quarter') && foes.every((f) => f.destroyed || !f.lockedWith.size || f === u);
+    if (best && best.v > 1 && !(nq && best.v < ai.VP_WORTH)) {
       const p = best.p;
       if (best.kind === 'pursue') {
         const d = core.pursueDistance(p, state.dice);
@@ -347,10 +351,18 @@ function resolve(state, c, tally) {
     }
     if (state.onBrokeFromCombat) state.onBrokeFromCombat(u, winners, nearObjective);
   }
-  // winners with nobody left to fight Consolidate
-  for (const s of [0, 1]) for (const u of c[s]) if (!u.destroyed && u.lockedWith.size && ![...u.lockedWith].some((e) => !e.destroyed)) { unlock(u); consolidate(state, u); }
-  for (const u of winners) if (!u.destroyed && !u.lockedWith.size && !u.consolidated) consolidate(state, u);
+  // winners with nobody left to fight Consolidate, or take No Quarter once every enemy has fallen back or disengaged
+  for (const s of [0, 1]) for (const u of c[s]) if (!u.destroyed && u.lockedWith.size && ![...u.lockedWith].some((e) => !e.destroyed)) unlock(u);
+  const allGone = live[l].every((u) => u.destroyed || !u.lockedWith.size);
+  for (const u of winners) if (!u.destroyed && !u.lockedWith.size && !u.consolidated && !(allGone && noQuarter(state, u))) consolidate(state, u);
   for (const s of [0, 1]) for (const u of c[s]) u.consolidated = false;
+}
+/** No Quarter (MISSION): the unit takes this Aftermath option and its player scores 1 VP. */
+function noQuarter(state, u) {
+  if (!state.mission?.has('No Quarter') || u.consolidated || u.destroyed) return false;
+  u.consolidated = true;
+  state.award(u.side, 1, `No Quarter (${u.name})`);
+  return true;
 }
 /** Consolidate: move up to base Initiative, ignoring difficult terrain (SHEET). */
 function consolidate(state, u) {

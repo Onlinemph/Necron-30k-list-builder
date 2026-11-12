@@ -9,7 +9,7 @@ const { num, xOf, has } = require('./rules.cjs');
 
 module.exports = {
   // ---------- battle ----------
-  BATTLE_TURNS: 5, // ASSUMPTION
+  BATTLE_TURNS: 5, // MISSION: five Battle Turns, a sixth if the first player rolls a 4+
   // Reaction Allotment per enemy Player Turn (SHEET): 1, +1 above 1500 points or +2 above 3500, +1 for a
   // Master of the Legion (ASSUMPTION: while it's on the battlefield)
   reactionAllotment: (pointsLimit, master) => 1 + ((pointsLimit || 3000) > 3500 ? 2 : (pointsLimit || 3000) > 1500 ? 1 : 0) + (master ? 1 : 0),
@@ -96,18 +96,13 @@ module.exports = {
   focusSupport: (models) => Math.floor(models / 5),
 
   // ---------- missions ----------
-  CONTROL_RANGE: 3, // INFERRED from Vanguard and Chosen Ground
-  // CONFIRMED: Line (X) adds X to a model's Tactical Strength; ASSUMPTION: every model has a base of 1
-  tacticalStrength: (model) => 1 + (xOf(model.rules, 'Line') || 0),
-  // ASSUMPTION: vehicles can't control or contest objectives
-  canHoldObjectives: (unit) => !unit.vehicle && !has(unit.rules, 'Heedless') && !/Automata|Fortification/.test(unit.unitType) && (!/Cavalry/.test(unit.unitType) || has(unit.rules, 'Strike and Fade')),
-  SCORE_FROM_TURN: 2, // ASSUMPTION
-  // secondary objectives: names CONFIRMED, values ASSUMPTION
-  secondaries: { slayTheWarlord: 3, firstStrike: 1, giantKiller: 2, lastManStanding: 1 },
+  // Objective control, Tactical Strength, Sectors, Kill Points, secondaries and their values come from the Core
+  // Mission Pack: Imperium at War (mission.cjs, scoring.cjs).
 
   // ---------- reserves ----------
   RESERVES_FROM_TURN: 2, // CONFIRMED for Deep Strike ("not in the first Battle Turn")
-  RESERVES_TEST: 3, // ASSUMPTION: a D6 roll of 3+; everything arrives by turn 4
+  RESERVES_TEST: 3, // SHEET: a unit arrives on a 3+
+  RESERVES_AUTO_TURN: 4, // MISSION: Reserves Tests pass automatically from Battle Turn 4
   DEEP_STRIKES_PER_TURN: 1, // CONFIRMED
 
   // ---------- psychic ----------

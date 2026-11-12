@@ -8,6 +8,7 @@ const { planVolley, valuePerWound, rangeOf } = require('./fire.cjs');
 const { dist, gap, lineOfSight, inCover, inside, W, H } = require('./table.cjs');
 const { alive, passChance, canHold } = require('./checks.cjs');
 const core = require('./core.cjs');
+const scoring = require('./scoring.cjs');
 
 const VP_WORTH = 45;          // points of value per Victory Point
 const BANDS = [0, 3, 6, 9, 12, 15, 18, 24, 30, 36, 48, 72];
@@ -76,15 +77,12 @@ function positionScore(state, u, pos, opts = {}) {
   const saved = { x: u.x, y: u.y };
   u.x = pos.x; u.y = pos.y;
   let score = 0;
-  // objectives: Victory Points this unit could hold here, and progress towards the nearest
-  if (core.canHoldObjectives(u) && !u.statuses.size) {
-    for (const o of state.table.objectives) {
-      const d = Math.hypot(o.x - pos.x, o.y - pos.y) - u.r;
-      const turnsLeft = Math.max(1, state.turnsLeft);
-      if (d <= core.CONTROL_RANGE) score += o.value * VP_WORTH * 0.6 * Math.min(2, turnsLeft) * (1 + (xOf(u.rules, 'Line') || 0) * 0.5);
-      else score += o.value * VP_WORTH * 0.25 * Math.max(0, 1 - d / 36);
-    }
-  }
+  // the mission: markers it could control or Sector strength it adds here, and progress towards the next.
+  // Escalation scores every turn; Hammerblow only at the end, so position matters most late on
+  const mv = scoring.missionValueAt(state, u, pos);
+  const turnsLeft = Math.max(1, state.turnsLeft);
+  const w = state.mission.variant === 'hammerblow' ? (turnsLeft <= 2 ? 1.2 : 0.35) : 0.6 * Math.min(2, turnsLeft);
+  score += mv.here * VP_WORTH * w + mv.near * VP_WORTH * 0.25;
   // offence: the best shot from here, and the best charge from here
   let shoot = 0, melee = 0;
   for (const e of enemies) {
@@ -177,7 +175,8 @@ function statusValue(state, shooter, target, plan) {
   const xs = (name) => Math.max(-1, ...wpns.map((r) => xOf(r, name) ?? -1));
   const enemiesOfTarget = state.units.filter((e) => e.side !== target.side && !e.destroyed);
   const threat = Math.max(0, ...enemiesOfTarget.map((e) => meleeEV(state, target, e))) + Math.max(0, ...enemiesOfTarget.map((e) => evAt(shootTable(state, target, e), 24)));
-  const holding = canHold(target) && state.table.objectives.some((o) => Math.hypot(o.x - target.x, o.y - target.y) - target.r <= core.CONTROL_RANGE) ? 2 * VP_WORTH : 0;
+  const holding = !canHold(target) ? 0 : state.mission.primary === 'claim' ? (state.table.objectives.some((o) => Math.hypot(o.x - target.x, o.y - target.y) - target.r <= scoring.CONTROL_RANGE) ? 2 * VP_WORTH : 0)
+    : state.mission.primary === 'seize' ? VP_WORTH : 0;
   const prey = state.units.some((e) => e.side === shooter.side && e.rules.includes('Prey Instinct')) ? 15 : 0;
   const fail = (key, x) => (x < 0 ? 0 : 1 - passChance(state, target, key, x));
   const p = xs('Pinning'); if (p >= 0 && !target.statuses.has('Pinned')) v += fail('CL', p) * (0.5 * threat + holding + prey) * 0.8;
@@ -193,7 +192,13 @@ function chooseTarget(state, u, opts = {}) {
     if (e.side === u.side || e.destroyed || !e.arrived || e.embarkedIn || e.lockedWith.size) continue;
     const plan = planVolley(u, e, state, { stationary: !!u.turn.stationary && !u.statuses.size, snap: opts.snap || core.snapOnly(u) });
     if (!plan.picks.length) continue;
-    const v = plan.expectedPts + statusValue(state, u, e, plan);
+    let v = plan.expectedPts + statusValue(state, u, e, plan);
+    // Destroy the Enemy: finishing a unit scores its Kill Points
+    if (state.mission.primary === 'destroy') {
+      const left = alive(e).reduce((t, m) => t + m.wounds, 0);
+      const r = plan.expectedDamage / Math.max(1, left);
+      v += (r >= 1.2 ? 0.8 : r >= 0.8 ? 0.5 : r >= 0.5 ? 0.2 : 0) * scoring.killPoints(e) * VP_WORTH * 0.8;
+    }
     if (!best || v > best.v) best = { target: e, v };
   }
   return best && best.v > 0.5 ? best.target : null;
@@ -214,7 +219,7 @@ function chooseCharge(state, u) {
     const incoming = evAt(shootTable(state, e, u), gap(u, e)) * 0.35;
     // tying up a unit on an objective is worth something, unless the fight is hopeless
     const hopeless = meleeEV(state, e, u) > 2 * meleeEV(state, u, e) + 10;
-    const obj = !hopeless && canHold(e) && state.table.objectives.some((o) => Math.hypot(o.x - e.x, o.y - e.y) - e.r <= core.CONTROL_RANGE) ? VP_WORTH : 0;
+    const obj = !hopeless && canHold(e) && (state.mission.primary === 'seize' || state.table.objectives.some((o) => Math.hypot(o.x - e.x, o.y - e.y) - e.r <= scoring.CONTROL_RANGE)) ? VP_WORTH : 0;
     const v = odds * (gain + obj) - incoming - (1 - odds) * 10;
     if (v > 3 && (!best || v > best.v)) best = { target: e, v };
   }

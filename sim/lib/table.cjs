@@ -5,30 +5,37 @@
 
 const W = 72, H = 48;
 
-// terrain kinds: what each blocks or gives. SHEET: Light terrain 6+ cover; Medium 5+ cover and sight through
-// at most 3" of it; Heavy 4+ cover and blocks sight; Difficult -2" of movement. Which piece is which density is
-// the simulator's choice.
+// terrain kinds. SHEET: Light terrain 6+ cover; Medium 5+ cover and sight through at most 3" of it; Heavy 4+ cover
+// and blocks sight; Difficult -2" of movement. MISSION: Area Terrain is Light or Medium (Heavy at most once);
+// Terrain Features are Impassable and block sight, or are ruins counted as Medium Area Terrain.
+// ASSUMPTION: Medium Area Terrain is difficult, Light isn't.
 const KINDS = {
-  ruin: { density: 'heavy', coverSave: 4, blocksLoS: true, cover: true, difficult: true, impassable: false },
-  building: { density: 'heavy', coverSave: 4, blocksLoS: true, cover: true, difficult: false, impassable: true },
-  wood: { density: 'medium', coverSave: 5, blocksLoS: false, losDepth: 3, cover: true, difficult: true, impassable: false },
-  crater: { density: 'light', coverSave: 6, blocksLoS: false, cover: true, difficult: true, impassable: false },
-  barricade: { density: 'medium', coverSave: 5, blocksLoS: false, cover: true, difficult: false, impassable: false },
+  light: { density: 'light', coverSave: 6, blocksLoS: false, cover: true, difficult: false, impassable: false },
+  medium: { density: 'medium', coverSave: 5, blocksLoS: false, losDepth: 3, cover: true, difficult: true, impassable: false },
+  heavy: { density: 'heavy', coverSave: 4, blocksLoS: true, cover: true, difficult: true, impassable: false },
+  ruin: { density: 'medium', coverSave: 5, blocksLoS: false, losDepth: 3, cover: true, difficult: true, impassable: false },
+  building: { density: 'impassable', coverSave: null, blocksLoS: true, cover: false, difficult: false, impassable: true },
 };
 
-/** A point-symmetric layout of terrain, so neither side gets a better table. */
+/**
+ * The Core Mission terrain (MISSION): two 8" x 8" and four 6" x 6" zones of Area Terrain, and six Terrain
+ * Features no larger than 4" x 4", evenly spread. Laid out point-symmetrically so neither side gets the better
+ * table. opts.forbid: rectangles where no terrain may go (Supply Road).
+ */
 function makeTable(dice, opts = {}) {
   const pieces = [];
-  const n = opts.pieces ?? 5; // pieces per half; mirrored through the centre
-  const kinds = opts.kinds || ['ruin', 'ruin', 'wood', 'crater', 'building', 'ruin', 'barricade'];
-  let guard = 0;
-  while (pieces.length < n * 2 && guard++ < 400) {
-    const w = 4 + Math.floor(dice.rnd() * 6), h = 3 + Math.floor(dice.rnd() * 5);
-    const x = 4 + dice.rnd() * (W - 8 - w), y = 6 + dice.rnd() * (H / 2 - 6 - h / 2);
-    const kind = kinds[Math.floor(dice.rnd() * kinds.length)];
-    const a = { x, y, w, h, kind }, b = { x: W - x - w, y: H - y - h, w, h, kind };
-    if ([a, b].some((p) => pieces.some((q) => overlap(p, q, 3)))) continue;
-    pieces.push(a, b);
+  const forbid = opts.forbid || [];
+  const half = [[8, 'area'], [6, 'area'], [6, 'area'], [4, 'feature'], [4, 'feature'], [4, 'feature']];
+  for (const [size, type] of half) {
+    for (let guard = 0; guard < 300; guard++) {
+      const x = 1 + dice.rnd() * (W - 2 - size), y = 1 + dice.rnd() * (H - 2 - size);
+      const kind = type === 'area' ? (dice.rnd() < 0.6 ? 'medium' : 'light') : dice.rnd() < 0.5 ? 'building' : 'ruin';
+      const a = { x, y, w: size, h: size, kind }, b = { x: W - x - size, y: H - y - size, w: size, h: size, kind };
+      if (overlap(a, b, 2)) continue;
+      if ([a, b].some((p) => pieces.some((q) => overlap(p, q, 2)) || forbid.some((f) => overlap(p, f, 0)))) continue;
+      pieces.push(a, b);
+      break;
+    }
   }
   return { W, H, pieces: pieces.map((p, i) => Object.assign({ id: i }, p, KINDS[p.kind])), objectives: [] };
 }
@@ -78,7 +85,7 @@ function lineOfSight(table, a, b) {
     const p = { x: a.x + nx * oa, y: a.y + ny * oa }, q = { x: b.x + nx * ob, y: b.y + ny * ob };
     return !table.pieces.some((r) => {
       if (inside(a, r) || inside(b, r)) return false;
-      if (r.blocksLoS) return !(tall(a) && tall(b) && r.kind === 'ruin') && segHitsRect(p, q, r);
+      if (r.blocksLoS) return !(tall(a) && tall(b) && !r.impassable) && segHitsRect(p, q, r);
       // Medium terrain: units see up to 3" into or through it
       return r.losDepth != null && !(tall(a) || tall(b)) && segInside(p, q, r) > r.losDepth;
     });

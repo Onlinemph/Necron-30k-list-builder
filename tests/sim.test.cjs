@@ -199,3 +199,77 @@ test('quick reference tables: snap shots, BS Critical Hits, Set-up Move, allotme
   assert.deepEqual([g7.hitNeed, g7.bsCrit], [2, 5]);
   assert.equal(rangedGroup({ p: { BS: 4 } }, w, t, { snap: true }).hitNeed, 5);
 });
+
+// ---------- the Core Mission Pack ----------
+const mission = require('../sim/lib/mission.cjs');
+const scoring = require('../sim/lib/scoring.cjs');
+
+test('missions: nine Core Missions, six point-symmetric Deployment Maps, Kill Points', () => {
+  assert.equal(Object.keys(mission.MISSIONS).length, 9);
+  assert.equal(Object.keys(mission.DEPLOYMENTS).length, 6);
+  const d = createDice(3);
+  for (const [id, dep] of Object.entries(mission.DEPLOYMENTS)) {
+    let n = 0;
+    for (let i = 0; i < 400; i++) {
+      const p = { x: d.rnd() * 72, y: d.rnd() * 48 };
+      if (!mission.inArea(dep.A, p)) continue;
+      n++;
+      assert.ok(mission.inArea(dep.B, { x: 72 - p.x, y: 48 - p.y }), `${id}: mirror of (${p.x.toFixed(1)}, ${p.y.toFixed(1)})`);
+      assert.ok(!mission.inArea(dep.B, p), `${id}: zones overlap`);
+    }
+    assert.ok(n > 20, `${id}: zone A is tiny`);
+  }
+  // Search and Destroy cuts an 18" circle out of the middle
+  assert.equal(mission.inArea(mission.DEPLOYMENTS['search-and-destroy'].A, { x: 33, y: 22 }), false);
+  assert.deepEqual([176, 126, 40, 250, 349].map((pts) => mission.killPoints({ pts })), [2, 1, 1, 3, 3]);
+});
+
+const fakeUnit = (side, n, x, y, extra = {}) => Object.assign({
+  side, x, y, r: 1, arrived: true, destroyed: false, embarkedIn: null, reserve: null, statuses: new Set(), lockedWith: new Set(), rules: [], unitType: 'Infantry', name: `unit ${side}`,
+  models: Array.from({ length: n }, () => ({ wounds: 1, maxWounds: 1, p: { M: 7 }, rules: extra.modelRules || [], unitType: extra.unitType || 'Infantry' })),
+}, extra);
+
+test("Claim Supplies: the strongest single unit controls; vehicles can, statused units can't", () => {
+  const o = { x: 30, y: 20, value: 2, id: 0 };
+  // two units of 3 against one of 5: the 5 wins, because units aren't added together
+  const st = { table: { objectives: [o] }, units: [fakeUnit(0, 3, 30, 21), fakeUnit(0, 3, 31, 20), fakeUnit(1, 5, 29, 20)] };
+  assert.equal(scoring.claimControl(st)[0].side, 1);
+  // Line (X) adds X per model to Tactical Strength
+  st.units[0].models.forEach((m) => { m.rules = ['Line (2)']; });
+  assert.equal(scoring.claimControl(st)[0].side, 0);
+  // a tie controls nothing; Pinned can't contest; a vehicle can control; Disgraced doesn't stop it
+  const tie = { table: { objectives: [o] }, units: [fakeUnit(0, 4, 30, 21), fakeUnit(1, 4, 29, 20)] };
+  assert.equal(scoring.claimControl(tie)[0].side, null);
+  tie.units[1].statuses.add('Pinned');
+  assert.equal(scoring.claimControl(tie)[0].side, 0);
+  assert.equal(scoring.canControl(fakeUnit(0, 1, 0, 0, { vehicle: true, unitType: 'Vehicle' })), true);
+  assert.equal(scoring.canControl(fakeUnit(0, 3, 0, 0, { statuses: new Set(['Disgraced']) })), true);
+  assert.equal(scoring.canControl(fakeUnit(0, 3, 0, 0, { rules: ['Heedless'] })), false);
+  assert.equal(scoring.canControl(fakeUnit(0, 3, 0, 0, { unitType: 'Automata', modelRules: [], extra: 1, models: [{ wounds: 1, p: { M: 6 }, rules: [], unitType: 'Automata' }] })), false);
+  // Vanguard caps a marker at 1 VP; Support Unit (X) caps at X
+  assert.equal(scoring.markerVP(fakeUnit(0, 3, 0, 0, { modelRules: ['Vanguard (2)'] }), 3), 1);
+  assert.equal(scoring.markerVP(fakeUnit(0, 3, 0, 0, { modelRules: ['Line (2)', 'Support Unit (2)'] }), 3), 2);
+});
+
+test('Seize Ground: models in the Sector, plus Line at home and Vanguard in the enemy zone', () => {
+  const d = createDice(1);
+  const m = mission.setupMission(d, { pieces: [], objectives: [] }, { mission: 'secure-the-highway', deployment: 'dawn-of-war' });
+  const st = { mission: m, zoneName: ['A', 'B'], units: [fakeUnit(0, 3, 30, 5, { modelRules: ['Line (1)'] }), fakeUnit(1, 5, 40, 5)] };
+  // Sector 1 (y 0-10) lies in zone A: side 0 has 3 + 3 Line, side 1 has 5
+  const c = scoring.sectorControl(st).find((x) => x.s.id === 1);
+  assert.deepEqual(c.ts, [6, 5]);
+  assert.equal(c.side, 0);
+  // Vanguard counts in the enemy's zone instead
+  st.units[1].models.forEach((x) => { x.rules = ['Vanguard (1)']; });
+  assert.deepEqual(scoring.sectorControl(st).find((x) => x.s.id === 1).ts, [6, 10]);
+});
+
+test('each Archetype plays through', () => {
+  const a = path.join(LISTS, 'rangdan.json'), b = path.join(LISTS, 'sons-of-horus.json');
+  for (const m of ['crucial-supplies', 'thin-the-ranks', 'high-ground']) {
+    const r = runBattle(a, b, { seed: 11, mission: m });
+    assert.equal(r.mission, m);
+    assert.ok(r.turns === 5 || r.turns === 6);
+    assert.ok(r.vp[0] + r.vp[1] > 0, m);
+  }
+});

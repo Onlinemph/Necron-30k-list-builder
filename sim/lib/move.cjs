@@ -5,6 +5,7 @@ const { num, xOf, has } = require('./rules.cjs');
 const { dist, gap, inside, lineOfSight, moveToward, W, H } = require('./table.cjs');
 const { alive, check, addStatus } = require('./checks.cjs');
 const { footprint } = require('./army.cjs');
+const { inArea, EDGE } = require('./mission.cjs');
 const ai = require('./ai.cjs');
 const core = require('./core.cjs');
 
@@ -16,7 +17,11 @@ const ignoresTerrain = (u) => alive(u).every((m) => /Antigrav|Flyer|Super-[Hh]ea
  * 2" if the path crosses difficult terrain (CONFIRMED).
  */
 function moveUnit(state, u, to, budget, opts = {}) {
-  const crossesDifficult = !ignoresTerrain(u) && state.table.pieces.some((r) => r.difficult && segThrough(u, to, r));
+  const from = { x: u.x, y: u.y };
+  // Tectonic Instability: this turn's Sector counts as Difficult Terrain (MISSION)
+  const quake = state.tectonic && state.mission.sectors.find((s) => s.id === state.tectonic);
+  const inQuake = quake && [0, 0.5, 1].some((f) => inArea(quake.area, { x: u.x + (to.x - u.x) * f, y: u.y + (to.y - u.y) * f }));
+  const crossesDifficult = !ignoresTerrain(u) && (inQuake || state.table.pieces.some((r) => r.difficult && segThrough(u, to, r)));
   const b = Math.max(0, budget - (crossesDifficult ? core.DIFFICULT_PENALTY : 0));
   const blockers = opts.charging ? state.units.filter((x) => x !== u && !x.destroyed && x.arrived && !x.embarkedIn && x !== opts.target).map((x) => ({ x: x.x, y: x.y, r: x.r + (x.side !== u.side ? 1 : 0) }))
     : state.units.filter((x) => x !== u && !x.destroyed && x.arrived && !x.embarkedIn).map((x) => ({ x: x.x, y: x.y, r: x.r + (x.side !== u.side ? 1 : 0) }));
@@ -25,8 +30,16 @@ function moveUnit(state, u, to, budget, opts = {}) {
   const moved = moveToward(tableView, u, to, b, blockers);
   u.ignoresTerrain = false;
   if (u.passengers.length) for (const p of u.passengers) { p.x = u.x; p.y = u.y; }
+  // a vehicle ends facing the way it drove
+  if (u.vehicle && moved > 0.5) u.facing = Math.atan2(u.y - from.y, u.x - from.x);
   return moved;
 }
+/** Points on the battlefield edge of this side's Deployment Zone (where reserves walk on, and the Routed run). */
+const homeEdge = (state, side) => {
+  const z = state.zoneOf[side];
+  const pts = EDGE.filter((p) => inArea(z, p));
+  return pts.length ? pts : EDGE;
+};
 const segThrough = (a, b, r) => require('./table.cjs').segHitsRect(a, b, r) || inside(a, r) || inside(b, r);
 
 /** Reserves Sub-Phase: units in Reserves test to arrive (Deep Strike, Outflank, other reserves). */
@@ -34,7 +47,8 @@ function reservesSubPhase(state, side) {
   if (state.round < core.RESERVES_FROM_TURN) return;
   let deepStrikes = 0;
   for (const u of state.units.filter((x) => x.side === side && x.reserve && !x.destroyed)) {
-    const auto = state.round >= 4;
+    // MISSION: from the start of Battle Turn 4 Reserves Tests pass automatically
+    const auto = state.round >= core.RESERVES_AUTO_TURN;
     if (!auto && state.dice.d6() < core.RESERVES_TEST) continue;
     if (u.reserve === 'deep') {
       if (deepStrikes >= core.DEEP_STRIKES_PER_TURN) continue;
@@ -56,7 +70,6 @@ function reservesSubPhase(state, side) {
     if (state.onArrive) state.onArrive(u);
   }
 }
-const inZone = (state, u) => (u.side === 0 ? u.y <= state.mission.deployDepth : u.y >= H - state.mission.deployDepth);
 function freeSpot(state, u, cands) {
   for (const p of cands) {
     const ok = state.units.every((x) => x === u || x.destroyed || !x.arrived || x.embarkedIn || Math.hypot(x.x - p.x, x.y - p.y) >= x.r + u.r + (x.side !== u.side ? 1 : 0.3))
@@ -82,9 +95,11 @@ function placeDeepStrike(state, u) {
 }
 function placeOutflank(state, u) {
   u.r = footprint(u);
-  const y0 = state.mission.deployDepth + 1, y1 = H - state.mission.deployDepth - 1;
+  // any battlefield edge outside the enemy Deployment Zone and 7" from enemy models (SHEET)
+  const ez = state.zoneOf[1 - u.side];
+  const edge = EDGE.filter((p) => !inArea(ez, p));
   const cands = [];
-  for (let i = 0; i < 20; i++) { const y = y0 + state.dice.rnd() * (y1 - y0); cands.push({ x: u.r, y }, { x: W - u.r, y }); }
+  for (let i = 0; i < 40; i++) cands.push(inset(edge[Math.floor(state.dice.rnd() * edge.length)], u.r));
   let best = null;
   for (const p of cands) {
     if (enemiesOf(state, u).some((e) => Math.hypot(e.x - p.x, e.y - p.y) - e.r - u.r < 7)) continue;
@@ -94,11 +109,14 @@ function placeOutflank(state, u) {
   const p = freeSpot(state, u, [best ? best.p : cands[0], ...cands]);
   u.x = p.x; u.y = p.y;
 }
+/** A point on the edge pulled in so a unit of radius r stands on the table. */
+const inset = (p, r) => ({ x: Math.min(W - r, Math.max(r, p.x)), y: Math.min(H - r, Math.max(r, p.y)) });
 function placeFromEdge(state, u) {
   u.r = footprint(u);
-  const y = u.side === 0 ? u.r : H - u.r;
+  // from the battlefield edge of the player's own Deployment Zone (SHEET)
+  const edge = homeEdge(state, u.side);
   const cands = [];
-  for (let i = 0; i < 12; i++) cands.push({ x: u.r + state.dice.rnd() * (W - 2 * u.r), y });
+  for (let i = 0; i < 16; i++) cands.push(inset(edge[Math.floor(state.dice.rnd() * edge.length)], u.r));
   const p = freeSpot(state, u, cands);
   u.x = p.x; u.y = p.y;
 }
@@ -106,6 +124,7 @@ function placeFromEdge(state, u) {
 /** Move Sub-Phase: each unit moves, Rushes, stays or disembarks; the opponent may Reposition in reply. */
 function moveSubPhase(state, side) {
   const units = state.units.filter((u) => u.side === side && !u.destroyed && u.arrived && !u.embarkedIn);
+  const road = state.mission.has('Supply Road') && state.mission.sectors.find((s) => s.id === 3);
   // fast and far units first, so the slower ones can respond to where they ended up
   units.sort((a, b) => ai.moveOf(b) - ai.moveOf(a));
   for (const u of units) {
@@ -116,7 +135,9 @@ function moveSubPhase(state, side) {
     const d = ai.chooseMove(state, u);
     if (d.kind === 'stay') { u.turn.stationary = true; continue; }
     const M = ai.moveOf(u);
-    const budget = d.kind === 'rush' ? M + core.rushBonus(u) + Math.min(...alive(u).map((m) => xOf(m.rules, 'Fast') || 0)) : M;
+    let budget = d.kind === 'rush' ? M + core.rushBonus(u) + Math.min(...alive(u).map((m) => xOf(m.rules, 'Fast') || 0)) : M;
+    // Supply Road: a vehicle moving entirely within Sector 3 adds 2" to its Move (MISSION)
+    if (road && u.vehicle && inArea(road.area, u) && inArea(road.area, d.to)) budget += 2;
     const moved = moveUnit(state, u, d.to, budget);
     u.turn.stationary = moved < 0.25;
     u.turn.moved = true;
@@ -165,13 +186,12 @@ function routSubPhase(state, side) {
 }
 function fallBack(state, u) {
   const d = core.fallBackDistance(u, state.dice);
-  const edgeY = u.side === 0 ? 0 : H;
-  const target = { x: u.x, y: edgeY };
-  const before = u.y;
+  // towards the nearest point on the edge of the player's own Deployment Zone (SHEET)
+  const target = homeEdge(state, u.side).reduce((b, p) => (Math.hypot(p.x - u.x, p.y - u.y) < Math.hypot(b.x - u.x, b.y - u.y) ? p : b));
   u.ignoresTerrain = true;
-  const moved = moveToward({ pieces: state.table.pieces.filter((r) => r.impassable) }, u, target, d, []);
+  moveToward({ pieces: state.table.pieces.filter((r) => r.impassable) }, u, target, d, []);
   u.ignoresTerrain = false;
-  const dist2edge = u.side === 0 ? u.y - u.r : H - u.y - u.r;
+  const dist2edge = Math.min(u.x - u.r, W - u.x - u.r, u.y - u.r, H - u.y - u.r);
   state.log(`  ${u.name} falls back ${d}"`);
   // SHEET: reaching the table edge, it tests Leadership: a fail removes it, a pass leaves it Suppressed
   if (dist2edge <= 0.6) {
@@ -181,4 +201,4 @@ function fallBack(state, u) {
   return d;
 }
 
-module.exports = { moveUnit, reservesSubPhase, moveSubPhase, routSubPhase, fallBack, disembarkIfWorth, enemiesOf, inZone };
+module.exports = { moveUnit, reservesSubPhase, moveSubPhase, routSubPhase, fallBack, disembarkIfWorth, enemiesOf, homeEdge };

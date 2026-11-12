@@ -90,7 +90,18 @@ function statusCheck(state, unit, status, x, why) {
   return pass;
 }
 
-/** Can this unit control or contest objectives right now? (CONFIRMED: no status; plus the type rules in core.) */
-const canHold = (unit) => !unit.destroyed && unit.arrived && !unit.embarkedIn && unit.statuses.size === 0 && core.canHoldObjectives(unit);
+/**
+ * Can this unit Control or Contest an Objective Marker or Sector? (MISSION) Not if any model is Stunned,
+ * Suppressed, Pinned or Routed, it's Locked in Combat or Embarked, all its models have Move 0, or it includes
+ * Automata; never with Heedless (CONFIRMED). Vehicles and Cavalry can.
+ */
+const BLOCKING = ['Stunned', 'Suppressed', 'Pinned', 'Routed'];
+function canHold(unit) {
+  if (unit.destroyed || !unit.arrived || unit.embarkedIn || unit.reserve) return false;
+  if (BLOCKING.some((s) => unit.statuses.has(s)) || unit.lockedWith.size) return false;
+  const a = alive(unit);
+  if (!a.length || a.every((m) => num(m.p.M, 0) === 0) || a.some((m) => /Automata/.test(m.unitType))) return false;
+  return !has(unit.rules, 'Heedless');
+}
 
 module.exports = { alive, charOf, fearOn, check, passChance, addStatus, statusCheck, statusImmune, canHold, isMalefic };
