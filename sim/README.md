@@ -240,6 +240,15 @@ Gambits: the seven core ones (Seize the Initiative, Flurry of Blows, Test the Fo
 Grandstand, Finishing Blow), the Rangdan three (Throat-Hunter, Hunter's Stare, Feast of Memories) and character
 gambits with plain number effects.
 
+Each Legion's own gambit is played too (CONFIRMED, from the army data): I Am Alpharius, Thrall of the Red Thirst,
+Sword of the Order, the Death Guard's Gambit, Paragon of Excellence or The Broken Mirror, A Wall Unyielding, Legion
+of One, Spiteful Demise, Nostraman Courage, Decapitation Strike, Duty is Sacrifice, Merciless Strike, A Saga Woven
+of Glory and No Prey Escapes, Prophetic Duellist, Aegis of Wisdom, The Path of the Warrior, Beseech the Gods, and
+Brutal Dismemberment or Violent Overkill. The AI weighs each by the wounds it changes in the coming Strike Step and
+by what it does to the Focus Roll, worked out from the challenge's own sums. Two assumptions: the data leaves out
+the Spiteful Demise weapon profile, so the falling model strikes with its own best weapon; and Violent Overkill
+passes on the attacks not yet made, rather than wounds already rolled.
+
 ## The AI
 
 Every choice is scored in expected points (a Victory Point counts as 45 points): damage a unit can deal, damage

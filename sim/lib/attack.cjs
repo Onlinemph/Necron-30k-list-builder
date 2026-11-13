@@ -42,7 +42,7 @@ function armourFacing(target, from) {
 function resolveGroup(g, target, ctx) {
   const { dice } = ctx;
   const rules = g.rules || [];
-  const out = { hits: 0, wounds: 0, unsaved: 0, damage: 0, kills: 0, killed: [], shockRolls: 0, precisionHits: 0, vehicleStatuses: [], misfires: 0 };
+  const out = { hits: 0, wounds: 0, unsaved: 0, damage: 0, kills: 0, killed: [], shockRolls: 0, precisionHits: 0, vehicleStatuses: [], misfires: 0, used: 0 };
   const psychic = (g.weaponTraits || []).includes('Psychic'), immaterial = (g.weaponTraits || []).includes('Immaterial');
   const rend = xOf(rules, 'Rending'), breach = xOf(rules, 'Breaching'), shred = xOf(rules, 'Shred'), poison = xOf(rules, 'Poisoned');
   const precision = xOf(rules, 'Precision');
@@ -57,6 +57,7 @@ function resolveGroup(g, target, ctx) {
   for (let i = 0; i < g.attacks; i++) {
     const t = target.models.find((m) => m.wounds > 0);
     if (!t) break;
+    out.used = i + 1; // attacks made before the target ran out (Violent Overkill passes the rest on)
     // Glorious Martyrdom: once the chosen model falls, the rest of the Fire Group is discarded
     if (ctx.martyr && ctx.martyr.wounds <= 0) break;
     // ---- hit ----

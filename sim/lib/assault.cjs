@@ -149,6 +149,12 @@ function strikeProfile(x, y, ex, ey, opts = {}) {
   let w = bestWeapon(x.m, tgt);
   if (ex.extraRules) w = Object.assign({}, w, { specialRules: [...(w.specialRules || []), ...ex.extraRules(w)] });
   const mods = meleeMods(x.u);
+  // Sword of the Order (Dark Angels): a sword strikes once less but with Critical Hit (6+), or one better
+  if (ex.ifSword && (/chainsword|power sword|force sword|paragon blade/i.test(w.name) || (w.traits || []).includes('Sword of the Order'))) {
+    mods.attacks -= 1;
+    const crit = xOf(w.specialRules || [], 'Critical Hit');
+    w = Object.assign({}, w, { specialRules: [...(w.specialRules || []).filter((r) => !/^Critical Hit/.test(r)), `Critical Hit (${crit ? crit - 1 : 6}+)`] });
+  }
   mods.attacks += (ex.attacks || 0) + (opts.focusWinner ? 1 : 0) + (ex.attacksD3 ? (opts.d3 ? opts.d3() : 2) : 0);
   mods.str += ex.str || 0; mods.ws += ex.ws || 0;
   if (ex.matchOpp) mods.ws += Math.min(0, num(y.m.p.WS, 4) - num(x.m.p.WS, 4));
@@ -161,9 +167,12 @@ function strikeProfile(x, y, ex, ey, opts = {}) {
   } };
 }
 function gambitBuff(x, e) {
-  if (!e || (!e.tough && !e.toughSet)) return x.u.buff;
+  if (!e || (!e.tough && !e.toughSet && !e.ew)) return x.u.buff;
   const b = Object.assign({ tough: 0, fnp: 7, shrouded: 7, ew: 0, attacks: 0, str: 0, ws: 0 }, x.u.buff || {});
-  b.tough += e.toughSet ? Math.max(0, e.toughSet - num(x.m.p.T, 4)) : e.tough;
+  // toughExact: the Toughness is replaced, even by a lower value (the Death Guard's gambit)
+  if (e.toughSet) b.tough += e.toughExact ? e.toughSet - num(x.m.p.T, 4) : Math.max(0, e.toughSet - num(x.m.p.T, 4));
+  else b.tough += e.tough || 0;
+  if (e.ew) b.ew = Math.max(b.ew || 0, e.ew);
   return b;
 }
 /** Expected wounds `x` deals `y` in one Strike Step with these gambit effects. */
@@ -220,27 +229,81 @@ function duel(state, A, B, challengerSide, tally) {
   A.m.inChallenge = B.m.inChallenge = true;
   const inflicted = new Map([[A, 0], [B, 0]]);
   const effects = new Map([[A, {}], [B, {}]]);
+  const lasting = new Map([[A, {}], [B, {}]]);
   const guard = new Map([[A, 0], [B, 0]]);
+  const other = (x) => (x === A ? B : A);
   let testFoe = null;
   const support = (x) => core.focusSupport(alive(x.u).length - 1 + (hasItem(x.u, /^Legion standard/i) ? 6 : 0));
+  const weaponOf = (x) => bestWeapon(x.m, { models: [other(x).m], vehicle: false });
+  const ci = (x) => combatInitiative(x.u, x.m, weaponOf(x));
+  // Aegis of Wisdom: the other friendly Ultramarines Command models on the battlefield
+  const aegisCount = (x) => state.units.filter((u) => u.side === x.u.side && !u.destroyed && u.arrived && !u.embarkedIn)
+    .reduce((t, u) => t + alive(u).filter((m) => m !== x.m && /Command/.test(m.unitType) && (m.traits || []).includes('Ultramarines')).length, 0);
+  // the Focus Roll's terms, positive and negative, before the die
+  const focusTerms = (x, e, eo) => {
+    const w = weaponOf(x);
+    const terms = [
+      e.noCI ? 0 : eo.oppCI1 ? 1 : ci(x),
+      e.noWoundPenalty ? 0 : -(x.m.maxWounds - x.m.wounds),
+      /Heavy/.test(x.m.unitType) ? -1 : 0, /Light/.test(x.m.unitType) ? 1 : 0,
+      (x.m.traits || []).includes('Shield') || hasItem(x.u, /Company Standard/i) ? 1 : 0,
+      Math.min(e.noSupport ? 0 : support(x) * (e.supportMult || 1) + (e.supportBonus || 0), eo.oppSupportCap ?? Infinity),
+      xOf(w.specialRules, "Duellist's Edge") || 0, e.focus || 0, guard.get(x), e.aegis ? aegisCount(x) : 0, e.sacrifice || 0,
+    ];
+    return terms;
+  };
+  // the expected change a gambit makes to the Focus Roll difference, for the AI
+  const focusDelta = (x) => (e) => {
+    const base = focusTerms(x, {}, {}).reduce((a, b) => a + b, 0), oBase = focusTerms(other(x), {}, {}).reduce((a, b) => a + b, 0);
+    const mine = focusTerms(x, e, {}), theirs = focusTerms(other(x), {}, e).reduce((a, b) => a + b, 0);
+    let d = mine.reduce((a, b) => a + b, 0) - base - (theirs - oBase) + gambits.focusShift(Object.assign({}, e, { focus: 0 }));
+    if (e.predict) d += 0.5 * -mine.filter((t) => t < 0).reduce((a, b) => a + b, 0);
+    if (e.wpFocus) d += Math.max(0, num(x.m.p.WP, 7) - (3.5 + base)) * 0.6;
+    return d;
+  };
+  // the chance a wound at AP 5 isn't saved (Duty is Sacrifice)
+  const saveFail = (m) => { const sv = Math.min(num(String(m.p.SAV).replace('+', ''), 7) < 5 ? num(String(m.p.SAV).replace('+', ''), 7) : 7, num(String(m.p.INV || '').replace('+', ''), 7)); return Math.min(1, (sv - 1) / 6); };
+  const decapOK = new Map();
   for (let round = 1; round <= 5; round++) {
     // Face-Off: each picks a gambit (the side with Challenge Advantage first; it makes no difference to the AI)
     for (const [me, opp] of [[A, B], [B, A]]) {
-      const g = gambits.choose(state, me, opp, (e) => duelWith(me, opp, e, {}) - duelWith(opp, me, {}, e), { moreRounds: round < 5 });
+      const g = gambits.choose(state, me, opp, (e) => duelWith(me, opp, e, {}) - duelWith(opp, me, {}, e), {
+        moreRounds: round < 5, round, focusDelta: focusDelta(me),
+        wouldFall: duelWith(opp, me, {}, {}) >= me.m.wounds, favoured: duelEdge(me, opp) > 0, saveFail: saveFail(me.m),
+        decap: 0.5 * duelWith(me, opp, {}, {}) - 0.1 * duelWith(opp, me, {}, {}),
+      });
       const e = g ? Object.assign({ name: g.name }, g.make(state, me, opp)) : {};
+      // Beseech the Gods lasts until the end of the Challenge Sub-Phase
+      const keep = lasting.get(me);
+      if (e.persist) lasting.set(me, { str: (keep.str || 0) + (e.str || 0), attacks: (keep.attacks || 0) + (e.attacks || 0) });
+      else { e.str = (e.str || 0) + (keep.str || 0); e.attacks = (e.attacks || 0) + (keep.attacks || 0); }
       effects.set(me, e);
       if (g) state.log(`      ${me.m.name} picks ${g.name}`);
+    }
+    if (A.m.wounds <= 0 || B.m.wounds <= 0) break;
+    // Nostraman Courage: another model of the unit steps into the challenge in this one's place
+    for (const x of [A, B]) {
+      if (!effects.get(x).swapOut) continue;
+      const sub = alive(x.u).filter((m) => m !== x.m && !m.inChallenge).sort((a, b) => num(a.p.W, 1) - num(b.p.W, 1))[0];
+      if (!sub) continue;
+      state.log(`      ${x.m.name} steps back; ${sub.name} takes the challenge (Nostraman Courage)`);
+      x.m.inChallenge = false; sub.inChallenge = true; x.m = sub;
+      effects.set(x, {});
     }
     // Focus Roll: D6 + Combat Initiative - wounds lost, -1 Heavy, +1 Light, +1 Shield or Company Standard,
     // + Outside Support, + gambits; the winner gets +1 Attack and Challenge Advantage
     const focus = (x) => {
-      const e = effects.get(x);
-      const w = bestWeapon(x.m, { models: [x === A ? B.m : A.m], vehicle: false });
+      const e = effects.get(x), eo = effects.get(other(x));
+      if (e.decap) return -Infinity; // Decapitation Strike: no Focus Roll
       let d = state.dice.d6();
       if (e.focusDice) { const d2 = state.dice.d6(); d = e.focusDice === 'high' ? Math.max(d, d2) : Math.min(d, d2); }
-      return d + combatInitiative(x.u, x.m, w) - (x.m.maxWounds - x.m.wounds) - (/Heavy/.test(x.m.unitType) ? 1 : 0) + (/Light/.test(x.m.unitType) ? 1 : 0)
-        + ((x.m.traits || []).includes('Shield') || hasItem(x.u, /Company Standard/i) ? 1 : 0) + support(x) + (xOf(w.specialRules, "Duellist's Edge") || 0)
-        + (e.focus || 0) + guard.get(x);
+      const terms = focusTerms(x, e, eo);
+      // The Path of the Warrior: a correct Strike Low / Strike High guess ignores the negative modifiers
+      const ignoreNeg = e.predict && (d >= 4) === (e.predict === 'high');
+      let total = d + terms.reduce((a, t) => a + (ignoreNeg && t < 0 ? 0 : t), 0);
+      // Prophetic Duellist: the Focus Roll may be replaced by the model's Willpower
+      if (e.wpFocus) total = Math.max(total, num(x.m.p.WP, 7));
+      return total;
     };
     let fa = focus(A), fb = focus(B);
     while (fa === fb) { fa = focus(A); fb = focus(B); }
@@ -248,27 +311,73 @@ function duel(state, A, B, challengerSide, tally) {
     const adv = testFoe || winner;
     testFoe = null;
     guard.set(A, 0); guard.set(B, 0);
+    // Decapitation Strike: one attack at the end of the Focus Step; the rest only if it hits and wounds
+    for (const x of [A, B]) {
+      const ex = effects.get(x), y = other(x);
+      if (!ex.decap || x.m.wounds <= 0 || y.m.wounds <= 0) continue;
+      const s = strikeProfile(x, y, ex, effects.get(y), {});
+      const g = Object.assign(s.finish(meleeGroup(x.m, s.w, s.tgt, { mods: s.mods })), { attacks: 1 });
+      const before = y.m.wounds;
+      const r = resolveGroup(g, s.tgt, { dice: state.dice, onKill: (m) => state.onCasualty && state.onCasualty(m, y.u, x.u) });
+      inflicted.set(x, inflicted.get(x) + (before - y.m.wounds));
+      tally.kills[x.u.side] += r.kills;
+      decapOK.set(x, r.wounds > 0);
+      state.log(`      ${x.m.name} strikes first (Decapitation Strike): ${r.wounds > 0 ? 'it lands' : 'it fails, and no more attacks'}`);
+    }
     // Strike: the side with Challenge Advantage first
-    for (const [x, y] of [[adv, adv === A ? B : A], [adv === A ? B : A, adv]]) {
+    for (const [x, y] of [[adv, other(adv)], [other(adv), adv]]) {
       if (x.m.wounds <= 0 || y.m.wounds <= 0) continue;
       const ex = effects.get(x), ey = effects.get(y);
+      if (ex.decap && !decapOK.get(x)) continue;
       const s = strikeProfile(x, y, ex, ey, { focusWinner: x === winner, d3: () => state.dice.d3() });
       let w = s.w;
       if (has(w.specialRules, 'Force')) w = forceCheck(state, x.u, x.m, w);
       const g = s.finish(meleeGroup(x.m, w, s.tgt, { charged: x.u.turn.charged, mods: s.mods }));
+      if (ex.decap) g.attacks = Math.max(0, g.attacks - 1);
       const before = y.m.wounds;
       const r = resolveGroup(g, s.tgt, { dice: state.dice, preyCrit: preyCrit(x.u, y.u), hatred: hatredAgainst(x.u, y.u), onKill: (m) => state.onCasualty && state.onCasualty(m, y.u, x.u) });
       inflicted.set(x, inflicted.get(x) + (before - y.m.wounds));
       tally.kills[x.u.side] += r.kills;
       carrionFeast(x.m, r.kills);
       if (ey.guardUp) guard.set(y, guard.get(y) + Math.max(0, g.attacks - r.hits));
-      if (y.m.wounds <= 0 && ex.onKill) ex.onKill(state, x, y);
+      if (y.m.wounds > 0) continue;
+      if (ex.onKill) ex.onKill(state, x, y);
+      // Brutal Dismemberment: Combat Resolution for the kill
+      if (ex.crpOnKill) { tally.glory[x.u.side] += ex.crpOnKill; state.log(`      +${ex.crpOnKill} Combat Resolution (${ex.name})`); }
+      // Violent Overkill: attacks left after the opponent falls go to the rest of its unit (ASSUMPTION: the
+      // attacks not yet made, rather than wounds already rolled)
+      if (ex.overkill && g.attacks > r.used) {
+        const rest = alive(y.u).filter((m) => !m.inChallenge);
+        if (rest.length) {
+          const tgt2 = { models: rest, statuses: y.u.statuses, vehicle: false, name: y.u.name, buff: y.u.buff };
+          const r2 = resolveGroup(Object.assign({}, g, { attacks: g.attacks - r.used }), tgt2, { dice: state.dice, onKill: (m) => state.onCasualty && state.onCasualty(m, y.u, x.u) });
+          tally.kills[x.u.side] += r2.kills;
+          state.log(`      ${x.m.name} carries on into ${y.u.name} (Violent Overkill): ${r2.kills} killed`);
+        }
+      }
+      // Spiteful Demise: the fallen model strikes once more, automatically hitting
+      if (ey.onDeath && x.m.wounds > 0) {
+        const tgtX = { models: [x.m], statuses: x.u.statuses, vehicle: false, name: x.m.name, buff: x.u.buff };
+        const g3 = Object.assign(meleeGroup(y.m, bestWeapon(y.m, tgtX), tgtX, {}), { attacks: 1, hitNeed: null });
+        const b3 = x.m.wounds;
+        resolveGroup(g3, tgtX, { dice: state.dice, onKill: (m) => state.onCasualty && state.onCasualty(m, x.u, y.u) });
+        inflicted.set(y, inflicted.get(y) + (b3 - x.m.wounds));
+        state.log(`      ${y.m.name} strikes as it falls (Spiteful Demise)${x.m.wounds <= 0 ? `: ${x.m.name} falls too` : ''}`);
+      }
+    }
+    // Duty is Sacrifice: the wounds paid for the Focus bonus, AP 5, Damage 1, armour and invulnerable saves allowed
+    for (const x of [A, B]) {
+      const k = effects.get(x).sacrifice;
+      if (!k || x.m.wounds <= 0) continue;
+      let lost = 0;
+      for (let i = 0; i < k && x.m.wounds > 0; i++) if (state.dice.rnd() < saveFail(x.m)) { x.m.wounds -= 1; lost++; }
+      if (lost) state.log(`      ${x.m.name} pays ${lost} wound${lost > 1 ? 's' : ''} (Duty is Sacrifice)`);
+      if (x.m.wounds <= 0 && state.onCasualty) state.onCasualty(x.m, x.u, null);
     }
     if (effects.get(A).testFoe) testFoe = A; else if (effects.get(B).testFoe) testFoe = B;
     if (A.m.wounds <= 0 || B.m.wounds <= 0) break;
-    // the side with Challenge Advantage decides whether to fight another round
-    const other = adv === A ? B : A;
-    if (duelEdge(adv, other) <= 0.05) break;
+    // the side with Challenge Advantage decides whether to fight another round, unless No Prey Escapes holds it
+    if (duelEdge(adv, other(adv)) <= 0.05 && !effects.get(A).noEscape && !effects.get(B).noEscape) break;
   }
   // Glory: the duellist who inflicted the most wounds scores them, or the slain enemy's full Wounds (SHEET)
   const [ia, ib] = [inflicted.get(A), inflicted.get(B)];

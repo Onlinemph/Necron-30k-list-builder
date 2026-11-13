@@ -508,3 +508,18 @@ test("Legiones Astartes or Hereticus: the army's choice decides the Tactica and 
   ua.statuses = new Set(); ua.cond = null;
   assert.equal(check(Object.assign({}, st, { units: [ua] }), ua, 'LD', 0, 'test'), false);
 });
+
+test('Legion gambits: each Legion gets its own, by version, and first-round gambits only in the first Face-Off', () => {
+  const gambits = require('../sim/lib/gambits.cjs');
+  const names = (trait, rite, round = 1) => gambits.available({ traits: [trait], rules: [] }, { u: { rite, models: [{ wounds: 1 }, { wounds: 1 }] }, m: {} }, round).map((g) => g.name);
+  assert.ok(names('World Eaters', 'Hereticus').includes('Brutal Dismemberment') && !names('World Eaters', 'Hereticus').includes('Violent Overkill'));
+  assert.ok(names('World Eaters', 'Astartes').includes('Violent Overkill'));
+  assert.ok(names("Emperor's Children", 'Astartes').includes('Paragon of Excellence') && !names("Emperor's Children", 'Astartes', 2).includes('Paragon of Excellence'));
+  assert.ok(names('Alpha Legion').includes('I Am Alpharius') && !names('Alpha Legion', undefined, 2).includes('I Am Alpharius'));
+  for (const [legion, g] of [['Blood Angels', 'Thrall of the Red Thirst'], ['Dark Angels', 'Sword of the Order'], ['Death Guard', 'Death Guard Gambit'], ['Imperial Fists', 'A Wall Unyielding'],
+    ['Iron Hands', 'Legion of One'], ['Iron Warriors', 'Spiteful Demise'], ['Night Lords', 'Nostraman Courage'], ['Raven Guard', 'Decapitation Strike'], ['Salamanders', 'Duty is Sacrifice'],
+    ['Sons of Horus', 'Merciless Strike'], ['Space Wolves', 'No Prey Escapes'], ['Thousand Sons', 'Prophetic Duellist'], ['Ultramarines', 'Aegis of Wisdom'], ['White Scars', 'The Path of the Warrior'], ['Word Bearers', 'Beseech the Gods']]) {
+    assert.ok(names(legion).includes(g), `${legion}: ${g}`);
+    assert.ok(!names('Rangda').includes(g));
+  }
+});
