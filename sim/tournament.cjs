@@ -32,6 +32,7 @@ function playPairing({ a, b, battles, seed }) {
     const units = flip(r.units);
     for (const s of [0, 1]) for (const u of units[s]) {
       const cur = out.units[s][u.name] = out.units[s][u.name] || { pts: u.pts, n: 0, killed: 0, lost: 0, survived: 0 };
+      if (u.joined) cur.joined = u.joined; // a character that joined a unit: its kills count with that unit
       cur.n++; cur.killed += u.pointsKilled; cur.lost += u.pointsLost; cur.survived += u.survived ? 1 : 0;
     }
   }

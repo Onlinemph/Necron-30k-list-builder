@@ -22,6 +22,7 @@ function summarise(t) {
     }
     for (const [s, idx] of [[0, i], [1, j]]) for (const [name, u] of Object.entries(p.units[s])) {
       const x = units[idx][name] = units[idx][name] || { pts: u.pts, n: 0, killed: 0, lost: 0, survived: 0 };
+      if (u.joined) x.joined = u.joined;
       x.n += u.n; x.killed += u.killed; x.lost += u.lost; x.survived += u.survived;
     }
   }
@@ -57,7 +58,7 @@ function summarise(t) {
   matchups.sort((x, y) => Math.abs(y.score - 0.5) - Math.abs(x.score - 0.5));
   const unitRows = [];
   for (let i = 0; i < n; i++) for (const [name, u] of Object.entries(units[i])) {
-    unitRows.push({ list: t.names[i], name, pts: u.pts, appearances: u.n, killedPerGame: u.killed / u.n, lostPerGame: u.lost / u.n, efficiency: u.killed / u.n / u.pts, survived: u.survived / u.n });
+    unitRows.push({ list: t.names[i], name, pts: u.pts, appearances: u.n, killedPerGame: u.killed / u.n, lostPerGame: u.lost / u.n, efficiency: u.killed / u.n / u.pts, survived: u.survived / u.n, joined: u.joined || null });
   }
   unitRows.sort((a, b) => b.efficiency - a.efficiency);
   return { names: t.names, battles, battlesPerPairing: t.battles, firstTurnWinRate: firstWins / Math.max(1, decided), standings: rows, matrix: M, byArchetype: arch, matchups, units: unitRows };
@@ -79,10 +80,12 @@ function main() {
   }
   console.log('\nMost one-sided matchups');
   for (const m of s.matchups.slice(0, 10)) console.log(`  ${m.a} ${pct(m.score)} vs ${m.b} (${m.games} games)`);
-  console.log('\nUnits that earned their points (points destroyed per game per point)');
-  for (const u of s.units.filter((x) => x.appearances >= 50).slice(0, 15)) console.log(`  ${u.efficiency.toFixed(2)}  ${u.name.padEnd(34)} ${String(u.pts).padStart(4)} pts  survived ${pct(u.survived)}  (${u.list})`);
+  // characters that joined a unit fight as part of it, so what they destroyed is counted with that unit
+  const rated = s.units.filter((x) => x.appearances >= 50 && !x.joined);
+  console.log('\nUnits that earned their points (points destroyed per game per point; joined characters count with their unit)');
+  for (const u of rated.slice(0, 15)) console.log(`  ${u.efficiency.toFixed(2)}  ${u.name.padEnd(34)} ${String(u.pts).padStart(4)} pts  survived ${pct(u.survived)}  (${u.list})`);
   console.log('\n... and the ones that didn\'t');
-  for (const u of s.units.filter((x) => x.appearances >= 50).slice(-12).reverse()) console.log(`  ${u.efficiency.toFixed(2)}  ${u.name.padEnd(34)} ${String(u.pts).padStart(4)} pts  survived ${pct(u.survived)}  (${u.list})`);
+  for (const u of rated.slice(-12).reverse()) console.log(`  ${u.efficiency.toFixed(2)}  ${u.name.padEnd(34)} ${String(u.pts).padStart(4)} pts  survived ${pct(u.survived)}  (${u.list})`);
 }
 
 if (require.main === module) main();
