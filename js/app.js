@@ -1240,7 +1240,7 @@
         html += '<ul class="loadout">';
         for (const r of E.loadout(s.unit)) {
           const chg = r.changes.map((c) => `${c.count > 1 ? c.count + '× ' : ''}${esc(c.name)}${c.replaces ? ' (for ' + esc(c.replaces) + ')' : ''}`);
-          html += `<li><strong>${r.count}× ${esc(r.model)}</strong>: ${esc(r.base.join(', '))}${chg.length ? '; ' + chg.join(', ') : ''}</li>`;
+          html += `<li><strong>${r.count}× ${esc(r.model)}</strong>: ${[r.base.length ? esc(r.base.join(', ')) : '', chg.join(', ')].filter(Boolean).join('; ')}</li>`;
         }
         html += '</ul>';
         const wt = weaponTable(weaponNamesFor(u, s.unit), u.id);

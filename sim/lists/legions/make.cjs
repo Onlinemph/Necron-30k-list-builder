@@ -73,8 +73,8 @@ function build(id) {
       const byCost = [...c].sort((a, b) => (a.points || 0) - (b.points || 0));
       const melee = byCost.find((x) => isMelee(x.name)), gun = byCost.find((x) => isGun(x.name));
       const weaponPick = melee ? (many >= 2 && gun ? [melee.name, gun.name] : [melee.name]) : null;
-      // the builder allows one pick per model in these groups, so each model takes the melee weapon
-      if (o.kind === 'perModel') s.options[o.id] = { [weaponPick ? weaponPick[0] : c[0].name]: n };
+      // a per-model group takes one pick per model, or as many as its perModelPicks allows ("choose 2")
+      if (o.kind === 'perModel') s.options[o.id] = Object.fromEntries((weaponPick || [c[0].name]).slice(0, o.perModelPicks || 1).map((w) => [w, n]));
       else if (o.kind === 'any') s.options[o.id] = weaponPick || c.slice(0, many).map((x) => x.name);
       else s.options[o.id] = weaponPick ? weaponPick[0] : c[0].name;
     }
@@ -121,8 +121,15 @@ function build(id) {
       if (m.max == null || m.max <= (m.min || 0)) continue;
       const cur = sl.unit.counts[m.name] ?? m.min;
       if (cur >= m.max) continue;
+      const before = JSON.stringify(sl.unit.options);
       sl.unit.counts[m.name] = cur + 1;
-      if (total() > 3000 || E.unitIssues(sl.unit).some((i) => i.level === 'error')) { sl.unit.counts[m.name] = cur; continue; }
+      // every model of a required weapon group takes its weapons, so the picks grow with the squad
+      for (const o of E.optionsOf(sl.unit)) {
+        const v = sl.unit.options[o.id];
+        if (o.kind !== 'perModel' || !o.required || o.required.count !== 'all' || !v || typeof v !== 'object') continue;
+        for (const k of Object.keys(v)) v[k] = E.modelCounts(sl.unit)[o.model] || 1;
+      }
+      if (total() > 3000 || E.unitIssues(sl.unit).some((i) => i.level === 'error')) { sl.unit.counts[m.name] = cur; sl.unit.options = JSON.parse(before); continue; }
       return true;
     }
     return false;

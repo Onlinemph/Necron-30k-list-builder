@@ -91,7 +91,7 @@
      "unit": {
       "unitId": "tactical-squad",
       "counts": {
-       "Legionary": 19,
+       "Legionary": 15,
        "Sergeant": 1
       }
      }
@@ -101,7 +101,7 @@
      "unit": {
       "unitId": "tactical-squad",
       "counts": {
-       "Legionary": 19,
+       "Legionary": 14,
        "Sergeant": 1
       }
      }
@@ -111,7 +111,7 @@
      "unit": {
       "unitId": "tactical-squad",
       "counts": {
-       "Legionary": 19,
+       "Legionary": 14,
        "Sergeant": 1
       }
      }
@@ -167,12 +167,12 @@
      "unit": {
       "unitId": "inner-circle-knights-cenobium",
       "counts": {
-       "Order Cenobite": 4,
+       "Order Cenobite": 9,
        "Order Preceptor": 1
       },
       "options": {
        "order-cenobite-options": {
-        "Terranic greatsword": 4
+        "Terranic greatsword": 9
        },
        "order-preceptor-options": "Terranic greatsword",
        "unit-orders-of-the-hekatonystika": "Augurs of Weakness"

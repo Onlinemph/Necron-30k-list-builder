@@ -94,7 +94,7 @@
      "unit": {
       "unitId": "tactical-squad",
       "counts": {
-       "Legionary": 18,
+       "Legionary": 9,
        "Sergeant": 1
       }
      }
@@ -104,7 +104,7 @@
      "unit": {
       "unitId": "tactical-squad",
       "counts": {
-       "Legionary": 17,
+       "Legionary": 9,
        "Sergeant": 1
       }
      }
@@ -114,7 +114,7 @@
      "unit": {
       "unitId": "tactical-squad",
       "counts": {
-       "Legionary": 17,
+       "Legionary": 9,
        "Sergeant": 1
       }
      }
@@ -170,12 +170,12 @@
       "unitId": "rampager-squad",
       "counts": {
        "Rampager Champion": 1,
-       "Rampager": 4
+       "Rampager": 13
       },
       "options": {
        "rampager-champion-options": "Pair of lightning claws",
        "rampager-caedere-weapons": {
-        "Meteor hammer": 4
+        "Meteor hammer": 13
        }
       }
      }
@@ -197,11 +197,11 @@
       "unitId": "red-butchers",
       "counts": {
        "Devoured": 1,
-       "Red Butcher": 4
+       "Red Butcher": 9
       },
       "options": {
        "red-butcher-options": {
-        "Butcher power axes": 4
+        "Butcher power axes": 9
        }
       }
      }
@@ -231,7 +231,7 @@
       "unitId": "heavy-support-squad",
       "counts": {
        "Sergeant": 1,
-       "Legionary": 9
+       "Legionary": 4
       },
       "options": {
        "unit-legion-heavy-weapons-list": "Lascannon"
@@ -244,7 +244,7 @@
       "unitId": "heavy-support-squad",
       "counts": {
        "Sergeant": 1,
-       "Legionary": 9
+       "Legionary": 4
       },
       "options": {
        "unit-legion-heavy-weapons-list": "Lascannon"

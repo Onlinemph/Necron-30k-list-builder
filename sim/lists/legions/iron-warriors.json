@@ -91,7 +91,7 @@
      "unit": {
       "unitId": "tactical-squad",
       "counts": {
-       "Legionary": 19,
+       "Legionary": 17,
        "Sergeant": 1
       }
      }
@@ -101,7 +101,7 @@
      "unit": {
       "unitId": "tactical-squad",
       "counts": {
-       "Legionary": 19,
+       "Legionary": 17,
        "Sergeant": 1
       }
      }
@@ -111,7 +111,7 @@
      "unit": {
       "unitId": "tactical-squad",
       "counts": {
-       "Legionary": 19,
+       "Legionary": 17,
        "Sergeant": 1
       }
      }
@@ -167,7 +167,7 @@
       "unitId": "tyrant-siege-terminator-squad",
       "counts": {
        "Siege Master": 1,
-       "Tyrant": 4
+       "Tyrant": 9
       },
       "options": {
        "siege-master-options": [
@@ -175,7 +175,8 @@
         "Combi-bolter"
        ],
        "tyrant-options": {
-        "Power fist": 4
+        "Power fist": 9,
+        "Combi-bolter": 9
        }
       }
      }

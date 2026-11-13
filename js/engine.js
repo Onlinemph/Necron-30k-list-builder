@@ -675,7 +675,8 @@
         }
         if (o.required && !(o.required.or && isTaken(sel.options[o.required.or])) && !(o.requires && !requirementMet(o, sel))) {
           const counted = o.kind === 'perModel' || (o.kind === 'any' && o.required.count > 1);
-          const need = o.kind === 'perModel' ? (o.required.count === 'all' ? eligible(o, sel) : (o.required.count || 1)) : counted ? o.required.count : 1;
+          // a "choose 2" weapon group is two picks for every model (required.picks)
+          const need = o.kind === 'perModel' ? (o.required.count === 'all' ? eligible(o, sel) * (o.required.picks || 1) : (o.required.count || 1)) : counted ? o.required.count : 1;
           const have = o.kind === 'perModel' ? perModelUsed(val) : o.kind === 'any' ? (Array.isArray(val) ? val.length : 0) : (isTaken(val) ? 1 : 0);
           if (have < need) issues.push({ level: 'error', msg: `${u.name}: must take ${counted ? need + ' from ' : ''}"${short(o.text)}".` });
         }

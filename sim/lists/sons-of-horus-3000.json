@@ -4,7 +4,11 @@
  "name": "Sons of Horus 3000",
  "pointsLimit": 3000,
  "sequelae": [],
- "config": {},
+ "config": {
+  "allegiance": [
+   "Traitor"
+  ]
+ },
  "detachments": [
   {
    "kind": "primary",
@@ -111,7 +115,8 @@
       },
       "options": {
        "cataphractii-terminator-options": {
-        "Power fist": 4
+        "Power fist": 4,
+        "Volkite charger": 4
        },
        "cataphractii-terminator-sergeant-options": [
         "Power fist",
@@ -129,7 +134,8 @@
       },
       "options": {
        "justaerin-options": {
-        "Power axe": 5
+        "Power axe": 5,
+        "Banestrike combi-bolter": 5
        }
       }
      }
@@ -186,7 +192,8 @@
         "Bolt pistol"
        ],
        "reaver-options": {
-        "Chainaxe": 9
+        "Chainaxe": 9,
+        "Bolt pistol": 9
        }
       }
      }

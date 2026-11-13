@@ -405,6 +405,9 @@ test('builder data: default weapons that BSData lists only inside options', () =
   assert.equal(just.perModelPicks, 2);
   const js = soh.E.newSelection('justaerin-terminator-squad');
   js.options[just.id] = { 'Power axe': 5, 'Combi-bolter': 5 };
-  assert.ok(!soh.E.unitIssues(js).some((i) => /too many/.test(i.msg)));
+  assert.ok(!soh.E.unitIssues(js).some((i) => /too many|must take/.test(i.msg)));
+  // "choose 2" is two weapons for every model, so five swords between five Justaerin isn't enough
+  js.options[just.id] = { 'Power axe': 5 };
+  assert.ok(soh.E.unitIssues(js).some((i) => /must take 10/.test(i.msg)));
   void D;
 });

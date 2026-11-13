@@ -55,7 +55,11 @@ export function fillDefaultWeapons(out, common, wkey) {
     // a per-model group of several picks ("Options (choose 2)") lets each model take that many
     for (const o of u.options || []) {
       const n = +((String(o.text || '').match(/\((?:choose|up to)\s+(\d+)\)/i) || [])[1] || 1);
-      if (o.kind === 'perModel' && n > 1 && !o.perModelPicks && !(o.max && o.max.fixed != null)) o.perModelPicks = n;
+      if (o.kind === 'perModel' && n > 1 && !o.perModelPicks && !(o.max && o.max.fixed != null)) {
+        o.perModelPicks = n;
+        // a required "choose 2" group is two weapons for every model
+        if (o.required && o.required.count === 'all' && /\(choose\s+\d+\)/i.test(o.text)) o.required = Object.assign({}, o.required, { picks: n });
+      }
     }
     // 2. infantry and the like still unarmed: their free-choice weapon groups become a required pick. A vehicle's
     // guns, or a model that already has a required weapon pick, are left as the data has them
@@ -71,7 +75,8 @@ export function fillDefaultWeapons(out, common, wkey) {
         if (!(o.choices || []).some((c) => isWeapon(c.name) && !c.points)) continue;
         const n = +((t.match(/(?:choose|up to)\s+(\d+)/i) || [])[1] || 1);
         if (o.kind === 'perModel') {
-          o.required = { count: 'all' };
+          // "choose 2" is two weapons for every model, "up to 2" at least one
+          o.required = /choose\s+\d+/i.test(t) && n > 1 ? { count: 'all', picks: n } : { count: 'all' };
           if (n > 1) o.perModelPicks = n;
         } else if (o.kind === 'any') o.required = { count: /choose\s+\d+/i.test(t) ? n : 1 };
         else o.required = {};

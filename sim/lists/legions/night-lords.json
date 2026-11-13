@@ -82,7 +82,7 @@
       "unitId": "terror-squad",
       "counts": {
        "Headsman": 1,
-       "Executioner": 14
+       "Executioner": 11
       }
      }
     },
@@ -101,7 +101,7 @@
      "unit": {
       "unitId": "tactical-squad",
       "counts": {
-       "Legionary": 10,
+       "Legionary": 9,
        "Sergeant": 1
       }
      }
@@ -168,7 +168,7 @@
       "unitId": "contekar-terminator-squad",
       "counts": {
        "Dissident": 1,
-       "Contekar": 14
+       "Contekar": 11
       }
      }
     },
@@ -191,7 +191,7 @@
       "unitId": "night-raptor-squad",
       "counts": {
        "Huntmaster": 1,
-       "Night Raptor": 4
+       "Night Raptor": 11
       },
       "options": {
        "huntmaster-options": [
@@ -199,7 +199,7 @@
         "Bolt pistol"
        ],
        "night-raptor-options": {
-        "Chainaxe": 4
+        "Chainaxe": 11
        }
       }
      }
