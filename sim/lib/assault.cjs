@@ -486,7 +486,7 @@ function duel(state, A, B, challengerSide, tally) {
       }
       const s = strikeProfile(x, y, ex, ey, { focusWinner: x === winner, advantage: x === adv, d3: () => state.dice.d3() });
       let w = s.w;
-      if (has(w.specialRules, 'Force')) w = forceCheck(state, x.u, x.m, w);
+      if (has(w.specialRules, 'Force')) w = forceCheck(state, x.u, x.m, w, s.tgt);
       const g = s.finish(meleeGroup(x.m, w, s.tgt, { charged: x.u.turn.charged, mods: s.mods }));
       if (ex.decap) g.attacks = Math.max(0, g.attacks - 1);
       const before = y.m.wounds;
@@ -611,7 +611,7 @@ function fight(state, c) {
       let t = s.t;
       if (t.destroyed || !alive(t).length) { const alt = [...s.u.lockedWith].find((e) => !e.destroyed && alive(e).length); if (!alt) continue; t = alt; }
       let w = s.w;
-      if (has(w.specialRules, 'Force')) w = forceCheck(state, s.u, s.m, w);
+      if (has(w.specialRules, 'Force')) w = forceCheck(state, s.u, s.m, w, t);
       const g = meleeGroup(s.m, w, t, { charged: s.u.turn.charged, outnumbered: outnumbered(s.u.side), mods: meleeMods(s.u) });
       // The Blood is Forever (Crimson Paladins): Feel No Pain (5+) when outnumbered, (4+) when by more than double
       const own = modelCount([t]), them = modelCount([...t.lockedWith].filter((e) => !e.destroyed));

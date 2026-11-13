@@ -320,13 +320,26 @@ an option to the right trigger in `lib/reactions.cjs`.
 
 ### Psychic
 
-Psykers are units with the Psyker Trait or a Psychic Discipline taken as wargear. Psychic Weapons fire and strike
-like any other weapon; Force (X) takes a Willpower Check (less Fear) to double X, and any double is Perils of the
-Warp. Titans and Ordinatus ignore Psychic Weapons; Anathema ignores Psychic damage and Perils. Of the Psychic Powers,
-only those with full texts in the repo are played: Warpath (Power of the Waaagh!) for now. Perils of the Warp is a
-D6: on a 1 or 6 the psyker takes 13 minus its Willpower in wounds with only Invulnerable Saves, otherwise the
-unit is Stunned. The core Disciplines'
-Powers and Psychic Reactions aren't in the repo, so they're left out.
+Psykers are units with the Psyker Trait or a Psychic Discipline. Psychic Weapons fire and strike like any other
+weapon; Force (X) takes a Willpower Check (less Fear) to double X, and any double is Perils of the Warp. The AI
+only takes the check when doubling X would change something against the target: more Damage than any of its models
+has Wounds, or AP 2 against a save AP alone already beats, does nothing. Titans and Ordinatus ignore Psychic
+Weapons; Anathema ignores Psychic damage and Perils. Perils of the Warp is a D6: on a 1 or 6 the psyker takes 13
+minus its Willpower in wounds with only Invulnerable Saves, otherwise the unit is Stunned.
+
+A Psychic Discipline, whether chosen for a model or granted by a rule, gives the model the discipline's Psychic
+Weapon: Biomantic Slam for Biomancy, Wildfire for Pyromancy, Immovable Force for Telekinesis (CONFIRMED by
+Prosperine Sorcery, which names each with its discipline). So Prosperine Sorcerers carry all three, Magnus carries
+those of the disciplines picked for him, and Calas Typhon (Witchblood, without Mortarion) carries Biomantic Slam;
+Conduit adds 1 to their Strength. That alone took the Thousand Sons strength list from 52% to 66% against the
+eight strongest lists in the field. Warpath (Power of the Waaagh!) is played as a Blessing.
+
+`lib/psychic.cjs` keeps a registry of every psychic power the army data names, and every power goes through one
+Manifestation step (a Willpower Check, Perils on a double, a count for the battle report). The repo has no rules
+text for the rest, so they're listed there and wait for it: the Divination, Telepathy and Thaumaturgy powers
+(Foresight's Blessing, Mind-burst, Resurrection), the five Prosperine Arcana (Raptora, Pyrae, Pavoni, Corvidae,
+Athanaean), the Khenetai's Bladeweaving and Mindsong of Blades, Zardu Layak's Soul Binding and Breach the Veil,
+Magnus's Stoneform and Kine Shield, and Lorgar's Seal the Veil.
 
 ### Challenges and gambits
 

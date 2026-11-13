@@ -77,6 +77,22 @@ function resolveItem(weapons, item) {
   return out;
 }
 const DISCIPLINES = /^(Biomancy|Divination|Pyromancy|Telekinesis|Telepathy|Thaumaturgy|Anathemata|Malignant|Navis Astrologis|Fateweaving|Stormcalling|Runecasting|Power of the Waaagh!)$/;
+// Psychic Disciplines and the Psychic Weapon each gives (CONFIRMED: Prosperine Sorcery names Biomantic Slam for
+// Biomancy, Wildfire for Pyromancy and Immovable Force for Telekinesis; Stormcalling and Runecasting are their own
+// weapons). The other disciplines' powers have no text in the repo (psychic.cjs).
+const DISCIPLINE_WEAPON = { Biomancy: 'Biomantic Slam', Pyromancy: 'Wildfire', Telekinesis: 'Immovable Force' };
+/** The disciplines a model has: chosen as options, or granted by its rules (CONFIRMED, data/bsdata/common.json). */
+function disciplinesOf(r, list) {
+  const d = new Set((r.items || []).filter((i) => DISCIPLINES.test(i)));
+  const rules = r.rules || [];
+  if (has(rules, 'Prosperine Sorcery')) for (const x of ['Biomancy', 'Pyromancy', 'Telekinesis']) d.add(x);
+  // Witchblood (Calas Typhon): Biomancy, unless the army includes Mortarion
+  const mortarion = (list.detachments || []).some((det) => (det.slots || []).some((sl) => sl.unit && sl.unit.unitId === 'mortarion'));
+  if (has(rules, 'Witchblood') && !mortarion) d.add('Biomancy');
+  if (has(rules, 'Arch-Magister of the Corvidae')) for (const x of ['Thaumaturgy', 'Divination']) d.add(x);
+  if (has(rules, 'Magister of Dust') || has(rules, 'Echoes of Fate')) for (const x of ['Telepathy', 'Divination']) d.add(x);
+  return [...d];
+}
 const CCW = { name: 'Close combat weapon', base: 'Close combat weapon', IM: 'I', AM: 'A', SM: 'S', AP: '–', D: 1, specialRules: [], traits: [] };
 
 // ---------- footprint ----------
@@ -155,6 +171,21 @@ function buildUnit(armyId, list, slot, detachment, side) {
       for (const w of found.ranged) ranged.push(Object.assign({}, w, { count: n }));
       for (const w of found.melee) melee.push(w);
     }
+    // each Psychic Discipline's Psychic Weapon
+    const disciplines = disciplinesOf(r, list);
+    for (const d of disciplines) {
+      const name = DISCIPLINE_WEAPON[d];
+      if (!name || r.items.includes(name)) continue;
+      const found = resolveItem(weapons, name);
+      for (const w of found.ranged) ranged.push(Object.assign({}, w, { count: 1, discipline: d }));
+      for (const w of found.melee) melee.push(Object.assign({}, w, { discipline: d }));
+    }
+    // Conduit (Prosperine Spirestave): the model's Psychic Weapons gain +1 Strength when manifested (CONFIRMED)
+    if ([...ranged, ...melee].some((w) => has(w.specialRules, 'Conduit'))) {
+      const up = (w, key) => { const v = String(w[key] ?? ''); return /^-?\d+$/.test(v) ? +v + 1 : v === 'S' ? '+1' : /^[+-]\d+$/.test(v) ? `+${+v + 1}` : w[key]; };
+      for (let i = 0; i < ranged.length; i++) if ((ranged[i].traits || []).includes('Psychic')) ranged[i] = Object.assign({}, ranged[i], { RS: up(ranged[i], 'RS') });
+      for (let i = 0; i < melee.length; i++) if ((melee[i].traits || []).includes('Psychic') && !has(melee[i].specialRules, 'Conduit')) melee[i] = Object.assign({}, melee[i], { SM: up(melee[i], 'SM') });
+    }
     let p = r.profile;
     const vehicle = isVehicleProfile(p);
     // Swift of Action (White Scars): +2 Movement for non-vehicles (taken every turn); Cult Arcana (Thousand Sons): +1 WP
@@ -188,7 +219,7 @@ function buildUnit(armyId, list, slot, detachment, side) {
     vehicle: models.every((m) => m.vehicle), capacity, passengers: [], embarkedIn: null,
     x: 0, y: 0, r: 0, statuses: new Set(), lockedWith: new Set(), reserve: null, arrived: true, destroyed: false,
     // a Psyker has the Trait, or a Psychic Discipline taken as wargear
-    warlord: false, psyker: armyId === 'thousand-sons' || has(rules, 'Psyker') || unitTraits.includes('Psyker') || rows.some((r) => r.items.some((i) => DISCIPLINES.test(i))),
+    warlord: false, psyker: armyId === 'thousand-sons' || has(rules, 'Psyker') || unitTraits.includes('Psyker') || rows.some((r) => disciplinesOf(r, list).length),
     turn: {},
   };
   unit.r = footprint(unit);

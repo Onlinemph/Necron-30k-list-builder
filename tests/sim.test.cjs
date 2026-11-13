@@ -632,3 +632,23 @@ test('named characters: their gambits, cheating death, Drakenscale, The Blood Cr
   const corax = { side: 0, models: [{ name: 'Corvus Corax', unitType: 'Paragon (Unique)', rules: [] }], rules: [] };
   assert.equal(canJoin(corax, { side: 0, models: [{ unitType: 'Infantry', rules: [] }, { unitType: 'Infantry', rules: [] }], rules: ['Corax’s Shame'] }), false);
 });
+
+test('psychic: disciplines give their Psychic Weapons, Conduit adds Strength, and Force is skipped when it changes nothing', () => {
+  const psychic = require('../sim/lib/psychic.cjs');
+  const sorc = unit('thousand-sons', 'prosperine-sorcerer');
+  const m = sorc.models[0];
+  const wf = m.ranged.find((w) => w.name === 'Wildfire'), imf = m.ranged.find((w) => w.name === 'Immovable Force'), bs = m.melee.find((w) => w.name === 'Biomantic Slam');
+  assert.ok(wf && imf && bs, 'Prosperine Sorcery gives all three');
+  assert.equal(wf.RS, 5); // 4, +1 for the Prosperine Spirestave's Conduit
+  assert.ok(sorc.psyker);
+  assert.ok(psychic.powersOf(sorc).includes('Wildfire'));
+  // Magnus gets the weapons of the disciplines chosen for him
+  const magnus = unit('thousand-sons', 'magnus-the-red', { options: { 'magnus-the-red-psychic-disciplines': ['Telekinesis'] } });
+  assert.ok(magnus.models[0].ranged.some((w) => w.name === 'Immovable Force'));
+  // Force (D) against one-Wound models changes nothing, so no Willpower Check is taken
+  const st = { dice: { d6: () => { throw new Error('no check expected'); } }, log: () => {}, powerCount: [{}, {}] };
+  const oneWound = { models: [{ wounds: 1, maxWounds: 1, p: { SAV: '3+' } }] };
+  assert.equal(psychic.forceCheck(st, sorc, m, bs, oneWound), bs);
+  // the registry lists the powers still waiting for their rules text
+  assert.ok(psychic.POWERS.some((p) => p.name === 'Raptora' && p.text === false));
+});

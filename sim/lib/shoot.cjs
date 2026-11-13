@@ -90,7 +90,7 @@ function shootingAttack(state, shooter, target, opts = {}) {
     for (const p of picks) {
       if (target.destroyed || !alive(target).length) break;
       let w = p.weapon;
-      if (has(w.specialRules, 'Force')) w = forceCheck(state, shooter, p.model, w);
+      if (has(w.specialRules, 'Force')) w = forceCheck(state, shooter, p.model, w, target);
       if (has(w.specialRules, 'Limited')) { shooter.limitedUsed = shooter.limitedUsed || {}; shooter.limitedUsed[w.name] = (shooter.limitedUsed[w.name] || 0) + 1; }
       const g = rangedGroup(p.model, w, target, { stationary, snap, fpBonus: opts.fpBonus, heavyOK: !!shooter.turn.heavyOK && !shooter.statuses.size });
       g.from = shooter;
