@@ -23,6 +23,18 @@ function preyCrit(shooter, target) {
 const { forceCheck, perils } = psychic;
 
 /**
+ * Cameleoline (wargear of Kaedes Nex, Corvus Corax and Mor Deythan): a unit that includes it, shot from 12" or more
+ * away, has Shrouded (5+), or one better than the Shrouded it has, to 4+ (CONFIRMED). Returns the Shrouded value for
+ * the attack, or null. ASSUMPTION: the text's "+1" to an existing Shrouded means one step better (it caps at 4+); the
+ * range is the attack's measured range (closest models).
+ */
+function cameleoline(target, range) {
+  if (range == null || range < 12 || !alive(target).some((m) => (m.items || []).some((i) => /^Cameleoline/i.test(i)))) return null;
+  const now = Math.min(7, target.buff?.shrouded || 7, ...alive(target).map((m) => xOf(m.rules, 'Shrouded') || 7));
+  return now <= 6 ? Math.max(4, now - 1) : 5;
+}
+
+/**
  * Make a Shooting Attack. opts: { phaseAttack, snap, reaction, volley, defensiveOnly, assaultOnly, models (subset),
  * fpBonus, label }. A phaseAttack is the Active Player's attack in the Shooting Phase, which the Reactive Player
  * may answer with a reaction (see reactions.cjs). Returns { damage, kills, pts, target }.
@@ -66,8 +78,8 @@ function shootingAttack(state, shooter, target, opts = {}) {
     if (!groups.has(key)) groups.set(key, []);
     groups.get(key).push(p);
   }
-  const ctx = { dice: state.dice, preyCrit: preyCrit(shooter, target), coverSave: plan.coverSave, range: plan.range, precisionMin: react?.ctx.precisionMin,
-    onKill: (m, u) => state.onCasualty && state.onCasualty(m, u, shooter) };
+  const ctx = { dice: state.dice, log: state.log, preyCrit: preyCrit(shooter, target), coverSave: plan.coverSave, range: plan.range, precisionMin: react?.ctx.precisionMin,
+    shrouded: cameleoline(target, plan.range), onKill: (m, u) => state.onCasualty && state.onCasualty(m, u, shooter) };
   const parts = [];
   // Fire Discipline (Imperial Fists): +1 to hit for Bolt or Auto Fire Groups of more than five dice
   const fireDiscipline = legions.is(shooter, 'Imperial Fists');

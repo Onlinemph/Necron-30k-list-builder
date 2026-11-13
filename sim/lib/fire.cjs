@@ -14,6 +14,8 @@ const rangeOf = (w, m) => {
   return num(w.R, 0) + bonus;
 };
 
+const GUNS_OF_THE_CONQUEROR = /^Guns of the Conquer/i;
+
 /** How many weapons a model may fire in one Shooting Attack. */
 function fireLimit(model) {
   const fp = xOf(model.rules, 'Firing Protocols');
@@ -45,6 +47,8 @@ function planVolley(shooter, target, state, opts = {}) {
   for (const m of shooter.models) {
     if (m.wounds <= 0 || !m.ranged.length) continue;
     const usable = m.ranged.filter((w) => {
+      // Guns of the Conqueror (Lotara Sarrin): the profile is only fired through its Advanced Reaction (reactions.cjs)
+      if (GUNS_OF_THE_CONQUEROR.test(w.name) && !opts.conqueror) return false;
       if (d > rangeOf(w, m)) return false;
       if (!los && !has(w.specialRules, 'Barrage')) return false;
       if (has(w.specialRules, 'Limited') && (shooter.limitedUsed?.[w.name] || 0) >= xOf(w.specialRules, 'Limited')) return false;
@@ -73,4 +77,4 @@ function planVolley(shooter, target, state, opts = {}) {
   return { picks, expectedDamage: exp, expectedPts: exp * valuePerWound(target), coverSave, los, range: d };
 }
 
-module.exports = { planVolley, fireLimit, rangeOf, valuePerWound };
+module.exports = { planVolley, fireLimit, rangeOf, valuePerWound, GUNS_OF_THE_CONQUEROR };
