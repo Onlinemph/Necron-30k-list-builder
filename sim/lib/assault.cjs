@@ -22,7 +22,7 @@ const legions = require('./legions.cjs');
  */
 function meleeMods(u) {
   const m = Object.assign({ attacks: 0, str: 0, ws: 0 }, buffMods(u) || {});
-  if (u.turn?.charged && legions.is(u, 'World Eaters')) m.attacks += 1;
+  if (u.turn?.charged && legions.tactica(u, 'World Eaters')) m.attacks += 1;
   if (u.turn?.charged && legions.is(u, 'Blood Angels')) m.str += 1;
   if (legions.is(u, 'Night Lords') && [...u.lockedWith].some((e) => !e.destroyed && e.statuses.size)) m.ws += 1;
   return m;
@@ -127,7 +127,7 @@ function combats(state) {
 const modelCount = (units) => units.reduce((t, u) => t + alive(u).reduce((s, m) => s + (/Walker|Paragon/.test(m.unitType) ? num(m.p.W, 1) : xOf(m.rules, 'Bulky') || 1), 0), 0);
 const canChallenge = (m) => /Command|Champion|Paragon/.test(m.unitType) && !m.vehicle;
 // Flawless Execution (Emperor's Children): +1 Combat Initiative on a turn they charged
-const combatInitiative = (unit, m, w) => (unit.statuses.size && core.status.anyFightsAtI1 ? 1 : rel(w.IM, num(m.p.I, 1)) + (unit.turn?.charged && legions.is(unit, "Emperor's Children") ? 1 : 0));
+const combatInitiative = (unit, m, w) => (unit.statuses.size && core.status.anyFightsAtI1 ? 1 : rel(w.IM, num(m.p.I, 1)) + (unit.turn?.charged && legions.tactica(unit, "Emperor's Children") ? 1 : 0));
 function bestWeapon(m, target) {
   let best = m.melee.find((w) => target.vehicle || !has(w.specialRules, 'Detonation')) || m.melee[0], bv = -1;
   for (const w of m.melee) {

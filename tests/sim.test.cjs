@@ -483,3 +483,28 @@ test('AI: a transport carries its assault unit to the enemy, and the unit stays 
   const empty = ai.positionScore(st, spartan, near) - ai.positionScore(st, spartan, far);
   assert.ok(loaded > empty + 50, `${loaded} vs ${empty}`);
 });
+
+test("Legiones Astartes or Hereticus: the army's choice decides the Tactica and the reaction", () => {
+  const fs = require('fs');
+  const legions = require('../sim/lib/legions.cjs');
+  const reactions = require('../sim/lib/reactions.cjs');
+  const { buildArmy } = require('../sim/lib/army.cjs');
+  const { check } = require('../sim/lib/checks.cjs');
+  const we = JSON.parse(fs.readFileSync(path.join(LISTS, 'legions', 'world-eaters.json'), 'utf8'));
+  const ast = JSON.parse(JSON.stringify(we)); ast.config['rite-of-war'] = ['Legiones Astartes World Eaters'];
+  const her = JSON.parse(JSON.stringify(we)); her.config['rite-of-war'] = ['Legiones Hereticus World Eaters'];
+  const ua = buildArmy(ast, 0).units.find((u) => u.name === 'Tactical Squad'), uh = buildArmy(her, 0).units.find((u) => u.name === 'Tactical Squad');
+  assert.equal(legions.tactica(ua, 'World Eaters'), true);
+  assert.equal(legions.tactica(uh, 'World Eaters'), false);
+  // reactions follow the version
+  const sets = (u) => { const st = { units: [u], armies: [{ faction: 'world-eaters', units: [u] }, { faction: 'ultramarines', units: [] }] }; reactions.setup(st); return st.reactionSet[0]; };
+  assert.ok(sets(ua).has('Brutal Tide') && !sets(ua).has('Furious Charge'));
+  assert.ok(sets(uh).has('Furious Charge') && !sets(uh).has('Brutal Tide'));
+  // The Nails' Bite: a Hereticus unit that fails a Leadership Check becomes Lost to the Nails instead
+  uh.statuses = new Set(['Pinned']); uh.cond = null;
+  const st = { units: [uh], dice: { twoD6: () => 12 }, log: () => {} };
+  assert.equal(check(st, uh, 'LD', 0, 'test'), true);
+  assert.ok(uh.cond.has('Lost to the Nails') && uh.statuses.size === 0);
+  ua.statuses = new Set(); ua.cond = null;
+  assert.equal(check(Object.assign({}, st, { units: [ua] }), ua, 'LD', 0, 'test'), false);
+});

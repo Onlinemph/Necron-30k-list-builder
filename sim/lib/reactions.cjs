@@ -42,7 +42,9 @@ function setup(state) {
       // fan armies list their reactions in their own rules
       try { for (const r of loadArmyData(id).D.rules?.reactions || []) set.add(r.name || r); } catch (e) { /* no data: no extra reactions */ }
     }
-    for (const u of state.units.filter((x) => x.side === side && x.legion)) for (const n of LEGION_REACTIONS[u.legion] || []) set.add(n);
+    // the Legion's Advanced Reaction; Emperor's Children and World Eaters have one per version (CONFIRMED)
+    const VERSION = { 'Brutal Tide': 'Astartes', 'Perfect Counter': 'Astartes', 'Furious Charge': 'Hereticus', 'Twisted Desire': 'Hereticus' };
+    for (const u of state.units.filter((x) => x.side === side && x.legion)) for (const n of LEGION_REACTIONS[u.legion] || []) if (!VERSION[n] || VERSION[n] === u.rite) set.add(n);
     return set;
   });
   state.usedOnce = [new Set(), new Set()];
@@ -184,7 +186,8 @@ function onShot(state, shooter, target) {
       const ap = o.apply; o.apply = () => { target.statuses.clear(); ap(); };
       opts.push(o);
     }
-    if (allTrait(target, 'World Eaters') && !isVeh(target)) {
+    // Brutal Tide (World Eaters, Legiones Astartes)
+    if (allTrait(target, 'World Eaters') && !legions.hereticus(target) && !isVeh(target)) {
       const o = buffOpt('Brutal Tide', { ew: 1 }, 1.3, 'phase', ai.chargeChance(target, gap(target, shooter)) * ai.meleeEV(state, target, shooter) * 0.8);
       const ap = o.apply;
       o.apply = () => { ap(); out.after.push(() => { if (!target.destroyed && !shooter.destroyed && !target.lockedWith.size) reactionCharge(state, target, shooter, 'Brutal Tide'); }); };
@@ -380,10 +383,13 @@ function onCharge(state, u, t) {
     opts.push({ name: 'The Choir Answers', unit: t, step: 2, value: p * (hurt + 10),
       apply: () => { if (!check(state, u, 'CL', 0, 'The Choir Answers')) { addStatus(state, u, 'Pinned', 'The Choir Answers'); return 'fail'; } } });
   }
-  // Twisted Desire (Emperor's Children): Stupefied, and Feel No Pain (5+) this Assault Phase
-  if (allTrait(t, "Emperor's Children")) {
+  // Twisted Desire (Emperor's Children, Legiones Hereticus): Stupefied, and Feel No Pain (5+) this Assault Phase
+  if (allTrait(t, "Emperor's Children") && legions.hereticus(t)) {
     opts.push({ name: 'Twisted Desire', unit: t, step: 2, value: hurt * 0.33 + t.statuses.size * 10, apply: () => { addCondition(state, t, 'Stupefied'); addBuff(t, { fnp: 5 }, 'phase'); } });
-    // Perfect Counter: after the Set-up Move, the target charges the charger and takes the charge bonuses
+  }
+  // Perfect Counter (Emperor's Children, Legiones Astartes): after the Set-up Move, the target charges the charger
+  // and takes the charge bonuses
+  if (allTrait(t, "Emperor's Children") && !legions.hereticus(t)) {
     opts.push({ name: 'Perfect Counter', unit: t, step: 3.5, value: ai.chargeChance(t, Math.max(0, gap(u, t) - core.setupMove(u))) * 0.35 * (hurt + back),
       apply: () => (reactionCharge(state, t, u, 'Perfect Counter') ? 'locked' : undefined) });
   }
@@ -420,8 +426,9 @@ function onCharge(state, u, t) {
     opts.push({ name: 'Better Part of Valour', unit: t, step: 4.5, value: toEdge > I + 7 ? escape * hurt - (t.heldObjective ? ai.VP_WORTH : 0) : 0,
       apply: () => { fallBack(state, t); } });
   }
-  // Furious Charge (World Eaters): if Volleys killed any of the target, it counter-charges, Lost to the Nails
-  if (allTrait(t, 'World Eaters')) {
+  // Furious Charge (World Eaters, Legiones Hereticus): if Volleys killed any of the target, it counter-charges,
+  // Lost to the Nails
+  if (allTrait(t, 'World Eaters') && legions.hereticus(t)) {
     const v = ai.chargeChance(t, Math.max(0, gap(u, t) - core.setupMove(u))) * 0.35 * (hurt + back) + back * 0.15;
     opts.push({ name: 'Furious Charge', unit: t, step: 4.5, deferred: true, value: v * 0.6,
       apply: (ctx) => {

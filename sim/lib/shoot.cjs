@@ -7,7 +7,7 @@ const { num, xOf, argOf, has } = require('./rules.cjs');
 const { resolveGroup, rangedGroup } = require('./attack.cjs');
 const { planVolley, valuePerWound } = require('./fire.cjs');
 const { gap } = require('./table.cjs');
-const { alive, addStatus, check } = require('./checks.cjs');
+const { alive, addStatus, check, passChance } = require('./checks.cjs');
 const core = require('./core.cjs');
 const psychic = require('./psychic.cjs');
 const legions = require('./legions.cjs');
@@ -128,6 +128,18 @@ function shootingAttack(state, shooter, target, opts = {}) {
   if (!opts.volley) {
     for (const [t, x] of Object.entries(triggers)) if (x != null && !target.destroyed) morale.push({ unit: target, type: t, x, from: shooter.name });
     if (!target.destroyed && startModels > 1 && kills / startModels >= core.panicCasualtyFraction) morale.push({ unit: target, type: 'Casualties', x: 0, from: shooter.name });
+  }
+  // Lords of Profligacy (Emperor's Children, Legiones Hereticus): after the attack the target may become Stupefied,
+  // losing its statuses and gaining none while it lasts (CONFIRMED). The AI takes it when the unit already has a
+  // status, faces a check it will likely fail, or fights better than it shoots (Stupefied shoots Snap Shots)
+  if (!target.destroyed && !target.vehicle && !opts.volley && legions.hereticus(target) && legions.is(target, "Emperor's Children") && !target.cond?.has('Stupefied')) {
+    const ai = require('./ai.cjs');
+    const foes = state.units.filter((e) => e.side !== target.side && !e.destroyed);
+    const failing = Math.max(0, ...morale.filter((p) => p.unit === target).map((p) => 1 - passChance(state, target, p.type === 'Casualties' || p.type === 'Panic' ? 'LD' : 'CL', p.x)));
+    if (target.statuses.size || failing > 0.3 || ai.meleeValue(state, target, foes) > 1.5 * ai.shootValue(state, target, foes)) {
+      require('./reactions.cjs').addCondition(state, target, 'Stupefied');
+      state.log(`    ${target.name} is Stupefied (Lords of Profligacy)`);
+    }
   }
   const pts = damage * vpw;
   state.log(`  ${shooter.name} ${label} at ${target.name}${snap ? ' (Snap Shots)' : ''}: ${parts.join('; ') || 'no hits'}${target.destroyed ? ' — destroyed' : ''}`);

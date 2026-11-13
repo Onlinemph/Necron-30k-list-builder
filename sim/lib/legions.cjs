@@ -20,6 +20,11 @@
 //   Salamanders      Promethean Endurance      wound rolls of 1-2 against them fail; Panic from Flame ignored
 //   Raven Guard      Shadow Walkers            shots from 18" or more away are Snap Shots (shoot.cjs, ai.cjs)
 //   Alpha Legion     Lies and Obfuscation      count as 2" further away for shooting, charges and reactions
+//
+// Emperor's Children and World Eaters choose a version in the army's configuration (CONFIRMED): Legiones Astartes
+// has the Tactica, gambit and reaction above; Legiones Hereticus replaces all three:
+//   Emperor's Children  Lords of Profligacy  after a Shooting Attack at them, they may become Stupefied (shoot.cjs)
+//   World Eaters        The Nails' Bite      on a failed Leadership Check, they may become Lost to the Nails (checks.cjs)
 
 /** The Legion whose Tactica a unit benefits from: every model it has left carries that Legion's Trait. */
 function legionOf(u) {
@@ -28,7 +33,11 @@ function legionOf(u) {
   return a.length && a.every((m) => (m.traits || []).includes(u.legion)) ? u.legion : null;
 }
 const is = (u, name) => legionOf(u) === name;
+/** A unit of a Legiones Hereticus army (Emperor's Children and World Eaters only choose). */
+const hereticus = (u) => !!legionOf(u) && u.rite === 'Hereticus';
+/** The Legion's own Tactica applies: its Legion's units, in the Legiones Astartes version where there is a choice. */
+const tactica = (u, name) => is(u, name) && !hereticus(u);
 /** Extra distance an attacker must cover to an Alpha Legion unit. */
 const rangePenalty = (target) => (is(target, 'Alpha Legion') ? 2 : 0);
 
-module.exports = { legionOf, is, rangePenalty };
+module.exports = { legionOf, is, hereticus, tactica, rangePenalty };

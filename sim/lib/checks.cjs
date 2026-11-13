@@ -71,6 +71,17 @@ function check(state, unit, key, penalty = 0, why = '') {
   const roll = state.dice.twoD6();
   const pass = roll <= value;
   if (state.log && why) state.log(`    ${unit.name} ${key} check${why ? ` (${why})` : ''}: rolled ${roll} against ${value}, ${pass ? 'passed' : 'failed'}`);
+  // The Nails' Bite (World Eaters, Legiones Hereticus): on a failed Leadership Check the unit may become Lost to the
+  // Nails, which removes every Tactical Status (CONFIRMED). The AI always takes it: the failure would leave it
+  // Routed, and Lost to the Nails leaves it fighting (ASSUMPTION: so the check counts as passed)
+  if (!pass && key === 'LD' && !unit.vehicle && legions.hereticus(unit) && legions.is(unit, 'World Eaters') && !unit.cond?.has('Lost to the Nails')) {
+    unit.cond = unit.cond || new Set();
+    unit.cond.add('Lost to the Nails');
+    unit.statuses.clear();
+    require('./reactions.cjs').refresh(unit);
+    if (state.log) state.log(`    ${unit.name} is Lost to the Nails (The Nails' Bite)`);
+    return true;
+  }
   return pass;
 }
 /** Chance to pass, for the AI. */

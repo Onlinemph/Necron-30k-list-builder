@@ -178,6 +178,8 @@ function buildUnit(armyId, list, slot, detachment, side) {
   const unit = {
     uid: nextUnit++, side, armyId, id: def.id, name: def.name, role: slot.role || def.role, pts: E.unitPoints(s, slot),
     traits: unitTraits, legion: LEGION_TRAIT[armyId] || null, rules, unitType, models,
+    // Emperor's Children and World Eaters choose Legiones Astartes or Legiones Hereticus (CONFIRMED)
+    rite: /Hereticus/.test(String(((list.config || {})['rite-of-war'] || [])[0] || '')) ? 'Hereticus' : 'Astartes',
     prime: !!slot.prime, primeAdvantage: sel.primeAdvantage || null, primeStats, detachment: detachment.name,
     vehicle: models.every((m) => m.vehicle), capacity, passengers: [], embarkedIn: null,
     x: 0, y: 0, r: 0, statuses: new Set(), lockedWith: new Set(), reserve: null, arrived: true, destroyed: false,

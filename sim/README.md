@@ -183,6 +183,17 @@ Incarnate, Tactical Flexibility, Remorseless Advance, Cult Arcana, Death Dealers
 Promethean Endurance and Blood of Fire, Shadow Walkers, and Lies and Obfuscation. The Legion's Advanced Reaction is
 listed under Reactions; Legion gambits aren't played yet.
 
+### Legiones Astartes and Legiones Hereticus
+
+Emperor's Children and World Eaters choose a version in the army's configuration, and the simulator follows the
+list's choice. Legiones Astartes has the Tactica, gambit and Advanced Reaction listed above (Flawless Execution
+and Perfect Counter; Violence Incarnate and Brutal Tide). Legiones Hereticus replaces all three: Lords of
+Profligacy (after a Shooting Attack at them a unit may become Stupefied) and Twisted Desire for the Emperor's
+Children; The Nails' Bite (a unit that fails a Leadership Check may become Lost to the Nails) and Furious Charge for
+the World Eaters. The AI always takes The Nails' Bite, and takes Stupefied when the unit already has a status,
+faces a check it will likely fail, or fights better than it shoots. The rules marked "Legacy house rule" in the
+army data (Warrior Brotherhood, Death Before Dishonour, the builder's own Rites of War) aren't played.
+
 ### Reactions
 
 Each enemy Player Turn a side has a Reaction Allotment, and each unit reacts at most once per Player Turn. At every
