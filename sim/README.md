@@ -75,6 +75,16 @@ assault units that arrive in Assault Vehicles rather than on foot, and bodies on
 has to walk across the table (Rampagers, Night Raptors, Grey Slayers) is still the weakest thing a Legion can
 take.
 
+Once Legion gambits, Primarchs and named characters were in, every strength list played the field again with
+and without its Primarch, and the Emperor's Children and World Eaters lists in both Legion versions (72 games
+each). A Primarch made most lists worse, often by a lot (Blood Angels 60% to 24%, Dark Angels 65% to 25%):
+he's 425 to 530 points in one unit, enemy characters refuse his challenges rather than duel him, and when he
+falls the enemy scores both Slay the Warlord and Giant Killer. Only the Night Lords clearly gained from theirs
+(Konrad Curze, 25% to 34%), so theirs is the one strength list with a Primarch. Legiones Hereticus suits the
+Emperor's Children better (60% to 53%); for the World Eaters the two versions are level, and their list uses
+Legiones Astartes. The simulator leaves out the Primarchs' psychic rules and their Sire of the Legion list
+rules, so it likely undervalues the psychic Primarchs in particular.
+
 From code:
 
 ```js
