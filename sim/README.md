@@ -85,6 +85,24 @@ Emperor's Children better (60% to 53%); for the World Eaters the two versions ar
 Legiones Astartes. The simulator leaves out the Primarchs' psychic rules and their Sire of the Legion list
 rules, so it likely undervalues the psychic Primarchs in particular.
 
+With every rule above in, the final strength lists played a round robin (24 battles a pairing, 432 games per
+list, the Iron Wall as a guest):
+
+| | Score | | Score | | Score |
+|---|---|---|---|---|---|
+| Salamanders | 72% | Thousand Sons | 59% | Word Bearers | 48% |
+| Space Wolves | 71% | Ultramarines | 54% | Iron Warriors | 45% |
+| Iron Hands | 65% | Dark Angels | 51% | Alpha Legion | 42% |
+| Raven Guard | 64% | Emperor's Children | 50% | Imperial Fists | 39% |
+| Sons of Horus | 62% | Blood Angels | 49% | World Eaters | 25% |
+| Death Guard | 60% | White Scars | 48% | Night Lords | 24% |
+| | | | | Iron Wall (Rangdan) | 22% |
+
+Melee units now earn their points once they're carried in (Firedrakes, the Inner Circle Knights Cenobium,
+Palatine Blades, Invictus Suzerains and Grave Wardens are among the most efficient units, and the Space Wolves
+are second), but the World Eaters and Night Lords are still far behind, and the first player won 58% of decided
+games.
+
 From code:
 
 ```js
