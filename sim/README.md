@@ -304,8 +304,16 @@ Seize Ground and Destroy the Enemy have no markers, so there units play as befor
 
 Transports deliver. A transport's move counts what its passengers could do from where it stops (charge, shoot
 or hold once they get out beside it), and one carrying an assault unit is drawn towards the enemy that unit
-fights best and accepts half the usual risk to get there. Before the transport moves, passengers only get out if
-they can charge or hold a marker from that spot; otherwise they ride.
+fights best and accepts half the usual risk to get there. While the transport can still move, passengers only
+get out if they can charge from that spot (or, for units that aren't assault units, hold a marker); otherwise
+they ride.
+
+Moves go in a straight line and stop at impassable terrain and at other units (there's no pathfinding), so the AI
+scores each candidate move at the point it would really reach, not at the point it aims for.
+
+Melee is still the weaker way to play in the simulator. A typical assault unit now reaches combat on turn 2 and
+often wipes its target in one round, which leaves it in the open for the enemy's whole army to shoot. Steering
+charges towards targets that keep the charger locked in combat (out of the guns) made no measurable difference.
 
 ## Where the rules come from
 
