@@ -524,3 +524,24 @@ test('Legion gambits: each Legion gets its own, by version, and first-round gamb
     assert.ok(!names('Rangda').includes(g));
   }
 });
+
+test('unit rules: Fury of the Legion, Ravening Madmen, curly apostrophes, Bitter Duty', () => {
+  const { meleeGroup, rangedGroup } = require('../sim/lib/attack.cjs');
+  const { canJoin } = require('../sim/lib/characters.cjs');
+  // the data writes "Duellist’s Edge (1)" with a curly apostrophe
+  assert.equal(xOf(['Duellist’s Edge (1)'], "Duellist's Edge"), 1);
+  // Fury of the Legion: a bolter gains Heavy (FP) when the unit stood still
+  const tac = { p: { BS: 4 }, rules: ['Fury of the Legion'] }, bolter = { name: 'Bolter', base: 'Bolter', FP: 2, RS: 4, AP: 5, D: 1, specialRules: [] };
+  const tgt = { models: [{ wounds: 1, p: { T: 4 } }] };
+  assert.equal(rangedGroup(tac, bolter, tgt, { stationary: true }).attacks, 3);
+  assert.equal(rangedGroup(Object.assign({}, tac, { rules: [] }), bolter, tgt, { stationary: true }).attacks, 2);
+  // Ravening Madmen: Hit Tests against them count their Weapon Skill as 3
+  const sword = { name: 'Power sword', AM: 'A', SM: 'S', AP: 3, D: 1, specialRules: [] };
+  const atk = { p: { WS: 4, A: 2, S: 4 }, rules: [] };
+  const madmen = { rules: ['Ravening Madmen'], models: [{ wounds: 2, p: { WS: 6, T: 5 } }] };
+  assert.equal(meleeGroup(atk, sword, madmen, {}).hitNeed, meleeGroup(atk, sword, { models: [{ wounds: 2, p: { WS: 3, T: 5 } }] }, {}).hitNeed);
+  // Bitter Duty: only with others that have it
+  const char = { side: 0, models: [{ unitType: 'Infantry (Command)', rules: [] }], rules: [] };
+  const host = { side: 0, models: [{ unitType: 'Infantry', rules: ['Bitter Duty'] }, { unitType: 'Infantry', rules: ['Bitter Duty'] }], rules: ['Bitter Duty'] };
+  assert.equal(canJoin(char, host), false);
+});

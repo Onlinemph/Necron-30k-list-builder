@@ -174,6 +174,16 @@ lends it its Leadership, embarks with it, can be picked out by Precision hits an
 scoring it stays a unit of its own: its Kill Points, Slay the Warlord and First Strike count when it falls, and
 the unit's own Kill Points use the unit's points without it.
 
+### Unit rules
+
+Besides the weapon and unit rules listed above, the simulator plays these unit rules from the lists' datasheets
+(CONFIRMED): Slow and Purposeful (no Pursuit), Bitter Duty and Ravening Madmen (who may join whom), Fury of the
+Legion (a Tactical Squad's bolters gain Heavy (FP)), Ravening Madmen (Hit Tests against them count WS 3), The Blood
+is Forever (Feel No Pain when outnumbered), Death Cloud, Templar Assault, Cloaked in Murder, Ferrum Occularis,
+Fatal Strike (the AI uses it the first time it can), Lordsbane, Lords of Ultramar and Set the Sky Aflame. Still
+not played: Phalanx Formation, The Dreams of the Death Wolf (its profile isn't in the data), the Thousand Sons'
+Prosperine Sorcery, Conduit and Bladeweaving, the Orders of the Hekatonystika, and Harbingers of Truth.
+
 ### Legion Tacticas
 
 Each Legion's Tactica (from the Legion Tactica or base Rite of War text in its army data) applies to units made

@@ -29,6 +29,9 @@ function canJoin(c, h) {
   if (kind(cm) === 'Paragon') { if (!hm.some((m) => /Infantry/.test(m.unitType))) return false; }
   else if (!hm.some((m) => kind(m) === kind(cm))) return false;
   if (ALL_OR_NOTHING.some((r) => has(h.rules, r) && !has(cm.rules, r))) return false;
+  // Bitter Duty: only with others that have it; Ravening Madmen: joined only by models that have it (CONFIRMED)
+  if (has(h.rules, 'Bitter Duty') !== has(cm.rules, 'Bitter Duty')) return false;
+  if (has(h.rules, 'Ravening Madmen') && !has(cm.rules, 'Ravening Madmen')) return false;
   return true;
 }
 

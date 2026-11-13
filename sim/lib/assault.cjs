@@ -52,7 +52,10 @@ function chargeSteps(state, u, t, disordered) {
   at(3);
   if (u.destroyed || t.destroyed) return false;
   if (!disordered) {
-    const s = core.setupMove(u) + (u.cond?.has('Lost to the Nails') ? 1 : 0);
+    // Templar Assault: +2" after getting out of an Assault Vehicle; Cloaked in Murder: +1" (to 6") against a unit
+    // already locked in combat (CONFIRMED)
+    let s = core.setupMove(u) + (u.cond?.has('Lost to the Nails') ? 1 : 0) + (has(u.rules, 'Templar Assault') && u.turn.disembarked && !u.turn.disordered ? 2 : 0);
+    if (has(u.rules, 'Cloaked in Murder') && t.lockedWith.size) s = Math.max(s, Math.min(6, s + 1));
     // Lies and Obfuscation: an Alpha Legion target counts as 2" further away
     if (s >= gap(u, t) + legions.rangePenalty(t)) { lockInto(state, u, t, `reaches ${t.name} with its Set-up Move`); return true; }
     moveUnit(state, u, t, s, { charging: true, target: t });
@@ -389,6 +392,12 @@ function duel(state, A, B, challengerSide, tally) {
     // Cut Off the Head (MISSION): winning a challenge by slaying the enemy model scores 2 VP
     if (lose.m.wounds <= 0 && state.mission?.has('Cut Off the Head')) state.award(win.u.side, 2, `Cut Off the Head (${lose.m.name})`);
   }
+  // Lordsbane (Varagyr Thegn): if the Thegn still stands, +1 Combat Resolution per Varagyr in its unit, up to 4
+  for (const x of [A, B]) {
+    if (!has(x.m.rules, 'Lordsbane') || x.m.wounds <= 0) continue;
+    const n = Math.min(4, alive(x.u).filter((m) => /Varagyr/.test(m.name)).length);
+    if (n) { tally.glory[x.u.side] += n; state.log(`      +${n} Combat Resolution (Lordsbane)`); }
+  }
   state.log(`      ${A.m.name} ${A.m.wounds}/${A.m.maxWounds} wounds, ${B.m.name} ${B.m.wounds}/${B.m.maxWounds} wounds`);
   for (const u of [A.u, B.u]) if (state.afterDamage) state.afterDamage(u);
 }
@@ -396,6 +405,17 @@ function duel(state, A, B, challengerSide, tally) {
 // ---------- Fight Sub-Phase ----------
 function fight(state, c) {
   const tally = { kills: [0, 0], glory: [0, 0] };
+  // Death Cloud (Grave Wardens): at the start of the Fight Sub-Phase each enemy unit locked with them takes a hit
+  // per Death Cloud model, Strength 1, Poisoned (3+), AP 5, Damage 1, no cover (CONFIRMED)
+  for (const side of [0, 1]) for (const u of c[side]) {
+    const n = alive(u).filter((m) => has(m.rules, 'Death Cloud')).length;
+    if (!n || u.destroyed) continue;
+    for (const e of [...u.lockedWith].filter((x) => !x.destroyed)) {
+      const r = resolveGroup({ attacks: n, S: 1, AP: 5, D: 1, hitNeed: null, rules: ['Poisoned (3+)'], melee: true }, e, { dice: state.dice, onKill: (m) => state.onCasualty && state.onCasualty(m, e, u) });
+      tally.kills[side] += r.kills;
+      if (r.unsaved) state.log(`    Death Cloud: ${e.name} takes ${r.unsaved} wounds`);
+    }
+  }
   challenge(state, c, tally);
   // each unit attacks the locked enemy unit it hurts most
   const strikers = [];
@@ -421,7 +441,10 @@ function fight(state, c) {
       let w = s.w;
       if (has(w.specialRules, 'Force')) w = forceCheck(state, s.u, s.m, w);
       const g = meleeGroup(s.m, w, t, { charged: s.u.turn.charged, outnumbered: outnumbered(s.u.side), mods: meleeMods(s.u) });
-      const r = resolveGroup(g, t, { dice: state.dice, preyCrit: preyCrit(s.u, t), hatred: hatredAgainst(s.u, t), onKill: (m) => state.onCasualty && state.onCasualty(m, t, s.u) });
+      // The Blood is Forever (Crimson Paladins): Feel No Pain (5+) when outnumbered, (4+) when by more than double
+      const own = modelCount([t]), them = modelCount([...t.lockedWith].filter((e) => !e.destroyed));
+      const outnumberFnp = them > 2 * own ? 4 : them > own ? 5 : 7;
+      const r = resolveGroup(g, t, { dice: state.dice, preyCrit: preyCrit(s.u, t), hatred: hatredAgainst(s.u, t), outnumberFnp, onKill: (m) => state.onCasualty && state.onCasualty(m, t, s.u) });
       tally.kills[s.u.side] += r.kills;
       carrionFeast(s.m, r.kills);
       for (const st of r.vehicleStatuses) vehicleDamage(state, t, st);
@@ -472,7 +495,8 @@ function resolve(state, c, tally) {
     for (const p of free) {
       const I = num(alive(p)[0]?.p.I, 3);
       const reach = Math.max(0, Math.min(1, (I + 6 - gap(p, u) + 1) / 6));
-      const pursue = reach * (ai.meleeEV(state, p, u) + (u.heldObjective ? ai.VP_WORTH * 0.5 : 0));
+      // Slow and Purposeful: can't Pursue (CONFIRMED)
+      const pursue = has(p.rules, 'Slow and Purposeful') ? 0 : reach * (ai.meleeEV(state, p, u) + (u.heldObjective ? ai.VP_WORTH * 0.5 : 0));
       const gun = require('./fire.cjs').planVolley(p, u, state, { snap: true, exclude: (x) => !(x.traits || []).includes('Assault') }).expectedPts;
       if (!best || Math.max(pursue, gun) > best.v) best = { p, v: Math.max(pursue, gun), kind: pursue >= gun ? 'pursue' : 'gun' };
     }

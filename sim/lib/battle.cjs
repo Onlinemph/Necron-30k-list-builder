@@ -268,6 +268,9 @@ function shootingPhase(state, side) {
     if (u.destroyed) continue;
     if (u.turn.rushed && !/Light|Rapid/.test(u.unitType)) continue;
     if (!alive(u).some((m) => m.ranged.length)) continue;
+    // Fatal Strike (Mor Deythan): once per battle after staying Stationary, +2 Ballistic Skill this phase; the AI
+    // uses it the first time it can (CONFIRMED rule, ASSUMPTION timing)
+    if (has(u.rules, 'Fatal Strike') && !u.fatalUsed && u.turn.stationary && !core.snapOnly(u)) { u.fatalUsed = true; u.turn.fatalStrike = true; state.log(`  ${u.name} makes a Fatal Strike`); }
     const t = ai.chooseTarget(state, u, { snap: core.snapOnly(u) });
     if (!t) continue;
     markHeld(state);
@@ -305,8 +308,14 @@ function statusesSubPhase(state, side) {
       if (state.dice.d6() >= ar) { const s = [...u.statuses][0]; u.statuses.delete(s); state.log(`    ${u.name} repairs: no longer ${s}`); }
       continue;
     }
+    // Lords of Ultramar (Invictus Suzerains): a unit within 12" of one, while the Suzerain's unit has no status, may
+    // use the Suzerain's unmodified characteristic (CONFIRMED)
+    const lord = !u.vehicle && state.units.find((l) => l.side === u.side && !l.destroyed && l.arrived && !l.embarkedIn && !l.statuses.size && l !== u
+      && alive(l).some((m) => has(m.rules, 'Lords of Ultramar')) && dist(l, u) - l.r - u.r <= 12);
+    const lordModel = lord && alive(lord).find((m) => has(m.rules, 'Lords of Ultramar'));
     for (const s of [...u.statuses]) {
-      if (!check(state, u, s === 'Routed' ? 'LD' : 'CL', 0, `to remove ${s}`)) continue;
+      const key = s === 'Routed' ? 'LD' : 'CL';
+      if (!check(state, u, key, 0, `to remove ${s}`, lordModel ? num(lordModel.p[key], 0) : null)) continue;
       u.statuses.delete(s);
       if (s === 'Disgraced') for (const m of u.models) m.disgraced = false;
     }

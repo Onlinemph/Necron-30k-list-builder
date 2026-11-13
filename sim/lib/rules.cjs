@@ -11,6 +11,8 @@ const pattern = (kind, name) => {
   const k = kind + name;
   let re = patterns.get(k);
   if (!re) {
+    // the data writes some rule names with a curly apostrophe (Duellist’s Edge): match either
+    name = name.replace(/['’]/g, "['’]");
     re = kind === 'x' ? new RegExp(`^${name}\\s*\\((\\d+)\\+?"?\\)`, 'i') : kind === 'a' ? new RegExp(`^${name}\\s*\\(([^)]*)\\)`, 'i') : new RegExp(`^${name}(\\b|\\s|\\(|$)`, 'i');
     patterns.set(k, re);
   }

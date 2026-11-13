@@ -61,13 +61,14 @@ function modifiedValue(state, unit, key, penalty) {
 }
 
 /** Make a Characteristic Check: 2D6, pass at or under the modified value (CONFIRMED). */
-function check(state, unit, key, penalty = 0, why = '') {
+function check(state, unit, key, penalty = 0, why = '', override = null) {
   // Neural Collars: near a Rangda model, Leadership and Cool Checks pass automatically
   if (['LD', 'CL'].includes(key) && collarState(state, unit) === 'near') {
     if (state.log && why) state.log(`    ${unit.name} ${key} check (${why}): passed automatically (Neural Collars)`);
     return true;
   }
-  const value = modifiedValue(state, unit, key, penalty);
+  // override: another model's unmodified characteristic the unit may use instead (Lords of Ultramar)
+  const value = Math.max(modifiedValue(state, unit, key, penalty), override ?? -Infinity);
   const roll = state.dice.twoD6();
   const pass = roll <= value;
   if (state.log && why) state.log(`    ${unit.name} ${key} check${why ? ` (${why})` : ''}: rolled ${roll} against ${value}, ${pass ? 'passed' : 'failed'}`);

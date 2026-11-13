@@ -332,6 +332,8 @@ function onArrive(state, arrival) {
   const opts = [];
   for (const u of state.units) {
     if (u.side !== side || !canReact(u)) continue;
+    // Set the Sky Aflame: a unit arriving by Deep Strike can't be Intercepted from more than 12" away (CONFIRMED)
+    if (arrival.turn?.arrivedDeep && has(arrival.rules, 'Set the Sky Aflame') && gap(u, arrival) > 12) continue;
     // Intercept (Core, SHEET): Snap Shots at a unit arriving from Reserves; Vehicles use Defensive weapons
     const iv = planVolley(u, arrival, state, { snap: true, exclude: (w) => u.vehicle && !core.isDefensive(w) }).expectedPts;
     if (iv > 0) opts.push({ name: 'Intercept', unit: u, value: iv, apply: () => shoot(state, u, arrival, { snap: true, reaction: true, defensiveOnly: u.vehicle, label: 'Intercepts' }) });

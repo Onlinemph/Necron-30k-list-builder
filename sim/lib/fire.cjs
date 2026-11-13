@@ -35,7 +35,11 @@ function planVolley(shooter, target, state, opts = {}) {
   // Lies and Obfuscation (Alpha Legion): they count as 2" further away
   const d = gap(shooter, target) + legions.rangePenalty(target);
   const los = opts.losOK ?? lineOfSight(state.table, shooter, target);
-  const coverSave = opts.coverSave !== undefined ? opts.coverSave : (!opts.ignoreCover ? core.coverSave(target, inCover(state.table, shooter, target)) : null);
+  // Ferrum Occularis (Iron Havocs): no Cover Saves against them after they stayed Stationary (CONFIRMED)
+  const ferrum = has(shooter.rules, 'Ferrum Occularis') && shooter.turn?.stationary;
+  const coverSave = opts.coverSave !== undefined ? opts.coverSave : (!opts.ignoreCover && !ferrum ? core.coverSave(target, inCover(state.table, shooter, target)) : null);
+  // Fatal Strike (Mor Deythan): +2 Ballistic Skill for the phase it's used in
+  if (shooter.turn?.fatalStrike) opts = Object.assign({}, opts, { bsMod: (opts.bsMod || 0) + 2 });
   const picks = [];
   let exp = 0;
   for (const m of shooter.models) {

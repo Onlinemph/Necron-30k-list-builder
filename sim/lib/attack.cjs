@@ -135,7 +135,7 @@ function resolveGroup(g, target, ctx) {
         if (ctx.coverSave && !g.melee) best = Math.min(best, ctx.coverSave);
         if (best <= 6 && dice.d6() >= best) continue;
         // ---- damage mitigation: Feel No Pain, Shrouded against shooting ----
-        const fnp = Math.min(xOf(victim.rules, 'Feel No Pain') || 7, target.buff?.fnp || 7, psychic ? xOf(victim.rules, 'Adamantium Will') || 7 : 7, has(victim.rules, 'Worm Gestalt') && !(g.weaponTraits || []).includes('Flame') && !has(rules, 'Aflame') ? 5 : 7,
+        const fnp = Math.min(xOf(victim.rules, 'Feel No Pain') || 7, target.buff?.fnp || 7, has(victim.rules, 'The Blood is Forever') ? ctx.outnumberFnp || 7 : 7, psychic ? xOf(victim.rules, 'Adamantium Will') || 7 : 7, has(victim.rules, 'Worm Gestalt') && !(g.weaponTraits || []).includes('Flame') && !has(rules, 'Aflame') ? 5 : 7,
           !g.melee ? Math.min(xOf(victim.rules, 'Shrouded') || 7, ctx.shrouded || 7, target.buff?.shrouded || 7) : 7);
         if (fnp <= 6 && dice.d6() >= fnp) continue;
       }
@@ -166,7 +166,8 @@ function rangedGroup(model, w, target, opts) {
   let FP = (num(w.FP, 1) + (opts.fpBonus || 0)) * (w.count || 1);
   let S = num(w.RS, 4), AP = num(w.AP, 7), D = Math.max(1, num(w.D, 1));
   let BS = num(model.p.BS, 4);
-  const heavy = argOf(rules, 'Heavy'), ord = argOf(rules, 'Ordnance');
+  // Fury of the Legion (Tactical Squads): a bolter gains Heavy (FP) for the attack (CONFIRMED)
+  const heavy = argOf(rules, 'Heavy') || (has(model.rules, 'Fury of the Legion') && /^bolter$/i.test(w.base || w.name) ? 'FP' : null), ord = argOf(rules, 'Ordnance');
   if ((stationary || opts.heavyOK) && heavy) { if (heavy === 'FP') FP += 1; else if (heavy === 'S') S += 1; else if (heavy === 'D') D += 1; else if (heavy === 'AP') AP = Math.max(2, AP - 1); else if (heavy === 'BS') BS += 1; }
   if (stationary && ord) { if (ord === 'FP') FP *= 2; else if (ord === 'S') S *= 2; else if (ord === 'D') D *= 2; else if (ord === 'AP') AP = 2; }
   const aliveN = target.models.filter((m) => m.wounds > 0).length;
@@ -206,7 +207,8 @@ function meleeGroup(model, w, target, opts) {
   const reap = Math.max(xOf(model.rules, 'Reaping Blow') || 0, xOf(rules, 'Reaping Blow') || 0);
   if (reap && opts.outnumbered) A += reap;
   const def = target.models.find((m) => m.wounds > 0) || target.models[0];
-  const defWS = Math.floor((num(def.p.WS, 4) + (target.buff?.ws || 0)) / (def.disgraced ? 2 : 1));
+  // Ravening Madmen (Red Butchers): Hit Tests against the unit count its Weapon Skill as 3 (CONFIRMED)
+  const defWS = has(target.rules || [], 'Ravening Madmen') ? 3 : Math.floor((num(def.p.WS, 4) + (target.buff?.ws || 0)) / (def.disgraced ? 2 : 1));
   return { weapon: w, attacks: A, S, AP: num(w.AP, 7), D: Math.max(1, num(w.D, 1)), hitNeed: hitNeedWS(ws, defWS), rules, melee: true, attackerModel: model, weaponTraits: w.traits || [] };
 }
 
