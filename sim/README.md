@@ -414,6 +414,12 @@ boldness, since the enemy shoots next. A unit locked in combat controls nothing,
 charger scores where it stands, a marker or its share of a Sector, unless the target scores in the same place.
 Together these added about three points to five melee lists against the eight strongest lists.
 
+The army also keeps a plan from one turn to the next (`lib/plan.cjs`): each assault unit, and the transport
+carrying it, commits to a target and keeps it unless another is clearly better, rather than re-deciding every turn.
+A second part, waves (assault units staging in cover until two of them can strike in the same turn), is there with
+`SIM_PLAN=wave` but off: against the strength lists it cost melee armies about a point, since holding back only
+gives a gunline more turns to shoot. Keeping targets gained about one point.
+
 Melee is still the weaker way to play in the simulator. A typical assault unit now reaches combat on turn 2 and
 often wipes its target in one round, which leaves it in the open for the enemy's whole army to shoot. Steering
 charges towards targets that keep the charger locked in combat (out of the guns) made no measurable difference.
@@ -480,6 +486,7 @@ Reactions made in answer to a reaction (a Return Fire against an Overwatch, say)
 | `lib/core.cjs` | every core-rule number and assumption in one place |
 | `lib/legions.cjs` | the Legion Tacticas and where each applies |
 | `lib/characters.cjs` | which characters may join which units, and the AI's choice |
+| `lib/plan.cjs` | the army's plan kept between turns: assault targets, and optional waves |
 | `tournament.cjs` | round robin between many lists, in parallel workers |
 | `report.cjs` | standings, ratings and unit efficiency from a tournament |
 | `lists/` | sample lists: two Rangdan (`rangdan.json`, the original mixed list, and `rangdan-iron-wall.json`), Sons of Horus at 2585 and 3000 points, an Ork Weirdboy mob |

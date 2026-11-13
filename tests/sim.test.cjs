@@ -652,3 +652,23 @@ test('psychic: disciplines give their Psychic Weapons, Conduit adds Strength, an
   // the registry lists the powers still waiting for their rules text
   assert.ok(psychic.POWERS.some((p) => p.name === 'Raptora' && p.text === false));
 });
+
+test('plans: an assault unit keeps its target from turn to turn unless another is clearly better', () => {
+  const plan = require('../sim/lib/plan.cjs');
+  const { buildArmy } = require('../sim/lib/army.cjs');
+  const a = buildArmy(path.join(LISTS, 'strong', 'world-eaters.json'), 0), b = buildArmy(path.join(LISTS, 'legions', 'ultramarines.json'), 1);
+  const ramp = a.units.find((u) => /Rampager/.test(u.name));
+  const foes = b.units.filter((u) => u.name === 'Tactical Squad').slice(0, 2);
+  for (const u of [ramp, ...foes]) Object.assign(u, { arrived: true, destroyed: false, embarkedIn: null, statuses: new Set(), lockedWith: new Set(), turn: {}, r: 3 });
+  Object.assign(ramp, { x: 20, y: 24 }); Object.assign(foes[0], { x: 30, y: 24 }); Object.assign(foes[1], { x: 31, y: 30 });
+  const st = { units: [ramp, ...foes], table: { pieces: [], objectives: [] }, cache: { shoot: new Map(), melee: new Map() }, mission: { primary: 'destroy', has: () => false, secondaries: { breakthrough: 0 } }, turnsLeft: 4, round: 1, active: 0 };
+  plan.update(st, 0);
+  const first = plan.of(st, ramp).target;
+  assert.ok(first);
+  // the other squad edges a little closer: not enough to switch
+  const other = foes.find((f) => f !== first);
+  other.x = first.x; other.y = first.y + 7;
+  st.round = 2; plan.update(st, 0);
+  assert.equal(plan.of(st, ramp).target, first);
+  assert.equal(plan.of(st, ramp).waiting, false);
+});

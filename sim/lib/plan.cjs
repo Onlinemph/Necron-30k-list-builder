@@ -3,16 +3,18 @@
 // of each of its Player Turns a side
 //  - gives each assault group (an assault unit, or one being carried in a transport) a target, and keeps it while it
 //    lives and stays the better choice by a margin, so the group closes on one enemy instead of changing its mind;
-//  - picks a wave turn: the first turn by which at least two of its assault groups (or its only one) can charge
-//    their targets. Until then the groups stage: they keep their target within next turn's reach but stay out of
-//    sight or in cover, and don't charge unless the enemy is already on top of them, so they strike together
-//    rather than one at a time, each to be shot down after its fight. In the last two turns they go regardless.
-// SIM_PLAN=off turns planning off, SIM_PLAN=focus keeps the targets but strikes at once (for measuring).
+//  - with SIM_PLAN=wave, also picks a wave turn: the first turn by which at least two of its assault groups (or its
+//    only one) can charge their targets. Until then the groups stage: they keep their target within next turn's
+//    reach but stay out of sight or in cover, and don't charge unless the enemy is already on top of them, so they
+//    strike together rather than one at a time. In the last two turns they go regardless.
+// Measured against the strength lists, keeping targets (the default, 'focus') gained a point or so for melee
+// armies; waves cost a point (holding back only gives a gunline more turns to shoot), so they're off unless asked
+// for. SIM_PLAN=off turns planning off.
 const { alive } = require('./checks.cjs');
 const { gap } = require('./table.cjs');
 const core = require('./core.cjs');
 
-const MODE = () => process.env.SIM_PLAN || 'wave';
+const MODE = () => process.env.SIM_PLAN || 'focus';
 const CHARGE = 4.5; // the expected Charge Roll (2D6, keep the highest), less a little
 
 function isAssault(state, u, foes, ai) {
