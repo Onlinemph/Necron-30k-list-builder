@@ -48,8 +48,9 @@ const FILL = [
 ];
 const CAP = { 'tactical-squad': 4, rhino: 3, predator: 4, 'heavy-support-squad': 2, 'contemptor-dreadnought': 2 };
 
-function build(id, { smart = false, name, file = `${__dirname}/${id}.json`, extra = [] } = {}) {
+function build(id, { smart = false, name, file = `${__dirname}/${id}.json`, extra = [], rite } = {}) {
   const b = createBuilder(id, { smart, name });
+  if (rite) b.config['rite-of-war'] = [rite];
   const skipped = [];
   // extra units first (a Primarch), so the rest fills what's left
   for (const u of extra) if (!b.add(u)) skipped.push(u[1]);

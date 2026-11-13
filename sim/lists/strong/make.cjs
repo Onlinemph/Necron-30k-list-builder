@@ -220,14 +220,17 @@ const PRIMARCH = {
   'white-scars': 'jaghatai-khan', 'word-bearers': 'lorgar-aurelian', 'world-eaters': 'angron',
 };
 // which Legions field their Primarch in their strength list (chosen by playing both; see the README)
-const WITH_PRIMARCH = {};
+const WITH_PRIMARCH = { 'night-lords': true };
+// the Legion version for the two Legions that choose one (chosen by playing both)
+const RITE = { 'emperors-children': "Legiones Hereticus Emperor's Children", 'world-eaters': 'Legiones Astartes World Eaters' };
 
 function build(id, variant = CHOICE[id] || 'plan', file = `${__dirname}/${id}.json`, primarch = WITH_PRIMARCH[id]) {
   const extra = primarch ? [['Warlord', PRIMARCH[id]]] : [];
   // 'core': the generic Legion list (lists/legions) with its weapons picked by value; 'generic': as it is
-  if (variant === 'core' || variant === 'generic') return Object.assign(require('../legions/make.cjs').build(id, { smart: variant === 'core', name: PLANS[id].name, file, extra }), { variant, why: CORE_WHY[id] });
+  if (variant === 'core' || variant === 'generic') return Object.assign(require('../legions/make.cjs').build(id, { smart: variant === 'core', name: PLANS[id].name, file, extra, rite: RITE[id] }), { variant, why: CORE_WHY[id] });
   const plan = variant === 'strike' ? Object.assign({ name: PLANS[id].name }, STRIKE[id]) : PLANS[id];
   const b = createBuilder(id, { name: plan.name, smart: true });
+  if (RITE[id]) b.config['rite-of-war'] = [RITE[id]];
   const skipped = [];
   for (const u of extra) if (!b.add(u)) skipped.push(u[1]);
   for (const u of plan.units) if (!b.add(u)) skipped.push(u[1]);
@@ -242,7 +245,7 @@ function build(id, variant = CHOICE[id] || 'plan', file = `${__dirname}/${id}.js
   return Object.assign(b.finish(file), { skipped, variant, why: plan.why });
 }
 
-module.exports = { build, PLANS, STRIKE, CHOICE, CORE_WHY, PRIMARCH, WITH_PRIMARCH };
+module.exports = { build, PLANS, STRIKE, CHOICE, CORE_WHY, PRIMARCH, WITH_PRIMARCH, RITE };
 if (require.main === module) {
   for (const id of process.argv.slice(2).length ? process.argv.slice(2) : Object.keys(PLANS)) {
     try {

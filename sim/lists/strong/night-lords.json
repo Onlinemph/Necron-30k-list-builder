@@ -117,6 +117,28 @@
    ]
   },
   {
+   "kind": "warlord",
+   "name": "Warlord Detachment",
+   "slots": [
+    {
+     "role": "Warlord",
+     "unit": {
+      "unitId": "konrad-curze",
+      "counts": {
+       "Konrad Curze": 1
+      }
+     }
+    },
+    {
+     "role": "Retinue"
+    },
+    {
+     "role": "Heavy Transport"
+    }
+   ],
+   "defId": "core-warlord"
+  },
+  {
    "kind": "auxiliary",
    "name": "Shock Assault",
    "slots": [
@@ -174,7 +196,7 @@
       "unitId": "contekar-terminator-squad",
       "counts": {
        "Dissident": 1,
-       "Contekar": 9
+       "Contekar": 4
       }
      }
     },
