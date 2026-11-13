@@ -265,6 +265,8 @@ function disembarkIfWorth(state, t, afterMove = false) {
     // while the transport can still carry them closer, get out only to charge or hold a marker from here; an
     // assault unit only to charge, before or after the transport moves (ASSUMPTION: the AI's rule of thumb)
     const mobile = ai.moveOf(t) > 0 && !t.statuses.has('Pinned') && !t.statuses.has('Stunned');
+    // an assault unit waiting for its wave (plan.cjs) stays in its transport
+    if (mobile && require('./plan.cjs').of(state, p)?.waiting) continue;
     if (mobile) {
       const foes = enemiesOf(state, p);
       const charge = ai.canCharge(p) && foes.some((e) => ai.chargeOdds(p, best.pos, e) >= 0.5);

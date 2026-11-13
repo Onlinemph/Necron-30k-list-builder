@@ -254,6 +254,8 @@ function playerTurn(state, side) {
   state.reactionsLeft[1 - side] = core.reactionAllotment(state.armies[1 - side].pointsLimit, master);
   // ---- Start Phase ----
   startPhase(state, side);
+  // the army's plan for this turn and the ones after (plan.cjs)
+  require('./plan.cjs').update(state, side);
   // ---- Movement Phase ----
   reservesSubPhase(state, side);
   moveSubPhase(state, side);

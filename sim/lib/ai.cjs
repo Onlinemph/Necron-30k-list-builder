@@ -10,6 +10,7 @@ const { alive, passChance, canHold } = require('./checks.cjs');
 const core = require('./core.cjs');
 const scoring = require('./scoring.cjs');
 const legions = require('./legions.cjs');
+const plan = require('./plan.cjs');
 
 const VP_WORTH = 45;          // points of value per Victory Point
 const BANDS = [0, 3, 6, 9, 12, 15, 18, 24, 30, 36, 48, 72];
@@ -106,6 +107,9 @@ const meleeValue = (state, u, enemies) => Math.max(0, ...enemies.map((e) => mele
 // ---------- scoring a position ----------
 function positionScore(state, u, pos, opts = {}) {
   const enemies = state.units.filter((e) => e.side !== u.side && !e.destroyed && e.arrived && !e.embarkedIn);
+  // the army's plan (plan.cjs): this unit's target, or its passengers', and whether the assault waits for its wave
+  const pl = opts.consolidating ? null : plan.of(state, u);
+  const waiting = !!(pl && pl.waiting);
   const saved = { x: u.x, y: u.y };
   u.x = pos.x; u.y = pos.y;
   let score = 0;
@@ -127,7 +131,7 @@ function positionScore(state, u, pos, opts = {}) {
       if (v > 0) v += huntValue(state, u, e, v, finishChance(v, e));
       if (v > shoot && (v > 0) && lineOfSight(state.table, u, e)) shoot = v;
     }
-    if (opts.charging !== false && canCharge(u) && !u.turn.rushed) {
+    if (opts.charging !== false && !waiting && canCharge(u) && !u.turn.rushed) {
       const odds = chargeOdds(u, pos, e);
       const v = odds > 0 ? (meleeEV(state, u, e) + huntValue(state, u, e, meleeEV(state, u, e), breakChance(state, u, e))) * odds : 0;
       if (v > melee) melee = v;
@@ -147,7 +151,15 @@ function positionScore(state, u, pos, opts = {}) {
       soon = Math.max(soon, (v > 0 ? v + huntValue(state, u, e, v, finishChance(v, e)) : 0) * 0.3);
     }
   }
+  if (waiting) soon *= 0.5;
   score += Math.max(shoot, melee) + 0.3 * Math.min(shoot, melee) + soon;
+  // the plan's target: while the assault waits for its wave, keep the target within next turn's reach (from cover,
+  // weighed by the risk below); once it goes, a little extra for charging the planned target
+  if (pl && pl.assault === u) {
+    const T = pl.target, ev = meleeEV(state, u, T);
+    if (waiting) { const d = gap(u, T), r = plan.reach(state, u, module.exports); score += ev * 0.6 * (d <= r ? 1 : Math.max(0, 1 - (d - r) / 24)); }
+    else if (canCharge(u) && opts.charging !== false && !u.turn.rushed) score += 0.25 * ev * chargeOdds(u, pos, T);
+  }
   // Vanguard: closing on the enemy units that hold markers, from across the table if need be
   if (vanguard && !opts.consolidating) {
     const reach = moveOf(u) + (canCharge(u) ? core.setupMove(u) + 4.5 : maxRange(u));
@@ -172,7 +184,8 @@ function positionScore(state, u, pos, opts = {}) {
   // a unit can't lose more than it has left; assault troops (Vanguard), and transports carrying assault troops,
   // accept more of it to reach the enemy
   const assaultCargo = (u.passengers || []).some((p) => canCharge(p) && meleeValue(state, p, enemies) > shootValue(state, p, enemies));
-  score -= Math.min(risk, pointsLeft(u)) * 0.35 * (opts.cautious ?? 1) * ((scoring.majority(u, 'Vanguard') || assaultCargo) && !opts.consolidating ? 0.5 : 1);
+  // while waiting for the wave an assault group hides: more weight on risk, and no Vanguard or cargo boldness
+  score -= Math.min(risk, pointsLeft(u)) * 0.35 * (opts.cautious ?? 1) * (waiting ? 1.5 : (scoring.majority(u, 'Vanguard') || assaultCargo) && !opts.consolidating ? 0.5 : 1);
   // standing still with heavy weapons is worth something
   if (pos.x === saved.x && pos.y === saved.y && alive(u).some((m) => m.ranged.some((w) => has(w.specialRules, 'Heavy') || has(w.specialRules, 'Ordnance')))) score += shoot * 0.15;
   u.x = saved.x; u.y = saved.y;
@@ -186,8 +199,14 @@ function positionScore(state, u, pos, opts = {}) {
       // delivery: an assault unit wants carrying to the enemy it fights best, from across the table if need be
       if (canCharge(p) && meleeValue(state, p, enemies) > shootValue(state, p, enemies)) {
         const reach = moveOf(u) + core.setupMove(p) + 4.5 + p.r;
+        const pp = plan.of(state, p);
         let best = 0;
-        for (const e of enemies) best = Math.max(best, meleeEV(state, p, e) * Math.max(0, Math.min(1, 1 - (Math.hypot(pos.x - e.x, pos.y - e.y) - u.r - e.r - reach) / 36)));
+        for (const e of enemies) {
+          const d = Math.hypot(pos.x - e.x, pos.y - e.y) - u.r - e.r;
+          // waiting for the wave: only within next turn's reach counts (from far off, no pull); the planned target counts more
+          const near = pp?.waiting ? (d <= reach ? 0.6 : Math.max(0, 1 - (d - reach) / 24) * 0.6) : Math.max(0, Math.min(1, 1 - (d - reach) / 36));
+          best = Math.max(best, meleeEV(state, p, e) * near * (pp && pp.target === e ? 1.3 : 1));
+        }
         score += best;
       }
       p.r = r0;
@@ -286,12 +305,15 @@ function chooseTarget(state, u, opts = {}) {
 /** Should this unit charge, and whom? Returns a target or null. */
 function chooseCharge(state, u) {
   if (!canCharge(u) || u.turn.rushed || u.turn.noCharge || u.lockedWith.size) return null;
+  const pl = plan.of(state, u);
   let best = null;
   for (const e of state.units) {
     if (e.side === u.side || e.destroyed || !e.arrived || e.embarkedIn || /Flyer/.test(e.unitType)) continue;
     const odds = chargeOdds(u, u, e);
     // SHEET: the target must be within 12" and in Line of Sight
     if (odds <= 0 || !lineOfSight(state.table, u, e)) continue;
+    // waiting for the wave (plan.cjs): no charge unless the enemy is already on top of the unit
+    if (pl?.waiting && !(odds >= 0.9 && gap(u, e) <= 3)) continue;
     const gain = meleeEV(state, u, e) * 1.6 - meleeEV(state, e, u) * 1.0;
     // Overwatch and volleys cost something on the way in
     const incoming = evAt(shootTable(state, e, u), gap(u, e)) * 0.35;
