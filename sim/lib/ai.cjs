@@ -69,6 +69,35 @@ function chargeOdds(u, pos, t) {
 }
 const canCharge = (u) => !u.vehicle && !u.statuses.has('Pinned') && !u.statuses.has('Routed') && alive(u).some((m) => m.melee.length && !m.vehicle) && !/Flyer/.test(u.unitType);
 
+// ---------- Vanguard: hunting the units that hold objectives ----------
+const pointsLeft = (e) => (e.pts || 0) * alive(e).length / Math.max(1, e.models.length);
+/** The marker a unit is controlling or contesting right now, if any. */
+function markerHeld(state, e) {
+  if (!state.table.objectives?.length || !canHold(e)) return null;
+  return state.table.objectives.find((o) => Math.hypot(o.x - e.x, o.y - e.y) - e.r <= scoring.CONTROL_RANGE) || null;
+}
+/** Chance an attack worth `pts` removes the last model of e. */
+const finishChance = (pts, e) => Math.max(0, Math.min(0.85, pts / Math.max(1, pointsLeft(e)) - 0.3));
+/** Chance a fight wipes e out or breaks it: winning the combat makes a failed Panic Check likely. */
+function breakChance(state, u, e) {
+  const give = meleeEV(state, u, e), take = meleeEV(state, e, u);
+  const r = give / Math.max(1, pointsLeft(e));
+  return Math.max(0, Math.min(0.9, give > take ? 0.35 + r : r * 0.5));
+}
+/**
+ * What attacking e is worth to u beyond the points it destroys. A unit with a majority of Vanguard (X) scores X
+ * Victory Points for removing the last model of, or breaking in combat, an enemy unit that holds or contests a
+ * marker (CONFIRMED; once per marker per Player Turn), so it goes after those units: the prize times the chance
+ * `p` of earning it, and a little extra for every point it takes off a unit holding a marker.
+ */
+function huntValue(state, u, e, pts, p) {
+  if (!scoring.majority(u, 'Vanguard')) return 0;
+  const o = markerHeld(state, e);
+  if (!o) return 0;
+  const scored = state.vanguardScored?.has(`${state.round}:${state.active}:${o.id + 1}`);
+  return (scored ? 0 : scoring.maxX(u, 'Vanguard') * VP_WORTH * p) + 0.3 * pts;
+}
+
 // ---------- what a unit is for ----------
 const shootValue = (state, u, enemies) => Math.max(0, ...enemies.map((e) => evAt(shootTable(state, u, e), 18)));
 const meleeValue = (state, u, enemies) => Math.max(0, ...enemies.map((e) => meleeEV(state, u, e)));
@@ -84,17 +113,22 @@ function positionScore(state, u, pos, opts = {}) {
   const mv = scoring.missionValueAt(state, u, pos);
   const turnsLeft = Math.max(1, state.turnsLeft);
   const w = state.mission.variant === 'hammerblow' ? (turnsLeft <= 2 ? 1.2 : 0.35) : 0.6 * Math.min(2, turnsLeft);
-  score += mv.here * VP_WORTH * w + mv.near * VP_WORTH * 0.25;
+  // Line units are there to hold markers: they weigh them more, and press on to the next one when theirs is held.
+  // Vanguard units score 1 VP at most for a marker; they're there to take markers from the enemy
+  const line = scoring.majority(u, 'Line'), vanguard = scoring.majority(u, 'Vanguard');
+  score += mv.here * VP_WORTH * w * (line ? 1.5 : vanguard ? 0.5 : 1) + mv.near * VP_WORTH * (line ? 0.4 : vanguard ? 0.1 : 0.25);
   // offence: the best shot from here, and the best charge from here
   let shoot = 0, melee = 0;
   for (const e of enemies) {
     const g = gap(u, e);
     if (alive(u).some((m) => m.ranged.length)) {
-      const v = evAt(shootTable(state, u, e), g);
+      let v = evAt(shootTable(state, u, e), g);
+      if (v > 0) v += huntValue(state, u, e, v, finishChance(v, e));
       if (v > shoot && (v > 0) && lineOfSight(state.table, u, e)) shoot = v;
     }
     if (opts.charging !== false && canCharge(u) && !u.turn.rushed) {
-      const v = meleeEV(state, u, e) * chargeOdds(u, pos, e);
+      const odds = chargeOdds(u, pos, e);
+      const v = odds > 0 ? (meleeEV(state, u, e) + huntValue(state, u, e, meleeEV(state, u, e), breakChance(state, u, e))) * odds : 0;
       if (v > melee) melee = v;
     }
   }
@@ -104,11 +138,22 @@ function positionScore(state, u, pos, opts = {}) {
     const g = gap(u, e);
     if (canCharge(u)) {
       const reachNext = moveOf(u) + core.setupMove(u) + 4.5;
-      soon = Math.max(soon, meleeEV(state, u, e) * Math.max(0, Math.min(1, 1 - (g - reachNext) / 24)) * 0.45);
+      const ev = meleeEV(state, u, e) + huntValue(state, u, e, meleeEV(state, u, e), breakChance(state, u, e));
+      soon = Math.max(soon, ev * Math.max(0, Math.min(1, 1 - (g - reachNext) / 24)) * 0.45);
     }
-    if (alive(u).some((m) => m.ranged.length)) soon = Math.max(soon, evAt(shootTable(state, u, e), Math.max(0, g - moveOf(u))) * 0.3);
+    if (alive(u).some((m) => m.ranged.length)) {
+      const v = evAt(shootTable(state, u, e), Math.max(0, g - moveOf(u)));
+      soon = Math.max(soon, (v > 0 ? v + huntValue(state, u, e, v, finishChance(v, e)) : 0) * 0.3);
+    }
   }
   score += Math.max(shoot, melee) + 0.3 * Math.min(shoot, melee) + soon;
+  // Vanguard: closing on the enemy units that hold markers, from across the table if need be
+  if (vanguard) {
+    const reach = moveOf(u) + (canCharge(u) ? core.setupMove(u) + 4.5 : maxRange(u));
+    let hunt = 0;
+    for (const e of enemies) if (markerHeld(state, e)) hunt = Math.max(hunt, Math.max(0, Math.min(1, 1 - (gap(u, e) - reach) / 36)));
+    score += hunt * scoring.maxX(u, 'Vanguard') * VP_WORTH;
+  }
   // risk: what the enemy can do to this unit next turn from where it stands now
   let risk = 0;
   for (const e of enemies) {
@@ -123,7 +168,8 @@ function positionScore(state, u, pos, opts = {}) {
       risk += meleeEV(state, e, u) * p * 0.8;
     }
   }
-  score -= risk * 0.35 * (opts.cautious ?? 1);
+  // a unit can't lose more than it has left; assault troops (Vanguard) accept more of it to reach the enemy
+  score -= Math.min(risk, pointsLeft(u)) * 0.35 * (opts.cautious ?? 1) * (scoring.majority(u, 'Vanguard') ? 0.5 : 1);
   // standing still with heavy weapons is worth something
   if (pos.x === saved.x && pos.y === saved.y && alive(u).some((m) => m.ranged.some((w) => has(w.specialRules, 'Heavy') || has(w.specialRules, 'Ordnance')))) score += shoot * 0.15;
   u.x = saved.x; u.y = saved.y;
@@ -201,6 +247,8 @@ function chooseTarget(state, u, opts = {}) {
       const r = plan.expectedDamage / Math.max(1, left);
       v += (r >= 1.2 ? 0.8 : r >= 0.8 ? 0.5 : r >= 0.5 ? 0.2 : 0) * scoring.killPoints(e) * VP_WORTH * 0.8;
     }
+    // Vanguard: the units holding markers come first
+    v += huntValue(state, u, e, plan.expectedPts, finishChance(plan.expectedPts, e));
     if (!best || v > best.v) best = { target: e, v };
   }
   return best && best.v > 0.5 ? best.target : null;
@@ -222,7 +270,10 @@ function chooseCharge(state, u) {
     // tying up a unit on an objective is worth something, unless the fight is hopeless
     const hopeless = meleeEV(state, e, u) > 2 * meleeEV(state, u, e) + 10;
     const obj = !hopeless && canHold(e) && (state.mission.primary === 'seize' || state.table.objectives.some((o) => Math.hypot(o.x - e.x, o.y - e.y) - e.r <= scoring.CONTROL_RANGE)) ? VP_WORTH : 0;
-    const v = odds * (gain + obj) - incoming - (1 - odds) * 10;
+    // a unit holding a marker gives it up by charging away from it, unless the target is on the same marker
+    const held = markerHeld(state, u);
+    const leave = held && Math.hypot(held.x - e.x, held.y - e.y) - e.r > scoring.CONTROL_RANGE ? scoring.markerWorth(state, u, held, held.value || 2) * VP_WORTH : 0;
+    const v = odds * (gain + obj + huntValue(state, u, e, meleeEV(state, u, e), breakChance(state, u, e))) - incoming - (1 - odds) * 10 - leave;
     if (v > 3 && (!best || v > best.v)) best = { target: e, v };
   }
   return best ? best.target : null;
@@ -264,4 +315,4 @@ function duelEV(a, b) {
   return best;
 }
 
-module.exports = { VP_WORTH, shootTable, evAt, meleeEV, maxRange, chargeChance, chargeOdds, canCharge, positionScore, candidates, chooseMove, chooseTarget, chooseCharge, statusValue, worthReacting, duelEV, moveOf, shootValue, meleeValue };
+module.exports = { huntValue, markerHeld, VP_WORTH, shootTable, evAt, meleeEV, maxRange, chargeChance, chargeOdds, canCharge, positionScore, candidates, chooseMove, chooseTarget, chooseCharge, statusValue, worthReacting, duelEV, moveOf, shootValue, meleeValue };

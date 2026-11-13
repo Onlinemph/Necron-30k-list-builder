@@ -189,7 +189,24 @@ Every choice is scored in expected points (a Victory Point counts as 45 points):
 it will take where it stands when the enemy acts next, objectives it holds or approaches, and the value of
 statuses it could inflict. Moves are picked from candidate spots (twelve directions, objectives, enemies, cover),
 targets by expected points plus status value, charges by expected melee exchange against the shooting it takes
-going in. It doesn't plan more than one turn ahead and doesn't coordinate units.
+going in. It doesn't plan more than one turn ahead, and coordinates units only through the objectives (below).
+
+Units play to their battlefield role, from the Line and Vanguard rule texts:
+
+- Line units hold markers. They weigh a marker half again as much as other units do, and won't charge off one
+  unless the fight is worth more than the marker or the target sits on the same marker. A marker a friendly
+  unit already holds is worth little to them, so they press on to the next free marker or one the enemy holds.
+  Between two friendly units on a marker, a Line unit outranks one without Line, then the bigger Line value, then
+  the bigger unit; the other moves on.
+- Vanguard units hunt the enemy units that hold markers, because removing the last model of one, or breaking
+  it in combat, scores their Vanguard (X) Victory Points (once per marker per Player Turn). Targets, charges
+  and moves all count that prize against the chance of earning it, and a little extra for every point taken
+  off a holder. They're drawn towards holders from anywhere on the table, care less about holding markers
+  themselves (they'd score 1 VP at most) and accept half the usual risk to get there.
+- Any unit counts a marker the enemy holds as worth contesting, for the Victory Points it denies them, and no
+  unit weighs more risk than the points it has left.
+
+Seize Ground and Destroy the Enemy have no markers, so there units play as before.
 
 ## Where the rules come from
 

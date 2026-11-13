@@ -411,3 +411,36 @@ test('builder data: default weapons that BSData lists only inside options', () =
   assert.ok(soh.E.unitIssues(js).some((i) => /must take 10/.test(i.msg)));
   void D;
 });
+
+test('AI: Line units hold markers and move on when a friend holds theirs; Vanguard hunts the holders', () => {
+  const ai = require('../sim/lib/ai.cjs');
+  const near = { x: 20, y: 20, value: 2, id: 0 }, far = { x: 40, y: 20, value: 2, id: 1 };
+  const line = (n, x, y, X = 2) => fakeUnit(0, n, x, y, { modelRules: [`Line (${X})`] });
+  const holder = line(10, 20, 20), second = line(5, 23, 20);
+  const st = { table: { objectives: [near, far] }, units: [holder, second], mission: { primary: 'claim', has: () => false, secondaries: { breakthrough: 0 } }, turnsLeft: 4, zoneOf: [{}, {}] };
+  // the bigger Line unit keeps the marker; the smaller one is worth little there and more at the free marker
+  assert.equal(scoring.markerWorth(st, holder, near, 2), 4);
+  assert.ok(scoring.markerWorth(st, second, near, 2) < 1);
+  assert.equal(scoring.markerWorth(st, second, far, 2), 4);
+  // a Line unit takes over from a unit without Line
+  const plain = fakeUnit(0, 10, 20, 21);
+  st.units = [plain, second];
+  assert.equal(scoring.markerWorth(st, second, near, 2), 4);
+  assert.ok(scoring.markerWorth(st, plain, near, 2) < 1);
+  // an enemy on a marker makes it worth contesting
+  const foe = fakeUnit(1, 5, 40, 21, { modelRules: ['Line (1)'] });
+  st.units = [second, foe];
+  assert.equal(scoring.markerWorth(st, second, far, 2), 4 + 1.5);
+  // Vanguard: an enemy unit holding a marker is worth its Vanguard VP to finish, nobody else's
+  const hunter = fakeUnit(0, 5, 35, 20, { modelRules: ['Vanguard (3)'] });
+  const loose = fakeUnit(1, 5, 60, 40);
+  Object.assign(st, { round: 2, active: 0, vanguardScored: new Set() });
+  st.units = [hunter, foe, loose];
+  foe.pts = loose.pts = 100;
+  assert.ok(ai.huntValue(st, hunter, foe, 50, 0.5) > ai.huntValue(st, hunter, loose, 50, 0.5));
+  assert.equal(ai.huntValue(st, hunter, loose, 50, 0.5), 0);
+  assert.equal(ai.huntValue(st, second, foe, 50, 0.5), 0);
+  // once Vanguard has scored on that marker this Player Turn, only the wearing-down is left
+  st.vanguardScored.add('2:0:2');
+  assert.equal(ai.huntValue(st, hunter, foe, 50, 0.5), 15);
+});

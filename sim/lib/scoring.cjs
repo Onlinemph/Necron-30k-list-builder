@@ -206,8 +206,9 @@ function missionValueAt(state, u, pos) {
     for (const o of state.table.objectives) {
       const v = m.has('Unknown Munitions') ? (o.valueFor?.[u.side] ?? 2) : o.value;
       const d = Math.hypot(o.x - pos.x, o.y - pos.y) - u.r;
-      if (d <= CONTROL_RANGE) here = Math.max(here, markerVP(u, v));
-      else near = Math.max(near, markerVP(u, v) * Math.max(0, 1 - d / 36));
+      const w = markerWorth(state, u, o, v);
+      if (d <= CONTROL_RANGE) here = Math.max(here, w);
+      else near = Math.max(near, w * Math.max(0, 1 - d / 36));
     }
   } else if (m.primary === 'seize') {
     const s = sectorOf(state, pos);
@@ -222,6 +223,22 @@ function missionValueAt(state, u, pos) {
   if (state.turnsLeft <= 2 && touches(state.zoneOf[1 - u.side], pos, u.r)) here += (m.secondaries.breakthrough + maxX(u, 'Vanguard')) / 2;
   return { here, near };
 }
+/**
+ * What a marker is worth to unit u, for the AI. A marker a friendly unit already holds is worth little more to u
+ * unless u would hold it better (a Line unit takes over from one without Line; between two Line units the bigger
+ * Line value, then the bigger unit, keeps it), so the other moves on to the next marker. A marker the enemy holds
+ * is also worth contesting, for the Victory Points it denies them.
+ */
+function markerWorth(state, u, o, v) {
+  const rank = (x) => (majority(x, 'Line') ? 1000 + 100 * maxX(x, 'Line') : 0) + alive(x).length + (x.uid || 0) * 1e-6;
+  const on = (x) => x !== u && !x.destroyed && x.arrived !== false && !x.embarkedIn && canControl(x) && Math.hypot(o.x - x.x, o.y - x.y) - x.r <= CONTROL_RANGE;
+  let worth = markerVP(u, v);
+  const friend = state.units.filter((x) => x.side === u.side && on(x)).sort((a, b) => rank(b) - rank(a))[0];
+  if (friend && rank(friend) > rank(u)) worth *= 0.15;
+  const foe = state.units.filter((x) => x.side !== u.side && on(x)).sort((a, b) => rank(b) - rank(a))[0];
+  if (foe) worth += markerVP(foe, v) * 0.5;
+  return worth;
+}
 const canControlIgnoringPlace = (u) => !u.destroyed && !BLOCKING.some((s) => u.statuses.has(s)) && !alive(u).some((m) => /Automata/.test(m.unitType)) && !has(u.rules, 'Heedless') && alive(u).some((m) => num(m.p.M, 0) > 0);
 
-module.exports = { CONTROL_RANGE, canControl, claimControl, markerVP, tacticalStrength, sectorControl, sectorOf, sectorValue, scoreClaim, scoreSeize, victorySubPhase, onDestroyed, endOfBattle, missionValueAt, killPoints, expendable };
+module.exports = { CONTROL_RANGE, canControl, majority, maxX, markerWorth, claimControl, markerVP, tacticalStrength, sectorControl, sectorOf, sectorValue, scoreClaim, scoreSeize, victorySubPhase, onDestroyed, endOfBattle, missionValueAt, killPoints, expendable };
