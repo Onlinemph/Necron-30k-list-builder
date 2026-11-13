@@ -37,7 +37,43 @@ what their Tactica rewards (bolters for Fire Discipline, long-range guns for Sha
 walk for Remorseless Advance); every list keeps Line Tactical Squads to hold markers. Each plan in `make.cjs`
 says what the army is for. Both sets share `sim/lists/builder.cjs`, which makes units, places them in the
 Primary Detachment or the Auxiliary and Apex Detachments it opens, grows squads and checks the army in the
-builder's engine.
+builder's engine. For the strength lists it also picks each open weapon choice by the simulator's combat maths,
+like for like (a melee weapon for a melee weapon, a gun for a gun) and only among the choices that cost no more
+than the cheapest, so a squad gets a better weapon but never fewer bodies.
+
+Each Legion had up to four versions: its generic list, a first plan built purely on its theme, a second plan
+(its best units, carried in Assault Vehicles where they fight in melee, around four lascannon Predators,
+lascannon Heavy Support and Tactical Squads on foot) and the generic list with better weapons at the same price.
+Every version played all 19 lists of the field (the generic lists and the Iron Wall, 72 games each) and the best
+one became the strength list. Those lists then played the field again on fresh seeds, 108 games each:
+
+| Legion | Version | What it does | Strength list | Generic list |
+|---|---|---|---|---|
+| Raven Guard | first plan | long-range gunline (Shadow Walkers), Deliverers Deep Strike | 78% | 57% |
+| Iron Hands | generic, better weapons | Medusan Immortals and Gorgons under the Gorgon's Scales | 74% | 69% |
+| Sons of Horus | second plan | two Reaver squads and Justaerin behind four Predators | 74% | 76% |
+| Space Wolves | second plan | Varagyr in a Spartan and a Land Raider | 69% | 66% |
+| Salamanders | generic, better weapons | Firedrakes and Pyroclasts, lascannons, Predators | 68% | 61% |
+| Word Bearers | generic, better weapons | Gal Vorbak and Ashen Circle, lascannons, Predators | 67% | 66% |
+| Ultramarines | second plan | two Fulmentarus squads, Invictus in a Land Raider | 63% | 64% |
+| Imperial Fists | first plan | bolters in bulk for Fire Discipline, Huscarls | 63% | 46% |
+| Death Guard | second plan | Grave Wardens and moving lascannons (Remorseless Advance) | 60% | 65% |
+| Thousand Sons | second plan | Sekhmet in a Spartan, Sorcerers leading | 60% | 50% |
+| Emperor's Children | generic, better weapons | Palatine Blades, Kakophoni, lascannons | 56% | 56% |
+| Iron Warriors | generic, better weapons | Tyrants and Iron Havocs (the Bitter End) | 56% | 63% |
+| Dark Angels | second plan | two Cenobium squads in Land Raiders | 55% | 40% |
+| White Scars | second plan | fast Tactical Squads (Swift of Action), Ebon Keshig | 49% | 31% |
+| Blood Angels | second plan | Dawnbreakers in a Spartan, Paladins in a Land Raider | 46% | 39% |
+| Alpha Legion | generic | nothing beat the generic list | 45% | 56% |
+| Night Lords | second plan | heavy bolters break, Atramentar and Contekar strike | 40% | 26% |
+| World Eaters | second plan | two Spartans carrying Rampagers and Red Butchers | 30% | 20% |
+
+Thirteen of eighteen beat their generic list, the average goes from 53% to 59%, and differences of five points
+or less are within the noise of 108 games. The Alpha Legion row is the same list played twice. What the
+simulator rewards shows in the picks: long guns and armour (every strength list fields four Predators, eleven of them all with lascannons),
+assault units that arrive in Assault Vehicles rather than on foot, and bodies on markers. Melee infantry that
+has to walk across the table (Rampagers, Night Raptors, Grey Slayers) is still the weakest thing a Legion can
+take.
 
 From code:
 

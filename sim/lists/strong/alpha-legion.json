@@ -188,11 +188,11 @@
       },
       "options": {
        "harrower-options": [
-        "Power maul",
+        "Power axe",
         "Volkite charger"
        ],
        "lernaean-options": {
-        "Power maul": 9,
+        "Power axe": 9,
         "Volkite charger": 9
        }
       }

@@ -208,13 +208,13 @@ const CORE_WHY = {
   'salamanders': 'Ten Firedrakes and ten Pyroclasts, tough under Promethean Endurance, with two lascannon Heavy Support Squads, four Predators and Tactical Squads in Rhinos.',
   'word-bearers': 'Gal Vorbak and the Ashen Circle win the fights they start with Unwavering Conviction, behind two ten-strong lascannon Heavy Support Squads, four Predators and Tactical Squads in Rhinos.',
 };
-// which version each Legion uses: 'plan' (the first plan), 'strike' (the second) or 'core' (the generic Legion list
-// with its weapons picked by value), chosen by playing every version against the same opponents (see the README)
-const CHOICE = { 'alpha-legion': 'core', 'blood-angels': 'strike', 'dark-angels': 'strike', 'death-guard': 'strike', 'emperors-children': 'core', 'iron-hands': 'core', 'iron-warriors': 'core', 'night-lords': 'strike', 'salamanders': 'core', 'sons-of-horus': 'strike', 'space-wolves': 'strike', 'thousand-sons': 'strike', 'ultramarines': 'strike', 'white-scars': 'strike', 'word-bearers': 'core', 'world-eaters': 'strike' };
+// which version each Legion uses: 'plan' (the first plan), 'strike' (the second), 'core' (the generic Legion list
+// with better weapons at the same price) or 'generic' (the generic list as it is, where nothing beat it), chosen by playing every version against the same opponents (see the README)
+const CHOICE = { 'alpha-legion': 'generic', 'blood-angels': 'strike', 'dark-angels': 'strike', 'death-guard': 'strike', 'emperors-children': 'core', 'iron-hands': 'core', 'iron-warriors': 'core', 'night-lords': 'strike', 'salamanders': 'core', 'sons-of-horus': 'strike', 'space-wolves': 'strike', 'thousand-sons': 'strike', 'ultramarines': 'strike', 'white-scars': 'strike', 'word-bearers': 'core', 'world-eaters': 'strike' };
 
 function build(id, variant = CHOICE[id] || 'plan', file = `${__dirname}/${id}.json`) {
   // 'core': the generic Legion list (lists/legions) with its weapons picked by value
-  if (variant === 'core') return Object.assign(require('../legions/make.cjs').build(id, { smart: true, name: PLANS[id].name, file }), { variant, why: CORE_WHY[id] });
+  if (variant === 'core' || variant === 'generic') return Object.assign(require('../legions/make.cjs').build(id, { smart: variant === 'core', name: PLANS[id].name, file }), { variant, why: CORE_WHY[id] });
   const plan = variant === 'strike' ? Object.assign({ name: PLANS[id].name }, STRIKE[id]) : PLANS[id];
   const b = createBuilder(id, { name: plan.name, smart: true });
   const skipped = [];
