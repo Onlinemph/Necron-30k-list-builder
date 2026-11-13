@@ -149,7 +149,7 @@ function positionScore(state, u, pos, opts = {}) {
   }
   score += Math.max(shoot, melee) + 0.3 * Math.min(shoot, melee) + soon;
   // Vanguard: closing on the enemy units that hold markers, from across the table if need be
-  if (vanguard) {
+  if (vanguard && !opts.consolidating) {
     const reach = moveOf(u) + (canCharge(u) ? core.setupMove(u) + 4.5 : maxRange(u));
     let hunt = 0;
     for (const e of enemies) if (markerHeld(state, e)) hunt = Math.max(hunt, Math.max(0, Math.min(1, 1 - (gap(u, e) - reach) / 36)));
@@ -172,7 +172,7 @@ function positionScore(state, u, pos, opts = {}) {
   // a unit can't lose more than it has left; assault troops (Vanguard), and transports carrying assault troops,
   // accept more of it to reach the enemy
   const assaultCargo = (u.passengers || []).some((p) => canCharge(p) && meleeValue(state, p, enemies) > shootValue(state, p, enemies));
-  score -= Math.min(risk, pointsLeft(u)) * 0.35 * (opts.cautious ?? 1) * (scoring.majority(u, 'Vanguard') || assaultCargo ? 0.5 : 1);
+  score -= Math.min(risk, pointsLeft(u)) * 0.35 * (opts.cautious ?? 1) * ((scoring.majority(u, 'Vanguard') || assaultCargo) && !opts.consolidating ? 0.5 : 1);
   // standing still with heavy weapons is worth something
   if (pos.x === saved.x && pos.y === saved.y && alive(u).some((m) => m.ranged.some((w) => has(w.specialRules, 'Heavy') || has(w.specialRules, 'Ordnance')))) score += shoot * 0.15;
   u.x = saved.x; u.y = saved.y;
@@ -298,9 +298,14 @@ function chooseCharge(state, u) {
     // tying up a unit on an objective is worth something, unless the fight is hopeless
     const hopeless = meleeEV(state, e, u) > 2 * meleeEV(state, u, e) + 10;
     const obj = !hopeless && canHold(e) && (state.mission.primary === 'seize' || state.table.objectives.some((o) => Math.hypot(o.x - e.x, o.y - e.y) - e.r <= scoring.CONTROL_RANGE)) ? VP_WORTH : 0;
-    // a unit holding a marker gives it up by charging away from it, unless the target is on the same marker
+    // a unit locked in combat controls nothing, so a charge costs what the unit scores where it stands (a marker, or
+    // its share of a Sector), unless the target scores in the same place and is locked out of it too
     const held = markerHeld(state, u);
-    const leave = held && Math.hypot(held.x - e.x, held.y - e.y) - e.r > scoring.CONTROL_RANGE ? scoring.markerWorth(state, u, held, held.value || 2) * VP_WORTH : 0;
+    let leave = held && Math.hypot(held.x - e.x, held.y - e.y) - e.r > scoring.CONTROL_RANGE ? scoring.markerWorth(state, u, held, held.value || 2) * VP_WORTH : 0;
+    if (state.mission.primary === 'seize' && canHold(u)) {
+      const s = scoring.sectorOf(state, u), se = scoring.sectorOf(state, e);
+      if (s) leave = Math.max(leave, scoring.missionValueAt(state, u, { x: u.x, y: u.y }).here * VP_WORTH * (se === s && canHold(e) ? 0.3 : 1));
+    }
     const v = odds * (gain + obj + huntValue(state, u, e, meleeEV(state, u, e), breakChance(state, u, e))) - incoming - (1 - odds) * 10 - leave;
     if (v > 3 && (!best || v > best.v)) best = { target: e, v };
   }

@@ -707,10 +707,13 @@ function consolidate(state, u) {
   u.consolidated = true;
   const I = num(alive(u)[0]?.p.I, 0);
   if (I <= 0) return;
-  let best = { p: { x: u.x, y: u.y }, s: ai.positionScore(state, u, { x: u.x, y: u.y }) };
+  // the enemy shoots next: consolidate for safety (cover, out of sight) and for markers and Sectors, not for the
+  // next charge, and with no Vanguard boldness
+  const opts = { charging: false, cautious: 2, consolidating: true };
+  let best = { p: { x: u.x, y: u.y }, s: ai.positionScore(state, u, { x: u.x, y: u.y }, opts) };
   for (const p of ai.candidates(state, u, I)) {
     if (state.units.some((e) => e.side !== u.side && !e.destroyed && e.arrived && !e.embarkedIn && Math.hypot(e.x - p.x, e.y - p.y) < e.r + u.r + 1)) continue;
-    const s = ai.positionScore(state, u, p);
+    const s = ai.positionScore(state, u, p, opts);
     if (s > best.s + 0.5) best = { p, s };
   }
   if (best.p.x !== u.x || best.p.y !== u.y) { moveUnit(state, u, best.p, I); state.log(`    ${u.name} consolidates to (${u.x.toFixed(0)}, ${u.y.toFixed(0)})`); }

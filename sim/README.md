@@ -98,6 +98,18 @@ list, the Iron Wall as a guest):
 | Death Guard | 60% | White Scars | 48% | Night Lords | 24% |
 | | | | | Iron Wall (Rangdan) | 22% |
 
+Why the World Eaters lose: it's board control, not killing. Against the strength lists they score 14.6 VP a game
+from markers and Sectors to their opponents' 29.7, while Kill Points and the secondaries are close to even, and Seize
+Ground is their worst mission. Their Legion rules are average: the same army fielded as seven Legions scored 8% to
+19%, World Eaters 11% (Astartes) and 9% (Hereticus). Their signature units are the problem in this ruleset. Red
+Butchers survive and kill but are Heedless, so they can't hold or contest a marker. Rampagers reach combat and win
+their first fight, then die in 93% of games, mostly to shooting after it: power armour, no invulnerable save, and
+Vanguard caps what they score from a marker at 1 VP. A unit riding in a transport or locked in combat controls
+nothing, and that's where World Eaters spend the game. More Tactical Squads, more Red Butchers and better AI play
+didn't move them; even 900 extra points of World Eaters (3,900 against 3,000) only reached 36%. One reading to check
+in the mission pack: the simulator also keeps Heedless units out of Seize Ground Sectors, though the rule's text only
+mentions Objective Markers.
+
 Melee units now earn their points once they're carried in (Firedrakes, the Inner Circle Knights Cenobium,
 Palatine Blades, Invictus Suzerains and Grave Wardens are among the most efficient units, and the Space Wolves
 are second), but the World Eaters and Night Lords are still far behind, and the first player won 58% of decided
@@ -396,6 +408,11 @@ they ride.
 
 Moves go in a straight line and stop at impassable terrain and at other units (there's no pathfinding), so the AI
 scores each candidate move at the point it would really reach, not at the point it aims for.
+
+After a fight a unit consolidates for safety (cover, out of sight) and for markers and Sectors, with no Vanguard
+boldness, since the enemy shoots next. A unit locked in combat controls nothing, so a charge also costs what the
+charger scores where it stands, a marker or its share of a Sector, unless the target scores in the same place.
+Together these added about three points to five melee lists against the eight strongest lists.
 
 Melee is still the weaker way to play in the simulator. A typical assault unit now reaches combat on turn 2 and
 often wipes its target in one round, which leaves it in the open for the enemy's whole army to shoot. Steering
