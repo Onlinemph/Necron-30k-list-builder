@@ -57,7 +57,7 @@ The Rangda never had rules or models, so this army is written for the builder to
 
 ## BSData armies
 
-`scripts/import-bsdata.mjs` converts BSData's BattleScribe catalogues into this builder's format. It resolves each army statically: rules that depend on which Legion or faction the army is (Thousand Sons' Prosperine Arcana, legion weapons, profile changes) are applied, and rules that depend on what else is in the roster are shown in their default state. Units, models, per-model costs, standard wargear, weapon swaps, upgrades, crews (Rapier Batteries) and all weapon, wargear and special-rule text come across. BSData's core special rules text also fills in the rules the fan codexes only name.
+`scripts/import-bsdata.mjs` converts BSData's BattleScribe catalogues into this builder's format. It resolves each army statically: rules that depend on which Legion or faction the army is (Thousand Sons' Prosperine Arcana, legion weapons, profile changes) are applied, and rules that depend on what else is in the roster are shown in their default state. Units, models, per-model costs, standard wargear, weapon swaps, upgrades, crews (Rapier Batteries) and all weapon, wargear and special-rule text come across. BSData's core special rules text also fills in the rules the fan codexes only name. Many BSData entries give a model its weapon only through an exchange option ("Varagyr: May exchange frost axe with…"), so `scripts/default-weapons.mjs` gives those models the weapon the option names, makes it the one a pick replaces, and turns a weapon group into a required pick where a model would otherwise carry nothing ("Options (choose 2)" lets each model take two).
 
 Each army also gets:
 

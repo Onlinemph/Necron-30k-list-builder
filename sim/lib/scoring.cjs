@@ -168,6 +168,11 @@ function endOfBattle(state) {
   for (const u of inReserve) {
     state.log(`    ${u.name} never arrived and counts as destroyed`);
     if (m.primary === 'destroy' && u.reserve !== 'aerial') state.award(1 - u.side, pay(u, killPoints(u)), `${u.name} still in Reserves`);
+    // characters who joined it count as destroyed with it
+    for (const c of (u.joined || []).filter((x) => !x.dead)) {
+      inReserve.push(Object.assign({}, c, { reserve: u.reserve, joined: null, statuses: new Set(), lockedWith: new Set() }));
+      if (m.primary === 'destroy' && u.reserve !== 'aerial') state.award(1 - u.side, pay(c, killPoints(c)), `${c.name} still in Reserves`);
+    }
   }
   const gone = (side) => [...state.destroyedUnits.filter((u) => u.side === side), ...inReserve.filter((u) => u.side === side)];
   for (const side of [0, 1]) {

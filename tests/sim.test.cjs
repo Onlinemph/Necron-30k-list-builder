@@ -177,7 +177,7 @@ test('quick reference tables: snap shots, BS Critical Hits, Set-up Move, allotme
   const core = require('../sim/lib/core.cjs');
   assert.deepEqual([10, 9, 8, 7, 6, 5, 4, 3, 2, 1].map(core.snapHit), [2, 3, 4, 4, 4, 5, 5, 6, 6, 7]);
   assert.deepEqual([10, 9, 8, 7, 6, 5].map(core.bsCrit), [1, 3, 4, 5, 6, null]);
-  const su = (M, I, type = 'Infantry') => core.setupMove({ unitType: type, models: [{ wounds: 1, p: { M, I } }] });
+  const su = (M, I, type = 'Infantry') => core.setupMove({ unitType: type, models: [{ wounds: 1, unitType: type, p: { M, I } }] });
   assert.deepEqual([su(3, 3), su(5, 4), su(7, 4), su(8, 5), su(12, 4), su(14, 7), su(6, 4, 'Infantry (Heavy)')], [1, 2, 3, 4, 5, 6, 1]);
   assert.deepEqual([core.reactionAllotment(1500), core.reactionAllotment(3000), core.reactionAllotment(3000, true), core.reactionAllotment(4000)], [1, 2, 3, 3]);
   // a Glancing result the vehicle already has costs a Hull Point
@@ -358,4 +358,53 @@ test('units whose default weapons live in their options still get armed', () => 
   // a weapon the player chose is kept as chosen
   const chosen = names(unit('sons-of-horus', 'justaerin-terminator-squad', { options: { 'justaerin-options': { 'Power fist': 5 } } }));
   assert.ok(chosen.has('Power fist') && !chosen.has('Power sword'));
+});
+
+test('characters join units before deployment and still score as their own units', () => {
+  const { joinCharacters, canJoin } = require('../sim/lib/characters.cjs');
+  const { buildArmy } = require('../sim/lib/army.cjs');
+  const ai = require('../sim/lib/ai.cjs');
+  const a = buildArmy(path.join(LISTS, 'legions', 'sons-of-horus.json'), 0);
+  const b = buildArmy(path.join(LISTS, 'rangdan-iron-wall.json'), 1);
+  const st = { units: [...a.units, ...b.units], armies: [a, b], cache: { shoot: new Map(), melee: new Map() }, log: () => {}, table: { objectives: [] } };
+  const before = st.units.length;
+  const joins = joinCharacters(st);
+  assert.ok(joins.some((j) => j.character === 'Praetor'));
+  assert.equal(st.units.length, before - joins.length);
+  // a joined character is a model of its unit, remembered for scoring
+  const host = st.units.find((u) => u.joined && u.joined.some((c) => c.name === 'Praetor'));
+  assert.ok(host.models.some((m) => m.joinedFrom && m.joinedFrom.role === 'High Command'));
+  assert.equal(require('../sim/lib/mission.cjs').killPoints(host), Math.max(1, Math.round(host.kpPts / 100)));
+  // a Rangda master never joins a collared unit (it would break Neural Collars)
+  for (const u of st.units.filter((x) => x.side === 1 && x.joined)) {
+    const collared = u.models.filter((m) => !m.joinedFrom).every((m) => m.rules.includes('Neural Collars'));
+    if (collared) assert.ok(u.joined.every((c) => c.models[0].rules.includes('Neural Collars')), u.name);
+  }
+  // nobody joins a vehicle; a unit moves at its slowest model's pace
+  const rhino = st.units.find((u) => u.name === 'Rhino');
+  assert.equal(canJoin({ side: 0, models: [{ unitType: 'Infantry (Command)', rules: [] }], rules: [] }, rhino), false);
+  const slow = Object.assign({}, host, { models: host.models.map((m, i) => (i ? m : Object.assign({}, m, { p: Object.assign({}, m.p, { M: 3 }) }))) });
+  assert.equal(ai.moveOf(slow), 3);
+});
+
+test('builder data: default weapons that BSData lists only inside options', () => {
+  const { loadArmyData } = require('../sim/lib/army.cjs');
+  const { E, D } = loadArmyData('space-wolves');
+  const items = E.effectiveModels(E.newSelection('varagyr-wolf-guard-terminators'), {}).flatMap((r) => r.items);
+  assert.ok(items.includes('Frost axe') && items.includes('Combi-bolter'), items.join());
+  // picking another weapon swaps the default out
+  const s = E.newSelection('varagyr-wolf-guard-terminators');
+  s.options['varagyr-may-exchange-frost-axe-with'] = { 'Power fist': 4 };
+  const rows = E.effectiveModels(s, {});
+  assert.ok(rows.filter((r) => r.name === 'Varagyr').every((r) => r.items.includes('Power fist') && !r.items.includes('Frost axe')));
+  // a weapon group with no default is a required pick, and "choose 2" lets each model take two
+  const soh = loadArmyData('sons-of-horus');
+  const praetor = soh.E.newSelection('praetor');
+  assert.ok(soh.E.unitIssues(praetor).some((i) => /must take/.test(i.msg)));
+  const just = soh.D.units.find((u) => u.id === 'justaerin-terminator-squad').options.find((o) => /choose 2/.test(o.text));
+  assert.equal(just.perModelPicks, 2);
+  const js = soh.E.newSelection('justaerin-terminator-squad');
+  js.options[just.id] = { 'Power axe': 5, 'Combi-bolter': 5 };
+  assert.ok(!soh.E.unitIssues(js).some((i) => /too many/.test(i.msg)));
+  void D;
 });

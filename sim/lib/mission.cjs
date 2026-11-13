@@ -165,6 +165,7 @@ function setupMission(dice, table, opts = {}) {
 }
 
 /** Kill Points (MISSION): the unit's points rounded to the nearest hundred, divided by 100, at least 1. */
-const killPoints = (u) => Math.max(1, Math.round(u.pts / 100));
+// a unit that a character joined is worth its own points; the character counts separately
+const killPoints = (u) => Math.max(1, Math.round((u.kpPts ?? u.pts) / 100));
 
 module.exports = { MISSIONS, ARCHETYPES, DEPLOYMENTS, DEPLOYMENT_ROLL, SECTORS, setupMission, rollMission, inArea, fits, touches, EDGE, killPoints, rect };

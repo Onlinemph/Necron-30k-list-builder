@@ -316,7 +316,8 @@
     }
 
     function optionMax(opt, sel) {
-      let cap = eligible(opt, sel);
+      // a weapon group may let each model take more than one pick ("Options (choose 2)")
+      let cap = eligible(opt, sel) * (opt.kind === 'perModel' && opt.perModelPicks ? opt.perModelPicks : 1);
       const m = opt.max;
       if (m && m.fixed != null) cap = Math.min(cap, m.fixed);
       if (m && m.per) cap = Math.min(cap, Math.floor(totalModels(sel) / m.per) * (m.count || 1));

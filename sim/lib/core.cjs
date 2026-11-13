@@ -77,9 +77,9 @@ module.exports = {
   CHARGE_DECLARE_RANGE: 12, // SHEET: a charge needs Line of Sight and a target within 12"
   // SHEET: Set-up Move by I + M (1-6: 1", 7-9: 2", 10-11: 3", 12-13: 4", 14-19: 5", 20+: 6"); CONFIRMED: Heavy uses M
   setupMove: (unit) => {
-    const m = unit.models.find((x) => x.wounds > 0);
-    const M = num(m?.p.M, 6), I = num(m?.p.I, 3);
-    const v = /Heavy/.test(unit.unitType) ? M : M + I;
+    // each model adds its Initiative to its Movement (Heavy: Movement only); the unit goes as far as its slowest
+    const ms = unit.models.filter((x) => x.wounds > 0);
+    const v = ms.length ? Math.min(...ms.map((m) => num(m.p.M, 6) + (/Heavy/.test(m.unitType) ? 0 : num(m.p.I, 3)))) : 6;
     const s = v >= 20 ? 6 : v >= 14 ? 5 : v >= 12 ? 4 : v >= 10 ? 3 : v >= 7 ? 2 : 1;
     // The Hunter's Strike (Space Wolves): +2", to a maximum of 6"
     return legions.is(unit, 'Space Wolves') ? Math.min(6, s + 2) : s;

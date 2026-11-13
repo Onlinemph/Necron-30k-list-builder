@@ -110,6 +110,24 @@ collared unit in combat), Horror of the Taken, Worm Gestalt, Carrion Feast, the 
 Profiles, rules and wargear come from the builder's own engine, so Legion rules, war-moons and wargear options
 apply exactly as they do in the app.
 
+### Characters joining units
+
+Before deployment each side's characters join units (`lib/characters.cjs`), following the HH3 texts: a model with
+the Command or Specialist Sub-Type joins a unit of its own kind (Infantry with Infantry, Cavalry with Cavalry), a
+Paragon joins a unit that includes Infantry, nobody joins a vehicle, a Flyer or a Fortification, Malefic models
+only mix with Malefic models, and a model with Lone Killer neither joins nor is joined. A character also can't take
+a unit into Deep Strike, Outflank or Infiltrate unless it has the rule too.
+
+The AI picks each character's unit in points order, the most expensive first. It wants a Retinue first, then a
+unit whose way of fighting matches the character's (a melee Praetor with Terminators, a Centurion with a Tactical
+Squad that needs its Leadership), a scoring unit, and not one the character would slow down. A Rangda master
+never joins a collared unit, since Neural Collars only work in a unit of collared models.
+
+On the table the character is one more model of the unit: it moves with it at the pace of the slowest model,
+lends it its Leadership, embarks with it, can be picked out by Precision hits and fights its challenges. For
+scoring it stays a unit of its own: its Kill Points, Slay the Warlord and First Strike count when it falls, and
+the unit's own Kill Points use the unit's points without it.
+
 ### Legion Tacticas
 
 Each Legion's Tactica (from the Legion Tactica or base Rite of War text in its army data) applies to units made
@@ -199,7 +217,7 @@ Four sources, marked in the code:
 | Vehicle saves | vehicles take Invulnerable Saves against Penetrating and Glancing Hits, but not Cover Saves |
 | Collar-master | the AI overloads a collared unit of five or more models that is in combat |
 | Swift of Action | the White Scars always take the +2 Movement, so it counts in the enemy turn too |
-| Unchosen weapons | where a list leaves a weapon option unset, a model takes the default its exchange option names, or the cheapest melee weapon (and gun, where two may be taken) from its weapon group. Some units' data lists their default weapons only inside options, so without this they would fight unarmed |
+| Unchosen weapons | where a list leaves a required weapon pick unset, a model takes the default its exchange option names, or the cheapest melee weapon from its weapon group. Since the builder's data now gives those units their default weapons, this only matters for hand-written lists that skip a required pick |
 | Morale after a charge | checks from Overwatch are taken straight after the charge |
 | Disgraced | removed like other statuses, with a Cool Check |
 | Perils names | Ætheric Feedback for the wounds, Warp Rupture for Stunned (Psy-Shock forces Warp Rupture) |
@@ -207,7 +225,8 @@ Four sources, marked in the code:
 | Take Cover | belongs to the Imperialis Militia and Solar Auxilia |
 | Furious Charge | the text makes the "Target Unit" Lost to the Nails; read as the reacting World Eaters unit |
 | Anathema | Immaterial weapons wound only on a 5+ (from the rule's summary line; its full text is cut short) |
-| Not simulated | Death or Glory (vehicles don't move through units here), Dangerous terrain, coherency, characters joining units |
+| Characters | join before deployment and stay with their unit (they don't leave mid-battle); one character per unit |
+| Not simulated | Death or Glory (vehicles don't move through units here), Dangerous terrain, coherency |
 
 Reactions made in answer to a reaction (a Return Fire against an Overwatch, say) aren't allowed.
 
@@ -233,6 +252,7 @@ Reactions made in answer to a reaction (a Return Fire against an Overwatch, say)
 | `lib/ai.cjs` | the decisions: moves, targets, charges, reactions |
 | `lib/core.cjs` | every core-rule number and assumption in one place |
 | `lib/legions.cjs` | the Legion Tacticas and where each applies |
+| `lib/characters.cjs` | which characters may join which units, and the AI's choice |
 | `tournament.cjs` | round robin between many lists, in parallel workers |
 | `report.cjs` | standings, ratings and unit efficiency from a tournament |
 | `lists/` | sample lists: two Rangdan (`rangdan.json`, the original mixed list, and `rangdan-iron-wall.json`), Sons of Horus at 2585 and 3000 points, an Ork Weirdboy mob |

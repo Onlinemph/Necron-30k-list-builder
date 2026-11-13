@@ -8,6 +8,7 @@ import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
 import { applyLegacy } from './legacy.mjs';
 import { applyHouse } from './house-rules.mjs';
+import { fillDefaultWeapons } from './default-weapons.mjs';
 const require = createRequire(import.meta.url);
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -154,6 +155,13 @@ if (army.combatDrugs) {
       source: { type: 'upgrade', name: d.name }, appliesTo: {}, scope: 'unit', stats: { [d.stat]: '+1' } });
     out.rules.traits.push({ name: d.name, page: 3, text: `Combat Drug. Models in a Unit with this Trait gain +1 ${d.stat}.` });
   }
+}
+
+// BSData units whose default weapons only appear inside their options get them back (scripts/default-weapons.mjs)
+if (army.bsdata) {
+  const { wkey } = require(join(root, 'js', 'engine.js'));
+  const r = fillDefaultWeapons(out, common, wkey);
+  if (r.defaults || r.required) console.log(`[${army.id}] default weapons: ${r.defaults} added, ${r.required} weapon groups now required, ${r.units.size} units`);
 }
 
 // core detachments from the Horus Heresy rulebook sit alongside the codex ones

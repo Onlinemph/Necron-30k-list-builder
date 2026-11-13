@@ -18,6 +18,7 @@ const core = require('./core.cjs');
 const reactions = require('./reactions.cjs');
 const psychic = require('./psychic.cjs');
 const scoring = require('./scoring.cjs');
+const { joinCharacters } = require('./characters.cjs');
 
 /**
  * opts: { seed, log, mission: id | 'random', deployment: id | 'random', variant: 'escalation' | 'hammerblow' }
@@ -41,6 +42,8 @@ function runBattle(listA, listB, opts = {}) {
     log: opts.log ? (s) => lines.push(s) : () => {},
   };
   hooks(state);
+  // characters join their units before deployment (characters.cjs)
+  state.joins = joinCharacters(state);
   reactions.setup(state);
   state.reactions = reactions;
   psychic.setup(state);
@@ -93,7 +96,14 @@ function tectonic(state) {
 function hooks(state) {
   state.award = (side, vp, why) => award(state, side, vp, why);
   state.onCasualty = (m, unit, by) => {
-    const ppm = unit.pts / unit.models.length;
+    // a joined character is worth its own points, and counts as its own unit destroyed when it falls
+    const own = unit.models.filter((x) => !x.joinedFrom).length || 1;
+    const ppm = m.joinedFrom ? m.joinedFrom.pts : (unit.kpPts ?? unit.pts) / own;
+    if (m.joinedFrom && !m.joinedFrom.dead) {
+      m.joinedFrom.dead = true;
+      state.log(`    ${m.joinedFrom.name} falls (with ${unit.name})`);
+      scoring.onDestroyed(state, Object.assign({}, m.joinedFrom, { heldObjective: unit.heldObjective }), by && by.side !== unit.side ? by : null);
+    }
     unit.stats = unit.stats || { killed: 0, lost: 0 }; unit.stats.lost += ppm;
     if (by) { by.stats = by.stats || { killed: 0, lost: 0 }; by.stats.killed += ppm; unit.lastHitBy = by; }
   };
@@ -310,7 +320,11 @@ function finish(state, lines) {
   const winner = state.vp[0] === state.vp[1] ? null : state.vp[0] > state.vp[1] ? 0 : 1;
   state.log(`\nResult: ${state.armies[0].name} ${state.vp[0]} – ${state.vp[1]} ${state.armies[1].name}${winner === null ? ' (draw)' : `, ${state.armies[winner].name} wins`}`);
   const pointsKilled = [0, 1].map((s) => state.units.filter((u) => u.side !== s).reduce((t, u) => t + (u.stats?.lost || 0), 0));
-  const units = [0, 1].map((s) => state.units.filter((u) => u.side === s).map((u) => ({ name: u.name, pts: u.pts, pointsKilled: u.stats?.killed || 0, pointsLost: u.stats?.lost || 0, survived: !u.destroyed })));
+  // joined characters are reported as their own units; what they destroyed is counted with the unit they led
+  const units = [0, 1].map((s) => state.units.filter((u) => u.side === s).flatMap((u) => [
+    { name: u.name, pts: u.kpPts ?? u.pts, pointsKilled: u.stats?.killed || 0, pointsLost: Math.max(0, (u.stats?.lost || 0) - (u.joined || []).reduce((t, c) => t + (c.dead ? c.pts : 0), 0)), survived: !u.destroyed },
+    ...(u.joined || []).map((c) => ({ name: c.name, pts: c.pts, pointsKilled: 0, pointsLost: c.dead ? c.pts : 0, survived: !c.dead, joined: u.name })),
+  ]));
   return { winner, vp: state.vp, pointsKilled, units, vpLog: state.vpLog, reactions: state.reactionCount, powers: state.powerCount, log: lines };
 }
 

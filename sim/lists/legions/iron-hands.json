@@ -101,7 +101,7 @@
      "unit": {
       "unitId": "tactical-squad",
       "counts": {
-       "Legionary": 10,
+       "Legionary": 16,
        "Sergeant": 1
       }
      }
@@ -111,7 +111,7 @@
      "unit": {
       "unitId": "tactical-squad",
       "counts": {
-       "Legionary": 10,
+       "Legionary": 16,
        "Sergeant": 1
       }
      }
@@ -167,7 +167,12 @@
       "unitId": "gorgon-terminator-squad",
       "counts": {
        "Gorgon Hammerbearer": 1,
-       "Gorgon Terminator": 9
+       "Gorgon Terminator": 4
+      },
+      "options": {
+       "gorgon-terminator-options": {
+        "Artificer Power Axe": 4
+       }
       }
      }
     },
@@ -186,7 +191,7 @@
      "unit": {
       "unitId": "tactical-squad",
       "counts": {
-       "Legionary": 10,
+       "Legionary": 16,
        "Sergeant": 1
       }
      }

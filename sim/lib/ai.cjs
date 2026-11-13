@@ -50,7 +50,8 @@ function meleeEV(state, a, b) {
 }
 
 // ---------- movement reach ----------
-const moveOf = (u) => num(alive(u)[0]?.p.M, 0);
+// a unit moves at the pace of its slowest model (a joined character included)
+const moveOf = (u) => { const a = alive(u); return a.length ? Math.min(...a.map((m) => num(m.p.M, 0))) : 0; };
 /** Chance a Charge Roll (2D6 keep highest, + Fast) covers `need` inches. */
 function chargeChance(u, need) {
   const fast = Math.min(...alive(u).map((m) => xOf(m.rules, 'Fast') || 0));
