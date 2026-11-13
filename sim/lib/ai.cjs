@@ -215,8 +215,14 @@ function candidates(state, u, reach) {
 function chooseMove(state, u) {
   const M = moveOf(u);
   const best = { kind: 'stay', to: { x: u.x, y: u.y }, score: positionScore(state, u, { x: u.x, y: u.y }) };
+  // each candidate is scored where the unit would really stop: a straight move halts at impassable terrain and at
+  // other units, so a spot behind a blocker isn't worth what it would be if the unit got there
+  const { simulateMove } = require('./move.cjs');
+  const seen = new Set();
+  const reach = (p, budget) => { const e = simulateMove(state, u, p, budget); const k = `${e.x.toFixed(1)},${e.y.toFixed(1)}`; if (seen.has(k + budget)) return null; seen.add(k + budget); return e; };
   if (M > 0 && !u.statuses.has('Pinned')) {
-    for (const p of candidates(state, u, M)) {
+    for (const c of candidates(state, u, M)) {
+      const p = reach(c, M); if (!p) continue;
       const s = positionScore(state, u, p);
       if (s > best.score + 0.5) Object.assign(best, { kind: 'move', to: p, score: s });
     }
@@ -224,7 +230,9 @@ function chooseMove(state, u) {
     if (rb != null) {
       // a Rush gives up shooting (except Light/Rapid Snap Shots) and charging this turn
       const rushed = u.turn.rushed; u.turn.rushed = true;
-      for (const p of candidates(state, u, M + rb + (Math.min(...alive(u).map((m) => xOf(m.rules, 'Fast') || 0))))) {
+      const R = M + rb + (Math.min(...alive(u).map((m) => xOf(m.rules, 'Fast') || 0)));
+      for (const c of candidates(state, u, R)) {
+        const p = reach(c, R); if (!p) continue;
         const s = positionScore(state, u, p, { charging: false }) - (alive(u).some((m) => m.ranged.length) && !/Light|Rapid/.test(u.unitType) ? 5 : 0);
         if (s > best.score + 2) Object.assign(best, { kind: 'rush', to: p, score: s });
       }

@@ -18,8 +18,15 @@ const ignoresTerrain = (u) => alive(u).every((m) => /Antigrav|Flyer|Super-[Hh]ea
  * Move a unit towards a point by up to `budget` inches, keeping 1" from enemy units (unless charging) and losing
  * 2" if the path crosses difficult terrain (CONFIRMED).
  */
-function moveUnit(state, u, to, budget, opts = {}) {
-  const from = { x: u.x, y: u.y };
+/** Where a move of this unit towards `to` would really stop (terrain and other units block a straight path). */
+function simulateMove(state, u, to, budget, opts = {}) {
+  const shadow = { x: u.x, y: u.y, r: u.r };
+  const { tableView, b, blockers } = moveSetup(state, u, to, budget, opts);
+  shadow.ignoresTerrain = true;
+  moveToward(tableView, shadow, to, b, blockers);
+  return { x: shadow.x, y: shadow.y };
+}
+function moveSetup(state, u, to, budget, opts) {
   // Tectonic Instability: this turn's Sector counts as Difficult Terrain (MISSION)
   const quake = state.tectonic && state.mission.sectors.find((s) => s.id === state.tectonic);
   const inQuake = quake && [0, 0.5, 1].some((f) => inArea(quake.area, { x: u.x + (to.x - u.x) * f, y: u.y + (to.y - u.y) * f }));
@@ -29,6 +36,11 @@ function moveUnit(state, u, to, budget, opts = {}) {
   const blockers = opts.charging ? state.units.filter((x) => x !== u && !x.destroyed && x.arrived && !x.embarkedIn && x !== opts.target).map((x) => ({ x: x.x, y: x.y, r: x.r + (x.side !== u.side ? 1 : 0) }))
     : state.units.filter((x) => x !== u && !x.destroyed && x.arrived && !x.embarkedIn).map((x) => ({ x: x.x, y: x.y, r: x.r + (x.side !== u.side ? 1 : 0) }));
   const tableView = ignoresTerrain(u) ? { pieces: state.table.pieces.filter((r) => r.impassable && !alive(u).some((m) => /Flyer/.test(m.unitType))).map((r) => Object.assign({}, r, { difficult: false })) } : state.table;
+  return { tableView, b, blockers };
+}
+function moveUnit(state, u, to, budget, opts = {}) {
+  const from = { x: u.x, y: u.y };
+  const { tableView, b, blockers } = moveSetup(state, u, to, budget, opts);
   u.ignoresTerrain = true; // difficult terrain is handled by the flat penalty above
   const moved = moveToward(tableView, u, to, b, blockers);
   u.ignoresTerrain = false;
@@ -173,11 +185,14 @@ function disembarkIfWorth(state, t, afterMove = false) {
     // stay in while far from anything worth doing
     const near = enemiesOf(state, p).some((e) => gap(t, e) < 18) || state.round >= 3;
     if (!near && best.s < 25) continue;
-    // before the transport moves, it can still carry them closer: get out now only to charge or hold a marker
-    // from here (ASSUMPTION: the AI's rule of thumb)
-    if (!afterMove && ai.moveOf(t) > 0 && !t.statuses.has('Pinned')) {
-      const charge = ai.canCharge(p) && enemiesOf(state, p).some((e) => ai.chargeOdds(p, best.pos, e) >= 0.5);
-      if (!charge && !(scoring.missionValueAt(state, p, best.pos).here > 0)) continue;
+    // while the transport can still carry them closer, get out only to charge or hold a marker from here; an
+    // assault unit only to charge, before or after the transport moves (ASSUMPTION: the AI's rule of thumb)
+    const mobile = ai.moveOf(t) > 0 && !t.statuses.has('Pinned') && !t.statuses.has('Stunned');
+    if (mobile) {
+      const foes = enemiesOf(state, p);
+      const charge = ai.canCharge(p) && foes.some((e) => ai.chargeOdds(p, best.pos, e) >= 0.5);
+      const assault = ai.meleeValue(state, p, foes) > ai.shootValue(state, p, foes);
+      if (!charge && (assault || (!afterMove && !(scoring.missionValueAt(state, p, best.pos).here > 0)))) continue;
     }
     t.passengers = t.passengers.filter((x) => x !== p);
     p.embarkedIn = null; p.arrived = true;
@@ -212,4 +227,4 @@ function fallBack(state, u) {
   return d;
 }
 
-module.exports = { moveUnit, reservesSubPhase, moveSubPhase, routSubPhase, fallBack, disembarkIfWorth, enemiesOf, homeEdge };
+module.exports = { moveUnit, reservesSubPhase, moveSubPhase, routSubPhase, fallBack, disembarkIfWorth, enemiesOf, homeEdge, simulateMove };
