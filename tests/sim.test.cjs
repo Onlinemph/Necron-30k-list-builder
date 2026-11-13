@@ -562,3 +562,73 @@ test('Primarchs: a Warlord Detachment in lists, joining, Shadow of the Reaper, a
   assert.equal(canJoin(lorgar, malefic), true);
   assert.equal(canJoin(Object.assign({}, lorgar, { models: [{ unitType: 'Paragon (Unique)', rules: [] }] }), malefic), false);
 });
+
+test('named characters: their gambits, cheating death, Drakenscale, The Blood Crow, Jealous Command, Sworn Loyalty', () => {
+  const { buildArmy } = require('../sim/lib/army.cjs');
+  const { passChance } = require('../sim/lib/checks.cjs');
+  const { planVolley } = require('../sim/lib/fire.cjs');
+  const { canJoin } = require('../sim/lib/characters.cjs');
+  const me = (u) => ({ u, m: u.models[0] });
+  const own = (u, opp) => gambits.available(u.models[0], me(u), 1, opp ? me(opp) : null).map((g) => g.name);
+  // each character's gambit goes to him alone; Dirty Fighter only in the first Face-Off
+  const sevatar = unit('night-lords', 'sevatar');
+  assert.ok(own(sevatar).includes('Dirty Fighter'));
+  assert.ok(!own(unit('night-lords', 'praetor')).includes('Dirty Fighter'));
+  assert.ok(!gambits.available(sevatar.models[0], me(sevatar), 2).some((g) => g.name === 'Dirty Fighter'));
+  for (const [legion, id, g] of [['imperial-fists', 'sigismund', "Death's Champion"], ['imperial-fists', 'fafnir-rann', "Executioner's Tax"], ['imperial-fists', 'alexis-polux', 'Hammerblow'],
+    ['white-scars', 'hibou-khan', 'Seeker of Atonement'], ['space-wolves', 'hvarl-red-blade', 'Head-taker'], ['blood-angels', 'chapter-master-raldoron', 'Archein of Wisdom'],
+    ['death-guard', 'calas-typhon', 'Witchblood'], ['thousand-sons', 'ahzek-ahriman', 'Every Strike Foreseen']]) assert.ok(own(unit(legion, id)).includes(g), `${id}: ${g}`);
+  // Bite of the Betrayed only against the Legions that betrayed Saul Tarvitz
+  const tarvitz = unit('emperors-children', 'saul-tarvitz');
+  assert.ok(own(tarvitz, unit('sons-of-horus', 'praetor', {}, 1)).includes('Bite of the Betrayed'));
+  assert.ok(!own(tarvitz, unit('ultramarines', 'praetor', {}, 1)).includes('Bite of the Betrayed'));
+  // The Faultless Blade: Paragon of Excellence gives Lucius +4; Head-taker shuts out Outside Support
+  const paragon = gambits.GAMBITS.find((g) => g.name === 'Paragon of Excellence');
+  assert.equal(paragon.make(null, me(unit('emperors-children', 'captain-lucius'))).focus, 4);
+  assert.equal(paragon.make(null, me(unit('emperors-children', 'praetor'))).focus, 2);
+  assert.equal(gambits.GAMBITS.find((g) => g.name === 'Head-taker').make().oppSupportCap, 0);
+  // Born Survivor: Loken takes a killing wound (wound roll 6, failed save 1) and stands with 1 Wound on a 4+
+  const blow = { attacks: 1, S: 10, AP: 2, D: 4, hitNeed: null, rules: [], melee: true };
+  const loken = unit('sons-of-horus', 'garviel-loken', {}, 1);
+  resolveGroup(blow, loken, { dice: scripted([6, 1, 4]) });
+  assert.equal(loken.models[0].wounds, 1);
+  assert.equal(resolveGroup(blow, unit('sons-of-horus', 'garviel-loken', {}, 1), { dice: scripted([6, 1, 3]) }).kills, 1);
+  // The Ghost of Saiph works only the first time
+  const crohne = unit('blood-angels', 'aster-chrone', {}, 1);
+  resolveGroup(Object.assign({}, blow, { attacks: 2 }), crohne, { dice: scripted([6, 1, 6, 6, 1, 6]) });
+  assert.equal(crohne.models[0].wounds, 0);
+  // Seeker of Atonement (ctx.lastStand from the challenge): stands back up and takes Challenge Advantage
+  let seized = false;
+  const hibou = unit('white-scars', 'hibou-khan', {}, 1);
+  resolveGroup(blow, hibou, { dice: scripted([6, 1, 5]), lastStand: { model: hibou.models[0], n: 4, onSave: () => { seized = true; } } });
+  assert.ok(seized && hibou.models[0].wounds === 1);
+  // Drakenscale Armour: a plasma wound does 1 Damage to Cassian Dracos
+  const dracos = unit('salamanders', 'cassian-dracos-reborn', {}, 1);
+  resolveGroup({ attacks: 1, S: 8, AP: 2, D: 3, hitNeed: null, rules: [], melee: false, weaponTraits: ['Plasma'] }, dracos, { dice: scripted([6, 1]) });
+  assert.equal(dracos.models[0].wounds, dracos.models[0].maxWounds - 1);
+  // The Blood Crow: Kaedes Nex never fires Snap Shots (unless at a Flyer)
+  const nex = unit('raven-guard', 'kaedes-nex');
+  const cannons = nex.models[0].ranged.find((w) => /Fulcrum/.test(w.name));
+  const g = rangedGroup(nex.models[0], cannons, unit('sons-of-horus', 'tactical-squad', {}, 1), { snap: true });
+  assert.equal(g.snap, false);
+  assert.equal(g.hitNeed, 2);
+  // the Guns of the Conqueror fire only through their reaction
+  const lotara = Object.assign(unit('world-eaters', 'lotara-sarrin'), { x: 10, y: 10 });
+  const tgt = Object.assign(unit('ultramarines', 'tactical-squad', {}, 1), { x: 10, y: 25 });
+  assert.ok(!planVolley(lotara, tgt, { table: { pieces: [], objectives: [] } }, { losOK: true }).picks.some((p) => /Guns of the Conquer/.test(p.weapon.name)));
+  // Jealous Command: Kor Phaeron as the army's only Unique model has +1 Wounds and Leadership
+  const kor = (extra) => buildArmy({ version: 2, faction: 'word-bearers', pointsLimit: 3000, config: {}, detachments: [{ kind: 'primary', name: 'p', slots: [{ role: 'High Command', unit: { unitId: 'kor-phaeron' } }, ...extra] }] }, 0).units[0].models[0];
+  assert.deepEqual([kor([]).maxWounds, kor([]).p.LD], [4, 11]);
+  const withErebus = kor([{ role: 'Command', unit: { unitId: 'erebus' } }]);
+  assert.deepEqual([withErebus.maxWounds, withErebus.p.LD], [3, 10]);
+  // Sworn Loyalty: Atramentar test Leadership on Sevatar's 10 while he, from the Primary Detachment, is on the battlefield
+  const nl = list('night-lords');
+  const sev = buildUnit('night-lords', nl, { role: 'High Command', unit: { unitId: 'sevatar' } }, { name: 'p', kind: 'primary' }, 0);
+  const atr = buildUnit('night-lords', nl, { role: 'Heavy Assault', unit: { unitId: 'atramentar-flay-clade' } }, { name: 'p', kind: 'primary' }, 0);
+  assert.ok(passChance({ units: [sev, atr] }, atr, 'LD', 3) > passChance({ units: [atr] }, atr, 'LD', 3));
+  // Lord of the Blessed lets Erebus join Malefic units; Corvus Corax can't join Deliverers (Corax's Shame)
+  const malefic = { side: 0, models: [{ unitType: 'Infantry (Malefic)', rules: [] }, { unitType: 'Infantry (Malefic)', rules: [] }], rules: [] };
+  assert.equal(canJoin(unit('word-bearers', 'erebus'), malefic), true);
+  const corax = { side: 0, models: [{ name: 'Corvus Corax', unitType: 'Paragon (Unique)', rules: [] }], rules: [] };
+  assert.equal(canJoin(corax, { side: 0, models: [{ unitType: 'Infantry', rules: [] }, { unitType: 'Infantry', rules: [] }], rules: ['Corax’s Shame'] }), false);
+});

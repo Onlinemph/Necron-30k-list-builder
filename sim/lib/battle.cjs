@@ -18,7 +18,7 @@ const core = require('./core.cjs');
 const reactions = require('./reactions.cjs');
 const psychic = require('./psychic.cjs');
 const scoring = require('./scoring.cjs');
-const { joinCharacters } = require('./characters.cjs');
+const { joinCharacters, iconOfTheWarmaster } = require('./characters.cjs');
 
 /**
  * opts: { seed, log, mission: id | 'random', deployment: id | 'random', variant: 'escalation' | 'hammerblow' }
@@ -39,6 +39,8 @@ function runBattle(listA, listB, opts = {}) {
     round: 0, active: 0, turnsLeft: mission.turns, vp: [0, 0], pendingMorale: [],
     cache: { shoot: new Map(), melee: new Map() }, reactionsLeft: [0, 0], vpLog: [],
     zoneOf: [null, null], zoneName: [null, null], destroyedUnits: [], firstStrike: [false, false], vanguardScored: new Set(), tectonic: null,
+    // named characters' once-per-battle and turn-long choices (startPhase, move.cjs, reactions.cjs)
+    annihilate: [false, false], coordinate: [null, null], khaganUsed: [false, false],
     log: opts.log ? (s) => lines.push(s) : () => {},
   };
   hooks(state);
@@ -101,6 +103,8 @@ function hooks(state) {
     const ppm = m.joinedFrom ? m.joinedFrom.pts : (unit.kpPts ?? unit.pts) / own;
     if (m.joinedFrom && !m.joinedFrom.dead) {
       m.joinedFrom.dead = true;
+      // Icon of the Warmaster (Maloghurst): his unit's Line and Vanguard go back down when he falls
+      if ((m.items || []).some((i) => /^Icon of the Warmaster/i.test(i))) iconOfTheWarmaster(unit, false);
       state.log(`    ${m.joinedFrom.name} falls (with ${unit.name})`);
       scoring.onDestroyed(state, Object.assign({}, m.joinedFrom, { heldObjective: unit.heldObjective }), by && by.side !== unit.side ? by : null);
     }
@@ -186,7 +190,9 @@ function deploy(state, side) {
   for (const t of units.filter((u) => u.capacity > 0)) {
     let room = t.capacity;
     const light = has(t.rules, 'Light Transport');
-    const ok = (u) => !u.vehicle && !u.embarkedIn && !u.passengers.length && u !== t && alive(u).every((m) => /Infantry|Paragon/.test(m.unitType) && (!light || !(xOf(m.rules, 'Bulky') > 1)))
+    // Lair of the Iron Tyrant (the Tormentor): only Perturabo or Domitar-ferrum models may embark (CONFIRMED)
+    const lair = has(t.rules, 'Lair of the Iron Tyrant');
+    const ok = (u) => !u.vehicle && !u.embarkedIn && !u.passengers.length && u !== t && alive(u).every((m) => /Infantry|Paragon/.test(m.unitType) && (!light || !(xOf(m.rules, 'Bulky') > 1)) && (!lair || /^Perturabo|Domitar-ferrum/.test(m.name)))
       && alive(u).reduce((s, m) => s + (xOf(m.rules, 'Bulky') || 1), 0) <= room
       && !alive(u).some((m) => m.ranged.some((w) => has(w.specialRules, 'Heavy') || has(w.specialRules, 'Ordnance')));
     const cand = units.filter(ok).sort((a, b) => ai.meleeValue(state, b, state.units.filter((e) => e.side !== side)) - ai.meleeValue(state, a, state.units.filter((e) => e.side !== side)));
@@ -209,7 +215,10 @@ function deploy(state, side) {
   const placedNow = [];
   for (const u of toPlace) {
     u.facing = Math.atan2(towards.y - (u.y || H / 2), towards.x - (u.x || W / 2));
-    const inf = xOf(u.rules, 'Infiltrate');
+    // Harrowmaster (Armillus Dynat): deployed with a unit in which no model has Bulky (X), the unit has Infiltrate (12)
+    // (CONFIRMED)
+    const harrow = alive(u).some((m) => has(m.rules, 'Harrowmaster')) && !alive(u).some((m) => xOf(m.rules, 'Bulky') != null);
+    const inf = Math.max(xOf(u.rules, 'Infiltrate') || 0, harrow ? 12 : 0) || null;
     const cands = [];
     for (let x = 1 + u.r; x <= W - u.r - 1; x += 2) for (let y = 1 + u.r; y <= H - u.r - 1; y += 2) {
       const p = { x, y };
@@ -243,9 +252,13 @@ function playerTurn(state, side) {
   state.umFlex = [false, false];
   const master = state.units.some((u) => u.side === 1 - side && !u.destroyed && (u.traits || []).includes('Master of the Legion'));
   state.reactionsLeft[1 - side] = core.reactionAllotment(state.armies[1 - side].pointsLimit, master);
+  // ---- Start Phase ----
+  startPhase(state, side);
   // ---- Movement Phase ----
   reservesSubPhase(state, side);
   moveSubPhase(state, side);
+  // Annihilate (Shadow of the Conquerer) lasts for this one Movement Phase of the opponent
+  state.annihilate[1 - side] = false;
   routSubPhase(state, side);
   // ---- Shooting Phase ----
   shootingPhase(state, side);
@@ -259,6 +272,70 @@ function playerTurn(state, side) {
   effectsSubPhase(state, side);
   statusesSubPhase(state, side);
   scoring.victorySubPhase(state, side);
+}
+
+/**
+ * Start Phase: the named characters' rules made in it (CONFIRMED texts). ASSUMPTION: a rule that says only "the
+ * Controlling Player's Effects Sub-Phase" (Dark Dreams, Dark Oratory) is made in the Start Phase's, once per Player
+ * Turn, and what it gives lasts until that player's next Start Phase.
+ */
+function startPhase(state, side) {
+  const mine = state.units.filter((u) => u.side === side && !u.destroyed);
+  // what the last Start Phase gave wears off
+  for (const u of mine) {
+    u.hatredExtra = null; u.entreaties = false;
+    for (const m of u.models) if (m.dream) { Object.assign(m, m.dream); m.dream = null; }
+  }
+  // Dark Dreams (Sevatar): a D6; on a 1 he loses the Command Sub-Type for Specialist (no challenges, no lending his
+  // Leadership), on a 5+ he has Feel No Pain (5+). The AI always rolls
+  for (const u of mine) for (const m of alive(u)) {
+    if (!has(m.rules, 'Dark Dreams')) continue;
+    const r = state.dice.d6();
+    if (r !== 1 && r < 5) continue;
+    m.dream = { rules: m.rules, unitType: m.unitType, sergeant: m.sergeant };
+    if (r === 1) { m.unitType = m.unitType.replace(/Command/, 'Specialist'); m.sergeant = false; state.log(`  ${m.name} is lost in his dreams: a Specialist, not Command, until his next Start Phase (Dark Dreams)`); }
+    else { m.rules = [...m.rules, 'Feel No Pain (5+)']; state.log(`  ${m.name} has Feel No Pain (5+) until his next Start Phase (Dark Dreams)`); }
+  }
+  // Dark Oratory (Kor Phaeron): one friendly all-Word Bearers unit within 6" (his own included) gains Cruel Invective
+  // (Hatred (Loyalist)) or Threatening Entreaties (+2 Leadership and Cool). The AI gives the Hatred to the best fighter
+  // that is in or near a fight with Loyalists, else the Entreaties to the unit with the most statuses or least Leadership
+  for (const k of mine) {
+    if (!k.arrived || k.embarkedIn || !alive(k).some((m) => has(m.rules, 'Dark Oratory'))) continue;
+    const cands = mine.filter((u) => u.arrived && !u.embarkedIn && reactions.allTrait(u, 'Word Bearers') && (u === k || gap(u, k) <= 6));
+    if (!cands.length) continue;
+    const loyal = state.units.filter((e) => e.side !== side && !e.destroyed && e.arrived && !e.embarkedIn && e.allegiance === 'Loyalist');
+    const near = cands.filter((u) => loyal.some((e) => u.lockedWith.has(e) || gap(u, e) <= 12));
+    if (near.length) {
+      const u = near.reduce((b, x) => (ai.meleeValue(state, x, loyal) > ai.meleeValue(state, b, loyal) ? x : b), near[0]);
+      u.hatredExtra = ['Loyalist'];
+      state.log(`  ${u.name} gains Hatred (Loyalist) (Dark Oratory: Cruel Invective)`);
+    } else {
+      const need = (u) => u.statuses.size * 10 - charOf(u, 'LD');
+      const u = cands.reduce((b, x) => (need(x) > need(b) ? x : b), cands[0]);
+      u.entreaties = true;
+      state.log(`  ${u.name} gains +2 Leadership and Cool (Dark Oratory: Threatening Entreaties)`);
+    }
+  }
+  // Shadow of the Conquerer (Lotara Sarrin): taken in the Primary Detachment and on the battlefield, an Intelligence
+  // Check; passed, Coordinate (+1 to one Aerial Reserves Test this turn, move.cjs) or Annihilate (the Guns of the
+  // Conqueror reaction in the opponent's next Movement Phase, reactions.cjs). The AI coordinates while a unit waits in
+  // Aerial Reserves for a roll, and otherwise annihilates
+  for (const u of mine) {
+    if (!u.arrived || u.reserve || !alive(u).some((m) => has(m.rules, 'Shadow of the Conquerer') && m.primary)) continue;
+    if (!check(state, u, 'IN', 0, 'Shadow of the Conquerer')) continue;
+    const aerial = mine.some((x) => x.reserve === 'aerial') && state.round >= core.RESERVES_FROM_TURN && state.round < core.RESERVES_AUTO_TURN;
+    if (aerial) state.coordinate[side] = state.round; else state.annihilate[side] = true;
+    state.log(`  Lotara Sarrin orders the fleet: ${aerial ? 'Coordinate' : 'Annihilate'} (Shadow of the Conquerer)`);
+  }
+  // Level-headed (Lotara Sarrin): a check to remove one status from her unit, Leadership for Routed, Cool for the
+  // others. ASSUMPTION: made with the unit's value, which is hers as its Sergeant unless a leader in it has better
+  for (const u of mine) {
+    if (!u.statuses.size || !alive(u).some((m) => has(m.rules, 'Level-headed'))) continue;
+    const s = ['Routed', 'Pinned', 'Stunned', 'Suppressed', 'Disgraced'].find((x) => u.statuses.has(x)) || [...u.statuses][0];
+    if (!check(state, u, s === 'Routed' ? 'LD' : 'CL', 0, `Level-headed, to remove ${s}`)) continue;
+    u.statuses.delete(s);
+    if (s === 'Disgraced') for (const m of u.models) m.disgraced = false;
+  }
 }
 
 function shootingPhase(state, side) {
@@ -283,6 +360,8 @@ function shootingPhase(state, side) {
 function effectsSubPhase(state, side) {
   for (const u of state.units) {
     if (u.destroyed) continue;
+    // Void Commander, Master of the Justaerin: the Feel No Pain from their Deep Strike ends here (move.cjs)
+    if (u.side === side && u.buffs?.some((b) => b.until === 'effects')) { u.buffs = u.buffs.filter((b) => b.until !== 'effects'); reactions.refresh(u); }
     // Stupefied: a Cool Check in the controlling player's End Phase ends it (CONFIRMED)
     if (u.side === side && u.cond?.has('Stupefied') && check(state, u, 'CL', 0, 'to shake off Stupefied')) { u.cond.delete('Stupefied'); reactions.refresh(u); }
     // Selfless Burden: in the following Statuses Sub-Phase, each 1 on a D6 per model is a wound (AP -, saves allowed)

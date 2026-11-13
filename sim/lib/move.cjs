@@ -57,20 +57,56 @@ const homeEdge = (state, side) => {
 };
 const segThrough = (a, b, r) => require('./table.cjs').segHitsRect(a, b, r) || inside(a, r) || inside(b, r);
 
+const hasItem = (u, re) => alive(u).some((m) => (m.items || []).some((i) => re.test(i)));
+/**
+ * Chosen of the Khagan (Qin Xa): once per battle, at the start of a Reserves Sub-Phase, one White Scars unit in Reserves
+ * arrives without a roll (CONFIRMED). The AI uses it the first time a roll is needed, on the most expensive such unit.
+ */
+function chosenOfTheKhagan(state, side, reserves) {
+  if (state.khaganUsed?.[side] || !state.units.some((x) => x.side === side && !x.destroyed && alive(x).some((m) => has(m.rules, 'Chosen of the Khagan')))) return null;
+  const elig = reserves.filter((x) => alive(x).length && alive(x).every((m) => (m.traits || []).includes('White Scars')));
+  if (!elig.length) return null;
+  state.khaganUsed = state.khaganUsed || [false, false];
+  state.khaganUsed[side] = true;
+  const pick = elig.reduce((b, x) => (x.pts > b.pts ? x : b), elig[0]);
+  state.log(`  ${pick.name} needs no Reserves Test (Chosen of the Khagan)`);
+  return pick;
+}
+
 /** Reserves Sub-Phase: units in Reserves test to arrive (Deep Strike, Outflank, other reserves). */
 function reservesSubPhase(state, side) {
   if (state.round < core.RESERVES_FROM_TURN) return;
   let deepStrikes = 0;
-  for (const u of state.units.filter((x) => x.side === side && x.reserve && !x.destroyed)) {
-    // MISSION: from the start of Battle Turn 4 Reserves Tests pass automatically
-    const auto = state.round >= core.RESERVES_AUTO_TURN;
-    if (!auto && state.dice.d6() < core.RESERVES_TEST) continue;
+  // MISSION: from the start of Battle Turn 4 Reserves Tests pass automatically
+  const auto = state.round >= core.RESERVES_AUTO_TURN;
+  let reserves = state.units.filter((x) => x.side === side && x.reserve && !x.destroyed);
+  const chosen = auto ? null : chosenOfTheKhagan(state, side, reserves);
+  if (chosen) reserves = [chosen, ...reserves.filter((x) => x !== chosen)];
+  // Corax's Shame (Deliverers): -1 to their Reserves Tests in a Sub-Phase that began with Corvus Corax in Reserves (CONFIRMED)
+  const corax = reserves.some((x) => alive(x).some((m) => /^Corvus Corax/.test(m.name)));
+  for (const u of reserves) {
+    if (!auto && u !== chosen) {
+      let roll = state.dice.d6();
+      // Vox-interlink (Remus Ventanus): +1 while a model with one is on the battlefield (CONFIRMED)
+      if (state.units.some((x) => x.side === side && !x.destroyed && x.arrived && !x.reserve && hasItem(x, /^Vox-interlink/i))) roll += 1;
+      if (corax && has(u.rules, 'Corax’s Shame')) roll -= 1;
+      // Coordinate (Lotara Sarrin's Shadow of the Conquerer, battle.cjs): +1 to one Aerial Reserves Test this turn
+      if (u.reserve === 'aerial' && state.coordinate?.[side] === state.round) { roll += 1; state.coordinate[side] = null; }
+      if (roll < core.RESERVES_TEST) continue;
+    }
     if (u.reserve === 'deep') {
       if (deepStrikes >= core.DEEP_STRIKES_PER_TURN) continue;
       deepStrikes++;
       placeDeepStrike(state, u);
       u.turn.arrivedDeep = true;
       u.turn.noCharge = true;
+      // Void Commander (Alexis Polux), Master of the Justaerin (Ezekyle Abaddon): deployed by Deep Strike, his unit has
+      // Feel No Pain (5+) until the controlling player's next Effects Sub-Phase (CONFIRMED; ASSUMPTION: the End Phase's,
+      // this turn, battle.cjs)
+      if (alive(u).some((m) => has(m.rules, 'Void Commander') || has(m.rules, 'Master of the Justaerin'))) {
+        require('./reactions.cjs').addBuff(u, { fnp: 5 }, 'effects');
+        state.log(`  ${u.name} has Feel No Pain (5+) after its Deep Strike`);
+      }
     } else if (u.reserve === 'outflank') {
       // SHEET: an outflanking unit may charge; models embarked in it may not
       placeOutflank(state, u);
@@ -136,8 +172,49 @@ function placeFromEdge(state, u) {
   u.x = p.x; u.y = p.y;
 }
 
+/**
+ * Battlesmith (X) (CONFIRMED, data/bsdata/common.json; N'rik Dreygur, Shadrak Meduson and Cassian Dracos Reborn have
+ * it): in its Movement Phase a model with it may pick a friendly Vehicle, Automata or Walker model within 6" and make an
+ * Intelligence Check; passed, the target gains X Wounds or Hull Points (+1 with a servo-arm, CONFIRMED) or loses X
+ * Statuses. The AI picks whichever is worth more points: the wounds back, or about a sixth of the unit per status.
+ * ASSUMPTION: done at the start of the Move Sub-Phase; the model can't pick itself; a status comes off its whole unit.
+ */
+function battlesmith(state, side) {
+  for (const u of state.units) {
+    if (u.side !== side || u.destroyed || !u.arrived || u.embarkedIn) continue;
+    for (const m of alive(u)) {
+      const x = xOf(m.rules, 'Battlesmith');
+      if (!x) continue;
+      const repair = x + ((m.items || []).some((i) => /^Servo-arm/i.test(i)) ? 1 : 0);
+      let best = null;
+      for (const t of state.units) {
+        if (t.side !== side || t.destroyed || !t.arrived || t.embarkedIn || (t !== u && gap(u, t) > 6)) continue;
+        const vpw = t.pts / Math.max(1, t.models.reduce((s, q) => s + q.maxWounds, 0));
+        for (const tm of alive(t)) {
+          if (tm === m || !(tm.vehicle || /Automata|Walker/.test(tm.unitType))) continue;
+          const heal = Math.min(repair, tm.maxWounds - tm.wounds) * vpw;
+          const restore = Math.min(x, t.statuses.size) * t.pts / 6;
+          const v = Math.max(heal, restore);
+          if (v > 0 && (!best || v > best.v)) best = { t, tm, v, kind: heal >= restore ? 'repair' : 'restore' };
+        }
+      }
+      if (!best || !check(state, u, 'IN', 0, `Battlesmith on ${best.t.name}`)) continue;
+      if (best.kind === 'repair') {
+        const n = Math.min(repair, best.tm.maxWounds - best.tm.wounds);
+        best.tm.wounds += n;
+        state.log(`  ${m.name} repairs ${best.tm.name}: ${n} back (Battlesmith)`);
+      } else {
+        const gone = [...best.t.statuses].slice(0, x);
+        for (const s of gone) best.t.statuses.delete(s);
+        state.log(`  ${m.name} restores ${best.t.name}: no longer ${gone.join(', ')} (Battlesmith)`);
+      }
+    }
+  }
+}
+
 /** Move Sub-Phase: each unit moves, Rushes, stays or disembarks; the opponent may Reposition in reply. */
 function moveSubPhase(state, side) {
+  battlesmith(state, side);
   const units = state.units.filter((u) => u.side === side && !u.destroyed && u.arrived && !u.embarkedIn);
   const road = state.mission.has('Supply Road') && state.mission.sectors.find((s) => s.id === 3);
   // fast and far units first, so the slower ones can respond to where they ended up
@@ -227,4 +304,4 @@ function fallBack(state, u) {
   return d;
 }
 
-module.exports = { moveUnit, reservesSubPhase, moveSubPhase, routSubPhase, fallBack, disembarkIfWorth, enemiesOf, homeEdge, simulateMove };
+module.exports = { moveUnit, reservesSubPhase, moveSubPhase, routSubPhase, fallBack, disembarkIfWorth, enemiesOf, homeEdge, simulateMove, battlesmith };

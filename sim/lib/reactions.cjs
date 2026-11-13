@@ -9,7 +9,7 @@
 // Texts: the three Core Reactions and the Advanced Reactions come from data/bsdata/common.json; the Rangdan ones
 // from the Rangdan army data. Interpretations are marked ASSUMPTION; see sim/README.md.
 const { num, xOf, has } = require('./rules.cjs');
-const { planVolley, valuePerWound } = require('./fire.cjs');
+const { planVolley, valuePerWound, GUNS_OF_THE_CONQUEROR } = require('./fire.cjs');
 const { meleeGroup, expectedGroup, rangedGroup, resolveGroup } = require('./attack.cjs');
 const { gap, dist, lineOfSight, W, H } = require('./table.cjs');
 const { alive, passChance, check, addStatus, collarState } = require('./checks.cjs');
@@ -45,6 +45,8 @@ function setup(state) {
     // the Legion's Advanced Reaction; Emperor's Children and World Eaters have one per version (CONFIRMED)
     const VERSION = { 'Brutal Tide': 'Astartes', 'Perfect Counter': 'Astartes', 'Furious Charge': 'Hereticus', 'Twisted Desire': 'Hereticus' };
     for (const u of state.units.filter((x) => x.side === side && x.legion)) for (const n of LEGION_REACTIONS[u.legion] || []) if (!VERSION[n] || VERSION[n] === u.rite) set.add(n);
+    // a model's own Advanced Reaction (Lotara Sarrin's Guns of the Conqueror)
+    if (state.units.some((u) => u.side === side && has(u.rules, 'Guns of the Conqueror'))) set.add('Guns of the Conqueror');
     return set;
   });
   state.usedOnce = [new Set(), new Set()];
@@ -61,25 +63,33 @@ const canReact = (u, inCombatOK = false) => !u.destroyed && u.arrived && !u.emba
   && (inCombatOK || !u.lockedWith.size) && !u.cond?.has('Stupefied') && !alive(u).every((m) => /Automata|Flyer|Fortification/.test(m.unitType));
 const available = (state, side, name) => state.reactionSet?.[side]?.has(name) && !(ONCE_PER_BATTLE.has(name) && state.usedOnce[side].has(name));
 
-/** Pay for a reaction and mark the reacting unit. */
-function spend(state, side, name, unit) {
+/** Pay for a reaction (cost: points of the allotment, 1 for nearly all) and mark the reacting unit. */
+function spend(state, side, name, unit, cost = 1) {
   // Tactical Flexibility (Ultramarines): one reaction a turn costs nothing
   if (unit && legions.is(unit, 'Ultramarines') && state.umFlex && !state.umFlex[side]) { state.umFlex[side] = true; state.log(`    (Tactical Flexibility: no Reaction Point spent)`); }
-  else state.reactionsLeft[side]--;
+  else state.reactionsLeft[side] -= cost;
   if (unit) unit.reacted = true;
   if (ONCE_PER_BATTLE.has(name)) state.usedOnce[side].add(name);
   state.reactionCount[side][name] = (state.reactionCount[side][name] || 0) + 1;
 }
-/** Pick the best option worth a reaction point, pay for it, and return it (the caller applies it). */
+/**
+ * Pick the best option worth its reaction points, pay for it, and return it (the caller applies it). An option that
+ * costs more than one point (Guns of the Conqueror: 3) is weighed by its value per point.
+ */
 function choose(state, side, options, phase) {
   if (state.reactionsLeft[side] <= 0) return null;
+  const per = (o) => o.value / (o.cost || 1);
   // Neural Collars: a collared unit out of its masters' reach can't react
-  const ok = options.filter((o) => o && o.value > 0 && available(state, side, o.name) && (!o.unit || (canReact(o.unit, o.inCombat) && collarState(state, o.unit) !== 'far')));
+  const ok = options.filter((o) => o && o.value > 0 && (o.cost || 1) <= state.reactionsLeft[side] && available(state, side, o.name) && (!o.unit || (canReact(o.unit, o.inCombat) && collarState(state, o.unit) !== 'far')));
   if (!ok.length) return null;
-  const best = ok.reduce((b, o) => (o.value > b.value ? o : b), ok[0]);
+  const best = ok.reduce((b, o) => (per(o) > per(b) ? o : b), ok[0]);
   const free = best.unit && legions.is(best.unit, 'Ultramarines') && state.umFlex && !state.umFlex[side];
-  if (!(free ? best.value > 3 : ai.worthReacting(state, side, best.value, phase))) return null;
-  if (!best.deferred) spend(state, side, best.name, best.unit);
+  // Annihilate (Lotara Sarrin): while the Guns of the Conqueror may still fire, the AI keeps their three points for
+  // them unless another reaction is worth about as much per point (ASSUMPTION: the AI's rule of thumb)
+  if (state.annihilate?.[side] && best.name !== 'Guns of the Conqueror' && !free && state.reactionsLeft[side] >= 3 && state.reactionsLeft[side] - (best.cost || 1) < 3 && per(best) < 25
+    && state.units.some((u) => u.side === side && !u.destroyed && u.arrived && alive(u).some((m) => has(m.rules, 'Guns of the Conqueror')))) return null;
+  if (!(free ? best.value > 3 : ai.worthReacting(state, side, per(best), phase))) return null;
+  if (!best.deferred) spend(state, side, best.name, best.unit, best.cost || 1);
   return best;
 }
 
@@ -317,6 +327,25 @@ function onMoved(state, mover) {
       const v = planVolley(u, mover, state, {}).expectedPts;
       opts.push({ name: 'Bastion of Fire', unit: u, value: v, apply: () => shoot(state, u, mover, { reaction: true, label: 'holds the line (Bastion of Fire)' }) });
     }
+    // Guns of the Conqueror (Lotara Sarrin): once in the Movement Phase after she chose Annihilate (Shadow of the
+    // Conquerer, battle.cjs), for 3 points of the allotment, a Shooting Attack with the Guns of the Conqueror profile at
+    // a unit that ended a move within 24" and in sight (CONFIRMED). ASSUMPTION: the text says the Hit Test is
+    // "automatically unsuccessful", read as automatically successful, since otherwise the reaction could do nothing
+    const lotara = state.annihilate?.[side] && alive(u).find((m) => has(m.rules, 'Guns of the Conqueror') && m.ranged.some((w) => GUNS_OF_THE_CONQUEROR.test(w.name)));
+    if (lotara && g <= 24 && lineOfSight(state.table, u, mover)) {
+      const w = lotara.ranged.find((x) => GUNS_OF_THE_CONQUEROR.test(x.name));
+      const group = () => Object.assign(rangedGroup(lotara, w, mover, {}), { hitNeed: null, from: u });
+      opts.push({ name: 'Guns of the Conqueror', unit: u, cost: 3, value: expectedGroup(group(), mover) * valuePerWound(mover), apply: () => {
+        state.annihilate[side] = false;
+        const start = alive(mover).length;
+        const r = resolveGroup(group(), mover, { dice: state.dice, log: state.log, onKill: (x) => state.onCasualty && state.onCasualty(x, mover, u) });
+        state.log(`    the Guns of the Conqueror fire on ${mover.name}: ${r.hits} hits, ${r.unsaved} unsaved, ${r.kills} killed`);
+        for (const st of r.vehicleStatuses) require('./shoot.cjs').vehicleDamage(state, mover, st);
+        // the Panic Check for heavy casualties comes in the next Morale Sub-Phase
+        if (!mover.destroyed && start > 1 && r.kills / start >= core.panicCasualtyFraction) state.pendingMorale.push({ unit: mover, type: 'Casualties', x: 0, from: 'Guns of the Conqueror' });
+        if (state.afterDamage) state.afterDamage(mover);
+      } });
+    }
   }
   const pick = choose(state, side, opts);
   if (!pick) return;
@@ -366,6 +395,9 @@ function onArrive(state, arrival) {
 function onCharge(state, u, t) {
   const side = t.side;
   if (state.reactionsLeft[side] <= 0 || !canReact(t)) return null;
+  // Sonic shriekers (Lord Commander Eidolon, Kakophoni): the target of their charge can't react until the charge is done
+  // (CONFIRMED)
+  if (alive(u).some((m) => (m.items || []).some((i) => /^Sonic shriekers/i.test(i)))) return null;
   const { fallBack, moveUnit } = require('./move.cjs');
   const hurt = ai.meleeEV(state, u, t);
   const back = ai.meleeEV(state, t, u);

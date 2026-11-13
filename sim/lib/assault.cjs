@@ -141,16 +141,45 @@ function bestWeapon(m, target) {
   }
   return best;
 }
+/**
+ * Thunderstrike (Armillus Dynat's The Prince and the Prophet): three or more successful Hit Tests with it make a new
+ * Strike Group of one attack with the weapon's The Prophet profile, in the same Initiative Step (CONFIRMED). Returns
+ * that attack's result, or null.
+ */
+function thunderstrike(state, m, w, r, target, ctx, mods) {
+  if (r.hits < 3 || !has(w.specialRules, 'Thunderstrike')) return null;
+  const prophet = m.melee.find((x) => x !== w && x.base === w.base && /Prophet/.test(x.name));
+  if (!prophet || !target.models.some((x) => x.wounds > 0)) return null;
+  const r2 = resolveGroup(Object.assign(meleeGroup(m, prophet, target, { mods }), { attacks: 1 }), target, ctx);
+  state.log(`      ${m.name} follows with The Prophet (Thunderstrike): ${r2.unsaved ? `${r2.damage} damage` : 'no wound'}`);
+  return r2;
+}
 /** Carrion Feast (Rangdan): a wound back for each enemy model removed with a melee attack. */
 const carrionFeast = (m, kills) => { if (kills && m.wounds > 0 && has(m.rules, 'Carrion Feast')) m.wounds = Math.min(m.maxWounds, m.wounds + kills); };
 const hasItem = (u, re) => alive(u).some((m) => (m.items || []).some((i) => re.test(i)));
-const hatredAgainst = (a, b) => { const x = argOf(a.rules, 'Hatred'); return !!x && ((b.traits || []).includes(x) || new RegExp(x).test(b.unitType)); };
+// Hatred (X) against unit b: a Trait or Sub-Type, or an allegiance (Hatred (Traitor) on Garviel Loken, Hatred (Traitors)
+// on Saul Tarvitz, Hatred (Loyalist) on Zardu Layak), which units carry from their list's configuration
+const hates = (x, b) => (/^Traitors?$/i.test(x) ? b.allegiance === 'Traitor' : /^Loyalists?$/i.test(x) ? b.allegiance === 'Loyalist' : (b.traits || []).includes(x) || new RegExp(x).test(b.unitType));
+const HATRED = /^Hatred\s*\(([^)]*)\)/i;
+/**
+ * Does model m of unit u strike unit b with Hatred? Its own Hatred (X) (a joined character's Hatred is his alone),
+ * plus what its unit gains: Ancient of War (Marduk Sedras: Hatred (Traitor) for every model of an all-Dark Angels unit
+ * he is part of, CONFIRMED) and Kor Phaeron's Cruel Invective (u.hatredExtra, battle.cjs).
+ */
+function hatredAgainst(m, u, b) {
+  const xs = [];
+  for (const r of m.rules || []) { if (!String(r).startsWith('Hatred')) continue; const h = HATRED.exec(String(r)); if (h) xs.push(h[1].trim()); }
+  if (u.hatredExtra) xs.push(...u.hatredExtra);
+  if (legions.is(u, 'Dark Angels') && alive(u).some((x) => has(x.rules, 'Ancient of War'))) xs.push('Traitor');
+  return xs.some((x) => hates(x, b));
+}
 
 // ---------- Challenge Sub-Phase ----------
 // a duellist's strike, with its gambit's effects (expected: D3 counts as 2)
 function strikeProfile(x, y, ex, ey, opts = {}) {
   const tgt = { models: [y.m], statuses: y.u.statuses, vehicle: false, name: y.m.name, buff: gambitBuff(y, ey) };
-  let w = bestWeapon(x.m, tgt);
+  // Hammerblow (Alexis Polux's gambit): the gambit's weapon profile and no other
+  let w = ex.weapon || bestWeapon(x.m, tgt);
   if (ex.extraRules) w = Object.assign({}, w, { specialRules: [...(w.specialRules || []), ...ex.extraRules(w)] });
   const mods = meleeMods(x.u);
   // Sword of the Order (Dark Angels): a sword strikes once less but with Critical Hit (6+), or one better
@@ -158,6 +187,11 @@ function strikeProfile(x, y, ex, ey, opts = {}) {
     mods.attacks -= 1;
     const crit = xOf(w.specialRules || [], 'Critical Hit');
     w = Object.assign({}, w, { specialRules: [...(w.specialRules || []).filter((r) => !/^Critical Hit/.test(r)), `Critical Hit (${crit ? crit - 1 : 6}+)`] });
+  }
+  // Death's Champion (Sigismund), Executioner's Tax (Fafnir Rann): Critical Hit (X+), unless the weapon has a better one
+  if (ex.crit) {
+    const crit = xOf(w.specialRules || [], 'Critical Hit');
+    w = Object.assign({}, w, { specialRules: [...(w.specialRules || []).filter((r) => !/^Critical Hit/.test(r)), `Critical Hit (${Math.min(crit || 7, ex.crit)}+)`] });
   }
   mods.attacks += (ex.attacks || 0) + (opts.focusWinner ? 1 : 0) + (ex.attacksD3 ? (opts.d3 ? opts.d3() : 2) : 0);
   // Sublime Swordsman (Fulgrim): with Challenge Advantage, +1 Attack per point of base Initiative over the opponent
@@ -174,6 +208,8 @@ function strikeProfile(x, y, ex, ey, opts = {}) {
     if (ex.matchOpp) g.attacks = Math.min(g.attacks, Math.max(1, num(y.m.p.A, 1)));
     if (ex.dmg) g.D += ex.dmg;
     if (ex.dmgCap1) g.D = 1;
+    // Every Strike Foreseen: Hit Tests succeed on a 2+; the AI's estimate blends in the chance of passing the check
+    if (ex.hitOn && g.hitNeed != null) { const h = Math.min(g.hitNeed, ex.hitOn); g.hitNeed = ex.hitOnP == null ? h : ex.hitOnP * h + (1 - ex.hitOnP) * g.hitNeed; }
     return g;
   } };
 }
@@ -208,27 +244,72 @@ function bestPairing(ours, theirs) {
   return best;
 }
 
+// Slayer of Kings (Sigismund): his player picks which eligible enemy model is the Challenged (CONFIRMED); the AI picks
+// the one he does best against
+const kingPair = (king, defenders) => {
+  const b = defenders.reduce((best, d) => (duelEdge(king, d) > duelEdge(king, best) ? d : best), defenders[0]);
+  return { a: king, b, v: duelEdge(king, b), accV: duelEdge(b, king), picked: true };
+};
+const isFulgrim = (m) => /^Fulgrim/.test(m.name);
+// Broken in Body (Maloghurst): his player chooses, each time an enemy declares a challenge, whether he is eligible
+const shy = (d) => has(d.m.rules, 'Broken in Body');
+
 function challenge(state, c, tally) {
   const active = state.active;
-  const elig = (side) => c[side].filter((u) => !u.destroyed && !u.statuses.has('Routed')).flatMap((u) => alive(u).filter(canChallenge).map((m) => ({ u, m })));
+  // Vengeful Hate (Rylanor the Unyielding): eligible for a challenge while locked with a unit that has Fulgrim or Fulgrim
+  // Transfigured in it (CONFIRMED)
+  const fulgrimIn = (side) => c[side].some((u) => !u.destroyed && alive(u).some(isFulgrim));
+  const elig = (side) => c[side].filter((u) => !u.destroyed && !u.statuses.has('Routed'))
+    .flatMap((u) => alive(u).filter((m) => canChallenge(m) || (has(m.rules, 'Vengeful Hate') && fulgrimIn(1 - side))).map((m) => ({ u, m })));
   const mine = elig(active), theirs = elig(1 - active);
   if (!mine.length || !theirs.length) return;
   let side = active, pair = bestPairing(mine, theirs);
   // Avatar of Perfection (Fulgrim Transfigured): he must have a challenge declared for him (CONFIRMED)
   const avatar = mine.find((x) => has(x.m.rules, 'Avatar of Perfection'));
   if (avatar) pair = Object.assign(bestPairing([avatar], theirs), { v: 1 });
-  // the Active Player declares first; if they don't, the Reactive Player may make a Heroic Intervention (SHEET)
+  // Slayer of Kings: if Sigismund is eligible, he must be declared as the Challenger (CONFIRMED)
+  const king = mine.find((x) => has(x.m.rules, 'Slayer of Kings'));
+  if (king) pair = Object.assign(kingPair(king, theirs), { v: 1 });
+  // the Active Player declares first; if they don't, the Reactive Player may make a Heroic Intervention (SHEET);
+  // Sigismund picks the Challenged there too (CONFIRMED)
   if (!pair || pair.v <= 0.1) {
-    const hp = bestPairing(theirs, mine);
+    const hking = theirs.find((x) => has(x.m.rules, 'Slayer of Kings'));
+    const hp = hking ? kingPair(hking, mine) : bestPairing(theirs, mine);
     if (!hp || hp.v <= 0.1 || !state.reactions?.heroicIntervention(state, 1 - active, hp.a.u, hp.v)) return;
     side = 1 - active; pair = hp;
   }
-  const defenders = side === active ? theirs : mine;
+  let defenders = side === active ? theirs : mine;
   const A = pair.a;
+  // Vengeful Hate: when Fulgrim is the Challenger, Rylanor must be the Challenged (CONFIRMED; ASSUMPTION: so he can't
+  // refuse)
+  const rylanor = isFulgrim(A.m) && defenders.find((d) => has(d.m.rules, 'Vengeful Hate'));
+  if (rylanor) { duel(state, A, rylanor, side, tally); return; }
+  // Broken in Body: the AI keeps Maloghurst out of a challenge he'd refuse, so he's neither the Challenged nor the model
+  // Disgraced for a refusal (ASSUMPTION: the AI's choice)
+  if (defenders.some(shy) && pair.accV < -0.6) {
+    defenders = defenders.filter((d) => !shy(d));
+    if (!defenders.length) return;
+    if (shy(pair.b)) {
+      // Slayer of Kings: a picked model that can't be the Challenged gives Combat Resolution Points equal to its starting
+      // Wounds, and Sigismund picks another (CONFIRMED)
+      if (pair.picked) { tally.glory[side] += pair.b.m.maxWounds; state.log(`    ${pair.b.m.name} can't be the Challenged: +${pair.b.m.maxWounds} Combat Resolution (Slayer of Kings)`); pair = kingPair(A, defenders); }
+      else { const b = defenders.reduce((best, d) => (duelEdge(d, A) > duelEdge(best, A) ? d : best), defenders[0]); pair = { a: A, b, v: -duelEdge(b, A), accV: duelEdge(b, A) }; }
+    }
+  }
   // Warrior Pride (Sons of Horus): refuse a lesser challenger without becoming Disgraced
   if (side === active && pair.accV < 0 && state.reactions?.warriorPride(state, A, defenders, 1 - side, pair.accV)) return;
   // refusing: the challenger's player picks a model to become Disgraced (SHEET)
   if (pair.accV < -0.6) {
+    // Slayer of Kings: if the model Sigismund picked doesn't become the Challenged, Combat Resolution Points equal to its
+    // starting Wounds, and he picks another eligible model to accept (ASSUMPTION: a refusal counts, and the second pick
+    // must accept)
+    const rest = pair.picked ? defenders.filter((d) => d !== pair.b) : [];
+    if (rest.length) {
+      tally.glory[side] += pair.b.m.maxWounds;
+      state.log(`    ${A.m.name} challenges ${pair.b.m.name}; it is refused: +${pair.b.m.maxWounds} Combat Resolution (Slayer of Kings)`);
+      duel(state, A, kingPair(A, rest).b, side, tally);
+      return;
+    }
     const victim = defenders.reduce((b, d) => (num(d.m.p.WS, 4) > num(b.m.p.WS, 4) ? d : b), defenders[0]);
     state.log(`    ${A.m.name} issues a challenge; it is refused and ${victim.m.name} is Disgraced`);
     victim.m.disgraced = true;
@@ -272,7 +353,8 @@ function duel(state, A, B, challengerSide, tally) {
     const terms = [
       e.noCI ? 0 : eo.oppCI1 ? 1 : ci(x),
       e.noWoundPenalty ? 0 : -(x.m.maxWounds - x.m.wounds),
-      /Heavy/.test(x.m.unitType) ? -1 : 0, /Light/.test(x.m.unitType) ? 1 : 0,
+      // Shield Master (Fafnir Rann): no -1 for the Heavy Sub-Type (CONFIRMED)
+      /Heavy/.test(x.m.unitType) && !has(x.m.rules, 'Shield Master') ? -1 : 0, /Light/.test(x.m.unitType) ? 1 : 0,
       (x.m.traits || []).includes('Shield') || hasItem(x.u, /Company Standard/i) ? 1 : 0,
       Math.min(e.noSupport ? 0 : support(x) * (e.supportMult || 1) + (e.supportBonus || 0), eo.oppSupportCap ?? Infinity),
       xOf(w.specialRules, "Duellist's Edge") || xOf(w.specialRules, "Duelist's Edge") || 0, e.focus || 0, guard.get(x), e.aegis ? aegisCount(x) : 0, e.sacrifice || 0,
@@ -294,6 +376,19 @@ function duel(state, A, B, challengerSide, tally) {
   // the chance a wound at AP 5 isn't saved (Duty is Sacrifice)
   const saveFail = (m) => { const sv = Math.min(num(String(m.p.SAV).replace('+', ''), 7) < 5 ? num(String(m.p.SAV).replace('+', ''), 7) : 7, num(String(m.p.INV || '').replace('+', ''), 7)); return Math.min(1, (sv - 1) / 6); };
   const decapOK = new Map();
+  // one attack, as if the model had 1 Attack (Decapitation Strike, Dirty Fighter); lastStand: the target's Seeker of
+  // Atonement, if it picked it
+  const oneBlow = (x, y, lastStand) => {
+    const s = strikeProfile(x, y, effects.get(x), effects.get(y), {});
+    const g = Object.assign(s.finish(meleeGroup(x.m, s.w, s.tgt, { mods: s.mods })), { attacks: 1 });
+    const before = y.m.wounds;
+    const r = resolveGroup(g, s.tgt, { dice: state.dice, log: state.log, lastStand, onKill: (m) => state.onCasualty && state.onCasualty(m, y.u, x.u) });
+    inflicted.set(x, inflicted.get(x) + (before - y.m.wounds));
+    tally.kills[x.u.side] += r.kills;
+    return r;
+  };
+  // Archein of Wisdom counts the Hit Tests of this challenge's previous Strike Step only
+  A.hitsTaken = B.hitsTaken = 0;
   for (let round = 1; round <= 5; round++) {
     // Face-Off: each picks a gambit (the side with Challenge Advantage first; it makes no difference to the AI)
     for (const [me, opp] of [[A, B], [B, A]]) {
@@ -305,13 +400,15 @@ function duel(state, A, B, challengerSide, tally) {
         moreRounds: round < 5, round, focusDelta: focusDelta(me),
         wouldFall: duelWith(opp, me, {}, {}) >= me.m.wounds, favoured: duelEdge(me, opp) > 0, saveFail: saveFail(me.m),
         decap: 0.5 * duelWith(me, opp, {}, {}) - 0.1 * duelWith(opp, me, {}, {}),
+        dirty: has(me.m.rules, 'Dirty Fighter') && round === 1 ? duelWith(me, opp, { single: true }, {}) : 0,
       });
       const e = g ? Object.assign({ name: g.name }, g.make(state, me, opp)) : {};
-      // Beseech the Gods lasts until the end of the Challenge Sub-Phase
+      // Beseech the Gods lasts until the end of the Challenge Sub-Phase; Bite of the Betrayed (Saul Tarvitz) until the
+      // challenge ends, with its WS and Toughness too
       const keep = lasting.get(me);
       if (e.howl) lasting.set(me, Object.assign({}, keep, { howl: true }));
-      if (e.persist) lasting.set(me, { str: (keep.str || 0) + (e.str || 0), attacks: (keep.attacks || 0) + (e.attacks || 0) });
-      else { e.str = (e.str || 0) + (keep.str || 0); e.attacks = (e.attacks || 0) + (keep.attacks || 0); }
+      if (e.persist) lasting.set(me, { str: (keep.str || 0) + (e.str || 0), attacks: (keep.attacks || 0) + (e.attacks || 0), ws: (keep.ws || 0) + (e.ws || 0), tough: (keep.tough || 0) + (e.tough || 0) });
+      else for (const k of ['str', 'attacks', 'ws', 'tough']) e[k] = (e[k] || 0) + (keep[k] || 0);
       effects.set(me, e);
       if (g) state.log(`      ${me.m.name} picks ${g.name}`);
     }
@@ -325,6 +422,17 @@ function duel(state, A, B, challengerSide, tally) {
       x.m.inChallenge = false; sub.inChallenge = true; x.m = sub;
       effects.set(x, {});
     }
+    // Seeker of Atonement (Hibou Khan's gambit): once this Strike Step, a model reduced to 0 Wounds stays with 1 on an
+    // n+ and takes Challenge Advantage (worked in attack.cjs through ctx.lastStand)
+    let seized = null;
+    const stand = new Map([A, B].filter((x) => effects.get(x).lastStand).map((x) => [x, { model: x.m, n: effects.get(x).lastStand, rule: 'Seeker of Atonement', onSave: () => { seized = x; } }]));
+    // Dirty Fighter (Sevatar's gambit): at the start of the Focus Step, one attack as if he had 1 Attack (CONFIRMED)
+    for (const x of [A, B]) {
+      if (!effects.get(x).dirty || x.m.wounds <= 0 || other(x).m.wounds <= 0) continue;
+      const r = oneBlow(x, other(x), stand.get(other(x)));
+      state.log(`      ${x.m.name} fights dirty before the Focus Roll (Dirty Fighter): ${r.unsaved ? `${r.damage} wound${r.damage === 1 ? '' : 's'}` : 'no wound'}`);
+    }
+    if (A.m.wounds <= 0 || B.m.wounds <= 0) break;
     // Focus Roll: D6 + Combat Initiative - wounds lost, -1 Heavy, +1 Light, +1 Shield or Company Standard,
     // + Outside Support, + gambits; the winner gets +1 Attack and Challenge Advantage
     const focus = (x) => {
@@ -350,16 +458,13 @@ function duel(state, A, B, challengerSide, tally) {
     for (const x of [A, B]) {
       const ex = effects.get(x), y = other(x);
       if (!ex.decap || x.m.wounds <= 0 || y.m.wounds <= 0) continue;
-      const s = strikeProfile(x, y, ex, effects.get(y), {});
-      const g = Object.assign(s.finish(meleeGroup(x.m, s.w, s.tgt, { mods: s.mods })), { attacks: 1 });
-      const before = y.m.wounds;
-      const r = resolveGroup(g, s.tgt, { dice: state.dice, onKill: (m) => state.onCasualty && state.onCasualty(m, y.u, x.u) });
-      inflicted.set(x, inflicted.get(x) + (before - y.m.wounds));
-      tally.kills[x.u.side] += r.kills;
+      const r = oneBlow(x, y, stand.get(y));
       decapOK.set(x, r.wounds > 0);
       state.log(`      ${x.m.name} strikes first (Decapitation Strike): ${r.wounds > 0 ? 'it lands' : 'it fails, and no more attacks'}`);
     }
-    // Strike: the side with Challenge Advantage first
+    // Strike: the side with Challenge Advantage first; the successful Hit Tests against each model are counted for
+    // Archein of Wisdom
+    const hitsNow = new Map([[A, 0], [B, 0]]);
     for (const [x, y] of [[adv, other(adv)], [other(adv), adv]]) {
       if (x.m.wounds <= 0 || y.m.wounds <= 0) continue;
       const ex = effects.get(x), ey = effects.get(y);
@@ -385,9 +490,13 @@ function duel(state, A, B, challengerSide, tally) {
       const g = s.finish(meleeGroup(x.m, w, s.tgt, { charged: x.u.turn.charged, mods: s.mods }));
       if (ex.decap) g.attacks = Math.max(0, g.attacks - 1);
       const before = y.m.wounds;
-      const r = resolveGroup(g, s.tgt, { dice: state.dice, preyCrit: preyCrit(x.u, y.u), hatred: hatredAgainst(x.u, y.u), minWound: ey.woundFloor, onKill: (m) => state.onCasualty && state.onCasualty(m, y.u, x.u) });
+      const ctx = { dice: state.dice, log: state.log, preyCrit: preyCrit(x.u, y.u), hatred: hatredAgainst(x.m, x.u, y.u), minWound: ey.woundFloor, lastStand: stand.get(y), onKill: (m) => state.onCasualty && state.onCasualty(m, y.u, x.u) };
+      const r = resolveGroup(g, s.tgt, ctx);
+      const r2 = thunderstrike(state, x.m, w, r, s.tgt, ctx, s.mods);
+      if (r2) { r.kills += r2.kills; r.unsaved += r2.unsaved; }
       inflicted.set(x, inflicted.get(x) + (before - y.m.wounds));
       tally.kills[x.u.side] += r.kills;
+      hitsNow.set(y, hitsNow.get(y) + r.hits);
       carrionFeast(x.m, r.kills);
       // Howl of the Death Wolf ends with a Strike Step that inflicts no unsaved wound
       if (ex.howl && !r.unsaved) { const k = lasting.get(x); lasting.set(x, Object.assign({}, k, { howl: false })); state.log(`      ${x.m.name}'s Howl of the Death Wolf fades`); }
@@ -434,9 +543,13 @@ function duel(state, A, B, challengerSide, tally) {
       if (x.m.wounds <= 0 && state.onCasualty) state.onCasualty(x.m, x.u, null);
     }
     if (effects.get(A).testFoe) testFoe = A; else if (effects.get(B).testFoe) testFoe = B;
+    A.hitsTaken = hitsNow.get(A); B.hitsTaken = hitsNow.get(B);
+    // Seeker of Atonement: the model that stood back up has Challenge Advantage (ASSUMPTION: from now, into the next round)
+    if (seized) testFoe = seized;
     if (A.m.wounds <= 0 || B.m.wounds <= 0) break;
     // the side with Challenge Advantage decides whether to fight another round, unless No Prey Escapes holds it
-    if (duelEdge(adv, other(adv)) <= 0.05 && !effects.get(A).noEscape && !effects.get(B).noEscape) break;
+    const holder = seized || adv;
+    if (duelEdge(holder, other(holder)) <= 0.05 && !effects.get(A).noEscape && !effects.get(B).noEscape) break;
   }
   // Glory: the duellist who inflicted the most wounds scores them, or the slain enemy's full Wounds (SHEET)
   const [ia, ib] = [inflicted.get(A), inflicted.get(B)];
@@ -448,6 +561,9 @@ function duel(state, A, B, challengerSide, tally) {
     // Cut Off the Head (MISSION): winning a challenge by slaying the enemy model scores 2 VP
     if (lose.m.wounds <= 0 && state.mission?.has('Cut Off the Head')) state.award(win.u.side, 2, `Cut Off the Head (${lose.m.name})`);
   }
+  // Haunted (Little Horus Aximand): 2 Victory Points if Garviel Loken is Removed as a Casualty in a challenge with him
+  // (CONFIRMED)
+  for (const x of [A, B]) if (has(x.m.rules, 'Haunted') && other(x).m.wounds <= 0 && /Loken/.test(other(x).m.name) && state.award) state.award(x.u.side, 2, `Haunted (${other(x).m.name})`);
   // Lordsbane (Varagyr Thegn): if the Thegn still stands, +1 Combat Resolution per Varagyr in its unit, up to 4
   for (const x of [A, B]) {
     if (!has(x.m.rules, 'Lordsbane') || x.m.wounds <= 0) continue;
@@ -500,8 +616,11 @@ function fight(state, c) {
       // The Blood is Forever (Crimson Paladins): Feel No Pain (5+) when outnumbered, (4+) when by more than double
       const own = modelCount([t]), them = modelCount([...t.lockedWith].filter((e) => !e.destroyed));
       const outnumberFnp = them > 2 * own ? 4 : them > own ? 5 : 7;
-      const r = resolveGroup(g, t, { dice: state.dice, preyCrit: preyCrit(s.u, t), hatred: hatredAgainst(s.u, t), outnumberFnp, onKill: (m) => state.onCasualty && state.onCasualty(m, t, s.u) });
+      const ctx = { dice: state.dice, log: state.log, preyCrit: preyCrit(s.u, t), hatred: hatredAgainst(s.m, s.u, t), outnumberFnp, onKill: (m) => state.onCasualty && state.onCasualty(m, t, s.u) };
+      const r = resolveGroup(g, t, ctx);
       tally.kills[s.u.side] += r.kills;
+      const r2 = thunderstrike(state, s.m, w, r, t, ctx, meleeMods(s.u));
+      if (r2) { tally.kills[s.u.side] += r2.kills; r.kills += r2.kills; r.vehicleStatuses.push(...r2.vehicleStatuses); }
       carrionFeast(s.m, r.kills);
       for (const st of r.vehicleStatuses) vehicleDamage(state, t, st);
     }
@@ -520,8 +639,9 @@ function resolve(state, c, tally) {
     return;
   }
   // Combat Resolution: models removed, Glory, outnumbering, standards (SHEET, CONFIRMED for the standards)
-  // Unwavering Conviction (Word Bearers): +1 if any of their models are in the combat
-  const score = [0, 1].map((s) => tally.kills[s] + tally.glory[s] + live[s].reduce((t, u) => t + (hasItem(u, /^Vexilla/i) ? 1 : 0) + (hasItem(u, /^Legion standard/i) ? 2 : 0), 0)
+  // Unwavering Conviction (Word Bearers): +1 if any of their models are in the combat; the Panoply of Flame (Zardu
+  // Layak's wargear): +1 for the unit that has it (CONFIRMED)
+  const score = [0, 1].map((s) => tally.kills[s] + tally.glory[s] + live[s].reduce((t, u) => t + (hasItem(u, /^Vexilla/i) ? 1 : 0) + (hasItem(u, /^Legion standard/i) ? 2 : 0) + (hasItem(u, /^The Panoply of Flame/i) ? 1 : 0), 0)
     + (live[s].some((u) => legions.is(u, 'Word Bearers')) ? 1 : 0));
   const mc = [modelCount(live[0]), modelCount(live[1])];
   if (mc[0] > mc[1]) score[0] += core.outnumberBonus; else if (mc[1] > mc[0]) score[1] += core.outnumberBonus;

@@ -188,9 +188,54 @@ the Warlord (ASSUMPTION) and as a Warlord for Giant Killer. Their rules (CONFIRM
 - Elsewhere: Shadow of the Reaper, The Power of the Word, and each Legion's Tactica on its Primarch.
 
 Not played: the psychic Primarch rules (Arch-Sorcerer, Stoneform, Kine Shield, Seal the Veil), Everywhere and
-Nowhere, Battlesmith, and the Sire of the Legion rules, which change list building rather than the battle. Enemy
-units usually refuse a Primarch's challenge and take Disgraced on a lesser model, so his gambits come up rarely;
-he does his work in the fight itself.
+Nowhere, and the Sire of the Legion rules, which change list building rather than the battle. Battlesmith (Ferrus
+Manus) is played like everyone else's (see Named characters). Enemy units usually refuse a Primarch's challenge and
+take Disgraced on a lesser model, so his gambits come up rarely; he does his work in the fight itself.
+
+### Named characters
+
+The Legions' named characters (the unique High Command, Command, Elites and War Engine choices that aren't
+Primarchs) are fielded like any unit, and the single-model ones join a unit before deployment. Their rules are
+played from their texts in the army data (CONFIRMED; the code marks each interpretation ASSUMPTION):
+
+- Gambits (`lib/gambits.cjs`): Bite of the Betrayed (Saul Tarvitz, first Face-Off against an Emperor's Children,
+  World Eaters, Sons of Horus or Death Guard model, lasting the challenge), Seeker of Atonement (Hibou Khan),
+  Head-taker (Hvarl Red-Blade), Death's Champion (Sigismund), Hammerblow (Alexis Polux), Executioner's Tax (Fafnir
+  Rann), Dirty Fighter (Sevatar), Archein of Wisdom (Raldoron), Witchblood (Calas Typhon, once per battle), Every
+  Strike Foreseen (Ahzek Ahriman, Magistus Amon, and any Divination psyker), and The Faultless Blade (Lucius's
+  Paragon of Excellence at +4).
+- In challenges (`lib/assault.cjs`): Slayer of Kings (Sigismund must be the Challenger and picks the Challenged; a
+  pick that refuses gives Combat Resolution Points equal to its Wounds and the next pick must accept), Shield Master
+  (Fafnir Rann), Vengeful Hate (Rylanor may fight Fulgrim, and must be his Challenged), Broken in Body (the AI keeps
+  Maloghurst out of challenges he would refuse), Haunted (2 VP for Aximand slaying Loken), and Thunderstrike
+  (Armillus Dynat's blade, in challenges and fights).
+- Not Removed as a Casualty: Born Survivor (Loken), The Ghost of Saiph (Aster Crohne), and Seeker of Atonement, for
+  damage from attacks. Drakenscale Armour (Cassian Dracos) takes Flame, Plasma, Melta and Volkite wounds at Damage 1.
+- Start Phase (`lib/battle.cjs`): Dark Dreams (Sevatar), Dark Oratory (Kor Phaeron), Shadow of the Conquerer and
+  Level-headed (Lotara Sarrin). The Guns of the Conqueror fire only through their own Advanced Reaction, for 3
+  Reaction Points (the text's "automatically unsuccessful" Hit Test is read as successful); while Annihilate stands
+  the AI keeps those points unless another reaction is worth as much.
+- Shooting: The Blood Crow (Kaedes Nex), and Cameleoline (his wargear, also on Corvus Corax and Mor Deythan).
+- Reserves and deployment: Chosen of the Khagan (Qin Xa), the Vox-interlink (Remus Ventanus), Void Commander (Alexis
+  Polux with Breachers) and Master of the Justaerin (Abaddon with Justaerin) giving the unit Deep Strike and Feel No
+  Pain (5+) when it arrives, Harrowmaster (Armillus Dynat's Infiltrate (12)).
+- The rest: Ancient of War (Marduk Sedras), Hatred (Traitor) and Hatred (Loyalist) (worked from each list's
+  allegiance; a joined character's Hatred is his own, not his unit's), Jealous Command (Kor Phaeron), Lord of the
+  Blessed (Erebus joins Malefic units), Consul-Delegatus (Autilon Skorr counts as High Command for Slay the
+  Warlord), Battlesmith (N'rik Dreygur, Shadrak Meduson, Cassian Dracos and anyone else with it; a servo-arm repairs
+  one more), and the wargear Icon of Calth, Icon of the Warmaster, Panoply of Flame and Sonic shriekers.
+- Rules on other units that name a character or a Primarch: Sworn Loyalty (Atramentar may use Sevatar's
+  Leadership), Corax's Shame, Wolf-kin of Russ, and Lair of the Iron Tyrant.
+
+Played already through the Legion Tactica: The Angels of Death, Fire Discipline, Cult Arcana and Unwavering
+Conviction. Not played: rules that only change list building (Officer of the Line, Harbinger of Chaos, Master of
+Automata, Consul-Delegatus's Apex Detachment); psychic powers and disciplines, which have no framework (Arch-Magister
+of the Corvidae, Magister of Dust, Binder of Souls, Witchblood's Biomancy, Seal the Veil, and Resurrection, whose
+text isn't in the data); Cybertheurgy (Cybertheurgic Status: Null, Whispers of Isstvan); Eyes of the Warmaster (the
+simulator has no Leadership penalty for mixed Faction Traits); the Cortex controller (Dreygur can't join Automata
+here); The Tyrant's Regalia (the data already gives Evander Garrius Feel No Pain (5+) at all times); and Those Once
+Honoured and The Shield of the Iron Tyrant (Perturabo can't join those Automata units anyway). A character's own
+gambit is valued like any other, so he picks it only when it beats the core ones (Finishing Blow often does).
 
 ### Unit rules
 
@@ -209,7 +254,7 @@ only of that Legion's models (`lib/legions.cjs`): The Angel of Death, Flawless E
 Action, The Hunter's Strike, Fire Discipline, A Talent for Murder, Encarmine Fury, The Gorgon's Scales, Violence
 Incarnate, Tactical Flexibility, Remorseless Advance, Cult Arcana, Death Dealers, Unwavering Conviction,
 Promethean Endurance and Blood of Fire, Shadow Walkers, and Lies and Obfuscation. The Legion's Advanced Reaction is
-listed under Reactions; Legion gambits aren't played yet.
+listed under Reactions, and its gambit under Challenges and gambits.
 
 ### Legiones Astartes and Legiones Hereticus
 

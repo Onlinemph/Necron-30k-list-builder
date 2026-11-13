@@ -15,9 +15,26 @@ function charOf(unit, key) {
   const leaders = a.filter((m) => /Command|Sergeant|Paragon|Champion/.test(m.unitType) || m.sergeant);
   const pool = leaders.length ? leaders : a;
   // Disgraced: the model's Leadership is halved (SHEET)
-  const v = Math.max(...pool.map((m) => Math.floor(num(m.p[key], 7) / (m.disgraced && key === 'LD' ? 2 : 1))));
+  let v = Math.max(...pool.map((m) => Math.floor(num(m.p[key], 7) / (m.disgraced && key === 'LD' ? 2 : 1))));
+  // Threatening Entreaties (Kor Phaeron's Dark Oratory, battle.cjs): +2 Leadership and Cool (CONFIRMED)
+  if (unit.entreaties && (key === 'LD' || key === 'CL')) v += 2;
   // Lost to the Nails: Leadership, Cool and Willpower count as 10 (CONFIRMED)
   return unit.cond?.has('Lost to the Nails') && ['LD', 'CL', 'WP'].includes(key) ? Math.max(10, v) : v;
+}
+
+/**
+ * Sworn Loyalty (Atramentar Flay-clades): while Sevatar, taken in the Primary Detachment, is on the battlefield, their
+ * Leadership Checks may use his base Leadership (CONFIRMED). Returns that value, or null. ASSUMPTION: used like Lords of
+ * Ultramar's characteristic, unmodified.
+ */
+function swornLoyalty(state, unit, key) {
+  if (key !== 'LD' || !has(unit.rules, 'Sworn Loyalty') || !state.units) return null;
+  for (const u of state.units) {
+    if (u.side !== unit.side || u.destroyed || !u.arrived || u.reserve) continue;
+    const sev = alive(u).find((m) => /^Sevatar/.test(m.name) && m.primary);
+    if (sev) return num(sev.p.LD, 0);
+  }
+  return null;
 }
 
 /** Highest Fear (X) among enemy models within 12" (CONFIRMED: doesn't stack; Malefic ignores it). */
@@ -67,8 +84,8 @@ function check(state, unit, key, penalty = 0, why = '', override = null) {
     if (state.log && why) state.log(`    ${unit.name} ${key} check (${why}): passed automatically (Neural Collars)`);
     return true;
   }
-  // override: another model's unmodified characteristic the unit may use instead (Lords of Ultramar)
-  const value = Math.max(modifiedValue(state, unit, key, penalty), override ?? -Infinity);
+  // override: another model's unmodified characteristic the unit may use instead (Lords of Ultramar, Sworn Loyalty)
+  const value = Math.max(modifiedValue(state, unit, key, penalty), override ?? -Infinity, swornLoyalty(state, unit, key) ?? -Infinity);
   const roll = state.dice.twoD6();
   const pass = roll <= value;
   if (state.log && why) state.log(`    ${unit.name} ${key} check${why ? ` (${why})` : ''}: rolled ${roll} against ${value}, ${pass ? 'passed' : 'failed'}`);
@@ -88,7 +105,7 @@ function check(state, unit, key, penalty = 0, why = '', override = null) {
 /** Chance to pass, for the AI. */
 function passChance(state, unit, key, penalty = 0) {
   if (['LD', 'CL'].includes(key) && collarState(state, unit) === 'near') return 1;
-  return p2d6AtMost(modifiedValue(state, unit, key, penalty));
+  return p2d6AtMost(Math.max(modifiedValue(state, unit, key, penalty), swornLoyalty(state, unit, key) ?? -Infinity));
 }
 
 /** Units that never gain statuses (CONFIRMED): Automata, Flyers, Fortifications, Titans. */

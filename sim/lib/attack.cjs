@@ -7,6 +7,13 @@ const legions = require('./legions.cjs');
 
 const STATUSES = ['Pinned', 'Suppressed', 'Stunned', 'Routed'];
 
+// The Blood Crow (Kaedes Nex): Shrouded rolls against his Shooting Attacks succeed only on a 6 (CONFIRMED)
+const bloodCrow = (g, shr) => (shr <= 6 && g.attackerModel && !g.melee && has(g.attackerModel.rules, 'The Blood Crow') ? 6 : shr);
+// The Blood Crow: never Snap Shots and Ballistic Skill never below 6, unless the target is a Flyer (CONFIRMED)
+const bloodCrowAim = (model, target) => has(model.rules, 'The Blood Crow') && !/Flyer/.test(target.unitType || '');
+// Drakenscale Armour (Cassian Dracos Reborn): wounds from Flame, Plasma, Melta or Volkite weapons have Damage 1 (CONFIRMED)
+const drakenscale = (victim, g) => has(victim.rules, 'Drakenscale Armour') && (g.weaponTraits || []).some((t) => /^(Flame|Plasma|Melta|Volkite)$/.test(t));
+
 /** Which model in the target takes the next wound: the defender's choice, or the attacker's for a Precision hit. */
 function pickModel(target, precision) {
   const alive = target.models.filter((m) => m.wounds > 0);
@@ -93,7 +100,7 @@ function resolveGroup(g, target, ctx) {
         // a vehicle's Invulnerable Save, including the Medusa Shroud's 5+ against shooting (Rangdan wargear)
         const vinv = Math.min(save(victim.p.INV), !g.melee && (victim.items || []).includes('Medusa Shroud') ? 5 : 7);
         if (vinv <= 6 && dice.d6() >= vinv) continue;
-        const shr = Math.min(ctx.shrouded || 7, target.buff?.shrouded || 7, xOf(victim.rules, 'Shrouded') || 7);
+        const shr = bloodCrow(g, Math.min(ctx.shrouded || 7, target.buff?.shrouded || 7, xOf(victim.rules, 'Shrouded') || 7));
         if (!g.melee && shr <= 6 && dice.d6() >= shr) continue;
         out.unsaved++;
         if (pens) {
@@ -138,21 +145,45 @@ function resolveGroup(g, target, ctx) {
         if (best <= 6 && dice.d6() >= best) continue;
         // ---- damage mitigation: Feel No Pain, Shrouded against shooting ----
         const fnp = Math.min(xOf(victim.rules, 'Feel No Pain') || 7, target.buff?.fnp || 7, has(victim.rules, 'The Blood is Forever') ? ctx.outnumberFnp || 7 : 7, psychic ? xOf(victim.rules, 'Adamantium Will') || 7 : 7, has(victim.rules, 'Worm Gestalt') && !(g.weaponTraits || []).includes('Flame') && !has(rules, 'Aflame') ? 5 : 7,
-          !g.melee ? Math.min(xOf(victim.rules, 'Shrouded') || 7, ctx.shrouded || 7, target.buff?.shrouded || 7) : 7);
+          !g.melee ? bloodCrow(g, Math.min(xOf(victim.rules, 'Shrouded') || 7, ctx.shrouded || 7, target.buff?.shrouded || 7)) : 7);
         if (fnp <= 6 && dice.d6() >= fnp) continue;
       }
       out.unsaved++;
       const ew = murderous && wroll >= murderous ? 0 : Math.max(xOf(victim.rules, 'Eternal Warrior') || 0, target.buff?.ew || 0);
-      const dmg = ew ? Math.max(1, g.D + extraD - ew) : g.D + extraD;
+      const dmg = drakenscale(victim, g) ? 1 : ew ? Math.max(1, g.D + extraD - ew) : g.D + extraD;
       applyDamage(victim, dmg, target, out, ctx);
     }
   }
   return out;
 }
 
+/**
+ * Rules that keep a model from being Removed as a Casualty when its Wounds reach 0: on the roll it stays with 1 Wound.
+ * Seeker of Atonement (Hibou Khan's gambit, ctx.lastStand from assault.cjs): once in the challenge's Strike Step, on
+ * its n+. The Ghost of Saiph (Aster Crohne): the first time in the battle, on a 4+. Born Survivor (Garviel Loken): each
+ * time, on a 4+ (the AI always rolls). All CONFIRMED; ASSUMPTION: only damage from attacks is covered, not wounds lost
+ * outside an attack (Perils, a gambit's own cost). Returns the rule that saved the model, or null.
+ */
+function cheatsDeath(model, ctx) {
+  const dice = ctx.dice;
+  if (!dice) return null;
+  const ls = ctx.lastStand;
+  if (ls && ls.model === model && !ls.used) { ls.used = true; if (dice.d6() >= ls.n) { if (ls.onSave) ls.onSave(); return ls.rule || 'Seeker of Atonement'; } }
+  if (has(model.rules, 'The Ghost of Saiph') && !model.ghostUsed) { model.ghostUsed = true; if (dice.d6() >= 4) return 'The Ghost of Saiph'; }
+  if (has(model.rules, 'Born Survivor') && dice.d6() >= 4) return 'Born Survivor';
+  return null;
+}
+
 function applyDamage(model, dmg, unit, out, ctx) {
   const before = model.wounds;
   model.wounds = Math.max(0, model.wounds - dmg);
+  if (before > 0 && model.wounds === 0) {
+    const saved = cheatsDeath(model, ctx);
+    if (saved) {
+      model.wounds = 1;
+      if (ctx.log) ctx.log(`      ${model.name} is not Removed as a Casualty and stands with 1 Wound (${saved})`);
+    }
+  }
   out.damage += before - model.wounds;
   if (before > 0 && model.wounds === 0) {
     out.kills++;
@@ -174,9 +205,10 @@ function rangedGroup(model, w, target, opts) {
   if (stationary && ord) { if (ord === 'FP') FP *= 2; else if (ord === 'S') S *= 2; else if (ord === 'D') D *= 2; else if (ord === 'AP') AP = 2; }
   const aliveN = target.models.filter((m) => m.wounds > 0).length;
   const vehicleTarget = target.models.some((m) => m.wounds > 0 && m.vehicle);
-  const bs = BS + (opts.bsMod || 0);
+  const aim = bloodCrowAim(model, target);
+  const bs = aim ? Math.max(6, BS + (opts.bsMod || 0)) : BS + (opts.bsMod || 0);
   let attacks = FP, hitNeed = hitNeedBS(bs), blastN = 0;
-  const snap = !!opts.snap;
+  const snap = !!opts.snap && !aim;
   // Snap Shots use their own column of the Hit Test table; BS 6+ scores Critical Hits, BS 10+ always does
   const bsCrit = snap ? null : core.bsCrit(bs);
   if (snap) hitNeed = core.snapHit(bs);
@@ -244,9 +276,10 @@ function expectedGroup(g, target, ctx = {}) {
     if (ctx.coverSave && !g.melee) sv = Math.min(sv, ctx.coverSave);
     e += (1 / 6) * (sv <= 6 ? (sv - 1) / 6 : 1);
   }
-  const fnp = Math.min(xOf(t.rules, 'Feel No Pain') || 7, target.buff?.fnp || 7, has(t.rules, 'Worm Gestalt') ? 5 : 7, !g.melee ? Math.min(xOf(t.rules, 'Shrouded') || 7, target.buff?.shrouded || 7) : 7);
+  const fnp = Math.min(xOf(t.rules, 'Feel No Pain') || 7, target.buff?.fnp || 7, has(t.rules, 'Worm Gestalt') ? 5 : 7, !g.melee ? bloodCrow(g, Math.min(xOf(t.rules, 'Shrouded') || 7, target.buff?.shrouded || 7)) : 7);
   const ew = Math.max(xOf(t.rules, 'Eternal Warrior') || 0, target.buff?.ew || 0);
-  const dmg = (x) => Math.min(num(t.p.W, 1), ew ? Math.max(1, x - ew) : x);
+  const drake = drakenscale(t, g);
+  const dmg = (x) => (drake ? 1 : Math.min(num(t.p.W, 1), ew ? Math.max(1, x - ew) : x));
   // a Critical Hit skips the Wound Test (its natural roll counts as the wound roll for Breaching)
   const apC = breach && breach <= 6 ? 2 : g.AP;
   let svC = Math.min(apC <= arm ? 7 : arm, inv);

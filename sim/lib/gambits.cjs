@@ -41,8 +41,17 @@
 //   howl                     +5 Focus each round until a Strike Step without an unsaved wound
 //   thousandCuts             a wounded opponent strikes at -1 Strength
 //   fnp n                    Feel No Pain (n) in the Strike Step
-// A gambit marked `first` may only be picked in the first Face-Off of a challenge.
-const { has, xOf } = require('./rules.cjs');
+// and the named characters' gambits (CONFIRMED, their rules in the army data), also worked in assault.cjs:
+//   persist                  also keeps ws and tough (Bite of the Betrayed) besides str and attacks
+//   crit n                   attacks in the Strike Step have Critical Hit (n+), or keep a better one they have
+//   weapon w                 the model strikes with this weapon profile and no other
+//   dirty                    one attack, as if the model had 1 Attack, at the start of the Focus Step
+//   lastStand n              reduced to 0 Wounds in the Strike Step, on an n+ it stays with 1 Wound and takes
+//                            Challenge Advantage (once per Strike Step)
+//   hitOn n                  Hit Tests in the Strike Step succeed on n+ (hitOnP: the chance, for the AI's estimate)
+// A gambit marked `first` may only be picked in the first Face-Off of a challenge. `can(m, me, opp)` gets the
+// opponent ({u, m}) when it's known.
+const { has, xOf, save } = require('./rules.cjs');
 const { alive, passChance, check } = require('./checks.cjs');
 
 const traitOf = (m, t) => (m.traits || []).includes(t);
@@ -50,6 +59,10 @@ const anyone = () => true;
 // a Legion's gambit; Emperor's Children and World Eaters have one per version (Legiones Astartes or Hereticus)
 const legion = (name, version) => (m, me) => traitOf(m, name) && (!version || (me && me.u.rite) === version);
 const SWORD = /chainsword|power sword|force sword|paragon blade/i;
+// the Hammerblow weapon profile (CONFIRMED: data/bsdata/common.json), for Alexis Polux's gambit
+const HAMMERBLOW = { name: 'Hammerblow', base: 'Hammerblow', IM: 'I', AM: 1, SM: 10, AP: 2, D: 3, specialRules: ['Critical Hit (6+)'], traits: ['Power'] };
+// the Legions Saul Tarvitz's Bite of the Betrayed works against
+const BETRAYERS = ["Emperor's Children", 'World Eaters', 'Sons of Horus', 'Death Guard'];
 const GAMBITS = [
   // core gambits (SHEET)
   { name: 'Seize the Initiative', can: anyone, make: () => ({ focusDice: 'high' }) },
@@ -91,7 +104,8 @@ const GAMBITS = [
   { name: 'Sword of the Order', can: legion('Dark Angels'), make: () => ({ ifSword: true }) },
   // the Death Guard's gambit is called simply "Gambit" in the data
   { name: 'Death Guard Gambit', can: legion('Death Guard'), make: (state, me, opp) => ({ toughSet: Number(opp.m.p.WS) || 4, toughExact: true }) },
-  { name: 'Paragon of Excellence', first: true, can: legion("Emperor's Children", 'Astartes'), make: () => ({ focus: 2 }) },
+  // The Faultless Blade (Captain Lucius): +4 instead of +2 (CONFIRMED)
+  { name: 'Paragon of Excellence', first: true, can: legion("Emperor's Children", 'Astartes'), make: (state, me) => ({ focus: me && has(me.m.rules, 'The Faultless Blade') ? 4 : 2 }) },
   { name: 'The Broken Mirror', can: legion("Emperor's Children", 'Hereticus'), make: (state, me) => ({ supportMult: 2, supportBonus: me.u.cond?.has('Stupefied') ? 1 : 0 }) },
   { name: 'A Wall Unyielding', can: legion('Imperial Fists'), make: () => ({ noCI: true, ew: 1 }) },
   { name: 'Legion of One', can: legion('Iron Hands'), make: () => ({ supportMult: 2, oppSupportCap: 2 }) },
@@ -148,10 +162,55 @@ const GAMBITS = [
   { name: 'Howl of the Death Wolf', can: (m) => has(m.rules, 'Howl of the Death Wolf') && !m.howlUsed, make: (state, me) => { me.m.howlUsed = true; return { focus: 5, howl: true }; } },
   { name: 'Calculating Swordsman', can: (m) => has(m.rules, 'Calculating Swordsman'), make: (state) => ({ focus: Math.min(4, state.round || 1) }) },
   { name: 'Death by a Thousand Cuts', can: (m) => has(m.rules, 'Death by a Thousand Cuts'), make: () => ({ thousandCuts: true }) },
+  // Named characters' own gambits (CONFIRMED: their rules in the army data and data/bsdata/common.json)
+  // Bite of the Betrayed (Saul Tarvitz, A Brother Betrayed): first Face-Off only, against an Emperor's Children, World
+  // Eaters, Sons of Horus or Death Guard model; +1 WS, Strength and Toughness until the challenge ends
+  { name: 'Bite of the Betrayed', first: true, can: (m, me, opp) => has(m.rules, 'A Brother Betrayed') && !!opp && BETRAYERS.some((t) => traitOf(opp.m, t)), make: () => ({ ws: 1, str: 1, tough: 1, persist: true }) },
+  // Seeker of Atonement (Hibou Khan): reduced to 0 Wounds in the Strike Step, on a 4+ he stays with 1 Wound and takes
+  // Challenge Advantage
+  { name: 'Seeker of Atonement', can: (m) => has(m.rules, 'Seeker of Atonement'), make: () => ({ lastStand: 4 }) },
+  // Head-taker (Hvarl Red-Blade): the opponent claims no Outside Support
+  { name: 'Head-taker', can: (m) => has(m.rules, 'Head-taker'), make: () => ({ oppSupportCap: 0 }) },
+  // Death's Champion (Sigismund): Critical Hit (5+) in the Strike Step
+  { name: "Death's Champion", can: (m) => has(m.rules, "Death's Champion"), make: () => ({ crit: 5 }) },
+  // Hammerblow (Alexis Polux): he strikes with the Hammerblow profile and no other weapon
+  { name: 'Hammerblow', can: (m) => has(m.rules, 'Hammerblow'), make: () => ({ weapon: HAMMERBLOW }) },
+  // Executioner's Tax (Fafnir Rann): an extra Focus die, the highest discarded; Critical Hit (6+) in the Strike Step
+  { name: "Executioner's Tax", can: (m) => has(m.rules, 'Executioner’s Tax'), make: () => ({ focusDice: 'low', crit: 6 }) },
+  // Dirty Fighter (Sevatar): first Face-Off only; at the start of the Focus Step one attack as if he had 1 Attack, then
+  // the Focus Roll as normal
+  { name: 'Dirty Fighter', first: true, can: (m) => has(m.rules, 'Dirty Fighter'), make: () => ({ dirty: true }) },
+  // Archein of Wisdom (Raldoron): + Focus for each successful Hit Test the opponent made in the previous Strike Step of
+  // this challenge (me.hitsTaken, counted in assault.cjs)
+  { name: 'Archein of Wisdom', can: (m) => has(m.rules, 'Archein of Wisdom'), make: (state, me) => ({ focus: (me && me.hitsTaken) || 0 }) },
+  {
+    // Witchblood (Calas Typhon): once per battle; a Willpower Check: +2 Attacks and Strength in the Strike Step, or a
+    // wound at AP 2, Damage 1 with only an invulnerable Save. ASSUMPTION: the check is made when the gambit is picked
+    // (the text: at the start of the Focus Step, which comes straight after)
+    name: 'Witchblood', can: (m) => has(m.rules, 'Witchblood') && !m.witchbloodUsed,
+    estimate: (state, me) => { const p = passChance(state, me.u, 'WP', 0); const inv = save(me.m.p.INV); return { str: 2 * p, attacks: 2 * p, selfWound: (1 - p) * (inv <= 6 ? (inv - 1) / 6 : 1) }; },
+    make: (state, me) => {
+      me.m.witchbloodUsed = true;
+      if (check(state, me.u, 'WP', 0, 'Witchblood')) return { str: 2, attacks: 2 };
+      const inv = save(me.m.p.INV);
+      if (inv <= 6 && state.dice.d6() >= inv) { state.log(`      ${me.m.name} saves the Witchblood wound`); return {}; }
+      me.m.wounds -= 1;
+      state.log(`      ${me.m.name} suffers a wound (Witchblood)`);
+      if (me.m.wounds <= 0 && state.onCasualty) state.onCasualty(me.m, me.u, null);
+      return {};
+    },
+  },
+  {
+    // Every Strike Foreseen (Ahzek Ahriman, Magistus Amon, and any Divination psyker): a Willpower Check (no Perils);
+    // passed, Hit Tests in the Strike Step succeed on a 2+
+    name: 'Every Strike Foreseen', can: (m) => has(m.rules, 'Every Strike Foreseen'),
+    estimate: (state, me) => ({ hitOn: 2, hitOnP: passChance(state, me.u, 'WP', 0) }),
+    make: (state, me) => (check(state, me.u, 'WP', 0, 'Every Strike Foreseen') ? { hitOn: 2 } : {}),
+  },
 ];
 
-/** The gambits a model may pick (me: {u, m}; round: the challenge round). */
-const available = (m, me, round = 1) => GAMBITS.filter((g) => (!g.first || round === 1) && g.can(m, me));
+/** The gambits a model may pick (me: {u, m}; round: the challenge round; opp: the opponent {u, m}, when known). */
+const available = (m, me, round = 1, opp = null) => GAMBITS.filter((g) => (!g.first || round === 1) && g.can(m, me, opp));
 /** Expected Focus Roll change from a gambit's effects (an extra die kept high is worth about +1). */
 const focusShift = (e) => (e.focus || 0) + (e.focusDice === 'high' ? 0.97 : e.focusDice === 'low' ? -0.97 : 0);
 
@@ -161,7 +220,7 @@ const focusShift = (e) => (e.focus || 0) + (e.focusDice === 'high' ? 0.97 : e.fo
  */
 function choose(state, me, opp, duel, opts = {}) {
   let best = null;
-  for (const g of available(me.m, me, opts.round || 1)) {
+  for (const g of available(me.m, me, opts.round || 1, opp)) {
     const e = g.estimate ? g.estimate(state, me, opp) : g.make(state, me, opp);
     // the Focus Roll change, from the challenge's own sums where it can tell (opts.focusDelta)
     const df = opts.focusDelta ? opts.focusDelta(e) : focusShift(e);
@@ -175,6 +234,12 @@ function choose(state, me, opp, duel, opts = {}) {
     if (e.swapOut) v = opts.wouldFall ? 0.5 : -1;
     if (e.decap) v = (opts.decap ?? 0) - 0.2;
     if (e.noEscape) v += opts.favoured ? 0.15 : -0.4;
+    // Dirty Fighter: the extra attack before the Focus Roll (opts.dirty: its expected wounds)
+    if (e.dirty) v += opts.dirty || 0;
+    // Seeker of Atonement: worth most when this model would otherwise fall
+    if (e.lastStand) v += opts.wouldFall ? ((7 - e.lastStand) / 6) * 2 : 0.05;
+    // Bite of the Betrayed lasts the whole challenge
+    if (e.persist && e.tough && opts.moreRounds) v += 0.1;
     if (!best || v > best.v) best = { g, v };
   }
   return best ? best.g : null;

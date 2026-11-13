@@ -23,12 +23,17 @@ function modelsNear(u, o) {
   if (d + u.r <= CONTROL_RANGE || u.r < 0.01) return n;
   return Math.max(1, Math.round(n * Math.min(1, (CONTROL_RANGE + u.r - d) / (2 * u.r))));
 }
+/**
+ * Icon of Calth (Remus Ventanus's wargear): in a unit that has one, each Ultramarines model's Tactical Strength is +1
+ * (CONFIRMED). Returns the share of the unit's models that gain it.
+ */
+const calth = (u) => (alive(u).some((m) => (m.items || []).some((i) => /^Icon of Calth/i.test(i))) ? alive(u).filter((m) => (m.traits || []).includes('Ultramarines')).length / Math.max(1, alive(u).length) : 0);
 /** Tactical Strength at a marker (MISSION): models within 3" (Bulky counts once), plus Line (X) for each. */
 function tacticalStrength(u, o) {
   const n = modelsNear(u, o);
   if (!n) return 0;
   const lineEach = alive(u).filter((m) => xOf(m.rules, 'Line')).length / Math.max(1, alive(u).length);
-  return n + Math.round(n * lineEach * maxX(u, 'Line'));
+  return n + Math.round(n * lineEach * maxX(u, 'Line')) + Math.round(n * calth(u));
 }
 /**
  * Who Controls each marker (MISSION): each side puts its strongest free unit on each marker, most valuable first;
@@ -107,7 +112,7 @@ function sectorControl(state) {
     for (const u of state.units) {
       if (!canControl(u) || !inArea(s.area, u)) continue;
       const a = alive(u);
-      let t = a.length;
+      let t = a.length + Math.round(a.length * calth(u));
       if (s.inZone[state.zoneName[u.side]]) t += a.reduce((x, mm) => x + (xOf(mm.rules, 'Line') || 0), 0);
       if (s.inZone[state.zoneName[1 - u.side]]) t += a.reduce((x, mm) => x + (xOf(mm.rules, 'Vanguard') || 0), 0);
       ts[u.side] += t;
@@ -178,8 +183,10 @@ function endOfBattle(state) {
   for (const side of [0, 1]) {
     const lost = gone(1 - side);
     // Slay the Warlord (X): X for a Command unit, X+1 for High Command; one of the two
-    // a Primarch (the Warlord role) counts as High Command (ASSUMPTION)
-    const hc = lost.find((u) => /High Command|^Warlord/.test(u.role)), cmd = lost.find((u) => /^Command/.test(u.role));
+    // a Primarch (the Warlord role) counts as High Command (ASSUMPTION); so does a Command choice with Consul-Delegatus
+    // (Autilon Skorr, CONFIRMED)
+    const consul = (u) => (u.models || []).some((m) => has(m.rules, 'Consul-Delegatus') && (!m.joinedFrom || m.joinedFrom.uid === u.uid));
+    const hc = lost.find((u) => /High Command|^Warlord/.test(u.role) || consul(u)), cmd = lost.find((u) => /^Command/.test(u.role));
     if (hc) state.award(side, pay(hc, m.secondaries.warlord + 1), `Slay the Warlord (${hc.name})`);
     else if (cmd) state.award(side, pay(cmd, m.secondaries.warlord), `Slay the Warlord (${cmd.name})`);
     // Giant Killer (X): any Lord of War or Warlord, once

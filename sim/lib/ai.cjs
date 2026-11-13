@@ -4,7 +4,7 @@
 // will this unit be safest and most useful when the enemy acts next?
 const { num, xOf, has, p2d6AtMost } = require('./rules.cjs');
 const { meleeGroup, expectedGroup } = require('./attack.cjs');
-const { planVolley, valuePerWound, rangeOf } = require('./fire.cjs');
+const { planVolley, valuePerWound, rangeOf, GUNS_OF_THE_CONQUEROR } = require('./fire.cjs');
 const { dist, gap, lineOfSight, inCover, inside, W, H } = require('./table.cjs');
 const { alive, passChance, canHold } = require('./checks.cjs');
 const core = require('./core.cjs');
@@ -30,7 +30,8 @@ function shootTable(state, a, b) {
   return out;
 }
 const evAt = (table, d) => { let v = 0; for (let i = BANDS.length - 1; i >= 0; i--) if (d <= BANDS[i]) v = table[i]; return v; };
-const maxRange = (u) => Math.max(0, ...alive(u).flatMap((m) => m.ranged.map((w) => rangeOf(w, m))));
+// (the Guns of the Conqueror are fired only through their reaction)
+const maxRange = (u) => Math.max(0, ...alive(u).flatMap((m) => m.ranged.filter((w) => !GUNS_OF_THE_CONQUEROR.test(w.name)).map((w) => rangeOf(w, m))));
 
 /** Expected points a unit deals in one round of combat against another. */
 function meleeEV(state, a, b) {

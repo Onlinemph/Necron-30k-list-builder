@@ -168,6 +168,8 @@ function buildUnit(armyId, list, slot, detachment, side) {
         name: r.name, p, rules: r.rules || [], unitType: r.unitType || '', vehicle, traits, items: r.items || [],
         wounds: vehicle ? num(p.HP, 1) : num(p.W, 1), maxWounds: vehicle ? num(p.HP, 1) : num(p.W, 1),
         ranged, melee, sergeant: /Sergeant|Command|Champion|Alpha/.test(r.unitType || '') || /Alpha|Sergeant|Champion|Exemplar|Prefector|Headsman|Huntmaster/.test(r.name),
+        // taken in the Primary Detachment (Sworn Loyalty and Shadow of the Conquerer ask for it)
+        primary: detachment.kind === 'primary',
       });
     }
   }
@@ -180,6 +182,8 @@ function buildUnit(armyId, list, slot, detachment, side) {
     traits: unitTraits, legion: LEGION_TRAIT[armyId] || null, rules, unitType, models,
     // Emperor's Children and World Eaters choose Legiones Astartes or Legiones Hereticus (CONFIRMED)
     rite: /Hereticus/.test(String(((list.config || {})['rite-of-war'] || [])[0] || '')) ? 'Hereticus' : 'Astartes',
+    // Loyalist or Traitor, from the list's configuration (or the unit's own), for Hatred (Loyalist) and Hatred (Traitor)
+    allegiance: ((list.config || {}).allegiance || [])[0] || def.allegiance || null,
     prime: !!slot.prime, primeAdvantage: sel.primeAdvantage || null, primeStats, detachment: detachment.name,
     vehicle: models.every((m) => m.vehicle), capacity, passengers: [], embarkedIn: null,
     x: 0, y: 0, r: 0, statuses: new Set(), lockedWith: new Set(), reserve: null, arrived: true, destroyed: false,
@@ -210,6 +214,14 @@ function buildArmy(src, side) {
       const armyId = det.allyOf || list.faction;
       units.push(buildUnit(armyId, list, slot, det, side));
     }
+  }
+  // Jealous Command (Kor Phaeron): if he is the only model with the Unique Sub-Type in the army, +1 Wounds and
+  // Leadership (CONFIRMED)
+  const uniques = units.flatMap((u) => u.models).filter((m) => /Unique/.test(m.unitType));
+  if (uniques.length === 1 && has(uniques[0].rules, 'Jealous Command')) {
+    const m = uniques[0];
+    m.p = Object.assign({}, m.p, { W: num(m.p.W, 1) + 1, LD: num(m.p.LD, 7) + 1 });
+    m.wounds += 1; m.maxWounds += 1;
   }
   return { side, faction: list.faction, name: list.name || list.faction, pointsLimit: list.pointsLimit || 3000, units, list };
 }

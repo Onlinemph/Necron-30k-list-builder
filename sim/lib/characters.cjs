@@ -24,8 +24,11 @@ function canJoin(c, h) {
   if (hm.some((m) => /Flyer|Fortification/.test(m.unitType) || m.vehicle)) return false;
   if (hm.some((m) => has(m.rules, 'Lone Killer')) || has(cm.rules, 'Lone Killer')) return false;
   const malefic = (m) => /Malefic/.test(m.unitType);
-  // The Power of the Word (Lorgar): he may join Malefic units as if he were Malefic
-  if (malefic(cm) !== hm.every(malefic) && !(has(cm.rules, 'The Power of the Word') && hm.every(malefic))) return false;
+  // The Power of the Word (Lorgar), Lord of the Blessed (Erebus): he may join Malefic units as if he were Malefic
+  if (malefic(cm) !== hm.every(malefic) && !((has(cm.rules, 'The Power of the Word') || has(cm.rules, 'Lord of the Blessed')) && hm.every(malefic))) return false;
+  // Corax's Shame (Deliverers): never joined by Corvus Corax; Wolf-kin of Russ: joined by nobody but Leman Russ (CONFIRMED)
+  if (has(h.rules, 'Corax’s Shame') && /^Corvus Corax/.test(cm.name || '')) return false;
+  if (has(h.rules, 'Wolf-kin of Russ') && !/^Leman Russ/.test(cm.name || '')) return false;
   // a Paragon joins Infantry; anyone else joins models that move as they do
   if (kind(cm) === 'Paragon') { if (!hm.some((m) => /Infantry/.test(m.unitType))) return false; }
   else if (!hm.some((m) => kind(m) === kind(cm))) return false;
@@ -90,9 +93,32 @@ function attach(state, c, h) {
   h.psyker = h.psyker || c.psyker;
   h.rules = [...new Set([...h.rules, ...m.rules.filter((r) => !ALL_OR_NOTHING.some((x) => r.startsWith(x)))])];
   h.traits = [...new Set([...h.traits, ...(m.traits || [])])];
+  // Void Commander (Alexis Polux) with a Breacher Squad, Master of the Justaerin (Ezekyle Abaddon) with a Justaerin
+  // Terminator Squad: the unit gains Deep Strike (CONFIRMED; the Feel No Pain on arrival is in move.cjs)
+  if ((has(m.rules, 'Void Commander') && /Breacher/.test(h.name)) || (has(m.rules, 'Master of the Justaerin') && /Justaerin/.test(h.name))) h.rules = [...new Set([...h.rules, 'Deep Strike'])];
+  // Lord of the Blessed (Erebus): in a Malefic unit he is treated as Malefic (CONFIRMED)
+  if (has(m.rules, 'Lord of the Blessed') && !/Malefic/.test(m.unitType) && h.models.every((x) => x === m || /Malefic/.test(x.unitType))) m.unitType = m.unitType.replace(/\)$/, ', Malefic)');
+  iconOfTheWarmaster(h, true);
   state.units = state.units.filter((u) => u !== c);
   for (const a of state.armies) a.units = a.units.filter((u) => u !== c);
   state.log(`${c.name} joins ${h.name}`);
 }
 
-module.exports = { joinCharacters, canJoin, isCharacter, attach };
+/**
+ * Icon of the Warmaster (Maloghurst the Twisted's wargear): while its bearer is part of a unit, that unit's models with
+ * Line (X) or Vanguard (X) have X one higher (CONFIRMED; ASSUMPTION: the text's "DX" is the X). on: the bearer is in
+ * the unit and alive; false puts the models' rules back (battle.cjs calls it when he falls).
+ */
+function iconOfTheWarmaster(h, on) {
+  const bearer = h.models.find((m) => m.joinedFrom && (m.items || []).some((i) => /^Icon of the Warmaster/i.test(i)));
+  if (!bearer) return;
+  for (const m of h.models) {
+    if (m === bearer) continue;
+    if (on && !m.iconBase && m.rules.some((r) => /^(Line|Vanguard) \(\d+\)/.test(r))) {
+      m.iconBase = m.rules;
+      m.rules = m.rules.map((r) => r.replace(/^(Line|Vanguard) \((\d+)\)/, (s, n, x) => `${n} (${+x + 1})`));
+    } else if (!on && m.iconBase) { m.rules = m.iconBase; m.iconBase = null; }
+  }
+}
+
+module.exports = { joinCharacters, canJoin, isCharacter, attach, iconOfTheWarmaster };
