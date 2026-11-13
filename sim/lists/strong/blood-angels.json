@@ -81,7 +81,7 @@
      "unit": {
       "unitId": "tactical-squad",
       "counts": {
-       "Legionary": 9,
+       "Legionary": 19,
        "Sergeant": 1
       }
      }
@@ -91,7 +91,7 @@
      "unit": {
       "unitId": "tactical-squad",
       "counts": {
-       "Legionary": 9,
+       "Legionary": 19,
        "Sergeant": 1
       }
      }
@@ -101,68 +101,25 @@
      "unit": {
       "unitId": "tactical-squad",
       "counts": {
-       "Legionary": 9,
+       "Legionary": 19,
        "Sergeant": 1
       }
      }
     },
     {
-     "role": "Troops",
-     "unit": {
-      "unitId": "tactical-squad",
-      "counts": {
-       "Legionary": 9,
-       "Sergeant": 1
-      }
-     }
+     "role": "Troops"
     },
     {
-     "role": "Transport",
-     "unit": {
-      "unitId": "rhino",
-      "counts": {
-       "Rhino": 1
-      },
-      "options": {
-       "rhino-pintle-1": "Pintle Mounted Iliastus assault cannon"
-      }
-     }
+     "role": "Transport"
     },
     {
-     "role": "Transport",
-     "unit": {
-      "unitId": "rhino",
-      "counts": {
-       "Rhino": 1
-      },
-      "options": {
-       "rhino-pintle-1": "Pintle Mounted Iliastus assault cannon"
-      }
-     }
+     "role": "Transport"
     },
     {
-     "role": "Transport",
-     "unit": {
-      "unitId": "rhino",
-      "counts": {
-       "Rhino": 1
-      },
-      "options": {
-       "rhino-pintle-1": "Pintle Mounted Iliastus assault cannon"
-      }
-     }
+     "role": "Transport"
     },
     {
-     "role": "Transport",
-     "unit": {
-      "unitId": "rhino",
-      "counts": {
-       "Rhino": 1
-      },
-      "options": {
-       "rhino-pintle-1": "Pintle Mounted Iliastus assault cannon"
-      }
-     }
+     "role": "Transport"
     }
    ]
   },
@@ -187,19 +144,12 @@
       "unitId": "crimson-paladins",
       "counts": {
        "Crimson Exemplar": 1,
-       "Crimson Paladin": 5
+       "Crimson Paladin": 4
       }
      }
     },
     {
-     "role": "Elites",
-     "unit": {
-      "unitId": "dawnbreaker-cohort",
-      "counts": {
-       "Dawnbreaker Champion": 1,
-       "Dawnbreaker": 9
-      }
-     }
+     "role": "Elites"
     }
    ],
    "defId": "core-army-vanguard"
@@ -223,6 +173,15 @@
     {
      "role": "Heavy Transport",
      "unit": {
+      "unitId": "spartan-assault-tank",
+      "counts": {
+       "Spartan": 1
+      }
+     }
+    },
+    {
+     "role": "Heavy Transport",
+     "unit": {
       "unitId": "land-raider-carrier",
       "counts": {
        "Land Raider Carrier": 1
@@ -237,28 +196,9 @@
     },
     {
      "role": "Heavy Transport"
-    },
-    {
-     "role": "Heavy Transport"
     }
    ],
    "defId": "core-armoured-fist"
-  },
-  {
-   "kind": "auxiliary",
-   "name": "Heavy Support",
-   "slots": [
-    {
-     "role": "War Engine",
-     "unit": {
-      "unitId": "leviathan-dreadnought",
-      "counts": {
-       "Leviathan Dreadnought": 1
-      }
-     }
-    }
-   ],
-   "defId": "core-heavy-support"
   },
   {
    "kind": "auxiliary",
@@ -318,6 +258,35 @@
     }
    ],
    "defId": "core-armoured-support"
+  },
+  {
+   "kind": "auxiliary",
+   "name": "Tactical Support",
+   "slots": [
+    {
+     "role": "Troops"
+    },
+    {
+     "role": "Troops"
+    },
+    {
+     "role": "Support",
+     "unit": {
+      "unitId": "heavy-support-squad",
+      "counts": {
+       "Sergeant": 1,
+       "Legionary": 7
+      },
+      "options": {
+       "unit-legion-heavy-weapons-list": "Lascannon"
+      }
+     }
+    },
+    {
+     "role": "Support"
+    }
+   ],
+   "defId": "core-tactical-support"
   }
  ]
 }

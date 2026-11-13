@@ -161,8 +161,8 @@ const PLANS = {
 // the simulator (four lascannon Predators, lascannon Heavy Support, Tactical Squads on foot) ----
 const GUNS = [PREDATOR, PREDATOR, PREDATOR, PREDATOR];
 const STRIKE = {
-  'world-eaters': { why: 'Rampagers ride a Spartan and Red Butchers a Land Raider, so Violence Incarnate lands the turn they arrive; four Predators and two big Tactical Squads hold the rest of the table.',
-    units: [...COMMAND, TACTICAL(), TACTICAL(), unit('Heavy Assault', 'rampager-squad', { Rampager: 14 }), SPARTAN, unit('Elites', 'red-butchers', { 'Red Butcher': 4 }), LAND_RAIDER, ...GUNS], fill: [unit('Elites', 'red-butchers', { 'Red Butcher': 4 })] },
+  'world-eaters': { why: 'Two Spartans, the World Eaters\' best guns as well as their best transports, carry Rampagers and ten Red Butchers so Violence Incarnate lands the turn they arrive; four Predators and two big Tactical Squads hold the rest of the table.',
+    units: [...COMMAND, TACTICAL(), TACTICAL(), unit('Heavy Assault', 'rampager-squad', { Rampager: 9 }), SPARTAN, unit('Elites', 'red-butchers', { 'Red Butcher': 9 }), SPARTAN, ...GUNS] },
   'space-wolves': { why: 'Varagyr, the Legion\'s best unit, ride a Spartan and a Land Raider so the Hunter\'s Strike charge lands from the transport; four Predators and lascannons cover them.',
     units: [...COMMAND, TACTICAL(), TACTICAL(), unit('Elites', 'varagyr-wolf-guard-terminators', { Varagyr: 9 }), SPARTAN, unit('Elites', 'varagyr-wolf-guard-terminators', { Varagyr: 4 }), LAND_RAIDER, ...GUNS, HEAVY_SUPPORT('Lascannon', 5)] },
   'salamanders': { why: 'Firedrakes ride two Land Raiders into the enemy line, tough under Promethean Endurance; four Predators and lascannons do the rest.',
@@ -196,12 +196,23 @@ const STRIKE = {
   'sons-of-horus': { why: 'Two Reaver squads and Justaerin, Vanguard units that shoot and fight with Death Dealers, behind four Predators and lascannon Heavy Support.',
     units: [...COMMAND, TACTICAL(), TACTICAL(), unit('Heavy Assault', 'reaver-attack-squad', { Reaver: 19 }), unit('Heavy Assault', 'reaver-attack-squad', { Reaver: 9 }), unit('Elites', 'justaerin-terminator-squad', { Justaerin: 10 }), ...GUNS, HEAVY_SUPPORT('Lascannon', 5), HEAVY_SUPPORT('Lascannon', 5)] },
 };
-// which plan each Legion uses ('strike' for the second plan), chosen by playing both (see the README)
-const CHOICE = {};
+// what the generic structure does for the Legions that play best with it
+const CORE_WHY = {
+  'alpha-legion': 'Headhunters infiltrate and shoot and Lernaean Terminators hold markers (Line), behind four Predators, lascannons and Tactical Squads in Rhinos; Lies and Obfuscation makes the whole line 2" harder to reach.',
+  'dark-angels': 'Inner Circle Knights Cenobium and plasma Dreadwing Interemptors on top of Tactical Squads, lascannons, four Predators and a Contemptor; the Angel of Death keeps them steady.',
+  'death-guard': 'Grave Wardens and fifteen Mortus Poisoners with two ten-strong lascannon Heavy Support Squads that fire on the move (Remorseless Advance), four Predators and big Tactical Squads.',
+  'emperors-children': 'Palatine Blades strike first on the charge (Flawless Execution); Kakophoni, lascannons, four Predators and a Contemptor bring the guns, and four big Tactical Squads hold.',
+  'iron-hands': 'Twenty Medusan Immortals and ten Gorgon Terminators advance under the Gorgon\'s Scales with Tactical Squads, lascannons and four Predators.',
+  'iron-warriors': 'Ten Tyrant Siege Terminators and Iron Havocs with lascannons and four Predators: a gunline that keeps firing through statuses (the Bitter End).',
+  'sons-of-horus': 'Justaerin and Reavers, Vanguard units that shoot and fight with Death Dealers, with lascannons, four Predators and Tactical Squads in Rhinos.',
+};
+// which version each Legion uses: 'plan' (the first plan), 'strike' (the second) or 'core' (the generic Legion list
+// with its weapons picked by value), chosen by playing every version against the same opponents (see the README)
+const CHOICE = { 'alpha-legion': 'core', 'blood-angels': 'strike', 'dark-angels': 'core', 'death-guard': 'core', 'emperors-children': 'core', 'iron-hands': 'core', 'iron-warriors': 'core', 'night-lords': 'strike', 'salamanders': 'strike', 'sons-of-horus': 'core', 'space-wolves': 'strike', 'thousand-sons': 'strike', 'ultramarines': 'strike', 'white-scars': 'strike', 'word-bearers': 'strike', 'world-eaters': 'strike' };
 
 function build(id, variant = CHOICE[id] || 'plan', file = `${__dirname}/${id}.json`) {
   // 'core': the generic Legion list (lists/legions) with its weapons picked by value
-  if (variant === 'core') return Object.assign(require('../legions/make.cjs').build(id, { smart: true, name: PLANS[id].name, file }), { variant });
+  if (variant === 'core') return Object.assign(require('../legions/make.cjs').build(id, { smart: true, name: PLANS[id].name, file }), { variant, why: CORE_WHY[id] });
   const plan = variant === 'strike' ? Object.assign({ name: PLANS[id].name }, STRIKE[id]) : PLANS[id];
   const b = createBuilder(id, { name: plan.name, smart: true });
   const skipped = [];
@@ -214,10 +225,10 @@ function build(id, variant = CHOICE[id] || 'plan', file = `${__dirname}/${id}.js
   for (const [uid, max] of plan.after || []) b.growAll((sl) => sl.unit.unitId === uid, max);
   // whatever is left goes into the Heavy Support Squads
   b.growAll((sl) => sl.unit.unitId === 'heavy-support-squad', 10);
-  return Object.assign(b.finish(file), { skipped, variant });
+  return Object.assign(b.finish(file), { skipped, variant, why: plan.why });
 }
 
-module.exports = { build, PLANS, STRIKE, CHOICE };
+module.exports = { build, PLANS, STRIKE, CHOICE, CORE_WHY };
 if (require.main === module) {
   for (const id of process.argv.slice(2).length ? process.argv.slice(2) : Object.keys(PLANS)) {
     try {

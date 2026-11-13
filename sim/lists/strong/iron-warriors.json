@@ -91,25 +91,66 @@
      "unit": {
       "unitId": "tactical-squad",
       "counts": {
-       "Legionary": 19,
+       "Legionary": 15,
        "Sergeant": 1
       }
      }
     },
     {
-     "role": "Troops"
+     "role": "Troops",
+     "unit": {
+      "unitId": "tactical-squad",
+      "counts": {
+       "Legionary": 15,
+       "Sergeant": 1
+      }
+     }
     },
     {
-     "role": "Troops"
+     "role": "Troops",
+     "unit": {
+      "unitId": "tactical-squad",
+      "counts": {
+       "Legionary": 15,
+       "Sergeant": 1
+      }
+     }
     },
     {
-     "role": "Transport"
+     "role": "Transport",
+     "unit": {
+      "unitId": "rhino",
+      "counts": {
+       "Rhino": 1
+      },
+      "options": {
+       "rhino-pintle-1": "Pintle Mounted multi-melta"
+      }
+     }
     },
     {
-     "role": "Transport"
+     "role": "Transport",
+     "unit": {
+      "unitId": "rhino",
+      "counts": {
+       "Rhino": 1
+      },
+      "options": {
+       "rhino-pintle-1": "Pintle Mounted multi-melta"
+      }
+     }
     },
     {
-     "role": "Transport"
+     "role": "Transport",
+     "unit": {
+      "unitId": "rhino",
+      "counts": {
+       "Rhino": 1
+      },
+      "options": {
+       "rhino-pintle-1": "Pintle Mounted multi-melta"
+      }
+     }
     },
     {
      "role": "Transport"
@@ -141,27 +182,46 @@
      }
     },
     {
-     "role": "Heavy Assault",
+     "role": "Heavy Assault"
+    }
+   ],
+   "defId": "core-shock-assault"
+  },
+  {
+   "kind": "auxiliary",
+   "name": "Tactical Support",
+   "slots": [
+    {
+     "role": "Troops"
+    },
+    {
+     "role": "Troops"
+    },
+    {
+     "role": "Support",
      "unit": {
-      "unitId": "tyrant-siege-terminator-squad",
+      "unitId": "iron-havocs",
       "counts": {
-       "Siege Master": 1,
-       "Tyrant": 9
+       "Iron Havoc": 9,
+       "Iron Havoc Sergeant": 1
+      }
+     }
+    },
+    {
+     "role": "Support",
+     "unit": {
+      "unitId": "heavy-support-squad",
+      "counts": {
+       "Sergeant": 1,
+       "Legionary": 9
       },
       "options": {
-       "siege-master-options": [
-        "Power fist",
-        "Combi-bolter"
-       ],
-       "tyrant-options": {
-        "Power fist": 9,
-        "Combi-bolter": 9
-       }
+       "unit-legion-heavy-weapons-list": "Lascannon"
       }
      }
     }
    ],
-   "defId": "core-shock-assault"
+   "defId": "core-tactical-support"
   },
   {
    "kind": "auxiliary",
@@ -188,17 +248,7 @@
        "Predator": 1
       },
       "options": {
-       "predator-legion-sponson-weapons": "Lascannon",
-       "predator-turret": "Twin lascannon"
-      }
-     }
-    },
-    {
-     "role": "Armour",
-     "unit": {
-      "unitId": "vindicator-siege-tank",
-      "counts": {
-       "Vindicator Siege Tank": 1
+       "predator-legion-sponson-weapons": "Heavy Bolters"
       }
      }
     },
@@ -214,51 +264,21 @@
        "predator-turret": "Twin lascannon"
       }
      }
+    },
+    {
+     "role": "Armour",
+     "unit": {
+      "unitId": "predator",
+      "counts": {
+       "Predator": 1
+      },
+      "options": {
+       "predator-legion-sponson-weapons": "Heavy Bolters"
+      }
+     }
     }
    ],
    "defId": "core-armoured-support"
-  },
-  {
-   "kind": "auxiliary",
-   "name": "Heavy Support",
-   "slots": [
-    {
-     "role": "War Engine",
-     "unit": {
-      "unitId": "deredeo-dreadnought",
-      "counts": {
-       "Deredeo Dreadnought": 1
-      },
-      "options": {
-       "unit-may-exchange-anvilus-autocannon-bat": "Arachnus heavy lascannon battery"
-      }
-     }
-    }
-   ],
-   "defId": "core-heavy-support"
-  },
-  {
-   "kind": "apex",
-   "name": "Combat Retinue",
-   "slots": [
-    {
-     "role": "Retinue",
-     "prime": true,
-     "unit": {
-      "unitId": "dominator-cohort",
-      "counts": {
-       "Dominator": 5
-      }
-     }
-    },
-    {
-     "role": "Retinue"
-    },
-    {
-     "role": "Retinue"
-    }
-   ],
-   "defId": "core-combat-retinue"
   }
  ]
 }

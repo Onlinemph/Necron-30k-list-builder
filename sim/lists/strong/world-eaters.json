@@ -84,7 +84,7 @@
      "unit": {
       "unitId": "tactical-squad",
       "counts": {
-       "Legionary": 9,
+       "Legionary": 17,
        "Sergeant": 1
       }
      }
@@ -94,7 +94,7 @@
      "unit": {
       "unitId": "tactical-squad",
       "counts": {
-       "Legionary": 9,
+       "Legionary": 16,
        "Sergeant": 1
       }
      }
@@ -106,40 +106,13 @@
      "role": "Troops"
     },
     {
-     "role": "Transport",
-     "unit": {
-      "unitId": "rhino",
-      "counts": {
-       "Rhino": 1
-      },
-      "options": {
-       "rhino-pintle-1": "Pintle Mounted multi-melta"
-      }
-     }
+     "role": "Transport"
     },
     {
-     "role": "Transport",
-     "unit": {
-      "unitId": "rhino",
-      "counts": {
-       "Rhino": 1
-      },
-      "options": {
-       "rhino-pintle-1": "Pintle Mounted multi-melta"
-      }
-     }
+     "role": "Transport"
     },
     {
-     "role": "Transport",
-     "unit": {
-      "unitId": "rhino",
-      "counts": {
-       "Rhino": 1
-      },
-      "options": {
-       "rhino-pintle-1": "Pintle Mounted multi-melta"
-      }
-     }
+     "role": "Transport"
     },
     {
      "role": "Transport"
@@ -156,12 +129,12 @@
       "unitId": "rampager-squad",
       "counts": {
        "Rampager Champion": 1,
-       "Rampager": 14
+       "Rampager": 9
       },
       "options": {
        "rampager-champion-options": "Power fist",
        "rampager-caedere-weapons": {
-        "Paired falax blades": 14
+        "Paired falax blades": 9
        }
       }
      }
@@ -200,12 +173,9 @@
     {
      "role": "Heavy Transport",
      "unit": {
-      "unitId": "land-raider-carrier",
+      "unitId": "spartan-assault-tank",
       "counts": {
-       "Land Raider Carrier": 1
-      },
-      "options": {
-       "land-raider-carrier-hull-front-weapon": "Twin lascannon"
+       "Spartan": 1
       }
      }
     },
@@ -229,29 +199,17 @@
       "unitId": "red-butchers",
       "counts": {
        "Devoured": 1,
-       "Red Butcher": 4
+       "Red Butcher": 9
       },
       "options": {
        "red-butcher-options": {
-        "Butcher power axes": 4
+        "Butcher power axes": 9
        }
       }
      }
     },
     {
-     "role": "Elites",
-     "unit": {
-      "unitId": "red-butchers",
-      "counts": {
-       "Devoured": 1,
-       "Red Butcher": 4
-      },
-      "options": {
-       "red-butcher-options": {
-        "Butcher power axes": 4
-       }
-      }
-     }
+     "role": "Elites"
     },
     {
      "role": "Elites"
@@ -261,19 +219,62 @@
   },
   {
    "kind": "auxiliary",
-   "name": "Heavy Support",
+   "name": "Armoured Support",
    "slots": [
     {
-     "role": "War Engine",
+     "role": "Armour",
      "unit": {
-      "unitId": "leviathan-dreadnought",
+      "unitId": "predator",
       "counts": {
-       "Leviathan Dreadnought": 1
+       "Predator": 1
+      },
+      "options": {
+       "predator-legion-sponson-weapons": "Lascannon",
+       "predator-turret": "Twin lascannon"
+      }
+     }
+    },
+    {
+     "role": "Armour",
+     "unit": {
+      "unitId": "predator",
+      "counts": {
+       "Predator": 1
+      },
+      "options": {
+       "predator-legion-sponson-weapons": "Lascannon",
+       "predator-turret": "Twin lascannon"
+      }
+     }
+    },
+    {
+     "role": "Armour",
+     "unit": {
+      "unitId": "predator",
+      "counts": {
+       "Predator": 1
+      },
+      "options": {
+       "predator-legion-sponson-weapons": "Lascannon",
+       "predator-turret": "Twin lascannon"
+      }
+     }
+    },
+    {
+     "role": "Armour",
+     "unit": {
+      "unitId": "predator",
+      "counts": {
+       "Predator": 1
+      },
+      "options": {
+       "predator-legion-sponson-weapons": "Lascannon",
+       "predator-turret": "Twin lascannon"
       }
      }
     }
    ],
-   "defId": "core-heavy-support"
+   "defId": "core-armoured-support"
   }
  ]
 }

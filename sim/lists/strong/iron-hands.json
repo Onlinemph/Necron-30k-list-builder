@@ -82,17 +82,7 @@
       "unitId": "medusan-immortals-squad",
       "counts": {
        "Immortal Sergeant": 1,
-       "Immortal": 9
-      }
-     }
-    },
-    {
-     "role": "Troops",
-     "unit": {
-      "unitId": "medusan-immortals-squad",
-      "counts": {
-       "Immortal Sergeant": 1,
-       "Immortal": 9
+       "Immortal": 19
       }
      }
     },
@@ -101,7 +91,7 @@
      "unit": {
       "unitId": "tactical-squad",
       "counts": {
-       "Legionary": 9,
+       "Legionary": 19,
        "Sergeant": 1
       }
      }
@@ -111,7 +101,17 @@
      "unit": {
       "unitId": "tactical-squad",
       "counts": {
-       "Legionary": 9,
+       "Legionary": 10,
+       "Sergeant": 1
+      }
+     }
+    },
+    {
+     "role": "Troops",
+     "unit": {
+      "unitId": "tactical-squad",
+      "counts": {
+       "Legionary": 10,
        "Sergeant": 1
       }
      }
@@ -141,7 +141,16 @@
      }
     },
     {
-     "role": "Transport"
+     "role": "Transport",
+     "unit": {
+      "unitId": "rhino",
+      "counts": {
+       "Rhino": 1
+      },
+      "options": {
+       "rhino-pintle-1": "Pintle Mounted multi-melta"
+      }
+     }
     },
     {
      "role": "Transport"
@@ -168,22 +177,56 @@
      }
     },
     {
-     "role": "Heavy Assault",
+     "role": "Heavy Assault"
+    }
+   ],
+   "defId": "core-shock-assault"
+  },
+  {
+   "kind": "auxiliary",
+   "name": "Tactical Support",
+   "slots": [
+    {
+     "role": "Troops",
      "unit": {
-      "unitId": "gorgon-terminator-squad",
+      "unitId": "tactical-squad",
       "counts": {
-       "Gorgon Hammerbearer": 1,
-       "Gorgon Terminator": 9
+       "Legionary": 9,
+       "Sergeant": 1
+      }
+     }
+    },
+    {
+     "role": "Troops"
+    },
+    {
+     "role": "Support",
+     "unit": {
+      "unitId": "heavy-support-squad",
+      "counts": {
+       "Sergeant": 1,
+       "Legionary": 7
       },
       "options": {
-       "gorgon-terminator-options": {
-        "Power fist": 9
-       }
+       "unit-legion-heavy-weapons-list": "Lascannon"
+      }
+     }
+    },
+    {
+     "role": "Support",
+     "unit": {
+      "unitId": "heavy-support-squad",
+      "counts": {
+       "Sergeant": 1,
+       "Legionary": 7
+      },
+      "options": {
+       "unit-legion-heavy-weapons-list": "Lascannon"
       }
      }
     }
    ],
-   "defId": "core-shock-assault"
+   "defId": "core-tactical-support"
   },
   {
    "kind": "auxiliary",
@@ -210,8 +253,7 @@
        "Predator": 1
       },
       "options": {
-       "predator-legion-sponson-weapons": "Lascannon",
-       "predator-turret": "Twin lascannon"
+       "predator-legion-sponson-weapons": "Heavy Bolters"
       }
      }
     },
@@ -229,56 +271,19 @@
      }
     },
     {
-     "role": "Armour"
+     "role": "Armour",
+     "unit": {
+      "unitId": "predator",
+      "counts": {
+       "Predator": 1
+      },
+      "options": {
+       "predator-legion-sponson-weapons": "Heavy Bolters"
+      }
+     }
     }
    ],
    "defId": "core-armoured-support"
-  },
-  {
-   "kind": "auxiliary",
-   "name": "Heavy Support",
-   "slots": [
-    {
-     "role": "War Engine",
-     "unit": {
-      "unitId": "leviathan-dreadnought",
-      "counts": {
-       "Leviathan Dreadnought": 1
-      }
-     }
-    }
-   ],
-   "defId": "core-heavy-support"
-  },
-  {
-   "kind": "apex",
-   "name": "Combat Retinue",
-   "slots": [
-    {
-     "role": "Retinue",
-     "prime": true,
-     "unit": {
-      "unitId": "morlock-terminator-squad",
-      "counts": {
-       "Morlock": 4,
-       "Augmentor": 1
-      },
-      "options": {
-       "morlock-may-have-its-power-weapon-exchan": {
-        "Power fist": 4
-       },
-       "augmentor-may-have-its-power-weapon-exch": "Power fist"
-      }
-     }
-    },
-    {
-     "role": "Retinue"
-    },
-    {
-     "role": "Retinue"
-    }
-   ],
-   "defId": "core-combat-retinue"
   }
  ]
 }

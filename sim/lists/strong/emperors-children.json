@@ -84,7 +84,7 @@
      "unit": {
       "unitId": "tactical-squad",
       "counts": {
-       "Legionary": 9,
+       "Legionary": 19,
        "Sergeant": 1
       }
      }
@@ -94,7 +94,7 @@
      "unit": {
       "unitId": "tactical-squad",
       "counts": {
-       "Legionary": 9,
+       "Legionary": 18,
        "Sergeant": 1
       }
      }
@@ -104,23 +104,18 @@
      "unit": {
       "unitId": "tactical-squad",
       "counts": {
-       "Legionary": 9,
+       "Legionary": 18,
        "Sergeant": 1
       }
      }
     },
     {
-     "role": "Troops"
-    },
-    {
-     "role": "Transport",
+     "role": "Troops",
      "unit": {
-      "unitId": "rhino",
+      "unitId": "tactical-squad",
       "counts": {
-       "Rhino": 1
-      },
-      "options": {
-       "rhino-pintle-1": "Pintle Mounted multi-melta"
+       "Legionary": 18,
+       "Sergeant": 1
       }
      }
     },
@@ -159,6 +154,9 @@
        "rhino-pintle-1": "Pintle Mounted multi-melta"
       }
      }
+    },
+    {
+     "role": "Transport"
     }
    ]
   },
@@ -178,27 +176,10 @@
      }
     },
     {
-     "role": "Elites",
-     "unit": {
-      "unitId": "palatine-blade-squad",
-      "counts": {
-       "Palatine Prefector": 1,
-       "Palatine Warrior": 9
-      }
-     }
+     "role": "Elites"
     },
     {
-     "role": "Elites",
-     "unit": {
-      "unitId": "sun-killer-squad",
-      "counts": {
-       "Sun Killer": 11,
-       "Novaetor": 1
-      },
-      "options": {
-       "unit-every-model-in-the-unit-must-have-o": "Lascannon"
-      }
-     }
+     "role": "Elites"
     }
    ],
    "defId": "core-army-vanguard"
@@ -224,7 +205,17 @@
      }
     },
     {
-     "role": "Support"
+     "role": "Support",
+     "unit": {
+      "unitId": "heavy-support-squad",
+      "counts": {
+       "Sergeant": 1,
+       "Legionary": 9
+      },
+      "options": {
+       "unit-legion-heavy-weapons-list": "Lascannon"
+      }
+     }
     }
    ],
    "defId": "core-tactical-support"
@@ -254,8 +245,7 @@
        "Predator": 1
       },
       "options": {
-       "predator-legion-sponson-weapons": "Lascannon",
-       "predator-turret": "Twin lascannon"
+       "predator-legion-sponson-weapons": "Heavy Bolters"
       }
      }
     },
@@ -273,7 +263,16 @@
      }
     },
     {
-     "role": "Armour"
+     "role": "Armour",
+     "unit": {
+      "unitId": "predator",
+      "counts": {
+       "Predator": 1
+      },
+      "options": {
+       "predator-legion-sponson-weapons": "Heavy Bolters"
+      }
+     }
     }
    ],
    "defId": "core-armoured-support"
@@ -285,9 +284,13 @@
     {
      "role": "War Engine",
      "unit": {
-      "unitId": "leviathan-dreadnought",
+      "unitId": "contemptor-dreadnought",
       "counts": {
-       "Leviathan Dreadnought": 1
+       "Contemptor Dreadnought": 1
+      },
+      "options": {
+       "unit-1-weapon-option-1": "Kheres assault cannon",
+       "unit-2-weapon-option-2": "Gravis power fist with in-built ranged weapon"
       }
      }
     }

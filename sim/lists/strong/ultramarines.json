@@ -81,7 +81,7 @@
      "unit": {
       "unitId": "tactical-squad",
       "counts": {
-       "Legionary": 9,
+       "Legionary": 18,
        "Sergeant": 1
       }
      }
@@ -91,7 +91,7 @@
      "unit": {
       "unitId": "tactical-squad",
       "counts": {
-       "Legionary": 9,
+       "Legionary": 17,
        "Sergeant": 1
       }
      }
@@ -101,44 +101,19 @@
      "unit": {
       "unitId": "tactical-squad",
       "counts": {
-       "Legionary": 9,
+       "Legionary": 17,
        "Sergeant": 1
       }
      }
     },
     {
-     "role": "Troops",
-     "unit": {
-      "unitId": "tactical-squad",
-      "counts": {
-       "Legionary": 9,
-       "Sergeant": 1
-      }
-     }
+     "role": "Troops"
     },
     {
-     "role": "Transport",
-     "unit": {
-      "unitId": "rhino",
-      "counts": {
-       "Rhino": 1
-      },
-      "options": {
-       "rhino-pintle-1": "Pintle Mounted multi-melta"
-      }
-     }
+     "role": "Transport"
     },
     {
-     "role": "Transport",
-     "unit": {
-      "unitId": "rhino",
-      "counts": {
-       "Rhino": 1
-      },
-      "options": {
-       "rhino-pintle-1": "Pintle Mounted multi-melta"
-      }
-     }
+     "role": "Transport"
     },
     {
      "role": "Transport"
@@ -200,6 +175,46 @@
   },
   {
    "kind": "auxiliary",
+   "name": "Armoured Fist",
+   "slots": [
+    {
+     "role": "Transport"
+    },
+    {
+     "role": "Transport"
+    },
+    {
+     "role": "Transport"
+    },
+    {
+     "role": "Transport"
+    },
+    {
+     "role": "Heavy Transport",
+     "unit": {
+      "unitId": "land-raider-carrier",
+      "counts": {
+       "Land Raider Carrier": 1
+      },
+      "options": {
+       "land-raider-carrier-hull-front-weapon": "Twin lascannon"
+      }
+     }
+    },
+    {
+     "role": "Heavy Transport"
+    },
+    {
+     "role": "Heavy Transport"
+    },
+    {
+     "role": "Heavy Transport"
+    }
+   ],
+   "defId": "core-armoured-fist"
+  },
+  {
+   "kind": "auxiliary",
    "name": "Armoured Support",
    "slots": [
     {
@@ -242,26 +257,20 @@
      }
     },
     {
-     "role": "Armour"
-    }
-   ],
-   "defId": "core-armoured-support"
-  },
-  {
-   "kind": "auxiliary",
-   "name": "Heavy Support",
-   "slots": [
-    {
-     "role": "War Engine",
+     "role": "Armour",
      "unit": {
-      "unitId": "leviathan-dreadnought",
+      "unitId": "predator",
       "counts": {
-       "Leviathan Dreadnought": 1
+       "Predator": 1
+      },
+      "options": {
+       "predator-legion-sponson-weapons": "Lascannon",
+       "predator-turret": "Twin lascannon"
       }
      }
     }
    ],
-   "defId": "core-heavy-support"
+   "defId": "core-armoured-support"
   }
  ]
 }

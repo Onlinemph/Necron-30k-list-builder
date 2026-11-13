@@ -81,7 +81,7 @@
      "unit": {
       "unitId": "tactical-squad",
       "counts": {
-       "Legionary": 9,
+       "Legionary": 19,
        "Sergeant": 1
       }
      }
@@ -91,7 +91,7 @@
      "unit": {
       "unitId": "tactical-squad",
       "counts": {
-       "Legionary": 9,
+       "Legionary": 19,
        "Sergeant": 1
       }
      }
@@ -103,28 +103,10 @@
      "role": "Troops"
     },
     {
-     "role": "Transport",
-     "unit": {
-      "unitId": "rhino",
-      "counts": {
-       "Rhino": 1
-      },
-      "options": {
-       "rhino-pintle-1": "Pintle Mounted multi-melta"
-      }
-     }
+     "role": "Transport"
     },
     {
-     "role": "Transport",
-     "unit": {
-      "unitId": "rhino",
-      "counts": {
-       "Rhino": 1
-      },
-      "options": {
-       "rhino-pintle-1": "Pintle Mounted multi-melta"
-      }
-     }
+     "role": "Transport"
     },
     {
      "role": "Transport"
@@ -160,14 +142,7 @@
      }
     },
     {
-     "role": "Elites",
-     "unit": {
-      "unitId": "varagyr-wolf-guard-terminators",
-      "counts": {
-       "Thegn": 1,
-       "Varagyr": 4
-      }
-     }
+     "role": "Elites"
     }
    ],
    "defId": "core-army-vanguard"
@@ -220,22 +195,6 @@
   },
   {
    "kind": "auxiliary",
-   "name": "Heavy Support",
-   "slots": [
-    {
-     "role": "War Engine",
-     "unit": {
-      "unitId": "leviathan-dreadnought",
-      "counts": {
-       "Leviathan Dreadnought": 1
-      }
-     }
-    }
-   ],
-   "defId": "core-heavy-support"
-  },
-  {
-   "kind": "auxiliary",
    "name": "Armoured Support",
    "slots": [
     {
@@ -265,13 +224,62 @@
      }
     },
     {
-     "role": "Armour"
+     "role": "Armour",
+     "unit": {
+      "unitId": "predator",
+      "counts": {
+       "Predator": 1
+      },
+      "options": {
+       "predator-legion-sponson-weapons": "Lascannon",
+       "predator-turret": "Twin lascannon"
+      }
+     }
     },
     {
-     "role": "Armour"
+     "role": "Armour",
+     "unit": {
+      "unitId": "predator",
+      "counts": {
+       "Predator": 1
+      },
+      "options": {
+       "predator-legion-sponson-weapons": "Lascannon",
+       "predator-turret": "Twin lascannon"
+      }
+     }
     }
    ],
    "defId": "core-armoured-support"
+  },
+  {
+   "kind": "auxiliary",
+   "name": "Tactical Support",
+   "slots": [
+    {
+     "role": "Troops"
+    },
+    {
+     "role": "Troops"
+    },
+    {
+     "role": "Support",
+     "unit": {
+      "unitId": "heavy-support-squad",
+      "counts": {
+       "Sergeant": 1,
+       "Legionary": 6
+      },
+      "options": {
+       "unit-legion-heavy-weapons-list": "Lascannon"
+      }
+     }
+    },
+    {
+     "role": "Support"
+    }
+   ],
+   "defId": "core-tactical-support"
   }
  ]
 }

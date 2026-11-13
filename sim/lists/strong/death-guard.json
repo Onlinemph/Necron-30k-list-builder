@@ -81,7 +81,7 @@
      "unit": {
       "unitId": "tactical-squad",
       "counts": {
-       "Legionary": 9,
+       "Legionary": 19,
        "Sergeant": 1
       }
      }
@@ -91,7 +91,7 @@
      "unit": {
       "unitId": "tactical-squad",
       "counts": {
-       "Legionary": 9,
+       "Legionary": 11,
        "Sergeant": 1
       }
      }
@@ -101,13 +101,20 @@
      "unit": {
       "unitId": "tactical-squad",
       "counts": {
-       "Legionary": 9,
+       "Legionary": 11,
        "Sergeant": 1
       }
      }
     },
     {
-     "role": "Troops"
+     "role": "Troops",
+     "unit": {
+      "unitId": "tactical-squad",
+      "counts": {
+       "Legionary": 10,
+       "Sergeant": 1
+      }
+     }
     },
     {
      "role": "Transport",
@@ -134,7 +141,16 @@
      }
     },
     {
-     "role": "Transport"
+     "role": "Transport",
+     "unit": {
+      "unitId": "rhino",
+      "counts": {
+       "Rhino": 1
+      },
+      "options": {
+       "rhino-pintle-1": "Pintle Mounted multi-melta"
+      }
+     }
     },
     {
      "role": "Transport"
@@ -156,17 +172,34 @@
      }
     },
     {
-     "role": "Heavy Assault",
-     "unit": {
-      "unitId": "grave-warden-terminator-squad",
-      "counts": {
-       "Chem-master": 1,
-       "Grave Warden": 9
-      }
-     }
+     "role": "Heavy Assault"
     }
    ],
    "defId": "core-shock-assault"
+  },
+  {
+   "kind": "apex",
+   "name": "Army Vanguard",
+   "slots": [
+    {
+     "role": "Elites",
+     "prime": true,
+     "unit": {
+      "unitId": "mortus-poisoner-squad",
+      "counts": {
+       "Mortus Poisoner": 14,
+       "Poison-master": 1
+      }
+     }
+    },
+    {
+     "role": "Elites"
+    },
+    {
+     "role": "Elites"
+    }
+   ],
+   "defId": "core-army-vanguard"
   },
   {
    "kind": "auxiliary",
@@ -209,48 +242,60 @@
   },
   {
    "kind": "auxiliary",
-   "name": "Heavy Support",
+   "name": "Armoured Support",
    "slots": [
     {
-     "role": "War Engine",
+     "role": "Armour",
      "unit": {
-      "unitId": "leviathan-dreadnought",
+      "unitId": "predator",
       "counts": {
-       "Leviathan Dreadnought": 1
-      }
-     }
-    }
-   ],
-   "defId": "core-heavy-support"
-  },
-  {
-   "kind": "apex",
-   "name": "Combat Retinue",
-   "slots": [
-    {
-     "role": "Retinue",
-     "prime": true,
-     "unit": {
-      "unitId": "deathshroud-terminator-squad",
-      "counts": {
-       "Deathshroud": 4
+       "Predator": 1
+      },
+      "options": {
+       "predator-legion-sponson-weapons": "Lascannon",
+       "predator-turret": "Twin lascannon"
       }
      }
     },
     {
-     "role": "Retinue",
+     "role": "Armour",
      "unit": {
-      "unitId": "deathshroud-terminator-squad",
+      "unitId": "predator",
       "counts": {
-       "Deathshroud": 3
+       "Predator": 1
+      },
+      "options": {
+       "predator-legion-sponson-weapons": "Heavy Bolters"
       }
      }
     },
     {
-     "role": "Retinue"
+     "role": "Armour",
+     "unit": {
+      "unitId": "predator",
+      "counts": {
+       "Predator": 1
+      },
+      "options": {
+       "predator-legion-sponson-weapons": "Lascannon",
+       "predator-turret": "Twin lascannon"
+      }
+     }
+    },
+    {
+     "role": "Armour",
+     "unit": {
+      "unitId": "predator",
+      "counts": {
+       "Predator": 1
+      },
+      "options": {
+       "predator-legion-sponson-weapons": "Heavy Bolters"
+      }
+     }
     }
    ],
-   "defId": "core-combat-retinue"
+   "defId": "core-armoured-support"
   }
  ]
 }

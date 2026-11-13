@@ -148,43 +148,12 @@
      "unit": {
       "unitId": "ebon-keshig",
       "counts": {
-       "Kharash": 5
+       "Kharash": 10
       }
      }
     }
    ],
    "defId": "core-shock-assault"
-  },
-  {
-   "kind": "apex",
-   "name": "Army Vanguard",
-   "slots": [
-    {
-     "role": "Elites",
-     "prime": true,
-     "unit": {
-      "unitId": "golden-keshig",
-      "counts": {
-       "Keshig Rider": 5,
-       "Keshig Champion": 1
-      }
-     }
-    },
-    {
-     "role": "Elites",
-     "unit": {
-      "unitId": "golden-keshig",
-      "counts": {
-       "Keshig Rider": 3,
-       "Keshig Champion": 1
-      }
-     }
-    },
-    {
-     "role": "Elites"
-    }
-   ],
-   "defId": "core-army-vanguard"
   },
   {
    "kind": "auxiliary",
@@ -247,19 +216,56 @@
   },
   {
    "kind": "auxiliary",
-   "name": "Heavy Support",
+   "name": "Tactical Support",
    "slots": [
     {
-     "role": "War Engine",
+     "role": "Troops"
+    },
+    {
+     "role": "Troops"
+    },
+    {
+     "role": "Support",
      "unit": {
-      "unitId": "leviathan-dreadnought",
+      "unitId": "heavy-support-squad",
       "counts": {
-       "Leviathan Dreadnought": 1
+       "Sergeant": 1,
+       "Legionary": 7
+      },
+      "options": {
+       "unit-legion-heavy-weapons-list": "Lascannon"
       }
      }
+    },
+    {
+     "role": "Support"
     }
    ],
-   "defId": "core-heavy-support"
+   "defId": "core-tactical-support"
+  },
+  {
+   "kind": "apex",
+   "name": "Army Vanguard",
+   "slots": [
+    {
+     "role": "Elites",
+     "prime": true,
+     "unit": {
+      "unitId": "golden-keshig",
+      "counts": {
+       "Keshig Rider": 4,
+       "Keshig Champion": 1
+      }
+     }
+    },
+    {
+     "role": "Elites"
+    },
+    {
+     "role": "Elites"
+    }
+   ],
+   "defId": "core-army-vanguard"
   }
  ]
 }

@@ -81,7 +81,7 @@
      "unit": {
       "unitId": "tactical-squad",
       "counts": {
-       "Legionary": 9,
+       "Legionary": 19,
        "Sergeant": 1
       }
      }
@@ -107,7 +107,14 @@
      }
     },
     {
-     "role": "Troops"
+     "role": "Troops",
+     "unit": {
+      "unitId": "tactical-squad",
+      "counts": {
+       "Legionary": 9,
+       "Sergeant": 1
+      }
+     }
     },
     {
      "role": "Transport",
@@ -160,12 +167,12 @@
      "unit": {
       "unitId": "inner-circle-knights-cenobium",
       "counts": {
-       "Order Cenobite": 4,
+       "Order Cenobite": 9,
        "Order Preceptor": 1
       },
       "options": {
        "order-cenobite-options": {
-        "Thunder hammer": 4
+        "Thunder hammer": 9
        },
        "order-preceptor-options": "Thunder hammer",
        "unit-orders-of-the-hekatonystika": "Augurs of Weakness"
@@ -173,21 +180,7 @@
      }
     },
     {
-     "role": "Elites",
-     "unit": {
-      "unitId": "inner-circle-knights-cenobium",
-      "counts": {
-       "Order Cenobite": 4,
-       "Order Preceptor": 1
-      },
-      "options": {
-       "order-cenobite-options": {
-        "Thunder hammer": 4
-       },
-       "order-preceptor-options": "Thunder hammer",
-       "unit-orders-of-the-hekatonystika": "Augurs of Weakness"
-      }
-     }
+     "role": "Elites"
     },
     {
      "role": "Elites"
@@ -197,68 +190,39 @@
   },
   {
    "kind": "auxiliary",
-   "name": "Armoured Fist",
+   "name": "Tactical Support",
    "slots": [
     {
-     "role": "Transport"
+     "role": "Troops"
     },
     {
-     "role": "Transport"
+     "role": "Troops"
     },
     {
-     "role": "Transport"
-    },
-    {
-     "role": "Transport"
-    },
-    {
-     "role": "Heavy Transport",
+     "role": "Support",
      "unit": {
-      "unitId": "land-raider-carrier",
+      "unitId": "dreadwing-interemptor-squad",
       "counts": {
-       "Land Raider Carrier": 1
-      },
-      "options": {
-       "land-raider-carrier-hull-front-weapon": "Twin lascannon"
+       "Interemptor Praefectus": 1,
+       "Interemptors": 9
       }
      }
     },
     {
-     "role": "Heavy Transport",
+     "role": "Support",
      "unit": {
-      "unitId": "land-raider-carrier",
+      "unitId": "heavy-support-squad",
       "counts": {
-       "Land Raider Carrier": 1
+       "Sergeant": 1,
+       "Legionary": 9
       },
       "options": {
-       "land-raider-carrier-hull-front-weapon": "Twin lascannon"
-      }
-     }
-    },
-    {
-     "role": "Heavy Transport"
-    },
-    {
-     "role": "Heavy Transport"
-    }
-   ],
-   "defId": "core-armoured-fist"
-  },
-  {
-   "kind": "auxiliary",
-   "name": "Heavy Support",
-   "slots": [
-    {
-     "role": "War Engine",
-     "unit": {
-      "unitId": "leviathan-dreadnought",
-      "counts": {
-       "Leviathan Dreadnought": 1
+       "unit-legion-heavy-weapons-list": "Lascannon"
       }
      }
     }
    ],
-   "defId": "core-heavy-support"
+   "defId": "core-tactical-support"
   },
   {
    "kind": "auxiliary",
@@ -285,8 +249,7 @@
        "Predator": 1
       },
       "options": {
-       "predator-legion-sponson-weapons": "Lascannon",
-       "predator-turret": "Twin lascannon"
+       "predator-legion-sponson-weapons": "Heavy Bolters"
       }
      }
     },
@@ -311,13 +274,32 @@
        "Predator": 1
       },
       "options": {
-       "predator-legion-sponson-weapons": "Lascannon",
-       "predator-turret": "Twin lascannon"
+       "predator-legion-sponson-weapons": "Heavy Bolters"
       }
      }
     }
    ],
    "defId": "core-armoured-support"
+  },
+  {
+   "kind": "auxiliary",
+   "name": "Heavy Support",
+   "slots": [
+    {
+     "role": "War Engine",
+     "unit": {
+      "unitId": "contemptor-dreadnought",
+      "counts": {
+       "Contemptor Dreadnought": 1
+      },
+      "options": {
+       "unit-1-weapon-option-1": "Kheres assault cannon",
+       "unit-2-weapon-option-2": "Gravis power fist with in-built ranged weapon"
+      }
+     }
+    }
+   ],
+   "defId": "core-heavy-support"
   }
  ]
 }
