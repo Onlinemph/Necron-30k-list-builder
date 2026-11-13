@@ -1,0 +1,271 @@
+{
+ "version": 2,
+ "faction": "world-eaters",
+ "name": "World Eaters: the Butcher's Due",
+ "pointsLimit": 3000,
+ "sequelae": [],
+ "config": {
+  "allegiance": [
+   "Traitor"
+  ],
+  "rite-of-war": [
+   "Legiones Hereticus World Eaters"
+  ]
+ },
+ "detachments": [
+  {
+   "kind": "primary",
+   "name": "Crusade Primary Detachment",
+   "slots": [
+    {
+     "role": "High Command",
+     "unit": {
+      "unitId": "praetor",
+      "counts": {
+       "Praetor": 1
+      },
+      "options": {
+       "praetor-options": [
+        "Power fist",
+        "Volkite serpenta"
+       ]
+      }
+     }
+    },
+    {
+     "role": "Command",
+     "prime": true,
+     "unit": {
+      "unitId": "centurion",
+      "counts": {
+       "Centurion": 1
+      },
+      "options": {
+       "centurion-options": [
+        "Power sword",
+        "Bolt pistol"
+       ]
+      }
+     }
+    },
+    {
+     "role": "Command",
+     "unit": {
+      "unitId": "centurion",
+      "counts": {
+       "Centurion": 1
+      },
+      "options": {
+       "centurion-options": [
+        "Power sword",
+        "Bolt pistol"
+       ]
+      }
+     }
+    },
+    {
+     "role": "Command",
+     "unit": {
+      "unitId": "centurion",
+      "counts": {
+       "Centurion": 1
+      },
+      "options": {
+       "centurion-options": [
+        "Power fist",
+        "Bolt pistol"
+       ]
+      }
+     }
+    },
+    {
+     "role": "Troops",
+     "prime": true,
+     "unit": {
+      "unitId": "tactical-squad",
+      "counts": {
+       "Legionary": 9,
+       "Sergeant": 1
+      }
+     }
+    },
+    {
+     "role": "Troops",
+     "unit": {
+      "unitId": "tactical-squad",
+      "counts": {
+       "Legionary": 9,
+       "Sergeant": 1
+      }
+     }
+    },
+    {
+     "role": "Troops"
+    },
+    {
+     "role": "Troops"
+    },
+    {
+     "role": "Transport",
+     "unit": {
+      "unitId": "rhino",
+      "counts": {
+       "Rhino": 1
+      },
+      "options": {
+       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+      }
+     }
+    },
+    {
+     "role": "Transport",
+     "unit": {
+      "unitId": "rhino",
+      "counts": {
+       "Rhino": 1
+      },
+      "options": {
+       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+      }
+     }
+    },
+    {
+     "role": "Transport"
+    },
+    {
+     "role": "Transport"
+    }
+   ]
+  },
+  {
+   "kind": "auxiliary",
+   "name": "Shock Assault",
+   "slots": [
+    {
+     "role": "Heavy Assault",
+     "unit": {
+      "unitId": "rampager-squad",
+      "counts": {
+       "Rampager Champion": 1,
+       "Rampager": 14
+      },
+      "options": {
+       "rampager-champion-options": "Pair of lightning claws",
+       "rampager-caedere-weapons": {
+        "Meteor hammer": 14
+       }
+      }
+     }
+    },
+    {
+     "role": "Heavy Assault",
+     "unit": {
+      "unitId": "rampager-squad",
+      "counts": {
+       "Rampager Champion": 1,
+       "Rampager": 9
+      },
+      "options": {
+       "rampager-champion-options": "Pair of lightning claws",
+       "rampager-caedere-weapons": {
+        "Meteor hammer": 9
+       }
+      }
+     }
+    }
+   ],
+   "defId": "core-shock-assault"
+  },
+  {
+   "kind": "auxiliary",
+   "name": "Armoured Fist",
+   "slots": [
+    {
+     "role": "Transport"
+    },
+    {
+     "role": "Transport"
+    },
+    {
+     "role": "Transport"
+    },
+    {
+     "role": "Transport"
+    },
+    {
+     "role": "Heavy Transport",
+     "unit": {
+      "unitId": "spartan-assault-tank",
+      "counts": {
+       "Spartan": 1
+      }
+     }
+    },
+    {
+     "role": "Heavy Transport",
+     "unit": {
+      "unitId": "land-raider-carrier",
+      "counts": {
+       "Land Raider Carrier": 1
+      },
+      "options": {
+       "land-raider-carrier-hull-front-weapon": "Twin lascannon"
+      }
+     }
+    },
+    {
+     "role": "Heavy Transport"
+    },
+    {
+     "role": "Heavy Transport"
+    }
+   ],
+   "defId": "core-armoured-fist"
+  },
+  {
+   "kind": "apex",
+   "name": "Army Vanguard",
+   "slots": [
+    {
+     "role": "Elites",
+     "prime": true,
+     "unit": {
+      "unitId": "red-butchers",
+      "counts": {
+       "Devoured": 1,
+       "Red Butcher": 4
+      },
+      "options": {
+       "red-butcher-options": {
+        "Butcher power axes": 4
+       }
+      }
+     }
+    },
+    {
+     "role": "Elites"
+    },
+    {
+     "role": "Elites"
+    }
+   ],
+   "defId": "core-army-vanguard"
+  },
+  {
+   "kind": "auxiliary",
+   "name": "Heavy Support",
+   "slots": [
+    {
+     "role": "War Engine",
+     "unit": {
+      "unitId": "leviathan-dreadnought",
+      "counts": {
+       "Leviathan Dreadnought": 1
+      }
+     }
+    }
+   ],
+   "defId": "core-heavy-support"
+  }
+ ]
+}

@@ -1,0 +1,288 @@
+{
+ "version": 2,
+ "faction": "sons-of-horus",
+ "name": "Sons of Horus: the Warmaster's Spear",
+ "pointsLimit": 3000,
+ "sequelae": [],
+ "config": {
+  "allegiance": [
+   "Traitor"
+  ]
+ },
+ "detachments": [
+  {
+   "kind": "primary",
+   "name": "Crusade Primary Detachment",
+   "slots": [
+    {
+     "role": "High Command",
+     "unit": {
+      "unitId": "praetor",
+      "counts": {
+       "Praetor": 1
+      },
+      "options": {
+       "praetor-options": [
+        "Power fist",
+        "Volkite serpenta"
+       ]
+      }
+     }
+    },
+    {
+     "role": "Command",
+     "prime": true,
+     "unit": {
+      "unitId": "centurion",
+      "counts": {
+       "Centurion": 1
+      },
+      "options": {
+       "centurion-options": [
+        "Power sword",
+        "Bolt pistol"
+       ]
+      }
+     }
+    },
+    {
+     "role": "Command",
+     "unit": {
+      "unitId": "centurion",
+      "counts": {
+       "Centurion": 1
+      },
+      "options": {
+       "centurion-options": [
+        "Power sword",
+        "Bolt pistol"
+       ]
+      }
+     }
+    },
+    {
+     "role": "Command",
+     "unit": {
+      "unitId": "centurion",
+      "counts": {
+       "Centurion": 1
+      },
+      "options": {
+       "centurion-options": [
+        "Power fist",
+        "Bolt pistol"
+       ]
+      }
+     }
+    },
+    {
+     "role": "Troops",
+     "prime": true,
+     "unit": {
+      "unitId": "tactical-squad",
+      "counts": {
+       "Legionary": 9,
+       "Sergeant": 1
+      }
+     }
+    },
+    {
+     "role": "Troops",
+     "unit": {
+      "unitId": "tactical-squad",
+      "counts": {
+       "Legionary": 9,
+       "Sergeant": 1
+      }
+     }
+    },
+    {
+     "role": "Troops"
+    },
+    {
+     "role": "Troops"
+    },
+    {
+     "role": "Transport",
+     "unit": {
+      "unitId": "rhino",
+      "counts": {
+       "Rhino": 1
+      },
+      "options": {
+       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+      }
+     }
+    },
+    {
+     "role": "Transport",
+     "unit": {
+      "unitId": "rhino",
+      "counts": {
+       "Rhino": 1
+      },
+      "options": {
+       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+      }
+     }
+    },
+    {
+     "role": "Transport",
+     "unit": {
+      "unitId": "rhino",
+      "counts": {
+       "Rhino": 1
+      },
+      "options": {
+       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+      }
+     }
+    },
+    {
+     "role": "Transport"
+    }
+   ]
+  },
+  {
+   "kind": "auxiliary",
+   "name": "Shock Assault",
+   "slots": [
+    {
+     "role": "Heavy Assault",
+     "unit": {
+      "unitId": "reaver-attack-squad",
+      "counts": {
+       "Reaver Chieftain": 1,
+       "Reaver": 19
+      },
+      "options": {
+       "reaver-chieftain-options": [
+        "Chainaxe",
+        "Bolt pistol"
+       ],
+       "reaver-options": {
+        "Chainaxe": 19,
+        "Bolt pistol": 19
+       }
+      }
+     }
+    },
+    {
+     "role": "Heavy Assault",
+     "unit": {
+      "unitId": "reaver-attack-squad",
+      "counts": {
+       "Reaver Chieftain": 1,
+       "Reaver": 9
+      },
+      "options": {
+       "reaver-chieftain-options": [
+        "Chainaxe",
+        "Bolt pistol"
+       ],
+       "reaver-options": {
+        "Chainaxe": 9,
+        "Bolt pistol": 9
+       }
+      }
+     }
+    }
+   ],
+   "defId": "core-shock-assault"
+  },
+  {
+   "kind": "apex",
+   "name": "Army Vanguard",
+   "slots": [
+    {
+     "role": "Elites",
+     "prime": true,
+     "unit": {
+      "unitId": "justaerin-terminator-squad",
+      "counts": {
+       "Justaerin": 10
+      },
+      "options": {
+       "justaerin-options": {
+        "Power sword": 10,
+        "Banestrike combi-bolter": 10
+       }
+      }
+     }
+    },
+    {
+     "role": "Elites",
+     "unit": {
+      "unitId": "justaerin-terminator-squad",
+      "counts": {
+       "Justaerin": 5
+      },
+      "options": {
+       "justaerin-options": {
+        "Power sword": 5,
+        "Banestrike combi-bolter": 5
+       }
+      }
+     }
+    },
+    {
+     "role": "Elites"
+    }
+   ],
+   "defId": "core-army-vanguard"
+  },
+  {
+   "kind": "auxiliary",
+   "name": "Armoured Fist",
+   "slots": [
+    {
+     "role": "Transport"
+    },
+    {
+     "role": "Transport"
+    },
+    {
+     "role": "Transport"
+    },
+    {
+     "role": "Transport"
+    },
+    {
+     "role": "Heavy Transport",
+     "unit": {
+      "unitId": "spartan-assault-tank",
+      "counts": {
+       "Spartan": 1
+      }
+     }
+    },
+    {
+     "role": "Heavy Transport"
+    },
+    {
+     "role": "Heavy Transport"
+    },
+    {
+     "role": "Heavy Transport"
+    }
+   ],
+   "defId": "core-armoured-fist"
+  },
+  {
+   "kind": "auxiliary",
+   "name": "Heavy Support",
+   "slots": [
+    {
+     "role": "War Engine",
+     "unit": {
+      "unitId": "leviathan-dreadnought",
+      "counts": {
+       "Leviathan Dreadnought": 1
+      }
+     }
+    }
+   ],
+   "defId": "core-heavy-support"
+  }
+ ]
+}

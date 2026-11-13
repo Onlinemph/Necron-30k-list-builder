@@ -444,3 +444,22 @@ test('AI: Line units hold markers and move on when a friend holds theirs; Vangua
   st.vanguardScored.add('2:0:2');
   assert.equal(ai.huntValue(st, hunter, foe, 50, 0.5), 15);
 });
+
+test('the Legion lists and the strength lists are legal in the builder at 3,000 points', () => {
+  const fs = require('fs');
+  const { loadArmyData } = require('../sim/lib/army.cjs');
+  for (const dir of ['legions', 'strong']) {
+    const files = fs.readdirSync(path.join(LISTS, dir)).filter((f) => f.endsWith('.json'));
+    assert.equal(files.length, 18, dir);
+    for (const f of files) {
+      const list = JSON.parse(fs.readFileSync(path.join(LISTS, dir, f), 'utf8'));
+      // list files leave out empty option and count maps
+      for (const d of list.detachments) for (const s of d.slots) if (s.unit) { s.unit.options = s.unit.options || {}; s.unit.counts = s.unit.counts || {}; }
+      const { E } = loadArmyData(list.faction);
+      E.setArmy(list);
+      const pts = list.detachments.reduce((t, d) => t + d.slots.filter((s) => s.unit).reduce((x, s) => x + E.unitPoints(s.unit, s), 0), 0);
+      assert.ok(pts <= 3000 && pts >= 2750, `${dir}/${f}: ${pts}`);
+      assert.deepEqual(E.armyIssues(list).filter((i) => i.level === 'error').map((i) => i.msg), [], `${dir}/${f}`);
+    }
+  }
+});

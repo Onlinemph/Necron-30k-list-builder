@@ -1,0 +1,316 @@
+{
+ "version": 2,
+ "faction": "night-lords",
+ "name": "Night Lords: the Terror Hunt",
+ "pointsLimit": 3000,
+ "sequelae": [],
+ "config": {
+  "allegiance": [
+   "Traitor"
+  ]
+ },
+ "detachments": [
+  {
+   "kind": "primary",
+   "name": "Crusade Primary Detachment",
+   "slots": [
+    {
+     "role": "High Command",
+     "unit": {
+      "unitId": "praetor",
+      "counts": {
+       "Praetor": 1
+      },
+      "options": {
+       "praetor-options": [
+        "Power fist",
+        "Volkite serpenta"
+       ]
+      }
+     }
+    },
+    {
+     "role": "Command",
+     "prime": true,
+     "unit": {
+      "unitId": "centurion",
+      "counts": {
+       "Centurion": 1
+      },
+      "options": {
+       "centurion-options": [
+        "Power sword",
+        "Bolt pistol"
+       ]
+      }
+     }
+    },
+    {
+     "role": "Command",
+     "unit": {
+      "unitId": "centurion",
+      "counts": {
+       "Centurion": 1
+      },
+      "options": {
+       "centurion-options": [
+        "Power sword",
+        "Bolt pistol"
+       ]
+      }
+     }
+    },
+    {
+     "role": "Command",
+     "unit": {
+      "unitId": "centurion",
+      "counts": {
+       "Centurion": 1
+      },
+      "options": {
+       "centurion-options": [
+        "Power fist",
+        "Bolt pistol"
+       ]
+      }
+     }
+    },
+    {
+     "role": "Troops",
+     "prime": true,
+     "unit": {
+      "unitId": "tactical-squad",
+      "counts": {
+       "Legionary": 9,
+       "Sergeant": 1
+      }
+     }
+    },
+    {
+     "role": "Troops",
+     "unit": {
+      "unitId": "tactical-squad",
+      "counts": {
+       "Legionary": 9,
+       "Sergeant": 1
+      }
+     }
+    },
+    {
+     "role": "Troops",
+     "unit": {
+      "unitId": "tactical-squad",
+      "counts": {
+       "Legionary": 9,
+       "Sergeant": 1
+      }
+     }
+    },
+    {
+     "role": "Troops"
+    },
+    {
+     "role": "Transport",
+     "unit": {
+      "unitId": "rhino",
+      "counts": {
+       "Rhino": 1
+      },
+      "options": {
+       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+      }
+     }
+    },
+    {
+     "role": "Transport",
+     "unit": {
+      "unitId": "rhino",
+      "counts": {
+       "Rhino": 1
+      },
+      "options": {
+       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+      }
+     }
+    },
+    {
+     "role": "Transport",
+     "unit": {
+      "unitId": "rhino",
+      "counts": {
+       "Rhino": 1
+      },
+      "options": {
+       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+      }
+     }
+    },
+    {
+     "role": "Transport"
+    }
+   ]
+  },
+  {
+   "kind": "auxiliary",
+   "name": "Shock Assault",
+   "slots": [
+    {
+     "role": "Heavy Assault",
+     "unit": {
+      "unitId": "atramentar-flay-clade",
+      "counts": {
+       "Atramentar Trucidor": 1,
+       "Atramentar": 9
+      },
+      "options": {
+       "atramentar-trucidor-options": [
+        "Power fist",
+        "Combi-bolter"
+       ],
+       "atramentar-options": {
+        "Power fist": 9,
+        "Combi-bolter": 9
+       }
+      }
+     }
+    },
+    {
+     "role": "Heavy Assault",
+     "unit": {
+      "unitId": "atramentar-flay-clade",
+      "counts": {
+       "Atramentar Trucidor": 1,
+       "Atramentar": 9
+      },
+      "options": {
+       "atramentar-trucidor-options": [
+        "Power fist",
+        "Combi-bolter"
+       ],
+       "atramentar-options": {
+        "Power fist": 9,
+        "Combi-bolter": 9
+       }
+      }
+     }
+    }
+   ],
+   "defId": "core-shock-assault"
+  },
+  {
+   "kind": "apex",
+   "name": "Army Vanguard",
+   "slots": [
+    {
+     "role": "Elites",
+     "prime": true,
+     "unit": {
+      "unitId": "contekar-terminator-squad",
+      "counts": {
+       "Dissident": 1,
+       "Contekar": 5
+      }
+     }
+    },
+    {
+     "role": "Elites",
+     "unit": {
+      "unitId": "contekar-terminator-squad",
+      "counts": {
+       "Dissident": 1,
+       "Contekar": 5
+      }
+     }
+    },
+    {
+     "role": "Elites"
+    }
+   ],
+   "defId": "core-army-vanguard"
+  },
+  {
+   "kind": "auxiliary",
+   "name": "Tactical Support",
+   "slots": [
+    {
+     "role": "Troops"
+    },
+    {
+     "role": "Troops"
+    },
+    {
+     "role": "Support",
+     "unit": {
+      "unitId": "heavy-support-squad",
+      "counts": {
+       "Sergeant": 1,
+       "Legionary": 9
+      }
+     }
+    },
+    {
+     "role": "Support",
+     "unit": {
+      "unitId": "heavy-support-squad",
+      "counts": {
+       "Sergeant": 1,
+       "Legionary": 4
+      },
+      "options": {
+       "unit-legion-heavy-weapons-list": "Lascannon"
+      }
+     }
+    }
+   ],
+   "defId": "core-tactical-support"
+  },
+  {
+   "kind": "auxiliary",
+   "name": "Armoured Support",
+   "slots": [
+    {
+     "role": "Armour",
+     "unit": {
+      "unitId": "predator",
+      "counts": {
+       "Predator": 1
+      },
+      "options": {
+       "predator-legion-sponson-weapons": "Heavy Bolters"
+      }
+     }
+    },
+    {
+     "role": "Armour",
+     "unit": {
+      "unitId": "predator",
+      "counts": {
+       "Predator": 1
+      },
+      "options": {
+       "predator-legion-sponson-weapons": "Lascannon",
+       "predator-turret": "Twin lascannon"
+      }
+     }
+    },
+    {
+     "role": "Armour",
+     "unit": {
+      "unitId": "predator",
+      "counts": {
+       "Predator": 1
+      },
+      "options": {
+       "predator-legion-sponson-weapons": "Lascannon",
+       "predator-turret": "Twin lascannon"
+      }
+     }
+    },
+    {
+     "role": "Armour"
+    }
+   ],
+   "defId": "core-armoured-support"
+  }
+ ]
+}

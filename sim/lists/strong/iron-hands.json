@@ -1,0 +1,297 @@
+{
+ "version": 2,
+ "faction": "iron-hands",
+ "name": "Iron Hands: the Medusan Phalanx",
+ "pointsLimit": 3000,
+ "sequelae": [],
+ "config": {
+  "allegiance": [
+   "Loyalist"
+  ]
+ },
+ "detachments": [
+  {
+   "kind": "primary",
+   "name": "Crusade Primary Detachment",
+   "slots": [
+    {
+     "role": "High Command",
+     "unit": {
+      "unitId": "praetor",
+      "counts": {
+       "Praetor": 1
+      },
+      "options": {
+       "praetor-options": [
+        "Power fist",
+        "Volkite serpenta"
+       ]
+      }
+     }
+    },
+    {
+     "role": "Command",
+     "prime": true,
+     "unit": {
+      "unitId": "centurion",
+      "counts": {
+       "Centurion": 1
+      },
+      "options": {
+       "centurion-options": [
+        "Power sword",
+        "Bolt pistol"
+       ]
+      }
+     }
+    },
+    {
+     "role": "Command",
+     "unit": {
+      "unitId": "centurion",
+      "counts": {
+       "Centurion": 1
+      },
+      "options": {
+       "centurion-options": [
+        "Power sword",
+        "Bolt pistol"
+       ]
+      }
+     }
+    },
+    {
+     "role": "Command",
+     "unit": {
+      "unitId": "centurion",
+      "counts": {
+       "Centurion": 1
+      },
+      "options": {
+       "centurion-options": [
+        "Power fist",
+        "Bolt pistol"
+       ]
+      }
+     }
+    },
+    {
+     "role": "Troops",
+     "prime": true,
+     "unit": {
+      "unitId": "medusan-immortals-squad",
+      "counts": {
+       "Immortal Sergeant": 1,
+       "Immortal": 9
+      }
+     }
+    },
+    {
+     "role": "Troops",
+     "unit": {
+      "unitId": "medusan-immortals-squad",
+      "counts": {
+       "Immortal Sergeant": 1,
+       "Immortal": 9
+      }
+     }
+    },
+    {
+     "role": "Troops",
+     "unit": {
+      "unitId": "tactical-squad",
+      "counts": {
+       "Legionary": 9,
+       "Sergeant": 1
+      }
+     }
+    },
+    {
+     "role": "Troops",
+     "unit": {
+      "unitId": "tactical-squad",
+      "counts": {
+       "Legionary": 9,
+       "Sergeant": 1
+      }
+     }
+    },
+    {
+     "role": "Transport",
+     "unit": {
+      "unitId": "rhino",
+      "counts": {
+       "Rhino": 1
+      },
+      "options": {
+       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+      }
+     }
+    },
+    {
+     "role": "Transport",
+     "unit": {
+      "unitId": "rhino",
+      "counts": {
+       "Rhino": 1
+      },
+      "options": {
+       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+      }
+     }
+    },
+    {
+     "role": "Transport"
+    },
+    {
+     "role": "Transport"
+    }
+   ]
+  },
+  {
+   "kind": "auxiliary",
+   "name": "Shock Assault",
+   "slots": [
+    {
+     "role": "Heavy Assault",
+     "unit": {
+      "unitId": "gorgon-terminator-squad",
+      "counts": {
+       "Gorgon Hammerbearer": 1,
+       "Gorgon Terminator": 9
+      },
+      "options": {
+       "gorgon-terminator-options": {
+        "Artificer Power Axe": 9
+       }
+      }
+     }
+    },
+    {
+     "role": "Heavy Assault",
+     "unit": {
+      "unitId": "gorgon-terminator-squad",
+      "counts": {
+       "Gorgon Hammerbearer": 1,
+       "Gorgon Terminator": 9
+      },
+      "options": {
+       "gorgon-terminator-options": {
+        "Artificer Power Axe": 9
+       }
+      }
+     }
+    }
+   ],
+   "defId": "core-shock-assault"
+  },
+  {
+   "kind": "auxiliary",
+   "name": "Armoured Support",
+   "slots": [
+    {
+     "role": "Armour",
+     "unit": {
+      "unitId": "predator",
+      "counts": {
+       "Predator": 1
+      },
+      "options": {
+       "predator-legion-sponson-weapons": "Lascannon",
+       "predator-turret": "Twin lascannon"
+      }
+     }
+    },
+    {
+     "role": "Armour",
+     "unit": {
+      "unitId": "predator",
+      "counts": {
+       "Predator": 1
+      },
+      "options": {
+       "predator-legion-sponson-weapons": "Lascannon",
+       "predator-turret": "Twin lascannon"
+      }
+     }
+    },
+    {
+     "role": "Armour",
+     "unit": {
+      "unitId": "predator",
+      "counts": {
+       "Predator": 1
+      },
+      "options": {
+       "predator-legion-sponson-weapons": "Lascannon",
+       "predator-turret": "Twin lascannon"
+      }
+     }
+    },
+    {
+     "role": "Armour"
+    }
+   ],
+   "defId": "core-armoured-support"
+  },
+  {
+   "kind": "auxiliary",
+   "name": "Heavy Support",
+   "slots": [
+    {
+     "role": "War Engine",
+     "unit": {
+      "unitId": "leviathan-dreadnought",
+      "counts": {
+       "Leviathan Dreadnought": 1
+      }
+     }
+    }
+   ],
+   "defId": "core-heavy-support"
+  },
+  {
+   "kind": "apex",
+   "name": "Combat Retinue",
+   "slots": [
+    {
+     "role": "Retinue",
+     "prime": true,
+     "unit": {
+      "unitId": "morlock-terminator-squad",
+      "counts": {
+       "Morlock": 4,
+       "Augmentor": 1
+      },
+      "options": {
+       "morlock-may-have-its-power-weapon-exchan": {
+        "Artificer Power Axe": 4
+       },
+       "augmentor-may-have-its-power-weapon-exch": "Artificer Power Axe"
+      }
+     }
+    },
+    {
+     "role": "Retinue",
+     "unit": {
+      "unitId": "morlock-terminator-squad",
+      "counts": {
+       "Morlock": 4,
+       "Augmentor": 1
+      },
+      "options": {
+       "morlock-may-have-its-power-weapon-exchan": {
+        "Artificer Power Axe": 4
+       },
+       "augmentor-may-have-its-power-weapon-exch": "Artificer Power Axe"
+      }
+     }
+    },
+    {
+     "role": "Retinue"
+    }
+   ],
+   "defId": "core-combat-retinue"
+  }
+ ]
+}

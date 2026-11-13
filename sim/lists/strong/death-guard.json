@@ -1,0 +1,256 @@
+{
+ "version": 2,
+ "faction": "death-guard",
+ "name": "Death Guard: the Remorseless Advance",
+ "pointsLimit": 3000,
+ "sequelae": [],
+ "config": {
+  "allegiance": [
+   "Traitor"
+  ]
+ },
+ "detachments": [
+  {
+   "kind": "primary",
+   "name": "Crusade Primary Detachment",
+   "slots": [
+    {
+     "role": "High Command",
+     "unit": {
+      "unitId": "praetor",
+      "counts": {
+       "Praetor": 1
+      },
+      "options": {
+       "praetor-options": [
+        "Power fist",
+        "Volkite serpenta"
+       ]
+      }
+     }
+    },
+    {
+     "role": "Command",
+     "prime": true,
+     "unit": {
+      "unitId": "centurion",
+      "counts": {
+       "Centurion": 1
+      },
+      "options": {
+       "centurion-options": [
+        "Power sword",
+        "Bolt pistol"
+       ]
+      }
+     }
+    },
+    {
+     "role": "Command",
+     "unit": {
+      "unitId": "centurion",
+      "counts": {
+       "Centurion": 1
+      },
+      "options": {
+       "centurion-options": [
+        "Power sword",
+        "Bolt pistol"
+       ]
+      }
+     }
+    },
+    {
+     "role": "Command",
+     "unit": {
+      "unitId": "centurion",
+      "counts": {
+       "Centurion": 1
+      },
+      "options": {
+       "centurion-options": [
+        "Power fist",
+        "Bolt pistol"
+       ]
+      }
+     }
+    },
+    {
+     "role": "Troops",
+     "prime": true,
+     "unit": {
+      "unitId": "tactical-squad",
+      "counts": {
+       "Legionary": 9,
+       "Sergeant": 1
+      }
+     }
+    },
+    {
+     "role": "Troops",
+     "unit": {
+      "unitId": "tactical-squad",
+      "counts": {
+       "Legionary": 9,
+       "Sergeant": 1
+      }
+     }
+    },
+    {
+     "role": "Troops",
+     "unit": {
+      "unitId": "tactical-squad",
+      "counts": {
+       "Legionary": 9,
+       "Sergeant": 1
+      }
+     }
+    },
+    {
+     "role": "Troops"
+    },
+    {
+     "role": "Transport",
+     "unit": {
+      "unitId": "rhino",
+      "counts": {
+       "Rhino": 1
+      },
+      "options": {
+       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+      }
+     }
+    },
+    {
+     "role": "Transport",
+     "unit": {
+      "unitId": "rhino",
+      "counts": {
+       "Rhino": 1
+      },
+      "options": {
+       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+      }
+     }
+    },
+    {
+     "role": "Transport"
+    },
+    {
+     "role": "Transport"
+    }
+   ]
+  },
+  {
+   "kind": "auxiliary",
+   "name": "Shock Assault",
+   "slots": [
+    {
+     "role": "Heavy Assault",
+     "unit": {
+      "unitId": "grave-warden-terminator-squad",
+      "counts": {
+       "Chem-master": 1,
+       "Grave Warden": 9
+      }
+     }
+    },
+    {
+     "role": "Heavy Assault",
+     "unit": {
+      "unitId": "grave-warden-terminator-squad",
+      "counts": {
+       "Chem-master": 1,
+       "Grave Warden": 9
+      }
+     }
+    }
+   ],
+   "defId": "core-shock-assault"
+  },
+  {
+   "kind": "auxiliary",
+   "name": "Tactical Support",
+   "slots": [
+    {
+     "role": "Troops"
+    },
+    {
+     "role": "Troops"
+    },
+    {
+     "role": "Support",
+     "unit": {
+      "unitId": "heavy-support-squad",
+      "counts": {
+       "Sergeant": 1,
+       "Legionary": 9
+      },
+      "options": {
+       "unit-legion-heavy-weapons-list": "Lascannon"
+      }
+     }
+    },
+    {
+     "role": "Support",
+     "unit": {
+      "unitId": "heavy-support-squad",
+      "counts": {
+       "Sergeant": 1,
+       "Legionary": 9
+      },
+      "options": {
+       "unit-legion-heavy-weapons-list": "Lascannon"
+      }
+     }
+    }
+   ],
+   "defId": "core-tactical-support"
+  },
+  {
+   "kind": "auxiliary",
+   "name": "Heavy Support",
+   "slots": [
+    {
+     "role": "War Engine",
+     "unit": {
+      "unitId": "leviathan-dreadnought",
+      "counts": {
+       "Leviathan Dreadnought": 1
+      }
+     }
+    }
+   ],
+   "defId": "core-heavy-support"
+  },
+  {
+   "kind": "apex",
+   "name": "Combat Retinue",
+   "slots": [
+    {
+     "role": "Retinue",
+     "prime": true,
+     "unit": {
+      "unitId": "deathshroud-terminator-squad",
+      "counts": {
+       "Deathshroud": 4
+      }
+     }
+    },
+    {
+     "role": "Retinue",
+     "unit": {
+      "unitId": "deathshroud-terminator-squad",
+      "counts": {
+       "Deathshroud": 4
+      }
+     }
+    },
+    {
+     "role": "Retinue"
+    }
+   ],
+   "defId": "core-combat-retinue"
+  }
+ ]
+}

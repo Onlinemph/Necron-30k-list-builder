@@ -1,0 +1,264 @@
+{
+ "version": 2,
+ "faction": "iron-warriors",
+ "name": "Iron Warriors: the Iron Wall",
+ "pointsLimit": 3000,
+ "sequelae": [],
+ "config": {
+  "allegiance": [
+   "Traitor"
+  ]
+ },
+ "detachments": [
+  {
+   "kind": "primary",
+   "name": "Crusade Primary Detachment",
+   "slots": [
+    {
+     "role": "High Command",
+     "unit": {
+      "unitId": "praetor",
+      "counts": {
+       "Praetor": 1
+      },
+      "options": {
+       "praetor-options": [
+        "Power fist",
+        "Volkite serpenta"
+       ]
+      }
+     }
+    },
+    {
+     "role": "Command",
+     "prime": true,
+     "unit": {
+      "unitId": "centurion",
+      "counts": {
+       "Centurion": 1
+      },
+      "options": {
+       "centurion-options": [
+        "Power sword",
+        "Bolt pistol"
+       ]
+      }
+     }
+    },
+    {
+     "role": "Command",
+     "unit": {
+      "unitId": "centurion",
+      "counts": {
+       "Centurion": 1
+      },
+      "options": {
+       "centurion-options": [
+        "Power sword",
+        "Bolt pistol"
+       ]
+      }
+     }
+    },
+    {
+     "role": "Command",
+     "unit": {
+      "unitId": "centurion",
+      "counts": {
+       "Centurion": 1
+      },
+      "options": {
+       "centurion-options": [
+        "Power fist",
+        "Bolt pistol"
+       ]
+      }
+     }
+    },
+    {
+     "role": "Troops",
+     "prime": true,
+     "unit": {
+      "unitId": "tactical-squad",
+      "counts": {
+       "Legionary": 19,
+       "Sergeant": 1
+      }
+     }
+    },
+    {
+     "role": "Troops",
+     "unit": {
+      "unitId": "tactical-squad",
+      "counts": {
+       "Legionary": 19,
+       "Sergeant": 1
+      }
+     }
+    },
+    {
+     "role": "Troops"
+    },
+    {
+     "role": "Troops"
+    },
+    {
+     "role": "Transport"
+    },
+    {
+     "role": "Transport"
+    },
+    {
+     "role": "Transport"
+    },
+    {
+     "role": "Transport"
+    }
+   ]
+  },
+  {
+   "kind": "auxiliary",
+   "name": "Shock Assault",
+   "slots": [
+    {
+     "role": "Heavy Assault",
+     "unit": {
+      "unitId": "tyrant-siege-terminator-squad",
+      "counts": {
+       "Siege Master": 1,
+       "Tyrant": 9
+      },
+      "options": {
+       "siege-master-options": [
+        "Power fist",
+        "Combi-bolter"
+       ],
+       "tyrant-options": {
+        "Power fist": 9,
+        "Combi-bolter": 9
+       }
+      }
+     }
+    },
+    {
+     "role": "Heavy Assault",
+     "unit": {
+      "unitId": "tyrant-siege-terminator-squad",
+      "counts": {
+       "Siege Master": 1,
+       "Tyrant": 9
+      },
+      "options": {
+       "siege-master-options": [
+        "Power fist",
+        "Combi-bolter"
+       ],
+       "tyrant-options": {
+        "Power fist": 9,
+        "Combi-bolter": 9
+       }
+      }
+     }
+    }
+   ],
+   "defId": "core-shock-assault"
+  },
+  {
+   "kind": "auxiliary",
+   "name": "Armoured Support",
+   "slots": [
+    {
+     "role": "Armour",
+     "unit": {
+      "unitId": "predator",
+      "counts": {
+       "Predator": 1
+      },
+      "options": {
+       "predator-legion-sponson-weapons": "Lascannon",
+       "predator-turret": "Twin lascannon"
+      }
+     }
+    },
+    {
+     "role": "Armour",
+     "unit": {
+      "unitId": "predator",
+      "counts": {
+       "Predator": 1
+      },
+      "options": {
+       "predator-legion-sponson-weapons": "Lascannon",
+       "predator-turret": "Twin lascannon"
+      }
+     }
+    },
+    {
+     "role": "Armour",
+     "unit": {
+      "unitId": "vindicator-siege-tank",
+      "counts": {
+       "Vindicator Siege Tank": 1
+      }
+     }
+    },
+    {
+     "role": "Armour",
+     "unit": {
+      "unitId": "predator",
+      "counts": {
+       "Predator": 1
+      },
+      "options": {
+       "predator-legion-sponson-weapons": "Lascannon",
+       "predator-turret": "Twin lascannon"
+      }
+     }
+    }
+   ],
+   "defId": "core-armoured-support"
+  },
+  {
+   "kind": "auxiliary",
+   "name": "Heavy Support",
+   "slots": [
+    {
+     "role": "War Engine",
+     "unit": {
+      "unitId": "deredeo-dreadnought",
+      "counts": {
+       "Deredeo Dreadnought": 1
+      },
+      "options": {
+       "unit-may-exchange-anvilus-autocannon-bat": "Arachnus heavy lascannon battery"
+      }
+     }
+    }
+   ],
+   "defId": "core-heavy-support"
+  },
+  {
+   "kind": "apex",
+   "name": "Combat Retinue",
+   "slots": [
+    {
+     "role": "Retinue",
+     "prime": true,
+     "unit": {
+      "unitId": "dominator-cohort",
+      "counts": {
+       "Dominator": 5
+      }
+     }
+    },
+    {
+     "role": "Retinue"
+    },
+    {
+     "role": "Retinue"
+    }
+   ],
+   "defId": "core-combat-retinue"
+  }
+ ]
+}

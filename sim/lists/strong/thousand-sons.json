@@ -1,0 +1,274 @@
+{
+ "version": 2,
+ "faction": "thousand-sons",
+ "name": "Thousand Sons: the Cult Arcana",
+ "pointsLimit": 3000,
+ "sequelae": [],
+ "config": {
+  "allegiance": [
+   "Traitor"
+  ]
+ },
+ "detachments": [
+  {
+   "kind": "primary",
+   "name": "Crusade Primary Detachment",
+   "slots": [
+    {
+     "role": "High Command",
+     "unit": {
+      "unitId": "praetor",
+      "counts": {
+       "Praetor": 1
+      },
+      "options": {
+       "praetor-options": [
+        "Power fist",
+        "Volkite serpenta"
+       ]
+      }
+     }
+    },
+    {
+     "role": "Command",
+     "prime": true,
+     "unit": {
+      "unitId": "prosperine-sorcerer",
+      "counts": {
+       "Prosperine Sorcerer": 1
+      }
+     }
+    },
+    {
+     "role": "Command",
+     "unit": {
+      "unitId": "prosperine-sorcerer",
+      "counts": {
+       "Prosperine Sorcerer": 1
+      }
+     }
+    },
+    {
+     "role": "Command",
+     "unit": {
+      "unitId": "prosperine-sorcerer",
+      "counts": {
+       "Prosperine Sorcerer": 1
+      }
+     }
+    },
+    {
+     "role": "Troops",
+     "prime": true,
+     "unit": {
+      "unitId": "tactical-squad",
+      "counts": {
+       "Legionary": 9,
+       "Sergeant": 1
+      }
+     }
+    },
+    {
+     "role": "Troops",
+     "unit": {
+      "unitId": "tactical-squad",
+      "counts": {
+       "Legionary": 9,
+       "Sergeant": 1
+      }
+     }
+    },
+    {
+     "role": "Troops",
+     "unit": {
+      "unitId": "tactical-squad",
+      "counts": {
+       "Legionary": 9,
+       "Sergeant": 1
+      }
+     }
+    },
+    {
+     "role": "Troops"
+    },
+    {
+     "role": "Transport",
+     "unit": {
+      "unitId": "rhino",
+      "counts": {
+       "Rhino": 1
+      },
+      "options": {
+       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+      }
+     }
+    },
+    {
+     "role": "Transport",
+     "unit": {
+      "unitId": "rhino",
+      "counts": {
+       "Rhino": 1
+      },
+      "options": {
+       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+      }
+     }
+    },
+    {
+     "role": "Transport"
+    },
+    {
+     "role": "Transport"
+    }
+   ]
+  },
+  {
+   "kind": "apex",
+   "name": "Army Vanguard",
+   "slots": [
+    {
+     "role": "Elites",
+     "prime": true,
+     "unit": {
+      "unitId": "sekhmet-terminator-cabal",
+      "counts": {
+       "Sekhmet Inceptor": 1,
+       "Sekhmet": 9
+      }
+     }
+    },
+    {
+     "role": "Elites",
+     "unit": {
+      "unitId": "sekhmet-terminator-cabal",
+      "counts": {
+       "Sekhmet Inceptor": 1,
+       "Sekhmet": 9
+      }
+     }
+    },
+    {
+     "role": "Elites",
+     "unit": {
+      "unitId": "khenetai-occult-cabal",
+      "counts": {
+       "Khenetai Blademaster": 1,
+       "Khenetai Blade": 9
+      }
+     }
+    }
+   ],
+   "defId": "core-army-vanguard"
+  },
+  {
+   "kind": "auxiliary",
+   "name": "Armoured Fist",
+   "slots": [
+    {
+     "role": "Transport"
+    },
+    {
+     "role": "Transport"
+    },
+    {
+     "role": "Transport"
+    },
+    {
+     "role": "Transport"
+    },
+    {
+     "role": "Heavy Transport",
+     "unit": {
+      "unitId": "land-raider-carrier",
+      "counts": {
+       "Land Raider Carrier": 1
+      },
+      "options": {
+       "land-raider-carrier-hull-front-weapon": "Twin lascannon"
+      }
+     }
+    },
+    {
+     "role": "Heavy Transport"
+    },
+    {
+     "role": "Heavy Transport"
+    },
+    {
+     "role": "Heavy Transport"
+    }
+   ],
+   "defId": "core-armoured-fist"
+  },
+  {
+   "kind": "auxiliary",
+   "name": "Heavy Support",
+   "slots": [
+    {
+     "role": "War Engine",
+     "unit": {
+      "unitId": "contemptor-osiron-dreadnought",
+      "counts": {
+       "Contemptor-Osiron Dreadnought": 1
+      },
+      "options": {
+       "contemptor-osiron-dreadnought-may-have-t": "Gravis bolt cannon",
+       "contemptor-osiron-dreadnought-may-have-t-x": "Combi-bolter"
+      }
+     }
+    }
+   ],
+   "defId": "core-heavy-support"
+  },
+  {
+   "kind": "auxiliary",
+   "name": "Armoured Support",
+   "slots": [
+    {
+     "role": "Armour",
+     "unit": {
+      "unitId": "predator",
+      "counts": {
+       "Predator": 1
+      },
+      "options": {
+       "predator-legion-sponson-weapons": "Lascannon",
+       "predator-turret": "Twin lascannon"
+      }
+     }
+    },
+    {
+     "role": "Armour",
+     "unit": {
+      "unitId": "predator",
+      "counts": {
+       "Predator": 1
+      },
+      "options": {
+       "predator-legion-sponson-weapons": "Lascannon",
+       "predator-turret": "Twin lascannon"
+      }
+     }
+    },
+    {
+     "role": "Armour",
+     "unit": {
+      "unitId": "predator",
+      "counts": {
+       "Predator": 1
+      },
+      "options": {
+       "predator-legion-sponson-weapons": "Lascannon",
+       "predator-turret": "Twin lascannon"
+      }
+     }
+    },
+    {
+     "role": "Armour"
+    }
+   ],
+   "defId": "core-armoured-support"
+  }
+ ]
+}

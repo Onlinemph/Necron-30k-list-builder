@@ -29,6 +29,16 @@ played), results by mission Archetype, the most one-sided matchups and the units
 Centurions, Tactical Squads, Rhinos, lascannon Heavy Support, four Predators, a Contemptor where a slot is left)
 plus two or three of the Legion's own units, legal in the builder and filled to just under 3000 points.
 
+`sim/lists/strong/` has a second list per Legion, made by `sim/lists/strong/make.cjs`, built on what that Legion
+does well in the simulator: its Tactica, its Advanced Reaction and its best units by the simulator's own combat
+numbers. Melee Legions carry their assault units in Assault Vehicles (a Spartan, Land Raider Carriers) so
+Violence Incarnate, Encarmine Fury and the Hunter's Strike land on the turn they arrive; gunline Legions stack
+what their Tactica rewards (bolters for Fire Discipline, long-range guns for Shadow Walkers, Heavy weapons that
+walk for Remorseless Advance); every list keeps Line Tactical Squads to hold markers. Each plan in `make.cjs`
+says what the army is for. Both sets share `sim/lists/builder.cjs`, which makes units, places them in the
+Primary Detachment or the Auxiliary and Apex Detachments it opens, grows squads and checks the army in the
+builder's engine.
+
 From code:
 
 ```js
@@ -273,3 +283,4 @@ Reactions made in answer to a reaction (a Return Fire against an Overwatch, say)
 | `tournament.cjs` | round robin between many lists, in parallel workers |
 | `report.cjs` | standings, ratings and unit efficiency from a tournament |
 | `lists/` | sample lists: two Rangdan (`rangdan.json`, the original mixed list, and `rangdan-iron-wall.json`), Sons of Horus at 2585 and 3000 points, an Ork Weirdboy mob |
+| `lists/legions/`, `lists/strong/` | a generic list and a strength list per Legion, and the scripts that make them; `lists/builder.cjs` is shared |

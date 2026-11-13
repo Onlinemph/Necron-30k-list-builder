@@ -1,8 +1,6 @@
 // One list per Legion: a shared core plus that Legion's signature units, legal in the builder's engine and
 // filled to just under 3000 points. Usage: node make.cjs [legion ...]
-const fs = require('fs'), vm = require('vm'), path = require('path'), R = path.join(__dirname, '..', '..', '..') + '/';
-const { createEngine } = require(R + 'js/engine.js');
-const load = (id) => { const window = {}; vm.runInNewContext(fs.readFileSync(`${R}js/data-${id}.js`, 'utf8'), { window }); return window.ARMY_DATA[id]; };
+const { createBuilder } = require('../builder.cjs');
 
 // signature units: [role, unitId, options, counts]
 const SIGNATURE = {
@@ -49,101 +47,23 @@ const FILL = [
   ['Armour', 'predator', { 'predator-legion-sponson-weapons': 'Heavy Bolters' }],
 ];
 const CAP = { 'tactical-squad': 4, rhino: 3, predator: 4, 'heavy-support-squad': 2, 'contemptor-dreadnought': 2 };
-const TRAITOR = new Set(['emperors-children', 'iron-warriors', 'night-lords', 'world-eaters', 'death-guard', 'thousand-sons', 'sons-of-horus', 'word-bearers', 'alpha-legion']);
-// where each role goes once the Primary Detachment is full: auxiliaries need a Command each, the apex needs High Command
-const AUX = { Armour: 'core-armoured-support', Support: 'core-tactical-support', Troops: 'core-tactical-support', 'War Engine': 'core-heavy-support', 'Heavy Assault': 'core-shock-assault', 'Fast Attack': 'core-first-strike', Recon: 'core-combat-pioneer' };
-const APEX = { Elites: 'core-army-vanguard', Retinue: 'core-combat-retinue', Command: 'core-officer-cadre' };
 
 function build(id) {
-  const D = load(id);
-  const E = createEngine(D);
-  const { weapons } = require(R + 'sim/lib/army.cjs').loadArmyData(id);
-  const { resolveItem } = require(R + 'sim/lib/army.cjs');
-  const isMelee = (n) => resolveItem(weapons, n).melee.some((w) => !(w.specialRules || []).some((r) => /^Detonation/.test(r)));
-  const isGun = (n) => resolveItem(weapons, n).ranged.length > 0;
-  const mk = ([role, uid, options = {}, counts = {}]) => {
-    if (!D.units.find((u) => u.id === uid)) return null;
-    const s = E.newSelection(uid); Object.assign(s.options, options); Object.assign(s.counts, counts);
-    for (const o of E.optionsOf(s)) {
-      if (!o.required || s.options[o.id]) continue;
-      const c = E.choicesFor(o, s); const n = E.modelCounts(s)[o.model] || 1;
-      const many = (o.max && o.max.fixed) || +((String(o.text || '').match(/choose (\d+)/i) || [])[1] || 1);
-      if (!c.length) continue;
-      // a weapon group: the cheapest melee weapon and, where two are taken, the cheapest gun
-      const byCost = [...c].sort((a, b) => (a.points || 0) - (b.points || 0));
-      const melee = byCost.find((x) => isMelee(x.name)), gun = byCost.find((x) => isGun(x.name));
-      const weaponPick = melee ? (many >= 2 && gun ? [melee.name, gun.name] : [melee.name]) : null;
-      // a per-model group takes one pick per model, or as many as its perModelPicks allows ("choose 2")
-      if (o.kind === 'perModel') s.options[o.id] = Object.fromEntries((weaponPick || [c[0].name]).slice(0, o.perModelPicks || 1).map((w) => [w, n]));
-      else if (o.kind === 'any') s.options[o.id] = weaponPick || c.slice(0, many).map((x) => x.name);
-      else s.options[o.id] = weaponPick ? weaponPick[0] : c[0].name;
-    }
-    return { role, s };
-  };
-  const primary = E.makeDetachment('primary', D.forceorg.primary.name, D.forceorg.primary.slots.flatMap((d) => Array.from({ length: d.count ?? 1 }, (_, i) => ({ role: d.role, prime: i < (d.prime || 0) }))));
-  const dets = [primary];
-  const place = (x) => {
-    for (const d of dets) { const slot = d.slots.find((sl) => sl.role === x.role && !sl.unit); if (slot) { slot.unit = x.s; return true; } }
-    const commands = primary.slots.filter((sl) => sl.role === 'Command' && sl.unit).length;
-    const aux = dets.filter((d) => d.type === 'Auxiliary' || d.kind === 'auxiliary').length;
-    const apex = dets.filter((d) => d.type === 'Apex' || d.kind === 'apex').length;
-    const defId = AUX[x.role] && aux < commands ? AUX[x.role] : APEX[x.role] && apex < 1 ? APEX[x.role] : null;
-    if (!defId) return false;
-    const d = E.detachmentFromDef(defId); dets.push(d);
-    const slot = d.slots.find((sl) => sl.role === x.role && !sl.unit);
-    if (!slot) return false;
-    slot.unit = x.s; return true;
-  };
-  // Allegiance, and the Legion's own Rite of War where one must be chosen (it carries the Legion Tactica)
-  const config = { allegiance: [TRAITOR.has(id) ? 'Traitor' : 'Loyalist'] };
-  const rite = D.armyConfig.groups.find((g) => g.id === 'rite-of-war' && g.min > 0);
-  if (rite) config['rite-of-war'] = [rite.choices[0].name];
-  const army = () => ({ version: 2, faction: id, name: id.split('-').map((w) => w[0].toUpperCase() + w.slice(1)).join(' '), pointsLimit: 3000, sequelae: [], config, detachments: dets });
-  const total = () => { const a = army(); E.setArmy(a); return dets.reduce((t, d) => t + d.slots.filter((s) => s.unit).reduce((x, s) => x + E.unitPoints(s.unit, s), 0), 0); };
+  const b = createBuilder(id);
   const skipped = [];
   // commands first (they unlock the auxiliaries), then the signature units, then the rest of the core
   const cmds = CORE.filter((u) => /Command/.test(u[0])), rest = CORE.filter((u) => !/Command/.test(u[0]));
   const sigCmd = SIGNATURE[id].filter((u) => u[0] === 'Command');
   const order = [...sigCmd, ...cmds.slice(0, 4 - sigCmd.length), ...SIGNATURE[id].filter((u) => u[0] !== 'Command'), ...rest];
-  for (const u of order) { const x = mk(u); if (!x || !place(x)) skipped.push(u[1]); }
+  for (const u of order) { const x = b.mk(u); if (!x || !b.place(x)) skipped.push(u[1]); }
   // fill up to 3000: a few extras once each, then grow the signature units, then the tactical squads
-  const count = (uid) => dets.reduce((t, d) => t + d.slots.filter((sl) => sl.unit && sl.unit.unitId === uid).length, 0);
   for (let pass = 0; pass < 4; pass++) for (const f of FILL) {
-    if (count(f[1]) >= (CAP[f[1]] || 1)) continue;
-    const x = mk(f); if (!x) continue;
-    if (!place(x)) continue;
-    if (total() > 3000) for (const d of dets) for (const sl of d.slots) if (sl.unit === x.s) sl.unit = null;
+    if (b.count(f[1]) >= (CAP[f[1]] || 1)) continue;
+    b.add(f);
   }
   const sigIds = new Set(SIGNATURE[id].map((u) => u[1]));
-  const grow = (sl) => {
-    const def = D.units.find((u) => u.id === sl.unit.unitId);
-    for (const m of def.models || []) {
-      if (m.max == null || m.max <= (m.min || 0)) continue;
-      const cur = sl.unit.counts[m.name] ?? m.min;
-      if (cur >= m.max) continue;
-      const before = JSON.stringify(sl.unit.options);
-      sl.unit.counts[m.name] = cur + 1;
-      // every model of a required weapon group takes its weapons, so the picks grow with the squad
-      for (const o of E.optionsOf(sl.unit)) {
-        const v = sl.unit.options[o.id];
-        if (o.kind !== 'perModel' || !o.required || o.required.count !== 'all' || !v || typeof v !== 'object') continue;
-        for (const k of Object.keys(v)) v[k] = E.modelCounts(sl.unit)[o.model] || 1;
-      }
-      if (total() > 3000 || E.unitIssues(sl.unit).some((i) => i.level === 'error')) { sl.unit.counts[m.name] = cur; sl.unit.options = JSON.parse(before); continue; }
-      return true;
-    }
-    return false;
-  };
-  for (const pick of [(sl) => sigIds.has(sl.unit.unitId), (sl) => sl.unit.unitId === 'heavy-support-squad', (sl) => sl.unit.unitId === 'tactical-squad']) {
-    let grew = true;
-    while (grew) { grew = false; for (const d of dets) for (const sl of d.slots) if (sl.unit && pick(sl) && grow(sl)) grew = true; }
-  }
-  const a = army(); E.setArmy(a);
-  const errors = E.armyIssues(a).filter((i) => i.level === 'error').map((i) => i.msg);
-  const slim = JSON.parse(JSON.stringify(a), (k, v) => (k === 'uid' || v === null || (k === 'options' && v && !Object.keys(v).length) || (k === 'counts' && v && !Object.keys(v).length) || (v === false && ['flexible', 'advisor', 'prime'].includes(k)) ? undefined : v));
-  fs.writeFileSync(`${__dirname}/${id}.json`, JSON.stringify(slim, null, 1));
-  const units = dets.flatMap((d) => d.slots.filter((s) => s.unit).map((s) => `${s.unit.unitId}${E.effectiveModels(s.unit, s).reduce((t, m) => t + m.count, 0) > 1 ? 'x' + E.effectiveModels(s.unit, s).reduce((t, m) => t + m.count, 0) : ''}`));
-  return { id, total: total(), errors, skipped, dets: dets.map((d) => d.name), units };
+  for (const pick of [(sl) => sigIds.has(sl.unit.unitId), (sl) => sl.unit.unitId === 'heavy-support-squad', (sl) => sl.unit.unitId === 'tactical-squad']) b.growAll(pick);
+  return Object.assign(b.finish(`${__dirname}/${id}.json`), { skipped });
 }
 module.exports = { build, SIGNATURE };
 if (require.main === module) {
