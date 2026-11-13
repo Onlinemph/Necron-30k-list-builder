@@ -57,11 +57,18 @@ function createBuilder(id, { limit = 3000, name, smart = false } = {}) {
     for (const t of refTargets()) v += ai.meleeEV(st, u, t) + ai.evAt(ai.shootTable(st, u, t), 18);
     return v / Math.max(1, u.pts);
   };
-  /** For each required weapon pick the plan left open, take the choice that makes the unit worth most per point. */
+  /**
+   * For each required weapon pick the plan left open, take the choice that makes the unit worth most per point,
+   * among the choices that cost no more than the cheapest: a better weapon at the same price, never one that
+   * spends points the squad's bodies would otherwise get (those hold markers and soak fire, which damage per
+   * point doesn't count).
+   */
   const choose = (role, s, given) => {
     for (const o of E.optionsOf(s)) {
       if (!o.required || given[o.id] !== undefined || !s.options[o.id]) continue;
-      const c = E.choicesFor(o, s).map((x) => x.name);
+      const all = E.choicesFor(o, s);
+      const cheapest = Math.min(...all.map((x) => x.points || 0));
+      const c = all.filter((x) => (x.points || 0) <= cheapest).map((x) => x.name);
       const slots = o.kind === 'perModel' ? Object.keys(s.options[o.id]) : o.kind === 'any' ? s.options[o.id] : [s.options[o.id]];
       const set = (picks) => {
         if (o.kind === 'perModel') { const n = E.modelCounts(s)[o.model] || 1; s.options[o.id] = Object.fromEntries(picks.map((w) => [w, n])); }
