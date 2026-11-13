@@ -75,9 +75,12 @@ function createBuilder(id, { limit = 3000, name, smart = false } = {}) {
         else s.options[o.id] = o.kind === 'any' ? picks : picks[0];
       };
       let picks = [...slots], best = worth(role, s);
+      // a melee weapon is only swapped for another melee weapon, a gun for a gun: a squad that lost its guns
+      // would turn into an assault unit (Terminators with Deep Strike would wait in Reserves)
+      const sameKind = (a, b) => isMelee(a) === isMelee(b) && isGun(a) === isGun(b);
       for (let k = 0; k < picks.length; k++) {
         for (const x of c) {
-          if (picks.includes(x)) continue;
+          if (picks.includes(x) || !sameKind(x, picks[k])) continue;
           const tryPicks = picks.map((p, i) => (i === k ? x : p));
           set(tryPicks);
           const v = worth(role, s);

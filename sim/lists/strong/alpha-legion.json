@@ -91,7 +91,17 @@
      "unit": {
       "unitId": "tactical-squad",
       "counts": {
-       "Legionary": 9,
+       "Legionary": 10,
+       "Sergeant": 1
+      }
+     }
+    },
+    {
+     "role": "Troops",
+     "unit": {
+      "unitId": "tactical-squad",
+      "counts": {
+       "Legionary": 10,
        "Sergeant": 1
       }
      }
@@ -107,12 +117,14 @@
      }
     },
     {
-     "role": "Troops",
+     "role": "Transport",
      "unit": {
-      "unitId": "tactical-squad",
+      "unitId": "rhino",
       "counts": {
-       "Legionary": 9,
-       "Sergeant": 1
+       "Rhino": 1
+      },
+      "options": {
+       "rhino-pintle-1": "Pintle Mounted combi-bolter"
       }
      }
     },
@@ -124,7 +136,7 @@
        "Rhino": 1
       },
       "options": {
-       "rhino-pintle-1": "Pintle Mounted multi-melta"
+       "rhino-pintle-1": "Pintle Mounted combi-bolter"
       }
      }
     },
@@ -136,19 +148,7 @@
        "Rhino": 1
       },
       "options": {
-       "rhino-pintle-1": "Pintle Mounted multi-melta"
-      }
-     }
-    },
-    {
-     "role": "Transport",
-     "unit": {
-      "unitId": "rhino",
-      "counts": {
-       "Rhino": 1
-      },
-      "options": {
-       "rhino-pintle-1": "Pintle Mounted multi-melta"
+       "rhino-pintle-1": "Pintle Mounted combi-bolter"
       }
      }
     },
@@ -168,12 +168,12 @@
       "unitId": "headhunter-kill-team",
       "counts": {
        "Headhunter Prime": 1,
-       "Headhunter": 7
+       "Headhunter": 9
       },
       "options": {
-       "headhunter-prime-may-have-its-banestrike": "Combi-grav",
+       "headhunter-prime-may-have-its-banestrike": "Combi-bolter",
        "headhunter-weapon-options": {
-        "Multi-melta": 7
+        "Heavy bolter": 9
        }
       }
      }
@@ -184,16 +184,16 @@
       "unitId": "lernaean-terminator-squad",
       "counts": {
        "Harrower": 1,
-       "Lernaean": 6
+       "Lernaean": 9
       },
       "options": {
        "harrower-options": [
-        "Chainfist",
-        "Combi-grav"
+        "Power maul",
+        "Volkite charger"
        ],
        "lernaean-options": {
-        "Power fist": 6,
-        "Reaper autocannon": 6
+        "Power maul": 9,
+        "Volkite charger": 9
        }
       }
      }
@@ -220,7 +220,7 @@
       "unitId": "heavy-support-squad",
       "counts": {
        "Sergeant": 1,
-       "Legionary": 4
+       "Legionary": 6
       },
       "options": {
        "unit-legion-heavy-weapons-list": "Lascannon"
@@ -233,7 +233,7 @@
       "unitId": "heavy-support-squad",
       "counts": {
        "Sergeant": 1,
-       "Legionary": 4
+       "Legionary": 6
       },
       "options": {
        "unit-legion-heavy-weapons-list": "Lascannon"

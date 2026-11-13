@@ -91,7 +91,7 @@
      "unit": {
       "unitId": "tactical-squad",
       "counts": {
-       "Legionary": 19,
+       "Legionary": 9,
        "Sergeant": 1
       }
      }
@@ -101,22 +101,56 @@
      "unit": {
       "unitId": "tactical-squad",
       "counts": {
-       "Legionary": 19,
+       "Legionary": 9,
        "Sergeant": 1
       }
      }
     },
     {
-     "role": "Troops"
+     "role": "Troops",
+     "unit": {
+      "unitId": "tactical-squad",
+      "counts": {
+       "Legionary": 9,
+       "Sergeant": 1
+      }
+     }
     },
     {
-     "role": "Transport"
+     "role": "Transport",
+     "unit": {
+      "unitId": "rhino",
+      "counts": {
+       "Rhino": 1
+      },
+      "options": {
+       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+      }
+     }
     },
     {
-     "role": "Transport"
+     "role": "Transport",
+     "unit": {
+      "unitId": "rhino",
+      "counts": {
+       "Rhino": 1
+      },
+      "options": {
+       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+      }
+     }
     },
     {
-     "role": "Transport"
+     "role": "Transport",
+     "unit": {
+      "unitId": "rhino",
+      "counts": {
+       "Rhino": 1
+      },
+      "options": {
+       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+      }
+     }
     },
     {
      "role": "Transport"
@@ -133,40 +167,23 @@
      "unit": {
       "unitId": "firedrake-terminator-squad",
       "counts": {
-       "Firedrake": 4,
+       "Firedrake": 9,
        "Firedrake Master": 1
       },
       "options": {
        "firedrake-forge-crafted-thunder-hammer": {
-        "Forge-crafted thunder hammer": 4
+        "Forge-crafted thunder hammer": 9
        },
        "firedrake-drakenscale": {
-        "Combi-bolter": 4
+        "Combi-bolter": 9
        },
        "firedrake-master-forge-crafted-thunder-h": "Forge-crafted thunder hammer",
-       "firedrake-master-drakenscale": "Combi-bolter"
+       "firedrake-master-drakenscale": "Drakenscale"
       }
      }
     },
     {
-     "role": "Elites",
-     "unit": {
-      "unitId": "firedrake-terminator-squad",
-      "counts": {
-       "Firedrake": 4,
-       "Firedrake Master": 1
-      },
-      "options": {
-       "firedrake-forge-crafted-thunder-hammer": {
-        "Forge-crafted thunder hammer": 4
-       },
-       "firedrake-drakenscale": {
-        "Combi-bolter": 4
-       },
-       "firedrake-master-forge-crafted-thunder-h": "Forge-crafted thunder hammer",
-       "firedrake-master-drakenscale": "Combi-bolter"
-      }
-     }
+     "role": "Elites"
     },
     {
      "role": "Elites"
@@ -176,52 +193,62 @@
   },
   {
    "kind": "auxiliary",
-   "name": "Armoured Fist",
+   "name": "Shock Assault",
    "slots": [
     {
-     "role": "Transport"
-    },
-    {
-     "role": "Transport"
-    },
-    {
-     "role": "Transport"
-    },
-    {
-     "role": "Transport"
-    },
-    {
-     "role": "Heavy Transport",
+     "role": "Heavy Assault",
      "unit": {
-      "unitId": "land-raider-carrier",
+      "unitId": "pyroclast-squad",
       "counts": {
-       "Land Raider Carrier": 1
-      },
-      "options": {
-       "land-raider-carrier-hull-front-weapon": "Twin lascannon"
+       "Pyroclast": 9,
+       "Pyroclast Warden": 1
       }
      }
     },
     {
-     "role": "Heavy Transport",
-     "unit": {
-      "unitId": "land-raider-carrier",
-      "counts": {
-       "Land Raider Carrier": 1
-      },
-      "options": {
-       "land-raider-carrier-hull-front-weapon": "Twin lascannon"
-      }
-     }
-    },
-    {
-     "role": "Heavy Transport"
-    },
-    {
-     "role": "Heavy Transport"
+     "role": "Heavy Assault"
     }
    ],
-   "defId": "core-armoured-fist"
+   "defId": "core-shock-assault"
+  },
+  {
+   "kind": "auxiliary",
+   "name": "Tactical Support",
+   "slots": [
+    {
+     "role": "Troops"
+    },
+    {
+     "role": "Troops"
+    },
+    {
+     "role": "Support",
+     "unit": {
+      "unitId": "heavy-support-squad",
+      "counts": {
+       "Sergeant": 1,
+       "Legionary": 8
+      },
+      "options": {
+       "unit-legion-heavy-weapons-list": "Lascannon"
+      }
+     }
+    },
+    {
+     "role": "Support",
+     "unit": {
+      "unitId": "heavy-support-squad",
+      "counts": {
+       "Sergeant": 1,
+       "Legionary": 8
+      },
+      "options": {
+       "unit-legion-heavy-weapons-list": "Lascannon"
+      }
+     }
+    }
+   ],
+   "defId": "core-tactical-support"
   },
   {
    "kind": "auxiliary",
@@ -248,8 +275,7 @@
        "Predator": 1
       },
       "options": {
-       "predator-legion-sponson-weapons": "Lascannon",
-       "predator-turret": "Twin lascannon"
+       "predator-legion-sponson-weapons": "Heavy Bolters"
       }
      }
     },
@@ -274,42 +300,12 @@
        "Predator": 1
       },
       "options": {
-       "predator-legion-sponson-weapons": "Lascannon",
-       "predator-turret": "Twin lascannon"
+       "predator-legion-sponson-weapons": "Heavy Bolters"
       }
      }
     }
    ],
    "defId": "core-armoured-support"
-  },
-  {
-   "kind": "auxiliary",
-   "name": "Tactical Support",
-   "slots": [
-    {
-     "role": "Troops"
-    },
-    {
-     "role": "Troops"
-    },
-    {
-     "role": "Support",
-     "unit": {
-      "unitId": "heavy-support-squad",
-      "counts": {
-       "Sergeant": 1,
-       "Legionary": 9
-      },
-      "options": {
-       "unit-legion-heavy-weapons-list": "Lascannon"
-      }
-     }
-    },
-    {
-     "role": "Support"
-    }
-   ],
-   "defId": "core-tactical-support"
   }
  ]
 }

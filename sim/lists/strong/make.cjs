@@ -205,10 +205,12 @@ const CORE_WHY = {
   'iron-hands': 'Twenty Medusan Immortals and ten Gorgon Terminators advance under the Gorgon\'s Scales with Tactical Squads, lascannons and four Predators.',
   'iron-warriors': 'Ten Tyrant Siege Terminators and Iron Havocs with lascannons and four Predators: a gunline that keeps firing through statuses (the Bitter End).',
   'sons-of-horus': 'Justaerin and Reavers, Vanguard units that shoot and fight with Death Dealers, with lascannons, four Predators and Tactical Squads in Rhinos.',
+  'salamanders': 'Ten Firedrakes and ten Pyroclasts, tough under Promethean Endurance, with two lascannon Heavy Support Squads, four Predators and Tactical Squads in Rhinos.',
+  'word-bearers': 'Gal Vorbak and the Ashen Circle win the fights they start with Unwavering Conviction, behind two ten-strong lascannon Heavy Support Squads, four Predators and Tactical Squads in Rhinos.',
 };
 // which version each Legion uses: 'plan' (the first plan), 'strike' (the second) or 'core' (the generic Legion list
 // with its weapons picked by value), chosen by playing every version against the same opponents (see the README)
-const CHOICE = { 'alpha-legion': 'core', 'blood-angels': 'strike', 'dark-angels': 'core', 'death-guard': 'core', 'emperors-children': 'core', 'iron-hands': 'core', 'iron-warriors': 'core', 'night-lords': 'strike', 'salamanders': 'strike', 'sons-of-horus': 'core', 'space-wolves': 'strike', 'thousand-sons': 'strike', 'ultramarines': 'strike', 'white-scars': 'strike', 'word-bearers': 'strike', 'world-eaters': 'strike' };
+const CHOICE = { 'alpha-legion': 'core', 'blood-angels': 'strike', 'dark-angels': 'strike', 'death-guard': 'strike', 'emperors-children': 'core', 'iron-hands': 'core', 'iron-warriors': 'core', 'night-lords': 'strike', 'salamanders': 'core', 'sons-of-horus': 'strike', 'space-wolves': 'strike', 'thousand-sons': 'strike', 'ultramarines': 'strike', 'white-scars': 'strike', 'word-bearers': 'core', 'world-eaters': 'strike' };
 
 function build(id, variant = CHOICE[id] || 'plan', file = `${__dirname}/${id}.json`) {
   // 'core': the generic Legion list (lists/legions) with its weapons picked by value

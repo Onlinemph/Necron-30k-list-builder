@@ -91,7 +91,7 @@
      "unit": {
       "unitId": "tactical-squad",
       "counts": {
-       "Legionary": 9,
+       "Legionary": 19,
        "Sergeant": 1
       }
      }
@@ -101,56 +101,22 @@
      "unit": {
       "unitId": "tactical-squad",
       "counts": {
-       "Legionary": 9,
+       "Legionary": 19,
        "Sergeant": 1
       }
      }
     },
     {
-     "role": "Troops",
-     "unit": {
-      "unitId": "tactical-squad",
-      "counts": {
-       "Legionary": 9,
-       "Sergeant": 1
-      }
-     }
+     "role": "Troops"
     },
     {
-     "role": "Transport",
-     "unit": {
-      "unitId": "rhino",
-      "counts": {
-       "Rhino": 1
-      },
-      "options": {
-       "rhino-pintle-1": "Pintle Mounted multi-melta"
-      }
-     }
+     "role": "Transport"
     },
     {
-     "role": "Transport",
-     "unit": {
-      "unitId": "rhino",
-      "counts": {
-       "Rhino": 1
-      },
-      "options": {
-       "rhino-pintle-1": "Pintle Mounted multi-melta"
-      }
-     }
+     "role": "Transport"
     },
     {
-     "role": "Transport",
-     "unit": {
-      "unitId": "rhino",
-      "counts": {
-       "Rhino": 1
-      },
-      "options": {
-       "rhino-pintle-1": "Pintle Mounted multi-melta"
-      }
-     }
+     "role": "Transport"
     },
     {
      "role": "Transport"
@@ -167,20 +133,34 @@
      "unit": {
       "unitId": "inner-circle-knights-cenobium",
       "counts": {
-       "Order Cenobite": 9,
+       "Order Cenobite": 4,
        "Order Preceptor": 1
       },
       "options": {
        "order-cenobite-options": {
-        "Thunder hammer": 9
+        "Terranic greatsword": 4
        },
-       "order-preceptor-options": "Thunder hammer",
+       "order-preceptor-options": "Terranic greatsword",
        "unit-orders-of-the-hekatonystika": "Augurs of Weakness"
       }
      }
     },
     {
-     "role": "Elites"
+     "role": "Elites",
+     "unit": {
+      "unitId": "inner-circle-knights-cenobium",
+      "counts": {
+       "Order Cenobite": 4,
+       "Order Preceptor": 1
+      },
+      "options": {
+       "order-cenobite-options": {
+        "Terranic greatsword": 4
+       },
+       "order-preceptor-options": "Terranic greatsword",
+       "unit-orders-of-the-hekatonystika": "Augurs of Weakness"
+      }
+     }
     },
     {
      "role": "Elites"
@@ -190,39 +170,52 @@
   },
   {
    "kind": "auxiliary",
-   "name": "Tactical Support",
+   "name": "Armoured Fist",
    "slots": [
     {
-     "role": "Troops"
+     "role": "Transport"
     },
     {
-     "role": "Troops"
+     "role": "Transport"
     },
     {
-     "role": "Support",
+     "role": "Transport"
+    },
+    {
+     "role": "Transport"
+    },
+    {
+     "role": "Heavy Transport",
      "unit": {
-      "unitId": "dreadwing-interemptor-squad",
+      "unitId": "land-raider-carrier",
       "counts": {
-       "Interemptor Praefectus": 1,
-       "Interemptors": 9
-      }
-     }
-    },
-    {
-     "role": "Support",
-     "unit": {
-      "unitId": "heavy-support-squad",
-      "counts": {
-       "Sergeant": 1,
-       "Legionary": 9
+       "Land Raider Carrier": 1
       },
       "options": {
-       "unit-legion-heavy-weapons-list": "Lascannon"
+       "land-raider-carrier-hull-front-weapon": "Twin lascannon"
       }
      }
+    },
+    {
+     "role": "Heavy Transport",
+     "unit": {
+      "unitId": "land-raider-carrier",
+      "counts": {
+       "Land Raider Carrier": 1
+      },
+      "options": {
+       "land-raider-carrier-hull-front-weapon": "Twin lascannon"
+      }
+     }
+    },
+    {
+     "role": "Heavy Transport"
+    },
+    {
+     "role": "Heavy Transport"
     }
    ],
-   "defId": "core-tactical-support"
+   "defId": "core-armoured-fist"
   },
   {
    "kind": "auxiliary",
@@ -249,7 +242,8 @@
        "Predator": 1
       },
       "options": {
-       "predator-legion-sponson-weapons": "Heavy Bolters"
+       "predator-legion-sponson-weapons": "Lascannon",
+       "predator-turret": "Twin lascannon"
       }
      }
     },
@@ -274,7 +268,8 @@
        "Predator": 1
       },
       "options": {
-       "predator-legion-sponson-weapons": "Heavy Bolters"
+       "predator-legion-sponson-weapons": "Lascannon",
+       "predator-turret": "Twin lascannon"
       }
      }
     }
@@ -283,23 +278,32 @@
   },
   {
    "kind": "auxiliary",
-   "name": "Heavy Support",
+   "name": "Tactical Support",
    "slots": [
     {
-     "role": "War Engine",
+     "role": "Troops"
+    },
+    {
+     "role": "Troops"
+    },
+    {
+     "role": "Support",
      "unit": {
-      "unitId": "contemptor-dreadnought",
+      "unitId": "heavy-support-squad",
       "counts": {
-       "Contemptor Dreadnought": 1
+       "Sergeant": 1,
+       "Legionary": 9
       },
       "options": {
-       "unit-1-weapon-option-1": "Kheres assault cannon",
-       "unit-2-weapon-option-2": "Gravis power fist with in-built ranged weapon"
+       "unit-legion-heavy-weapons-list": "Lascannon"
       }
      }
+    },
+    {
+     "role": "Support"
     }
    ],
-   "defId": "core-heavy-support"
+   "defId": "core-tactical-support"
   }
  ]
 }

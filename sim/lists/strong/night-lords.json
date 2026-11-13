@@ -135,7 +135,7 @@
        ],
        "atramentar-options": {
         "Power fist": 9,
-        "Reaper autocannon": 9
+        "Combi-bolter": 9
        }
       }
      }
@@ -155,7 +155,7 @@
        ],
        "atramentar-options": {
         "Power fist": 9,
-        "Reaper autocannon": 9
+        "Combi-bolter": 9
        }
       }
      }
@@ -174,7 +174,7 @@
       "unitId": "contekar-terminator-squad",
       "counts": {
        "Dissident": 1,
-       "Contekar": 8
+       "Contekar": 9
       }
      }
     },

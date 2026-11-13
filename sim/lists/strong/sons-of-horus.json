@@ -91,71 +91,77 @@
      "unit": {
       "unitId": "tactical-squad",
       "counts": {
-       "Legionary": 9,
+       "Legionary": 19,
        "Sergeant": 1
       }
      }
     },
     {
-     "role": "Troops",
-     "unit": {
-      "unitId": "tactical-squad",
-      "counts": {
-       "Legionary": 9,
-       "Sergeant": 1
-      }
-     }
+     "role": "Troops"
     },
     {
-     "role": "Troops",
-     "unit": {
-      "unitId": "tactical-squad",
-      "counts": {
-       "Legionary": 9,
-       "Sergeant": 1
-      }
-     }
+     "role": "Troops"
     },
     {
-     "role": "Transport",
-     "unit": {
-      "unitId": "rhino",
-      "counts": {
-       "Rhino": 1
-      },
-      "options": {
-       "rhino-pintle-1": "Pintle Mounted multi-melta"
-      }
-     }
+     "role": "Transport"
     },
     {
-     "role": "Transport",
-     "unit": {
-      "unitId": "rhino",
-      "counts": {
-       "Rhino": 1
-      },
-      "options": {
-       "rhino-pintle-1": "Pintle Mounted multi-melta"
-      }
-     }
+     "role": "Transport"
     },
     {
-     "role": "Transport",
-     "unit": {
-      "unitId": "rhino",
-      "counts": {
-       "Rhino": 1
-      },
-      "options": {
-       "rhino-pintle-1": "Pintle Mounted multi-melta"
-      }
-     }
+     "role": "Transport"
     },
     {
      "role": "Transport"
     }
    ]
+  },
+  {
+   "kind": "auxiliary",
+   "name": "Shock Assault",
+   "slots": [
+    {
+     "role": "Heavy Assault",
+     "unit": {
+      "unitId": "reaver-attack-squad",
+      "counts": {
+       "Reaver Chieftain": 1,
+       "Reaver": 19
+      },
+      "options": {
+       "reaver-chieftain-options": [
+        "Chainaxe",
+        "Bolt pistol"
+       ],
+       "reaver-options": {
+        "Chainaxe": 19,
+        "Bolt pistol": 19
+       }
+      }
+     }
+    },
+    {
+     "role": "Heavy Assault",
+     "unit": {
+      "unitId": "reaver-attack-squad",
+      "counts": {
+       "Reaver Chieftain": 1,
+       "Reaver": 9
+      },
+      "options": {
+       "reaver-chieftain-options": [
+        "Chainaxe",
+        "Bolt pistol"
+       ],
+       "reaver-options": {
+        "Chainaxe": 9,
+        "Bolt pistol": 9
+       }
+      }
+     }
+    }
+   ],
+   "defId": "core-shock-assault"
   },
   {
    "kind": "apex",
@@ -171,7 +177,7 @@
       },
       "options": {
        "justaerin-options": {
-        "Chainfist": 10,
+        "Power maul": 10,
         "Banestrike combi-bolter": 10
        }
       }
@@ -185,75 +191,6 @@
     }
    ],
    "defId": "core-army-vanguard"
-  },
-  {
-   "kind": "auxiliary",
-   "name": "Shock Assault",
-   "slots": [
-    {
-     "role": "Heavy Assault",
-     "unit": {
-      "unitId": "reaver-attack-squad",
-      "counts": {
-       "Reaver Chieftain": 1,
-       "Reaver": 9
-      },
-      "options": {
-       "reaver-chieftain-options": [
-        "Power fist",
-        "Bolt pistol"
-       ],
-       "reaver-options": {
-        "Power fist": 9,
-        "Bolt pistol": 9
-       }
-      }
-     }
-    },
-    {
-     "role": "Heavy Assault"
-    }
-   ],
-   "defId": "core-shock-assault"
-  },
-  {
-   "kind": "auxiliary",
-   "name": "Tactical Support",
-   "slots": [
-    {
-     "role": "Troops"
-    },
-    {
-     "role": "Troops"
-    },
-    {
-     "role": "Support",
-     "unit": {
-      "unitId": "heavy-support-squad",
-      "counts": {
-       "Sergeant": 1,
-       "Legionary": 4
-      },
-      "options": {
-       "unit-legion-heavy-weapons-list": "Lascannon"
-      }
-     }
-    },
-    {
-     "role": "Support",
-     "unit": {
-      "unitId": "heavy-support-squad",
-      "counts": {
-       "Sergeant": 1,
-       "Legionary": 4
-      },
-      "options": {
-       "unit-legion-heavy-weapons-list": "Lascannon"
-      }
-     }
-    }
-   ],
-   "defId": "core-tactical-support"
   },
   {
    "kind": "auxiliary",
@@ -280,7 +217,8 @@
        "Predator": 1
       },
       "options": {
-       "predator-legion-sponson-weapons": "Heavy Bolters"
+       "predator-legion-sponson-weapons": "Lascannon",
+       "predator-turret": "Twin lascannon"
       }
      }
     },
@@ -305,12 +243,52 @@
        "Predator": 1
       },
       "options": {
-       "predator-legion-sponson-weapons": "Heavy Bolters"
+       "predator-legion-sponson-weapons": "Lascannon",
+       "predator-turret": "Twin lascannon"
       }
      }
     }
    ],
    "defId": "core-armoured-support"
+  },
+  {
+   "kind": "auxiliary",
+   "name": "Tactical Support",
+   "slots": [
+    {
+     "role": "Troops"
+    },
+    {
+     "role": "Troops"
+    },
+    {
+     "role": "Support",
+     "unit": {
+      "unitId": "heavy-support-squad",
+      "counts": {
+       "Sergeant": 1,
+       "Legionary": 5
+      },
+      "options": {
+       "unit-legion-heavy-weapons-list": "Lascannon"
+      }
+     }
+    },
+    {
+     "role": "Support",
+     "unit": {
+      "unitId": "heavy-support-squad",
+      "counts": {
+       "Sergeant": 1,
+       "Legionary": 5
+      },
+      "options": {
+       "unit-legion-heavy-weapons-list": "Lascannon"
+      }
+     }
+    }
+   ],
+   "defId": "core-tactical-support"
   }
  ]
 }
