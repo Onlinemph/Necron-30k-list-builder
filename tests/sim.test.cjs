@@ -153,7 +153,8 @@ test('gambits: Rangda, Long Hunt and Slaugth models get their own', () => {
   const names = (u) => gambits.available(u.models[0]).map((g) => g.name);
   assert.ok(names(unit('rangdan', 'hunt-pack', { arkana: 'Iron Chain' })).includes("Hunter's Stare"));
   const core7 = ['Seize the Initiative', 'Flurry of Blows', 'Test the Foe', 'Guard Up', 'Taunt and Bait', 'Grandstand', 'Finishing Blow'];
-  assert.deepEqual(names(unit('sons-of-horus', 'tactical-squad')), core7);
+  // a Legion model also has its Legion's gambit
+  assert.deepEqual(names(unit('sons-of-horus', 'tactical-squad')), [...core7, 'Merciless Strike']);
   const th = gambits.GAMBITS.find((g) => g.name === 'Throat-Hunter').make(null, {}, { u: { statuses: new Set(['Pinned']) } });
   assert.deepEqual(th.extraRules({ AP: 3 }), ['Breaching (4+)']);
   assert.deepEqual(th.extraRules({ AP: 2 }), ['Shred (6+)']);
