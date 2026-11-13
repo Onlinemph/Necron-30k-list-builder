@@ -124,7 +124,7 @@
        "Rhino": 1
       },
       "options": {
-       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+       "rhino-pintle-1": "Pintle Mounted multi-melta"
       }
      }
     },
@@ -136,7 +136,7 @@
        "Rhino": 1
       },
       "options": {
-       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+       "rhino-pintle-1": "Pintle Mounted multi-melta"
       }
      }
     },
@@ -190,13 +190,7 @@
      }
     },
     {
-     "role": "Elites",
-     "unit": {
-      "unitId": "invictus-suzerain-squad",
-      "counts": {
-       "Suzerain": 6
-      }
-     }
+     "role": "Elites"
     },
     {
      "role": "Elites"

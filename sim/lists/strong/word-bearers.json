@@ -110,7 +110,7 @@
        "Rhino": 1
       },
       "options": {
-       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+       "rhino-pintle-1": "Pintle Mounted multi-melta"
       }
      }
     },
@@ -122,7 +122,7 @@
        "Rhino": 1
       },
       "options": {
-       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+       "rhino-pintle-1": "Pintle Mounted multi-melta"
       }
      }
     },
@@ -250,16 +250,7 @@
      }
     },
     {
-     "role": "Armour",
-     "unit": {
-      "unitId": "predator",
-      "counts": {
-       "Predator": 1
-      },
-      "options": {
-       "predator-legion-sponson-weapons": "Heavy Bolters"
-      }
-     }
+     "role": "Armour"
     },
     {
      "role": "Armour"

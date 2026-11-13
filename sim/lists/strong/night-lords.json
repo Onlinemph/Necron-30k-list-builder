@@ -117,7 +117,7 @@
        "Rhino": 1
       },
       "options": {
-       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+       "rhino-pintle-1": "Pintle Mounted multi-melta"
       }
      }
     },
@@ -129,7 +129,7 @@
        "Rhino": 1
       },
       "options": {
-       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+       "rhino-pintle-1": "Pintle Mounted multi-melta"
       }
      }
     },
@@ -141,7 +141,7 @@
        "Rhino": 1
       },
       "options": {
-       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+       "rhino-pintle-1": "Pintle Mounted multi-melta"
       }
      }
     },
@@ -169,7 +169,7 @@
        ],
        "atramentar-options": {
         "Power fist": 9,
-        "Combi-bolter": 9
+        "Reaper autocannon": 9
        }
       }
      }
@@ -189,7 +189,7 @@
        ],
        "atramentar-options": {
         "Power fist": 9,
-        "Combi-bolter": 9
+        "Reaper autocannon": 9
        }
       }
      }
@@ -208,19 +208,12 @@
       "unitId": "contekar-terminator-squad",
       "counts": {
        "Dissident": 1,
-       "Contekar": 5
+       "Contekar": 4
       }
      }
     },
     {
-     "role": "Elites",
-     "unit": {
-      "unitId": "contekar-terminator-squad",
-      "counts": {
-       "Dissident": 1,
-       "Contekar": 5
-      }
-     }
+     "role": "Elites"
     },
     {
      "role": "Elites"

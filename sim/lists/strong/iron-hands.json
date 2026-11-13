@@ -124,7 +124,7 @@
        "Rhino": 1
       },
       "options": {
-       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+       "rhino-pintle-1": "Pintle Mounted multi-melta"
       }
      }
     },
@@ -136,7 +136,7 @@
        "Rhino": 1
       },
       "options": {
-       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+       "rhino-pintle-1": "Pintle Mounted multi-melta"
       }
      }
     },
@@ -162,7 +162,7 @@
       },
       "options": {
        "gorgon-terminator-options": {
-        "Artificer Power Axe": 9
+        "Power fist": 9
        }
       }
      }
@@ -177,7 +177,7 @@
       },
       "options": {
        "gorgon-terminator-options": {
-        "Artificer Power Axe": 9
+        "Power fist": 9
        }
       }
      }
@@ -265,27 +265,14 @@
       },
       "options": {
        "morlock-may-have-its-power-weapon-exchan": {
-        "Artificer Power Axe": 4
+        "Power fist": 4
        },
-       "augmentor-may-have-its-power-weapon-exch": "Artificer Power Axe"
+       "augmentor-may-have-its-power-weapon-exch": "Power fist"
       }
      }
     },
     {
-     "role": "Retinue",
-     "unit": {
-      "unitId": "morlock-terminator-squad",
-      "counts": {
-       "Morlock": 4,
-       "Augmentor": 1
-      },
-      "options": {
-       "morlock-may-have-its-power-weapon-exchan": {
-        "Artificer Power Axe": 4
-       },
-       "augmentor-may-have-its-power-weapon-exch": "Artificer Power Axe"
-      }
-     }
+     "role": "Retinue"
     },
     {
      "role": "Retinue"

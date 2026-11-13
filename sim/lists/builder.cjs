@@ -5,7 +5,12 @@
 const fs = require('fs'), vm = require('vm'), path = require('path');
 const R = path.join(__dirname, '..', '..') + '/';
 const { createEngine } = require(R + 'js/engine.js');
-const { loadArmyData, resolveItem } = require(R + 'sim/lib/army.cjs');
+const { loadArmyData, resolveItem, buildUnit, buildArmy } = require(R + 'sim/lib/army.cjs');
+const ai = require(R + 'sim/lib/ai.cjs');
+
+// reference targets for weighing weapons: a Tactical Squad, Terminators and a Predator
+let REF = null;
+const refTargets = () => REF || (REF = (() => { const u = buildArmy(R + 'sim/lists/legions/sons-of-horus.json', 1).units; return ['Tactical Squad', 'Justaerin Terminator Squad', 'Predator'].map((n) => u.find((x) => x.name === n)); })());
 const load = (id) => { const window = {}; vm.runInNewContext(fs.readFileSync(`${R}js/data-${id}.js`, 'utf8'), { window }); return window.ARMY_DATA[id]; };
 
 const TRAITOR = new Set(['emperors-children', 'iron-warriors', 'night-lords', 'world-eaters', 'death-guard', 'thousand-sons', 'sons-of-horus', 'word-bearers', 'alpha-legion']);
@@ -13,7 +18,7 @@ const TRAITOR = new Set(['emperors-children', 'iron-warriors', 'night-lords', 'w
 const AUX = { Armour: 'core-armoured-support', Support: 'core-tactical-support', Troops: 'core-tactical-support', 'War Engine': 'core-heavy-support', 'Heavy Assault': 'core-shock-assault', 'Fast Attack': 'core-first-strike', Recon: 'core-combat-pioneer', 'Heavy Transport': 'core-armoured-fist', Transport: 'core-armoured-fist' };
 const APEX = { Elites: 'core-army-vanguard', Retinue: 'core-combat-retinue', Command: 'core-officer-cadre' };
 
-function createBuilder(id, { limit = 3000, name } = {}) {
+function createBuilder(id, { limit = 3000, name, smart = false } = {}) {
   const D = load(id);
   const E = createEngine(D);
   const { weapons } = loadArmyData(id);
@@ -36,7 +41,44 @@ function createBuilder(id, { limit = 3000, name } = {}) {
       else if (o.kind === 'any') s.options[o.id] = weaponPick || c.slice(0, many).map((x) => x.name);
       else s.options[o.id] = weaponPick ? weaponPick[0] : c[0].name;
     }
+    if (smart) choose(role, s, options);
     return { role, s };
+  };
+  /**
+   * Weigh a unit by the simulator's combat maths: points it would destroy per turn, shooting at 18" and fighting
+   * after a charge, against the reference targets, for each point it costs.
+   */
+  const st = { cache: { shoot: new Map(), melee: new Map() }, table: { pieces: [], objectives: [] }, units: [] };
+  const worth = (role, s) => {
+    if (E.unitIssues(s).some((i) => i.level === 'error')) return -1;
+    const u = buildUnit(id, army(), { role, unit: s }, { name: 'x' }, 0);
+    u.turn = { charged: true };
+    let v = 0;
+    for (const t of refTargets()) v += ai.meleeEV(st, u, t) + ai.evAt(ai.shootTable(st, u, t), 18);
+    return v / Math.max(1, u.pts);
+  };
+  /** For each required weapon pick the plan left open, take the choice that makes the unit worth most per point. */
+  const choose = (role, s, given) => {
+    for (const o of E.optionsOf(s)) {
+      if (!o.required || given[o.id] !== undefined || !s.options[o.id]) continue;
+      const c = E.choicesFor(o, s).map((x) => x.name);
+      const slots = o.kind === 'perModel' ? Object.keys(s.options[o.id]) : o.kind === 'any' ? s.options[o.id] : [s.options[o.id]];
+      const set = (picks) => {
+        if (o.kind === 'perModel') { const n = E.modelCounts(s)[o.model] || 1; s.options[o.id] = Object.fromEntries(picks.map((w) => [w, n])); }
+        else s.options[o.id] = o.kind === 'any' ? picks : picks[0];
+      };
+      let picks = [...slots], best = worth(role, s);
+      for (let k = 0; k < picks.length; k++) {
+        for (const x of c) {
+          if (picks.includes(x)) continue;
+          const tryPicks = picks.map((p, i) => (i === k ? x : p));
+          set(tryPicks);
+          const v = worth(role, s);
+          if (v > best * 1.01) { best = v; picks = tryPicks; }
+        }
+        set(picks);
+      }
+    }
   };
   const primary = E.makeDetachment('primary', D.forceorg.primary.name, D.forceorg.primary.slots.flatMap((d) => Array.from({ length: d.count ?? 1 }, (_, i) => ({ role: d.role, prime: i < (d.prime || 0) }))));
   const dets = [primary];

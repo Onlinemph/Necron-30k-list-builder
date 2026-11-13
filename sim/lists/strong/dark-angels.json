@@ -117,7 +117,7 @@
        "Rhino": 1
       },
       "options": {
-       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+       "rhino-pintle-1": "Pintle Mounted multi-melta"
       }
      }
     },
@@ -129,7 +129,7 @@
        "Rhino": 1
       },
       "options": {
-       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+       "rhino-pintle-1": "Pintle Mounted multi-melta"
       }
      }
     },
@@ -141,7 +141,7 @@
        "Rhino": 1
       },
       "options": {
-       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+       "rhino-pintle-1": "Pintle Mounted multi-melta"
       }
      }
     },
@@ -165,9 +165,9 @@
       },
       "options": {
        "order-cenobite-options": {
-        "Terranic greatsword": 4
+        "Thunder hammer": 4
        },
-       "order-preceptor-options": "Terranic greatsword",
+       "order-preceptor-options": "Thunder hammer",
        "unit-orders-of-the-hekatonystika": "Augurs of Weakness"
       }
      }
@@ -182,21 +182,15 @@
       },
       "options": {
        "order-cenobite-options": {
-        "Terranic greatsword": 4
+        "Thunder hammer": 4
        },
-       "order-preceptor-options": "Terranic greatsword",
+       "order-preceptor-options": "Thunder hammer",
        "unit-orders-of-the-hekatonystika": "Augurs of Weakness"
       }
      }
     },
     {
-     "role": "Elites",
-     "unit": {
-      "unitId": "firewing-enigmatus-cabal",
-      "counts": {
-       "Firewing Enigmatii": 3
-      }
-     }
+     "role": "Elites"
     }
    ],
    "defId": "core-army-vanguard"

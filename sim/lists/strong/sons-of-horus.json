@@ -110,7 +110,7 @@
        "Rhino": 1
       },
       "options": {
-       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+       "rhino-pintle-1": "Pintle Mounted multi-melta"
       }
      }
     },
@@ -122,21 +122,12 @@
        "Rhino": 1
       },
       "options": {
-       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+       "rhino-pintle-1": "Pintle Mounted multi-melta"
       }
      }
     },
     {
-     "role": "Transport",
-     "unit": {
-      "unitId": "rhino",
-      "counts": {
-       "Rhino": 1
-      },
-      "options": {
-       "rhino-pintle-1": "Pintle Mounted combi-bolter"
-      }
-     }
+     "role": "Transport"
     },
     {
      "role": "Transport"
@@ -157,11 +148,11 @@
       },
       "options": {
        "reaver-chieftain-options": [
-        "Chainaxe",
+        "Power fist",
         "Bolt pistol"
        ],
        "reaver-options": {
-        "Chainaxe": 19,
+        "Power fist": 19,
         "Bolt pistol": 19
        }
       }
@@ -177,11 +168,11 @@
       },
       "options": {
        "reaver-chieftain-options": [
-        "Chainaxe",
+        "Power fist",
         "Bolt pistol"
        ],
        "reaver-options": {
-        "Chainaxe": 9,
+        "Power fist": 9,
         "Bolt pistol": 9
        }
       }
@@ -204,26 +195,14 @@
       },
       "options": {
        "justaerin-options": {
-        "Power sword": 10,
+        "Chainfist": 10,
         "Banestrike combi-bolter": 10
        }
       }
      }
     },
     {
-     "role": "Elites",
-     "unit": {
-      "unitId": "justaerin-terminator-squad",
-      "counts": {
-       "Justaerin": 5
-      },
-      "options": {
-       "justaerin-options": {
-        "Power sword": 5,
-        "Banestrike combi-bolter": 5
-       }
-      }
-     }
+     "role": "Elites"
     },
     {
      "role": "Elites"
@@ -273,13 +252,7 @@
    "name": "Heavy Support",
    "slots": [
     {
-     "role": "War Engine",
-     "unit": {
-      "unitId": "leviathan-dreadnought",
-      "counts": {
-       "Leviathan Dreadnought": 1
-      }
-     }
+     "role": "War Engine"
     }
    ],
    "defId": "core-heavy-support"

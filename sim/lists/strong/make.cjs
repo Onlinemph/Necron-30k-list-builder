@@ -157,9 +157,51 @@ const PLANS = {
   },
 };
 
-function build(id) {
-  const plan = PLANS[id];
-  const b = createBuilder(id, { name: plan.name });
+// ---- second plans: the Legion's best units, carried where they fight in melee, around the core that wins in
+// the simulator (four lascannon Predators, lascannon Heavy Support, Tactical Squads on foot) ----
+const GUNS = [PREDATOR, PREDATOR, PREDATOR, PREDATOR];
+const STRIKE = {
+  'world-eaters': { why: 'Rampagers ride a Spartan and Red Butchers a Land Raider, so Violence Incarnate lands the turn they arrive; four Predators and two big Tactical Squads hold the rest of the table.',
+    units: [...COMMAND, TACTICAL(), TACTICAL(), unit('Heavy Assault', 'rampager-squad', { Rampager: 14 }), SPARTAN, unit('Elites', 'red-butchers', { 'Red Butcher': 4 }), LAND_RAIDER, ...GUNS], fill: [unit('Elites', 'red-butchers', { 'Red Butcher': 4 })] },
+  'space-wolves': { why: 'Varagyr, the Legion\'s best unit, ride a Spartan and a Land Raider so the Hunter\'s Strike charge lands from the transport; four Predators and lascannons cover them.',
+    units: [...COMMAND, TACTICAL(), TACTICAL(), unit('Elites', 'varagyr-wolf-guard-terminators', { Varagyr: 9 }), SPARTAN, unit('Elites', 'varagyr-wolf-guard-terminators', { Varagyr: 4 }), LAND_RAIDER, ...GUNS, HEAVY_SUPPORT('Lascannon', 5)] },
+  'salamanders': { why: 'Firedrakes ride two Land Raiders into the enemy line, tough under Promethean Endurance; four Predators and lascannons do the rest.',
+    units: [...COMMAND, TACTICAL(), TACTICAL(), unit('Elites', 'firedrake-terminator-squad', { Firedrake: 4 }), LAND_RAIDER, unit('Elites', 'firedrake-terminator-squad', { Firedrake: 4 }), LAND_RAIDER, ...GUNS, HEAVY_SUPPORT('Lascannon', 5)], fill: [TACTICAL()] },
+  'word-bearers': { why: 'Gal Vorbak ride a Spartan and the Phraetus Anointed a Land Raider into fights Unwavering Conviction wins; four Predators and lascannons cover them.',
+    units: [...COMMAND, TACTICAL(), TACTICAL(), unit('Elites', 'gal-vorbak', { 'Dark Brethren': 10 }), SPARTAN, unit('Elites', 'phraetus-anointed-conclave', { 'Phraetus Anointed': 4 }), LAND_RAIDER, ...GUNS, HEAVY_SUPPORT('Lascannon', 5)] },
+  'dark-angels': { why: 'Two Inner Circle Knights Cenobium squads ride Land Raiders into the enemy, steadied by the Angel of Death; four Predators and lascannons hold the line.',
+    units: [...COMMAND, TACTICAL(), TACTICAL(), unit('Elites', 'inner-circle-knights-cenobium', { 'Order Cenobite': 4 }), LAND_RAIDER, unit('Elites', 'inner-circle-knights-cenobium', { 'Order Cenobite': 4 }), LAND_RAIDER, ...GUNS, HEAVY_SUPPORT('Lascannon', 5)], fill: [TACTICAL()] },
+  'blood-angels': { why: 'Dawnbreakers ride a Spartan and Crimson Paladins a Land Raider, so Encarmine Fury strikes the turn they arrive; four Predators and lascannons cover them.',
+    units: [...COMMAND, TACTICAL(), TACTICAL(), unit('Elites', 'dawnbreaker-cohort', { Dawnbreaker: 9 }), SPARTAN, unit('Elites', 'crimson-paladins', { 'Crimson Paladin': 4 }), LAND_RAIDER, ...GUNS, HEAVY_SUPPORT('Lascannon', 5)], fill: [TACTICAL()] },
+  'night-lords': { why: 'The guns break and pin (heavy bolters, four Predators) and the Atramentar and Contekar fall on what\'s shaken, with A Talent for Murder.',
+    units: [...COMMAND, TACTICAL(), TACTICAL(), unit('Heavy Assault', 'atramentar-flay-clade', { Atramentar: 9 }), unit('Heavy Assault', 'atramentar-flay-clade', { Atramentar: 4 }), unit('Elites', 'contekar-terminator-squad', { Contekar: 4 }), ...GUNS, HEAVY_SUPPORT('Heavy bolter', 10)], grow: [['atramentar-flay-clade', 10]], after: [['contekar-terminator-squad', 10]] },
+  'emperors-children': { why: 'Palatine Blades strike first on the charge with Flawless Execution, one squad from a Land Raider; Sun Killers and four Predators bring the guns.',
+    units: [...COMMAND, TACTICAL(), TACTICAL(), unit('Elites', 'palatine-blade-squad', { 'Palatine Warrior': 9 }), LAND_RAIDER, unit('Elites', 'palatine-blade-squad', { 'Palatine Warrior': 9 }), unit('Elites', 'sun-killer-squad', { 'Sun Killer': 9 }, { 'unit-every-model-in-the-unit-must-have-o': 'Lascannon' }), ...GUNS, HEAVY_SUPPORT('Lascannon', 5)], after: [['sun-killer-squad', 20]] },
+  'thousand-sons': { why: 'Sekhmet Terminators, Psykers all under Cult Arcana, ride a Spartan forward with Sorcerers leading; four Predators and lascannons back them.',
+    units: [PRAETOR, ['Command', 'prosperine-sorcerer'], ['Command', 'prosperine-sorcerer'], ['Command', 'prosperine-sorcerer'], TACTICAL(), TACTICAL(), unit('Elites', 'sekhmet-terminator-cabal', { Sekhmet: 9 }), SPARTAN, unit('Elites', 'sekhmet-terminator-cabal', { Sekhmet: 4 }), ...GUNS, HEAVY_SUPPORT('Lascannon', 5)], after: [['sekhmet-terminator-cabal', 10]] },
+  'ultramarines': { why: 'Two Fulmentarus squads and four Predators shoot, Invictus Suzerains ride a Land Raider, and Tactical Flexibility gives a free reaction every turn.',
+    units: [...COMMAND, TACTICAL(), TACTICAL(), TACTICAL(), unit('Heavy Assault', 'fulmentarus-terminator-squad', { 'Fulmentarus Terminator': 4 }), unit('Heavy Assault', 'fulmentarus-terminator-squad', { 'Fulmentarus Terminator': 4 }), unit('Elites', 'invictus-suzerain-squad', { Suzerain: 10 }), LAND_RAIDER, ...GUNS], grow: [['fulmentarus-terminator-squad', 8]] },
+  'iron-hands': { why: 'Two big Gorgon Terminator squads and Medusan Immortals advance under the Gorgon\'s Scales; four Predators and lascannons shoot them in.',
+    units: [...COMMAND, unit('Troops', 'medusan-immortals-squad', { Immortal: 9 }), TACTICAL(), unit('Heavy Assault', 'gorgon-terminator-squad', { 'Gorgon Terminator': 9 }), unit('Heavy Assault', 'gorgon-terminator-squad', { 'Gorgon Terminator': 4 }), ...GUNS, HEAVY_SUPPORT('Lascannon', 5)], grow: [['gorgon-terminator-squad', 10]], after: [['medusan-immortals-squad', 20]], fill: [unit('Retinue', 'morlock-terminator-squad', { Morlock: 4 })] },
+  'iron-warriors': { why: 'Two full Tyrant squads, four Predators and lascannons: a gunline that keeps firing through statuses with the Bitter End.',
+    units: [...COMMAND, TACTICAL(), TACTICAL(), unit('Heavy Assault', 'tyrant-siege-terminator-squad', { Tyrant: 9 }), unit('Heavy Assault', 'tyrant-siege-terminator-squad', { Tyrant: 9 }), ...GUNS, HEAVY_SUPPORT('Lascannon', 5)], fill: [unit('Retinue', 'dominator-cohort')] },
+  'death-guard': { why: 'Two full Grave Warden squads walk forward with lascannon Heavy Support Squads that fire on the move (Remorseless Advance); four Predators add weight.',
+    units: [...COMMAND, TACTICAL(), TACTICAL(), unit('Heavy Assault', 'grave-warden-terminator-squad', { 'Grave Warden': 9 }), unit('Heavy Assault', 'grave-warden-terminator-squad', { 'Grave Warden': 4 }), HEAVY_SUPPORT('Lascannon', 10), ...GUNS], grow: [['grave-warden-terminator-squad', 10]], fill: [HEAVY_SUPPORT('Lascannon', 10), unit('Retinue', 'deathshroud-terminator-squad')] },
+  'imperial-fists': { why: 'Fire Discipline\'s bolters in bulk (three 20-strong Tactical Squads, ten heavy bolters, heavy bolter Predators) with lascannons and Huscarls.',
+    units: [...COMMAND, TACTICAL(20), TACTICAL(20), TACTICAL(20), HEAVY_SUPPORT('Heavy bolter', 10), HEAVY_SUPPORT('Lascannon', 5), PREDATOR_HB, PREDATOR_HB, PREDATOR, PREDATOR, unit('Retinue', 'huscarl-terminator-retinue')], after: [['huscarl-terminator-retinue', 10]], fill: [TACTICAL(20)] },
+  'alpha-legion': { why: 'Lernaean Terminators hold markers (Line), Headhunters infiltrate, and four Predators and lascannons shoot from 2" further away than they seem.',
+    units: [...COMMAND, TACTICAL(), TACTICAL(), unit('Elites', 'lernaean-terminator-squad', { Lernaean: 9 }), unit('Elites', 'lernaean-terminator-squad', { Lernaean: 4 }), unit('Elites', 'headhunter-kill-team', { Headhunter: 9 }), ...GUNS, HEAVY_SUPPORT('Lascannon', 5)], grow: [['lernaean-terminator-squad', 10]] },
+  'white-scars': { why: 'Fast Tactical Squads reach markers first with Swift of Action, Ebon Keshig hit hard, and four Predators and lascannons cover them.',
+    units: [...COMMAND, TACTICAL(), TACTICAL(), TACTICAL(), unit('Heavy Assault', 'ebon-keshig', { Kharash: 10 }), unit('Heavy Assault', 'ebon-keshig', { Kharash: 5 }), ...GUNS, HEAVY_SUPPORT('Lascannon', 5)], fill: [TACTICAL(), unit('Elites', 'golden-keshig', { 'Keshig Rider': 4 })], after: [['ebon-keshig', 10]] },
+  'sons-of-horus': { why: 'Two Reaver squads and Justaerin, Vanguard units that shoot and fight with Death Dealers, behind four Predators and lascannon Heavy Support.',
+    units: [...COMMAND, TACTICAL(), TACTICAL(), unit('Heavy Assault', 'reaver-attack-squad', { Reaver: 19 }), unit('Heavy Assault', 'reaver-attack-squad', { Reaver: 9 }), unit('Elites', 'justaerin-terminator-squad', { Justaerin: 10 }), ...GUNS, HEAVY_SUPPORT('Lascannon', 5), HEAVY_SUPPORT('Lascannon', 5)] },
+};
+// which plan each Legion uses ('strike' for the second plan), chosen by playing both (see the README)
+const CHOICE = {};
+
+function build(id, variant = CHOICE[id] || 'plan', file = `${__dirname}/${id}.json`) {
+  const plan = variant === 'strike' ? Object.assign({ name: PLANS[id].name }, STRIKE[id]) : PLANS[id];
+  const b = createBuilder(id, { name: plan.name, smart: true });
   const skipped = [];
   for (const u of plan.units) if (!b.add(u)) skipped.push(u[1]);
   for (const [uid, max] of plan.grow || []) b.growAll((sl) => sl.unit.unitId === uid, max);
@@ -168,10 +210,12 @@ function build(id) {
   const rhinos = [...plan.units, ...(plan.fill || [])].some((u) => u[1] === 'rhino');
   b.growAll((sl) => sl.unit.unitId === 'tactical-squad', rhinos ? 10 : 20);
   for (const [uid, max] of plan.after || []) b.growAll((sl) => sl.unit.unitId === uid, max);
-  return Object.assign(b.finish(`${__dirname}/${id}.json`), { skipped });
+  // whatever is left goes into the Heavy Support Squads
+  b.growAll((sl) => sl.unit.unitId === 'heavy-support-squad', 10);
+  return Object.assign(b.finish(file), { skipped, variant });
 }
 
-module.exports = { build, PLANS };
+module.exports = { build, PLANS, STRIKE, CHOICE };
 if (require.main === module) {
   for (const id of process.argv.slice(2).length ? process.argv.slice(2) : Object.keys(PLANS)) {
     try {

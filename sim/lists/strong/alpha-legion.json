@@ -81,7 +81,7 @@
      "unit": {
       "unitId": "tactical-squad",
       "counts": {
-       "Legionary": 19,
+       "Legionary": 10,
        "Sergeant": 1
       }
      }
@@ -91,7 +91,7 @@
      "unit": {
       "unitId": "tactical-squad",
       "counts": {
-       "Legionary": 19,
+       "Legionary": 10,
        "Sergeant": 1
       }
      }
@@ -101,7 +101,7 @@
      "unit": {
       "unitId": "tactical-squad",
       "counts": {
-       "Legionary": 19,
+       "Legionary": 9,
        "Sergeant": 1
       }
      }
@@ -138,12 +138,12 @@
       },
       "options": {
        "harrower-options": [
-        "Power axe",
-        "Volkite charger"
+        "Chainfist",
+        "Power fist"
        ],
        "lernaean-options": {
-        "Power axe": 9,
-        "Volkite charger": 9
+        "Power fist": 9,
+        "Reaper autocannon": 9
        }
       }
      }
@@ -154,16 +154,16 @@
       "unitId": "lernaean-terminator-squad",
       "counts": {
        "Harrower": 1,
-       "Lernaean": 9
+       "Lernaean": 6
       },
       "options": {
        "harrower-options": [
-        "Power axe",
-        "Volkite charger"
+        "Chainfist",
+        "Combi-grav"
        ],
        "lernaean-options": {
-        "Power axe": 9,
-        "Volkite charger": 9
+        "Power fist": 6,
+        "Reaper autocannon": 6
        }
       }
      }
@@ -177,9 +177,9 @@
        "Headhunter": 9
       },
       "options": {
-       "headhunter-prime-may-have-its-banestrike": "Combi-bolter",
+       "headhunter-prime-may-have-its-banestrike": "Combi-grav",
        "headhunter-weapon-options": {
-        "Heavy bolter": 9
+        "Multi-melta": 9
        }
       }
      }
@@ -231,17 +231,7 @@
      }
     },
     {
-     "role": "Armour",
-     "unit": {
-      "unitId": "predator",
-      "counts": {
-       "Predator": 1
-      },
-      "options": {
-       "predator-legion-sponson-weapons": "Lascannon",
-       "predator-turret": "Twin lascannon"
-      }
-     }
+     "role": "Armour"
     }
    ],
    "defId": "core-armoured-support"

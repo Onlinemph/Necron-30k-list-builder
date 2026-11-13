@@ -117,7 +117,7 @@
        "Rhino": 1
       },
       "options": {
-       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+       "rhino-pintle-1": "Pintle Mounted multi-melta"
       }
      }
     },
@@ -129,7 +129,7 @@
        "Rhino": 1
       },
       "options": {
-       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+       "rhino-pintle-1": "Pintle Mounted multi-melta"
       }
      }
     },
@@ -242,7 +242,7 @@
      "unit": {
       "unitId": "deathshroud-terminator-squad",
       "counts": {
-       "Deathshroud": 4
+       "Deathshroud": 3
       }
      }
     },

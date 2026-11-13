@@ -117,7 +117,7 @@
        "Rhino": 1
       },
       "options": {
-       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+       "rhino-pintle-1": "Pintle Mounted multi-melta"
       }
      }
     },
@@ -129,7 +129,7 @@
        "Rhino": 1
       },
       "options": {
-       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+       "rhino-pintle-1": "Pintle Mounted multi-melta"
       }
      }
     },
@@ -141,7 +141,7 @@
        "Rhino": 1
       },
       "options": {
-       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+       "rhino-pintle-1": "Pintle Mounted multi-melta"
       }
      }
     },
@@ -153,7 +153,7 @@
        "Rhino": 1
       },
       "options": {
-       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+       "rhino-pintle-1": "Pintle Mounted multi-melta"
       }
      }
     }
@@ -177,10 +177,10 @@
         "Forge-crafted thunder hammer": 4
        },
        "firedrake-drakenscale": {
-        "Forge-crafted heavy flamer": 4
+        "Combi-bolter": 4
        },
        "firedrake-master-forge-crafted-thunder-h": "Forge-crafted thunder hammer",
-       "firedrake-master-drakenscale": "Drakenscale"
+       "firedrake-master-drakenscale": "Combi-bolter"
       }
      }
     },
@@ -197,10 +197,10 @@
         "Forge-crafted thunder hammer": 4
        },
        "firedrake-drakenscale": {
-        "Forge-crafted heavy flamer": 4
+        "Combi-bolter": 4
        },
        "firedrake-master-forge-crafted-thunder-h": "Forge-crafted thunder hammer",
-       "firedrake-master-drakenscale": "Drakenscale"
+       "firedrake-master-drakenscale": "Combi-bolter"
       }
      }
     },

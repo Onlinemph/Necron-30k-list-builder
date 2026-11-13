@@ -463,3 +463,23 @@ test('the Legion lists and the strength lists are legal in the builder at 3,000 
     }
   }
 });
+
+test('AI: a transport carries its assault unit to the enemy, and the unit stays in until it can charge', () => {
+  const ai = require('../sim/lib/ai.cjs');
+  const { buildArmy } = require('../sim/lib/army.cjs');
+  const a = buildArmy(path.join(LISTS, 'strong', 'world-eaters.json'), 0);
+  const b = buildArmy(path.join(LISTS, 'legions', 'ultramarines.json'), 1);
+  const spartan = a.units.find((u) => /Spartan/.test(u.name)), rampagers = a.units.find((u) => /Rampager/.test(u.name));
+  const tac = b.units.find((u) => u.name === 'Tactical Squad');
+  for (const u of [spartan, rampagers, tac]) Object.assign(u, { arrived: true, destroyed: false, embarkedIn: null, statuses: new Set(), lockedWith: new Set(), turn: {} });
+  Object.assign(spartan, { x: 10, y: 24, passengers: [rampagers] });
+  Object.assign(rampagers, { embarkedIn: spartan, x: 10, y: 24, r: 3 });
+  Object.assign(tac, { x: 50, y: 24, r: 3 });
+  const st = { units: [spartan, rampagers, tac], table: { pieces: [], objectives: [] }, cache: { shoot: new Map(), melee: new Map() }, mission: { primary: 'destroy', has: () => false, secondaries: { breakthrough: 0 } }, turnsLeft: 4, zoneOf: [{}, {}], round: 2, active: 0 };
+  const near = { x: 20, y: 24 }, far = { x: 0 + spartan.r, y: 24 };
+  // loaded, the Spartan wants to close in; empty, the forward move is worth much less to it
+  const loaded = ai.positionScore(st, spartan, near) - ai.positionScore(st, spartan, far);
+  spartan.passengers = [];
+  const empty = ai.positionScore(st, spartan, near) - ai.positionScore(st, spartan, far);
+  assert.ok(loaded > empty + 50, `${loaded} vs ${empty}`);
+});

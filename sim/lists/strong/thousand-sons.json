@@ -79,14 +79,7 @@
      }
     },
     {
-     "role": "Troops",
-     "unit": {
-      "unitId": "tactical-squad",
-      "counts": {
-       "Legionary": 9,
-       "Sergeant": 1
-      }
-     }
+     "role": "Troops"
     },
     {
      "role": "Troops"
@@ -99,7 +92,7 @@
        "Rhino": 1
       },
       "options": {
-       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+       "rhino-pintle-1": "Pintle Mounted multi-melta"
       }
      }
     },
@@ -111,7 +104,7 @@
        "Rhino": 1
       },
       "options": {
-       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+       "rhino-pintle-1": "Pintle Mounted multi-melta"
       }
      }
     },
@@ -213,8 +206,8 @@
        "Contemptor-Osiron Dreadnought": 1
       },
       "options": {
-       "contemptor-osiron-dreadnought-may-have-t": "Gravis bolt cannon",
-       "contemptor-osiron-dreadnought-may-have-t-x": "Combi-bolter"
+       "contemptor-osiron-dreadnought-may-have-t": "Gravis autocannon",
+       "contemptor-osiron-dreadnought-may-have-t-x": "Plasma blaster"
       }
      }
     }

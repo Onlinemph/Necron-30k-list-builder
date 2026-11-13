@@ -113,7 +113,7 @@
        "Rhino": 1
       },
       "options": {
-       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+       "rhino-pintle-1": "Pintle Mounted multi-melta"
       }
      }
     },
@@ -125,12 +125,21 @@
        "Rhino": 1
       },
       "options": {
-       "rhino-pintle-1": "Pintle Mounted combi-bolter"
+       "rhino-pintle-1": "Pintle Mounted multi-melta"
       }
      }
     },
     {
-     "role": "Transport"
+     "role": "Transport",
+     "unit": {
+      "unitId": "rhino",
+      "counts": {
+       "Rhino": 1
+      },
+      "options": {
+       "rhino-pintle-1": "Pintle Mounted multi-melta"
+      }
+     }
     },
     {
      "role": "Transport"
@@ -150,28 +159,15 @@
        "Rampager": 14
       },
       "options": {
-       "rampager-champion-options": "Pair of lightning claws",
+       "rampager-champion-options": "Power fist",
        "rampager-caedere-weapons": {
-        "Meteor hammer": 14
+        "Paired falax blades": 14
        }
       }
      }
     },
     {
-     "role": "Heavy Assault",
-     "unit": {
-      "unitId": "rampager-squad",
-      "counts": {
-       "Rampager Champion": 1,
-       "Rampager": 9
-      },
-      "options": {
-       "rampager-champion-options": "Pair of lightning claws",
-       "rampager-caedere-weapons": {
-        "Meteor hammer": 9
-       }
-      }
-     }
+     "role": "Heavy Assault"
     }
    ],
    "defId": "core-shock-assault"
@@ -243,7 +239,19 @@
      }
     },
     {
-     "role": "Elites"
+     "role": "Elites",
+     "unit": {
+      "unitId": "red-butchers",
+      "counts": {
+       "Devoured": 1,
+       "Red Butcher": 4
+      },
+      "options": {
+       "red-butcher-options": {
+        "Butcher power axes": 4
+       }
+      }
+     }
     },
     {
      "role": "Elites"

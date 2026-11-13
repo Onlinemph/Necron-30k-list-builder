@@ -218,6 +218,11 @@ Units play to their battlefield role, from the Line and Vanguard rule texts:
 
 Seize Ground and Destroy the Enemy have no markers, so there units play as before.
 
+Transports deliver. A transport's move counts what its passengers could do from where it stops (charge, shoot
+or hold once they get out beside it), and one carrying an assault unit is drawn towards the enemy that unit
+fights best and accepts half the usual risk to get there. Before the transport moves, passengers only get out if
+they can charge or hold a marker from that spot; otherwise they ride.
+
 ## Where the rules come from
 
 Four sources, marked in the code:

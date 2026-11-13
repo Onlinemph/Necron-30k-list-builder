@@ -168,11 +168,30 @@ function positionScore(state, u, pos, opts = {}) {
       risk += meleeEV(state, e, u) * p * 0.8;
     }
   }
-  // a unit can't lose more than it has left; assault troops (Vanguard) accept more of it to reach the enemy
-  score -= Math.min(risk, pointsLeft(u)) * 0.35 * (opts.cautious ?? 1) * (scoring.majority(u, 'Vanguard') ? 0.5 : 1);
+  // a unit can't lose more than it has left; assault troops (Vanguard), and transports carrying assault troops,
+  // accept more of it to reach the enemy
+  const assaultCargo = (u.passengers || []).some((p) => canCharge(p) && meleeValue(state, p, enemies) > shootValue(state, p, enemies));
+  score -= Math.min(risk, pointsLeft(u)) * 0.35 * (opts.cautious ?? 1) * (scoring.majority(u, 'Vanguard') || assaultCargo ? 0.5 : 1);
   // standing still with heavy weapons is worth something
   if (pos.x === saved.x && pos.y === saved.y && alive(u).some((m) => m.ranged.some((w) => has(w.specialRules, 'Heavy') || has(w.specialRules, 'Ordnance')))) score += shoot * 0.15;
   u.x = saved.x; u.y = saved.y;
+  // a transport is worth what its passengers can do from where it stops: they get out beside it and charge,
+  // shoot or hold from there (after a Rush they stay in, so only next turn counts). Inside, they're safe
+  if (u.passengers?.length && !opts.passenger) {
+    for (const p of u.passengers) {
+      const r0 = p.r;
+      p.r = p.r || 2;
+      score += Math.max(0, positionScore(state, p, pos, { cautious: 0.3, passenger: true, charging: opts.charging }));
+      // delivery: an assault unit wants carrying to the enemy it fights best, from across the table if need be
+      if (canCharge(p) && meleeValue(state, p, enemies) > shootValue(state, p, enemies)) {
+        const reach = moveOf(u) + core.setupMove(p) + 4.5 + p.r;
+        let best = 0;
+        for (const e of enemies) best = Math.max(best, meleeEV(state, p, e) * Math.max(0, Math.min(1, 1 - (Math.hypot(pos.x - e.x, pos.y - e.y) - u.r - e.r - reach) / 36)));
+        score += best;
+      }
+      p.r = r0;
+    }
+  }
   return score;
 }
 

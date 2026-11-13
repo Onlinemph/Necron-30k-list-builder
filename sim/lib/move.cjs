@@ -9,6 +9,7 @@ const { inArea, EDGE } = require('./mission.cjs');
 const ai = require('./ai.cjs');
 const core = require('./core.cjs');
 const legions = require('./legions.cjs');
+const scoring = require('./scoring.cjs');
 
 const enemiesOf = (state, u) => state.units.filter((e) => e.side !== u.side && !e.destroyed && e.arrived && !e.embarkedIn);
 const ignoresTerrain = (u) => alive(u).every((m) => /Antigrav|Flyer|Super-[Hh]eavy|Knight|Titan|Jump/.test(m.unitType)) || has(u.rules, 'Move Through Cover');
@@ -172,6 +173,12 @@ function disembarkIfWorth(state, t, afterMove = false) {
     // stay in while far from anything worth doing
     const near = enemiesOf(state, p).some((e) => gap(t, e) < 18) || state.round >= 3;
     if (!near && best.s < 25) continue;
+    // before the transport moves, it can still carry them closer: get out now only to charge or hold a marker
+    // from here (ASSUMPTION: the AI's rule of thumb)
+    if (!afterMove && ai.moveOf(t) > 0 && !t.statuses.has('Pinned')) {
+      const charge = ai.canCharge(p) && enemiesOf(state, p).some((e) => ai.chargeOdds(p, best.pos, e) >= 0.5);
+      if (!charge && !(scoring.missionValueAt(state, p, best.pos).here > 0)) continue;
+    }
     t.passengers = t.passengers.filter((x) => x !== p);
     p.embarkedIn = null; p.arrived = true;
     p.x = best.pos.x; p.y = best.pos.y;
