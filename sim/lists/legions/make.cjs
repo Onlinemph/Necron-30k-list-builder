@@ -48,8 +48,8 @@ const FILL = [
 ];
 const CAP = { 'tactical-squad': 4, rhino: 3, predator: 4, 'heavy-support-squad': 2, 'contemptor-dreadnought': 2 };
 
-function build(id) {
-  const b = createBuilder(id);
+function build(id, { smart = false, name, file = `${__dirname}/${id}.json` } = {}) {
+  const b = createBuilder(id, { smart, name });
   const skipped = [];
   // commands first (they unlock the auxiliaries), then the signature units, then the rest of the core
   const cmds = CORE.filter((u) => /Command/.test(u[0])), rest = CORE.filter((u) => !/Command/.test(u[0]));
@@ -63,7 +63,7 @@ function build(id) {
   }
   const sigIds = new Set(SIGNATURE[id].map((u) => u[1]));
   for (const pick of [(sl) => sigIds.has(sl.unit.unitId), (sl) => sl.unit.unitId === 'heavy-support-squad', (sl) => sl.unit.unitId === 'tactical-squad']) b.growAll(pick);
-  return Object.assign(b.finish(`${__dirname}/${id}.json`), { skipped });
+  return Object.assign(b.finish(file), { skipped });
 }
 module.exports = { build, SIGNATURE };
 if (require.main === module) {

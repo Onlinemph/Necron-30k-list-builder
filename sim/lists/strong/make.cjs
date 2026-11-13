@@ -200,6 +200,8 @@ const STRIKE = {
 const CHOICE = {};
 
 function build(id, variant = CHOICE[id] || 'plan', file = `${__dirname}/${id}.json`) {
+  // 'core': the generic Legion list (lists/legions) with its weapons picked by value
+  if (variant === 'core') return Object.assign(require('../legions/make.cjs').build(id, { smart: true, name: PLANS[id].name, file }), { variant });
   const plan = variant === 'strike' ? Object.assign({ name: PLANS[id].name }, STRIKE[id]) : PLANS[id];
   const b = createBuilder(id, { name: plan.name, smart: true });
   const skipped = [];
