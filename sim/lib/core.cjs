@@ -79,7 +79,8 @@ module.exports = {
   setupMove: (unit) => {
     // each model adds its Initiative to its Movement (Heavy: Movement only); the unit goes as far as its slowest
     const ms = unit.models.filter((x) => x.wounds > 0);
-    const v = ms.length ? Math.min(...ms.map((m) => num(m.p.M, 6) + (/Heavy/.test(m.unitType) ? 0 : num(m.p.I, 3)))) : 6;
+    // Shadow of the Reaper (Mortarion): his Set-up Move counts his Movement as 12
+    const v = ms.length ? Math.min(...ms.map((m) => (has(m.rules, 'Shadow of the Reaper') ? 12 : num(m.p.M, 6)) + (/Heavy/.test(m.unitType) ? 0 : num(m.p.I, 3)))) : 6;
     const s = v >= 20 ? 6 : v >= 14 ? 5 : v >= 12 ? 4 : v >= 10 ? 3 : v >= 7 ? 2 : 1;
     // The Hunter's Strike (Space Wolves): +2", to a maximum of 6"
     return legions.is(unit, 'Space Wolves') ? Math.min(6, s + 2) : s;

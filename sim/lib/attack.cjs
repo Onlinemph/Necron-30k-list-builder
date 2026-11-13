@@ -120,6 +120,8 @@ function resolveGroup(g, target, ctx) {
         if (!ok) continue;
         // Promethean Endurance (Salamanders): an unmodified 1 or 2 never wounds them
         if (wroll <= 2 && legions.is(target, 'Salamanders')) continue;
+        // Bulwark of the Imperium (Rogal Dorn's gambit): an unmodified roll under ctx.minWound never wounds
+        if (ctx.minWound && wroll < ctx.minWound) continue;
         // Anathema: Immaterial weapons wound only on a 5+ (INFERRED from the rule's summary line)
         if (immaterial && has(victim.rules, 'Anathema') && wroll < 5) continue;
       }

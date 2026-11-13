@@ -4,7 +4,8 @@
 // Panic Checks and the aftermath: Fall Back, Pursue, Gun Down, Disengage, Hold, Consolidate).
 // Procedure from the HH3 rule texts in the repo and the How to Play quick reference (SHEET in core.cjs).
 const { num, xOf, argOf, has, rel } = require('./rules.cjs');
-const { resolveGroup, meleeGroup, expectedGroup } = require('./attack.cjs');
+const { resolveGroup, meleeGroup, expectedGroup, rangedGroup } = require('./attack.cjs');
+const { planVolley } = require('./fire.cjs');
 const { shootingAttack, moraleSubPhase, preyCrit, forceCheck, vehicleDamage } = require('./shoot.cjs');
 const gambits = require('./gambits.cjs');
 const psychic = require('./psychic.cjs');
@@ -159,10 +160,17 @@ function strikeProfile(x, y, ex, ey, opts = {}) {
     w = Object.assign({}, w, { specialRules: [...(w.specialRules || []).filter((r) => !/^Critical Hit/.test(r)), `Critical Hit (${crit ? crit - 1 : 6}+)`] });
   }
   mods.attacks += (ex.attacks || 0) + (opts.focusWinner ? 1 : 0) + (ex.attacksD3 ? (opts.d3 ? opts.d3() : 2) : 0);
+  // Sublime Swordsman (Fulgrim): with Challenge Advantage, +1 Attack per point of base Initiative over the opponent
+  if (opts.advantage && has(x.m.rules, 'Sublime Swordsman')) mods.attacks += Math.max(0, num(x.m.p.I, 1) - num(y.m.p.I, 1));
+  // Death by a Thousand Cuts (Jaghatai Khan's gambit): a wounded opponent strikes at -1 Strength
+  if (ey.thousandCuts && x.m.wounds < x.m.maxWounds) mods.str -= 1;
+  // Preternatural Resilience (Mortarion): in a challenge, Critical Hit against him only on a 6
+  if (has(y.m.rules, 'Preternatural Resilience') && xOf(w.specialRules || [], 'Critical Hit')) w = Object.assign({}, w, { specialRules: (w.specialRules || []).map((r) => (/^Critical Hit/.test(r) ? 'Critical Hit (6+)' : r)) });
   mods.str += ex.str || 0; mods.ws += ex.ws || 0;
   if (ex.matchOpp) mods.ws += Math.min(0, num(y.m.p.WS, 4) - num(x.m.p.WS, 4));
   return { tgt, w, mods, finish: (g) => {
     if (ex.single) g.attacks = 1;
+    g.S = Math.max(1, g.S);
     if (ex.matchOpp) g.attacks = Math.min(g.attacks, Math.max(1, num(y.m.p.A, 1)));
     if (ex.dmg) g.D += ex.dmg;
     if (ex.dmgCap1) g.D = 1;
@@ -170,12 +178,13 @@ function strikeProfile(x, y, ex, ey, opts = {}) {
   } };
 }
 function gambitBuff(x, e) {
-  if (!e || (!e.tough && !e.toughSet && !e.ew)) return x.u.buff;
+  if (!e || (!e.tough && !e.toughSet && !e.ew && !e.fnp)) return x.u.buff;
   const b = Object.assign({ tough: 0, fnp: 7, shrouded: 7, ew: 0, attacks: 0, str: 0, ws: 0 }, x.u.buff || {});
   // toughExact: the Toughness is replaced, even by a lower value (the Death Guard's gambit)
   if (e.toughSet) b.tough += e.toughExact ? e.toughSet - num(x.m.p.T, 4) : Math.max(0, e.toughSet - num(x.m.p.T, 4));
   else b.tough += e.tough || 0;
   if (e.ew) b.ew = Math.max(b.ew || 0, e.ew);
+  if (e.fnp) b.fnp = Math.min(b.fnp || 7, e.fnp);
   return b;
 }
 /** Expected wounds `x` deals `y` in one Strike Step with these gambit effects. */
@@ -205,6 +214,9 @@ function challenge(state, c, tally) {
   const mine = elig(active), theirs = elig(1 - active);
   if (!mine.length || !theirs.length) return;
   let side = active, pair = bestPairing(mine, theirs);
+  // Avatar of Perfection (Fulgrim Transfigured): he must have a challenge declared for him (CONFIRMED)
+  const avatar = mine.find((x) => has(x.m.rules, 'Avatar of Perfection'));
+  if (avatar) pair = Object.assign(bestPairing([avatar], theirs), { v: 1 });
   // the Active Player declares first; if they don't, the Reactive Player may make a Heroic Intervention (SHEET)
   if (!pair || pair.v <= 0.1) {
     const hp = bestPairing(theirs, mine);
@@ -224,6 +236,18 @@ function challenge(state, c, tally) {
     return;
   }
   duel(state, A, pair.b, side, tally);
+  // Lord of the Red Sands (Angron): the challenger may declare another challenge against an enemy model that hasn't
+  // fought one this sub-phase, and Combat Resolution counts them all (CONFIRMED)
+  const fought = new Set([pair.b.m]);
+  while (has(A.m.rules, 'Lord of the Red Sands') && A.m.wounds > 0) {
+    const next = (side === active ? theirs : mine).filter((d) => d.m.wounds > 0 && !fought.has(d.m) && !d.u.destroyed);
+    if (!next.length) break;
+    const b = next.reduce((best, d) => (duelEdge(A, d) > duelEdge(A, best) ? d : best), next[0]);
+    if (duelEdge(A, b) <= 0.1) break;
+    fought.add(b.m);
+    state.log(`    ${A.m.name} declares another challenge (Lord of the Red Sands)`);
+    duel(state, A, b, side, tally);
+  }
 }
 
 /** A challenge: rounds of Face-Off, Focus Roll and Strike until someone falls or the advantage holder stops. */
@@ -251,9 +275,12 @@ function duel(state, A, B, challengerSide, tally) {
       /Heavy/.test(x.m.unitType) ? -1 : 0, /Light/.test(x.m.unitType) ? 1 : 0,
       (x.m.traits || []).includes('Shield') || hasItem(x.u, /Company Standard/i) ? 1 : 0,
       Math.min(e.noSupport ? 0 : support(x) * (e.supportMult || 1) + (e.supportBonus || 0), eo.oppSupportCap ?? Infinity),
-      xOf(w.specialRules, "Duellist's Edge") || 0, e.focus || 0, guard.get(x), e.aegis ? aegisCount(x) : 0, e.sacrifice || 0,
+      xOf(w.specialRules, "Duellist's Edge") || xOf(w.specialRules, "Duelist's Edge") || 0, e.focus || 0, guard.get(x), e.aegis ? aegisCount(x) : 0, e.sacrifice || 0,
+      // Battle of the Wills (Magnus): + his base Willpower over the opponent's
+      has(x.m.rules, 'Battle of the Wills') ? Math.max(0, num(x.m.p.WP, 7) - num(other(x).m.p.WP, 7)) : 0,
     ];
-    return terms;
+    // The Undying Fire (Vulkan's gambit): no positive modifiers
+    return e.noPositive ? terms.map((t) => Math.min(0, t)) : terms;
   };
   // the expected change a gambit makes to the Focus Roll difference, for the AI
   const focusDelta = (x) => (e) => {
@@ -270,6 +297,10 @@ function duel(state, A, B, challengerSide, tally) {
   for (let round = 1; round <= 5; round++) {
     // Face-Off: each picks a gambit (the side with Challenge Advantage first; it makes no difference to the AI)
     for (const [me, opp] of [[A, B], [B, A]]) {
+      // Howl of the Death Wolf: while it lasts no other gambit may be picked
+      if (lasting.get(me).howl) { effects.set(me, { name: 'Howl of the Death Wolf', focus: 5, howl: true }); continue; }
+      // A Death Long Foreseen (Konrad Curze): the gambit is there to pick on a 5+
+      me.foreseen = has(me.m.rules, 'A Death Long Foreseen') && state.dice.d6() >= 5;
       const g = gambits.choose(state, me, opp, (e) => duelWith(me, opp, e, {}) - duelWith(opp, me, {}, e), {
         moreRounds: round < 5, round, focusDelta: focusDelta(me),
         wouldFall: duelWith(opp, me, {}, {}) >= me.m.wounds, favoured: duelEdge(me, opp) > 0, saveFail: saveFail(me.m),
@@ -278,6 +309,7 @@ function duel(state, A, B, challengerSide, tally) {
       const e = g ? Object.assign({ name: g.name }, g.make(state, me, opp)) : {};
       // Beseech the Gods lasts until the end of the Challenge Sub-Phase
       const keep = lasting.get(me);
+      if (e.howl) lasting.set(me, Object.assign({}, keep, { howl: true }));
       if (e.persist) lasting.set(me, { str: (keep.str || 0) + (e.str || 0), attacks: (keep.attacks || 0) + (e.attacks || 0) });
       else { e.str = (e.str || 0) + (keep.str || 0); e.attacks = (e.attacks || 0) + (keep.attacks || 0); }
       effects.set(me, e);
@@ -332,16 +364,33 @@ function duel(state, A, B, challengerSide, tally) {
       if (x.m.wounds <= 0 || y.m.wounds <= 0) continue;
       const ex = effects.get(x), ey = effects.get(y);
       if (ex.decap && !decapOK.get(x)) continue;
-      const s = strikeProfile(x, y, ex, ey, { focusWinner: x === winner, d3: () => state.dice.d3() });
+      // The Breaker (Perturabo): no attacks; a friendly Iron Warriors unit within 12" shoots the opponent instead,
+      // Snap Shots, no Blast or Template, every wound on the model in the challenge
+      if (ex.breaker) {
+        const tgtY = { models: [y.m], statuses: y.u.statuses, vehicle: false, name: y.m.name, buff: gambitBuff(y, ey), x: y.u.x, y: y.u.y, r: 0, rules: y.u.rules };
+        const gun = state.units.find((u) => u.side === x.u.side && !u.destroyed && u.arrived && !u.embarkedIn && !u.lockedWith.size && legions.is(u, 'Iron Warriors')
+          && alive(u).some((m) => m.ranged.length) && gap(u, y.u) <= 12);
+        if (gun) {
+          const plan = planVolley(gun, tgtY, state, { snap: true, losOK: true, exclude: (w) => has(w.specialRules, 'Blast') || has(w.specialRules, 'Template') });
+          const before = y.m.wounds;
+          for (const pk of plan.picks) resolveGroup(rangedGroup(pk.model, pk.weapon, tgtY, { snap: true }), tgtY, { dice: state.dice, onKill: (m) => state.onCasualty && state.onCasualty(m, y.u, gun) });
+          inflicted.set(x, inflicted.get(x) + (before - y.m.wounds));
+          state.log(`      ${gun.name} shoots ${y.m.name} (The Breaker): ${before - y.m.wounds} wounds`);
+        }
+        continue;
+      }
+      const s = strikeProfile(x, y, ex, ey, { focusWinner: x === winner, advantage: x === adv, d3: () => state.dice.d3() });
       let w = s.w;
       if (has(w.specialRules, 'Force')) w = forceCheck(state, x.u, x.m, w);
       const g = s.finish(meleeGroup(x.m, w, s.tgt, { charged: x.u.turn.charged, mods: s.mods }));
       if (ex.decap) g.attacks = Math.max(0, g.attacks - 1);
       const before = y.m.wounds;
-      const r = resolveGroup(g, s.tgt, { dice: state.dice, preyCrit: preyCrit(x.u, y.u), hatred: hatredAgainst(x.u, y.u), onKill: (m) => state.onCasualty && state.onCasualty(m, y.u, x.u) });
+      const r = resolveGroup(g, s.tgt, { dice: state.dice, preyCrit: preyCrit(x.u, y.u), hatred: hatredAgainst(x.u, y.u), minWound: ey.woundFloor, onKill: (m) => state.onCasualty && state.onCasualty(m, y.u, x.u) });
       inflicted.set(x, inflicted.get(x) + (before - y.m.wounds));
       tally.kills[x.u.side] += r.kills;
       carrionFeast(x.m, r.kills);
+      // Howl of the Death Wolf ends with a Strike Step that inflicts no unsaved wound
+      if (ex.howl && !r.unsaved) { const k = lasting.get(x); lasting.set(x, Object.assign({}, k, { howl: false })); state.log(`      ${x.m.name}'s Howl of the Death Wolf fades`); }
       if (ey.guardUp) guard.set(y, guard.get(y) + Math.max(0, g.attacks - r.hits));
       if (y.m.wounds > 0) continue;
       if (ex.onKill) ex.onKill(state, x, y);
@@ -367,6 +416,13 @@ function duel(state, A, B, challengerSide, tally) {
         inflicted.set(y, inflicted.get(y) + (b3 - x.m.wounds));
         state.log(`      ${y.m.name} strikes as it falls (Spiteful Demise)${x.m.wounds <= 0 ? `: ${x.m.name} falls too` : ''}`);
       }
+    }
+    // The Undying Fire (Vulkan): D3 wounds back if he survived the Strike Step
+    for (const x of [A, B]) {
+      if (!effects.get(x).regen || x.m.wounds <= 0 || x.m.wounds >= x.m.maxWounds) continue;
+      const back = Math.min(x.m.maxWounds - x.m.wounds, state.dice.d3());
+      x.m.wounds += back;
+      state.log(`      ${x.m.name} regains ${back} wound${back > 1 ? 's' : ''} (The Undying Fire)`);
     }
     // Duty is Sacrifice: the wounds paid for the Focus bonus, AP 5, Damage 1, armour and invulnerable saves allowed
     for (const x of [A, B]) {

@@ -24,7 +24,8 @@ function canJoin(c, h) {
   if (hm.some((m) => /Flyer|Fortification/.test(m.unitType) || m.vehicle)) return false;
   if (hm.some((m) => has(m.rules, 'Lone Killer')) || has(cm.rules, 'Lone Killer')) return false;
   const malefic = (m) => /Malefic/.test(m.unitType);
-  if (malefic(cm) !== hm.every(malefic)) return false;
+  // The Power of the Word (Lorgar): he may join Malefic units as if he were Malefic
+  if (malefic(cm) !== hm.every(malefic) && !(has(cm.rules, 'The Power of the Word') && hm.every(malefic))) return false;
   // a Paragon joins Infantry; anyone else joins models that move as they do
   if (kind(cm) === 'Paragon') { if (!hm.some((m) => /Infantry/.test(m.unitType))) return false; }
   else if (!hm.some((m) => kind(m) === kind(cm))) return false;

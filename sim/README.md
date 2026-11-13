@@ -174,6 +174,24 @@ lends it its Leadership, embarks with it, can be picked out by Precision hits an
 scoring it stays a unit of its own: its Kill Points, Slay the Warlord and First Strike count when it falls, and
 the unit's own Kill Points use the unit's points without it.
 
+### Primarchs
+
+Every Legion's Primarch can be fielded (`lists/builder.cjs` opens the Warlord Detachment for one). A Primarch is
+a Paragon, so he joins an Infantry unit before deployment like any character, and counts as High Command for Slay
+the Warlord (ASSUMPTION) and as a Warlord for Giant Killer. Their rules (CONFIRMED, from the army data):
+
+- Gambits: Angelic Descent, The Lion's Choler, Bulwark of the Imperium, The Breaker, A Death Long Foreseen (on a
+  5+ each Face-Off), The Shadowed Lord, The Undying Fire, Howl of the Death Wolf, Calculating Swordsman, Death by a
+  Thousand Cuts.
+- In challenges: Sublime Swordsman, Battle of the Wills, Preternatural Resilience, Avatar of Perfection (Fulgrim
+  Transfigured must have a challenge declared), Lord of the Red Sands (Angron fights further challenges).
+- Elsewhere: Shadow of the Reaper, The Power of the Word, and each Legion's Tactica on its Primarch.
+
+Not played: the psychic Primarch rules (Arch-Sorcerer, Stoneform, Kine Shield, Seal the Veil), Everywhere and
+Nowhere, Battlesmith, and the Sire of the Legion rules, which change list building rather than the battle. Enemy
+units usually refuse a Primarch's challenge and take Disgraced on a lesser model, so his gambits come up rarely;
+he does his work in the fight itself.
+
 ### Unit rules
 
 Besides the weapon and unit rules listed above, the simulator plays these unit rules from the lists' datasheets

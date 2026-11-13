@@ -35,8 +35,14 @@
 //   overkill                 attacks left after the opponent falls go to the rest of its unit
 //   noEscape                 nobody may stop the challenge until a model falls
 //   persist                  the effects last until the end of the Challenge Sub-Phase
+//   woundFloor n             Wound Tests against this model succeed only on an unmodified n or more
+//   breaker                  no attacks; a friendly Iron Warriors unit shoots the opponent instead (Snap Shots)
+//   noPositive               no positive Focus modifiers; regen: D3 wounds back if it survives the Strike Step
+//   howl                     +5 Focus each round until a Strike Step without an unsaved wound
+//   thousandCuts             a wounded opponent strikes at -1 Strength
+//   fnp n                    Feel No Pain (n) in the Strike Step
 // A gambit marked `first` may only be picked in the first Face-Off of a challenge.
-const { has } = require('./rules.cjs');
+const { has, xOf } = require('./rules.cjs');
 const { alive, passChance, check } = require('./checks.cjs');
 
 const traitOf = (m, t) => (m.traits || []).includes(t);
@@ -120,6 +126,28 @@ const GAMBITS = [
   },
   { name: 'Brutal Dismemberment', can: legion('World Eaters', 'Hereticus'), make: () => ({ crpOnKill: 2 }) },
   { name: 'Violent Overkill', can: legion('World Eaters', 'Astartes'), make: () => ({ overkill: true }) },
+  // Primarchs' own gambits (CONFIRMED: their rules in the army data)
+  { name: 'Angelic Descent', first: true, can: (m, me) => has(m.rules, 'Angelic Descent') && !!me?.u.turn?.charged, make: (state, me, opp) => ({ focus: xOf(opp.m.rules, 'Bulky') || 0 }) },
+  { name: "The Lion's Choler", can: (m) => has(m.rules, "The Lion's Choler") && m.wounds <= 2, make: () => ({ focus: 2, noWoundPenalty: true }) },
+  { name: 'Bulwark of the Imperium', can: (m) => has(m.rules, 'Bulwark of the Imperium'), estimate: () => ({ tough: 2 }), make: () => ({ woundFloor: 5 }) },
+  { name: 'The Breaker', first: true, can: (m) => has(m.rules, 'The Breaker'), make: () => ({ breaker: true }) },
+  {
+    name: 'A Death Long Foreseen', can: (m, me) => has(m.rules, 'A Death Long Foreseen') && !!me?.foreseen,
+    estimate: (state, me) => { const p = passChance(state, me.u, 'WP', 0); return { fnp: 5, attacks: p, focus: 2 * p }; },
+    make: (state, me) => {
+      // a Willpower Check for each benefit: Feel No Pain (5+), +1 Attack, +2 Initiative (counted on the Focus Roll)
+      const e = {};
+      if (check(state, me.u, 'WP', 0, 'A Death Long Foreseen: Feel No Pain')) e.fnp = 5;
+      if (check(state, me.u, 'WP', 0, 'A Death Long Foreseen: Attacks')) e.attacks = 1;
+      if (check(state, me.u, 'WP', 0, 'A Death Long Foreseen: Initiative')) e.focus = 2;
+      return e;
+    },
+  },
+  { name: 'The Shadowed Lord', can: (m) => has(m.rules, 'The Shadowed Lord'), make: () => ({ noWoundPenalty: true }) },
+  { name: 'The Undying Fire', can: (m) => has(m.rules, 'The Undying Fire'), make: () => ({ noPositive: true, regen: true }) },
+  { name: 'Howl of the Death Wolf', can: (m) => has(m.rules, 'Howl of the Death Wolf') && !m.howlUsed, make: (state, me) => { me.m.howlUsed = true; return { focus: 5, howl: true }; } },
+  { name: 'Calculating Swordsman', can: (m) => has(m.rules, 'Calculating Swordsman'), make: (state) => ({ focus: Math.min(4, state.round || 1) }) },
+  { name: 'Death by a Thousand Cuts', can: (m) => has(m.rules, 'Death by a Thousand Cuts'), make: () => ({ thousandCuts: true }) },
 ];
 
 /** The gambits a model may pick (me: {u, m}; round: the challenge round). */

@@ -212,12 +212,24 @@ const CORE_WHY = {
 // with better weapons at the same price) or 'generic' (the generic list as it is, where nothing beat it), chosen by playing every version against the same opponents (see the README)
 const CHOICE = { 'alpha-legion': 'generic', 'blood-angels': 'strike', 'dark-angels': 'strike', 'death-guard': 'strike', 'emperors-children': 'core', 'iron-hands': 'core', 'iron-warriors': 'core', 'night-lords': 'strike', 'salamanders': 'core', 'sons-of-horus': 'strike', 'space-wolves': 'strike', 'thousand-sons': 'strike', 'ultramarines': 'strike', 'white-scars': 'strike', 'word-bearers': 'core', 'world-eaters': 'strike' };
 
-function build(id, variant = CHOICE[id] || 'plan', file = `${__dirname}/${id}.json`) {
-  // 'core': the generic Legion list (lists/legions) with its weapons picked by value
-  if (variant === 'core' || variant === 'generic') return Object.assign(require('../legions/make.cjs').build(id, { smart: variant === 'core', name: PLANS[id].name, file }), { variant, why: CORE_WHY[id] });
+// each Legion's Primarch (the Transfigured and Ascended versions aside)
+const PRIMARCH = {
+  'alpha-legion': 'alpharius', 'blood-angels': 'sanguinius', 'dark-angels': 'lion-eljohnson', 'death-guard': 'mortarion', 'emperors-children': 'fulgrim',
+  'imperial-fists': 'rogal-dorn', 'iron-hands': 'ferrus-manus', 'iron-warriors': 'perturabo', 'night-lords': 'konrad-curze', 'raven-guard': 'corvus-corax',
+  'salamanders': 'vulkan', 'sons-of-horus': 'horus-lupercal', 'space-wolves': 'leman-russ', 'thousand-sons': 'magnus-the-red', 'ultramarines': 'roboute-guilliman',
+  'white-scars': 'jaghatai-khan', 'word-bearers': 'lorgar-aurelian', 'world-eaters': 'angron',
+};
+// which Legions field their Primarch in their strength list (chosen by playing both; see the README)
+const WITH_PRIMARCH = {};
+
+function build(id, variant = CHOICE[id] || 'plan', file = `${__dirname}/${id}.json`, primarch = WITH_PRIMARCH[id]) {
+  const extra = primarch ? [['Warlord', PRIMARCH[id]]] : [];
+  // 'core': the generic Legion list (lists/legions) with its weapons picked by value; 'generic': as it is
+  if (variant === 'core' || variant === 'generic') return Object.assign(require('../legions/make.cjs').build(id, { smart: variant === 'core', name: PLANS[id].name, file, extra }), { variant, why: CORE_WHY[id] });
   const plan = variant === 'strike' ? Object.assign({ name: PLANS[id].name }, STRIKE[id]) : PLANS[id];
   const b = createBuilder(id, { name: plan.name, smart: true });
   const skipped = [];
+  for (const u of extra) if (!b.add(u)) skipped.push(u[1]);
   for (const u of plan.units) if (!b.add(u)) skipped.push(u[1]);
   for (const [uid, max] of plan.grow || []) b.growAll((sl) => sl.unit.unitId === uid, max);
   for (const f of plan.fill || []) b.add(f);
@@ -230,7 +242,7 @@ function build(id, variant = CHOICE[id] || 'plan', file = `${__dirname}/${id}.js
   return Object.assign(b.finish(file), { skipped, variant, why: plan.why });
 }
 
-module.exports = { build, PLANS, STRIKE, CHOICE, CORE_WHY };
+module.exports = { build, PLANS, STRIKE, CHOICE, CORE_WHY, PRIMARCH, WITH_PRIMARCH };
 if (require.main === module) {
   for (const id of process.argv.slice(2).length ? process.argv.slice(2) : Object.keys(PLANS)) {
     try {

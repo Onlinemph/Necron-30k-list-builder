@@ -98,7 +98,9 @@ function createBuilder(id, { limit = 3000, name, smart = false } = {}) {
     const commands = primary.slots.filter((sl) => sl.role === 'Command' && sl.unit).length;
     const aux = dets.filter((d) => d.type === 'Auxiliary' || d.kind === 'auxiliary').length;
     const apex = dets.filter((d) => d.type === 'Apex' || d.kind === 'apex').length;
-    const defId = AUX[x.role] && aux < commands ? AUX[x.role] : APEX[x.role] && apex < 1 ? APEX[x.role] : null;
+    const warlord = dets.some((d) => d.type === 'Warlord' || d.kind === 'warlord');
+    // a Primarch (the Warlord role) brings a Warlord Detachment, with room for a Retinue and a Heavy Transport
+    const defId = x.role === 'Warlord' && !warlord ? 'core-warlord' : AUX[x.role] && aux < commands ? AUX[x.role] : APEX[x.role] && apex < 1 ? APEX[x.role] : null;
     if (!defId) return false;
     const d = E.detachmentFromDef(defId); dets.push(d);
     const slot = d.slots.find((sl) => sl.role === x.role && !sl.unit);

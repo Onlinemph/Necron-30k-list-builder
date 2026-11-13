@@ -178,7 +178,8 @@ function endOfBattle(state) {
   for (const side of [0, 1]) {
     const lost = gone(1 - side);
     // Slay the Warlord (X): X for a Command unit, X+1 for High Command; one of the two
-    const hc = lost.find((u) => /High Command/.test(u.role)), cmd = lost.find((u) => /^Command/.test(u.role));
+    // a Primarch (the Warlord role) counts as High Command (ASSUMPTION)
+    const hc = lost.find((u) => /High Command|^Warlord/.test(u.role)), cmd = lost.find((u) => /^Command/.test(u.role));
     if (hc) state.award(side, pay(hc, m.secondaries.warlord + 1), `Slay the Warlord (${hc.name})`);
     else if (cmd) state.award(side, pay(cmd, m.secondaries.warlord), `Slay the Warlord (${cmd.name})`);
     // Giant Killer (X): any Lord of War or Warlord, once

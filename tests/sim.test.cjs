@@ -545,3 +545,20 @@ test('unit rules: Fury of the Legion, Ravening Madmen, curly apostrophes, Bitter
   const host = { side: 0, models: [{ unitType: 'Infantry', rules: ['Bitter Duty'] }, { unitType: 'Infantry', rules: ['Bitter Duty'] }], rules: ['Bitter Duty'] };
   assert.equal(canJoin(char, host), false);
 });
+
+test('Primarchs: a Warlord Detachment in lists, joining, Shadow of the Reaper, and Slay the Warlord', () => {
+  const { createBuilder } = require('../sim/lists/builder.cjs');
+  const core = require('../sim/lib/core.cjs');
+  const { canJoin } = require('../sim/lib/characters.cjs');
+  const b = createBuilder('death-guard');
+  assert.ok(b.add(['Warlord', 'mortarion']));
+  assert.ok(b.dets.some((d) => d.name === 'Warlord Detachment'));
+  // Mortarion's Set-up Move counts his Movement as 12 (M 12 + I 6 = 18: 5")
+  const mort = unit('death-guard', 'mortarion', {}, 0);
+  assert.equal(core.setupMove(mort), 5);
+  // Lorgar may join Malefic units
+  const lorgar = { side: 0, models: [{ unitType: 'Paragon (Unique)', rules: ['The Power of the Word'] }], rules: [] };
+  const malefic = { side: 0, models: [{ unitType: 'Infantry (Malefic)', rules: [] }, { unitType: 'Infantry (Malefic)', rules: [] }], rules: [] };
+  assert.equal(canJoin(lorgar, malefic), true);
+  assert.equal(canJoin(Object.assign({}, lorgar, { models: [{ unitType: 'Paragon (Unique)', rules: [] }] }), malefic), false);
+});

@@ -48,9 +48,11 @@ const FILL = [
 ];
 const CAP = { 'tactical-squad': 4, rhino: 3, predator: 4, 'heavy-support-squad': 2, 'contemptor-dreadnought': 2 };
 
-function build(id, { smart = false, name, file = `${__dirname}/${id}.json` } = {}) {
+function build(id, { smart = false, name, file = `${__dirname}/${id}.json`, extra = [] } = {}) {
   const b = createBuilder(id, { smart, name });
   const skipped = [];
+  // extra units first (a Primarch), so the rest fills what's left
+  for (const u of extra) if (!b.add(u)) skipped.push(u[1]);
   // commands first (they unlock the auxiliaries), then the signature units, then the rest of the core
   const cmds = CORE.filter((u) => /Command/.test(u[0])), rest = CORE.filter((u) => !/Command/.test(u[0]));
   const sigCmd = SIGNATURE[id].filter((u) => u[0] === 'Command');
