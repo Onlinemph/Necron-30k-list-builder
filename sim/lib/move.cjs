@@ -293,7 +293,10 @@ function getOutAt(state, t, p, afterMove) {
     const charge = ai.canCharge(p) && foes.some((e) => ai.chargeOdds(p, best.pos, e) >= 0.5);
     const assault = ai.meleeValue(state, p, foes) > ai.shootValue(state, p, foes);
     const holds = scoring.missionValueAt(state, p, best.pos).here > 0;
-    if (!charge && (assault ? !(holds && scoring.majority(p, 'Line')) : !afterMove && !holds)) return null;
+    // a Line assault unit gets out onto an Objective Marker, not just anywhere in a Sector (in Seize Ground missions
+    // that's almost anywhere, and the whole army would walk from its own Deployment Zone)
+    const onMarker = holds && (state.table.objectives || []).some((o) => Math.hypot(o.x - best.pos.x, o.y - best.pos.y) - p.r <= scoring.CONTROL_RANGE);
+    if (!charge && (assault ? !(onMarker && scoring.majority(p, 'Line')) : !afterMove && !holds)) return null;
   }
   return best.pos;
 }
