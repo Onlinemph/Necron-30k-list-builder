@@ -28,16 +28,23 @@ const core = require('./core.cjs');
  */
 const POWERS = [
   { name: 'Biomantic Slam', discipline: 'Biomancy', kind: 'weapon', played: true },
+  { name: 'Biomantic Rage', discipline: 'Biomancy', kind: 'blessing', played: true },
+  { name: 'Conflagration', discipline: 'Pyromancy', kind: 'weapon', played: true },
+  { name: 'Force Barrier', discipline: 'Telekinesis', kind: 'reaction', played: true },
   { name: 'Wildfire', discipline: 'Pyromancy', kind: 'weapon', played: true },
   { name: 'Immovable Force', discipline: 'Telekinesis', kind: 'weapon', played: true },
   { name: 'Stormcalling', discipline: 'Stormcalling', kind: 'weapon', played: true },
   { name: 'Runecasting', discipline: 'Runecasting', kind: 'weapon', played: true },
   { name: 'Warpath', discipline: 'Power of the Waaagh!', kind: 'blessing', played: true },
   { name: 'Conduit', kind: 'ability', played: true },
-  // named in the army data, with no rules text in the repo
-  { name: "Foresight's Blessing", discipline: 'Divination', kind: 'blessing', text: false },
-  { name: 'Mind-burst', discipline: 'Telepathy', kind: 'weapon', text: false },
-  { name: 'Resurrection', discipline: 'Thaumaturgy', kind: 'reaction', text: false },
+  // in the rulebook, not played (no strength list fields these disciplines)
+  { name: "Foresight's Blessing", discipline: 'Divination', kind: 'blessing' },
+  { name: 'Every Strike Foreseen', discipline: 'Divination', kind: 'gambit' },
+  { name: 'Cursed Whispers', discipline: 'Telepathy', kind: 'weapon' },
+  { name: 'Mind-burst', discipline: 'Telepathy', kind: 'curse' },
+  { name: 'Resurrection', discipline: 'Thaumaturgy', kind: 'reaction' },
+  { name: 'Tranquillity', discipline: 'Thaumaturgy', kind: 'curse' },
+  // named in the army data, with no rules text in the repo or the rulebook
   { name: 'Bladeweaving', discipline: 'Khenetai', kind: 'reaction', text: false },
   { name: 'Mindsong of Blades', discipline: 'Khenetai', kind: 'blessing', text: false },
   { name: 'Soul Binding', discipline: 'Zardu Layak', kind: 'ability', text: false },
@@ -46,7 +53,6 @@ const POWERS = [
   { name: 'Kine Shield', discipline: 'Magnus the Red', kind: 'ability', text: false },
   { name: 'Seal the Veil', discipline: 'Lorgar Aurelian', kind: 'ability', text: false },
   ...['Raptora', 'Pyrae', 'Pavoni', 'Corvidae', 'Athanaean'].map((name) => ({ name, discipline: 'Prosperine Arcana', kind: 'arcana', text: false })),
-  ...['Divination', 'Telepathy', 'Thaumaturgy'].map((name) => ({ name: `${name} powers`, discipline: name, kind: 'discipline', text: false })),
 ];
 
 function setup(state) {
@@ -74,24 +80,35 @@ function willpowerCheck(state, unit, model, why) {
   if (unit.cond?.has('Lost to the Nails')) wp = Math.max(10, wp);
   wp -= isMalefic(unit) ? 0 : fearOn(state, unit);
   const a = state.dice.d6(), b = state.dice.d6();
-  const pass = a + b <= wp;
+  // double 1 always passes, double 6 always fails (CONFIRMED); any double is Perils, its face the result
+  const pass = a === 1 && b === 1 ? true : a === 6 && b === 6 ? false : a + b <= wp;
   state.log(`    ${model.name} Willpower Check (${why}): rolled ${a + b} against ${wp}, ${pass ? 'passed' : 'failed'}${a === b ? ', a double' : ''}`);
-  if (a === b) perils(state, unit, model);
+  if (a === b) perils(state, unit, model, null, a);
   return { pass, double: a === b };
 }
 
-/** Perils of the Warp on a unit (the model is the one that suffers the wounds). */
-function perils(state, unit, model, forced) {
+/**
+ * Perils of the Warp on a unit (model: the Focus, if any; forced: a named result; face: the double that caused it).
+ * Warp Rupture's 13 - Willpower wounds use the unit's Willpower for checks and are allocated across the unit like a
+ * Shooting Attack's, with only Invulnerable Saves (CONFIRMED).
+ */
+function perils(state, unit, model, forced, face) {
   const m = model || alive(unit).find((x) => (x.traits || []).includes('Psyker')) || alive(unit)[0];
-  const p = forced ? { result: forced, status: 'Stunned' } : core.perils(state.dice, num(m?.p.WP, 7));
+  const wp = require('./checks.cjs').charOf(unit, 'WP');
+  const p = forced === 'Warp Rupture' ? { result: forced, wounds: Math.max(0, 13 - wp) } : forced ? { result: forced, status: 'Stunned' } : core.perils(state.dice, wp, face);
   state.powerCount[unit.side].Perils = (state.powerCount[unit.side].Perils || 0) + 1;
-  if (p.wounds && m && !anathema(m)) {
-    // each wound may be stopped by an Invulnerable Save, and nothing else
-    const inv = save(m.p.INV);
+  if (p.wounds && m && !alive(unit).every(anathema)) {
+    const { pickModel } = require('./attack.cjs');
     let taken = 0;
-    for (let i = 0; i < p.wounds && m.wounds > 0; i++) if (!(inv <= 6 && state.dice.d6() >= inv)) { m.wounds--; taken++; }
+    for (let i = 0; i < p.wounds; i++) {
+      const v = pickModel(unit, false);
+      if (!v) break;
+      const inv = save(v.p.INV);
+      if (anathema(v) || (inv <= 6 && state.dice.d6() >= inv)) continue;
+      v.wounds--; taken++;
+      if (v.wounds === 0 && state.onCasualty) state.onCasualty(v, unit, null);
+    }
     state.log(`    ${unit.name}: Perils of the Warp (${p.result}): ${p.wounds} wounds, ${taken} not saved`);
-    if (m.wounds === 0 && state.onCasualty) state.onCasualty(m, unit, null);
   } else state.log(`    ${unit.name}: Perils of the Warp (${p.result})`);
   if (p.status && !alive(unit).every(anathema)) addStatus(state, unit, p.status, 'Perils of the Warp');
   if (state.afterDamage) state.afterDamage(unit);
@@ -140,7 +157,36 @@ function afterWounds(state, w, target, wounds) {
  * sight of the charging unit (or part of it) may manifest it. On a pass the charger makes no Volley Attacks but
  * gains +2 Attacks until the end of the Assault Phase. Returns true if the charger gave up its Volley.
  */
+/** Step 4 of a charge, before Volleys: Warpath or Biomantic Rage; true if the charger makes no Volley. */
 function onChargeStep4(state, u, t) {
+  return warpath(state, u, t) || biomanticRage(state, u, t);
+}
+/**
+ * Biomantic Rage (Biomancy, a Blessing; CONFIRMED, rulebook): at Step 4 of a charge, before Volleys, a Biomancer in
+ * the charging unit or within 18" and in sight of it manifests it; passed, the charger makes no Volley and has +2
+ * Strength and +2 Toughness until the end of the Assault Phase. One Psychic Power per unit per Player Turn.
+ */
+function biomanticRage(state, u, t) {
+  if (u.vehicle || u.turn.rage) return false;
+  const ai = require('./ai.cjs');
+  for (const f of state.units) {
+    if (f.side !== u.side || f.destroyed || !f.arrived || f.embarkedIn || f.turn.power || f.statuses.has('Stunned')) continue;
+    if (f !== u && !(gap(f, u) <= 18 && lineOfSight(state.table, f, u))) continue;
+    const m = alive(f).find((x) => (x.disciplines || []).includes('Biomancy'));
+    if (!m) continue;
+    const volley = ai.evAt(ai.shootTable(state, u, t), gap(u, t)) * 0.25;
+    const gain = ai.meleeEV(state, u, t) * 0.3 + ai.meleeEV(state, t, u) * 0.25;
+    if (gain <= volley + 3) return false;
+    u.turn.rage = true; f.turn.power = true;
+    const r = manifest(state, f, m, 'Biomantic Rage');
+    if (!r.pass) return false;
+    require('./reactions.cjs').addBuff(u, { str: 2, tough: 2 }, 'phase');
+    state.log(`    Biomantic Rage: ${u.name} gains +2 Strength and +2 Toughness and makes no Volley`);
+    return true;
+  }
+  return false;
+}
+function warpath(state, u, t) {
   const focus = state.units.find((f) => f.side === u.side && !f.destroyed && f.arrived && !f.embarkedIn && f.powers?.includes('Warpath') && !f.statuses.has('Stunned')
     && (f === u || (gap(f, u) <= 12 && lineOfSight(state.table, f, u))));
   if (!focus || u.turn.warpath) return false;

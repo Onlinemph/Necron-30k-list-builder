@@ -390,14 +390,15 @@ function duel(state, A, B, challengerSide, tally) {
     const before = y.m.wounds;
     const r = resolveGroup(g, s.tgt, { dice: state.dice, log: state.log, lastStand, onKill: (m) => state.onCasualty && state.onCasualty(m, y.u, x.u) });
     inflicted.set(x, inflicted.get(x) + (before - y.m.wounds));
-    tally.kills[x.u.side] += r.kills;
+    /* challenge casualties score Glory, not Combat Resolution (CONFIRMED: only the Fight Sub-Phase's count) */
     return r;
   };
   // Archein of Wisdom counts the Hit Tests of this challenge's previous Strike Step only
   A.hitsTaken = B.hitsTaken = 0;
   // gambits each model may pick once per challenge (Decapitation Strike)
   const usedOnce = new Map([[A, new Set()], [B, new Set()]]);
-  for (let round = 1; round <= 5; round++) {
+  // rounds go on until a duellist falls or the side with Challenge Advantage stops (CONFIRMED: no limit; 20 here)
+  for (let round = 1; round <= 20; round++) {
     // Face-Off: each picks a gambit (the side with Challenge Advantage first; it makes no difference to the AI)
     for (const [me, opp] of [[A, B], [B, A]]) {
       // Howl of the Death Wolf: while it lasts no other gambit may be picked
@@ -405,7 +406,7 @@ function duel(state, A, B, challengerSide, tally) {
       // A Death Long Foreseen (Konrad Curze): the gambit is there to pick on a 5+
       me.foreseen = has(me.m.rules, 'A Death Long Foreseen') && state.dice.d6() >= 5;
       const g = gambits.choose(state, me, opp, (e) => duelWith(me, opp, e, {}) - duelWith(opp, me, {}, e), {
-        moreRounds: round < 5, round, focusDelta: focusDelta(me),
+        moreRounds: round < 20, round, focusDelta: focusDelta(me),
         wouldFall: duelWith(opp, me, {}, {}) >= me.m.wounds, favoured: duelEdge(me, opp) > 0, saveFail: saveFail(me.m),
         decap: 0.5 * duelWith(me, opp, {}, {}) - 0.1 * duelWith(opp, me, {}, {}),
         dirty: has(me.m.rules, 'Dirty Fighter') && round === 1 ? duelWith(me, opp, { single: true }, {}) : 0,
@@ -507,7 +508,7 @@ function duel(state, A, B, challengerSide, tally) {
       const r2 = thunderstrike(state, x.m, w, r, s.tgt, ctx, s.mods);
       if (r2) { r.kills += r2.kills; r.unsaved += r2.unsaved; }
       inflicted.set(x, inflicted.get(x) + (before - y.m.wounds));
-      tally.kills[x.u.side] += r.kills;
+      /* challenge casualties score Glory, not Combat Resolution (CONFIRMED: only the Fight Sub-Phase's count) */
       hitsNow.set(y, hitsNow.get(y) + r.hits);
       carrionFeast(x.m, r.kills);
       // Howl of the Death Wolf ends with a Strike Step that inflicts no unsaved wound
@@ -563,11 +564,13 @@ function duel(state, A, B, challengerSide, tally) {
     const holder = seized || adv;
     if (duelEdge(holder, other(holder)) <= 0.05 && !effects.get(A).noEscape && !effects.get(B).noEscape) break;
   }
-  // Glory: the duellist who inflicted the most wounds scores them, or the slain enemy's full Wounds (SHEET)
+  // Glory (CONFIRMED): if one duellist fell, the other wins and scores the fallen model's base Wounds, +1 if it was
+  // a Command or Paragon model; otherwise the one who inflicted more wounds wins and scores them
   const [ia, ib] = [inflicted.get(A), inflicted.get(B)];
-  if (ia !== ib) {
-    const [win, lose] = ia > ib ? [A, B] : [B, A];
-    const glory = lose.m.wounds <= 0 ? lose.m.maxWounds : inflicted.get(win);
+  const fell = [A, B].filter((x) => x.m.wounds <= 0);
+  if (fell.length === 1 || (!fell.length && ia !== ib)) {
+    const [win, lose] = fell.length === 1 ? [other(fell[0]), fell[0]] : ia > ib ? [A, B] : [B, A];
+    const glory = lose.m.wounds <= 0 ? num(lose.m.p.W, lose.m.maxWounds) + (/Command|Paragon/.test(lose.m.unitType) ? 1 : 0) : inflicted.get(win);
     tally.glory[win.u.side] += glory + (effects.get(win).crpIfWin || 0);
     state.log(`      ${win.m.name} wins the challenge: ${glory} Glory`);
     // Cut Off the Head (MISSION): winning a challenge by slaying the enemy model scores 2 VP
@@ -676,7 +679,7 @@ function resolve(state, c, tally) {
     if (check(state, u, 'LD', diff, 'Panic Check, lost the combat')) {
       // passed: Hold, or Disengage with a normal move away if the next round looks bad (SHEET; not while Pinned)
       const give = foes.reduce((t, e) => t + ai.meleeEV(state, u, e), 0), take = foes.reduce((t, e) => t + ai.meleeEV(state, e, u), 0);
-      if (!u.statuses.has('Pinned') && take > 1.5 * give + 5) disengage(state, u, foes);
+      if (!u.vehicle && !u.statuses.has('Pinned') && take > 1.5 * give + 5) disengage(state, u, foes);
       continue;
     }
     // failed: Routed, and it Falls Back
@@ -732,7 +735,8 @@ function consolidate(state, u) {
   const opts = { charging: false, cautious: 2, consolidating: true };
   let best = { p: { x: u.x, y: u.y }, s: ai.positionScore(state, u, { x: u.x, y: u.y }, opts) };
   for (const p of ai.candidates(state, u, I)) {
-    if (state.units.some((e) => e.side !== u.side && !e.destroyed && e.arrived && !e.embarkedIn && Math.hypot(e.x - p.x, e.y - p.y) < e.r + u.r + 1)) continue;
+    // a Consolidation ends at least 2" from enemy models (CONFIRMED)
+    if (state.units.some((e) => e.side !== u.side && !e.destroyed && e.arrived && !e.embarkedIn && Math.hypot(e.x - p.x, e.y - p.y) < e.r + u.r + 2)) continue;
     const s = ai.positionScore(state, u, p, opts);
     if (s > best.s + 0.5) best = { p, s };
   }
@@ -794,6 +798,8 @@ function assaultPhase(state, side) {
     // Vengeance of the First Legion: the combat is fought again and only the second round's points count
     if (state.reactions && state.reactions.vengeance(state, c, [tally.kills[0] + tally.glory[0], tally.kills[1] + tally.glory[1]])) { state.log('    the combat is fought a second time'); tally = fight(state, c, tally); }
     resolve(state, c, tally);
+    // a vehicle can't be, or keep anyone, Locked in Combat: it only Holds, and both sides are free next turn (CONFIRMED)
+    if (c[0].every((u) => u.destroyed || u.vehicle) || c[1].every((u) => u.destroyed || u.vehicle)) for (const s of [0, 1]) for (const u of c[s]) if (!u.destroyed) unlock(u);
   }
   state.inFight = false;
   overloadCost(state, overloaded);

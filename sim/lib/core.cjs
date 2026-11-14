@@ -127,7 +127,7 @@ module.exports = {
   // Mission Pack: Imperium at War (mission.cjs, scoring.cjs).
 
   // ---------- reserves ----------
-  RESERVES_FROM_TURN: 2, // CONFIRMED for Deep Strike ("not in the first Battle Turn")
+  RESERVES_FROM_TURN: 2, // Deep Strike only (CONFIRMED: "not in the first Battle Turn"); other Reserves test from turn 1
   RESERVES_TEST: 3, // SHEET: a unit arrives on a 3+
   RESERVES_AUTO_TURN: 4, // MISSION: Reserves Tests pass automatically from Battle Turn 4
   DEEP_STRIKES_PER_TURN: 1, // CONFIRMED
@@ -136,8 +136,10 @@ module.exports = {
   // CONFIRMED: Force (X): pass a Willpower Check to double X; any double is Perils of the Warp.
   // SHEET: Perils table, a D6 — 1 or 6: suffer 13 minus WP wounds, Invulnerable Saves only; 2-5: Stunned.
   // ASSUMPTION: the names (Ætheric Feedback for the wounds, Warp Rupture for Stunned, as Psy-Shock forces it)
-  perils: (dice, wp) => {
-    const r = dice.d6();
-    return r === 1 || r === 6 ? { result: 'Ætheric Feedback', wounds: Math.max(0, 13 - wp), invulnOnly: true } : { result: 'Warp Rupture', status: 'Stunned' };
+  // CONFIRMED (rulebook): the result is the number on the double that caused it (or a D6): 1 or 6 is Warp Rupture,
+  // 13 minus Willpower wounds, Invulnerable Saves only; 2 to 5 is Ætheric Feedback, Stunned
+  perils: (dice, wp, face) => {
+    const r = face ?? dice.d6();
+    return r === 1 || r === 6 ? { result: 'Warp Rupture', wounds: Math.max(0, 13 - wp), invulnOnly: true } : { result: 'Ætheric Feedback', status: 'Stunned' };
   },
 };

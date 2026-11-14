@@ -169,7 +169,8 @@ function endOfBattle(state) {
   // Hammerblow: the primary is scored once, now
   if (m.variant === 'hammerblow') for (const side of [0, 1]) { if (m.primary === 'claim') scoreClaim(state, side); if (m.primary === 'seize') scoreSeize(state, side); }
   // units still in Reserves count as Removed as Casualties (MISSION); Aerial Reserves don't for Destroy the Enemy
-  const inReserve = state.units.filter((u) => !u.destroyed && u.reserve && !u.arrived);
+  // (passengers of a transport still in Reserves count too)
+  const inReserve = state.units.filter((u) => !u.destroyed && !u.arrived && (u.reserve || u.embarkedIn?.reserve));
   for (const u of inReserve) {
     state.log(`    ${u.name} never arrived and counts as destroyed`);
     if (m.primary === 'destroy' && u.reserve !== 'aerial') state.award(1 - u.side, pay(u, killPoints(u)), `${u.name} still in Reserves`);

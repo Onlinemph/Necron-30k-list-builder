@@ -336,7 +336,7 @@ function startPhase(state, side) {
   for (const u of mine) {
     if (!u.arrived || u.reserve || !alive(u).some((m) => has(m.rules, 'Shadow of the Conquerer') && m.primary)) continue;
     if (!check(state, u, 'IN', 0, 'Shadow of the Conquerer')) continue;
-    const aerial = mine.some((x) => x.reserve === 'aerial') && state.round >= core.RESERVES_FROM_TURN && state.round < core.RESERVES_AUTO_TURN;
+    const aerial = mine.some((x) => x.reserve === 'aerial') && state.round < core.RESERVES_AUTO_TURN;
     if (aerial) state.coordinate[side] = state.round; else state.annihilate[side] = true;
     state.log(`  Lotara Sarrin orders the fleet: ${aerial ? 'Coordinate' : 'Annihilate'} (Shadow of the Conquerer)`);
   }
@@ -394,6 +394,8 @@ function effectsSubPhase(state, side) {
 
 /** Statuses Sub-Phase: Cool removes Pinned, Suppressed, Stunned; Leadership removes Routed; vehicles Repair (6+). */
 function statusesSubPhase(state, side) {
+  // Disgraced lasts only this Player Turn: it goes in this End Phase, with no check, from both sides (CONFIRMED)
+  for (const u of state.units) if (u.statuses.has('Disgraced')) { u.statuses.delete('Disgraced'); for (const m of u.models) m.disgraced = false; }
   for (const u of state.units.filter((x) => x.side === side && !x.destroyed && x.statuses.size)) {
     if (u.vehicle) {
       const ar = xOf(u.rules, 'Auto-Repair') || xOf(u.rules, 'Auto-repair') || 6;

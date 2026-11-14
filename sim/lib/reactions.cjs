@@ -27,7 +27,7 @@ const LEGION_REACTIONS = {
   'Thousand Sons': ['Fortress of the Mind'],
 };
 // Advanced Reactions every army has, gated by the reacting unit's Traits or Type
-const GENERIC = ['Smokescreen', 'Shieldwall!', 'Evade'];
+const GENERIC = ['Smokescreen', 'Shieldwall!', 'Evade', 'Force Barrier'];
 // ASSUMPTION: Take Cover belongs to the Imperialis Militia and Solar Auxilia
 const ARMY_REACTIONS = { 'imperialis-militia': ['Take Cover'], 'solar-auxilia': ['Take Cover'] };
 const ONCE_PER_BATTLE = new Set(['Moonfall', 'Perfect Counter', 'Spite of the Gorgon', 'Bitter Fury', 'Bastion of Fire', 'Selfless Burden', 'Retribution Strike',
@@ -196,6 +196,16 @@ function onShot(state, shooter, target) {
     if (mostTrait(target, 'Shield')) opts.push(buffOpt('Shieldwall!', { tough: 1 }, 1.2, 'phase'));
     // Bestial Savagery (Space Wolves): Feel No Pain (5+) for the phase; after Step 11 a Set-up Move at the shooter, and
     // reaching it counts as a successful charge, with its Morale Sub-Phase checks passed (CONFIRMED)
+    // Force Barrier (Telekinesis, a Reaction and Blessing; CONFIRMED, rulebook): the Telekine's unit, shot at, manifests
+    // it; passed, a 3+ Shrouded test against this attack's wounds. One Psychic Reaction per unit per enemy turn
+    const tk = alive(target).find((m) => (m.disciplines || []).includes('Telekinesis'));
+    if (tk && !target.turn.psyReaction) {
+      const p = passChance(state, target, 'WP', 0);
+      opts.push({ name: 'Force Barrier', unit: target, value: p * (base - incoming(state, shooter, target, { shrouded: 3 })), apply: () => {
+        target.turn.psyReaction = true;
+        if (require('./psychic.cjs').manifest(state, target, tk, 'Force Barrier').pass) addBuff(target, { shrouded: 3 }, 'attack');
+      } });
+    }
     if (allTrait(target, 'Space Wolves')) {
       const reach = core.setupMove(target) >= gap(target, shooter) ? ai.meleeEV(state, target, shooter) * 0.6 : 0;
       const o = buffOpt('Bestial Savagery', { fnp: 5 }, 1.3, 'phase', reach);
@@ -312,7 +322,8 @@ function dodge(state, shooter, u, reach) {
     u.x = saved.x; u.y = saved.y;
     if (!best || v < best.v) best = { p, v };
   }
-  if (best) moveUnit(state, u, best.p, reach);
+  // a reaction move of the unit's Initiative ignores difficult terrain (CONFIRMED)
+  if (best) moveUnit(state, u, best.p, reach, { ignoreDifficult: true });
   state.log(`    ${u.name} moves to (${u.x.toFixed(0)}, ${u.y.toFixed(0)})`);
 }
 /** Let models killed in this attack shoot anyway (Return Fire, Bitter Fury use the models the unit started with). */
@@ -340,7 +351,7 @@ function onMoved(state, mover) {
       const v = ai.positionScore(state, u, p) - here;
       if (!best || v > best.v) best = { p, v };
     }
-    if (best) opts.push({ name, unit: u, value: best.v, apply: () => { moveUnit(state, u, best.p, reach); state.log(`    ${u.name} moves to (${u.x.toFixed(0)}, ${u.y.toFixed(0)})`); } });
+    if (best) opts.push({ name, unit: u, value: best.v, apply: () => { moveUnit(state, u, best.p, reach, { ignoreDifficult: true }); state.log(`    ${u.name} moves to (${u.x.toFixed(0)}, ${u.y.toFixed(0)})`); } });
   };
   for (const u of state.units) {
     if (u.side !== side || !canReact(u) || u.lockedWith.size || u.statuses.has('Pinned')) continue;
@@ -476,8 +487,9 @@ function onCharge(state, u, t) {
   if (mostTrait(t, 'Shield')) {
     opts.push({ name: 'Shieldwall!', unit: t, step: 4, value: (hurt - meleeIncoming(state, u, t, null, { tough: 1 })) * 1.1, apply: () => addBuff(t, { tough: 1 }, 'phase') });
   }
-  // Evade (Light Cavalry): after Volleys move up to I"; out of the charger's best possible roll, the charge fails
-  if (alive(t).every((m) => /Cavalry/.test(m.unitType) && /Light/.test(m.unitType))) {
+  // Evade (units of Light or Cavalry models, CONFIRMED): after Volleys move up to I"; out of the charger's best
+  // possible roll, the charge fails
+  if (alive(t).every((m) => /Cavalry|Light/.test(m.unitType))) {
     const I = num(alive(t)[0]?.p.I, 3);
     const p = gap(u, t) + I > maxChargeRange(u) - core.setupMove(u) ? 0.8 : 0.2;
     opts.push({ name: 'Evade', unit: t, step: 4.5, value: p * hurt, apply: () => {

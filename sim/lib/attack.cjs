@@ -16,14 +16,17 @@ const drakenscale = (victim, g) => has(victim.rules, 'Drakenscale Armour') && (g
 
 /** Which model in the target takes the next wound: the defender's choice, or the attacker's for a Precision hit. */
 function pickModel(target, precision) {
-  const alive = target.models.filter((m) => m.wounds > 0);
+  // models fighting a challenge are set aside in the Fight Sub-Phase: no wounds go to them (CONFIRMED)
+  const all = target.models.filter((m) => m.wounds > 0), free = all.filter((m) => !m.inChallenge);
+  const alive = free.length ? free : all;
   if (!alive.length) return null;
   if (precision) {
     // the attacker picks: a character or sergeant first, then the most valuable model
     return alive.find((m) => m.sergeant && !m.vehicle) || alive.reduce((b, m) => (m.maxWounds > b.maxWounds ? m : b), alive[0]);
   }
   // the defender keeps wounds on models that are already hurt, and protects sergeants and characters
-  const hurt = alive.find((m) => m.wounds < m.maxWounds);
+  // a model that has already lost wounds takes the next, unless it has the Command Sub-Type (CONFIRMED)
+  const hurt = alive.find((m) => m.wounds < m.maxWounds && !/Command/.test(m.unitType));
   if (hurt) return hurt;
   return alive.find((m) => !m.sergeant) || alive[0];
 }
@@ -251,7 +254,7 @@ function meleeGroup(model, w, target, opts) {
   let ws = num(model.p.WS, 4);
   if (opts.charged) {
     const imps = [argOf(model.rules, 'Impact'), argOf(rules, 'Impact')].filter(Boolean);
-    for (const x of imps) { if (x === 'A' || x === 'AM') A += 1; else if (x === 'S' || x === 'SM') S += 1; else if (x === 'WS') ws += 1; }
+    for (const x of imps) { if (x === 'A' || x === 'AM' || x === 'Attacks') A += 1; else if (x === 'S' || x === 'SM' || x === 'Strength') S += 1; else if (x === 'WS') ws += 1; }
   }
   if (opts.mods) { A += opts.mods.attacks || 0; S += opts.mods.str || 0; ws += opts.mods.ws || 0; }
   // Disgraced: the model's Weapon Skill is halved (SHEET)

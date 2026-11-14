@@ -81,6 +81,11 @@ const DISCIPLINES = /^(Biomancy|Divination|Pyromancy|Telekinesis|Telepathy|Thaum
 // Biomancy, Wildfire for Pyromancy and Immovable Force for Telekinesis; Stormcalling and Runecasting are their own
 // weapons). The other disciplines' powers have no text in the repo (psychic.cjs).
 const DISCIPLINE_WEAPON = { Biomancy: 'Biomantic Slam', Pyromancy: 'Wildfire', Telekinesis: 'Immovable Force' };
+// the special rule each core Discipline gives (CONFIRMED, rulebook). Pyromancy's Explodes (4+) isn't played (a model
+// that explodes when it dies, which the simulator does per unit)
+const DISCIPLINE_RULE = { Biomancy: 'Impact (Strength)', Telekinesis: 'Shrouded (4+)', Divination: "Duellist's Edge (2)", Telepathy: 'Fear (1)', Thaumaturgy: 'Hatred (Psykers)' };
+// Pyromancy's melee Psychic Weapon (CONFIRMED profile; its 6+D3 Attacks taken as 8, ASSUMPTION)
+const CONFLAGRATION = { name: 'Conflagration', base: 'Conflagration', IM: '-1', AM: '8', SM: '5', AP: '4', D: '1', specialRules: ['Deflagrate (5)'], traits: ['Psychic'] };
 /** The disciplines a model has: chosen as options, or granted by its rules (CONFIRMED, data/bsdata/common.json). */
 function disciplinesOf(r, list) {
   const d = new Set((r.items || []).filter((i) => DISCIPLINES.test(i)));
@@ -177,13 +182,18 @@ function buildUnit(armyId, list, slot, detachment, side) {
       for (const w of found.ranged) ranged.push(Object.assign({}, w, { count: n }, pintle || sponson ? { defensive: true } : {}, pintle ? { traits: [...new Set([...(w.traits || []), 'Assault'])] } : {}));
       for (const w of found.melee) melee.push(w);
     }
-    // each Psychic Discipline's Psychic Weapon
+    // each Psychic Discipline's Psychic Weapons and special rule (CONFIRMED, rulebook: a model with a Discipline gains
+    // all of its Psychic Powers and Psychic Weapons, and its rule)
     const disciplines = disciplinesOf(r, list);
+    const disciplineRules = [];
     for (const d of disciplines) {
+      if (DISCIPLINE_RULE[d]) disciplineRules.push(DISCIPLINE_RULE[d]);
+      if (d === 'Pyromancy' && !melee.some((w) => w.name === 'Conflagration')) melee.push(Object.assign({}, CONFLAGRATION, { discipline: d }));
       const name = DISCIPLINE_WEAPON[d];
       if (!name || r.items.includes(name)) continue;
       const found = resolveItem(weapons, name);
-      for (const w of found.ranged) ranged.push(Object.assign({}, w, { count: 1, discipline: d }));
+      // Wildfire: the rulebook prints 18" (the data has 12")
+      for (const w of found.ranged) ranged.push(Object.assign({}, w, { count: 1, discipline: d }, name === 'Wildfire' ? { R: 18 } : {}));
       for (const w of found.melee) melee.push(Object.assign({}, w, { discipline: d }));
     }
     // Conduit (Prosperine Spirestave): the model's Psychic Weapons gain +1 Strength when manifested (CONFIRMED)
@@ -204,7 +214,7 @@ function buildUnit(armyId, list, slot, detachment, side) {
     if (!vehicle && p.WS != null && !melee.some((w) => !has(w.specialRules, 'Detonation'))) melee.push(CCW);
     for (let i = 0; i < r.count; i++) {
       models.push({
-        name: r.name, p, rules: r.rules || [], unitType: r.unitType || '', vehicle, traits, items: r.items || [], swift,
+        name: r.name, p, rules: disciplineRules.length ? [...(r.rules || []), ...disciplineRules] : r.rules || [], unitType: r.unitType || '', vehicle, traits, items: r.items || [], swift, disciplines,
         wounds: vehicle ? num(p.HP, 1) : num(p.W, 1), maxWounds: vehicle ? num(p.HP, 1) : num(p.W, 1),
         ranged, melee, sergeant: /Sergeant|Command|Champion|Alpha/.test(r.unitType || '') || /Alpha|Sergeant|Champion|Exemplar|Prefector|Headsman|Huntmaster/.test(r.name),
         // taken in the Primary Detachment (Sworn Loyalty and Shadow of the Conquerer ask for it)

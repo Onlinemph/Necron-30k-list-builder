@@ -49,9 +49,11 @@ function moveSetup(state, u, to, budget, opts) {
  */
 function destination(state, u, to, budget, opts = {}) {
   const setup = moveSetup(state, u, to, budget, opts);
+  // a move may pass through friendly units but not end on one: if it would (or aims to), friends block it after all
+  const onFriend = (p) => setup.soft.some((s) => Math.hypot(s.x - p.x, s.y - p.y) < s.r + u.r - 0.3);
+  if (setup.soft.length && onFriend(to)) return destinationWith(state, u, to, budget, opts, setup, [...setup.blockers, ...setup.soft]);
   const d = destinationWith(state, u, to, budget, opts, setup, setup.blockers);
-  // a move may pass through friendly units but not end on one: if it would, friends block it after all
-  if (!setup.soft.length || !setup.soft.some((s) => Math.hypot(s.x - d.x, s.y - d.y) < s.r + u.r - 0.3)) return d;
+  if (!setup.soft.length || !onFriend(d)) return d;
   return destinationWith(state, u, to, budget, opts, setup, [...setup.blockers, ...setup.soft]);
 }
 function destinationWith(state, u, to, budget, opts, { tableView, b, difficultAt }, blockers) {
@@ -62,8 +64,11 @@ function destinationWith(state, u, to, budget, opts, { tableView, b, difficultAt
   if (opts.charging || len >= Math.min(want, b) - 0.25) return straight;
   // the way round, from a field of path costs kept for this unit's position until something on the table moves
   const sig = blockers.map((x) => `${x.x.toFixed(2)},${x.y.toFixed(2)},${x.r}`).join(';') + (state.tectonic || '');
-  if (!state.pathCache || state.pathCache.sig !== sig) state.pathCache = { sig, map: new Map() };
-  const around = path.route(u, to, budget, { tableView, blockers, difficultAt, penalty: core.DIFFICULT_PENALTY }, state.pathCache.map);
+  // a few path-cost fields kept per set of obstacles (with and without friends in the way)
+  state.pathCaches = state.pathCaches || new Map();
+  let cache = state.pathCaches.get(sig);
+  if (!cache) { if (state.pathCaches.size > 6) state.pathCaches.clear(); cache = new Map(); state.pathCaches.set(sig, cache); }
+  const around = path.route(u, to, budget, { tableView, blockers, difficultAt, penalty: core.DIFFICULT_PENALTY }, cache);
   const dTo = (p) => Math.hypot(to.x - p.x, to.y - p.y);
   return around && dTo(around) < dTo(straight) - 0.25 ? around : straight;
 }
@@ -105,7 +110,8 @@ function chosenOfTheKhagan(state, side, reserves) {
 
 /** Reserves Sub-Phase: units in Reserves test to arrive (Deep Strike, Outflank, other reserves). */
 function reservesSubPhase(state, side) {
-  if (state.round < core.RESERVES_FROM_TURN) return;
+  // Reserves Tests are made from the first Battle Turn (CONFIRMED, rulebook and mission pack); only Deep Strike waits
+  // for the second
   let deepStrikes = 0;
   // MISSION: from the start of Battle Turn 4 Reserves Tests pass automatically
   const auto = state.round >= core.RESERVES_AUTO_TURN;
@@ -115,6 +121,8 @@ function reservesSubPhase(state, side) {
   // Corax's Shame (Deliverers): -1 to their Reserves Tests in a Sub-Phase that began with Corvus Corax in Reserves (CONFIRMED)
   const corax = reserves.some((x) => alive(x).some((m) => /^Corvus Corax/.test(m.name)));
   for (const u of reserves) {
+    // a unit waiting to Deep Strike doesn't test in the first Battle Turn
+    if (u.reserve === 'deep' && state.round < core.RESERVES_FROM_TURN) continue;
     if (!auto && u !== chosen) {
       let roll = state.dice.d6();
       // Vox-interlink (Remus Ventanus): +1 while a model with one is on the battlefield (CONFIRMED)
@@ -124,8 +132,13 @@ function reservesSubPhase(state, side) {
       if (u.reserve === 'aerial' && state.coordinate?.[side] === state.round) { roll += 1; state.coordinate[side] = null; }
       if (roll < core.RESERVES_TEST) continue;
     }
+    // one Deep Strike per Player Turn (CONFIRMED); a unit that passed but can't Deep Strike may still enter from the
+    // edge instead, which the AI does from Battle Turn 3 rather than keep waiting (ASSUMPTION: the AI's choice)
+    if (u.reserve === 'deep' && deepStrikes >= core.DEEP_STRIKES_PER_TURN) {
+      if (state.round < 3) continue;
+      u.reserve = 'edge';
+    }
     if (u.reserve === 'deep') {
-      if (deepStrikes >= core.DEEP_STRIKES_PER_TURN) continue;
       deepStrikes++;
       placeDeepStrike(state, u);
       u.turn.arrivedDeep = true;
@@ -146,6 +159,8 @@ function reservesSubPhase(state, side) {
       placeFromEdge(state, u);
     }
     u.reserve = null; u.arrived = true;
+    // entering play from Reserves counts as moving (CONFIRMED)
+    u.turn.fromReserves = true;
     for (const p of u.passengers) { p.arrived = true; p.x = u.x; p.y = u.y; }
     state.log(`  ${u.name} arrives from Reserves${u.turn.arrivedDeep ? ' by Deep Strike' : ''} at (${u.x.toFixed(0)}, ${u.y.toFixed(0)})`);
     // Intercept-style reactions are offered by the battle loop through this hook
@@ -263,13 +278,13 @@ function moveSubPhase(state, side) {
       units.splice(i + 1, 0, ...inside.filter((p) => !u.passengers.includes(p)));
     }
     const d = ai.chooseMove(state, u);
-    if (d.kind === 'stay') { u.turn.stationary = !u.turn.disembarked; continue; }
+    if (d.kind === 'stay') { u.turn.stationary = !u.turn.disembarked && !u.turn.fromReserves; continue; }
     const M = ai.moveOf(u);
     let budget = d.kind === 'rush' ? M + core.rushBonus(u) + Math.min(...alive(u).map((m) => xOf(m.rules, 'Fast') || 0)) : M;
     // Supply Road: a vehicle moving entirely within Sector 3 adds 2" to its Move (MISSION)
     if (road && u.vehicle && inArea(road.area, u) && inArea(road.area, d.to)) budget += 2;
     const moved = moveUnit(state, u, d.to, budget);
-    u.turn.stationary = moved < 0.25 && !u.turn.disembarked;
+    u.turn.stationary = moved < 0.25 && !u.turn.disembarked && !u.turn.fromReserves;
     u.turn.moved = true;
     // a move no longer than the unit's Movement isn't a Rush, whatever was planned
     if (d.kind === 'rush' && moved > M + 0.25) u.turn.rushed = true; else if (d.kind === 'rush') d.kind = 'move';
@@ -365,7 +380,9 @@ function fallBack(state, u) {
   u.ignoresTerrain = true;
   moveToward({ pieces: state.table.pieces.filter((r) => r.impassable) }, u, target, d, []);
   u.ignoresTerrain = false;
-  const dist2edge = Math.min(u.x - u.r, W - u.x - u.r, u.y - u.r, H - u.y - u.r);
+  // only reaching the edge of its own Deployment Zone counts (CONFIRMED)
+  const homePts = homeEdge(state, u.side);
+  const dist2edge = Math.min(...homePts.map((p) => Math.hypot(p.x - u.x, p.y - u.y))) - u.r - 0.5;
   state.log(`  ${u.name} falls back ${d}"`);
   // SHEET: reaching the table edge, it tests Leadership: a fail removes it, a pass leaves it Suppressed
   if (dist2edge <= 0.6) {

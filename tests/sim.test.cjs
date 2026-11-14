@@ -191,8 +191,10 @@ test('quick reference tables: snap shots, BS Critical Hits, Set-up Move, allotme
   vehicleDamage(st, pred, 'Pinned');
   assert.equal(pred.models[0].wounds, hp - 1);
   // Perils: a 1 or 6 is 13 - WP wounds (Invulnerable Saves only), 2-5 Stunned
-  assert.deepEqual(core.perils(scripted([1]), 8), { result: 'Ætheric Feedback', wounds: 5, invulnOnly: true });
-  assert.equal(core.perils(scripted([3]), 8).status, 'Stunned');
+  assert.deepEqual(core.perils(scripted([1]), 8), { result: 'Warp Rupture', wounds: 5, invulnOnly: true });
+  assert.deepEqual(core.perils(scripted([3]), 8), { result: 'Ætheric Feedback', status: 'Stunned' });
+  // the face of the double that caused it decides the result
+  assert.equal(core.perils(scripted([3]), 8, 6).result, 'Warp Rupture');
   // BS 7 hits on 2+ and crits on 5+; BS 4 snap shots need 5s
   const bs7 = { p: { BS: 7 } }, w = { FP: 1, RS: 4, AP: 7, D: 1, specialRules: [], traits: [] };
   const t = unit('sons-of-horus', 'tactical-squad', {}, 1);
@@ -859,4 +861,41 @@ test('rules audit: the Set-up Move ignores difficult terrain; Heedless units cou
   const sst = { units: [desp], mission: { sectors: [{ id: 1, area, inZone: {}, value: 3 }], has: () => false }, zoneName: ['A', 'B'] };
   assert.equal(scoring.canControl(desp), false);
   assert.equal(scoring.sectorControl(sst)[0].side, 0);
+});
+
+test('rulebook: Morale checks merge per status, Routed first and clearing the rest', () => {
+  const { moraleSubPhase } = require('../sim/lib/shoot.cjs');
+  const { buildArmy } = require('../sim/lib/army.cjs');
+  const u = buildArmy(path.join(LISTS, 'legions', 'ultramarines.json'), 0).units.find((x) => x.name === 'Tactical Squad');
+  Object.assign(u, { destroyed: false, statuses: new Set(['Suppressed']), lockedWith: new Set() });
+  let rolls = 0;
+  const st = { units: [u], dice: { d6: () => { rolls++; return 6; } }, log: () => {}, pendingMorale: [
+    { unit: u, type: 'Pinning', x: 1 }, { unit: u, type: 'Pinning', x: 2 }, { unit: u, type: 'Casualties', x: 0 }, { unit: u, type: 'Panic', x: 1 }] };
+  moraleSubPhase(st);
+  // one Leadership Check for Routed (failed on double 6), so the Pinning check is never made and Routed clears Suppressed
+  assert.equal(rolls, 2);
+  assert.deepEqual([...u.statuses], ['Routed']);
+});
+
+test('rulebook: sponson and pintle weapons are Defensive; cover only for a unit standing in Area Terrain; Heavy Area Terrain hides', () => {
+  const core = require('../sim/lib/core.cjs');
+  const { inCover, lineOfSight } = require('../sim/lib/table.cjs');
+  const { buildArmy } = require('../sim/lib/army.cjs');
+  const pred = buildArmy(path.join(LISTS, 'strong', 'world-eaters.json'), 0).units.find((u) => u.name === 'Predator');
+  const def = pred.models[0].ranged.map((w) => [w.name, core.isDefensive(w)]);
+  assert.deepEqual(def, [['Twin lascannon', false], ['Lascannon', true]]);
+  const a = { x: 10, y: 24, r: 1 }, b = { x: 30, y: 24, r: 1 };
+  const wood = { x: 18, y: 20, w: 4, h: 8, cover: true, coverSave: 6 };
+  assert.equal(inCover({ pieces: [wood] }, a, b), null);
+  assert.equal(inCover({ pieces: [Object.assign({}, wood, { x: 28 })] }, a, b), 6);
+  const heavy = { x: 28, y: 20, w: 6, h: 8, cover: true, coverSave: 4, blocksLoS: true };
+  assert.equal(lineOfSight({ pieces: [heavy] }, a, b), false);
+});
+
+test('rulebook: Thousand Sons sorcerers carry their disciplines; Warp Rupture is the Perils that wounds', () => {
+  const { buildArmy } = require('../sim/lib/army.cjs');
+  const s = buildArmy(path.join(LISTS, 'strong', 'thousand-sons.json'), 0).units.find((u) => /Sorcerer/.test(u.name)).models[0];
+  assert.ok(s.rules.includes('Shrouded (4+)') && s.rules.includes('Impact (Strength)'));
+  assert.ok(s.melee.some((w) => w.name === 'Conflagration'));
+  assert.equal(s.ranged.find((w) => w.name === 'Wildfire').R, 18);
 });
