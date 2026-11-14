@@ -95,18 +95,19 @@ Emperor's Children better (60% to 53%); for the World Eaters the two versions ar
 Legiones Astartes. The simulator leaves out the Primarchs' psychic rules and their Sire of the Legion list
 rules, so it likely undervalues the psychic Primarchs in particular.
 
-With every rule above in, the final strength lists played a round robin (24 battles a pairing, 432 games per
-list, the Iron Wall as a guest):
+With every rule above in, and the later changes below (the World Eaters' Rhino list, moves that go round what's in
+the way, and the AI's risk model tuned by self-play), the strength lists played a round robin (24 battles a
+pairing, 432 games per list, the Iron Wall as a guest):
 
 | | Score | | Score | | Score |
 |---|---|---|---|---|---|
-| Salamanders | 72% | Thousand Sons | 59% | Word Bearers | 48% |
-| Space Wolves | 71% | Ultramarines | 54% | Iron Warriors | 45% |
-| Iron Hands | 65% | Dark Angels | 51% | Alpha Legion | 42% |
-| Raven Guard | 64% | Emperor's Children | 50% | Imperial Fists | 39% |
-| Sons of Horus | 62% | Blood Angels | 49% | World Eaters | 25% |
-| Death Guard | 60% | White Scars | 48% | Night Lords | 24% |
-| | | | | Iron Wall (Rangdan) | 22% |
+| Salamanders | 73% | Sons of Horus | 60% | Blood Angels | 44% |
+| Space Wolves | 68% | Ultramarines | 56% | Iron Warriors | 43% |
+| Raven Guard | 64% | Dark Angels | 54% | White Scars | 42% |
+| Death Guard | 64% | Emperor's Children | 53% | Imperial Fists | 35% |
+| Thousand Sons | 62% | Alpha Legion | 51% | World Eaters | 27% |
+| Iron Hands | 61% | Word Bearers | 44% | Iron Wall (Rangdan) | 26% |
+|  |  |  |  | Night Lords | 23% |
 
 Why the World Eaters lose: it's board control, not killing. Against the strength lists they score 14.6 VP a game
 from markers and Sectors to their opponents' 29.7, while Kill Points and the secondaries are close to even, and Seize
@@ -125,14 +126,14 @@ Rhinos, with four Predators, two lascannon Heavy Support Squads and two Veteran 
 Eaters strength list. Over about 530 games each against both fields it won 29% to the Spartan list's 21%, and it
 loses by about 11 VP a game where the Spartan list loses by 19. In the first run (114 games) its profile was the
 reverse of the Spartan list's: 44% in the marker and Sector missions (the Spartans managed 12-14%) and 24% in
-Annihilation (45%). The round robin
-above was played with the Spartan list. A horde of twenty-strong Despoiler squads on foot did no better than the
-Spartans (22%): they reach the markers but die walking there. The same Rhino list built 375 to 725 points short,
-as a first attempt was, scored 8% to 24%, so the gain is the list, not the AI changes below, which measured level.
+Annihilation (45%). In the round robin above it scores 27%: 31% in Resupply, 37% in Conquest and 14% in
+Annihilation. A horde of twenty-strong Despoiler squads on foot did no better than the Spartans (22%): they reach
+the markers but die walking there. The same Rhino list built 375 to 725 points short, as a first attempt was,
+scored 8% to 24%, so the gain is the list, not the AI changes below, which measured level.
 
 Melee units now earn their points once they're carried in (Firedrakes, the Inner Circle Knights Cenobium,
 Palatine Blades, Invictus Suzerains and Grave Wardens are among the most efficient units, and the Space Wolves
-are second), but the World Eaters and Night Lords are still far behind, and the first player won 58% of decided
+are second), but the World Eaters and Night Lords are still far behind, and the first player won 57% of decided
 games.
 
 From code:
