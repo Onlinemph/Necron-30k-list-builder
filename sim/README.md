@@ -361,22 +361,30 @@ Psykers are units with the Psyker Trait or a Psychic Discipline. Psychic Weapons
 weapon; Force (X) takes a Willpower Check (less Fear) to double X, and any double is Perils of the Warp. The AI
 only takes the check when doubling X would change something against the target: more Damage than any of its models
 has Wounds, or AP 2 against a save AP alone already beats, does nothing. Titans and Ordinatus ignore Psychic
-Weapons; Anathema ignores Psychic damage and Perils. Perils of the Warp is a D6: on a 1 or 6 the psyker takes 13
-minus its Willpower in wounds with only Invulnerable Saves, otherwise the unit is Stunned.
+Weapons; Anathema ignores Psychic damage and Perils. Perils of the Warp reads the double that caused it: a 1 or 6
+is Warp Rupture, 13 minus the unit's Willpower in wounds allocated across the unit with only Invulnerable Saves;
+2 to 5 is Ætheric Feedback, and the unit is Stunned. Willpower Checks follow the Rule of Doubles.
 
-A Psychic Discipline, whether chosen for a model or granted by a rule, gives the model the discipline's Psychic
-Weapon: Biomantic Slam for Biomancy, Wildfire for Pyromancy, Immovable Force for Telekinesis (CONFIRMED by
-Prosperine Sorcery, which names each with its discipline). So Prosperine Sorcerers carry all three, Magnus carries
+A Psychic Discipline, whether chosen for a model or granted by a rule, gives the model everything the rulebook
+lists for it: Biomancy, Biomantic Slam and Impact (Strength); Pyromancy, Wildfire (18") and Conflagration;
+Telekinesis, Immovable Force and Shrouded (4+); Divination, Duellist's Edge (2); Telepathy, Fear (1); Thaumaturgy,
+Hatred (Psykers). So Prosperine Sorcerers carry all three, Magnus carries
 those of the disciplines picked for him, and Calas Typhon (Witchblood, without Mortarion) carries Biomantic Slam;
 Conduit adds 1 to their Strength. That alone took the Thousand Sons strength list from 52% to 66% against the
 eight strongest lists in the field. Warpath (Power of the Waaagh!) is played as a Blessing.
 
-`lib/psychic.cjs` keeps a registry of every psychic power the army data names, and every power goes through one
-Manifestation step (a Willpower Check, Perils on a double, a count for the battle report). The repo has no rules
-text for the rest, so they're listed there and wait for it: the Divination, Telepathy and Thaumaturgy powers
-(Foresight's Blessing, Mind-burst, Resurrection), the five Prosperine Arcana (Raptora, Pyrae, Pavoni, Corvidae,
-Athanaean), the Khenetai's Bladeweaving and Mindsong of Blades, Zardu Layak's Soul Binding and Breach the Veil,
-Magnus's Stoneform and Kine Shield, and Lorgar's Seal the Veil.
+Two powers are played: Biomantic Rage (a Biomancer within 18" of a charging friendly unit gives it +2 Strength and
++2 Toughness for the Assault Phase, in place of its Volley) and Force Barrier (a Reaction: a Telekine's unit that is
+shot at gets a 3+ Shrouded test against the attack). Each unit uses one power in its own turn and one psychic
+Reaction in the enemy's.
+
+`lib/psychic.cjs` keeps a registry of every psychic power the army data and the rulebook name, and every power goes
+through one Manifestation step (a Willpower Check, Perils on a double, a count for the battle report). The rest are
+listed there and not played: the Divination, Telepathy and Thaumaturgy powers (Foresight's Blessing, Every Strike
+Foreseen, Mind-burst, Cursed Whispers, Resurrection, Tranquillity), which no strength list fields, and, with no text
+in the repo or the rulebook, the five Prosperine Arcana (Raptora, Pyrae, Pavoni, Corvidae, Athanaean), the
+Khenetai's Bladeweaving and Mindsong of Blades, Zardu Layak's Soul Binding and Breach the Veil, Magnus's Stoneform
+and Kine Shield, and Lorgar's Seal the Veil.
 
 ### Challenges and gambits
 
@@ -384,8 +392,9 @@ The Active Player may challenge with a Command, Champion or Paragon model; if th
 with Heroic Intervention. Refusing makes a model of the challenger's choosing Disgraced. Each round both duellists
 pick a gambit, roll Focus (D6 + Combat Initiative − wounds lost, −1 Heavy, +1 Light, +1 Shield or Company
 Standard, +1 per 5 friendly models), and the winner strikes first with +1 Attack and Challenge Advantage, which
-decides whether to fight another round. The duellist who inflicted more wounds scores them as Glory (the slain
-model's full Wounds if it died).
+decides whether to fight another round, with no limit. If a duellist falls, the other wins and scores its base
+Wounds as Glory, +1 for a Command or Paragon model; otherwise the one who inflicted more wounds scores them.
+Duellists take no wounds in the Fight Sub-Phase that follows.
 
 Gambits: the seven core ones (Seize the Initiative, Flurry of Blows, Test the Foe, Guard Up, Taunt and Bait,
 Grandstand, Finishing Blow), the Rangdan three (Throat-Hunter, Hunter's Stare, Feast of Memories) and character
@@ -484,9 +493,10 @@ Damage Table, Blast scatter, cover values) is still assumed and listed below.
 
 ## Where the rules come from
 
-Four sources, marked in the code:
+Five sources, marked in the code:
 
-- CONFIRMED: the HH3 rule texts in this repo (data/bsdata/common.json and the army data), for weapon and unit
+- CONFIRMED: the Warhammer: The Horus Heresy – Age of Darkness rulebook (checked page by page; it isn't in this
+  repo), and the HH3 rule texts in this repo (data/bsdata/common.json and the army data) for weapon and unit
   special rules, reactions, Psychic Weapons and wargear.
 - SHEET: the "How to Play – Horus Heresy 3rd Edition" quick reference by The Bearded Swede, for the turn
   sequence, the Hit Test tables, statuses, the Set-up Move, challenges, core gambits, Combat Resolution and its
@@ -494,32 +504,26 @@ Four sources, marked in the code:
   summary, so details it leaves out are still guesses.
 - MISSION: the Core Mission Pack: Imperium at War (the missions, Deployment Maps, objective control, Kill Points,
   Sectors, secondaries, Reserves, battle length and terrain).
-- ASSUMPTION: what none of them settles. These are the ones left:
+- ASSUMPTION: what none of them settles, or where the simulator simplifies. These are the ones left:
 
 | Rule | Assumption |
 |---|---|
 | Objective Markers | placed at random where the mission allows (players placing them for advantage isn't modelled); the roll-off loser picks the zone nearer the valuable markers |
 | Controlling | a unit's models within 3" of a marker are the share of its footprint in range; in Seize Ground all of a unit's models count in the Sector holding its centre |
-| Terrain | Medium Area Terrain is difficult, Light isn't; no Heavy Area Terrain; Cavalry can't claim cover |
-| Vehicles' Defensive weapons (reactions) | Strength 6 or less |
-| Vehicles and checks | vehicles have no Leadership or Cool, so they take no checks for them (they still gain statuses from the Vehicle Damage Table) |
-| Getting out | a unit that disembarks before its transport moves may then make its own move (from Deep Strike's wording); after the transport moved it can't |
-| Morale checks | one check for each Shooting Attack that calls for one, not one per unit per phase (from the status rules' wording) |
+| Terrain | no Heavy Area Terrain is placed; Cavalry can't claim cover |
 | Master of the Legion | its extra Reaction Point only while it's on the battlefield |
-| Blast markers | a 3" marker covers 3 models of a packed unit, a 5" marker 5; a missed Blast scatters away harmlessly |
-| Engaged models | every model in a locked unit fights (no 2" engagement or pile-in geometry) |
-| Vehicle saves | vehicles take Invulnerable Saves against Penetrating and Glancing Hits, but not Cover Saves |
+| Blast markers | a 3" marker covers 3 models of a packed unit, a 5" marker 5; a missed Blast scatters away harmlessly (the rulebook scatters it; not played), and a Barrage out of sight rolls Hit Tests instead of scattering |
+| Engaged models | every model in a locked unit fights (the rulebook's pile-in and 2" engagement aren't modelled); a combat's Panic Check is made per losing unit, not once per side; Outside Support counts the duellist's own unit |
 | Collar-master | the AI overloads a collared unit of five or more models that is in combat |
 | Unchosen weapons | where a list leaves a required weapon pick unset, a model takes the default its exchange option names, or the cheapest melee weapon from its weapon group. Since the builder's data now gives those units their default weapons, this only matters for hand-written lists that skip a required pick |
-| Morale after a charge | checks from Overwatch are taken straight after the charge |
-| Disgraced | removed like other statuses, with a Cool Check |
-| Perils names | Ætheric Feedback for the wounds, Warp Rupture for Stunned (Psy-Shock forces Warp Rupture) |
 | Thin the Ranks | a Prime unit counts as improved when its Prime Advantage changes its profile |
 | Take Cover | belongs to the Imperialis Militia and Solar Auxilia |
 | Furious Charge | the text makes the "Target Unit" Lost to the Nails; read as the reacting World Eaters unit |
 | Anathema | Immaterial weapons wound only on a 5+ (from the rule's summary line; its full text is cut short) |
-| Characters | join before deployment and stay with their unit (they don't leave mid-battle); one character per unit |
-| Not simulated | Death or Glory (vehicles don't move through units here), Dangerous terrain, coherency |
+| Characters | join before deployment and stay with their unit; the rules let them join or leave in the Move Sub-Phase and any number join a unit, but the AI keeps one per unit |
+| Emergency Disembarkation | the status a failed Cool Check gives is Pinned (the name is illegible in our copy) |
+| Psychic | Pyromancy's Conflagration attacks 8 times (6+D3) and its Explodes (4+) isn't played; of the powers, Biomantic Rage and Force Barrier are played, the other disciplines' (no strength list has them) aren't |
+| Not simulated | vehicles driving through enemy units (and Death or Glory), Dangerous terrain, coherency, firing arcs, Flyers' Combat Assignments, embarking during the battle, the Feint and Riposte and Withdraw gambits, Sudden Death |
 
 Reactions made in answer to a reaction (a Return Fire against an Overwatch, say) aren't allowed.
 
