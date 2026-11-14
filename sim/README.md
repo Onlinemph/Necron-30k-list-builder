@@ -96,17 +96,17 @@ Legiones Astartes. The simulator leaves out the Primarchs' psychic rules and the
 rules, so it likely undervalues the psychic Primarchs in particular.
 
 With every rule above in, and the later changes below (the World Eaters' Rhino list, moves that go round what's in
-the way, the AI's risk model tuned by self-play, and the rules the audit below corrected), the strength lists played
+the way, the AI's risk model tuned by self-play, and the rules the audit and the rulebook check below corrected), the strength lists played
 a round robin (24 battles a pairing, 432 games per list, the Iron Wall as a guest):
 
 | | Score | | Score | | Score |
 |---|---|---|---|---|---|
-| Salamanders | 73% | Death Guard | 60% | Word Bearers | 47% |
-| Space Wolves | 69% | Ultramarines | 54% | White Scars | 44% |
-| Iron Hands | 64% | Dark Angels | 52% | Blood Angels | 44% |
-| Thousand Sons | 62% | Emperor's Children | 50% | Imperial Fists | 38% |
-| Raven Guard | 62% | Alpha Legion | 48% | World Eaters | 27% |
-| Sons of Horus | 61% | Iron Warriors | 47% | Iron Wall (Rangdan) | 25% |
+| Salamanders | 74% | Dark Angels | 58% | Alpha Legion | 44% |
+| Space Wolves | 69% | Ultramarines | 57% | Word Bearers | 41% |
+| Thousand Sons | 66% | Emperor's Children | 56% | Blood Angels | 40% |
+| Iron Hands | 63% | Raven Guard | 56% | Imperial Fists | 38% |
+| Sons of Horus | 59% | White Scars | 48% | World Eaters | 30% |
+| Death Guard | 58% | Iron Warriors | 46% | Iron Wall (Rangdan) | 27% |
 |  |  |  |  | Night Lords | 22% |
 
 Why the World Eaters lose: it's board control, not killing. Against the strength lists they score 14.6 VP a game
@@ -126,14 +126,14 @@ Rhinos, with four Predators, two lascannon Heavy Support Squads and two Veteran 
 Eaters strength list. Over about 530 games each against both fields it won 29% to the Spartan list's 21%, and it
 loses by about 11 VP a game where the Spartan list loses by 19. In the first run (114 games) its profile was the
 reverse of the Spartan list's: 44% in the marker and Sector missions (the Spartans managed 12-14%) and 24% in
-Annihilation (45%). In the round robin above it scores 27%: 31% in Resupply, 37% in Conquest and 15% in
+Annihilation (45%). In the round robin above it scores 30%: 28% in Resupply, 44% in Conquest and 19% in
 Annihilation. A horde of twenty-strong Despoiler squads on foot did no better than the Spartans (22%): they reach
 the markers but die walking there. The same Rhino list built 375 to 725 points short, as a first attempt was,
 scored 8% to 24%, so the gain is the list, not the AI changes below, which measured level.
 
 Melee units now earn their points once they're carried in (Firedrakes, the Inner Circle Knights Cenobium,
 Palatine Blades, Invictus Suzerains and Grave Wardens are among the most efficient units, and the Space Wolves
-are second), but the World Eaters and Night Lords are still far behind, and the first player won 56% of decided
+are second), but the World Eaters and Night Lords are still far behind, and the first player won 57% of decided
 games.
 
 From code:
@@ -490,6 +490,20 @@ Leadership and Cool Checks against a made-up 7; and the Thousand Sons had no Adv
 seeds, the round robin moved by 2.3 points per list on average, about the noise of 432 games: Death Guard lost
 four, Iron Warriors gained four, and the order barely changed. What only the rulebook could settle (the Vehicle
 Damage Table, Blast scatter, cover values) is still assumed and listed below.
+
+### Checked against the rulebook
+
+The core rulebook then settled what the first audit had to guess, and corrected two of its guesses (Panic triggers
+on a wound, not a hit; Morale checks merge, one per status, Routed first). The changes that come up most: a unit
+getting out of a transport always gets a normal move, even after the transport moved; units may move through
+friendly infantry; all Area Terrain is difficult and gives cover only to units standing in it; sponson and pintle
+weapons are Defensive; Glancing Hits get no saves, and vehicles get cover against Penetrating Hits; shooting made as
+a Reaction causes no checks or statuses and counts as Stationary; vehicles in combat are hit at WS 1 on Rear Armour
+and only Hold; Reserves arrive from Battle Turn 1; and a Psychic Discipline gives its rules as well as its weapon
+(the Thousand Sons sorcerers gained Shrouded (4+), Impact, Conflagration and an 18" Wildfire, and play Biomantic
+Rage and Force Barrier). On the same seeds the round robin moved by 3.6 points per list: the Emperor's Children
+gained six, the Dark Angels five and the Thousand Sons four; the Raven Guard lost seven and the Word Bearers six.
+The top and bottom of the table didn't change, and the first player still won 57% of decided games.
 
 ## Where the rules come from
 
