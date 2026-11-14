@@ -42,6 +42,8 @@ function runBattle(listA, listB, opts = {}) {
     // named characters' once-per-battle and turn-long choices (startPhase, move.cjs, reactions.cjs)
     annihilate: [false, false], coordinate: [null, null], khaganUsed: [false, false],
     log: opts.log ? (s) => lines.push(s) : () => {},
+    // each side's AI weights, where they differ from ai.cjs's DEFAULTS (sim/tune.cjs)
+    aiParams: opts.ai || null,
   };
   hooks(state);
   // characters join their units before deployment (characters.cjs)

@@ -13,6 +13,17 @@ const legions = require('./legions.cjs');
 const plan = require('./plan.cjs');
 
 const VP_WORTH = 45;          // points of value per Victory Point
+/**
+ * The AI's weights, which a side can override for that side alone (runBattle's opts.ai, for playing one AI against
+ * another: sim/tune.cjs). vp: points per Victory Point; line: how much more Line units weigh markers; mission: the
+ * weight of mission value early on; soonMelee/soonShoot: next turn's charge or shot; risk: what the enemy can do to
+ * the unit next turn; bold: risk accepted by Vanguard units and transports carrying assault troops; chargeGain/
+ * chargeTake: a charge's damage dealt and taken; incoming: fire taken going in; chargeFail: the cost of a failed
+ * charge; chargeBar: the least a charge must be worth; shootBar: the least a target must be worth; react: the bars
+ * for spending reactions.
+ */
+const DEFAULTS = { vp: VP_WORTH, line: 1.5, mission: 0.6, soonMelee: 0.45, soonShoot: 0.3, risk: 0.35, bold: 0.5, chargeGain: 1.6, chargeTake: 1.0, incoming: 0.35, chargeFail: 10, chargeBar: 3, shootBar: 0.5, react: 1 };
+const K = (state, side, key) => { const o = state.aiParams && state.aiParams[side]; return o && o[key] != null ? o[key] : DEFAULTS[key]; };
 const BANDS = [0, 3, 6, 9, 12, 15, 18, 24, 30, 36, 48, 72];
 
 // ---------- precomputed matchups ----------
@@ -97,7 +108,7 @@ function huntValue(state, u, e, pts, p) {
   const o = markerHeld(state, e);
   if (!o) return 0;
   const scored = state.vanguardScored?.has(`${state.round}:${state.active}:${o.id + 1}`);
-  return (scored ? 0 : scoring.maxX(u, 'Vanguard') * VP_WORTH * p) + 0.3 * pts;
+  return (scored ? 0 : scoring.maxX(u, 'Vanguard') * K(state, u.side, 'vp') * p) + 0.3 * pts;
 }
 
 // ---------- what a unit is for ----------
@@ -117,11 +128,11 @@ function positionScore(state, u, pos, opts = {}) {
   // Escalation scores every turn; Hammerblow only at the end, so position matters most late on
   const mv = scoring.missionValueAt(state, u, pos);
   const turnsLeft = Math.max(1, state.turnsLeft);
-  const w = state.mission.variant === 'hammerblow' ? (turnsLeft <= 2 ? 1.2 : 0.35) : 0.6 * Math.min(2, turnsLeft);
+  const w = state.mission.variant === 'hammerblow' ? (turnsLeft <= 2 ? 1.2 : 0.35) : K(state, u.side, 'mission') * Math.min(2, turnsLeft);
   // Line units are there to hold markers: they weigh them more, and press on to the next one when theirs is held.
   // Vanguard units score 1 VP at most for a marker; they're there to take markers from the enemy
   const line = scoring.majority(u, 'Line'), vanguard = scoring.majority(u, 'Vanguard');
-  score += mv.here * VP_WORTH * w * (line ? 1.5 : vanguard ? 0.5 : 1) + mv.near * VP_WORTH * (line ? 0.4 : vanguard ? 0.1 : 0.25);
+  score += mv.here * K(state, u.side, 'vp') * w * (line ? K(state, u.side, 'line') : vanguard ? 0.5 : 1) + mv.near * K(state, u.side, 'vp') * (line ? 0.4 : vanguard ? 0.1 : 0.25);
   // offence: the best shot from here, and the best charge from here
   let shoot = 0, melee = 0;
   for (const e of enemies) {
@@ -144,11 +155,11 @@ function positionScore(state, u, pos, opts = {}) {
     if (canCharge(u)) {
       const reachNext = moveOf(u) + core.setupMove(u) + 4.5;
       const ev = meleeEV(state, u, e) + huntValue(state, u, e, meleeEV(state, u, e), breakChance(state, u, e));
-      soon = Math.max(soon, ev * Math.max(0, Math.min(1, 1 - (g - reachNext) / 24)) * 0.45);
+      soon = Math.max(soon, ev * Math.max(0, Math.min(1, 1 - (g - reachNext) / 24)) * K(state, u.side, 'soonMelee'));
     }
     if (alive(u).some((m) => m.ranged.length)) {
       const v = evAt(shootTable(state, u, e), Math.max(0, g - moveOf(u)));
-      soon = Math.max(soon, (v > 0 ? v + huntValue(state, u, e, v, finishChance(v, e)) : 0) * 0.3);
+      soon = Math.max(soon, (v > 0 ? v + huntValue(state, u, e, v, finishChance(v, e)) : 0) * K(state, u.side, 'soonShoot'));
     }
   }
   if (waiting) soon *= 0.5;
@@ -165,7 +176,7 @@ function positionScore(state, u, pos, opts = {}) {
     const reach = moveOf(u) + (canCharge(u) ? core.setupMove(u) + 4.5 : maxRange(u));
     let hunt = 0;
     for (const e of enemies) if (markerHeld(state, e)) hunt = Math.max(hunt, Math.max(0, Math.min(1, 1 - (gap(u, e) - reach) / 36)));
-    score += hunt * scoring.maxX(u, 'Vanguard') * VP_WORTH;
+    score += hunt * scoring.maxX(u, 'Vanguard') * K(state, u.side, 'vp');
   }
   // risk: what the enemy can do to this unit next turn from where it stands now
   let risk = 0;
@@ -185,7 +196,7 @@ function positionScore(state, u, pos, opts = {}) {
   // accept more of it to reach the enemy
   const assaultCargo = (u.passengers || []).some((p) => canCharge(p) && meleeValue(state, p, enemies) > shootValue(state, p, enemies));
   // while waiting for the wave an assault group hides: more weight on risk, and no Vanguard or cargo boldness
-  score -= Math.min(risk, pointsLeft(u)) * 0.35 * (opts.cautious ?? 1) * (waiting ? 1.5 : (scoring.majority(u, 'Vanguard') || assaultCargo) && !opts.consolidating ? 0.5 : 1);
+  score -= Math.min(risk, pointsLeft(u)) * K(state, u.side, 'risk') * (opts.cautious ?? 1) * (waiting ? 1.5 : (scoring.majority(u, 'Vanguard') || assaultCargo) && !opts.consolidating ? K(state, u.side, 'bold') : 1);
   // standing still with heavy weapons is worth something
   if (pos.x === saved.x && pos.y === saved.y && alive(u).some((m) => m.ranged.some((w) => has(w.specialRules, 'Heavy') || has(w.specialRules, 'Ordnance')))) score += shoot * 0.15;
   u.x = saved.x; u.y = saved.y;
@@ -272,8 +283,8 @@ function statusValue(state, shooter, target, plan) {
   const xs = (name) => Math.max(-1, ...wpns.map((r) => xOf(r, name) ?? -1));
   const enemiesOfTarget = state.units.filter((e) => e.side !== target.side && !e.destroyed);
   const threat = Math.max(0, ...enemiesOfTarget.map((e) => meleeEV(state, target, e))) + Math.max(0, ...enemiesOfTarget.map((e) => evAt(shootTable(state, target, e), 24)));
-  const holding = !canHold(target) ? 0 : state.mission.primary === 'claim' ? (state.table.objectives.some((o) => Math.hypot(o.x - target.x, o.y - target.y) - target.r <= scoring.CONTROL_RANGE) ? 2 * VP_WORTH : 0)
-    : state.mission.primary === 'seize' ? VP_WORTH : 0;
+  const holding = !canHold(target) ? 0 : state.mission.primary === 'claim' ? (state.table.objectives.some((o) => Math.hypot(o.x - target.x, o.y - target.y) - target.r <= scoring.CONTROL_RANGE) ? 2 * K(state, shooter.side, 'vp') : 0)
+    : state.mission.primary === 'seize' ? K(state, shooter.side, 'vp') : 0;
   const prey = state.units.some((e) => e.side === shooter.side && e.rules.includes('Prey Instinct')) ? 15 : 0;
   const fail = (key, x) => (x < 0 ? 0 : 1 - passChance(state, target, key, x));
   const p = xs('Pinning'); if (p >= 0 && !target.statuses.has('Pinned')) v += fail('CL', p) * (0.5 * threat + holding + prey) * 0.8;
@@ -294,13 +305,13 @@ function chooseTarget(state, u, opts = {}) {
     if (state.mission.primary === 'destroy') {
       const left = alive(e).reduce((t, m) => t + m.wounds, 0);
       const r = plan.expectedDamage / Math.max(1, left);
-      v += (r >= 1.2 ? 0.8 : r >= 0.8 ? 0.5 : r >= 0.5 ? 0.2 : 0) * scoring.killPoints(e) * VP_WORTH * 0.8;
+      v += (r >= 1.2 ? 0.8 : r >= 0.8 ? 0.5 : r >= 0.5 ? 0.2 : 0) * scoring.killPoints(e) * K(state, u.side, 'vp') * 0.8;
     }
     // Vanguard: the units holding markers come first
     v += huntValue(state, u, e, plan.expectedPts, finishChance(plan.expectedPts, e));
     if (!best || v > best.v) best = { target: e, v };
   }
-  return best && best.v > 0.5 ? best.target : null;
+  return best && best.v > K(state, u.side, 'shootBar') ? best.target : null;
 }
 
 // ---------- charges ----------
@@ -316,22 +327,22 @@ function chooseCharge(state, u) {
     if (odds <= 0 || !lineOfSight(state.table, u, e)) continue;
     // waiting for the wave (plan.cjs): no charge unless the enemy is already on top of the unit
     if (pl?.waiting && !(odds >= 0.9 && gap(u, e) <= 3)) continue;
-    const gain = meleeEV(state, u, e) * 1.6 - meleeEV(state, e, u) * 1.0;
+    const gain = meleeEV(state, u, e) * K(state, u.side, 'chargeGain') - meleeEV(state, e, u) * K(state, u.side, 'chargeTake');
     // Overwatch and volleys cost something on the way in
-    const incoming = evAt(shootTable(state, e, u), gap(u, e)) * 0.35;
+    const incoming = evAt(shootTable(state, e, u), gap(u, e)) * K(state, u.side, 'incoming');
     // tying up a unit on an objective is worth something, unless the fight is hopeless
     const hopeless = meleeEV(state, e, u) > 2 * meleeEV(state, u, e) + 10;
-    const obj = !hopeless && canHold(e) && (state.mission.primary === 'seize' || state.table.objectives.some((o) => Math.hypot(o.x - e.x, o.y - e.y) - e.r <= scoring.CONTROL_RANGE)) ? VP_WORTH : 0;
+    const obj = !hopeless && canHold(e) && (state.mission.primary === 'seize' || state.table.objectives.some((o) => Math.hypot(o.x - e.x, o.y - e.y) - e.r <= scoring.CONTROL_RANGE)) ? K(state, u.side, 'vp') : 0;
     // a unit locked in combat controls nothing, so a charge costs what the unit scores where it stands (a marker, or
     // its share of a Sector), unless the target scores in the same place and is locked out of it too
     const held = markerHeld(state, u);
-    let leave = held && Math.hypot(held.x - e.x, held.y - e.y) - e.r > scoring.CONTROL_RANGE ? scoring.markerWorth(state, u, held, held.value || 2) * VP_WORTH : 0;
+    let leave = held && Math.hypot(held.x - e.x, held.y - e.y) - e.r > scoring.CONTROL_RANGE ? scoring.markerWorth(state, u, held, held.value || 2) * K(state, u.side, 'vp') : 0;
     if (state.mission.primary === 'seize' && canHold(u)) {
       const s = scoring.sectorOf(state, u), se = scoring.sectorOf(state, e);
-      if (s) leave = Math.max(leave, scoring.missionValueAt(state, u, { x: u.x, y: u.y }).here * VP_WORTH * (se === s && canHold(e) ? 0.3 : 1));
+      if (s) leave = Math.max(leave, scoring.missionValueAt(state, u, { x: u.x, y: u.y }).here * K(state, u.side, 'vp') * (se === s && canHold(e) ? 0.3 : 1));
     }
-    const v = odds * (gain + obj + huntValue(state, u, e, meleeEV(state, u, e), breakChance(state, u, e))) - incoming - (1 - odds) * 10 - leave;
-    if (v > 3 && (!best || v > best.v)) best = { target: e, v };
+    const v = odds * (gain + obj + huntValue(state, u, e, meleeEV(state, u, e), breakChance(state, u, e))) - incoming - (1 - odds) * K(state, u.side, 'chargeFail') - leave;
+    if (v > K(state, u.side, 'chargeBar') && (!best || v > best.v)) best = { target: e, v };
   }
   return best ? best.target : null;
 }
@@ -345,7 +356,7 @@ function chooseCharge(state, u) {
 const worthReacting = (state, side, value, phase) => {
   const left = state.reactionsLeft[side];
   if (left <= 0) return false;
-  let bar = left >= 3 ? 8 : left === 2 ? 14 : 22;
+  let bar = K(state, side, 'react') * (left >= 3 ? 8 : left === 2 ? 14 : 22);
   if (left === 1 && phase !== 'assault') bar = Math.max(bar, keepForCharges(state, side));
   return value >= bar;
 };
@@ -372,4 +383,4 @@ function duelEV(a, b) {
   return best;
 }
 
-module.exports = { huntValue, markerHeld, VP_WORTH, shootTable, evAt, meleeEV, maxRange, chargeChance, chargeOdds, canCharge, positionScore, candidates, chooseMove, chooseTarget, chooseCharge, statusValue, worthReacting, duelEV, moveOf, shootValue, meleeValue };
+module.exports = { DEFAULTS, K, huntValue, markerHeld, VP_WORTH, shootTable, evAt, meleeEV, maxRange, chargeChance, chargeOdds, canCharge, positionScore, candidates, chooseMove, chooseTarget, chooseCharge, statusValue, worthReacting, duelEV, moveOf, shootValue, meleeValue };

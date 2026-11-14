@@ -785,3 +785,17 @@ test('moves: going round into difficult terrain costs its 2" once', () => {
   assert.ok(Math.abs(rough.x - 20) < 0.6, `${rough.x}`);
   assert.ok(st);
 });
+
+test('AI weights: a side can play with its own, and the other side keeps the defaults', () => {
+  const ai = require('../sim/lib/ai.cjs');
+  const { runBattle } = require('../sim/lib/battle.cjs');
+  const st = { aiParams: [{ risk: 0.1 }, null] };
+  assert.equal(ai.K(st, 0, 'risk'), 0.1);
+  assert.equal(ai.K(st, 1, 'risk'), ai.DEFAULTS.risk);
+  assert.equal(ai.K({}, 0, 'vp'), ai.VP_WORTH);
+  // a battle with no change is the same battle; a reckless side plays a different one
+  const a = path.join(LISTS, 'strong', 'blood-angels.json'), b = path.join(LISTS, 'strong', 'iron-hands.json');
+  const base = runBattle(a, b, { seed: 3, log: true }).log.join('\n');
+  assert.equal(runBattle(a, b, { seed: 3, log: true, ai: [{ risk: ai.DEFAULTS.risk }, null] }).log.join('\n'), base);
+  assert.notEqual(runBattle(a, b, { seed: 3, log: true, ai: [{ risk: 0, chargeBar: -50 }, null] }).log.join('\n'), base);
+});
