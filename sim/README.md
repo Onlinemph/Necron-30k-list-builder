@@ -419,8 +419,13 @@ Set-up Move, and the AI weighs the charge that way: a Despoiler squad in a Rhino
 its target, not a Set-up Move and a Charge Roll. Neither change moved the World Eaters or the six other Rhino armies
 (Alpha Legion, Emperor's Children, Iron Hands, Iron Warriors, Salamanders, Word Bearers: 56% before, 56% after).
 
-Moves go in a straight line and stop at impassable terrain and at other units (there's no pathfinding), so the AI
-scores each candidate move at the point it would really reach, not at the point it aims for.
+A move goes straight when nothing stops it short; when a unit or impassable terrain is in the way, the unit takes
+the shortest way round (`lib/path.cjs`: a 1" grid, pulled straight, with the distance measured along the path and
+difficult terrain still costing its flat 2" once). Charges and pursuits stay straight lines at their target. The AI
+scores each candidate move at the point it would really reach, not at the point it aims for. Before this, 44% of
+the World Eaters' Rhino moves stopped short of a spot the AI rated higher, two thirds of them behind a friendly
+unit; now 34% do, and nearly all of those are spots the way round can't reach in one move or at all. The average
+Rhino move went from 6.3" to 7.1".
 
 After a fight a unit consolidates for safety (cover, out of sight) and for markers and Sectors, with no Vanguard
 boldness, since the enemy shoots next. A unit locked in combat controls nothing, so a charge also costs what the
@@ -500,6 +505,7 @@ Reactions made in answer to a reaction (a Return Fire against an Overwatch, say)
 | `lib/legions.cjs` | the Legion Tacticas and where each applies |
 | `lib/characters.cjs` | which characters may join which units, and the AI's choice |
 | `lib/plan.cjs` | the army's plan kept between turns: assault targets, and optional waves |
+| `lib/path.cjs` | the way round units and impassable terrain when a straight move is blocked |
 | `tournament.cjs` | round robin between many lists, in parallel workers |
 | `report.cjs` | standings, ratings and unit efficiency from a tournament |
 | `lists/` | sample lists: two Rangdan (`rangdan.json`, the original mixed list, and `rangdan-iron-wall.json`), Sons of Horus at 2585 and 3000 points, an Ork Weirdboy mob |
