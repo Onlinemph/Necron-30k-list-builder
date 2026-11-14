@@ -723,3 +723,65 @@ test('plans: an assault unit keeps its target from turn to turn unless another i
   assert.equal(plan.of(st, ramp).target, first);
   assert.equal(plan.of(st, ramp).waiting, false);
 });
+
+/** A Rhino and three Predators from the World Eaters strength list, on an empty table with nothing else on it. */
+function moveScene() {
+  const { buildArmy } = require('../sim/lib/army.cjs');
+  const a = buildArmy(path.join(LISTS, 'strong', 'world-eaters.json'), 0);
+  const rhino = a.units.find((u) => u.name === 'Rhino');
+  const preds = a.units.filter((u) => u.name === 'Predator').slice(0, 3);
+  for (const u of [rhino, ...preds]) Object.assign(u, { arrived: true, destroyed: false, embarkedIn: null, passengers: [], statuses: new Set(), lockedWith: new Set(), turn: {} });
+  const st = { units: [rhino, ...preds], table: { pieces: [], objectives: [] }, mission: { sectors: [], has: () => false } };
+  return { st, rhino, preds };
+}
+
+test('moves: a unit goes round a friendly tank in its way instead of stopping behind it, measured along the way', () => {
+  const move = require('../sim/lib/move.cjs');
+  const { st, rhino, preds } = moveScene();
+  st.units = [rhino, preds[0]];
+  Object.assign(rhino, { x: 10, y: 24 });
+  Object.assign(preds[0], { x: 10 + rhino.r + preds[0].r + 0.5, y: 24 });
+  const to = { x: 22, y: 24 };
+  const end = move.simulateMove(st, rhino, to, 12);
+  // straight it would barely move; round the Predator it gets well past it
+  assert.ok(end.x > preds[0].x + preds[0].r, `ended at ${end.x.toFixed(1)}`);
+  assert.ok(Math.hypot(end.x - preds[0].x, end.y - preds[0].y) >= preds[0].r + rhino.r - 0.05, 'not on top of the Predator');
+  const moved = move.moveUnit(st, rhino, to, 12);
+  // the way round is longer than the straight line, and never longer than the move
+  assert.ok(moved <= 12 + 1e-6 && moved > Math.hypot(rhino.x - 10, rhino.y - 24) + 0.1, `${moved}`);
+});
+
+test('moves: through a gap in a wall, but never through the wall, and a charge still goes straight', () => {
+  const move = require('../sim/lib/move.cjs');
+  const { st, rhino, preds } = moveScene();
+  st.units = [rhino, preds[0]];
+  // a wall across the table from y=0 to y=40 at x=20, open above y=40
+  st.table.pieces = [{ x: 20, y: 0, w: 2, h: 40, impassable: true }];
+  Object.assign(rhino, { x: 16, y: 34 });
+  Object.assign(preds[0], { x: 60, y: 10 });
+  const end = move.simulateMove(st, rhino, { x: 26, y: 34 }, 16);
+  assert.ok(end.x > 22, `got past the wall: ${end.x.toFixed(1)}`);
+  assert.ok(!(end.x >= 20 && end.x <= 22 && end.y <= 40), 'not inside the wall');
+  // with too short a move to reach the gap and come back down, it gets as close as it can on its own side
+  const short = move.simulateMove(st, rhino, { x: 26, y: 34 }, 4);
+  assert.ok(short.x < 20, `${short.x.toFixed(1)}`);
+  // a charge at the Predator, with a friend in the way, stops at the friend (charges move straight)
+  st.table.pieces = [];
+  Object.assign(preds[1], { x: 22, y: 34 });
+  Object.assign(preds[0], { x: 30, y: 34 });
+  st.units = [rhino, preds[0], preds[1]];
+  const charged = move.simulateMove(st, rhino, preds[0], 12, { charging: true, target: preds[0] });
+  assert.ok(charged.x < preds[1].x - preds[1].r - rhino.r + 0.1, `${charged.x.toFixed(1)}`);
+});
+
+test('moves: going round into difficult terrain costs its 2" once', () => {
+  const { route } = require('../sim/lib/path.cjs');
+  const { st, rhino } = moveScene();
+  Object.assign(rhino, { x: 10, y: 24 });
+  const env = (difficult) => ({ tableView: { pieces: [] }, blockers: [], difficultAt: (p) => difficult && p.x > 12, penalty: 2 });
+  const open = route(rhino, { x: 30, y: 24 }, 12, env(false));
+  const rough = route(rhino, { x: 30, y: 24 }, 12, env(true));
+  assert.ok(Math.abs(open.x - 22) < 0.6, `${open.x}`);
+  assert.ok(Math.abs(rough.x - 20) < 0.6, `${rough.x}`);
+  assert.ok(st);
+});
