@@ -193,12 +193,14 @@ function positionScore(state, u, pos, opts = {}) {
   // shoot or hold from there (after a Rush they stay in, so only next turn counts). Inside, they're safe
   if (u.passengers?.length && !opts.passenger) {
     for (const p of u.passengers) {
-      const r0 = p.r;
+      const r0 = p.r, d0 = p.turn.disordered;
       p.r = p.r || 2;
+      // getting out of anything but an Assault Vehicle makes this turn's charge Disordered: no Set-up Move
+      p.turn.disordered = d0 || !has(u.rules, 'Assault Vehicle');
       score += Math.max(0, positionScore(state, p, pos, { cautious: 0.3, passenger: true, charging: opts.charging }));
       // delivery: an assault unit wants carrying to the enemy it fights best, from across the table if need be
       if (canCharge(p) && meleeValue(state, p, enemies) > shootValue(state, p, enemies)) {
-        const reach = moveOf(u) + core.setupMove(p) + 4.5 + p.r;
+        const reach = moveOf(u) + (p.turn.disordered ? 0 : core.setupMove(p)) + 4.5 + p.r;
         const pp = plan.of(state, p);
         let best = 0;
         for (const e of enemies) {
@@ -209,7 +211,7 @@ function positionScore(state, u, pos, opts = {}) {
         }
         score += best;
       }
-      p.r = r0;
+      p.r = r0; p.turn.disordered = d0;
     }
   }
   return score;

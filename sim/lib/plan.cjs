@@ -13,6 +13,7 @@
 const { alive } = require('./checks.cjs');
 const { gap } = require('./table.cjs');
 const core = require('./core.cjs');
+const { has } = require('./rules.cjs');
 
 const MODE = () => process.env.SIM_PLAN || 'focus';
 const CHARGE = 4.5; // the expected Charge Roll (2D6, keep the highest), less a little
@@ -20,10 +21,14 @@ const CHARGE = 4.5; // the expected Charge Roll (2D6, keep the highest), less a 
 function isAssault(state, u, foes, ai) {
   return !u.vehicle && ai.canCharge(u) && ai.meleeValue(state, u, foes) > ai.shootValue(state, u, foes);
 }
-/** How far a group can go and still charge this turn: its move (or its transport's), getting out, Set-up Move, charge. */
+/**
+ * How far a group can go and still charge this turn: its move (or its transport's), getting out, Set-up Move (none
+ * after getting out of anything but an Assault Vehicle: the charge is Disordered), charge.
+ */
 function reach(state, u, ai) {
   const t = u.embarkedIn;
-  return (t ? ai.moveOf(t) + t.r + u.r + 1 : ai.moveOf(u)) + core.setupMove(u) + CHARGE;
+  const setup = t && !has(t.rules, 'Assault Vehicle') ? 0 : core.setupMove(u);
+  return (t ? ai.moveOf(t) + t.r + u.r + 1 : ai.moveOf(u)) + setup + CHARGE;
 }
 /** Player Turns of this side until the group can charge the target (0: this turn). */
 function eta(state, u, e, ai) {

@@ -247,42 +247,55 @@ function moveSubPhase(state, side) {
 
 /** Passengers disembark next to their transport when that puts them somewhere better. */
 function disembarkIfWorth(state, t, afterMove = false) {
+  // a unit that disembarked charges Disordered (no Set-up Move) unless its transport is an Assault Vehicle
+  // (CONFIRMED), so it weighs getting out that way
+  const disordered = !has(t.rules, 'Assault Vehicle');
   for (const p of [...t.passengers]) {
-    p.r = footprint(p);
-    const outside = [];
-    for (let k = 0; k < 12; k++) { const a = (k / 12) * 2 * Math.PI; outside.push({ x: t.x + Math.cos(a) * (t.r + p.r + 1), y: t.y + Math.sin(a) * (t.r + p.r + 1) }); }
-    let best = null;
-    for (const pos of outside) {
-      if (pos.x < p.r || pos.x > W - p.r || pos.y < p.r || pos.y > H - p.r) continue;
-      if (state.units.some((x) => x !== t && x !== p && !x.destroyed && x.arrived && !x.embarkedIn && Math.hypot(x.x - pos.x, x.y - pos.y) < x.r + p.r + (x.side !== p.side ? 1 : 0.3))) continue;
-      const s = ai.positionScore(state, p, pos);
-      if (!best || s > best.s) best = { pos, s };
-    }
-    if (!best) continue;
-    // stay in while far from anything worth doing
-    const near = enemiesOf(state, p).some((e) => gap(t, e) < 18) || state.round >= 3;
-    if (!near && best.s < 25) continue;
-    // while the transport can still carry them closer, get out only to charge or hold a marker from here; an
-    // assault unit only to charge, before or after the transport moves (ASSUMPTION: the AI's rule of thumb)
-    const mobile = ai.moveOf(t) > 0 && !t.statuses.has('Pinned') && !t.statuses.has('Stunned');
-    // an assault unit waiting for its wave (plan.cjs) stays in its transport
-    if (mobile && require('./plan.cjs').of(state, p)?.waiting) continue;
-    if (mobile) {
-      const foes = enemiesOf(state, p);
-      const charge = ai.canCharge(p) && foes.some((e) => ai.chargeOdds(p, best.pos, e) >= 0.5);
-      const assault = ai.meleeValue(state, p, foes) > ai.shootValue(state, p, foes);
-      if (!charge && (assault || (!afterMove && !(scoring.missionValueAt(state, p, best.pos).here > 0)))) continue;
-    }
+    const d0 = p.turn.disordered;
+    p.turn.disordered = d0 || disordered;
+    const pos = getOutAt(state, t, p, afterMove);
+    p.turn.disordered = d0;
+    if (!pos) continue;
     t.passengers = t.passengers.filter((x) => x !== p);
     p.embarkedIn = null; p.arrived = true;
-    p.x = best.pos.x; p.y = best.pos.y;
+    p.x = pos.x; p.y = pos.y;
     p.turn.disembarked = true;
     p.turn.stationary = false;
-    // a unit that disembarked charges Disordered unless its transport is an Assault Vehicle (CONFIRMED)
-    p.turn.disordered = !has(t.rules, 'Assault Vehicle');
+    p.turn.disordered = d0 || disordered;
     if (afterMove) p.turn.noMove = true;
     state.log(`  ${p.name} disembarks from ${t.name}`);
   }
+}
+/** Where passenger p would get out of t, or null if it's better off staying in. */
+function getOutAt(state, t, p, afterMove) {
+  p.r = footprint(p);
+  const outside = [];
+  for (let k = 0; k < 12; k++) { const a = (k / 12) * 2 * Math.PI; outside.push({ x: t.x + Math.cos(a) * (t.r + p.r + 1), y: t.y + Math.sin(a) * (t.r + p.r + 1) }); }
+  let best = null;
+  for (const pos of outside) {
+    if (pos.x < p.r || pos.x > W - p.r || pos.y < p.r || pos.y > H - p.r) continue;
+    if (state.units.some((x) => x !== t && x !== p && !x.destroyed && x.arrived && !x.embarkedIn && Math.hypot(x.x - pos.x, x.y - pos.y) < x.r + p.r + (x.side !== p.side ? 1 : 0.3))) continue;
+    const s = ai.positionScore(state, p, pos);
+    if (!best || s > best.s) best = { pos, s };
+  }
+  if (!best) return null;
+  // stay in while far from anything worth doing
+  const near = enemiesOf(state, p).some((e) => gap(t, e) < 18) || state.round >= 3;
+  if (!near && best.s < 25) return null;
+  // while the transport can still carry them closer, get out only to charge or hold a marker from here; an
+  // assault unit only to charge, or to hold a marker if it's a Line unit, before or after the transport moves
+  // (ASSUMPTION: the AI's rule of thumb)
+  const mobile = ai.moveOf(t) > 0 && !t.statuses.has('Pinned') && !t.statuses.has('Stunned');
+  // an assault unit waiting for its wave (plan.cjs) stays in its transport
+  if (mobile && require('./plan.cjs').of(state, p)?.waiting) return null;
+  if (mobile) {
+    const foes = enemiesOf(state, p);
+    const charge = ai.canCharge(p) && foes.some((e) => ai.chargeOdds(p, best.pos, e) >= 0.5);
+    const assault = ai.meleeValue(state, p, foes) > ai.shootValue(state, p, foes);
+    const holds = scoring.missionValueAt(state, p, best.pos).here > 0;
+    if (!charge && (assault ? !(holds && scoring.majority(p, 'Line')) : !afterMove && !holds)) return null;
+  }
+  return best.pos;
 }
 
 /** Rout Sub-Phase: Routed units Fall Back towards their own table edge; off the table means destroyed. */
