@@ -23,6 +23,16 @@ node sim/tournament.cjs sim/lists/legions/*.json --battles 24 --workers 4 --out 
 node sim/report.cjs tournament.json
 ```
 
+To see whether a change to the AI's weights plays better, play the changed AI against the current one:
+
+```
+node sim/tune.cjs --try risk=0.2 --try "chargeFail=20,chargeBar=5" --pairs 100 --workers 4
+```
+
+Each pair of battles draws two lists from the field and plays them twice on one seed, the changed AI on each side
+once. A change that makes no difference scores exactly 50%. The weights and their defaults are `DEFAULTS` in
+`lib/ai.cjs`; `runBattle(a, b, { ai: [weightsA, weightsB] })` sets them per side.
+
 The report gives standings with a Bradley-Terry rating (an Elo-like number that accounts for who each list
 played), results by mission Archetype, the most one-sided matchups and the units that earned their points.
 `sim/lists/legions/` has one list per Legion, made by `sim/lists/legions/make.cjs`: the same core (Praetor, three
@@ -441,6 +451,15 @@ A second part, waves (assault units staging in cover until two of them can strik
 `SIM_PLAN=wave` but off: against the strength lists it cost melee armies about a point, since holding back only
 gives a gunline more turns to shoot. Keeping targets gained about one point.
 
+The AI's weights were then tuned by playing it against itself (`sim/tune.cjs`). Every weight was tried at half and
+double its value, 80 pairs of battles each, and the leads were played again on fresh seeds. The one real flaw was
+in how a unit weighs danger: every enemy unit counted as aiming its whole army's worth of shooting and its charge
+at this one unit, so nearly every unit within reach of the enemy stood to lose everything it had left, and the AI
+preferred hiding out of range to scoring. Splitting each enemy's threat between the units it could reach next turn
+won 59% of battles against the old AI (plus or minus 5.4, 120 pairs, +5.3 VP a battle) and won again on fresh
+seeds (54%). Against the new AI, no other weight at half or double did better than plus or minus the noise; lower
+risk aversion on its own had looked like a gain (60%, then 56%) but came to 53.5% on a third set of seeds.
+
 Melee is still the weaker way to play in the simulator. A typical assault unit now reaches combat on turn 2 and
 often wipes its target in one round, which leaves it in the open for the enemy's whole army to shoot. Steering
 charges towards targets that keep the charger locked in combat (out of the guns) made no measurable difference.
@@ -510,6 +529,7 @@ Reactions made in answer to a reaction (a Return Fire against an Overwatch, say)
 | `lib/plan.cjs` | the army's plan kept between turns: assault targets, and optional waves |
 | `lib/path.cjs` | the way round units and impassable terrain when a straight move is blocked |
 | `tournament.cjs` | round robin between many lists, in parallel workers |
+| `tune.cjs` | a changed AI against the current one, in paired battles |
 | `report.cjs` | standings, ratings and unit efficiency from a tournament |
 | `lists/` | sample lists: two Rangdan (`rangdan.json`, the original mixed list, and `rangdan-iron-wall.json`), Sons of Horus at 2585 and 3000 points, an Ork Weirdboy mob |
 | `lists/legions/`, `lists/strong/` | a generic list and a strength list per Legion, and the scripts that make them; `lists/builder.cjs` is shared |
