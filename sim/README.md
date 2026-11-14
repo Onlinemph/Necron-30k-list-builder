@@ -117,9 +117,9 @@ Butchers survive and kill but are Heedless, so they can't hold or contest a mark
 their first fight, then die in 93% of games, mostly to shooting after it: power armour, no invulnerable save, and
 Vanguard caps what they score from a marker at 1 VP. A unit riding in a transport or locked in combat controls
 nothing, and that's where World Eaters spend the game. More Tactical Squads, more Red Butchers and better AI play
-didn't move them; even 900 extra points of World Eaters (3,900 against 3,000) only reached 36%. One reading to check
-in the mission pack: the simulator also keeps Heedless units out of Seize Ground Sectors, though the rule's text only
-mentions Objective Markers.
+didn't move them; even 900 extra points of World Eaters (3,900 against 3,000) only reached 36%. (Heedless units
+were also kept out of Seize Ground Sectors then; the mission pack's Sector list doesn't name Heedless, so they now
+count there.)
 
 What helped was Line bodies that move. Six squads of eleven Despoilers (Line, chainaxes, Violence Incarnate) in
 Rhinos, with four Predators, two lascannon Heavy Support Squads and two Veteran Tactical Squads, now make the World
@@ -159,12 +159,13 @@ Claim Supplies and Seize Ground score each turn from Battle Turn 2 (Escalation) 
 (`--variant hammerblow`). A unit controls an Objective Marker with a model within 3"; when both sides have a unit
 there, the single unit with the higher Tactical Strength (models within 3", plus Line (X) per model) controls it.
 A Sector goes to the side with more models in it, plus Line (X) where the Sector touches its own zone and
-Vanguard (X) where it touches the enemy's. Units that are Stunned, Suppressed, Pinned, Routed, Locked in Combat,
-Embarked, Automata or Heedless can't control anything; vehicles and Cavalry can. Line adds to a marker's VP,
+Vanguard (X) where it touches the enemy's. Units that are Stunned, Suppressed, Pinned, Routed, Locked in Combat or
+Embarked can't control anything, nor can Automata models; Heedless units and units that can't move can't hold a
+marker but can count in a Sector; vehicles and Cavalry can control both. Line adds to a marker's VP,
 Vanguard caps it at 1 (and scores for breaking units on objectives), Support Unit caps it, Expendable takes VP off
 what the opponent scores for the unit.
 
-Every mission has Slay the Warlord (X, or X+1 for High Command), Giant Killer, Breakthrough and First Strike at its
+Every mission has Slay the Warlord (X for a Command unit, X+1 for High Command; a Primarch counts for Giant Killer only), Giant Killer, Breakthrough and First Strike at its
 own values, Reserves (3+, automatic from turn 4; units still in Reserves at the end count as destroyed) and Seize
 the Initiative. Mission rules: Hidden Caches (markers scatter 3" when scored), Unknown Munitions (D3 values per
 player), No Quarter (a VP as an aftermath option), Cut Off the Head (2 VP for slaying a model in a challenge),
@@ -174,7 +175,8 @@ Supply Road (no terrain on the highway, vehicles get +2" along it). Five Battle 
 The battlefield follows the pack's suggestion, laid out point-symmetrically: two 8" and four 6" zones of Area
 Terrain (Light, 6+ cover, or Medium, 5+ cover and sight through at most 3"), and six 4" Terrain Features
 (Impassable and blocking sight, or ruins counted as Medium Area Terrain). Units are circles sized from their
-models' bases. Ranges are edge to edge, and line of sight is three sight lines between the circles.
+models' bases. Ranges are edge to edge, and line of sight is three sight lines between the circles; vehicles other
+than Knights and Flyers block them.
 
 ## What it plays
 
@@ -335,7 +337,9 @@ trigger the AI prices each reaction it could make in expected points and makes t
 of the allotment (the bar rises as the allotment runs low, and before the Assault Phase the last point is kept
 when enemy assault units could charge). The allotment is 1, +1 above 1500 points or +2 above 3500, +1 for a
 Master of the Legion. A unit locked in combat, Stunned or Routed can't react. Return Fire is a full Shooting
-Attack made before casualties are removed; Overwatch is a full Shooting Attack in place of the target's Volley.
+Attack made before casualties are removed; Overwatch is a full Shooting Attack in place of the target's Volley. A
+vehicle makes either with its Defensive weapons only, as it does Intercept (INFERRED: Locus Strike and Automated Fire
+Protocols only make sense if so), and Heavy and Ordnance weapons count the reacting unit's own last Movement Phase.
 Simulated reactions:
 
 | Trigger | Reactions |
@@ -484,13 +488,15 @@ Four sources, marked in the code:
 | Objective Markers | placed at random where the mission allows (players placing them for advantage isn't modelled); the roll-off loser picks the zone nearer the valuable markers |
 | Controlling | a unit's models within 3" of a marker are the share of its footprint in range; in Seize Ground all of a unit's models count in the Sector holding its centre |
 | Terrain | Medium Area Terrain is difficult, Light isn't; no Heavy Area Terrain; Cavalry can't claim cover |
-| Vehicles' Defensive weapons (Intercept) | Strength 6 or less |
+| Vehicles' Defensive weapons (reactions) | Strength 6 or less |
+| Vehicles and checks | vehicles have no Leadership or Cool, so they take no checks for them (they still gain statuses from the Vehicle Damage Table) |
+| Getting out | a unit that disembarks before its transport moves may then make its own move (from Deep Strike's wording); after the transport moved it can't |
+| Morale checks | one check for each Shooting Attack that calls for one, not one per unit per phase (from the status rules' wording) |
 | Master of the Legion | its extra Reaction Point only while it's on the battlefield |
 | Blast markers | a 3" marker covers 3 models of a packed unit, a 5" marker 5; a missed Blast scatters away harmlessly |
 | Engaged models | every model in a locked unit fights (no 2" engagement or pile-in geometry) |
 | Vehicle saves | vehicles take Invulnerable Saves against Penetrating and Glancing Hits, but not Cover Saves |
 | Collar-master | the AI overloads a collared unit of five or more models that is in combat |
-| Swift of Action | the White Scars always take the +2 Movement, so it counts in the enemy turn too |
 | Unchosen weapons | where a list leaves a required weapon pick unset, a model takes the default its exchange option names, or the cheapest melee weapon from its weapon group. Since the builder's data now gives those units their default weapons, this only matters for hand-written lists that skip a required pick |
 | Morale after a charge | checks from Overwatch are taken straight after the charge |
 | Disgraced | removed like other statuses, with a Cool Check |
