@@ -96,18 +96,18 @@ Legiones Astartes. The simulator leaves out the Primarchs' psychic rules and the
 rules, so it likely undervalues the psychic Primarchs in particular.
 
 With every rule above in, and the later changes below (the World Eaters' Rhino list, moves that go round what's in
-the way, and the AI's risk model tuned by self-play), the strength lists played a round robin (24 battles a
-pairing, 432 games per list, the Iron Wall as a guest):
+the way, the AI's risk model tuned by self-play, and the rules the audit below corrected), the strength lists played
+a round robin (24 battles a pairing, 432 games per list, the Iron Wall as a guest):
 
 | | Score | | Score | | Score |
 |---|---|---|---|---|---|
-| Salamanders | 73% | Sons of Horus | 60% | Blood Angels | 44% |
-| Space Wolves | 68% | Ultramarines | 56% | Iron Warriors | 43% |
-| Raven Guard | 64% | Dark Angels | 54% | White Scars | 42% |
-| Death Guard | 64% | Emperor's Children | 53% | Imperial Fists | 35% |
-| Thousand Sons | 62% | Alpha Legion | 51% | World Eaters | 27% |
-| Iron Hands | 61% | Word Bearers | 44% | Iron Wall (Rangdan) | 26% |
-|  |  |  |  | Night Lords | 23% |
+| Salamanders | 73% | Death Guard | 60% | Word Bearers | 47% |
+| Space Wolves | 69% | Ultramarines | 54% | White Scars | 44% |
+| Iron Hands | 64% | Dark Angels | 52% | Blood Angels | 44% |
+| Thousand Sons | 62% | Emperor's Children | 50% | Imperial Fists | 38% |
+| Raven Guard | 62% | Alpha Legion | 48% | World Eaters | 27% |
+| Sons of Horus | 61% | Iron Warriors | 47% | Iron Wall (Rangdan) | 25% |
+|  |  |  |  | Night Lords | 22% |
 
 Why the World Eaters lose: it's board control, not killing. Against the strength lists they score 14.6 VP a game
 from markers and Sectors to their opponents' 29.7, while Kill Points and the secondaries are close to even, and Seize
@@ -126,14 +126,14 @@ Rhinos, with four Predators, two lascannon Heavy Support Squads and two Veteran 
 Eaters strength list. Over about 530 games each against both fields it won 29% to the Spartan list's 21%, and it
 loses by about 11 VP a game where the Spartan list loses by 19. In the first run (114 games) its profile was the
 reverse of the Spartan list's: 44% in the marker and Sector missions (the Spartans managed 12-14%) and 24% in
-Annihilation (45%). In the round robin above it scores 27%: 31% in Resupply, 37% in Conquest and 14% in
+Annihilation (45%). In the round robin above it scores 27%: 31% in Resupply, 37% in Conquest and 15% in
 Annihilation. A horde of twenty-strong Despoiler squads on foot did no better than the Spartans (22%): they reach
 the markers but die walking there. The same Rhino list built 375 to 725 points short, as a first attempt was,
 scored 8% to 24%, so the gain is the list, not the AI changes below, which measured level.
 
 Melee units now earn their points once they're carried in (Firedrakes, the Inner Circle Knights Cenobium,
 Palatine Blades, Invictus Suzerains and Grave Wardens are among the most efficient units, and the Space Wolves
-are second), but the World Eaters and Night Lords are still far behind, and the first player won 57% of decided
+are second), but the World Eaters and Night Lords are still far behind, and the first player won 56% of decided
 games.
 
 From code:
@@ -468,6 +468,19 @@ risk aversion on its own had looked like a gain (60%, then 56%) but came to 53.5
 Melee is still the weaker way to play in the simulator. A typical assault unit now reaches combat on turn 2 and
 often wipes its target in one round, which leaves it in the open for the enemy's whole army to shoot. Steering
 charges towards targets that keep the charger locked in combat (out of the guns) made no measurable difference.
+
+### Rules audit
+
+Four reviews compared the simulator, area by area (shooting and damage; assault and statuses; reactions and Legion
+rules; missions, movement and transports), with every rule text in the data, the quick-reference sheet and the
+mission pack. They found about twenty-five rules played differently from the texts, now fixed. The ones that come
+up most: vehicles made Return Fire and Overwatch with every weapon rather than their Defensive weapons; Heavy and
+Ordnance weapons never counted as Stationary when firing a reaction in the enemy's turn; the Set-up Move lost 2"
+to difficult terrain, which the sheet says it ignores; vehicles didn't block Line of Sight; vehicles took
+Leadership and Cool Checks against a made-up 7; and the Thousand Sons had no Advanced Reaction. Fixed on the same
+seeds, the round robin moved by 2.3 points per list on average, about the noise of 432 games: Death Guard lost
+four, Iron Warriors gained four, and the order barely changed. What only the rulebook could settle (the Vehicle
+Damage Table, Blast scatter, cover values) is still assumed and listed below.
 
 ## Where the rules come from
 
