@@ -20,9 +20,9 @@ const VP_WORTH = 45;          // points of value per Victory Point
  * the unit next turn; bold: risk accepted by Vanguard units and transports carrying assault troops; chargeGain/
  * chargeTake: a charge's damage dealt and taken; incoming: fire taken going in; chargeFail: the cost of a failed
  * charge; chargeBar: the least a charge must be worth; shootBar: the least a target must be worth; react: the bars
- * for spending reactions.
+ * for spending reactions; share: split each enemy's threat between the units it could reach (1) or not (0).
  */
-const DEFAULTS = { vp: VP_WORTH, line: 1.5, mission: 0.6, soonMelee: 0.45, soonShoot: 0.3, risk: 0.35, bold: 0.5, chargeGain: 1.6, chargeTake: 1.0, incoming: 0.35, chargeFail: 10, chargeBar: 3, shootBar: 0.5, react: 1 };
+const DEFAULTS = { vp: VP_WORTH, line: 1.5, mission: 0.6, soonMelee: 0.45, soonShoot: 0.3, risk: 0.35, bold: 0.5, chargeGain: 1.6, chargeTake: 1.0, incoming: 0.35, chargeFail: 10, chargeBar: 3, shootBar: 0.5, react: 1, share: 0 };
 const K = (state, side, key) => { const o = state.aiParams && state.aiParams[side]; return o && o[key] != null ? o[key] : DEFAULTS[key]; };
 const BANDS = [0, 3, 6, 9, 12, 15, 18, 24, 30, 36, 48, 72];
 
@@ -178,18 +178,28 @@ function positionScore(state, u, pos, opts = {}) {
     for (const e of enemies) if (markerHeld(state, e)) hunt = Math.max(hunt, Math.max(0, Math.min(1, 1 - (gap(u, e) - reach) / 36)));
     score += hunt * scoring.maxX(u, 'Vanguard') * K(state, u.side, 'vp');
   }
-  // risk: what the enemy can do to this unit next turn from where it stands now
+  // risk: what the enemy can do to this unit next turn from where it stands now. With `share`, each enemy unit's
+  // shooting and charge are split between this unit and the other units of its side that enemy could reach next
+  // turn (it shoots one target and charges one), instead of every enemy aiming everything at this one unit
   let risk = 0;
+  const share = K(state, u.side, 'share');
+  const mine = share ? state.units.filter((x) => x !== u && x.side === u.side && !x.destroyed && x.arrived && !x.embarkedIn) : [];
   for (const e of enemies) {
     const reach = moveOf(e);
     const g = Math.max(0, gap(u, e) - reach);
     const s = evAt(shootTable(state, e, u), g);
-    if (s > 0 && lineOfSight(state.table, e, u)) risk += s * (inCover(state.table, e, u) ? 0.7 : 1);
-    if (canCharge(e)) {
+    const charger = canCharge(e);
+    let split = 1;
+    if (share) {
+      const far = reach + Math.max(maxRange(e), charger ? core.setupMove(e) + 6 : 0);
+      split = 1 + mine.filter((x) => gap(x, e) <= far).length;
+    }
+    if (s > 0 && lineOfSight(state.table, e, u)) risk += s * (inCover(state.table, e, u) ? 0.7 : 1) / split;
+    if (charger) {
       // the enemy moves its full Movement towards this unit, then charges
       const ge = Math.max(0, gap(u, e) - reach), left = ge - core.setupMove(e);
       const p = ge > core.CHARGE_DECLARE_RANGE ? 0 : left <= 0 ? 1 : chargeChance(e, left);
-      risk += meleeEV(state, e, u) * p * 0.8;
+      risk += meleeEV(state, e, u) * p * 0.8 / split;
     }
   }
   // a unit can't lose more than it has left; assault troops (Vanguard), and transports carrying assault troops,
