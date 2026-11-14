@@ -28,9 +28,19 @@ function pickModel(target, precision) {
   return alive.find((m) => !m.sergeant) || alive[0];
 }
 
+/** The value of a characteristic held by most of the unit's living models; a tie goes to the highest (CONFIRMED). */
+function majority(target, key, dflt) {
+  const n = new Map();
+  for (const m of target.models) if (m.wounds > 0 && !m.vehicle) { const v = num(m.p[key], dflt); n.set(v, (n.get(v) || 0) + 1); }
+  let best = null, c = -1;
+  for (const [v, k] of n) if (k > c || (k === c && v > best)) { best = v; c = k; }
+  return best ?? dflt;
+}
 /** Facing of a vehicle hit from attacker position: front, side or rear armour. */
-function armourFacing(target, from) {
+function armourFacing(target, from, melee) {
   const p = target.models[0].p;
+  // melee attacks always hit a vehicle's Rear Armour (CONFIRMED)
+  if (melee) return num(p.REAR ?? p.SIDE ?? p.FRONT, 10);
   if (p.SIDE == null && p.REAR == null) return num(p.FRONT, 10);
   const facing = target.facing ?? (target.side === 0 ? Math.PI / 2 : -Math.PI / 2);
   const ang = Math.atan2(from.y - target.y, from.x - target.x);
@@ -81,7 +91,8 @@ function resolveGroup(g, target, ctx) {
       if (ctx.martyr && ctx.martyr.wounds <= 0) break;
       out.hits++;
       if (nat >= 5) out.shockRolls++;
-      const isPrecision = precision && nat >= Math.max(precision, ctx.precisionMin || 0) && g.hitNeed != null;
+      // Snap Shots and Blast, Barrage and Template weapons never trigger Precision (CONFIRMED)
+      const isPrecision = precision && nat >= Math.max(precision, ctx.precisionMin || 0) && g.hitNeed != null && !g.snap && !has(rules, 'Blast') && !has(rules, 'Barrage');
       if (isPrecision) out.precisionHits++;
       const victim = ctx.martyr && ctx.martyr.wounds > 0 ? ctx.martyr : pickModel(target, isPrecision);
       if (!victim) break;
@@ -91,17 +102,20 @@ function resolveGroup(g, target, ctx) {
       if (g.hitNeed != null && crit && nat >= crit) { autoWound = true; extraD = 1; } else if (g.hitNeed != null && rend && nat >= rend && !victim.vehicle) autoWound = true;
       // ---- vehicles: Armour Penetration ----
       if (victim.vehicle) {
-        const av = armourFacing(target, g.from || target);
+        const av = armourFacing(target, g.from || target, g.melee);
         const pen = g.S + dice.d6();
         const pens = pen > av || (bane && pen >= av);
         const glance = !pens && pen === av;
         if (!pens && !glance) continue;
         out.wounds++;
-        // a vehicle's Invulnerable Save, including the Medusa Shroud's 5+ against shooting (Rangdan wargear)
-        const vinv = Math.min(save(victim.p.INV), !g.melee && (victim.items || []).includes('Medusa Shroud') ? 5 : 7);
-        if (vinv <= 6 && dice.d6() >= vinv) continue;
-        const shr = bloodCrow(g, Math.min(ctx.shrouded || 7, target.buff?.shrouded || 7, xOf(victim.rules, 'Shrouded') || 7));
-        if (!g.melee && shr <= 6 && dice.d6() >= shr) continue;
+        // a Penetrating Hit may be saved by the vehicle's Invulnerable Save (the Medusa Shroud's 5+ against shooting,
+        // Rangdan wargear) or Cover Save, then Shrouded; a Glancing Hit gets no save (CONFIRMED)
+        if (pens) {
+          const vinv = Math.min(save(victim.p.INV), !g.melee && (victim.items || []).includes('Medusa Shroud') ? 5 : 7, !g.melee && ctx.coverSave ? ctx.coverSave : 7);
+          if (vinv <= 6 && dice.d6() >= vinv) continue;
+          const shr = bloodCrow(g, (ctx.noShrouded ? 7 : Math.min(ctx.shrouded || 7, target.buff?.shrouded || 7, xOf(victim.rules, 'Shrouded') || 7)));
+          if (!g.melee && shr <= 6 && dice.d6() >= shr) continue;
+        }
         out.unsaved++;
         if (pens) {
           // a Penetrating Hit removes Hull Points equal to its Damage (doubled by Melta in range)
@@ -121,7 +135,8 @@ function resolveGroup(g, target, ctx) {
         wroll = dice.d6();
         // The Gorgon's Scales (Iron Hands): -1 Strength to wound them with shooting
         const sPen = !g.melee && legions.is(target, 'Iron Hands') ? 1 : 0;
-        let need = woundNeed(g.S - sPen, num(victim.p.T, 4) + (target.buff?.tough || 0));
+        // the Toughness most of the unit's models have (CONFIRMED)
+        let need = woundNeed(g.S - sPen, majority(target, 'T', 4) + (target.buff?.tough || 0));
         if (ctx.hatred) need = Math.max(2, need - 1);
         const ok = (need <= 6 && wroll >= need) || (poison && wroll >= poison);
         if (!ok) continue;
@@ -146,7 +161,7 @@ function resolveGroup(g, target, ctx) {
         if (best <= 6 && dice.d6() >= best) continue;
         // ---- damage mitigation: Feel No Pain, Shrouded against shooting ----
         const fnp = Math.min(xOf(victim.rules, 'Feel No Pain') || 7, target.buff?.fnp || 7, has(victim.rules, 'The Blood is Forever') ? ctx.outnumberFnp || 7 : 7, psychic ? xOf(victim.rules, 'Adamantium Will') || 7 : 7, has(victim.rules, 'Worm Gestalt') && !(g.weaponTraits || []).includes('Flame') && !has(rules, 'Aflame') ? 5 : 7,
-          !g.melee ? bloodCrow(g, Math.min(xOf(victim.rules, 'Shrouded') || 7, ctx.shrouded || 7, target.buff?.shrouded || 7)) : 7);
+          !g.melee ? bloodCrow(g, (ctx.noShrouded ? 7 : Math.min(xOf(victim.rules, 'Shrouded') || 7, ctx.shrouded || 7, target.buff?.shrouded || 7))) : 7);
         if (fnp <= 6 && dice.d6() >= fnp) continue;
       }
       out.unsaved++;
@@ -197,13 +212,15 @@ function applyDamage(model, dmg, unit, out, ctx) {
 function rangedGroup(model, w, target, opts) {
   const rules = w.specialRules || [];
   const stationary = opts.stationary;
-  let FP = (num(w.FP, 1) + (opts.fpBonus || 0)) * (w.count || 1);
+  let FP = num(w.FP, 1) + (opts.fpBonus || 0);
   let S = num(w.RS, 4), AP = num(w.AP, 7), D = Math.max(1, num(w.D, 1));
   let BS = num(model.p.BS, 4);
   // Fury of the Legion (Tactical Squads): a bolter gains Heavy (FP) for the attack (CONFIRMED)
   const heavy = argOf(rules, 'Heavy') || (has(model.rules, 'Fury of the Legion') && /^bolter$/i.test(w.base || w.name) ? 'FP' : null), ord = argOf(rules, 'Ordnance');
   if ((stationary || opts.heavyOK) && heavy) { if (heavy === 'FP') FP += 1; else if (heavy === 'S' || heavy === 'RS') S += 1; else if (heavy === 'D') D += 1; else if (heavy === 'AP') AP = Math.max(2, AP - 1); else if (heavy === 'BS') BS += 1; }
   if (stationary && ord) { if (ord === 'FP') FP *= 2; else if (ord === 'S' || ord === 'RS') S *= 2; else if (ord === 'D') D *= 2; else if (ord === 'AP') AP = 2; }
+  // a pair or more of the weapon ("Two ... Mounted") multiplies Firepower after Heavy and Ordnance
+  FP *= (w.count || 1);
   const aliveN = target.models.filter((m) => m.wounds > 0).length;
   const vehicleTarget = target.models.some((m) => m.wounds > 0 && m.vehicle);
   const aim = bloodCrowAim(model, target);
@@ -242,8 +259,9 @@ function meleeGroup(model, w, target, opts) {
   const reap = Math.max(xOf(model.rules, 'Reaping Blow') || 0, xOf(rules, 'Reaping Blow') || 0);
   if (reap && opts.outnumbered) A += reap;
   const def = target.models.find((m) => m.wounds > 0) || target.models[0];
-  // Ravening Madmen (Red Butchers): Hit Tests against the unit count its Weapon Skill as 3 (CONFIRMED)
-  const defWS = has(target.rules || [], 'Ravening Madmen') ? 3 : Math.floor((num(def.p.WS, 4) + (target.buff?.ws || 0)) / (def.disgraced ? 2 : 1));
+  // the Weapon Skill most of the target's models have; a vehicle counts as WS 1 (CONFIRMED); Ravening Madmen (Red
+  // Butchers): Hit Tests against the unit count its Weapon Skill as 3 (CONFIRMED)
+  const defWS = has(target.rules || [], 'Ravening Madmen') ? 3 : def.vehicle ? 1 : Math.floor((majority(target, 'WS', 4) + (target.buff?.ws || 0)) / (def.disgraced ? 2 : 1));
   return { weapon: w, attacks: A, S, AP: num(w.AP, 7), D: Math.max(1, num(w.D, 1)), hitNeed: hitNeedWS(ws, defWS), rules, melee: true, attackerModel: model, weaponTraits: w.traits || [] };
 }
 
@@ -261,10 +279,10 @@ function expectedGroup(g, target, ctx = {}) {
     const av = num(t.p.SIDE ?? t.p.FRONT, 10);
     let p = 0; for (let r = 1; r <= 6; r++) if (g.S + r > av || (has(g.rules, 'Armourbane') && g.S + r >= av)) p += 1 / 6; else if (g.S + r === av) p += 0.5 / 6;
     const shr = g.melee ? 7 : Math.min(xOf(t.rules, 'Shrouded') || 7, target.buff?.shrouded || 7);
-    const vinv = Math.min(save(t.p.INV), !g.melee && (t.items || []).includes('Medusa Shroud') ? 5 : 7);
+    const vinv = Math.min(save(t.p.INV), !g.melee && (t.items || []).includes('Medusa Shroud') ? 5 : 7, !g.melee && ctx.coverSave ? ctx.coverSave : 7);
     return g.attacks * pHit * p * Math.min(g.D, num(t.p.HP, 1)) * (shr <= 6 ? (shr - 1) / 6 : 1) * (vinv <= 6 ? (vinv - 1) / 6 : 1);
   }
-  const need = woundNeed(g.S - (!g.melee && legions.is(target, 'Iron Hands') ? 1 : 0), num(t.p.T, 4) + (target.buff?.tough || 0));
+  const need = woundNeed(g.S - (!g.melee && legions.is(target, 'Iron Hands') ? 1 : 0), majority(target, 'T', 4) + (target.buff?.tough || 0));
   const breach = xOf(g.rules, 'Breaching'), poison = xOf(g.rules, 'Poisoned');
   const arm = save(t.p.SAV), inv = Math.min(save(t.p.INV), target.buff?.inv || 7);
   const sal = legions.is(target, 'Salamanders');

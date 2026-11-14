@@ -147,6 +147,14 @@ function destroyed(state, unit, by, fled = false) {
   if (unit.destroyed) return;
   unit.destroyed = true;
   state.log(`    ${unit.name} is ${fled ? 'gone (fled)' : 'destroyed'}`);
+  // passengers of a destroyed transport make an Emergency Disembarkation before anything else (its explosion
+  // included), then a Cool Check: failing it, the unit gains a status (CONFIRMED; the status's name is lost in our
+  // copy of the text, so ASSUMPTION: Pinned)
+  for (const p of unit.passengers) {
+    p.embarkedIn = null; p.arrived = true; p.x = unit.x; p.y = unit.y; p.r = footprint(p);
+    if (!check(state, p, 'CL', 0, 'Emergency Disembarkation')) addStatus(state, p, 'Pinned', 'transport destroyed');
+  }
+  unit.passengers = [];
   // Explodes (X): a vehicle that dies may blow up (CONFIRMED profile: S8 AP- D1, base HP or W hits within 6")
   const ex = xOf(unit.rules, 'Explodes');
   if (ex && !fled && state.dice.d6() >= ex) {
@@ -158,12 +166,6 @@ function destroyed(state, unit, by, fled = false) {
       state.afterDamage(u);
     }
   }
-  // passengers of a destroyed transport get out where it was, shaken (ASSUMPTION: Pinned)
-  for (const p of unit.passengers) {
-    p.embarkedIn = null; p.arrived = true; p.x = unit.x; p.y = unit.y; p.r = footprint(p);
-    addStatus(state, p, 'Pinned', 'transport destroyed');
-  }
-  unit.passengers = [];
   unlock(unit);
   // Horror of the Taken (Rangdan): destroying a unit in combat forces Leadership Checks on its friends within 6"
   if (state.inFight && by && by.side !== unit.side && alive(by).some((m) => has(m.rules, 'Horror of the Taken'))) {

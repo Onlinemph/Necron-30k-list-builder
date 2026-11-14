@@ -176,7 +176,7 @@ test('a full battle runs, is repeatable by seed, and uses reactions and psychic 
 
 test('quick reference tables: snap shots, BS Critical Hits, Set-up Move, allotment, vehicle damage, Perils', () => {
   const core = require('../sim/lib/core.cjs');
-  assert.deepEqual([10, 9, 8, 7, 6, 5, 4, 3, 2, 1].map(core.snapHit), [2, 3, 4, 4, 4, 5, 5, 6, 6, 7]);
+  assert.deepEqual([10, 9, 8, 7, 6, 5, 4, 3, 2, 1].map(core.snapHit), [2, 3, 3, 4, 4, 5, 5, 6, 6, 7]);
   assert.deepEqual([10, 9, 8, 7, 6, 5].map(core.bsCrit), [1, 3, 4, 5, 6, null]);
   const su = (M, I, type = 'Infantry') => core.setupMove({ unitType: type, models: [{ wounds: 1, unitType: type, p: { M, I } }] });
   assert.deepEqual([su(3, 3), su(5, 4), su(7, 4), su(8, 5), su(12, 4), su(14, 7), su(6, 4, 'Infantry (Heavy)')], [1, 2, 3, 4, 5, 6, 1]);
@@ -558,7 +558,7 @@ test("Legiones Astartes or Hereticus: the army's choice decides the Tactica and 
   assert.ok(sets(uh).has('Furious Charge') && !sets(uh).has('Brutal Tide'));
   // The Nails' Bite: a Hereticus unit that fails a Leadership Check becomes Lost to the Nails instead
   uh.statuses = new Set(['Pinned']); uh.cond = null;
-  const st = { units: [uh], dice: { twoD6: () => 12 }, log: () => {} };
+  const st = { units: [uh], dice: { d6: () => 6, twoD6: () => 12 }, log: () => {} };
   assert.equal(check(st, uh, 'LD', 0, 'test'), true);
   assert.ok(uh.cond.has('Lost to the Nails') && uh.statuses.size === 0);
   ua.statuses = new Set(); ua.cond = null;
@@ -828,7 +828,7 @@ test('rules audit: vehicles take no Leadership or Cool Checks, and block Line of
   const { buildArmy } = require('../sim/lib/army.cjs');
   const a = buildArmy(path.join(LISTS, 'strong', 'world-eaters.json'), 0).units;
   const rhino = a.find((u) => u.name === 'Rhino'), desp = a.filter((u) => u.name === 'Despoiler Squad');
-  const st = { dice: { twoD6: () => 12 }, units: a };
+  const st = { dice: { d6: () => 6, twoD6: () => 12 }, units: a };
   for (const u of [rhino, ...desp]) Object.assign(u, { arrived: true, destroyed: false, embarkedIn: null, statuses: new Set(), lockedWith: new Set() });
   assert.equal(check(st, rhino, 'LD', 5, ''), true);
   assert.equal(passChance(st, rhino, 'CL', 3), 1);

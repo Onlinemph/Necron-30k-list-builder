@@ -58,14 +58,15 @@ module.exports = {
   // CONFIRMED: Walkers fire every weapon; ASSUMPTION: so do Vehicles
   weaponsPerModel: (model) => (model.vehicle || /Walker/.test(model.unitType) ? Infinity : 1),
   // SHEET: Snap Shots by Ballistic Skill (10+: 2+, 9: 3+, 6-8: 4+, 4-5: 5+, 2-3: 6+, 1: can't hit)
-  snapHit: (bs) => (bs >= 10 ? 2 : bs === 9 ? 3 : bs >= 6 ? 4 : bs >= 4 ? 5 : bs >= 2 ? 6 : 7),
+  snapHit: (bs) => (bs >= 10 ? 2 : bs >= 8 ? 3 : bs >= 6 ? 4 : bs >= 4 ? 5 : bs >= 2 ? 6 : 7),
   // SHEET: BS 6-9 hits on 2+ and scores a Critical Hit on 12 - BS or more; BS 10+ hits automatically, always
   // critically. A Critical Hit wounds automatically and has +1 Damage (CONFIRMED in the Critical Hit rule)
   bsCrit: (bs) => (bs >= 10 ? 1 : bs >= 6 ? 12 - bs : null),
   // SHEET: Light terrain 6+, Medium 5+, Heavy 4+; ASSUMPTION: Cavalry can't claim cover
   coverSave: (unit, value) => (!value || /Cavalry/.test(unit.unitType) ? null : value),
   // SHEET: a Vehicle making an Intercept fires its Defensive weapons; ASSUMPTION: those are Strength 6 or less
-  isDefensive: (w) => num(w.RS, 10) <= 6,
+  // a Defensive Weapon: Strength 6 or less, or Sponson or Pintle Mounted (army.cjs tags those) (CONFIRMED)
+  isDefensive: (w) => num(w.RS, 10) <= 6 || !!w.defensive,
   /**
    * Whether a unit stayed Stationary (and Remorseless Advance's heavyOK) for its Heavy (X) and Ordnance (X) weapons:
    * these ask about the Controlling Player's previous Movement Phase (CONFIRMED), so a unit shooting in the enemy's

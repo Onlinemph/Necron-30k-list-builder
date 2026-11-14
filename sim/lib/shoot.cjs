@@ -52,12 +52,13 @@ function shootingAttack(state, shooter, target, opts = {}) {
     target = react.target;
   }
   // a unit with any Tactical Status never counts as Stationary (SHEET)
-  const still = core.still(state, shooter);
+  // a unit shooting as a Reaction counts as Stationary (CONFIRMED), unless it has a status
+  const still = opts.reaction ? { stationary: true, heavyOK: true } : core.still(state, shooter);
   const stationary = !!still.stationary && !shooter.statuses.size;
   // Shadow Walkers (Raven Guard): shots from 18" or more away are Snap Shots
   const snap = opts.snap || (legions.is(target, 'Raven Guard') && gap(shooter, target) >= 18) || shooter.cond?.has('Stupefied') || core.snapOnly(shooter) || (shooter.turn.rushed && /Light|Rapid/.test(shooter.unitType)) || (/Flyer/.test(target.unitType) && !has(shooter.rules, 'Skyfire'));
   const exclude = (w) => psychic.blockedPsychic(w, target) || (opts.defensiveOnly && !core.isDefensive(w)) || (opts.assaultOnly && !(w.traits || []).includes('Assault') && !has(shooter.rules, 'Implacable Advance')) || (opts.assaultOnly && has(shooter.rules, 'Implacable Advance') && (has(w.specialRules, 'Heavy') || has(w.specialRules, 'Ordnance')));
-  const plan = planVolley(shooter, target, state, { stationary, snap, exclude, models: opts.models, fpBonus: opts.fpBonus, losOK: react?.losOK ? true : undefined });
+  const plan = planVolley(shooter, target, state, { stationary, snap, exclude, models: opts.models, fpBonus: opts.fpBonus, losOK: react?.losOK ? true : undefined, ignoreCover: !!opts.noCover });
   if (!plan.picks.length) {
     if (react) { for (const f of react.after) f(); state.reactions.clearBuffs(state, 'attack'); }
     return { damage: 0, kills: 0, pts: 0, target };
@@ -80,7 +81,7 @@ function shootingAttack(state, shooter, target, opts = {}) {
     groups.get(key).push(p);
   }
   const ctx = { dice: state.dice, log: state.log, preyCrit: preyCrit(shooter, target), coverSave: plan.coverSave, range: plan.range, precisionMin: react?.ctx.precisionMin,
-    shrouded: cameleoline(target, plan.range), onKill: (m, u) => state.onCasualty && state.onCasualty(m, u, shooter) };
+    shrouded: cameleoline(target, plan.range), noShrouded: !!opts.noCover, onKill: (m, u) => state.onCasualty && state.onCasualty(m, u, shooter) };
   const parts = [];
   // Fire Discipline (Imperial Fists): +1 to hit for Bolt or Auto Fire Groups of more than five dice
   const fireDiscipline = legions.is(shooter, 'Imperial Fists');
@@ -109,13 +110,12 @@ function shootingAttack(state, shooter, target, opts = {}) {
       psychic.afterWounds(state, w, target, r.wounds);
       vehicleStatuses.push(...r.vehicleStatuses);
       const rules = w.specialRules || [];
-      // Pinning triggers on a wound (SHEET); Suppressive, Stun and Panic on a hit (CONFIRMED: "inflicts one or more
-      // Hits"). Blood of Fire (Salamanders): Panic from Flame weapons doesn't touch them. Vehicles take no Panic
-      // (ASSUMPTION: they have no Leadership)
+      // Pinning and Panic trigger on a wound, Suppressive and Stun on a hit (CONFIRMED, rulebook). Blood of Fire
+      // (Salamanders): Panic from Flame weapons doesn't touch them. Vehicles can't be Routed (CONFIRMED)
       const flameVsSal = (w.traits || []).includes('Flame') && legions.is(target, 'Salamanders');
       const noPanic = flameVsSal || target.models.every((m) => m.vehicle);
-      if (r.wounds > 0) { const x = xOf(rules, 'Pinning'); if (x != null) triggers.Pinning = Math.max(triggers.Pinning ?? -1, x); }
-      if (r.hits > 0) for (const t of ['Suppressive', 'Stun', 'Panic']) { const x = xOf(rules, t); if (x != null && !(t === 'Panic' && noPanic)) triggers[t] = Math.max(triggers[t] ?? -1, x); }
+      if (r.wounds > 0) for (const t of ['Pinning', 'Panic']) { const x = xOf(rules, t); if (x != null && !(t === 'Panic' && noPanic)) triggers[t] = Math.max(triggers[t] ?? -1, x); }
+      if (r.hits > 0) for (const t of ['Suppressive', 'Stun']) { const x = xOf(rules, t); if (x != null) triggers[t] = Math.max(triggers[t] ?? -1, x); }
       if (r.shockRolls > 0 && target.models.some((m) => m.wounds > 0 && (m.vehicle || /Walker/.test(m.unitType)))) {
         const s = argOf(rules, 'Shock'); if (s) for (const st of s.split(/,\s*/)) shock.add(st);
       }
@@ -132,15 +132,16 @@ function shootingAttack(state, shooter, target, opts = {}) {
   }
   // reactions resolved just before Step 11 (Bitter Fury, Retribution Strike)
   if (react) for (const f of react.beforeStep11) f();
-  // Step 11: statuses from Shock and Glancing Hits on vehicles; Volley Attacks never inflict statuses (SHEET)
-  if (!opts.volley) {
+  // Step 11: statuses from Shock and Glancing Hits on vehicles; Volley Attacks and Reactions' Shooting Attacks never
+  // inflict statuses or checks (SHEET, CONFIRMED)
+  if (!opts.volley && !opts.reaction) {
     for (const st of shock) addStatus(state, target, st, 'Shock');
     for (const st of vehicleStatuses) vehicleDamage(state, target, st);
   }
   if (phage.size) { target.phage = target.phage || new Set(); for (const ph of phage) target.phage.add(ph); }
   // markers for the Morale Sub-Phase
   const morale = state.pendingMorale;
-  if (!opts.volley) {
+  if (!opts.volley && !opts.reaction) {
     for (const [t, x] of Object.entries(triggers)) if (x != null && !target.destroyed) morale.push({ unit: target, type: t, x, from: shooter.name });
     if (!target.destroyed && startModels > 1 && kills / startModels >= core.panicCasualtyFraction) morale.push({ unit: target, type: 'Casualties', x: 0, from: shooter.name });
   }
@@ -186,10 +187,18 @@ function vehicleDamage(state, target, st) {
 /** Resolve every marker left by this phase's Shooting Attacks (the Morale Sub-Phase). */
 function moraleSubPhase(state) {
   const pending = state.pendingMorale.splice(0);
-  // one check for each marker: every Shooting Attack that triggers a check leaves its own (INFERRED from the status
-  // rules, "If a Shooting Attack ... inflicts ... that Target Unit must make a ... Check"); within one attack the
-  // highest X already counts. A unit that gains the status skips the rest of that kind
+  // no unit makes more than one Check for a given Status: of several, the Active Player picks one (here the hardest)
+  // and the rest are ignored; checks against Routed come first, and failing one cancels the rest (CONFIRMED)
+  const STATUS = { Pinning: 'Pinned', Suppressive: 'Suppressed', Stun: 'Stunned', Panic: 'Routed', Casualties: 'Routed' };
+  const by = new Map();
   for (const p of pending) {
+    if (p.unit.destroyed) continue;
+    const k = p.unit.uid + ':' + STATUS[p.type];
+    if (!by.has(k) || by.get(k).x < p.x) by.set(k, p);
+  }
+  const ordered = [...by.values()].sort((a, b) => (STATUS[b.type] === 'Routed') - (STATUS[a.type] === 'Routed'));
+  for (const p of ordered) {
+    if (p.unit.statuses.has('Routed') && STATUS[p.type] !== 'Routed') continue;
     const u = p.unit;
     if (u.destroyed) continue;
     const status = { Pinning: 'Pinned', Suppressive: 'Suppressed', Stun: 'Stunned', Panic: 'Routed', Casualties: 'Routed' }[p.type];

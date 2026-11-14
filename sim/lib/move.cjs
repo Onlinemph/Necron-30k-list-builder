@@ -29,18 +29,32 @@ function moveSetup(state, u, to, budget, opts) {
   const slowed = !opts.ignoreDifficult && !ignoresTerrain(u) && !legions.is(u, 'Death Guard');
   const crossesDifficult = slowed && (inQuake || state.table.pieces.some((r) => r.difficult && segThrough(u, to, r)));
   const b = Math.max(0, budget - (crossesDifficult ? core.DIFFICULT_PENALTY : 0));
-  const blockers = opts.charging ? state.units.filter((x) => x !== u && !x.destroyed && x.arrived && !x.embarkedIn && x !== opts.target).map((x) => ({ x: x.x, y: x.y, r: x.r + (x.side !== u.side ? 1 : 0) }))
-    : state.units.filter((x) => x !== u && !x.destroyed && x.arrived && !x.embarkedIn).map((x) => ({ x: x.x, y: x.y, r: x.r + (x.side !== u.side ? 1 : 0) }));
+  // the Line of Movement may not cross a vehicle's hull, or come within 1" of an enemy model or of a model Locked in
+  // Combat (CONFIRMED); friendly models that aren't vehicles may be moved through (and vehicles may drive through
+  // them), but not ended on: those are `soft`
+  const blockers = [], soft = [];
+  for (const x of state.units) {
+    if (x === u || x.destroyed || !x.arrived || x.embarkedIn || x === opts.target) continue;
+    if (x.side !== u.side || x.lockedWith.size) blockers.push({ x: x.x, y: x.y, r: x.r + 1 });
+    else if (x.vehicle) blockers.push({ x: x.x, y: x.y, r: x.r });
+    else soft.push({ x: x.x, y: x.y, r: x.r });
+  }
   const tableView = ignoresTerrain(u) ? { pieces: state.table.pieces.filter((r) => r.impassable && !alive(u).some((m) => /Flyer/.test(m.unitType))).map((r) => Object.assign({}, r, { difficult: false })) } : state.table;
   const difficultAt = (p) => slowed && (state.table.pieces.some((r) => r.difficult && inside(p, r)) || !!(quake && inArea(quake.area, p)));
-  return { tableView, b, blockers, difficultAt };
+  return { tableView, b, blockers, soft, difficultAt };
 }
 /**
  * Where a move towards `to` of up to `budget` inches ends, and how far the unit goes: { x, y, len, from }. Straight
  * if nothing stops it short; otherwise the way round if that gets closer (not for charges, which go straight).
  */
 function destination(state, u, to, budget, opts = {}) {
-  const { tableView, b, blockers, difficultAt } = moveSetup(state, u, to, budget, opts);
+  const setup = moveSetup(state, u, to, budget, opts);
+  const d = destinationWith(state, u, to, budget, opts, setup, setup.blockers);
+  // a move may pass through friendly units but not end on one: if it would, friends block it after all
+  if (!setup.soft.length || !setup.soft.some((s) => Math.hypot(s.x - d.x, s.y - d.y) < s.r + u.r - 0.3)) return d;
+  return destinationWith(state, u, to, budget, opts, setup, [...setup.blockers, ...setup.soft]);
+}
+function destinationWith(state, u, to, budget, opts, { tableView, b, difficultAt }, blockers) {
   const shadow = { x: u.x, y: u.y, r: u.r, ignoresTerrain: true }; // difficult terrain is the flat penalty above
   const len = moveToward(tableView, shadow, to, b, blockers);
   const straight = { x: shadow.x, y: shadow.y, len, from: { x: u.x, y: u.y } };
@@ -265,10 +279,23 @@ function moveSubPhase(state, side) {
     // Reposition (core Reaction): an enemy unit within 12" and in sight may move up to its Initiative
     if (moved >= 0.25 && state.onEnemyMoved) state.onEnemyMoved(u);
     // passengers may get out after the transport moved (not after a Rush)
-    if (u.passengers.length && d.kind !== 'rush') disembarkIfWorth(state, u, true);
+    // (they then make their own normal move, CONFIRMED: only the transport may not move further)
+    if (u.passengers.length && d.kind !== 'rush') {
+      const inside = [...u.passengers];
+      disembarkIfWorth(state, u, true);
+      units.splice(i + 1, 0, ...inside.filter((p) => !u.passengers.includes(p)));
+    }
   }
   // what each unit did in this Movement Phase, for its Heavy and Ordnance weapons in the enemy's turn (core.still)
   for (const u of state.units) if (u.side === side) u.lastMove = { stationary: !!u.turn.stationary, heavyOK: !!u.turn.heavyOK };
+  // a vehicle can end its move facing any way, and a Pivot doesn't count as moving (CONFIRMED): it turns its front
+  // armour to the nearest enemy
+  const foes = state.units.filter((e) => e.side !== side && !e.destroyed && e.arrived && !e.embarkedIn);
+  for (const u of state.units) {
+    if (u.side !== side || !u.vehicle || u.destroyed || !u.arrived || u.embarkedIn || u.lockedWith.size || !foes.length) continue;
+    const e = foes.reduce((b, x) => (gap(u, x) < gap(u, b) ? x : b), foes[0]);
+    u.facing = Math.atan2(e.y - u.y, e.x - u.x);
+  }
 }
 
 /** Passengers disembark next to their transport when that puts them somewhere better. */
@@ -288,7 +315,6 @@ function disembarkIfWorth(state, t, afterMove = false) {
     p.turn.disembarked = true;
     p.turn.stationary = false;
     p.turn.disordered = d0 || disordered;
-    if (afterMove) p.turn.noMove = true;
     state.log(`  ${p.name} disembarks from ${t.name}`);
   }
 }
@@ -296,7 +322,7 @@ function disembarkIfWorth(state, t, afterMove = false) {
 function getOutAt(state, t, p, afterMove) {
   p.r = footprint(p);
   const outside = [];
-  for (let k = 0; k < 12; k++) { const a = (k / 12) * 2 * Math.PI; outside.push({ x: t.x + Math.cos(a) * (t.r + p.r + 1), y: t.y + Math.sin(a) * (t.r + p.r + 1) }); }
+  for (let k = 0; k < 12; k++) { const a = (k / 12) * 2 * Math.PI; outside.push({ x: t.x + Math.cos(a) * (t.r + p.r + 0.2), y: t.y + Math.sin(a) * (t.r + p.r + 0.2) }); }
   let best = null;
   for (const pos of outside) {
     if (pos.x < p.r || pos.x > W - p.r || pos.y < p.r || pos.y > H - p.r) continue;
@@ -316,7 +342,8 @@ function getOutAt(state, t, p, afterMove) {
   if (mobile && require('./plan.cjs').of(state, p)?.waiting) return null;
   if (mobile) {
     const foes = enemiesOf(state, p);
-    const charge = ai.canCharge(p) && foes.some((e) => ai.chargeOdds(p, best.pos, e) >= 0.5);
+    // the unit makes a normal move after getting out, then may charge (Disordered unless from an Assault Vehicle)
+    const charge = ai.canCharge(p) && foes.some((e) => ai.chargeOdds(p, ai.toward(best.pos, e, ai.moveOf(p), p.r + e.r + 1), e) >= 0.5);
     const assault = ai.meleeValue(state, p, foes) > ai.shootValue(state, p, foes);
     const holds = scoring.missionValueAt(state, p, best.pos).here > 0;
     // a Line assault unit gets out onto an Objective Marker, not just anywhere in a Sector (in Seize Ground missions

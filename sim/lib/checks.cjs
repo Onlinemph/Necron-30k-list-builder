@@ -12,10 +12,11 @@ const isMalefic = (u) => alive(u).length > 0 && alive(u).every((m) => /Malefic/.
 function charOf(unit, key) {
   const a = alive(unit);
   if (!a.length) return 0;
-  const leaders = a.filter((m) => /Command|Sergeant|Paragon|Champion/.test(m.unitType) || m.sergeant);
-  const pool = leaders.length ? leaders : a;
+  // a unit uses its lowest value, but a Sergeant's, Command or Paragon model's may always be used instead (CONFIRMED)
+  const leaders = a.filter((m) => /Command|Sergeant|Paragon/.test(m.unitType) || m.sergeant);
   // Disgraced: the model's Leadership is halved (SHEET)
-  let v = Math.max(...pool.map((m) => Math.floor(num(m.p[key], 7) / (m.disgraced && key === 'LD' ? 2 : 1))));
+  const val = (m) => Math.floor(num(m.p[key], 7) / (m.disgraced && key === 'LD' ? 2 : 1));
+  let v = Math.max(Math.min(...a.map(val)), ...leaders.map(val));
   // Threatening Entreaties (Kor Phaeron's Dark Oratory, battle.cjs): +2 Leadership and Cool (CONFIRMED)
   if (unit.entreaties && (key === 'LD' || key === 'CL')) v += 2;
   // Lost to the Nails: Leadership, Cool and Willpower count as 10 (CONFIRMED)
@@ -94,8 +95,9 @@ function check(state, unit, key, penalty = 0, why = '', override = null) {
   }
   // override: another model's unmodified characteristic the unit may use instead (Lords of Ultramar, Sworn Loyalty)
   const value = Math.max(modifiedValue(state, unit, key, penalty), override ?? -Infinity, swornLoyalty(state, unit, key) ?? -Infinity);
-  const roll = state.dice.twoD6();
-  const pass = roll <= value;
+  // Rule of Doubles: a double 1 always passes, a double 6 always fails (CONFIRMED)
+  const d1 = state.dice.d6(), d2 = state.dice.d6(), roll = d1 + d2;
+  const pass = d1 === 1 && d2 === 1 ? true : d1 === 6 && d2 === 6 ? false : roll <= value;
   if (state.log && why) state.log(`    ${unit.name} ${key} check${why ? ` (${why})` : ''}: rolled ${roll} against ${value}, ${pass ? 'passed' : 'failed'}`);
   // The Nails' Bite (World Eaters, Legiones Hereticus): on a failed Leadership Check the unit may become Lost to the
   // Nails, which removes every Tactical Status (CONFIRMED). The AI always takes it: the failure would leave it
@@ -114,7 +116,9 @@ function check(state, unit, key, penalty = 0, why = '', override = null) {
 function passChance(state, unit, key, penalty = 0) {
   if (['LD', 'CL'].includes(key) && collarState(state, unit) === 'near') return 1;
   if (['LD', 'CL'].includes(key) && alive(unit).every((m) => m.p[key] == null || m.p[key] === '–' || m.p[key] === '-')) return 1;
-  return p2d6AtMost(Math.max(modifiedValue(state, unit, key, penalty), swornLoyalty(state, unit, key) ?? -Infinity));
+  const t = Math.max(modifiedValue(state, unit, key, penalty), swornLoyalty(state, unit, key) ?? -Infinity);
+  // the Rule of Doubles: double 1 passes and double 6 fails whatever the value
+  return Math.min(35 / 36, Math.max(1 / 36, p2d6AtMost(t)));
 }
 
 /** Units that never gain statuses (CONFIRMED): Automata, Flyers, Fortifications, Titans. */
@@ -145,6 +149,9 @@ function addStatus(state, unit, status, why = '') {
     return false;
   }
   if (unit.statuses.has(status)) return false;
+  // vehicles can't be Routed; a unit that becomes Routed loses every other status (CONFIRMED)
+  if (status === 'Routed' && alive(unit).length && alive(unit).every((m) => m.vehicle)) return false;
+  if (status === 'Routed') unit.statuses.clear();
   unit.statuses.add(status);
   if (state.log) state.log(`    ${unit.name} is ${status}${why ? ` (${why})` : ''}`);
   return true;

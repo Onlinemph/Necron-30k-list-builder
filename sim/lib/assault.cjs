@@ -67,7 +67,8 @@ function chargeSteps(state, u, t, disordered) {
   at(4);
   const warpath = psychic.onChargeStep4(state, u, t);
   const before = alive(t).length;
-  if (!disordered && !warpath && alive(u).some((m) => m.ranged.length)) shootingAttack(state, u, t, { snap: volleySnap(u), assaultOnly: true, volley: true, label: 'volleys' });
+  // neither unit volleys when the target is already Locked in Combat (CONFIRMED)
+  if (!disordered && !warpath && !t.lockedWith.size && alive(u).some((m) => m.ranged.length)) shootingAttack(state, u, t, { snap: volleySnap(u), assaultOnly: true, volley: true, label: 'volleys' });
   if (t.destroyed) return false;
   ctx.volleyKills = before - alive(t).length;
   if (pick?.replacesVolley) pick.apply(ctx);
@@ -81,7 +82,8 @@ function chargeSteps(state, u, t, disordered) {
   // Step 5: Charge Roll (2D6, keep the highest, plus Fast)
   const need = gap(u, t) + legions.rangePenalty(t);
   const roll = core.chargeRoll(u, state.dice);
-  if (roll >= need) { lockInto(state, u, t, `charge roll ${roll} (needed ${need.toFixed(1)}")`); return true; }
+  // a Disordered Charge never gains bonuses for having Charged (CONFIRMED: Impact, the Legion charge Tacticas)
+  if (roll >= need) { lockInto(state, u, t, `charge roll ${roll} (needed ${need.toFixed(1)}")`); if (disordered) u.turn.charged = false; return true; }
   state.log(`    charge roll ${roll} (needed ${need.toFixed(1)}"): the charge fails`);
   // a failed charge forces a Cool Check (CONFIRMED); failing gives Stunned (SHEET)
   // (statusCheck: Heavy units get +1 Cool to avoid a status, CONFIRMED)

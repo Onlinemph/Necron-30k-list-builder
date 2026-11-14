@@ -4,8 +4,9 @@
 // Malefic models only join, or are joined by, Malefic models; a model with Lone Killer can't be joined; a joined
 // character is part of its unit, embarking with it. MISSION: characters join their unit before it is deployed.
 //
-// The AI attaches each character before deployment and keeps it there (ASSUMPTION: characters don't leave units
-// during the battle; one character per unit). On the table the character is one more model of its unit: it moves
+// The AI attaches each character before deployment and keeps it there: the rules let characters join or leave in the
+// Move Sub-Phase and any number join one unit (CONFIRMED), but the AI keeps one per unit (so transports aren't
+// overfilled) and never moves them between units. On the table the character is one more model of its unit: it moves
 // with it at the slowest model's pace, lends its Leadership, can be singled out by Precision hits and can fight
 // challenges. For scoring it stays its own unit: when it falls its Kill Points, Slay the Warlord and First Strike
 // count as for any destroyed unit.

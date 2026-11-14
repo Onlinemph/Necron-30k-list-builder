@@ -162,13 +162,19 @@ function buildUnit(armyId, list, slot, detachment, side) {
     const plain = E.effectiveModels(Object.assign({}, s, { primeAdvantage: null }), slot).filter((r) => r.count > 0);
     primeStats = rows.some((r, i) => plain[i] && JSON.stringify(r.profile) !== JSON.stringify(plain[i].profile));
   }
+  // Sponson Mounted and Pintle Mounted weapons always count as Defensive Weapons, and Pintle Mounted ones gain the
+  // Assault Trait (CONFIRMED): by the item's name, or by the option group it was chosen from (a Predator's sponsons)
+  const picked = (v) => (typeof v === 'string' ? [v] : Array.isArray(v) ? v : v && typeof v === 'object' ? Object.keys(v) : []);
+  const mountOpt = (re) => new Set(opts.filter((o) => re.test(`${o.id} ${o.text || ''}`)).flatMap((o) => picked(s.options[o.id])));
+  const sponsonItems = mountOpt(/sponson/i), pintleItems = mountOpt(/pintle/i);
   const models = [];
   for (const r of rows) {
     const ranged = [], melee = [];
     for (const item of r.items) {
       const found = resolveItem(weapons, item);
       const n = itemCount(item);
-      for (const w of found.ranged) ranged.push(Object.assign({}, w, { count: n }));
+      const pintle = /Pintle Mounted/i.test(item) || pintleItems.has(item), sponson = /Sponson Mounted/i.test(item) || sponsonItems.has(item);
+      for (const w of found.ranged) ranged.push(Object.assign({}, w, { count: n }, pintle || sponson ? { defensive: true } : {}, pintle ? { traits: [...new Set([...(w.traits || []), 'Assault'])] } : {}));
       for (const w of found.melee) melee.push(w);
     }
     // each Psychic Discipline's Psychic Weapon

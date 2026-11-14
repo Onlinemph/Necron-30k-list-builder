@@ -187,7 +187,7 @@ function onShot(state, shooter, target) {
   // Return Fire (Core, SHEET): before Step 11 (casualties still in place) the target makes a Shooting Attack back
   if (self) {
     const def = core.reactionDefensiveOnly(target);
-    const v = planVolley(target, shooter, state, { snap: core.snapOnly(target), stationary: !!core.still(state, target).stationary, exclude: (w) => def && !core.isDefensive(w) }).expectedPts;
+    const v = planVolley(target, shooter, state, { snap: core.snapOnly(target), stationary: !target.statuses.size, exclude: (w) => def && !core.isDefensive(w) }).expectedPts;
     opts.push({ name: 'Return Fire', unit: target, value: v, apply: () => out.beforeStep11.push(() => withModels(before, () => shoot(state, target, shooter, { reaction: true, models: before, defensiveOnly: def, label: 'Returns Fire' }))) });
   }
   if (self) {
@@ -438,11 +438,12 @@ function onCharge(state, u, t) {
   // Overwatch (Core, SHEET): a normal Shooting Attack at the charger instead of the target's Volley, so it's only
   // paid for if the charge gets to Step 4
   opts.push({ name: 'Overwatch', unit: t, step: 'volley', replacesVolley: true, deferred: true,
-    value: planVolley(t, u, state, { snap: core.snapOnly(t), stationary: !!core.still(state, t).stationary, exclude: (w) => core.reactionDefensiveOnly(t) && !core.isDefensive(w) }).expectedPts - planVolley(t, u, state, { snap: true, exclude: (w) => !(w.traits || []).includes('Assault') }).expectedPts,
+    value: planVolley(t, u, state, { snap: core.snapOnly(t), stationary: !t.statuses.size, ignoreCover: true, exclude: (w) => core.reactionDefensiveOnly(t) && !core.isDefensive(w) }).expectedPts - planVolley(t, u, state, { snap: true, exclude: (w) => !(w.traits || []).includes('Assault') }).expectedPts,
     apply: () => {
       if (state.reactionsLeft[side] <= 0 || !canReact(t)) return;
       spend(state, side, 'Overwatch', t); say(state, side, 'Overwatch', t);
-      shoot(state, t, u, { reaction: true, defensiveOnly: core.reactionDefensiveOnly(t), label: 'fires Overwatch' });
+      // no Cover or Shrouded tests against Overwatch (CONFIRMED)
+      shoot(state, t, u, { reaction: true, noCover: true, defensiveOnly: core.reactionDefensiveOnly(t), label: 'fires Overwatch' });
     } });
   // The Choir Answers (Rangdan): the charger tests Cool with Fear; failing, it is Pinned and the charge fails
   if ((t.traits || []).includes('Silent Choir')) {

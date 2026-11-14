@@ -28,7 +28,8 @@ function isAssault(state, u, foes, ai) {
 function reach(state, u, ai) {
   const t = u.embarkedIn;
   const setup = t && !has(t.rules, 'Assault Vehicle') ? 0 : core.setupMove(u);
-  return (t ? ai.moveOf(t) + t.r + u.r + 1 : ai.moveOf(u)) + setup + CHARGE;
+  // a carried unit gets out and makes its own normal move as well (CONFIRMED)
+  return (t ? ai.moveOf(t) + t.r + u.r + ai.moveOf(u) : ai.moveOf(u)) + setup + CHARGE;
 }
 /** Player Turns of this side until the group can charge the target (0: this turn). */
 function eta(state, u, e, ai) {

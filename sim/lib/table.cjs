@@ -8,9 +8,9 @@ const W = 72, H = 48;
 // terrain kinds. SHEET: Light terrain 6+ cover; Medium 5+ cover and sight through at most 3" of it; Heavy 4+ cover
 // and blocks sight; Difficult -2" of movement. MISSION: Area Terrain is Light or Medium (Heavy at most once);
 // Terrain Features are Impassable and block sight, or are ruins counted as Medium Area Terrain.
-// ASSUMPTION: Medium Area Terrain is difficult, Light isn't.
+// CONFIRMED: every zone of Area Terrain is also Difficult Terrain (Light included).
 const KINDS = {
-  light: { density: 'light', coverSave: 6, blocksLoS: false, cover: true, difficult: false, impassable: false },
+  light: { density: 'light', coverSave: 6, blocksLoS: false, cover: true, difficult: true, impassable: false },
   medium: { density: 'medium', coverSave: 5, blocksLoS: false, losDepth: 3, cover: true, difficult: true, impassable: false },
   heavy: { density: 'heavy', coverSave: 4, blocksLoS: true, cover: true, difficult: true, impassable: false },
   ruin: { density: 'medium', coverSave: 5, blocksLoS: false, losDepth: 3, cover: true, difficult: true, impassable: false },
@@ -80,7 +80,6 @@ function lineOfSight(table, a, b) {
   const dx = b.x - a.x, dy = b.y - a.y, len = Math.hypot(dx, dy) || 1;
   const nx = -dy / len, ny = dx / len;
   const lines = [[0, 0], [a.r * 0.8, b.r * 0.8], [-a.r * 0.8, -b.r * 0.8]];
-  const tall = (u) => u.r >= 2.5 && u.vehicle;
   // Vehicles block Line of Sight, except Knights and Flyers (CONFIRMED: Knight Sub-Type, "unlike other Vehicle
   // Models"); a sight line through a vehicle's hull (80% of its footprint) is blocked
   const hulls = (table.hulls || []).filter((v) => v !== a && v !== b && !v.destroyed && v.arrived !== false && !v.embarkedIn);
@@ -90,23 +89,26 @@ function lineOfSight(table, a, b) {
     if (t <= 0 || t >= 1) return false;
     return Math.hypot(p.x + vx * t - v.x, p.y + vy * t - v.y) < v.r * 0.8;
   });
+  // CONFIRMED: Terrain Pieces block Line of Sight; Heavy Area Terrain blocks it always, and models within it can't
+  // see or be seen; Medium Area Terrain blocks a line through more than 3" of it (measured here between the two
+  // units' edges, so the part a unit stands in counts); Light Area Terrain doesn't block. No size exception
+  const ux = dx / len, uy = dy / len;
   return lines.some(([oa, ob]) => {
     const p = { x: a.x + nx * oa, y: a.y + ny * oa }, q = { x: b.x + nx * ob, y: b.y + ny * ob };
     if (hulls.length && throughHull(p, q)) return false;
+    const pe = { x: p.x + ux * a.r, y: p.y + uy * a.r }, qe = { x: q.x - ux * b.r, y: q.y - uy * b.r };
     return !table.pieces.some((r) => {
-      if (inside(a, r) || inside(b, r)) return false;
-      if (r.blocksLoS) return !(tall(a) && tall(b) && !r.impassable) && segHitsRect(p, q, r);
-      // Medium terrain: units see up to 3" into or through it
-      return r.losDepth != null && !(tall(a) || tall(b)) && segInside(p, q, r) > r.losDepth;
+      if (r.blocksLoS) return (!r.impassable && (inside(a, r) || inside(b, r))) || segHitsRect(p, q, r);
+      return r.losDepth != null && segInside(pe, qe, r) > r.losDepth;
     });
   });
 }
-/** The best cover save unit b has against unit a (standing in cover terrain, or seen through it), or null. */
+/** The cover save unit b has: the best of the Area Terrain it stands in (CONFIRMED: "to all Models within its boundaries"), or null. */
 function inCover(table, a, b) {
   let best = null;
   for (const r of table.pieces) {
-    if (!r.cover) continue;
-    if (inside(b, r) || (!r.blocksLoS && !inside(a, r) && segHitsRect(a, b, r))) best = best == null ? r.coverSave : Math.min(best, r.coverSave);
+    if (!r.cover || r.impassable) continue;
+    if (inside(b, r)) best = best == null ? r.coverSave : Math.min(best, r.coverSave);
   }
   return best;
 }

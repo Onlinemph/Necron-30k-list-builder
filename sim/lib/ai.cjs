@@ -87,6 +87,8 @@ function chargeOdds(u, pos, t) {
   const left = g - (u.turn.disordered || u.statuses.size ? 0 : core.setupMove(u));
   return left <= 0 ? 1 : chargeChance(u, left);
 }
+/** pos moved towards t by `d` inches, stopping `stop` inches short of its centre. */
+const toward = (pos, t, d, stop = 0) => { const L = Math.hypot(t.x - pos.x, t.y - pos.y); const k = L > 0 ? Math.max(0, Math.min(d, L - stop)) / L : 0; return { x: pos.x + (t.x - pos.x) * k, y: pos.y + (t.y - pos.y) * k }; };
 const canCharge = (u) => !u.vehicle && !u.statuses.has('Pinned') && !u.statuses.has('Routed') && alive(u).some((m) => m.melee.length && !m.vehicle) && !/Flyer/.test(u.unitType);
 
 // ---------- Vanguard: hunting the units that hold objectives ----------
@@ -230,7 +232,8 @@ function positionScore(state, u, pos, opts = {}) {
       score += Math.max(0, positionScore(state, p, pos, { cautious: 0.3, passenger: true, charging: opts.charging }));
       // delivery: an assault unit wants carrying to the enemy it fights best, from across the table if need be
       if (canCharge(p) && meleeValue(state, p, enemies) > shootValue(state, p, enemies)) {
-        const reach = moveOf(u) + (p.turn.disordered ? 0 : core.setupMove(p)) + 4.5 + p.r;
+        // the transport's move, then the unit's own normal move after getting out, then the charge
+        const reach = moveOf(u) + moveOf(p) + (p.turn.disordered ? 0 : core.setupMove(p)) + 4.5 + p.r;
         const pp = plan.of(state, p);
         let best = 0;
         for (const e of enemies) {
@@ -278,7 +281,8 @@ function chooseMove(state, u) {
       const s = positionScore(state, u, p);
       if (s > best.score + 0.5) Object.assign(best, { kind: 'move', to: p, score: s });
     }
-    const rb = core.rushBonus(u);
+    // a unit that disembarked makes a normal move, never a Rush (CONFIRMED)
+    const rb = u.turn.disembarked ? null : core.rushBonus(u);
     if (rb != null) {
       // a Rush gives up shooting (except Light/Rapid Snap Shots) and charging this turn
       const rushed = u.turn.rushed; u.turn.rushed = true;
@@ -402,4 +406,4 @@ function duelEV(a, b) {
   return best;
 }
 
-module.exports = { DEFAULTS, K, huntValue, markerHeld, VP_WORTH, shootTable, evAt, meleeEV, maxRange, chargeChance, chargeOdds, canCharge, positionScore, candidates, chooseMove, chooseTarget, chooseCharge, statusValue, worthReacting, duelEV, moveOf, shootValue, meleeValue };
+module.exports = { toward, DEFAULTS, K, huntValue, markerHeld, VP_WORTH, shootTable, evAt, meleeEV, maxRange, chargeChance, chargeOdds, canCharge, positionScore, candidates, chooseMove, chooseTarget, chooseCharge, statusValue, worthReacting, duelEV, moveOf, shootValue, meleeValue };
