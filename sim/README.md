@@ -425,7 +425,10 @@ difficult terrain still costing its flat 2" once). Charges and pursuits stay str
 scores each candidate move at the point it would really reach, not at the point it aims for. Before this, 44% of
 the World Eaters' Rhino moves stopped short of a spot the AI rated higher, two thirds of them behind a friendly
 unit; now 34% do, and nearly all of those are spots the way round can't reach in one move or at all. The average
-Rhino move went from 6.3" to 7.1".
+Rhino move went from 6.3" to 7.1". In a round robin of the strength lists (144 games each) most lists moved by no
+more than the noise. Two drops held up on fresh seeds: the White Scars (52% to 41%, then 58% to 51%), whose speed
+counts for less when everyone else gets round obstacles too, and the Imperial Fists' static bolter line (53% to
+45%, then 38% to 31%). The World Eaters gained five points both times (25% to 30%) with their VP margin unchanged.
 
 After a fight a unit consolidates for safety (cover, out of sight) and for markers and Sectors, with no Vanguard
 boldness, since the enemy shoots next. A unit locked in combat controls nothing, so a charge also costs what the
