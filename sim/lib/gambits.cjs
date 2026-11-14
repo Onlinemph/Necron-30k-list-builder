@@ -115,7 +115,8 @@ const GAMBITS = [
     make: () => ({ onDeath: true }),
   },
   { name: 'Nostraman Courage', can: (m, me) => legion('Night Lords')(m, me) && me && alive(me.u).length > 1, make: () => ({ swapOut: true }) },
-  { name: 'Decapitation Strike', can: legion('Raven Guard'), make: () => ({ decap: true }) },
+  // "may be selected once per Challenge" (CONFIRMED)
+  { name: 'Decapitation Strike', once: true, can: legion('Raven Guard'), make: () => ({ decap: true }) },
   { name: 'Duty is Sacrifice', can: legion('Salamanders'), make: () => ({ sacrifice: 2 }) },
   { name: 'Merciless Strike', first: true, can: legion('Sons of Horus'), make: () => ({ extraRules: () => ['Phage (T)'] }) },
   {
@@ -221,6 +222,7 @@ const focusShift = (e) => (e.focus || 0) + (e.focusDice === 'high' ? 0.97 : e.fo
 function choose(state, me, opp, duel, opts = {}) {
   let best = null;
   for (const g of available(me.m, me, opts.round || 1, opp)) {
+    if (g.once && opts.used && opts.used.has(g.name)) continue;
     const e = g.estimate ? g.estimate(state, me, opp) : g.make(state, me, opp);
     // the Focus Roll change, from the challenge's own sums where it can tell (opts.focusDelta)
     const df = opts.focusDelta ? opts.focusDelta(e) : focusShift(e);

@@ -24,13 +24,14 @@ const LEGION_REACTIONS = {
   Salamanders: ['Selfless Burden'], Ultramarines: ['Retribution Strike'], 'Raven Guard': ['Shadow Veil'], 'Space Wolves': ['Bestial Savagery'],
   'Blood Angels': ['Wrath of Angels'], 'Dark Angels': ['Vengeance of the First Legion'], 'Death Guard': ['Barbaran Endurance'],
   'Word Bearers': ['Glorious Martyrdom'], 'Alpha Legion': ['Smoke and Mirrors'], 'Night Lords': ['Better Part of Valour'],
+  'Thousand Sons': ['Fortress of the Mind'],
 };
 // Advanced Reactions every army has, gated by the reacting unit's Traits or Type
 const GENERIC = ['Smokescreen', 'Shieldwall!', 'Evade'];
 // ASSUMPTION: Take Cover belongs to the Imperialis Militia and Solar Auxilia
 const ARMY_REACTIONS = { 'imperialis-militia': ['Take Cover'], 'solar-auxilia': ['Take Cover'] };
 const ONCE_PER_BATTLE = new Set(['Moonfall', 'Perfect Counter', 'Spite of the Gorgon', 'Bitter Fury', 'Bastion of Fire', 'Selfless Burden', 'Retribution Strike',
-  'Shadow Veil', 'Bestial Savagery', 'Wrath of Angels', 'Vengeance of the First Legion', 'Barbaran Endurance', 'Glorious Martyrdom', 'Brutal Tide']);
+  'Shadow Veil', 'Bestial Savagery', 'Wrath of Angels', 'Vengeance of the First Legion', 'Barbaran Endurance', 'Glorious Martyrdom', 'Brutal Tide', 'Fortress of the Mind']);
 
 function setup(state) {
   const { loadArmyData } = require('./army.cjs');
@@ -101,7 +102,7 @@ function addBuff(u, fx, until) {
   refresh(u);
 }
 function refresh(u) {
-  const b = { tough: 0, fnp: 7, shrouded: 7, ew: 0, attacks: 0, str: 0, ws: 0 };
+  const b = { tough: 0, fnp: 7, shrouded: 7, ew: 0, attacks: 0, str: 0, ws: 0, autoPass: false, inv: 7 };
   const fx = [...(u.buffs || [])];
   if (u.cond?.has('Stupefied')) fx.push({ fnp: 6, str: 1 });
   if (u.cond?.has('Lost to the Nails')) fx.push({ attacks: 1 });
@@ -110,6 +111,8 @@ function refresh(u) {
     if (f.fnp) b.fnp = Math.min(b.fnp, f.fnp);
     if (f.shrouded) b.shrouded = Math.min(b.shrouded, f.shrouded);
     if (f.ew) b.ew = Math.max(b.ew, f.ew);
+    if (f.autoPass) b.autoPass = true;
+    if (f.inv) b.inv = Math.min(b.inv, f.inv);
   }
   u.buff = fx.length ? b : null;
 }
@@ -183,16 +186,46 @@ function onShot(state, shooter, target) {
   const self = canReact(target) ? target : null;
   // Return Fire (Core, SHEET): before Step 11 (casualties still in place) the target makes a Shooting Attack back
   if (self) {
-    const v = planVolley(target, shooter, state, { snap: core.snapOnly(target) }).expectedPts;
-    opts.push({ name: 'Return Fire', unit: target, value: v, apply: () => out.beforeStep11.push(() => withModels(before, () => shoot(state, target, shooter, { reaction: true, models: before, label: 'Returns Fire' }))) });
+    const def = core.reactionDefensiveOnly(target);
+    const v = planVolley(target, shooter, state, { snap: core.snapOnly(target), stationary: !!core.still(state, target).stationary, exclude: (w) => def && !core.isDefensive(w) }).expectedPts;
+    opts.push({ name: 'Return Fire', unit: target, value: v, apply: () => out.beforeStep11.push(() => withModels(before, () => shoot(state, target, shooter, { reaction: true, models: before, defensiveOnly: def, label: 'Returns Fire' }))) });
   }
   if (self) {
     const buffOpt = (name, fx, mult, until, extra = 0) => ({ name, unit: target, value: (base - incoming(state, shooter, target, fx)) * mult + extra, apply: () => addBuff(target, fx, until) });
     if (mostTrait(target, 'Smokescreen')) opts.push(buffOpt('Smokescreen', { shrouded: 5 }, 1.3, 'phase'));
     if (mostTrait(target, 'Shield')) opts.push(buffOpt('Shieldwall!', { tough: 1 }, 1.2, 'phase'));
-    if (allTrait(target, 'Space Wolves')) opts.push(buffOpt('Bestial Savagery', { fnp: 5 }, 1.3, 'phase'));
+    // Bestial Savagery (Space Wolves): Feel No Pain (5+) for the phase; after Step 11 a Set-up Move at the shooter, and
+    // reaching it counts as a successful charge, with its Morale Sub-Phase checks passed (CONFIRMED)
+    if (allTrait(target, 'Space Wolves')) {
+      const reach = core.setupMove(target) >= gap(target, shooter) ? ai.meleeEV(state, target, shooter) * 0.6 : 0;
+      const o = buffOpt('Bestial Savagery', { fnp: 5 }, 1.3, 'phase', reach);
+      const ap = o.apply;
+      o.apply = () => {
+        ap();
+        out.after.push(() => {
+          if (target.destroyed || shooter.destroyed || target.lockedWith.size || shooter.lockedWith.size) return;
+          const s = core.setupMove(target);
+          if (s >= gap(target, shooter)) { lockInto(state, target, shooter, 'Bestial Savagery'); addBuff(target, { autoPass: true }, 'phase'); return; }
+          require('./move.cjs').moveUnit(state, target, shooter, s, { charging: true, target: shooter, ignoreDifficult: true });
+          state.log(`    ${target.name} makes a Set-up Move towards ${shooter.name} (Bestial Savagery)`);
+        });
+      };
+      opts.push(o);
+    }
+    // Fortress of the Mind (Thousand Sons), once per battle: a Willpower Check; passed, a 3+ Invulnerable Save against
+    // this attack; failed, a 5+ one, and both units suffer Warp Rupture after Step 11 (CONFIRMED)
+    if (allTrait(target, 'Thousand Sons') && !isVeh(target)) {
+      const p = passChance(state, target, 'WP', 0);
+      const v = p * (base - incoming(state, shooter, target, { inv: 3 })) + (1 - p) * (base - incoming(state, shooter, target, { inv: 5 }) - 10);
+      opts.push({ name: 'Fortress of the Mind', unit: target, value: v * 1.3, apply: () => {
+        const ok = check(state, target, 'WP', 0, 'Fortress of the Mind');
+        addBuff(target, { inv: ok ? 3 : 5 }, 'attack');
+        if (!ok) out.after.push(() => { const { perils } = require('./psychic.cjs'); for (const x of [target, shooter]) if (!x.destroyed) perils(state, x, null, 'Warp Rupture'); });
+      } });
+    }
     if (allTrait(target, 'Death Guard') && !isVeh(target)) {
-      const o = buffOpt('Barbaran Endurance', { fnp: 5 }, 1.3, 'phase', target.statuses.size * 15);
+      // statuses cleared, Feel No Pain (5+), and its Cool and Leadership Checks pass this Shooting Phase (CONFIRMED)
+      const o = buffOpt('Barbaran Endurance', { fnp: 5, autoPass: true }, 1.3, 'phase', target.statuses.size * 15);
       const ap = o.apply; o.apply = () => { target.statuses.clear(); ap(); };
       opts.push(o);
     }
@@ -405,11 +438,11 @@ function onCharge(state, u, t) {
   // Overwatch (Core, SHEET): a normal Shooting Attack at the charger instead of the target's Volley, so it's only
   // paid for if the charge gets to Step 4
   opts.push({ name: 'Overwatch', unit: t, step: 'volley', replacesVolley: true, deferred: true,
-    value: planVolley(t, u, state, { snap: core.snapOnly(t) }).expectedPts - planVolley(t, u, state, { snap: true, exclude: (w) => !(w.traits || []).includes('Assault') }).expectedPts,
+    value: planVolley(t, u, state, { snap: core.snapOnly(t), stationary: !!core.still(state, t).stationary, exclude: (w) => core.reactionDefensiveOnly(t) && !core.isDefensive(w) }).expectedPts - planVolley(t, u, state, { snap: true, exclude: (w) => !(w.traits || []).includes('Assault') }).expectedPts,
     apply: () => {
       if (state.reactionsLeft[side] <= 0 || !canReact(t)) return;
       spend(state, side, 'Overwatch', t); say(state, side, 'Overwatch', t);
-      shoot(state, t, u, { reaction: true, label: 'fires Overwatch' });
+      shoot(state, t, u, { reaction: true, defensiveOnly: core.reactionDefensiveOnly(t), label: 'fires Overwatch' });
     } });
   // The Choir Answers (Rangdan): the charger tests Cool with Fear; failing, it is Pinned and the charge fails
   if ((t.traits || []).includes('Silent Choir')) {

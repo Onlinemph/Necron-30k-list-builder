@@ -84,6 +84,14 @@ function check(state, unit, key, penalty = 0, why = '', override = null) {
     if (state.log && why) state.log(`    ${unit.name} ${key} check (${why}): passed automatically (Neural Collars)`);
     return true;
   }
+  // a unit with no such characteristic (vehicles have no Leadership or Cool) takes no check for it (ASSUMPTION:
+  // the rules seen never give vehicles a value, and Panic (X) weapons are already kept off them)
+  if (['LD', 'CL'].includes(key) && alive(unit).every((m) => m.p[key] == null || m.p[key] === '–' || m.p[key] === '-')) return true;
+  // Barbaran Endurance, Bestial Savagery: the unit's Cool and Leadership Checks pass this phase (CONFIRMED)
+  if (['LD', 'CL'].includes(key) && unit.buff?.autoPass) {
+    if (state.log && why) state.log(`    ${unit.name} ${key} check (${why}): passed automatically`);
+    return true;
+  }
   // override: another model's unmodified characteristic the unit may use instead (Lords of Ultramar, Sworn Loyalty)
   const value = Math.max(modifiedValue(state, unit, key, penalty), override ?? -Infinity, swornLoyalty(state, unit, key) ?? -Infinity);
   const roll = state.dice.twoD6();
@@ -105,6 +113,7 @@ function check(state, unit, key, penalty = 0, why = '', override = null) {
 /** Chance to pass, for the AI. */
 function passChance(state, unit, key, penalty = 0) {
   if (['LD', 'CL'].includes(key) && collarState(state, unit) === 'near') return 1;
+  if (['LD', 'CL'].includes(key) && alive(unit).every((m) => m.p[key] == null || m.p[key] === '–' || m.p[key] === '-')) return 1;
   return p2d6AtMost(Math.max(modifiedValue(state, unit, key, penalty), swornLoyalty(state, unit, key) ?? -Infinity));
 }
 

@@ -52,7 +52,8 @@ function shootingAttack(state, shooter, target, opts = {}) {
     target = react.target;
   }
   // a unit with any Tactical Status never counts as Stationary (SHEET)
-  const stationary = !!shooter.turn.stationary && !shooter.statuses.size;
+  const still = core.still(state, shooter);
+  const stationary = !!still.stationary && !shooter.statuses.size;
   // Shadow Walkers (Raven Guard): shots from 18" or more away are Snap Shots
   const snap = opts.snap || (legions.is(target, 'Raven Guard') && gap(shooter, target) >= 18) || shooter.cond?.has('Stupefied') || core.snapOnly(shooter) || (shooter.turn.rushed && /Light|Rapid/.test(shooter.unitType)) || (/Flyer/.test(target.unitType) && !has(shooter.rules, 'Skyfire'));
   const exclude = (w) => psychic.blockedPsychic(w, target) || (opts.defensiveOnly && !core.isDefensive(w)) || (opts.assaultOnly && !(w.traits || []).includes('Assault') && !has(shooter.rules, 'Implacable Advance')) || (opts.assaultOnly && has(shooter.rules, 'Implacable Advance') && (has(w.specialRules, 'Heavy') || has(w.specialRules, 'Ordnance')));
@@ -92,7 +93,7 @@ function shootingAttack(state, shooter, target, opts = {}) {
       let w = p.weapon;
       if (has(w.specialRules, 'Force')) w = forceCheck(state, shooter, p.model, w, target);
       if (has(w.specialRules, 'Limited')) { shooter.limitedUsed = shooter.limitedUsed || {}; shooter.limitedUsed[w.name] = (shooter.limitedUsed[w.name] || 0) + 1; }
-      const g = rangedGroup(p.model, w, target, { stationary, snap, fpBonus: opts.fpBonus, heavyOK: !!shooter.turn.heavyOK && !shooter.statuses.size });
+      const g = rangedGroup(p.model, w, target, { stationary, snap, fpBonus: opts.fpBonus, heavyOK: !!still.heavyOK && !shooter.statuses.size });
       g.from = shooter;
       if (disciplined && g.hitNeed != null) g.hitNeed = Math.max(2, g.hitNeed - 1);
       // Overload (X), raised by 1 for Spite of the Gorgon and Bitter Fury (fpBonus); templates roll FP dice for it
@@ -108,11 +109,13 @@ function shootingAttack(state, shooter, target, opts = {}) {
       psychic.afterWounds(state, w, target, r.wounds);
       vehicleStatuses.push(...r.vehicleStatuses);
       const rules = w.specialRules || [];
-      // SHEET: Pinning and Panic trigger on a wound, Suppressive and Stun on a hit
-      // Blood of Fire (Salamanders): Panic from Flame weapons doesn't touch them
+      // Pinning triggers on a wound (SHEET); Suppressive, Stun and Panic on a hit (CONFIRMED: "inflicts one or more
+      // Hits"). Blood of Fire (Salamanders): Panic from Flame weapons doesn't touch them. Vehicles take no Panic
+      // (ASSUMPTION: they have no Leadership)
       const flameVsSal = (w.traits || []).includes('Flame') && legions.is(target, 'Salamanders');
-      if (r.wounds > 0) for (const t of ['Pinning', 'Panic']) { const x = xOf(rules, t); if (x != null && !(t === 'Panic' && flameVsSal)) triggers[t] = Math.max(triggers[t] ?? -1, x); }
-      if (r.hits > 0) for (const t of ['Suppressive', 'Stun']) { const x = xOf(rules, t); if (x != null) triggers[t] = Math.max(triggers[t] ?? -1, x); }
+      const noPanic = flameVsSal || target.models.every((m) => m.vehicle);
+      if (r.wounds > 0) { const x = xOf(rules, 'Pinning'); if (x != null) triggers.Pinning = Math.max(triggers.Pinning ?? -1, x); }
+      if (r.hits > 0) for (const t of ['Suppressive', 'Stun', 'Panic']) { const x = xOf(rules, t); if (x != null && !(t === 'Panic' && noPanic)) triggers[t] = Math.max(triggers[t] ?? -1, x); }
       if (r.shockRolls > 0 && target.models.some((m) => m.wounds > 0 && (m.vehicle || /Walker/.test(m.unitType)))) {
         const s = argOf(rules, 'Shock'); if (s) for (const st of s.split(/,\s*/)) shock.add(st);
       }
@@ -183,14 +186,10 @@ function vehicleDamage(state, target, st) {
 /** Resolve every marker left by this phase's Shooting Attacks (the Morale Sub-Phase). */
 function moraleSubPhase(state) {
   const pending = state.pendingMorale.splice(0);
-  // one check per unit per kind: the highest X counts
-  const by = new Map();
+  // one check for each marker: every Shooting Attack that triggers a check leaves its own (INFERRED from the status
+  // rules, "If a Shooting Attack ... inflicts ... that Target Unit must make a ... Check"); within one attack the
+  // highest X already counts. A unit that gains the status skips the rest of that kind
   for (const p of pending) {
-    if (p.unit.destroyed) continue;
-    const k = p.unit.uid + ':' + p.type;
-    if (!by.has(k) || by.get(k).x < p.x) by.set(k, p);
-  }
-  for (const p of by.values()) {
     const u = p.unit;
     if (u.destroyed) continue;
     const status = { Pinning: 'Pinned', Suppressive: 'Suppressed', Stun: 'Stunned', Panic: 'Routed', Casualties: 'Routed' }[p.type];

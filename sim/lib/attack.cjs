@@ -139,7 +139,8 @@ function resolveGroup(g, target, ctx) {
       const through = bypass && wroll >= bypass;
       // ---- save: the best of Armour, Invulnerable and Cover ----
       if (!through) {
-        const arm = save(victim.p.SAV), inv = save(victim.p.INV);
+        // a reaction's Invulnerable Save for this attack (Fortress of the Mind)
+        const arm = save(victim.p.SAV), inv = Math.min(save(victim.p.INV), target.buff?.inv || 7);
         let best = Math.min(ap <= arm ? 7 : arm, inv);
         if (ctx.coverSave && !g.melee) best = Math.min(best, ctx.coverSave);
         if (best <= 6 && dice.d6() >= best) continue;
@@ -201,8 +202,8 @@ function rangedGroup(model, w, target, opts) {
   let BS = num(model.p.BS, 4);
   // Fury of the Legion (Tactical Squads): a bolter gains Heavy (FP) for the attack (CONFIRMED)
   const heavy = argOf(rules, 'Heavy') || (has(model.rules, 'Fury of the Legion') && /^bolter$/i.test(w.base || w.name) ? 'FP' : null), ord = argOf(rules, 'Ordnance');
-  if ((stationary || opts.heavyOK) && heavy) { if (heavy === 'FP') FP += 1; else if (heavy === 'S') S += 1; else if (heavy === 'D') D += 1; else if (heavy === 'AP') AP = Math.max(2, AP - 1); else if (heavy === 'BS') BS += 1; }
-  if (stationary && ord) { if (ord === 'FP') FP *= 2; else if (ord === 'S') S *= 2; else if (ord === 'D') D *= 2; else if (ord === 'AP') AP = 2; }
+  if ((stationary || opts.heavyOK) && heavy) { if (heavy === 'FP') FP += 1; else if (heavy === 'S' || heavy === 'RS') S += 1; else if (heavy === 'D') D += 1; else if (heavy === 'AP') AP = Math.max(2, AP - 1); else if (heavy === 'BS') BS += 1; }
+  if (stationary && ord) { if (ord === 'FP') FP *= 2; else if (ord === 'S' || ord === 'RS') S *= 2; else if (ord === 'D') D *= 2; else if (ord === 'AP') AP = 2; }
   const aliveN = target.models.filter((m) => m.wounds > 0).length;
   const vehicleTarget = target.models.some((m) => m.wounds > 0 && m.vehicle);
   const aim = bloodCrowAim(model, target);
@@ -265,7 +266,7 @@ function expectedGroup(g, target, ctx = {}) {
   }
   const need = woundNeed(g.S - (!g.melee && legions.is(target, 'Iron Hands') ? 1 : 0), num(t.p.T, 4) + (target.buff?.tough || 0));
   const breach = xOf(g.rules, 'Breaching'), poison = xOf(g.rules, 'Poisoned');
-  const arm = save(t.p.SAV), inv = save(t.p.INV);
+  const arm = save(t.p.SAV), inv = Math.min(save(t.p.INV), target.buff?.inv || 7);
   const sal = legions.is(target, 'Salamanders');
   let e = 0;
   for (let r = 1; r <= 6; r++) {

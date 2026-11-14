@@ -43,7 +43,14 @@ function shootTable(state, a, b) {
 }
 const evAt = (table, d) => { let v = 0; for (let i = BANDS.length - 1; i >= 0; i--) if (d <= BANDS[i]) v = table[i]; return v; };
 // (the Guns of the Conqueror are fired only through their reaction)
-const maxRange = (u) => Math.max(0, ...alive(u).flatMap((m) => m.ranged.filter((w) => !GUNS_OF_THE_CONQUEROR.test(w.name)).map((w) => rangeOf(w, m))));
+// remembered per unit until a model dies (it's asked for every enemy on every candidate move)
+const maxRange = (u) => {
+  const a = alive(u);
+  if (u._mr && u._mr.n === a.length) return u._mr.v;
+  const v = Math.max(0, ...a.flatMap((m) => m.ranged.filter((w) => !GUNS_OF_THE_CONQUEROR.test(w.name)).map((w) => rangeOf(w, m))));
+  u._mr = { n: a.length, v };
+  return v;
+};
 
 /** Expected points a unit deals in one round of combat against another. */
 function meleeEV(state, a, b) {
@@ -64,7 +71,7 @@ function meleeEV(state, a, b) {
 
 // ---------- movement reach ----------
 // a unit moves at the pace of its slowest model (a joined character included)
-const moveOf = (u) => { const a = alive(u); return a.length ? Math.min(...a.map((m) => num(m.p.M, 0))) : 0; };
+const moveOf = (u) => { const a = alive(u); return a.length ? Math.min(...a.map((m) => num(m.p.M, 0) + (m.swift && u.swiftOn ? 2 : 0))) : 0; };
 /** Chance a Charge Roll (2D6 keep highest, + Fast) covers `need` inches. */
 function chargeChance(u, need) {
   const fast = Math.min(...alive(u).map((m) => xOf(m.rules, 'Fast') || 0));

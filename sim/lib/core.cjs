@@ -8,6 +8,15 @@
 const { num, xOf, has } = require('./rules.cjs');
 const legions = require('./legions.cjs');
 
+/** The Set-up Move of a unit's living models ms (core.setupMove remembers it). */
+function setupMoveOf(unit, ms) {
+  // Shadow of the Reaper (Mortarion): his Set-up Move counts his Movement as 12
+  const v = ms.length ? Math.min(...ms.map((m) => (has(m.rules, 'Shadow of the Reaper') ? 12 : num(m.p.M, 6) + (m.swift && unit.swiftOn ? 2 : 0)) + (/Heavy/.test(m.unitType) ? 0 : num(m.p.I, 3)))) : 6;
+  const s = v >= 20 ? 6 : v >= 14 ? 5 : v >= 12 ? 4 : v >= 10 ? 3 : v >= 7 ? 2 : 1;
+  // The Hunter's Strike (Space Wolves): +2", to a maximum of 6"
+  return legions.is(unit, 'Space Wolves') ? Math.min(6, s + 2) : s;
+}
+
 module.exports = {
   // ---------- battle ----------
   BATTLE_TURNS: 5, // MISSION: five Battle Turns, a sixth if the first player rolls a 4+
@@ -57,6 +66,18 @@ module.exports = {
   coverSave: (unit, value) => (!value || /Cavalry/.test(unit.unitType) ? null : value),
   // SHEET: a Vehicle making an Intercept fires its Defensive weapons; ASSUMPTION: those are Strength 6 or less
   isDefensive: (w) => num(w.RS, 10) <= 6,
+  /**
+   * Whether a unit stayed Stationary (and Remorseless Advance's heavyOK) for its Heavy (X) and Ordnance (X) weapons:
+   * these ask about the Controlling Player's previous Movement Phase (CONFIRMED), so a unit shooting in the enemy's
+   * turn (Return Fire, Overwatch, Intercept) uses what it did in its own last Movement Phase.
+   */
+  still: (state, u) => (u.side === state.active ? u.turn || {} : u.lastMove || {}),
+  /**
+   * A vehicle's reaction Shooting Attacks use only its Defensive Weapons (SHEET for Intercept; INFERRED for Return
+   * Fire and Overwatch from Locus Strike and Automated Fire Protocols, rules that only make sense if they do), unless
+   * it has Automated Fire Protocols.
+   */
+  reactionDefensiveOnly: (u) => !!u.vehicle && !u.rules.includes('Automated Fire Protocols'),
   // CONFIRMED: Glancing Hits roll on the Vehicle Damage Table (Super-Heavy and Flyer lose 1 HP instead).
   // SHEET: 1-2 Stunned, 3-4 Pinned, 5-6 Suppressed; a result the vehicle already has costs a Hull Point instead
   vehicleDamage: (dice) => ['Stunned', 'Stunned', 'Pinned', 'Pinned', 'Suppressed', 'Suppressed'][dice.d6() - 1],
@@ -77,13 +98,14 @@ module.exports = {
   CHARGE_DECLARE_RANGE: 12, // SHEET: a charge needs Line of Sight and a target within 12"
   // SHEET: Set-up Move by I + M (1-6: 1", 7-9: 2", 10-11: 3", 12-13: 4", 14-19: 5", 20+: 6"); CONFIRMED: Heavy uses M
   setupMove: (unit) => {
-    // each model adds its Initiative to its Movement (Heavy: Movement only); the unit goes as far as its slowest
+    // each model adds its Initiative to its Movement (Heavy: Movement only); the unit goes as far as its slowest.
+    // Remembered per unit until a model dies or Swift of Action turns on or off
     const ms = unit.models.filter((x) => x.wounds > 0);
-    // Shadow of the Reaper (Mortarion): his Set-up Move counts his Movement as 12
-    const v = ms.length ? Math.min(...ms.map((m) => (has(m.rules, 'Shadow of the Reaper') ? 12 : num(m.p.M, 6)) + (/Heavy/.test(m.unitType) ? 0 : num(m.p.I, 3)))) : 6;
-    const s = v >= 20 ? 6 : v >= 14 ? 5 : v >= 12 ? 4 : v >= 10 ? 3 : v >= 7 ? 2 : 1;
-    // The Hunter's Strike (Space Wolves): +2", to a maximum of 6"
-    return legions.is(unit, 'Space Wolves') ? Math.min(6, s + 2) : s;
+    const key = ms.length * 2 + (unit.swiftOn ? 1 : 0);
+    if (unit._sm && unit._sm.k === key) return unit._sm.v;
+    const v0 = setupMoveOf(unit, ms);
+    unit._sm = { k: key, v: v0 };
+    return v0;
   },
   // CONFIRMED: the Charge Roll is 2D6 keeping the highest, plus Fast (X)
   chargeRoll: (unit, dice) => Math.max(dice.d6(), dice.d6()) + Math.min(...unit.models.filter((m) => m.wounds > 0).map((m) => xOf(m.rules, 'Fast') || 0)),

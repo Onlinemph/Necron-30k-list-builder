@@ -45,6 +45,8 @@ function runBattle(listA, listB, opts = {}) {
     // each side's AI weights, where they differ from ai.cjs's DEFAULTS (sim/tune.cjs)
     aiParams: opts.ai || null,
   };
+  // vehicles block Line of Sight, except Knights and Flyers (table.cjs)
+  table.hulls = state.units.filter((v) => v.vehicle && v.models.every((m) => m.vehicle && !/Knight|Flyer/.test(m.unitType)));
   hooks(state);
   // characters join their units before deployment (characters.cjs)
   state.joins = joinCharacters(state);
@@ -178,8 +180,10 @@ function destroyed(state, unit, by, fled = false) {
 function markHeld(state) {
   for (const u of state.units) {
     if (u.destroyed) continue;
-    const o = canHold(u) && state.table.objectives.find((x) => Math.hypot(x.x - u.x, x.y - u.y) - u.r <= scoring.CONTROL_RANGE);
-    u.heldObjective = o ? o.id + 1 : null;
+    const near = state.table.objectives.find((x) => Math.hypot(x.x - u.x, x.y - u.y) - u.r <= scoring.CONTROL_RANGE);
+    u.heldObjective = near && canHold(u) ? near.id + 1 : null;
+    // Vanguard's second clause asks only for a model within 3" at the start of the Assault Phase (CONFIRMED)
+    u.nearObjective = near ? near.id + 1 : null;
   }
 }
 
@@ -237,6 +241,8 @@ function deploy(state, side) {
     }
     if (!best) { u.reserve = 'edge'; for (const q of u.passengers) q.arrived = false; continue; }
     u.x = best.p.x; u.y = best.p.y; u.placed = true; u.arrived = true;
+    // a unit deployed outside its Deployment Zone (Infiltrate) may not charge in the first Battle Turn (CONFIRMED)
+    u.infiltrated = !fits(z, best.p, u.r);
     u.facing = Math.atan2(towards.y - u.y, towards.x - u.x);
     for (const q of u.passengers) { q.x = u.x; q.y = u.y; q.arrived = true; }
     placedNow.push(u);
@@ -250,7 +256,8 @@ function playerTurn(state, side) {
   // matchup tables are keyed by models left, so they stay valid across turns
   state.log(`\nBattle Turn ${state.round}, ${state.armies[side].name}`);
   // turn flags (moved, charged, disembarked) belong to one Player Turn; a unit may react once per Player Turn
-  for (const u of state.units) { u.turn = {}; u.reacted = false; }
+  // Swift of Action (army.cjs) counts in the White Scars' own Player Turns
+  for (const u of state.units) { u.turn = {}; u.reacted = false; u.swiftOn = u.side === side; if (u.infiltrated && state.round === 1) u.turn.noCharge = true; }
   state.umFlex = [false, false];
   const master = state.units.some((u) => u.side === 1 - side && !u.destroyed && (u.traits || []).includes('Master of the Legion'));
   state.reactionsLeft[1 - side] = core.reactionAllotment(state.armies[1 - side].pointsLimit, master);

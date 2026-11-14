@@ -340,8 +340,12 @@ test('Legion Tacticas', () => {
   for (const u of [da, um]) { u.x = 0; u.y = 0; }
   scary.x = 5; scary.y = 0; fearful.units = [da, um, scary];
   assert.ok(passChance(fearful, da, 'CL') > passChance(fearful, um, 'CL'));
-  // Swift of Action: +2 Movement; Cult Arcana: every unit a Psyker with +1 Willpower
-  assert.equal(+tac('white-scars').models[0].p.M, +tac('ultramarines').models[0].p.M + 2);
+  // Swift of Action: +2 Movement in the White Scars' own Player Turns only; Cult Arcana: every unit a Psyker with +1 Willpower
+  const ws = tac('white-scars'), moveOf = require('../sim/lib/ai.cjs').moveOf;
+  ws.swiftOn = true;
+  assert.equal(moveOf(ws), +tac('ultramarines').models[0].p.M + 2);
+  ws.swiftOn = false;
+  assert.equal(moveOf(ws), +tac('ultramarines').models[0].p.M);
   const ts = tac('thousand-sons');
   assert.equal(ts.psyker, true);
   const raw = require('../sim/lib/army.cjs').loadArmyData('thousand-sons').D.units.find((u) => u.id === 'tactical-squad').models[0].profile;
@@ -798,4 +802,61 @@ test('AI weights: a side can play with its own, and the other side keeps the def
   const base = runBattle(a, b, { seed: 3, log: true }).log.join('\n');
   assert.equal(runBattle(a, b, { seed: 3, log: true, ai: [{ risk: ai.DEFAULTS.risk }, null] }).log.join('\n'), base);
   assert.notEqual(runBattle(a, b, { seed: 3, log: true, ai: [{ risk: 0, chargeBar: -50 }, null] }).log.join('\n'), base);
+});
+
+test('rules audit: Heavy (RS), reaction fire uses the last Movement Phase, vehicles react with Defensive weapons', () => {
+  const { rangedGroup } = require('../sim/lib/attack.cjs');
+  const core = require('../sim/lib/core.cjs');
+  const { buildArmy } = require('../sim/lib/army.cjs');
+  // Heavy (RS) raises ranged Strength like Heavy (S)
+  const model = { p: { BS: 4 }, rules: [], traits: [] }, target = buildArmy(path.join(LISTS, 'legions', 'ultramarines.json'), 1).units.find((u) => u.name === 'Tactical Squad');
+  const w = { name: 'test lascannon', R: 48, FP: 1, RS: 9, AP: 2, D: 1, specialRules: ['Heavy (RS)'], traits: [] };
+  assert.equal(rangedGroup(model, w, target, { stationary: true }).S, rangedGroup(model, w, target, { stationary: false }).S + 1);
+  // in the enemy's turn a unit counts what it did in its own last Movement Phase
+  const u = { side: 0, turn: {}, lastMove: { stationary: true } };
+  assert.equal(core.still({ active: 1 }, u).stationary, true);
+  assert.equal(!!core.still({ active: 0 }, u).stationary, false);
+  // vehicles' reaction Shooting Attacks use Defensive weapons, unless they have Automated Fire Protocols
+  assert.equal(core.reactionDefensiveOnly({ vehicle: true, rules: [] }), true);
+  assert.equal(core.reactionDefensiveOnly({ vehicle: true, rules: ['Automated Fire Protocols'] }), false);
+  assert.equal(core.reactionDefensiveOnly({ vehicle: false, rules: [] }), false);
+});
+
+test('rules audit: vehicles take no Leadership or Cool Checks, and block Line of Sight', () => {
+  const { check, passChance } = require('../sim/lib/checks.cjs');
+  const { lineOfSight } = require('../sim/lib/table.cjs');
+  const { buildArmy } = require('../sim/lib/army.cjs');
+  const a = buildArmy(path.join(LISTS, 'strong', 'world-eaters.json'), 0).units;
+  const rhino = a.find((u) => u.name === 'Rhino'), desp = a.filter((u) => u.name === 'Despoiler Squad');
+  const st = { dice: { twoD6: () => 12 }, units: a };
+  for (const u of [rhino, ...desp]) Object.assign(u, { arrived: true, destroyed: false, embarkedIn: null, statuses: new Set(), lockedWith: new Set() });
+  assert.equal(check(st, rhino, 'LD', 5, ''), true);
+  assert.equal(passChance(st, rhino, 'CL', 3), 1);
+  assert.equal(check(st, desp[0], 'LD', 0, ''), false);
+  // a Rhino squarely between two squads hides one from the other
+  Object.assign(desp[0], { x: 10, y: 24, r: 1 }); Object.assign(desp[1], { x: 30, y: 24, r: 1 }); Object.assign(rhino, { x: 20, y: 24, r: 3 });
+  assert.equal(lineOfSight({ pieces: [], hulls: [rhino] }, desp[0], desp[1]), false);
+  assert.equal(lineOfSight({ pieces: [], hulls: [] }, desp[0], desp[1]), true);
+  rhino.y = 40;
+  assert.equal(lineOfSight({ pieces: [], hulls: [rhino] }, desp[0], desp[1]), true);
+});
+
+test('rules audit: the Set-up Move ignores difficult terrain; Heedless units count in Sectors but not on markers', () => {
+  const move = require('../sim/lib/move.cjs');
+  const scoring = require('../sim/lib/scoring.cjs');
+  const { buildArmy } = require('../sim/lib/army.cjs');
+  const a = buildArmy(path.join(LISTS, 'strong', 'world-eaters.json'), 0).units, b = buildArmy(path.join(LISTS, 'legions', 'ultramarines.json'), 1).units;
+  const desp = a.find((u) => u.name === 'Despoiler Squad'), tac = b.find((u) => u.name === 'Tactical Squad');
+  for (const u of [desp, tac]) Object.assign(u, { arrived: true, destroyed: false, embarkedIn: null, passengers: [], statuses: new Set(), lockedWith: new Set(), turn: {}, r: 2 });
+  Object.assign(desp, { x: 10, y: 24 }); Object.assign(tac, { x: 20, y: 24 });
+  const st = { units: [desp, tac], table: { pieces: [{ x: 16, y: 18, w: 8, h: 12, difficult: true }], objectives: [] }, mission: { sectors: [], has: () => false } };
+  const plain = move.simulateMove(st, desp, tac, 3, { charging: true, target: tac });
+  const setup = move.simulateMove(st, desp, tac, 3, { charging: true, target: tac, ignoreDifficult: true });
+  assert.ok(setup.x > plain.x + 1.5, `${plain.x} vs ${setup.x}`);
+  // Heedless: no markers, but Sectors yes (MISSION lists only statuses, combat, embarked and Automata for Sectors)
+  desp.rules = [...desp.rules, 'Heedless'];
+  const area = { poly: [[0, 0], [72, 0], [72, 48], [0, 48]] };
+  const sst = { units: [desp], mission: { sectors: [{ id: 1, area, inZone: {}, value: 3 }], has: () => false }, zoneName: ['A', 'B'] };
+  assert.equal(scoring.canControl(desp), false);
+  assert.equal(scoring.sectorControl(sst)[0].side, 0);
 });

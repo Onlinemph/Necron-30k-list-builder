@@ -10,7 +10,7 @@ const { shootingAttack, moraleSubPhase, preyCrit, forceCheck, vehicleDamage } = 
 const gambits = require('./gambits.cjs');
 const psychic = require('./psychic.cjs');
 const { gap, dist, lineOfSight } = require('./table.cjs');
-const { alive, check, addStatus, passChance } = require('./checks.cjs');
+const { alive, check, addStatus, passChance, statusCheck } = require('./checks.cjs');
 const { moveUnit, fallBack } = require('./move.cjs');
 const ai = require('./ai.cjs');
 const core = require('./core.cjs');
@@ -59,7 +59,7 @@ function chargeSteps(state, u, t, disordered) {
     if (has(u.rules, 'Cloaked in Murder') && t.lockedWith.size) s = Math.max(s, Math.min(6, s + 1));
     // Lies and Obfuscation: an Alpha Legion target counts as 2" further away
     if (s >= gap(u, t) + legions.rangePenalty(t)) { lockInto(state, u, t, `reaches ${t.name} with its Set-up Move`); return true; }
-    moveUnit(state, u, t, s, { charging: true, target: t });
+    moveUnit(state, u, t, s, { charging: true, target: t, ignoreDifficult: true });
   }
   if (at(3.5) === 'locked') return true; // Perfect Counter
   // Step 4: Shieldwall!, Warpath; Volley Attacks (Snap Shots, Assault weapons only, never statuses): the charger,
@@ -71,7 +71,8 @@ function chargeSteps(state, u, t, disordered) {
   if (t.destroyed) return false;
   ctx.volleyKills = before - alive(t).length;
   if (pick?.replacesVolley) pick.apply(ctx);
-  else if (!pick?.noVolley && alive(t).some((m) => m.ranged.length)) shootingAttack(state, t, u, { snap: volleySnap(t), assaultOnly: true, volley: true, label: 'volleys' });
+  // a target already Locked in Combat makes no Volley (a Volley is a Shooting Attack; INFERRED)
+  else if (!pick?.noVolley && !t.lockedWith.size && alive(t).some((m) => m.ranged.length)) shootingAttack(state, t, u, { snap: volleySnap(t), assaultOnly: true, volley: true, label: 'volleys' });
   if (u.destroyed || t.destroyed) return false;
   // end of Step 4: Evade, Better Part of Valour, Furious Charge
   const r4 = at(4.5);
@@ -83,7 +84,8 @@ function chargeSteps(state, u, t, disordered) {
   if (roll >= need) { lockInto(state, u, t, `charge roll ${roll} (needed ${need.toFixed(1)}")`); return true; }
   state.log(`    charge roll ${roll} (needed ${need.toFixed(1)}"): the charge fails`);
   // a failed charge forces a Cool Check (CONFIRMED); failing gives Stunned (SHEET)
-  if (!check(state, u, 'CL', 0, 'failed charge')) addStatus(state, u, core.failedChargeStatus, 'failed charge');
+  // (statusCheck: Heavy units get +1 Cool to avoid a status, CONFIRMED)
+  if (!statusCheck(state, u, core.failedChargeStatus, 0, 'failed charge')) addStatus(state, u, core.failedChargeStatus, 'failed charge');
   return false;
 }
 
@@ -128,7 +130,9 @@ function combats(state) {
   }
   return out;
 }
-const modelCount = (units) => units.reduce((t, u) => t + alive(u).reduce((s, m) => s + (/Walker|Paragon/.test(m.unitType) ? num(m.p.W, 1) : xOf(m.rules, 'Bulky') || 1), 0), 0);
+// models for outnumbering in Combat Resolution: Walkers and Paragons count their Wounds (CONFIRMED), every other model
+// counts 1 (Bulky (X) is for Transport Capacity and Reaping Blow only, CONFIRMED by their texts)
+const modelCount = (units) => units.reduce((t, u) => t + alive(u).reduce((s, m) => s + (/Walker|Paragon/.test(m.unitType) ? num(m.p.W, 1) : 1), 0), 0);
 const canChallenge = (m) => /Command|Champion|Paragon/.test(m.unitType) && !m.vehicle;
 // Flawless Execution (Emperor's Children): +1 Combat Initiative on a turn they charged
 const combatInitiative = (unit, m, w) => (unit.statuses.size && core.status.anyFightsAtI1 ? 1 : rel(w.IM, num(m.p.I, 1)) + (unit.turn?.charged && legions.tactica(unit, "Emperor's Children") ? 1 : 0));
@@ -389,6 +393,8 @@ function duel(state, A, B, challengerSide, tally) {
   };
   // Archein of Wisdom counts the Hit Tests of this challenge's previous Strike Step only
   A.hitsTaken = B.hitsTaken = 0;
+  // gambits each model may pick once per challenge (Decapitation Strike)
+  const usedOnce = new Map([[A, new Set()], [B, new Set()]]);
   for (let round = 1; round <= 5; round++) {
     // Face-Off: each picks a gambit (the side with Challenge Advantage first; it makes no difference to the AI)
     for (const [me, opp] of [[A, B], [B, A]]) {
@@ -401,7 +407,9 @@ function duel(state, A, B, challengerSide, tally) {
         wouldFall: duelWith(opp, me, {}, {}) >= me.m.wounds, favoured: duelEdge(me, opp) > 0, saveFail: saveFail(me.m),
         decap: 0.5 * duelWith(me, opp, {}, {}) - 0.1 * duelWith(opp, me, {}, {}),
         dirty: has(me.m.rules, 'Dirty Fighter') && round === 1 ? duelWith(me, opp, { single: true }, {}) : 0,
+        used: usedOnce.get(me),
       });
+      if (g && g.once) usedOnce.get(me).add(g.name);
       const e = g ? Object.assign({ name: g.name }, g.make(state, me, opp)) : {};
       // Beseech the Gods lasts until the end of the Challenge Sub-Phase; Bite of the Betrayed (Saul Tarvitz) until the
       // challenge ends, with its WS and Toughness too
@@ -449,7 +457,9 @@ function duel(state, A, B, challengerSide, tally) {
       return total;
     };
     let fa = focus(A), fb = focus(B);
-    while (fa === fb) { fa = focus(A); fb = focus(B); }
+    // ties roll again; two Decapitation Strikes make no Focus Roll at all, so a die decides
+    for (let n = 0; fa === fb && n < 20; n++) { fa = focus(A); fb = focus(B); }
+    if (fa === fb) { fa = state.dice.d6(); fb = fa >= 4 ? fa - 1 : fa + 1; }
     const winner = fa > fb ? A : B;
     const adv = testFoe || winner;
     testFoe = null;
@@ -575,11 +585,15 @@ function duel(state, A, B, challengerSide, tally) {
 }
 
 // ---------- Fight Sub-Phase ----------
-function fight(state, c) {
-  const tally = { kills: [0, 0], glory: [0, 0] };
+function fight(state, c, again = null) {
+  // again: Vengeance of the First Legion fights the combat a second time, keeping the challenge's points and leaving
+  // the challenge itself as it was (CONFIRMED: "discarding any Combat Resolution Points gained during the first round
+  // (but not Combat Resolution Points scored from any Challenges)")
+  const tally = { kills: [0, 0], glory: again ? [...again.glory] : [0, 0] };
+  if (again) for (const m of again.challengers) m.inChallenge = true;
   // Death Cloud (Grave Wardens): at the start of the Fight Sub-Phase each enemy unit locked with them takes a hit
   // per Death Cloud model, Strength 1, Poisoned (3+), AP 5, Damage 1, no cover (CONFIRMED)
-  for (const side of [0, 1]) for (const u of c[side]) {
+  for (const side of [0, 1]) for (const u of again ? [] : c[side]) {
     const n = alive(u).filter((m) => has(m.rules, 'Death Cloud')).length;
     if (!n || u.destroyed) continue;
     for (const e of [...u.lockedWith].filter((x) => !x.destroyed)) {
@@ -588,7 +602,7 @@ function fight(state, c) {
       if (r.unsaved) state.log(`    Death Cloud: ${e.name} takes ${r.unsaved} wounds`);
     }
   }
-  challenge(state, c, tally);
+  if (!again) challenge(state, c, tally);
   // each unit attacks the locked enemy unit it hurts most
   const strikers = [];
   for (const side of [0, 1]) for (const u of c[side]) {
@@ -626,7 +640,8 @@ function fight(state, c) {
     }
     for (const side of [0, 1]) for (const u of c[side]) if (state.afterDamage) state.afterDamage(u);
   }
-  for (const side of [0, 1]) for (const u of c[side]) for (const m of u.models) m.inChallenge = false;
+  tally.challengers = [];
+  for (const side of [0, 1]) for (const u of c[side]) for (const m of u.models) { if (m.inChallenge) tally.challengers.push(m); m.inChallenge = false; }
   return tally;
 }
 
@@ -635,6 +650,9 @@ function resolve(state, c, tally) {
   const live = [c[0].filter((u) => !u.destroyed), c[1].filter((u) => !u.destroyed)];
   // Massacre: the enemy is wiped out; the winners Consolidate (SHEET), or take No Quarter (MISSION)
   if (!live[0].length || !live[1].length) {
+    // Vanguard (X): a Massacred unit that was within 3" of an objective at the start of the Assault Phase (CONFIRMED)
+    const w = live[0].length ? 0 : 1;
+    if (live[w].length && state.onBrokeFromCombat) for (const u of c[1 - w]) if (u.nearObjective) state.onBrokeFromCombat(u, live[w], u.nearObjective);
     for (const s of [0, 1]) for (const u of live[s]) { unlock(u); if (!noQuarter(state, u)) consolidate(state, u); }
     return;
   }
@@ -661,7 +679,7 @@ function resolve(state, c, tally) {
     }
     // failed: Routed, and it Falls Back
     addStatus(state, u, 'Routed', 'lost the combat');
-    const nearObjective = u.heldObjective || null;
+    const nearObjective = u.nearObjective || null;
     unlock(u);
     fallBack(state, u);
     if (u.destroyed) continue;
@@ -716,7 +734,7 @@ function consolidate(state, u) {
     const s = ai.positionScore(state, u, p, opts);
     if (s > best.s + 0.5) best = { p, s };
   }
-  if (best.p.x !== u.x || best.p.y !== u.y) { moveUnit(state, u, best.p, I); state.log(`    ${u.name} consolidates to (${u.x.toFixed(0)}, ${u.y.toFixed(0)})`); }
+  if (best.p.x !== u.x || best.p.y !== u.y) { moveUnit(state, u, best.p, I, { ignoreDifficult: true }); state.log(`    ${u.name} consolidates to (${u.x.toFixed(0)}, ${u.y.toFixed(0)})`); }
 }
 /** Disengage: a normal move away from the combat (SHEET). */
 function disengage(state, u, foes) {
@@ -772,7 +790,7 @@ function assaultPhase(state, side) {
     state.log(`  Combat: ${c[0].map((u) => u.name).join(', ')} vs ${c[1].map((u) => u.name).join(', ')}`);
     let tally = fight(state, c);
     // Vengeance of the First Legion: the combat is fought again and only the second round's points count
-    if (state.reactions && state.reactions.vengeance(state, c, [tally.kills[0] + tally.glory[0], tally.kills[1] + tally.glory[1]])) { state.log('    the combat is fought a second time'); tally = fight(state, c); }
+    if (state.reactions && state.reactions.vengeance(state, c, [tally.kills[0] + tally.glory[0], tally.kills[1] + tally.glory[1]])) { state.log('    the combat is fought a second time'); tally = fight(state, c, tally); }
     resolve(state, c, tally);
   }
   state.inFight = false;

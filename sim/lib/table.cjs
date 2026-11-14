@@ -81,8 +81,18 @@ function lineOfSight(table, a, b) {
   const nx = -dy / len, ny = dx / len;
   const lines = [[0, 0], [a.r * 0.8, b.r * 0.8], [-a.r * 0.8, -b.r * 0.8]];
   const tall = (u) => u.r >= 2.5 && u.vehicle;
+  // Vehicles block Line of Sight, except Knights and Flyers (CONFIRMED: Knight Sub-Type, "unlike other Vehicle
+  // Models"); a sight line through a vehicle's hull (80% of its footprint) is blocked
+  const hulls = (table.hulls || []).filter((v) => v !== a && v !== b && !v.destroyed && v.arrived !== false && !v.embarkedIn);
+  const throughHull = (p, q) => hulls.some((v) => {
+    const vx = q.x - p.x, vy = q.y - p.y, L2 = vx * vx + vy * vy || 1;
+    const t = ((v.x - p.x) * vx + (v.y - p.y) * vy) / L2;
+    if (t <= 0 || t >= 1) return false;
+    return Math.hypot(p.x + vx * t - v.x, p.y + vy * t - v.y) < v.r * 0.8;
+  });
   return lines.some(([oa, ob]) => {
     const p = { x: a.x + nx * oa, y: a.y + ny * oa }, q = { x: b.x + nx * ob, y: b.y + ny * ob };
+    if (hulls.length && throughHull(p, q)) return false;
     return !table.pieces.some((r) => {
       if (inside(a, r) || inside(b, r)) return false;
       if (r.blocksLoS) return !(tall(a) && tall(b) && !r.impassable) && segHitsRect(p, q, r);

@@ -110,8 +110,8 @@ function sectorControl(state) {
   return state.mission.sectors.map((s) => {
     const ts = [0, 0];
     for (const u of state.units) {
-      if (!canControl(u) || !inArea(s.area, u)) continue;
-      const a = alive(u);
+      if (!canControlSector(u) || !inArea(s.area, u)) continue;
+      const a = alive(u).filter((m) => !/Automata/.test(m.unitType));
       let t = a.length + Math.round(a.length * calth(u));
       if (s.inZone[state.zoneName[u.side]]) t += a.reduce((x, mm) => x + (xOf(mm.rules, 'Line') || 0), 0);
       if (s.inZone[state.zoneName[1 - u.side]]) t += a.reduce((x, mm) => x + (xOf(mm.rules, 'Vanguard') || 0), 0);
@@ -183,10 +183,10 @@ function endOfBattle(state) {
   for (const side of [0, 1]) {
     const lost = gone(1 - side);
     // Slay the Warlord (X): X for a Command unit, X+1 for High Command; one of the two
-    // a Primarch (the Warlord role) counts as High Command (ASSUMPTION); so does a Command choice with Consul-Delegatus
-    // (Autilon Skorr, CONFIRMED)
+    // only the Command and High Command roles count (MISSION; a Primarch, the Warlord role, counts for Giant Killer);
+    // a Command choice with Consul-Delegatus counts as High Command (Autilon Skorr, CONFIRMED)
     const consul = (u) => (u.models || []).some((m) => has(m.rules, 'Consul-Delegatus') && (!m.joinedFrom || m.joinedFrom.uid === u.uid));
-    const hc = lost.find((u) => /High Command|^Warlord/.test(u.role) || consul(u)), cmd = lost.find((u) => /^Command/.test(u.role));
+    const hc = lost.find((u) => /High Command/.test(u.role) || consul(u)), cmd = lost.find((u) => /^Command/.test(u.role));
     if (hc) state.award(side, pay(hc, m.secondaries.warlord + 1), `Slay the Warlord (${hc.name})`);
     else if (cmd) state.award(side, pay(cmd, m.secondaries.warlord), `Slay the Warlord (${cmd.name})`);
     // Giant Killer (X): any Lord of War or Warlord, once
@@ -208,7 +208,7 @@ function endOfBattle(state) {
  */
 function missionValueAt(state, u, pos) {
   const m = state.mission;
-  if (!canControlIgnoringPlace(u)) return { here: 0, near: 0 };
+  if (m.primary === 'seize' ? !canSectorIgnoringPlace(u) : !canControlIgnoringPlace(u)) return { here: 0, near: 0 };
   let here = 0, near = 0;
   if (m.primary === 'claim') {
     for (const o of state.table.objectives) {
@@ -222,7 +222,7 @@ function missionValueAt(state, u, pos) {
     const s = sectorOf(state, pos);
     if (s) {
       // a sector already held by friends needs this unit less
-      const friends = state.units.filter((x) => x !== u && x.side === u.side && canControl(x) && inArea(s.area, x)).length;
+      const friends = state.units.filter((x) => x !== u && x.side === u.side && canControlSector(x) && inArea(s.area, x)).length;
       here = sectorValue(state, s) / (1 + friends);
     }
     for (const t of m.sectors) if (t !== s) near = Math.max(near, sectorValue(state, t) * Math.max(0, 1 - Math.hypot(t.centre.x - pos.x, t.centre.y - pos.y) / 36));
@@ -247,6 +247,12 @@ function markerWorth(state, u, o, v) {
   if (foe) worth += markerVP(foe, v) * 0.5;
   return worth;
 }
+/**
+ * Can this unit Control a Sector? (MISSION) Not a model with a Tactical Status, Locked in Combat, Embarked, or with
+ * the Automata Type (that model alone). Heedless and Move 0 only stop Objective Markers (CONFIRMED by their texts).
+ */
+const canControlSector = (u) => !u.destroyed && u.arrived !== false && !u.embarkedIn && !u.reserve && !BLOCKING.some((s) => u.statuses.has(s)) && !u.lockedWith.size && alive(u).some((m) => !/Automata/.test(m.unitType));
+const canSectorIgnoringPlace = (u) => !u.destroyed && !BLOCKING.some((s) => u.statuses.has(s)) && alive(u).some((m) => !/Automata/.test(m.unitType));
 const canControlIgnoringPlace = (u) => !u.destroyed && !BLOCKING.some((s) => u.statuses.has(s)) && !alive(u).some((m) => /Automata/.test(m.unitType)) && !has(u.rules, 'Heedless') && alive(u).some((m) => num(m.p.M, 0) > 0);
 
 module.exports = { CONTROL_RANGE, canControl, majority, maxX, markerWorth, claimControl, markerVP, tacticalStrength, sectorControl, sectorOf, sectorValue, scoreClaim, scoreSeize, victorySubPhase, onDestroyed, endOfBattle, missionValueAt, killPoints, expendable };

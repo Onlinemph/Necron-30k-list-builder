@@ -188,15 +188,17 @@ function buildUnit(armyId, list, slot, detachment, side) {
     }
     let p = r.profile;
     const vehicle = isVehicleProfile(p);
-    // Swift of Action (White Scars): +2 Movement for non-vehicles (taken every turn); Cult Arcana (Thousand Sons): +1 WP
-    if (armyId === 'white-scars' && !vehicle && num(p.M, 0) >= 1) p = Object.assign({}, p, { M: num(p.M, 0) + 2 });
+    // Swift of Action (White Scars): +2 Movement for non-vehicles in their own Player Turns (CONFIRMED: "At the start of
+    // any of the Controlling Player's Turns ... until the end of that Player Turn"; ai.moveOf and core.setupMove add
+    // it while the unit's side is active); Cult Arcana (Thousand Sons): +1 WP
+    const swift = armyId === 'white-scars' && !vehicle && num(p.M, 0) >= 1;
     if (armyId === 'thousand-sons' && !vehicle && p.WP != null) p = Object.assign({}, p, { WP: num(p.WP, 7) + 1 });
     const traits = [...new Set([...(r.traits || []), ...(def.traits || []), ...(LEGION_TRAIT[armyId] ? [LEGION_TRAIT[armyId]] : [])])];
     // every model can fight with a basic close combat profile; grenades that only hurt vehicles don't count
     if (!vehicle && p.WS != null && !melee.some((w) => !has(w.specialRules, 'Detonation'))) melee.push(CCW);
     for (let i = 0; i < r.count; i++) {
       models.push({
-        name: r.name, p, rules: r.rules || [], unitType: r.unitType || '', vehicle, traits, items: r.items || [],
+        name: r.name, p, rules: r.rules || [], unitType: r.unitType || '', vehicle, traits, items: r.items || [], swift,
         wounds: vehicle ? num(p.HP, 1) : num(p.W, 1), maxWounds: vehicle ? num(p.HP, 1) : num(p.W, 1),
         ranged, melee, sergeant: /Sergeant|Command|Champion|Alpha/.test(r.unitType || '') || /Alpha|Sergeant|Champion|Exemplar|Prefector|Headsman|Huntmaster/.test(r.name),
         // taken in the Primary Detachment (Sworn Loyalty and Shadow of the Conquerer ask for it)

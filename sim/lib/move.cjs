@@ -25,7 +25,8 @@ function moveSetup(state, u, to, budget, opts) {
   const quake = state.tectonic && state.mission.sectors.find((s) => s.id === state.tectonic);
   const inQuake = quake && [0, 0.5, 1].some((f) => inArea(quake.area, { x: u.x + (to.x - u.x) * f, y: u.y + (to.y - u.y) * f }));
   // Remorseless Advance (Death Guard): difficult terrain doesn't slow them
-  const slowed = !ignoresTerrain(u) && !legions.is(u, 'Death Guard');
+  // the Set-up Move and Consolidation ignore difficult terrain (SHEET); so does Remorseless Advance (Death Guard)
+  const slowed = !opts.ignoreDifficult && !ignoresTerrain(u) && !legions.is(u, 'Death Guard');
   const crossesDifficult = slowed && (inQuake || state.table.pieces.some((r) => r.difficult && segThrough(u, to, r)));
   const b = Math.max(0, budget - (crossesDifficult ? core.DIFFICULT_PENALTY : 0));
   const blockers = opts.charging ? state.units.filter((x) => x !== u && !x.destroyed && x.arrived && !x.embarkedIn && x !== opts.target).map((x) => ({ x: x.x, y: x.y, r: x.r + (x.side !== u.side ? 1 : 0) }))
@@ -123,9 +124,10 @@ function reservesSubPhase(state, side) {
         state.log(`  ${u.name} has Feel No Pain (5+) after its Deep Strike`);
       }
     } else if (u.reserve === 'outflank') {
-      // SHEET: an outflanking unit may charge; models embarked in it may not
+      // a unit entering from outside its own Deployment Zone, and any units embarked on it, may not charge that turn
+      // (CONFIRMED, Outflank; it outranks the sheet's summary)
       placeOutflank(state, u);
-      for (const p of u.passengers) p.turn.noCharge = true;
+      if (!inArea(state.zoneOf[u.side], u)) { u.turn.noCharge = true; for (const p of u.passengers) p.turn.noCharge = true; }
     } else {
       placeFromEdge(state, u);
     }
@@ -234,19 +236,26 @@ function moveSubPhase(state, side) {
   const road = state.mission.has('Supply Road') && state.mission.sectors.find((s) => s.id === 3);
   // fast and far units first, so the slower ones can respond to where they ended up
   units.sort((a, b) => ai.moveOf(b) - ai.moveOf(a));
-  for (const u of units) {
+  for (let i = 0; i < units.length; i++) {
+    const u = units[i];
     if (u.destroyed || u.lockedWith.size || u.statuses.has('Routed') || u.turn.arrivedDeep) { u.turn.stationary = !u.turn.arrivedDeep; continue; }
     if (u.statuses.has('Pinned')) { u.turn.stationary = true; continue; }
-    // passengers: get out if the AI likes the spot they'd have outside better than staying in
-    if (u.passengers.length && state.round >= 1) disembarkIfWorth(state, u);
+    // passengers: get out if the AI likes the spot they'd have outside better than staying in. A unit that gets out
+    // before its transport moves then makes its own move (INFERRED from Deep Strike, whose passengers "may not make
+    // any move other than the move made to Disembark"); one that gets out after the transport moved doesn't
+    if (u.passengers.length && state.round >= 1) {
+      const inside = [...u.passengers];
+      disembarkIfWorth(state, u);
+      units.splice(i + 1, 0, ...inside.filter((p) => !u.passengers.includes(p)));
+    }
     const d = ai.chooseMove(state, u);
-    if (d.kind === 'stay') { u.turn.stationary = true; continue; }
+    if (d.kind === 'stay') { u.turn.stationary = !u.turn.disembarked; continue; }
     const M = ai.moveOf(u);
     let budget = d.kind === 'rush' ? M + core.rushBonus(u) + Math.min(...alive(u).map((m) => xOf(m.rules, 'Fast') || 0)) : M;
     // Supply Road: a vehicle moving entirely within Sector 3 adds 2" to its Move (MISSION)
     if (road && u.vehicle && inArea(road.area, u) && inArea(road.area, d.to)) budget += 2;
     const moved = moveUnit(state, u, d.to, budget);
-    u.turn.stationary = moved < 0.25;
+    u.turn.stationary = moved < 0.25 && !u.turn.disembarked;
     u.turn.moved = true;
     // a move no longer than the unit's Movement isn't a Rush, whatever was planned
     if (d.kind === 'rush' && moved > M + 0.25) u.turn.rushed = true; else if (d.kind === 'rush') d.kind = 'move';
@@ -258,6 +267,8 @@ function moveSubPhase(state, side) {
     // passengers may get out after the transport moved (not after a Rush)
     if (u.passengers.length && d.kind !== 'rush') disembarkIfWorth(state, u, true);
   }
+  // what each unit did in this Movement Phase, for its Heavy and Ordnance weapons in the enemy's turn (core.still)
+  for (const u of state.units) if (u.side === side) u.lastMove = { stationary: !!u.turn.stationary, heavyOK: !!u.turn.heavyOK };
 }
 
 /** Passengers disembark next to their transport when that puts them somewhere better. */
@@ -331,7 +342,7 @@ function fallBack(state, u) {
   state.log(`  ${u.name} falls back ${d}"`);
   // SHEET: reaching the table edge, it tests Leadership: a fail removes it, a pass leaves it Suppressed
   if (dist2edge <= 0.6) {
-    if (check(state, u, 'LD', 0, 'at the table edge')) addStatus(state, u, 'Suppressed', 'rallied at the table edge');
+    if (check(state, u, 'LD', 0, 'at the table edge')) { u.statuses.delete('Routed'); addStatus(state, u, 'Suppressed', 'rallied at the table edge'); }
     else { state.log(`  ${u.name} flees the battlefield`); if (state.onFled) state.onFled(u); }
   }
   return d;
