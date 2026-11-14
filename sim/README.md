@@ -44,7 +44,7 @@ than the cheapest, so a squad gets a better weapon but never fewer bodies.
 Each Legion had up to four versions: its generic list, a first plan built purely on its theme, a second plan
 (its best units, carried in Assault Vehicles where they fight in melee, around four lascannon Predators,
 lascannon Heavy Support and Tactical Squads on foot) and the generic list with better weapons at the same price.
-Every version played all 19 lists of the field (the generic lists and the Iron Wall, 72 games each) and the best
+The World Eaters later got a third plan, Despoilers in Rhinos (see below), which replaced their second. Every version played all 19 lists of the field (the generic lists and the Iron Wall, 72 games each) and the best
 one became the strength list. Those lists then played the field again on fresh seeds, 108 games each:
 
 | Legion | Version | What it does | Strength list | Generic list |
@@ -66,7 +66,7 @@ one became the strength list. Those lists then played the field again on fresh s
 | Blood Angels | second plan | Dawnbreakers in a Spartan, Paladins in a Land Raider | 46% | 39% |
 | Alpha Legion | generic | nothing beat the generic list | 45% | 56% |
 | Night Lords | second plan | heavy bolters break, Atramentar and Contekar strike | 40% | 26% |
-| World Eaters | second plan | two Spartans carrying Rampagers and Red Butchers | 30% | 20% |
+| World Eaters | third plan | six Despoiler squads in Rhinos, Predators and lascannons | 29% | 20% |
 
 Thirteen of eighteen beat their generic list, the average goes from 53% to 59%, and differences of five points
 or less are within the noise of 108 games. The Alpha Legion row is the same list played twice. What the
@@ -109,6 +109,16 @@ nothing, and that's where World Eaters spend the game. More Tactical Squads, mor
 didn't move them; even 900 extra points of World Eaters (3,900 against 3,000) only reached 36%. One reading to check
 in the mission pack: the simulator also keeps Heedless units out of Seize Ground Sectors, though the rule's text only
 mentions Objective Markers.
+
+What helped was Line bodies that move. Six squads of eleven Despoilers (Line, chainaxes, Violence Incarnate) in
+Rhinos, with four Predators, two lascannon Heavy Support Squads and two Veteran Tactical Squads, now make the World
+Eaters strength list. Over about 530 games each against both fields it won 29% to the Spartan list's 21%, and it
+loses by about 11 VP a game where the Spartan list loses by 19. In the first run (114 games) its profile was the
+reverse of the Spartan list's: 44% in the marker and Sector missions (the Spartans managed 12-14%) and 24% in
+Annihilation (45%). The round robin
+above was played with the Spartan list. A horde of twenty-strong Despoiler squads on foot did no better than the
+Spartans (22%): they reach the markers but die walking there. The same Rhino list built 375 to 725 points short,
+as a first attempt was, scored 8% to 24%, so the gain is the list, not the AI changes below, which measured level.
 
 Melee units now earn their points once they're carried in (Firedrakes, the Inner Circle Knights Cenobium,
 Palatine Blades, Invictus Suzerains and Grave Wardens are among the most efficient units, and the Space Wolves
@@ -403,8 +413,11 @@ Seize Ground and Destroy the Enemy have no markers, so there units play as befor
 Transports deliver. A transport's move counts what its passengers could do from where it stops (charge, shoot
 or hold once they get out beside it), and one carrying an assault unit is drawn towards the enemy that unit
 fights best and accepts half the usual risk to get there. While the transport can still move, passengers only
-get out if they can charge from that spot (or, for units that aren't assault units, hold a marker); otherwise
-they ride.
+get out if they can charge from that spot or hold a marker (assault units only a marker, and only if they're
+Line); otherwise they ride. Getting out of anything but an Assault Vehicle makes the charge Disordered, with no
+Set-up Move, and the AI weighs the charge that way: a Despoiler squad in a Rhino gets out within a Charge Roll of
+its target, not a Set-up Move and a Charge Roll. Neither change moved the World Eaters or the six other Rhino armies
+(Alpha Legion, Emperor's Children, Iron Hands, Iron Warriors, Salamanders, Word Bearers: 56% before, 56% after).
 
 Moves go in a straight line and stop at impassable terrain and at other units (there's no pathfinding), so the AI
 scores each candidate move at the point it would really reach, not at the point it aims for.

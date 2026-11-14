@@ -468,7 +468,10 @@ test('the Legion lists and the strength lists are legal in the builder at 3,000 
 test('AI: a transport carries its assault unit to the enemy, and the unit stays in until it can charge', () => {
   const ai = require('../sim/lib/ai.cjs');
   const { buildArmy } = require('../sim/lib/army.cjs');
-  const a = buildArmy(path.join(LISTS, 'strong', 'world-eaters.json'), 0);
+  // the World Eaters' second plan: Rampagers in a Spartan
+  const file = path.join(require('os').tmpdir(), 'we-strike.json');
+  require('../sim/lists/strong/make.cjs').build('world-eaters', 'strike', file);
+  const a = buildArmy(file, 0);
   const b = buildArmy(path.join(LISTS, 'legions', 'ultramarines.json'), 1);
   const spartan = a.units.find((u) => /Spartan/.test(u.name)), rampagers = a.units.find((u) => /Rampager/.test(u.name));
   const tac = b.units.find((u) => u.name === 'Tactical Squad');
@@ -483,6 +486,54 @@ test('AI: a transport carries its assault unit to the enemy, and the unit stays 
   spartan.passengers = [];
   const empty = ai.positionScore(st, spartan, near) - ai.positionScore(st, spartan, far);
   assert.ok(loaded > empty + 50, `${loaded} vs ${empty}`);
+});
+
+/** Despoilers in a Rhino (the World Eaters strength list) and an Ultramarines Tactical Squad, on an empty table. */
+function rhinoScene(mission) {
+  const { buildArmy } = require('../sim/lib/army.cjs');
+  const a = buildArmy(path.join(LISTS, 'strong', 'world-eaters.json'), 0);
+  const b = buildArmy(path.join(LISTS, 'legions', 'ultramarines.json'), 1);
+  const rhino = a.units.find((u) => u.name === 'Rhino'), desp = a.units.find((u) => u.name === 'Despoiler Squad');
+  const tac = b.units.find((u) => u.name === 'Tactical Squad');
+  for (const u of [rhino, desp, tac]) Object.assign(u, { arrived: true, destroyed: false, embarkedIn: null, statuses: new Set(), lockedWith: new Set(), turn: {}, passengers: [] });
+  Object.assign(rhino, { x: 20, y: 24, passengers: [desp] });
+  Object.assign(desp, { embarkedIn: rhino, x: 20, y: 24, r: 3 });
+  Object.assign(tac, { x: 60, y: 24, r: 3 });
+  const st = { units: [rhino, desp, tac], table: { pieces: [], objectives: [] }, cache: { shoot: new Map(), melee: new Map() }, zoneOf: [{ x: 0, y: 0, w: 12, h: 48 }, { x: 60, y: 0, w: 12, h: 48 }], zoneName: ['a', 'b'],
+    mission: Object.assign({ primary: 'destroy', has: () => false, secondaries: { breakthrough: 0 } }, mission), turnsLeft: 3, round: 3, active: 0, dice: null, log: () => {} };
+  return { st, rhino, desp, tac };
+}
+
+test('AI: getting out of a Rhino means a Disordered charge, and the AI counts it that way', () => {
+  const ai = require('../sim/lib/ai.cjs'), plan = require('../sim/lib/plan.cjs'), core = require('../sim/lib/core.cjs');
+  const { st, rhino, desp, tac } = rhinoScene();
+  // 7" from the target: a Charge Roll alone makes it about one time in six; with a Set-up Move it would be likely
+  const pos = { x: tac.x - tac.r - desp.r - 7, y: 24 };
+  const steady = ai.chargeOdds(desp, pos, tac);
+  desp.turn.disordered = true;
+  const disordered = ai.chargeOdds(desp, pos, tac);
+  desp.turn.disordered = false;
+  assert.ok(disordered < 0.25 && steady > disordered + 0.3, `${steady} vs ${disordered}`);
+  // the plan's reach from inside: no Set-up Move out of a Rhino, the full one out of an Assault Vehicle
+  const fromRhino = plan.reach(st, desp, ai);
+  rhino.rules = [...rhino.rules, 'Assault Vehicle'];
+  assert.equal(plan.reach(st, desp, ai), fromRhino + core.setupMove(desp));
+});
+
+test('AI: Despoilers (Line) get out of a moving Rhino to hold a marker, but not just to stand in a Sector', () => {
+  const move = require('../sim/lib/move.cjs');
+  const scoring = require('../sim/lib/scoring.cjs');
+  // a Sector covering the whole table: anywhere would add strength, but there's no marker to hold
+  const seize = rhinoScene({ primary: 'seize', sectors: [{ id: 1, area: {}, centre: { x: 36, y: 24 }, value: 3 }] });
+  assert.ok(scoring.missionValueAt(seize.st, seize.desp, { x: 20, y: 30 }).here > 0);
+  move.disembarkIfWorth(seize.st, seize.rhino);
+  assert.equal(seize.desp.embarkedIn, seize.rhino, 'stays in for a Sector');
+  // a marker right beside the Rhino: they get out and hold it
+  const claim = rhinoScene({ primary: 'claim' });
+  claim.st.table.objectives = [{ id: 0, x: 20, y: 24 + claim.rhino.r + 4, value: 3 }];
+  move.disembarkIfWorth(claim.st, claim.rhino);
+  assert.equal(claim.desp.embarkedIn, null, 'gets out onto the marker');
+  assert.equal(claim.desp.turn.disordered, true, 'and any charge this turn is Disordered');
 });
 
 test("Legiones Astartes or Hereticus: the army's choice decides the Tactica and the reaction", () => {
@@ -657,7 +708,7 @@ test('plans: an assault unit keeps its target from turn to turn unless another i
   const plan = require('../sim/lib/plan.cjs');
   const { buildArmy } = require('../sim/lib/army.cjs');
   const a = buildArmy(path.join(LISTS, 'strong', 'world-eaters.json'), 0), b = buildArmy(path.join(LISTS, 'legions', 'ultramarines.json'), 1);
-  const ramp = a.units.find((u) => /Rampager/.test(u.name));
+  const ramp = a.units.find((u) => u.name === 'Despoiler Squad');
   const foes = b.units.filter((u) => u.name === 'Tactical Squad').slice(0, 2);
   for (const u of [ramp, ...foes]) Object.assign(u, { arrived: true, destroyed: false, embarkedIn: null, statuses: new Set(), lockedWith: new Set(), turn: {}, r: 3 });
   Object.assign(ramp, { x: 20, y: 24 }); Object.assign(foes[0], { x: 30, y: 24 }); Object.assign(foes[1], { x: 31, y: 30 });

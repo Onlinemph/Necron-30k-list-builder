@@ -197,6 +197,14 @@ const STRIKE = {
     units: [...COMMAND, TACTICAL(), TACTICAL(), unit('Heavy Assault', 'reaver-attack-squad', { Reaver: 19 }), unit('Heavy Assault', 'reaver-attack-squad', { Reaver: 9 }), unit('Elites', 'justaerin-terminator-squad', { Justaerin: 10 }), ...GUNS, HEAVY_SUPPORT('Lascannon', 5), HEAVY_SUPPORT('Lascannon', 5)] },
 };
 // what the generic structure does for the Legions that play best with it
+// ---- third plans: Line assault squads in Rhinos, for a Legion whose signature assault units can't hold markers ----
+// Eleven Despoilers and a character fill a Rhino (Capacity 12); the sergeant takes a power fist
+const DESPOILERS = (n = 11) => ['Troops', 'despoiler-squad', { 'legionary-melee': { Chainaxe: n - 1 }, 'legionary-pistol': { 'Bolt pistol': n - 1 }, 'sergeant-options': ['Bolt pistol', 'Power fist'] }, { Legionary: n - 1 }];
+const RIDE = {
+  'world-eaters': { why: 'Six squads of eleven Despoilers in Rhinos: Line units with Violence Incarnate that get across the table, charge out (Disordered) and hold markers, which the Spartan list\'s Rampagers and Red Butchers can\'t. Four Predators, two lascannon Heavy Support Squads and two Veteran Tactical Squads shoot.',
+    units: [...COMMAND, DESPOILERS(), DESPOILERS(), DESPOILERS(), DESPOILERS(), RHINO, RHINO, RHINO, RHINO, DESPOILERS(), DESPOILERS(), RHINO, RHINO, ...GUNS, HEAVY_SUPPORT('Lascannon', 10), HEAVY_SUPPORT('Lascannon', 10), unit('Elites', 'veteran-tactical-squad'), unit('Elites', 'veteran-tactical-squad')],
+    after: [['veteran-tactical-squad', 10]] },
+};
 const CORE_WHY = {
   'alpha-legion': 'Headhunters infiltrate and shoot and Lernaean Terminators hold markers (Line), behind four Predators, lascannons and Tactical Squads in Rhinos; Lies and Obfuscation makes the whole line 2" harder to reach.',
   'dark-angels': 'Inner Circle Knights Cenobium and plasma Dreadwing Interemptors on top of Tactical Squads, lascannons, four Predators and a Contemptor; the Angel of Death keeps them steady.',
@@ -208,9 +216,10 @@ const CORE_WHY = {
   'salamanders': 'Ten Firedrakes and ten Pyroclasts, tough under Promethean Endurance, with two lascannon Heavy Support Squads, four Predators and Tactical Squads in Rhinos.',
   'word-bearers': 'Gal Vorbak and the Ashen Circle win the fights they start with Unwavering Conviction, behind two ten-strong lascannon Heavy Support Squads, four Predators and Tactical Squads in Rhinos.',
 };
-// which version each Legion uses: 'plan' (the first plan), 'strike' (the second), 'core' (the generic Legion list
-// with better weapons at the same price) or 'generic' (the generic list as it is, where nothing beat it), chosen by playing every version against the same opponents (see the README)
-const CHOICE = { 'alpha-legion': 'generic', 'blood-angels': 'strike', 'dark-angels': 'strike', 'death-guard': 'strike', 'emperors-children': 'core', 'iron-hands': 'core', 'iron-warriors': 'core', 'night-lords': 'strike', 'salamanders': 'core', 'sons-of-horus': 'strike', 'space-wolves': 'strike', 'thousand-sons': 'strike', 'ultramarines': 'strike', 'white-scars': 'strike', 'word-bearers': 'core', 'world-eaters': 'strike' };
+// which version each Legion uses: 'plan' (the first plan), 'strike' (the second), 'ride' (the third), 'core' (the
+// generic Legion list with better weapons at the same price) or 'generic' (the generic list as it is, where nothing
+// beat it), chosen by playing every version against the same opponents (see the README)
+const CHOICE = { 'alpha-legion': 'generic', 'blood-angels': 'strike', 'dark-angels': 'strike', 'death-guard': 'strike', 'emperors-children': 'core', 'iron-hands': 'core', 'iron-warriors': 'core', 'night-lords': 'strike', 'salamanders': 'core', 'sons-of-horus': 'strike', 'space-wolves': 'strike', 'thousand-sons': 'strike', 'ultramarines': 'strike', 'white-scars': 'strike', 'word-bearers': 'core', 'world-eaters': 'ride' };
 
 // each Legion's Primarch (the Transfigured and Ascended versions aside)
 const PRIMARCH = {
@@ -228,7 +237,7 @@ function build(id, variant = CHOICE[id] || 'plan', file = `${__dirname}/${id}.js
   const extra = primarch ? [['Warlord', PRIMARCH[id]]] : [];
   // 'core': the generic Legion list (lists/legions) with its weapons picked by value; 'generic': as it is
   if (variant === 'core' || variant === 'generic') return Object.assign(require('../legions/make.cjs').build(id, { smart: variant === 'core', name: PLANS[id].name, file, extra, rite: RITE[id] }), { variant, why: CORE_WHY[id] });
-  const plan = variant === 'strike' ? Object.assign({ name: PLANS[id].name }, STRIKE[id]) : PLANS[id];
+  const plan = variant === 'strike' || variant === 'ride' ? Object.assign({ name: PLANS[id].name }, (variant === 'ride' ? RIDE : STRIKE)[id]) : PLANS[id];
   const b = createBuilder(id, { name: plan.name, smart: true });
   if (RITE[id]) b.config['rite-of-war'] = [RITE[id]];
   const skipped = [];
@@ -245,7 +254,7 @@ function build(id, variant = CHOICE[id] || 'plan', file = `${__dirname}/${id}.js
   return Object.assign(b.finish(file), { skipped, variant, why: plan.why });
 }
 
-module.exports = { build, PLANS, STRIKE, CHOICE, CORE_WHY, PRIMARCH, WITH_PRIMARCH, RITE };
+module.exports = { build, PLANS, STRIKE, RIDE, CHOICE, CORE_WHY, PRIMARCH, WITH_PRIMARCH, RITE };
 if (require.main === module) {
   for (const id of process.argv.slice(2).length ? process.argv.slice(2) : Object.keys(PLANS)) {
     try {
