@@ -22,7 +22,7 @@ const VP_WORTH = 45;          // points of value per Victory Point
  * charge; chargeBar: the least a charge must be worth; shootBar: the least a target must be worth; react: the bars
  * for spending reactions; share: split each enemy's threat between the units it could reach (1) or not (0).
  */
-const DEFAULTS = { vp: VP_WORTH, line: 1.5, mission: 0.6, soonMelee: 0.45, soonShoot: 0.3, risk: 0.35, bold: 0.5, chargeGain: 1.6, chargeTake: 1.0, incoming: 0.35, chargeFail: 10, chargeBar: 3, shootBar: 0.5, react: 1, share: 0 };
+const DEFAULTS = { vp: VP_WORTH, line: 1.5, mission: 0.6, soonMelee: 0.45, soonShoot: 0.3, risk: 0.35, bold: 0.5, chargeGain: 1.6, chargeTake: 1.0, incoming: 0.35, chargeFail: 10, chargeBar: 3, shootBar: 0.5, react: 1, share: 1 };
 const K = (state, side, key) => { const o = state.aiParams && state.aiParams[side]; return o && o[key] != null ? o[key] : DEFAULTS[key]; };
 const BANDS = [0, 3, 6, 9, 12, 15, 18, 24, 30, 36, 48, 72];
 
@@ -178,9 +178,11 @@ function positionScore(state, u, pos, opts = {}) {
     for (const e of enemies) if (markerHeld(state, e)) hunt = Math.max(hunt, Math.max(0, Math.min(1, 1 - (gap(u, e) - reach) / 36)));
     score += hunt * scoring.maxX(u, 'Vanguard') * K(state, u.side, 'vp');
   }
-  // risk: what the enemy can do to this unit next turn from where it stands now. With `share`, each enemy unit's
-  // shooting and charge are split between this unit and the other units of its side that enemy could reach next
-  // turn (it shoots one target and charges one), instead of every enemy aiming everything at this one unit
+  // risk: what the enemy can do to this unit next turn from where it stands now. Each enemy unit's shooting and
+  // charge are split between this unit and the other units of its side that enemy could reach next turn (it shoots
+  // one target and charges one). Counting every enemy as aiming everything at this one unit (share 0) made nearly
+  // every unit in range lose all it had left, so the AI hid instead of scoring: the shared version beat it 59% of
+  // the time in self-play (sim/tune.cjs, 120 pairs of battles)
   let risk = 0;
   const share = K(state, u.side, 'share');
   const mine = share ? state.units.filter((x) => x !== u && x.side === u.side && !x.destroyed && x.arrived && !x.embarkedIn) : [];
