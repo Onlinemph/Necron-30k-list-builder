@@ -1856,3 +1856,37 @@ test('AI helpers: the detour round a unit in the way, and the odds of another tu
   assert.equal(ai.nextTurnOdds(st(6, 1, 0), 0), 0);
   assert.equal(ai.nextTurnOdds(st(6, 0, 0), 1), 1);
 });
+
+test('Casualties come off the side away from the marker a unit holds, so it stays in control range', () => {
+  const { shrink } = require('../sim/lib/battle.cjs');
+  const [u] = airList().filter((x) => x.name === 'Tactical Squad');
+  onTable(u, 30, 20);
+  const o = { id: 0, x: 30 + u.r + 2.5, y: 20 };
+  const st = openScene([u], { objectives: [o] });
+  const edge = Math.hypot(o.x - u.x, o.y - u.y) - u.r;
+  for (const m of u.models.slice(0, Math.floor(u.models.length / 2))) m.wounds = 0;
+  shrink(st, u);
+  assert.ok(Math.abs(Math.hypot(o.x - u.x, o.y - u.y) - u.r - edge) < 1e-9, 'the edge nearest the marker stays put');
+  assert.ok(Math.hypot(o.x - u.x, o.y - u.y) - u.r <= 3);
+});
+
+test('The Set-up Move follows the charge route, and the Charge Roll needs only what is left of it', () => {
+  const { chargeRoute } = require('../sim/lib/move.cjs');
+  const assault = require('../sim/lib/assault.cjs');
+  const units = airList().filter((x) => x.name === 'Tactical Squad');
+  const [a, t, s] = [units[0], units[1], airList().find((x) => x.name === 'Tactical Squad')];
+  t.side = 1; s.side = 1;
+  // a 5" gap, with a unit beside the lane clipping it
+  onTable(a, 20, 30); onTable(t, 20 + a.r + t.r + 5, 30); onTable(s, (a.x + t.x) / 2, 30 + 4.5);
+  // every die a 6: the volleys' wounds are all saved, and the Charge Roll is a 6
+  const st = openScene([a, t, s], { dice: Object.assign({}, createDice(1), { d6: () => 6 }) });
+  const way = chargeRoute(st, a, t);
+  const set = require('../sim/lib/core.cjs').setupMove(a);
+  assert.ok(way.pts && way.len > 5 && way.len <= 6 + set, `route ${way.len}`);
+  // the Set-up Move takes it part of the way; a Charge Roll of 6 covers the rest
+  assault.charge(st, a, t);
+  assert.ok(a.lockedWith.has(t), st.lines.join('\n'));
+  assert.ok(Math.hypot(a.x - s.x, a.y - s.y) >= a.r + s.r - 1e-6, 'it went round the unit in the way');
+  const line = st.lines.find((l) => /needed/.test(l));
+  assert.ok(line && Math.abs(parseFloat(line.match(/needed ([\d.]+)/)[1]) - (way.len - set)) < 0.06, line);
+});

@@ -474,7 +474,8 @@ function placeDeepStrike(state, u) {
   let best = null;
   for (const p of cands) {
     if (!spotOK(state, u, p, true)) continue;
-    const s = ai.positionScore(state, u, p);
+    // it may not charge the turn it lands, so a spot is worth what it offers from then on
+    const s = ai.positionScore(state, u, p, { charging: false });
     if (!best || s > best.s) best = { p, s };
   }
   const p = freeSpot(state, u, [best ? best.p : cands[0], ...cands], true);
@@ -490,7 +491,8 @@ function placeOutflank(state, u) {
   let best = null;
   for (const p of cands) {
     if (enemiesOf(state, u).some((e) => Math.hypot(e.x - p.x, e.y - p.y) - e.r - u.r < 7)) continue;
-    const s = ai.positionScore(state, u, p);
+    // arriving outside its own zone it may not charge this turn (Outflank)
+    const s = ai.positionScore(state, u, p, { charging: inArea(state.zoneOf[u.side], p) ? undefined : false });
     if (!best || s > best.s) best = { p, s };
   }
   const p = freeSpot(state, u, [best ? best.p : cands[0], ...cands]);
@@ -829,6 +831,14 @@ function getOutAt(state, t, p, afterMove, opts = {}) {
     // that's almost anywhere, and the whole army would walk from its own Deployment Zone)
     const onObj = holds && (state.table.objectives || []).some((o) => Math.hypot(o.x - best.pos.x, o.y - best.pos.y) - p.r <= scoring.CONTROL_RANGE);
     if (!charge && (assault ? !(onObj && scoring.majority(p, 'Line')) : !afterMove && !holds)) return null;
+    // ride: before the transport moves, a charge it could carry the unit closer to waits for after its move (the unit
+    // still gets out and moves then, CONFIRMED), unless getting out now holds a marker
+    if (charge && !afterMove && !onObj && ai.K(state, p.side, 'ride')) {
+      const odds = (from) => Math.max(0, ...foes.map((e) => ai.chargeOdds(p, ai.toward(from, e, ai.moveOf(p), p.r + e.r + 1), e)));
+      const now = odds(best.pos);
+      const rode = Math.max(0, ...foes.map((e) => ai.chargeOdds(p, ai.toward(ai.toward(t, e, ai.moveOf(t), t.r + e.r + 1), e, ai.moveOf(p), p.r + e.r + 1), e)));
+      if (rode >= now) return null;
+    }
   }
   return best.pos;
 }

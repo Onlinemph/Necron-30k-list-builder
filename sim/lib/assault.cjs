@@ -11,7 +11,7 @@ const gambits = require('./gambits.cjs');
 const psychic = require('./psychic.cjs');
 const { gap, dist, lineOfSight } = require('./table.cjs');
 const { alive, check, addStatus, passChance, statusCheck } = require('./checks.cjs');
-const { moveUnit, fallBack, chargeRoute } = require('./move.cjs');
+const { moveUnit, fallBack, chargeRoute, dangerousTerrain } = require('./move.cjs');
 const { along } = require('./path.cjs');
 const { footprint } = require('./army.cjs');
 const ai = require('./ai.cjs');
@@ -58,17 +58,27 @@ function chargeSteps(state, u, t, disordered) {
   // Step 3: Spite of the Gorgon, Selfless Burden; then the Set-up Move. Reaching base contact completes the charge
   at(3);
   if (u.destroyed || t.destroyed) return false;
+  // the shortest route into contact, round Impassable Terrain and other units (move.cjs chargeRoute), found once: the
+  // Set-up Move follows it and the Charge Move carries on along it (re-finding it part-way could only lengthen it on
+  // the 1" grid, or lose it hugging a unit). Found again only if something moved off it (the target, or a reaction)
+  let way = chargeRoute(state, u, t);
+  const anchor = { tx: t.x, ty: t.y, ux: u.x, uy: u.y };
+  let gone = 0;
   if (!disordered) {
     // Templar Assault: +2" after getting out of an Assault Vehicle; Cloaked in Murder: +1" (to 6") against a unit
     // already locked in combat (CONFIRMED)
     let s = core.setupMove(u) + (u.cond?.has('Lost to the Nails') ? 1 : 0) + (has(u.rules, 'Templar Assault') && u.turn.disembarked && !u.turn.disordered ? 2 : 0);
     if (has(u.rules, 'Cloaked in Murder') && t.lockedWith.size) s = Math.max(s, Math.min(6, s + 1));
-    // the shortest route into contact, round Impassable Terrain and other units (move.cjs chargeRoute)
-    const way = chargeRoute(state, u, t);
     // Lies and Obfuscation: an Alpha Legion target counts as 2" further away
     if (s >= way.len + legions.rangePenalty(t)) { lockInto(state, u, t, `reaches ${t.name} with its Set-up Move`, way); return true; }
-    if (way.pts) { const p = along(way.pts, s); u.x = p.x; u.y = p.y; }
-    else if (way.len < Infinity) moveUnit(state, u, t, s, { charging: true, target: t, ignoreDifficult: true });
+    if (way.len < Infinity) {
+      const pts = way.pts || [{ x: u.x, y: u.y }, { x: way.x, y: way.y }];
+      const p = along(pts, s);
+      dangerousTerrain(state, u, [{ x: u.x, y: u.y }, p]);
+      if (u.destroyed) return false;
+      u.x = p.x; u.y = p.y; gone = s;
+      anchor.ux = u.x; anchor.uy = u.y;
+    }
   }
   if (at(3.5) === 'locked') return true; // Perfect Counter
   // Step 4: Shieldwall!, Warpath; Volley Attacks (Snap Shots, Assault weapons only, never statuses): the charger,
@@ -90,7 +100,9 @@ function chargeSteps(state, u, t, disordered) {
   if (r4 === 'locked') return true;
   // Step 5: Charge Roll (2D6, keep the highest, plus Fast), then the Charge Move, which must reach base contact by
   // the shortest route round what's in the way (CONFIRMED)
-  const way = chargeRoute(state, u, t);
+  const moved = t.x !== anchor.tx || t.y !== anchor.ty || u.x !== anchor.ux || u.y !== anchor.uy;
+  if (moved || way.len === Infinity) way = chargeRoute(state, u, t);
+  else way = { ...way, len: Math.max(0, way.len - gone) };
   const need = way.len + legions.rangePenalty(t);
   const roll = core.chargeRoll(u, state.dice);
   const round = way.pts ? ', round what is in the way' : '';

@@ -118,6 +118,29 @@ function tectonic(state) {
   state.log(`\nTectonic Instability: ${state.tectonic ? `Sector ${state.tectonic} is Difficult Terrain this turn` : 'the ground is still'}`);
 }
 
+/**
+ * A unit that lost models takes up less room. The casualties come off the side away from what it's holding to, as a
+ * player removes them (ASSUMPTION; the rules let the owner choose which models go): the marker it controls or
+ * contests, else the nearest enemy it's locked with, else the nearest enemy. Its edge nearest that point stays put, so
+ * losses don't pull it off a marker or out of range.
+ */
+function shrink(state, unit) {
+  const r = footprint(unit);
+  if (r < unit.r - 1e-9 && !unit.embarkedIn && unit.arrived) {
+    const near = (pts) => pts.reduce((b, p) => (!b || Math.hypot(p.x - unit.x, p.y - unit.y) < Math.hypot(b.x - unit.x, b.y - unit.y) ? p : b), null);
+    const marker = near((state.table.objectives || []).filter((o) => Math.hypot(o.x - unit.x, o.y - unit.y) - unit.r <= scoring.CONTROL_RANGE));
+    const foes = state.units.filter((e) => e.side !== unit.side && !e.destroyed && e.arrived && !e.embarkedIn);
+    const to = marker || near([...unit.lockedWith].filter((e) => !e.destroyed)) || near(foes);
+    const d = to ? Math.hypot(to.x - unit.x, to.y - unit.y) : 0;
+    if (d > 1e-6) {
+      const k = Math.min(unit.r - r, d) / d;
+      unit.x += (to.x - unit.x) * k; unit.y += (to.y - unit.y) * k;
+      for (const p of unit.passengers || []) { p.x = unit.x; p.y = unit.y; }
+    }
+  }
+  unit.r = r;
+}
+
 // ---------- hooks used by the phases ----------
 function hooks(state) {
   state.award = (side, vp, why) => award(state, side, vp, why);
@@ -138,7 +161,7 @@ function hooks(state) {
   state.afterDamage = (unit) => {
     if (unit.destroyed) return;
     if (!alive(unit).length) destroyed(state, unit, unit.lastHitBy);
-    else unit.r = footprint(unit);
+    else shrink(state, unit);
   };
   state.onFled = (unit) => {
     for (const m of unit.models) if (m.wounds > 0) { m.wounds = 0; state.onCasualty(m, unit, null); }
@@ -491,4 +514,4 @@ function finish(state, lines) {
   return { winner, vp: state.vp, pointsKilled, units, vpLog: state.vpLog, reactions: state.reactionCount, powers: state.powerCount, log: lines };
 }
 
-module.exports = { runBattle };
+module.exports = { runBattle, shrink };

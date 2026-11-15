@@ -26,10 +26,13 @@ const VP_WORTH = 45;          // points of value per Victory Point
  * locked; shelter: a charge is worth the enemy fire the charger escapes while locked; screen: standing in an enemy's
  * charge lane to a friend is worth the charge it makes less likely; lanes: shooting a unit that stands in a friend's
  * charge lane is worth the charge it opens; counter: a melee unit within reach of a friend an enemy could charge is
- * worth the counter-charge it threatens.
+ * worth the counter-charge it threatens; concede: a unit weighs the Victory Points the enemy scores for destroying it
+ * (Kill Points, Slay the Warlord, Giant Killer, a Vanguard prize for a marker holder) against the risk it runs, and
+ * shooting and charges count the Warlord and Giant Killer prizes; retfire: a shot is worth less by the Return Fire it
+ * will likely draw; ride: passengers stay in while their transport can carry them closer, rather than get out first.
  */
 const DEFAULTS = { vp: VP_WORTH, line: 1.5, mission: 0.6, soonMelee: 0.45, soonShoot: 0.3, risk: 0.35, bold: 0.5, chargeGain: 1.6, chargeTake: 1.0, incoming: 0.35, chargeFail: 10, chargeBar: 3, shootBar: 0.5, react: 1, share: 1,
-  endgame: 0, tieup: 0, shelter: 0, screen: 0, lanes: 0, counter: 0 };
+  endgame: 0, tieup: 0, shelter: 0, screen: 0, lanes: 0, counter: 0, concede: 0, retfire: 0, ride: 0 };
 const K = (state, side, key) => { const o = state.aiParams && state.aiParams[side]; return o && o[key] != null ? o[key] : DEFAULTS[key]; };
 const BANDS = [0, 3, 6, 9, 12, 15, 18, 24, 30, 36, 48, 72];
 
@@ -151,6 +154,33 @@ function nextTurnOdds(state, side) {
 }
 /** endgame: how much next turn counts for `side` (1 while there surely is one; less near the end). */
 const endFactor = (state, side) => { const w = K(state, side, 'endgame'); return w ? 1 - w * (1 - nextTurnOdds(state, side)) : 1; };
+/**
+ * The Victory Points the enemy scores if u is destroyed (the mission's, as scoring.cjs awards them): its Kill Points and
+ * those of characters with it (in Destroy the Enemy missions, with kp), Slay the Warlord for the side's first Command or
+ * High Command unit lost, Giant Killer for its first Lord of War or Warlord, and (with vanguard) the Vanguard (X) prize
+ * an enemy Vanguard unit that could reach it next turn would take for a marker it holds.
+ */
+function concedeVP(state, u, { kp = true, vanguard = true } = {}) {
+  const m = state.mission;
+  const chars = [u, ...(u.joined || []).filter((c) => !c.dead)];
+  let vp = 0;
+  if (kp && m.primary === 'destroy') vp += chars.reduce((t, c) => t + scoring.killPoints(c), 0);
+  const lost = (state.destroyedUnits || []).filter((x) => x.side === u.side);
+  if (m.secondaries && !lost.some((x) => /Command/.test(x.role || ''))) {
+    if (chars.some((c) => /High Command/.test(c.role || ''))) vp += m.secondaries.warlord + 1;
+    else if (chars.some((c) => /^Command/.test(c.role || ''))) vp += m.secondaries.warlord;
+  }
+  if (m.secondaries && !lost.some((x) => /Lord of War|Warlord/.test(x.role || '')) && chars.some((c) => /Lord of War|Warlord/.test(c.role || ''))) vp += m.secondaries.giant;
+  if (vanguard && markerHeld(state, u)) {
+    let vg = 0;
+    for (const e of state.units) {
+      if (e.side === u.side || e.destroyed || !e.arrived || !scoring.majority(e, 'Vanguard')) continue;
+      if (gap(e, u) <= moveOf(e) + Math.max(maxRange(e), canCharge(e) ? core.setupMove(e) + 6 : 0)) vg = Math.max(vg, scoring.maxX(e, 'Vanguard'));
+    }
+    vp += vg;
+  }
+  return vp;
+}
 /** What x would most likely shoot next turn, in points: its best target among `side`'s units, after a move. */
 function bestShot(state, x, side) {
   if (!alive(x).some((m) => m.ranged.length)) return 0;
@@ -299,7 +329,7 @@ function positionScore(state, u, pos, opts = {}) {
       if (v > 0) v += huntValue(state, u, e, v, finishChance(v, e));
       if (v > shoot && (v > 0) && lineOfSight(state.table, u, e)) shoot = v;
     }
-    if (opts.charging !== false && !waiting && canCharge(u) && !u.turn.rushed) {
+    if (opts.charging !== false && !waiting && canCharge(u) && !u.turn.rushed && !u.turn.noCharge) {
       const odds = chargeOdds(u, pos, e);
       const v = odds > 0 ? (meleeEV(state, u, e) + huntValue(state, u, e, meleeEV(state, u, e), breakChance(state, u, e))) * odds : 0;
       if (v > melee) melee = v;
@@ -369,6 +399,8 @@ function positionScore(state, u, pos, opts = {}) {
   // while waiting for the wave an assault group hides: more weight on risk, and no Vanguard or cargo boldness
   // endgame: the enemy's next turn only threatens if it gets one
   risk *= endFactor(state, 1 - u.side);
+  // concede: the Victory Points its destruction would give away, by the chance this risk destroys it
+  if (K(state, u.side, 'concede') && !opts.passenger) score -= K(state, u.side, 'concede') * concedeVP(state, u) * K(state, u.side, 'vp') * finishChance(risk, u);
   // screen: standing in the way of enemy charges at friends
   if (K(state, u.side, 'screen') && !opts.passenger && !opts.consolidating) score += K(state, u.side, 'screen') * screenValue(state, u, pos, enemies);
   // counter: threatening the enemies that would charge a friend (only worth it if there's a turn to do it in)
@@ -490,6 +522,13 @@ function chooseTarget(state, u, opts = {}) {
     v += huntValue(state, u, e, plan.expectedPts, finishChance(plan.expectedPts, e));
     // lanes: clearing the way for this turn's charges
     if (K(state, u.side, 'lanes') && state.phase === 'shooting') v += K(state, u.side, 'lanes') * laneValue(state, u, e, plan.expectedPts);
+    // concede: the Warlord and Giant Killer prizes for destroying it (Kill Points are above, Vanguard in huntValue)
+    if (K(state, u.side, 'concede')) v += K(state, u.side, 'concede') * concedeVP(state, e, { kp: false, vanguard: false }) * K(state, u.side, 'vp') * finishChance(plan.expectedPts, e);
+    // retfire: a target that will likely Return Fire hits back first (before casualties are removed)
+    if (K(state, u.side, 'retfire') && state.phase === 'shooting' && canReturnFire(state, e)) {
+      const back = evAt(shootTable(state, e, u), gap(u, e));
+      if (back > 0 && worthReacting(state, e.side, back, 'shooting')) v -= K(state, u.side, 'retfire') * back;
+    }
     if (!best || v > best.v) best = { target: e, v };
   }
   return best && best.v > K(state, u.side, 'shootBar') ? best.target : null;
@@ -532,10 +571,18 @@ function chooseCharge(state, u) {
       if (tw) lock += tw * (bestShot(state, e, u.side) - bestShot(state, u, e.side)) * rounds;
       if (sw) lock += sw * fireOn(state, u, e) * Math.min(1, rounds);
     }
-    const v = odds * (gain + obj + lock + huntValue(state, u, e, meleeEV(state, u, e), breakChance(state, u, e))) - incoming - (1 - odds) * K(state, u.side, 'chargeFail') - leave;
+    // concede: the Warlord and Giant Killer prizes (and Kill Points) for wiping it out
+    const prize = K(state, u.side, 'concede') ? K(state, u.side, 'concede') * concedeVP(state, e, { vanguard: false }) * K(state, u.side, 'vp') * finishChance(meleeEV(state, u, e), e) : 0;
+    const v = odds * (gain + obj + lock + prize + huntValue(state, u, e, meleeEV(state, u, e), breakChance(state, u, e))) - incoming - (1 - odds) * K(state, u.side, 'chargeFail') - leave;
     if (v > K(state, u.side, 'chargeBar') && (!best || v > best.v)) best = { target: e, v };
   }
   return best ? best.target : null;
+}
+
+/** Could e Return Fire if shot now (a point of its allotment left, not yet reacted, guns, free to act)? */
+function canReturnFire(state, e) {
+  return (state.reactionsLeft?.[e.side] || 0) > 0 && !e.reacted && !e.lockedWith.size && !e.statuses.has('Stunned') && !e.statuses.has('Routed')
+    && alive(e).some((m) => m.ranged.length);
 }
 
 // ---------- reactions ----------
@@ -574,4 +621,4 @@ function duelEV(a, b) {
   return best;
 }
 
-module.exports = { nextTurnOdds, detour, screenValue, toward, DEFAULTS, K, huntValue, markerHeld, VP_WORTH, shootTable, evAt, meleeEV, maxRange, chargeChance, chargeOdds, chargeOddsNow, canCharge, positionScore, candidates, chooseMove, chooseTarget, chooseCharge, statusValue, worthReacting, duelEV, moveOf, shootValue, meleeValue };
+module.exports = { concedeVP, nextTurnOdds, detour, screenValue, toward, DEFAULTS, K, huntValue, markerHeld, VP_WORTH, shootTable, evAt, meleeEV, maxRange, chargeChance, chargeOdds, chargeOddsNow, canCharge, positionScore, candidates, chooseMove, chooseTarget, chooseCharge, statusValue, worthReacting, duelEV, moveOf, shootValue, meleeValue };
