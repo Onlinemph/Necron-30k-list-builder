@@ -503,6 +503,51 @@ won 59% of battles against the old AI (plus or minus 5.4, 120 pairs, +5.3 VP a b
 seeds (54%). Against the new AI, no other weight at half or double did better than plus or minus the noise; lower
 risk aversion on its own had looked like a gain (60%, then 56%) but came to 53.5% on a third set of seeds.
 
+### Playing more like a person
+
+Charges go round what's in the way: the rulebook has the Set-up Move and the Charge Move take the shortest route
+into base contact, round Impassable Terrain, friendly models and enemy models in other units, and a charge that
+doesn't reach fails (`move.cjs` chargeRoute). Before, a charge measured a straight line, so a unit standing in the
+lane did nothing. The route is found once at declaration; the Set-up Move follows it and the Charge Roll needs what's
+left.
+
+Then an agent read two whole battles for moves a good player wouldn't make. It found three engine faults, now fixed:
+casualties shrank a unit round its centre and could pull it off a marker (the coherency row below); Deep Strike and
+Outflank spots were scored for a charge the unit can't make the turn it arrives; and the routed Set-up Move could
+strand a charge. It also found decision faults, and the AI learned three things from them:
+
+- A shot is worth less by the Return Fire it will likely draw. The target shoots back before its casualties go, and
+  a Despoiler squad firing bolt pistols at a lascannon squad had lost six models for one. This changes about a
+  third of shooting choices.
+- A unit weighs the Victory Points its death gives away against the risk it runs: Kill Points in Destroy the Enemy
+  missions, Slay the Warlord for the side's first Command unit, Giant Killer, and the Vanguard prize when it holds a
+  marker an enemy Vanguard unit could reach. Shooting and charges count the Warlord and Giant Killer prizes. In the
+  two battles, characters leading the first wave and empty Rhinos parked by enemy Vanguard units had given away
+  about 23 VP.
+- Passengers wait for their transport to move before getting out to charge; Despoilers had got out of Rhinos that
+  never moved.
+
+In self-play (`sim/tune.cjs`, 150 pairs each) the Return Fire change alone won 55.7% (plus or minus 4.2, +3.8 VP a
+battle), the Victory Points one 51.8% and riding first 50.0%; all three won 57.2% (plus or minus 4.8, +4.2 VP), and
+on fresh seeds the old AI won 45.5% against them (-4.3 VP). They're the defaults.
+
+Six more were tried and left off; they're weights in `ai.cjs` for `tune.cjs` to try again:
+
+| Weight | What it adds | Self-play against the AI then |
+|---|---|---|
+| `endgame` | next turn's threats and chances weighed by the odds there is a next turn (a sixth Battle Turn comes on a 4+) | 50.5% |
+| `tieup` | a charge is worth the enemy shooting it stops while locked, less the charger's own | 50.3%; at triple weight with `counter`, 50.2% |
+| `shelter` | a charge is worth the enemy fire the charger escapes while locked | 48.3% |
+| `lanes` | shooting a unit that stands in a friend's charge lane is worth the charge it opens | 49.8% |
+| `counter` | a melee unit within reach of a friend an enemy could charge is worth the counter-charge it threatens | 49.2% |
+| `screen` | standing in an enemy's charge lane to a friend is worth the charge it makes less likely | 38.5%, then 45.7% |
+
+All but screening change one or two decisions a battle (lanes none in three battles), which is why they measure
+level. Screening changes plenty and loses. Scored alone, every unit claimed the same lane in front of the same friend
+and the army bunched up; counting only the detour a unit adds beyond what its friends already block, weighed as a
+loss avoided, mostly sends empty transports to screen, and still loses 1.7 VP a battle. The likely reason is the
+opponent: a screen pays against a player who would exploit an open lane, and this AI's charges aren't that sharp.
+
 Melee is still the weaker way to play in the simulator. A typical assault unit now reaches combat on turn 2 and
 often wipes its target in one round, which leaves it in the open for the enemy's whole army to shoot. Steering
 charges towards targets that keep the charger locked in combat (out of the guns) made no measurable difference.

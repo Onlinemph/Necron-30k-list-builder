@@ -30,6 +30,8 @@ const VP_WORTH = 45;          // points of value per Victory Point
  * (Kill Points, Slay the Warlord, Giant Killer, a Vanguard prize for a marker holder) against the risk it runs, and
  * shooting and charges count the Warlord and Giant Killer prizes; retfire: a shot is worth less by the Return Fire it
  * will likely draw; ride: passengers stay in while their transport can carry them closer, rather than get out first.
+ * Measured in self-play (README, "Playing more like a person"): concede, retfire and ride are on; the others measured
+ * level or worse and stay off.
  */
 const DEFAULTS = { vp: VP_WORTH, line: 1.5, mission: 0.6, soonMelee: 0.45, soonShoot: 0.3, risk: 0.35, bold: 0.5, chargeGain: 1.6, chargeTake: 1.0, incoming: 0.35, chargeFail: 10, chargeBar: 3, shootBar: 0.5, react: 1, share: 1,
   endgame: 0, tieup: 0, shelter: 0, screen: 0, lanes: 0, counter: 0, concede: 1, retfire: 1, ride: 1 };
