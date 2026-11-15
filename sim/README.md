@@ -167,13 +167,16 @@ what the opponent scores for the unit.
 
 Every mission has Slay the Warlord (X for a Command unit, X+1 for High Command; a Primarch counts for Giant Killer only), Giant Killer, Breakthrough and First Strike at its
 own values, Reserves (3+, automatic from turn 4; units still in Reserves at the end count as destroyed) and Seize
-the Initiative. Mission rules: Hidden Caches (markers scatter 3" when scored), Unknown Munitions (D3 values per
+the Initiative. Aerial Reserves Tests are never automatic, and a Flyer in Aerial Reserves at the end isn't
+destroyed. The pack's sequence leaves out the rulebook's Sudden Death (`suddenDeath: true` plays it: 3 VP to the
+army still on the battlefield). Mission rules: Hidden Caches (markers scatter 3" when scored), Unknown Munitions (D3 values per
 player), No Quarter (a VP as an aftermath option), Cut Off the Head (2 VP for slaying a model in a challenge),
 Thin the Ranks (bonus Kill Points), Tectonic Instability (a Sector turns difficult each turn and is worth 5) and
 Supply Road (no terrain on the highway, vehicles get +2" along it). Five Battle Turns, then a sixth on a 4+.
 
 The battlefield follows the pack's suggestion, laid out point-symmetrically: two 8" and four 6" zones of Area
-Terrain (Light, 6+ cover, or Medium, 5+ cover and sight through at most 3"), and six 4" Terrain Features
+Terrain (Light, 6+ cover, or Medium, 5+ cover and sight through at most 3"; all of it difficult), with one 6" Heavy
+zone (4+ cover, blocks sight) in the middle on a 4+ in place of a pair, and six 4" Terrain Features
 (Impassable and blocking sight, or ruins counted as Medium Area Terrain). Units are circles sized from their
 models' bases. Ranges are edge to edge, and line of sight is three sight lines between the circles; vehicles other
 than Knights and Flyers block them.
@@ -185,21 +188,28 @@ Each Player Turn runs the HH3 phases in order:
 - **Before the battle:** the Core Mission Sequence: mission, terrain, Objective Markers, Deployment Map; the
   roll-off loser picks a zone, the winner deploys first and goes first (Seize the Initiative on a 6); units with
   nowhere to stand go into Reserves.
-- **Movement:** Reserves on a 3+, automatic from turn 4 (from the edge of your own zone; Deep Strike from turn 2,
-  one per turn; Outflank from any edge outside the enemy zone and 7" from the enemy; Flyers),
-  moving, Rushing, embarking and disembarking (Disordered unless from an Assault Vehicle), and Fall Back Moves
-  for Routed units (D6 + I towards their own zone's edge; there a Leadership check, removed on a fail, Suppressed
-  on a pass).
-- **Shooting:** one weapon per model (two Pistols, Firing Protocols (X), Walkers and Vehicles fire everything),
+- **Movement:** Reserves on a 3+ from turn 1, automatic from turn 4 (from the edge of your own zone; Deep Strike
+  from turn 2, one per turn; Outflank from any edge outside the enemy zone and 7" from the enemy; Flyers on Combat
+  Assignments); models arriving within 2" of the enemy are lost. Moving round obstacles and through friendly
+  infantry, and Rushing: Antigrav units pass over terrain and units; vehicles drive through enemy infantry (D6 S6
+  hits; Death or Glory) and pivot freely. Dangerous Terrain where a table has it. Embarking (within 2", also after
+  a Reaction move) and disembarking with a normal move after (Disordered charges unless from an Assault Vehicle).
+  Deep Strike transports unload where they land, Drop Pods always; a transport walking on keeps its passengers in.
+  Fall Back Moves for Routed units (D6 + I towards their own zone's edge, round obstacles, slowed by terrain, 1"
+  from the enemy; there a Leadership check, removed on a fail, Suppressed on a pass).
+- **Shooting:** one weapon per model (two Pistols, Firing Protocols (X), Walkers and Vehicles fire everything, a
+  vehicle's weapons only within their firing arcs), Blast markers that scatter on a miss and hit whatever they land
+  on, Barrage out of sight by Indirect Scatter,
   Fire Groups, the Hit Test table (Critical Hits from BS 6, the Snap Shot column), Wound Tests or Armour
   Penetration, the best of Armour, Invulnerable and Cover saves, Feel No Pain and Shrouded, the Vehicle Damage
   Table, then the Morale Sub-Phase checks for Pinning and Panic (on a wound), Suppressive and Stun (on a hit)
   and 25% casualties.
 - **Assault:** the five-step charge (Line of Sight and 12", the Set-up Move table, Volleys that never inflict
   statuses, the Charge Roll, Stunned on a failed Cool Check after a failed charge), challenges (rounds of
-  Face-Off, Focus Roll and Strike, Challenge Advantage, Glory), Initiative Steps, Combat Resolution (models
-  removed, Glory, outnumbering, standards), Panic Checks and the aftermath: Fall Back, Pursue, Gun Down,
-  Disengage, Hold and Consolidate.
+  Face-Off, Focus Roll and Strike, Challenge Advantage, Glory), Initiative Steps (only Engaged models attack),
+  Combat Resolution (models removed, Glory, outnumbering, standards), one Panic Check per losing side, and the
+  aftermath: Routed units Fall Back whichever side won; Pursue, Gun Down or Consolidate once every enemy unit has
+  gone; Disengage and Hold.
 - **End:** conditions that wear off, Statuses Sub-Phase (Cool, Leadership, Repair Tests), and scoring.
 
 Statuses work as the quick reference lists them: any status makes the unit's charges Disordered, sets Combat
@@ -336,7 +346,7 @@ Each enemy Player Turn a side has a Reaction Allotment, and each unit reacts at 
 trigger the AI prices each reaction it could make in expected points and makes the best one if it's worth a point
 of the allotment (the bar rises as the allotment runs low, and before the Assault Phase the last point is kept
 when enemy assault units could charge). The allotment is 1, +1 above 1500 points or +2 above 3500, +1 for a
-Master of the Legion. A unit locked in combat, Stunned or Routed can't react. Return Fire is a full Shooting
+Master of the Legion, +1 while Horus lives (Master of War). A unit locked in combat, Stunned or Routed can't react. Return Fire is a full Shooting
 Attack made before casualties are removed; Overwatch is a full Shooting Attack in place of the target's Volley. A
 vehicle makes either with its Defensive weapons only, as it does Intercept (INFERRED: Locus Strike and Automated Fire
 Protocols only make sense if so), and Heavy and Ordnance weapons count the reacting unit's own last Movement Phase.
@@ -350,6 +360,7 @@ Simulated reactions:
 | A charge | Overwatch, The Choir Answers (Rangdan), Twisted Desire and Perfect Counter (Emperor's Children), Spite of the Gorgon (Iron Hands), Selfless Burden (Salamanders), Shieldwall!, Evade, Better Part of Valour (Night Lords), Furious Charge (World Eaters) |
 | The end of a combat | Vengeance of the First Legion (Dark Angels) |
 | A challenge | Heroic Intervention, Warrior Pride (Sons of Horus) |
+| An enemy vehicle drives through | Death or Glory |
 
 The Legion reactions go to an army by its Legion; BSData Legion lists don't put the Legion's Trait on each unit, so
 the simulator adds it from the army. Fan armies list their reactions in their own rules. Adding one means adding
@@ -366,38 +377,54 @@ is Warp Rupture, 13 minus the unit's Willpower in wounds allocated across the un
 2 to 5 is Ætheric Feedback, and the unit is Stunned. Willpower Checks follow the Rule of Doubles.
 
 A Psychic Discipline, whether chosen for a model or granted by a rule, gives the model everything the rulebook
-lists for it: Biomancy, Biomantic Slam and Impact (Strength); Pyromancy, Wildfire (18") and Conflagration;
-Telekinesis, Immovable Force and Shrouded (4+); Divination, Duellist's Edge (2); Telepathy, Fear (1); Thaumaturgy,
-Hatred (Psykers). So Prosperine Sorcerers carry all three, Magnus carries
+lists for it: Biomancy, Biomantic Slam and Impact (Strength); Pyromancy, Wildfire (18"), Conflagration and
+Explodes (4+); Telekinesis, Immovable Force and Shrouded (4+); Divination, Duellist's Edge (2) and the Every Strike
+Foreseen gambit; Telepathy, Cursed Whispers and Fear (1); Thaumaturgy, Hatred (Psykers). Conflagration's 6+D3
+Attacks and Cursed Whispers' 2D6 shots are rolled for each attack. So Prosperine Sorcerers carry all three, Magnus carries
 those of the disciplines picked for him, and Calas Typhon (Witchblood, without Mortarion) carries Biomantic Slam;
 Conduit adds 1 to their Strength. That alone took the Thousand Sons strength list from 52% to 66% against the
 eight strongest lists in the field. Warpath (Power of the Waaagh!) is played as a Blessing.
 
-Two powers are played: Biomantic Rage (a Biomancer within 18" of a charging friendly unit gives it +2 Strength and
-+2 Toughness for the Assault Phase, in place of its Volley) and Force Barrier (a Reaction: a Telekine's unit that is
-shot at gets a 3+ Shrouded test against the attack). Each unit uses one power in its own turn and one psychic
-Reaction in the enemy's.
+Every core power is played: Biomantic Rage (a Biomancer within 18" of a charging friendly unit gives it +2 Strength
+and +2 Toughness for the Assault Phase, in place of its Volley), Force Barrier (a Reaction: a Telekine's unit that is
+shot at gets a 3+ Shrouded test against the attack), Foresight's Blessing (Precision (5+) for a shooting unit within
+18"), Every Strike Foreseen, Mind-burst (strips a unit's statuses, makes it Fall Back and Routs it on a failed
+unmodified Leadership Check), Resurrection (a Reaction: one casualty back on a 4+) and Tranquillity (-2 Willpower to
+manifest, -1 Strength to Psychic Weapons until the caster's next turn). Each unit uses one power in its own turn and
+one psychic Reaction in the enemy's.
 
 `lib/psychic.cjs` keeps a registry of every psychic power the army data and the rulebook name, and every power goes
-through one Manifestation step (a Willpower Check, Perils on a double, a count for the battle report). The rest are
-listed there and not played: the Divination, Telepathy and Thaumaturgy powers (Foresight's Blessing, Every Strike
-Foreseen, Mind-burst, Cursed Whispers, Resurrection, Tranquillity), which no strength list fields, and, with no text
-in the repo or the rulebook, the five Prosperine Arcana (Raptora, Pyrae, Pavoni, Corvidae, Athanaean), the
+through one Manifestation step (a Willpower Check, Perils on a double, a count for the battle report). Listed
+there and not played, with no text in the repo or the rulebook: the five Prosperine Arcana (Raptora, Pyrae, Pavoni, Corvidae, Athanaean), the
 Khenetai's Bladeweaving and Mindsong of Blades, Zardu Layak's Soul Binding and Breach the Veil, Magnus's Stoneform
 and Kine Shield, and Lorgar's Seal the Veil.
+
+### Flyers
+
+Flyers wait in Aerial Reserves (3+, one more per return, 6+ at most, never automatic). Passed, a Flyer comes on at
+its zone's edge (Intercept) on a Drop Mission (its Movement straight ahead, passengers get out, Defensive weapons),
+Extraction (picks up a unit within 2", which loses its statuses), Strike Mission (Centreline and Guided Missile
+weapons, Centreline ones as Snap Shots) or Strafing Run (half its Movement any way, every weapon). Shots at it are
+Snap Shots unless it's strafing. Interceptors can answer with a Combat Air Patrol. It returns at the end of its
+Shooting Phase, so it never holds objectives or fights in melee. `lists/ultramarines-air.json` is the test list.
 
 ### Challenges and gambits
 
 The Active Player may challenge with a Command, Champion or Paragon model; if they don't, the Reactive Player may
-with Heroic Intervention. Refusing makes a model of the challenger's choosing Disgraced. Each round both duellists
-pick a gambit, roll Focus (D6 + Combat Initiative − wounds lost, −1 Heavy, +1 Light, +1 Shield or Company
-Standard, +1 per 5 friendly models), and the winner strikes first with +1 Attack and Challenge Advantage, which
+with Heroic Intervention. A model with Never Back Down must be the Challenger, or accept. Refusing makes a model of
+the challenger's choosing Disgraced. Each round the Challenger (later the holder of Challenge Advantage) picks a
+gambit first, and the other may not pick the same one. Both roll Focus: D6 + Combat Initiative − wounds lost, −1
+Heavy, +1 Light, +1 Shield, + Outside Support (+1 per five Engaged friendly models from any unit in the combat, not
+Pinned, Stunned, Routed or Suppressed; Vehicles and Automata don't count, a Walker counts five, a company standard
+five more, a Legion standard six; +2 per five or part when the opponent has no other model there). The winner
+strikes first with +1 Attack and Challenge Advantage, which
 decides whether to fight another round, with no limit. If a duellist falls, the other wins and scores its base
 Wounds as Glory, +1 for a Command or Paragon model; otherwise the one who inflicted more wounds scores them.
-Duellists take no wounds in the Fight Sub-Phase that follows.
+Duellists take no wounds in the Fight Sub-Phase that follows. A duellist that picked Withdraw may end the challenge
+in the Glory Step with no Glory for either side.
 
-Gambits: the seven core ones (Seize the Initiative, Flurry of Blows, Test the Foe, Guard Up, Taunt and Bait,
-Grandstand, Finishing Blow), the Rangdan three (Throat-Hunter, Hunter's Stare, Feast of Memories) and character
+Gambits: the nine core ones (Seize the Initiative, Flurry of Blows, Test the Foe, Guard Up, Taunt and Bait,
+Grandstand, Feint and Riposte, Withdraw, Finishing Blow), the Rangdan three (Throat-Hunter, Hunter's Stare, Feast of Memories) and character
 gambits with plain number effects.
 
 Each Legion's own gambit is played too (CONFIRMED, from the army data): I Am Alpharius, Thrall of the Red Thirst,
@@ -524,10 +551,15 @@ Five sources, marked in the code:
 |---|---|
 | Objective Markers | placed at random where the mission allows (players placing them for advantage isn't modelled); the roll-off loser picks the zone nearer the valuable markers |
 | Controlling | a unit's models within 3" of a marker are the share of its footprint in range; in Seize Ground all of a unit's models count in the Sector holding its centre |
-| Terrain | no Heavy Area Terrain is placed; Cavalry can't claim cover |
+| Terrain | on a D6 roll of 4+ one 6" zone of Heavy Area Terrain stands in the middle of the table in place of a pair of 6" zones (one at most; the table stays point-symmetric); the pack has no Dangerous Terrain, so none is placed (the rule plays for pieces marked dangerous, a unit testing when its centre crosses one); Cavalry can't claim cover |
 | Master of the Legion | its extra Reaction Point only while it's on the battlefield |
-| Blast markers | a 3" marker covers 3 models of a packed unit, a 5" marker 5; a missed Blast scatters away harmlessly (the rulebook scatters it; not played), and a Barrage out of sight rolls Hit Tests instead of scattering |
-| Engaged models | every model in a locked unit fights (the rulebook's pile-in and 2" engagement aren't modelled); a combat's Panic Check is made per losing unit, not once per side; Outside Support counts the duellist's own unit |
+| Blast markers | a marker centred on a unit covers 3 of its models (5 for a 5" marker or larger, 1 for a vehicle); a scattered marker covers that number times the share of the centred overlap it keeps with the unit's circle (a part model counted by the dice), a lone model if it touches it; a marker that hits stays on the target, so only a scattered one reaches other units; Scatter Dice show HIT on 2 faces of 6 |
+| Firing arcs | a weapon whose item and option name no mount fires in any arc (as a Turret); "Hull Mounted" with no arc is Front; Knight and Titan mounts (Arm, Carapace) fire in any arc; hull quarters are 90° about the facing and the Centreline strip 0.6 of the vehicle's radius each side; a sponson item with no number is a pair, one each side; a vehicle splits its fire only when that costs nothing (no Battle Weapon in its first attack, then Defensive Weapons only, or any for Super-Heavy and Stable), and a sponson pair that fired counts as used |
+| Super-Heavy and Stable | shooting in the enemy's turn, they count as not having Rushed in their own Movement Phase |
+| Engaged models | units have no model positions, so the Engaged models are estimated: locked units touch; a model is Engaged within 3 base radii + 2" of the enemy footprint, reached by a Pile-in of its Initiative from its share of its unit's footprint, up to the bases that fit in that band; the best fighters are the Engaged ones; Outside Support spreads each unit's Engaged share evenly, standard bearers in front |
+| Panic Check in combat | the AI tests with whichever losing unit gives the best chance; a Paragon lends its Leadership like a Command model |
+| Never Back Down | the Reactive Player needn't make a Heroic Intervention to declare; Slayer of Kings' pick comes first |
+| Routed fall back | at the end of the Resolution Sub-Phase, for units in a combat being resolved |
 | Collar-master | the AI overloads a collared unit of five or more models that is in combat |
 | Unchosen weapons | where a list leaves a required weapon pick unset, a model takes the default its exchange option names, or the cheapest melee weapon from its weapon group. Since the builder's data now gives those units their default weapons, this only matters for hand-written lists that skip a required pick |
 | Thin the Ranks | a Prime unit counts as improved when its Prime Advantage changes its profile |
@@ -535,9 +567,16 @@ Five sources, marked in the code:
 | Furious Charge | the text makes the "Target Unit" Lost to the Nails; read as the reacting World Eaters unit |
 | Anathema | Immaterial weapons wound only on a 5+ (from the rule's summary line; its full text is cut short) |
 | Characters | join before deployment and stay with their unit; the rules let them join or leave in the Move Sub-Phase and any number join a unit, but the AI keeps one per unit |
-| Emergency Disembarkation | the status a failed Cool Check gives is Pinned (the name is illegible in our copy) |
-| Psychic | Pyromancy's Conflagration attacks 8 times (6+D3) and its Explodes (4+) isn't played; of the powers, Biomantic Rage and Force Barrier are played, the other disciplines' (no strength list has them) aren't |
-| Not simulated | vehicles driving through enemy units (and Death or Glory), Dangerous terrain, coherency, firing arcs, Flyers' Combat Assignments, embarking during the battle, the Feint and Riposte and Withdraw gambits, Sudden Death |
+| Emergency Disembarkation | placed against the hull, as far from the enemy as it can be; models still within 1" of an enemy are removed as that share of the footprint; a failed Cool Check gives Pinned (the name is illegible in our copy) |
+| Driving through | a hull within 1" of an enemy unit drives through it; not through units Locked in Combat; Pinned by Death or Glory, it stops 1" short and the unit still takes its hits; the AI drives through only where the spot rates 2 points better, counting hits and the Death or Glory it expects |
+| Death or Glory | the model and weapon worth most; made when worth a Reaction Point; no Melta bonus |
+| Transports | the whole hull counts as Access Points; Faction is the army list; Deep Strike passengers only get placed; the AI rides an assault unit towards its target, or hides a unit facing more than 1.5× what it can do; units with statuses don't embark |
+| Reserves | models within 2" of the enemy on arrival are that share of the footprint, troopers first |
+| Hidden Caches | "under a model" is anywhere under a unit's footprint; a marker still blocked at the edge stays there |
+| Flyers | mounts read from wargear names; Centreline Guided Missiles still Snap Shots on a Strike Mission; every attack at a Flyer not strafing is a Snap Shot; a Combat Air Patrol raises the Reserves target; units aboard share the Flyer's Aerial Reserves; the AI may keep a Flyer up when nothing is worth the risk |
+| Coherency | every unit is a packed circle, so it's always in coherency and casualties re-pack it, as if the player removes models to keep it together; a stretched line, and a rare break after a Precision kill, aren't shown |
+| Psychic | Mind-burst and Tranquillity take the Focus's Manifestation Check, as their texts say; the AI manifests Mind-burst with a unit that stayed put and Foresight's Blessing just before the attack; a joined character can't be Resurrected; a Pyromancer explodes once the attack that killed him is over; Tranquillity's -1 Strength comes before Force |
+| Not simulated | removing a Flyer from the battle, embarking on a Flyer during the battle, and multi-model units with their own Explodes blowing up model by model; Sudden Death is there (`runBattle(..., { suddenDeath: true })`) but off, as the pack's missions leave it out |
 
 Reactions made in answer to a reaction (a Return Fire against an Overwatch, say) aren't allowed.
 
@@ -549,6 +588,7 @@ Reactions made in answer to a reaction (a Return Fire against an Overwatch, say)
 | `lib/battle.cjs` | the battle loop: deployment, Player Turns, scoring, secondaries |
 | `lib/army.cjs` | loads lists through the builder's engine into units and models |
 | `lib/table.cjs` | the table, terrain, distances, line of sight and movement |
+| `lib/flyers.cjs` | Flyers: Aerial Reserves, Combat Assignments, Combat Air Patrol |
 | `lib/mission.cjs` | the nine Core Missions, Deployment Maps, Sectors and Objective Marker set-up |
 | `lib/scoring.cjs` | controlling markers and Sectors, Kill Points, secondaries and the scoring mission rules |
 | `lib/move.cjs` | Reserves, moving, Rushing, transports, Fall Back |
