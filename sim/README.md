@@ -473,7 +473,8 @@ its target, not a Set-up Move and a Charge Roll. Neither change moved the World 
 
 A move goes straight when nothing stops it short; when a unit or impassable terrain is in the way, the unit takes
 the shortest way round (`lib/path.cjs`: a 1" grid, pulled straight, with the distance measured along the path and
-difficult terrain still costing its flat 2" once). Charges and pursuits stay straight lines at their target. The AI
+difficult terrain still costing its flat 2" once). Pursuits stay straight lines at their target; charges go round
+what's in the way (below). The AI
 scores each candidate move at the point it would really reach, not at the point it aims for. Before this, 44% of
 the World Eaters' Rhino moves stopped short of a spot the AI rated higher, two thirds of them behind a friendly
 unit; now 34% do, and nearly all of those are spots the way round can't reach in one move or at all. The average
@@ -587,7 +588,7 @@ Five sources, marked in the code:
 | Reserves | models within 2" of the enemy on arrival are that share of the footprint, troopers first |
 | Hidden Caches | "under a model" is anywhere under a unit's footprint; a marker still blocked at the edge stays there |
 | Flyers | mounts read from wargear names; Centreline Guided Missiles still Snap Shots on a Strike Mission; every attack at a Flyer not strafing is a Snap Shot; a Combat Air Patrol raises the Reserves target; units aboard share the Flyer's Aerial Reserves; the AI may keep a Flyer up when nothing is worth the risk |
-| Coherency | every unit is a packed circle, so it's always in coherency and casualties re-pack it, as if the player removes models to keep it together; a stretched line, and a rare break after a Precision kill, aren't shown |
+| Coherency | every unit is a packed circle, so it's always in coherency and casualties re-pack it, as if the player removes models to keep it together; a stretched line, and a rare break after a Precision kill, aren't shown. The models removed come off the side away from the marker the unit holds (else the enemy it fights, else the nearest enemy): the circle shrinks with its nearest edge in place, so losses alone don't pull a unit off a marker or out of range |
 | Psychic | Mind-burst and Tranquillity take the Focus's Manifestation Check, as their texts say; the AI manifests Mind-burst with a unit that stayed put and Foresight's Blessing just before the attack; a joined character can't be Resurrected; a Pyromancer explodes once the attack that killed him is over; Tranquillity's -1 Strength comes before Force |
 | Not simulated | two choices the AI never makes: removing a Flyer from the battle instead of returning it, and embarking a unit on a Flyer waiting in Aerial Reserves (Extraction still picks units up); the optional Wrecked Vehicles rule; Sudden Death is there (`runBattle(..., { suddenDeath: true })`) but off, as the pack's missions leave it out |
 
