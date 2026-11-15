@@ -64,8 +64,24 @@ const canReact = (u, inCombatOK = false) => !u.destroyed && u.arrived && !u.emba
   && (inCombatOK || !u.lockedWith.size) && !u.cond?.has('Stupefied') && !alive(u).every((m) => /Automata|Flyer|Fortification/.test(m.unitType));
 const available = (state, side, name) => state.reactionSet?.[side]?.has(name) && !(ONCE_PER_BATTLE.has(name) && state.usedOnce[side].has(name));
 
+/**
+ * Master of War (Horus): +1 to the army's Reaction Allotment in each Turn, unless he has been Removed as a Casualty
+ * (CONFIRMED). battle.cjs sets the allotment at the start of each Player Turn; the point is added here, the first time
+ * the side weighs a reaction in that turn, which comes to the same thing as every allotment starts at 1 or more.
+ */
+function masterOfWar(state, side) {
+  const key = `${state.round}:${state.active}`;
+  state.masterOfWar = state.masterOfWar || [null, null];
+  if (state.masterOfWar[side] === key || !state.units) return;
+  state.masterOfWar[side] = key;
+  // (the data lists it among Horus's wargear)
+  if (!state.units.some((u) => u.side === side && u.models.some((m) => m.wounds > 0 && (has(m.rules, 'Master of War') || (m.items || []).includes('Master of War'))))) return;
+  state.reactionsLeft[side] += 1;
+  if (state.log) state.log(`    (Master of War: +1 to ${state.armies?.[side]?.name || 'the'} Reaction Allotment)`);
+}
 /** Pay for a reaction (cost: points of the allotment, 1 for nearly all) and mark the reacting unit. */
 function spend(state, side, name, unit, cost = 1) {
+  masterOfWar(state, side);
   // Tactical Flexibility (Ultramarines): one reaction a turn costs nothing
   if (unit && legions.is(unit, 'Ultramarines') && state.umFlex && !state.umFlex[side]) { state.umFlex[side] = true; state.log(`    (Tactical Flexibility: no Reaction Point spent)`); }
   else state.reactionsLeft[side] -= cost;
@@ -78,6 +94,7 @@ function spend(state, side, name, unit, cost = 1) {
  * costs more than one point (Guns of the Conqueror: 3) is weighed by its value per point.
  */
 function choose(state, side, options, phase) {
+  masterOfWar(state, side);
   if (state.reactionsLeft[side] <= 0) return null;
   const per = (o) => o.value / (o.cost || 1);
   // Neural Collars: a collared unit out of its masters' reach can't react
@@ -160,9 +177,12 @@ function lockInto(state, a, b, why) {
   a.turn.charged = true;
   state.log(`    ${a.name} ${why}: Locked in Combat with ${b.name}`);
 }
-/** A reaction Charge Roll for a unit against a target; true if it reaches. */
+/**
+ * A reaction Charge Roll for a unit against a target; true if it reaches. Lies and Obfuscation: an Alpha Legion target
+ * counts as 2" further away for any Reaction declared by an enemy (CONFIRMED).
+ */
 function reactionCharge(state, u, t, why) {
-  const need = gap(u, t);
+  const need = gap(u, t) + legions.rangePenalty(t);
   const roll = core.chargeRoll(u, state.dice);
   state.log(`    ${u.name} ${why}: charge roll ${roll} (needed ${need.toFixed(1)}")`);
   if (roll >= need) { lockInto(state, u, t, why); return true; }
@@ -207,7 +227,9 @@ function onShot(state, shooter, target) {
       } });
     }
     if (allTrait(target, 'Space Wolves')) {
-      const reach = core.setupMove(target) >= gap(target, shooter) ? ai.meleeEV(state, target, shooter) * 0.6 : 0;
+      // (the shooter counts as 2" further away if it's Alpha Legion: Lies and Obfuscation)
+      const far = () => gap(target, shooter) + legions.rangePenalty(shooter);
+      const reach = core.setupMove(target) >= far() ? ai.meleeEV(state, target, shooter) * 0.6 : 0;
       const o = buffOpt('Bestial Savagery', { fnp: 5 }, 1.3, 'phase', reach);
       const ap = o.apply;
       o.apply = () => {
@@ -215,7 +237,9 @@ function onShot(state, shooter, target) {
         out.after.push(() => {
           if (target.destroyed || shooter.destroyed || target.lockedWith.size || shooter.lockedWith.size) return;
           const s = core.setupMove(target);
-          if (s >= gap(target, shooter)) { lockInto(state, target, shooter, 'Bestial Savagery'); addBuff(target, { autoPass: true }, 'phase'); return; }
+          // a charge made in the Shooting Phase: bonuses that last "until the end of the Phase" are gone by the Assault
+          // Phase (assault.cjs)
+          if (s >= far()) { lockInto(state, target, shooter, 'Bestial Savagery'); target.turn.chargePhase = 'shooting'; addBuff(target, { autoPass: true }, 'phase'); return; }
           require('./move.cjs').moveUnit(state, target, shooter, s, { charging: true, target: shooter, ignoreDifficult: true });
           state.log(`    ${target.name} makes a Set-up Move towards ${shooter.name} (Bestial Savagery)`);
         });
@@ -239,11 +263,13 @@ function onShot(state, shooter, target) {
       const ap = o.apply; o.apply = () => { target.statuses.clear(); ap(); };
       opts.push(o);
     }
-    // Brutal Tide (World Eaters, Legiones Astartes)
+    // Brutal Tide (World Eaters, Legiones Astartes): Eternal Warrior (1) for the Shooting Phase, then a Charge Roll
+    // at the shooter. The charge's bonuses that last "until the end of the Phase" (Violence Incarnate) end with the
+    // Shooting Phase (CONFIRMED), so it's marked as made in that phase (assault.cjs)
     if (allTrait(target, 'World Eaters') && !legions.hereticus(target) && !isVeh(target)) {
-      const o = buffOpt('Brutal Tide', { ew: 1 }, 1.3, 'phase', ai.chargeChance(target, gap(target, shooter)) * ai.meleeEV(state, target, shooter) * 0.8);
+      const o = buffOpt('Brutal Tide', { ew: 1 }, 1.3, 'phase', ai.chargeChance(target, gap(target, shooter) + legions.rangePenalty(shooter)) * ai.meleeEV(state, target, shooter) * 0.8);
       const ap = o.apply;
-      o.apply = () => { ap(); out.after.push(() => { if (!target.destroyed && !shooter.destroyed && !target.lockedWith.size) reactionCharge(state, target, shooter, 'Brutal Tide'); }); };
+      o.apply = () => { ap(); out.after.push(() => { if (!target.destroyed && !shooter.destroyed && !target.lockedWith.size && reactionCharge(state, target, shooter, 'Brutal Tide')) target.turn.chargePhase = 'shooting'; }); };
       opts.push(o);
     }
     // Take Cover: move D6", then Shrouded (6+) for this attack; Shadow Veil: move I", then Shrouded (5+) for the phase
@@ -266,7 +292,8 @@ function onShot(state, shooter, target) {
           if (target.destroyed || shooter.destroyed) return;
           require('./move.cjs').moveUnit(state, target, shooter, ai.moveOf(target));
           state.log(`    ${target.name} surges towards ${shooter.name} (Wrath of Angels)`);
-          if (gap(target, shooter) <= 6) state.pendingMorale.push({ unit: shooter, type: 'Pinning', x: 0, from: target.name });
+          // Lies and Obfuscation: an Alpha Legion shooter counts as 2" further away (CONFIRMED)
+          if (gap(target, shooter) + legions.rangePenalty(shooter) <= 6) state.pendingMorale.push({ unit: shooter, type: 'Pinning', x: 0, from: target.name });
         }) });
     }
     if (allTrait(target, 'Word Bearers')) {
@@ -405,14 +432,16 @@ function onArrive(state, arrival) {
   const opts = [];
   for (const u of state.units) {
     if (u.side !== side || !canReact(u)) continue;
+    // Lies and Obfuscation: an Alpha Legion arrival counts as 2" further away for the reactions (CONFIRMED)
+    const far = gap(u, arrival) + legions.rangePenalty(arrival);
     // Set the Sky Aflame: a unit arriving by Deep Strike can't be Intercepted from more than 12" away (CONFIRMED)
-    if (arrival.turn?.arrivedDeep && has(arrival.rules, 'Set the Sky Aflame') && gap(u, arrival) > 12) continue;
+    if (arrival.turn?.arrivedDeep && has(arrival.rules, 'Set the Sky Aflame') && far > 12) continue;
     // Intercept (Core, SHEET): Snap Shots at a unit arriving from Reserves; Vehicles use Defensive weapons
     const iv = planVolley(u, arrival, state, { snap: true, exclude: (w) => u.vehicle && !core.isDefensive(w) }).expectedPts;
     if (iv > 0) opts.push({ name: 'Intercept', unit: u, value: iv, apply: () => shoot(state, u, arrival, { snap: true, reaction: true, defensiveOnly: u.vehicle, label: 'Intercepts' }) });
     if (!available(state, side, 'Moonfall')) continue;
     const m = alive(u).find((x) => (x.traits || []).includes('Burning Sky') && /Command|Paragon/.test(x.unitType));
-    if (!m || gap(u, arrival) > 18) continue;
+    if (!m || far > 18) continue;
     const g = rangedGroup(m, MOONFALL, arrival, {});
     const v = expectedGroup(g, arrival) * valuePerWound(arrival) + 8; // plus the Pinning check
     opts.push({ name: 'Moonfall', unit: u, value: v, apply: () => {
@@ -445,6 +474,9 @@ function onCharge(state, u, t) {
   const { fallBack, moveUnit } = require('./move.cjs');
   const hurt = ai.meleeEV(state, u, t);
   const back = ai.meleeEV(state, t, u);
+  // Lies and Obfuscation (CONFIRMED): an Alpha Legion charger counts as 2" further away for the target's reaction
+  // charges (reactionCharge), and an Alpha Legion target 2" further away for the charge itself
+  const far = gap(u, t) + legions.rangePenalty(u), reach = gap(u, t) + legions.rangePenalty(t);
   const opts = [];
   // Overwatch (Core, SHEET): a normal Shooting Attack at the charger instead of the target's Volley, so it's only
   // paid for if the charge gets to Step 4
@@ -469,7 +501,7 @@ function onCharge(state, u, t) {
   // Perfect Counter (Emperor's Children, Legiones Astartes): after the Set-up Move, the target charges the charger
   // and takes the charge bonuses
   if (allTrait(t, "Emperor's Children") && !legions.hereticus(t)) {
-    opts.push({ name: 'Perfect Counter', unit: t, step: 3.5, value: ai.chargeChance(t, Math.max(0, gap(u, t) - core.setupMove(u))) * 0.35 * (hurt + back),
+    opts.push({ name: 'Perfect Counter', unit: t, step: 3.5, value: ai.chargeChance(t, Math.max(0, far - core.setupMove(u))) * 0.35 * (hurt + back),
       apply: () => (reactionCharge(state, t, u, 'Perfect Counter') ? 'locked' : undefined) });
   }
   // Spite of the Gorgon (Iron Hands): full-BS shooting with +1 Firepower before the Set-up Move; no Volley later
@@ -491,25 +523,25 @@ function onCharge(state, u, t) {
   // possible roll, the charge fails
   if (alive(t).every((m) => /Cavalry|Light/.test(m.unitType))) {
     const I = num(alive(t)[0]?.p.I, 3);
-    const p = gap(u, t) + I > maxChargeRange(u) - core.setupMove(u) ? 0.8 : 0.2;
+    const p = reach + I > maxChargeRange(u) - core.setupMove(u) ? 0.8 : 0.2;
     opts.push({ name: 'Evade', unit: t, step: 4.5, value: p * hurt, apply: () => {
       const away = { x: t.x + (t.x - u.x), y: t.y + (t.y - u.y) };
       moveUnit(state, t, away, I);
-      if (gap(u, t) > 6 + Math.min(...alive(u).map((m) => xOf(m.rules, 'Fast') || 0))) { state.log(`    ${t.name} evades out of reach`); return 'fail'; }
+      if (gap(u, t) + legions.rangePenalty(t) > 6 + Math.min(...alive(u).map((m) => xOf(m.rules, 'Fast') || 0))) { state.log(`    ${t.name} evades out of reach`); return 'fail'; }
     } });
   }
   // Better Part of Valour (Night Lords): Fall Back as if Routed, without becoming Routed
   if (allTrait(t, 'Night Lords')) {
     const I = num(alive(t)[0]?.p.I, 3);
     const toEdge = t.side === 0 ? t.y - t.r : H - t.y - t.r;
-    const escape = 1 - ai.chargeChance(u, Math.max(0, gap(u, t) - core.setupMove(u)) + I + 3.5);
+    const escape = 1 - ai.chargeChance(u, Math.max(0, reach - core.setupMove(u)) + I + 3.5);
     opts.push({ name: 'Better Part of Valour', unit: t, step: 4.5, value: toEdge > I + 7 ? escape * hurt - (t.heldObjective ? ai.VP_WORTH : 0) : 0,
       apply: () => { fallBack(state, t); } });
   }
   // Furious Charge (World Eaters, Legiones Hereticus): if Volleys killed any of the target, it counter-charges,
   // Lost to the Nails
   if (allTrait(t, 'World Eaters') && legions.hereticus(t)) {
-    const v = ai.chargeChance(t, Math.max(0, gap(u, t) - core.setupMove(u))) * 0.35 * (hurt + back) + back * 0.15;
+    const v = ai.chargeChance(t, Math.max(0, far - core.setupMove(u))) * 0.35 * (hurt + back) + back * 0.15;
     opts.push({ name: 'Furious Charge', unit: t, step: 4.5, deferred: true, value: v * 0.6,
       apply: (ctx) => {
         if (!ctx.volleyKills) return 'skip';

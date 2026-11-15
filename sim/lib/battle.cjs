@@ -377,14 +377,17 @@ function effectsSubPhase(state, side) {
     if (u.side === side && u.buffs?.some((b) => b.until === 'effects')) { u.buffs = u.buffs.filter((b) => b.until !== 'effects'); reactions.refresh(u); }
     // Stupefied: a Cool Check in the controlling player's End Phase ends it (CONFIRMED)
     if (u.side === side && u.cond?.has('Stupefied') && check(state, u, 'CL', 0, 'to shake off Stupefied')) { u.cond.delete('Stupefied'); reactions.refresh(u); }
-    // Selfless Burden: in the following Statuses Sub-Phase, each 1 on a D6 per model is a wound (AP -, saves allowed)
+    // Selfless Burden: in the following Statuses Sub-Phase, each 1 on a D6 per model is 1 automatic wound, Damage 1,
+    // AP -, against which Saving Throws and Damage Mitigation Rolls may be taken (CONFIRMED): no Wound Test, so
+    // Promethean Endurance can't stop it. resolveGroup has no automatic wound of its own: every hit of Rending (1+)
+    // wounds automatically, and Rending does nothing else
     if (u.selflessBurden) {
       u.selflessBurden = false;
       let n = 0;
       for (const m of alive(u)) if (state.dice.d6() === 1) n++;
       if (n) {
         const { resolveGroup } = require('./attack.cjs');
-        const r = resolveGroup({ attacks: n, S: 99, AP: 7, D: 1, hitNeed: null, rules: [], melee: true }, u, { dice: state.dice, onKill: (m) => state.onCasualty(m, u, null) });
+        const r = resolveGroup({ attacks: n, S: 1, AP: 7, D: 1, hitNeed: 1, rules: ['Rending (1+)'], melee: true }, u, { dice: state.dice, onKill: (m) => state.onCasualty(m, u, null) });
         state.log(`    ${u.name} pays for Selfless Burden: ${r.unsaved} wounds`);
         state.afterDamage(u);
       }

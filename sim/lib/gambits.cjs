@@ -1,8 +1,8 @@
 'use strict';
 // Gambits: each model in a challenge picks one in the Face-Off step of every round.
 //
-// SHEET: the seven core gambits every duellist may pick. CONFIRMED (army data): the Rangdan three; character
-// gambits from data/bsdata/common.json with plain number effects. A gambit's effects are data:
+// CONFIRMED (rulebook, p258): the nine core gambits every duellist may pick. CONFIRMED (army data): the Rangdan
+// three; character gambits from data/bsdata/common.json with plain number effects. A gambit's effects are data:
 //   focusDice 'high'|'low'  roll an extra Focus die and keep the highest or the lowest
 //   focus n                  +n to the Focus Roll
 //   attacks n / attacksD3    extra Attacks
@@ -14,8 +14,10 @@
 //   extraRules(w)            special rules added to the weapon
 //   testFoe                  take Challenge Advantage next round
 //   guardUp                  +1 to the next Focus Roll for each enemy miss
-//   crpIfWin n               +n Combat Resolution if this model wins the challenge
+//   crpIfWin n               +n Combat Resolution if this model wins the challenge (each time it's picked)
 //   onKill(state, me, opp)   effect when the opponent is slain this round
+//   withdraw                 in the Glory Step this model may end the challenge with no Combat Resolution for anyone
+//   feint                    the opponent may not pick the gambit this one names (assault.cjs passes the name back)
 // and the Legion gambits' (CONFIRMED, army data), worked in assault.cjs:
 //   oppCI1                   the opponent's Combat Initiative counts as 1 for the Focus Roll
 //   noCI                     this model's Combat Initiative isn't added to its Focus Roll
@@ -49,8 +51,9 @@
 //   lastStand n              reduced to 0 Wounds in the Strike Step, on an n+ it stays with 1 Wound and takes
 //                            Challenge Advantage (once per Strike Step)
 //   hitOn n                  Hit Tests in the Strike Step succeed on n+ (hitOnP: the chance, for the AI's estimate)
-// A gambit marked `first` may only be picked in the first Face-Off of a challenge. `can(m, me, opp)` gets the
-// opponent ({u, m}) when it's known.
+// A gambit marked `first` may only be picked in the first Face-Off of a challenge, one marked `lead` only by the
+// duellist picking first in a Face-Off. `can(m, me, opp)` gets the opponent ({u, m}) when it's known. No duellist may
+// pick a gambit the other picked in the same Face-Off (CONFIRMED, p257).
 const { has, xOf, save } = require('./rules.cjs');
 const { alive, passChance, check } = require('./checks.cjs');
 
@@ -64,13 +67,21 @@ const HAMMERBLOW = { name: 'Hammerblow', base: 'Hammerblow', IM: 'I', AM: 1, SM:
 // the Legions Saul Tarvitz's Bite of the Betrayed works against
 const BETRAYERS = ["Emperor's Children", 'World Eaters', 'Sons of Horus', 'Death Guard'];
 const GAMBITS = [
-  // core gambits (SHEET)
+  // core gambits (CONFIRMED, rulebook p258)
   { name: 'Seize the Initiative', can: anyone, make: () => ({ focusDice: 'high' }) },
   { name: 'Flurry of Blows', can: anyone, make: () => ({ attacksD3: true, dmgCap1: true }) },
   { name: 'Test the Foe', can: anyone, make: () => ({ testFoe: true }) },
   { name: 'Guard Up', can: anyone, make: () => ({ ws: 1, single: true, guardUp: true }) },
   { name: 'Taunt and Bait', can: anyone, make: () => ({ matchOpp: true, crpIfWin: 1 }) },
-  { name: 'Grandstand', can: anyone, make: (state, me) => ({ focusDice: 'low', attacks: Math.floor(alive(me.u).length / 5) }) },
+  // Grandstand: no Outside Support on the Focus Roll, but as many extra Attacks as it would have given (me.support,
+  // counted in assault.cjs)
+  { name: 'Grandstand', can: anyone, make: (state, me) => ({ focusDice: 'low', noSupport: true, attacks: (me && me.support) || 0 }) },
+  // Feint and Riposte: only for the duellist picking first; it names another gambit (any, a Faction's too), which the
+  // opponent may not pick in this Face-Off. Nothing else
+  { name: 'Feint and Riposte', lead: true, can: anyone, make: () => ({ feint: true }) },
+  // Withdraw: a single Attack; in the Glory Step the challenge may be ended with no Combat Resolution for either side,
+  // unless this model was Removed as a Casualty
+  { name: 'Withdraw', can: anyone, make: () => ({ single: true, withdraw: true }) },
   { name: 'Finishing Blow', can: anyone, make: () => ({ focusDice: 'low', str: 1, dmg: 1 }) },
   // Rangdan (data-rangdan.js)
   {
@@ -216,35 +227,64 @@ const available = (m, me, round = 1, opp = null) => GAMBITS.filter((g) => (!g.fi
 const focusShift = (e) => (e.focus || 0) + (e.focusDice === 'high' ? 0.97 : e.focusDice === 'low' ? -0.97 : 0);
 
 /**
- * Pick a gambit for `me` against `opp` ({u, m} pairs). duel(effects) returns the expected wound difference of
- * the coming Strike Step with those effects; a point of Focus is worth about an eighth of a wound.
+ * The gambits `me` may pick against `opp` ({u, m} pairs), each with the AI's value, best first ([{ g, v }]). duel(effects)
+ * returns the expected wound difference of the coming Strike Step with those effects; a point of Focus is worth about
+ * an eighth of a wound. opts: round, lead (picks first in this Face-Off), banned (names it may not pick), used (gambits
+ * it picked already, for the once-per-challenge ones), and the challenge's sums (see assault.cjs).
  */
-function choose(state, me, opp, duel, opts = {}) {
-  let best = null;
+function rank(state, me, opp, duel, opts = {}) {
+  const out = [];
   for (const g of available(me.m, me, opts.round || 1, opp)) {
     if (g.once && opts.used && opts.used.has(g.name)) continue;
-    const e = g.estimate ? g.estimate(state, me, opp) : g.make(state, me, opp);
-    // the Focus Roll change, from the challenge's own sums where it can tell (opts.focusDelta)
-    const df = opts.focusDelta ? opts.focusDelta(e) : focusShift(e);
-    let v = duel(e) + df * 0.12 + (e.onKill ? 0.3 : 0) + ((e.crpIfWin || 0) + (e.crpOnKill || 0) * 0.5) * 0.15;
-    if (e.testFoe) v += opts.moreRounds ? 0.15 : -0.5;
-    if (e.guardUp) v += 0.1;
-    if (e.overkill || e.onDeath) v += 0.15;
-    if (e.selfWound) v -= e.selfWound * 0.6;
-    if (e.sacrifice && opts.saveFail) v -= e.sacrifice * opts.saveFail;
-    // swapping out only pays when this model would fall; Decapitation Strike gives up the Focus Roll
-    if (e.swapOut) v = opts.wouldFall ? 0.5 : -1;
-    if (e.decap) v = (opts.decap ?? 0) - 0.2;
-    if (e.noEscape) v += opts.favoured ? 0.15 : -0.4;
-    // Dirty Fighter: the extra attack before the Focus Roll (opts.dirty: its expected wounds)
-    if (e.dirty) v += opts.dirty || 0;
-    // Seeker of Atonement: worth most when this model would otherwise fall
-    if (e.lastStand) v += opts.wouldFall ? ((7 - e.lastStand) / 6) * 2 : 0.05;
-    // Bite of the Betrayed lasts the whole challenge
-    if (e.persist && e.tough && opts.moreRounds) v += 0.1;
-    if (!best || v > best.v) best = { g, v };
+    if ((g.lead && !opts.lead) || (opts.banned && opts.banned.has(g.name))) continue;
+    out.push({ g, v: value(state, me, opp, duel, opts, g) });
   }
-  return best ? best.g : null;
+  return out.sort((a, b) => b.v - a.v);
+}
+/**
+ * Pick a gambit for `me` against `opp` (see rank). The duellist picking first also weighs what its pick takes from the
+ * other, which may not pick the same gambit (opts.rival(): the other's rank); Feint and Riposte does nothing else, and
+ * names the other's best (returned as `named`).
+ */
+function choose(state, me, opp, duel, opts = {}) {
+  const mine = rank(state, me, opp, duel, opts);
+  if (!mine.length) return null;
+  const theirs = opts.lead && opts.rival ? opts.rival() : null;
+  if (!theirs || !theirs.length) return mine[0].g;
+  // what the other loses without its best gambit: the gap to its next best
+  const top = theirs[0], loss = theirs[1] ? top.v - theirs[1].v : 0;
+  let best = null;
+  for (const { g, v } of mine) {
+    const denied = g.name === top.g.name || g.name === 'Feint and Riposte' ? loss : 0;
+    if (!best || v + denied > best.v) best = { g, v: v + denied };
+  }
+  return best.g.name === 'Feint and Riposte' ? Object.assign({}, best.g, { named: top.g.name }) : best.g;
+}
+/** The AI's value of one gambit (see rank). */
+function value(state, me, opp, duel, opts, g) {
+  const e = g.estimate ? g.estimate(state, me, opp) : g.make(state, me, opp);
+  // the Focus Roll change, from the challenge's own sums where it can tell (opts.focusDelta)
+  const df = opts.focusDelta ? opts.focusDelta(e) : focusShift(e);
+  let v = duel(e) + df * 0.12 + (e.onKill ? 0.3 : 0) + ((e.crpIfWin || 0) + (e.crpOnKill || 0) * 0.5) * 0.15;
+  if (e.testFoe) v += opts.moreRounds ? 0.15 : -0.5;
+  if (e.guardUp) v += 0.1;
+  if (e.overkill || e.onDeath) v += 0.15;
+  if (e.selfWound) v -= e.selfWound * 0.6;
+  if (e.sacrifice && opts.saveFail) v -= e.sacrifice * opts.saveFail;
+  // swapping out only pays when this model would fall; Decapitation Strike gives up the Focus Roll
+  if (e.swapOut) v = opts.wouldFall ? 0.5 : -1;
+  if (e.decap) v = (opts.decap ?? 0) - 0.2;
+  if (e.noEscape) v += opts.favoured ? 0.15 : -0.4;
+  // Dirty Fighter: the extra attack before the Focus Roll (opts.dirty: its expected wounds)
+  if (e.dirty) v += opts.dirty || 0;
+  // Seeker of Atonement: worth most when this model would otherwise fall
+  if (e.lastStand) v += opts.wouldFall ? ((7 - e.lastStand) / 6) * 2 : 0.05;
+  // Bite of the Betrayed lasts the whole challenge
+  if (e.persist && e.tough && opts.moreRounds) v += 0.1;
+  // Withdraw: the Glory the opponent would score, saved if this model stands to the end of the round and is behind
+  // (opts.behind: its expected deficit in wounds inflicted after the coming Strike Step)
+  if (e.withdraw) v += opts.wouldFall ? 0 : Math.max(0, opts.behind || 0) * 0.15;
+  return v;
 }
 
-module.exports = { GAMBITS, available, choose, focusShift };
+module.exports = { GAMBITS, available, rank, choose, focusShift };

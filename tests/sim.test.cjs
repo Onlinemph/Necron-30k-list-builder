@@ -152,9 +152,9 @@ test('reactions: each side gets the Core, generic, Legion and army reactions', (
 test('gambits: Rangda, Long Hunt and Slaugth models get their own', () => {
   const names = (u) => gambits.available(u.models[0]).map((g) => g.name);
   assert.ok(names(unit('rangdan', 'hunt-pack', { arkana: 'Iron Chain' })).includes("Hunter's Stare"));
-  const core7 = ['Seize the Initiative', 'Flurry of Blows', 'Test the Foe', 'Guard Up', 'Taunt and Bait', 'Grandstand', 'Finishing Blow'];
+  const core9 = ['Seize the Initiative', 'Flurry of Blows', 'Test the Foe', 'Guard Up', 'Taunt and Bait', 'Grandstand', 'Feint and Riposte', 'Withdraw', 'Finishing Blow'];
   // a Legion model also has its Legion's gambit
-  assert.deepEqual(names(unit('sons-of-horus', 'tactical-squad')), [...core7, 'Merciless Strike']);
+  assert.deepEqual(names(unit('sons-of-horus', 'tactical-squad')), [...core9, 'Merciless Strike']);
   const th = gambits.GAMBITS.find((g) => g.name === 'Throat-Hunter').make(null, {}, { u: { statuses: new Set(['Pinned']) } });
   assert.deepEqual(th.extraRules({ AP: 3 }), ['Breaching (4+)']);
   assert.deepEqual(th.extraRules({ AP: 2 }), ['Shred (6+)']);
@@ -898,6 +898,181 @@ test('rulebook: Thousand Sons sorcerers carry their disciplines; Warp Rupture is
   assert.ok(s.rules.includes('Shrouded (4+)') && s.rules.includes('Impact (Strength)'));
   assert.ok(s.melee.some((w) => w.name === 'Conflagration'));
   assert.equal(s.ranged.find((w) => w.name === 'Wildfire').R, 18);
+});
+
+// ---------- the Assault Phase and reactions, checked against the rulebook ----------
+const assault = require('../sim/lib/assault.cjs');
+const { footprint, CCW } = require('../sim/lib/army.cjs');
+/** The unit with n models, copies of its own (the last one repeated). */
+const sized = (u, n) => { u.models = Array.from({ length: n }, (_, i) => Object.assign({}, u.models[Math.min(i, u.models.length - 1)])); u.r = footprint(u); return u; };
+const lock = (a, b) => { a.lockedWith.add(b); b.lockedWith.add(a); };
+/** Enough of a battle's state to fight and resolve a combat (zones: side 0 at the top edge, side 1 at the bottom). */
+const fightState = (units, dice, lines = []) => ({
+  dice, units, log: (s) => lines.push(s), cache: { melee: new Map(), shoot: new Map() }, active: 0, round: 1, pendingMorale: [], armies: [{ name: 'Blue' }, { name: 'Red' }],
+  table: { pieces: [], objectives: [] }, zoneOf: [{ poly: [[0, 0], [72, 0], [72, 12], [0, 12]] }, { poly: [[0, 36], [72, 36], [72, 48], [0, 48]] }],
+  onCasualty: () => {}, afterDamage: (u) => { if (!u.models.some((m) => m.wounds > 0)) u.destroyed = true; else u.r = footprint(u); },
+});
+
+test('rulebook: only Engaged models fight, estimated from the footprints, the 2" band and the Pile-in', () => {
+  const tac = (side, n) => sized(unit(side ? 'ultramarines' : 'sons-of-horus', 'tactical-squad', {}, side), n);
+  const count = (a, b) => { lock(a, b); return assault.engagedModels(new Map([[a, { order: [b], list: a.models.map((m) => ({ m })) }]])).count.get(a); };
+  assert.deepEqual(count(tac(0, 10), tac(1, 10)), [10, 10]);
+  // forty against ten: the back ranks can't reach the band round the enemy, which holds only so many bases
+  const [k] = count(tac(0, 40), tac(1, 10));
+  assert.ok(k > 15 && k < 30, `${k}`);
+  // a lone model in combat is always Engaged
+  assert.deepEqual(count(unit('death-guard', 'mortarion'), tac(1, 10)), [1, 1]);
+  // in the Fight Sub-Phase only the Engaged ones attack
+  const big = Object.assign(tac(0, 40), { x: 20, y: 24 }), small = tac(1, 10);
+  Object.assign(small, { x: 20 + big.r + small.r, y: 24 });
+  lock(big, small);
+  const lines = [];
+  assault.fight(fightState([big, small], createDice(3), lines), [[big], [small]]);
+  assert.ok(lines.some((l) => /Tactical Squad: \d+ of 40 models Engaged/.test(l)), lines.join('\n'));
+});
+
+test("rulebook: a combat's Panic Check is one Leadership Check for the losing side, on its best Leadership, and a failure routs them all", () => {
+  const win = Object.assign(unit('sons-of-horus', 'tactical-squad', {}, 0), { x: 36, y: 20 });
+  const l1 = Object.assign(unit('ultramarines', 'tactical-squad', {}, 1), { x: 36, y: 26 }), l2 = Object.assign(unit('ultramarines', 'tactical-squad', {}, 1), { x: 42, y: 24 });
+  lock(win, l1); lock(win, l2);
+  win.statuses.add('Pinned'); // it can't Pursue
+  const lines = [];
+  const st = Object.assign(fightState([win, l1, l2], scripted([6, 6]), lines), { mission: { has: (m) => m === 'No Quarter' }, award: () => {} });
+  assault.resolve(st, [[win], [l1, l2]], { kills: [6, 0], glory: [0, 0] });
+  assert.ok(lines.includes('    combat resolution 6–1'), lines.join('\n'));
+  const checks = lines.filter((l) => /Panic Check, lost the combat/.test(l));
+  assert.equal(checks.length, 1);
+  // the Sergeant's Leadership 8 (the majority have 7), less the difference of 5
+  assert.match(checks[0], /against 3, failed/);
+  assert.ok(l1.statuses.has('Routed') && l2.statuses.has('Routed') && !l1.lockedWith.size && !l2.lockedWith.size);
+});
+
+test('rulebook: a Routed unit Falls Back at the end of the Resolution Sub-Phase even when its side won or drew', () => {
+  for (const kills of [[3, 0], [0, 0]]) {
+    const a = Object.assign(unit('sons-of-horus', 'tactical-squad', {}, 0), { x: 36, y: 20 });
+    const b = Object.assign(unit('ultramarines', 'tactical-squad', {}, 1), { x: 36, y: 25.4 });
+    lock(a, b); a.statuses.add('Routed');
+    const lines = [];
+    // when b loses, it passes its Panic Check on a double 1 and stays
+    assault.resolve(fightState([a, b], scripted([1, 1]), lines), [[a], [b]], { kills, glory: [0, 0] });
+    assert.ok(lines.some((l) => /^ {2}Tactical Squad falls back/.test(l)), lines.join('\n'));
+    assert.ok(!a.lockedWith.size && a.y < 20 && !b.statuses.has('Routed'));
+  }
+});
+
+test('rulebook: Outside Support counts Engaged friends from every unit in the combat, not statused ones; a Walker counts five; alone, +2 per five or part', () => {
+  const champ = unit('sons-of-horus', 'legion-champion', {}, 0), friends = unit('sons-of-horus', 'tactical-squad', {}, 0);
+  const foes = unit('ultramarines', 'tactical-squad', {}, 1), praetor = unit('ultramarines', 'praetor', {}, 1);
+  for (const u of [champ, friends]) lock(u, foes);
+  lock(praetor, champ);
+  champ.models[0].inChallenge = praetor.models[0].inChallenge = true;
+  const x = { u: champ, m: champ.models[0] };
+  // the duellist's own unit has no one else: the ten from the other unit give +2
+  assert.equal(assault.outsideSupport({}, [[champ, friends], [praetor, foes]], x), 2);
+  friends.statuses.add('Pinned');
+  assert.equal(assault.outsideSupport({}, [[champ, friends], [praetor, foes]], x), 0);
+  friends.statuses.clear();
+  // five models and a Walker: 5 + 5
+  sized(friends, 6);
+  friends.models[5] = Object.assign({}, friends.models[5], { unitType: 'Walker' });
+  assert.equal(assault.outsideSupport({}, [[champ, friends], [praetor, foes]], x), 2);
+  // the enemy has no one but its duellist: +2 for every five or part of five, statuses or not
+  const six = sized(unit('sons-of-horus', 'tactical-squad', {}, 0), 6);
+  six.statuses.add('Pinned');
+  assert.equal(assault.outsideSupport({}, [[champ, six], [praetor]], x), 4);
+  assert.equal(assault.outsideSupport({}, [[champ], [praetor, foes]], { u: praetor, m: praetor.models[0] }), 4);
+});
+
+test('rulebook: Grandstand trades Outside Support for Attacks; Feint and Riposte names a gambit; a picked gambit is barred to the other; Withdraw', () => {
+  const g = (n) => gambits.GAMBITS.find((x) => x.name === n);
+  assert.deepEqual(g('Grandstand').make(null, { support: 3 }), { focusDice: 'low', noSupport: true, attacks: 3 });
+  const me = { u: { models: [{ wounds: 1 }], statuses: new Set() }, m: { traits: [], rules: [], wounds: 1, p: {} } };
+  // picking first against an opponent whose best gambit is far better than its next: Feint and Riposte, naming it
+  const rival = () => [{ g: g('Finishing Blow'), v: 5 }, { g: g('Seize the Initiative'), v: 0.1 }];
+  const pick = gambits.choose(null, me, me, () => 0, { lead: true, rival });
+  assert.deepEqual([pick.name, pick.named], ['Feint and Riposte', 'Finishing Blow']);
+  // picking second: no Feint and Riposte, and not the gambit already picked
+  const names = gambits.rank(null, me, me, () => 0, { banned: new Set(['Seize the Initiative']) }).map((x) => x.g.name);
+  assert.ok(!names.includes('Feint and Riposte') && !names.includes('Seize the Initiative') && names.includes('Withdraw'));
+  // Withdraw: worth it when well behind on wounds, not when the model would fall anyway
+  assert.equal(gambits.choose(null, me, me, (e) => (e.single ? -0.1 : 0), { behind: 4 }).name, 'Withdraw');
+  assert.notEqual(gambits.choose(null, me, me, (e) => (e.single ? -0.1 : 0), { behind: 4, wouldFall: true }).name, 'Withdraw');
+});
+
+test('rulebook: Withdraw ends a losing challenge with no Combat Resolution; Never Back Down must challenge and accept', () => {
+  const duel = (withdraw) => {
+    const a = Object.assign(unit('sons-of-horus', 'legion-champion', {}, 0), { x: 30, y: 20 }), b = Object.assign(unit('sons-of-horus', 'legion-champion', {}, 1), { x: 32, y: 20 });
+    // a hits hard but b can't fall in one round, and b can't wound a: whoever holds Challenge Advantage stops after one
+    Object.assign(a.models[0], { melee: [CCW], p: Object.assign({}, a.models[0].p, { A: 10, WS: 10, T: 10 }) });
+    Object.assign(b.models[0], { wounds: 200, maxWounds: 200, melee: [CCW], p: Object.assign({}, b.models[0].p, { W: 200, S: 1, SAV: '–', INV: '–' }) });
+    lock(a, b);
+    const lines = [];
+    const choose = gambits.choose;
+    gambits.choose = (st, me) => g(me.m === b.models[0] && withdraw ? 'Withdraw' : 'Seize the Initiative');
+    try { return { tally: assault.fight(fightState([a, b], createDice(5), lines), [[a], [b]]), lines }; } finally { gambits.choose = choose; }
+  };
+  const g = (n) => gambits.GAMBITS.find((x) => x.name === n);
+  // neither would challenge on its own (a's edge against 200 Wounds is tiny): Never Back Down makes a declare it
+  const r = duel(true);
+  assert.ok(r.lines.some((l) => /Legion Champion challenges, Legion Champion accepts/.test(l)) && r.lines.some((l) => /withdraws from the challenge/.test(l)), r.lines.join('\n'));
+  assert.deepEqual(r.tally.glory, [0, 0]);
+  assert.ok(duel(false).tally.glory[0] > 0);
+  // a Legion Champion must accept even Mortarion's challenge, which it would otherwise refuse
+  const meet = (nbd) => {
+    const m = Object.assign(unit('death-guard', 'mortarion', {}, 0), { x: 30, y: 20 }), c = Object.assign(unit('sons-of-horus', 'legion-champion', {}, 1), { x: 32, y: 20 });
+    if (!nbd) c.models[0].rules = [];
+    lock(m, c);
+    const lines = [];
+    assault.fight(fightState([m, c], createDice(2), lines), [[m], [c]]);
+    return lines.join('\n');
+  };
+  assert.match(meet(true), /Mortarion challenges, Legion Champion accepts/);
+  assert.match(meet(false), /refused/);
+});
+
+test('rulebook: Selfless Burden wounds are automatic (no Wound Test, so no Promethean Endurance), saves allowed', () => {
+  // the group battle.cjs makes for Selfless Burden's 1s: every hit of Rending (1+) wounds automatically
+  const sal = unit('salamanders', 'tactical-squad', {}, 0);
+  for (const m of sal.models) Object.assign(m, { wounds: 100, maxWounds: 100, p: Object.assign({}, m.p, { SAV: '–', INV: '–' }) });
+  const r = resolveGroup({ attacks: 60, S: 1, AP: 7, D: 1, hitNeed: 1, rules: ['Rending (1+)'], melee: true }, sal, { dice: createDice(8) });
+  assert.equal(r.damage, 60);
+});
+
+test("rulebook: Violence Incarnate and Flawless Execution last the phase of the charge, so a Shooting Phase charge (Brutal Tide) gives nothing in the Assault Phase", () => {
+  const we = unit('world-eaters', 'tactical-squad', {}, 1), ec = unit('emperors-children', 'tactical-squad', {}, 1);
+  const m = ec.models[0], w = m.melee[0];
+  for (const u of [we, ec]) u.turn = { charged: true };
+  assert.equal(assault.meleeMods(we).attacks, 1);
+  const ci = assault.combatInitiative(ec, m, w);
+  for (const u of [we, ec]) u.turn.chargePhase = 'shooting';
+  assert.equal(assault.meleeMods(we).attacks, 0);
+  assert.equal(assault.combatInitiative(ec, m, w), ci - 1);
+});
+
+test('rulebook: Lies and Obfuscation adds 2" to an Alpha Legion charger for a reaction Charge Roll (Furious Charge)', () => {
+  const al = Object.assign(unit('alpha-legion', 'tactical-squad', {}, 0), { x: 30, y: 20, arrived: true });
+  const we = Object.assign(unit('world-eaters', 'rampager-squad', {}, 1), { x: 30, y: 28, arrived: true, rite: 'Hereticus' });
+  for (const m of we.models) m.ranged = [];
+  const lines = [];
+  const st = Object.assign(fightState([al, we], createDice(4), lines), { reactionsLeft: [0, 3], reactionSet: [new Set(), new Set(['Overwatch', 'Furious Charge'])], usedOnce: [new Set(), new Set()], reactionCount: [{}, {}] });
+  const pick = reactions.onCharge(st, al, we);
+  assert.equal(pick && pick.name, 'Furious Charge');
+  const need = gap(we, al) + 2;
+  pick.apply({ volleyKills: 1 });
+  assert.ok(lines.some((l) => l.includes(`Furious Charge: charge roll`) && l.includes(`needed ${need.toFixed(1)}"`)), lines.join('\n'));
+});
+
+test('rulebook: Master of War gives Horus\'s army +1 Reaction Point each turn while he lives', () => {
+  const spent = (withHorus) => {
+    const host = Object.assign(unit('sons-of-horus', 'tactical-squad', {}, 1), { arrived: true }), other = Object.assign(unit('sons-of-horus', 'tactical-squad', {}, 1), { arrived: true });
+    const units = [host, other, ...(withHorus ? [unit('sons-of-horus', 'horus-lupercal', {}, 1)] : [])];
+    const st = Object.assign(fightState(units, createDice(1)), { reactionsLeft: [0, 1], reactionSet: [new Set(), new Set(['Heroic Intervention'])], usedOnce: [new Set(), new Set()], reactionCount: [{}, {}] });
+    const made = [reactions.heroicIntervention(st, 1, host, 1), reactions.heroicIntervention(st, 1, other, 1)];
+    return { made, left: st.reactionsLeft[1] };
+  };
+  // one point without him; two with him, the extra added once in the turn
+  assert.deepEqual(spent(false), { made: [true, false], left: 0 });
+  assert.deepEqual(spent(true), { made: [true, true], left: 0 });
 });
 
 // ---------- shooting rules from the rulebook: Blast scatter, Barrage, firing arcs, Skyfire and the rest ----------

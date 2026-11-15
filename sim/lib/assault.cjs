@@ -12,18 +12,23 @@ const psychic = require('./psychic.cjs');
 const { gap, dist, lineOfSight } = require('./table.cjs');
 const { alive, check, addStatus, passChance, statusCheck } = require('./checks.cjs');
 const { moveUnit, fallBack } = require('./move.cjs');
+const { footprint } = require('./army.cjs');
 const ai = require('./ai.cjs');
 const core = require('./core.cjs');
 const { canReact, meleeMods: buffMods, lockInto } = require('./reactions.cjs');
 const legions = require('./legions.cjs');
+// Violence Incarnate and Flawless Execution last "until the end of the Phase" of the charge (CONFIRMED), so a charge
+// made in the Shooting Phase (Brutal Tide, Bestial Savagery: reactions.cjs marks it) gives them nothing in the Assault
+// Phase; Encarmine Fury lasts until the end of the Turn, so it still does
+const chargedThisPhase = (u) => !!u.turn?.charged && u.turn.chargePhase !== 'shooting';
 /**
  * Melee modifiers for a unit: reaction and condition buffs, plus Legion Tacticas: Violence Incarnate (World Eaters,
- * +1 A) and Encarmine Fury (Blood Angels, +1 S) on a turn they charged; A Talent for Murder (Night Lords, +1 WS)
- * against units with a Tactical Status.
+ * +1 A) in the phase they charged and Encarmine Fury (Blood Angels, +1 S) on a turn they charged; A Talent for Murder
+ * (Night Lords, +1 WS) against units with a Tactical Status.
  */
 function meleeMods(u) {
   const m = Object.assign({ attacks: 0, str: 0, ws: 0 }, buffMods(u) || {});
-  if (u.turn?.charged && legions.tactica(u, 'World Eaters')) m.attacks += 1;
+  if (chargedThisPhase(u) && legions.tactica(u, 'World Eaters')) m.attacks += 1;
   if (u.turn?.charged && legions.is(u, 'Blood Angels')) m.str += 1;
   if (legions.is(u, 'Night Lords') && [...u.lockedWith].some((e) => !e.destroyed && e.statuses.size)) m.ws += 1;
   return m;
@@ -136,16 +141,128 @@ function combats(state) {
 // counts 1 (Bulky (X) is for Transport Capacity and Reaping Blow only, CONFIRMED by their texts)
 const modelCount = (units) => units.reduce((t, u) => t + alive(u).reduce((s, m) => s + (/Walker|Paragon/.test(m.unitType) ? num(m.p.W, 1) : 1), 0), 0);
 const canChallenge = (m) => /Command|Champion|Paragon/.test(m.unitType) && !m.vehicle;
-// Flawless Execution (Emperor's Children): +1 Combat Initiative on a turn they charged
-const combatInitiative = (unit, m, w) => (unit.statuses.size && core.status.anyFightsAtI1 ? 1 : rel(w.IM, num(m.p.I, 1)) + (unit.turn?.charged && legions.tactica(unit, "Emperor's Children") ? 1 : 0));
-function bestWeapon(m, target) {
+// Flawless Execution (Emperor's Children): +1 Combat Initiative in the phase they charged
+const combatInitiative = (unit, m, w) => (unit.statuses.size && core.status.anyFightsAtI1 ? 1 : rel(w.IM, num(m.p.I, 1)) + (chargedThisPhase(unit) && legions.tactica(unit, "Emperor's Children") ? 1 : 0));
+/** The melee weapon a model does most with against a target, and its expected damage ({ w, v }). */
+function weaponFor(m, target) {
   let best = m.melee.find((w) => target.vehicle || !has(w.specialRules, 'Detonation')) || m.melee[0], bv = -1;
   for (const w of m.melee) {
     if (has(w.specialRules, 'Detonation') && !target.vehicle) continue;
     const v = expectedGroup(meleeGroup(m, w, target, {}), target);
     if (v > bv) { bv = v; best = w; }
   }
-  return best;
+  return { w: best, v: Math.max(0, bv) };
+}
+const bestWeapon = (m, target) => weaponFor(m, target).w;
+
+// ---------- Engaged models ----------
+// Only Engaged models attack in an Initiative Step: those in Base Contact with an enemy model of the combat, or within
+// 2" of a model of their own unit that is, after a Pile-in Move of up to their Initiative (CONFIRMED, p265-266). Units
+// are circles here with no model positions, so how many of a unit's models are Engaged is estimated (ASSUMPTION):
+// - locked units count as touching: the charge and every Pile-in Move close them up again, though the footprints
+//   shrink as models fall;
+// - a model stands Engaged with its centre up to three base radii plus 2" from the enemy footprint's edge (a front
+//   rank in Base Contact, then 2" behind the backs of their bases), and a Pile-in Move reaches that band from its
+//   Initiative further back;
+// - the unit's models are spread evenly over its footprint, so the share that can reach the band is the share of
+//   its disc within that distance of the enemy disc;
+// - the band holds only so many bases: the part of it within the unit's Pile-in reach, at the packing of a deployed
+//   unit (army.cjs footprint);
+// - a unit locked with several enemy units has each model Engaged with one or another independently;
+// - the controlling player puts the models that fight best in front, so those are the Engaged ones.
+/** Area where two discs (radii r1, r2, centres d apart) overlap. */
+function lensArea(r1, r2, d) {
+  if (d >= r1 + r2) return 0;
+  if (d <= Math.abs(r1 - r2)) return Math.PI * Math.min(r1, r2) ** 2;
+  const a = r1 * r1 * Math.acos(Math.max(-1, Math.min(1, (d * d + r1 * r1 - r2 * r2) / (2 * d * r1))));
+  const b = r2 * r2 * Math.acos(Math.max(-1, Math.min(1, (d * d + r2 * r2 - r1 * r1) / (2 * d * r2))));
+  return a + b - 0.5 * Math.sqrt(Math.max(0, (-d + r1 + r2) * (d + r1 - r2) * (d - r1 + r2) * (d + r1 + r2)));
+}
+// a model's base radius (army.cjs footprint of the model alone), remembered on the model
+const baseOf = (m) => m.br ?? (m.br = footprint({ models: [Object.assign({}, m, { wounds: 1 })] }));
+const majorityOf = (vals) => { const n = new Map(); let best = null, c = -1; for (const v of vals) n.set(v, (n.get(v) || 0) + 1); for (const [v, k] of n) if (k > c || (k === c && v > best)) { best = v; c = k; } return best; };
+/** How many of unit u's n models (ms) can be Engaged with enemy unit e. */
+function engageable(u, ms, e) {
+  const n = ms.length;
+  if (!n || e.destroyed || !alive(e).length) return 0;
+  const br = majorityOf(ms.map(baseOf)), I = Math.max(0, majorityOf(ms.map((m) => num(m.p.I, 1))));
+  const R = Math.max(u.r, br), Rb = Math.max(e.r, 0.5), d = R + Rb, band = 3 * br + 2;
+  const share = d + R <= Rb + band + I ? 1 : lensArea(R, Rb + band + I, d) / (Math.PI * R * R);
+  const room = (lensArea(Rb + band, R + I, d) - lensArea(Rb, R + I, d)) / (Math.PI * (br + 0.3) ** 2 * 1.1025);
+  return Math.min(n * share, room);
+}
+/**
+ * The Engaged models of each unit in a combat. ranks: Map unit -> { order: its locked enemy units, the one it hurts
+ * most first; list: [{ m, v }] its models that can attack, best first }. Returns Map model -> the enemy unit it
+ * attacks, and Map unit -> [engaged, of]. A model goes to the first enemy unit in the unit's order that still has
+ * room for it among the models Engaged with that unit.
+ */
+function engagedModels(ranks) {
+  const target = new Map(), count = new Map();
+  for (const [u, { order, list }] of ranks) {
+    if (u.destroyed) continue;
+    const ms = list.filter((s) => s.m.wounds > 0 && !s.m.inChallenge);
+    const foes = order.filter((e) => !e.destroyed && alive(e).length);
+    if (!ms.length || !foes.length) continue;
+    const n = ms.length, models = ms.map((s) => s.m);
+    let miss = 1;
+    const per = foes.map((e) => { const k = engageable(u, models, e); miss *= 1 - Math.min(1, k / n); return k; });
+    const total = Math.min(n, Math.max(1, Math.round(n * (1 - miss))));
+    count.set(u, [total, n]);
+    let i = 0;
+    for (let f = 0; f < foes.length && i < total; f++) for (let j = Math.min(Math.round(per[f]), total - i); j > 0; j--) target.set(ms[i++].m, foes[f]);
+    while (i < total) target.set(ms[i++].m, foes[0]);
+  }
+  return { target, count };
+}
+/** Each unit's models that can attack in combat c, best fighters first, with the weapon each declares for the round. */
+function rankFighters(state, c) {
+  const ranks = new Map();
+  for (const side of [0, 1]) for (const u of c[side]) {
+    if (u.destroyed) continue;
+    const foes = [...u.lockedWith].filter((e) => !e.destroyed);
+    if (!foes.length) continue;
+    // each unit attacks the locked enemy unit it hurts most, and the next best with models not Engaged with that one
+    const ev = new Map(foes.map((e) => [e, ai.meleeEV(state, u, e)]));
+    const order = foes.sort((a, b) => ev.get(b) - ev.get(a));
+    const list = [];
+    for (const m of alive(u)) {
+      if (m.inChallenge || m.vehicle || !m.melee.length) continue;
+      const { w, v } = weaponFor(m, order[0]);
+      list.push({ u, m, t: order[0], w, v });
+    }
+    list.sort((a, b) => b.v - a.v);
+    ranks.set(u, { order, list });
+  }
+  return ranks;
+}
+/**
+ * Outside Support for duellist x ({u, m}) in combat c (CONFIRMED, p259): +1 to the Focus Roll for every five friendly
+ * models in the combat, from any of its units, that are Engaged and not Pinned, Stunned, Routed or Suppressed. Vehicles
+ * and Automata don't count, a Walker counts as five, a company standard five more and a Legion standard six more
+ * (CONFIRMED). If the other side has no model in the combat but its duellist, +2 instead for every five, or part of
+ * five, of the rest, Engaged or not and whatever their statuses. ASSUMPTION: models stand where the charge or the last
+ * round's Final Pile-in Moves put them, so a unit's Engaged share is engagedModels' estimate, spread evenly over its
+ * models, with any standard bearer in front.
+ */
+function outsideSupport(state, c, x) {
+  const side = x.u.side;
+  const rest = (s) => c[s].filter((u) => !u.destroyed).map((u) => [u, alive(u).filter((m) => !m.inChallenge)]);
+  const weight = (m) => (m.vehicle || /Automata/.test(m.unitType) ? 0 : /Walker/.test(m.unitType) ? 5 : 1);
+  const standards = (ms) => ms.reduce((t, m) => t + ((m.items || []).some((i) => /^Legion standard/i.test(i)) ? 6 : (m.items || []).some((i) => /^Company standard/i.test(i)) ? 5 : 0), 0);
+  const count = (ms) => ms.reduce((t, m) => t + weight(m), 0) + standards(ms);
+  const mine = rest(side);
+  if (!rest(1 - side).some(([, ms]) => ms.length)) return 2 * Math.ceil(mine.reduce((t, [, ms]) => t + count(ms), 0) / 5);
+  // the Engaged share of each friendly unit; no unit is ranked by weapon here, which leaves the share the same
+  const ranks = new Map(mine.map(([u, ms]) => [u, { order: [...u.lockedWith].filter((e) => !e.destroyed), list: ms.filter((m) => !m.vehicle && m.melee.length).map((m) => ({ m })) }]));
+  const engaged = engagedModels(ranks).count;
+  let n = 0;
+  for (const [u, ms] of mine) {
+    const [k, of] = engaged.get(u) || [0, 1];
+    if (!k || ['Pinned', 'Stunned', 'Routed', 'Suppressed'].some((s) => u.statuses.has(s))) continue;
+    n += (k / of) * ms.reduce((t, m) => t + weight(m), 0) + standards(ms);
+  }
+  return core.focusSupport(Math.floor(n + 1e-9));
 }
 /**
  * Thunderstrike (Armillus Dynat's The Prince and the Prophet): three or more successful Hit Tests with it make a new
@@ -207,11 +324,12 @@ function strikeProfile(x, y, ex, ey, opts = {}) {
   // Preternatural Resilience (Mortarion): in a challenge, Critical Hit against him only on a 6
   if (has(y.m.rules, 'Preternatural Resilience') && xOf(w.specialRules || [], 'Critical Hit')) w = Object.assign({}, w, { specialRules: (w.specialRules || []).map((r) => (/^Critical Hit/.test(r) ? 'Critical Hit (6+)' : r)) });
   mods.str += ex.str || 0; mods.ws += ex.ws || 0;
-  if (ex.matchOpp) mods.ws += Math.min(0, num(y.m.p.WS, 4) - num(x.m.p.WS, 4));
+  // Taunt and Bait: Weapon Skill and Attacks down to the opponent's, or 1 lower where they're equal already (CONFIRMED)
+  if (ex.matchOpp) { const o = num(y.m.p.WS, 4), s = num(x.m.p.WS, 4); mods.ws += o === s ? -1 : Math.min(0, o - s); }
   return { tgt, w, mods, finish: (g) => {
     if (ex.single) g.attacks = 1;
     g.S = Math.max(1, g.S);
-    if (ex.matchOpp) g.attacks = Math.min(g.attacks, Math.max(1, num(y.m.p.A, 1)));
+    if (ex.matchOpp) { const o = num(y.m.p.A, 1), s = num(x.m.p.A, 1); g.attacks = o === s ? Math.max(1, g.attacks - 1) : Math.min(g.attacks, Math.max(1, o)); }
     if (ex.dmg) g.D += ex.dmg;
     if (ex.dmgCap1) g.D = 1;
     // Every Strike Foreseen: Hit Tests succeed on a 2+; the AI's estimate blends in the chance of passing the check
@@ -259,6 +377,7 @@ const kingPair = (king, defenders) => {
 const isFulgrim = (m) => /^Fulgrim/.test(m.name);
 // Broken in Body (Maloghurst): his player chooses, each time an enemy declares a challenge, whether he is eligible
 const shy = (d) => has(d.m.rules, 'Broken in Body');
+const neverBacksDown = (d) => has(d.m.rules, 'Never Back Down');
 
 function challenge(state, c, tally) {
   const active = state.active;
@@ -270,6 +389,11 @@ function challenge(state, c, tally) {
   const mine = elig(active), theirs = elig(1 - active);
   if (!mine.length || !theirs.length) return;
   let side = active, pair = bestPairing(mine, theirs);
+  // Never Back Down (Legion Champions): an eligible model with it must be declared as the Challenger, or accept a
+  // challenge (below); of several, its player picks which (CONFIRMED). ASSUMPTION: the Reactive Player's need not make
+  // a Heroic Intervention (a Reaction, paid for) to declare one
+  const champions = mine.filter(neverBacksDown);
+  if (champions.length) pair = Object.assign(bestPairing(champions, theirs), { v: 1 });
   // Avatar of Perfection (Fulgrim Transfigured): he must have a challenge declared for him (CONFIRMED)
   const avatar = mine.find((x) => has(x.m.rules, 'Avatar of Perfection'));
   if (avatar) pair = Object.assign(bestPairing([avatar], theirs), { v: 1 });
@@ -280,7 +404,9 @@ function challenge(state, c, tally) {
   // Sigismund picks the Challenged there too (CONFIRMED)
   if (!pair || pair.v <= 0.1) {
     const hking = theirs.find((x) => has(x.m.rules, 'Slayer of Kings'));
-    const hp = hking ? kingPair(hking, mine) : bestPairing(theirs, mine);
+    // (a Never Back Down model of theirs must be the one declared, if they declare)
+    const hChampions = theirs.filter(neverBacksDown);
+    const hp = hking ? kingPair(hking, mine) : bestPairing(hChampions.length ? hChampions : theirs, mine);
     if (!hp || hp.v <= 0.1 || !state.reactions?.heroicIntervention(state, 1 - active, hp.a.u, hp.v)) return;
     side = 1 - active; pair = hp;
   }
@@ -289,7 +415,14 @@ function challenge(state, c, tally) {
   // Vengeful Hate: when Fulgrim is the Challenger, Rylanor must be the Challenged (CONFIRMED; ASSUMPTION: so he can't
   // refuse)
   const rylanor = isFulgrim(A.m) && defenders.find((d) => has(d.m.rules, 'Vengeful Hate'));
-  if (rylanor) { duel(state, A, rylanor, side, tally); return; }
+  if (rylanor) { duel(state, c, A, rylanor, side, tally); return; }
+  // Never Back Down: one of the defenders' models with it must accept, whichever does best; there's no refusing
+  // (ASSUMPTION: Sigismund's pick under Slayer of Kings comes first)
+  const mustAccept = pair.picked ? [] : defenders.filter(neverBacksDown);
+  if (mustAccept.length) {
+    const b = mustAccept.reduce((best, d) => (duelEdge(d, A) > duelEdge(best, A) ? d : best), mustAccept[0]);
+    pair = { a: A, b, v: -duelEdge(b, A), accV: Infinity };
+  }
   // Broken in Body: the AI keeps Maloghurst out of a challenge he'd refuse, so he's neither the Challenged nor the model
   // Disgraced for a refusal (ASSUMPTION: the AI's choice)
   if (defenders.some(shy) && pair.accV < -0.6) {
@@ -313,7 +446,7 @@ function challenge(state, c, tally) {
     if (rest.length) {
       tally.glory[side] += pair.b.m.maxWounds;
       state.log(`    ${A.m.name} challenges ${pair.b.m.name}; it is refused: +${pair.b.m.maxWounds} Combat Resolution (Slayer of Kings)`);
-      duel(state, A, kingPair(A, rest).b, side, tally);
+      duel(state, c, A, kingPair(A, rest).b, side, tally);
       return;
     }
     const victim = defenders.reduce((b, d) => (num(d.m.p.WS, 4) > num(b.m.p.WS, 4) ? d : b), defenders[0]);
@@ -322,7 +455,7 @@ function challenge(state, c, tally) {
     addStatus(state, victim.u, 'Disgraced', 'refused a challenge');
     return;
   }
-  duel(state, A, pair.b, side, tally);
+  duel(state, c, A, pair.b, side, tally);
   // Lord of the Red Sands (Angron): the challenger may declare another challenge against an enemy model that hasn't
   // fought one this sub-phase, and Combat Resolution counts them all (CONFIRMED)
   const fought = new Set([pair.b.m]);
@@ -333,12 +466,12 @@ function challenge(state, c, tally) {
     if (duelEdge(A, b) <= 0.1) break;
     fought.add(b.m);
     state.log(`    ${A.m.name} declares another challenge (Lord of the Red Sands)`);
-    duel(state, A, b, side, tally);
+    duel(state, c, A, b, side, tally);
   }
 }
 
 /** A challenge: rounds of Face-Off, Focus Roll and Strike until someone falls or the advantage holder stops. */
-function duel(state, A, B, challengerSide, tally) {
+function duel(state, c, A, B, challengerSide, tally) {
   state.log(`    ${A.m.name} challenges, ${B.m.name} accepts`);
   A.m.inChallenge = B.m.inChallenge = true;
   const inflicted = new Map([[A, 0], [B, 0]]);
@@ -347,7 +480,9 @@ function duel(state, A, B, challengerSide, tally) {
   const guard = new Map([[A, 0], [B, 0]]);
   const other = (x) => (x === A ? B : A);
   let testFoe = null;
-  const support = (x) => core.focusSupport(alive(x.u).length - 1 + (hasItem(x.u, /^Legion standard/i) ? 6 : 0));
+  // Outside Support, counted again each round (a Violent Overkill or The Breaker can thin the combat)
+  const supportOf = new Map();
+  const support = (x) => supportOf.get(x) ?? 0;
   const weaponOf = (x) => bestWeapon(x.m, { models: [other(x).m], vehicle: false });
   const ci = (x) => combatInitiative(x.u, x.m, weaponOf(x));
   // Aegis of Wisdom: the other friendly Ultramarines Command models on the battlefield
@@ -361,7 +496,8 @@ function duel(state, A, B, challengerSide, tally) {
       e.noWoundPenalty ? 0 : -(x.m.maxWounds - x.m.wounds),
       // Shield Master (Fafnir Rann): no -1 for the Heavy Sub-Type (CONFIRMED)
       /Heavy/.test(x.m.unitType) && !has(x.m.rules, 'Shield Master') ? -1 : 0, /Light/.test(x.m.unitType) ? 1 : 0,
-      (x.m.traits || []).includes('Shield') || hasItem(x.u, /Company Standard/i) ? 1 : 0,
+      // (a company standard counts as five models of Outside Support instead, CONFIRMED: outsideSupport)
+      (x.m.traits || []).includes('Shield') ? 1 : 0,
       Math.min(e.noSupport ? 0 : support(x) * (e.supportMult || 1) + (e.supportBonus || 0), eo.oppSupportCap ?? Infinity),
       xOf(w.specialRules, "Duellist's Edge") || xOf(w.specialRules, "Duelist's Edge") || 0, e.focus || 0, guard.get(x), e.aegis ? aegisCount(x) : 0, e.sacrifice || 0,
       // Battle of the Wills (Magnus): + his base Willpower over the opponent's
@@ -397,23 +533,41 @@ function duel(state, A, B, challengerSide, tally) {
   A.hitsTaken = B.hitsTaken = 0;
   // gambits each model may pick once per challenge (Decapitation Strike)
   const usedOnce = new Map([[A, new Set()], [B, new Set()]]);
+  // Taunt and Bait: +1 Combat Resolution to a winner for each time it picked the gambit in this challenge (CONFIRMED)
+  const taunts = new Map([[A, 0], [B, 0]]);
+  // the expected wound difference of the coming Strike Step for x against y, with x's gambit effects e and y's ey
+  const duelFn = (x, y, ey) => (e) => duelWith(x, y, e, ey) - duelWith(y, x, ey, e);
+  // what the AI weighs a gambit by, besides that difference (gambits.choose)
+  const gambitOpts = (me, opp, known, round) => ({
+    moreRounds: round < 20, round, focusDelta: focusDelta(me),
+    wouldFall: duelWith(opp, me, known, {}) >= me.m.wounds, favoured: duelEdge(me, opp) > 0, saveFail: saveFail(me.m),
+    decap: 0.5 * duelWith(me, opp, {}, known) - 0.1 * duelWith(opp, me, known, {}),
+    dirty: has(me.m.rules, 'Dirty Fighter') && round === 1 ? duelWith(me, opp, { single: true }, known) : 0,
+    // Withdraw: how far behind on wounds inflicted this model expects to be after the coming Strike Step
+    behind: inflicted.get(opp) - inflicted.get(me) + duelWith(opp, me, known, {}) - duelWith(me, opp, { single: true }, known),
+    used: usedOnce.get(me),
+  });
+  // Face-Off (CONFIRMED, p257): the Challenger picks first in the first round, the holder of Challenge Advantage in
+  // every round after; a gambit one duellist picked can't be picked by the other in the same Face-Off
+  let lead = A;
   // rounds go on until a duellist falls or the side with Challenge Advantage stops (CONFIRMED: no limit; 20 here)
   for (let round = 1; round <= 20; round++) {
-    // Face-Off: each picks a gambit (the side with Challenge Advantage first; it makes no difference to the AI)
-    for (const [me, opp] of [[A, B], [B, A]]) {
+    for (const x of [A, B]) { supportOf.set(x, outsideSupport(state, c, x)); x.support = support(x); }
+    const banned = new Set();
+    for (const [me, opp] of [[lead, other(lead)], [other(lead), lead]]) {
       // Howl of the Death Wolf: while it lasts no other gambit may be picked
       if (lasting.get(me).howl) { effects.set(me, { name: 'Howl of the Death Wolf', focus: 5, howl: true }); continue; }
       // A Death Long Foreseen (Konrad Curze): the gambit is there to pick on a 5+
       me.foreseen = has(me.m.rules, 'A Death Long Foreseen') && state.dice.d6() >= 5;
-      const g = gambits.choose(state, me, opp, (e) => duelWith(me, opp, e, {}) - duelWith(opp, me, {}, e), {
-        moreRounds: round < 20, round, focusDelta: focusDelta(me),
-        wouldFall: duelWith(opp, me, {}, {}) >= me.m.wounds, favoured: duelEdge(me, opp) > 0, saveFail: saveFail(me.m),
-        decap: 0.5 * duelWith(me, opp, {}, {}) - 0.1 * duelWith(opp, me, {}, {}),
-        dirty: has(me.m.rules, 'Dirty Fighter') && round === 1 ? duelWith(me, opp, { single: true }, {}) : 0,
-        used: usedOnce.get(me),
-      });
+      // the first gambit is applied before the second is picked (CONFIRMED), so the second picker knows it; the first
+      // weighs what its pick (or Feint and Riposte's naming) takes away from the second
+      const first = me === lead, known = first ? {} : effects.get(opp);
+      const rival = first ? () => gambits.rank(state, opp, me, duelFn(opp, me, {}), gambitOpts(opp, me, {}, round)) : null;
+      const g = gambits.choose(state, me, opp, duelFn(me, opp, known), Object.assign(gambitOpts(me, opp, known, round), { lead: first, banned, rival }));
+      if (g) { banned.add(g.name); if (g.named) banned.add(g.named); }
       if (g && g.once) usedOnce.get(me).add(g.name);
       const e = g ? Object.assign({ name: g.name }, g.make(state, me, opp)) : {};
+      if (e.crpIfWin) taunts.set(me, taunts.get(me) + e.crpIfWin);
       // Beseech the Gods lasts until the end of the Challenge Sub-Phase; Bite of the Betrayed (Saul Tarvitz) until the
       // challenge ends, with its WS and Toughness too
       const keep = lasting.get(me);
@@ -421,7 +575,7 @@ function duel(state, A, B, challengerSide, tally) {
       if (e.persist) lasting.set(me, { str: (keep.str || 0) + (e.str || 0), attacks: (keep.attacks || 0) + (e.attacks || 0), ws: (keep.ws || 0) + (e.ws || 0), tough: (keep.tough || 0) + (e.tough || 0) });
       else for (const k of ['str', 'attacks', 'ws', 'tough']) e[k] = (e[k] || 0) + (keep[k] || 0);
       effects.set(me, e);
-      if (g) state.log(`      ${me.m.name} picks ${g.name}`);
+      if (g) state.log(`      ${me.m.name} picks ${g.name}${g.named ? `, naming ${g.named}` : ''}`);
     }
     if (A.m.wounds <= 0 || B.m.wounds <= 0) break;
     // Nostraman Courage: another model of the unit steps into the challenge in this one's place
@@ -559,6 +713,8 @@ function duel(state, A, B, challengerSide, tally) {
     A.hitsTaken = hitsNow.get(A); B.hitsTaken = hitsNow.get(B);
     // Seeker of Atonement: the model that stood back up has Challenge Advantage (ASSUMPTION: from now, into the next round)
     if (seized) testFoe = seized;
+    // whoever holds Challenge Advantage into the next round picks the first gambit there
+    lead = testFoe || adv;
     if (A.m.wounds <= 0 || B.m.wounds <= 0) break;
     // the side with Challenge Advantage decides whether to fight another round, unless No Prey Escapes holds it
     const holder = seized || adv;
@@ -568,10 +724,15 @@ function duel(state, A, B, challengerSide, tally) {
   // a Command or Paragon model; otherwise the one who inflicted more wounds wins and scores them
   const [ia, ib] = [inflicted.get(A), inflicted.get(B)];
   const fell = [A, B].filter((x) => x.m.wounds <= 0);
-  if (fell.length === 1 || (!fell.length && ia !== ib)) {
+  // Withdraw (CONFIRMED, p258): a duellist that picked it in the last Face-Off, and wasn't Removed as a Casualty, may
+  // end the challenge in the Glory Step with no Combat Resolution Points for either side; the AI does when it would
+  // lose the challenge
+  const quit = !fell.length && [A, B].find((x) => effects.get(x).withdraw && inflicted.get(x) < inflicted.get(other(x)));
+  if (quit) state.log(`      ${quit.m.name} withdraws from the challenge: no Combat Resolution Points`);
+  else if (fell.length === 1 || (!fell.length && ia !== ib)) {
     const [win, lose] = fell.length === 1 ? [other(fell[0]), fell[0]] : ia > ib ? [A, B] : [B, A];
     const glory = lose.m.wounds <= 0 ? num(lose.m.p.W, lose.m.maxWounds) + (/Command|Paragon/.test(lose.m.unitType) ? 1 : 0) : inflicted.get(win);
-    tally.glory[win.u.side] += glory + (effects.get(win).crpIfWin || 0);
+    tally.glory[win.u.side] += glory + taunts.get(win);
     state.log(`      ${win.m.name} wins the challenge: ${glory} Glory`);
     // Cut Off the Head (MISSION): winning a challenge by slaying the enemy model scores 2 VP
     if (lose.m.wounds <= 0 && state.mission?.has('Cut Off the Head')) state.award(win.u.side, 2, `Cut Off the Head (${lose.m.name})`);
@@ -581,7 +742,7 @@ function duel(state, A, B, challengerSide, tally) {
   for (const x of [A, B]) if (has(x.m.rules, 'Haunted') && other(x).m.wounds <= 0 && /Loken/.test(other(x).m.name) && state.award) state.award(x.u.side, 2, `Haunted (${other(x).m.name})`);
   // Lordsbane (Varagyr Thegn): if the Thegn still stands, +1 Combat Resolution per Varagyr in its unit, up to 4
   for (const x of [A, B]) {
-    if (!has(x.m.rules, 'Lordsbane') || x.m.wounds <= 0) continue;
+    if (!has(x.m.rules, 'Lordsbane') || x.m.wounds <= 0 || quit) continue;
     const n = Math.min(4, alive(x.u).filter((m) => /Varagyr/.test(m.name)).length);
     if (n) { tally.glory[x.u.side] += n; state.log(`      +${n} Combat Resolution (Lordsbane)`); }
   }
@@ -608,26 +769,21 @@ function fight(state, c, again = null) {
     }
   }
   if (!again) challenge(state, c, tally);
-  // each unit attacks the locked enemy unit it hurts most
+  // Declare Weapons: each model's weapon for the round, against the locked enemy unit its unit hurts most
+  const ranks = rankFighters(state, c);
   const strikers = [];
-  for (const side of [0, 1]) for (const u of c[side]) {
-    if (u.destroyed) continue;
-    const foes = [...u.lockedWith].filter((e) => !e.destroyed);
-    if (!foes.length) continue;
-    const t = foes.reduce((b, e) => (ai.meleeEV(state, u, e) > ai.meleeEV(state, u, b) ? e : b), foes[0]);
-    for (const m of alive(u)) {
-      if (m.inChallenge || m.vehicle || !m.melee.length) continue;
-      const w = bestWeapon(m, t);
-      strikers.push({ u, m, t, w, step: combatInitiative(u, m, w) + (u.turn.charged && argOf(w.specialRules, 'Impact') === 'IM' ? 1 : 0) });
-    }
-  }
+  for (const { list } of ranks.values()) for (const s of list) strikers.push(Object.assign(s, { step: combatInitiative(s.u, s.m, s.w) + (s.u.turn.charged && argOf(s.w.specialRules, 'Impact') === 'IM' ? 1 : 0) }));
   const outnumbered = (side) => modelCount(c[side]) < modelCount(c[1 - side]);
   const steps = [...new Set(strikers.map((s) => s.step))].sort((a, b) => b - a);
+  const told = new Set();
   for (const step of steps) {
+    // Declare Combatants, Pile-in, Declare Engaged Models: only Engaged models attack (see engagedModels above)
+    const { target, count } = engagedModels(ranks);
+    for (const [u, [k, n]] of count) if (k < n && !told.has(u) && strikers.some((s) => s.u === u && s.step === step)) { told.add(u); state.log(`    ${u.name}: ${k} of ${n} models Engaged`); }
     // everyone at this step strikes, even if killed by another blow at the same step
-    const now = strikers.filter((s) => s.step === step && s.m.wounds > 0);
+    const now = strikers.filter((s) => s.step === step && s.m.wounds > 0 && target.has(s.m));
     for (const s of now) {
-      let t = s.t;
+      let t = target.get(s.m);
       if (t.destroyed || !alive(t).length) { const alt = [...s.u.lockedWith].find((e) => !e.destroyed && alive(e).length); if (!alt) continue; t = alt; }
       let w = s.w;
       if (has(w.specialRules, 'Force')) w = forceCheck(state, s.u, s.m, w, t);
@@ -651,14 +807,54 @@ function fight(state, c, again = null) {
 }
 
 // ---------- Resolution Sub-Phase ----------
+const leads = (m) => /Command|Sergeant|Paragon/.test(m.unitType) || m.sergeant;
+const hasLD = (m) => m.p.LD != null && m.p.LD !== '–' && m.p.LD !== '-';
+/**
+ * The losing side's Panic Check (CONFIRMED, p272): a single Leadership Check for all its units in the combat, on the
+ * majority Leadership of one of them, or the Leadership of a Command or Sergeant model in any of them (or a Paragon's,
+ * which may always lend its characteristics to its unit, CONFIRMED p175), less the difference in Combat Resolution
+ * Points. The AI tests with whichever unit gives the best chance (Fear, Neural Collars and the like are the tested
+ * unit's). Returns true if passed.
+ */
+function panicCheck(state, units, diff) {
+  const val = (m) => Math.floor(num(m.p.LD, 7) / (m.disgraced ? 2 : 1));
+  const testers = units.filter((u) => !u.destroyed && alive(u).some(hasLD));
+  if (!testers.length) return true;
+  const leader = Math.max(-Infinity, ...testers.flatMap((u) => alive(u).filter((m) => hasLD(m) && leads(m)).map(val)));
+  let best = null;
+  for (const u of testers) {
+    const ms = alive(u).filter(hasLD);
+    const v = Math.max(majorityOf(ms.map(val)), leader);
+    // check() starts from the unit's own value (its lowest, or a leader's in it): the difference becomes a bonus
+    const own = Math.max(Math.min(...ms.map(val)), ...ms.filter(leads).map(val));
+    const pen = diff - (v - own);
+    const p = u.buff?.autoPass ? 1 : passChance(state, u, 'LD', pen);
+    if (!best || p > best.p) best = { u, pen, p };
+  }
+  return check(state, best.u, 'LD', best.pen, 'Panic Check, lost the combat');
+}
+/** Fall Back from a combat: unlocked first. */
+function fallBackFrom(state, u) {
+  unlock(u);
+  fallBack(state, u);
+}
 function resolve(state, c, tally) {
   const live = [c[0].filter((u) => !u.destroyed), c[1].filter((u) => !u.destroyed)];
+  // a unit that includes a Routed model in the Resolution Sub-Phase always Falls Back at its end, whichever side won
+  // (CONFIRMED, p203 and p272); u.consolidated marks a unit that has taken its Aftermath option
+  const routedFallBack = (units) => { for (const u of units) if (!u.destroyed && u.statuses.has('Routed')) { u.consolidated = true; fallBackFrom(state, u); } };
+  const done = () => {
+    for (const s of [0, 1]) for (const u of c[s]) if (!u.destroyed && u.lockedWith.size && ![...u.lockedWith].some((e) => !e.destroyed)) unlock(u);
+    for (const s of [0, 1]) for (const u of c[s]) u.consolidated = false;
+  };
   // Massacre: the enemy is wiped out; the winners Consolidate (SHEET), or take No Quarter (MISSION)
   if (!live[0].length || !live[1].length) {
     // Vanguard (X): a Massacred unit that was within 3" of an objective at the start of the Assault Phase (CONFIRMED)
     const w = live[0].length ? 0 : 1;
     if (live[w].length && state.onBrokeFromCombat) for (const u of c[1 - w]) if (u.nearObjective) state.onBrokeFromCombat(u, live[w], u.nearObjective);
-    for (const s of [0, 1]) for (const u of live[s]) { unlock(u); if (!noQuarter(state, u)) consolidate(state, u); }
+    routedFallBack(live[w]);
+    for (const u of live[w]) if (!u.destroyed && !u.consolidated) { unlock(u); if (!noQuarter(state, u)) consolidate(state, u); }
+    done();
     return;
   }
   // Combat Resolution: models removed, Glory, outnumbering, standards (SHEET, CONFIRMED for the standards)
@@ -669,53 +865,63 @@ function resolve(state, c, tally) {
   const mc = [modelCount(live[0]), modelCount(live[1])];
   if (mc[0] > mc[1]) score[0] += core.outnumberBonus; else if (mc[1] > mc[0]) score[1] += core.outnumberBonus;
   state.log(`    combat resolution ${score[0]}–${score[1]}`);
-  if (score[0] === score[1]) return; // a draw: everyone Holds
+  // a draw: no Panic Check; Routed units Fall Back and everyone else Holds
+  if (score[0] === score[1]) { routedFallBack(live[state.active]); routedFallBack(live[1 - state.active]); done(); return; }
   const w = score[0] > score[1] ? 0 : 1, l = 1 - w;
   const diff = Math.abs(score[0] - score[1]);
-  const winners = live[w];
-  for (const u of live[l]) {
+  const winners = live[w], losers = live[l];
+  // the losers' Panic Check; failed, all their units in the combat are Routed. None is made when they all are already
+  if (!losers.every((u) => u.statuses.has('Routed')) && !panicCheck(state, losers, diff)) for (const u of losers) addStatus(state, u, 'Routed', 'lost the combat');
+  // Aftermath, the losers first: a Routed unit Falls Back; the others Hold, or Disengage with a normal move away if
+  // the next round looks bad (SHEET; not while Pinned)
+  const fled = [], broken = [];
+  for (const u of losers) {
     if (u.destroyed) continue;
     const foes = [...u.lockedWith].filter((e) => !e.destroyed);
-    if (check(state, u, 'LD', diff, 'Panic Check, lost the combat')) {
-      // passed: Hold, or Disengage with a normal move away if the next round looks bad (SHEET; not while Pinned)
-      const give = foes.reduce((t, e) => t + ai.meleeEV(state, u, e), 0), take = foes.reduce((t, e) => t + ai.meleeEV(state, e, u), 0);
-      if (!u.vehicle && !u.statuses.has('Pinned') && take > 1.5 * give + 5) disengage(state, u, foes);
+    if (u.statuses.has('Routed')) {
+      const nearObjective = u.nearObjective || null;
+      fallBackFrom(state, u);
+      fled.push(u);
+      if (!u.destroyed) broken.push({ u, nearObjective });
       continue;
     }
-    // failed: Routed, and it Falls Back
-    addStatus(state, u, 'Routed', 'lost the combat');
-    const nearObjective = u.nearObjective || null;
-    unlock(u);
-    fallBack(state, u);
-    if (u.destroyed) continue;
-    // the winners' aftermath: Pursue (D6 + I; reaching it is a successful charge) or Gun Down (a Volley)
-    const free = foes.filter((p) => !p.destroyed && !p.lockedWith.size && !p.vehicle && !p.statuses.has('Pinned') && !p.statuses.has('Routed'));
-    let best = null;
-    for (const p of free) {
-      const I = num(alive(p)[0]?.p.I, 3);
-      const reach = Math.max(0, Math.min(1, (I + 6 - gap(p, u) + 1) / 6));
-      // Slow and Purposeful: can't Pursue (CONFIRMED)
-      const pursue = has(p.rules, 'Slow and Purposeful') ? 0 : reach * (ai.meleeEV(state, p, u) + (u.heldObjective ? ai.VP_WORTH * 0.5 : 0));
-      const gun = require('./fire.cjs').planVolley(p, u, state, { snap: true, exclude: (x) => !(x.traits || []).includes('Assault') }).expectedPts;
-      if (!best || Math.max(pursue, gun) > best.v) best = { p, v: Math.max(pursue, gun), kind: pursue >= gun ? 'pursue' : 'gun' };
-    }
-    // No Quarter (MISSION): a Victory Point instead, when it's worth more than the chase
-    const nq = state.mission?.has('No Quarter') && foes.every((f) => f.destroyed || !f.lockedWith.size || f === u);
-    if (best && best.v > 1 && !(nq && best.v < ai.VP_WORTH)) {
+    const give = foes.reduce((t, e) => t + ai.meleeEV(state, u, e), 0), take = foes.reduce((t, e) => t + ai.meleeEV(state, e, u), 0);
+    if (foes.length && !u.vehicle && !u.statuses.has('Pinned') && take > 1.5 * give + 5) { disengage(state, u, foes); fled.push(u); }
+  }
+  // the winners' own Routed units Fall Back too
+  routedFallBack(winners);
+  // only once every enemy unit has Fallen Back or Disengaged may the winners Pursue, Gun Down or Consolidate (CONFIRMED,
+  // p272); until then they Hold
+  if (losers.every((u) => u.destroyed || fled.includes(u) || ![...u.lockedWith].some((e) => !e.destroyed))) {
+    // Pursue (D6 + I; reaching it is a successful charge) or Gun Down (a Volley) a unit that Fell Back: each gets the
+    // winning unit that does most against it, and each winning unit takes one option
+    for (const { u } of broken) {
+      if (u.destroyed) continue;
+      const free = winners.filter((p) => !p.destroyed && !p.consolidated && !p.lockedWith.size && !p.vehicle && !p.statuses.has('Pinned') && !p.statuses.has('Routed'));
+      let best = null;
+      for (const p of free) {
+        const I = num(alive(p)[0]?.p.I, 3);
+        const reach = Math.max(0, Math.min(1, (I + 6 - gap(p, u) + 1) / 6));
+        // Slow and Purposeful: can't Pursue (CONFIRMED)
+        const pursue = has(p.rules, 'Slow and Purposeful') ? 0 : reach * (ai.meleeEV(state, p, u) + (u.heldObjective ? ai.VP_WORTH * 0.5 : 0));
+        const gun = require('./fire.cjs').planVolley(p, u, state, { snap: true, exclude: (x) => !(x.traits || []).includes('Assault') }).expectedPts;
+        if (!best || Math.max(pursue, gun) > best.v) best = { p, v: Math.max(pursue, gun), kind: pursue >= gun ? 'pursue' : 'gun' };
+      }
+      // No Quarter (MISSION): a Victory Point instead, when it's worth more than the chase
+      if (!best || best.v <= 1 || (state.mission?.has('No Quarter') && best.v < ai.VP_WORTH)) continue;
       const p = best.p;
+      p.consolidated = true;
       if (best.kind === 'pursue') {
         const d = core.pursueDistance(p, state.dice);
         if (d >= gap(p, u)) lockInto(state, p, u, `pursues ${d}" and catches it`);
         else { moveUnit(state, p, u, d, { charging: true, target: u }); state.log(`    ${p.name} pursues ${d}" but ${u.name} gets away`); }
       } else shootingAttack(state, p, u, { snap: volleySnap(p), assaultOnly: true, volley: true, label: 'guns down' });
     }
-    if (state.onBrokeFromCombat) state.onBrokeFromCombat(u, winners, nearObjective);
+    for (const u of winners) if (!u.destroyed && !u.lockedWith.size && !u.consolidated && !noQuarter(state, u)) consolidate(state, u);
   }
-  // winners with nobody left to fight Consolidate, or take No Quarter once every enemy has fallen back or disengaged
-  for (const s of [0, 1]) for (const u of c[s]) if (!u.destroyed && u.lockedWith.size && ![...u.lockedWith].some((e) => !e.destroyed)) unlock(u);
-  const allGone = live[l].every((u) => u.destroyed || !u.lockedWith.size);
-  for (const u of winners) if (!u.destroyed && !u.lockedWith.size && !u.consolidated && !(allGone && noQuarter(state, u))) consolidate(state, u);
-  for (const s of [0, 1]) for (const u of c[s]) u.consolidated = false;
+  // Vanguard (X): breaking a unit that was near an objective (battle.cjs)
+  if (state.onBrokeFromCombat) for (const { u, nearObjective } of broken) state.onBrokeFromCombat(u, winners, nearObjective);
+  done();
 }
 /** No Quarter (MISSION): the unit takes this Aftermath option and its player scores 1 VP. */
 function noQuarter(state, u) {
@@ -805,4 +1011,4 @@ function assaultPhase(state, side) {
   overloadCost(state, overloaded);
 }
 
-module.exports = { assaultPhase, charge, chargeSubPhase, combats, fight, resolve, canReact, unlock, duelWith };
+module.exports = { assaultPhase, charge, chargeSubPhase, combats, fight, resolve, canReact, unlock, duelWith, engagedModels, outsideSupport, meleeMods, combatInitiative };

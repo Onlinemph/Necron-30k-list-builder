@@ -171,7 +171,7 @@ function shootingAttack(state, shooter, target, opts = {}) {
   // Lords of Profligacy (Emperor's Children, Legiones Hereticus): after the attack the target may become Stupefied,
   // losing its statuses and gaining none while it lasts (CONFIRMED). The AI takes it when the unit already has a
   // status, faces a check it will likely fail, or fights better than it shoots (Stupefied shoots Snap Shots)
-  if (!target.destroyed && !target.vehicle && !opts.volley && legions.hereticus(target) && legions.is(target, "Emperor's Children") && !target.cond?.has('Stupefied')) {
+  if (!target.destroyed && !target.vehicle && legions.hereticus(target) && legions.is(target, "Emperor's Children") && !target.cond?.has('Stupefied')) {
     const ai = require('./ai.cjs');
     const foes = state.units.filter((e) => e.side !== target.side && !e.destroyed);
     const failing = Math.max(0, ...morale.filter((p) => p.unit === target).map((p) => 1 - passChance(state, target, p.type === 'Casualties' || p.type === 'Panic' ? 'LD' : 'CL', p.x)));
