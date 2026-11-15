@@ -77,7 +77,7 @@ function runBattle(listA, listB, opts = {}) {
     for (const side of [first, 1 - first]) {
       if (!state.units.some((u) => u.side === side && !u.destroyed)) continue;
       // a side that looks ahead picks this turn's plan first (lookahead.cjs), and plays the turn with its weights
-      const plan = ai.K(state, side, 'lookahead') ? lookahead.choosePlan(state, side, LOOK, { vpWorth: ai.K(state, side, 'vp'), tries: ai.K(state, side, 'lookahead'), margin: ai.K(state, side, 'lookMargin') }) : null;
+      const plan = ai.K(state, side, 'lookahead') ? lookahead.choosePlan(state, side, LOOK, { vpWorth: ai.K(state, side, 'vp'), tries: ai.K(state, side, 'lookahead'), margin: ai.K(state, side, 'lookMargin'), depth: ai.K(state, side, 'lookDepth'), focus: !!ai.K(state, side, 'lookFocus') }) : null;
       if (plan) {
         const was = state.aiParams;
         state.aiParams = (was || [null, null]).slice(); state.aiParams[side] = plan;

@@ -23,6 +23,26 @@ const PLANS = [
   { name: 'hold back', w: { risk: 0.7, bold: 0.8, chargeBar: 8, soonMelee: 0.3 } },
 ];
 
+/**
+ * lookFocus: one more plan, the army's shooting and charges first at the enemy unit that threatens it most (what it
+ * could shoot or charge into next turn, at its best target).
+ */
+function focusPlan(state, side) {
+  const ai = require('./ai.cjs');
+  const { gap } = require('./table.cjs');
+  const mine = state.units.filter((u) => u.side === side && !u.destroyed && u.arrived && !u.embarkedIn);
+  let best = null;
+  for (const e of state.units) {
+    if (e.side === side || e.destroyed || !e.arrived || e.embarkedIn) continue;
+    let t = 0;
+    for (const f of mine) {
+      const g = gap(e, f);
+      t = Math.max(t, ai.evAt(ai.shootTable(state, e, f), Math.max(0, g - ai.moveOf(e))) + (ai.canCharge(e) ? ai.meleeEV(state, e, f) * ai.threatChance(e, g) : 0));
+    }
+    if (!best || t > best.t) best = { e, t };
+  }
+  return best ? { name: `focus on ${best.e.name}`, w: { focus: best.e.uid } } : null;
+}
 /** Points of models a side has left (joined characters at their own points). */
 function material(state, side) {
   let t = 0;
@@ -50,17 +70,19 @@ function evaluate(state, side, vpWorth) {
  * from battle.cjs. Returns the plan's weights to play the turn with (merged over the side's own), or null to play as
  * usual. tries: look aheads per plan, each on its own dice.
  */
-function choosePlan(state, side, play, { vpWorth = 45, tries = 1, margin = 0 } = {}) {
+function choosePlan(state, side, play, { vpWorth = 45, tries = 1, margin = 0, depth = 2, focus = false } = {}) {
   if (state.lookingAhead) return null;
   const base = (state.aiParams && state.aiParams[side]) || {};
   // the look aheads' dice come from the real dice's position without rolling them, so looking ahead leaves the real
   // battle's rolls as they would have been
   const seeds = Array.from({ length: tries }, (_, k) => ((state.dice.state ^ Math.imul(state.round * 31 + side + 1, 0x9E3779B1) ^ Math.imul(k + 1, 0x85EBCA6B)) >>> 0));
   const results = [];
-  for (const plan of PLANS) {
+  const plans = PLANS.slice();
+  if (focus) { const f = focusPlan(state, side); if (f) plans.push(f); }
+  for (const plan of plans) {
     let total = 0, ok = true;
     for (const seed of seeds) {
-      const v = rollout(state, side, Object.assign({}, base, plan.w, { lookahead: 0 }), seed, play, vpWorth);
+      const v = rollout(state, side, Object.assign({}, base, plan.w, { lookahead: 0 }), seed, play, vpWorth, depth, Object.assign({}, base, { lookahead: 0 }));
       if (v == null) { ok = false; break; }
       total += v;
     }
@@ -76,8 +98,11 @@ function choosePlan(state, side, play, { vpWorth = 45, tries = 1, margin = 0 } =
   return Object.assign({}, base, best.plan.w);
 }
 
-/** Play `side`'s turn with weights w, then the enemy's reply, on a snapshot; the value for side, or null if it broke. */
-function rollout(state, side, w, seed, play, vpWorth) {
+/**
+ * Play `side`'s turn with weights w, then the enemy's reply (and with depth 3, side's next turn with its usual
+ * weights), on a snapshot; the value for side, or null if it broke.
+ */
+function rollout(state, side, w, seed, play, vpWorth, depth = 2, usual = null) {
   const keep = { dice: state.dice, log: state.log, aiParams: state.aiParams };
   const snap = snapshot(state, new Set([state.dice]));
   try {
@@ -90,9 +115,17 @@ function rollout(state, side, w, seed, play, vpWorth) {
     play.playerTurn(state, side);
     const enemy = 1 - side, T = state.mission.turns;
     let over = false;
-    if (state.first === side) play.playerTurn(state, enemy);
-    else if (state.round < T) { play.newRound(state); play.playerTurn(state, enemy); }
-    else over = true;
+    // the next Player Turn, whoever's it is, starting a new Battle Turn if it's the first player's
+    const next = (who) => {
+      if (state.first === who) { if (state.round >= T) return false; play.newRound(state); }
+      play.playerTurn(state, who);
+      return true;
+    };
+    if (!next(enemy)) over = true;
+    else if (depth >= 3) {
+      params[side] = usual;
+      if (!next(side)) over = true;
+    }
     if (over) play.endOfBattle(state);
     return evaluate(state, side, vpWorth);
   } catch (e) {

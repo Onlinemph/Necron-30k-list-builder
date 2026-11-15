@@ -34,7 +34,7 @@ const VP_WORTH = 45;          // points of value per Victory Point
  * level or worse and stay off.
  */
 const DEFAULTS = { vp: VP_WORTH, line: 1.5, mission: 0.6, soonMelee: 0.45, soonShoot: 0.3, risk: 0.35, bold: 0.5, chargeGain: 1.6, chargeTake: 1.0, incoming: 0.35, chargeFail: 10, chargeBar: 3, shootBar: 0.5, react: 1, share: 1,
-  endgame: 0, tieup: 0, shelter: 0, screen: 0, lanes: 0, counter: 0, concede: 1, retfire: 1, ride: 1, lookahead: 0, lookMargin: 100 };
+  endgame: 0, tieup: 0, shelter: 0, screen: 0, lanes: 0, counter: 0, concede: 1, retfire: 1, ride: 1, lookahead: 0, lookMargin: 100, lookDepth: 2, lookFocus: 0, focus: 0 };
 const K = (state, side, key) => { const o = state.aiParams && state.aiParams[side]; return o && o[key] != null ? o[key] : DEFAULTS[key]; };
 const BANDS = [0, 3, 6, 9, 12, 15, 18, 24, 30, 36, 48, 72];
 
@@ -527,6 +527,8 @@ function chooseTarget(state, u, opts = {}) {
     }
     // Vanguard: the units holding markers come first
     v += huntValue(state, u, e, plan.expectedPts, finishChance(plan.expectedPts, e));
+    // focus (a look-ahead plan, lookahead.cjs): the army's shooting goes to one enemy unit first
+    if (K(state, u.side, 'focus') && e.uid === K(state, u.side, 'focus')) v += 0.5 * v + 15;
     // lanes: clearing the way for this turn's charges
     if (K(state, u.side, 'lanes') && state.phase === 'shooting') v += K(state, u.side, 'lanes') * laneValue(state, u, e, plan.expectedPts);
     // concede: the Warlord and Giant Killer prizes for destroying it (Kill Points are above, Vanguard in huntValue)
@@ -580,7 +582,9 @@ function chooseCharge(state, u) {
     }
     // concede: the Warlord and Giant Killer prizes (and Kill Points) for wiping it out
     const prize = K(state, u.side, 'concede') ? K(state, u.side, 'concede') * concedeVP(state, e, { vanguard: false }) * K(state, u.side, 'vp') * finishChance(meleeEV(state, u, e), e) : 0;
-    const v = odds * (gain + obj + lock + prize + huntValue(state, u, e, meleeEV(state, u, e), breakChance(state, u, e))) - incoming - (1 - odds) * K(state, u.side, 'chargeFail') - leave;
+    // focus (a look-ahead plan): the army's charges go to one enemy unit first
+    const focus = K(state, u.side, 'focus') && e.uid === K(state, u.side, 'focus') ? 0.5 * Math.max(0, gain) + 15 : 0;
+    const v = odds * (gain + obj + lock + prize + focus + huntValue(state, u, e, meleeEV(state, u, e), breakChance(state, u, e))) - incoming - (1 - odds) * K(state, u.side, 'chargeFail') - leave;
     if (v > K(state, u.side, 'chargeBar') && (!best || v > best.v)) best = { target: e, v };
   }
   return best ? best.target : null;
@@ -628,4 +632,4 @@ function duelEV(a, b) {
   return best;
 }
 
-module.exports = { concedeVP, nextTurnOdds, detour, screenValue, toward, DEFAULTS, K, huntValue, markerHeld, VP_WORTH, shootTable, evAt, meleeEV, maxRange, chargeChance, chargeOdds, chargeOddsNow, canCharge, positionScore, candidates, chooseMove, chooseTarget, chooseCharge, statusValue, worthReacting, duelEV, moveOf, shootValue, meleeValue };
+module.exports = { threatChance, concedeVP, nextTurnOdds, detour, screenValue, toward, DEFAULTS, K, huntValue, markerHeld, VP_WORTH, shootTable, evAt, meleeEV, maxRange, chargeChance, chargeOdds, chargeOddsNow, canCharge, positionScore, candidates, chooseMove, chooseTarget, chooseCharge, statusValue, worthReacting, duelEV, moveOf, shootValue, meleeValue };
