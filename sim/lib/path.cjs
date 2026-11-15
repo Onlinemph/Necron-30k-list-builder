@@ -79,8 +79,9 @@ function field(u, budget, env, R) {
 
 /**
  * The way round to `to` for a move of `budget` inches: the end of the shortest path that gets closest to the point,
- * then straight on with what's left. Returns { x, y, len, from } (len: inches moved, from: the start of the last
- * leg, for a vehicle's facing) or null if no grid point gets closer than the start.
+ * then straight on with what's left. Returns { x, y, len, from, pts } (len: inches moved, from: the start of the last
+ * leg, for a vehicle's facing; pts: the path's corners, start to end, for what it passed over) or null if no grid
+ * point gets closer than the start.
  */
 function route(u, to, budget, env, cache) {
   const R = rules(u, env);
@@ -118,7 +119,7 @@ function route(u, to, budget, env, cache) {
     while (go + 0.25 <= cap) { const p = { x: end.x + ux * (go + 0.25), y: end.y + uy * (go + 0.25) }; if (!R.free(p) || (!paid && env.difficultAt(p))) break; go += 0.25; }
     if (go > 0) { pts.push({ x: end.x + ux * go, y: end.y + uy * go }); len += go; end = pts[pts.length - 1]; }
   }
-  return { x: end.x, y: end.y, len, from: pts.length > 1 ? pts[pts.length - 2] : R.start };
+  return { x: end.x, y: end.y, len, from: pts.length > 1 ? pts[pts.length - 2] : R.start, pts };
 }
 
 module.exports = { route, field };

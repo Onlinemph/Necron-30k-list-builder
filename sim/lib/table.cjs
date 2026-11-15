@@ -8,7 +8,9 @@ const W = 72, H = 48;
 // terrain kinds. SHEET: Light terrain 6+ cover; Medium 5+ cover and sight through at most 3" of it; Heavy 4+ cover
 // and blocks sight; Difficult -2" of movement. MISSION: Area Terrain is Light or Medium (Heavy at most once);
 // Terrain Features are Impassable and block sight, or are ruins counted as Medium Area Terrain.
-// CONFIRMED: every zone of Area Terrain is also Difficult Terrain (Light included).
+// CONFIRMED: every zone of Area Terrain is also Difficult Terrain (Light included). A piece may also be Dangerous
+// (`dangerous: true`: Difficult, and a test for each model that enters, leaves or crosses it, move.cjs); the pack's
+// battlefield has none, so makeTable never makes one.
 const KINDS = {
   light: { density: 'light', coverSave: 6, blocksLoS: false, cover: true, difficult: true, impassable: false },
   medium: { density: 'medium', coverSave: 5, blocksLoS: false, losDepth: 3, cover: true, difficult: true, impassable: false },
@@ -21,6 +23,10 @@ const KINDS = {
  * The Core Mission terrain (MISSION): two 8" x 8" and four 6" x 6" zones of Area Terrain, and six Terrain
  * Features no larger than 4" x 4", evenly spread. Laid out point-symmetrically so neither side gets the better
  * table. opts.forbid: rectangles where no terrain may go (Supply Road).
+ * Heavy Area Terrain (MISSION: a zone may be designated Heavy, but no more than one): on a D6 roll of 4+ one 6" zone
+ * is Heavy, and to keep the table point-symmetric it stands in the middle of the table, in place of one pair of 6"
+ * zones (ASSUMPTION: players choose a Heavy zone on about half their tables; such a table has five Area zones). Not
+ * when the middle is taken by other terrain or by the Supply Road.
  */
 function makeTable(dice, opts = {}) {
   const pieces = [];
@@ -37,6 +43,14 @@ function makeTable(dice, opts = {}) {
       break;
     }
   }
+  if (dice.d6() >= 4) {
+    const centre = { x: W / 2 - 3, y: H / 2 - 3, w: 6, h: 6, kind: 'heavy' };
+    // the 6" pair it replaces: one in the way of the middle if there is one, else the last
+    const sixes = pieces.filter((p) => p.w === 6);
+    const out = sixes.find((p) => overlap(p, centre, 2)) || sixes[sixes.length - 1];
+    const rest = pieces.filter((p) => p.w !== 6 || (Math.abs(p.x - out.x) > 1e-9 && Math.abs(p.x - (W - out.x - 6)) > 1e-9));
+    if (rest.length === pieces.length - 2 && !rest.some((p) => overlap(p, centre, 2)) && !forbid.some((f) => overlap(centre, f, 0))) pieces.splice(0, pieces.length, centre, ...rest);
+  }
   return { W, H, pieces: pieces.map((p, i) => Object.assign({ id: i }, p, KINDS[p.kind])), objectives: [] };
 }
 const overlap = (a, b, pad = 0) => a.x < b.x + b.w + pad && b.x < a.x + a.w + pad && a.y < b.y + b.h + pad && b.y < a.y + a.h + pad;
@@ -46,6 +60,8 @@ const dist = (a, b) => Math.hypot(a.x - b.x, a.y - b.y);
 /** Edge-to-edge distance between two units (0 when touching or overlapping). */
 const gap = (a, b) => Math.max(0, dist(a, b) - a.r - b.r);
 const inside = (p, r) => p.x >= r.x && p.x <= r.x + r.w && p.y >= r.y && p.y <= r.y + r.h;
+/** Distance from point p to rectangle r (0 inside it). */
+const rectGap = (p, r) => Math.hypot(Math.max(r.x - p.x, 0, p.x - r.x - r.w), Math.max(r.y - p.y, 0, p.y - r.y - r.h));
 
 /** How far (in inches) the segment p-q runs inside rectangle r. */
 function segInside(p, q, r) {
@@ -140,4 +156,25 @@ function moveToward(table, unit, target, budget, blockers = []) {
   return Math.hypot(unit.x - start.x, unit.y - start.y);
 }
 
-module.exports = { W, H, KINDS, makeTable, dist, gap, inside, segHitsRect, segInside, lineOfSight, inCover, moveToward };
+/**
+ * Hidden Caches (MISSION): a scattered Objective Marker moves 3" in the rolled direction (`angle`), and if it would
+ * end in Impassable Terrain or under a model it keeps going that way until it can be placed. ASSUMPTION: "under a
+ * model" is anywhere under a unit's footprint; a marker still blocked at the battlefield edge stays there (1" in,
+ * as markers are placed).
+ */
+function slideMarker(table, units, o, angle, d = 3) {
+  const ux = Math.cos(angle), uy = Math.sin(angle);
+  const clampX = (x) => Math.min(W - 1, Math.max(1, x)), clampY = (y) => Math.min(H - 1, Math.max(1, y));
+  const blocked = (p) => table.pieces.some((r) => r.impassable && inside(p, r))
+    || units.some((u) => !u.destroyed && u.arrived !== false && !u.embarkedIn && Math.hypot(u.x - p.x, u.y - p.y) < u.r);
+  let p = { x: clampX(o.x + ux * d), y: clampY(o.y + uy * d) };
+  for (let k = 0; k < 400 && blocked(p); k++) {
+    const q = { x: clampX(p.x + ux * 0.25), y: clampY(p.y + uy * 0.25) };
+    if (Math.hypot(q.x - p.x, q.y - p.y) < 1e-6) break;
+    p = q;
+  }
+  o.x = p.x; o.y = p.y;
+  return o;
+}
+
+module.exports = { W, H, KINDS, makeTable, dist, gap, inside, rectGap, segHitsRect, segInside, lineOfSight, inCover, moveToward, slideMarker };

@@ -11,7 +11,7 @@ const { setupMission, rollMission, fits, touches } = require('./mission.cjs');
 const { buildArmy, footprint } = require('./army.cjs');
 const { alive, check, addStatus, canHold, charOf } = require('./checks.cjs');
 const { shootingAttack, moraleSubPhase } = require('./shoot.cjs');
-const { reservesSubPhase, moveSubPhase, routSubPhase, moveUnit } = require('./move.cjs');
+const { reservesSubPhase, moveSubPhase, routSubPhase, moveUnit, canCarry, mustDeepStrike, onMarker, emergencySpot, removeWithin } = require('./move.cjs');
 const { assaultPhase, canReact, unlock } = require('./assault.cjs');
 const ai = require('./ai.cjs');
 const core = require('./core.cjs');
@@ -148,13 +148,19 @@ function destroyed(state, unit, by, fled = false) {
   unit.destroyed = true;
   state.log(`    ${unit.name} is ${fled ? 'gone (fled)' : 'destroyed'}`);
   // passengers of a destroyed transport make an Emergency Disembarkation before anything else (its explosion
-  // included), then a Cool Check: failing it, the unit gains a status (CONFIRMED; the status's name is lost in our
-  // copy of the text, so ASSUMPTION: Pinned)
-  for (const p of unit.passengers) {
-    p.embarkedIn = null; p.arrived = true; p.x = unit.x; p.y = unit.y; p.r = footprint(p);
+  // included): touching its hull, never within 1" of an enemy model or in Impassable Terrain, and models that can't
+  // be placed are Removed as Casualties (move.cjs emergencySpot); then a Cool Check: failing it, the unit gains a
+  // status (CONFIRMED; the status's name is lost in our copy of the text, so ASSUMPTION: Pinned)
+  const out = unit.passengers;
+  unit.passengers = [];
+  for (const p of out) {
+    p.embarkedIn = null; p.arrived = true; p.r = footprint(p);
+    const at = emergencySpot(state, unit, p);
+    p.x = at.x; p.y = at.y;
+    removeWithin(state, p, 1, 'no room to get out of the wreck');
+    if (p.destroyed) continue;
     if (!check(state, p, 'CL', 0, 'Emergency Disembarkation')) addStatus(state, p, 'Pinned', 'transport destroyed');
   }
-  unit.passengers = [];
   // Explodes (X): a vehicle that dies may blow up (CONFIRMED profile: S8 AP- D1, base HP or W hits within 6")
   const ex = xOf(unit.rules, 'Explodes');
   if (ex && !fled && state.dice.d6() >= ex) {
@@ -194,31 +200,32 @@ function deploy(state, side) {
   const units = state.units.filter((u) => u.side === side);
   const z = state.zoneOf[side], ez = state.zoneOf[1 - side];
   const towards = state.mission.centroids[state.zoneName[1 - side]];
-  // embark: an Infantry or Paragon unit rides in a transport that fits it
+  // embark: each transport takes one unit it can carry (move.cjs canCarry: Infantry or Paragon, capacity, Light
+  // Transport, Faction, Lair of the Iron Tyrant, a Walker in a drop transport); the AI picks the best fighter that has
+  // no Heavy or Ordnance weapons (a Walker may carry them)
+  const foes = state.units.filter((e) => e.side !== side);
   for (const t of units.filter((u) => u.capacity > 0)) {
-    let room = t.capacity;
-    const light = has(t.rules, 'Light Transport');
-    // Lair of the Iron Tyrant (the Tormentor): only Perturabo or Domitar-ferrum models may embark (CONFIRMED)
-    const lair = has(t.rules, 'Lair of the Iron Tyrant');
-    const ok = (u) => !u.vehicle && !u.embarkedIn && !u.passengers.length && u !== t && alive(u).every((m) => /Infantry|Paragon/.test(m.unitType) && (!light || !(xOf(m.rules, 'Bulky') > 1)) && (!lair || /^Perturabo|Domitar-ferrum/.test(m.name)))
-      && alive(u).reduce((s, m) => s + (xOf(m.rules, 'Bulky') || 1), 0) <= room
-      && !alive(u).some((m) => m.ranged.some((w) => has(w.specialRules, 'Heavy') || has(w.specialRules, 'Ordnance')));
-    const cand = units.filter(ok).sort((a, b) => ai.meleeValue(state, b, state.units.filter((e) => e.side !== side)) - ai.meleeValue(state, a, state.units.filter((e) => e.side !== side)));
+    const ok = (u) => !u.embarkedIn && canCarry(t, u) && (alive(u).every((m) => /Walker/.test(m.unitType)) || !alive(u).some((m) => m.ranged.some((w) => has(w.specialRules, 'Heavy') || has(w.specialRules, 'Ordnance'))));
+    const cand = units.filter(ok).sort((a, b) => ai.meleeValue(state, b, foes) - ai.meleeValue(state, a, foes));
     const p = cand[0];
-    if (p) { t.passengers.push(p); p.embarkedIn = t; room -= alive(p).reduce((s, m) => s + (xOf(m.rules, 'Bulky') || 1), 0); }
+    if (p) { t.passengers.push(p); p.embarkedIn = t; }
   }
   // 6. Declare Mission Reserves: assault units that can Deep Strike or Outflank wait to strike where it hurts
   const enemies = state.units.filter((e) => e.side !== side);
+  // a transport counts as an assault unit when the unit it carries is one
+  const isAssault = (u) => ai.meleeValue(state, u, enemies) > ai.shootValue(state, u, enemies);
   for (const u of units) {
     if (u.embarkedIn) continue;
-    const assault = ai.meleeValue(state, u, enemies) > ai.shootValue(state, u, enemies);
+    const assault = isAssault(u) || u.passengers.some(isAssault);
     if (/Flyer/.test(u.unitType)) u.reserve = 'aerial';
+    // an Orbital Assault Vehicle must be deployed by Deep Strike (CONFIRMED)
+    else if (mustDeepStrike(u)) u.reserve = 'deep';
     else if (has(u.rules, 'Deep Strike') && assault) u.reserve = 'deep';
     else if (has(u.rules, 'Outflank') && assault) u.reserve = 'outflank';
     if (u.reserve) { u.arrived = false; for (const p of u.passengers) p.arrived = false; }
   }
-  // place the rest in the zone (never within 2" of the enemy, nor in Impassable Terrain): big models first.
-  // A unit with nowhere to stand goes into Reserves (MISSION).
+  // place the rest in the zone (never within 2" of the enemy, nor in Impassable Terrain, nor on an Objective Marker):
+  // big models first. A unit with nowhere to stand goes into Reserves (MISSION).
   const toPlace = units.filter((u) => !u.reserve && !u.embarkedIn).sort((a, b) => b.r - a.r);
   const placedNow = [];
   for (const u of toPlace) {
@@ -236,7 +243,7 @@ function deploy(state, side) {
     }
     let best = null;
     for (const p of cands) {
-      if (state.table.pieces.some((r) => r.impassable && inside(p, r))) continue;
+      if (state.table.pieces.some((r) => r.impassable && inside(p, r)) || onMarker(state, p, u.r)) continue;
       if (state.units.some((o) => o !== u && o.placed && !o.embarkedIn && Math.hypot(o.x - p.x, o.y - p.y) < o.r + u.r + (o.side !== side ? 2 : 0.5))) continue;
       const s = ai.positionScore(state, u, p, { cautious: 1.2 });
       if (!best || s > best.s) best = { p, s };
