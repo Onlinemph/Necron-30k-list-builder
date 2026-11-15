@@ -2,8 +2,10 @@
 'use strict';
 // Round robin: every list plays every other list, N battles per pairing, on random Core Missions.
 //   node sim/tournament.cjs <list> <list> ... [--battles 24] [--seed 1] [--workers 4] [--out results.json]
-//                            [--only "<list name>"] [--merge earlier.json]
-// --only plays just the pairings with that list; --merge starts from an earlier result and replaces those pairings.
+//                            [--only "<list name>"] [--merge earlier.json] [--resume partial.json]
+// --only plays just the pairings with that list; --merge starts from an earlier result and replaces those pairings;
+// --resume keeps the pairings a stopped run already saved and plays the rest (each pairing's seed is fixed, so the
+// result is the same as an unbroken run).
 // Pairings run in parallel worker processes. The output JSON has, for each pairing, wins, draws and VP; for each
 // list, results by Archetype and per-unit points destroyed and lost.
 const path = require('path');
@@ -46,7 +48,7 @@ if (process.argv[2] === '--worker') {
 
 // ---------- main: hands pairings to workers and collects the results ----------
 function parse(argv) {
-  const o = { battles: 24, seed: 1, workers: 4, out: 'tournament.json', lists: [], only: null, merge: null };
+  const o = { battles: 24, seed: 1, workers: 4, out: 'tournament.json', lists: [], only: null, merge: null, resume: null };
   for (let i = 0; i < argv.length; i++) {
     const x = argv[i];
     if (x === '--battles') o.battles = +argv[++i];
@@ -55,6 +57,7 @@ function parse(argv) {
     else if (x === '--out') o.out = argv[++i];
     else if (x === '--only') o.only = argv[++i];
     else if (x === '--merge') o.merge = argv[++i];
+    else if (x === '--resume') o.resume = argv[++i];
     else o.lists.push(path.resolve(x));
   }
   return o;
@@ -69,6 +72,15 @@ function main() {
     jobs.push({ id: jobs.length, i, j, a: o.lists[i], b: o.lists[j], battles: o.battles, seed: o.seed + 1000 * k });
   }
   const results = [];
+  if (o.resume && fs.existsSync(o.resume)) {
+    const old = JSON.parse(fs.readFileSync(o.resume, 'utf8'));
+    for (const p of old.pairings) {
+      const at = jobs.findIndex((jb) => jb.i === p.i && jb.j === p.j);
+      if (at >= 0) { results.push(p); jobs.splice(at, 1); }
+    }
+    jobs.forEach((jb, n) => { jb.id = n; });
+    process.stderr.write(`resuming: ${results.length} pairings kept, ${jobs.length} to play\n`);
+  }
   if (o.merge) {
     const old = JSON.parse(fs.readFileSync(o.merge, 'utf8'));
     for (const p of old.pairings) if (!jobs.some((jb) => jb.i === p.i && jb.j === p.j)) results.push(p);
