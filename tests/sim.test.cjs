@@ -1890,3 +1890,18 @@ test('The Set-up Move follows the charge route, and the Charge Roll needs only w
   const line = st.lines.find((l) => /needed/.test(l));
   assert.ok(line && Math.abs(parseFloat(line.match(/needed ([\d.]+)/)[1]) - (way.len - set)) < 0.06, line);
 });
+
+test('Looking ahead leaves no trace: a battle that looks ahead but plays its usual plan comes out the same', () => {
+  const lookahead = require('../sim/lib/lookahead.cjs');
+  const a = path.join(LISTS, 'strong', 'world-eaters.json'), b = path.join(LISTS, 'strong', 'iron-hands.json');
+  const plain = runBattle(a, b, { seed: 11, log: true });
+  const real = lookahead.choosePlan;
+  let looked = 0;
+  lookahead.choosePlan = (...args) => { real(...args); looked++; return null; };
+  try {
+    const both = runBattle(a, b, { seed: 11, log: true, ai: [{ lookahead: 1 }, { lookahead: 1 }] });
+    assert.ok(looked >= 10, `looked ahead ${looked} times`);
+    assert.deepEqual(both.vp, plain.vp);
+    assert.deepEqual(both.log.filter((l) => !/looking ahead/.test(l)), plain.log);
+  } finally { lookahead.choosePlan = real; }
+});

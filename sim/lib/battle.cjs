@@ -14,6 +14,7 @@ const { shootingAttack, moraleSubPhase } = require('./shoot.cjs');
 const { reservesSubPhase, moveSubPhase, routSubPhase, moveUnit, canCarry, mustDeepStrike, onMarker, emergencySpot, removeWithin } = require('./move.cjs');
 const { assaultPhase, canReact, unlock } = require('./assault.cjs');
 const ai = require('./ai.cjs');
+const lookahead = require('./lookahead.cjs');
 const core = require('./core.cjs');
 const reactions = require('./reactions.cjs');
 const psychic = require('./psychic.cjs');
@@ -75,7 +76,13 @@ function runBattle(listA, listB, opts = {}) {
     if (mission.has('Tectonic Instability')) tectonic(state);
     for (const side of [first, 1 - first]) {
       if (!state.units.some((u) => u.side === side && !u.destroyed)) continue;
-      playerTurn(state, side);
+      // a side that looks ahead picks this turn's plan first (lookahead.cjs), and plays the turn with its weights
+      const plan = ai.K(state, side, 'lookahead') ? lookahead.choosePlan(state, side, LOOK, { vpWorth: ai.K(state, side, 'vp'), tries: ai.K(state, side, 'lookahead') }) : null;
+      if (plan) {
+        const was = state.aiParams;
+        state.aiParams = (was || [null, null]).slice(); state.aiParams[side] = plan;
+        try { playerTurn(state, side); } finally { state.aiParams = was; }
+      } else playerTurn(state, side);
     }
     if (sudden && suddenDeath(state)) { turns = round; break; }
     if (round === mission.turns && turns === mission.turns && dice.d6() >= 4) { turns++; state.log(`\nThe battle goes on: Battle Turn ${turns} is played.`); }
@@ -353,6 +360,16 @@ function playerTurn(state, side) {
   statusesSubPhase(state, side);
   scoring.victorySubPhase(state, side);
 }
+
+/** What a look ahead plays (lookahead.cjs): a Player Turn, the start of the next Battle Turn, the end of the battle. */
+const LOOK = {
+  playerTurn: (state, side) => playerTurn(state, side),
+  newRound: (state) => {
+    state.round += 1; state.turnsLeft = Math.max(1, state.mission.turns - state.round + 1);
+    if (state.mission.has('Tectonic Instability')) tectonic(state);
+  },
+  endOfBattle: (state) => scoring.endOfBattle(state),
+};
 
 /** Run fn with a field of these units set to `value` (hiding them from a sub-phase), then put it back. */
 function hidden(units, key, value, fn) {
