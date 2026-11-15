@@ -14,6 +14,15 @@ const bloodCrowAim = (model, target) => has(model.rules, 'The Blood Crow') && !/
 // Drakenscale Armour (Cassian Dracos Reborn): wounds from Flame, Plasma, Melta or Volkite weapons have Damage 1 (CONFIRMED)
 const drakenscale = (victim, g) => has(victim.rules, 'Drakenscale Armour') && (g.weaponTraits || []).some((t) => /^(Flame|Plasma|Melta|Volkite)$/.test(t));
 
+/**
+ * The X of a group's Poisoned (X) against a unit: against a unit that includes any Walker, Automata or Artificia
+ * model it works only on an unmodified 6 (CONFIRMED, the Types' rules); vehicles take Armour Penetration instead.
+ */
+function poisonedX(rules, target) {
+  const x = xOf(rules, 'Poisoned');
+  return x != null && x < 6 && target.models.some((m) => m.wounds > 0 && /Walker|Automata|Artificia/.test(m.unitType || '')) ? 6 : x;
+}
+
 /** Which model in the target takes the next wound: the defender's choice, or the attacker's for a Precision hit. */
 function pickModel(target, precision) {
   // models fighting a challenge are set aside in the Fight Sub-Phase: no wounds go to them (CONFIRMED)
@@ -40,10 +49,12 @@ function majority(target, key, dflt) {
   return best ?? dflt;
 }
 /** Facing of a vehicle hit from attacker position: front, side or rear armour. */
-function armourFacing(target, from, melee) {
+function armourFacing(target, from, melee, indirect) {
   const p = target.models[0].p;
   // melee attacks always hit a vehicle's Rear Armour (CONFIRMED)
   if (melee) return num(p.REAR ?? p.SIDE ?? p.FRONT, 10);
+  // an attack that fires indirectly, without Line of Sight, always hits the Side Armour (CONFIRMED, rulebook)
+  if (indirect) return num(p.SIDE ?? p.FRONT, 10);
   if (p.SIDE == null && p.REAR == null) return num(p.FRONT, 10);
   const facing = target.facing ?? (target.side === 0 ? Math.PI / 2 : -Math.PI / 2);
   const ang = Math.atan2(from.y - target.y, from.x - target.x);
@@ -51,6 +62,50 @@ function armourFacing(target, from, melee) {
   if (d <= Math.PI / 4) return num(p.FRONT, 10);
   if (d >= (3 * Math.PI) / 4) return num(p.REAR ?? p.SIDE ?? p.FRONT, 10);
   return num(p.SIDE ?? p.FRONT, 10);
+}
+
+// ---------- Blast Markers ----------
+/** How many models of a unit a Blast Marker of diameter X centred over it covers (ASSUMPTION: 3 for a 3" marker, 5 for 5" or more; a vehicle is one model). */
+const blastCount = (aliveN, vehicleTarget, X) => Math.min(aliveN, vehicleTarget ? 1 : X >= 5 ? 5 : 3);
+/** Area shared by two circles of radius a and b whose centres are d apart. */
+function lens(a, b, d) {
+  if (d >= a + b) return 0;
+  if (d <= Math.abs(a - b)) return Math.PI * Math.min(a, b) ** 2;
+  const a2 = a * a, b2 = b * b;
+  return a2 * Math.acos((d * d + a2 - b2) / (2 * d * a)) + b2 * Math.acos((d * d + b2 - a2) / (2 * d * b)) - 0.5 * Math.sqrt((a + b - d) * (d + a - b) * (d - a + b) * (d + a + b));
+}
+/**
+ * The models of a unit that a Blast Marker of diameter X centred at p covers, as a number that may have a fraction.
+ * A unit is a circle holding its models (table.cjs), so a marker that only partly overlaps it covers the share of the
+ * centred marker's models that its overlap is of the centred overlap (ASSUMPTION). A unit of one model is covered as
+ * soon as the marker touches its base or hull (CONFIRMED: a model partly under the marker counts).
+ */
+function modelsUnder(unit, p, X) {
+  const d = Math.hypot(p.x - unit.x, p.y - unit.y), rho = X / 2;
+  if (d >= rho + unit.r) return 0;
+  let n = 0, vehicle = false;
+  for (const m of unit.models) if (m.wounds > 0) { n++; if (m.vehicle) vehicle = true; }
+  if (n <= 1) return n;
+  return blastCount(n, vehicle, X) * lens(rho, unit.r, d) / lens(rho, unit.r, 0);
+}
+// a Scatter Dice shows HIT on two of its six faces (ASSUMPTION: the standard dice)
+const SCATTER_HIT = 2 / 6;
+const indirectMemo = new Map();
+/**
+ * The share of a centred marker's hits that an Indirect Scatter Roll with `dice` D6 leaves on a unit of radius R
+ * (single: a one-model unit), for the AI's expected values: no move on a HIT, otherwise the dice's total in inches.
+ */
+function indirectShare(dice, X, R, single) {
+  const key = `${dice}|${X}|${Math.round(R * 10)}|${single ? 1 : 0}`;
+  let v = indirectMemo.get(key);
+  if (v != null) return v;
+  let dist = [1]; // dist[s] = chance the dice total s
+  for (let k = 0; k < dice; k++) { const nx = []; dist.forEach((p, s) => { for (let f = 1; f <= 6; f++) nx[s + f] = (nx[s + f] || 0) + p / 6; }); dist = nx; }
+  const rho = X / 2, full = lens(rho, R, 0);
+  const cover = (s) => (s >= rho + R ? 0 : single ? 1 : lens(rho, R, s) / full);
+  v = SCATTER_HIT + (1 - SCATTER_HIT) * dist.reduce((t, p, s) => t + (p || 0) * cover(s), 0);
+  indirectMemo.set(key, v);
+  return v;
 }
 
 /**
@@ -62,10 +117,12 @@ function armourFacing(target, from, melee) {
 function resolveGroup(g, target, ctx) {
   const { dice } = ctx;
   const rules = g.rules || [];
-  const out = { hits: 0, wounds: 0, unsaved: 0, damage: 0, kills: 0, killed: [], shockRolls: 0, precisionHits: 0, vehicleStatuses: [], misfires: 0, used: 0 };
+  const out = { hits: 0, wounds: 0, unsaved: 0, damage: 0, kills: 0, killed: [], shockRolls: 0, precisionHits: 0, vehicleStatuses: [], misfires: 0, used: 0, blastMisses: 0 };
   const psychic = (g.weaponTraits || []).includes('Psychic'), immaterial = (g.weaponTraits || []).includes('Immaterial');
-  const rend = xOf(rules, 'Rending'), breach = xOf(rules, 'Breaching'), shred = xOf(rules, 'Shred'), poison = xOf(rules, 'Poisoned');
+  const rend = xOf(rules, 'Rending'), breach = xOf(rules, 'Breaching'), shred = xOf(rules, 'Shred'), poison = poisonedX(rules, target);
   const precision = xOf(rules, 'Precision');
+  // Paragon: the attacking player allocates every Hit a Paragon model inflicts, shooting or in combat (CONFIRMED)
+  const attackerAllocates = !!g.attackerModel && /Paragon/.test(g.attackerModel.unitType || '');
   let crit = xOf(rules, 'Critical Hit');
   if (ctx.preyCrit) crit = crit ? Math.min(crit, ctx.preyCrit) : ctx.preyCrit;
   if (g.bsCrit) crit = crit ? Math.min(crit, g.bsCrit) : g.bsCrit;
@@ -86,18 +143,20 @@ function resolveGroup(g, target, ctx) {
       nat = dice.d6();
       // Overload (X): an unmodified Hit Test of X or less is a Misfire, hit or miss (CONFIRMED)
       if (g.overload && nat <= g.overload) out.misfires++;
-      if (nat < g.hitNeed) continue;
+      // Shock (X): any Hit Test whose unmodified result is a 5 or 6 triggers it, so attacks without a Hit Test
+      // (Template weapons, a Barrage fired out of sight, Deflagrate) never do (CONFIRMED)
+      if (nat >= 5) out.shockRolls++;
+      // Blast (X): a miss scatters the marker; shoot.cjs makes one Scatter Roll for the Fire Group's misses
+      if (nat < g.hitNeed) { if (g.blastN) out.blastMisses++; continue; }
     }
-    // Blast (X): one Hit Test, and every model under the marker takes a hit (CONFIRMED); a miss scatters away
-    // (ASSUMPTION: a scattered marker hits nothing)
+    // Blast (X): one Hit Test, and every model under the marker takes a hit (CONFIRMED)
     for (let rep = 0; rep < (g.blastN || 1); rep++) {
       if (ctx.martyr && ctx.martyr.wounds <= 0) break;
       out.hits++;
-      if (nat >= 5) out.shockRolls++;
       // Snap Shots and Blast, Barrage and Template weapons never trigger Precision (CONFIRMED)
       const isPrecision = precision && nat >= Math.max(precision, ctx.precisionMin || 0) && g.hitNeed != null && !g.snap && !has(rules, 'Blast') && !has(rules, 'Barrage');
       if (isPrecision) out.precisionHits++;
-      const victim = ctx.martyr && ctx.martyr.wounds > 0 ? ctx.martyr : pickModel(target, isPrecision);
+      const victim = ctx.martyr && ctx.martyr.wounds > 0 ? ctx.martyr : pickModel(target, isPrecision || attackerAllocates);
       if (!victim) break;
       // Anathema: Psychic Weapons have no effect on the model (CONFIRMED)
       if (psychic && has(victim.rules, 'Anathema')) continue;
@@ -105,7 +164,7 @@ function resolveGroup(g, target, ctx) {
       if (g.hitNeed != null && crit && nat >= crit) { autoWound = true; extraD = 1; } else if (g.hitNeed != null && rend && nat >= rend && !victim.vehicle) autoWound = true;
       // ---- vehicles: Armour Penetration ----
       if (victim.vehicle) {
-        const av = armourFacing(target, g.from || target, g.melee);
+        const av = armourFacing(target, g.from || target, g.melee, g.indirect);
         const pen = g.S + dice.d6();
         const pens = pen > av || (bane && pen >= av);
         const glance = !pens && pen === av;
@@ -211,6 +270,10 @@ function applyDamage(model, dmg, unit, out, ctx) {
   }
 }
 
+const statsMemo = new Map();
+/** The Characteristics a Heavy (X) or Ordnance (X) names: "RS & AP" -> ['RS', 'AP']. */
+const statsOf = (x) => { let v = statsMemo.get(x); if (!v) { v = x.split(/\s*(?:&|,|\band\b)\s*/i).map((s) => s.trim().toUpperCase()).filter(Boolean); statsMemo.set(x, v); } return v; };
+
 /** Build the attacks a model makes with a ranged weapon at a target (Heavy, Ordnance, Blast, Template handled here). */
 function rangedGroup(model, w, target, opts) {
   const rules = w.specialRules || [];
@@ -220,30 +283,39 @@ function rangedGroup(model, w, target, opts) {
   let BS = num(model.p.BS, 4);
   // Fury of the Legion (Tactical Squads): a bolter gains Heavy (FP) for the attack (CONFIRMED)
   const heavy = argOf(rules, 'Heavy') || (has(model.rules, 'Fury of the Legion') && /^bolter$/i.test(w.base || w.name) ? 'FP' : null), ord = argOf(rules, 'Ordnance');
-  if ((stationary || opts.heavyOK) && heavy) { if (heavy === 'FP') FP += 1; else if (heavy === 'S' || heavy === 'RS') S += 1; else if (heavy === 'D') D += 1; else if (heavy === 'AP') AP = Math.max(2, AP - 1); else if (heavy === 'BS') BS += 1; }
-  if (stationary && ord) { if (ord === 'FP') FP *= 2; else if (ord === 'S' || ord === 'RS') S *= 2; else if (ord === 'D') D *= 2; else if (ord === 'AP') AP = 2; }
+  // a rule may name two Characteristics ("Ordnance (RS & AP)"); R (Range) is applied in fire.cjs
+  if ((stationary || opts.heavyOK) && heavy) for (const c of statsOf(heavy)) { if (c === 'FP') FP += 1; else if (c === 'S' || c === 'RS') S += 1; else if (c === 'D') D += 1; else if (c === 'AP') AP = Math.max(2, AP - 1); else if (c === 'BS') BS += 1; }
+  if (stationary && ord) for (const c of statsOf(ord)) { if (c === 'FP') FP *= 2; else if (c === 'S' || c === 'RS') S *= 2; else if (c === 'D') D *= 2; else if (c === 'AP') AP = 2; }
   // a pair or more of the weapon ("Two ... Mounted") multiplies Firepower after Heavy and Ordnance
   FP *= (w.count || 1);
   const aliveN = target.models.filter((m) => m.wounds > 0).length;
   const vehicleTarget = target.models.some((m) => m.wounds > 0 && m.vehicle);
   const aim = bloodCrowAim(model, target);
   const bs = aim ? Math.max(6, BS + (opts.bsMod || 0)) : BS + (opts.bsMod || 0);
-  let attacks = FP, hitNeed = hitNeedBS(bs), blastN = 0;
-  const snap = !!opts.snap && !aim;
+  let attacks = FP, hitNeed = hitNeedBS(bs), blastN = 0, pIndirect = null;
+  // Skyfire: against a Flyer a weapon with Skyfire makes normal Hit Tests and every other weapon Snap Shots, also in
+  // Reactions; a unit with any Tactical Status gets no benefit from it (CONFIRMED). opts.vsFlyer and opts.statused
+  // come from fire.cjs and shoot.cjs
+  const flyerSnap = !!opts.vsFlyer && !(!opts.statused && (has(rules, 'Skyfire') || has(model.rules, 'Skyfire')));
+  const snap = (!!opts.snap || flyerSnap) && !aim;
   // Snap Shots use their own column of the Hit Test table; BS 6+ scores Critical Hits, BS 10+ always does
   const bsCrit = snap ? null : core.bsCrit(bs);
   if (snap) hitNeed = core.snapHit(bs);
   else if (bsCrit === 1) hitNeed = 1;
+  // a Barrage weapon fired at a unit out of Line of Sight (opts.indirect, fire.cjs) hits a vehicle's Side Armour
+  const indirect = !!opts.indirect && has(rules, 'Barrage');
   if (has(rules, 'Template')) {
     // a flame template catches several models of a packed unit
     attacks = FP * Math.min(aliveN, vehicleTarget ? 1 : 4);
     hitNeed = null;
   } else {
-    // ASSUMPTION: a 3" marker covers 3 models of a packed unit, a 5" marker 5; a vehicle is one model
     const blast = xOf(rules, 'Blast');
-    if (blast) blastN = Math.min(aliveN, vehicleTarget ? 1 : blast >= 5 ? 5 : 3);
+    if (blast) blastN = blastCount(aliveN, vehicleTarget, blast);
+    // a Barrage Blast out of sight makes no Hit Test: each attack's marker takes an Indirect Scatter Roll of X dice
+    // (CONFIRMED); shoot.cjs rolls it, and the AI expects the share indirectShare gives
+    if (blast && indirect) { hitNeed = null; pIndirect = indirectShare(xOf(rules, 'Barrage') || 0, blast, target.r || 1, aliveN <= 1); }
   }
-  return { weapon: w, attacks, blastN, S, AP, D, hitNeed, bsCrit: hitNeed == null ? null : bsCrit, snap, rules, melee: false, attackerModel: model, weaponTraits: w.traits || [] };
+  return { weapon: w, attacks, blastN, S, AP, D, hitNeed, bsCrit: hitNeed == null ? null : bsCrit, snap, rules, melee: false, attackerModel: model, weaponTraits: w.traits || [], indirect, pIndirect };
 }
 
 /** A model's melee attacks with a weapon (Impact on the charge, Reaping Blow when outnumbered). */
@@ -272,7 +344,8 @@ function meleeGroup(model, w, target, opts) {
 function expectedGroup(g, target, ctx = {}) {
   const t = target.models.find((m) => m.wounds > 0);
   if (!t) return 0;
-  const pHit = (g.hitNeed == null ? 1 : Math.max(0, (7 - Math.max(1, g.hitNeed)) / 6)) * (g.blastN || 1);
+  // a Barrage Blast fired out of sight makes no Hit Test: its share is where the Indirect Scatter Roll leaves it
+  const pHit = (g.pIndirect != null ? g.pIndirect : g.hitNeed == null ? 1 : Math.max(0, (7 - Math.max(1, g.hitNeed)) / 6)) * (g.blastN || 1);
   // share of hits that are Critical Hits (they wound automatically with +1 Damage)
   let crit = xOf(g.rules, 'Critical Hit');
   if (ctx.preyCrit) crit = crit ? Math.min(crit, ctx.preyCrit) : ctx.preyCrit;
@@ -286,7 +359,7 @@ function expectedGroup(g, target, ctx = {}) {
     return g.attacks * pHit * p * Math.min(g.D, num(t.p.HP, 1)) * (shr <= 6 ? (shr - 1) / 6 : 1) * (vinv <= 6 ? (vinv - 1) / 6 : 1);
   }
   const need = woundNeed(g.S - (!g.melee && legions.is(target, 'Iron Hands') ? 1 : 0), majority(target, 'T', 4) + (target.buff?.tough || 0));
-  const breach = xOf(g.rules, 'Breaching'), poison = xOf(g.rules, 'Poisoned');
+  const breach = xOf(g.rules, 'Breaching'), poison = poisonedX(g.rules, target);
   const arm = save(t.p.SAV), inv = Math.min(save(t.p.INV), target.buff?.inv || 7);
   const sal = legions.is(target, 'Salamanders');
   let e = 0;
@@ -311,4 +384,4 @@ function expectedGroup(g, target, ctx = {}) {
   return g.attacks * pHit * ((1 - pCrit) * e * dmg(g.D) + pCrit * eC * dmg(g.D + 1)) * mit;
 }
 
-module.exports = { STATUSES, resolveGroup, rangedGroup, meleeGroup, expectedGroup, pickModel, armourFacing };
+module.exports = { STATUSES, resolveGroup, rangedGroup, meleeGroup, expectedGroup, pickModel, armourFacing, blastCount, modelsUnder, indirectShare, statsOf, SCATTER_HIT };

@@ -899,3 +899,164 @@ test('rulebook: Thousand Sons sorcerers carry their disciplines; Warp Rupture is
   assert.ok(s.melee.some((w) => w.name === 'Conflagration'));
   assert.equal(s.ranged.find((w) => w.name === 'Wildfire').R, 18);
 });
+
+// ---------- shooting rules from the rulebook: Blast scatter, Barrage, firing arcs, Skyfire and the rest ----------
+/** A state a Shooting Attack can run in, on a table with nothing on it. */
+const shootState = (dice, units, extra = {}) => Object.assign({ dice, units, table: { pieces: [], hulls: [], objectives: [] }, log: () => {}, pendingMorale: [], active: 0, onCasualty: () => {}, afterDamage: () => {} }, extra);
+const place = (u, x, y, more = {}) => Object.assign(u, { x, y, arrived: true, destroyed: false, embarkedIn: null, statuses: new Set(), lockedWith: new Set(), turn: {} }, more);
+// dice that always roll 1, and 0 for a direction or fraction (scatter along +x, no rounding up)
+const ones = () => ({ d6: () => 1, d3: () => 1, twoD6: () => 2, rnd: () => 0 });
+
+test('rulebook: missed Blasts scatter once per Fire Group and hit every unit under the marker, friend or foe', () => {
+  const { modelsUnder, blastCount } = require('../sim/lib/attack.cjs');
+  const { shootingAttack } = require('../sim/lib/shoot.cjs');
+  // a centred marker covers the usual 3 or 5 models; half off the unit, fewer; clear of it, none; a lone model if touched
+  const t = place(unit('sons-of-horus', 'tactical-squad', {}, 1), 30, 24);
+  assert.equal(modelsUnder(t, t, 3), blastCount(10, false, 3));
+  const edge = modelsUnder(t, { x: 30 + t.r, y: 24 }, 3);
+  assert.ok(edge > 0.5 && edge < 2.5, `${edge}`);
+  assert.equal(modelsUnder(t, { x: 30 + t.r + 1.6, y: 24 }, 3), 0);
+  const tank = place(unit('sons-of-horus', 'predator', {}, 1), 50, 24);
+  assert.equal(modelsUnder(tank, { x: 50 + 2.5 + 1.4, y: 24 }, 3), 1);
+  // ten frag shots all miss (every die a 1): one Scatter Roll of 1" along +x; the marker still covers 3 of the target's
+  // models, so 10 misses x 3 hits, and the shooter's own Rhino beside the target takes 10 hits as friendly fire
+  const sq = place(unit('sons-of-horus', 'tactical-squad', {}, 0), 10, 24);
+  const frag = { name: 'Test frag', base: 'Test frag', R: 30, FP: 1, RS: 3, AP: 7, D: 1, specialRules: ['Blast (3")'], traits: [] };
+  for (const m of sq.models) m.ranged = [frag];
+  const rhino = place(unit('sons-of-horus', 'rhino', {}, 0), 34.5, 24);
+  const lines = [];
+  shootingAttack(shootState(ones(), [sq, t, rhino], { log: (l) => lines.push(l) }), sq, t, {});
+  assert.ok(lines.some((l) => /Test frag: 30 hits/.test(l)), lines.join('\n'));
+  assert.ok(lines.some((l) => /scattered Test frag hits Rhino \(friendly fire\): 10 hits/.test(l)), lines.join('\n'));
+});
+
+test('rulebook: a Barrage Blast out of sight makes no Hit Test but an Indirect Scatter Roll per attack; Reactions need sight', () => {
+  const { shootingAttack } = require('../sim/lib/shoot.cjs');
+  const { planVolley } = require('../sim/lib/fire.cjs');
+  const { armourFacing, rangedGroup, expectedGroup } = require('../sim/lib/attack.cjs');
+  const sq = place(unit('sons-of-horus', 'tactical-squad', {}, 0), 10, 24);
+  const mortar = { name: 'Test mortar', base: 'Test mortar', R: 48, FP: 1, RS: 4, AP: 5, D: 1, specialRules: ['Blast (3")', 'Barrage (1)'], traits: [] };
+  const bolter = { name: 'Test bolter', base: 'Test bolter', R: 48, FP: 2, RS: 4, AP: 5, D: 1, specialRules: [], traits: [] };
+  for (const m of sq.models) m.ranged = [mortar, bolter];
+  const t = place(unit('sons-of-horus', 'tactical-squad', {}, 1), 40, 24);
+  const st = shootState(ones(), [sq, t]);
+  st.table.pieces.push({ x: 24, y: 0, w: 2, h: 48, blocksLoS: true, kind: 'building', impassable: true });
+  const plan = planVolley(sq, t, st, {});
+  assert.equal(plan.los, false);
+  assert.ok(plan.picks.length === 10 && plan.picks.every((p) => p.weapon === mortar));
+  assert.equal(planVolley(sq, t, st, { reaction: true }).picks.length, 0);
+  // every die a 1 would fail every Hit Test, but none is made: the Scatter Dice shows HIT (rnd 0), so every marker
+  // stays on the target and covers 3 models
+  const lines = [];
+  st.log = (l) => lines.push(l);
+  shootingAttack(st, sq, t, {});
+  assert.ok(lines.some((l) => /out of sight.*Test mortar: 30 hits/.test(l)), lines.join('\n'));
+  assert.equal(shootingAttack(st, sq, t, { reaction: true }).damage, 0);
+  // its hits on a vehicle take the Side Armour whichever way it faces; the AI expects a share of a centred marker
+  const pred = place(unit('sons-of-horus', 'predator', {}, 1), 40, 24, { facing: Math.PI });
+  assert.equal(armourFacing(pred, sq, false, true), 12);
+  assert.equal(armourFacing(pred, sq, false, false), 13);
+  const g = rangedGroup(sq.models[0], mortar, t, { indirect: true });
+  assert.equal(g.hitNeed, null);
+  assert.ok(g.pIndirect > 1 / 3 && g.pIndirect < 1, `${g.pIndirect}`);
+  assert.ok(expectedGroup(g, t) < 3 * expectedGroup(rangedGroup(sq.models[0], mortar, t, {}), t));
+});
+
+test('rulebook: vehicle weapons fire only into their arcs, by the mount the item or its option names', () => {
+  const { planVolley, parseMount, mountsOf } = require('../sim/lib/fire.cjs');
+  assert.deepEqual(parseMount('Hull (Front) Mounted Hunter-killer missile'), { kind: 'hull', arcs: ['front'] });
+  assert.deepEqual(parseMount('Hull (Side) Mounted x'), { kind: 'hull', arcs: ['left', 'right'] });
+  assert.deepEqual(parseMount('Two Sponson Mounted lascannon arrays'), { kind: 'sponson', arcs: ['left', 'right'] });
+  assert.deepEqual(parseMount('Sponson (right) Mounted x'), { kind: 'sponson', arcs: ['right'], single: true });
+  assert.deepEqual(parseMount('Centreline (front, rear) Mounted x'), { kind: 'centreline', arcs: ['front', 'rear'] });
+  assert.deepEqual(parseMount('Co-axial (Baneblade cannon) Mounted Autocannon'), { kind: 'coaxial', link: 'baneblade cannon' });
+  assert.equal(parseMount('Pintle Mounted Bolter').kind, 'any');
+  assert.equal(parseMount('Twin lascannon'), null);
+  // a Land Raider's twin heavy bolter is Hull (Front) by its option; its twin lascannons are a pair of sponsons
+  const lr = place(unit('sons-of-horus', 'land-raider-carrier', {}, 0), 36, 24, { facing: 0 });
+  const mounts = mountsOf(lr, lr.models[0]);
+  assert.deepEqual(lr.models[0].ranged.map((w) => mounts.get(w).kind), ['sponson', 'hull']);
+  // a Predator's turret comes from the option that exchanges its cannon, its sponsons from their option group
+  const pred = place(unit('sons-of-horus', 'predator', { options: { 'predator-legion-sponson-weapons': 'Lascannon' } }, 0), 10, 10);
+  assert.deepEqual(pred.models[0].ranged.map((w) => mountsOf(pred, pred.models[0]).get(w).kind), ['any', 'sponson']);
+  const fire = (x, y) => {
+    const t = place(unit('sons-of-horus', 'tactical-squad', {}, 1), x, y);
+    return planVolley(lr, t, shootState(createDice(1), [lr, t]), {}).picks.map((p) => `${p.weapon.name} x${p.weapon.count}`).sort();
+  };
+  // ahead, on the line between the sponsons: the heavy bolter and both sponsons; to either side: one sponson only
+  assert.deepEqual(fire(50, 24), ['Sponson Mounted Twin Lascannon x2', 'Twin heavy bolter x1']);
+  assert.deepEqual(fire(36, 40), ['Sponson Mounted Twin Lascannon x1']);
+  assert.deepEqual(fire(36, 8), ['Sponson Mounted Twin Lascannon x1']);
+  // turned to face the unit at the side, the heavy bolter can fire at it
+  lr.facing = Math.PI / 2;
+  assert.deepEqual(fire(36, 40), ['Sponson Mounted Twin Lascannon x2', 'Twin heavy bolter x1']);
+});
+
+test('rulebook: a vehicle splits its fire when it costs nothing, Defensive Weapons at a second unit', () => {
+  const { shootingAttack } = require('../sim/lib/shoot.cjs');
+  // the Land Raider's weapons are all Defensive (sponsons, and a Strength 5 bolter): its sponsons shoot the unit at its
+  // side, then its front heavy bolter, out of arc for that one, shoots the unit ahead
+  const lr = place(unit('sons-of-horus', 'land-raider-carrier', {}, 0), 36, 24, { facing: 0 });
+  const side = place(unit('sons-of-horus', 'predator', {}, 1), 36, 40);
+  const ahead = place(unit('sons-of-horus', 'tactical-squad', {}, 1), 52, 24);
+  const lines = [];
+  shootingAttack(shootState(createDice(3), [lr, side, ahead], { log: (l) => lines.push(l) }), lr, side, { phaseAttack: true });
+  assert.ok(lines.some((l) => /shoots at Predator: Sponson Mounted Twin Lascannon/.test(l)), lines.join('\n'));
+  assert.ok(lines.some((l) => /splits its fire at Tactical Squad/.test(l) && /Twin heavy bolter/.test(l) && !/Lascannon/.test(l)), lines.join('\n'));
+  // a Predator's turret is a Battle Weapon: having fired it, the Predator doesn't split
+  const pred = place(unit('sons-of-horus', 'predator', { options: { 'predator-turret': 'Twin lascannon' } }, 0), 36, 24, { facing: 0 });
+  const lines2 = [];
+  shootingAttack(shootState(createDice(3), [pred, side, ahead], { log: (l) => lines2.push(l) }), pred, side, { phaseAttack: true });
+  assert.ok(lines2.some((l) => /shoots at Predator/.test(l)) && !lines2.some((l) => /splits its fire/.test(l)), lines2.join('\n'));
+});
+
+test('rulebook: Skyfire is per weapon and lost to a Tactical Status; Super-Heavy and Stable count as Stationary; Ordnance (R)', () => {
+  const { rangedGroup } = require('../sim/lib/attack.cjs');
+  const { steady, reachOf } = require('../sim/lib/fire.cjs');
+  const model = { p: { BS: 4 }, rules: [], traits: [] };
+  const t = place(unit('sons-of-horus', 'tactical-squad', {}, 1), 30, 24);
+  const aa = { name: 'aa', FP: 1, RS: 7, AP: 4, D: 1, specialRules: ['Skyfire'], traits: [] };
+  const gun = { name: 'gun', FP: 1, RS: 7, AP: 4, D: 1, specialRules: [], traits: [] };
+  assert.equal(rangedGroup(model, aa, t, { vsFlyer: true }).snap, false);
+  assert.equal(rangedGroup(model, gun, t, { vsFlyer: true }).snap, true);
+  assert.equal(rangedGroup(model, aa, t, { vsFlyer: true, statused: true }).snap, true);
+  assert.equal(rangedGroup(model, gun, t, {}).snap, false);
+  // Super-Heavy and Stable: Stationary whatever they did, unless they Rushed or have a status
+  const sh = { unitType: 'Vehicle (Super-heavy)', statuses: new Set(), side: 0, turn: {} };
+  assert.equal(steady({ active: 0 }, sh), true);
+  assert.equal(steady({ active: 0 }, Object.assign({}, sh, { unitType: 'Vehicle (Stable, Flyer)' })), true);
+  assert.equal(steady({ active: 0 }, Object.assign({}, sh, { turn: { rushed: true } })), false);
+  assert.equal(steady({ active: 0 }, Object.assign({}, sh, { statuses: new Set(['Pinned']) })), false);
+  assert.equal(steady({ active: 0 }, Object.assign({}, sh, { unitType: 'Vehicle' })), false);
+  // Ordnance (R) doubles the range when Stationary; a rule naming two Characteristics applies to both
+  const mortar = { name: 'm', R: 36, FP: 1, RS: 6, AP: 5, D: 1, specialRules: ['Ordnance (R)', 'Blast (5")', 'Barrage (1)'], traits: [] };
+  assert.equal(reachOf(mortar, model, true), 72);
+  assert.equal(reachOf(mortar, model, false), 36);
+  const smasha = { name: 's', R: 24, FP: 1, RS: 7, AP: 4, D: 1, specialRules: ['Ordnance (RS & AP)'], traits: [] };
+  const g = rangedGroup(model, smasha, t, { stationary: true });
+  assert.deepEqual([g.S, g.AP], [14, 2]);
+});
+
+test('rulebook: Poisoned needs a 6 against Walkers and Automata; Shock needs a Hit Test; Paragons allocate their hits', () => {
+  const { resolveGroup, expectedGroup } = require('../sim/lib/attack.cjs');
+  const walker = { models: [{ wounds: 10, maxWounds: 10, p: { T: 7, W: 10, SAV: '–' }, rules: [], unitType: 'Walker' }], statuses: new Set() };
+  const infantry = { models: [{ wounds: 10, maxWounds: 10, p: { T: 7, W: 10, SAV: '–' }, rules: [], unitType: 'Infantry' }], statuses: new Set() };
+  const venom = { attacks: 6, S: 1, AP: 7, D: 1, hitNeed: null, rules: ['Poisoned (2+)'], melee: true };
+  assert.ok(Math.abs(expectedGroup(venom, walker) - 1) < 1e-9);
+  assert.ok(Math.abs(expectedGroup(venom, infantry) - 5) < 1e-9);
+  // a wound roll of 5 poisons infantry but not a walker
+  assert.equal(resolveGroup(Object.assign({}, venom, { attacks: 1 }), walker, { dice: scripted([5]) }).wounds, 0);
+  assert.equal(resolveGroup(Object.assign({}, venom, { attacks: 1 }), infantry, { dice: scripted([5]) }).wounds, 1);
+  // Shock: a Template makes no Hit Test, so it never triggers; a Hit Test of 5 does, even one that misses
+  const pred = place(unit('sons-of-horus', 'predator', {}, 1), 30, 24);
+  const flux = { attacks: 1, S: 5, AP: 4, D: 1, hitNeed: null, rules: ['Template', 'Shock (Pinned)'], melee: false, from: { x: 30, y: 10 } };
+  assert.equal(resolveGroup(flux, pred, { dice: scripted([1]) }).shockRolls, 0);
+  assert.equal(resolveGroup(Object.assign({}, flux, { hitNeed: 6, rules: ['Shock (Pinned)'] }), pred, { dice: scripted([5]) }).shockRolls, 1);
+  // a Paragon's hit goes where its player wants it (the Sergeant); otherwise the defender keeps the Sergeant back
+  const kill = { attacks: 1, S: 10, AP: 2, D: 1, hitNeed: null, rules: [], melee: true };
+  const a = unit('sons-of-horus', 'tactical-squad', {}, 1), b = unit('sons-of-horus', 'tactical-squad', {}, 1);
+  resolveGroup(Object.assign({}, kill, { attackerModel: { unitType: 'Paragon (Unique)', rules: [] } }), a, { dice: scripted([6]) });
+  resolveGroup(Object.assign({}, kill, { attackerModel: { unitType: 'Infantry', rules: [] } }), b, { dice: scripted([6]) });
+  assert.equal(a.models.find((m) => m.sergeant).wounds, 0);
+  assert.equal(b.models.find((m) => m.sergeant).wounds, 1);
+});
