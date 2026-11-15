@@ -85,8 +85,8 @@ function scoreClaim(state, side) {
     if (m.has('Hidden Caches')) {
       const roll = state.dice.d6();
       if (roll > 2) {
-        const t = state.dice.rnd() * 2 * Math.PI;
-        c.o.x = Math.min(71, Math.max(1, c.o.x + 3 * Math.cos(t))); c.o.y = Math.min(47, Math.max(1, c.o.y + 3 * Math.sin(t)));
+        // it moves 3", and keeps moving if it would come to rest under a model (MISSION; table.cjs slideMarker)
+        require('./table.cjs').slideMarker(state.table, state.units, c.o, state.dice.rnd() * 2 * Math.PI);
         const again = claimControl(state).find((x) => x.o === c.o);
         if (!again || again.side !== side) { state.log(`    the cache at (${c.o.x.toFixed(0)}, ${c.o.y.toFixed(0)}) shifts out of ${c.unit.name}'s reach`); continue; }
         c.unit = again.unit;

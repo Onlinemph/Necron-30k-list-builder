@@ -599,3 +599,92 @@ function warriorPride(state, challenger, candidates, side, duelValue) {
 }
 
 module.exports = { setup, onShot, onMoved, onArrive, onCharge, vengeance, warriorPride, heroicIntervention, addBuff, clearBuffs, addCondition, refresh, meleeMods, canReact, allTrait, mostTrait, lockInto, LEGION_REACTIONS, ONCE_PER_BATTLE };
+
+// ---------- Death or Glory ----------
+/** The chance of at least k successes in n tries at p each. */
+function atLeast(n, p, k) {
+  if (k <= 0) return 1;
+  let t = 0, c = 1;
+  for (let i = 0; i <= n; i++) { if (i >= k) t += c * p ** i * (1 - p) ** (n - i); c = c * (n - i) / (i + 1); }
+  return Math.min(1, t);
+}
+/** Run fn while the vehicle's Side and Rear Armour count as its Front Armour (Death or Glory hits the Front). */
+function frontOnly(vehicle, fn) {
+  const m = vehicle.models[0], p0 = m.p;
+  m.p = Object.assign({}, p0, { SIDE: p0.FRONT, REAR: p0.FRONT });
+  try { return fn(); } finally { m.p = p0; }
+}
+/**
+ * The model and weapon a unit would answer a vehicle with, and what that's worth: for each model that isn't a vehicle
+ * and each weapon, its attacks (the weapon's Firepower, or the model's Attacks as the melee weapon modifies them), all
+ * hitting, against Front Armour. value: to the reacting side (the vehicle's expected Hull Points lost, the chance of
+ * destroying it, which spares the unit its hits, or of Pinning it, less the model lost otherwise); loss: to the
+ * vehicle's side.
+ */
+function dogPick(state, vehicle, unit) {
+  const { save } = require('./rules.cjs');
+  const vm = vehicle.models.find((m) => m.wounds > 0);
+  if (!vm) return null;
+  const av = num(vm.p.FRONT, 10), vpw = valuePerWound(vehicle), upw = valuePerWound(unit);
+  const pinnable = !vehicle.statuses.has('Pinned') && !/Super-[Hh]eavy|Flyer|Titan|Ordinatus|Fortification/.test(vm.unitType);
+  const spared = expectedGroup({ attacks: 3.5, S: 6, AP: 7, D: 1, hitNeed: null, rules: [], melee: true }, unit) * upw;
+  const stop = vehicle.pts / 6;
+  let best = null;
+  for (const m of alive(unit)) {
+    if (m.vehicle) continue;
+    const opts = [...m.ranged.filter((w) => !GUNS_OF_THE_CONQUEROR.test(w.name)).map((w) => [w, rangedGroup(m, w, vehicle, {})]), ...m.melee.map((w) => [w, meleeGroup(m, w, vehicle, {})])];
+    for (const [w, g0] of opts) {
+      const g = Object.assign({}, g0, { hitNeed: null, bsCrit: null, blastN: 0, snap: false });
+      const n = Math.max(0, Math.round(g.attacks));
+      if (!n) continue;
+      const bane = has(g.rules, 'Armourbane');
+      let pen = 0, gl = 0;
+      for (let r = 1; r <= 6; r++) { const t = g.S + r; if (t > av || (bane && t >= av)) pen += 1 / 6; else if (t === av) gl += 1 / 6; }
+      const inv = Math.min(save(vm.p.INV), !g.melee && (vm.items || []).includes('Medusa Shroud') ? 5 : 7);
+      const shr = g.melee ? 7 : Math.min(xOf(vm.rules, 'Shrouded') || 7, vehicle.buff?.shrouded || 7);
+      const pp = pen * (inv <= 6 ? (inv - 1) / 6 : 1) * (shr <= 6 ? (shr - 1) / 6 : 1);
+      const D = Math.max(1, g.D);
+      const pKill = atLeast(n, pp, Math.ceil(vm.wounds / D)), pPin = pinnable ? 1 - (1 - gl / 3) ** n : 0;
+      const hp = Math.min(vm.wounds, n * pp * D);
+      const stays = 1 - (1 - pKill) * (1 - pPin), model = upw * m.maxWounds;
+      const value = hp * vpw + pKill * spared + pPin * stop - (1 - stays) * model;
+      if (!best || value > best.value) best = { m, w, g, value, loss: hp * vpw + pPin * stop - (1 - stays) * model };
+    }
+  }
+  return best;
+}
+/**
+ * Death or Glory (Advanced Reaction, every army has it; CONFIRMED rulebook p207-208): when the Active Player moves a
+ * vehicle through a unit, that unit may react. The vehicle halts in base contact with it (move.cjs) and one model of
+ * the unit that isn't a vehicle attacks it with one weapon, all its attacks hitting, Armour Penetration against Front
+ * Armour. If that destroys the vehicle or gives it the Pinned Status the model stays; otherwise it is Removed as a
+ * Casualty with no save of any kind. Returns 'destroyed', 'pinned', 'failed', or null when no reaction is made.
+ * opts.estimate: the points the vehicle's side can expect to lose to it instead (0 when it wouldn't be made), for the
+ * AI deciding whether to drive through. ASSUMPTION: the AI takes the model and weapon worth the most and reacts when
+ * that's worth a point of the allotment; a Melta weapon gets no bonus (the attacker needn't be in base contact).
+ */
+function deathOrGlory(state, vehicle, unit, opts = {}) {
+  const side = unit.side;
+  if (state.reactionsLeft[side] <= 0 || !canReact(unit) || collarState(state, unit) === 'far') return opts.estimate ? 0 : null;
+  const best = frontOnly(vehicle, () => dogPick(state, vehicle, unit));
+  if (!best) return opts.estimate ? 0 : null;
+  const free = legions.is(unit, 'Ultramarines') && state.umFlex && !state.umFlex[side];
+  const worth = free ? best.value > 3 : ai.worthReacting(state, side, best.value, 'movement');
+  if (opts.estimate) return worth ? Math.max(0, best.loss) : 0;
+  if (!worth) return null;
+  spend(state, side, 'Death or Glory', unit);
+  say(state, side, 'Death or Glory', unit, `: ${best.m.name} attacks ${vehicle.name} with ${best.w.name}`);
+  const wasPinned = vehicle.statuses.has('Pinned');
+  const r = frontOnly(vehicle, () => resolveGroup(Object.assign({}, best.g, { from: unit }), vehicle, { dice: state.dice, log: state.log, onKill: (x) => state.onCasualty && state.onCasualty(x, vehicle, unit) }));
+  state.log(`    ${best.g.attacks} attacks: ${r.wounds} get through the armour, ${r.damage} Hull Points lost`);
+  for (const st of r.vehicleStatuses) require('./shoot.cjs').vehicleDamage(state, vehicle, st);
+  if (state.afterDamage) state.afterDamage(vehicle);
+  if (vehicle.destroyed) return 'destroyed';
+  if (!wasPinned && vehicle.statuses.has('Pinned')) return 'pinned';
+  best.m.wounds = 0;
+  if (state.onCasualty) state.onCasualty(best.m, unit, vehicle);
+  state.log(`    ${best.m.name} is Removed as a Casualty`);
+  if (state.afterDamage) state.afterDamage(unit);
+  return 'failed';
+}
+module.exports.deathOrGlory = deathOrGlory;

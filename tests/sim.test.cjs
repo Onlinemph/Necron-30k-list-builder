@@ -1501,3 +1501,299 @@ test('Flyers and psykers play through a battle: Flyers come and go, the Storm Ea
   // a Flyer is never on the battlefield in the Assault Phase: nobody charges one
   assert.ok(!r.log.some((l) => /declares a charge at (Storm Eagle|Xiphon|Fire Raptor)/.test(l)));
 });
+
+// ---------- movement, terrain and transports ----------
+/** A unit standing on the table at (x, y), with a clean turn. */
+const standAt = (u, x, y) => Object.assign(u, { arrived: true, destroyed: false, embarkedIn: null, passengers: [], statuses: new Set(), lockedWith: new Set(), turn: {}, reacted: false, reserve: null, x, y });
+/** A small battle state for moves: no terrain or markers unless given; Deployment Zones down the short edges. */
+function moveState(units, extra = {}) {
+  const { footprint } = require('../sim/lib/army.cjs');
+  const lines = [];
+  return Object.assign({
+    units, table: { pieces: [], objectives: [] }, cache: { shoot: new Map(), melee: new Map() }, lines, log: (s) => lines.push(s),
+    mission: { primary: 'destroy', variant: 'escalation', has: () => false, sectors: [], secondaries: { breakthrough: 0 } },
+    zoneOf: [{ poly: [[0, 0], [12, 0], [12, 48], [0, 48]] }, { poly: [[60, 0], [72, 0], [72, 48], [60, 48]] }], zoneName: ['A', 'B'],
+    round: 2, active: 0, turnsLeft: 3, dice: createDice(3), reactionsLeft: [0, 0], umFlex: [false, false], khaganUsed: [false, false], coordinate: [null, null], armies: [{ name: 'Red' }, { name: 'Blue' }],
+    onCasualty: () => {}, afterDamage: (u) => { if (!u.models.some((m) => m.wounds > 0)) u.destroyed = true; else u.r = footprint(u); },
+  }, extra);
+}
+/** Kill all but n models of a unit (from the back of its list) and shrink its footprint. */
+const living = (u) => u.models.filter((m) => m.wounds > 0);
+const keepModels = (u, n) => { u.models.forEach((m, i) => { if (i >= n) m.wounds = 0; }); u.r = require('../sim/lib/army.cjs').footprint(u); return u; };
+
+test('vehicles drive through enemy infantry, taking it D6 Strength 6 hits once they stop; never through vehicles, and infantry never', () => {
+  const move = require('../sim/lib/move.cjs');
+  const rhino = standAt(unit('sons-of-horus', 'rhino', {}, 0), 10, 24);
+  const tac = standAt(unit('ultramarines', 'tactical-squad', {}, 1), 18, 24);
+  const st = moveState([rhino, tac]);
+  const to = { x: 26, y: 24 };
+  const thru = move.destination(st, rhino, to, 16, { through: true });
+  assert.ok(Math.abs(thru.x - 26) < 0.3 && Math.abs(thru.y - 24) < 0.3, `straight through: ${thru.x.toFixed(1)}, ${thru.y.toFixed(1)}`);
+  assert.deepEqual(move.drivenThrough(rhino, thru).map((c) => c.unit), [tac]);
+  // without driving through it keeps 1" from them, all the way
+  const round = move.destination(st, rhino, to, 16);
+  assert.equal(move.drivenThrough(rhino, round).length, 0);
+  for (let s = 0; s <= 1; s += 0.05) {
+    const pts = round.pts, p = { x: pts[0].x + (round.x - pts[0].x) * s, y: pts[0].y + (round.y - pts[0].y) * s };
+    if (pts.length === 2) assert.ok(Math.hypot(p.x - tac.x, p.y - tac.y) >= tac.r + rhino.r + 1 - 0.05);
+  }
+  // ending on top of them, or within 1", isn't allowed: aimed there, it stops short
+  const onTop = move.simulateMove(st, rhino, { x: 20, y: 24 }, 16, { through: true });
+  assert.ok(Math.hypot(onTop.x - tac.x, onTop.y - tac.y) >= tac.r + rhino.r + 1 - 0.05, `${onTop.x}`);
+  // the hits come once the move is over, allocated by the unit's player, with saves
+  move.moveUnit(st, rhino, to, 16, { through: true });
+  assert.ok(st.lines.some((l) => /Rhino drives through Tactical Squad: \d hits/.test(l)), st.lines.join('\n'));
+  assert.ok(Math.abs(rhino.x - 26) < 0.3);
+  // not through a vehicle, and not for infantry
+  const pred = standAt(unit('ultramarines', 'predator', {}, 1), 18, 24);
+  const st2 = moveState([standAt(unit('sons-of-horus', 'rhino', {}, 0), 10, 24), pred]);
+  assert.equal(move.drivenThrough(st2.units[0], move.destination(st2, st2.units[0], to, 16, { through: true })).length, 0);
+  const foot = standAt(unit('sons-of-horus', 'tactical-squad', {}, 0), 10, 24);
+  const st3 = moveState([foot, standAt(unit('ultramarines', 'tactical-squad', {}, 1), 18, 24)]);
+  assert.equal(move.drivenThrough(foot, move.destination(st3, foot, to, 16, { through: true })).length, 0);
+  // the AI drives through only for a better spot: with no enemy infantry in reach it doesn't look
+  assert.equal(move.throughMove(moveState([standAt(unit('sons-of-horus', 'rhino', {}, 0), 10, 24)]), st.units[0], { score: 0 }), null);
+});
+
+test('Death or Glory: one model attacks the vehicle, all hits, Front Armour; it stays if the vehicle dies or is Pinned, else it is removed', () => {
+  const move = require('../sim/lib/move.cjs');
+  const bombs = { name: 'Melta bombs', base: 'Melta bombs', AM: '+3', SM: '8', AP: '1', D: '3', specialRules: ['Armourbane'], traits: [] };
+  const scene = (rolls) => {
+    const rhino = standAt(unit('sons-of-horus', 'rhino', {}, 0), 10, 24);
+    rhino.models[0].wounds = 1;
+    const tac = standAt(unit('ultramarines', 'tactical-squad', {}, 1), 18, 24);
+    tac.models[0].melee = [...tac.models[0].melee, bombs];
+    // (Tactical Flexibility already used this turn, so the reaction costs its point)
+    const st = moveState([rhino, tac], { dice: scripted(rolls), reactionsLeft: [0, 3], umFlex: [true, true] });
+    reactions.setup(st);
+    return { rhino, tac, st };
+  };
+  // the attack hits automatically: four rolls of 6 for Armour Penetration (8 + 6 against Front 12) destroy it
+  const a = scene([6, 6, 6, 6]);
+  assert.ok(reactions.deathOrGlory(a.st, a.rhino, a.tac, { estimate: true }) > 0, 'worth fearing');
+  assert.equal(reactions.deathOrGlory(a.st, a.rhino, a.tac), 'destroyed');
+  assert.ok(a.rhino.destroyed && a.tac.models[0].wounds > 0);
+  assert.equal(a.st.reactionsLeft[1], 2);
+  // rolls of 1 (9 against 12) do nothing: the model is Removed as a Casualty, with no save
+  const b = scene([1, 1, 1, 1]);
+  assert.equal(reactions.deathOrGlory(b.st, b.rhino, b.tac), 'failed');
+  assert.ok(!b.rhino.destroyed && b.tac.models.filter((m) => m.wounds > 0).length === 9);
+  // with no reaction points left nothing happens, and the AI expects nothing
+  const c = scene([6]);
+  c.st.reactionsLeft[1] = 0;
+  assert.equal(reactions.deathOrGlory(c.st, c.rhino, c.tac), null);
+  assert.equal(reactions.deathOrGlory(c.st, c.rhino, c.tac, { estimate: true }), 0);
+  // driving through: the vehicle halts at the unit for the reaction; destroyed there, it inflicts no hits
+  const d = scene([6, 6, 6, 6]);
+  move.moveUnit(d.st, d.rhino, { x: 26, y: 24 }, 16, { through: true });
+  assert.ok(d.rhino.destroyed && !d.st.lines.some((l) => /drives through/.test(l)));
+  assert.ok(Math.abs(d.rhino.x - (d.tac.x - d.tac.r - d.rhino.r)) < 0.3, `halted in base contact: ${d.rhino.x}`);
+  // Pinned, it stops 1" short of the unit, which still takes its hits (the vehicle stays in play)
+  const e = scene([]);
+  const saved = reactions.deathOrGlory;
+  reactions.deathOrGlory = () => 'pinned';
+  try { move.moveUnit(e.st, e.rhino, { x: 26, y: 24 }, 16, { through: true }); } finally { reactions.deathOrGlory = saved; }
+  assert.ok(Math.abs(e.rhino.x - (e.tac.x - e.tac.r - e.rhino.r - 1)) < 0.2, `${e.rhino.x}`);
+  assert.ok(e.st.lines.some((l) => /drives through Tactical Squad/.test(l)));
+});
+
+test('Dangerous Terrain: a 1 is a wound at AP 2 with only Invulnerable Saves, a vehicle loses a Hull Point, once a Phase; at most one Heavy Area zone', () => {
+  const move = require('../sim/lib/move.cjs');
+  const tac = standAt(unit('sons-of-horus', 'tactical-squad', {}, 0), 10, 24);
+  const st = moveState([tac], { dice: scripted([1, 1, 2, 3, 4, 5, 6, 6, 6, 6, 1, 1, 1, 1]) });
+  st.table.pieces = [{ x: 14, y: 18, w: 4, h: 12, difficult: true, dangerous: true }];
+  const moved = move.moveUnit(st, tac, { x: 24, y: 24 }, 12);
+  assert.ok(Math.abs(moved - 10) < 0.6, `difficult as well: ${moved}`);
+  assert.equal(living(tac).length, 8);
+  // the same Phase: no second test
+  move.moveUnit(st, tac, { x: 15, y: 24 }, 12);
+  assert.equal(living(tac).length, 8);
+  // a vehicle loses a Hull Point, no save
+  const rhino = standAt(unit('sons-of-horus', 'rhino', {}, 0), 10, 24);
+  const sv = moveState([rhino], { dice: scripted([1]) });
+  sv.table.pieces = st.table.pieces;
+  move.moveUnit(sv, rhino, { x: 22, y: 24 }, 12);
+  assert.equal(rhino.models[0].wounds, rhino.models[0].maxWounds - 1);
+  // an Antigrav unit tests only where it begins or ends its move
+  const jump = standAt(unit('night-lords', 'assault-squad', {}, 0), 8, 24);
+  const sj = moveState([jump], { dice: scripted([1, 1, 1, 1, 1, 1, 1, 1, 1, 1]) });
+  sj.table.pieces = st.table.pieces;
+  move.moveUnit(sj, jump, { x: 22, y: 24 }, 14);
+  assert.equal(living(jump).length, 10);
+  move.moveUnit(sj, jump, { x: 16, y: 24 }, 12);
+  assert.ok(living(jump).length < 10);
+  // the pack's battlefield: at most one Heavy Area zone, in the middle, and the table stays point-symmetric
+  let heavy = 0;
+  for (let s = 1; s <= 40; s++) {
+    const t = makeTable(createDice(s));
+    const h = t.pieces.filter((p) => p.kind === 'heavy');
+    assert.ok(h.length <= 1);
+    if (h.length) { heavy++; assert.deepEqual([h[0].x, h[0].y, h[0].w], [33, 21, 6]); }
+    assert.equal(t.pieces.filter((p) => p.kind !== 'building' && p.kind !== 'ruin').length, h.length ? 5 : 6);
+    for (const p of t.pieces) assert.ok(t.pieces.some((q) => q.kind === p.kind && Math.abs(q.x - (72 - p.x - p.w)) < 1e-9 && Math.abs(q.y - (48 - p.y - p.h)) < 1e-9));
+  }
+  assert.ok(heavy > 5 && heavy < 35, `${heavy}`);
+});
+
+test('embarking in the battle: who fits, within 2" of the hull, not after getting out; the AI rides towards its target', () => {
+  const move = require('../sim/lib/move.cjs');
+  const { buildArmy } = require('../sim/lib/army.cjs');
+  const we = buildArmy(path.join(LISTS, 'strong', 'world-eaters.json'), 0).units;
+  const rhino = standAt(we.find((u) => u.name === 'Rhino'), 20, 24), desp = standAt(we.find((u) => u.name === 'Despoiler Squad'), 15, 24);
+  const raider = standAt(unit('sons-of-horus', 'land-raider-carrier', {}, 0), 40, 40), termies = standAt(unit('sons-of-horus', 'cataphractii-terminator-squad', {}, 0), 40, 34);
+  const sohRhino = standAt(unit('sons-of-horus', 'rhino', {}, 0), 40, 10);
+  assert.ok(move.canCarry(rhino, desp));
+  assert.ok(!move.canCarry(sohRhino, termies), 'no Bulky models in a Light Transport');
+  assert.ok(move.canCarry(raider, termies), 'five Bulky (2) models in Capacity 12');
+  assert.ok(!move.canCarry(rhino, termies) && !move.canCarry(sohRhino, desp), 'the same Faction only');
+  assert.ok(!move.canCarry(rhino, standAt(unit('world-eaters', 'predator', {}, 0), 0, 0)), 'infantry only');
+  const tac = standAt(unit('ultramarines', 'tactical-squad', {}, 1), 62, 24);
+  const st = moveState([rhino, desp, tac], { round: 2 });
+  // the hull's edge is the Access Point: 2" from it, no further
+  Object.assign(desp, { x: rhino.x - rhino.r - desp.r - 1.9 });
+  assert.ok(move.canEmbark(st, desp, rhino) && gap(desp, rhino) <= 2);
+  desp.turn.disembarked = true;
+  assert.ok(!move.canEmbark(st, desp, rhino), 'not in the Movement Phase it got out');
+  desp.turn = {};
+  desp.statuses.add('Pinned');
+  assert.ok(!move.canEmbark(st, desp, rhino), 'not while Pinned');
+  desp.statuses.clear();
+  // the AI: an assault unit far from the enemy gets into the empty Rhino beside it, which then carries it forward,
+  // and it doesn't get out in the same Movement Phase
+  move.moveSubPhase(st, 0);
+  assert.equal(desp.embarkedIn, rhino, st.lines.join('\n'));
+  assert.ok(rhino.x > 25, `the Rhino drove on: ${rhino.x}`);
+  assert.ok(desp.turn.embarked && rhino.passengers.includes(desp));
+  // a unit that moved as a Reaction may embark too: here, in the enemy's turn, a squad within 2" of an empty Rhino
+  // and facing long guns it can't answer gets in; with no guns facing it, it stays out
+  const r2 = standAt(we.filter((u) => u.name === 'Rhino')[1], 30, 10), vets = standAt(we.find((u) => u.name === 'Veteran Tactical Squad'), 30, 10 + 2.5 + 3 + 1);
+  const guns = buildArmy(path.join(LISTS, 'strong', 'iron-hands.json'), 1).units.filter((u) => /Predator|Heavy Support/.test(u.name)).slice(0, 6);
+  const st2 = moveState([r2, vets], { active: 1 });
+  assert.ok(move.canEmbark(st2, vets, r2, true));
+  assert.equal(move.escapeInto(st2, vets, null, true), false);
+  guns.forEach((g, i) => standAt(g, 58 + (i % 2) * 6, 6 + i * 6));
+  st2.units.push(...guns);
+  assert.equal(move.escapeInto(st2, vets, null, true), true);
+  assert.equal(vets.embarkedIn, r2);
+});
+
+test('Antigrav: over Impassable Terrain and over units, never ending in the terrain or within 1" of an enemy', () => {
+  const move = require('../sim/lib/move.cjs');
+  const jump = standAt(unit('night-lords', 'assault-squad', {}, 0), 8, 24);
+  const foot = standAt(unit('night-lords', 'tactical-squad', {}, 0), 8, 10);
+  const st = moveState([jump, foot]);
+  // a wall across the whole table at x 14-16
+  st.table.pieces = [{ x: 14, y: 0, w: 2, h: 48, impassable: true, blocksLoS: true }];
+  const over = move.simulateMove(st, jump, { x: 20, y: 24 }, 12);
+  assert.ok(over.x > 16, `over the wall: ${over.x}`);
+  assert.ok(move.simulateMove(st, foot, { x: 20, y: 10 }, 12).x < 14, 'others stop at it');
+  const inWall = move.simulateMove(st, jump, { x: 15, y: 24 }, 12);
+  assert.ok(!(inWall.x >= 14 && inWall.x <= 16), `not in the wall: ${inWall.x}`);
+  // over an enemy unit, ending 1" clear of it
+  st.table.pieces = [];
+  const foe = standAt(unit('ultramarines', 'tactical-squad', {}, 1), 15, 24);
+  st.units.push(foe);
+  const past = move.simulateMove(st, jump, { x: 20, y: 24 }, 12);
+  assert.ok(past.x > foe.x && Math.hypot(past.x - foe.x, past.y - foe.y) >= foe.r + jump.r + 1 - 0.05, `${past.x}`);
+  // over a friendly unit, ending 1" clear of it
+  st.units.pop();
+  Object.assign(foot, { x: 15, y: 24 });
+  const pastFriend = move.simulateMove(st, jump, { x: 22.5, y: 24 }, 15);
+  assert.ok(pastFriend.x > foot.x && Math.hypot(pastFriend.x - foot.x, pastFriend.y - foot.y) >= foot.r + jump.r + 1 - 0.05, `${pastFriend.x}`);
+});
+
+test('Fall Back Moves: round obstacles, slowed by difficult terrain, and ending 1" from the enemy', () => {
+  const move = require('../sim/lib/move.cjs');
+  const routed = () => { const u = keepModels(standAt(unit('sons-of-horus', 'tactical-squad', {}, 0), 20, 24), 3); u.statuses.add('Routed'); return u; };
+  const I = (u) => +u.models[0].p.I;
+  // a wall in the way: it goes round, never into it, and no further than it may
+  const a = routed();
+  const sa = moveState([a], { dice: scripted([6]) });
+  sa.table.pieces = [{ x: 14, y: 20, w: 2, h: 8, impassable: true, blocksLoS: true }];
+  const d = move.fallBack(sa, a);
+  assert.equal(d, I(a) + 6);
+  assert.ok(a.x < 14 && !(a.x >= 14 && a.x <= 16 && a.y >= 20 && a.y <= 28), `round the wall: ${a.x.toFixed(1)}, ${a.y.toFixed(1)}`);
+  // difficult terrain on the way costs it 2"
+  const b = routed();
+  const sb = moveState([b], { dice: scripted([4]) });
+  sb.table.pieces = [{ x: 4, y: 18, w: 12, h: 12, difficult: true }];
+  const db = move.fallBack(sb, b);
+  assert.ok(Math.abs(20 - b.x - (db - 2)) < 0.6, `${b.x} after ${db}"`);
+  // an enemy in the way: it stops (or goes round) at least 1" from it
+  const c = routed();
+  const foe = standAt(unit('ultramarines', 'tactical-squad', {}, 1), 12, 24);
+  const sc = moveState([c, foe], { dice: scripted([6]) });
+  move.fallBack(sc, c);
+  assert.ok(gap(c, foe) >= 1 - 0.05, `${c.x}, ${c.y}`);
+});
+
+test('Deep Strike transports: Drop Pods must Deep Strike, their passengers must get out (no other move, no charge); a walk-on transport keeps its passengers in', () => {
+  const move = require('../sim/lib/move.cjs');
+  const pod = standAt(unit('sons-of-horus', 'drop-pod', {}, 0), 0, 0), tac = standAt(unit('sons-of-horus', 'tactical-squad', {}, 0), 0, 0);
+  assert.ok(move.mustDeepStrike(pod) && move.canCarry(pod, tac));
+  const foe = standAt(unit('ultramarines', 'tactical-squad', {}, 1), 50, 24);
+  Object.assign(pod, { reserve: 'deep', arrived: false, passengers: [tac] });
+  Object.assign(tac, { embarkedIn: pod, arrived: false });
+  const st = moveState([pod, tac, foe], { round: 2, dice: scripted([6]) });
+  move.reservesSubPhase(st, 0);
+  assert.ok(pod.arrived && pod.turn.arrivedDeep && gap(pod, foe) >= 2, st.lines.join('\n'));
+  move.moveSubPhase(st, 0);
+  assert.equal(tac.embarkedIn, null);
+  assert.ok(tac.turn.noCharge && tac.turn.noMove && tac.turn.disembarked);
+  assert.ok(Math.abs(gap(tac, pod) - 0.2) < 0.05, 'placed beside it, and no further');
+  assert.ok(pod.noEmbark && !move.canEmbark(st, standAt(unit('sons-of-horus', 'tactical-squad', {}, 0), pod.x + pod.r + 4, pod.y), pod), 'Impact Reactive Doors: nobody gets back in');
+  // with nowhere to get out, the unit is Removed as Casualties
+  const pod2 = standAt(unit('sons-of-horus', 'drop-pod', {}, 0), 36, 24), tac2 = standAt(unit('sons-of-horus', 'tactical-squad', {}, 0), 36, 24);
+  Object.assign(pod2, { passengers: [tac2], turn: { arrivedDeep: true } }); Object.assign(tac2, { embarkedIn: pod2 });
+  const ring = [0, 1, 2, 3, 4, 5].map((k) => standAt(unit('ultramarines', 'tactical-squad', {}, 1), 36 + 8 * Math.cos(k * Math.PI / 3), 24 + 8 * Math.sin(k * Math.PI / 3)));
+  const s2 = moveState([pod2, tac2, ...ring]);
+  move.deepStrikeDisembark(s2, pod2);
+  assert.ok(tac2.destroyed && !pod2.passengers.length);
+  // a Rhino that came on from the battlefield edge this turn may not be selected to move again, so nobody gets out
+  const { buildArmy } = require('../sim/lib/army.cjs');
+  const we = buildArmy(path.join(LISTS, 'strong', 'world-eaters.json'), 0).units;
+  const rhino = standAt(we.find((u) => u.name === 'Rhino'), 40, 24), desp = standAt(we.find((u) => u.name === 'Despoiler Squad'), 40, 24);
+  Object.assign(rhino, { passengers: [desp], turn: { fromReserves: true } }); Object.assign(desp, { embarkedIn: rhino });
+  const s3 = moveState([rhino, desp, standAt(unit('ultramarines', 'tactical-squad', {}, 1), 52, 24)], { round: 3 });
+  move.moveSubPhase(s3, 0);
+  assert.equal(desp.embarkedIn, rhino);
+});
+
+test('Reserves: models arriving within 2" of the enemy are removed; no unit deployed on an Objective Marker; Hidden Caches slide past models', () => {
+  const move = require('../sim/lib/move.cjs');
+  const { slideMarker } = require('../sim/lib/table.cjs');
+  const tac = standAt(unit('sons-of-horus', 'tactical-squad', {}, 0), 20, 24), foe = standAt(unit('ultramarines', 'tactical-squad', {}, 1), 0, 24);
+  const st = moveState([tac, foe]);
+  // touching the edge of the 2" zone: some of the unit, not all
+  foe.x = tac.x + tac.r + foe.r + 1;
+  const n = move.removeWithin(st, tac, 2, 'test');
+  assert.ok(n > 0 && n < 10 && living(tac).length === 10 - n, `${n}`);
+  // well clear: nobody
+  foe.x = 60;
+  assert.equal(move.removeWithin(st, tac, 2, 'test'), 0);
+  // a single model within 2" goes
+  const rhino = standAt(unit('sons-of-horus', 'rhino', {}, 0), 30, 10);
+  st.units.push(rhino);
+  foe.x = rhino.x + rhino.r + foe.r + 1.5; foe.y = 10;
+  move.removeWithin(st, rhino, 2, 'test');
+  assert.ok(rhino.destroyed);
+  // where a unit from Reserves may stand: 2" from enemies and off the markers
+  st.units = [tac, foe];
+  foe.x = 60; foe.y = 24;
+  st.table.objectives = [{ id: 0, x: 30, y: 24, value: 2 }];
+  assert.ok(!move.spotOK(st, tac, { x: 30, y: 25 }, false), 'on a marker');
+  assert.ok(!move.spotOK(st, tac, { x: 60 - foe.r - tac.r - 1.5, y: 24 }, false), 'within 2" of the enemy');
+  assert.ok(move.spotOK(st, tac, { x: 40, y: 24 }, false));
+  const p = move.freeSpot(st, tac, [{ x: 30, y: 24 }, { x: 40, y: 10 }]);
+  assert.deepEqual(p, { x: 40, y: 10 });
+  // Hidden Caches: 3" in the rolled direction, then on past a model (or Impassable Terrain) until it can be placed
+  const o = { x: 20, y: 30 };
+  slideMarker({ pieces: [] }, [], o, 0);
+  assert.ok(Math.abs(o.x - 23) < 1e-9 && o.y === 30);
+  const under = { x: 20, y: 23 };
+  slideMarker({ pieces: [] }, [tac], under, Math.PI / 2);
+  assert.ok(Math.hypot(under.x - tac.x, under.y - tac.y) >= tac.r && under.y > 26 && under.y < 27, `${under.y}`);
+  const wall = { x: 10, y: 10 };
+  slideMarker({ pieces: [{ x: 12, y: 8, w: 4, h: 4, impassable: true }] }, [], wall, 0);
+  assert.ok(wall.x > 16, `${wall.x}`);
+});
