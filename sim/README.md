@@ -96,18 +96,19 @@ Legiones Astartes. The simulator leaves out the Primarchs' psychic rules and the
 rules, so it likely undervalues the psychic Primarchs in particular.
 
 With every rule above in, and the later changes below (the World Eaters' Rhino list, moves that go round what's in
-the way, the AI's risk model tuned by self-play, and the rules the audit and the rulebook check below corrected), the strength lists played
+the way, the AI's risk model tuned by self-play, the rules the audit and the rulebook check below corrected, and the rest of
+the rules then simulated), the strength lists played
 a round robin (24 battles a pairing, 432 games per list, the Iron Wall as a guest):
 
 | | Score | | Score | | Score |
 |---|---|---|---|---|---|
-| Salamanders | 74% | Dark Angels | 58% | Alpha Legion | 44% |
-| Space Wolves | 69% | Ultramarines | 57% | Word Bearers | 41% |
-| Thousand Sons | 66% | Emperor's Children | 56% | Blood Angels | 40% |
-| Iron Hands | 63% | Raven Guard | 56% | Imperial Fists | 38% |
-| Sons of Horus | 59% | White Scars | 48% | World Eaters | 30% |
-| Death Guard | 58% | Iron Warriors | 46% | Iron Wall (Rangdan) | 27% |
-|  |  |  |  | Night Lords | 22% |
+| Salamanders | 75% | Emperor's Children | 57% | Iron Warriors | 46% |
+| Iron Hands | 65% | Sons of Horus | 56% | Blood Angels | 43% |
+| Thousand Sons | 64% | Ultramarines | 56% | Imperial Fists | 41% |
+| Space Wolves | 63% | Dark Angels | 52% | Word Bearers | 39% |
+| Raven Guard | 60% | White Scars | 49% | World Eaters | 33% |
+| Death Guard | 57% | Alpha Legion | 47% | Night Lords | 25% |
+|  |  |  |  | Iron Wall (Rangdan) | 23% |
 
 Why the World Eaters lose: it's board control, not killing. Against the strength lists they score 14.6 VP a game
 from markers and Sectors to their opponents' 29.7, while Kill Points and the secondaries are close to even, and Seize
@@ -126,14 +127,14 @@ Rhinos, with four Predators, two lascannon Heavy Support Squads and two Veteran 
 Eaters strength list. Over about 530 games each against both fields it won 29% to the Spartan list's 21%, and it
 loses by about 11 VP a game where the Spartan list loses by 19. In the first run (114 games) its profile was the
 reverse of the Spartan list's: 44% in the marker and Sector missions (the Spartans managed 12-14%) and 24% in
-Annihilation (45%). In the round robin above it scores 30%: 28% in Resupply, 44% in Conquest and 19% in
+Annihilation (45%). In the round robin above it scores 33%: 36% in Resupply, 49% in Conquest and 16% in
 Annihilation. A horde of twenty-strong Despoiler squads on foot did no better than the Spartans (22%): they reach
 the markers but die walking there. The same Rhino list built 375 to 725 points short, as a first attempt was,
 scored 8% to 24%, so the gain is the list, not the AI changes below, which measured level.
 
 Melee units now earn their points once they're carried in (Firedrakes, the Inner Circle Knights Cenobium,
 Palatine Blades, Invictus Suzerains and Grave Wardens are among the most efficient units, and the Space Wolves
-are second), but the World Eaters and Night Lords are still far behind, and the first player won 57% of decided
+are fourth), but the World Eaters and Night Lords are still far behind, and the first player won 57% of decided
 games.
 
 From code:
@@ -531,6 +532,18 @@ and only Hold; Reserves arrive from Battle Turn 1; and a Psychic Discipline give
 Rage and Force Barrier). On the same seeds the round robin moved by 3.6 points per list: the Emperor's Children
 gained six, the Dark Angels five and the Thousand Sons four; the Raven Guard lost seven and the Word Bearers six.
 The top and bottom of the table didn't change, and the first player still won 57% of decided games.
+
+### The rest of the rules
+
+What the rulebook check still listed as not simulated is now played: Blast scatter and Barrage, vehicle firing arcs,
+Flyers, every core psychic power and gambit, vehicles driving through infantry, Fall Back Moves round obstacles,
+Outside Support, only Engaged models attacking, one Panic Check per side, models exploding one by one, and the rest
+of the assumptions table below. On the same seeds the round robin moved by 2.9 points per list, about what fresh
+dice alone would do, and the first player won 57%. Two shifts look real. The big melee units kill less, most
+likely because only Engaged models attack now (the Varagyr Wolf Guard 86 points a game fewer, the Inner Circle
+Knights 81), and the Space Wolves' Spartan kills 89 fewer, most likely from its lascannons keeping to their arcs.
+The Space Wolves fell six points and the Dark Angels five; the Raven Guard gained five, most of it through their
+Predators.
 
 ## Where the rules come from
 
