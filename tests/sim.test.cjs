@@ -1840,3 +1840,19 @@ test('Charges take the shortest route round other units: a unit in the lane make
   const ai = require("../sim/lib/ai.cjs");
   assert.ok(ai.chargeOddsNow(st2, a, t) <= ai.chargeOddsNow(st, a, t));
 });
+
+test('AI helpers: the detour round a unit in the way, and the odds of another turn', () => {
+  const ai = require('../sim/lib/ai.cjs');
+  // round a circle of radius 2 sitting on the line: two tangents of sqrt(21) and the arc between them
+  const want = 2 * Math.sqrt(21) + 2 * (Math.PI - 2 * Math.acos(2 / 5)) - 10;
+  assert.ok(Math.abs(ai.detour({ x: 0, y: 0 }, { x: 10, y: 0 }, { x: 5, y: 0 }, 2) - want) < 1e-9);
+  assert.equal(ai.detour({ x: 0, y: 0 }, { x: 10, y: 0 }, { x: 5, y: 3 }, 2), 0);
+  // five Battle Turns and a sixth on a 4+
+  const st = (round, active, first) => ({ round, active, first, mission: { turns: 5 } });
+  assert.equal(ai.nextTurnOdds(st(3, 0, 0), 0), 1);
+  assert.equal(ai.nextTurnOdds(st(5, 0, 0), 1), 1, 'the second player still has this Battle Turn');
+  assert.equal(ai.nextTurnOdds(st(5, 0, 0), 0), 0.5);
+  assert.equal(ai.nextTurnOdds(st(5, 1, 0), 0), 0.5);
+  assert.equal(ai.nextTurnOdds(st(6, 1, 0), 0), 0);
+  assert.equal(ai.nextTurnOdds(st(6, 0, 0), 1), 1);
+});

@@ -24,10 +24,12 @@ const VP_WORTH = 45;          // points of value per Victory Point
  * The play a human would add (each 0 = off, 1 = as written): endgame: weigh next turn's threats and chances by the
  * odds there is one; tieup: a charge is worth the enemy's shooting it stops (less the charger's own) while they're
  * locked; shelter: a charge is worth the enemy fire the charger escapes while locked; screen: standing in an enemy's
- * charge lane to a friend is worth the charge it makes less likely.
+ * charge lane to a friend is worth the charge it makes less likely; lanes: shooting a unit that stands in a friend's
+ * charge lane is worth the charge it opens; counter: a melee unit within reach of a friend an enemy could charge is
+ * worth the counter-charge it threatens.
  */
 const DEFAULTS = { vp: VP_WORTH, line: 1.5, mission: 0.6, soonMelee: 0.45, soonShoot: 0.3, risk: 0.35, bold: 0.5, chargeGain: 1.6, chargeTake: 1.0, incoming: 0.35, chargeFail: 10, chargeBar: 3, shootBar: 0.5, react: 1, share: 1,
-  endgame: 0, tieup: 0, shelter: 0, screen: 0 };
+  endgame: 0, tieup: 0, shelter: 0, screen: 0, lanes: 0, counter: 0 };
 const K = (state, side, key) => { const o = state.aiParams && state.aiParams[side]; return o && o[key] != null ? o[key] : DEFAULTS[key]; };
 const BANDS = [0, 3, 6, 9, 12, 15, 18, 24, 30, 36, 48, 72];
 
@@ -218,6 +220,54 @@ function screenValue(state, u, pos, enemies) {
   return total;
 }
 
+/**
+ * lanes: what shooting e is worth to the charges after it: for each friendly unit that could charge this turn and
+ * whose way to an enemy e stands in, the charge that killing e would open (straight odds against the odds round e)
+ * times the chance the shooting removes e.
+ */
+function laneValue(state, shooter, e, pts) {
+  const p = finishChance(pts, e);
+  if (p <= 0) return 0;
+  let best = 0;
+  for (const c of state.units) {
+    if (c.side !== shooter.side || c === shooter || c.destroyed || !c.arrived || c.embarkedIn || c.lockedWith.size || !canCharge(c) || c.turn.rushed || c.turn.noCharge) continue;
+    for (const T of state.units) {
+      if (T.side === c.side || T === e || T.destroyed || !T.arrived || T.embarkedIn) continue;
+      const straight = chargeOdds(c, c, T);
+      if (straight <= 0) continue;
+      const d = Math.hypot(c.x - T.x, c.y - T.y) || 1, k = (c.r + T.r) / d;
+      if (detour(c, { x: T.x + (c.x - T.x) * k, y: T.y + (c.y - T.y) * k }, e, c.r + e.r) <= 0) continue;
+      const gain = (straight - chargeOddsNow(state, c, T)) * meleeEV(state, c, T);
+      if (gain > best) best = gain;
+    }
+  }
+  return best * p;
+}
+/**
+ * counter: what a melee unit u standing at pos is worth as a threat to enemies that charge its friends: for each
+ * enemy that could charge a friend next turn, the fight u could start with it afterwards (it ends beside the
+ * friend), times the chance it charges and u reaches it then.
+ */
+function counterValue(state, u, pos, enemies) {
+  if (!canCharge(u)) return 0;
+  const reach = moveOf(u) + core.setupMove(u);
+  let best = 0;
+  for (const E of enemies) {
+    if (!canCharge(E) || E.lockedWith.size) continue;
+    for (const F of state.units) {
+      if (F === u || F.side !== u.side || F.destroyed || !F.arrived || F.embarkedIn) continue;
+      const p0 = threatChance(E, gap(E, F));
+      if (p0 <= 0.1) continue;
+      // E would end touching F: u's way to it is about its way to F's edge on E's side
+      const d = Math.max(0, Math.hypot(pos.x - F.x, pos.y - F.y) - F.r - u.r - E.r);
+      const left = d - reach;
+      const p1 = left <= 0 ? 1 : chargeChance(u, left);
+      best = Math.max(best, p0 * p1 * meleeEV(state, u, E));
+    }
+  }
+  return best;
+}
+
 // ---------- what a unit is for ----------
 const shootValue = (state, u, enemies) => Math.max(0, ...enemies.map((e) => evAt(shootTable(state, u, e), 18)));
 const meleeValue = (state, u, enemies) => Math.max(0, ...enemies.map((e) => meleeEV(state, u, e)));
@@ -321,6 +371,8 @@ function positionScore(state, u, pos, opts = {}) {
   risk *= endFactor(state, 1 - u.side);
   // screen: standing in the way of enemy charges at friends
   if (K(state, u.side, 'screen') && !opts.passenger && !opts.consolidating) score += K(state, u.side, 'screen') * screenValue(state, u, pos, enemies);
+  // counter: threatening the enemies that would charge a friend (only worth it if there's a turn to do it in)
+  if (K(state, u.side, 'counter') && !opts.passenger && !opts.consolidating && !waiting) score += K(state, u.side, 'counter') * 0.5 * counterValue(state, u, pos, enemies) * endFactor(state, u.side);
   score -= Math.min(risk, pointsLeft(u)) * K(state, u.side, 'risk') * (opts.cautious ?? 1) * (waiting ? 1.5 : (scoring.majority(u, 'Vanguard') || assaultCargo) && !opts.consolidating ? K(state, u.side, 'bold') : 1);
   // standing still with heavy weapons is worth something
   if (pos.x === saved.x && pos.y === saved.y && alive(u).some((m) => m.ranged.some((w) => has(w.specialRules, 'Heavy') || has(w.specialRules, 'Ordnance')))) score += shoot * 0.15;
@@ -436,6 +488,8 @@ function chooseTarget(state, u, opts = {}) {
     }
     // Vanguard: the units holding markers come first
     v += huntValue(state, u, e, plan.expectedPts, finishChance(plan.expectedPts, e));
+    // lanes: clearing the way for this turn's charges
+    if (K(state, u.side, 'lanes') && state.phase === 'shooting') v += K(state, u.side, 'lanes') * laneValue(state, u, e, plan.expectedPts);
     if (!best || v > best.v) best = { target: e, v };
   }
   return best && best.v > K(state, u.side, 'shootBar') ? best.target : null;
