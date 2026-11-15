@@ -3,9 +3,10 @@
 // Round robin: every list plays every other list, N battles per pairing, on random Core Missions.
 //   node sim/tournament.cjs <list> <list> ... [--battles 24] [--seed 1] [--workers 4] [--out results.json]
 //                            [--only "<list name>"] [--merge earlier.json] [--resume partial.json]
+//                            [--ai "lookahead=3,lookDepth=3"]
 // --only plays just the pairings with that list; --merge starts from an earlier result and replaces those pairings;
 // --resume keeps the pairings a stopped run already saved and plays the rest (each pairing's seed is fixed, so the
-// result is the same as an unbroken run).
+// result is the same as an unbroken run). --ai sets AI weights (lib/ai.cjs DEFAULTS) for both sides.
 // Pairings run in parallel worker processes. The output JSON has, for each pairing, wins, draws and VP; for each
 // list, results by Archetype and per-unit points destroyed and lost.
 const path = require('path');
@@ -15,14 +16,14 @@ const { fork } = require('child_process');
 const ARCH = { 'crucial-supplies': 'Resupply', 'hidden-caches': 'Resupply', 'unknown-munitions': 'Resupply', 'no-quarter': 'Annihilation', 'cut-off-the-head': 'Annihilation', 'thin-the-ranks': 'Annihilation', 'high-ground': 'Conquest', 'shattered-earth': 'Conquest', 'secure-the-highway': 'Conquest' };
 
 // ---------- worker: plays one pairing ----------
-function playPairing({ a, b, battles, seed }) {
+function playPairing({ a, b, battles, seed, ai }) {
   const { runBattle } = require('./lib/battle.cjs');
   const out = { wins: [0, 0], draws: 0, vp: [0, 0], firstWins: 0, decided: 0, byArch: {}, units: [{}, {}], ms: 0 };
   const t0 = Date.now();
   for (let k = 0; k < battles; k++) {
     // alternate which list sits on side 0 (and so the roll-offs) every other battle
     const swap = k % 2 === 1;
-    const r = runBattle(swap ? b : a, swap ? a : b, { seed: seed + k });
+    const r = runBattle(swap ? b : a, swap ? a : b, { seed: seed + k, ai: ai ? [ai, ai] : undefined });
     const flip = (x) => (swap ? [x[1], x[0]] : x);
     const winner = r.winner === null ? null : swap ? 1 - r.winner : r.winner;
     const first = swap ? 1 - r.first : r.first;
@@ -47,8 +48,16 @@ if (process.argv[2] === '--worker') {
 }
 
 // ---------- main: hands pairings to workers and collects the results ----------
+function weights(t) {
+  const { DEFAULTS } = require('./lib/ai.cjs');
+  return Object.fromEntries(t.split(',').map((kv) => {
+    const [k, v] = kv.split('=');
+    if (!(k in DEFAULTS)) { console.error(`unknown weight ${k}; the weights are ${Object.keys(DEFAULTS).join(', ')}`); process.exit(1); }
+    return [k, +v];
+  }));
+}
 function parse(argv) {
-  const o = { battles: 24, seed: 1, workers: 4, out: 'tournament.json', lists: [], only: null, merge: null, resume: null };
+  const o = { battles: 24, seed: 1, workers: 4, out: 'tournament.json', lists: [], only: null, merge: null, resume: null, ai: null };
   for (let i = 0; i < argv.length; i++) {
     const x = argv[i];
     if (x === '--battles') o.battles = +argv[++i];
@@ -58,6 +67,7 @@ function parse(argv) {
     else if (x === '--only') o.only = argv[++i];
     else if (x === '--merge') o.merge = argv[++i];
     else if (x === '--resume') o.resume = argv[++i];
+    else if (x === '--ai') o.ai = weights(argv[++i]);
     else o.lists.push(path.resolve(x));
   }
   return o;
@@ -69,7 +79,7 @@ function main() {
   let k = 0;
   for (let i = 0; i < o.lists.length; i++) for (let j = i + 1; j < o.lists.length; j++, k++) {
     if (o.only && names[i] !== o.only && names[j] !== o.only) continue;
-    jobs.push({ id: jobs.length, i, j, a: o.lists[i], b: o.lists[j], battles: o.battles, seed: o.seed + 1000 * k });
+    jobs.push({ id: jobs.length, i, j, a: o.lists[i], b: o.lists[j], battles: o.battles, seed: o.seed + 1000 * k, ai: o.ai });
   }
   const results = [];
   if (o.resume && fs.existsSync(o.resume)) {
@@ -87,7 +97,7 @@ function main() {
   }
   let next = 0, done = 0;
   const t0 = Date.now();
-  const save = () => fs.writeFileSync(o.out, JSON.stringify({ names, lists: o.lists, battles: o.battles, pairings: results }, null, 1));
+  const save = () => fs.writeFileSync(o.out, JSON.stringify({ names, lists: o.lists, battles: o.battles, ai: o.ai || undefined, pairings: results }, null, 1));
   const workers = Array.from({ length: Math.min(o.workers, jobs.length) }, () => fork(__filename, ['--worker']));
   const feed = (w) => { if (next < jobs.length) w.send(jobs[next++]); else w.kill(); };
   for (const w of workers) {

@@ -560,6 +560,38 @@ Melee is still the weaker way to play in the simulator. A typical assault unit n
 often wipes its target in one round, which leaves it in the open for the enemy's whole army to shoot. Steering
 charges towards targets that keep the charger locked in combat (out of the guns) made no measurable difference.
 
+### Looking ahead
+
+Every decision above is greedy: a unit picks the best move by a score of where it ends up. A side can also look a
+turn ahead (`lib/lookahead.cjs`, off by default). At the start of each of its Player Turns it tries three plans for
+the whole army: its usual weights, an attacking posture (less wary of risk, charging on poorer odds) and a holding
+posture (the reverse). For each it plays the turn out on the real battle, then the enemy's reply with the enemy's own
+AI, then its own next turn with its usual weights, and scores where that leaves things: Victory Points ahead, points
+of models ahead, and a little for markers held. Then it puts the battle back and plays the best plan for real.
+`lib/snapshot.cjs` does the putting back: it records every object reachable from the battle state and writes the
+copies back in place, so references between units stay good. A test checks that looking ahead leaves the battle
+exactly as it would have gone.
+
+One look is one run of the dice, and its value swings by 100 to 400 points between runs, about as much as the plans
+differ. So each plan gets several runs on their own dice (the `lookahead` weight is how many), every plan sees the
+same dice, and the side leaves its usual plan only for one that beats it by 100 points (`lookMargin`).
+
+How far it looks decides whether it helps. Stopping after the enemy's reply, it won 52.5% with one run per plan and
+51.3% with three (150 pairs each), which is noise: the enemy always has the last word, so whatever exposes least to
+the reply looks best, and a charge set up this turn never gets credit for landing next turn. Playing on through its
+own next turn (`lookDepth=3`) with three runs per plan won 62.3% (plus or minus 5.6, +4.1 VP a battle). A fourth plan that sends all fire and charges at the enemy unit that threatens the army most
+(`lookFocus=1`) added nothing: 57.0% alone, 62.0% with the deeper horizon.
+
+It costs time: the side that looks plays each of its turns out many times over, so battles run several times slower
+and the round robin plays without it. To use it:
+
+```
+node sim/tournament.cjs sim/lists/strong/*.json --ai "lookahead=3,lookDepth=3" --out tournament.json
+```
+
+or `runBattle(a, b, { ai: [{ lookahead: 3, lookDepth: 3 }, null] })` for one side. Inside a look ahead neither side
+looks ahead again.
+
 ### Rules audit
 
 Four reviews compared the simulator, area by area (shooting and damage; assault and statuses; reactions and Legion
@@ -673,6 +705,8 @@ Reactions made in answer to a reaction (a Return Fire against an Overwatch, say)
 | `lib/characters.cjs` | which characters may join which units, and the AI's choice |
 | `lib/plan.cjs` | the army's plan kept between turns: assault targets, and optional waves |
 | `lib/path.cjs` | the way round units and impassable terrain when a straight move is blocked |
+| `lib/lookahead.cjs` | the optional turn-level look ahead over whole-army plans |
+| `lib/snapshot.cjs` | records the battle state and puts it back, for looking ahead |
 | `tournament.cjs` | round robin between many lists, in parallel workers |
 | `tune.cjs` | a changed AI against the current one, in paired battles |
 | `report.cjs` | standings, ratings and unit efficiency from a tournament |
