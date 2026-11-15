@@ -899,3 +899,269 @@ test('rulebook: Thousand Sons sorcerers carry their disciplines; Warp Rupture is
   assert.ok(s.melee.some((w) => w.name === 'Conflagration'));
   assert.equal(s.ranged.find((w) => w.name === 'Wildfire').R, 18);
 });
+
+// ---------- Flyers, the core disciplines' powers and Sudden Death ----------
+/** A battle state on an open table, Dawn of War (side 0's zone along the top edge, side 1's along the bottom). */
+function openScene(units, opts = {}) {
+  const table = { pieces: [], objectives: [], hulls: [] };
+  const m = mission.setupMission(createDice(1), table, { mission: opts.mission || 'no-quarter', deployment: 'dawn-of-war' });
+  table.objectives = opts.objectives || [];
+  const st = {
+    dice: opts.dice || createDice(opts.seed || 5), table, mission: m, units, round: opts.round || 2, active: opts.active || 0, turnsLeft: 3, vp: [0, 0], vpLog: [],
+    armies: [{ name: 'A', pointsLimit: 3000 }, { name: 'B', pointsLimit: 3000 }], pendingMorale: [], cache: { shoot: new Map(), melee: new Map() },
+    reactionsLeft: opts.reactionsLeft || [0, 0], zoneOf: [m.zones.A, m.zones.B], zoneName: ['A', 'B'], destroyedUnits: [], firstStrike: [false, false],
+    vanguardScored: new Set(), annihilate: [false, false], coordinate: [null, null], umFlex: [false, false], lines: [],
+  };
+  st.log = (s) => st.lines.push(s);
+  st.award = (side, vp, why) => { st.vp[side] += vp; st.vpLog.push({ side, vp, why }); };
+  st.onCasualty = () => {};
+  st.afterDamage = (u) => { if (!u.destroyed && !u.models.some((x) => x.wounds > 0)) { u.destroyed = true; st.destroyedUnits.push(u); } };
+  st.onArrive = (u) => reactions.onArrive(st, u);
+  reactions.setup(st);
+  psychic.setup(st);
+  for (const u of units) Object.assign(u, { turn: {}, reacted: false });
+  return st;
+}
+const onTable = (u, x, y) => Object.assign(u, { x, y, arrived: true, destroyed: false, reserve: null, embarkedIn: null, statuses: new Set(), lockedWith: new Set(), turn: {} });
+const airList = () => require('../sim/lib/army.cjs').buildArmy(path.join(LISTS, 'ultramarines-air.json'), 0).units;
+const foeList = () => require('../sim/lib/army.cjs').buildArmy(path.join(LISTS, 'legions', 'sons-of-horus.json'), 1).units;
+
+test('Flyers: Aerial Reserves Tests from 3+ to 6+ and never automatic; the Combat Assignment, its move, its weapons, and back to Aerial Reserves', () => {
+  const flyers = require('../sim/lib/flyers.cjs');
+  const a = airList();
+  const xiphon = a.find((u) => u.name === 'Xiphon Interceptor'), raptor = a.find((u) => u.name === 'Fire Raptor');
+  const foe = foeList().find((u) => u.name === 'Tactical Squad');
+  assert.equal(flyers.reservesTarget(xiphon), 3);
+  xiphon.aerialReturns = 2; assert.equal(flyers.reservesTarget(xiphon), 5);
+  xiphon.aerialReturns = 9; assert.equal(flyers.reservesTarget(xiphon), 6);
+  xiphon.aerialReturns = 0;
+  // a Strike Mission fires Centreline Mounted (or Guided Missile) weapons, as Snap Shots; a Drop Mission Defensive ones
+  const rm = raptor.models[0], gravis = rm.ranged.find((w) => /Gravis/.test(w.name)), cannon = rm.ranged.find((w) => /avenger/.test(w.name));
+  const strike = flyers.fireOptions(raptor, 'strike')[0], drop = flyers.fireOptions(raptor, 'drop')[0];
+  assert.ok(strike.snap && strike.filter(rm, cannon) && !strike.filter(rm, gravis), 'sponsons are not Centreline Mounted');
+  assert.ok(drop.filter(rm, gravis) && !drop.filter(rm, rm.ranged.find((w) => /Tempest/.test(w.name))), 'sponsons are Defensive, a Strength 7 rocket is not');
+  // attacks at a Flyer are Snap Shots, except on a Strafing Run
+  assert.equal(flyers.snapAgainst({ unitType: 'Vehicle (Flyer)', assignment: 'strike' }), true);
+  assert.equal(flyers.snapAgainst({ unitType: 'Vehicle (Flyer)', assignment: 'strafing' }), false);
+  assert.equal(flyers.snapAgainst(foe), false);
+  // a pass in Battle Turn 4 needs the roll: a 2 fails
+  onTable(foe, 36, 40);
+  Object.assign(xiphon, { reserve: 'aerial', arrived: false });
+  const st = openScene([xiphon, foe], { dice: scripted([2]), round: 4 });
+  flyers.reservesSubPhase(st, 0);
+  assert.equal(xiphon.arrived, false);
+  // a 3 passes: it takes an assignment and comes on at its own zone's edge
+  st.dice = scripted([3]);
+  flyers.reservesSubPhase(st, 0);
+  assert.ok(xiphon.arrived && ['strike', 'strafing'].includes(xiphon.assignment), xiphon.assignment);
+  assert.ok(xiphon.y <= xiphon.r + 0.01, `at the top edge: ${xiphon.y}`);
+  const from = { x: xiphon.x, y: xiphon.y };
+  assert.deepEqual(flyers.moveSubPhase(st, 0), [xiphon]);
+  assert.ok(Math.hypot(xiphon.x - from.x, xiphon.y - from.y) <= (xiphon.assignment === 'strafing' ? 10 : 20) + 0.01);
+  flyers.shoot(st, xiphon);
+  assert.ok(st.lines.some((l) => /Xiphon Interceptor shoots at Tactical Squad/.test(l)), st.lines.join('\n'));
+  flyers.endShootingPhase(st, 0);
+  assert.deepEqual([xiphon.reserve, xiphon.arrived, xiphon.assignment, flyers.reservesTarget(xiphon)], ['aerial', false, null, 4]);
+  // the next test needs a 4+, in Battle Turn 5 as well
+  st.round = 5; st.dice = scripted([3]);
+  flyers.reservesSubPhase(st, 0);
+  assert.equal(xiphon.arrived, false);
+});
+
+test('Flyers: a Drop Mission lands its squad, fires only Defensive Weapons, and a Flyer in Aerial Reserves at the end is not destroyed', () => {
+  const flyers = require('../sim/lib/flyers.cjs');
+  const a = airList();
+  const eagle = a.find((u) => u.name === 'Storm Eagle'), tac = a.find((u) => u.name === 'Tactical Squad' && u.models.length === 10), xiphon = a.find((u) => u.name === 'Xiphon Interceptor');
+  const foe = foeList().find((u) => u.name === 'Tactical Squad');
+  onTable(foe, 36, 40);
+  Object.assign(eagle, { reserve: 'aerial', arrived: false, passengers: [tac] });
+  Object.assign(tac, { embarkedIn: eagle, arrived: false, statuses: new Set(), lockedWith: new Set() });
+  const st = openScene([eagle, tac, foe], { dice: scripted([4]) });
+  flyers.reservesSubPhase(st, 0);
+  assert.equal(eagle.assignment, 'drop');
+  flyers.moveSubPhase(st, 0);
+  assert.equal(tac.embarkedIn, null);
+  assert.ok(tac.arrived && gap(tac, eagle) < 1 && tac.turn.disembarked);
+  assert.equal(tac.turn.disordered, false, 'the Storm Eagle is an Assault Vehicle');
+  flyers.shoot(st, eagle);
+  const shot = st.lines.find((l) => /^ {2}Storm Eagle shoots/.test(l)) || '';
+  assert.ok(!/Vengeance|Tempest/.test(shot), shot);
+  flyers.endShootingPhase(st, 0);
+  assert.equal(eagle.reserve, 'aerial');
+  // shot down by an Intercept on a Drop Mission: each model aboard takes an AP 2, Damage 2 wound on a 1
+  const before = tac.models.filter((m) => m.wounds > 0).length;
+  st.dice = scripted([1, 1, 1, 6, 6, 6, 6, 6, 6, 6]);
+  flyers.crashWounds(st, tac);
+  assert.equal(tac.models.filter((m) => m.wounds > 0).length, before - 3);
+  // at the end: Aerial Reserves (and the units aboard) count for nothing; other Reserves are destroyed
+  const est = openScene([xiphon, eagle, tac, foe]);
+  Object.assign(xiphon, { reserve: 'aerial', arrived: false });
+  Object.assign(eagle, { reserve: 'aerial', arrived: false, passengers: [tac] });
+  Object.assign(tac, { embarkedIn: eagle, arrived: false });
+  Object.assign(foe, { reserve: 'deep', arrived: false });
+  scoring.endOfBattle(est);
+  assert.equal(est.vp[1], 0, JSON.stringify(est.vpLog));
+  assert.ok(est.vpLog.some((v) => v.side === 0 && /Tactical Squad still in Reserves/.test(v.why)));
+});
+
+test('Flyers: Combat Air Patrol sends an Interceptor from Aerial Reserves at an arriving Flyer', () => {
+  const flyers = require('../sim/lib/flyers.cjs');
+  const mine = airList().filter((u) => u.name === 'Xiphon Interceptor');
+  const theirs = require('../sim/lib/army.cjs').buildArmy(path.join(LISTS, 'ultramarines-air.json'), 1).units.find((u) => u.name === 'Xiphon Interceptor');
+  const foe = foeList().find((u) => u.name === 'Tactical Squad');
+  onTable(foe, 36, 40);
+  const [attacker] = mine;
+  Object.assign(attacker, { reserve: 'aerial', arrived: false });
+  Object.assign(theirs, { reserve: 'aerial', arrived: false });
+  assert.ok(theirs.models.every((m) => m.traits.includes('Interceptor')));
+  const st = openScene([attacker, theirs, foe], { dice: scripted([5]), reactionsLeft: [0, 3] });
+  flyers.reservesSubPhase(st, 0);
+  assert.ok(attacker.assignment);
+  flyers.moveSubPhase(st, 0);
+  assert.equal(st.reactionCount[1]['Combat Air Patrol'], 1, st.lines.join('\n'));
+  assert.ok(st.lines.some((l) => /Xiphon Interceptor patrols and shoots at Xiphon Interceptor/.test(l)));
+  assert.deepEqual([theirs.reserve, theirs.arrived, theirs.aerialReturns], ['aerial', false, 1]);
+});
+
+test('Sudden Death: off in the pack, and when played, a battle with no models left on the battlefield ends', () => {
+  const lone = { version: 2, faction: 'ultramarines', name: 'Lone Xiphon', pointsLimit: 3000, sequelae: [], config: { allegiance: ['Loyalist'] },
+    detachments: [{ kind: 'primary', name: 'Crusade Primary Detachment', slots: [{ role: 'Fast Attack', unit: { unitId: 'xiphon-interceptor', counts: {}, options: {} } }] }] };
+  assert.equal(mission.setupMission(createDice(1), { pieces: [], objectives: [] }, { mission: 'no-quarter' }).suddenDeath, false);
+  // its Flyer is in Aerial Reserves at the end of every Battle Turn, so a lone Flyer is never on the battlefield
+  const both = runBattle(lone, lone, { seed: 3, suddenDeath: true, log: true });
+  assert.equal(both.turns, 1);
+  assert.deepEqual(both.vp, [0, 0]);
+  assert.ok(both.log.some((l) => /Sudden Death: neither army/.test(l)));
+  const vs = runBattle(lone, path.join(LISTS, 'legions', 'sons-of-horus.json'), { seed: 3, suddenDeath: true, mission: 'high-ground' });
+  assert.equal(vs.turns, 1);
+  assert.ok(vs.vpLog.some((v) => v.side === 1 && v.vp === 3 && /Sudden Death/.test(v.why)));
+  // the pack's battles play on
+  assert.ok(runBattle(lone, lone, { seed: 3 }).turns >= 5);
+});
+
+test('Pyromancy: the Pyromancer explodes when he dies (4+), on every unit within 6" of him', () => {
+  const a = airList();
+  const lib = a.find((u) => u.name === 'Librarian' && u.models[0].disciplines.includes('Pyromancy'));
+  const [near, far] = a.filter((u) => u.name === 'Tactical Squad');
+  assert.ok(!lib.rules.some((r) => /^Explodes/.test(r)), 'not a rule of his unit: battle.cjs would blow up a whole unit');
+  onTable(lib, 20, 20); onTable(near, 20 + lib.r + near.r + 3, 20); onTable(far, 60, 40);
+  const count = (u) => u.models.filter((m) => m.wounds > 0).length;
+  const n0 = count(near), f0 = count(far);
+  // a 5 explodes; three hits at Strength 8: wound on 6s, armour saves fail on 1s
+  const st = openScene([lib, near, far], { dice: scripted([5, 6, 1, 6, 1, 6, 1]) });
+  lib.models[0].wounds = 0;
+  st.onCasualty(lib.models[0], lib, null);
+  st.afterDamage(lib);
+  assert.ok(st.lines.some((l) => /Librarian explodes \(Explodes \(4\+\)\): 3 hits/.test(l)), st.lines.join('\n'));
+  assert.equal(count(near), n0 - 3);
+  assert.equal(count(far), f0);
+  assert.equal(lib.destroyed, true);
+  // on a 3 nothing happens
+  const lib2 = airList().find((u) => u.name === 'Librarian' && u.models[0].disciplines.includes('Pyromancy'));
+  onTable(lib2, 20, 20);
+  const st2 = openScene([lib2, near], { dice: scripted([3]) });
+  lib2.models[0].wounds = 0; st2.onCasualty(lib2.models[0], lib2, null); st2.afterDamage(lib2);
+  assert.ok(!st2.lines.some((l) => /explodes/.test(l)));
+});
+
+test('psychic: Conflagration and Cursed Whispers roll their dice, and a Diviner may pick Every Strike Foreseen', () => {
+  const a = airList();
+  const pyro = a.find((u) => u.name === 'Librarian' && u.models[0].disciplines.includes('Pyromancy')).models[0];
+  const tele = a.find((u) => u.name === 'Librarian' && u.models[0].disciplines.includes('Telepathy')).models[0];
+  const conf = pyro.melee.find((w) => w.name === 'Conflagration'), cw = tele.ranged.find((w) => w.name === 'Cursed Whispers');
+  assert.deepEqual([conf.AM, conf.dice.AM, cw.FP, cw.dice.FP, cw.R, xOf(cw.specialRules, 'Stun')], ['8', '6+D3', '7', '2D6', 18, 0]);
+  const st = { dice: createDice(4) };
+  let am = 0, fp = 0;
+  for (let i = 0; i < 3000; i++) {
+    const a1 = +psychic.rollDice(st, conf).AM, f1 = +psychic.rollDice(st, cw).FP;
+    assert.ok(a1 >= 7 && a1 <= 9 && f1 >= 2 && f1 <= 12, `${a1} ${f1}`);
+    am += a1; fp += f1;
+  }
+  assert.ok(Math.abs(am / 3000 - 8) < 0.1 && Math.abs(fp / 3000 - 7) < 0.2, `${am / 3000} ${fp / 3000}`);
+  const bolter = a.find((u) => u.name === 'Tactical Squad').models[0].ranged[0];
+  assert.equal(psychic.rollDice(st, bolter), bolter);
+  // Divination: Duellist's Edge (2) and the Every Strike Foreseen gambit
+  assert.ok(tele.rules.includes("Duellist's Edge (2)") && tele.rules.includes('Fear (1)'));
+  assert.ok(gambits.available(tele).some((g) => g.name === 'Every Strike Foreseen'));
+  assert.ok(psychic.POWERS.filter((p) => ['Divination', 'Telepathy', 'Thaumaturgy'].includes(p.discipline)).every((p) => p.played));
+});
+
+test("psychic: Foresight's Blessing gives a shooting unit Precision (5+) for the attack", () => {
+  const a = airList();
+  const div = a.find((u) => u.name === 'Librarian' && u.models[0].disciplines.includes('Divination'));
+  const tac = a.find((u) => u.name === 'Tactical Squad' && u.models.length === 20);
+  const foe = foeList().find((u) => u.name === 'Tactical Squad');
+  onTable(div, 10, 12); onTable(tac, 16, 12); onTable(foe, 16, 30);
+  const st = openScene([div, tac, foe], { dice: scripted([2, 3]) });
+  const end = psychic.foresightsBlessing(st, tac, foe);
+  assert.ok(end, st.lines.join('\n'));
+  assert.ok(tac.models.every((m) => m.ranged.every((w) => xOf(w.specialRules, 'Precision') === 5)));
+  assert.equal(div.turn.power, true);
+  end();
+  assert.ok(tac.models.every((m) => m.ranged.every((w) => xOf(w.specialRules, 'Precision') == null)));
+  // one power for the Diviner's unit in a turn
+  assert.equal(psychic.foresightsBlessing(st, tac, foe), null);
+});
+
+test('psychic: Mind-burst throws a unit off its marker and may Rout it, from a Telepath whose unit stays put', () => {
+  const tele = airList().find((u) => u.name === 'Librarian' && u.models[0].disciplines.includes('Telepathy'));
+  const foe = foeList().find((u) => u.name === 'Tactical Squad');
+  onTable(tele, 30, 10); onTable(foe, 30, 26);
+  const objectives = [{ id: 0, x: 30, y: 26, value: 2 }];
+  // a unit that moved can't
+  const moved = openScene([tele, foe], { mission: 'crucial-supplies', objectives });
+  tele.turn.moved = true;
+  psychic.movementPhase(moved, 0);
+  assert.ok(!tele.turn.power);
+  // passed (5), a Fall Back Move of I + 3, then the unmodified Leadership Check: a double 6 fails
+  const st = openScene([tele, foe], { mission: 'crucial-supplies', objectives, dice: scripted([2, 3, 3, 6, 6]) });
+  psychic.movementPhase(st, 0);
+  assert.equal(tele.turn.power, true, st.lines.join('\n'));
+  assert.ok(foe.y > 26 + 3, `fell back towards its own edge: ${foe.y}`);
+  assert.ok(foe.statuses.has('Routed'));
+});
+
+test('psychic: Resurrection brings a casualty back on a 4+, and Tranquillity calms an enemy Psyker until the next turn', () => {
+  const a = airList();
+  const thaum = a.find((u) => u.name === 'Librarian' && u.models[0].disciplines.includes('Thaumaturgy'));
+  const tac = a.find((u) => u.name === 'Tactical Squad' && u.models.length === 10);
+  const foe = foeList().find((u) => u.name === 'Tactical Squad');
+  // the Thaumaturge stands with the squad and falls with two of its men to the enemy's shooting
+  const lm = thaum.models[0];
+  tac.models.push(lm);
+  onTable(tac, 20, 12); onTable(foe, 20, 30);
+  const st = openScene([tac, foe], { dice: scripted([2, 3, 5]), reactionsLeft: [3, 0], active: 1 });
+  // an AI that spends its reactions readily (ai.cjs's weights)
+  Object.assign(st, { phase: 'shooting', aiParams: [{ react: 0.2 }, null] });
+  for (const m of [tac.models[0], tac.models[1], lm]) { m.wounds = 0; st.onCasualty(m, tac, foe); }
+  st.afterDamage(tac);
+  assert.equal(st.reactionCount[0].Resurrection, 1, st.lines.join('\n'));
+  assert.equal(lm.wounds, lm.maxWounds, 'the most valuable casualty, himself, rises');
+  // a Reaction like any other: the Ultramarines' first of the turn is free (Tactical Flexibility)
+  assert.deepEqual([st.reactionsLeft[0], st.umFlex[0], tac.reacted], [3, true, true]);
+  // Tranquillity on a Prosperine Sorcerer: -1 Strength to his Psychic Weapons, -2 Willpower to manifest
+  const sorc = require('../sim/lib/army.cjs').buildArmy(path.join(LISTS, 'strong', 'thousand-sons.json'), 1).units.find((u) => /Sorcerer/.test(u.name));
+  const lib = airList().find((u) => u.name === 'Librarian' && u.models[0].disciplines.includes('Thaumaturgy'));
+  onTable(lib, 20, 10); onTable(sorc, 20, 24);
+  const sm = sorc.models[0], rs = sm.ranged.find((w) => w.name === 'Wildfire').RS, sl = sm.melee.find((w) => w.name === 'Biomantic Slam').SM;
+  const t = openScene([lib, sorc], { dice: scripted([2, 3, 2, 4]) });
+  psychic.startPhase(t, 0);
+  assert.ok(sorc.tranquil, t.lines.join('\n'));
+  assert.equal(sm.ranged.find((w) => w.name === 'Wildfire').RS, rs - 1);
+  assert.equal(sm.melee.find((w) => w.name === 'Biomantic Slam').SM, sl - 1);
+  psychic.manifest(t, sorc, sm, 'Force Barrier');
+  assert.ok(t.lines.some((l) => new RegExp(`Force Barrier\\): rolled 6 against ${+sm.p.WP - 2},`).test(l)), t.lines.join('\n'));
+  // it lasts until the start of the Thaumaturge's side's next turn
+  psychic.startPhase(Object.assign(t, { dice: scripted([6, 5]) }), 0);
+  assert.equal(sorc.tranquil, null);
+  assert.equal(sm.ranged.find((w) => w.name === 'Wildfire').RS, rs);
+});
+
+test('Flyers and psykers play through a battle: Flyers come and go, the Storm Eagle drops its squad', () => {
+  const r = runBattle(path.join(LISTS, 'ultramarines-air.json'), path.join(LISTS, 'strong', 'thousand-sons.json'), { seed: 2, log: true });
+  assert.ok(r.log.some((l) => /comes in from Aerial Reserves on a Drop Mission/.test(l)));
+  assert.ok(r.log.some((l) => /disembarks from Storm Eagle/.test(l)));
+  assert.ok(r.log.some((l) => /returns to Aerial Reserves/.test(l)));
+  // a Flyer is never on the battlefield in the Assault Phase: nobody charges one
+  assert.ok(!r.log.some((l) => /declares a charge at (Storm Eagle|Xiphon|Fire Raptor)/.test(l)));
+});

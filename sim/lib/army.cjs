@@ -79,13 +79,19 @@ function resolveItem(weapons, item) {
 const DISCIPLINES = /^(Biomancy|Divination|Pyromancy|Telekinesis|Telepathy|Thaumaturgy|Anathemata|Malignant|Navis Astrologis|Fateweaving|Stormcalling|Runecasting|Power of the Waaagh!)$/;
 // Psychic Disciplines and the Psychic Weapon each gives (CONFIRMED: Prosperine Sorcery names Biomantic Slam for
 // Biomancy, Wildfire for Pyromancy and Immovable Force for Telekinesis; Stormcalling and Runecasting are their own
-// weapons). The other disciplines' powers have no text in the repo (psychic.cjs).
+// weapons). Their powers are played in psychic.cjs.
 const DISCIPLINE_WEAPON = { Biomancy: 'Biomantic Slam', Pyromancy: 'Wildfire', Telekinesis: 'Immovable Force' };
-// the special rule each core Discipline gives (CONFIRMED, rulebook). Pyromancy's Explodes (4+) isn't played (a model
-// that explodes when it dies, which the simulator does per unit)
-const DISCIPLINE_RULE = { Biomancy: 'Impact (Strength)', Telekinesis: 'Shrouded (4+)', Divination: "Duellist's Edge (2)", Telepathy: 'Fear (1)', Thaumaturgy: 'Hatred (Psykers)' };
-// Pyromancy's melee Psychic Weapon (CONFIRMED profile; its 6+D3 Attacks taken as 8, ASSUMPTION)
-const CONFLAGRATION = { name: 'Conflagration', base: 'Conflagration', IM: '-1', AM: '8', SM: '5', AP: '4', D: '1', specialRules: ['Deflagrate (5)'], traits: ['Psychic'] };
+// the special rules each core Discipline gives (CONFIRMED, rulebook); Divination's Every Strike Foreseen is a gambit
+// (gambits.cjs plays it for a model with the rule). Pyromancy's Explodes (4+) isn't added to the model's rules: a
+// joined model's rules become its unit's (characters.cjs) and battle.cjs blows up a whole unit with Explodes when it's
+// destroyed, so psychic.cjs makes the Pyromancer alone explode when he dies
+const DISCIPLINE_RULE = { Biomancy: ['Impact (Strength)'], Telekinesis: ['Shrouded (4+)'], Divination: ["Duellist's Edge (2)", 'Every Strike Foreseen'], Telepathy: ['Fear (1)'], Thaumaturgy: ['Hatred (Psykers)'] };
+// Pyromancy's melee Psychic Weapon (CONFIRMED profile). Its 6+D3 Attacks are rolled for each strike (psychic.cjs's
+// rollDice); AM holds the average, 8, for the AI's estimates
+const CONFLAGRATION = { name: 'Conflagration', base: 'Conflagration', IM: '-1', AM: '8', SM: '5', AP: '4', D: '1', specialRules: ['Deflagrate (5)'], traits: ['Melee', 'Psychic'], dice: { AM: '6+D3' } };
+// Telepathy's Psychic Weapon (CONFIRMED profile: 18", 2D6 shots, Strength 3, AP -, Damage 1, Stun (-)). The 2D6 are
+// rolled for each attack (psychic.cjs's rollDice); FP holds the average, 7; Stun (-) is Stun with no modifier
+const CURSED_WHISPERS = { name: 'Cursed Whispers', base: 'Cursed Whispers', R: 18, FP: '7', RS: 3, AP: '-', D: 1, specialRules: ['Stun (0)'], traits: ['Ranged', 'Psychic'], dice: { FP: '2D6' } };
 /** The disciplines a model has: chosen as options, or granted by its rules (CONFIRMED, data/bsdata/common.json). */
 function disciplinesOf(r, list) {
   const d = new Set((r.items || []).filter((i) => DISCIPLINES.test(i)));
@@ -187,8 +193,9 @@ function buildUnit(armyId, list, slot, detachment, side) {
     const disciplines = disciplinesOf(r, list);
     const disciplineRules = [];
     for (const d of disciplines) {
-      if (DISCIPLINE_RULE[d]) disciplineRules.push(DISCIPLINE_RULE[d]);
+      if (DISCIPLINE_RULE[d]) disciplineRules.push(...DISCIPLINE_RULE[d]);
       if (d === 'Pyromancy' && !melee.some((w) => w.name === 'Conflagration')) melee.push(Object.assign({}, CONFLAGRATION, { discipline: d }));
+      if (d === 'Telepathy' && !ranged.some((w) => w.name === 'Cursed Whispers')) ranged.push(Object.assign({}, CURSED_WHISPERS, { count: 1, discipline: d }));
       const name = DISCIPLINE_WEAPON[d];
       if (!name || r.items.includes(name)) continue;
       const found = resolveItem(weapons, name);
