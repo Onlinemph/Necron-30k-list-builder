@@ -1,0 +1,252 @@
+{
+ "version": 2,
+ "faction": "ultramarines",
+ "name": "Ultramarines: Wings and Witches",
+ "pointsLimit": 3000,
+ "sequelae": [],
+ "config": {
+  "allegiance": [
+   "Loyalist"
+  ]
+ },
+ "detachments": [
+  {
+   "kind": "primary",
+   "name": "Crusade Primary Detachment",
+   "slots": [
+    {
+     "role": "High Command",
+     "unit": {
+      "unitId": "praetor",
+      "counts": {
+       "Praetor": 1
+      },
+      "options": {
+       "praetor-options": [
+        "Power fist",
+        "Volkite serpenta"
+       ]
+      }
+     }
+    },
+    {
+     "role": "Command",
+     "prime": true,
+     "unit": {
+      "unitId": "librarian",
+      "counts": {
+       "Librarian": 1
+      },
+      "options": {
+       "librarian-psychic-disciplines": [
+        "Divination",
+        "Telepathy"
+       ]
+      }
+     }
+    },
+    {
+     "role": "Command",
+     "unit": {
+      "unitId": "librarian",
+      "counts": {
+       "Librarian": 1
+      },
+      "options": {
+       "librarian-psychic-disciplines": [
+        "Thaumaturgy",
+        "Pyromancy"
+       ]
+      }
+     }
+    },
+    {
+     "role": "Command",
+     "unit": {
+      "unitId": "centurion",
+      "counts": {
+       "Centurion": 1
+      },
+      "options": {
+       "centurion-options": [
+        "Power sword",
+        "Bolt pistol"
+       ]
+      }
+     }
+    },
+    {
+     "role": "Troops",
+     "prime": true,
+     "unit": {
+      "unitId": "tactical-squad",
+      "counts": {
+       "Legionary": 19,
+       "Sergeant": 1
+      }
+     }
+    },
+    {
+     "role": "Troops",
+     "unit": {
+      "unitId": "tactical-squad",
+      "counts": {
+       "Legionary": 9,
+       "Sergeant": 1
+      }
+     }
+    },
+    {
+     "role": "Troops",
+     "unit": {
+      "unitId": "tactical-squad",
+      "counts": {
+       "Legionary": 19,
+       "Sergeant": 1
+      }
+     }
+    },
+    {
+     "role": "Troops"
+    },
+    {
+     "role": "Transport"
+    },
+    {
+     "role": "Transport"
+    },
+    {
+     "role": "Transport"
+    },
+    {
+     "role": "Transport"
+    }
+   ]
+  },
+  {
+   "kind": "apex",
+   "name": "Officer Cadre",
+   "slots": [
+    {
+     "role": "Command",
+     "prime": true,
+     "unit": {
+      "unitId": "centurion",
+      "counts": {
+       "Centurion": 1
+      },
+      "options": {
+       "centurion-options": [
+        "Power fist",
+        "Bolt pistol"
+       ]
+      }
+     }
+    },
+    {
+     "role": "Command"
+    }
+   ],
+   "defId": "core-officer-cadre"
+  },
+  {
+   "kind": "auxiliary",
+   "name": "First Strike",
+   "slots": [
+    {
+     "role": "Fast Attack",
+     "unit": {
+      "unitId": "storm-eagle",
+      "counts": {
+       "Storm Eagle": 1
+      }
+     }
+    },
+    {
+     "role": "Fast Attack",
+     "unit": {
+      "unitId": "xiphon-interceptor",
+      "counts": {
+       "Xiphon Interceptor": 1
+      }
+     }
+    }
+   ],
+   "defId": "core-first-strike"
+  },
+  {
+   "kind": "auxiliary",
+   "name": "First Strike",
+   "slots": [
+    {
+     "role": "Fast Attack",
+     "unit": {
+      "unitId": "fire-raptor",
+      "counts": {
+       "Fire Raptor": 1
+      }
+     }
+    },
+    {
+     "role": "Fast Attack",
+     "unit": {
+      "unitId": "xiphon-interceptor",
+      "counts": {
+       "Xiphon Interceptor": 1
+      }
+     }
+    }
+   ],
+   "defId": "core-first-strike"
+  },
+  {
+   "kind": "auxiliary",
+   "name": "Armoured Support",
+   "slots": [
+    {
+     "role": "Armour",
+     "unit": {
+      "unitId": "predator",
+      "counts": {
+       "Predator": 1
+      },
+      "options": {
+       "predator-legion-sponson-weapons": "Lascannon",
+       "predator-turret": "Twin lascannon"
+      }
+     }
+    },
+    {
+     "role": "Armour",
+     "unit": {
+      "unitId": "predator",
+      "counts": {
+       "Predator": 1
+      },
+      "options": {
+       "predator-legion-sponson-weapons": "Lascannon",
+       "predator-turret": "Twin lascannon"
+      }
+     }
+    },
+    {
+     "role": "Armour",
+     "unit": {
+      "unitId": "predator",
+      "counts": {
+       "Predator": 1
+      },
+      "options": {
+       "predator-legion-sponson-weapons": "Lascannon",
+       "predator-turret": "Twin lascannon"
+      }
+     }
+    },
+    {
+     "role": "Armour"
+    }
+   ],
+   "defId": "core-armoured-support"
+  }
+ ]
+}

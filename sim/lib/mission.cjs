@@ -156,7 +156,10 @@ function setupMission(dice, table, opts = {}) {
   if (!dep) throw new Error(`Unknown deployment map "${depId}". Maps: ${Object.keys(DEPLOYMENTS).join(', ')}`);
   table.objectives = def.objectives ? def.objectives(dice, table) : [];
   const sectors = def.sectors ? SECTORS[def.sectors].map((s) => Object.assign({}, s)) : [];
-  const m = Object.assign({ id, deploymentId: depId, deployment: dep.name, variant: opts.variant || 'escalation', turns: 5, rules: [] }, def, { zones: { A: dep.A, B: dep.B }, sectors });
+  // Sudden Death: the rulebook's Core Missions end the battle when a player has no models on the battlefield (p. 307),
+  // but the pack's Core Mission Sequence restates Step 8 (five Battle Turns, a sixth on a 4+) without it, so its
+  // missions don't use it (MISSION); runBattle's opts.suddenDeath plays it (battle.cjs)
+  const m = Object.assign({ id, deploymentId: depId, deployment: dep.name, variant: opts.variant || 'escalation', turns: 5, rules: [], suddenDeath: false }, def, { zones: { A: dep.A, B: dep.B }, sectors });
   m.has = (rule) => m.rules.includes(rule);
   m.centroids = { A: centroid(dep.A), B: centroid(dep.B) };
   // which sectors lie at least partly in which zone (Line and Vanguard in Seize Ground)

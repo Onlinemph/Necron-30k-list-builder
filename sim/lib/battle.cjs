@@ -3,7 +3,7 @@
 // (MISSION): select the mission, prepare the battlefield, deploy objectives, select the Deployment Map, declare
 // Reserves, deploy, play five Battle Turns (a sixth on a 4+), and decide the victor. Each Player Turn has its
 // Start, Movement, Shooting, Assault and End Phases, with reactions from the other side. Returns the result and a
-// readable log.
+// readable log. Flyers come and go from Aerial Reserves on their Combat Assignments (flyers.cjs).
 const { num, xOf, has } = require('./rules.cjs');
 const { createDice } = require('./dice.cjs');
 const { makeTable, gap, dist, inside, lineOfSight, W, H } = require('./table.cjs');
@@ -18,10 +18,12 @@ const core = require('./core.cjs');
 const reactions = require('./reactions.cjs');
 const psychic = require('./psychic.cjs');
 const scoring = require('./scoring.cjs');
+const flyers = require('./flyers.cjs');
 const { joinCharacters, iconOfTheWarmaster } = require('./characters.cjs');
 
 /**
- * opts: { seed, log, mission: id | 'random', deployment: id | 'random', variant: 'escalation' | 'hammerblow' }
+ * opts: { seed, log, mission: id | 'random', deployment: id | 'random', variant: 'escalation' | 'hammerblow',
+ *   suddenDeath: the rulebook's Sudden Death (the pack leaves it out, mission.cjs) }
  */
 function runBattle(listA, listB, opts = {}) {
   const dice = createDice(opts.seed ?? 1);
@@ -67,6 +69,7 @@ function runBattle(listA, listB, opts = {}) {
   let first = winner;
   if (dice.d6() >= core.SEIZE_ON) { first = 1 - first; state.log(`${armies[first].name} Seizes the Initiative and goes first.`); }
   let turns = mission.turns;
+  const sudden = opts.suddenDeath ?? mission.suddenDeath;
   for (let round = 1; round <= turns; round++) {
     state.round = round; state.turnsLeft = Math.max(1, mission.turns - round + 1);
     if (mission.has('Tectonic Instability')) tectonic(state);
@@ -74,6 +77,7 @@ function runBattle(listA, listB, opts = {}) {
       if (!state.units.some((u) => u.side === side && !u.destroyed)) continue;
       playerTurn(state, side);
     }
+    if (sudden && suddenDeath(state)) { turns = round; break; }
     if (round === mission.turns && turns === mission.turns && dice.d6() >= 4) { turns++; state.log(`\nThe battle goes on: Battle Turn ${turns} is played.`); }
   }
   // 9. Decide Victor
@@ -88,6 +92,22 @@ function chooseZone(state, side) {
   const m = state.mission;
   const near = (z) => state.table.objectives.reduce((t, o) => t + (o.value || 2) * Math.max(0, 1 - Math.hypot(o.x - m.centroids[z].x, o.y - m.centroids[z].y) / 40), 0);
   return near('B') > near('A') + 0.01 ? 'B' : 'A';
+}
+
+/**
+ * Sudden Death (CONFIRMED, rulebook p. 307; the pack's Core Mission Sequence leaves it out, so it's played only when
+ * asked for): at the end of a Battle Turn, if a player has no models on the battlefield, the battle ends, and a player
+ * who still has some scores 3 Victory Points. Units in Reserves (Aerial Reserves too) don't count as on the
+ * battlefield; Routed units and units Embarked on a transport that is on the battlefield do. Returns true if it ends.
+ */
+function suddenDeath(state) {
+  const on = (u) => !u.destroyed && alive(u).length > 0 && u.arrived && !u.reserve && (!u.embarkedIn || (u.embarkedIn.arrived && !u.embarkedIn.reserve && !u.embarkedIn.destroyed));
+  const left = [0, 1].map((s) => state.units.some((u) => u.side === s && on(u)));
+  if (left[0] && left[1]) return false;
+  state.log(`\nSudden Death: ${left[0] || left[1] ? `${state.armies[left[0] ? 1 : 0].name} has no models on the battlefield` : 'neither army has models on the battlefield'}; the battle ends.`);
+  state.suddenDeath = true;
+  for (const s of [0, 1]) if (left[s]) award(state, s, 3, 'Sudden Death: still on the battlefield');
+  return true;
 }
 
 /** Tectonic Instability: at the start of each Battle Turn a D6 picks a Sector that is Difficult Terrain this turn. */
@@ -264,27 +284,49 @@ function playerTurn(state, side) {
   const master = state.units.some((u) => u.side === 1 - side && !u.destroyed && (u.traits || []).includes('Master of the Legion'));
   state.reactionsLeft[1 - side] = core.reactionAllotment(state.armies[1 - side].pointsLimit, master);
   // ---- Start Phase ----
+  state.phase = 'start';
   startPhase(state, side);
+  // Tranquillity, in the Start Phase's Effects Sub-Phase (psychic.cjs)
+  psychic.startPhase(state, side);
   // the army's plan for this turn and the ones after (plan.cjs)
   require('./plan.cjs').update(state, side);
   // ---- Movement Phase ----
-  reservesSubPhase(state, side);
-  moveSubPhase(state, side);
+  state.phase = 'movement';
+  // Aerial Reserves and the Flyers on a Combat Assignment follow their own rules (flyers.cjs), so they sit out
+  // move.cjs's Reserves and Move Sub-Phases, whose rules don't touch them
+  flyers.reservesSubPhase(state, side);
+  hidden(state.units.filter((u) => u.reserve === 'aerial'), 'reserve', null, () => reservesSubPhase(state, side));
+  const flying = flyers.moveSubPhase(state, side);
+  hidden(flying, 'arrived', false, () => moveSubPhase(state, side));
+  // Mind-burst, by a Telepath's unit that stayed put (psychic.cjs)
+  psychic.movementPhase(state, side);
   // Annihilate (Shadow of the Conquerer) lasts for this one Movement Phase of the opponent
   state.annihilate[1 - side] = false;
   routSubPhase(state, side);
   // ---- Shooting Phase ----
+  state.phase = 'shooting';
   shootingPhase(state, side);
   moraleSubPhase(state);
+  // at the end of the Shooting Phase the Flyers go back to Aerial Reserves (CONFIRMED)
+  flyers.endShootingPhase(state, side);
   reactions.clearBuffs(state, 'phase');
   // ---- Assault Phase ----
+  state.phase = 'assault';
   markHeld(state);
   assaultPhase(state, side);
   reactions.clearBuffs(state, 'phase');
   // ---- End Phase ----
+  state.phase = 'end';
   effectsSubPhase(state, side);
   statusesSubPhase(state, side);
   scoring.victorySubPhase(state, side);
+}
+
+/** Run fn with a field of these units set to `value` (hiding them from a sub-phase), then put it back. */
+function hidden(units, key, value, fn) {
+  const was = units.map((u) => u[key]);
+  for (const u of units) u[key] = value;
+  try { fn(); } finally { units.forEach((u, i) => { u[key] = was[i]; }); }
 }
 
 /**
@@ -330,13 +372,13 @@ function startPhase(state, side) {
     }
   }
   // Shadow of the Conquerer (Lotara Sarrin): taken in the Primary Detachment and on the battlefield, an Intelligence
-  // Check; passed, Coordinate (+1 to one Aerial Reserves Test this turn, move.cjs) or Annihilate (the Guns of the
+  // Check; passed, Coordinate (+1 to one Aerial Reserves Test this turn, flyers.cjs) or Annihilate (the Guns of the
   // Conqueror reaction in the opponent's next Movement Phase, reactions.cjs). The AI coordinates while a unit waits in
-  // Aerial Reserves for a roll, and otherwise annihilates
+  // Aerial Reserves for a roll (they never pass automatically, flyers.cjs), and otherwise annihilates
   for (const u of mine) {
     if (!u.arrived || u.reserve || !alive(u).some((m) => has(m.rules, 'Shadow of the Conquerer') && m.primary)) continue;
     if (!check(state, u, 'IN', 0, 'Shadow of the Conquerer')) continue;
-    const aerial = mine.some((x) => x.reserve === 'aerial') && state.round < core.RESERVES_AUTO_TURN;
+    const aerial = mine.some((x) => x.reserve === 'aerial');
     if (aerial) state.coordinate[side] = state.round; else state.annihilate[side] = true;
     state.log(`  Lotara Sarrin orders the fleet: ${aerial ? 'Coordinate' : 'Annihilate'} (Shadow of the Conquerer)`);
   }
@@ -353,19 +395,25 @@ function startPhase(state, side) {
 
 function shootingPhase(state, side) {
   const units = state.units.filter((u) => u.side === side && !u.destroyed && u.arrived && !u.embarkedIn && !u.lockedWith.size);
+  // Flyers shoot first: they came for a target, and leave at the end of the phase
+  units.sort((a, b) => !!b.assignment - !!a.assignment);
   for (const u of units) {
     // SHEET: units that Rushed, are locked in combat or embarked can't shoot; statuses only force Snap Shots
     if (u.destroyed) continue;
     if (u.turn.rushed && !/Light|Rapid/.test(u.unitType)) continue;
     if (!alive(u).some((m) => m.ranged.length)) continue;
+    // a Flyer fires what its Combat Assignment allows (flyers.cjs)
+    if (u.assignment) { markHeld(state); flyers.shoot(state, u); continue; }
     // Fatal Strike (Mor Deythan): once per battle after staying Stationary, +2 Ballistic Skill this phase; the AI
     // uses it the first time it can (CONFIRMED rule, ASSUMPTION timing)
     if (has(u.rules, 'Fatal Strike') && !u.fatalUsed && u.turn.stationary && !core.snapOnly(u)) { u.fatalUsed = true; u.turn.fatalStrike = true; state.log(`  ${u.name} makes a Fatal Strike`); }
     const t = ai.chooseTarget(state, u, { snap: core.snapOnly(u) });
     if (!t) continue;
     markHeld(state);
+    // Foresight's Blessing: a Diviner may give the attack Precision (5+) (psychic.cjs)
+    const blessed = psychic.foresightsBlessing(state, u, t);
     // the target may react: Return Fire, Smokescreen, Living Shields and the rest (reactions.cjs)
-    shootingAttack(state, u, t, { phaseAttack: true });
+    try { shootingAttack(state, u, t, { phaseAttack: true }); } finally { if (blessed) blessed(); }
   }
 }
 

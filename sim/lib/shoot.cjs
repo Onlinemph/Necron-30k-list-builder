@@ -59,7 +59,8 @@ function shootingAttack(state, shooter, target, opts = {}) {
   const stationary = (!!still.stationary || steady(state, shooter)) && !shooter.statuses.size;
   // Shadow Walkers (Raven Guard): shots from 18" or more away are Snap Shots. Against a Flyer only weapons with
   // Skyfire fire normally (rangedGroup, per weapon)
-  const snap = opts.snap || (legions.is(target, 'Raven Guard') && gap(shooter, target) >= 18) || shooter.cond?.has('Stupefied') || core.snapOnly(shooter) || (shooter.turn.rushed && /Light|Rapid/.test(shooter.unitType));
+  // a Flyer on a Combat Assignment other than a Strafing Run is shot at with Snap Shots only (flyers.cjs)
+  const snap = opts.snap || require('./flyers.cjs').snapAgainst(target) || (legions.is(target, 'Raven Guard') && gap(shooter, target) >= 18) || shooter.cond?.has('Stupefied') || core.snapOnly(shooter) || (shooter.turn.rushed && /Light|Rapid/.test(shooter.unitType));
   const vsFlyer = /Flyer/.test(target.unitType || ''), statused = shooter.statuses.size > 0;
   const exclude = (w) => psychic.blockedPsychic(w, target) || (opts.defensiveOnly && !core.isDefensive(w)) || (opts.assaultOnly && !(w.traits || []).includes('Assault') && !has(shooter.rules, 'Implacable Advance')) || (opts.assaultOnly && has(shooter.rules, 'Implacable Advance') && (has(w.specialRules, 'Heavy') || has(w.specialRules, 'Ordnance'))) || (opts.split && !opts.split.may(w));
   const plan = planVolley(shooter, target, state, { stationary, snap, exclude, models: opts.models, fpBonus: opts.fpBonus, losOK: react?.losOK ? true : undefined, ignoreCover: !!opts.noCover, reaction: !!opts.reaction });
@@ -103,6 +104,7 @@ function shootingAttack(state, shooter, target, opts = {}) {
       if (target.destroyed || !alive(target).length) break;
       let w = p.weapon;
       if (has(w.specialRules, 'Force')) w = forceCheck(state, shooter, p.model, w, target);
+      w = psychic.rollDice(state, w);
       if (has(w.specialRules, 'Limited')) { shooter.limitedUsed = shooter.limitedUsed || {}; shooter.limitedUsed[w.name] = (shooter.limitedUsed[w.name] || 0) + 1; }
       const g = rangedGroup(p.model, w, target, { stationary, snap, vsFlyer, statused, indirect, fpBonus: opts.fpBonus, heavyOK: !!still.heavyOK && !shooter.statuses.size });
       g.from = shooter;

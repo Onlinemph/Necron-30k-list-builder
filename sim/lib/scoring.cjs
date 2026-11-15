@@ -168,16 +168,20 @@ function endOfBattle(state) {
   const m = state.mission;
   // Hammerblow: the primary is scored once, now
   if (m.variant === 'hammerblow') for (const side of [0, 1]) { if (m.primary === 'claim') scoreClaim(state, side); if (m.primary === 'seize') scoreSeize(state, side); }
-  // units still in Reserves count as Removed as Casualties (MISSION); Aerial Reserves don't for Destroy the Enemy
-  // (passengers of a transport still in Reserves count too)
-  const inReserve = state.units.filter((u) => !u.destroyed && !u.arrived && (u.reserve || u.embarkedIn?.reserve));
+  // units still in Reserves count as Removed as Casualties (MISSION), for Kill Points and the secondaries alike
+  // (passengers of a transport still in Reserves count too). Aerial Reserves don't, for anything: only rules that name
+  // Aerial Reserves affect them (CONFIRMED, rulebook), and the pack's Kill Points leave them out (MISSION). Units
+  // aboard a Flyer in Aerial Reserves share its Aerial Reserves (ASSUMPTION, flyers.cjs)
+  const aerial = (u) => u.reserve === 'aerial' || u.embarkedIn?.reserve === 'aerial';
+  for (const u of state.units) if (!u.destroyed && !u.arrived && aerial(u)) state.log(`    ${u.name} is in Aerial Reserves (not destroyed)`);
+  const inReserve = state.units.filter((u) => !u.destroyed && !u.arrived && (u.reserve || u.embarkedIn?.reserve) && !aerial(u));
   for (const u of inReserve) {
     state.log(`    ${u.name} never arrived and counts as destroyed`);
-    if (m.primary === 'destroy' && u.reserve !== 'aerial') state.award(1 - u.side, pay(u, killPoints(u)), `${u.name} still in Reserves`);
+    if (m.primary === 'destroy') state.award(1 - u.side, pay(u, killPoints(u)), `${u.name} still in Reserves`);
     // characters who joined it count as destroyed with it
     for (const c of (u.joined || []).filter((x) => !x.dead)) {
       inReserve.push(Object.assign({}, c, { reserve: u.reserve, joined: null, statuses: new Set(), lockedWith: new Set() }));
-      if (m.primary === 'destroy' && u.reserve !== 'aerial') state.award(1 - u.side, pay(c, killPoints(c)), `${c.name} still in Reserves`);
+      if (m.primary === 'destroy') state.award(1 - u.side, pay(c, killPoints(c)), `${c.name} still in Reserves`);
     }
   }
   const gone = (side) => [...state.destroyedUnits.filter((u) => u.side === side), ...inReserve.filter((u) => u.side === side)];

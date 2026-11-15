@@ -436,9 +436,11 @@ function onArrive(state, arrival) {
     const far = gap(u, arrival) + legions.rangePenalty(arrival);
     // Set the Sky Aflame: a unit arriving by Deep Strike can't be Intercepted from more than 12" away (CONFIRMED)
     if (arrival.turn?.arrivedDeep && has(arrival.rules, 'Set the Sky Aflame') && far > 12) continue;
-    // Intercept (Core, SHEET): Snap Shots at a unit arriving from Reserves; Vehicles use Defensive weapons
-    const iv = planVolley(u, arrival, state, { snap: true, exclude: (w) => u.vehicle && !core.isDefensive(w) }).expectedPts;
-    if (iv > 0) opts.push({ name: 'Intercept', unit: u, value: iv, apply: () => shoot(state, u, arrival, { snap: true, reaction: true, defensiveOnly: u.vehicle, label: 'Intercepts' }) });
+    // Intercept (Core, SHEET): Snap Shots at a unit arriving from Reserves (but not at a Flyer on a Strafing Run,
+    // flyers.cjs); Vehicles use Defensive weapons
+    const snap = !require('./flyers.cjs').strafing(arrival);
+    const iv = planVolley(u, arrival, state, { snap, exclude: (w) => u.vehicle && !core.isDefensive(w) }).expectedPts;
+    if (iv > 0) opts.push({ name: 'Intercept', unit: u, value: iv, apply: () => shoot(state, u, arrival, { snap, reaction: true, defensiveOnly: u.vehicle, label: 'Intercepts' }) });
     if (!available(state, side, 'Moonfall')) continue;
     const m = alive(u).find((x) => (x.traits || []).includes('Burning Sky') && /Command|Paragon/.test(x.unitType));
     if (!m || far > 18) continue;
