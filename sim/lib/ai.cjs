@@ -32,9 +32,13 @@ const VP_WORTH = 45;          // points of value per Victory Point
  * will likely draw; ride: passengers stay in while their transport can carry them closer, rather than get out first.
  * Measured in self-play (README, "Playing more like a person"): concede, retfire and ride are on; the others measured
  * level or worse and stay off.
+ * Looking ahead (lookahead.cjs, README "Looking ahead"): lookahead: runs per plan, 0 = off (2 is the measured choice;
+ * off by default because the side runs about 7.5 times slower); lookMargin: how far a plan must beat the usual one;
+ * lookDepth: Player Turns played per look, 2 = this turn and the enemy's reply, 3 = and the side's next turn; lookFocus:
+ * also try a focus-fire plan; focus: the uid of the enemy unit a focus plan shoots and charges first.
  */
 const DEFAULTS = { vp: VP_WORTH, line: 1.5, mission: 0.6, soonMelee: 0.45, soonShoot: 0.3, risk: 0.35, bold: 0.5, chargeGain: 1.6, chargeTake: 1.0, incoming: 0.35, chargeFail: 10, chargeBar: 3, shootBar: 0.5, react: 1, share: 1,
-  endgame: 0, tieup: 0, shelter: 0, screen: 0, lanes: 0, counter: 0, concede: 1, retfire: 1, ride: 1, lookahead: 0, lookMargin: 100, lookDepth: 2, lookFocus: 0, focus: 0 };
+  endgame: 0, tieup: 0, shelter: 0, screen: 0, lanes: 0, counter: 0, concede: 1, retfire: 1, ride: 1, lookahead: 0, lookMargin: 100, lookDepth: 3, lookFocus: 0, focus: 0 };
 const K = (state, side, key) => { const o = state.aiParams && state.aiParams[side]; return o && o[key] != null ? o[key] : DEFAULTS[key]; };
 const BANDS = [0, 3, 6, 9, 12, 15, 18, 24, 30, 36, 48, 72];
 

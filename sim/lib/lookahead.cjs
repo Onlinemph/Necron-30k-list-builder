@@ -1,15 +1,17 @@
 'use strict';
 // Looking ahead (ASSUMPTION: the AI's own planning, not a rule). At the start of each of its Player Turns a side with
 // the `lookahead` weight tries a few plans for the whole army: its usual weights, and postures that push them one way
-// (attack, hold back). For each it plays this Player Turn on a snapshot of the battle
-// (snapshot.cjs), then the enemy's reply with the enemy's own AI, scores where that leaves the two armies (Victory
-// Points, points of models left, markers held), puts the battle back and moves on to the next plan. Then it plays the
-// best plan's turn for real. Every plan sees the same dice in its look ahead, so plans are compared on equal terms; the
-// real turn rolls its own. The enemy's AI doesn't look ahead inside a look ahead.
+// (attack, hold back). For each it plays this Player Turn on the battle itself, then the enemy's reply with the
+// enemy's own AI, then (lookDepth 3, the default) its own next turn with its usual weights, scores where that leaves
+// the two armies (Victory Points, points of models left, markers held), puts the battle back (snapshot.cjs) and moves
+// on to the next plan. Then it plays the best plan's turn for real. Every plan sees the same dice in its look ahead,
+// so plans are compared on equal terms; the real turn rolls its own. Neither side looks ahead inside a look ahead.
 // One look ahead is a single run of the dice, and a plan's value swings by 100-400 points between runs, about as much
 // as plans differ, so each plan gets several runs (the lookahead weight is how many), and the side leaves its usual
-// plan only for one that beats it by a margin. A posture of playing harder for the mission played the same as the
-// usual weights nearly every turn, so it isn't tried.
+// plan only for one that beats it by a margin. Stopping after the enemy's reply (lookDepth 2) didn't help in
+// self-play: the enemy has the last word, so the plan that exposes least looks best, and a charge set up this turn
+// never gets credit for landing. A posture of playing harder for the mission played the same as the usual weights
+// nearly every turn, so it isn't tried.
 
 const { snapshot, restore } = require('./snapshot.cjs');
 const { createDice } = require('./dice.cjs');
@@ -70,7 +72,7 @@ function evaluate(state, side, vpWorth) {
  * from battle.cjs. Returns the plan's weights to play the turn with (merged over the side's own), or null to play as
  * usual. tries: look aheads per plan, each on its own dice.
  */
-function choosePlan(state, side, play, { vpWorth = 45, tries = 1, margin = 0, depth = 2, focus = false } = {}) {
+function choosePlan(state, side, play, { vpWorth = 45, tries = 1, margin = 0, depth = 3, focus = false } = {}) {
   if (state.lookingAhead) return null;
   const base = (state.aiParams && state.aiParams[side]) || {};
   // the look aheads' dice come from the real dice's position without rolling them, so looking ahead leaves the real
@@ -102,7 +104,7 @@ function choosePlan(state, side, play, { vpWorth = 45, tries = 1, margin = 0, de
  * Play `side`'s turn with weights w, then the enemy's reply (and with depth 3, side's next turn with its usual
  * weights), on a snapshot; the value for side, or null if it broke.
  */
-function rollout(state, side, w, seed, play, vpWorth, depth = 2, usual = null) {
+function rollout(state, side, w, seed, play, vpWorth, depth = 3, usual = null) {
   const keep = { dice: state.dice, log: state.log, aiParams: state.aiParams };
   const snap = snapshot(state, new Set([state.dice]));
   try {
