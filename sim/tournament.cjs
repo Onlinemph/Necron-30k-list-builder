@@ -3,10 +3,11 @@
 // Round robin: every list plays every other list, N battles per pairing, on random Core Missions.
 //   node sim/tournament.cjs <list> <list> ... [--battles 24] [--seed 1] [--workers 4] [--out results.json]
 //                            [--only "<list name>"] [--merge earlier.json] [--resume partial.json]
-//                            [--ai "lookahead=3,lookDepth=3"]
+//                            [--ai lookahead=2]
 // --only plays just the pairings with that list; --merge starts from an earlier result and replaces those pairings;
 // --resume keeps the pairings a stopped run already saved and plays the rest (each pairing's seed is fixed, so the
-// result is the same as an unbroken run). --ai sets AI weights (lib/ai.cjs DEFAULTS) for both sides.
+// result is the same as an unbroken run); the output is saved after every pairing and when the run is stopped.
+// --ai sets AI weights (lib/ai.cjs DEFAULTS) for both sides.
 // Pairings run in parallel worker processes. The output JSON has, for each pairing, wins, draws and VP; for each
 // list, results by Archetype and per-unit points destroyed and lost.
 const path = require('path');
@@ -44,6 +45,7 @@ function playPairing({ a, b, battles, seed, ai }) {
 }
 if (process.argv[2] === '--worker') {
   process.on('message', (job) => process.send({ id: job.id, result: playPairing(job) }));
+  process.on('disconnect', () => process.exit(0)); // the main process stopped: stop too
   return;
 }
 
@@ -107,11 +109,13 @@ function main() {
       done++;
       const eta = ((Date.now() - t0) / done) * (jobs.length - done) / 60000;
       process.stderr.write(`${done}/${jobs.length} ${names[job.i]} ${result.wins[0]}-${result.wins[1]}${result.draws ? `-${result.draws}` : ''} ${names[job.j]}  (eta ${eta.toFixed(1)} min)\n`);
-      if (done % 10 === 0) save();
+      save();
       feed(w);
     });
     feed(w);
   }
   process.on('exit', () => save());
+  // stopped from outside (a time limit, Ctrl-C): keep what's played, for --resume
+  for (const sig of ['SIGTERM', 'SIGINT']) process.on(sig, () => { for (const w of workers) w.kill(); process.exit(1); });
 }
 main();
