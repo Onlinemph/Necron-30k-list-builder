@@ -225,7 +225,9 @@ function threatChance(e, d) {
 /**
  * screen: what u standing at pos is worth in charges it makes less likely: for each enemy that could charge one of
  * u's friends next turn, the most it takes off one such charge (the enemy charges one target). A charge goes round
- * units in the way (move.cjs chargeRoute), so a unit in the lane lengthens it.
+ * units in the way (move.cjs chargeRoute), so a unit in the lane lengthens it. Only what u adds counts: a lane another
+ * friend already blocks is worth nothing more (scored alone, every unit claimed the same lane and the army bunched up;
+ * that version lost 38% to 62% in self-play). It's a loss avoided, so it's weighed as the risk is.
  */
 function screenValue(state, u, pos, enemies) {
   let total = 0;
@@ -237,17 +239,20 @@ function screenValue(state, u, pos, enemies) {
     for (const F of friends) {
       const g = gap(E, F);
       if (g > reach) continue;
-      const p0 = threatChance(E, g);
-      if (p0 <= 0) continue;
+      if (threatChance(E, g) <= 0) continue;
       const d = Math.hypot(E.x - F.x, E.y - F.y) || 1, k = (E.r + F.r) / d;
       const touch = { x: F.x + (E.x - F.x) * k, y: F.y + (E.y - F.y) * k };
       const extra = detour(E, touch, pos, u.r + E.r);
       if (extra <= 0) continue;
-      best = Math.max(best, meleeEV(state, E, F) * (p0 - threatChance(E, g + extra)));
+      // what the other friends already add to this charge's way
+      let had = 0;
+      for (const G of friends) if (G !== F) had = Math.max(had, detour(E, touch, G, G.r + E.r));
+      if (extra <= had) continue;
+      best = Math.max(best, meleeEV(state, E, F) * (threatChance(E, g + had) - threatChance(E, g + extra)));
     }
     total += best;
   }
-  return total;
+  return total * K(state, u.side, 'risk');
 }
 
 /**
