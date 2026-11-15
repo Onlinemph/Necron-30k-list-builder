@@ -181,8 +181,10 @@ function destroyed(state, unit, by, fled = false) {
     if (p.destroyed) continue;
     if (!check(state, p, 'CL', 0, 'Emergency Disembarkation')) addStatus(state, p, 'Pinned', 'transport destroyed');
   }
-  // Explodes (X): a vehicle that dies may blow up (CONFIRMED profile: S8 AP- D1, base HP or W hits within 6")
-  const ex = xOf(unit.rules, 'Explodes');
+  // Explodes (X): a vehicle that dies may blow up (CONFIRMED profile: S8 AP- D1, base HP or W hits within 6"); in a
+  // unit of more than one model, each model with the rule explodes as it falls (psychic.cjs watchCasualties)
+  const perModel = unit.models.length > 1 && unit.models.some((m) => xOf(m.rules, 'Explodes'));
+  const ex = !perModel && xOf(unit.rules, 'Explodes');
   if (ex && !fled && state.dice.d6() >= ex) {
     const hits = unit.models.reduce((t, m) => t + m.maxWounds, 0);
     state.log(`    ${unit.name} explodes`);

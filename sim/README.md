@@ -218,7 +218,7 @@ charging and Pursuing; Suppressed forces Snap Shots; Stunned stops reactions; Ro
 other penalty; Disgraced halves the model's WS and LD.
 
 Weapon and unit rules handled: Rending, Breaching, Shred, Poisoned, Precision, Critical Hit, Melta, Armourbane,
-Murderous, Bypass, Deflagrate, Phage, Shock, Blast (one Hit Test, every model under the marker hit), Template,
+Murderous, Bypass, Deflagrate, Phage, Shock, Blast (one Hit Test, every model under the marker hit, a miss scatters), Template,
 Barrage, Heavy, Ordnance, Limited, Overload (Misfire Groups), Force, Psy-Shock, Impact, Reaping Blow, Hatred,
 Eternal Warrior, Feel No Pain, Shrouded, Fear, Explodes, Malefic, Anathema, Adamantium Will, Vanguard, Line,
 Support Unit, Expendable, Infiltrate, Deep Strike, Outflank, Firestorm, Skyfire, and the Rangdan army rules:
@@ -576,7 +576,7 @@ Five sources, marked in the code:
 | Flyers | mounts read from wargear names; Centreline Guided Missiles still Snap Shots on a Strike Mission; every attack at a Flyer not strafing is a Snap Shot; a Combat Air Patrol raises the Reserves target; units aboard share the Flyer's Aerial Reserves; the AI may keep a Flyer up when nothing is worth the risk |
 | Coherency | every unit is a packed circle, so it's always in coherency and casualties re-pack it, as if the player removes models to keep it together; a stretched line, and a rare break after a Precision kill, aren't shown |
 | Psychic | Mind-burst and Tranquillity take the Focus's Manifestation Check, as their texts say; the AI manifests Mind-burst with a unit that stayed put and Foresight's Blessing just before the attack; a joined character can't be Resurrected; a Pyromancer explodes once the attack that killed him is over; Tranquillity's -1 Strength comes before Force |
-| Not simulated | removing a Flyer from the battle, embarking on a Flyer during the battle, and multi-model units with their own Explodes blowing up model by model; Sudden Death is there (`runBattle(..., { suddenDeath: true })`) but off, as the pack's missions leave it out |
+| Not simulated | two choices the AI never makes: removing a Flyer from the battle instead of returning it, and embarking a unit on a Flyer waiting in Aerial Reserves (Extraction still picks units up); the optional Wrecked Vehicles rule; Sudden Death is there (`runBattle(..., { suddenDeath: true })`) but off, as the pack's missions leave it out |
 
 Reactions made in answer to a reaction (a Return Fire against an Overwatch, say) aren't allowed.
 

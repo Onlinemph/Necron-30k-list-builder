@@ -1797,3 +1797,25 @@ test('Reserves: models arriving within 2" of the enemy are removed; no unit depl
   slideMarker({ pieces: [{ x: 12, y: 8, w: 4, h: 4, impassable: true }] }, [], wall, 0);
   assert.ok(wall.x > 16, `${wall.x}`);
 });
+
+test('Explodes (X) in a unit of more than one model: each model rolls as it falls, at its own X', () => {
+  const talon = () => {
+    const u = require('../sim/lib/army.cjs').buildArmy(path.join(LISTS, 'strong', 'alpha-legion.json'), 0).units.find((x) => x.name === 'Contemptor Dreadnought');
+    const m = u.models[0];
+    u.models.push(Object.assign({}, m, { name: m.name + ' 2', p: { ...m.p }, rules: [...m.rules], items: [...(m.items || [])], weapons: [...(m.weapons || [])] }));
+    return u;
+  };
+  const [near] = airList().filter((u) => u.name === 'Tactical Squad');
+  const t = talon();
+  onTable(t, 20, 20); onTable(near, 20 + t.r + near.r + 3, 20);
+  const st = openScene([t, near], { dice: scripted([5]) });
+  t.models[0].wounds = 0; st.onCasualty(t.models[0], t, null); st.afterDamage(t);
+  const hp = t.models[0].maxWounds;
+  assert.ok(st.lines.some((l) => new RegExp(`explodes \\(Explodes \\(5\\+\\)\\): ${hp} hits`).test(l)), st.lines.join('\n'));
+  assert.equal(t.destroyed, false);
+  // a 4 is short of 5+
+  const t2 = talon(); onTable(t2, 20, 20);
+  const st2 = openScene([t2, near], { dice: scripted([4]) });
+  t2.models[0].wounds = 0; st2.onCasualty(t2.models[0], t2, null); st2.afterDamage(t2);
+  assert.ok(!st2.lines.some((l) => /explodes/.test(l)));
+});

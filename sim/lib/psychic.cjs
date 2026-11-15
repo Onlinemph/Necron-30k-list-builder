@@ -258,11 +258,13 @@ function spendReaction(state, side, unit, name) {
   if (state.reactionCount) state.reactionCount[side][name] = (state.reactionCount[side][name] || 0) + 1;
 }
 
-// ---------- casualties: Explodes (Pyromancy) and Resurrection (Thaumaturgy) ----------
+// ---------- casualties: Explodes (Pyromancy, and models in bigger units) and Resurrection (Thaumaturgy) ----------
 /**
  * Casualties the disciplines care about, worked by wrapping battle.cjs's hooks: a model is noted when it falls
  * (state.onCasualty) and dealt with once the attack is over, before its unit is checked for destruction
- * (state.afterDamage): Resurrection may bring one back, then a fallen Pyromancer may explode. A Tranquillity whose
+ * (state.afterDamage): Resurrection may bring one back, then a fallen Pyromancer may explode. A model with its own
+ * Explodes (X) in a unit of more than one model goes the same way (CONFIRMED: the rule is per model); a unit of one
+ * explodes when battle.cjs destroys it, after its passengers get out. A Tranquillity whose
  * Thaumaturge falls ends (CONFIRMED: a power's ongoing effect ends when its user is removed as a casualty).
  */
 function watchCasualties(state) {
@@ -273,7 +275,8 @@ function watchCasualties(state) {
     onCasualty(m, unit, by);
     if (m.calming) { for (const t of m.calming) calm(state, t, null); m.calming = null; }
     if (state.fleeing === unit) return;
-    if (!m.vehicle && hasDiscipline(m, 'Pyromancy')) state.blasts.push({ unit, m });
+    if (!m.vehicle && hasDiscipline(m, 'Pyromancy')) state.blasts.push({ unit, m, x: 4, what: 'Explodes (4+)' });
+    else if (unit.models.length > 1 && xOf(m.rules, 'Explodes')) state.blasts.push({ unit, m, x: xOf(m.rules, 'Explodes'), what: `Explodes (${xOf(m.rules, 'Explodes')}+)` });
     // a casualty of the Active Player's Shooting Attack in the Shooting Phase, for Resurrection; a joined character
     // can't be brought back (ASSUMPTION: battle.cjs scores him the moment he falls)
     if (state.phase === 'shooting' && by && by.side === state.active && unit.side !== state.active && !m.vehicle && !m.joinedFrom && hasDisciplineIn(unit, 'Thaumaturgy')) (unit.fallen = unit.fallen || []).push({ m, by });
@@ -295,12 +298,12 @@ function watchCasualties(state) {
  * his base Wounds, Strength 8, AP -, Damage 1 (as battle.cjs explodes a vehicle). ASSUMPTION: he explodes once the
  * attack that killed him is resolved, measured from his unit's footprint; a resurrected Pyromancer doesn't.
  */
-function explode(state, { unit, m }) {
+function explode(state, { unit, m, x = 4, what = 'Explodes (4+)' }) {
   if (m.wounds > 0) return;
   const roll = state.dice.d6();
-  if (roll < 4) return;
-  const hits = Math.max(1, num(m.p.W, 1));
-  state.log(`    ${m.name} explodes (Explodes (4+)): ${hits} hits on every unit within 6"`);
+  if (roll < x) return;
+  const hits = Math.max(1, m.vehicle ? m.maxWounds : num(m.p.W, 1));
+  state.log(`    ${m.name} explodes (${what}): ${hits} hits on every unit within 6"`);
   const { resolveGroup } = require('./attack.cjs');
   const from = { x: unit.x, y: unit.y, r: unit.r };
   for (const u of state.units) {
