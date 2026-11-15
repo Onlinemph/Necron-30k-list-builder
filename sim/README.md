@@ -96,19 +96,19 @@ Legiones Astartes. The simulator leaves out the Primarchs' psychic rules and the
 rules, so it likely undervalues the psychic Primarchs in particular.
 
 With every rule above in, and the later changes below (the World Eaters' Rhino list, moves that go round what's in
-the way, the AI's risk model tuned by self-play, the rules the audit and the rulebook check below corrected, and the rest of
-the rules then simulated), the strength lists played
+the way, the AI's risk model tuned by self-play, the rules the audit and the rulebook check below corrected, the rest of
+the rules then simulated, and what the AI learned from a review of whole battles), the strength lists played
 a round robin (24 battles a pairing, 432 games per list, the Iron Wall as a guest):
 
 | | Score | | Score | | Score |
 |---|---|---|---|---|---|
-| Salamanders | 75% | Emperor's Children | 57% | Iron Warriors | 46% |
-| Iron Hands | 65% | Sons of Horus | 56% | Blood Angels | 43% |
-| Thousand Sons | 64% | Ultramarines | 56% | Imperial Fists | 41% |
-| Space Wolves | 63% | Dark Angels | 52% | Word Bearers | 39% |
-| Raven Guard | 60% | White Scars | 49% | World Eaters | 33% |
-| Death Guard | 57% | Alpha Legion | 47% | Night Lords | 25% |
-|  |  |  |  | Iron Wall (Rangdan) | 23% |
+| Salamanders | 70% | White Scars | 57% | Word Bearers | 46% |
+| Space Wolves | 69% | Raven Guard | 56% | Iron Warriors | 44% |
+| Iron Hands | 64% | Ultramarines | 54% | Alpha Legion | 42% |
+| Death Guard | 60% | Dark Angels | 52% | World Eaters | 38% |
+| Thousand Sons | 59% | Sons of Horus | 48% | Imperial Fists | 37% |
+| Emperor's Children | 58% | Blood Angels | 46% | Iron Wall (Rangdan) | 28% |
+|  |  |  |  | Night Lords | 22% |
 
 Why the World Eaters lose: it's board control, not killing. Against the strength lists they score 14.6 VP a game
 from markers and Sectors to their opponents' 29.7, while Kill Points and the secondaries are close to even, and Seize
@@ -127,14 +127,14 @@ Rhinos, with four Predators, two lascannon Heavy Support Squads and two Veteran 
 Eaters strength list. Over about 530 games each against both fields it won 29% to the Spartan list's 21%, and it
 loses by about 11 VP a game where the Spartan list loses by 19. In the first run (114 games) its profile was the
 reverse of the Spartan list's: 44% in the marker and Sector missions (the Spartans managed 12-14%) and 24% in
-Annihilation (45%). In the round robin above it scores 33%: 36% in Resupply, 49% in Conquest and 16% in
+Annihilation (45%). In the round robin above it scores 38%: 37% in Resupply, 54% in Conquest and 24% in
 Annihilation. A horde of twenty-strong Despoiler squads on foot did no better than the Spartans (22%): they reach
 the markers but die walking there. The same Rhino list built 375 to 725 points short, as a first attempt was,
 scored 8% to 24%, so the gain is the list, not the AI changes below, which measured level.
 
 Melee units now earn their points once they're carried in (Firedrakes, the Inner Circle Knights Cenobium,
 Palatine Blades, Invictus Suzerains and Grave Wardens are among the most efficient units, and the Space Wolves
-are fourth), but the World Eaters and Night Lords are still far behind, and the first player won 57% of decided
+are second), but the World Eaters and Night Lords are still far behind, and the first player won 55% of decided
 games.
 
 From code:
@@ -547,6 +547,14 @@ level. Screening changes plenty and loses. Scored alone, every unit claimed the 
 and the army bunched up; counting only the detour a unit adds beyond what its friends already block, weighed as a
 loss avoided, mostly sends empty transports to screen, and still loses 1.7 VP a battle. The likely reason is the
 opponent: a screen pays against a player who would exploit an open lane, and this AI's charges aren't that sharp.
+
+With these changes the round robin moved by 4.7 points per list, more than fresh dice alone would (about 3), and the
+spread narrowed a little (a standard deviation of 12.6 points, from 13.4). Melee lists gained: the White Scars eight
+points, the Word Bearers seven, the Space Wolves six (back where they were before the last rules), the World Eaters
+five. The Sons of Horus lost nine and the Salamanders and Thousand Sons five each; the Salamanders still top the
+table at 70%. The clearest single shift is the Predators: across several lists they lose about 100 points a game
+fewer, because a shooter now counts the lascannon Return Fire a Predator throws back before its casualties go. The
+first player won 55% of decided games.
 
 Melee is still the weaker way to play in the simulator. A typical assault unit now reaches combat on turn 2 and
 often wipes its target in one round, which leaves it in the open for the enemy's whole army to shoot. Steering
