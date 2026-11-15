@@ -168,11 +168,13 @@ function meleeIncoming(state, a, b, fxA, fxB) {
   a.buff = savedA; b.buff = savedB;
   return e * valuePerWound(b);
 }
-/** Move a into base contact with b and lock them (a reaction charge). */
-function lockInto(state, a, b, why) {
-  const d = dist(a, b) || 1;
-  const k = (a.r + b.r) / d;
-  a.x = b.x + (a.x - b.x) * k; a.y = b.y + (a.y - b.y) * k;
+/** Move a into base contact with b (at `at`, the end of its Charge Move, or straight at b) and lock them. */
+function lockInto(state, a, b, why, at = null) {
+  if (at) { a.x = at.x; a.y = at.y; } else {
+    const d = dist(a, b) || 1;
+    const k = (a.r + b.r) / d;
+    a.x = b.x + (a.x - b.x) * k; a.y = b.y + (a.y - b.y) * k;
+  }
   a.lockedWith.add(b); b.lockedWith.add(a);
   a.turn.charged = true;
   state.log(`    ${a.name} ${why}: Locked in Combat with ${b.name}`);
@@ -182,10 +184,12 @@ function lockInto(state, a, b, why) {
  * counts as 2" further away for any Reaction declared by an enemy (CONFIRMED).
  */
 function reactionCharge(state, u, t, why) {
-  const need = gap(u, t) + legions.rangePenalty(t);
+  // the Charge Move goes round what's in the way (move.cjs chargeRoute)
+  const way = require('./move.cjs').chargeRoute(state, u, t);
+  const need = way.len + legions.rangePenalty(t);
   const roll = core.chargeRoll(u, state.dice);
-  state.log(`    ${u.name} ${why}: charge roll ${roll} (needed ${need.toFixed(1)}")`);
-  if (roll >= need) { lockInto(state, u, t, why); return true; }
+  state.log(`    ${u.name} ${why}: charge roll ${roll} (needed ${need.toFixed(1)}"${way.pts ? ', round what is in the way' : ''})`);
+  if (roll >= need) { lockInto(state, u, t, why, way); return true; }
   return false;
 }
 const maxChargeRange = (u) => 6 + Math.min(...alive(u).map((m) => xOf(m.rules, 'Fast') || 0)) + (u.turn.disordered ? 0 : core.setupMove(u));

@@ -122,4 +122,50 @@ function route(u, to, budget, env, cache) {
   return { x: end.x, y: end.y, len, from: pts.length > 1 ? pts[pts.length - 2] : R.start, pts };
 }
 
-module.exports = { route, field };
+/**
+ * The shortest way into base contact with the circle `t` within `budget` inches (a charge: lib/move.cjs chargeRoute).
+ * The grid path to the cheapest point beside t, pulled straight, then straight on to touch it. Returns
+ * { len, x, y, pts } (x, y: where the unit ends, touching t) or null if nothing within the budget reaches.
+ * env.blockers should hold t itself, so the path can't cut through it.
+ */
+function toContact(u, t, budget, env) {
+  const R = rules(u, env);
+  const F = field(u, budget, env, R);
+  const reach = u.r + t.r;
+  const touch = (p) => { const d = Math.hypot(p.x - t.x, p.y - t.y); return d <= reach ? p : { x: t.x + (p.x - t.x) * reach / d, y: t.y + (p.y - t.y) * reach / d }; };
+  const cands = [];
+  for (let s = 0; s < F.cost.length; s++) {
+    if (!(F.cost[s] <= budget)) continue;
+    const p = F.pt(s >> 1), left = Math.max(0, Math.hypot(p.x - t.x, p.y - t.y) - reach);
+    if (left <= 1.5 && F.cost[s] + left <= budget + 1e-9) cands.push([F.cost[s] + left, s]);
+  }
+  cands.sort((a, b) => a[0] - b[0]);
+  let best = -1;
+  for (const [, s] of cands) if (R.clear(F.pt(s >> 1), touch(F.pt(s >> 1)), true)) { best = s; break; }
+  if (best < 0) return null;
+  const way = [];
+  for (let s = best; s >= 0; s = F.prev[s]) way.unshift(F.pt(s >> 1));
+  way.push(touch(way[way.length - 1]));
+  const pts = [R.start];
+  let i = 0;
+  while (i < way.length - 1) {
+    let j = way.length - 1;
+    while (j > i + 1 && !R.clear(way[i], way[j], true)) j--;
+    pts.push(way[j]); i = j;
+  }
+  let len = 0;
+  for (let k = 1; k < pts.length; k++) len += Math.hypot(pts[k].x - pts[k - 1].x, pts[k].y - pts[k - 1].y);
+  const end = pts[pts.length - 1];
+  return len <= budget + 1e-9 ? { len, x: end.x, y: end.y, pts } : null;
+}
+/** The point `d` inches along a path's corners (its end if the path is shorter). */
+function along(pts, d) {
+  for (let k = 1; k < pts.length; k++) {
+    const a = pts[k - 1], b = pts[k], L = Math.hypot(b.x - a.x, b.y - a.y);
+    if (d <= L) return L > 0 ? { x: a.x + (b.x - a.x) * d / L, y: a.y + (b.y - a.y) * d / L } : { x: a.x, y: a.y };
+    d -= L;
+  }
+  return { x: pts[pts.length - 1].x, y: pts[pts.length - 1].y };
+}
+
+module.exports = { route, field, toContact, along, rules };

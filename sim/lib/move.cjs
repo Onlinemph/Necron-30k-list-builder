@@ -121,6 +121,31 @@ function destinationWith(state, u, to, budget, opts, { tableView, b, difficultAt
   // an Antigrav unit passes over Impassable Terrain but may not end in it (CONFIRMED): it stops short of it
   return antigrav ? clearOfImpassable(state, d) : d;
 }
+/**
+ * The Charge Move's way into base contact with t (CONFIRMED, rulebook: the Set-up Move and the Charge Move take the
+ * shortest possible route, going round Impassable Terrain, friendly models and enemy models in other units, and a
+ * charge that doesn't end in base contact fails; neither loses distance to difficult terrain). Straight when nothing is
+ * in the way, as before; otherwise round it, so a unit standing in the lane makes the charge longer or stops it.
+ * Antigrav units pass over units and terrain (as their moves). Returns { len, x, y, pts }, len Infinity if no route
+ * within `budget` inches touches t.
+ */
+function chargeRoute(state, u, t, budget = core.CHARGE_DECLARE_RANGE + 6) {
+  const straight = { len: gap(u, t), ...contactPoint(u, t), pts: null };
+  if (isAntigrav(u) || isFlyer(u)) return straight;
+  const { tableView } = moveSetup(state, u, t, budget, { charging: true, target: t, ignoreDifficult: true });
+  const blockers = [];
+  for (const x of state.units) if (x !== u && !x.destroyed && x.arrived && !x.embarkedIn) blockers.push({ x: x.x, y: x.y, r: x.r + (x === t ? 0 : 0.05) });
+  const env = { tableView, blockers, difficultAt: () => false, penalty: 0 };
+  const R = path.rules(u, env);
+  if (R.clear({ x: u.x, y: u.y }, straight, true)) return straight;
+  const r = path.toContact(u, t, budget, env);
+  return r || { len: Infinity, x: u.x, y: u.y, pts: null };
+}
+/** Where u touches t coming straight at it. */
+function contactPoint(u, t) {
+  const d = Math.hypot(u.x - t.x, u.y - t.y) || 1, k = (u.r + t.r) / d;
+  return { x: t.x + (u.x - t.x) * k, y: t.y + (u.y - t.y) * k };
+}
 /** A move ending in Impassable Terrain pulled back along its path until it doesn't. */
 function clearOfImpassable(state, d) {
   const imp = state.table.pieces.filter((r) => r.impassable);
@@ -854,5 +879,5 @@ function fallBack(state, u) {
 module.exports = {
   moveUnit, reservesSubPhase, moveSubPhase, routSubPhase, fallBack, disembarkIfWorth, enemiesOf, homeEdge, simulateMove, battlesmith,
   destination, drivenThrough, throughMove, dangerousTerrain, canCarry, canEmbark, embark, embarkToRide, escapeInto, deepStrikeDisembark,
-  removeWithin, emergencySpot, freeSpot, spotOK, onMarker, mustDeepStrike, isAntigrav, MARKER_R,
+  removeWithin, emergencySpot, freeSpot, spotOK, onMarker, mustDeepStrike, isAntigrav, MARKER_R, chargeRoute,
 };

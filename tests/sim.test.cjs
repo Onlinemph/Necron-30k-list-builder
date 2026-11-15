@@ -1819,3 +1819,24 @@ test('Explodes (X) in a unit of more than one model: each model rolls as it fall
   t2.models[0].wounds = 0; st2.onCasualty(t2.models[0], t2, null); st2.afterDamage(t2);
   assert.ok(!st2.lines.some((l) => /explodes/.test(l)));
 });
+
+test('Charges take the shortest route round other units: a unit in the lane makes the charge longer', () => {
+  const { chargeRoute } = require('../sim/lib/move.cjs');
+  const [a, t, s] = airList().filter((u) => u.name === 'Tactical Squad').concat(airList().filter((u) => u.name === 'Tactical Squad'));
+  t.side = 1; s.side = 1;
+  // room for the screen with an inch either side of it
+  const g = 2 * s.r + 2;
+  onTable(a, 20, 30); onTable(t, 20 + a.r + t.r + g, 30);
+  const st = openScene([a, t]);
+  const open = chargeRoute(st, a, t);
+  assert.ok(Math.abs(open.len - g) < 1e-6 && !open.pts, 'straight when nothing is in the way');
+  // a screen standing half across the lane: the route goes round it
+  onTable(s, (a.x + t.x) / 2, 30 + s.r);
+  const st2 = openScene([a, t, s]);
+  const round = chargeRoute(st2, a, t);
+  assert.ok(round.pts && round.len > g + 0.5 && round.len < Infinity, `round the screen: ${round.len} against ${g}`);
+  assert.ok(Math.hypot(round.x - t.x, round.y - t.y) <= a.r + t.r + 1e-6, 'ends touching the target');
+  assert.ok(Math.hypot(round.x - s.x, round.y - s.y) >= a.r + s.r, 'not on the screen');
+  const ai = require("../sim/lib/ai.cjs");
+  assert.ok(ai.chargeOddsNow(st2, a, t) <= ai.chargeOddsNow(st, a, t));
+});

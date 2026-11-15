@@ -71,7 +71,7 @@ function runBattle(listA, listB, opts = {}) {
   let turns = mission.turns;
   const sudden = opts.suddenDeath ?? mission.suddenDeath;
   for (let round = 1; round <= turns; round++) {
-    state.round = round; state.turnsLeft = Math.max(1, mission.turns - round + 1);
+    state.round = round; state.turnsLeft = Math.max(1, mission.turns - round + 1); state.first = first;
     if (mission.has('Tectonic Instability')) tectonic(state);
     for (const side of [first, 1 - first]) {
       if (!state.units.some((u) => u.side === side && !u.destroyed)) continue;

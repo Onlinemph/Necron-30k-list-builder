@@ -11,7 +11,8 @@ const gambits = require('./gambits.cjs');
 const psychic = require('./psychic.cjs');
 const { gap, dist, lineOfSight } = require('./table.cjs');
 const { alive, check, addStatus, passChance, statusCheck } = require('./checks.cjs');
-const { moveUnit, fallBack } = require('./move.cjs');
+const { moveUnit, fallBack, chargeRoute } = require('./move.cjs');
+const { along } = require('./path.cjs');
 const { footprint } = require('./army.cjs');
 const ai = require('./ai.cjs');
 const core = require('./core.cjs');
@@ -62,9 +63,12 @@ function chargeSteps(state, u, t, disordered) {
     // already locked in combat (CONFIRMED)
     let s = core.setupMove(u) + (u.cond?.has('Lost to the Nails') ? 1 : 0) + (has(u.rules, 'Templar Assault') && u.turn.disembarked && !u.turn.disordered ? 2 : 0);
     if (has(u.rules, 'Cloaked in Murder') && t.lockedWith.size) s = Math.max(s, Math.min(6, s + 1));
+    // the shortest route into contact, round Impassable Terrain and other units (move.cjs chargeRoute)
+    const way = chargeRoute(state, u, t);
     // Lies and Obfuscation: an Alpha Legion target counts as 2" further away
-    if (s >= gap(u, t) + legions.rangePenalty(t)) { lockInto(state, u, t, `reaches ${t.name} with its Set-up Move`); return true; }
-    moveUnit(state, u, t, s, { charging: true, target: t, ignoreDifficult: true });
+    if (s >= way.len + legions.rangePenalty(t)) { lockInto(state, u, t, `reaches ${t.name} with its Set-up Move`, way); return true; }
+    if (way.pts) { const p = along(way.pts, s); u.x = p.x; u.y = p.y; }
+    else if (way.len < Infinity) moveUnit(state, u, t, s, { charging: true, target: t, ignoreDifficult: true });
   }
   if (at(3.5) === 'locked') return true; // Perfect Counter
   // Step 4: Shieldwall!, Warpath; Volley Attacks (Snap Shots, Assault weapons only, never statuses): the charger,
@@ -84,12 +88,15 @@ function chargeSteps(state, u, t, disordered) {
   const r4 = at(4.5);
   if (r4 === 'fail' || t.destroyed || u.destroyed) return false;
   if (r4 === 'locked') return true;
-  // Step 5: Charge Roll (2D6, keep the highest, plus Fast)
-  const need = gap(u, t) + legions.rangePenalty(t);
+  // Step 5: Charge Roll (2D6, keep the highest, plus Fast), then the Charge Move, which must reach base contact by
+  // the shortest route round what's in the way (CONFIRMED)
+  const way = chargeRoute(state, u, t);
+  const need = way.len + legions.rangePenalty(t);
   const roll = core.chargeRoll(u, state.dice);
+  const round = way.pts ? ', round what is in the way' : '';
   // a Disordered Charge never gains bonuses for having Charged (CONFIRMED: Impact, the Legion charge Tacticas)
-  if (roll >= need) { lockInto(state, u, t, `charge roll ${roll} (needed ${need.toFixed(1)}")`); if (disordered) u.turn.charged = false; return true; }
-  state.log(`    charge roll ${roll} (needed ${need.toFixed(1)}"): the charge fails`);
+  if (roll >= need) { lockInto(state, u, t, `charge roll ${roll} (needed ${need.toFixed(1)}"${round})`, way); if (disordered) u.turn.charged = false; return true; }
+  state.log(`    charge roll ${roll} (needed ${need < Infinity ? need.toFixed(1) + '"' : 'a way through'}${round}): the charge fails`);
   // a failed charge forces a Cool Check (CONFIRMED); failing gives Stunned (SHEET)
   // (statusCheck: Heavy units get +1 Cool to avoid a status, CONFIRMED)
   if (!statusCheck(state, u, core.failedChargeStatus, 0, 'failed charge')) addStatus(state, u, core.failedChargeStatus, 'failed charge');
