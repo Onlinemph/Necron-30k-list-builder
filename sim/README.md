@@ -595,8 +595,20 @@ The side doesn't change course often. In six battles it left its usual plan on 6
 attack and twice to hold back, and that was worth about 5 VP a battle. The gain comes from those few turns, where a
 charge or a held line pays off over the next two turns in a way a unit-by-unit score can't see.
 
+With both sides looking ahead, the standings hardly move. A round robin of the strength lists at 8 battles a pairing,
+both armies on `lookahead=2`, was set against the same 8 battles a pairing without it (same seeds, so the same
+missions, deployments and first player). Lists moved by 5.2 points (root mean square), a little less than two runs of
+that size differ by dice alone (about 6). The top four are the same lists (Salamanders 76%, Space Wolves 71%, Iron
+Hands 70%, Thousand Sons 61%), and so are the bottom four (Imperial Fists 40%, Iron Warriors 35%, Night Lords 24%,
+the Iron Wall 21%). The biggest moves, Death Guard down 12 points to 56% and the Iron Wall down 9, are about two
+standard errors, which one or two lists in 19 will show by chance. Victory Points a battle (72.7), draws (under 2%)
+and the first player's share of decided games (59% against 57%) didn't change measurably either. So an AI that beats
+the usual one about 60-40 doesn't change which lists are strong when both armies have it, and the round robin
+without it gives the same answer.
+
 It costs time: the side that looks plays 7.5 times slower (26 seconds a battle against 3.5 with two runs per plan),
-so the round robin plays without it. To use it:
+and with both sides looking a battle took 49 seconds against 3.2, so that round robin ran five hours on four workers
+where the same round robin without it takes twenty minutes. The round robin plays without it. To use it:
 
 ```
 node sim/tournament.cjs sim/lists/strong/*.json --ai lookahead=2 --out tournament.json
